@@ -80,6 +80,18 @@ const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
 // (re-crawl) — see needsTranslation() and the direct-scan in run().
 const MAX_RETRANSLATION_ATTEMPTS = 3;
 
+// How many companies in a row can fail before the whole run aborts. A single
+// company's error (transient network blip, malformed source data) used to
+// `break` the entire per-company loop, leaving every company later in
+// `companyKeys` order untouched for that run — and since that order is
+// traffic-weighted (job-traffic-priority.mjs), low-traffic companies always
+// sort last and could go untouched run after run (issue #5976: 408 jobs 30d+
+// stuck, 93% never attempted even once). Only a run of consecutive failures —
+// a real signal of a systemic outage (e.g. AI quota exhausted on every tier)
+// — should still abort early to avoid burning quota on companies destined to
+// fail too.
+const MAX_CONSECUTIVE_COMPANY_FAILURES = 3;
+
 /**
  * Default cascade cap when neither --max-jobs nor RELOCALIZE_MAX_JOBS is given.
  *
@@ -291,6 +303,20 @@ export function changedSlugsSince(snapshot, jobs, companyKey) {
     if (before === undefined || before !== jobLocaleSignature(j)) changed.add(j.slug);
   }
   return changed;
+}
+
+/**
+ * Decide whether the per-company cascade loop should abort after a company
+ * failed, given how many companies failed in a row so far (including this
+ * one). A single/isolated failure returns false (continue to the next
+ * company); MAX_CONSECUTIVE_COMPANY_FAILURES in a row is treated as a
+ * systemic signal (e.g. AI quota exhausted on every tier) and returns true.
+ */
+export function shouldStopAfterConsecutiveFailures(
+  consecutiveFailures,
+  max = MAX_CONSECUTIVE_COMPANY_FAILURES,
+) {
+  return consecutiveFailures >= max;
 }
 
 /**
@@ -1121,6 +1147,7 @@ async function main() {
   // Process each company separately with intermediate saves
   let totalFixed = 0;
   let totalProcessed = 0;
+  let consecutiveFailures = 0;
   const startTime = Date.now();
 
   for (const key of companyKeys) {
@@ -1234,13 +1261,22 @@ async function main() {
       }
 
       totalProcessed += companyJobCount;
+      consecutiveFailures = 0;
       if (totalProcessed >= effectiveMax) break;
 
     } catch (err) {
+      consecutiveFailures++;
       console.error(`   ❌ ${key} failed: ${err.message}`);
       console.log(`   💾 Progress saved: ${totalFixed} jobs translated before failure`);
-      // Stop on first failure to avoid burning more AI quota
-      break;
+      if (shouldStopAfterConsecutiveFailures(consecutiveFailures)) {
+        // N failures in a row is a systemic signal (e.g. AI quota exhausted on
+        // every tier) — stop to avoid burning more quota on companies that
+        // would fail too. A single/isolated failure continues to the next
+        // company instead of starving every later company for the whole run.
+        console.log(`   🛑 ${consecutiveFailures} consecutive company failures — stopping to avoid burning more AI quota`);
+        break;
+      }
+      console.log(`   ⏭️  Isolated failure, continuing to next company`);
     }
   }
 
