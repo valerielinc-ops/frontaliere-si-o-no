@@ -80,11 +80,32 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Prepare Firebase credentials for cross-repo reads
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON assente — impossibile caricare il token di lettura del corpus."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load cross-repo token from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Close recovered failure issues
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          # Le definizioni dei gruppi restano qui, ma le run sono ospitate nel
+          # corpus dopo la migrazione cross-repo.
+          CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles
         run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO non caricato — il GITHUB_TOKEN del sito non puo' leggere le run del corpus."
+            exit 1
+          fi
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             ARGS="--dry-run"
