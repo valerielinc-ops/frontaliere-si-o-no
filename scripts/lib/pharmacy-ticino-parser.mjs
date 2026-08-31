@@ -8,8 +8,10 @@
  * (no JS needed, confirmed via plain `curl`) with a fixed column order:
  * Farmacia / Indirizzo / Località (`{postalCode}  {city}`, double-space
  * separator) / Telefono. Locarnese is excluded — it lives on a separate
- * domain (`farmacielocarnese.ch`) with a different template, not covered
- * by the #6398 verification.
+ * domain (`farmacielocarnese.ch`) with a different template: network access
+ * is verified (#6740, see `docs/data-sources/farmacie-turno-ticino.md`) but
+ * no dedicated parser exists yet (no anagraphic table, duty table has no
+ * address/postal code).
  */
 import { slugify } from './crawler-template.mjs';
 
