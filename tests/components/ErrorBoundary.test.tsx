@@ -12,9 +12,11 @@
  * session. Asserts:
  *   (a) chunk-load errors trigger bustAssetHttpCache(),
  *   (b) version-skew (link-time) SyntaxErrors trigger bustAssetHttpCache(),
- *   (c) NEITHER case ever calls window.location.reload(),
- *   (d) non-chunk errors do NOT trigger bustAssetHttpCache(),
- *   (e) the subtree fallback still renders (existing behaviour unchanged).
+ *   (c) parse-time SyntaxErrors trigger bustAssetHttpCache() (#5531/#6778 —
+ *       previously the one recoverable class this boundary didn't match),
+ *   (d) NEITHER case ever calls window.location.reload(),
+ *   (e) non-chunk errors do NOT trigger bustAssetHttpCache(),
+ *   (f) the subtree fallback still renders (existing behaviour unchanged).
  */
 
 import React from 'react';
@@ -102,6 +104,19 @@ describe('SilentErrorBoundary', () => {
       </SilentErrorBoundary>,
     );
     expect(bustSpy).toHaveBeenCalledTimes(1);
+    expect(reloadSpy).not.toHaveBeenCalled();
+  });
+
+  it('busts the HTTP asset cache on a parse-time SyntaxError (#5531/#6778)', async () => {
+    const bustSpy = vi.spyOn(resilientImport, 'bustAssetHttpCache').mockResolvedValue(undefined);
+    render(
+      <SilentErrorBoundary boundary="ai-chatbot">
+        <SkewThrower message="Unexpected identifier 'diploma'" />
+      </SilentErrorBoundary>,
+    );
+    expect(bustSpy).toHaveBeenCalledTimes(1);
+    // Non-disruptive by design — SafeLazy/ref cwji52 constraint, same as the
+    // other two recoverable classes above.
     expect(reloadSpy).not.toHaveBeenCalled();
   });
 
