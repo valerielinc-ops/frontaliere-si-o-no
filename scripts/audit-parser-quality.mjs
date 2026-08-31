@@ -21,6 +21,7 @@ import { execSync } from 'node:child_process';
 import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
 import { readAttr } from './lib/html-attr.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
+import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -891,8 +892,9 @@ function loadCrawlerSlices() {
     if (onlyCrawler && key !== onlyCrawler) continue;
     try {
       const raw = JSON.parse(fs.readFileSync(path.join(SLICES_DIR, file), 'utf8'));
-      const jobs = Array.isArray(raw) ? raw : (raw.jobs || []);
-      slices.push({ key, jobs });
+      const storedJobs = Array.isArray(raw) ? raw : (raw.jobs || []);
+      const { activeJobs: jobs, excluded } = partitionCrawlerJobsForActiveMetrics(storedJobs);
+      slices.push({ key, jobs, storedTotal: storedJobs.length, excluded });
     } catch {
       slices.push({ key, jobs: [], error: 'parse-error' });
     }
@@ -911,22 +913,24 @@ async function main() {
     `(${provenance.datasetLastCommit.sha || 'unknown'})\n`,
   );
 
+  /** @type {Record<string, { total: number, population?: object, issues: any[], severity?: string, action?: string }>} */
   const report = {}; // key → { issues[], severity }
   const urlsToCheck = []; // { crawlerKey, url }
   const sourceDetailsToCheck = []; // { crawlerKey, job, url }
   let sourceDetailSummary = null;
 
-  for (const { key, jobs, error } of slices) {
+  for (const { key, jobs, storedTotal = jobs.length, excluded = { grace: 0, expired: 0, total: 0 }, error } of slices) {
     const issues = [];
+    const population = { stored: storedTotal, active: jobs.length, excluded };
 
     if (error) {
       issues.push({ type: 'parse-error', message: 'Failed to parse crawler JSON file' });
-      report[key] = { total: 0, issues, severity: 'CRITICAL' };
+      report[key] = { total: 0, population, issues, severity: 'CRITICAL' };
       continue;
     }
 
     if (jobs.length === 0) {
-      report[key] = { total: 0, issues: [], severity: 'OK' };
+      report[key] = { total: 0, population, issues: [], severity: 'OK' };
       continue;
     }
 
@@ -1045,7 +1049,7 @@ async function main() {
       });
     }
 
-    report[key] = { total: jobs.length, issues };
+    report[key] = { total: jobs.length, population, issues };
   }
 
   if (checkSourceDetails && sourceDetailsToCheck.length > 0) {
@@ -1199,6 +1203,9 @@ function printReport(report) {
     .sort((a, b) => b[1].total - a[1].total);
 
   const okCount = Object.values(report).filter((r) => r.severity === 'OK').length;
+  const excluded = Object.entries(report)
+    .filter(([, entry]) => Number(entry.population?.excluded?.total) > 0)
+    .sort((a, b) => b[1].population.excluded.total - a[1].population.excluded.total);
 
   if (critical.length > 0) {
     console.log(`\nCRITICAL (parser likely broken):`);
@@ -1226,6 +1233,15 @@ function printReport(report) {
   }
 
   console.log(`\nOK: ${okCount} crawlers passing all checks`);
+
+  if (excluded.length > 0) {
+    const excludedTotal = excluded.reduce((sum, [, entry]) => sum + entry.population.excluded.total, 0);
+    console.log(`\nExcluded from active-quality metrics: ${excludedTotal} non-active record(s)`);
+    for (const [key, entry] of excluded) {
+      const { grace, expired } = entry.population.excluded;
+      console.log(`  ${key}: ${entry.population.active}/${entry.population.stored} active, ${grace} grace, ${expired} expired`);
+    }
+  }
 
   const total = Object.keys(report).length;
   console.log(`\n${total} crawlers checked, ${critical.length} critical, ${warnings.length} warnings`);
