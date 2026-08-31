@@ -1634,6 +1634,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asb-banche-svizzera-crescita-2026': { it: 'asb-banche-svizzera-crescita-2026', en: 'asb-swiss-banks-growth-2026', de: 'asb-schweizer-banken-wachstum-2026', fr: 'asb-banques-suisses-croissance-2026' },
  'finanziamenti-partiti-ps-2025': { it: 'finanziamenti-partiti-ps-2025', en: 'party-financing-ps-2025', de: 'parteifinanzierung-ps-2025', fr: 'financement-partis-ps-2025' },
  'bollette-ses-2027-riduzione': { it: 'bollette-ses-2027-riduzione', en: 'ses-bills-2027-reduction', de: 'ses-rechnungen-2027-senkung', fr: 'factures-ses-2027-reduction' },
+ 'divario-salariale-ust-2024-157': { it: 'divario-salariale-ust-2024-157', en: 'swiss-gender-pay-gap-ust-2024', de: 'lohngefalle-ust-2024-schweiz', fr: 'ecart-salarial-ust-2024-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -4825,6 +4825,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bollette-ses-2027-riduzione.title': 'Leichtere SES-Rechnungen im dritten Jahr in Folge',
     'blog.article.bollette-ses-2027-riduzione.excerpt': 'Im Jahr 2027 sinkt der SES-Stromtarif für das dritte Jahr. Ein durchschnittlicher Haushalt im Tessin spart 53 CHF. Reduzierungen von bis zu 5,5% im Mesolcina.',
     'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Schweizer Wohngebäude mit Sonnenkollektoren und Stromleitungen in der Tessiner Landschaft',
+    'blog.article.divario-salariale-ust-2024-157.title': 'Lohngefälle BfS 2024: Rückgang auf 15,7% in der Schweiz',
+    'blog.article.divario-salariale-ust-2024-157.excerpt': 'BFS: Im Jahr 2024 ist das Lohngefälle zwischen Frauen und Männern von 16,2% im Jahr 2022 auf 15,7% gesunken. Im privaten Bereich bleibt es bei 17,2%, im öffentlichen Sektor bei 12,8%. Unerklärte Komponente bei 640 CHF brutto.',
+    'blog.article.divario-salariale-ust-2024-157.imageAlt': 'Modernes Schweizer Bürogebäude mit Mitarbeitern am Eingang',
 };
 
 export default blogMetaChDe;

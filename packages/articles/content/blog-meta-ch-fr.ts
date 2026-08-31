@@ -4825,6 +4825,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bollette-ses-2027-riduzione.title': 'Factures ses plus légères pour la troisième année consécutive',
     'blog.article.bollette-ses-2027-riduzione.excerpt': 'En 2027, le tarif de l\'électricité ses baisse pour la troisième année. Un ménage moyen au Tessin économise 53 CHF. Réductions allant jusqu\'à 5,5 % en misolcine.',
     'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Propriété résidentielle suisse avec panneaux solaires et lignes électriques au Tessin',
+    'blog.article.divario-salariale-ust-2024-157.title': 'Ecart salarial OFS 2024 : baisse à 15,7 % en Suisse',
+    'blog.article.divario-salariale-ust-2024-157.excerpt': 'OFS : en 2024, l\'écart salarial entre les femmes et les hommes est tombé à 15,7 % contre 16,2 % en 2022. Dans le privé, il reste à 17,2 %, dans le public à 12,8 %. Composant non expliqué à 640 CHF bruts.',
+    'blog.article.divario-salariale-ust-2024-157.imageAlt': 'Immeuble de bureaux suisse moderne avec des employés à l\'entrée',
 };
 
 export default blogMetaChFr;
