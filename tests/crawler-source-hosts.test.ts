@@ -30,7 +30,7 @@ let root: string;
 /** Write a slice in the real shape: `{ crawlerKey, jobs: [...] }`. */
 function slice(
   key: string,
-  jobs: { url: string; companyKey?: string; title?: string; crawlerMissStreak?: number }[],
+  jobs: { url: string; companyKey?: string; title?: string; crawlerMissStreak?: number; expiredAt?: string }[],
   assembledAt = '2026-08-25T00:00:00.000Z',
 ) {
   const payload = {
@@ -41,6 +41,7 @@ function slice(
       title: j.title ?? 'Ruolo',
       url: j.url,
       ...(j.crawlerMissStreak ? { crawlerMissStreak: j.crawlerMissStreak } : {}),
+      ...(j.expiredAt ? { expiredAt: j.expiredAt } : {}),
     })),
   };
   fs.writeFileSync(path.join(root, 'data', 'jobs', 'by-crawler', `${key}.json`), JSON.stringify(payload, null, 1));
@@ -221,6 +222,21 @@ describe('audit findings', () => {
     expect(findings.ignored).toMatchObject([
       { key: 'retained-keeper', twin: 'retained-witness', reason: 'grace-period-retained' },
     ]);
+  });
+
+  it('does not report an expired archive-shaped record as a live coverage gap', () => {
+    const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://expired.example.ch/job/${i}` }));
+    slice('expired-keeper', shared);
+    slice('expired-witness', [
+      ...shared.slice(0, 4),
+      { url: 'https://expired.example.ch/job/archived', expiredAt: '2026-08-31T00:00:00.000Z' },
+    ]);
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('expired-keeper'));
+    expect(pair?.onlyB).toEqual(['https://expired.example.ch/job/archived']);
+    expect(pair?.activeOnlyB).toEqual([]);
+    expect(classifyFindings(pair ? [pair] : []).gaps).toEqual([]);
   });
 
   it('does not compare crawler snapshots from different daily cycles', () => {
