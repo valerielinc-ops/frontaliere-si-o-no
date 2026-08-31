@@ -4840,6 +4840,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Berufliche Vorsorge: VORGESCHLAGENER BVG-Mindestsatz von 1,75% für 2027',
     'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'Die BVG-Kommission EMPFIEHLT, den Mindestsatz von 1,25% auf 1,75% (+0,50 Punkte) zu erhöhen. 10: 4, endgültige Entscheidung im Bundesrat.',
     'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Bundeshaus in Bern, Sitz des Bundesrats',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.title': 'Skyguide, Entlassungen von 220 auf 50 reduziert: Zwei-Phasen-Plan',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.excerpt': 'Skyguide reduziert die Entlassungen von 220 auf 50: 14 in der ersten Phase, rund 35 im Frühjahr 2027. Zieleinsparungen von CHF 51 Mio. bis 2027.',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.imageAlt': 'Flugsicherungsturm am Flughafen Zürich-Kloten bei Sonnenuntergang',
 };
 
 export default blogMetaChDe;
