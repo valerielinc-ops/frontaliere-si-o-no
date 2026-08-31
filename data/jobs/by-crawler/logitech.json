@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-08-28T05:33:12.611Z",
+  "assembledAt": "2026-08-31T17:19:47.128Z",
   "jobs": [
     {
       "id": "logitech-318c1af909a7",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:33:09.856Z",
+      "crawledAt": "2026-08-31T17:19:44.134Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -67,6 +67,7 @@
       "firstSeenAt": "2026-05-28T13:21:24.884Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -110,7 +111,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:33:08.880Z",
+      "crawledAt": "2026-08-31T17:19:43.158Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -144,8 +145,10 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -189,7 +192,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:33:07.839Z",
+      "crawledAt": "2026-08-31T17:19:42.208Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -226,8 +229,10 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:52:52.987Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
