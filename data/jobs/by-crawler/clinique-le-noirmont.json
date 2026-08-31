@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-le-noirmont",
-  "assembledAt": "2026-08-28T05:37:29.882Z",
+  "assembledAt": "2026-08-31T17:40:40.211Z",
   "jobs": [
     {
       "title": "ASSC (F/H) 80%-90%",
@@ -52,6 +52,7 @@
       "salaryMin": 77400,
       "salaryMax": 108000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -127,6 +128,7 @@
       "salaryMin": 116000,
       "salaryMax": 162000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -204,6 +206,7 @@
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
