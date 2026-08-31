@@ -4822,6 +4822,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.finanziamenti-partiti-ps-2025.title': 'Finanziamenti ai partiti: il PS è quello che ha più soldi',
     'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'Nel 2025 il PS ha raccolto 7,9 milioni di franchi, il massimo tra i partiti federali. Nove partiti dichiarano 24,6 milioni totali, in calo di un milione rispetto al 2024.',
     'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Palazzo del Parlamento federale svizzero a Berna, centro della politica nazionale elvetica',
+    'blog.article.bollette-ses-2027-riduzione.title': 'Bollette SES più leggere per il terzo anno consecutivo',
+    'blog.article.bollette-ses-2027-riduzione.excerpt': 'Nel 2027 la tariffa elettrica SES scende per il terzo anno. Un\'economia domestica media in Ticino risparmia 53 CHF. Riduzioni fino al 5,5% in Mesolcina.',
+    'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Abitazione svizzera con pannelli solari e linee elettriche nel paesaggio ticinese',
 };
 
 export default blogMetaChIt;

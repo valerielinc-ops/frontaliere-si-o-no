@@ -4822,6 +4822,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.finanziamenti-partiti-ps-2025.title': 'Financement des partis : le PS est celui qui a le plus d\'argent',
     'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'En 2025, le PS a recueilli 7,9 millions de francs, le maximum parmi les partis fédéraux. Neuf partis déclarent 24,6 millions au total, en baisse d\'un million par rapport à 2024.',
     'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Palais fédéral à Berne, centre de la politique fédérale et des décisions nationales suisses',
+    'blog.article.bollette-ses-2027-riduzione.title': 'Factures ses plus légères pour la troisième année consécutive',
+    'blog.article.bollette-ses-2027-riduzione.excerpt': 'En 2027, le tarif de l\'électricité ses baisse pour la troisième année. Un ménage moyen au Tessin économise 53 CHF. Réductions allant jusqu\'à 5,5 % en misolcine.',
+    'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Propriété résidentielle suisse avec panneaux solaires et lignes électriques au Tessin',
 };
 
 export default blogMetaChFr;

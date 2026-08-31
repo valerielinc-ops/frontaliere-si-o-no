@@ -4822,6 +4822,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.finanziamenti-partiti-ps-2025.title': 'Parteienfinanzierung: Die SP hat das meiste Geld',
     'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'Im Jahr 2025 sammelte die SP mit 7,9 Millionen Franken das Maximum unter den eidgenössischen Parteien. Neun Parteien geben insgesamt 24,6 Millionen an, was einem Rückgang von einer Million gegenüber 2024 entspricht.',
     'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Bundespalast in Bern, Zentrum der Schweizer Bundespolitik und föderalen Entscheidungen',
+    'blog.article.bollette-ses-2027-riduzione.title': 'Leichtere SES-Rechnungen im dritten Jahr in Folge',
+    'blog.article.bollette-ses-2027-riduzione.excerpt': 'Im Jahr 2027 sinkt der SES-Stromtarif für das dritte Jahr. Ein durchschnittlicher Haushalt im Tessin spart 53 CHF. Reduzierungen von bis zu 5,5% im Mesolcina.',
+    'blog.article.bollette-ses-2027-riduzione.imageAlt': 'Schweizer Wohngebäude mit Sonnenkollektoren und Stromleitungen in der Tessiner Landschaft',
 };
 
 export default blogMetaChDe;
