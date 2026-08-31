@@ -63239,6 +63239,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-lamal-friburgo-2026': {
+    title: 'Premi cassa malati Friburgo: riduzione e sussidi',
+    description: 'Guida ai premi dell\'assicurazione malattia obbligatoria nel Canton Friburgo: franchigie, modelli alternativi e procedura per ottenere la riduzione dei premi',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, friburgo',
+    ogTitle: 'Premi cassa malati Friburgo: riduzione e sussidi',
+    ogDescription: 'Guida ai premi dell\'assicurazione malattia obbligatoria nel Canton Friburgo: franchigie, modelli alternativi e procedura per ottenere la riduzione dei premi',
+    canonicalPath: '/articoli-svizzera/premi-lamal-friburgo-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Friburgo: riduzione e sussidi",
+      "description": "Guida ai premi dell'assicurazione malattia obbligatoria nel Canton Friburgo: franchigie, modelli alternativi e procedura per ottenere la riduzione dei premi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-friburgo-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Modulo di iscrizione assicurazione malattia svizzera con documenti medici e calcolatrice su scrivania"
+      },
+      "datePublished": "2026-08-31T23:41:46+00:00",
+      "dateModified": "2026-08-31T23:41:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-friburgo-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -4873,6 +4873,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Aprire attività a Zugo: registro di commercio e costi',
     'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Cantone di Zugo: forme giuridiche, capitale minimo federale, tasse d\'iscrizione cantonali, AVS, LAINF e passi operativi per avviare un\'impresa.',
     'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'Vista del lungolago di Zugo con uffici commerciali e sede di attività',
+    'blog.article.premi-lamal-friburgo-2026.title': 'Premi cassa malati Friburgo: riduzione e sussidi',
+    'blog.article.premi-lamal-friburgo-2026.excerpt': 'Guida ai premi dell\'assicurazione malattia obbligatoria nel Canton Friburgo: franchigie, modelli alternativi e procedura per ottenere la riduzione dei premi',
+    'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Modulo di iscrizione assicurazione malattia svizzera con documenti medici e calcolatrice su scrivania',
 };
 
 export default blogMetaChIt;

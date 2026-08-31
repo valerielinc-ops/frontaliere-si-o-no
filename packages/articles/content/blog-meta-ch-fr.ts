@@ -4873,6 +4873,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Ouvrir une entreprise à Zoug : registre du commerce et des coûts',
     'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Canton de Zoug : formes juridiques, capital minimum fédéral, frais d\'inscription cantonaux, AVS, LAA et démarches opérationnelles pour créer une entreprise.',
     'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'Vue du bord du lac de Zoug avec bureaux commerciaux et siège social',
+    'blog.article.premi-lamal-friburgo-2026.title': 'Primes caisse-maladie Fribourg : réduction et allocations',
+    'blog.article.premi-lamal-friburgo-2026.excerpt': 'Guide des primes de l\'assurance maladie obligatoire dans le canton de Fribourg : franchises, modèles alternatifs et procédure pour obtenir la réduction des primes',
+    'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Formulaire d\'assurance maladie suisse avec documents médicaux et calculatrice sur bureau',
 };
 
 export default blogMetaChFr;
