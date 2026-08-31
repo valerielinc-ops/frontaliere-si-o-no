@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-08-28T05:34:56.884Z",
+  "generatedAt": "2026-08-31T17:34:07.021Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 24285,
-  "avgDurationMs": 24285,
+  "durationMs": 184177,
+  "avgDurationMs": 184177,
   "durationHistory": [
-    24285
+    184177
   ],
   "newJobs": [
     {
@@ -46,6 +46,7 @@
       "employmentType": "FULL_TIME",
       "postalCode": "6830",
       "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
