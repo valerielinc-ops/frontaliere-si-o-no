@@ -11014,6 +11014,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Crise de la maison à Côme : 1 302 logements vacants, jeunes en fuite',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'En juillet 2025, la province de Côme compte 1 302 logements publics vacants. Les syndicats dénoncent : les travailleurs et les jeunes ne trouvent pas de logements durables. Les coûts de logement poussent certains vers le marché du travail suisse.',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Vue du lac de Côme avec immeubles résidentiels, symbole du marché du logement attractif mais coûteux de la province de Côme',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Frontalier licencié 2026 : préavis, indemnités et enfants',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'Nouvel accord 2024, préavis CO, indemnités INPS et protections pour les familles avec enfants : ce qui change pour le travailleur frontalier',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Poste-frontière tessinois à l\'aube avec une voiture de pendulaire au douane',
 };
 
 export default blogMetaFr;

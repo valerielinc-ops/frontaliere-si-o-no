@@ -11011,6 +11011,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Krise Haus in Como: 1.302 leere Wohnungen, Jugendliche auf der Flucht',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'Im Juli 2025 stehen in der Provinz Como 1.302 öffentliche Wohnungen leer. Gewerkschaften beklagen: Arbeiter und Jugendliche finden keine nachhaltigen Häuser. Die Wohnkosten treiben einige auf den Schweizer Arbeitsmarkt.',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Blick auf den Comer See mit Wohngebäuden, das Symbol für den teuren Wohnungsmarkt der Provinz Como',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Entlassener Grenzgänger 2026: Kündigungsfrist, Zulagen und Kinder',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'Neue Vereinbarung 2024, Kündigungsfrist OR, INPS-Zulage und Schutz für Familien mit Kindern: Was ändert sich für den Grenzgänger?',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Grenzübergang im Tessin bei Sonnenaufgang mit Pendlerauto am Zoll',
 };
 
 export default blogMetaDe;
