@@ -101,3 +101,27 @@ export function buildPharmacyRecords(html, region, fetchedAt) {
     };
   });
 }
+
+/**
+ * Dedupe pharmacy records by `id` (a slug of name+city, see
+ * `buildPharmacyRecords`), first-wins. Two distinct pharmacies sharing
+ * name+city (e.g. same chain brand, different address) collide on `id` and
+ * are indistinguishable with the current id scheme — this only makes the
+ * drop observable (#6799), it does not fix the underlying id scheme.
+ */
+export function dedupePharmaciesById(pharmacies) {
+  const byId = new Map();
+  let collisions = 0;
+  for (const p of pharmacies) {
+    if (byId.has(p.id)) {
+      collisions += 1;
+      console.warn(
+        `[import-pharmacies-ticino] id collision: "${p.id}" (name="${p.name}", city="${p.city}") ` +
+          `collides with an already-seen record — dropping this one (first wins)`,
+      );
+      continue;
+    }
+    byId.set(p.id, p);
+  }
+  return { deduped: [...byId.values()], collisions };
+}

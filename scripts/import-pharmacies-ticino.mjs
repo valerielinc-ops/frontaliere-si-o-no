@@ -36,7 +36,7 @@ import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { OFCT_REGIONS, buildPharmacyRecords } from './lib/pharmacy-ticino-parser.mjs';
+import { OFCT_REGIONS, buildPharmacyRecords, dedupePharmaciesById } from './lib/pharmacy-ticino-parser.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -119,11 +119,8 @@ async function main() {
 
   // Dedupe by id (a pharmacy chain entry could in theory repeat across
   // region pages if OFCT ever overlaps boundaries).
-  const byId = new Map();
-  for (const p of pharmacies) {
-    if (!byId.has(p.id)) byId.set(p.id, p);
-  }
-  const deduped = [...byId.values()].sort((a, b) => a.name.localeCompare(b.name, 'it'));
+  const { deduped: dedupedUnsorted, collisions: dedupCollisions } = dedupePharmaciesById(pharmacies);
+  const deduped = dedupedUnsorted.sort((a, b) => a.name.localeCompare(b.name, 'it'));
 
   if (deduped.length === 0) {
     const previousCount = await readPreviousPharmacyCount();
@@ -145,6 +142,7 @@ async function main() {
     _userAgent: USER_AGENT,
     _pharmacyCount: deduped.length,
     _errors: errors,
+    _dedupCollisions: dedupCollisions,
     pharmacies: deduped,
   };
 
