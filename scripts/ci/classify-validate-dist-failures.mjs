@@ -122,6 +122,16 @@ export const QUALITY_GATES = Object.freeze({
   'audit:all/duplicate-structured-data': 'duplicate page-scoped JSON-LD @type; page serves',
   'audit:all/link-anchor-text': 'anchors without an accessible name; page serves',
   'audit:all/duplicate-meta-description': 'recycled meta description; page serves',
+
+  // ── issue #6462 (VISION.md driver D9) ──────────────────────────────────
+  // Two auditors that were never given a QUALITY_GATES entry, so
+  // default-deny left them sequestering `publish` even though neither
+  // checks anything Google requires for indexing/rich-results: no
+  // structured-data mandatory field, no canonical/hreflang, no status
+  // code, no broken redirect. Both are opportunistic internal heuristics
+  // — a page missing either still renders and serves correctly.
+  'audit:all/breadcrumb-coverage': 'BreadcrumbList is an optional rich-result enhancement, not a mandatory field; page serves',
+  'audit:all/information-gain': 'near-duplicate/thin-value heuristic (docs/INFORMATION-GAIN.md), not a Google indexing requirement; page serves',
 });
 
 /**
