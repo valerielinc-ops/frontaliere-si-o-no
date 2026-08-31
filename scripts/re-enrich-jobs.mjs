@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { callLLM, isAnyModelAvailable, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
-import { reduceSalaryToPartTime } from './lib/structured-salary.mjs';
+import { reduceSalaryToPartTime, matchesEstimateFingerprint } from './lib/structured-salary.mjs';
 import { sameLocalityAsHq } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -990,11 +990,11 @@ async function enrichJob(job, aiState) {
   } else if (existingSalary) {
     // Fingerprint against the part-time-aware estimate (estMin/estMax), so a
     // persisted scaled band is still recognised as 'estimated', not 'existing'.
-    salarySource =
-      existingSalary.salaryMin === estMin
-        && existingSalary.salaryMax === estMax
-        ? 'estimated'
-        : 'existing';
+    // Shared with structured-salary.mjs's ensureStructuredSalary() so the two
+    // salarySource writers never drift on the fingerprint definition.
+    salarySource = matchesEstimateFingerprint(existingSalary.salaryMin, existingSalary.salaryMax, estMin, estMax)
+      ? 'estimated'
+      : 'existing';
   }
   job = {
     ...jobWithNormalizedCategory,
