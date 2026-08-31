@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-aadorf",
-  "assembledAt": "2026-08-28T05:13:02.388Z",
+  "assembledAt": "2026-08-31T17:01:03.890Z",
   "jobs": [
     {
       "id": "klinik-aadorf-d6b7b491d223",
@@ -34,7 +34,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/0f84dc0a-aebd-499f-964f-415dbe22fb1f/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:12:58.821Z",
+      "crawledAt": "2026-08-31T17:00:58.942Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -54,6 +54,7 @@
       "firstSeenAt": "2026-08-27T00:36:11.384Z",
       "salaryMin": 48900,
       "salaryMax": 68400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -97,7 +98,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/8216cfc3-8d7e-4f66-9b5b-979dd7655622/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:12:58.283Z",
+      "crawledAt": "2026-08-31T17:00:58.495Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -133,6 +134,7 @@
       "firstSeenAt": "2026-06-11T22:55:30.957Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -176,7 +178,7 @@
       "url": "https://jobs.dualoo.com/portal/3ibnwlo9/ec61d00e-038b-4056-b9b4-7b3dfe0b3821/detail?lang=DE",
       "source": "Klinik Aadorf Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:12:57.733Z",
+      "crawledAt": "2026-08-31T17:00:58.031Z",
       "addressLocality": "Aadorf",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -196,6 +198,7 @@
       "firstSeenAt": "2026-08-27T00:36:09.790Z",
       "salaryMin": 57100,
       "salaryMax": 79800,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
