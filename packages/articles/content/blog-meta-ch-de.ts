@@ -4816,6 +4816,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-grigioni-percorso-duale.title': 'Lehre in Graubünden: dualer Studiengang, EFZ und CFK',
     'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Lehre in Graubünden: duales System Schule-Betrieb gemäss BBG, EFZ- und CFK-Titel, Vergütung und Berufsmaturität für den Zugang zu den SUPPL.',
     'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Lehrling in einem Handwerksbetrieb in Graubunden',
+    'blog.article.asb-banche-svizzera-crescita-2026.title': 'SBVg prognostiziert Bankenwachstum im Jahr 2026',
+    'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Die Schweizer Banken werden laut der Schweizerischen Bankiervereinigung auch im Jahr 2026 weiter wachsen. Verwaltetes Vermögen über 10\'000 Milliarden Franken, wachstumsfördernde Gebühren.',
+    'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Modernes Bürogebäude in schweizer Finanzdistrikt mit Schweizer Flagge und zeitgenössischer Architektur',
 };
 
 export default blogMetaChDe;
