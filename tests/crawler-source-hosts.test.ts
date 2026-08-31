@@ -28,11 +28,20 @@ const LOBBY = 'https://jobs.smartrecruiters.com';
 let root: string;
 
 /** Write a slice in the real shape: `{ crawlerKey, jobs: [...] }`. */
-function slice(key: string, jobs: { url: string; companyKey?: string; title?: string }[]) {
+function slice(
+  key: string,
+  jobs: { url: string; companyKey?: string; title?: string; crawlerMissStreak?: number }[],
+  assembledAt = '2026-08-25T00:00:00.000Z',
+) {
   const payload = {
     crawlerKey: key,
-    assembledAt: '2026-08-25T00:00:00.000Z',
-    jobs: jobs.map((j) => ({ companyKey: j.companyKey ?? key, title: j.title ?? 'Ruolo', url: j.url })),
+    assembledAt,
+    jobs: jobs.map((j) => ({
+      companyKey: j.companyKey ?? key,
+      title: j.title ?? 'Ruolo',
+      url: j.url,
+      ...(j.crawlerMissStreak ? { crawlerMissStreak: j.crawlerMissStreak } : {}),
+    })),
   };
   fs.writeFileSync(path.join(root, 'data', 'jobs', 'by-crawler', `${key}.json`), JSON.stringify(payload, null, 1));
 }
@@ -91,6 +100,8 @@ describe('source-host ownership', () => {
   it('normalises hosts and job URLs so two spellings compare equal', () => {
     expect(normalizeSourceHost('WWW.Example.CH:443')).toBe('example.ch');
     expect(normalizeJobUrl('https://Host.ch/Job/1/?utm=x#top')).toBe('https://host.ch/job/1');
+    expect(normalizeJobUrl("https://www.concorsi.ti.ch/offerte-d'impieghi.html?sid=abc&yid=4264"))
+      .toBe("https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4264");
   });
 
   it('survives a sparse checkout with no slices at all', () => {
@@ -146,6 +157,17 @@ describe('overlap between crawlers', () => {
     const pairs = findOverlappingCrawlers(own);
     expect(pairs.some((p) => p.keys.includes('hug') && p.keys.includes('cern'))).toBe(false);
   });
+
+  it('does not collapse distinct query-identified vacancies onto one listing URL', () => {
+    const base = "https://www.concorsi.ti.ch/offerte-d'impieghi.html";
+    slice('query-id-a', [{ url: `${base}?yid=4264&sid=session-a` }]);
+    slice('query-id-b', [{ url: `${base}?sid=session-b&yid=4265` }]);
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pairs = findOverlappingCrawlers(own);
+    expect(pairs.some((p) => p.keys.includes('query-id-a') && p.keys.includes('query-id-b')))
+      .toBe(false);
+  });
 });
 
 describe('audit findings', () => {
@@ -180,6 +202,194 @@ describe('audit findings', () => {
     const own = loadSourceHostOwnership(root, { urls: true });
     const pairs = findOverlappingCrawlers(own).filter((p) => p.keys.includes('hug') || p.keys.includes('cern'));
     expect(pairs).toHaveLength(0);
+  });
+
+  it('does not report a grace-period carry-over as a live coverage gap', () => {
+    const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://retained.example.ch/job/${i}` }));
+    slice('retained-keeper', shared);
+    slice('retained-witness', [
+      ...shared.slice(0, 4),
+      { url: 'https://retained.example.ch/job/expired', crawlerMissStreak: 1 },
+    ]);
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('retained-keeper'));
+    expect(pair?.onlyB).toEqual(['https://retained.example.ch/job/expired']);
+    expect(pair?.activeOnlyB).toEqual([]);
+    const findings = classifyFindings(pair ? [pair] : []);
+    expect(findings.gaps).toEqual([]);
+    expect(findings.ignored).toMatchObject([
+      { key: 'retained-keeper', twin: 'retained-witness', reason: 'grace-period-retained' },
+    ]);
+  });
+
+  it('does not compare crawler snapshots from different daily cycles', () => {
+    const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://skew.example.ch/job/${i}` }));
+    slice('skew-keeper', shared, '2026-08-31T05:00:00.000Z');
+    slice(
+      'skew-witness',
+      [...shared.slice(0, 4), { url: 'https://skew.example.ch/job/then-live' }],
+      '2026-08-28T05:00:00.000Z',
+    );
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('skew-keeper'));
+    expect(pair?.snapshotSkewMs).toBe(3 * 24 * 60 * 60 * 1000);
+    const findings = classifyFindings(pair ? [pair] : []);
+    expect(findings.gaps).toEqual([]);
+    expect(findings.ignored).toMatchObject([
+      { key: 'skew-keeper', twin: 'skew-witness', reason: 'snapshot-skew' },
+    ]);
+  });
+
+  it('still reports a fresh witness gap when the keeper snapshot is the stale side', () => {
+    const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://stale-keeper.example.ch/job/${i}` }));
+    slice('stale-keeper', shared, '2026-08-28T05:00:00.000Z');
+    slice(
+      'fresh-witness',
+      [...shared.slice(0, 4), { url: 'https://stale-keeper.example.ch/job/new-live' }],
+      '2026-08-31T05:00:00.000Z',
+    );
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('stale-keeper'));
+    expect(pair?.olderSnapshotKey).toBe('stale-keeper');
+    const findings = classifyFindings(pair ? [pair] : []);
+    expect(findings.gaps).toMatchObject([
+      { key: 'stale-keeper', twin: 'fresh-witness', missing: ['https://stale-keeper.example.ch/job/new-live'] },
+    ]);
+    expect(findings.ignored).toEqual([]);
+  });
+
+  it.each([
+    {
+      label: 'A active keeper, B raw carry-over',
+      onlyA: ['live-a-1', 'live-a-2'],
+      onlyB: Array.from({ length: 100 }, (_, i) => `retained-b-${i}`),
+      activeOnlyA: ['live-a-1', 'live-a-2'],
+      activeOnlyB: [],
+      activeTotalA: 10,
+      activeTotalB: 8,
+      keeper: 'active-a',
+      witness: 'active-b',
+    },
+    {
+      label: 'B active keeper, A raw carry-over',
+      onlyA: Array.from({ length: 100 }, (_, i) => `retained-a-${i}`),
+      onlyB: ['live-b-1', 'live-b-2'],
+      activeOnlyA: [],
+      activeOnlyB: ['live-b-1', 'live-b-2'],
+      activeTotalA: 8,
+      activeTotalB: 10,
+      keeper: 'active-b',
+      witness: 'active-a',
+    },
+  ])('elects by ACTIVE cardinality: $label', ({
+    onlyA,
+    onlyB,
+    activeOnlyA,
+    activeOnlyB,
+    activeTotalA,
+    activeTotalB,
+    keeper,
+    witness,
+  }) => {
+    const shared = Array.from({ length: 8 }, (_, i) => `shared-${i}`);
+    const findings = classifyFindings([{
+      keys: ['active-a', 'active-b'],
+      shared,
+      onlyA,
+      onlyB,
+      activeShared: shared,
+      activeOnlyA,
+      activeOnlyB,
+      activeTotalA,
+      activeTotalB,
+    }]);
+
+    expect(findings.gaps).toEqual([]);
+    expect(findings.ignored).toMatchObject([
+      { key: keeper, twin: witness, reason: 'grace-period-retained' },
+    ]);
+  });
+
+  it('keeps raw-cardinality compatibility when active metadata is absent', () => {
+    const shared = Array.from({ length: 8 }, (_, i) => `legacy-shared-${i}`);
+    const onlyA = ['legacy-live-a-1', 'legacy-live-a-2'];
+    const findings = classifyFindings([{
+      keys: ['legacy-a', 'legacy-b'],
+      shared,
+      onlyA,
+      onlyB: Array.from({ length: 100 }, (_, i) => `legacy-b-${i}`),
+    }]);
+
+    // Raw B is larger, exactly matching the pre-active-metadata election.
+    expect(findings.gaps).toEqual([
+      { key: 'legacy-b', twin: 'legacy-a', missing: onlyA },
+    ]);
+    expect(findings.ignored).toEqual([]);
+  });
+
+  it.each([
+    ['confederazione-ticino', 'agroscope'],
+    ['confederazione-ticino', 'vtg'],
+    ['confederazione-ticino', 'agroscope-defr'],
+    ['posta-svizzera-centro-regionale', 'postauto'],
+    ['migros-ticino', 'denner'],
+    ['migros-ticino', 'migrolino'],
+  ])('treats source ownership %s / %s as unordered when cardinality reverses', (broad, dedicated) => {
+    const shared = Array.from({ length: 5 }, (_, i) => ({ url: `https://${dedicated}.example.ch/job/${i}` }));
+    const broadOnly = Array.from({ length: 5 }, (_, i) => ({ url: `https://${broad}.example.ch/job/broad-${i}` }));
+    const dedicatedOnly = Array.from({ length: 5 }, (_, i) => ({ url: `https://${dedicated}.example.ch/job/dedicated-${i}` }));
+
+    // Normal production shape: broad group is bigger, dedicated side exposes
+    // two brand-owned vacancies that the group deliberately excludes.
+    slice(broad, [...shared.slice(0, 3), ...broadOnly]);
+    slice(dedicated, shared);
+
+    let own = loadSourceHostOwnership(root, { urls: true });
+    let pair = findOverlappingCrawlers(own).find(
+      (p) => p.keys.includes(broad) && p.keys.includes(dedicated),
+    );
+    let findings = classifyFindings(pair ? [pair] : []);
+    expect(findings.gaps).toEqual([]);
+    expect(findings.ignored).toMatchObject([
+      { key: broad, twin: dedicated, reason: 'source-ownership' },
+    ]);
+
+    // Reverse the cardinality. The ownership contract is unchanged even though
+    // the audit now elects the dedicated crawler as `keeper`.
+    slice(broad, shared);
+    slice(dedicated, [...shared.slice(0, 3), ...dedicatedOnly]);
+
+    own = loadSourceHostOwnership(root, { urls: true });
+    pair = findOverlappingCrawlers(own).find(
+      (p) => p.keys.includes(broad) && p.keys.includes(dedicated),
+    );
+    findings = classifyFindings(pair ? [pair] : []);
+    expect(findings.gaps).toEqual([]);
+    expect(findings.ignored).toMatchObject([
+      { key: dedicated, twin: broad, reason: 'source-ownership' },
+    ]);
+  });
+
+  it('keeps a cardinality-reversed pair as a gap when no ownership contract is registered', () => {
+    const shared = Array.from({ length: 5 }, (_, i) => ({ url: `https://unregistered.example.ch/job/${i}` }));
+    slice('unregistered-broad', shared);
+    slice('unregistered-dedicated', [
+      ...shared.slice(0, 3),
+      ...Array.from({ length: 5 }, (_, i) => ({ url: `https://unregistered.example.ch/job/own-${i}` })),
+    ]);
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pair = findOverlappingCrawlers(own).find(
+      (p) => p.keys.includes('unregistered-broad') && p.keys.includes('unregistered-dedicated'),
+    );
+    const findings = classifyFindings(pair ? [pair] : []);
+    expect(findings.gaps).toMatchObject([
+      { key: 'unregistered-dedicated', twin: 'unregistered-broad', missing: expect.any(Array) },
+    ]);
+    expect(findings.ignored).toEqual([]);
   });
 });
 

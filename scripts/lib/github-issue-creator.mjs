@@ -275,7 +275,12 @@ function ghIssueList(state, extraArgs) {
 // chiamata (è la dimensione di pagina, non il numero di richieste).
 const CLOSED_SEARCH_LIMIT = 50;
 
-function searchIssuesByTitlePrefix(fullTitle, state, searchLimit = 10) {
+function searchIssuesByTitlePrefix(
+  fullTitle,
+  state,
+  searchLimit = 10,
+  { alwaysIncludeListing = false } = {},
+) {
   const safePrefix = searchSafePrefix(fullTitle);
   // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
   // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
@@ -291,7 +296,7 @@ function searchIssuesByTitlePrefix(fullTitle, state, searchLimit = 10) {
     '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
     '--limit', String(searchLimit),
   ]));
-  if (viaSearch.length > 0) return viaSearch;
+  if (viaSearch.length > 0 && !alwaysIncludeListing) return viaSearch;
 
   // WHY the fallback: `--search` goes through GitHub's SEARCH INDEX, which is
   // eventually consistent — an issue created seconds ago is routinely NOT in it
@@ -302,11 +307,52 @@ function searchIssuesByTitlePrefix(fullTitle, state, searchLimit = 10) {
   // reads the repository directly and is immediately consistent, so it closes
   // the window — including ACROSS processes, which an in-process memo cannot.
   // Only paid when the search came back empty (the no-duplicate common path).
-  return matching(ghIssueList(state, ['--limit', String(LISTING_FALLBACK_LIMIT)]));
+  const viaListing = matching(ghIssueList(state, ['--limit', String(LISTING_FALLBACK_LIMIT)]));
+  if (!alwaysIncludeListing) return viaListing;
+  // Stable family keys can match several legacy OPEN trackers. Even if search
+  // returns an older hit, its eventually-consistent page may still omit the
+  // issue created by the latest run. Merge in the plain listing so callers can
+  // deterministically choose the newest issue number.
+  return Array.from(
+    new Map([...viaSearch, ...viaListing].map((issue) => [issue.number, issue])).values(),
+  );
 }
 
-function findOpenIssueByTitlePrefix(fullTitle) {
-  return searchIssuesByTitlePrefix(fullTitle, 'open')[0] || null;
+function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false) {
+  const candidates = searchIssuesByTitlePrefix(
+    fullTitle,
+    'open',
+    10,
+    { alwaysIncludeListing: preferNewest },
+  );
+  if (preferNewest) {
+    // Legacy count-bearing audit titles produced more than one OPEN tracker.
+    // The highest issue number is the latest run and therefore the canonical
+    // one already under active remediation (#6759/#6760, not #6657/#6658).
+    candidates.sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
+  }
+  return candidates[0] || null;
+}
+
+function migrateLegacyIssueTitle(issue, canonicalTitle, dedupKey) {
+  if (!issue || !dedupKey || issue.title === canonicalTitle) return issue;
+  const migrated = gh([
+    'issue', 'edit', String(issue.number),
+    '--title', canonicalTitle.slice(0, 200),
+    ...repoFlag(),
+  ], { allowFailure: true });
+  if (migrated !== null) {
+    console.log(
+      `[github-issue-creator] Migrated legacy title on #${issue.number} `
+      + `using stable key "${dedupKey}".`,
+    );
+    return { ...issue, title: canonicalTitle };
+  }
+  console.error(
+    `[github-issue-creator] Could not migrate legacy title on #${issue.number}; `
+    + 'reusing the issue without changing its number.',
+  );
+  return issue;
 }
 
 /**
@@ -394,16 +440,25 @@ function issueLabelNames(issue) {
  */
 const NEVER_REOPEN_TITLES = new Set([TRANSIENT_LEDGER_TITLE]);
 
-function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours) {
+function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey = null) {
   if (!withinHours || withinHours <= 0) return null;
   const cutoff = Date.now() - withinHours * 3600 * 1000;
   const wantedSignature = conditionSignature(fullTitle);
-  const inWindow = searchIssuesByTitlePrefix(fullTitle, 'closed', CLOSED_SEARCH_LIMIT)
+  const inWindow = searchIssuesByTitlePrefix(
+    dedupKey || fullTitle,
+    'closed',
+    CLOSED_SEARCH_LIMIT,
+    { alwaysIncludeListing: Boolean(dedupKey) },
+  )
     .filter((i) => i.closedAt && Date.parse(i.closedAt) >= cutoff)
     .sort((a, b) => Date.parse(b.closedAt) - Date.parse(a.closedAt));
 
+  const eligible = [];
   for (const candidate of inWindow) {
-    if (conditionSignature(candidate.title) !== wantedSignature) {
+    // A caller-supplied key explicitly declares every matching legacy title to
+    // be the same condition. Without it, retain the stricter signature guard
+    // that protects unrelated reporters sharing only a long title prefix.
+    if (!dedupKey && conditionSignature(candidate.title) !== wantedSignature) {
       console.log(
         `[github-issue-creator] Closed #${candidate.number} shares the `
         + `${DEDUP_TITLE_PREFIX_LEN}-char prefix but names a different condition `
@@ -432,9 +487,14 @@ function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours) {
       );
       continue;
     }
-    return candidate;
+    if (!dedupKey) return candidate;
+    eligible.push(candidate);
   }
-  return null;
+  // A stable family key can span several generations whose close dates do not
+  // reflect creation order. Prefer the highest issue number, matching the OPEN
+  // election, so a recently-closed old tracker cannot displace its successor.
+  eligible.sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
+  return eligible[0] || null;
 }
 
 // `gh api` resolves the literal placeholders `{owner}/{repo}` from the cwd's
@@ -800,6 +860,18 @@ export function commentOnGithubIssue(issueNumber, body) {
  * otherwise spend a turn re-discovering exactly this (what failed, how to
  * reproduce it, where the evidence is) before it can start on the real fix.
  * Every field optional; an empty/absent `signals` renders nothing.
+ *
+ * @typedef {{
+ *   cosa?: string|null,
+ *   metrica?: {
+ *     osservato?: string|number|null,
+ *     atteso?: string|number|null,
+ *   }|null,
+ *   comando?: string|null,
+ *   evidenza?: Array<string|null|undefined>|null,
+ * }} GithubIssueSignals
+ *
+ * @param {GithubIssueSignals|null|undefined} signals
  */
 export function formatSignalsBlock(signals) {
   if (!signals || typeof signals !== 'object') return '';
@@ -821,6 +893,21 @@ export function formatSignalsBlock(signals) {
  * Successful write paths return `persisted: true`; a known comment failure on
  * an existing/reopened issue returns `persisted: false`. Callers that cannot
  * tolerate best-effort loss can therefore fail their own workflow and retry.
+ *
+ * @param {{
+ *   title?: string,
+ *   description?: string,
+ *   priority?: number,
+ *   labels?: string[],
+ *   workflow?: string,
+ *   project?: string|null,
+ *   dedupKey?: string|null,
+ *   reopenWithinHours?: number|null,
+ *   buildSha?: string|null,
+ *   consecutiveGate?: number,
+ *   gateWindowHours?: number,
+ *   signals?: GithubIssueSignals|null,
+ * }} [options]
  */
 export async function createGithubIssue({
   title,
@@ -828,6 +915,12 @@ export async function createGithubIssue({
   priority = 3,
   labels = [],
   workflow,
+  // Optional stable family key used for de-duplication when old issue titles
+  // embedded a changing measurement. The key MUST prefix both the canonical
+  // title and every legacy title it is meant to absorb. Once a legacy OPEN
+  // issue is found, its title is migrated in place before the recurrence is
+  // commented, preserving the issue number and history.
+  dedupKey = null,
   // Hours: a closed issue naming the SAME condition, closed no longer ago than
   // this, is REOPENED + commented instead of opening a fresh duplicate.
   //
@@ -872,11 +965,19 @@ export async function createGithubIssue({
     return null;
   }
 
+  const normalizedDedupKey = dedupKey == null ? null : String(dedupKey).trim();
+  if (
+    normalizedDedupKey
+    && (normalizedDedupKey.length < 8 || !String(title).startsWith(normalizedDedupKey))
+  ) {
+    throw new Error('[github-issue-creator] dedupKey must be an 8+ character prefix of title');
+  }
+
   // Pass the FULL title to dedup — searchSafePrefix slices/sanitizes internally
   // and needs the un-sliced title to detect a real mid-word cut. `titlePrefix`
   // stays for logging/gate messages only.
   const titlePrefix = title.slice(0, DEDUP_TITLE_PREFIX_LEN);
-  const existing = findOpenIssueByTitlePrefix(title);
+  const dedupTitle = normalizedDedupKey || title;
 
   // null/undefined → the default window; an explicit number (0 included) wins.
   // Written as a null-check and NOT as `reopenWithinHours || DEFAULT`, because
@@ -884,6 +985,24 @@ export async function createGithubIssue({
   const reopenWindowHours = reopenWithinHours == null
     ? DEFAULT_REOPEN_WITHIN_HOURS
     : Number(reopenWithinHours);
+
+  const newestOpen = findOpenIssueByTitlePrefix(dedupTitle, Boolean(normalizedDedupKey));
+  // With a family key, OPEN and eligible CLOSED issues are generations of the
+  // same tracker. Elect across BOTH states before acting: otherwise an old OPEN
+  // legacy (#6657/#6658) steals a recurrence from its newer closed successor
+  // (#6759/#6760), losing the canonical history. Issue number is the immutable
+  // creation order; `closedAt` is not (an older tracker may be closed later).
+  const newestClosed = normalizedDedupKey
+    && Number.isFinite(reopenWindowHours)
+    && reopenWindowHours > 0
+    ? findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, normalizedDedupKey)
+    : null;
+  const preferredRecentlyClosed = newestClosed
+    && (!newestOpen || Number(newestClosed.number || 0) > Number(newestOpen.number || 0))
+    ? newestClosed
+    : null;
+  let existing = preferredRecentlyClosed ? null : newestOpen;
+  existing = migrateLegacyIssueTitle(existing, title, normalizedDedupKey);
 
   // Auto-enable the consecutive-failure gate for the stable crawler-failure
   // reporter title, unless a caller explicitly opted out (consecutiveGate < 0).
@@ -1010,7 +1129,8 @@ export async function createGithubIssue({
   // flapping red again. Reopen + comment instead of minting a new issue — this
   // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
   if (Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
-    const recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours);
+    const recentlyClosed = preferredRecentlyClosed
+      || findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, normalizedDedupKey);
     if (recentlyClosed) {
       // Deploy-latency guard (#5539): a build started BEFORE the fix that closed
       // this issue merged cannot possibly contain it — a validation failing on
@@ -1096,11 +1216,12 @@ export async function createGithubIssue({
           `${RECURRENCE_MARKER} **Riaperta #${recentlyClosed.number}** — ricorrenza della stessa `
           + 'condizione, nessuna issue nuova aperta.',
         );
-        console.log(`[github-issue-creator] Reopened #${recentlyClosed.number} — ${recentlyClosed.title}`);
+        const canonical = migrateLegacyIssueTitle(recentlyClosed, title, normalizedDedupKey);
+        console.log(`[github-issue-creator] Reopened #${canonical.number} — ${canonical.title}`);
         return {
-          number: recentlyClosed.number,
-          title: recentlyClosed.title,
-          url: recentlyClosed.url,
+          number: canonical.number,
+          title: canonical.title,
+          url: canonical.url,
           reopened: true,
           persisted: true,
         };
