@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ikea",
-  "assembledAt": "2026-08-31T16:59:56.858Z",
+  "assembledAt": "2026-08-31T15:46:34.846Z",
   "jobs": [
     {
       "id": "ikea-8b34b0550dfe",
@@ -418,15 +418,36 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-        "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
+        "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
+        "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach",
+        "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+        "polydesigner-en-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-spreitenbach-aargau-switzerland",
+        "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
+        "polydesigner-in-3d-focus-on-styling-ikea-st-gallen-sankt-gallen-switzerland",
+        "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
+        "polydesigner-en-3d-accent-sur-le-style-ikea-st-gallen-sankt-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-          "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
+          "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon",
+          "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach",
+          "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+          "polydesigner-en-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-spreitenbach-aargau-switzerland",
+          "apprendistato-polydesigner-in-3d-schwerpunkt-styling-ikea-st-gallen",
+          "polydesigner-in-3d-focus-on-styling-ikea-st-gallen-sankt-gallen-switzerland",
+          "lehrstelle-polydesigner-in-3d-schwerpunkt-styling-ikea-ch",
+          "polydesigner-en-3d-accent-sur-le-style-ikea-st-gallen-sankt-gallen-switzerland"
         ],
         "fr": [
-          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
+          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+          "polydesigner-en-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-spreitenbach-aargau-switzerland"
+        ],
+        "en": [
+          "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
+        ],
+        "de": [
+          "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -436,7 +457,6 @@
       "firstSeenAt": "2026-08-02T22:16:40.126Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -446,7 +466,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ikea-d3a6d857e1e5",

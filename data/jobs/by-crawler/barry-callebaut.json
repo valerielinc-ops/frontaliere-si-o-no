@@ -1,6 +1,6 @@
 {
   "crawlerKey": "barry-callebaut",
-  "assembledAt": "2026-08-31T20:23:54.395Z",
+  "assembledAt": "2026-08-31T15:04:39.954Z",
   "jobs": [
     {
       "id": "barry-callebaut-f859fe4257d1",
@@ -260,21 +260,35 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "commercial-excellence-manager-gourmet-business-barry-callebaut-ch",
-        "responsabile-eccellenza-commerciale-gourmet-business-barry-callebaut-zurich"
+        "responsabile-eccellenza-commerciale-gourmet-business-barry-callebaut-zurich",
+        "responsabile-eccellenza-commerciale-fm-specialita-barry-callebaut-zurich",
+        "commercial-excellence-manager-fm-specialties-barry-callebaut-ch",
+        "manager-fur-kommerzielle-exzellenz-fm-fachgebiete-barry-callebaut-zurich",
+        "gestionnaire-d-excellence-commerciale-fm-specialites-barry-callebaut-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commercial-excellence-manager-gourmet-business-barry-callebaut-ch",
-          "responsabile-eccellenza-commerciale-gourmet-business-barry-callebaut-zurich"
+          "responsabile-eccellenza-commerciale-gourmet-business-barry-callebaut-zurich",
+          "responsabile-eccellenza-commerciale-fm-specialita-barry-callebaut-zurich",
+          "commercial-excellence-manager-fm-specialties-barry-callebaut-ch",
+          "manager-fur-kommerzielle-exzellenz-fm-fachgebiete-barry-callebaut-zurich",
+          "gestionnaire-d-excellence-commerciale-fm-specialites-barry-callebaut-zurich"
         ],
         "de": [
-          "commercial-excellence-manager-gourmet-business-barry-callebaut-ch"
+          "commercial-excellence-manager-gourmet-business-barry-callebaut-ch",
+          "manager-fur-kommerzielle-exzellenz-fm-fachgebiete-barry-callebaut-zurich"
+        ],
+        "en": [
+          "commercial-excellence-manager-fm-specialties-barry-callebaut-ch"
+        ],
+        "fr": [
+          "gestionnaire-d-excellence-commerciale-fm-specialites-barry-callebaut-zurich"
         ]
       },
       "firstSeenAt": "2026-08-19T22:10:31.647Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -285,7 +299,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "salarySource": "estimated"
     },
     {
       "id": "barry-callebaut-52b1264cb597",

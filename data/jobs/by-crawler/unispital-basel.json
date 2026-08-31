@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-08-31T17:13:26.916Z",
+  "assembledAt": "2026-08-31T16:31:10.230Z",
   "jobs": [
     {
       "id": "unispital-basel-cb61e43a1183",
@@ -343,7 +343,15 @@
         "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel",
         "infirmier-e-diplome-e-station-pulmonaire-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-40x4vu",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-ambulatorio-delle-donne-universitatsspital-basel",
+        "dipl-infermieristica-ambulatorio-chirurgico-a-breve-termine-universitatsspital-basel-basel",
+        "dipl-nursing-specialist-chirurgical-short-term-clinic-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-chirurgische-kurzzeitklinik-unispital-basel-ch",
+        "dipl-nursing-professional-dipl-nursing-professional-women-s-clinic-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch",
+        "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-clinique-pour-femmes",
+        "dipl-specialiste-des-soins-infirmiers-clinique-de-courte-duree-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -366,7 +374,11 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-4",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-2ficdk",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-40x4vu",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-ambulatorio-delle-donne-universitatsspital-basel",
+          "dipl-infermieristica-ambulatorio-chirurgico-a-breve-termine-universitatsspital-basel-basel",
+          "dipl-nursing-specialist-chirurgical-short-term-clinic-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-pflegefachmann-chirurgische-kurzzeitklinik-unispital-basel-ch"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
@@ -375,14 +387,16 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch-4",
           "dipl-nursing-specialist-hf-fh-hematology-universitatsspital-basel-basel",
           "dipl-nurse-hf-fh-medicine-8-1-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-universitatsspital-basel-basel",
+          "dipl-nursing-professional-dipl-nursing-professional-women-s-clinic-universitatsspital-basel-basel"
         ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-unispital-basel-ch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-hamatologie-unispital-basel-ch",
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-medizin-8-1-unispital-basel-ch",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-lungenstation-unispital-basel-ch",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-frauenklinik-unispital-basel-ch"
         ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
@@ -391,14 +405,14 @@
           "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-orthopadie-traumatologie-unispital-basel-ch",
           "infirmiere-diplomee-en-hf-fh-medecine-8-1-universitatsspital-basel-basel",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-medecine-interne-5-1-universitatsspital-basel-basel",
-          "infirmier-e-diplome-e-station-pulmonaire-universitatsspital-basel-basel"
+          "infirmier-e-diplome-e-station-pulmonaire-universitatsspital-basel-basel",
+          "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-clinique-pour-femmes",
+          "dipl-specialiste-des-soins-infirmiers-clinique-de-courte-duree-universitatsspital-basel-basel"
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -408,7 +422,9 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "unispital-basel-285cd727d60a",

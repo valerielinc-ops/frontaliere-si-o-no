@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kuehne-nagel",
-  "assembledAt": "2026-08-31T17:14:54.019Z",
+  "assembledAt": "2026-08-31T15:58:38.838Z",
   "jobs": [
     {
       "id": "kuehne-nagel-6d657d1e6dd1",
@@ -719,10 +719,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-25T22:02:19.479Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -732,7 +730,20 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-sea-freight-export-specialist-m-w-d-kuehne-nagel-opfikon"
+        ],
+        "fr": [
+          "senior-sea-freight-export-specialist-m-w-d-kuehne-nagel-opfikon"
+        ]
+      },
+      "previousSlugs": [
+        "senior-sea-freight-export-specialist-m-w-d-kuehne-nagel-opfikon"
+      ]
     },
     {
       "id": "kuehne-nagel-350006744391",

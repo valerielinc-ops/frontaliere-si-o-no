@@ -11136,9 +11136,9 @@
       "companyDomain": "rolex.com",
       "title": "Apprentissage de logisticien·ne CFC",
       "titleByLocale": {
-        "it": "Apprentissage de logisticien·ne CFC",
-        "en": "Apprentissage de logisticien·ne CFC",
-        "de": "Apprentissage de logisticien·ne CFC",
+        "it": "Logistician learning CFC",
+        "en": "Logistician learning CFC",
+        "de": "Logistiker lernen CFC",
         "fr": "Apprentissage de logisticien·ne CFC"
       },
       "description": "Description\n\nMotivé∙e par un apprentissage de Logisticien∙ne ? Prêt∙e à devenir une référence dans votre métier grâce à une formation de qualité dans une entreprise leader ?\n Rejoignez-nous !\n\nLe/La logisticien∙ne réceptionne et contrôle toutes sortes de marchandises (matières premières, produits industriels, lettres, colis, etc.) qu’il/elle prépare en vue de leur entreposage ou de leur livraison aux clients. Il/Elle planifie, organise et réalise des tâches de distribution, de stockage et de transport. Le/La logisticien∙ne dédié∙e au stockage assure l’entreposage des marchandises de manière appropriée à l’aide de chariots ou de systèmes complexes de manutention. Il/Elle gère leur suivi à l’aide d’outils informatiques. Avant leur distribution, il/elle prépare les commandes, emballe les différents produits et les charge sur les moyens de transport adéquats. Il/Elle est également le/la garant∙e du bon approvisionnement des stocks.\n\nCet apprentissage convient à des jeunes qui ont le sens des responsabilités, aiment travailler en équipe et qui possèdent une bonne résistance physique.\n\nProfil\n\n• Esprit logique et méthodique\n\n• Intérêt pour les activités manuelles et l’informatique\n\n• Aisance relationnelle\n\n• Sens de l'organisation\n\nPour postuler\n\nSi vous êtes motivé∙e à relever le défi, n’hésitez pas à postuler. Votre dossier devra contenir :\n\n• Un curriculum vitae\n\n• Une lettre de motivation\n\n• Vos bulletins des trois dernières années scolaires\n\nEncadré∙e par des formateur∙trice∙s expérimenté∙e∙s, vous pourrez évoluer dans un environnement de travail hors du commun. Cette formation vous assurera d’excellentes perspectives. Rolex s’engage à vous offrir bien plus qu'un apprentissage : une véritable opportunité de développement personnel et professionnel.\n\n#LI-DNI",
@@ -11183,7 +11183,6 @@
       "firstSeenAt": "2026-08-26T09:54:59.396Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -11193,7 +11192,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "rolex-7d544f319240",

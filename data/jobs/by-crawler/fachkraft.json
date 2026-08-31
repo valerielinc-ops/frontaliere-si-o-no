@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fachkraft",
-  "assembledAt": "2026-08-31T17:29:23.573Z",
+  "assembledAt": "2026-08-31T15:37:40.289Z",
   "jobs": [
     {
       "id": "fachkraft-f1fbbde14a2c",
@@ -8837,9 +8837,9 @@
       "title": "Zimmermann/Zimmerin für Fassadenbau",
       "titleByLocale": {
         "it": "Zimmermann/Zimmerin per Fassadenbau",
-        "en": "Zimmermann/Zimmerin für Fassadenbau",
+        "en": "Zimmermann/room for facade construction",
         "de": "Zimmermann/Zimmerin für Fassadenbau",
-        "fr": "Zimmermann/Zimmerin für Fassadenbau"
+        "fr": "Zimmermann / salle pour la construction de façade"
       },
       "description": "Tätigkeiten Fassadenarbeiten mit Holz umsetzen Zimmermanns- und Schreinerarbeiten auf Baustellen ausführen Material und Werkzeuge für den Fassadenbau bereitstellen und pflegen \n• Anforderungen Abgeschlossene Ausbildung als Zimmermann oder Schreiner Erfahrung im Fassadenbau wird vorausgesetzt Verfügbarkeit im Raum Lenzburg von sofort bis November Angebot Einsatz im attraktiven Gebiet rund um Lenzburg Anstellung befristet von sofort bis November Direkte Kommunikation mit dem Fachleiter Holzbau",
       "descriptionByLocale": {
@@ -8899,7 +8899,6 @@
       "firstSeenAt": "2026-08-27T00:58:25.788Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -8910,7 +8909,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "salarySource": "estimated"
     },
     {
       "id": "fachkraft-573e603be11c",
@@ -60917,13 +60917,13 @@
       "title": "Sanitärinstallateur/in für Neubauten",
       "titleByLocale": {
         "it": "Sanitärinstallateur/in per Neubauten",
-        "en": "Sanitärinstallateur/in für Neubauten",
+        "en": "Sanitary installer for new buildings",
         "de": "Sanitärinstallateur/in für Neubauten",
-        "fr": "Sanitärinstallateur/in für Neubauten"
+        "fr": "Installation sanitaire pour les nouveaux bâtiments"
       },
       "description": "Tätigkeiten Sanitärinstallationen in Neubauten für Wohn- und Geschäftsbauten ausführen Montagearbeiten nach Planvorgaben auf der Baustelle umsetzen Installationen fachgerecht prüfen und sauber fertigstellen \n• Anforderungen Lehrabschluss als Sanitärinstallateurin oder Sanitärinstallateur EFZ Mehrjährige Praxis im Sanitärbereich wäre wünschenswert Zuverlässige und eigenständige Arbeitsweise Saubere Ausführung der übertragenen Arbeiten Führerausweis Kat. B Angebot Einsätze in der Region Luzern und Aargau",
       "descriptionByLocale": {
-        "it": "Sanitärinstallateur/in für Neubauten — fachkraft.ch GmbH",
+        "it": "Impianti sanitari in nuovi edifici per edifici residenziali e commerciali effettuano lavori di montaggio secondo le specifiche del piano sul cantiere implementare impianti professionalmente ispezionare e completare\n• Requisiti Grado di insegnamento come installatore sanitario EFZ La pratica pluriennale nel settore sanitario sarebbe auspicabile Metodo di lavoro affidabile e indipendente Esecuzione pulita della patente di guida di lavoro trasferita Cat. B Assegnazioni di offerta nella regione di Lucerna e Aargau",
         "en": "Tätigkeiten Sanitärinstallationen in Neubauten für Wohn- und Geschäftsbauten ausführen Montagearbeiten nach Planvorgaben auf der Baustelle umsetzen Installationen fachgerecht prüfen und sauber fertigstellen\n• Anforderungen Lehrabschluss als Sanitärinstallateurin oder Sanitärinstallateur EFZ Mehrjährige Praxis im Sanitärbereich wäre wünschenswert Zuverlässige und eigenständige Arbeitsweise Saubere Ausführung der übertragenen Arbeiten Führerausweis Kat. B Angebot Einsätze in der Region Luzern und Aargau",
         "de": "Tätigkeiten Sanitärinstallationen in Neubauten für Wohn- und Geschäftsbauten ausführen Montagearbeiten nach Planvorgaben auf der Baustelle umsetzen Installationen fachgerecht prüfen und sauber fertigstellen \n• Anforderungen Lehrabschluss als Sanitärinstallateurin oder Sanitärinstallateur EFZ Mehrjährige Praxis im Sanitärbereich wäre wünschenswert Zuverlässige und eigenständige Arbeitsweise Saubere Ausführung der übertragenen Arbeiten Führerausweis Kat. B Angebot Einsätze in der Region Luzern und Aargau",
         "fr": "Tätigkeiten Sanitärinstallationen in Neubauten für Wohn- und Geschäftsbauten ausführen Montagearbeiten nach Planvorgaben auf der Baustelle umsetzen Installationen fachgerecht prüfen und sauber fertigstellen\n• Anforderungen Lehrabschluss als Sanitärinstallateurin oder Sanitärinstallateur EFZ Mehrjährige Praxis im Sanitärbereich wäre wünschenswert Zuverlässige und eigenständige Arbeitsweise Saubere Ausführung der übertragenen Arbeiten Führerausweis Kat. B Angebot Einsätze in der Region Luzern und Aargau"
@@ -60964,7 +60964,6 @@
       "firstSeenAt": "2026-08-27T00:55:13.537Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -60975,7 +60974,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "salarySource": "estimated"
     },
     {
       "id": "fachkraft-2123f95562c4",
@@ -291976,16 +291976,16 @@
       "title": "Sanitärinstallateur/in mit Erfahrung in Neu- und Umbauten",
       "titleByLocale": {
         "it": "Sanitärinstallateur/in con Erfahrung in Neu- e Umbauten",
-        "en": "Sanitärinstallateur/in mit Erfahrung in Neu- und Umbauten",
+        "en": "Sanitary installer with experience in new and conversions",
         "de": "Sanitärinstallateur/in mit Erfahrung in Neu- und Umbauten",
-        "fr": "Sanitärinstallateur/in mit Erfahrung in Neu- und Umbauten"
+        "fr": "Installateur sanitaire avec expérience dans les nouvelles et les conversions"
       },
       "description": "Tätigkeiten Eigenständige Ausführung von Sanitärinstallationen bei Neu- und Umbauprojekten Modernisierung und Sanierung von Badezimmern und Küchen Montage von Wasser-, Abwasser- und Druckleitungssystemen Installation und Inbetriebnahme von sanitären Geräten und Armaturen Wartung, Service und Reparatur von Sanitäranlagen\n• Anforderungen Abgeschlossene Berufsausbildung als Sanitärinstallateur EFZ Erfahrung in Neu- und Umbauten sowie Sanitärsanierungen von Vorteil Selbstständige und präzise Arbeitsweise Kundenorientiertes und freundliches Auftreten Besitz eines Führerscheins der Kategorie B Angebot Vielfältige Projekte in der Region Luzern Modern ausgestattete Arbeitsplätze mit hochwertiger Infrastruktur Familiäres Team und langfristige Anstellungsperspektive",
       "descriptionByLocale": {
         "de": "Tätigkeiten Eigenständige Ausführung von Sanitärinstallationen bei Neu- und Umbauprojekten Modernisierung und Sanierung von Badezimmern und Küchen Montage von Wasser-, Abwasser- und Druckleitungssystemen Installation und Inbetriebnahme von sanitären Geräten und Armaturen Wartung, Service und Reparatur von Sanitäranlagen\n• Anforderungen Abgeschlossene Berufsausbildung als Sanitärinstallateur EFZ Erfahrung in Neu- und Umbauten sowie Sanitärsanierungen von Vorteil Selbstständige und präzise Arbeitsweise Kundenorientiertes und freundliches Auftreten Besitz eines Führerscheins der Kategorie B Angebot Vielfältige Projekte in der Region Luzern Modern ausgestattete Arbeitsplätze mit hochwertiger Infrastruktur Familiäres Team und langfristige Anstellungsperspektive",
-        "it": "Tätigkeiten Eigenständige Ausführung von Sanitärinstallationen bei Neu- und Umbauprojekten Modernisierung und Sanierung von Badezimmern und Küchen Montage von Wasser-, Abwasser- und Druckleitungssystemen Installation und Inbetriebnahme von sanitären Geräten und Armaturen Wartung, Service und Reparatur von Sanitäranlagen\n• Anforderungen Abgeschlossene Berufsausbildung als Sanitärinstallateur EFZ Erfahrung in Neu- und Umbauten sowie Sanitärsanierungen von Vorteil Selbstständige und präzise Arbeitsweise Kundenorientiertes und freundliches Auftreten Besitz eines Führerscheins der Kategorie B Angebot Vielfältige Projekte in der Region Luzern Modern ausgestattete Arbeitsplätze mit hochwertiger Infrastruktur Familiäres Team und langfristige Anstellungsperspektive",
-        "en": "Tätigkeiten Eigenständige Ausführung von Sanitärinstallationen bei Neu- und Umbauprojekten Modernisierung und Sanierung von Badezimmern und Küchen Montage von Wasser-, Abwasser- und Druckleitungssystemen Installation und Inbetriebnahme von sanitären Geräten und Armaturen Wartung, Service und Reparatur von Sanitäranlagen\n• Anforderungen Abgeschlossene Berufsausbildung als Sanitärinstallateur EFZ Erfahrung in Neu- und Umbauten sowie Sanitärsanierungen von Vorteil Selbstständige und präzise Arbeitsweise Kundenorientiertes und freundliches Auftreten Besitz eines Führerscheins der Kategorie B Angebot Vielfältige Projekte in der Region Luzern Modern ausgestattete Arbeitsplätze mit hochwertiger Infrastruktur Familiäres Team und langfristige Anstellungsperspektive",
-        "fr": "Tätigkeiten Eigenständige Ausführung von Sanitärinstallationen bei Neu- und Umbauprojekten Modernisierung und Sanierung von Badezimmern und Küchen Montage von Wasser-, Abwasser- und Druckleitungssystemen Installation und Inbetriebnahme von sanitären Geräten und Armaturen Wartung, Service und Reparatur von Sanitäranlagen\n• Anforderungen Abgeschlossene Berufsausbildung als Sanitärinstallateur EFZ Erfahrung in Neu- und Umbauten sowie Sanitärsanierungen von Vorteil Selbstständige und präzise Arbeitsweise Kundenorientiertes und freundliches Auftreten Besitz eines Führerscheins der Kategorie B Angebot Vielfältige Projekte in der Region Luzern Modern ausgestattete Arbeitsplätze mit hochwertiger Infrastruktur Familiäres Team und langfristige Anstellungsperspektive"
+        "it": "AttivitÃ implementazione indipendente di impianti sanitari in nuovi progetti di costruzione e conversione Ammodernamento e ristrutturazione di bagni e cucine Installazione e messa in servizio di attrezzature sanitarie e raccordi Manutenzione, servizio e riparazione di impianti sanitari\n• Requisiti Formazione professionale completata come installatore sanitario EFZ Esperienza in nuovi e ristrutturazioni e ristrutturazioni igienico-sanitarie utili Metodi di lavoro autonomi e precisi Apparimento orientato al cliente e amichevole Possessione di una patente di guida della categoria B Offerta Vari progetti nella regione Lucerna Moderni posti di lavoro dotati di infrastrutture di alta qualità Gruppo familiare e prospettive di lavoro a lungo termine",
+        "en": "Activities Independent implementation of sanitary installations in new construction and conversion projects Modernization and renovation of bathrooms and kitchens Installation and commissioning of sanitary equipment and fittings Maintenance, service and repair of sanitary facilities\n• Requirements Completed vocational training as a sanitary installer EFZ Experience in new and renovations as well as sanitary renovations beneficial Self-employed and precise working methods Customer-oriented and friendly appearance Possession of a driving license of category B Offer Various projects in the Lucerne Modern region equipped jobs with high-quality infrastructure Family team and long-term employment prospects",
+        "fr": "Activités Mise en œuvre indépendante des installations sanitaires dans les nouveaux projets de construction et de conversion Modernisation et rénovation des salles de bains et des cuisines Installation et mise en service du matériel et des équipements sanitaires Entretien, entretien et réparation des installations sanitaires\n• Exigences Formation professionnelle complétée en tant qu'installateur sanitaire EFZ Expérience en matière de rénovations et de rénovations sanitaires bénéfiques Travailleurs indépendants et méthodes de travail précises Aspect convivial et orienté client Possession d'un permis de conduire de catégorie B Offre Divers projets dans la région de Lucerne Moderne sont équipés d'une infrastructure de haute qualité Équipe familiale et perspectives d'emploi à long terme"
       },
       "location": "Luzern, Luzern",
       "canton": "LU",
@@ -292014,7 +292014,13 @@
           "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-luzern-luzern-fachkraft-ch",
           "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauten-fachkraft-ch-gmbh-lugano-7dx7be",
           "sanitary-installer-with-experience-in-new-and-conversions-fachkraft-ch-gmbh-lugano",
-          "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano"
+          "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano",
+          "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauprojekten-fachkraft-ch-gmbh-lugano",
+          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-fachkraft-ch",
+          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-bremgarten-aargau-fachkraft",
+          "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauprojekten-fachkraft-ch-gmbh-luga-76qg20",
+          "sanitary-installer-with-experience-in-new-and-conversion-projects-fachkraft-ch-gmbh-lugano",
+          "installateur-sanitaire-avec-experience-dans-les-projets-nouveaux-et-de-conversion-fachkraft-ch-gmbh-lugano"
         ],
         "de": [
           "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-luzern-luzern-fachkraft-ch"
@@ -292023,7 +292029,8 @@
           "sanitary-installer-with-experience-in-new-and-conversions-fachkraft-ch-gmbh-lugano"
         ],
         "fr": [
-          "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano"
+          "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano",
+          "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-fachkraft-ch"
         ]
       },
       "previousSlugs": [
@@ -292031,7 +292038,13 @@
         "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauten-luzern-luzern-fachkraft-ch",
         "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauten-fachkraft-ch-gmbh-lugano-7dx7be",
         "sanitary-installer-with-experience-in-new-and-conversions-fachkraft-ch-gmbh-lugano",
-        "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano"
+        "installateur-sanitaire-avec-experience-dans-les-nouvelles-et-les-conversions-fachkraft-ch-gmbh-lugano",
+        "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauprojekten-fachkraft-ch-gmbh-lugano",
+        "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-fachkraft-ch",
+        "sanitarinstallateur-in-mit-erfahrung-in-neu-und-umbauprojekten-bremgarten-aargau-fachkraft",
+        "sanitarinstallateur-in-con-erfahrung-in-neu-e-umbauprojekten-fachkraft-ch-gmbh-luga-76qg20",
+        "sanitary-installer-with-experience-in-new-and-conversion-projects-fachkraft-ch-gmbh-lugano",
+        "installateur-sanitaire-avec-experience-dans-les-projets-nouveaux-et-de-conversion-fachkraft-ch-gmbh-lugano"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

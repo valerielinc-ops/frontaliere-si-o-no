@@ -1,6 +1,6 @@
 {
   "crawlerKey": "michaelpage",
-  "assembledAt": "2026-08-31T17:39:40.109Z",
+  "assembledAt": "2026-08-31T16:03:37.360Z",
   "jobs": [
     {
       "id": "michaelpage-ee3e538d3740",
@@ -1199,9 +1199,9 @@
       "title": "Diretor de Manutenção e Operações Técnicas - América Latina",
       "titleByLocale": {
         "fr": "Diretor de Manutenção e Operações Técnicas - América Latina",
-        "it": "Diretor de Manutenção e Operações Técnicas - América Latina",
-        "en": "Diretor de Manutenção e Operações Técnicas - América Latina",
-        "de": "Diretor de Manutenção e Operações Técnicas - América Latina"
+        "it": "Diretor de Manutenção e Operações Técnicas - America Latina",
+        "en": "Diretor de Manutenção e Operações Técnicas - Latin America",
+        "de": "Diretor de Manutenção e Operações Técnicas — Lateinamerika"
       },
       "description": "Diretor de Manutenção e Operações Técnicas - América Latina — Michael Page",
       "descriptionByLocale": {
@@ -1232,7 +1232,6 @@
       "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1244,7 +1243,8 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-31T17:39:29.258Z"
+      "firstSeenAt": "2026-08-31T17:39:29.258Z",
+      "salarySource": "estimated"
     },
     {
       "id": "michaelpage-152aa4f682be",

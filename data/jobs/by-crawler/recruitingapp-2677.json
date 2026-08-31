@@ -1741,10 +1741,10 @@
       "companyDomain": "recruitingapp-2677.umantis.com",
       "title": "Assistenz Private Banking",
       "titleByLocale": {
-        "it": "Assistenz Private Banking",
-        "en": "Assistenz Private Banking",
         "de": "Assistenz Private Banking",
-        "fr": "Assistenz Private Banking"
+        "en": "Assistenz Private Banking",
+        "it": "Assistenz Private Banking",
+        "fr": "Aidenz Private Banking"
       },
       "description": "Assistenz Private Banking — E-Recruiting LLB-Gruppe Stellen",
       "descriptionByLocale": {
@@ -1771,10 +1771,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:27:13.458Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1785,7 +1783,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-28T05:27:13.458Z",
+      "salarySource": "estimated"
     },
     {
       "id": "recruitingapp-2677-aa9db17d6e86",

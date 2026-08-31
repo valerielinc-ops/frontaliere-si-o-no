@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ottos",
-  "assembledAt": "2026-08-31T17:21:26.863Z",
+  "assembledAt": "2026-08-31T16:06:01.224Z",
   "jobs": [
     {
       "id": "ottos-99b7c701e026",
@@ -930,7 +930,11 @@
         "sales-staff-in-with-all-round-function-otto-s-ag-frauenfeld",
         "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-frauenfeld",
         "personnel-de-vente-avec-fonction-complete-otto-s-ag-frauenfeld",
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-pratteln"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-pratteln",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bachenbulach",
+        "sales-staff-in-with-all-round-function-otto-s-ag-bachenbulach",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bachenbulach",
+        "personnel-de-vente-avec-fonction-complete-otto-s-ag-bachenbulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -939,22 +943,28 @@
           "sales-staff-in-with-all-round-function-otto-s-ag-frauenfeld",
           "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-frauenfeld",
           "personnel-de-vente-avec-fonction-complete-otto-s-ag-frauenfeld",
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-pratteln"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-pratteln",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-bachenbulach",
+          "sales-staff-in-with-all-round-function-otto-s-ag-bachenbulach",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bachenbulach",
+          "personnel-de-vente-avec-fonction-complete-otto-s-ag-bachenbulach"
         ],
         "en": [
-          "sales-staff-in-with-all-round-function-otto-s-ag-frauenfeld"
+          "sales-staff-in-with-all-round-function-otto-s-ag-frauenfeld",
+          "sales-staff-in-with-all-round-function-otto-s-ag-bachenbulach"
         ],
         "de": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-frauenfeld"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-frauenfeld",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-bachenbulach"
         ],
         "fr": [
-          "personnel-de-vente-avec-fonction-complete-otto-s-ag-frauenfeld"
+          "personnel-de-vente-avec-fonction-complete-otto-s-ag-frauenfeld",
+          "personnel-de-vente-avec-fonction-complete-otto-s-ag-bachenbulach"
         ]
       },
       "firstSeenAt": "2026-08-07T22:10:07.103Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -964,7 +974,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ottos-9cd04fb5b566",
@@ -1365,25 +1376,39 @@
       "previousSlugs": [
         "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
         "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-etoy",
-        "alimentare-non-alimentare-venditore-ausiliario-m-f-otto-s-ag-etoy"
+        "alimentare-non-alimentare-venditore-ausiliario-m-f-otto-s-ag-etoy",
+        "alimentare-non-alimentare-venditore-m-f-otto-s-ag-etoy",
+        "food-non-food-seller-m-f-otto-s-ag-etoy",
+        "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-etoy",
+        "vendeur-food-non-food-h-f-ottos-etoy",
+        "vendeur-food-non-food-m-w-d-otto-s-ag-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
           "vendeur-auxiliaire-food-non-food-m-w-d-otto-s-ag-etoy",
-          "alimentare-non-alimentare-venditore-ausiliario-m-f-otto-s-ag-etoy"
+          "alimentare-non-alimentare-venditore-ausiliario-m-f-otto-s-ag-etoy",
+          "alimentare-non-alimentare-venditore-m-f-otto-s-ag-etoy",
+          "food-non-food-seller-m-f-otto-s-ag-etoy",
+          "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-etoy",
+          "vendeur-food-non-food-h-f-ottos-etoy",
+          "vendeur-food-non-food-m-w-d-otto-s-ag-etoy"
         ],
         "en": [
-          "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy"
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
+          "food-non-food-seller-m-f-otto-s-ag-etoy"
         ],
         "de": [
-          "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy"
+          "vendeur-auxiliaire-food-non-food-h-f-ottos-etoy",
+          "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-etoy"
+        ],
+        "fr": [
+          "vendeur-food-non-food-h-f-ottos-etoy"
         ]
       },
       "firstSeenAt": "2026-08-12T10:29:50.372Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1393,7 +1418,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ottos-a3e6b8c9ba8b",
@@ -1712,24 +1738,36 @@
       "pensum": "40 - 60%",
       "previousSlugs": [
         "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem",
-        "assistente-vendite-lavorazione-tessile-sport-otto-s-ag-bern-bethlehem"
+        "assistente-vendite-lavorazione-tessile-sport-otto-s-ag-bern-bethlehem",
+        "aiuto-del-venditore-nella-lavorazione-tessile-spazio-otto-s-ag-baldegg",
+        "seller-s-help-in-textile-sports-processing-otto-s-ag-baldegg",
+        "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-baldegg",
+        "aide-du-vendeur-en-textile-sport-otto-s-ag-baldegg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem",
-          "assistente-vendite-lavorazione-tessile-sport-otto-s-ag-bern-bethlehem"
+          "assistente-vendite-lavorazione-tessile-sport-otto-s-ag-bern-bethlehem",
+          "aiuto-del-venditore-nella-lavorazione-tessile-spazio-otto-s-ag-baldegg",
+          "seller-s-help-in-textile-sports-processing-otto-s-ag-baldegg",
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-baldegg",
+          "aide-du-vendeur-en-textile-sport-otto-s-ag-baldegg"
         ],
         "en": [
-          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem"
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem",
+          "seller-s-help-in-textile-sports-processing-otto-s-ag-baldegg"
         ],
         "fr": [
-          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem"
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-bern-bethlehem",
+          "aide-du-vendeur-en-textile-sport-otto-s-ag-baldegg"
+        ],
+        "de": [
+          "aushilfe-verkaufer-in-aufbereitung-textil-sport-ottos-baldegg"
         ]
       },
       "firstSeenAt": "2026-07-04T11:28:27.933Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1739,7 +1777,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ottos-5a32d85f8456",
@@ -8684,24 +8723,36 @@
       "pensum": "100%",
       "previousSlugs": [
         "vendeur-textile-sport-h-f-ottos-crissier",
-        "vendeur-textile-sport-m-w-d-otto-s-ag-crissier"
+        "vendeur-textile-sport-m-w-d-otto-s-ag-crissier",
+        "capote-del-raggio-tessile-sport-h-f-otto-s-ag-crissier",
+        "head-of-textile-sport-radius-h-f-otto-s-ag-crissier",
+        "kopf-des-textil-sportradius-h-f-otto-s-ag-crissier",
+        "chef-de-rayon-textile-sport-h-f-ottos-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeur-textile-sport-h-f-ottos-crissier",
-          "vendeur-textile-sport-m-w-d-otto-s-ag-crissier"
+          "vendeur-textile-sport-m-w-d-otto-s-ag-crissier",
+          "capote-del-raggio-tessile-sport-h-f-otto-s-ag-crissier",
+          "head-of-textile-sport-radius-h-f-otto-s-ag-crissier",
+          "kopf-des-textil-sportradius-h-f-otto-s-ag-crissier",
+          "chef-de-rayon-textile-sport-h-f-ottos-crissier"
         ],
         "en": [
-          "vendeur-textile-sport-h-f-ottos-crissier"
+          "vendeur-textile-sport-h-f-ottos-crissier",
+          "head-of-textile-sport-radius-h-f-otto-s-ag-crissier"
         ],
         "de": [
-          "vendeur-textile-sport-h-f-ottos-crissier"
+          "vendeur-textile-sport-h-f-ottos-crissier",
+          "kopf-des-textil-sportradius-h-f-otto-s-ag-crissier"
+        ],
+        "fr": [
+          "chef-de-rayon-textile-sport-h-f-ottos-crissier"
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:52.990Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -8711,7 +8762,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ottos-2d2adc53d819",

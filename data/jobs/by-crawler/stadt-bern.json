@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-bern",
-  "assembledAt": "2026-08-31T16:59:05.878Z",
+  "assembledAt": "2026-08-31T16:25:55.619Z",
   "jobs": [
     {
       "id": "stadt-bern-d56ddbd2f1c4",
@@ -1650,24 +1650,52 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
-        "protezione-dei-bambini-lavoratore-sociale-rappresentazione-della-maternita-stadt-bern-bern"
+        "protezione-dei-bambini-lavoratore-sociale-rappresentazione-della-maternita-stadt-bern-bern",
+        "lavoro-sociale-stadt-bern-bern",
+        "social-worker-stadt-bern-bern",
+        "sozialarbeiter-in-stadt-bern-bern",
+        "travailleur-social-stadt-bern-bern",
+        "istruzione-sociale-stadt-bern-bern",
+        "social-education-stadt-bern-bern",
+        "sozialpadagog-in-stadt-bern-bern",
+        "education-sociale-stadt-bern-bern",
+        "educazione-sociale-in-wg-alpenegg-stadt-bern-bern",
+        "social-education-in-wg-alpenegg-stadt-bern-bern",
+        "sozialpadagog-in-wg-alpenegg-stadt-bern-bern",
+        "education-sociale-au-gt-alpenegg-stadt-bern-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
-          "protezione-dei-bambini-lavoratore-sociale-rappresentazione-della-maternita-stadt-bern-bern"
+          "protezione-dei-bambini-lavoratore-sociale-rappresentazione-della-maternita-stadt-bern-bern",
+          "lavoro-sociale-stadt-bern-bern",
+          "social-worker-stadt-bern-bern",
+          "sozialarbeiter-in-stadt-bern-bern",
+          "travailleur-social-stadt-bern-bern",
+          "istruzione-sociale-stadt-bern-bern",
+          "social-education-stadt-bern-bern",
+          "sozialpadagog-in-stadt-bern-bern",
+          "education-sociale-stadt-bern-bern",
+          "educazione-sociale-in-wg-alpenegg-stadt-bern-bern",
+          "social-education-in-wg-alpenegg-stadt-bern-bern",
+          "sozialpadagog-in-wg-alpenegg-stadt-bern-bern",
+          "education-sociale-au-gt-alpenegg-stadt-bern-bern"
         ],
         "en": [
-          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
+          "social-worker-stadt-bern-bern"
         ],
         "fr": [
-          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern"
+          "sozialarbeiter-in-kindesschutz-mutterschaftsvertretung-stadt-bern-bern",
+          "travailleur-social-stadt-bern-bern"
+        ],
+        "de": [
+          "sozialarbeiter-in-stadt-bern-bern"
         ]
       },
       "firstSeenAt": "2026-08-20T09:44:31.427Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1677,7 +1705,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "stadt-bern-9da587b91751",

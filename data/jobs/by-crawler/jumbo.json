@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jumbo",
-  "assembledAt": "2026-08-31T17:07:29.904Z",
+  "assembledAt": "2026-08-31T15:50:48.919Z",
   "jobs": [
     {
       "id": "jumbo-6df596c9-288",
@@ -12262,7 +12262,9 @@
           "consulente-di-vendita-garden-jumbo-division-der-coop-genossenschaft-thalwil",
           "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
           "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
-          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-904092"
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-904092",
+          "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+          "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
         ],
         "en": [
           "verkaufsberater-in-do-it-jumbo-thalwil",
@@ -12282,13 +12284,14 @@
         "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-schwyz",
         "sales-consultant-do-it-jumbo-division-der-coop-genossenschaft-hinwil-9fc665",
         "verkaufsberater-in-do-it-jumbo-thalwil-zurich-4ou7bw",
-        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-904092"
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-thalwil-904092",
+        "consulente-di-vendita-do-it-jumbo-division-der-coop-genossenschaft-glarus",
+        "consulente-di-vendita-in-do-it-jumbo-division-der-coop-genossenschaft-glarus"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:27:29.330Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -12298,7 +12301,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "jumbo-d5a086a5-8fe",

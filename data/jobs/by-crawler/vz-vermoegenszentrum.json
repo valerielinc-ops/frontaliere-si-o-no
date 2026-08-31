@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vz-vermoegenszentrum",
-  "assembledAt": "2026-08-31T17:11:13.730Z",
+  "assembledAt": "2026-08-31T16:40:29.431Z",
   "jobs": [
     {
       "id": "vz-vermoegenszentrum-f3367b7723fd",
@@ -1345,24 +1345,47 @@
         "junior-fachspezialist-in-hypotheken-support-80-100-vz-vermogenszentrum-zurich",
         "junior-fachspezialist-in-hypotheken-support-80-100-vz-vermoegenszentrum-ch",
         "junior-fachspezialist-in-hypotheken-support-vz-vermoegenszentrum-ch",
-        "junior-specialist-mortgage-support-80-100-vz-vermogenszentrum-zurich-zurich"
+        "junior-specialist-mortgage-support-80-100-vz-vermogenszentrum-zurich-zurich",
+        "specializzatore-di-ipoteca-junior-80-100-vz-vermogenszentrum-zurich-zurich",
+        "junior-mortgage-specialist-80-100-vz-vermogenszentrum-zurich-zurich",
+        "junior-hypothekarspezialist-in-80-100-vz-vermoegenszentrum-ch",
+        "specialiste-hypothecaire-junior-80-100-vz-vermogenszentrum-zurich-zurich",
+        "junior-hypothekarspezialist-in-80-100-vz-vermogenszentrum-zurich",
+        "junior-contabile-80-100-vz-vermogenszentrum-zurich",
+        "junior-accountant-80-100-vz-vermogenszentrum-zurich",
+        "junior-accountant-80-100-vz-vermoegenszentrum-ch",
+        "junior-hypothekarspezialist-in-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-fachspezialist-in-hypotheken-support-80-100-vz-vermogenszentrum-zurich",
           "junior-fachspezialist-in-hypotheken-support-80-100-vz-vermoegenszentrum-ch",
           "junior-fachspezialist-in-hypotheken-support-vz-vermoegenszentrum-ch",
-          "junior-specialist-mortgage-support-80-100-vz-vermogenszentrum-zurich-zurich"
+          "junior-specialist-mortgage-support-80-100-vz-vermogenszentrum-zurich-zurich",
+          "specializzatore-di-ipoteca-junior-80-100-vz-vermogenszentrum-zurich-zurich",
+          "junior-mortgage-specialist-80-100-vz-vermogenszentrum-zurich-zurich",
+          "junior-hypothekarspezialist-in-80-100-vz-vermoegenszentrum-ch",
+          "specialiste-hypothecaire-junior-80-100-vz-vermogenszentrum-zurich-zurich",
+          "junior-hypothekarspezialist-in-80-100-vz-vermogenszentrum-zurich",
+          "junior-contabile-80-100-vz-vermogenszentrum-zurich",
+          "junior-accountant-80-100-vz-vermogenszentrum-zurich",
+          "junior-accountant-80-100-vz-vermoegenszentrum-ch",
+          "junior-hypothekarspezialist-in-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "junior-fachspezialist-in-hypotheken-support-80-100-vz-vermogenszentrum-zurich"
+          "junior-fachspezialist-in-hypotheken-support-80-100-vz-vermogenszentrum-zurich",
+          "specialiste-hypothecaire-junior-80-100-vz-vermogenszentrum-zurich-zurich"
+        ],
+        "en": [
+          "junior-mortgage-specialist-80-100-vz-vermogenszentrum-zurich-zurich"
+        ],
+        "de": [
+          "junior-hypothekarspezialist-in-80-100-vz-vermoegenszentrum-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:04.950Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 138500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1372,7 +1395,9 @@
           "maxValue": 138500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "vz-vermoegenszentrum-eee453871973",
@@ -2668,7 +2693,13 @@
         "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
         "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich",
         "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
-        "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zurich"
+        "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zurich",
+        "apprendistato-come-kauffrau-kaufmann-privatversicherung-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermoegenszentrum-ch",
+        "apprendistato-come-kauffrau-kaufmann-treuhand-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-treuhand-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-treuhand-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2677,24 +2708,31 @@
           "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
           "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich",
           "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
-          "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zurich"
+          "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zurich",
+          "apprendistato-come-kauffrau-kaufmann-privatversicherung-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermoegenszentrum-ch",
+          "apprendistato-come-kauffrau-kaufmann-treuhand-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-treuhand-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-treuhand-vz-vermoegenszentrum-ch"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-bank-vz-vermogenszentrum-zurich"
         ],
         "de": [
-          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch"
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
+          "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermoegenszentrum-ch"
         ],
         "fr": [
           "lehre-als-kauffrau-kaufmann-bank-vz-vermogenszentrum-zurich",
-          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich"
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T21:41:35.317Z",
       "salaryMin": 53500,
       "salaryMax": 98500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2704,7 +2742,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "vz-vermoegenszentrum-e65a44812339",

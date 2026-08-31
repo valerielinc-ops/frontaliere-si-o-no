@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-basel",
-  "assembledAt": "2026-08-31T17:27:05.538Z",
+  "assembledAt": "2026-08-31T16:24:56.366Z",
   "jobs": [
     {
       "id": "spitex-basel-193d7dcfb99d",
@@ -54,24 +54,45 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
-        "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel"
+        "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel",
+        "infermiera-hf-fh-a-spitex-basel-basel-30d053",
+        "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel-30d053",
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+        "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel-30d053",
+        "infermiera-hf-fh-a-spitex-basel-basel",
+        "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel",
+        "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel",
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel-elwqd2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
-          "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel"
+          "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel",
+          "infermiera-hf-fh-a-spitex-basel-basel-30d053",
+          "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel-30d053",
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
+          "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel-30d053",
+          "infermiera-hf-fh-a-spitex-basel-basel",
+          "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel",
+          "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel",
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel-elwqd2"
         ],
         "en": [
-          "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex"
+          "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
+          "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel-30d053"
         ],
         "fr": [
-          "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex"
+          "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
+          "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel-30d053",
+          "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel"
+        ],
+        "de": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:14.429Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -81,7 +102,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "spitex-basel-ae065e294ccb",

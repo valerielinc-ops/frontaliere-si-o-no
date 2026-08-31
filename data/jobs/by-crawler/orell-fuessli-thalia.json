@@ -1,6 +1,6 @@
 {
   "crawlerKey": "orell-fuessli-thalia",
-  "assembledAt": "2026-08-31T17:19:33.775Z",
+  "assembledAt": "2026-08-31T16:05:43.023Z",
   "jobs": [
     {
       "id": "orell-fuessli-thalia-6b24dbc93270",
@@ -1439,25 +1439,57 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
-        "libreria-100-a-orell-fussli-thalia-zurich"
+        "libreria-100-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-60-a-orell-fussli-thalia-zurich",
+        "bookseller-in-60-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+        "bookseller-60-a-orell-fussli-thalia-zurich",
+        "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
+        "head-of-department-100-a-orell-fussli-thalia-zurich",
+        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
+        "chef-de-departement-100-a-orell-fussli-thalia-zurich",
+        "capo-reparto-100-a-orell-fussli-thalia-zurich",
+        "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
+        "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
+        "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
+        "libreria-in-60-a-orell-fussli-thalia-zurich",
+        "librairie-en-60-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
-          "libreria-100-a-orell-fussli-thalia-zurich"
+          "libreria-100-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-60-a-orell-fussli-thalia-zurich",
+          "bookseller-in-60-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-60-a-orell-fuessli-thalia-zurich",
+          "bookseller-60-a-orell-fussli-thalia-zurich",
+          "capo-dipartimento-100-a-orell-fussli-thalia-zurich",
+          "head-of-department-100-a-orell-fussli-thalia-zurich",
+          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich",
+          "chef-de-departement-100-a-orell-fussli-thalia-zurich",
+          "capo-reparto-100-a-orell-fussli-thalia-zurich",
+          "head-of-department-100-a-orell-fussli-thalia-zurich-3bf4f7",
+          "chef-de-departement-100-a-orell-fussli-thalia-zurich-3bf4f7",
+          "abteilungsleitung-100-a-orell-fuessli-thalia-zurich-7feknu",
+          "libreria-in-60-a-orell-fussli-thalia-zurich",
+          "librairie-en-60-a-orell-fussli-thalia-zurich"
         ],
         "en": [
-          "buchhandler-in-100-a-orell-fuessli-thalia-zurich"
+          "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
+          "bookseller-in-60-a-orell-fussli-thalia-zurich"
         ],
         "fr": [
-          "buchhandler-in-100-a-orell-fuessli-thalia-zurich"
+          "buchhandler-in-100-a-orell-fuessli-thalia-zurich",
+          "buchhandler-in-60-a-orell-fussli-thalia-zurich"
+        ],
+        "de": [
+          "buchhandler-in-60-a-orell-fuessli-thalia-zurich"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:19:24.068Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1467,7 +1499,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "orell-fuessli-thalia-396c68986f59",
