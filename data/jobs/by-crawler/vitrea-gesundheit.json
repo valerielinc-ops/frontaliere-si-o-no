@@ -1,7 +1,667 @@
 {
   "crawlerKey": "vitrea-gesundheit",
-  "assembledAt": "2026-08-28T05:16:53.538Z",
+  "assembledAt": "2026-08-31T17:02:00.060Z",
   "jobs": [
+    {
+      "id": "vitrea-gesundheit-e55866cc921d",
+      "slug": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
+      "slugByLocale": {
+        "de": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zuerich-zurich",
+        "it": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
+        "en": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
+        "fr": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Fachperson Apotheke (a) 80-100%",
+      "titleByLocale": {
+        "it": "Farmacia professionale (a) 80-100 %",
+        "en": "Professional Pharmacy (a) 80-100 %",
+        "de": "Fachperson Apotheke (a) 80-100%",
+        "fr": "Pharmacie professionnelle (a) 80-100 %"
+      },
+      "description": "Fachperson Apotheke (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "it": "Specialista di farmacia (a) 80-100% a Vitrea Gesundheit (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n\n• Orario di lavoro: part-time\n• Posizione: Zihlschlacht-Sitterdorf\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
+        "en": "Pharmacy specialist (a) 80-100% at Vitrea Gesundheit (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n\n• Working time: part-time\n• Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
+        "de": "Fachperson Apotheke (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Spécialiste en pharmacie (a) 80-100% à Vitrea Gesundheit (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n\n• Temps de travail: temps partiel\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
+      },
+      "needsRetranslation": false,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/3zfzs3rjydvbzmas1ejwga59yve8abs",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:57.464Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-19",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/3zfzs3rjydvbzmas1ejwga59yve8abs",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "fachperson-apotheke-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zuerich-zurich"
+        ],
+        "it": [
+          "fachperson-apotheke-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-apotheke-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zuerich-zurich",
+        "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich"
+      ],
+      "firstSeenAt": "2026-08-19T21:30:13.390Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vitrea-gesundheit-64e64167d179",
+      "slug": "logopade-logopadin-a-ambulant-e-stationar-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slugByLocale": {
+        "it": "logopade-logopadin-a-ambulant-e-stationar-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "speech-doctor-speech-doctor-a-outpatient-and-inpatient-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "de": "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht",
+        "fr": "orthophoniste-disciplinaire-a-ambulatoire-et-hospitalise-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Logopäde/ Logopädin (a) ambulant und stationär 80-100%",
+      "titleByLocale": {
+        "it": "Logopäde/ Logopädin (a) ambulant e stationär 80-100%",
+        "en": "Speech doctor/speech doctor (a) outpatient and inpatient 80-100 %",
+        "de": "Logopäde/ Logopädin (a) ambulant und stationär 80-100%",
+        "fr": "orthophoniste/disciplinaire (a) ambulatoire et hospitalisé 80-100 %"
+      },
+      "description": "Logopäde/ Logopädin (a) ambulant und stationär 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "it": "Speech pediatra (a) 80-100% a Vitrea Health (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zihlschlacht-Sitterdorf\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
+        "en": "Speech pediatrician (a) 80-100% at Vitrea Health (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
+        "de": "Logopäde/ Logopädin (a) ambulant und stationär 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Discours pédiatrique (a) 80-100% à Vitrea Health (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n\n• Heures de travail: à temps partiel / à temps plein\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/dem7bll52g3sat65pollc2ie6a53buo",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:56.248Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-21",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/dem7bll52g3sat65pollc2ie6a53buo",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
+        ],
+        "en": [
+          "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
+        ],
+        "fr": [
+          "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T09:45:23.925Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vitrea-gesundheit-2ec62ade5957",
+      "slug": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+      "slugByLocale": {
+        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "en": "project-manager-ceo-s-office-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
+        "de": "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im",
+        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
+      "titleByLocale": {
+        "it": "Infermiera (a) HF/FH 40-100 %",
+        "en": "Dipl. Nurse (a) HF/FH 40-100 %",
+        "de": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
+        "fr": "Infirmière diplômée a) HF/FH 40-100 %"
+      },
+      "description": "Dipl. Pflegefachperson (a) HF/FH 40-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "it": "Infermiera (a) HF/FH 40-100% a Vitrea Gesundheit (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zihlschlacht-Sitterdorf\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
+        "en": "Dipl. Nurse (a) HF/FH 40-100% at Vitrea Gesundheit (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
+        "de": "Dipl. Pflegefachperson (a) HF/FH 40-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Dipl. Infirmière (a) HF/FH 40-100% à Vitrea Gesundheit (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n\n• Heures de travail: à temps partiel / à temps plein\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/0pwg2psl3lrxu0m6nbejbysqxw5m5qj",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:54.552Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/0pwg2psl3lrxu0m6nbejbysqxw5m5qj",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "infermiera-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+          "dipl-pflegefachperson-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+          "infirmiere-diplomee-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+          "diatkoch-m-w-40-60-vitrea-gesundheit-tschugg",
+          "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+          "diatkoch-m-w-40-60-vitrea-gesundheit-tschugg",
+          "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im"
+        ],
+        "fr": [
+          "infirmiere-diplomee-hf-fh-a-40-100-vitrea-gesundheit-dussnang"
+        ]
+      },
+      "previousSlugs": [
+        "infermiera-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+        "dipl-pflegefachperson-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+        "infirmiere-diplomee-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
+        "diatkoch-m-w-40-60-vitrea-gesundheit-tschugg",
+        "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im",
+        "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
+      ],
+      "firstSeenAt": "2026-08-24T21:33:59.922Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vitrea-gesundheit-fd4644ad1496",
+      "slug": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
+      "slugByLocale": {
+        "it": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
+        "en": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
+        "de": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
+        "fr": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
+      "titleByLocale": {
+        "it": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
+        "en": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
+        "de": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
+        "fr": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%"
+      },
+      "description": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "it": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "de": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Dussnang",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/6089n9uv84w9zu5h2ie5icnzxlplda1",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:52.457Z",
+      "addressLocality": "Dussnang",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/6089n9uv84w9zu5h2ie5icnzxlplda1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-25T09:45:29.856Z",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vitrea-gesundheit-c735d2be45a9",
+      "slug": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slugByLocale": {
+        "it": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "de": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Ressortleitung (a) Therapie 100%",
+      "titleByLocale": {
+        "it": "Ressortleitung (a) Therapie 100%",
+        "en": "Ressortleitung (a) Therapie 100%",
+        "de": "Ressortleitung (a) Therapie 100%",
+        "fr": "Ressortleitung (a) Therapie 100%"
+      },
+      "description": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "it": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "de": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fkf9o33mxw38rfo3zqza4i8vwis0kbu",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:50.753Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/fkf9o33mxw38rfo3zqza4i8vwis0kbu",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-27T00:34:59.383Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "vitrea-gesundheit-03dd1c1e1181",
+      "slug": "apn-cura-mentale-80-100-a-spitex-zurich-zurich",
+      "slugByLocale": {
+        "de": "pflegeexpert-in-apn-80-100-mental-care-a-spitex-zuerich-zurich",
+        "it": "apn-cura-mentale-80-100-a-spitex-zurich-zurich",
+        "en": "pflegeexpert-in-apn-mental-care-80-100-a-spitex-zuerich-zurich",
+        "fr": "apn-soins-mentaux-80-100-a-spitex-zurich-zurich"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Leitung (a) ambulantes Therapiezentrum 70-100%",
+      "titleByLocale": {
+        "de": "Leitung (a) ambulantes Therapiezentrum 70-100%",
+        "it": "Leitung (a) ambulantes Therapiezentrum 70-100%",
+        "en": "Leitung (a) ambulantes Therapiezentrum 70-100%",
+        "fr": "Leitung (a) ambulantes Therapiezentrum 70-100%"
+      },
+      "description": "Leitung (a) ambulantes Therapiezentrum 70-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Leitung (a) ambulantes Therapiezentrum 70-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Leitung (a) ambulantes Therapiezentrum 70-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Leitung (a) ambulantes Therapiezentrum 70-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Leitung (a) ambulantes Therapiezentrum 70-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/8rq454luqyfl0ww1psplwh46me71m12",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:46.588Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/8rq454luqyfl0ww1psplwh46me71m12",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-a-ambulantes-therapiezentrum-70-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "de": [
+          "leitung-a-ambulantes-therapiezentrum-70-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-a-ambulantes-therapiezentrum-70-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-31T17:01:46.588Z"
+    },
+    {
+      "id": "vitrea-gesundheit-2064828a32e0",
+      "slug": "dipl-pflegefachperson-im-nachtteam-a-50-100-vitrea-gesundheit-dussnang",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-im-nachtteam-a-50-100-vitrea-gesundheit-dussnang",
+        "it": "dipl-pflegefachperson-im-nachtteam-a-50-100-vitrea-gesundheit-dussnang",
+        "en": "dipl-pflegefachperson-im-nachtteam-a-50-100-vitrea-gesundheit-dussnang",
+        "fr": "dipl-pflegefachperson-im-nachtteam-a-50-100-vitrea-gesundheit-dussnang"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Dipl. Pflegefachperson im Nachtteam (a) 50-100%",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson im Nachtteam (a) 50-100%",
+        "it": "Dipl. Pflegefachperson im Nachtteam (a) 50-100%",
+        "en": "Dipl. Pflegefachperson im Nachtteam (a) 50-100%",
+        "fr": "Dipl. Pflegefachperson im Nachtteam (a) 50-100%"
+      },
+      "description": "Dipl. Pflegefachperson im Nachtteam (a) 50-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Dipl. Pflegefachperson im Nachtteam (a) 50-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Dipl. Pflegefachperson im Nachtteam (a) 50-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Dipl. Pflegefachperson im Nachtteam (a) 50-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Dipl. Pflegefachperson im Nachtteam (a) 50-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Dussnang",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/b3zrzlbtthmji417r4vauc9l3jdos4t",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:44.960Z",
+      "addressLocality": "Dussnang",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/b3zrzlbtthmji417r4vauc9l3jdos4t",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-31T17:01:44.960Z"
+    },
+    {
+      "id": "vitrea-gesundheit-f35b02fae18c",
+      "slug": "ergotherapeutin-a-80-100-vitrea-gesundheit-seefeld",
+      "slugByLocale": {
+        "de": "ergotherapeutin-a-80-100-vitrea-gesundheit-seefeld",
+        "it": "ergotherapeutin-a-80-100-vitrea-gesundheit-seefeld",
+        "en": "ergotherapeutin-a-80-100-vitrea-gesundheit-seefeld",
+        "fr": "ergotherapeutin-a-80-100-vitrea-gesundheit-seefeld"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "ErgotherapeutIn (a) 80-100%",
+      "titleByLocale": {
+        "de": "ErgotherapeutIn (a) 80-100%",
+        "en": "ErgotherapeutIn (a) 80-100%",
+        "it": "ErgotherapeutIn (a) 80-100%",
+        "fr": "ErgotherapeutIn (a) 80-100%"
+      },
+      "description": "ErgotherapeutIn (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seefeld, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Seefeld\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "ErgotherapeutIn (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seefeld, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Seefeld\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "ErgotherapeutIn (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seefeld, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Seefeld\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "ErgotherapeutIn (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seefeld, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Seefeld\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "ErgotherapeutIn (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Seefeld, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Seefeld\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Seefeld",
+      "canton": "GR",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/20k7y38ps00805p5panwmeojn5prlyl",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:43.293Z",
+      "addressLocality": "Seefeld",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/20k7y38ps00805p5panwmeojn5prlyl",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-31T17:01:43.293Z"
+    },
+    {
+      "id": "vitrea-gesundheit-7fbc1c28d828",
+      "slug": "pflegefachperson-a-mscn-come-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slugByLocale": {
+        "de": "pflegefachperson-a-mscn-als-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "it": "pflegefachperson-a-mscn-come-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "pflegefachperson-a-mscn-als-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "fr": "pflegefachperson-a-mscn-als-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      },
+      "company": "Vitrea Gesundheit",
+      "companyKey": "vitrea-gesundheit",
+      "companyDomain": "vitrea-gesundheit.ch",
+      "title": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60%",
+      "titleByLocale": {
+        "de": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60%",
+        "it": "Pflegefachperson (a) MScN come PflegeexpertIn 40-60%",
+        "en": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60%",
+        "fr": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60%"
+      },
+      "description": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+      "descriptionByLocale": {
+        "de": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "it": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "en": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
+        "fr": "Pflegefachperson (a) MScN als PflegeexpertIn 40-60% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
+      },
+      "needsRetranslation": true,
+      "location": "Zihlschlacht-Sitterdorf",
+      "canton": "TG",
+      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/ivvmtr2df9yx9hatg5fchnraonjycbv",
+      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:01:41.188Z",
+      "addressLocality": "Zihlschlacht-Sitterdorf",
+      "addressRegion": "TG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/ivvmtr2df9yx9hatg5fchnraonjycbv",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-a-mscn-als-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-a-mscn-als-pflegeexpertin-40-60-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ],
+      "salaryMin": 48900,
+      "salaryMax": 68400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48900,
+          "maxValue": 68400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-31T17:01:41.188Z"
+    },
     {
       "id": "vitrea-gesundheit-276219928cc5",
       "slug": "gestione-del-team-a-disposizione-del-letto-80-vitrea-gesundheit-zihlschlacht-sitterdorf",
@@ -77,7 +737,9 @@
           "maxValue": 91200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "vitrea-gesundheit-d31e216ef397",
@@ -154,16 +816,18 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "vitrea-gesundheit-7895604b77a5",
       "slug": "cucina-chef-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
-        "it": "dipendenti-a-industria-alberghiera-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "employee-a-hotel-industry-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "it": "cucina-chef-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "de": "mitarbeiterin-a-hotellerie-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "salaries-a-industrie-hoteliere-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "fr": "cuisiniere-chef-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -171,7 +835,7 @@
       "title": "Koch/ Köchin (a) 80-100%",
       "titleByLocale": {
         "it": "Cucina/chef (a) 80-100 %",
-        "en": "Cook/chef (a) 80-100 %",
+        "en": "Koch/ Köchin (a) 80-100%",
         "de": "Koch/ Köchin (a) 80-100%",
         "fr": "Cuisinière/chef (a) 80-100 %"
       },
@@ -214,14 +878,17 @@
           "kitchen-help-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
           "kuchenhilfe-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
           "aide-a-la-cuisine-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-          "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+          "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "dipendenti-a-industria-alberghiera-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf"
         ],
         "en": [
           "kitchen-help-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "employee-a-hotel-industry-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
           "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
         ],
         "fr": [
           "aide-a-la-cuisine-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+          "salaries-a-industrie-hoteliere-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
           "cuisiniere-chef-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
         ]
       },
@@ -231,6 +898,9 @@
         "kuchenhilfe-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "aide-a-la-cuisine-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "koch-kochin-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "dipendenti-a-industria-alberghiera-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "employee-a-hotel-industry-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "salaries-a-industrie-hoteliere-40-50-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "cuisiniere-chef-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       ],
       "firstSeenAt": "2026-08-12T21:49:12.906Z",
@@ -245,7 +915,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     },
     {
       "id": "vitrea-gesundheit-ad91fcabfed8",
@@ -322,448 +995,9 @@
           "maxValue": 61200,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-e55866cc921d",
-      "slug": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
-      "slugByLocale": {
-        "de": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zuerich-zurich",
-        "it": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
-        "en": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich",
-        "fr": "fachfrau-mann-gesundheit-fage-schwerpunkt-psychiatrie-60-90-a-spitex-zurich"
       },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Fachperson Apotheke (a) 80-100%",
-      "titleByLocale": {
-        "it": "Farmacia professionale (a) 80-100 %",
-        "en": "Professional Pharmacy (a) 80-100 %",
-        "de": "Fachperson Apotheke (a) 80-100%",
-        "fr": "Pharmacie professionnelle (a) 80-100 %"
-      },
-      "description": "Fachperson Apotheke (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Specialista di farmacia (a) 80-100% a Vitrea Gesundheit (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n\n• Orario di lavoro: part-time\n• Posizione: Zihlschlacht-Sitterdorf\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
-        "en": "Pharmacy specialist (a) 80-100% at Vitrea Gesundheit (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n\n• Working time: part-time\n• Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
-        "de": "Fachperson Apotheke (a) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Spécialiste en pharmacie (a) 80-100% à Vitrea Gesundheit (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n\n• Temps de travail: temps partiel\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
-      },
-      "needsRetranslation": false,
-      "location": "Zihlschlacht-Sitterdorf",
-      "canton": "TG",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/3zfzs3rjydvbzmas1ejwga59yve8abs",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:16:45.158Z",
-      "addressLocality": "Zihlschlacht-Sitterdorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/3zfzs3rjydvbzmas1ejwga59yve8abs",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "fachperson-apotheke-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "it": [
-          "fachperson-apotheke-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-apotheke-a-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      ],
-      "firstSeenAt": "2026-08-19T21:30:13.390Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-64e64167d179",
-      "slug": "logopade-logopadin-a-ambulant-e-stationar-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-      "slugByLocale": {
-        "it": "logopade-logopadin-a-ambulant-e-stationar-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "speech-doctor-speech-doctor-a-outpatient-and-inpatient-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "de": "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht",
-        "fr": "orthophoniste-disciplinaire-a-ambulatoire-et-hospitalise-80-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Logopäde/ Logopädin (a) ambulant und stationär 80-100%",
-      "titleByLocale": {
-        "it": "Logopäde/ Logopädin (a) ambulant e stationär 80-100%",
-        "en": "Speech doctor/speech doctor (a) outpatient and inpatient 80-100 %",
-        "de": "Logopäde/ Logopädin (a) ambulant und stationär 80-100%",
-        "fr": "orthophoniste/disciplinaire (a) ambulatoire et hospitalisé 80-100 %"
-      },
-      "description": "Logopäde/ Logopädin (a) ambulant und stationär 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Speech pediatra (a) 80-100% a Vitrea Health (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zihlschlacht-Sitterdorf\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
-        "en": "Speech pediatrician (a) 80-100% at Vitrea Health (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
-        "de": "Logopäde/ Logopädin (a) ambulant und stationär 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Discours pédiatrique (a) 80-100% à Vitrea Health (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n\n• Heures de travail: à temps partiel / à temps plein\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
-      },
-      "needsRetranslation": true,
-      "location": "Zihlschlacht-Sitterdorf",
-      "canton": "TG",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/dem7bll52g3sat65pollc2ie6a53buo",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:16:43.819Z",
-      "addressLocality": "Zihlschlacht-Sitterdorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/dem7bll52g3sat65pollc2ie6a53buo",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
-        ],
-        "en": [
-          "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
-        ],
-        "fr": [
-          "logopade-logopadin-a-ambulant-und-stationar-80-100-vitrea-gesundheit-zihlschlacht"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T09:45:23.925Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-2ec62ade5957",
-      "slug": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-      "slugByLocale": {
-        "it": "project-manager-staff-del-direttore-generale-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "en": "project-manager-ceo-s-office-a-80-100-vitrea-gesundheit-seewis-im-prattigau",
-        "de": "projektleiterin-stabstelle-des-geschaftsfuhrers-a-80-100-vitrea-gesundheit-seewis-im",
-        "fr": "responsable-de-projet-bureau-du-directeur-general-a-80-100-vitrea-gesundheit-seewis-im-prattigau"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
-      "titleByLocale": {
-        "it": "Infermiera (a) HF/FH 40-100 %",
-        "en": "Dipl. Nurse (a) HF/FH 40-100 %",
-        "de": "Dipl. Pflegefachperson (a) HF/FH 40-100%",
-        "fr": "Infirmière diplômée a) HF/FH 40-100 %"
-      },
-      "description": "Dipl. Pflegefachperson (a) HF/FH 40-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Infermiera (a) HF/FH 40-100% a Vitrea Gesundheit (ex VAMED Svizzera), Zihlschlacht-Sitterdorf, Svizzera.\n\n• Ore lavorative: part-time / full-time\n• Posizione: Zihlschlacht-Sitterdorf\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
-        "en": "Dipl. Nurse (a) HF/FH 40-100% at Vitrea Gesundheit (formerly VAMED Switzerland), Zihlschlacht-Sitterdorf, Switzerland.\n\n• Working hours: part-time / full-time\n• Location: Zihlschlacht-Sitterdorf\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
-        "de": "Dipl. Pflegefachperson (a) HF/FH 40-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Dipl. Infirmière (a) HF/FH 40-100% à Vitrea Gesundheit (anciennement VAMED Suisse), Zihlschlacht-Sitterdorf, Suisse.\n\n• Heures de travail: à temps partiel / à temps plein\n• Lieu: Zihlschlacht-Sitterdorf\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
-      },
-      "location": "Zihlschlacht-Sitterdorf",
-      "canton": "TG",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/0pwg2psl3lrxu0m6nbejbysqxw5m5qj",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:16:42.549Z",
-      "addressLocality": "Zihlschlacht-Sitterdorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/0pwg2psl3lrxu0m6nbejbysqxw5m5qj",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "infermiera-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-          "dipl-pflegefachperson-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-          "infirmiere-diplomee-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-          "diatkoch-m-w-40-60-vitrea-gesundheit-tschugg",
-          "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "de": [
-          "dipl-pflegefachperson-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-          "diatkoch-m-w-40-60-vitrea-gesundheit-tschugg",
-          "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-        ],
-        "fr": [
-          "infirmiere-diplomee-hf-fh-a-40-100-vitrea-gesundheit-dussnang"
-        ]
-      },
-      "previousSlugs": [
-        "infermiera-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-        "dipl-pflegefachperson-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-        "infirmiere-diplomee-hf-fh-a-40-100-vitrea-gesundheit-dussnang",
-        "diatkoch-m-w-40-60-vitrea-gesundheit-tschugg",
-        "dipl-pflegefachperson-a-hf-fh-40-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      ],
-      "firstSeenAt": "2026-08-24T21:33:59.922Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-fd4644ad1496",
-      "slug": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
-      "slugByLocale": {
-        "it": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
-        "en": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
-        "de": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang",
-        "fr": "stv-abteilungsleitung-hotellerie-m-w-d-restauration-80-100-vitrea-gesundheit-dussnang"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
-      "titleByLocale": {
-        "it": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
-        "en": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
-        "de": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%",
-        "fr": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100%"
-      },
-      "description": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "en": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "de": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Stv. Abteilungsleitung Hotellerie m/w/d (Restauration) 80-100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Teilzeit / Vollzeit\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
-      },
-      "needsRetranslation": true,
-      "location": "Dussnang",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/6089n9uv84w9zu5h2ie5icnzxlplda1",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:16:40.829Z",
-      "addressLocality": "Dussnang",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/6089n9uv84w9zu5h2ie5icnzxlplda1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-25T09:45:29.856Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-c735d2be45a9",
-      "slug": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-      "slugByLocale": {
-        "it": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "de": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Ressortleitung (a) Therapie 100%",
-      "titleByLocale": {
-        "it": "Ressortleitung (a) Therapie 100%",
-        "en": "Ressortleitung (a) Therapie 100%",
-        "de": "Ressortleitung (a) Therapie 100%",
-        "fr": "Ressortleitung (a) Therapie 100%"
-      },
-      "description": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "en": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "de": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Ressortleitung (a) Therapie 100% bei Vitrea Gesundheit (ehemals VAMED Schweiz), Zihlschlacht-Sitterdorf, Schweiz.\n\n• Arbeitszeit: Vollzeit\n• Standort: Zihlschlacht-Sitterdorf\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit"
-      },
-      "needsRetranslation": true,
-      "location": "Zihlschlacht-Sitterdorf",
-      "canton": "TG",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/fkf9o33mxw38rfo3zqza4i8vwis0kbu",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:16:39.114Z",
-      "addressLocality": "Zihlschlacht-Sitterdorf",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/fkf9o33mxw38rfo3zqza4i8vwis0kbu",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T00:34:59.383Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "vitrea-gesundheit-814296151977",
-      "slug": "apprendistato-restaurantfachperson-a-cfc-o-restaurantangestellte-r-a-afp-ab-2027-vitrea-gesundheit-dussnang",
-      "slugByLocale": {
-        "it": "apprendistato-restaurantfachperson-a-cfc-o-restaurantangestellte-r-a-afp-ab-2027-vitrea-gesundheit-dussnang",
-        "en": "apprenticeship-restaurant-specialist-a-efz-or-restaurant-employee-r-a-eba-from-2027-vitrea-gesundheit-dussnang",
-        "de": "lehrstelle-restaurantfachperson-a-efz-oder-restaurantangestellte-r-a-eba-ab-2027-vitrea",
-        "fr": "specialiste-du-restaurant-d-apprentissage-a-efz-ou-restaurant-employe-r-a-eba-a-partir-de-2027-vitrea-gesundheit"
-      },
-      "company": "Vitrea Gesundheit",
-      "companyKey": "vitrea-gesundheit",
-      "companyDomain": "vitrea-gesundheit.ch",
-      "title": "Lehrstelle Restaurantfachperson (a) EFZ oder Restaurantangestellte/r (a) EBA ab 2027",
-      "titleByLocale": {
-        "it": "Apprendistato Restaurantfachperson (a) CFC o Restaurantangestellte/r (a) AFP ab 2027",
-        "en": "Apprenticeship restaurant specialist (a) EFZ or restaurant employee/r (a) EBA from 2027",
-        "de": "Lehrstelle Restaurantfachperson (a) EFZ oder Restaurantangestellte/r (a) EBA ab 2027",
-        "fr": "Spécialiste du restaurant d'apprentissage (a) EFZ ou restaurant employé/r (a) EBA à partir de 2027"
-      },
-      "description": "Lehrstelle Restaurantfachperson (a) EFZ oder Restaurantangestellte/r (a) EBA ab 2027 bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-      "descriptionByLocale": {
-        "it": "Specialista del ristorante di apprendistato (a) EFZ o dipendente del ristorante (r) EBA dal 2027 a Vitrea Gesundheit (ex VAMED Svizzera), Dussnang, Svizzera.\n\n• Orario di lavoro: insegnamento\n• Posizione: Dussnang\n• Area: Servizi di riabilitazione e assistenza\n• Applicazione tramite il softgarden onlyfy.jobs portale di carriera di Vitrea Gesundheit",
-        "en": "Apprenticeship restaurant specialist (a) EFZ or restaurant employee (r) EBA from 2027 at Vitrea Gesundheit (formerly VAMED Switzerland), Dussnang, Switzerland.\n\n• Working time: teaching\n• Location: Dussnang\n• Area: Rehabilitation and care services\n• Application via the softgarden onlyfy.jobs career portal of Vitrea Gesundheit",
-        "de": "Lehrstelle Restaurantfachperson (a) EFZ oder Restaurantangestellte/r (a) EBA ab 2027 bei Vitrea Gesundheit (ehemals VAMED Schweiz), Dussnang, Schweiz.\n\n• Arbeitszeit: Lehre\n• Standort: Dussnang\n• Bereich: Rehabilitations- und Pflegedienstleistungen\n• Bewerbung über das softgarden onlyfy.jobs-Karriereportal von Vitrea Gesundheit",
-        "fr": "Spécialiste des restaurants d'apprentissage (a) EFZ ou employé de restaurant (r) EBA de 2027 à Vitrea Gesundheit (anciennement VAMED Suisse), Dussnang, Suisse.\n\n• Temps de travail: enseignement\n• Lieu: Dussnang\n• Domaine: Services de réadaptation et de soins\n• Application via le portail softgarden onlyfy.jobs carrière de Vitrea Gesundheit"
-      },
-      "needsRetranslation": true,
-      "location": "Dussnang",
-      "canton": "GR",
-      "url": "https://vamed-ag-ch.onlyfy.jobs/de/job/pvbf9h8flu8qlee7n4m0z1gqordzdnu",
-      "source": "Vitrea Gesundheit Dedicated Parser (softgarden onlyfy.jobs)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:35:13.312Z",
-      "addressLocality": "Dussnang",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-06",
-      "applyUrl": "https://vamed-ag-ch.onlyfy.jobs/de/job/pvbf9h8flu8qlee7n4m0z1gqordzdnu",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-restaurantfachperson-a-efz-oder-restaurantangestellte-r-a-eba-ab-2027-vitrea"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-restaurantfachperson-a-efz-oder-restaurantangestellte-r-a-eba-ab-2027-vitrea"
-        ],
-        "en": [
-          "lehrstelle-restaurantfachperson-a-efz-oder-restaurantangestellte-r-a-eba-ab-2027-vitrea"
-        ],
-        "fr": [
-          "lehrstelle-restaurantfachperson-a-efz-oder-restaurantangestellte-r-a-eba-ab-2027-vitrea"
-        ]
-      },
-      "firstSeenAt": "2026-08-06T11:31:36.197Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     }
   ]
 }
