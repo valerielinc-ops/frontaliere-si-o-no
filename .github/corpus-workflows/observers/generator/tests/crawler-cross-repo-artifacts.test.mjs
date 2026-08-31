@@ -41,7 +41,7 @@ test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unic
   assert.equal(CONTRACT.schemaVersion, 1);
   assert.equal(CONTRACT.groupCount, 23);
   assert.equal(CONTRACT.artifactCount, 24);
-  assert.equal(CONTRACT.observerCount, 1);
+  assert.equal(CONTRACT.observerCount, 2);
   assert.equal(CONTRACT.artifacts.length, 24);
 
   const groups = CONTRACT.artifacts.filter((artifact) => /^crawler-group-\d{2}\.yml$/.test(artifact.file));
@@ -57,6 +57,17 @@ test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unic
   for (const observer of CONTRACT.observers) {
     assert.equal(sha256(readFileSync(path.join(ROOT, observer.target), 'utf8')), observer.sha256);
   }
+  const observerWorkflow = readFileSync(
+    path.join(WORKFLOWS, 'crawler-generation-observer-shadow.yml'),
+    'utf8',
+  );
+  assert.match(observerWorkflow, /^run-name: crawler-generation-sentinel-\$\{\{ inputs\.generation_token \}\}$/m);
+  assert.match(observerWorkflow, /^  workflow_dispatch:$/m);
+  assert.doesNotMatch(observerWorkflow, /^  workflow_run:$/m);
+  assert.match(observerWorkflow, /^  actions: read$/m);
+  assert.match(observerWorkflow, /^  contents: read$/m);
+  assert.doesNotMatch(observerWorkflow, /^\s+(?:actions|contents): write$/m);
+  assert.doesNotMatch(observerWorkflow, /translate-pending|repository_dispatch|git push|secrets\./);
 });
 
 test('ogni artifact coincide con lo hash emesso dal generatore del sito', () => {

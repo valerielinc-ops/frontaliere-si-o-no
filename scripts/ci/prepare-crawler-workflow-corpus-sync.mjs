@@ -22,6 +22,10 @@ export const CORPUS_OBSERVER_FILES = [
     source: 'observers/generator/tests/crawler-cross-repo-artifacts.test.mjs',
     target: 'generator/tests/crawler-cross-repo-artifacts.test.mjs',
   },
+  {
+    source: 'observers/workflows/crawler-generation-observer-shadow.yml',
+    target: '.github/workflows/crawler-generation-observer-shadow.yml',
+  },
 ];
 
 function sha16(content) {
@@ -92,7 +96,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   if (JSON.stringify(contract.observers ?? []) !== JSON.stringify(
     CORPUS_OBSERVER_FILES.map(({ source, target }) => ({ source, target, sha256: contract.observers?.find((observer) => observer.source === source)?.sha256 })),
   )) {
-    throw new Error('crawler transport contract must name exactly the dedicated bootstrap observer');
+    throw new Error('crawler transport contract must name exactly the dedicated observers');
   }
 
   // Leggi e valida tutto PRIMA di scrivere. Un export troncato non puo'
@@ -192,5 +196,5 @@ if (isMain) {
     process.exit(0);
   }
   const result = prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot });
-  console.log(`Prepared ${result.artifacts} crawler workflow artifacts, ${result.observers} bootstrap observers, contract and baselines.`);
+  console.log(`Prepared ${result.artifacts} crawler workflow artifacts, ${result.observers} observers, contract and baselines.`);
 }
