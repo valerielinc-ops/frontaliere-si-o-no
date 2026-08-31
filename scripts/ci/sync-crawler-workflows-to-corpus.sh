@@ -155,7 +155,7 @@ body="$work/pr-body.md"
 cat > "$body" <<'BODY'
 ## Implementato
 
-- in questa PR: sincronizzati atomicamente i 24 workflow crawler eseguibili, il contratto hash del generatore, l'observer dedicato e le 25 baseline del loop-sync manifest dalla sorgente portabile del sito; il diff è limitato da allowlist fail-closed.
+- in questa PR: sincronizzati atomicamente i 24 workflow crawler eseguibili, il contratto hash del generatore, i sei observer dedicati e le 31 baseline del loop-sync manifest dalla sorgente portabile del sito; il diff è limitato da allowlist fail-closed.
 - in questa PR: la branch di consegna viene aggiornata senza push su `main`; test, review automatica e auto-merge `## LGTM` del corpus restano obbligatori prima che la schedulazione cambi.
 
 ## Non implementato (ancora)

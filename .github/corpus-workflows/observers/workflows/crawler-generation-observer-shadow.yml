@@ -233,7 +233,7 @@ jobs:
           if ! jq -e \
               --argjson runId "$TRIGGER_RUN_ID" \
               --arg repository "$REPOSITORY" \
-              --arg workflowPath ".github/workflows/crawler-group-$group.yml" \
+              --arg workflowPath ".github/workflows/crawler-group-${group}.yml" \
               --arg title "$TRIGGER_TITLE" \
               --arg headSha "$TRIGGER_HEAD_SHA" '
             .id == $runId

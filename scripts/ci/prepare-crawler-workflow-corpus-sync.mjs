@@ -71,12 +71,25 @@ function ownedSitePaths() {
 function expectedMappings() {
   return new Map([
     ...CRAWLER_WORKFLOW_FILES.map((file) => `.github/corpus-workflows/${file}`),
-  ].map((sitePath) => [sitePath, `.github/workflows/${path.basename(sitePath)}`]).concat([
+  ].map((sitePath) => [sitePath, `.github/workflows/${path.basename(sitePath)}`]).concat(
+    CORPUS_OBSERVER_FILES.map(({ source, target }) => [
+      `.github/corpus-workflows/${source}`,
+      target,
+    ]), [
     ['.github/corpus-workflows/contract.json', CORPUS_CONTRACT_PATH],
   ]));
 }
 
-/** Consente rispetto a main soltanto la baseline delle 25 entry owned. */
+function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloads }) {
+  if (sitePath.endsWith('/contract.json')) return contractBuffer;
+  const observer = CORPUS_OBSERVER_FILES.find(({ source }) =>
+    sitePath === `.github/corpus-workflows/${source}`);
+  return observer
+    ? observerPayloads.get(observer.target)
+    : payloads.get(path.basename(sitePath));
+}
+
+/** Consente rispetto a main soltanto la baseline delle 31 entry owned. */
 export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {}) {
   if (!baseManifest || !currentManifest) throw new Error('baseManifest and currentManifest are required');
   const expected = structuredClone(baseManifest);
@@ -96,7 +109,7 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {
     else expected.files.push(structuredClone(current));
   }
   if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
-    throw new Error('crawler transport changed loop-sync manifest outside the 25 owned baselines');
+    throw new Error('crawler transport changed loop-sync manifest outside the 31 owned baselines');
   }
 }
 
@@ -154,9 +167,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
       throw new Error(`invalid or duplicate crawler transport mapping: ${entry.sitePath}`);
     }
     observed.add(entry.sitePath);
-    const content = entry.sitePath.endsWith('/contract.json')
-      ? contractBuffer
-      : payloads.get(path.basename(entry.sitePath));
+    const content = contentForSitePath(entry.sitePath, { contractBuffer, payloads, observerPayloads });
     const hash = sha16(content);
     const baselineKeys = Object.keys(entry.baseline ?? {}).sort();
     const baselineIsCanonical = baselineKeys.join(',') === 'alignedAt,corpus,site' &&
@@ -171,9 +182,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
     if (destinations.has(destination)) {
       throw new Error(`crawler transport destination already owned by another manifest entry: ${destination}`);
     }
-    const content = sitePath.endsWith('/contract.json')
-      ? contractBuffer
-      : payloads.get(path.basename(sitePath));
+    const content = contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloads });
     const hash = sha16(content);
     manifest.files.push({
       path: destination,
@@ -208,7 +217,7 @@ if (isMain) {
     const baseManifest = JSON.parse(fs.readFileSync(0, 'utf8'));
     const currentManifest = JSON.parse(readRequired(corpusRoot).toString('utf8'));
     assertCrawlerManifestDelta({ baseManifest, currentManifest });
-    console.log('Crawler loop-sync manifest delta is confined to 25 owned baselines.');
+    console.log('Crawler loop-sync manifest delta is confined to 31 owned baselines.');
     process.exit(0);
   }
   const result = prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot });
