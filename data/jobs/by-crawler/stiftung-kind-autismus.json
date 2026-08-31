@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stiftung-kind-autismus",
-  "assembledAt": "2026-08-28T05:34:45.314Z",
+  "assembledAt": "2026-08-31T17:32:30.307Z",
   "jobs": [
     {
       "id": "stiftung-kind-autismus-c04f839d446c",
@@ -34,7 +34,7 @@
       "url": "https://app.reflinejobs.io/2044/0102/pub/99/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:41.127Z",
+      "crawledAt": "2026-08-31T17:32:26.591Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -71,6 +71,7 @@
       "firstSeenAt": "2026-07-02T23:17:06.184Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -114,7 +115,7 @@
       "url": "https://app.reflinejobs.io/2044/0081/pub/100/index.html",
       "source": "Stiftung Kind und Autismus Dedicated Parser (Refline 2044)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:34:40.126Z",
+      "crawledAt": "2026-08-31T17:32:25.925Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,6 +153,7 @@
       "firstSeenAt": "2026-07-14T12:02:49.596Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
