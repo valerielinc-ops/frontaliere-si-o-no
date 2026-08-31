@@ -81308,6 +81308,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-licenziamento-famiglia-figli-2026': {
+    title: 'Frontaliere licenziato 2026: preavviso, indennità e figli',
+    description: 'Frontaliere licenziato nel 2026: preavviso secondo il CO, indennità INPS, LAMal e credito d\'imposta per famiglie con figli in Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, licenziato, preavviso, indennità, figli',
+    ogTitle: 'Frontaliere licenziato 2026: preavviso, indennità e figli',
+    ogDescription: 'Scenario completo per il frontaliere con famiglia e figli: preavviso secondo il CO svizzero, Nuovo Accordo in vigore dal 2024, credito d\'imposta nel quadro CE, copertura LAMal e posizione contributiva INPS dopo la cessazione del rapporto di lavoro',
+    canonicalPath: '/articoli-frontaliere/frontaliere-licenziamento-famiglia-figli-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere licenziato 2026: preavviso, indennità e figli",
+      "description": "Frontaliere licenziato nel 2026: preavviso secondo il CO, indennità INPS, LAMal e credito d'imposta per famiglie con figli in Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-licenziamento-famiglia-figli-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di frontiera in Ticino all'alba con automobile in coda per il pendolarismo"
+      },
+      "datePublished": "2026-08-31T23:02:27+00:00",
+      "dateModified": "2026-08-31T23:02:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-licenziamento-famiglia-figli-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

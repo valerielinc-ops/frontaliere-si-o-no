@@ -11012,6 +11012,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Home crisis in Como: 1,302 vacant homes, young people on the run',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'In July 2025, the province of Como had 1,302 vacant public accommodations. Unions denounce: workers and young people do not find sustainable homes. Housing costs push some into the Swiss labour market.',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Lake Como waterfront with residential buildings, representing the attractive but expensive housing market in Como province',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Border worker dismissed 2026: notice, allowances and children',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'New 2024 Agreement, CO notice, INPS allowance and protections for families with children: what changes for the frontier worker',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Ticino border crossing at dawn with a commuter car waiting at customs',
 };
 
 export default blogMetaEn;

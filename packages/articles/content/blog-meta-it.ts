@@ -11013,6 +11013,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-crisi-abitativa-alloggi-sfitti.title': 'Crisi casa a Como: 1.302 alloggi sfitti, giovani in fuga',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.excerpt': 'Nel luglio 2025, provincia di Como ha 1.302 alloggi pubblici sfitti. Sindacati denunciano: lavoratori e giovani non trovano case sostenibili. Costi abitativi spingono alcuni verso il mercato del lavoro svizzero.',
     'blog.article.como-crisi-abitativa-alloggi-sfitti.imageAlt': 'Vista del lago di Como con edifici residenziali, simbolo della provincia attrattiva ma con costi abitativi elevati',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Frontaliere licenziato 2026: preavviso, indennità e figli',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'Nuovo Accordo 2024, preavviso CO, indennità INPS e tutele per famiglie con figli: cosa cambia per il lavoratore frontalier',
+    'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Valico di frontiera in Ticino all\'alba con automobile in coda per il pendolarismo',
 };
 
 export default blogMetaIt;
