@@ -320,6 +320,23 @@ export function shouldStopAfterConsecutiveFailures(
 }
 
 /**
+ * Return why a cascade pass must stop, with the run-wide cascade deadline
+ * taking precedence over the general workflow time-budget guard.
+ */
+export function cascadeStopReason({
+  nowMs,
+  runStartMs,
+  cascadeDeadlineMs,
+  passStartMs,
+  timeBudgetMs,
+  timeBudgetFraction,
+}) {
+  if (nowMs >= runStartMs + cascadeDeadlineMs) return 'cascade deadline';
+  if (nowMs - passStartMs >= timeBudgetMs * timeBudgetFraction) return 'time budget';
+  return null;
+}
+
+/**
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
  */
@@ -1153,20 +1170,29 @@ async function main() {
   for (const key of companyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
 
-    // Time budget: stop before starting a new company once we pass the cascade
-    // deadline (250min), so no company is started that would only immediately
+    // Stop before starting a new company once the RUN-WIDE cascade deadline
+    // passes, so no company is started that would only immediately
     // defer (its per-call budget would be ~0) and so ~100min is left for the
     // Argos mop-up + the always()-guarded commit/scatter/slug/deploy steps before
     // the 350min job timeout. (Was TIME_BUDGET_MS=320min, which left a 250–320min
     // window where late companies could still run — review #2205 🔴 round 2.)
-    const elapsedMs = Date.now() - startTime;
-    if (elapsedMs > CASCADE_LOCALIZATION_DEADLINE_MS) {
-      const elapsedMin = Math.round(elapsedMs / 60_000);
-      console.log(`\n⏰ Cascade deadline reached (${elapsedMin}min elapsed) — stopping to leave room for mop-up + commit.`);
+    const companyNowMs = Date.now();
+    const companyStopReason = cascadeStopReason({
+      nowMs: companyNowMs,
+      runStartMs: RUN_START_MS,
+      cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+      passStartMs: startTime,
+      timeBudgetMs: TIME_BUDGET_MS,
+      timeBudgetFraction: 1,
+    });
+    if (companyStopReason) {
+      const elapsedMin = Math.round((companyNowMs - RUN_START_MS) / 60_000);
+      console.log(`\n⏰ ${companyStopReason === 'cascade deadline' ? 'Cascade deadline' : 'Time budget'} reached (${elapsedMin}min run-wide elapsed) — stopping to leave room for mop-up + commit.`);
       console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining (deferred to next run).`);
       break;
     }
 
+    const elapsedMs = companyNowMs - RUN_START_MS;
     console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
 
     // Invalidate stale cache entries for incomplete jobs so the shared crawler
@@ -1283,8 +1309,15 @@ async function main() {
   // ── Retry pass: re-attempt companies that had partial success ──────────
   // Rate limits often clear partway through a run. Companies processed early
   // may have had failures that would succeed now. Only retry if we have time.
-  const retryElapsedMs = Date.now() - startTime;
-  if (totalFixed > 0 && retryElapsedMs < TIME_BUDGET_MS * 0.85) {
+  const retryStartReason = cascadeStopReason({
+    nowMs: Date.now(),
+    runStartMs: RUN_START_MS,
+    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    passStartMs: startTime,
+    timeBudgetMs: TIME_BUDGET_MS,
+    timeBudgetFraction: 0.85,
+  });
+  if (totalFixed > 0 && !retryStartReason) {
     const retryJobs = readJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
@@ -1304,9 +1337,16 @@ async function main() {
       console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${retryCompanies.size} companies still pending...`);
 
       for (const [key, count] of retryCompanies) {
-        const retryNow = Date.now() - startTime;
-        if (retryNow > TIME_BUDGET_MS * 0.95) {
-          console.log(`   ⏰ Time budget reached during retry — stopping`);
+        const retryCompanyStopReason = cascadeStopReason({
+          nowMs: Date.now(),
+          runStartMs: RUN_START_MS,
+          cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+          passStartMs: startTime,
+          timeBudgetMs: TIME_BUDGET_MS,
+          timeBudgetFraction: 0.95,
+        });
+        if (retryCompanyStopReason) {
+          console.log(`   ⏰ Retry stopped: ${retryCompanyStopReason} reached — deferring remaining companies to the next run`);
           break;
         }
 
@@ -1332,6 +1372,8 @@ async function main() {
         }
       }
     }
+  } else if (totalFixed > 0) {
+    console.log(`\n⏰ Retry pass skipped: ${retryStartReason} reached — deferring retries to the next run`);
   }
 
   // Final summary — use saved slug set instead of re-reading data/jobs.json
