@@ -4849,6 +4849,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.divieto-velo-cellulari-scuole.title': 'Zurich interdit le voile et les téléphones portables dans les écoles',
     'blog.article.divieto-velo-cellulari-scuole.excerpt': 'Le Grand Conseil zurichois approuve en marge l\'interdiction du voile et des téléphones portables. Argovie avait déjà décidé pour le voile. Délais : deux ans pour les lois.',
     'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Salle de classe d\'école publique à Zurich avec élèves dans un cadre éducatif contemporain',
+    'blog.article.siccita-depuratori-crisi-acque.title': 'Sécheresses et stations d\'épuration : les rivières en crise',
+    'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Rivières suisses asséchées par la sécheresse : les eaux usées restent constantes. En Argovie, jusqu\'à 80 % du débit est de l\'eau purifiée contaminée. Programme fédéral 2024-2040 pour la mise à niveau de 140 installations.',
+    'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Vue aérienne d\'un lac alpin suisse durant la sécheresse estivale avec des niveaux d\'eau réduits et des cours d\'eau amoindris',
 };
 
 export default blogMetaChFr;

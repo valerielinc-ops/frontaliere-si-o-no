@@ -4849,6 +4849,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.divieto-velo-cellulari-scuole.title': 'Zürich verbietet Kopftücher und Mobiltelefone in Schulen',
     'blog.article.divieto-velo-cellulari-scuole.excerpt': 'Der Zürcher Grossrat billigt das Kopftuch- und Handyverbot mit knapper Mehrheit. Der Aargau hatte sich bereits für den Schleier entschieden. Zeitrahmen: zwei Jahre für Gesetze.',
     'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Klassenzimmer an einer öffentlichen Schule in Zürich mit Schülern in modernem Umfeld',
+    'blog.article.siccita-depuratori-crisi-acque.title': 'Dürre und Kläranlagen: Flüsse in der Krise',
+    'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Dürregetrocknete Schweizer Flüsse: Abwasser bleibt konstant. Im Aargau sind bis zu 80 % des Durchflusses mit verunreinigtem, gereinigtem Wasser belastet. Bundesprogramm 2024-2040 zur Modernisierung von 140 Anlagen.',
+    'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Luftaufnahme eines Schweizer Alpensees während Sommerdürre mit gesunkenen Wasserständen und reduzierten Wasserläufen',
 };
 
 export default blogMetaChDe;

@@ -62927,6 +62927,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-siccita-depuratori-crisi-acque': {
+    title: 'Siccità e depuratori: fiumi in crisi | Frontaliere Ticino',
+    description: 'Fiumi svizzeri prosciugati dalla siccità: acque reflue rimangono costanti. In Argovia fino all\'80% della portata è di acqua depurata contaminata. Programma',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, depuratori, fiumi, crisi',
+    ogTitle: 'Siccità e depuratori: fiumi in crisi',
+    ogDescription: 'L\'estate 2026: fiumi svizzeri al minimo storico per siccità, ma acque reflue dai depuratori rimangono costanti. Fino all\'80% di acqua contaminata in alcuni fiumi. Programma federale per aggiornare 140 impianti entro 2040.',
+    canonicalPath: '/articoli-svizzera/siccita-depuratori-crisi-acque/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità e depuratori: fiumi in crisi",
+      "description": "Fiumi svizzeri prosciugati dalla siccità: acque reflue rimangono costanti. In Argovia fino all'80% della portata è di acqua depurata contaminata. Programma",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/siccita-depuratori-crisi-acque.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di un lago alpino svizzero durante siccità estiva con livelli d'acqua ridotti e corsi minori visibilmente prosciugati"
+      },
+      "datePublished": "2026-08-31T17:06:56+00:00",
+      "dateModified": "2026-08-31T17:06:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/siccita-depuratori-crisi-acque/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

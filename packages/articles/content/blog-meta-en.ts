@@ -11006,6 +11006,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-tasso-interesse-lpp.title': 'LPP fee: minimum rate increase to 1.75%',
     'blog.article.aumento-tasso-interesse-lpp.excerpt': 'The Federal Commission on Occupational Welfare is asking for an increase from 1.25% to 1.75%. Decision to the Federal Council. Direct impact for border workers working in Switzerland.',
     'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Financial advisor consulting cross-border worker on pension matters in Lugano office with Lake Lugano view',
+    'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, 3.88% increase on lines with Ticino',
+    'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'From 1 September, tickets and Trenord subscriptions are 3.88% more expensive: an increase ordered by the Lombardy Regional Government, with exceptions for Malpensa Express and Como-Malpensa via Chiasso and Mendrisio.',
+    'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Trenord regional train at the border station with Canton Ticino',
 };
 
 export default blogMetaEn;
