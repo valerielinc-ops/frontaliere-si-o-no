@@ -49,6 +49,7 @@ import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/t
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isCantonTicinoOscPosting } from './lib/crawler-company-ownership.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -252,8 +253,12 @@ function postProcessTichJobs() {
   if (!Array.isArray(allJobs)) return 0;
 
   let updated = 0;
+  const retainedJobs = allJobs.filter(
+    (job) => !isTichJob(job) || !isCantonTicinoOscPosting(job),
+  );
+  const removedOsc = allJobs.length - retainedJobs.length;
 
-  for (const job of allJobs) {
+  for (const job of retainedJobs) {
     if (!isTichJob(job)) continue;
 
     const before = JSON.stringify({
@@ -327,12 +332,12 @@ function postProcessTichJobs() {
     if (before !== after) updated += 1;
   }
 
-  if (updated > 0) {
-    writeJsonAtomic(DATA_JOBS, allJobs);
+  if (updated > 0 || removedOsc > 0) {
+    writeJsonAtomic(DATA_JOBS, retainedJobs);
     if (fs.existsSync(PUBLIC_DATA_JOBS)) {
-      writeJsonAtomic(PUBLIC_DATA_JOBS, allJobs);
+      writeJsonAtomic(PUBLIC_DATA_JOBS, retainedJobs);
     }
-    console.log(`🧹 Post-process Ti.CH: aggiornati ${updated} job (company canonica + clean descrizione).`);
+    console.log(`🧹 Post-process Ti.CH: aggiornati ${updated} job, esclusi ${removedOsc} job OSC.`);
   }
 
   return updated;

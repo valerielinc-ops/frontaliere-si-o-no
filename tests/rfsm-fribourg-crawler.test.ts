@@ -3,6 +3,7 @@ import {
   RFSM_FRIBOURG_KEY,
   RFSM_FRIBOURG_COMPANY_NAME,
   RFSM_FRIBOURG_CAREERS_URL,
+  RFSM_FRIBOURG_CAREERS_URLS,
   isRfsmFribourgJob,
   isTrustedDomain,
   parseListing,
@@ -23,6 +24,9 @@ const FIXTURE_LISTING_HTML = `
     Psychologue-assistant-e (Psychothérapeute en form.), RFSM Bulle
   </a>
   <a class="jobIcon" href="/job/Marsens%2C-CH-Infirmier-%C3%A8re-Marsens-other/1234567890/">Enseignant primaire, Marsens</a>
+  <a class="jobTitle-link" href="/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens/1368233057/">
+    Pflegefachperson FH/HF, FNPG Marsens
+  </a>
 </div>
 `;
 
@@ -52,6 +56,10 @@ describe('RFSM Fribourg crawler parser', () => {
     expect(RFSM_FRIBOURG_KEY).toBe('rfsm-fribourg');
     expect(RFSM_FRIBOURG_COMPANY_NAME).toMatch(/^RFSM/);
     expect(RFSM_FRIBOURG_CAREERS_URL).toMatch(/^https:\/\/jobs\.fr\.ch\/search\/\?q=RFSM/);
+    expect(RFSM_FRIBOURG_CAREERS_URLS).toEqual([
+      expect.stringContaining('q=RFSM'),
+      expect.stringContaining('q=FNPG'),
+    ]);
   });
 
   describe('isRfsmFribourgJob', () => {
@@ -116,14 +124,15 @@ describe('RFSM Fribourg crawler parser', () => {
       const rows = parseListing(FIXTURE_LISTING_HTML);
       // Both jobTitle-link rows are RFSM; the icon anchor for the first job
       // has no human title (dedupe by jobId), the third anchor is non-RFSM.
-      expect(rows.length).toBe(2);
+      expect(rows.length).toBe(3);
       expect(rows[0].jobId).toBe('1360783757');
       expect(rows[1].jobId).toBe('1360796657');
+      expect(rows[2].jobId).toBe('1368233057');
       expect(rows[0].title).toMatch(/RFSM Villars-sur-Glâne/);
     });
-    it('drops non-RFSM jobs', () => {
+    it('keeps RFSM and FNPG while dropping unrelated jobs', () => {
       const rows = parseListing(FIXTURE_LISTING_HTML);
-      for (const row of rows) expect(row.title).toMatch(/RFSM/i);
+      for (const row of rows) expect(row.title).toMatch(/RFSM|FNPG/i);
     });
     it('resolves URLs to absolute jobs.fr.ch', () => {
       const rows = parseListing(FIXTURE_LISTING_HTML);

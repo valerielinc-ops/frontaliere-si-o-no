@@ -206,7 +206,7 @@ export function createGroupTerminalManifest(input) {
     } else if (!ACCEPTED_RECEIPT_OUTCOMES.has(receipt.outcome)) {
       reasons.push('receipt_failed');
     // Presence of the roster-bound record is mandatory; its state may be
-    // explicit `absent` because 18/607 current crawler identities legitimately
+    // explicit `absent` because some current crawler identities legitimately
     // publish no primary slice. The immutable remote tree must confirm it.
     } else if (!receipt.files.some((file) => file.path === expectedPrimarySlices[crawlerId])) {
       reasons.push('receipt_primary_slice_missing');

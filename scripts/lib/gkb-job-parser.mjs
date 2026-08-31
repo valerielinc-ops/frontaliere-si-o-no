@@ -42,7 +42,10 @@ export const GKB_COMPANY_NAME = 'Graubündner Kantonalbank';
 export const GKB_COMPANY_DOMAIN = 'gkb.ch';
 
 const BASE_URL = 'https://recruitingapp-2607.umantis.com';
-const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
+export const LISTING_URLS = [
+  `${BASE_URL}/Jobs/All?lang=ger`,
+  `${BASE_URL}/Jobs/1?lang=ger&ContentOnly=&message=`,
+];
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -51,6 +54,18 @@ const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+/** Merge duplicate Umantis rows without letting a sparse view erase metadata. */
+export function mergeGkbListing(existing = {}, incoming = {}) {
+  const merged = { ...existing };
+  for (const [key, value] of Object.entries(incoming)) {
+    const current = merged[key];
+    const currentMissing = current == null || (typeof current === 'string' && current.trim() === '');
+    const incomingPresent = value != null && (typeof value !== 'string' || value.trim() !== '');
+    if (currentMissing && incomingPresent) merged[key] = value;
+  }
+  return merged;
 }
 
 /**
@@ -231,9 +246,10 @@ export function parseGkbListingPage(html = '') {
   while ((rowMatch = rowRegex.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
 
-    // Extract title + link from element 1152488
+    // The same tenant exposes different element ids on /Jobs/All and /Jobs/1;
+    // the vacancy href is the stable contract across both views.
     const titleMatch = rowHtml.match(
-      /tableaslist_element_1152488[\s\S]*?<a\s+href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/
+      /<a\s+[^>]*href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/i,
     );
     if (!titleMatch) continue;
 
@@ -248,12 +264,12 @@ export function parseGkbListingPage(html = '') {
     if (/^(initiativbewerbung|spontanbewerbung)$/i.test(title.trim())) continue;
 
     // Extract other fields using element class IDs
-    const locationRaw = extractSpanText(rowHtml, '1152495');
+    const locationRaw = extractSpanText(rowHtml, '1152495') || extractSpanText(rowHtml, '26475');
     const department = extractSpanText(rowHtml, '1152494');
-    const artText = extractSpanText(rowHtml, '1152491');
+    const artText = extractSpanText(rowHtml, '1152491') || extractSpanText(rowHtml, '3474');
     const division = extractSpanText(rowHtml, '1152496');
     const entryLevel = extractSpanText(rowHtml, '1152493');
-    const postedRaw = extractSpanText(rowHtml, '1152487');
+    const postedRaw = extractSpanText(rowHtml, '1152487') || extractSpanText(rowHtml, '3472');
 
     // Clean the prefix labels
     const location = extractLocation(locationRaw);
@@ -367,11 +383,26 @@ async function fetchPage(url) {
  */
 export async function fetchAllGkbJobs() {
   console.log(`🏦 Fetching Graubündner Kantonalbank jobs`);
-  console.log(`   Source: ${LISTING_URL}\n`);
+  console.log(`   Sources: ${LISTING_URLS.join(', ')}\n`);
 
-  // Step 1: Fetch and parse listing page
-  const listingHtml = await fetchPage(LISTING_URL);
-  const listings = parseGkbListingPage(listingHtml);
+  // Umantis exposes two listing routes with partially different catalogues.
+  // Union both by vacancy id: /Jobs/All alone missed 15 live listings.
+  const listingsById = new Map();
+  for (const listingUrl of LISTING_URLS) {
+    try {
+      const listingHtml = await fetchPage(listingUrl);
+      for (const listing of parseGkbListingPage(listingHtml)) {
+        const existing = listingsById.get(listing.vacancyId);
+        listingsById.set(
+          listing.vacancyId,
+          existing ? mergeGkbListing(existing, listing) : listing,
+        );
+      }
+    } catch (err) {
+      console.warn(`  ⚠️ Failed to fetch listing ${listingUrl}: ${err?.message}`);
+    }
+  }
+  const listings = [...listingsById.values()];
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on the page.');

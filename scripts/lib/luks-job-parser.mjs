@@ -43,6 +43,12 @@ const parser = createProspectiveChParser({
   publicCareerUrl: 'https://www.luks.ch/karriere',
   defaultSourceLang: 'de',
   extraTrustedHosts: ['jobs.luks.ch', 'recruitment.luks.ch'],
+  filterListing: (listing) => {
+    const tags = Array.isArray(listing?.attributes?.['40'])
+      ? listing.attributes['40'].map((value) => String(value || '').toUpperCase())
+      : [];
+    return !tags.includes('KSNW');
+  },
 });
 
 /* ── Public API ────────────────────────────────────────────── */

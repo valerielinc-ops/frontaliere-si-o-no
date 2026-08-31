@@ -56,21 +56,25 @@
         "horticulturalist-floriculture-option-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "gartenbauer-floriculture-option-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "horticulturalist-opzione-floriculture-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "horticulturalist-opzione-floriculture-rfsm-marsens-etat-de-fribourg-marsens"
+        "horticulturalist-opzione-floriculture-rfsm-marsens-etat-de-fribourg-marsens",
+        "horticulteur-rice-option-floriculture-rfsm-marsens-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "horticulteur-rice-option-floriculture-rfsm-marsens-rfsm-fribourg-marsens",
           "horticulturalist-opzione-floriculture-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "horticulturalist-opzione-floriculture-rfsm-marsens-etat-de-fribourg-marsens"
+          "horticulturalist-opzione-floriculture-rfsm-marsens-etat-de-fribourg-marsens",
+          "horticulteur-rice-option-floriculture-rfsm-marsens-etat-de-fribourg-ch"
         ],
         "en": [
           "horticulteur-rice-option-floriculture-rfsm-marsens-rfsm-fribourg-marsens",
-          "horticulturalist-floriculture-option-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "horticulturalist-floriculture-option-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "horticulteur-rice-option-floriculture-rfsm-marsens-etat-de-fribourg-ch"
         ],
         "de": [
           "horticulteur-rice-option-floriculture-rfsm-marsens-rfsm-fribourg-marsens",
-          "gartenbauer-floriculture-option-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "gartenbauer-floriculture-option-rfsm-marsens-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "horticulteur-rice-option-floriculture-rfsm-marsens-etat-de-fribourg-ch"
         ],
         "fr": [
           "horticulteur-rice-option-floriculture-rfsm-marsens-rfsm-fribourg-marsens"
@@ -153,7 +157,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "comptable-confirme-e-rfsm-marsens-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "comptable-confirme-e-rfsm-marsens-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "comptable-confirme-e-rfsm-marsens-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "comptable-confirme-e-rfsm-marsens-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "rfsm-fribourg-4d7a44334689",
@@ -217,7 +235,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-euse-de-gestion-rfsm-marsens-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "controleur-euse-de-gestion-rfsm-marsens-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "controleur-euse-de-gestion-rfsm-marsens-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-euse-de-gestion-rfsm-marsens-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "rfsm-fribourg-044dd3185dde",
@@ -273,13 +305,15 @@
         "assistente-esecutivo-rfsm-marsens-direzione-generale-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "executive-assistant-rfsm-marsens-directorate-general-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "assistent-e-de-direction-rfsm-marsens-direction-generale-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "executive-assistant-rfsm-marsens-direzione-generale-etat-de-fribourg-marsens"
+        "executive-assistant-rfsm-marsens-direzione-generale-etat-de-fribourg-marsens",
+        "assistant-e-de-direction-rfsm-marsens-direction-generale-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-de-direction-rfsm-marsens-direction-generale-rfsm-fribourg-marsens",
           "assistente-esecutivo-rfsm-marsens-direzione-generale-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "executive-assistant-rfsm-marsens-direzione-generale-etat-de-fribourg-marsens"
+          "executive-assistant-rfsm-marsens-direzione-generale-etat-de-fribourg-marsens",
+          "assistant-e-de-direction-rfsm-marsens-direction-generale-etat-de-fribourg-ch"
         ],
         "en": [
           "assistant-e-de-direction-rfsm-marsens-direction-generale-rfsm-fribourg-marsens",
@@ -287,7 +321,8 @@
         ],
         "de": [
           "assistant-e-de-direction-rfsm-marsens-direction-generale-rfsm-fribourg-marsens",
-          "assistent-e-de-direction-rfsm-marsens-direction-generale-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "assistent-e-de-direction-rfsm-marsens-direction-generale-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "assistant-e-de-direction-rfsm-marsens-direction-generale-etat-de-fribourg-ch"
         ],
         "fr": [
           "assistant-e-de-direction-rfsm-marsens-direction-generale-rfsm-fribourg-marsens"
@@ -360,12 +395,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
-          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "it": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
           "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+          "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens",
+          "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "en": [
           "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -382,7 +419,8 @@
         "klinikleiter-rfsm-psychiatrie-und-psychotherapie-fur-erwachsene-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+        "responsabile-clinica-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens",
+        "chef-fe-de-clinique-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
       ],
       "firstSeenAt": "2026-05-21T00:03:00.358Z",
       "salaryMin": 115000,
@@ -452,7 +490,8 @@
         "fr": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-etat",
-          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens"
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "it": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -465,7 +504,8 @@
           "assistant-physician-rfsm-child-adolescent-psychiatry-and-psychotherapy-sector-rfsm-reseau-fribourgeois-sante-mentale",
           "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
           "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale",
-          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+          "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens",
+          "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
         ],
         "en": [
           "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-fribourg",
@@ -491,7 +531,8 @@
         "medecin-assistent-e-rfsm-secteur-psychiatrie-et-psychotherapie-de-l-enfant-adolescent-rfsm-reseau-fribourgeois-sante",
         "assistente-medico-rfsm-psichiatria-infantile-adolescente-e-settore-psicoterapia-rfsm-reseau-fribourgeois-sante-mentale",
         "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens"
+        "assistente-medico-rfsm-psichiatria-e-settore-psicoterapia-per-adulti-etat-de-fribourg-marsens",
+        "medecin-assistant-e-rfsm-secteur-psychiatrie-et-psychotherapie-adulte-etat-de-fribourg-ch"
       ],
       "firstSeenAt": "2026-05-21T00:02:58.754Z",
       "salaryMin": 85000,
@@ -560,13 +601,18 @@
       "previousSlugs": [
         "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-fribourg",
         "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
-        "psicoterapeuta-e-o-in-formazione-rfsm-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
+        "psicoterapeuta-e-o-in-formazione-rfsm-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+        "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-etat-de-fribourg-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-fribourg",
           "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
-          "psicoterapeuta-e-o-in-formazione-rfsm-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
+          "psicoterapeuta-e-o-in-formazione-rfsm-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "psychologue-psychotherapeute-et-ou-en-formation-rfsm-villars-sur-glane-etat-de-fribourg-ch"
         ]
       },
       "firstSeenAt": "2026-08-12T10:28:19.211Z",
@@ -638,13 +684,15 @@
         "nurse-rfsm-marsens-and-villars-sur-glane-for-spontaneous-applications-rfsm-reseau-fribourgeois-sante-mentale-marsens",
         "krankenschwester-rfsm-marsens-und-villars-sur-glane-fur-spontane-anwendungen-rfsm-reseau-fribourgeois-sante-mentale",
         "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-        "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
+        "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens",
+        "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
       ],
       "previousSlugsByLocale": {
         "it": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",
           "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-rfsm-reseau-fribourgeois-sante-mentale-marsens",
-          "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens"
+          "infermiera-rfsm-marsens-e-villars-sur-glane-per-applicazioni-spontanee-etat-de-fribourg-marsens",
+          "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-etat-de"
         ],
         "en": [
           "infirmier-ere-rfsm-marsens-et-villars-sur-glane-pour-les-candidatures-spontanees-rfsm",
@@ -725,7 +773,9 @@
         "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg",
         "nurse-ere-hes-es-rfsm-villars-sur-glane-deutschsprachige-tagesklinik-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
         "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
-        "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-etat-de-fribourg-villars-sur-glane"
+        "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-etat-de-fribourg-villars-sur-glane",
+        "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg",
+        "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-di-lingua-tedesca-etat-de-fribourg-villars-sur-glane"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -733,15 +783,19 @@
           "nurse-ere-hes-es-rfsm-villars-sur-glane-german-speaking-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
           "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg",
           "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-rfsm-reseau-fribourgeois-sante-mentale-villars-sur-glane",
-          "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-etat-de-fribourg-villars-sur-glane"
+          "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-tedesca-etat-de-fribourg-villars-sur-glane",
+          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg",
+          "infermiera-hes-es-rfsm-villars-sur-glane-clinica-diurna-di-lingua-tedesca-etat-de-fribourg-villars-sur-glane"
         ],
         "en": [
           "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg",
-          "nurse-ere-hes-es-rfsm-villars-sur-glane-german-speaking-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-villars-sur"
+          "nurse-ere-hes-es-rfsm-villars-sur-glane-german-speaking-day-clinic-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg"
         ],
         "de": [
           "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-fribourg",
-          "nurse-ere-hes-es-rfsm-villars-sur-glane-deutschsprachige-tagesklinik-rfsm-reseau-fribourgeois-sante-mentale-villars-sur"
+          "nurse-ere-hes-es-rfsm-villars-sur-glane-deutschsprachige-tagesklinik-rfsm-reseau-fribourgeois-sante-mentale-villars-sur",
+          "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-etat-de-fribourg"
         ],
         "fr": [
           "infirmier-ere-hes-es-rfsm-villars-sur-glane-clinique-de-jour-germanophone-rfsm-reseau-fribourgeois-sante-mentale-villars",
@@ -762,6 +816,734 @@
         }
       },
       "crawlerMissStreak": 1,
+      "salarySource": "estimated"
+    },
+    {
+      "id": "etat-de-fribourg-a34b5ee0d4b1",
+      "slug": "pflegefachperson-fnpg-marsens-e-villars-sur-glane-per-spontanbewerbungen-etat-de-fribourg-marsens",
+      "slugByLocale": {
+        "it": "pflegefachperson-fnpg-marsens-e-villars-sur-glane-per-spontanbewerbungen-etat-de-fribourg-marsens",
+        "en": "nurse-fnpg-marsens-and-villars-sur-glane-for-spontaneous-applications-etat-de-fribourg-marsens",
+        "de": "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de",
+        "fr": "infirmiere-fnpg-marsens-et-villars-sur-glane-pour-les-demandes-spontanees-etat-de-fribourg-marsens"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Pflegefachperson FNPG Marsens und Villars-sur-Glâne - für Spontanbewerbungen",
+      "titleByLocale": {
+        "it": "Pflegefachperson FNPG Marsens e Villars-sur-Glâne - per Spontanbewerbungen",
+        "en": "Nurse FNPG Marsens and Villars-sur-Glâne - for spontaneous applications",
+        "de": "Pflegefachperson FNPG Marsens und Villars-sur-Glâne - für Spontanbewerbungen",
+        "fr": "Infirmière FNPG Marsens et Villars-sur-Glâne - pour les demandes spontanées"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nIhre Aufgaben\n\n• Betreuung und Begleitung der Patientinnen und Patienten in ihrem Alltag\n\n• Beteiligung an Therapieaktivitäten\n\n• Beteiligung an verschiedenen Gesprächen\n\nGewünschtes Profil\n\n• Diplomierte Pflegefachperson mit Erfahrung\n\n• Eigeninitiative\n\n• Flexibilität und Anpassungsfähigkeit\n\n• Interesse an interdisziplinären und Netzwerkarbeit\n\n• Guter Umgang mit psychisch beeinträchtigten Personen\n\n• Beherrschen der französischen Sprache mit Kenntnissen der deutschen Sprache\n\nAngaben der Kontaktpersonen\n\nOlivier Zurbriggen, ICS, RFSM_Recrutement_DDS@rfsm.ch\nAnnick Demierre, ICS, T +41 26 308 03 02, annick.demierre@rfsm.ch\nMarylin Clottu, ICS, T +41 26 308 15 41, marylin.clottu@rfsm.ch\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione La Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG è un centro di competenza medico, infermieristico e psicosociale specializzato in psichiatria e psicoterapia e, più in generale, salute mentale. Il FNPG bilingue è in continua evoluzione e in continua evoluzione nel campo terapeutico. Diventa parte della nostra squadra! Il datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente. I loro compiti\n• Cura e sostegno dei pazienti nella loro vita quotidiana\n• Partecipazione alle attività terapeutiche\n• Partecipazione a varie discussioni Profilo desiderato\n• Infermiera certificata con esperienza\n• Iniziativa propria\n• Flessibilità e adattabilità\n• Interessi nel lavoro interdisciplinare e di networking\n• Buon trattamento delle persone con disturbi mentali\n• Padroneggiare la lingua francese con la conoscenza della lingua tedesca Informazioni di contatto Olivier Zurbriggen, ICS, RFSM Recrutement DDS@rfsm.ch Annick Demierre, ICS, T +41 26 308 03 02, annick.demierre@rfsm.ch Marilyn Clottu, ICS, T +41 26 308 15 41, marilyn.clottu@rfsm.ch Data di pubblicità:",
+        "en": "Appointment authority / department / institution The Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG is a medical, nursing and psychosocial competence center specializing in psychiatry and psychotherapy and, more broadly, mental health. Bilingual FNPG is constantly evolving and keeping up to date in the therapeutic field. Become part of our team! The employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page. Their tasks\n• Care and support of patients in their everyday life\n• Participation in therapy activities\n• Participation in various discussions Desired profile\n• Certified nurse with experience\n• Own initiative\n• Flexibility and adaptability\n• Interest in interdisciplinary and networking work\n• Good treatment of mentally impaired persons\n• Master the French language with knowledge of the German language Contact details Olivier Zurbriggen, ICS, RFSM Recrutement DDS@rfsm.ch Annick Demierre, ICS, T +41 26 308 03 02, annick.demierre@rfsm.ch Marilyn Clottu, ICS, T +41 26 308 15 41, marilyn.clottu@rfsm.ch Date of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\n• Betreuung und Begleitung der Patientinnen und Patienten in ihrem Alltag\n\n• Beteiligung an Therapieaktivitäten\n\n• Beteiligung an verschiedenen Gesprächen\n\nGewünschtes Profil\n\n• Diplomierte Pflegefachperson mit Erfahrung\n\n• Eigeninitiative\n\n• Flexibilität und Anpassungsfähigkeit\n\n• Interesse an interdisziplinären und Netzwerkarbeit\n\n• Guter Umgang mit psychisch beeinträchtigten Personen\n\n• Beherrschen der französischen Sprache mit Kenntnissen der deutschen Sprache\n\nAngaben der Kontaktpersonen\n\nOlivier Zurbriggen, ICS, RFSM_Recrutement_DDS@rfsm.ch\nAnnick Demierre, ICS, T +41 26 308 03 02, annick.demierre@rfsm.ch\nMarylin Clottu, ICS, T +41 26 308 15 41, marylin.clottu@rfsm.ch\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution Le Réseau de Fribourg pour la santé mentale (FNPG) est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG est un centre de compétence médicale, infirmière et psychosociale spécialisé en psychiatrie et en psychothérapie et, plus largement, en santé mentale. Le PFPN bilingue évolue constamment et se tient à jour dans le domaine thérapeutique. Faites partie de notre équipe ! L'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante. Leurs tâches\n• Soins et soutien des patients dans leur vie quotidienne\n• Participation aux activités thérapeutiques\n• Participation à divers débats Profil désiré\n• Infirmière agréée avec expérience\n• D'initiative\n• Flexibilité et adaptabilité\n• Intérêt pour le travail interdisciplinaire et en réseau\n• Bon traitement des handicapés mentaux\n• Maîtriser la langue française avec connaissance de la langue allemande Coordonnées Olivier Zurbriggen, ICS, RFSM Recrutement DDS@rfsm.ch Pour plus d'informations, veuillez contacter: Marilyn Clottu, ICS, T +41 26 308 15 41, marilyn.clottu@rfsm.ch Date de la publicité:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Pflegefachperson-FNPG-Marsens-und-Villars-sur-Gl%C3%A2ne-f%C3%BCr-Spontanbewerbungen-Grey/1349950857/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:56.712Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-06",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1349950857/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "pensum": "60-100%",
+      "previousSlugs": [
+        "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
+        ],
+        "en": [
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
+        ],
+        "fr": [
+          "pflegefachperson-fnpg-marsens-und-villars-sur-glane-fur-spontanbewerbungen-etat-de"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:42:39.200Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-584218c9f4e1",
+      "slug": "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens",
+      "slugByLocale": {
+        "it": "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens",
+        "en": "assistant-doctor-fnpg-area-of-adult-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
+        "de": "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
+        "fr": "docteur-adjoint-fnpg-domaine-de-psychiatrie-et-de-psychotherapie-pour-adultes-etat-de-fribourg-marsens"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Assistenzarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie und -psychotherapie",
+      "titleByLocale": {
+        "it": "Assistenzarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie e -psychotherapie",
+        "en": "Assistant doctor FNPG - Area of adult psychiatry and psychotherapy",
+        "de": "Assistenzarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie und -psychotherapie",
+        "fr": "Docteur adjoint FNPG - Domaine de psychiatrie et de psychothérapie pour adultes"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nIhre Aufgaben\n\n• Betreuung und Behandlung der Ihrer Einheit zugeordneten Patientinnen und Patienten unter der Leitung von Frau Prof. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und der jeweiligen Leiterin oder des jeweiligen Leiters der zugeordneten Behandlungskette\n\n• Koordination und Überwachung der Behandlungsschritte im interdisziplinären Setting\n\n• Aktive Beteiligung an der klinikinternen Notfall- und Nachtdienstorganisation\n\nUnser Angebot:\n\n• Attraktive Weiterbildungsstätte mit verschiedenen Rotationsmöglichkeiten, Möglichkeiten zur Erlangung von:\n\n• Facharzttitel für Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Konsiliar- und Liaisonpsychiatrie FMH\n\n• Schwerpunkttitel für Forensische Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen FMH\n\n• Schwerpunkttitel für Alterspsychiatrie und –psychotherapie FMH\n\n• Attraktive Anstellungsbedingungen (sicherer Arbeitsplatz, Pensionskasse, Vergünstigungen für Staatsangestellte)\n\n• Förderung von Weiter- und Fortbildung sowie regelmässigen Supervisionen, Möglichkeit zur Forschungstätigkeit, Angebot von Französisch- oder Deutschsprachkursen\n\nGewünschtes Profil\n\n• Schweizerisches Arztdiplom oder vergleichbarer Titel (MEBEKO-Registrierung)\n\n• Wille, sich positiv in den Betrieb des FNPG einzubringen und dessen Werte zu wahren ( https://www.rfsm.ch/de/patienten-und-angehoerige/unsere-ethikcharta )\n\n• Sehr gute Deutsch- oder Französischkenntnisse (C1), gute Kenntnisse der anderen Kantonssprache erwünscht\n\nAngaben der Kontaktpersonen\n\nProf. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und Dr. Luca Rampa, Stellvertretender Ärztlicher Direktor, luca.rampa@rfsm.ch, T +41 26 308 13 01\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione La Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG è un centro di competenza medico, infermieristico e psicosociale specializzato in psichiatria e psicoterapia e, più in generale, salute mentale. Il FNPG bilingue è in continua evoluzione e in continua evoluzione nel campo terapeutico. Diventa parte della nostra squadra! Il datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente. I loro compiti\n• Cura e trattamento dei pazienti assegnati alla vostra unità sotto la direzione del Prof. Dottor Med. Isabelle Gothuey, direttore medico, e il rispettivo capo della catena di trattamento associata\n• Coordinamento e monitoraggio delle fasi di trattamento nell'impostazione interdisciplinare\n• Partecipazione attiva all'organizzazione di emergenza e servizio notturno ospedaliero La nostra offerta:\n• Istituzione di formazione attraente con varie possibilità di rotazione, opportunità di ottenere:\n• Titolo specialistico per psichiatria e psicoterapia FMH\n• Focus titolo per la consulenza e la psichiatria di collegamento FMH\n• Titolo specializzato in Psichiatria forense e Psicoterapia FMH\n• Titolo di messa a fuoco per psichiatria e psicoterapia delle malattie di dipendenza FMH\n• Titolo di messa a fuoco per la psichiatria e la psicoterapia FMH\n• Condizioni di lavoro attraenti (lavoro sicuro, fondo pensione, prestazioni per lavoratori statali)\n• Promozione dell'istruzione e della formazione, nonché supervisione regolare, opportunità di attività di ricerca, offerta di corsi di lingua francese o tedesca Profilo desiderato\n• Diploma medico svizzero o titolo equivalente (iscrizione MEBEKO)\n• La volontà di impegnarsi positivamente nel funzionamento del FNPG e di sostenere i suoi valori (https://www.rfsm.ch/en/patient-and-belonging/our-ethikcharta )\n• Conoscenza molto buona del tedesco o del francese (C1), buona conoscenza dell'altra lingua cantonale desiderata Informazioni di contatto Prof. Dottor Med. Isabelle Gothuey, Direttore Medico e Dr. Luca Rampa, Vice Direttore Medico, luca.rampa@rfsm.ch, T +41 26 308 13 01 Data di pubblicità:",
+        "en": "Appointment authority / department / institution The Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG is a medical, nursing and psychosocial competence center specializing in psychiatry and psychotherapy and, more broadly, mental health. Bilingual FNPG is constantly evolving and keeping up to date in the therapeutic field. Become part of our team! The employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page. Their tasks\n• Care and treatment of the patients assigned to your unit under the direction of Prof. Dr med. Isabelle Gothuey, Medical Director, and the respective head of the associated treatment chain\n• Coordination and monitoring of treatment steps in interdisciplinary setting\n• Active participation in the hospital-internal emergency and night service organisation Our offer:\n• Attractive training institution with various rotation possibilities, opportunities to obtain:\n• Specialist title for psychiatry and psychotherapy FMH\n• Focus title for consultancy and liaison psychiatry FMH\n• Specialist title for Forensic Psychiatry and Psychotherapy FMH\n• Focus title for psychiatry and psychotherapy of dependency diseases FMH\n• Focus title for age psychiatry and psychotherapy FMH\n• Attractive employment conditions (secure job, pension fund, benefits for state employees)\n• Promotion of further education and training as well as regular supervision, opportunity for research activities, offer of French or German language courses Desired profile\n• Swiss medical diploma or equivalent title (MEBEKO registration)\n• Willingness to engage positively in the operation of the FNPG and to uphold its values ( https://www.rfsm.ch/en/patient-and-belonging/our-ethikcharta )\n• Very good knowledge of German or French (C1), good knowledge of the other cantonal language desired Contact details Prof. Dr med. Isabelle Gothuey, Medical Director, and Dr Luca Rampa, Deputy Medical Director, luca.rampa@rfsm.ch, T +41 26 308 13 01 Date of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\n• Betreuung und Behandlung der Ihrer Einheit zugeordneten Patientinnen und Patienten unter der Leitung von Frau Prof. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und der jeweiligen Leiterin oder des jeweiligen Leiters der zugeordneten Behandlungskette\n\n• Koordination und Überwachung der Behandlungsschritte im interdisziplinären Setting\n\n• Aktive Beteiligung an der klinikinternen Notfall- und Nachtdienstorganisation\n\nUnser Angebot:\n\n• Attraktive Weiterbildungsstätte mit verschiedenen Rotationsmöglichkeiten, Möglichkeiten zur Erlangung von:\n\n• Facharzttitel für Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Konsiliar- und Liaisonpsychiatrie FMH\n\n• Schwerpunkttitel für Forensische Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen FMH\n\n• Schwerpunkttitel für Alterspsychiatrie und –psychotherapie FMH\n\n• Attraktive Anstellungsbedingungen (sicherer Arbeitsplatz, Pensionskasse, Vergünstigungen für Staatsangestellte)\n\n• Förderung von Weiter- und Fortbildung sowie regelmässigen Supervisionen, Möglichkeit zur Forschungstätigkeit, Angebot von Französisch- oder Deutschsprachkursen\n\nGewünschtes Profil\n\n• Schweizerisches Arztdiplom oder vergleichbarer Titel (MEBEKO-Registrierung)\n\n• Wille, sich positiv in den Betrieb des FNPG einzubringen und dessen Werte zu wahren ( https://www.rfsm.ch/de/patienten-und-angehoerige/unsere-ethikcharta )\n\n• Sehr gute Deutsch- oder Französischkenntnisse (C1), gute Kenntnisse der anderen Kantonssprache erwünscht\n\nAngaben der Kontaktpersonen\n\nProf. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und Dr. Luca Rampa, Stellvertretender Ärztlicher Direktor, luca.rampa@rfsm.ch, T +41 26 308 13 01\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution Le Réseau de Fribourg pour la santé mentale (FNPG) est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG est un centre de compétence médicale, infirmière et psychosociale spécialisé en psychiatrie et en psychothérapie et, plus largement, en santé mentale. Le PFPN bilingue évolue constamment et se tient à jour dans le domaine thérapeutique. Faites partie de notre équipe ! L'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante. Leurs tâches\n• Soins et traitement des patients affectés à votre unité sous la direction du Prof. Dr Med. Isabelle Gothuey, directrice médicale, et le responsable respectif de la chaîne de traitement associée\n• Coordination et suivi des étapes du traitement dans un cadre interdisciplinaire\n• Participation active à l'organisation hospitalière-interne d'urgence et de service de nuit Notre offre :\n• Établissement de formation attrayant avec différentes possibilités de rotation, possibilités d'obtenir:\n• Titre du spécialiste en psychiatrie et psychothérapie FMH\n• Titre principal pour la consultation et la psychiatrie de liaison FMH\n• Titre du spécialiste de la psychiatrie légale et de la psychothérapie FMH\n• Titre principal pour la psychiatrie et la psychothérapie des maladies de dépendance FMH\n• Titre du thème pour la psychiatrie de l'âge et la psychothérapie FMH\n• Conditions d'emploi attrayantes (emploi sécurisé, fonds de pension, prestations pour les employés de l'État)\n• Promotion de la formation continue et de la supervision régulière, possibilité d'activités de recherche, offre de cours de français ou d'allemand Profil désiré\n• Diplôme de médecine suisse ou titre équivalent (inscription MEBEKO)\n• Volonté de s'engager positivement dans le fonctionnement du FNPG et de défendre ses valeurs ( https://www.rfsm.ch/fr/patient-and-appartenant/notre-ethikcharta )\n• Très bonne connaissance de l'allemand ou du français (C1), bonne connaissance de l'autre langue cantonale souhaitée Coordonnées Professeur Dr Med. Isabelle Gotuey, directrice médicale, et Luca Rampa, directrice médicale adjointe, luca.rampa@rfsm.ch, T +41 26 308 13 01 Date de la publicité:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Assistenzarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350361957/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:50.931Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1350361957/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "pensum": "50-100%",
+      "previousSlugs": [
+        "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
+        "assistenzarzt-arztin-fnpg-bereich-kinder-e-jugendpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens",
+        "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
+        "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
+        "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
+          "assistenzarzt-arztin-fnpg-bereich-kinder-e-jugendpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens",
+          "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
+          "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de",
+          "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg"
+        ],
+        "en": [
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
+          "assistant-physician-fnpg-department-of-child-and-adolescent-psychiatry-and-psychotherapy-etat-de-fribourg-marsens"
+        ],
+        "de": [
+          "assistenzarzt-arztin-fnpg-bereich-kinder-und-jugendpsychiatrie-und-psychotherapie-etat-de"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de",
+          "medecin-adjoint-fnpg-departement-de-psychiatrie-et-de-psychotherapie-de-l-enfant-et-de-l-adolescent-etat-de-fribourg"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:42:29.512Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-8c1e969ec8f3",
+      "slug": "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens",
+      "slugByLocale": {
+        "it": "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-e-psychotherapie-etat-de-fribourg-marsens",
+        "en": "senior-physician-fnpg-area-of-adult-psychiatry-and-psychotherapy-etat-de-fribourg-marsens",
+        "de": "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch",
+        "fr": "medecin-principal-fnpg-zone-de-psychiatrie-et-de-psychotherapie-pour-adultes-etat-de-fribourg-marsens"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Oberarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie und -psychotherapie",
+      "titleByLocale": {
+        "it": "Oberarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie e -psychotherapie",
+        "en": "Senior physician FNPG - Area of adult psychiatry and psychotherapy",
+        "de": "Oberarzt/-ärztin FNPG - Bereich Erwachsenenpsychiatrie und -psychotherapie",
+        "fr": "Médecin principal FNPG - Zone de psychiatrie et de psychothérapie pour adultes"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nIhre Aufgaben\n\nIhr Aufgabenbereich:\n\n• Klinische Führung und Organisation Ihrer Einheit unter der Leitung von Frau Prof. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und der jeweiligen Leiterin oder des jeweiligen Leiters der zugeordneten Behandlungskette\n\n• Förderung des Betriebs, der Kohärenz und der Weiterentwicklung des therapeutischen Angebots Ihrer Einheit\n\n• Direkte Ausbildungsfunktion für Assistenzärztinnen und -ärzte, aktive Beteiligung am klinikinternen Weiter- und Fortbildungsangebot\n\nUnser Angebot:\n\n• Attraktive Weiterbildungsstätte mit verschiedenen Rotationsmöglichkeiten, Möglichkeiten zur Erlangung von:\n\n• Facharzttitel für Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Konsiliar- und Liaisonpsychiatrie FMH\n\n• Schwerpunkttitel für Forensische Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen FMH\n\n• Schwerpunkttitel für  Alterspsychiatrie und –psychotherapie FMH\n\n• Attraktive Anstellungsbedingungen (sicherer Arbeitsplatz, Pensionskasse, Vergünstigungen für Staatsangestellte)\n\n• Förderung von Weiter- und Fortbildung sowie regelmässigen Supervisionen, Möglichkeit zur Forschungstätigkeit, Angebot von Französisch- oder Deutschsprachkursen\n\nGewünschtes Profil\n\n• Facharztqualifikation in Psychiatrie und Psychiatrie FMH oder gleichwertiger Titel\n (Kolleginnen und Kollegen mit fortgeschrittener und noch nicht abgeschlossene Weiterbildung können als stellvertretende Oberärztin/stellvertretender Oberarzt angestellt werden)\n\n• Wille, sich positiv in den Betrieb des FNPG einzubringen und dessen Werte zu wahren ( https://www.rfsm.ch/de/patienten-und-angehoerige/unsere-ethikcharta )\n\n• Sehr gute Deutsch- oder Französischkenntnisse (C1), gute Kenntnisse der anderen Kantonssprache erwünscht\n\nAngaben der Kontaktpersonen\n\nProf. Dr. med. Isabelle Gothuey, Ärztliche Direktorin und Herr Dr. Luca Rampa, Stellvertretender Ärztlicher Direktor, luca.rampa@rfsm.ch, T +41 26 308 13 01\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione La Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG è un centro di competenza medico, infermieristico e psicosociale specializzato in psichiatria e psicoterapia e, più in generale, salute mentale. Il FNPG bilingue è in continua evoluzione e in continua evoluzione nel campo terapeutico. Diventa parte della nostra squadra! Il datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente. I loro compiti Le tue responsabilità:\n• leadership clinica e organizzazione della vostra unità sotto la direzione del Prof. Dottor Med. Isabelle Gothuey, direttore medico, e il rispettivo capo della catena di trattamento associata\n• Promuovere l'operazione, la coerenza e l'ulteriore sviluppo dell'offerta terapeutica della vostra unità\n• Funzione di formazione diretta per i medici assistenti, partecipazione attiva alla formazione interna e ulteriore offerta di istruzione La nostra offerta:\n• Istituzione di formazione attraente con varie possibilità di rotazione, opportunità di ottenere:\n• Titolo specialistico per psichiatria e psicoterapia FMH\n• Focus titolo per la consulenza e la psichiatria di collegamento FMH\n• Titolo specializzato in Psichiatria forense e Psicoterapia FMH\n• Titolo di messa a fuoco per psichiatria e psicoterapia delle malattie di dipendenza FMH\n• Titolo di messa a fuoco per la psichiatria e la psicoterapia FMH\n• Condizioni di lavoro attraenti (lavoro sicuro, fondo pensione, prestazioni per lavoratori statali)\n• Promozione dell'istruzione e della formazione, nonché supervisione regolare, opportunità di attività di ricerca, offerta di corsi di lingua francese o tedesca Profilo desiderato\n• Laurea specialistica in psichiatria e psichiatria FMH o titolo equivalente (I colleghe con formazione avanzata e non ancora completa possono essere impiegati come medico senior aggiunto / medico responsabile senior)\n• La volontà di impegnarsi positivamente nel funzionamento del FNPG e di sostenere i suoi valori (https://www.rfsm.ch/en/patient-and-belonging/our-ethikcharta )\n• Conoscenza molto buona del tedesco o del francese (C1), buona conoscenza dell'altra lingua cantonale desiderata Informazioni di contatto Prof. Dottor Med. Isabelle Gothuey, Direttore Medico e Dr Luca Rampa, Vice Direttore Medico, luca.rampa@rfsm.ch, T +41 26 308 13 01 Data di pubblicità:",
+        "en": "Appointment authority / department / institution The Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG is a medical, nursing and psychosocial competence center specializing in psychiatry and psychotherapy and, more broadly, mental health. Bilingual FNPG is constantly evolving and keeping up to date in the therapeutic field. Become part of our team! The employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page. Their tasks Your responsibilities:\n• Clinical leadership and organization of your unit under the direction of Prof. Dr med. Isabelle Gothuey, Medical Director, and the respective head of the associated treatment chain\n• Promoting the operation, coherence and further development of the therapeutic offer of your unit\n• Direct training function for assistant doctors, active participation in the in-house training and further education offer Our offer:\n• Attractive training institution with various rotation possibilities, opportunities to obtain:\n• Specialist title for psychiatry and psychotherapy FMH\n• Focus title for consultancy and liaison psychiatry FMH\n• Specialist title for Forensic Psychiatry and Psychotherapy FMH\n• Focus title for psychiatry and psychotherapy of dependency diseases FMH\n• Focus title for age psychiatry and psychotherapy FMH\n• Attractive employment conditions (secure job, pension fund, benefits for state employees)\n• Promotion of further education and training as well as regular supervision, opportunity for research activities, offer of French or German language courses Desired profile\n• Specialist qualification in psychiatry and psychiatry FMH or equivalent title (Colleagues with advanced and not yet completed training can be employed as deputy senior physician/deputy senior physician)\n• Willingness to engage positively in the operation of the FNPG and to uphold its values ( https://www.rfsm.ch/en/patient-and-belonging/our-ethikcharta )\n• Very good knowledge of German or French (C1), good knowledge of the other cantonal language desired Contact details Prof. Dr med. Isabelle Gothuey, Medical Director and Dr Luca Rampa, Deputy Medical Director, luca.rampa@rfsm.ch, T +41 26 308 13 01 Date of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\nIhr Aufgabenbereich:\n\n• Klinische Führung und Organisation Ihrer Einheit unter der Leitung von Frau Prof. Dr. med. Isabelle Gothuey, Ärztliche Direktorin, und der jeweiligen Leiterin oder des jeweiligen Leiters der zugeordneten Behandlungskette\n\n• Förderung des Betriebs, der Kohärenz und der Weiterentwicklung des therapeutischen Angebots Ihrer Einheit\n\n• Direkte Ausbildungsfunktion für Assistenzärztinnen und -ärzte, aktive Beteiligung am klinikinternen Weiter- und Fortbildungsangebot\n\nUnser Angebot:\n\n• Attraktive Weiterbildungsstätte mit verschiedenen Rotationsmöglichkeiten, Möglichkeiten zur Erlangung von:\n\n• Facharzttitel für Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Konsiliar- und Liaisonpsychiatrie FMH\n\n• Schwerpunkttitel für Forensische Psychiatrie und Psychotherapie FMH\n\n• Schwerpunkttitel für Psychiatrie und Psychotherapie der Abhängigkeitserkrankungen FMH\n\n• Schwerpunkttitel für Alterspsychiatrie und –psychotherapie FMH\n\n• Attraktive Anstellungsbedingungen (sicherer Arbeitsplatz, Pensionskasse, Vergünstigungen für Staatsangestellte)\n\n• Förderung von Weiter- und Fortbildung sowie regelmässigen Supervisionen, Möglichkeit zur Forschungstätigkeit, Angebot von Französisch- oder Deutschsprachkursen\n\nGewünschtes Profil\n\n• Facharztqualifikation in Psychiatrie und Psychiatrie FMH oder gleichwertiger Titel\n(Kolleginnen und Kollegen mit fortgeschrittener und noch nicht abgeschlossene Weiterbildung können als stellvertretende Oberärztin/stellvertretender Oberarzt angestellt werden)\n\n• Wille, sich positiv in den Betrieb des FNPG einzubringen und dessen Werte zu wahren ( https://www.rfsm.ch/de/patienten-und-angehoerige/unsere-ethikcharta )\n\n• Sehr gute Deutsch- oder Französischkenntnisse (C1), gute Kenntnisse der anderen Kantonssprache erwünscht\n\nAngaben der Kontaktpersonen\n\nProf. Dr. med. Isabelle Gothuey, Ärztliche Direktorin und Herr Dr. Luca Rampa, Stellvertretender Ärztlicher Direktor, luca.rampa@rfsm.ch, T +41 26 308 13 01\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution Le Réseau de Fribourg pour la santé mentale (FNPG) est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG est un centre de compétence médicale, infirmière et psychosociale spécialisé en psychiatrie et en psychothérapie et, plus largement, en santé mentale. Le PFPN bilingue évolue constamment et se tient à jour dans le domaine thérapeutique. Faites partie de notre équipe ! L'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante. Leurs tâches Vos responsabilités :\n• Leadership clinique et organisation de votre unité sous la direction du Prof. Dr Med. Isabelle Gothuey, directrice médicale, et le responsable respectif de la chaîne de traitement associée\n• Promouvoir le fonctionnement, la cohérence et le développement de l'offre thérapeutique de votre unité\n• Fonction de formation directe pour les médecins adjoints, participation active à la formation interne et à l'offre de formation continue Notre offre :\n• Établissement de formation attrayant avec différentes possibilités de rotation, possibilités d'obtenir:\n• Titre du spécialiste en psychiatrie et psychothérapie FMH\n• Titre principal pour la consultation et la psychiatrie de liaison FMH\n• Titre du spécialiste de la psychiatrie légale et de la psychothérapie FMH\n• Titre principal pour la psychiatrie et la psychothérapie des maladies de dépendance FMH\n• Titre du thème pour la psychiatrie de l'âge et la psychothérapie FMH\n• Conditions d'emploi attrayantes (emploi sécurisé, fonds de pension, prestations pour les employés de l'État)\n• Promotion de la formation continue et de la supervision régulière, possibilité d'activités de recherche, offre de cours de français ou d'allemand Profil désiré\n• Diplôme de spécialiste en psychiatrie et psychiatrie FMH ou titre équivalent (Les collègues ayant suivi une formation avancée et non encore terminée peuvent être employés comme médecin principal adjoint/médecin supérieur adjoint)\n• Volonté de s'engager positivement dans le fonctionnement du FNPG et de défendre ses valeurs ( https://www.rfsm.ch/fr/patient-and-appartenant/notre-ethikcharta )\n• Très bonne connaissance de l'allemand ou du français (C1), bonne connaissance de l'autre langue cantonale souhaitée Coordonnées Professeur Dr Med. Isabelle Gotuey, directrice médicale et Luca Rampa, directrice médicale adjointe, luca.rampa@rfsm.ch, T +41 26 308 13 01 Date de la publicité:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Oberarzt-%C3%A4rztin-FNPG-Bereich-Erwachsenenpsychiatrie-und-psychotherapie-Grey/1350362257/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:49.643Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-10",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1350362257/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "pensum": "50-100%",
+      "previousSlugs": [
+        "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "oberarzt-arztin-fnpg-bereich-erwachsenenpsychiatrie-und-psychotherapie-etat-de-fribourg-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:42:30.790Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-1ebfeee9e399",
+      "slug": "alto-responsabile-del-caso-amministrativo-fnpg-marsens-direzione-generale-etat-de-fribourg-marsens",
+      "slugByLocale": {
+        "it": "alto-responsabile-del-caso-amministrativo-fnpg-marsens-direzione-generale-etat-de-fribourg-marsens",
+        "en": "high-administrative-case-officer-fnpg-marsens-directorate-general-etat-de-fribourg-marsens",
+        "de": "hoh-verwaltungssachbearbeiter-in-fnpg-marsens-generaldirektion-etat-de-fribourg-ch",
+        "fr": "haut-agent-administratif-fnpg-marsens-direction-generale-etat-de-fribourg-marsens"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Höh. Verwaltungssachbearbeiter/in, FNPG Marsens - Generaldirektion",
+      "titleByLocale": {
+        "it": "Alto. Responsabile del caso amministrativo, FNPG Marsens - Direzione Generale",
+        "en": "High. Administrative case officer, FNPG Marsens - Directorate General",
+        "de": "Höh. Verwaltungssachbearbeiter/in, FNPG Marsens - Generaldirektion",
+        "fr": "Haut. Agent administratif, FNPG Marsens - Direction générale"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG vereint die ambulanten, tagesklinischen, mobilen und stationären öffentlichen psychiatrischen Dienste des Kantons und gewährleistet eine hochstehende psychosoziale Versorgung der Bevölkerung des zweisprachigen Kantons Freiburg.\n\nDas FNPG ist eine öffentlich-rechtliche Institution, die über sechs Standorte im Kanton Freiburg verfügt und über 800 Mitarbeitende in rund 40 verschiedenen Berufen beschäftigt. Als anerkannte Aus- und Weiterbildungsstätte bietet es jährlich mehr als hundert Studierenden und Praktikantinnen und Praktikanten Ausbildungs- und Praktikumsplätze im Rahmen verschiedener Bildungsgänge.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nIhre Aufgaben\n\nIn dieser wichtigen Unterstützungsfunktion arbeiten Sie eng mit der Generaldirektion zusammen und unterstützen sie bei organisatorischen, administrativen und redaktionellen Aufgaben. Zu Ihren Tätigkeiten gehören insbesondere:\n\n• Dank Ihrer ausgezeichneten redaktionellen Fähigkeiten und Ihrer ausgeprägten Fähigkeit, Inhalte prägnant zusammenzufassen, verfassen Sie verschiedene Dokumente, insbesondere die Protokolle des Verwaltungsrats und des Direktionsrats sowie verschiedene Berichte und weitere Dokumente\n\n• Sie koordinieren verschiedene Sitzungen und übernehmen die daraus resultierenden Aufgaben wie Korrespondenz, Informationsweitergabe und Dossiernachverfolgung\n\n• Sie übernehmen verschiedene administrative Aufgaben auf institutioneller Ebene, insbesondere im Zusammenhang mit der Koordination von Aus- und Weiterbildungen in Abstimmung mit den Direktionssekretariaten der betreffenden Abteilungen\n\n• Sie organisieren verschiedene Veranstaltungen im Auftrag der Generaldirektion\n\n• Bei Bedarf übernehmen Sie besondere Aufträge im Zusammenhang mit der Verwaltung des FNPG\n\nGewünschtes Profil\n\n• Sie verfügen über eine höhere kaufmännische Ausbildung und über eine mehrjährige, fundierte Berufserfahrung in einer vergleichbaren Funktion\n\n• Sie interessieren sich für den Auftrag und die Werte des FNPG und verstehen es, in einem anspruchsvollen Umfeld flexibel und souverän zu agieren\n\n• Sie sind eine zuverlässige und vertrauenswürdige Persönlichkeit, identifizieren sich mit den Zielen der Direktion und können mit sensiblen Dossiers betraut werden\n\n• Sie sind in der Protokollführung versiert\n\n• Sie beherrschen die gängigen IT-Anwendungen sicher\n\n• Sie verfügen über eine ausgezeichnete mündliche und schriftliche Ausdrucksfähigkeit in Französisch sowie über Deutschkenntnisse auf Niveau B2\n\nWir freuen uns auf Ihre Bewerbung mit Motivationsschreiben, Lebenslauf sowie Diplomen und Arbeitszeugnissen.\n\nAngaben der Kontaktpersonen\n\nSylvain Bertschy, Generaldirektor, sylvain.bertschy@rfsm.ch, T +41 26 308 00 72\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione\n\nLa Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG riunisce i servizi psichiatrici pubblici ambulatoriali, ambulatoriali, mobili e malati e assicura cure psicosociali di alta qualità per la popolazione del cantone bilingue di Friburgo.\n\nIl FNPG è un'istituzione pubblica che ha sei sedi nel cantone di Friburgo e impiega oltre 800 persone in circa 40 professioni diverse. In qualità di istituto di formazione riconosciuto e di ulteriore istruzione, offre più di cento studenti e tirocinanti apprendisti e stage in vari programmi educativi ogni anno.\n\nDiventa parte della nostra squadra!\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente.\n\nI loro compiti\n\nIn questa importante funzione di supporto, si lavora a stretto contatto con la Direzione Generale e li sostiene in compiti organizzativi, amministrativi e editoriali. Le loro attività includono in particolare:\n\n• Grazie alle eccellenti capacità editoriali e alla forte capacità di riassumere concisamente i contenuti, si compone di vari documenti, in particolare i verbali del Consiglio di Amministrazione e del Consiglio di Amministrazione, nonché varie relazioni e altri documenti.\n\n• Coordinano varie riunioni e si occupano dei compiti che ne derivano, come corrispondenza, condivisione delle informazioni e monitoraggio dei dossier.\n\n• Essi svolgono vari compiti amministrativi a livello istituzionale, in particolare per quanto riguarda il coordinamento dell'istruzione e della formazione in coordinamento con i segretariati di gestione dei servizi interessati.\n\n• Organizzano vari eventi a nome della Direzione generale\n\n• Se necessario, si effettuano ordini speciali in connessione con l'amministrazione del FNPG\n\nProfilo desiderato\n\n• Hai una formazione commerciale superiore e diversi anni di esperienza professionale sonora in una funzione paragonabile\n\n• Sono interessati alla missione e ai valori del FNPG e capiscono come agire in modo flessibile e sovrano in un ambiente esigente.\n\n• Sei una personalità affidabile e affidabile, identifica con gli obiettivi della gestione e può essere affidata a dossier sensibili\n\n• Sono ben addolorati nell'intaglio.\n\n• Si padroneggia le applicazioni IT comuni in modo sicuro\n\n• Hai un'eccellente capacità verbale e scritta di esprimerti in francese e una conoscenza del tedesco al livello B2\n\nAttendiamo con ansia la vostra domanda con lettera di motivazione, CV e diplomi e certificati di lavoro.\n\nInformazioni di contatto\n\nSylvain Bertschy, Direttore Generale, sylvain.bertschy@rfsm.ch, T +41 26 308 00 72\n\nData di pubblicità:",
+        "en": "Appointment authority / department / institution\n\nThe Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG brings together the canton’s outpatient, day clinic, mobile and inpatient public psychiatric services and ensures high-quality psychosocial care for the population of the bilingual canton of Freiburg.\n\nThe FNPG is a public-law institution that has six locations in the canton of Freiburg and employs over 800 people in around 40 different professions. As a recognised training and further education institution, it offers more than one hundred students and trainees apprenticeships and internships in various educational programmes every year.\n\nBecome part of our team!\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page.\n\nTheir tasks\n\nIn this important support function, you work closely with the Directorate-General and support them in organizational, administrative and editorial tasks. Their activities include in particular:\n\n• Thanks to your excellent editorial skills and strong ability to summarize content concisely, you compose various documents, in particular the minutes of the Board of Directors and the Board of Directors, as well as various reports and other documents.\n\n• They coordinate various meetings and take on the resulting tasks such as correspondence, information sharing and dossier tracking.\n\n• They perform various administrative tasks at institutional level, in particular in relation to the coordination of education and training in coordination with the management secretariats of the departments concerned\n\n• They organise various events on behalf of the Directorate-General\n\n• If necessary, you undertake special orders in connection with the administration of the FNPG\n\nDesired profile\n\n• You have a higher commercial education and several years of sound professional experience in a comparable function\n\n• They are interested in the mission and values of the FNPG and understand how to act flexibly and sovereignly in a demanding environment.\n\n• You are a reliable and trustworthy personality, identify with the objectives of the management and can be entrusted with sensitive dossiers\n\n• They're well-versed in logging.\n\n• You master the common IT applications securely\n\n• You have an excellent verbal and written ability to express yourself in French and a knowledge of German at level B2\n\nWe look forward to your application with letter of motivation, CV as well as diplomas and employment certificates.\n\nContact details\n\nSylvain Bertschy, Director General, sylvain.bertschy@rfsm.ch, T +41 26 308 00 72\n\nDate of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG vereint die ambulanten, tagesklinischen, mobilen und stationären öffentlichen psychiatrischen Dienste des Kantons und gewährleistet eine hochstehende psychosoziale Versorgung der Bevölkerung des zweisprachigen Kantons Freiburg.\n\nDas FNPG ist eine öffentlich-rechtliche Institution, die über sechs Standorte im Kanton Freiburg verfügt und über 800 Mitarbeitende in rund 40 verschiedenen Berufen beschäftigt. Als anerkannte Aus- und Weiterbildungsstätte bietet es jährlich mehr als hundert Studierenden und Praktikantinnen und Praktikanten Ausbildungs- und Praktikumsplätze im Rahmen verschiedener Bildungsgänge.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nIhre Aufgaben\n\nIn dieser wichtigen Unterstützungsfunktion arbeiten Sie eng mit der Generaldirektion zusammen und unterstützen sie bei organisatorischen, administrativen und redaktionellen Aufgaben. Zu Ihren Tätigkeiten gehören insbesondere:\n\n• Dank Ihrer ausgezeichneten redaktionellen Fähigkeiten und Ihrer ausgeprägten Fähigkeit, Inhalte prägnant zusammenzufassen, verfassen Sie verschiedene Dokumente, insbesondere die Protokolle des Verwaltungsrats und des Direktionsrats sowie verschiedene Berichte und weitere Dokumente\n\n• Sie koordinieren verschiedene Sitzungen und übernehmen die daraus resultierenden Aufgaben wie Korrespondenz, Informationsweitergabe und Dossiernachverfolgung\n\n• Sie übernehmen verschiedene administrative Aufgaben auf institutioneller Ebene, insbesondere im Zusammenhang mit der Koordination von Aus- und Weiterbildungen in Abstimmung mit den Direktionssekretariaten der betreffenden Abteilungen\n\n• Sie organisieren verschiedene Veranstaltungen im Auftrag der Generaldirektion\n\n• Bei Bedarf übernehmen Sie besondere Aufträge im Zusammenhang mit der Verwaltung des FNPG\n\nGewünschtes Profil\n\n• Sie verfügen über eine höhere kaufmännische Ausbildung und über eine mehrjährige, fundierte Berufserfahrung in einer vergleichbaren Funktion\n\n• Sie interessieren sich für den Auftrag und die Werte des FNPG und verstehen es, in einem anspruchsvollen Umfeld flexibel und souverän zu agieren\n\n• Sie sind eine zuverlässige und vertrauenswürdige Persönlichkeit, identifizieren sich mit den Zielen der Direktion und können mit sensiblen Dossiers betraut werden\n\n• Sie sind in der Protokollführung versiert\n\n• Sie beherrschen die gängigen IT-Anwendungen sicher\n\n• Sie verfügen über eine ausgezeichnete mündliche und schriftliche Ausdrucksfähigkeit in Französisch sowie über Deutschkenntnisse auf Niveau B2\n\nWir freuen uns auf Ihre Bewerbung mit Motivationsschreiben, Lebenslauf sowie Diplomen und Arbeitszeugnissen.\n\nAngaben der Kontaktpersonen\n\nSylvain Bertschy, Generaldirektor, sylvain.bertschy@rfsm.ch, T +41 26 308 00 72\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution\n\nLe Réseau de Fribourg pour la santé mentale (FNPG) est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG regroupe les services psychiatriques publics ambulatoires, cliniques de jour, mobiles et hospitaliers cantonaux et assure des soins psychosociaux de haute qualité à la population du canton bilingue de Fribourg.\n\nLe FNPG est une institution de droit public qui compte six localités dans le canton de Fribourg et emploie plus de 800 personnes dans une quarantaine de professions différentes. En tant qu'établissement de formation et de perfectionnement reconnus, il propose chaque année plus d'une centaine d'étudiants et de stagiaires en apprentissage et en stages dans divers programmes éducatifs.\n\nFaites partie de notre équipe !\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nLeurs tâches\n\nDans le cadre de cette importante fonction de soutien, vous travaillez en étroite collaboration avec la Direction générale et vous les soutenez dans les tâches d'organisation, d'administration et de rédaction. Leurs activités comprennent notamment:\n\n• Grâce à vos excellentes compétences éditoriales et à votre grande capacité de résumer le contenu de façon concise, vous composez divers documents, notamment les procès-verbaux du conseil d'administration et du conseil d'administration, ainsi que divers rapports et autres documents.\n\n• Ils coordonnent diverses réunions et assument les tâches qui en résultent, telles que la correspondance, l'échange d'informations et le suivi des dossiers.\n\n• Ils accomplissent diverses tâches administratives au niveau institutionnel, notamment en ce qui concerne la coordination de l'éducation et de la formation en coordination avec les secrétariats de gestion des départements concernés\n\n• Ils organisent diverses manifestations au nom de la direction générale\n\n• Si nécessaire, vous entreprenez des commandes spéciales dans le cadre de l'administration du FNPG\n\nProfil désiré\n\n• Vous avez une formation commerciale supérieure et plusieurs années d'expérience professionnelle solide dans une fonction comparable\n\n• Ils s'intéressent à la mission et aux valeurs du FNPG et comprennent comment agir avec souplesse et souveraineté dans un environnement exigeant.\n\n• Vous êtes une personnalité fiable et digne de confiance, vous identifiez aux objectifs de la direction et vous pouvez vous charger de dossiers sensibles\n\n• Ils sont bien tournés dans l'exploitation forestière.\n\n• Vous maîtrisez les applications informatiques courantes en toute sécurité\n\n• Vous avez une excellente capacité verbale et écrite à vous exprimer en français et une connaissance de l'allemand au niveau B2\n\nNous attendons avec impatience votre candidature avec une lettre de motivation, CV ainsi que des diplômes et des certificats d'emploi.\n\nCoordonnées\n\nSylvain Bertschy, directeur général, sylvain.bertschy@rfsm.ch, T +41 26 308 00 72\n\nDate de la publicité:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-H%C3%B6h_-Verwaltungssachbearbeiterin%2C-FNPG-Marsens-Generaldirektion-Grey/1369298457/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:39.271Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1369298457/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "previousSlugs": [
+        "hoh-verwaltungssachbearbeiter-in-fnpg-marsens-generaldirektion-etat-de-fribourg-ch",
+        "alto-responsabile-del-caso-amministrativo-fnpg-marsens-direzione-generale-etat-de-fribourg-marsens"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hoh-verwaltungssachbearbeiter-in-fnpg-marsens-generaldirektion-etat-de-fribourg-ch",
+          "alto-responsabile-del-caso-amministrativo-fnpg-marsens-direzione-generale-etat-de-fribourg-marsens"
+        ],
+        "en": [
+          "hoh-verwaltungssachbearbeiter-in-fnpg-marsens-generaldirektion-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "hoh-verwaltungssachbearbeiter-in-fnpg-marsens-generaldirektion-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-08-13T22:25:55.977Z",
+      "salaryMin": 115000,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 115000,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-b06638c6e06c",
+      "slug": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane",
+      "slugByLocale": {
+        "it": "eidg-anerk-psychotherapeut-in-o-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane",
+        "en": "the-oath-is-noted-psychotherapist-or-psychologist-in-psychotherapeutic-training-etat-de-fribourg-villars-sur-glane",
+        "de": "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer",
+        "fr": "le-serment-est-note-psychotherapeute-ou-psychologue-en-formation-psychotherapeutique-etat-de-fribourg-villars-sur-glane"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Eidg. anerk. Psychotherapeut/in oder Psychologin/Psychologe in psychotherapeutischer Weiterbildung",
+      "titleByLocale": {
+        "it": "Eidg. anerk. Psychotherapeut/in o Psychologin/Psychologe in psychotherapeutischer Weiterbildung",
+        "en": "The oath is noted. Psychotherapist or psychologist in psychotherapeutic training",
+        "de": "Eidg. anerk. Psychotherapeut/in oder Psychologin/Psychologe in psychotherapeutischer Weiterbildung",
+        "fr": "Le serment est noté. Psychothérapie ou psychologue en formation psychothérapeutique"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist. Das zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nFür das Institut für Psychotherapie des FNPG in Villars-sur-Glâne:\n\n• Ambulante psychotherapeutische Behandlungen\n\n• Abklärungen und Indikationsgespräche bei Neuanmeldungen sowie psychotherapeutische Verlaufsbetreuung\n\n• Zuteilung von Neuanmeldungen und Teilnahme an regelmässigen Besprechungen mit den Verantwortlichen des Instituts für Psychotherapie\n\n• Administrative Arbeiten im Zusammenhang mit Patientinnen und Patienten (Berichte an Versicherungen, Führung der Patientendossiers usw.)\n\nGewünschtes Profil\n\nAnforderungen\n\n• Master in Psychologie (oder als gleichwertig anerkannter Abschluss)\n\n• Weiterbildungstitel in Psychotherapie oder kurz vor Abschluss der Weiterbildung\n\nIhr Profil\n\n• Laufende oder abgeschlossene psychotherapeutische Weiterbildung (kognitive Verhaltenstherapie, systemische, psychoanalytische oder personenzentrierte Psychotherapie)\n\n• Psychotherapeutische Praxiserfahrung\n\n• Beherrschung der deutschen Sprache mit guten Französischkenntnissen\n\nAngaben der Kontaktpersonen\n\nKarin Wörthwein, Stellvertretende Direktorin der psychologischen Abteilung, T +41 26 308 08 61, karin.woerthwein@rfsm.ch\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione\n\nLa Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG è un centro di competenza medico, infermieristica e psicosociale specializzato in psichiatria e psicoterapia e, più in generale, salute mentale. Il FNPG bilingue è in continua evoluzione e in costante aggiornamento nel campo terapeutico.\n\nDiventa parte della nostra squadra!\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente.\n\nVantaggi del RFSM: Swibeco Card – Promozione della salute – Little Red Riding Hood – Sconto nel Nestlé Shop – Corsi di lingua\n\nEtichetta “Family Score” 2026–2028 & training company\n\nI loro compiti\n\nPer l'Istituto di Psicoterapia del FNPG a Villars-sur-Glâne:\n\n• Trattamenti psicoterapeutici ambulanti\n\n• Chiarificazioni e discussioni di indicazione per le nuove registrazioni e il follow-up psicoterapeutico\n\n• Attribuzione di nuove iscrizioni e partecipazione a riunioni regolari con i responsabili dell'Istituto di Psicoterapia\n\n• Lavoro amministrativo in relazione ai pazienti (reporti alle compagnie assicurative, gestione dei dossier dei pazienti, ecc.)\n\nProfilo desiderato\n\nRequisiti\n\n• Master in Psicologia (o grado riconosciuto come equivalente)\n\n• Ulteriori titoli di studio in psicoterapia o poco prima del completamento di un'ulteriore formazione\n\nIl tuo profilo\n\n• Formazione psicoterapeutica in corso o completata (terapia comportamentale cognitiva, psicoterapia sistemica, psicoanalitica o fisica)\n\n• Esperienza psicoterapeutica pratica\n\n• Mastery della lingua tedesca con buona conoscenza del francese\n\nInformazioni di contatto\n\nKarin Wörthwein, Vice Direttore del Dipartimento di Psicologia, T +41 26 308 08 61, karin.woerthwein@rfsm.ch\n\nData dell'annuncio:",
+        "en": "Appointment authority / department / institution\n\nThe Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG is a medical, nursing and psychosocial competence centre specialising in psychiatry and psychotherapy and, more broadly, mental health. Bilingual FNPG is constantly evolving and keeping up to date in the therapeutic field.\n\nBecome part of our team!\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page.\n\nAdvantages of the RFSM: Swibeco Card – Health Promotion – Little Red Riding Hood – Discount in the Nestlé Shop – Language Courses\n\nLabel “Family Score” 2026–2028 & training company\n\nTheir tasks\n\nFor the Institute of Psychotherapy of the FNPG in Villars-sur-Glâne:\n\n• Outpatient psychotherapeutic treatments\n\n• Clarifications and indication discussions for new registrations as well as psychotherapeutic follow-up\n\n• Allocation of new registrations and participation in regular meetings with the responsible persons of the Institute for Psychotherapy\n\n• Administrative work in connection with patients (reports to insurance companies, management of patient dossiers, etc.)\n\nDesired profile\n\nRequirements\n\n• Master in Psychology (or degree recognized as equivalent)\n\n• Further education title in psychotherapy or shortly before completion of further education\n\nYour profile\n\n• Ongoing or completed psychotherapeutic training (cognitive behavioural therapy, systemic, psychoanalytic or person-centered psychotherapy)\n\n• Practical psychotherapeutic experience\n\n• Mastery of the German language with good knowledge of French\n\nContact details\n\nKarin Wörthwein, Deputy Director of the Psychology Department, T +41 26 308 08 61, karin.woerthwein@rfsm.ch\n\nDate of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist. Das zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nFür das Institut für Psychotherapie des FNPG in Villars-sur-Glâne:\n\n• Ambulante psychotherapeutische Behandlungen\n\n• Abklärungen und Indikationsgespräche bei Neuanmeldungen sowie psychotherapeutische Verlaufsbetreuung\n\n• Zuteilung von Neuanmeldungen und Teilnahme an regelmässigen Besprechungen mit den Verantwortlichen des Instituts für Psychotherapie\n\n• Administrative Arbeiten im Zusammenhang mit Patientinnen und Patienten (Berichte an Versicherungen, Führung der Patientendossiers usw.)\n\nGewünschtes Profil\n\nAnforderungen\n\n• Master in Psychologie (oder als gleichwertig anerkannter Abschluss)\n\n• Weiterbildungstitel in Psychotherapie oder kurz vor Abschluss der Weiterbildung\n\nIhr Profil\n\n• Laufende oder abgeschlossene psychotherapeutische Weiterbildung (kognitive Verhaltenstherapie, systemische, psychoanalytische oder personenzentrierte Psychotherapie)\n\n• Psychotherapeutische Praxiserfahrung\n\n• Beherrschung der deutschen Sprache mit guten Französischkenntnissen\n\nAngaben der Kontaktpersonen\n\nKarin Wörthwein, Stellvertretende Direktorin der psychologischen Abteilung, T +41 26 308 08 61, karin.woerthwein@rfsm.ch\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution\n\nLe Réseau de Fribourg pour la santé mentale est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG est un centre de compétences médicales, infirmières et psychosociales spécialisé dans la psychiatrie et la psychothérapie et, plus généralement, la santé mentale. Le PFPN bilingue évolue constamment et se tient à jour dans le domaine thérapeutique.\n\nFaites partie de notre équipe !\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nAvantages du RFSM: Carte Swibeco – Promotion de la santé – Petit Chaperon Rouge – Réduction dans la boutique Nestlé – Cours de langues\n\nLabel Score Famille 2026-2028 & entreprise de formation\n\nLeurs tâches\n\nPour l'Institut de Psychothérapie du FNPG à Villars-sur-Glâne :\n\n• Traitements psychothérapeutiques ambulatoires\n\n• Clarifications et discussions d'indication pour les nouveaux enregistrements ainsi que le suivi psychothérapeutique\n\n• Allocation de nouveaux enregistrements et participation à des réunions régulières avec les responsables de l'Institut de psychothérapie\n\n• Travaux administratifs concernant les patients (rapports aux compagnies d'assurance, gestion des dossiers des patients, etc.)\n\nProfil désiré\n\nExigences\n\n• Maîtrise en psychologie (ou diplôme reconnu comme équivalent)\n\n• Titre d'enseignement supérieur en psychothérapie ou peu de temps avant la fin de l'enseignement supérieur\n\nVotre profil\n\n• Formation psychothérapeutique continue ou terminée (thérapie comportementale cognitive, psychothérapie systémique, psychanalytique ou centrée sur la personne)\n\n• Expérience psychothérapeutique pratique\n\n• Maîtrise de la langue allemande avec une bonne connaissance du français\n\nCoordonnées\n\nKarin Wörthwein, Directeur adjoint du Département de psychologie, T +41 26 308 08 61, karin.woerthwein@rfsm.ch\n\nDate de la publicité:"
+      },
+      "location": "Villars-sur-Glâne",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Eidg_-anerk_-Psychotherapeutin-oder-PsychologinPsychologe-in-psychotherapeutischer-Weiterbildung-Saan/1366851257/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:32.786Z",
+      "addressLocality": "Villars-sur-Glâne",
+      "postalCode": "1752",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1366851257/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 35,
+      "pensumMax": 40,
+      "pensum": "35-40%",
+      "previousSlugs": [
+        "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer",
+        "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer"
+        ],
+        "en": [
+          "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane"
+        ],
+        "fr": [
+          "eidg-anerk-psychotherapeut-in-oder-psychologin-psychologe-in-psychotherapeutischer-weiterbildung-etat-de-fribourg-villars-sur-glane"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T22:23:17.321Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-3b960d566b91",
+      "slug": "gartner-in-specializzazione-zierpflanzen-fnpg-marsens-etat-de-fribourg-marsens",
+      "slugByLocale": {
+        "it": "gartner-in-specializzazione-zierpflanzen-fnpg-marsens-etat-de-fribourg-marsens",
+        "en": "gardeners-fnpg-marsens-etat-de-fribourg-marsens",
+        "de": "gartner-in-fachrichtung-zierpflanzen-fnpg-marsens-etat-de-fribourg-ch",
+        "fr": "jardiniers-fnpg-marsens-etat-de-fribourg-marsens"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Gärtner/in Fachrichtung Zierpflanzen, FNPG Marsens",
+      "titleByLocale": {
+        "it": "Gärtner/in specializzazione Zierpflanzen, FNPG Marsens",
+        "en": "Gardeners, FNPG Marsens",
+        "de": "Gärtner/in Fachrichtung Zierpflanzen, FNPG Marsens",
+        "fr": "Jardiniers, FNPG Marsens"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Ausführen von Kulturarbeiten (Aussaat, Stecklingsvermehrung, Bewässerung, Pflanzenschutz, Ein- und Umtopfen, Aufbinden, Pinzieren)\n\n• Pflege der Grünflächen (Mähen, Erneuern)\n\n• Pflege der Grünpflanzen (Giessen, Reinigen, Aufstellen, Schneiden)\n\n• Schneiden von Bäumen und Sträuchern\n\n• Bepflanzen und Pflegen der Pflanztröge und saisonalen Beete\n\n• Pflege der Staudenbeete (Schneiden, Bewässern, Jäten)\n\n• Unterhalt der Aussenanlagen (Wischen, Laubbeseitigung, Schneeräumung)\n\n• Übernahme des Winter-Pikettdienstes\n\n• Übernahme des Gewächshausdienstes\n\n• Möglichkeit zur Ausbildung von Lernenden\n\nWir bieten eine abwechslungsreiche Tätigkeit:\n\n• in einem Versorgungsnetz mit mehreren Standorten, das sich stetig weiterentwickelt\n\n• in einem dynamischen und motivierten Team\n\n• zu den attraktiven Anstellungsbedingungen des Staatspersonals des Kantons Freiburg\n\n• Hauptarbeitsort: Stationäres Behandlungszentrum Marsens\n\nGewünschtes Profil\n\n• Gärtner/in EFZ, Fachrichtung Zierpflanzen\n\n• Einschlägige Berufserfahrung, Selbstständigkeit, Kontaktfreude, gute körperliche Belastbarkeit, zügiges Arbeiten und Teamfähigkeit\n\n• Führerausweis, sicherer Umgang mit Schneeräumfahrzeugen sowie gute IT-Anwenderkenntnisse (Word und Excel)\n\n• Berreschung der französische Sprache und gute Deutschkenntnisse auf Niveau B2 von Vorteil\n\nAngaben der Kontaktpersonen\n\nJérôme Studer, Verantwortlicher des Gärtnereidienstes, T +41 26 308 01 86\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione\n\nLa Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG è un centro di competenza medico, infermieristico e psicosociale specializzato in psichiatria e psicoterapia e, più in generale, salute mentale.\n\nIl FNPG bilingue è in continua evoluzione e in continua evoluzione nel campo terapeutico.\n\nDiventa parte della nostra squadra!\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente.\n\nVantaggi del RFSM: Swibeco Card – Promozione della salute – Little Red Riding Hood – Sconto nel Nestlé Shop – Corsi di lingua\n\nEtichetta “Family Score” 2026–2028 & training company\n\nI loro compiti\n\n• Attività di culturismo (semina, propagazione del taglio, irrigazione, protezione delle piante, potting, binding, pinning)\n\n• Cura delle aree verdi (mowing, rinnovo)\n\n• Cura di piante verdi (pouring, pulizia, erezione, taglio)\n\n• Taglio di alberi e arbusti\n\n• Pianificazione e manutenzione di trote di semina e letti stagionali\n\n• Cura dei letti perenni (taglio, innaffiamento, weeding)\n\n• Manutenzione di strutture all'aperto (modulazione, rimozione fogliame, clearance della neve)\n\n• Assumere il servizio di picetting invernale\n\n• Riprendere il servizio serra\n\n• Opportunità di ammissione\n\nOffriamo una variegata attività:\n\n• in una rete di fornitura multi-sito in continua evoluzione\n\n• In un team dinamico e motivato\n\n• sulle condizioni interessanti di impiego del personale statale del Cantone di Friburgo\n\n• Posizione principale: Marsens Centro di Trattamento Stazionario\n\nProfilo desiderato\n\n• EFZ gardener specializzato in piante ornamentali\n\n• Esperienza professionale rilevante, lavoro autonomo, socievolezza, buona forza fisica, lavoro veloce e lavoro di squadra\n\n• Patente di guida, gestione sicura dei veicoli innevamento e buona conoscenza degli utenti IT (Word e Excel)\n\n• La lingua francese e la buona conoscenza del tedesco a livello B2 sono vantaggiose\n\nInformazioni di contatto\n\nJérôme Studer, direttore del servizio di asilo nido, T +41 26 308 01 86\n\nData di pubblicità:",
+        "en": "Appointment authority / department / institution\n\nThe Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG is a medical, nursing and psychosocial competence center specializing in psychiatry and psychotherapy and, more broadly, mental health.\n\nBilingual FNPG is constantly evolving and keeping up to date in the therapeutic field.\n\nBecome part of our team!\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page.\n\nAdvantages of the RFSM: Swibeco Card – Health Promotion – Little Red Riding Hood – Discount in the Nestlé Shop – Language Courses\n\nLabel “Family Score” 2026–2028 & training company\n\nTheir tasks\n\n• Culturing activities (sowing, cutting propagation, watering, plant protection, potting, binding, pinning)\n\n• Care of green areas (mowing, renewing)\n\n• Care of green plants (pouring, cleaning, erecting, cutting)\n\n• Cutting of trees and shrubs\n\n• Planting and maintenance of planting troughs and seasonal beds\n\n• Care of perennial beds (cutting, watering, weeding)\n\n• Maintenance of outdoor facilities (wiping, foliage removal, snow clearance)\n\n• Takeover of the Winter Picetting Service\n\n• Taking over of the greenhouse service\n\n• Apprenticeship opportunities\n\nWe offer a varied activity:\n\n• in a multi-site supply network that is constantly evolving\n\n• In a dynamic and motivated team\n\n• on the attractive conditions of employment of state staff of the Canton of Freiburg\n\n• Main location: Marsens Stationary Treatment Center\n\nDesired profile\n\n• EFZ gardener specialising in ornamental plants\n\n• Relevant professional experience, self-employment, sociability, good physical strength, fast working and teamwork\n\n• Driving license, safe handling of snow-clearing vehicles and good IT user knowledge (Word and Excel)\n\n• French language and good knowledge of German at level B2 are advantageous\n\nContact details\n\nJérôme Studer, manager of the nursery service, T +41 26 308 01 86\n\nDate of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Ausführen von Kulturarbeiten (Aussaat, Stecklingsvermehrung, Bewässerung, Pflanzenschutz, Ein- und Umtopfen, Aufbinden, Pinzieren)\n\n• Pflege der Grünflächen (Mähen, Erneuern)\n\n• Pflege der Grünpflanzen (Giessen, Reinigen, Aufstellen, Schneiden)\n\n• Schneiden von Bäumen und Sträuchern\n\n• Bepflanzen und Pflegen der Pflanztröge und saisonalen Beete\n\n• Pflege der Staudenbeete (Schneiden, Bewässern, Jäten)\n\n• Unterhalt der Aussenanlagen (Wischen, Laubbeseitigung, Schneeräumung)\n\n• Übernahme des Winter-Pikettdienstes\n\n• Übernahme des Gewächshausdienstes\n\n• Möglichkeit zur Ausbildung von Lernenden\n\nWir bieten eine abwechslungsreiche Tätigkeit:\n\n• in einem Versorgungsnetz mit mehreren Standorten, das sich stetig weiterentwickelt\n\n• in einem dynamischen und motivierten Team\n\n• zu den attraktiven Anstellungsbedingungen des Staatspersonals des Kantons Freiburg\n\n• Hauptarbeitsort: Stationäres Behandlungszentrum Marsens\n\nGewünschtes Profil\n\n• Gärtner/in EFZ, Fachrichtung Zierpflanzen\n\n• Einschlägige Berufserfahrung, Selbstständigkeit, Kontaktfreude, gute körperliche Belastbarkeit, zügiges Arbeiten und Teamfähigkeit\n\n• Führerausweis, sicherer Umgang mit Schneeräumfahrzeugen sowie gute IT-Anwenderkenntnisse (Word und Excel)\n\n• Berreschung der französische Sprache und gute Deutschkenntnisse auf Niveau B2 von Vorteil\n\nAngaben der Kontaktpersonen\n\nJérôme Studer, Verantwortlicher des Gärtnereidienstes, T +41 26 308 01 86\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution\n\nLe Réseau de Fribourg pour la santé mentale (FNPG) est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG est un centre de compétence médicale, infirmière et psychosociale spécialisé en psychiatrie et en psychothérapie et, plus largement, en santé mentale.\n\nLe PFPN bilingue évolue constamment et se tient à jour dans le domaine thérapeutique.\n\nFaites partie de notre équipe !\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nAvantages du RFSM: Carte Swibeco – Promotion de la santé – Petit Chaperon Rouge – Réduction dans la boutique Nestlé – Cours de langues\n\nLabel Score Famille 2026-2028 & entreprise de formation\n\nLeurs tâches\n\n• Activités de culture (sauvage, coupe, arrosage, protection des plantes, mise en pot, fixation, épinglage)\n\n• Soins des zones vertes (mouvement, renouvellement)\n\n• Entretien des plantes vertes (pouvoir, nettoyage, érection, découpe)\n\n• Découpe d'arbres et d'arbustes\n\n• Plantation et entretien des bassins de plantation et des lits saisonniers\n\n• Soins des lits vivaces (découpe, arrosage, désherbage)\n\n• Entretien des installations extérieures (sèchement du feuillage, déneigement)\n\n• Prise en charge du service de piquetage d'hiver\n\n• Prise en charge du service de serre\n\n• Possibilités d'apprentissage\n\nNous offrons une activité variée:\n\n• dans un réseau d'approvisionnement multisite en constante évolution\n\n• Dans une équipe dynamique et motivée\n\n• sur les conditions d'emploi attrayantes du personnel de l'État du canton de Fribourg\n\n• Emplacement principal: Marsens Stationary Treatment Center\n\nProfil désiré\n\n• EFZ jardinier spécialisé dans les plantes ornementales\n\n• Expérience professionnelle pertinente, travail indépendant, sociabilité, bonne force physique, travail rapide et travail en équipe\n\n• Permis de conduire, manipulation sécuritaire des véhicules de déneigement et bonne connaissance de l'utilisateur informatique (Word et Excel)\n\n• La langue française et la bonne connaissance de l'allemand au niveau B2 sont avantageuses\n\nCoordonnées\n\nJérôme Studer, directeur du service de crèche, T +41 26 308 01 86\n\nDate de la publicité:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-G%C3%A4rtnerin-Fachrichtung-Zierpflanzen%2C-FNPG-Marsens-Grey/1369966457/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:20.482Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1369966457/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 95,
+      "pensumMax": 100,
+      "pensum": "95-100%",
+      "previousSlugs": [
+        "gartner-in-fachrichtung-zierpflanzen-fnpg-marsens-etat-de-fribourg-ch",
+        "gartner-in-specializzazione-zierpflanzen-fnpg-marsens-etat-de-fribourg-marsens"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-fachrichtung-zierpflanzen-fnpg-marsens-etat-de-fribourg-ch",
+          "gartner-in-specializzazione-zierpflanzen-fnpg-marsens-etat-de-fribourg-marsens"
+        ],
+        "en": [
+          "gartner-in-fachrichtung-zierpflanzen-fnpg-marsens-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "gartner-in-fachrichtung-zierpflanzen-fnpg-marsens-etat-de-fribourg-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:59:07.782Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-1d359680cddf",
+      "slug": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-etat-de-fribourg-ch",
+      "slugByLocale": {
+        "it": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-etat-de-fribourg-ch",
+        "en": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-etat-de-fribourg-ch",
+        "de": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-etat-de-fribourg-ch",
+        "fr": "erfahrene-buchhalterin-erfahrener-buchhalter-fnpg-marsens-etat-de-fribourg-ch"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Erfahrene Buchhalterin / erfahrener Buchhalter, FNPG Marsens",
+      "titleByLocale": {
+        "it": "Erfahrene Buchhalterin / erfahrener Buchhalter, FNPG Marsens",
+        "en": "Erfahrene Buchhalterin / erfahrener Buchhalter, FNPG Marsens",
+        "de": "Erfahrene Buchhalterin / erfahrener Buchhalter, FNPG Marsens",
+        "fr": "Erfahrene Buchhalterin / erfahrener Buchhalter, FNPG Marsens"
+      },
+      "description": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Erstellung der monatlichen Finanzauswertungen und Durchführung der Abschlussarbeiten\n\n• Führung der Nebenbuchhaltungen (Lieferanten, Debitoren, Liquidität, Vorräte usw.)\n\n• Ansprechperson für die Ausbildung, Begleitung und Betreuung der oder des Lernenden bzw. der Praktikantin oder des Praktikanten\n\n• Kontrolle und Abstimmung der Konten, Analyse der Buchungen sowie Mitwirkung bei der Saldenabstimmung\n\n• Mitwirkung bei der Aufbereitung der für die Monats- und Jahresabschlüsse erforderlichen Daten und Unterlagen\n\n• Erstellung von Reportings und buchhalterischen Analysen für die Abteilungs- und Dienstverantwortlichen\n\nGewünschtes Profil\n\n• Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung\n\n• Fundierte Berufserfahrung in der Buchhaltung, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Sehr gute Kenntnisse in der Buchhaltung und in den Abschlussprozessen\n\n• Ausbildung als Berufsbildner/in in Lehrbetrieben obligatorisch\n\n• Sehr gute Excel-Kenntnisse und sicherer Umgang mit IT-Anwendungen\n\n• Teamfähigkeit, selbstständige Arbeitsweise, Organisationstalent und Fähigkeit, Prioritäten richtig zu setzen\n\n• Beherrschung der deutschen oder französischen Sprache mit guten Kenntnissen der anderen Sprache\n\nKontaktperson\n\nVeronica Hidalgo-Pittet, Stellvertretende Finanzdirektorin, T +41 26 308 00 59\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Erstellung der monatlichen Finanzauswertungen und Durchführung der Abschlussarbeiten\n\n• Führung der Nebenbuchhaltungen (Lieferanten, Debitoren, Liquidität, Vorräte usw.)\n\n• Ansprechperson für die Ausbildung, Begleitung und Betreuung der oder des Lernenden bzw. der Praktikantin oder des Praktikanten\n\n• Kontrolle und Abstimmung der Konten, Analyse der Buchungen sowie Mitwirkung bei der Saldenabstimmung\n\n• Mitwirkung bei der Aufbereitung der für die Monats- und Jahresabschlüsse erforderlichen Daten und Unterlagen\n\n• Erstellung von Reportings und buchhalterischen Analysen für die Abteilungs- und Dienstverantwortlichen\n\nGewünschtes Profil\n\n• Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung\n\n• Fundierte Berufserfahrung in der Buchhaltung, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Sehr gute Kenntnisse in der Buchhaltung und in den Abschlussprozessen\n\n• Ausbildung als Berufsbildner/in in Lehrbetrieben obligatorisch\n\n• Sehr gute Excel-Kenntnisse und sicherer Umgang mit IT-Anwendungen\n\n• Teamfähigkeit, selbstständige Arbeitsweise, Organisationstalent und Fähigkeit, Prioritäten richtig zu setzen\n\n• Beherrschung der deutschen oder französischen Sprache mit guten Kenntnissen der anderen Sprache\n\nKontaktperson\n\nVeronica Hidalgo-Pittet, Stellvertretende Finanzdirektorin, T +41 26 308 00 59\n\nDatum der Stellenausschreibung:",
+        "en": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Erstellung der monatlichen Finanzauswertungen und Durchführung der Abschlussarbeiten\n\n• Führung der Nebenbuchhaltungen (Lieferanten, Debitoren, Liquidität, Vorräte usw.)\n\n• Ansprechperson für die Ausbildung, Begleitung und Betreuung der oder des Lernenden bzw. der Praktikantin oder des Praktikanten\n\n• Kontrolle und Abstimmung der Konten, Analyse der Buchungen sowie Mitwirkung bei der Saldenabstimmung\n\n• Mitwirkung bei der Aufbereitung der für die Monats- und Jahresabschlüsse erforderlichen Daten und Unterlagen\n\n• Erstellung von Reportings und buchhalterischen Analysen für die Abteilungs- und Dienstverantwortlichen\n\nGewünschtes Profil\n\n• Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung\n\n• Fundierte Berufserfahrung in der Buchhaltung, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Sehr gute Kenntnisse in der Buchhaltung und in den Abschlussprozessen\n\n• Ausbildung als Berufsbildner/in in Lehrbetrieben obligatorisch\n\n• Sehr gute Excel-Kenntnisse und sicherer Umgang mit IT-Anwendungen\n\n• Teamfähigkeit, selbstständige Arbeitsweise, Organisationstalent und Fähigkeit, Prioritäten richtig zu setzen\n\n• Beherrschung der deutschen oder französischen Sprache mit guten Kenntnissen der anderen Sprache\n\nKontaktperson\n\nVeronica Hidalgo-Pittet, Stellvertretende Finanzdirektorin, T +41 26 308 00 59\n\nDatum der Stellenausschreibung:",
+        "de": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Erstellung der monatlichen Finanzauswertungen und Durchführung der Abschlussarbeiten\n\n• Führung der Nebenbuchhaltungen (Lieferanten, Debitoren, Liquidität, Vorräte usw.)\n\n• Ansprechperson für die Ausbildung, Begleitung und Betreuung der oder des Lernenden bzw. der Praktikantin oder des Praktikanten\n\n• Kontrolle und Abstimmung der Konten, Analyse der Buchungen sowie Mitwirkung bei der Saldenabstimmung\n\n• Mitwirkung bei der Aufbereitung der für die Monats- und Jahresabschlüsse erforderlichen Daten und Unterlagen\n\n• Erstellung von Reportings und buchhalterischen Analysen für die Abteilungs- und Dienstverantwortlichen\n\nGewünschtes Profil\n\n• Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung\n\n• Fundierte Berufserfahrung in der Buchhaltung, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Sehr gute Kenntnisse in der Buchhaltung und in den Abschlussprozessen\n\n• Ausbildung als Berufsbildner/in in Lehrbetrieben obligatorisch\n\n• Sehr gute Excel-Kenntnisse und sicherer Umgang mit IT-Anwendungen\n\n• Teamfähigkeit, selbstständige Arbeitsweise, Organisationstalent und Fähigkeit, Prioritäten richtig zu setzen\n\n• Beherrschung der deutschen oder französischen Sprache mit guten Kenntnissen der anderen Sprache\n\nKontaktperson\n\nVeronica Hidalgo-Pittet, Stellvertretende Finanzdirektorin, T +41 26 308 00 59\n\nDatum der Stellenausschreibung:",
+        "fr": "Anstellungsbehörde / Verwaltungseinheit / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nWir setzen auf die Komplementarität der Kompetenzen und die Vielfalt der Perspektiven, denn es ist die breite Palette an Laufbahnen und Profilen, die die Stärke des Staates Freiburg ausmacht. Wir fördern die Vereinbarkeit von Berufs- und Privatleben sowie flexible Arbeitsbedingungen. Um mehr zu erfahren, folgen Sie diesem Link .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\n• Erstellung der monatlichen Finanzauswertungen und Durchführung der Abschlussarbeiten\n\n• Führung der Nebenbuchhaltungen (Lieferanten, Debitoren, Liquidität, Vorräte usw.)\n\n• Ansprechperson für die Ausbildung, Begleitung und Betreuung der oder des Lernenden bzw. der Praktikantin oder des Praktikanten\n\n• Kontrolle und Abstimmung der Konten, Analyse der Buchungen sowie Mitwirkung bei der Saldenabstimmung\n\n• Mitwirkung bei der Aufbereitung der für die Monats- und Jahresabschlüsse erforderlichen Daten und Unterlagen\n\n• Erstellung von Reportings und buchhalterischen Analysen für die Abteilungs- und Dienstverantwortlichen\n\nGewünschtes Profil\n\n• Kauffrau/Kaufmann EFZ oder gleichwertige Ausbildung\n\n• Fundierte Berufserfahrung in der Buchhaltung, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Sehr gute Kenntnisse in der Buchhaltung und in den Abschlussprozessen\n\n• Ausbildung als Berufsbildner/in in Lehrbetrieben obligatorisch\n\n• Sehr gute Excel-Kenntnisse und sicherer Umgang mit IT-Anwendungen\n\n• Teamfähigkeit, selbstständige Arbeitsweise, Organisationstalent und Fähigkeit, Prioritäten richtig zu setzen\n\n• Beherrschung der deutschen oder französischen Sprache mit guten Kenntnissen der anderen Sprache\n\nKontaktperson\n\nVeronica Hidalgo-Pittet, Stellvertretende Finanzdirektorin, T +41 26 308 00 59\n\nDatum der Stellenausschreibung:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Erfahrene-Buchhalterin-erfahrener-Buchhalter%2C-FNPG-Marsens-Grey/1370571757/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:02.263Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1370571757/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80-100%",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:35:37.294Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-8f94f40c9518",
+      "slug": "controller-in-fnpg-marsens-etat-de-fribourg-ch",
+      "slugByLocale": {
+        "it": "controller-in-fnpg-marsens-etat-de-fribourg-ch",
+        "en": "controller-in-fnpg-marsens-etat-de-fribourg-ch",
+        "de": "controller-in-fnpg-marsens-etat-de-fribourg-ch",
+        "fr": "controller-in-fnpg-marsens-etat-de-fribourg-ch"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Controller/in, FNPG Marsens",
+      "titleByLocale": {
+        "it": "Controller/in, FNPG Marsens",
+        "en": "Controller/in, FNPG Marsens",
+        "de": "Controller/in, FNPG Marsens",
+        "fr": "Controller/in, FNPG Marsens"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nZur Verstärkung der Finanzabteilung in Marsens:\n\n• Begleitung und Beratung der Budgetverantwortlichen bei der Erstellung und Überwachung ihrer Budgets sowie Bereitstellung der für die finanzielle Steuerung ihrer Tätigkeiten erforderlichen Analysen; Einführung von Instrumenten für das Finanzcontrolling und -reporting\n\n• Mitwirkung bei der Erstellung der Kostenrechnung nach Kostenstellen gemäss REKOLE® sowie bei der Erstellung von Kennzahlenübersichten und Statistiken\n\n• Betreuung und Begleitung von Projekten entsprechend den Bedürfnissen der Institution und der Abteilung\n\n• Stellvertretung von Kolleginnen und Kollegen im Controlling-Team\n\nGewünschtes Profil\n\n• Höhere Ausbildung in Finanzen, Controlling oder Betriebswirtschaft (Universität, Hochschule für Wirtschaft oder gleichwertige Ausbildung)\n\n• Fundierte Berufserfahrung im Controlling, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Ausgezeichnete Excel-Kenntnisse und sicherer Umgang mit den gängigen IT-Anwendungen\n\n• Analytisches Denkvermögen, sorgfältige Arbeitsweise und Dienstleistungsorientierung\n\n• Ausgeprägte Sozialkompetenz und Sicherheit in der Zusammenarbeit mit den Verantwortlichen der verschiedenen Abteilungen und Dienste\n\n• Ausgezeichnete mündliche und schriftliche Französischkenntnisse und gute Deutschkenntnisse\n\nAngaben der Kontaktpersonen\n\nMagalie Rosser, Finanzdirektorin, T +41 26 308 00 52\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nZur Verstärkung der Finanzabteilung in Marsens:\n\n• Begleitung und Beratung der Budgetverantwortlichen bei der Erstellung und Überwachung ihrer Budgets sowie Bereitstellung der für die finanzielle Steuerung ihrer Tätigkeiten erforderlichen Analysen; Einführung von Instrumenten für das Finanzcontrolling und -reporting\n\n• Mitwirkung bei der Erstellung der Kostenrechnung nach Kostenstellen gemäss REKOLE® sowie bei der Erstellung von Kennzahlenübersichten und Statistiken\n\n• Betreuung und Begleitung von Projekten entsprechend den Bedürfnissen der Institution und der Abteilung\n\n• Stellvertretung von Kolleginnen und Kollegen im Controlling-Team\n\nGewünschtes Profil\n\n• Höhere Ausbildung in Finanzen, Controlling oder Betriebswirtschaft (Universität, Hochschule für Wirtschaft oder gleichwertige Ausbildung)\n\n• Fundierte Berufserfahrung im Controlling, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Ausgezeichnete Excel-Kenntnisse und sicherer Umgang mit den gängigen IT-Anwendungen\n\n• Analytisches Denkvermögen, sorgfältige Arbeitsweise und Dienstleistungsorientierung\n\n• Ausgeprägte Sozialkompetenz und Sicherheit in der Zusammenarbeit mit den Verantwortlichen der verschiedenen Abteilungen und Dienste\n\n• Ausgezeichnete mündliche und schriftliche Französischkenntnisse und gute Deutschkenntnisse\n\nAngaben der Kontaktpersonen\n\nMagalie Rosser, Finanzdirektorin, T +41 26 308 00 52\n\nDatum der Stellenausschreibung:",
+        "en": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nZur Verstärkung der Finanzabteilung in Marsens:\n\n• Begleitung und Beratung der Budgetverantwortlichen bei der Erstellung und Überwachung ihrer Budgets sowie Bereitstellung der für die finanzielle Steuerung ihrer Tätigkeiten erforderlichen Analysen; Einführung von Instrumenten für das Finanzcontrolling und -reporting\n\n• Mitwirkung bei der Erstellung der Kostenrechnung nach Kostenstellen gemäss REKOLE® sowie bei der Erstellung von Kennzahlenübersichten und Statistiken\n\n• Betreuung und Begleitung von Projekten entsprechend den Bedürfnissen der Institution und der Abteilung\n\n• Stellvertretung von Kolleginnen und Kollegen im Controlling-Team\n\nGewünschtes Profil\n\n• Höhere Ausbildung in Finanzen, Controlling oder Betriebswirtschaft (Universität, Hochschule für Wirtschaft oder gleichwertige Ausbildung)\n\n• Fundierte Berufserfahrung im Controlling, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Ausgezeichnete Excel-Kenntnisse und sicherer Umgang mit den gängigen IT-Anwendungen\n\n• Analytisches Denkvermögen, sorgfältige Arbeitsweise und Dienstleistungsorientierung\n\n• Ausgeprägte Sozialkompetenz und Sicherheit in der Zusammenarbeit mit den Verantwortlichen der verschiedenen Abteilungen und Dienste\n\n• Ausgezeichnete mündliche und schriftliche Französischkenntnisse und gute Deutschkenntnisse\n\nAngaben der Kontaktpersonen\n\nMagalie Rosser, Finanzdirektorin, T +41 26 308 00 52\n\nDatum der Stellenausschreibung:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nZur Verstärkung der Finanzabteilung in Marsens:\n\n• Begleitung und Beratung der Budgetverantwortlichen bei der Erstellung und Überwachung ihrer Budgets sowie Bereitstellung der für die finanzielle Steuerung ihrer Tätigkeiten erforderlichen Analysen; Einführung von Instrumenten für das Finanzcontrolling und -reporting\n\n• Mitwirkung bei der Erstellung der Kostenrechnung nach Kostenstellen gemäss REKOLE® sowie bei der Erstellung von Kennzahlenübersichten und Statistiken\n\n• Betreuung und Begleitung von Projekten entsprechend den Bedürfnissen der Institution und der Abteilung\n\n• Stellvertretung von Kolleginnen und Kollegen im Controlling-Team\n\nGewünschtes Profil\n\n• Höhere Ausbildung in Finanzen, Controlling oder Betriebswirtschaft (Universität, Hochschule für Wirtschaft oder gleichwertige Ausbildung)\n\n• Fundierte Berufserfahrung im Controlling, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Ausgezeichnete Excel-Kenntnisse und sicherer Umgang mit den gängigen IT-Anwendungen\n\n• Analytisches Denkvermögen, sorgfältige Arbeitsweise und Dienstleistungsorientierung\n\n• Ausgeprägte Sozialkompetenz und Sicherheit in der Zusammenarbeit mit den Verantwortlichen der verschiedenen Abteilungen und Dienste\n\n• Ausgezeichnete mündliche und schriftliche Französischkenntnisse und gute Deutschkenntnisse\n\nAngaben der Kontaktpersonen\n\nMagalie Rosser, Finanzdirektorin, T +41 26 308 00 52\n\nDatum der Stellenausschreibung:",
+        "fr": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nZur Verstärkung der Finanzabteilung in Marsens:\n\n• Begleitung und Beratung der Budgetverantwortlichen bei der Erstellung und Überwachung ihrer Budgets sowie Bereitstellung der für die finanzielle Steuerung ihrer Tätigkeiten erforderlichen Analysen; Einführung von Instrumenten für das Finanzcontrolling und -reporting\n\n• Mitwirkung bei der Erstellung der Kostenrechnung nach Kostenstellen gemäss REKOLE® sowie bei der Erstellung von Kennzahlenübersichten und Statistiken\n\n• Betreuung und Begleitung von Projekten entsprechend den Bedürfnissen der Institution und der Abteilung\n\n• Stellvertretung von Kolleginnen und Kollegen im Controlling-Team\n\nGewünschtes Profil\n\n• Höhere Ausbildung in Finanzen, Controlling oder Betriebswirtschaft (Universität, Hochschule für Wirtschaft oder gleichwertige Ausbildung)\n\n• Fundierte Berufserfahrung im Controlling, idealerweise in einem Spital oder einer Gesundheitseinrichtung\n\n• Ausgezeichnete Excel-Kenntnisse und sicherer Umgang mit den gängigen IT-Anwendungen\n\n• Analytisches Denkvermögen, sorgfältige Arbeitsweise und Dienstleistungsorientierung\n\n• Ausgeprägte Sozialkompetenz und Sicherheit in der Zusammenarbeit mit den Verantwortlichen der verschiedenen Abteilungen und Dienste\n\n• Ausgezeichnete mündliche und schriftliche Französischkenntnisse und gute Deutschkenntnisse\n\nAngaben der Kontaktpersonen\n\nMagalie Rosser, Finanzdirektorin, T +41 26 308 00 52\n\nDatum der Stellenausschreibung:"
+      },
+      "location": "Marsens",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Marsens%2C-CH-Controllerin%2C-FNPG-Marsens-Grey/1370570857/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:34:01.613Z",
+      "addressLocality": "Marsens",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1370570857/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 80,
+      "pensumMax": 90,
+      "pensum": "80-90%",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:35:37.939Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR"
+    },
+    {
+      "id": "etat-de-fribourg-0aa852e1c4dc",
+      "slug": "infermiera-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+      "slugByLocale": {
+        "it": "infermiera-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+        "en": "nurse-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane",
+        "de": "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch",
+        "fr": "infirmiere-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-villars-sur-glane"
+      },
+      "company": "RFSM - Réseau fribourgeois santé mentale",
+      "companyKey": "rfsm-fribourg",
+      "companyDomain": "jobs.fr.ch",
+      "title": "Pflegefachperson FH/HF, FNPG TK Villars-sur-Glâne",
+      "titleByLocale": {
+        "it": "Infermiera FH/HF, FNPG TK Villars-sur-Glâne",
+        "en": "Nurse FH/HF, FNPG TK Villars-sur-Glâne",
+        "de": "Pflegefachperson FH/HF, FNPG TK Villars-sur-Glâne",
+        "fr": "Infirmière FH/HF, FNPG TK Villars-sur-Glâne"
+      },
+      "description": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender   Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nFür das deutschsprachige Ambulatorium und die Tagesklinik des FNPG in Villars-sur-Glâne\n\n• Ambulante Konsultationen und Begleitung der deutschsprachigen Patient/innen des Kantons Freiburg\n\n• Netzwerkarbeit und Gespräche\n\n• Mitarbeit in der Tagesklink als Bezugsperson der Patient/innen\n\n• Leitung und Co-Leitung therapeutischer Gruppen im Rahmen des therapeutischen Programms\n\n• Pflegerische Tätigkeiten wie Pflegegespräche, Medikamentenvorbereitung und Depotmedikation\n\nGewünschtes Profil\n\n• Diplom als Pflegefachperson FH/HF\n\n• Mindestens zwei Jahre Erfahrung im psychiatrischen stationären und/oder teilstationären Setting\n\n• Gute Kenntnisse des psychiatrischen Netzwerks im Kanton Freiburg\n\n• Autonomie, Flexibilität und Initiativfähigkeit\n\n• Planungsvermögen und Organisationsgeschick\n\n• Erfahrung in der Gesprächsführung\n\n• Fähigkeit und Interesse, therapeutische Gruppen zu leiten/mitzuleiten\n\n• Aktive Mitarbeit an der Weiterentwicklung des therapeutischen Angebots\n\n• Fähigkeit zur Zusammenarbeit im pluridisziplinären Team\n\n• Beherrschung der deutschen oder französischen Sprache sowie Niveau B2/C1 in der jeweils anderen Sprache (mündlich und schriftlich)\n\nAngaben der Kontaktpersonen\n\nSilvia Baeriswyl, Stationsleiterin, silvia.baeriswyl@rfsm.ch, T +41 26 308 18 11 oder Olivier Zurbriggen, Bereichsleiter Pflege, olivier.zurbriggen@rfsm.ch , T +41 26 308 03 13\n\nDatum der Stellenausschreibung:",
+      "descriptionByLocale": {
+        "it": "Autorità di nomina / dipartimento / istituzione\n\nLa Rete di Friburgo per la Salute Mentale (FNPG) è amministrativamente assegnata alla Direzione per la Salute e gli Affari Sociali. Il FNPG è un centro di competenza medico, infermieristico e psicosociale specializzato in psichiatria e psicoterapia e, più in generale, salute mentale.\n\nIl FNPG bilingue è in continua evoluzione e in continua evoluzione nel campo terapeutico.\n\nDiventa parte della nostra squadra!\n\nIl datore di lavoro promuove la compatibilità del lavoro e della vita privata e offre ai propri dipendenti un ambiente di lavoro moderno e condizioni di lavoro attraenti. Potete saperne di più su questo nella pagina seguente.\n\nVantaggi del RFSM: Swibeco Card – Promozione della salute – Little Red Riding Hood – Sconto nel Nestlé Shop – Corsi di lingua\n\nEtichetta “Family Score” 2026–2028 & training company\n\nI loro compiti\n\nPer l'imbolatorio di lingua tedesca e la clinica diurna del FNPG a Villars-sur-Glâne\n\n• Consultazioni e supporto dei pazienti di lingua tedesca del Cantone di Friburgo\n\n• Reti e discussioni\n\n• Collaborazione nel Tagesklink come persona di riferimento per i pazienti\n\n• Gruppi terapeutici leader e co-leading all'interno del programma terapeutico\n\n• Attività di infermieristica come colloqui di cura, preparazione di farmaci e farmaci da deposito\n\nProfilo desiderato\n\n• Diploma come infermiera FH/HF\n\n• Almeno due anni di esperienza in pazienti psichiatrici e/o semistazione\n\n• Buona conoscenza della rete psichiatrica nel cantone di Friburgo\n\n• Autonomia, flessibilità e iniziativa\n\n• Pianificazione e competenze organizzative\n\n• Esperienza di discussione\n\n• Capacità e interesse a condurre/aggiungere gruppi terapeutici\n\n• Partecipazione attiva all'ulteriore sviluppo dell'offerta terapeutica\n\n• Capacità di collaborare nel team pluridisciplinare\n\n• Masterizzazione della lingua tedesca o francese e livello B2/C1 nell'altra lingua (verbale e scritto)\n\nInformazioni di contatto\n\nSilvia Baeriswyl, Station Manager, silvia.baeriswyl@rfsm.ch, T +41 26 308 18 11 o Olivier Zurbriggen, Division Manager Care, olivier.zurbriggen@rfsm.ch , T +41 26 308 03 13\n\nData di pubblicità:",
+        "en": "Appointment authority / department / institution\n\nThe Freiburg Network for Mental Health (FNPG) is administratively assigned to the Directorate for Health and Social Affairs. The FNPG is a medical, nursing and psychosocial competence center specializing in psychiatry and psychotherapy and, more broadly, mental health.\n\nBilingual FNPG is constantly evolving and keeping up to date in the therapeutic field.\n\nBecome part of our team!\n\nThe employer promotes the compatibility of work and private life and offers its employees a modern working environment and attractive working conditions. You can find out more about this on the following page.\n\nAdvantages of the RFSM: Swibeco Card – Health Promotion – Little Red Riding Hood – Discount in the Nestlé Shop – Language Courses\n\nLabel “Family Score” 2026–2028 & training company\n\nTheir tasks\n\nFor the German-speaking ambulatorium and the day clinic of the FNPG in Villars-sur-Glâne\n\n• Outpatient consultations and support of German-speaking patients of the Canton of Freiburg\n\n• Networking and discussions\n\n• Collaboration in the Tagesklink as a reference person for the patients\n\n• Leading and co-leading therapeutic groups within the therapeutic program\n\n• Nursing activities such as nursing interviews, medication preparation and depot medication\n\nDesired profile\n\n• Diploma as nurse FH/HF\n\n• At least two years of experience in psychiatric inpatient and/or semi-stationary setting\n\n• Good knowledge of the psychiatric network in the canton of Freiburg\n\n• Autonomy, flexibility and initiative\n\n• Planning and organisational skills\n\n• Discussion experience\n\n• Ability and interest to lead/join therapeutic groups\n\n• Active participation in the further development of the therapeutic offer\n\n• Ability to collaborate in the pluridisciplinary team\n\n• Mastery of the German or French language as well as level B2/C1 in the other language (verbal and written)\n\nContact details\n\nSilvia Baeriswyl, Station Manager, silvia.baeriswyl@rfsm.ch, T +41 26 308 18 11 or Olivier Zurbriggen, Division Manager Care, olivier.zurbriggen@rfsm.ch , T +41 26 308 03 13\n\nDate of advertisement:",
+        "de": "Anstellungsbehörde / Dienststelle / Anstalt\n\nDas Freiburger Netzwerk für psychische Gesundheit (FNPG) ist der Direktion für Gesundheit und Soziales administrativ zugewiesen. Das FNPG ist ein medizinisches, pflegerisches und psychosoziales Kompetenzzentrum, das auf Psychiatrie und Psychotherapie und in einem weiteren Sinn auf psychische Gesundheit spezialisiert ist.\n\nDas zweisprachige FNPG entwickelt sich fortlaufend weiter und hält sich im therapeutischen Bereich auf dem neuesten Stand.\n\nWerden Sie Teil unseres Teams!\n\nDer Arbeitgeber Staat fördert die Vereinbarkeit von Beruf und Privatleben und bietet seinen Mitarbeitenden ein modernes Arbeitsumfeld und attraktive Arbeitsbedingungen. Mehr darüber erfahren Sie auf folgender Seite .\n\nVorteile des RFSM: Swibeco-Karte – Gesundheitsförderung – Rotkäppchen – Rabatt im Nestlé Shop – Sprachkurse\n\nLabel „Family Score“ 2026–2028 & Ausbildungsbetrieb\n\nIhre Aufgaben\n\nFür das deutschsprachige Ambulatorium und die Tagesklinik des FNPG in Villars-sur-Glâne\n\n• Ambulante Konsultationen und Begleitung der deutschsprachigen Patient/innen des Kantons Freiburg\n\n• Netzwerkarbeit und Gespräche\n\n• Mitarbeit in der Tagesklink als Bezugsperson der Patient/innen\n\n• Leitung und Co-Leitung therapeutischer Gruppen im Rahmen des therapeutischen Programms\n\n• Pflegerische Tätigkeiten wie Pflegegespräche, Medikamentenvorbereitung und Depotmedikation\n\nGewünschtes Profil\n\n• Diplom als Pflegefachperson FH/HF\n\n• Mindestens zwei Jahre Erfahrung im psychiatrischen stationären und/oder teilstationären Setting\n\n• Gute Kenntnisse des psychiatrischen Netzwerks im Kanton Freiburg\n\n• Autonomie, Flexibilität und Initiativfähigkeit\n\n• Planungsvermögen und Organisationsgeschick\n\n• Erfahrung in der Gesprächsführung\n\n• Fähigkeit und Interesse, therapeutische Gruppen zu leiten/mitzuleiten\n\n• Aktive Mitarbeit an der Weiterentwicklung des therapeutischen Angebots\n\n• Fähigkeit zur Zusammenarbeit im pluridisziplinären Team\n\n• Beherrschung der deutschen oder französischen Sprache sowie Niveau B2/C1 in der jeweils anderen Sprache (mündlich und schriftlich)\n\nAngaben der Kontaktpersonen\n\nSilvia Baeriswyl, Stationsleiterin, silvia.baeriswyl@rfsm.ch, T +41 26 308 18 11 oder Olivier Zurbriggen, Bereichsleiter Pflege, olivier.zurbriggen@rfsm.ch , T +41 26 308 03 13\n\nDatum der Stellenausschreibung:",
+        "fr": "Pouvoir de nomination / ministère / institution\n\nLe Réseau de Fribourg pour la santé mentale (FNPG) est affecté administrativement à la Direction de la santé et des affaires sociales. Le FNPG est un centre de compétence médicale, infirmière et psychosociale spécialisé en psychiatrie et en psychothérapie et, plus largement, en santé mentale.\n\nLe PFPN bilingue évolue constamment et se tient à jour dans le domaine thérapeutique.\n\nFaites partie de notre équipe !\n\nL'employeur favorise la compatibilité du travail et de la vie privée et offre à ses employés un environnement de travail moderne et des conditions de travail attrayantes. Vous pouvez en savoir plus à ce sujet sur la page suivante.\n\nAvantages du RFSM: Carte Swibeco – Promotion de la santé – Petit Chaperon Rouge – Réduction dans la boutique Nestlé – Cours de langues\n\nLabel Score Famille 2026-2028 & entreprise de formation\n\nLeurs tâches\n\nPour l'ambulatorium germanophone et la clinique de jour du FNPG à Villars-sur-Glâne\n\n• Consultations externes et soutien des patients germanophones du canton de Fribourg\n\n• Réseautage et discussions\n\n• Collaboration dans le Tagesklink en tant que personne de référence pour les patients\n\n• Diriger et codiriger des groupes thérapeutiques au sein du programme thérapeutique\n\n• Activités de soins infirmiers comme les entrevues avec des infirmières, la préparation de médicaments et les médicaments de dépôt\n\nProfil désiré\n\n• Diplôme d'infirmière FH/HF\n\n• Au moins deux ans d'expérience en milieu psychiatrique et/ou semi-stationnaire\n\n• Bonne connaissance du réseau psychiatrique du canton de Fribourg\n\n• Autonomie, flexibilité et initiative\n\n• Compétences en planification et en organisation\n\n• Expérience de discussion\n\n• Aptitude et intérêt à diriger ou à rejoindre des groupes thérapeutiques\n\n• Participation active au développement de l'offre thérapeutique\n\n• Capacité de collaborer dans l'équipe pluridisciplinaire\n\n• Maîtrise de l'allemand ou du français ainsi que du niveau B2/C1 dans l'autre langue (verbal et écrit)\n\nCoordonnées\n\nSilvia Baeriswyl, Chef de station, silvia.baeriswyl@rfsm.ch, T +41 26 308 18 11 ou Olivier Zurbriggen, Directeur de division Care, olivier.zurbriggen@rfsm.ch, T +41 26 308 03 13\n\nDate de la publicité:"
+      },
+      "location": "Villars-sur-Glâne",
+      "canton": "FR",
+      "url": "https://jobs.fr.ch/job/Villars-sur-Gl%C3%A2ne%2C-CH-Pflegefachperson-FHHF%2C-FNPG-TK-Villars-sur-Gl%C3%A2ne-Saan/1368233057/",
+      "source": "RFSM - Réseau fribourgeois santé mentale Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-28T05:36:42.153Z",
+      "addressLocality": "Villars-sur-Glâne",
+      "postalCode": "1752",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Amministrazione Pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "applyUrl": "https://jobs.fr.ch/talentcommunity/apply/1368233057/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Freiburger Netzwerk für psychische Gesundheit",
+      "pensumMin": 50,
+      "pensumMax": 100,
+      "pensum": "50-100%",
+      "previousSlugs": [
+        "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "pflegefachperson-fh-hf-fnpg-tk-villars-sur-glane-etat-de-fribourg-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T11:53:40.108Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "FR",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
       "salarySource": "estimated"
     }
   ]

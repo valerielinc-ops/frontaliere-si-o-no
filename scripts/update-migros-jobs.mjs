@@ -43,6 +43,7 @@ import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -89,6 +90,7 @@ function normalizeKey(value = '') {
  * Match a job object as belonging to the Migros crawl.
  */
 function isMigrosJob(job) {
+  if (dedicatedMigrosOwner(job)) return false;
   const key = normalizeKey(job?.companyKey || job?.company || '');
   const company = normalize(job?.company || '');
   const url = String(job?.url || '').toLowerCase();
@@ -256,7 +258,7 @@ async function fetchMigrosJobDetailUrls() {
   // the two copies would not collapse into one.
   const absoluteUrls = [...allUrls]
     .map((p) => `https://jobs.migros.ch${p}`)
-    .filter((u) => !u.includes('/job/migros-genossenschafts-bund/'));
+    .filter((u) => !dedicatedMigrosOwner(u));
   console.log(`✅ Total unique Migros detail URLs discovered: ${absoluteUrls.length}`);
   return absoluteUrls;
 }

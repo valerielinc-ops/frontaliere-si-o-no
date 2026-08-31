@@ -16,6 +16,7 @@ import {
   parseGkbDetailPage,
   extractLocation,
   parseDate,
+  mergeGkbListing,
 } from '../scripts/lib/gkb-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -163,6 +164,17 @@ const FIXTURE_DETAIL_PAGE = `<!DOCTYPE html>
 // ─── Tests ────────────────────────────────────────────────────────────────
 
 describe('Graubündner Kantonalbank crawler parser', () => {
+  it('keeps richer /Jobs/All metadata when /Jobs/1 repeats a sparse row', () => {
+    expect(mergeGkbListing(
+      { vacancyId: '1924', title: 'Berater:in', department: 'Region Thusis / RTHU', division: 'Märkte' },
+      { vacancyId: '1924', title: 'Berater:in', department: '', division: '', location: 'Thusis' },
+    )).toMatchObject({
+      vacancyId: '1924',
+      department: 'Region Thusis / RTHU',
+      division: 'Märkte',
+      location: 'Thusis',
+    });
+  });
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(GKB_KEY).toBe('gkb');
@@ -229,6 +241,15 @@ describe('Graubündner Kantonalbank crawler parser', () => {
   // ── parseGkbListingPage ──
   describe('parseGkbListingPage', () => {
     const listings = parseGkbListingPage(FIXTURE_LISTING_HTML);
+
+    it('parses the alternate /Jobs/1 element ids used by the wider catalogue', () => {
+      const alternate = FIXTURE_LISTING_HTML
+        .replaceAll('1152488', '3473')
+        .replaceAll('1152487', '3472')
+        .replaceAll('1152491', '3474')
+        .replaceAll('1152495', '26475');
+      expect(parseGkbListingPage(alternate)).toHaveLength(3);
+    });
 
     it('parses correct number of listings', () => {
       expect(listings).toHaveLength(3);
