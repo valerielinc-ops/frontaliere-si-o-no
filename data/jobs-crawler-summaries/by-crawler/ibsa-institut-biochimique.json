@@ -1,24 +1,27 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-08-31T17:15:47.811Z",
-  "total": 7,
-  "newCount": 7,
+  "generatedAt": "2026-08-31T22:32:20.663Z",
+  "total": 8,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16884,
-  "avgDurationMs": 16884,
+  "unchangedCount": 8,
+  "durationMs": 17655,
+  "avgDurationMs": 17655,
   "durationHistory": [
-    16884
+    17655
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-um2f7f",
       "slug": "industrial-controlling-manager-ibsa-institut-biochimique-6926-working-area-um2f7f",
       "company": "IBSA Institut Biochimique",
       "title": "Industrial Controlling Manager",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "finance",
       "contract": "internship",
@@ -29,12 +32,12 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-08-31T17:15:45.224Z",
       "needsRetranslation": true,
       "sourceLang": "it",
@@ -42,15 +45,57 @@
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 85,
+      "postalCode": "6926",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 16,
-        "completeness": 19
+        "completeness": 22
+      }
+    },
+    {
+      "id": "company-pt8y8b",
+      "slug": "it-category-manager-ibsa-institut-biochimique-grancia-ti-pt8y8b",
+      "company": "IBSA Institut Biochimique",
+      "title": "IT Category Manager",
+      "location": "Grancia",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "url": "https://career.ibsagroup.com/job/Grancia-IT-Category-Manager-TI-6916/1365742755/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grancia",
+        "canton": "TI"
+      },
+      "companyKey": "ibsa-institut-biochimique",
+      "companyDomain": "ibsa.ch",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
+      "firstSeenAt": "2026-08-31T21:29:17.361Z",
+      "sourceLang": "en",
+      "addressLocality": "Grancia",
+      "addressRegion": "TI",
+      "postalCode": "6916",
+      "country": "CH",
+      "needsRetranslation": true,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "salarySource": "estimated",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 16,
+        "completeness": 22
       }
     },
     {
@@ -58,7 +103,7 @@
       "slug": "lead-risorse-umane-operations-officer-ibsa-institut-biochimique-6926-working-area-ro7hf5",
       "company": "IBSA Institut Biochimique",
       "title": "Lead HR Operations Officer",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "finance",
       "contract": "internship",
@@ -69,28 +114,29 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-08-24T10:28:44.645Z",
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 142000,
       "salaryMax": 249500,
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "postalCode": "6926",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -98,7 +144,7 @@
       "slug": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
       "company": "IBSA Institut Biochimique",
       "title": "Clinical Research Officer",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "admin",
       "contract": "full-time",
@@ -109,29 +155,30 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-08-07T01:12:42.852Z",
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salarySource": "reported",
-      "_qualityScore": 94,
+      "postalCode": "6926",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -139,7 +186,7 @@
       "slug": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
       "company": "IBSA Institut Biochimique",
       "title": "Accounting Officer",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "finance",
       "contract": "temporary",
@@ -150,29 +197,30 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-08-04T11:42:43.269Z",
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 85500,
       "salaryMax": 150000,
-      "addressLocality": "6926 Working Area",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "6926",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -180,7 +228,7 @@
       "slug": "jr-clinical-safety-compliance-specialista-ibsa-institut-biochimique-ticino",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Clinical & Safety Compliance Specialist",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "health",
       "contract": "internship",
@@ -191,29 +239,30 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 63000,
       "salaryMax": 87500,
-      "addressLocality": "Ticino",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "postalCode": "6926",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -221,7 +270,7 @@
       "slug": "pharmaceutical-technology-technician-ibsa-institut-biochimique-all-area-all-clear-apply-now-pharmaceutical-technology-technician-location-ma-d18wk3",
       "company": "IBSA Institut Biochimique",
       "title": "Pharmaceutical Technology Technician",
-      "location": "6928 Working Area",
+      "location": "Manno",
       "canton": "TI",
       "category": "engineering",
       "contract": "full-time",
@@ -232,29 +281,30 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Manno",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-07-22T22:26:29.099Z",
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 58000,
       "salaryMax": 88000,
-      "addressLocality": "Ma",
+      "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "postalCode": "6928",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -262,7 +312,7 @@
       "slug": "jr-medical-writing-specialista-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Medical Writing Specialist",
-      "location": "6926 Working Area",
+      "location": "Collina d'Oro",
       "canton": "TI",
       "category": "health",
       "contract": "full-time",
@@ -273,33 +323,31 @@
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Ticino",
+        "location": "Collina d'Oro",
         "canton": "TI"
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-08-31T17:15:45.224Z",
+      "crawledAt": "2026-08-31T22:32:19.206Z",
       "firstSeenAt": "2026-07-14T22:10:56.599Z",
       "sourceLang": "it",
       "country": "CH",
       "salaryMin": 63000,
       "salaryMax": 87500,
-      "addressLocality": "Collina d",
+      "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "salarySource": "estimated",
-      "_qualityScore": 94,
+      "postalCode": "6926",
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
-        "completeness": 19
+        "completeness": 22
       }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
