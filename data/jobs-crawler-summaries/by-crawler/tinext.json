@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-08-31T17:33:33.597Z",
+  "generatedAt": "2026-08-31T22:19:11.096Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 992,
-  "avgDurationMs": 992,
+  "durationMs": 1084,
+  "avgDurationMs": 1084,
   "durationHistory": [
-    992
+    1084
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -43,6 +43,7 @@
       "streetAddress": "",
       "postalCode": "6500",
       "firstSeenAt": "2026-04-28T11:44:39.710Z",
+      "salarySource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
