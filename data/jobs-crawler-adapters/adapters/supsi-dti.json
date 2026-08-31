@@ -13,36 +13,18 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-08-28T05:31:31.627Z",
+  "updatedAt": "2026-08-31T17:19:44.951Z",
   "seedDetailUrls": [
-    "https://www.supsi.ch/bando26_5036",
-    "https://www.supsi.ch/bando26_5035",
     "https://www.supsi.ch/bando26_5020",
     "https://www.supsi.ch/bando26_5028",
     "https://www.supsi.ch/bando26_5021",
     "https://www.supsi.ch/bando26_5022",
     "https://www.supsi.ch/bando26_5023",
-    "https://www.supsi.ch/bando26_5027"
+    "https://www.supsi.ch/bando26_5027",
+    "https://www.supsi.ch/bando26_5037",
+    "https://www.supsi.ch/bando26_2012"
   ],
   "seedMetaByUrl": {
-    "https://www.supsi.ch/bando26_5036": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-08-30"
-    },
-    "https://www.supsi.ch/bando26_5035": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
-      "expiresAt": "2026-08-30"
-    },
     "https://www.supsi.ch/bando26_5020": {
       "location": "Lugano",
       "canton": "TI",
@@ -96,6 +78,24 @@
       "companyDomain": "supsi.ch",
       "contract": "Part-time",
       "expiresAt": "2026-08-31"
+    },
+    "https://www.supsi.ch/bando26_5037": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Full-time",
+      "expiresAt": "2026-09-06"
+    },
+    "https://www.supsi.ch/bando26_2012": {
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "contract": "Part-time",
+      "expiresAt": "2026-09-10"
     }
   }
 }
