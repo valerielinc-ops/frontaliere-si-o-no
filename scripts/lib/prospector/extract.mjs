@@ -50,7 +50,7 @@ const VACANCY_PATH_WEAK_RX = /(offert[ae]|posti|stelle)/i;
 
 /** Job words that disambiguate a weak token appearing in the same path. */
 const VACANCY_PATH_QUALIFIER_RX =
-  /(lavoro|lavori|impiego|occupazione|assunzion|jobs?|work|emploi|travail|arbeit|beruf|stellen|karriere|career|vacan|candidat|recruit|hiring)/i;
+  /(lavoro|lavori|impieg\w*|occupazion\w*|assunzion|jobs?|work|emploi|travail|arbeit|beruf|stellen|karriere|career|vacan|candidat|recruit|hiring)/i;
 
 /**
  * Whether a URL path (or heading) reads as vacancy-related.
