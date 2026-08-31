@@ -4819,6 +4819,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asb-banche-svizzera-crescita-2026.title': 'SBVg prognostiziert Bankenwachstum im Jahr 2026',
     'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Die Schweizer Banken werden laut der Schweizerischen Bankiervereinigung auch im Jahr 2026 weiter wachsen. Verwaltetes Vermögen über 10\'000 Milliarden Franken, wachstumsfördernde Gebühren.',
     'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Modernes Bürogebäude in schweizer Finanzdistrikt mit Schweizer Flagge und zeitgenössischer Architektur',
+    'blog.article.finanziamenti-partiti-ps-2025.title': 'Parteienfinanzierung: Die SP hat das meiste Geld',
+    'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'Im Jahr 2025 sammelte die SP mit 7,9 Millionen Franken das Maximum unter den eidgenössischen Parteien. Neun Parteien geben insgesamt 24,6 Millionen an, was einem Rückgang von einer Million gegenüber 2024 entspricht.',
+    'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Bundespalast in Bern, Zentrum der Schweizer Bundespolitik und föderalen Entscheidungen',
 };
 
 export default blogMetaChDe;

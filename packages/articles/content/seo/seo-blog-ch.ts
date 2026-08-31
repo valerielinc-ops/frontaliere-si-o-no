@@ -62537,6 +62537,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-finanziamenti-partiti-ps-2025': {
+    title: 'Finanziamenti ai partiti: il PS è quello che ha più soldi',
+    description: 'Nel 2025 il PS ha raccolto 7,9 milioni di franchi. Nove partiti federali dichiarano 24,6 milioni, in calo di 1 milione rispetto al 2024. Dati del Controllo',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanziamenti, partiti, quello, soldi',
+    ogTitle: 'Finanziamenti ai partiti: PS ha più soldi nel 2025',
+    ogDescription: 'Il PS ha raccolto 7,9 milioni di franchi nel 2025, il massimo tra i partiti federali. Nove partiti dichiarano 24,6 milioni totali, in calo di un milione rispetto al 2024. Scopri i dati della trasparenza politica svizzera.',
+    canonicalPath: '/articoli-svizzera/finanziamenti-partiti-ps-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanziamenti ai partiti: il PS è quello che ha più soldi",
+      "description": "Nel 2025 il PS ha raccolto 7,9 milioni di franchi. Nove partiti federali dichiarano 24,6 milioni, in calo di 1 milione rispetto al 2024. Dati del Controllo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanziamenti-partiti-ps-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Parlamento federale svizzero a Berna, centro della politica nazionale elvetica"
+      },
+      "datePublished": "2026-08-31T09:31:17+00:00",
+      "dateModified": "2026-08-31T09:31:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamenti-partiti-ps-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
