@@ -1,6 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
-import { OFCT_REGIONS, parsePharmacyListTable, buildPharmacyRecords } from '../scripts/lib/pharmacy-ticino-parser.mjs';
+import {
+  OFCT_REGIONS,
+  parsePharmacyListTable,
+  buildPharmacyRecords,
+  dedupePharmaciesById,
+} from '../scripts/lib/pharmacy-ticino-parser.mjs';
 import { validatePharmacyList } from '../services/pharmacies/types';
 
 /**
@@ -84,5 +89,30 @@ describe('buildPharmacyRecords', () => {
 
   it('produces a list that passes the Pharmacy schema guard', () => {
     expect(validatePharmacyList(records)).toEqual([]);
+  });
+});
+
+describe('dedupePharmaciesById', () => {
+  it('keeps every record when ids are distinct', () => {
+    const { deduped, collisions } = dedupePharmaciesById([
+      { id: 'ti-a', name: 'A', city: 'Mendrisio' },
+      { id: 'ti-b', name: 'B', city: 'Lugano' },
+    ]);
+    expect(deduped).toHaveLength(2);
+    expect(collisions).toBe(0);
+  });
+
+  it('drops the second record on an id collision (first wins) and counts it', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const first = { id: 'ti-accademia-mendrisio', name: 'Accademia', city: 'Mendrisio', address: 'Via A' };
+    const second = { id: 'ti-accademia-mendrisio', name: 'Accademia', city: 'Mendrisio', address: 'Via B' };
+
+    const { deduped, collisions } = dedupePharmaciesById([first, second]);
+
+    expect(deduped).toEqual([first]);
+    expect(collisions).toBe(1);
+    expect(warnSpy).toHaveBeenCalledTimes(1);
+    expect(warnSpy.mock.calls[0][0]).toContain('ti-accademia-mendrisio');
+    warnSpy.mockRestore();
   });
 });
