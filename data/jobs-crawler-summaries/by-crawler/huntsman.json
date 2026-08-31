@@ -1,18 +1,18 @@
 {
   "key": "huntsman",
   "label": "Huntsman Corporation",
-  "generatedAt": "2026-08-31T10:05:29.166Z",
-  "total": 7,
+  "generatedAt": "2026-08-31T10:17:56.398Z",
+  "total": 6,
   "discovered": null,
-  "written": 7,
+  "written": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7016,
-  "avgDurationMs": 7016,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5978,
+  "avgDurationMs": 5978,
   "durationHistory": [
-    7016
+    5978
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -40,7 +40,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Intern-Digital-Engineer_J-020117",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:05:23.378Z",
+      "crawledAt": "2026-08-31T10:17:51.148Z",
       "jobReqId": "J-020117",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-27T22:22:16.058Z",
@@ -76,7 +76,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Laboratory-Technician---PCB-Materials_J-020110",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:05:24.006Z",
+      "crawledAt": "2026-08-31T10:17:51.697Z",
       "jobReqId": "J-020110",
       "firstSeenAt": "2026-07-24T22:16:40.031Z",
       "_qualityScore": 84,
@@ -111,7 +111,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Material-Scientist---PCB-Materials_J-020112",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:05:24.652Z",
+      "crawledAt": "2026-08-31T10:17:52.291Z",
       "jobReqId": "J-020112",
       "firstSeenAt": "2026-07-24T22:16:40.828Z",
       "_qualityScore": 84,
@@ -146,7 +146,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/LOGISTICIEN--H-F-_J-020013",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:25.256Z",
+      "crawledAt": "2026-08-31T10:17:52.836Z",
       "jobReqId": "J-020013",
       "needsRetranslation": false,
       "firstSeenAt": "2026-07-20T12:04:44.172Z",
@@ -182,7 +182,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:25.849Z",
+      "crawledAt": "2026-08-31T10:17:53.420Z",
       "jobReqId": "J-019937",
       "firstSeenAt": "2026-06-26T22:07:54.096Z",
       "_qualityScore": 82,
@@ -217,7 +217,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:05:26.450Z",
+      "crawledAt": "2026-08-31T10:17:53.974Z",
       "jobReqId": "J-019405",
       "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:44:47.716Z",
@@ -230,8 +230,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "huntsman-2465633aa4f4",
       "slug": "tecnologo-in-produzione-5-squadre-huntsman-corporation-monthey",
@@ -263,6 +262,7 @@
       "salaryMax": 91500,
       "addressRegion": "VS",
       "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -271,5 +271,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
