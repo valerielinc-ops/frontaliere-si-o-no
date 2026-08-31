@@ -46,6 +46,7 @@ import {
   cleanPreviousSlugsPerLocale,
 } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listSliceFilePaths } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -106,12 +107,6 @@ function readSlice(file) {
   return { raw, jobs: Array.isArray(raw) ? raw : (raw.jobs || []) };
 }
 
-function listSlices(dir) {
-  if (!fs.existsSync(dir)) return [];
-  return fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort()
-    .map((f) => path.join(dir, f));
-}
-
 function main() {
   const registry = loadSlugRegistry();
   let registryChanged = false;
@@ -120,7 +115,7 @@ function main() {
   // locale → slug → owning job id, seeded from EVERY active job so a repaired
   // slug can never collide with a URL another job already owns.
   const usedSlugs = new Map(LOCALES.map((l) => [l, new Map()]));
-  const activeSlices = listSlices(ACTIVE_DIR);
+  const activeSlices = listSliceFilePaths(ACTIVE_DIR);
   for (const file of activeSlices) {
     for (const job of readSlice(file).jobs) {
       for (const locale of LOCALES) {
@@ -218,7 +213,7 @@ function main() {
     }
   }
 
-  for (const file of listSlices(EXPIRED_DIR)) {
+  for (const file of listSliceFilePaths(EXPIRED_DIR)) {
     const { raw, jobs } = readSlice(file);
     let sliceChanged = false;
     for (const job of jobs) {
