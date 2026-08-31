@@ -2560,6 +2560,27 @@ export function parsePath(pathname: string): ParseResult {
    }
  }
 
+ // Pharmacy coverage hub — /farmacie/ + locale twins (#6399). Source of
+ // truth for the four paths: services/pharmacies/types.ts
+ // PHARMACY_HUB_PATH, which build-plugins/pharmacyHubPlugin.ts emits from.
+ // Without staticOverlay the SPA would treat the URL as unknown on
+ // hydrate, hide `main.seo-static-content` and render NotFoundSuggestions
+ // over a page that exists. Routed to `vita` for back-nav: daily-life
+ // services is the closest existing tab family.
+ {
+   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
+   const pharmacyPaths: Record<string, Locale> = {
+     '/farmacie/': 'it',
+     '/en/pharmacies/': 'en',
+     '/de/apotheken/': 'de',
+     '/fr/pharmacies/': 'fr',
+   };
+   const pharmacyLocale = pharmacyPaths[normalized];
+   if (pharmacyLocale) {
+     return { route: { activeTab: 'vita', staticOverlay: true }, locale: pharmacyLocale };
+   }
+ }
+
  // Self-certification forms guide — /moduli/autocertificazione-candidatura/
  // (IT-only, source of truth: build-plugins/selfCertificationFormsPlugin.ts
  // LANDING_URL_PATH). Emitted via buildSeoPageHtml (seoContentOutsideRoot:
