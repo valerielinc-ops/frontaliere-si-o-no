@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-08-31T22:20:47.715Z",
+  "generatedAt": "2026-08-31T23:29:44.955Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 3125,
-  "avgDurationMs": 3125,
+  "durationMs": 2793,
+  "avgDurationMs": 2793,
   "durationHistory": [
-    3125
+    2793
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,12 +37,11 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-7cdf4cd694c5",
-      "needsRetranslation": true,
       "salaryMin": 95500,
       "salaryMax": 159000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T00:35:38.161Z",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,8 +77,8 @@
       "salaryMax": 159000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T00:35:38.161Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -111,7 +110,6 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-1172f22c489c",
-      "needsRetranslation": true,
       "salaryMin": 89000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -270,44 +268,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
-      "slug": "personale-agricolo-specialista-della-frutta-confederazione-svizzera-wadenswil",
-      "url": "https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/2c6e2470-3c64-4370-8bfd-d7b026c8f271",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18254",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Wädenswil, Schweiz",
-      "addressLocality": "Wädenswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-31",
-      "validThrough": "2026-08-31",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-422f8c606761",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-31T22:09:05.331Z",
-      "salarySource": "reported",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Praktikum Waldrandbeweidung 80-100%",
