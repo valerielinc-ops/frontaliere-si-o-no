@@ -1632,6 +1632,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-grigioni-mutuo-ipotecario': { it: 'comprare-casa-grigioni-mutuo-ipotecario', en: 'buy-house-grisons-mortgage-procedure', de: 'haus-kauf-graubuenden-hypothek-verfahren', fr: 'acheter-maison-grisons-hypotheque-procedure' },
  'apprendistato-grigioni-percorso-duale': { it: 'apprendistato-grigioni-percorso-duale', en: 'apprenticeship-graubunden-dual-pathway', de: 'lehre-graubunden-dualer-bildungsweg', fr: 'apprentissage-grisons-voie-duale' },
  'asb-banche-svizzera-crescita-2026': { it: 'asb-banche-svizzera-crescita-2026', en: 'asb-swiss-banks-growth-2026', de: 'asb-schweizer-banken-wachstum-2026', fr: 'asb-banques-suisses-croissance-2026' },
+ 'finanziamenti-partiti-ps-2025': { it: 'finanziamenti-partiti-ps-2025', en: 'party-financing-ps-2025', de: 'parteifinanzierung-ps-2025', fr: 'financement-partis-ps-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

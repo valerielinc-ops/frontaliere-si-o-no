@@ -4819,6 +4819,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asb-banche-svizzera-crescita-2026.title': 'ASB forecasts bank growth in 2026',
     'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Swiss banks will continue to grow in 2026 according to the Swiss Bankers Association. Assets managed over CHF 10,000 billion, commissions driving growth.',
     'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Modern office building in Swiss financial district with Swiss flag and contemporary architecture',
+    'blog.article.finanziamenti-partiti-ps-2025.title': 'Party funding: the PS has the most money',
+    'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'In 2025 the PS raised 7.9 million francs, the highest among the federal parties. Nine parties declare a total of 24.6 million, down by one million compared to 2024.',
+    'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Swiss Federal Parliament building in Bern, center of Switzerland\'s national political arena',
 };
 
 export default blogMetaChEn;

@@ -4819,6 +4819,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asb-banche-svizzera-crescita-2026.title': 'ASB prévoit une croissance bancaire en 2026',
     'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Les banques suisses continueront de croître en 2026 selon l\'Association suisse des banquiers. Actifs gérés de plus de 10\'000 milliards de francs, commissions d\'entraînement à la croissance.',
     'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Immeuble de bureaux moderne dans un district financier suisse avec drapeau national et architecture contemporaine',
+    'blog.article.finanziamenti-partiti-ps-2025.title': 'Financement des partis : le PS est celui qui a le plus d\'argent',
+    'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'En 2025, le PS a recueilli 7,9 millions de francs, le maximum parmi les partis fédéraux. Neuf partis déclarent 24,6 millions au total, en baisse d\'un million par rapport à 2024.',
+    'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Palais fédéral à Berne, centre de la politique fédérale et des décisions nationales suisses',
 };
 
 export default blogMetaChFr;

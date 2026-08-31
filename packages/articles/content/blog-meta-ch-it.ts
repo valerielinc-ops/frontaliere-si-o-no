@@ -4819,6 +4819,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asb-banche-svizzera-crescita-2026.title': 'ASB prevede crescita bancaria nel 2026',
     'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Le banche svizzere continueranno a crescere nel 2026 secondo l\'Associazione svizzera dei banchieri. Patrimonio gestito oltre i 10\'000 miliardi di franchi, commissioni traino della crescita.',
     'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Edificio moderno in un distretto finanziario svizzero con bandiera nazionale, architettura contemporanea',
+    'blog.article.finanziamenti-partiti-ps-2025.title': 'Finanziamenti ai partiti: il PS è quello che ha più soldi',
+    'blog.article.finanziamenti-partiti-ps-2025.excerpt': 'Nel 2025 il PS ha raccolto 7,9 milioni di franchi, il massimo tra i partiti federali. Nove partiti dichiarano 24,6 milioni totali, in calo di un milione rispetto al 2024.',
+    'blog.article.finanziamenti-partiti-ps-2025.imageAlt': 'Palazzo del Parlamento federale svizzero a Berna, centro della politica nazionale elvetica',
 };
 
 export default blogMetaChIt;

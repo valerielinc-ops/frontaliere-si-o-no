@@ -14455,6 +14455,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'finanziamenti-partiti-ps-2025',
+    category: 'novita',
+    date: '2026-08-31T09:31:17.885Z',
+    image: '/images/blog/finanziamenti-partiti-ps-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
