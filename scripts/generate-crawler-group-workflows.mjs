@@ -843,7 +843,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
         'timeout-minutes': JOB_TIMEOUT_MINUTES,
         env: {
           // Job-level env is inherited by every background shell and avoids
-          // 607 identical step overrides. The CLI resolves this relative
+          // hundreds of identical step overrides. The CLI resolves this relative
           // path strictly underneath the runner-provided RUNNER_TEMP.
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
         },

@@ -63,6 +63,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './postch-job-parser.mjs';
+import { dedicatedPostOwner } from './crawler-company-ownership.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -82,11 +83,6 @@ const JOBS_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 const JOBS_API_LISTING_LOCALES = ['de_DE', 'it_IT', 'fr_FR', 'en_US'];
 const JOBS_API_MAX_PAGES = 100000; // uncapped — loop breaks on empty page / seen>=totalJobs
 const JOBS_DETAIL_LOCALES = ['it_IT', 'de_DE', 'fr_FR', 'en_US']; // priority for description language
-
-// The brand tag PostAuto records carry in `cust_brandCompanyJobSearch`.
-// Matched case-insensitively / substring so brand-label drift ("PostAuto",
-// "PostAuto AG", "PostAuto Schweiz AG") still matches.
-const BRAND_MATCH = 'postauto';
 
 /* ── HQ fallback (Wankdorfallee 4, 3030 Bern, BE) ─────────────── */
 /* Confirmed via https://www.postauto.ch/en/pages/footer/publication-details */
@@ -291,11 +287,11 @@ function buildDetailUrl(record, locale = 'de_DE') {
  * Check whether a raw API record's `cust_brandCompanyJobSearch` tags it as
  * a PostAuto posting (case-insensitive substring — see BRAND_MATCH note).
  */
-function isPostAutoRecord(record) {
+export function isPostAutoRecord(record) {
   const brands = Array.isArray(record?.cust_brandCompanyJobSearch)
     ? record.cust_brandCompanyJobSearch
     : [];
-  return brands.some((b) => normalize(b).includes(BRAND_MATCH));
+  return brands.some((brand) => dedicatedPostOwner(brand) === POSTAUTO_KEY);
 }
 
 /**

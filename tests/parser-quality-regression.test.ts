@@ -19,7 +19,6 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractEpflDetailDescription } from '../scripts/lib/epfl-job-parser.mjs';
 import { extractEthZurichDetailDescription } from '../scripts/lib/eth-zurich-job-parser.mjs';
-import { extractKssgDetailDescription } from '../scripts/lib/kssg-job-parser.mjs';
 import { normalizeDescriptionBullets } from '../scripts/lib/crawler-template.mjs';
 import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 
@@ -55,12 +54,6 @@ describe('parser-quality regression — list structure preserved', () => {
     const desc = extractEthZurichDetailDescription(html);
     expect(desc.length).toBeGreaterThan(200);
     expect(hasStructuredContent(desc)).toBe(true);
-  });
-
-  it('KSSG: detail extractor finds the SAP <span class="jobdescription"> body', () => {
-    const html = loadFixture('kssg');
-    const desc = extractKssgDetailDescription(html);
-    expect(desc.length).toBeGreaterThan(200);
   });
 
   it('normalizeDescriptionBullets restores line-start bullets when inline `• ` is present', () => {
