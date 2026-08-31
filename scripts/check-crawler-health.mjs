@@ -987,11 +987,27 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // that has genuinely stopped running is still caught by the `stale` gate
   // above once `freshnessAt` ages past `STALE_AFTER_DAYS` — that is the
   // correct signal for "the workflow stopped", not a fabricated empty streak.
+  // `freshnessAt` alone is not a complete run identity: some producers use
+  // day-granularity timestamps. Treat the observation as a repeat only when
+  // its count and empty classification also agree. With no upstream run id,
+  // equal freshness + count + classification is the same observable run by
+  // construction; a distinct same-day run must change at least one of those
+  // signals. Missing classification fields remain migration-compatible.
+  const previousEmptyOk =
+    typeof previous._lastObservedEmptyOk === 'boolean'
+      ? previous._lastObservedEmptyOk
+      : EMPTY_OK_CRAWLERS.has(observation.slug) || previous._autoFilteredEmpty === true;
   const isRepeatObservation =
     hadPriorState &&
     freshnessAt !== null &&
     freshnessAt !== undefined &&
-    freshnessAt === previous._lastObservedFreshnessAt;
+    previous._lastObservedFreshnessAt !== null &&
+    previous._lastObservedFreshnessAt !== undefined &&
+    freshnessAt === previous._lastObservedFreshnessAt &&
+    previous._lastObservedJobs !== null &&
+    previous._lastObservedJobs !== undefined &&
+    lastObservedJobs === previous._lastObservedJobs &&
+    emptyOk === previousEmptyOk;
 
   const consecutiveEmptyRuns = isRepeatObservation
     ? (previous.consecutiveEmptyRuns ?? 0)
@@ -1071,6 +1087,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       status,
       _lastObservedAt: nowIso,
       _lastObservedJobs: lastObservedJobs,
+      _lastObservedEmptyOk: emptyOk,
       _lastObservedFreshnessAt: freshnessAt,
       _lastObservedFreshnessSource: freshnessSource,
       _lastObservedAssembledAt: observation.assembledAt ?? null,
