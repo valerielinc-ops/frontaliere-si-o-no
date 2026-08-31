@@ -1,18 +1,18 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-08-28T05:20:28.190Z",
+  "generatedAt": "2026-08-31T17:07:07.668Z",
   "total": 3,
   "discovered": null,
   "written": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4777,
-  "avgDurationMs": 4777,
+  "unchangedCount": 1,
+  "durationMs": 5525,
+  "avgDurationMs": 5525,
   "durationHistory": [
-    4777
+    5525
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:20:24.675Z",
+      "crawledAt": "2026-08-31T17:07:03.252Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -55,6 +55,47 @@
         "completeness": 20
       }
     },
+    {
+      "id": "oetiker-e8ad3c22184a",
+      "slug": "it-service-management-specialist-emea-all-oetiker-horgen-zh-switzerland",
+      "company": "Oetiker",
+      "companyKey": "oetiker",
+      "companyDomain": "oetiker.com",
+      "title": "IT Service Management Specialist EMEA (all)",
+      "location": "Horgen, ZH, Switzerland",
+      "canton": "ZH",
+      "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
+      "source": "Oetiker Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:07:03.216Z",
+      "addressLocality": "Horgen",
+      "addressRegion": "ZH",
+      "streetAddress": "Spätzstrasse 11",
+      "postalCode": "8810",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
+      "jobReqId": "744000135999378",
+      "firstSeenAt": "2026-07-06T15:15:19.162Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "oetiker-67888c0434c2",
       "slug": "cnc-polymechaniker-fraser-mit-teamfuhrung-all-oetiker-horgen-switzerland",
@@ -86,53 +127,16 @@
       "jobReqId": "744000139219189",
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T11:35:01.626Z",
-      "_qualityScore": 83,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "id": "oetiker-e8ad3c22184a",
-      "slug": "it-service-management-specialist-emea-all-oetiker-horgen-zh-switzerland",
-      "company": "Oetiker",
-      "companyKey": "oetiker",
-      "companyDomain": "oetiker.com",
-      "title": "IT Service Management Specialist EMEA (all)",
-      "location": "Horgen, ZH, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
-      "source": "Oetiker Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:20:24.678Z",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "streetAddress": "Spätzstrasse 11",
-      "postalCode": "8810",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
-      "jobReqId": "744000135999378",
-      "firstSeenAt": "2026-07-06T15:15:19.162Z",
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
