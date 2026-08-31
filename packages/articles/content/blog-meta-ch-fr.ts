@@ -4810,6 +4810,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Sécheresse 2025: 54 millions en prêts aux exploitations agricoles',
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin défend le choix des prêts sans intérêt plutôt que des aides à fonds perdu : sans base légale, impossible de répéter le modèle Covid.',
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Champs agricoles suisses secs durant l\'ete 2025 avec collines et Alpes en arriere-plan',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'Maison dans les Grisons : hypothèque, fonds propres et impôts',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Guide d\'achat immobilier dans le canton des Grisons : hypothèque, fonds propres, taxes d\'acquisition, frais de notaire et procédure étape par étape.',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Chalet alpin suisse traditionnel avec balcon en bois dans les contreforts des montagnes',
 };
 
 export default blogMetaChFr;

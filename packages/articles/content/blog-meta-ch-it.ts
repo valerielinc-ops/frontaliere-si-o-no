@@ -4810,6 +4810,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Siccità 2025: 54 milioni in prestiti alle aziende agricole',
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin difende la scelta di prestiti senza interessi anziché aiuti a fondo perduto: senza basi legali, impossibile ripetere il modello Covid.',
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Campi agricoli svizzeri secchi durante l\'estate 2025 con colline e Alpi sullo sfondo',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'Casa in Grigioni: mutuo, fondi propri e imposte',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Guida all\'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Chalet svizzero tradizionale con balcone in legno sulle pendici alpine del Canton Grigioni',
 };
 
 export default blogMetaChIt;

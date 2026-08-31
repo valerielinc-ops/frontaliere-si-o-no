@@ -4810,6 +4810,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Dürre 2025: 54 Millionen in Krediten an landwirtschaftliche Betriebe',
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin verteidigt die Wahl von zinslosen Krediten anstelle von nicht rückzahlbaren Beihilfen: Ohne gesetzliche Grundlagen ist es unmöglich, das COVID-Modell zu wiederholen.',
     'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Trockene Schweizer Felder im Sommer 2025 mit Huegeln und Alpen im Hintergrund',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'Haus in Graubünden: Darlehen, Eigenmittel und Steuern',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Leitfaden zum Immobilienkauf im Kanton Graubünden: Hypothekendarlehen, Eigenmittel, Akquisitionssteuern, Notarkosten und Schritt-für-Schritt-Verfahren.',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Traditionelles Schweizer Alpenchalet mit Holzbalkon in den Bergvorbergen',
 };
 
 export default blogMetaChDe;

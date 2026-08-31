@@ -1629,6 +1629,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-breve-durata-grigioni-validita': { it: 'permesso-l-breve-durata-grigioni-validita', en: 'short-term-l-permit-graubunden-validity', de: 'kurzaufenthaltsbewilligung-l-graubuenden-gueltigkeit', fr: 'permis-l-courte-duree-grisons-validite' },
  'apprendistato-formazione-grigioni': { it: 'apprendistato-formazione-grigioni', en: 'apprenticeship-vocational-training-graubunden', de: 'lehre-berufsbildung-graubuenden', fr: 'apprentissage-formation-professionnelle-grisons' },
  'parmelin-siccita-prestiti-agricoltura-2025': { it: 'parmelin-siccita-prestiti-agricoltura-2025', en: 'parmelin-drought-farm-loans-2025', de: 'parmelin-duerre-landwirtschaftskredite-2025', fr: 'parmelin-secheresse-prets-agricoles-2025' },
+ 'comprare-casa-grigioni-mutuo-ipotecario': { it: 'comprare-casa-grigioni-mutuo-ipotecario', en: 'buy-house-grisons-mortgage-procedure', de: 'haus-kauf-graubuenden-hypothek-verfahren', fr: 'acheter-maison-grisons-hypotheque-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
