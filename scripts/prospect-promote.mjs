@@ -115,9 +115,9 @@ function reconcileOpenPromotions(store) {
 /**
  * C'e' gia' una PR di promozione aperta?
  *
- * Ogni promozione rigenera TUTTI i 22 `crawler-group-*.yml`, perche' aggiungere
+ * Ogni promozione rigenera TUTTI i 23 `crawler-group-*.yml`, perche' aggiungere
  * un crawler ribilancia i gruppi. Due PR aperte insieme toccano quindi le stesse
- * 22 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
+ * 23 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
  * piu' — misurato su #6292 e #6297, 25 file in comune, entrambe bloccate.
  *
  * Il loop gira ogni notte, quindi senza una serializzazione esplicita il caso e'
@@ -449,8 +449,9 @@ ${bullets}${relaxedNote}
 // nominato nel body. `diffPaths` alimenta quel check qui, non solo nel gate CI.
 function changedWorkflowPaths() {
   try {
-    const modified = execFileSync('git', ['diff', '--name-only', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
-    const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '--', '.github/workflows'], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    const workflowPaths = ['.github/workflows', '.github/corpus-workflows'];
+    const modified = execFileSync('git', ['diff', '--name-only', '--', ...workflowPaths], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
+    const untracked = execFileSync('git', ['ls-files', '--others', '--exclude-standard', '--', ...workflowPaths], { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'] }).toString();
     return [...modified.split('\n'), ...untracked.split('\n')].map((l) => l.trim()).filter(Boolean);
   } catch {
     return [];
@@ -489,7 +490,11 @@ try {
   // .yml ne sono la resa. Committare i .yml senza i pin lascia il nuovo crawler
   // "mai visto" al giro dopo, che lo riassegna a un gruppo qualunque — cioe'
   // esattamente il rimescolamento che i pin esistono per impedire.
-  if (groupsRegenerated) paths.push('.github/workflows', 'data/crawler-group-assignments.json');
+  if (groupsRegenerated) paths.push(
+    '.github/workflows',
+    '.github/corpus-workflows',
+    'data/crawler-group-assignments.json',
+  );
   git('add', ...paths);
   git('commit', '-m', `prospector: promuove ${shipped.length} crawler validati (${totalVacancies} annunci)`);
   git('push', '-u', 'origin', branch);
