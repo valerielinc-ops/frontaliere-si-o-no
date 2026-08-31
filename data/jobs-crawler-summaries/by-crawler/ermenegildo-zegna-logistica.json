@@ -1,16 +1,16 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-08-31T17:09:47.769Z",
+  "generatedAt": "2026-08-31T22:33:30.306Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 11145,
-  "avgDurationMs": 11145,
+  "durationMs": 9639,
+  "avgDurationMs": 9639,
   "durationHistory": [
-    11145
+    9639
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -49,6 +49,8 @@
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "firstSeenAt": "2026-08-07T01:15:25.380Z",
+      "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,6 +93,7 @@
       "addressCountry": "CH",
       "firstSeenAt": "2026-08-06T12:13:09.195Z",
       "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -132,6 +135,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-07-31T11:54:47.257Z",
+      "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -175,6 +180,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "firstSeenAt": "2026-06-23T23:26:22.911Z",
+      "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
