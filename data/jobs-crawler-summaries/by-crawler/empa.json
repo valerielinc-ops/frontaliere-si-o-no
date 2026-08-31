@@ -1,20 +1,21 @@
 {
   "key": "empa",
   "label": "Empa",
-  "generatedAt": "2026-08-31T17:34:00.542Z",
-  "total": 19,
+  "generatedAt": "2026-08-31T22:19:38.242Z",
+  "total": 18,
   "discovered": null,
-  "written": 19,
-  "newCount": 1,
-  "updatedCount": 16,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6395,
-  "avgDurationMs": 6395,
+  "written": 18,
+  "newCount": 0,
+  "updatedCount": 17,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 7946,
+  "avgDurationMs": 7946,
   "durationHistory": [
-    6395
+    7946
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "empa-7f9454ea111f",
       "slug": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
@@ -27,7 +28,7 @@
       "url": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.028Z",
+      "crawledAt": "2026-08-31T22:19:33.230Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -45,16 +46,16 @@
       "applyUrl": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2224",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T17:33:57.028Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "empa-684bd7cd8e78",
       "slug": "lernende-r-elektroinstallateur-in-a-empa-dubendorf",
@@ -67,7 +68,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.033Z",
+      "crawledAt": "2026-08-31T22:19:33.237Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -107,7 +108,7 @@
       "url": "https://apply.refline.ch/673276/2222/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.038Z",
+      "crawledAt": "2026-08-31T22:19:33.243Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -125,6 +126,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2222/pub/1/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2222",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -146,7 +148,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.036Z",
+      "crawledAt": "2026-08-31T22:19:33.240Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -186,7 +188,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.040Z",
+      "crawledAt": "2026-08-31T22:19:33.248Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -226,7 +228,7 @@
       "url": "https://apply.refline.ch/673276/2219/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.042Z",
+      "crawledAt": "2026-08-31T22:19:33.251Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -244,6 +246,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2219/pub/1/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2219",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-29T11:54:45.276Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -265,7 +268,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.043Z",
+      "crawledAt": "2026-08-31T22:19:33.257Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -283,6 +286,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2218",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-20T22:55:02.889Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -304,7 +308,7 @@
       "url": "https://apply.refline.ch/673276/2217/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.045Z",
+      "crawledAt": "2026-08-31T22:19:33.259Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -343,7 +347,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.048Z",
+      "crawledAt": "2026-08-31T22:19:33.264Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -361,6 +365,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2209",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -382,7 +387,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.049Z",
+      "crawledAt": "2026-08-31T22:19:33.266Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -400,6 +405,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2207",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:39:25.164Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -421,7 +427,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.051Z",
+      "crawledAt": "2026-08-31T22:19:33.268Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -461,7 +467,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.032Z",
+      "crawledAt": "2026-08-31T22:19:33.235Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -501,7 +507,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.046Z",
+      "crawledAt": "2026-08-31T22:19:33.260Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -541,7 +547,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.052Z",
+      "crawledAt": "2026-08-31T22:19:33.270Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -581,7 +587,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.053Z",
+      "crawledAt": "2026-08-31T22:19:33.272Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -599,6 +605,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2181",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -620,7 +627,7 @@
       "url": "https://apply.refline.ch/673276/2179/pub/5/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.047Z",
+      "crawledAt": "2026-08-31T22:19:33.262Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -638,6 +645,7 @@
       "applyUrl": "https://apply.refline.ch/673276/2179/pub/5/index.html",
       "hiringOrganizationName": "Empa",
       "jobReqId": "2179",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T10:39:25.154Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -659,7 +667,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.054Z",
+      "crawledAt": "2026-08-31T22:19:33.274Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -687,8 +695,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "empa-4075be4ebbc0",
       "slug": "postdoc-in-fisica-applicata-dei-laser-empa-thun",
@@ -723,6 +730,8 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -730,7 +739,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "empa-61009aa65986",
       "slug": "apprendista-laborant-in-specializzazione-chemie-a-empa-dubendorf",
@@ -765,7 +776,8 @@
       "firstSeenAt": "2026-07-04T10:39:25.173Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

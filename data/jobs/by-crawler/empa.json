@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-08-31T17:34:00.529Z",
+  "assembledAt": "2026-08-31T22:19:38.235Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.054Z",
+      "crawledAt": "2026-08-31T22:19:33.274Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -115,7 +115,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.053Z",
+      "crawledAt": "2026-08-31T22:19:33.272Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -151,8 +151,8 @@
           "postdoc-position-in-co2-electrocatalysis-under-realistic-conditions-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.182Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -198,7 +198,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.052Z",
+      "crawledAt": "2026-08-31T22:19:33.270Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -275,7 +275,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.051Z",
+      "crawledAt": "2026-08-31T22:19:33.268Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -358,7 +358,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.049Z",
+      "crawledAt": "2026-08-31T22:19:33.266Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -378,6 +378,7 @@
       "jobReqId": "2207",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:39:25.164Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -391,8 +392,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-3f0d824112e5",
@@ -425,7 +425,7 @@
       "url": "https://apply.refline.ch/673276/2209/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.048Z",
+      "crawledAt": "2026-08-31T22:19:33.264Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -463,8 +463,8 @@
           "position-postdoc-dans-l-histopathologie-par-rayons-x-3d-des-tumeurs-colorectales-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.163Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -510,7 +510,7 @@
       "url": "https://apply.refline.ch/673276/2179/pub/5/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.047Z",
+      "crawledAt": "2026-08-31T22:19:33.262Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -545,8 +545,8 @@
           "position-du-ph-d-sur-les-batteries-tout-etat-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:39:25.154Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:39:25.154Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -592,7 +592,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.046Z",
+      "crawledAt": "2026-08-31T22:19:33.260Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -685,7 +685,7 @@
       "url": "https://apply.refline.ch/673276/2217/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.045Z",
+      "crawledAt": "2026-08-31T22:19:33.259Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -767,7 +767,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.043Z",
+      "crawledAt": "2026-08-31T22:19:33.257Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -787,6 +787,7 @@
       "jobReqId": "2218",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:55:02.889Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -800,8 +801,7 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-b087086e4595",
@@ -834,7 +834,7 @@
       "url": "https://apply.refline.ch/673276/2219/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.042Z",
+      "crawledAt": "2026-08-31T22:19:33.251Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -864,6 +864,7 @@
           "posizione-del-dottorato-soft-active-matter-microrobots-for-medicine-sam3-empa-dubendorf"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:54:45.276Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -877,8 +878,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "empa-d5c944130420",
@@ -911,7 +911,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.040Z",
+      "crawledAt": "2026-08-31T22:19:33.248Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -994,7 +994,7 @@
       "url": "https://apply.refline.ch/673276/2222/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.038Z",
+      "crawledAt": "2026-08-31T22:19:33.243Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1030,8 +1030,8 @@
           "phd-position-in-nanomedicine-quantitative-design-of-multi-cargo-nanoparticles-for-cancer"
         ]
       },
-      "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-11T10:36:02.292Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1077,7 +1077,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.036Z",
+      "crawledAt": "2026-08-31T22:19:33.240Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1160,7 +1160,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.033Z",
+      "crawledAt": "2026-08-31T22:19:33.237Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1243,7 +1243,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:33:57.032Z",
+      "crawledAt": "2026-08-31T22:19:33.235Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1293,8 +1293,8 @@
       "id": "empa-7f9454ea111f",
       "slug": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
       "slugByLocale": {
-        "en": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
         "it": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
+        "en": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
         "de": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun",
         "fr": "tenure-track-group-leader-position-metal-additive-manufacturing-empa-thun"
       },
@@ -1303,24 +1303,24 @@
       "companyDomain": "empa.ch",
       "title": "Tenure Track Group Leader Position Metal Additive Manufacturing",
       "titleByLocale": {
-        "en": "Tenure Track Group Leader Position Metal Additive Manufacturing",
         "it": "Tenure Track Group Leader Position Metal Additive Manufacturing",
+        "en": "Tenure Track Group Leader Position Metal Additive Manufacturing",
         "de": "Tenure Track Group Leader Position Metal Additive Manufacturing",
         "fr": "Tenure Track Group Leader Position Metal Additive Manufacturing"
       },
       "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\n For our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
       "descriptionByLocale": {
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\n For our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
-        "it": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\n For our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
-        "de": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\n For our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
-        "fr": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\n For our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered."
+        "it": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\nFor our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
+        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\nFor our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
+        "de": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\nFor our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered.",
+        "fr": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nTenure Track Group Leader Position Metal Additive Manufacturing\n\nOur newly established Laboratory for Advanced Metallurgy and Manufacturing of Metals (AM3) develops new metallic materials for high-performance applications and advanced manufacturing processes and operates across Empa's Dübendorf and Thun site. A key focus of our activities is metal additive manufacturing. Our research covers the entire process chain, from alloy design and powder development to manufacturing, process monitoring, microstructure engineering, and material properties.\nFor our Thun site, we are seeking an outstanding and highly motivated early career researcher for a Tenure-Track Group Leader Position in Metal Additive Manufacturing. The successful candidate will establish an innovative research agenda and lead an internationally recognized research group.\n\nYour responsibilities\n\n• Establish a strong research profile in metal additive manufacturing within the laboratory's broader activities (including materials development, powder engineering, process development and monitoring, process modelling and simulation, and materials characterization)\n\n• Acquire and manage competitive research funding from national and international funding agencies and industrial partners\n\n• Develop and maintain strong collaborations with academic and industrial partners in Switzerland and internationally\n\n• Lead research projects and supervise PhD students, postdoctoral researchers, and MSc students\n\n• Publish high-quality research in leading international journals and present results at major scientific conferences\n\n• Contribute actively to the strategic development and long-term growth of the laboratory\n\n• Promote technology transfer and strengthen collaboration with industry\n\nYour profile\n\n• PhD in Materials Science, Metallurgy, Mechanical Engineering, Applied Physics, or a related field\n\n• Demonstrated expertise in the science and technology of metals, and particularly in metal additive manufacturing (LPBF, DED, BJ etc.)\n\n• Excellent publication record relative to career stage\n\n• Strong potential to acquire competitive research funding and develop an independent research profile\n\n• Ability to work across disciplines and bridge fundamental research, technology development, and industrial applications\n\n• Experience in research project management and supervision of junior researchers\n\n• Excellent communication, networking, and leadership skills\n\n• Excellent command of English; knowledge of German and/or French is an advantage\n\nOur offer\n\nEmpa offers a highly attractive research environment with state-of-the-art infrastructure and substantial freedom to develop an independent research program. The position is offered as a tenure-track ap-pointment with an initial contract of 3 years and with the opportunity to progress to a permanent Group Leader position following a successful evaluation.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application, including a one-page motivation letter with a brief outline of your planned research activities, a CV including a list of publications and conference presentations, relevant certificates and diplomas, as well as contact details for at least two academic or industry references. Please submit your application exclusively via our job portal by 30 September 2026 . Applications submitted by e-mail or post cannot be considered."
       },
       "location": "Thun",
       "canton": "BE",
       "url": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:33:57.028Z",
+      "crawledAt": "2026-08-31T22:19:33.230Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1339,10 +1339,9 @@
       "hiringOrganizationName": "Empa",
       "jobReqId": "2224",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:33:57.028Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1355,8 +1354,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-31T17:33:57.028Z"
+      }
     },
     {
       "id": "empa-61009aa65986",
@@ -1431,89 +1429,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "salarySource": "estimated"
-    },
-    {
-      "id": "empa-4075be4ebbc0",
-      "slug": "postdoc-in-fisica-applicata-dei-laser-empa-thun",
-      "slugByLocale": {
-        "it": "postdoc-in-fisica-applicata-dei-laser-empa-thun",
-        "en": "postdoc-in-applied-laser-physics-empa-thun",
-        "de": "postdoc-in-angewandter-laserphysik-empa-thun",
-        "fr": "postdoc-en-physique-laser-appliquee-empa-thun"
-      },
-      "company": "Empa",
-      "companyKey": "empa",
-      "companyDomain": "empa.ch",
-      "title": "Postdoc in applied laser physics",
-      "titleByLocale": {
-        "it": "Postdoc in fisica applicata dei laser",
-        "en": "Postdoc in applied laser physics",
-        "de": "Postdoc in Angewandter Laserphysik",
-        "fr": "Postdoc in applied laser physics"
-      },
-      "description": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc in applied laser physics\n\nThe Laboratory of Advanced Materials Processing (LAMP) is a multidisciplinary research unit that develops innovative functional modification of materials by beam (e.g. laser light, electrons) and plasma induced processing. LAMP provides full cycle technology development, starting from novel materials, deep understanding of the background physics of beam-matter interactions, development of automated AI/ML systems for novel materials processing and quality insurance. The lab combines additive manufacturing, large scale laser micro-processing, multiscale modelling and AI/ML for the quality monitoring/control, at the end offering to the society novel nanostructured materials, their shape-forming and integration into devices.\n\nYour tasks\n\n• Operation of different laser platforms\n\n• Conceptualization and setup of optical systems\n\n• Hardware synchronization and data acquisition\n\n• Conduction of experimental campaigns, evaluation of results and reporting\n\nYour profile\n\n• PhD degree in Physics/Photonics/Engineering or equivalent\n\n• Experience: Laser applications (measuring, processing, etc.), optical system design, assembly and usage\n\n• Skills: Hands-on experimental mindset, strong understanding of laser and optical physics, strong problem-solving and troubleshooting skills, experience with data analysis and experimental optimization\n\n• English, French and German as a plus\n\nOur offer\n\nEmpa offers a dynamic and inspiring research environment at its Thun campus, located near Bern. You will work on a scientifically and technologically cutting-edge topic of high relevance and novelty, with direct access to state-of-the-art research infrastructure and equipment. As part of an experienced and multidisciplinary project team with strong national and international collaborations, you will receive full support in advancing the current project as well as in shaping and realizing your own scientific ideas within the lab's research activities. You will be encouraged and supported in producing high-impact results, publishing in leading international peer-reviewed journals, and pursuing your personal and professional development. The position is available with a starting date in September 2026 and a duration of one year with the possibility of extension.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-      "descriptionByLocale": {
-        "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo essenziale al benessere della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH. Postdoc in fisica laser applicata Il Laboratory of Advanced Materials Processing (LAMP) è un'unità di ricerca multidisciplinare che sviluppa innovative modifiche funzionali dei materiali tramite trave (ad esempio luce laser, elettroni) e elaborazione indotta al plasma. LAMP fornisce lo sviluppo della tecnologia a ciclo completo, partendo da nuovi materiali, profonda comprensione della fisica di fondo delle interazioni tra fascio-materia, sviluppo di sistemi automatizzati AI/ML per l'elaborazione di nuovi materiali e l'assicurazione di qualità. Il laboratorio combina la produzione additiva, microprocessing laser su larga scala, modellazione multiscala e AI/ML per il monitoraggio/controllo di qualità, alla fine offrendo alla società nuovi materiali nanostrutturati, la loro forma-formatura e integrazione in dispositivi. I tuoi compiti\n• Funzionamento di diverse piattaforme laser\n• Concettualizzazione e configurazione dei sistemi ottici\n• Sincronizzazione hardware e acquisizione dati\n• Conduzione di campagne sperimentali, valutazione dei risultati e reporting Il tuo profilo\n• Laurea in fisica/fotonica/ingegneria o equivalente\n• Esperienza: applicazioni laser (misurazione, lavorazione, ecc.), progettazione del sistema ottico, assemblaggio e utilizzo\n• Competenze: Mindset sperimentale Hands-on, forte comprensione della fisica laser e ottica, forti capacità di problem solving e risoluzione dei problemi, esperienza con l'analisi dei dati e ottimizzazione sperimentale\n• Inglese, francese e tedesco come plus La nostra offerta Empa offre un ambiente di ricerca dinamico e stimolante nel suo campus Thun, situato vicino a Berna. Si lavorerà su un argomento scientificamente e tecnologicamente all'avanguardia di alta rilevanza e novità, con accesso diretto alle infrastrutture e attrezzature di ricerca all'avanguardia. Nell'ambito di un team di progetto esperto e multidisciplinare con forti collaborazioni nazionali e internazionali, riceverete il pieno supporto nel promuovere l'attuale progetto, oltre a plasmare e realizzare le vostre idee scientifiche all'interno delle attività di ricerca del laboratorio. Sarete incoraggiati e supportati nella produzione di risultati ad alto impatto, nella pubblicazione di importanti riviste internazionali peer-reviewed e nel perseguire il vostro sviluppo personale e professionale. La posizione è disponibile con una data di partenza nel settembre 2026 e una durata di un anno con possibilità di estensione. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che sono interessate a attività innovative, sostenibili e significative - questo è ciò che conta. Non vediamo l'ora di ricevere la tua candidatura online completa, tra cui una lettera di motivazione, CV, certificati, diplomi e dettagli di contatto di due persone di riferimento. Si prega di inviare questi esclusivamente tramite il nostro portale di lavoro. Le domande per e-mail e per posta non saranno considerate.",
-        "en": "Materials science and technology are our passion. With our cutting-edge research, Empa's around 1,100 employees make essential contributions to the well-being of society for a future worth living. Empa is a research institution of the ETH Domain.\n\nPostdoc in applied laser physics\n\nThe Laboratory of Advanced Materials Processing (LAMP) is a multidisciplinary research unit that develops innovative functional modification of materials by beam (e.g. laser light, electrons) and plasma induced processing. LAMP provides full cycle technology development, starting from novel materials, deep understanding of the background physics of beam-matter interactions, development of automated AI/ML systems for novel materials processing and quality insurance. The lab combines additive manufacturing, large scale laser micro-processing, multiscale modelling and AI/ML for the quality monitoring/control, at the end offering to the society novel nanostructured materials, their shape-forming and integration into devices.\n\nYour tasks\n\n• Operation of different laser platforms\n\n• Conceptualization and setup of optical systems\n\n• Hardware synchronization and data acquisition\n\n• Conduction of experimental campaigns, evaluation of results and reporting\n\nYour profile\n\n• PhD degree in Physics/Photonics/Engineering or equivalent\n\n• Experience: Laser applications (measuring, processing, etc.), optical system design, assembly and usage\n\n• Skills: Hands-on experimental mindset, strong understanding of laser and optical physics, strong problem-solving and troubleshooting skills, experience with data analysis and experimental optimization\n\n• English, French and German as a plus\n\nOur offer\n\nEmpa offers a dynamic and inspiring research environment at its Thun campus, located near Bern. You will work on a scientifically and technologically cutting-edge topic of high relevance and novelty, with direct access to state-of-the-art research infrastructure and equipment. As part of an experienced and multidisciplinary project team with strong national and international collaborations, you will receive full support in advancing the current project as well as in shaping and realizing your own scientific ideas within the lab's research activities. You will be encouraged and supported in producing high-impact results, publishing in leading international peer-reviewed journals, and pursuing your personal and professional development. The position is available with a starting date in September 2026 and a duration of one year with the possibility of extension.\n\nWe live a culture of inclusion and respect. We welcome all people who are interested in innovative, sustainable and meaningful activities - that's what counts.\n\nWe look forward to receiving your complete online application including a letter of motivation, CV, certificates, diplomas and contact details of two reference persons. Please submit these exclusively via our job portal. Applications by e-mail and by post will not be considered.",
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1.100 Mitarbeiter der Empa wesentliche Beiträge zum Wohl der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungseinrichtung des ETH-Bereichs. Postdoc in Angewandter Laserphysik Das Laboratory of Advanced Materials Processing (LAMP) ist eine multidisziplinäre Forschungseinheit, die innovative funktionelle Modifikationen von Materialien durch Strahl (z. B. Laserlicht, Elektronen) und plasmainduzierte Verarbeitung entwickelt. LAMP bietet die Entwicklung von Full-Cycle-Technologien, beginnend mit neuartigen Materialien, einem tiefen Verständnis der Hintergrundphysik der Strahl-Materie-Wechselwirkungen, der Entwicklung automatisierter AI / ML-Systeme für die Verarbeitung neuartiger Materialien und Qualitätssicherung. Das Labor kombiniert additive Fertigung, groß angelegte Laser-Mikroverarbeitung, Multiskalenmodellierung und AI / ML für die Qualitätsüberwachung / -kontrolle und bietet der Gesellschaft schließlich neuartige nanostrukturierte Materialien, deren Formgebung und Integration in Geräte. Ihre Aufgaben\n• Betrieb verschiedener Laserplattformen\n• Konzeption und Einrichtung von optischen Systemen\n• Hardware-Synchronisation und Datenerfassung\n• Durchführung von experimentellen Kampagnen, Auswertung der Ergebnisse und Berichterstattung Dein Profil\n• PhD-Abschluss in Physik / Photonik / Ingenieurwesen oder gleichwertig\n• Erfahrung: Laseranwendungen (Messung, Verarbeitung usw.), optisches Systemdesign, Montage und Nutzung\n• Fähigkeiten: Praktische experimentelle Denkweise, starkes Verständnis der Laser- und optischen Physik, starke Fähigkeiten zur Problemlösung und Fehlersuche, Erfahrung mit Datenanalyse und experimenteller Optimierung\n• Englisch, Französisch und Deutsch als Plus Unser Angebot Die Empa bietet ein dynamisches und inspirierendes Forschungsumfeld an ihrem Campus Thun in der Nähe von Bern. Sie arbeiten an einem wissenschaftlich und technologisch hochmodernen Thema von hoher Relevanz und Neuheit mit direktem Zugang zu modernster Forschungsinfrastruktur und -ausrüstung. Als Teil eines erfahrenen und multidisziplinären Projektteams mit starken nationalen und internationalen Kooperationen erhalten Sie volle Unterstützung bei der Weiterentwicklung des laufenden Projekts sowie bei der Gestaltung und Umsetzung eigener wissenschaftlicher Ideen im Rahmen der Forschungsaktivitäten des Labors. Sie werden ermutigt und unterstützt, um wirkungsvolle Ergebnisse zu erzielen, in führenden internationalen Fachzeitschriften zu veröffentlichen und Ihre persönliche und berufliche Entwicklung zu verfolgen. Die Position ist mit einem Startdatum im September 2026 und einer Dauer von einem Jahr mit der Möglichkeit einer Verlängerung verfügbar. Wir leben eine Kultur der Integration und des Respekts. Wir begrüßen alle Menschen, die sich für innovative, nachhaltige und sinnvolle Aktivitäten interessieren – das zählt. Wir freuen uns auf Ihre vollständige Online-Bewerbung mit Motivationsschreiben, Lebenslauf, Zertifikaten, Diplomen und Kontaktdaten von zwei Referenzpersonen. Bitte senden Sie diese ausschließlich über unser Jobportal. Bewerbungen per E-Mail und Post werden nicht berücksichtigt.",
-        "fr": "La science et la technologie des matériaux sont notre passion. Grâce à nos recherches de pointe, les quelque 1 100 employés d'Empa apportent une contribution essentielle au bien-être de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH. Postdoc en physique laser appliquée Le Laboratoire de traitement des matériaux avancés (LAMP) est une unité de recherche multidisciplinaire qui développe des modifications fonctionnelles novatrices des matériaux par faisceau (p. ex. lumière laser, électrons) et par traitement par plasma. LAMP offre un développement technologique à cycle complet, à partir de nouveaux matériaux, une compréhension approfondie de la physique de fond des interactions faisceaux-matière, le développement de systèmes automatisés d'IA/ML pour le traitement de nouveaux matériaux et l'assurance qualité. Le laboratoire combine la fabrication additive, le microtraitement laser à grande échelle, la modélisation à plusieurs échelles et l'IA/ML pour le contrôle de la qualité, à la fin offrant à la société des matériaux nanostructurés nouveaux, leur forme et leur intégration dans les appareils. Vos tâches\n• Fonctionnement de différentes plates-formes laser\n• Conception et configuration des systèmes optiques\n• Synchronisation matérielle et acquisition de données\n• Réalisation de campagnes expérimentales, évaluation des résultats et établissement de rapports Votre profil\n• Doctorat en physique/photonique/ingénierie ou équivalent\n• Expérience: Applications laser (mesure, traitement, etc.), conception, montage et utilisation de systèmes optiques\n• Compétences : état d'esprit expérimental pratique, forte compréhension de la physique laser et optique, fortes compétences en résolution de problèmes et en dépannage, expérience en analyse de données et optimisation expérimentale\n• Anglais, français et allemand en plus Notre offre Empa offre un environnement de recherche dynamique et inspirant sur son campus de Thun, situé près de Berne. Vous travaillerez sur un sujet scientifiquement et technologiquement de pointe de haute pertinence et de nouveauté, avec un accès direct à l'infrastructure et au matériel de recherche de pointe. Dans le cadre d'une équipe de projet expérimentée et multidisciplinaire avec de solides collaborations nationales et internationales, vous bénéficierez d'un soutien total pour faire avancer le projet actuel ainsi que pour façonner et réaliser vos propres idées scientifiques dans le cadre des activités de recherche du laboratoire. Vous serez encouragé et aidé à produire des résultats à fort impact, à publier dans des revues internationales à comité de lecture et à poursuivre votre perfectionnement personnel et professionnel. Le poste est disponible avec une date de début en septembre 2026 et une durée d'un an avec possibilité de prolongation. Nous vivons une culture d'inclusion et de respect. Nous accueillons toutes les personnes qui s'intéressent à des activités novatrices, durables et significatives - c'est ce qui compte. Nous sommes impatients de recevoir votre candidature en ligne complète comprenant une lettre de motivation, CV, certificats, diplômes et coordonnées de deux personnes de référence. Veuillez les soumettre exclusivement via notre portail d'emploi. Les demandes par courrier électronique et par la poste ne seront pas prises en considération."
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://apply.refline.ch/673276/2208/pub/1/index.html",
-      "source": "Empa Dedicated Parser (Refline 673276)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:53:41.378Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "streetAddress": "Feuerwerkerstrasse 39",
-      "postalCode": "3602",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Università / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-29",
-      "applyUrl": "https://apply.refline.ch/673276/2208/pub/1/index.html",
-      "hiringOrganizationName": "Empa",
-      "jobReqId": "2208",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "postdoc-in-applied-laser-physics-empa-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "postdoc-in-applied-laser-physics-empa-thun"
-        ],
-        "de": [
-          "postdoc-in-applied-laser-physics-empa-thun"
-        ],
-        "fr": [
-          "postdoc-in-applied-laser-physics-empa-thun"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:39:25.165Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated"
     }
   ]
