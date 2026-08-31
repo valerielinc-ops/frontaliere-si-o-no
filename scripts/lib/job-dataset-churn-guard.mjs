@@ -14,11 +14,19 @@
  * `addedKeys`/`removedKeys` (still full arrays for "today", see
  * `job-board-stats.mjs` retention comment) by URL host, so the resulting
  * issue names the dominant contributor instead of just the raw total.
+ *
+ * It also flags the opposite failure mode (#6713): a stale snapshot re-run
+ * with small `added`/`removed` never clears `ABSOLUTE_FLOOR`, so a crawler
+ * orchestration that silently stopped writing fresh data (2026-08-29/30)
+ * stays invisible to the spike checks above. This is a plain equality check
+ * on the two most recent entries across `totalJobs`+`added`+`updated`+
+ * `removed`, independent of `MIN_BASELINE_DAYS`.
  */
 
 const MIN_BASELINE_DAYS = 7; // bootstrap guard: too little history to have a distribution
 const STDDEV_MULTIPLIER = 4; // ~4 sigma — the 2026-08-24/27/28 spikes were 5-6 sigma out
 const ABSOLUTE_FLOOR = 1500; // never flag below this even if the baseline is near-zero
+const STALE_SNAPSHOT_FIELDS = ['totalJobs', 'added', 'updated', 'removed'];
 
 function safeArray(value) {
   return Array.isArray(value) ? value : [];
@@ -62,6 +70,32 @@ function topHostContributors(keys, limit = 5) {
 }
 
 /**
+ * A day is a "stale snapshot" when it repeats the previous day's
+ * `totalJobs`+`added`+`updated`+`removed` exactly — a crawler orchestration
+ * that stopped producing fresh data instead of a genuinely quiet day.
+ */
+function detectStaleSnapshot(entries) {
+  if (entries.length < 2) return null;
+  const previous = entries[entries.length - 2];
+  const latest = entries[entries.length - 1];
+  const isStale = STALE_SNAPSHOT_FIELDS.every(
+    (field) => Number(previous[field] || 0) === Number(latest[field] || 0)
+  );
+  if (!isStale) return null;
+
+  return {
+    date: latest.date,
+    metric: 'stale-snapshot',
+    observed: STALE_SNAPSHOT_FIELDS.map((field) => `${field}=${latest[field]}`).join(', '),
+    baselineMean: null,
+    baselineStddev: null,
+    threshold: null,
+    baselineDays: 1,
+    topHosts: [],
+  };
+}
+
+/**
  * @param {object} history - parsed `data/jobs-stats-history.json`
  * @param {object} [options]
  * @param {number} [options.minBaselineDays]
@@ -78,12 +112,16 @@ export function detectChurnAnomalies(history = {}, options = {}) {
     .slice()
     .sort((a, b) => String(a.date).localeCompare(String(b.date)));
 
-  if (entries.length < minBaselineDays + 1) return []; // not enough history to judge
+  const anomalies = [];
+
+  const staleSnapshot = detectStaleSnapshot(entries);
+  if (staleSnapshot) anomalies.push(staleSnapshot);
+
+  if (entries.length < minBaselineDays + 1) return anomalies; // not enough history to judge spikes
 
   const today = entries[entries.length - 1];
   const baseline = entries.slice(-(minBaselineDays + 1), -1);
 
-  const anomalies = [];
   for (const metric of ['added', 'removed']) {
     const baselineValues = baseline.map((e) => Number(e[metric] || 0));
     const avg = mean(baselineValues);
