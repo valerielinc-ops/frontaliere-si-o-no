@@ -3256,12 +3256,12 @@
     },
     {
       "id": "valora-e761a2184822",
-      "slug": "verkauferin-verkaufer-backwerk-100-valora-basel",
+      "slug": "venditore-seller-backwerk-100-valora-group-basel",
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-backwerk-100-valora-basel",
-        "en": "verkauferin-verkaufer-backwerk-100-valora-basel",
+        "it": "venditore-seller-backwerk-100-valora-group-basel",
+        "en": "seller-seller-backwerk-100-valora-group-basel",
         "de": "verkauferin-verkaufer-backwerk-100-valora-basel",
-        "fr": "verkauferin-verkaufer-backwerk-100-valora-basel"
+        "fr": "vendeur-vendeur-retourwerk-100-valora-group-basel"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -3317,7 +3317,21 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-backwerk-100-valora-basel"
+        ],
+        "en": [
+          "verkauferin-verkaufer-backwerk-100-valora-basel"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-backwerk-100-valora-basel"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-backwerk-100-valora-basel"
+      ]
     },
     {
       "id": "valora-2143ac8f9447",

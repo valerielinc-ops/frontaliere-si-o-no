@@ -606,12 +606,12 @@
         "de": "Information Security Officer",
         "fr": "Spécialiste de la sécurité informatique"
       },
-      "slug": "information-security-officer-post",
+      "slug": "responsabile-della-sicurezza-die-schweizerische-post-bellinzona",
       "slugByLocale": {
-        "it": "information-security-officer-post",
+        "it": "responsabile-della-sicurezza-die-schweizerische-post-bellinzona",
         "en": "information-security-officer-post",
         "de": "information-security-officer-post",
-        "fr": "information-security-officer-post"
+        "fr": "specialiste-de-la-securite-informatique-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -647,7 +647,18 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-25T21:45:31.521Z"
+      "firstSeenAt": "2026-08-25T21:45:31.521Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-officer-post"
+        ],
+        "fr": [
+          "information-security-officer-post"
+        ]
+      },
+      "previousSlugs": [
+        "information-security-officer-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74433-de_DE",

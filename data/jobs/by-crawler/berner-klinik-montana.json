@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "berner-klinik-montana-0b7746e0c5c2",
-      "slug": "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana",
+      "slug": "collaboratore-del-servizio-tecnico-al-100-berner-klinik-montana-crans-montana",
       "slugByLocale": {
-        "it": "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana",
-        "en": "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana",
-        "de": "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana",
+        "it": "collaboratore-del-servizio-tecnico-al-100-berner-klinik-montana-crans-montana",
+        "en": "100-technical-service-collaborator-berner-klinik-montana-crans-montana",
+        "de": "100-technischer-service-mitarbeiter-berner-klinik-montana-crans-montana",
         "fr": "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana"
       },
       "company": "Berner Klinik Montana",
@@ -62,7 +62,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana"
+        ],
+        "en": [
+          "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana"
+        ],
+        "de": [
+          "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-du-service-technique-a-100-berner-klinik-montana-crans-montana"
+      ]
     },
     {
       "id": "berner-klinik-montana-4aa9636ed5e3",

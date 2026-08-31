@@ -1779,9 +1779,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-gruista-pemsa-locarno",
-        "en": "carpentiere-gruista-pemsa-locarno",
-        "de": "carpentiere-gruista-pemsa-locarno",
-        "fr": "carpentiere-gruista-pemsa-locarno"
+        "en": "chapter-pemsa-locarno",
+        "de": "kapitel-pemsa-locarno",
+        "fr": "chapitre-pemsa-locarno"
       },
       "id": "pemsa-40d856a29290",
       "needsRetranslation": true,
@@ -2011,9 +2011,9 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-manno",
-        "en": "idraulico-impianti-sanitari-pemsa-manno",
-        "de": "idraulico-impianti-sanitari-pemsa-manno",
-        "fr": "idraulico-impianti-sanitari-pemsa-manno"
+        "en": "hydraulic-health-plants-pemsa-manno",
+        "de": "hydraulische-heilpflanzen-pemsa-manno",
+        "fr": "installations-sanitaires-hydrauliques-pemsa-manno"
       },
       "id": "pemsa-e5aafae0b0db",
       "needsRetranslation": true,
@@ -2413,9 +2413,9 @@
       },
       "slugByLocale": {
         "it": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne",
-        "en": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne",
-        "de": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne",
-        "fr": "muratore-esperto-in-ingegneria-civile-pemsa-lausanne"
+        "en": "expert-builder-in-civil-engineering-pemsa-lausanne",
+        "de": "expert-builder-im-tiefbau-pemsa-lausanne",
+        "fr": "constructeur-expert-en-genie-civil-pemsa-lausanne"
       },
       "id": "pemsa-7919992e5937",
       "needsRetranslation": true,
@@ -3048,9 +3048,9 @@
       },
       "slugByLocale": {
         "it": "elettricista-industriale-pemsa-aigle",
-        "en": "elettricista-industriale-pemsa-aigle",
-        "de": "elettricista-industriale-pemsa-aigle",
-        "fr": "elettricista-industriale-pemsa-aigle"
+        "en": "industrial-electricity-pemsa-aigle",
+        "de": "industriestrom-pemsa-aigle",
+        "fr": "electricite-industrielle-pemsa-aigle"
       },
       "id": "pemsa-214b7813a164",
       "needsRetranslation": true,
@@ -6703,17 +6703,13 @@
       "firstSeenAt": "2026-08-17T21:36:04.826Z",
       "previousSlugsByLocale": {
         "de": [
-          "aufhellung-pemsa-riddes",
           "maler-pemsa-riddes"
         ],
         "fr": [
-          "blanchiment-pemsa-riddes",
           "peintre-pemsa-riddes"
         ]
       },
       "previousSlugs": [
-        "aufhellung-pemsa-riddes",
-        "blanchiment-pemsa-riddes",
         "maler-pemsa-riddes",
         "peintre-pemsa-riddes"
       ],
@@ -7621,7 +7617,6 @@
           "idrauliko-impianti-riscaldamento-wird-zu-heizungsanlagen-idrianiker-pemsa-lugano",
           "hydraulische-heilpflanzen-pemsa-lugano",
           "heizanlagen-mechaniker-pemsa-lugano",
-          "hydraulische-anlagen-heizung-pemsa-lugano",
           "heizungsinstallateur-pemsa-lugano"
         ]
       },
@@ -7642,7 +7637,6 @@
         "heizanlagen-mechaniker-pemsa-lugano",
         "heating-systems-plumber-pemsa-lugano",
         "plumber-heating-systems-specialist-pemsa-lugano",
-        "hydraulische-anlagen-heizung-pemsa-lugano",
         "heizungsinstallateur-pemsa-lugano"
       ],
       "needsRetranslation": true
