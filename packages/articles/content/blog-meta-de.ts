@@ -11005,6 +11005,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-tasso-interesse-lpp.title': 'BVG-Kommission: Erhöhung des Mindestzinssatzes auf 1,75%',
     'blog.article.aumento-tasso-interesse-lpp.excerpt': 'Die Eidgenössische Kommission für berufliche Vorsorge fordert eine Erhöhung von 1,25% auf 1,75%. Beschluss des Bundesrates. Direkte Auswirkungen für Grenzgänger, die in der Schweiz arbeiten.',
     'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Finanzberater berät Grenzgänger zu Rentenfragen in modernem Lugano-Büro mit Seeblick',
+    'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, 3,88% Teuerung auf den Strecken mit dem Tessin',
+    'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'Ab dem 1. September teurere Trenord-Tickets und -Abonnements von 3,88%: Preiserhöhung durch die Regionalregierung der Lombardei, mit Ausnahme von Malpensa Express und Como-Malpensa über Chiasso und Mendrisio.',
+    'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Regionalzug von Trenord am Grenzbahnhof zum Kanton Tessin',
 };
 
 export default blogMetaDe;

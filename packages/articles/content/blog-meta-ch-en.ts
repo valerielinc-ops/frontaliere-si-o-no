@@ -4849,6 +4849,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.divieto-velo-cellulari-scuole.title': 'Zurich bans headscarves and cell phones in schools',
     'blog.article.divieto-velo-cellulari-scuole.excerpt': 'The Zurich Grand Council approves the ban on headscarves and mobile phones by a narrow margin. Aargau had already decided on the veil. Times: two years for laws.',
     'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Zurich public school classroom with students in modern educational setting with natural light',
+    'blog.article.siccita-depuratori-crisi-acque.title': 'Droughts and purifiers: rivers in crisis',
+    'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Swiss rivers drained by drought: wastewater remains constant. In Aargau up to 80% of the flow is contaminated purified water. Federal program 2024-2040 to upgrade 140 plants.',
+    'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Aerial view of a Swiss Alpine lake during summer drought with reduced water levels and diminished waterstreams',
 };
 
 export default blogMetaChEn;

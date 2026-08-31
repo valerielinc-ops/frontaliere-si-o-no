@@ -81230,6 +81230,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenord-rincaro-388-linee-ticino': {
+    title: 'Trenord, rincaro del 3,88% sulle linee con il Ticino',
+    description: 'Dal 1° settembre Trenord applica un rincaro del 3,88% su biglietti e abbonamenti, disposto dalla Giunta di Regione Lombardia. Interessate anche le linee',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, rincaro, sulle, linee',
+    ogTitle: 'Trenord, rincaro del 3,88% dal 1° settembre sulle linee col Ticino',
+    ogDescription: 'La Giunta di Regione Lombardia ha disposto un rincaro del 3,88% su biglietti e abbonamenti Trenord, in vigore dal 1° settembre. L\'aumento tocca anche le linee transfrontaliere con il Canton Ticino. Restano esclusi il Malpensa Express (tariffa',
+    canonicalPath: '/articoli-frontaliere/trenord-rincaro-388-linee-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord, rincaro del 3,88% sulle linee con il Ticino",
+      "description": "Dal 1° settembre Trenord applica un rincaro del 3,88% su biglietti e abbonamenti, disposto dalla Giunta di Regione Lombardia. Interessate anche le linee",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenord-rincaro-388-linee-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale Trenord in stazione al confine con il Canton Ticino"
+      },
+      "datePublished": "2026-08-31T20:12:12+00:00",
+      "dateModified": "2026-08-31T20:12:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-rincaro-388-linee-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

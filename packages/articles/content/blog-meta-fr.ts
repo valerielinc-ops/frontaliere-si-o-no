@@ -11008,6 +11008,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-tasso-interesse-lpp.title': 'Commission LPP : augmentation du taux minimum à 1,75 %',
     'blog.article.aumento-tasso-interesse-lpp.excerpt': 'La Commission fédérale de la prévoyance professionnelle demande une augmentation de 1,25% à 1,75%. Décision au Conseil fédéral. Impact direct pour les frontaliers travaillant en Suisse.',
     'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Conseiller financier consultant travailleur frontalier sur les questions de retraite à Lugano',
+    'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, renchérissement de 3,88 % sur les lignes avec le Tessin',
+    'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'Depuis le 1er septembre, les billets et les abonnements Trenord sont plus chers de 3,88 % : renchérissement ordonné par le Conseil de la Région Lombardie, à l\'exception de Malpensa Express et de Como-Malpensa via Chiasso et Mendrisio.',
+    'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Train régional Trenord à la gare frontalière avec le Canton Tessin',
 };
 
 export default blogMetaFr;

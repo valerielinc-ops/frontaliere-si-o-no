@@ -11007,6 +11007,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-tasso-interesse-lpp.title': 'Commissione LPP: aumento tasso minimo a 1,75%',
     'blog.article.aumento-tasso-interesse-lpp.excerpt': 'La Commissione federale della previdenza professionale chiede incremento dal 1,25% all\'1,75%. Decisione al Consiglio federale. Impatto diretto per frontalieri che lavorano in Svizzera.',
     'blog.article.aumento-tasso-interesse-lpp.imageAlt': 'Consulenza previdenziale in ufficio moderno a Lugano con vista sul lago di Lugano',
+    'blog.article.trenord-rincaro-388-linee-ticino.title': 'Trenord, rincaro del 3,88% sulle linee con il Ticino',
+    'blog.article.trenord-rincaro-388-linee-ticino.excerpt': 'Dal 1° settembre biglietti e abbonamenti Trenord più cari del 3,88%: rincaro disposto dalla Giunta di Regione Lombardia, con eccezioni per Malpensa Express e Como-Malpensa via Chiasso e Mendrisio.',
+    'blog.article.trenord-rincaro-388-linee-ticino.imageAlt': 'Treno regionale Trenord in stazione al confine con il Canton Ticino',
 };
 
 export default blogMetaIt;

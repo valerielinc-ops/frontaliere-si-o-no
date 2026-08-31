@@ -4849,6 +4849,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.divieto-velo-cellulari-scuole.title': 'Zurigo vieta velo e cellulari nelle scuole',
     'blog.article.divieto-velo-cellulari-scuole.excerpt': 'Il Gran Consiglio zurighese approva con margine risicato il divieto di velo e cellulari. Argovia aveva già deciso per il velo. Tempi: due anni per leggi.',
     'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Aula scolastica zurighese con studenti, arredamento contemporaneo e luce naturale',
+    'blog.article.siccita-depuratori-crisi-acque.title': 'Siccità e depuratori: fiumi in crisi',
+    'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Fiumi svizzeri prosciugati dalla siccità: acque reflue rimangono costanti. In Argovia fino all\'80% della portata è di acqua depurata contaminata. Programma federale 2024-2040 per aggiornare 140 impianti.',
+    'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Veduta aerea di un lago alpino svizzero durante siccità estiva con livelli d\'acqua ridotti e corsi minori visibilmente prosciugati',
 };
 
 export default blogMetaChIt;

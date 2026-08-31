@@ -32898,6 +32898,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'trenord-rincaro-388-linee-ticino',
+ category: 'novita',
+ date: '2026-08-31T20:12:12.781Z',
+ image: '/images/blog/trenord-rincaro-388-linee-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
