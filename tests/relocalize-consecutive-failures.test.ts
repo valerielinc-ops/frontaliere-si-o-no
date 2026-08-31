@@ -1,5 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { shouldStopAfterConsecutiveFailures } from '../scripts/relocalize-pending-jobs.mjs';
+import {
+  retryStopReason,
+  shouldStopAfterConsecutiveFailures,
+} from '../scripts/relocalize-pending-jobs.mjs';
 
 /**
  * Regression gate for issue #5976: a single company's error used to `break`
@@ -32,5 +35,44 @@ describe('shouldStopAfterConsecutiveFailures — per-company cascade circuit bre
     // to the constant should not silently desync this test from the real threshold.
     expect(shouldStopAfterConsecutiveFailures(2)).toBe(false);
     expect(shouldStopAfterConsecutiveFailures(3)).toBe(true);
+  });
+});
+
+describe('retryStopReason — retry cascade deadline', () => {
+  const minute = 60_000;
+  const runStartMs = 1_000_000;
+  const passStartMs = runStartMs + 10 * minute;
+
+  it('skips retries at the same run-wide cascade deadline used by localization', () => {
+    expect(retryStopReason({
+      nowMs: runStartMs + 90 * minute,
+      runStartMs,
+      cascadeDeadlineMs: 90 * minute,
+      passStartMs,
+      timeBudgetMs: 320 * minute,
+      timeBudgetFraction: 0.85,
+    })).toBe('cascade deadline');
+  });
+
+  it('lets the 320-minute workflow budget remain a secondary guard before the deadline', () => {
+    expect(retryStopReason({
+      nowMs: passStartMs + 272 * minute,
+      runStartMs,
+      cascadeDeadlineMs: 300 * minute,
+      passStartMs,
+      timeBudgetMs: 320 * minute,
+      timeBudgetFraction: 0.85,
+    })).toBe('time budget');
+  });
+
+  it('permits standalone retries before the default cascade deadline', () => {
+    expect(retryStopReason({
+      nowMs: runStartMs + 249 * minute,
+      runStartMs,
+      cascadeDeadlineMs: 250 * minute,
+      passStartMs,
+      timeBudgetMs: 320 * minute,
+      timeBudgetFraction: 0.85,
+    })).toBeNull();
   });
 });

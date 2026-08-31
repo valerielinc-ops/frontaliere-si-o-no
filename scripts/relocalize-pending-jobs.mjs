@@ -320,6 +320,23 @@ export function shouldStopAfterConsecutiveFailures(
 }
 
 /**
+ * Return why the retry pass must stop, with the run-wide cascade deadline
+ * taking precedence over the general workflow time-budget guard.
+ */
+export function retryStopReason({
+  nowMs,
+  runStartMs,
+  cascadeDeadlineMs,
+  passStartMs,
+  timeBudgetMs,
+  timeBudgetFraction,
+}) {
+  if (nowMs >= runStartMs + cascadeDeadlineMs) return 'cascade deadline';
+  if (nowMs - passStartMs >= timeBudgetMs * timeBudgetFraction) return 'time budget';
+  return null;
+}
+
+/**
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
  */
@@ -1283,8 +1300,15 @@ async function main() {
   // ── Retry pass: re-attempt companies that had partial success ──────────
   // Rate limits often clear partway through a run. Companies processed early
   // may have had failures that would succeed now. Only retry if we have time.
-  const retryElapsedMs = Date.now() - startTime;
-  if (totalFixed > 0 && retryElapsedMs < TIME_BUDGET_MS * 0.85) {
+  const retryStartReason = retryStopReason({
+    nowMs: Date.now(),
+    runStartMs: RUN_START_MS,
+    cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+    passStartMs: startTime,
+    timeBudgetMs: TIME_BUDGET_MS,
+    timeBudgetFraction: 0.85,
+  });
+  if (totalFixed > 0 && !retryStartReason) {
     const retryJobs = readJson(DATA_JOBS_PATH);
     const retryPending = Array.isArray(retryJobs)
       ? retryJobs.filter(j => j.needsRetranslation && needsTranslation(j))
@@ -1304,9 +1328,16 @@ async function main() {
       console.log(`\n🔁 Retry pass: ${retryTotal} jobs across ${retryCompanies.size} companies still pending...`);
 
       for (const [key, count] of retryCompanies) {
-        const retryNow = Date.now() - startTime;
-        if (retryNow > TIME_BUDGET_MS * 0.95) {
-          console.log(`   ⏰ Time budget reached during retry — stopping`);
+        const retryCompanyStopReason = retryStopReason({
+          nowMs: Date.now(),
+          runStartMs: RUN_START_MS,
+          cascadeDeadlineMs: CASCADE_LOCALIZATION_DEADLINE_MS,
+          passStartMs: startTime,
+          timeBudgetMs: TIME_BUDGET_MS,
+          timeBudgetFraction: 0.95,
+        });
+        if (retryCompanyStopReason) {
+          console.log(`   ⏰ Retry stopped: ${retryCompanyStopReason} reached — deferring remaining companies to the next run`);
           break;
         }
 
@@ -1332,6 +1363,8 @@ async function main() {
         }
       }
     }
+  } else if (totalFixed > 0) {
+    console.log(`\n⏰ Retry pass skipped: ${retryStartReason} reached — deferring retries to the next run`);
   }
 
   // Final summary — use saved slug set instead of re-reading data/jobs.json
