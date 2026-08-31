@@ -149,7 +149,7 @@ for (const spec of specs) {
   tally[report.verdict]++;
 
   const mark = { good: '✓', weak: '~', bad: '✗', insufficient: '?' }[report.verdict];
-  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
+  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  localita' ${(report.locationSourceRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
 
   const candidate = byCrawlerKey.get(spec.companyKey);
   if (candidate) {
@@ -169,6 +169,7 @@ for (const spec of specs) {
       reachableRate: report.reachableRate,
       titleMatchRate: report.titleMatchRate,
       contentfulRate: report.contentfulRate,
+      locationSourceRate: report.locationSourceRate,
       distinctRate: report.distinctRate,
       // The promotion gate reads this key and treats ABSENT as "never
       // measured" (blocking) while `null` means "measured, unreadable bytes"

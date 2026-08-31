@@ -170,10 +170,12 @@ import {
   fetchWithRetry,
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
+export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -539,21 +541,30 @@ export async function fetchJson(url, options = {}) {
   }, options);
 }
 
-/**
- * Fetch HTML with timeout and error handling.
- */
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const redirectValidator = typeof options.validateRedirectUrl === 'function'
+    ? options.validateRedirectUrl
+    : null;
   try {
     const html = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const res = await fetch(url, {
+        const requestOptions = {
           method: 'GET',
           headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
           signal: controller.signal,
-        });
+          ...(options.dispatcher ? { dispatcher: options.dispatcher } : {}),
+        };
+        const res = redirectValidator
+          ? await fetchFollowingValidatedRedirects(url, {
+              fetchImpl: options.fetchImpl || fetch,
+              validateUrl: redirectValidator,
+              requestOptions,
+              maxRedirects: options.maxRedirects ?? 5,
+            })
+          : await (options.fetchImpl || fetch)(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;
@@ -570,6 +581,9 @@ export async function fetchHtml(url, options = {}) {
     // datacenter egress IP. The fetch "succeeded" HTTP-wise so the connection
     // rescue below never fires — re-fetch the real page through Jina's clean IP.
     // Genuine pages pass through unchanged (zero cost).
+    // A proxy would hide its redirect chain and effective destination from the
+    // caller's URL policy. Restricted fetches therefore stay fail-closed.
+    if (redirectValidator) return html;
     return await rescueHtmlIfChallenged(html, url, { timeoutMs });
   } catch (err) {
     // Route to the Jina Reader proxy (reliable egress + real browser → raw HTML)
@@ -592,7 +606,7 @@ export async function fetchHtml(url, options = {}) {
     //
     // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
     // corrupt a JSON response.)
-    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
+    if (!redirectValidator && (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) {
       // Retry the proxy itself: Jina's egress IP can be transiently 429'd or
       // WAF-blocked (200 challenge/empty body) — a retry lands on a different
       // Jina IP and usually succeeds. Returns null on exhaustion → safe-fail by

@@ -1,14 +1,25 @@
-import { describe, it, expect } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
+
+const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+
+vi.mock('../scripts/lib/crawler-template.mjs', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('../scripts/lib/crawler-template.mjs')>()),
+  fetchHtml,
+}));
 import {
   IKEA_KEY,
   IKEA_COMPANY_NAME,
   isIkeaJob,
   isTrustedDomain,
   resolveIkeaAddressRegion,
+  resolveIkeaListingGeography,
+  fetchAllIkeaJobs,
 } from '../scripts/lib/ikea-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { schemaJobLocationCandidates } from '../scripts/lib/prospector/location-evidence.mjs';
 
 describe('IKEA crawler parser', () => {
+  beforeEach(() => fetchHtml.mockReset());
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(IKEA_KEY).toBe('ikea');
@@ -141,6 +152,43 @@ describe('IKEA crawler parser', () => {
     it('rejects a malformed (non 2-letter) feed region', () => {
       expect(resolveIkeaAddressRegion('Aargau', 'AG')).toBe('');
       expect(resolveIkeaAddressRegion('', 'AG')).toBe('');
+    });
+  });
+
+  describe('structured location evidence', () => {
+    it('evaluates every jobLocation and selects the Swiss candidate', () => {
+      const locationCandidates = schemaJobLocationCandidates([
+        { address: { addressLocality: 'Paris', addressCountry: 'FR' } },
+        { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } },
+      ]);
+      const decision = resolveIkeaListingGeography({ location: 'Vernier', locationCandidates });
+      expect(decision.geography)
+        .toMatchObject({ location: 'Zürich, ZH', canton: 'ZH', addressCountry: 'CH' });
+      expect(decision.candidate).toMatchObject({ addressLocality: 'Zürich', addressRegion: 'ZH' });
+    });
+
+    it('does not let a Swiss listing override authoritative foreign detail', () => {
+      const locationCandidates = schemaJobLocationCandidates({
+        address: { addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: 'US' },
+      });
+      expect(resolveIkeaListingGeography({ location: 'Geneva', locationCandidates }).geography).toBeNull();
+    });
+
+    it('keeps a Remote listing until authoritative detail supplies a Swiss location', async () => {
+      const listing = '<a href="/en/job/zurich/remote-role/123" data-job-id="123" class="job-list__anchor">' +
+        '<span class="job-list__title">Data Engineer</span>' +
+        '<span class="job-list__location">Remote / Multiple locations</span></a></section>';
+      const detail = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        description: 'Build and operate the data platform for IKEA Switzerland.',
+        jobLocation: { address: {
+          addressLocality: 'Pratteln', addressRegion: 'BL', addressCountry: 'CH', postalCode: '4133',
+        } },
+      })}</script>`;
+      fetchHtml.mockImplementation(async (url: string) => String(url || '').includes('/remote-role/') ? detail : listing);
+
+      const [job] = await fetchAllIkeaJobs();
+      expect(job).toMatchObject({ location: 'Pratteln, BL', canton: 'BL', addressLocality: 'Pratteln', postalCode: '4133' });
     });
   });
 });

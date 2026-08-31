@@ -26,7 +26,10 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  schemaJobLocationCandidates,
+} from './prospector/location-evidence.mjs';
 import {
   createBrowser,
   createPoliteContext,
@@ -51,9 +54,9 @@ const CAREER_URL = `${BASE_URL}/en/jobs/?country=20000532`;
 
 const HILTI_SECTOR = 'Construction tools & fastening technology (manufacturing)';
 
-// HQ fallback — Hilti (Schweiz) AG, Adliswil ZH (recon). NOTE: the Hilti GROUP
-// HQ in Schaan is Liechtenstein (LI), NOT Switzerland; never use it as the CH
-// fallback, and never classify Schaan/Nendeln jobs as CH.
+// Known office metadata — Hilti (Schweiz) AG, Adliswil ZH (recon). NOTE: the
+// Hilti GROUP HQ in Schaan is Liechtenstein (LI), NOT Switzerland; never use it
+// as job-location evidence and never classify Schaan/Nendeln jobs as CH.
 const HQ = {
   addressLocality: 'Adliswil',
   canton: 'ZH',
@@ -83,15 +86,6 @@ function normalizeSpace(s = '') {
 
 async function safeClose(page) {
   try { if (page) await page.close(); } catch { /* no-op */ }
-}
-
-/**
- * Liechtenstein guard — the Hilti group has a large presence in Schaan/Nendeln
- * (LI), ~5km from the Buchs SG (CH) site. `inferSwissTargetCanton` already
- * returns null for LI locality strings, but this keeps the intent explicit.
- */
-function isLiechtenstein(location = '') {
-  return /\b(liechtenstein|schaan|nendeln|vaduz)\b/i.test(location);
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -200,20 +194,6 @@ function pickJobPosting(ldBlocks = []) {
   return null;
 }
 
-/** Flatten schema.org jobLocation → the first PostalAddress object. */
-function extractAddress(jobLocation) {
-  const places = Array.isArray(jobLocation) ? jobLocation : [jobLocation];
-  for (const place of places) {
-    if (!place) continue;
-    const addr = place.address;
-    const addresses = Array.isArray(addr) ? addr : [addr];
-    for (const a of addresses) {
-      if (a && (a.addressLocality || a.name)) return a;
-    }
-  }
-  return null;
-}
-
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 /**
@@ -316,16 +296,17 @@ async function fetchDetailPage(context, url) {
     const jp = pickJobPosting(ldBlocks);
     if (!jp) return null;
 
-    const addr = extractAddress(jp.jobLocation);
+    const locationCandidates = schemaJobLocationCandidates(jp.jobLocation);
+    const primaryLocation = locationCandidates[0];
     const description = normalizeDescriptionBullets(stripHtml(jp.description || ''));
 
     return {
       datePosted: toDateOnly(jp.datePosted || ''),
       employmentType: typeof jp.employmentType === 'string' ? jp.employmentType : '',
-      addressLocality: addr?.addressLocality || '',
-      addressRegion: addr?.addressRegion || '',
-      addressCountry: addr?.addressCountry || '',
-      location: normalizeSpace(addr?.name || ''),
+      addressLocality: primaryLocation?.addressLocality || '',
+      addressRegion: primaryLocation?.addressRegion || '',
+      addressCountry: primaryLocation?.addressCountry || '',
+      locationCandidates,
       description,
     };
   } catch (err) {
@@ -358,13 +339,9 @@ async function fetchJobListings() {
     for (const row of rows) {
       const detail = await fetchDetailPage(context, row.url);
 
-      // Prefer the structured detail location; fall back to the card's
-      // location text. Country may be a localized "Switzerland/Schweiz/Suisse".
-      const location = detail?.location || row.location || '';
-
       listings.push({
         title: row.title,
-        location,
+        location: row.location || '',
         url: row.url,
         jobReqId: row.jobReqId,
         team: row.team,
@@ -374,6 +351,7 @@ async function fetchJobListings() {
         addressLocality: detail?.addressLocality || '',
         addressRegion: detail?.addressRegion || '',
         addressCountry: detail?.addressCountry || '',
+        locationCandidates: detail?.locationCandidates || [],
       });
     }
     return listings;
@@ -383,6 +361,17 @@ async function fetchJobListings() {
   } finally {
     if (browser) await closeAll(browser);
   }
+}
+
+export function resolveHiltiListingGeography(listing = {}) {
+  return resolveDetailOrListingSwissGeography(
+    {
+      locationCandidates: listing.locationCandidates || [],
+      location: [listing.addressLocality, listing.addressRegion].filter(Boolean).join(', '),
+      addressCountry: listing.addressCountry || '',
+    },
+    { location: listing.location || '' },
+  );
 }
 
 /**
@@ -409,26 +398,14 @@ export async function fetchAllHiltiJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || '');
-
-    // Switzerland-only guard. The country facet already filters to CH, but the
-    // group has a large LI presence — drop anything that resolves to LI or has
-    // no inferable Swiss canton (and no CH country marker on the card).
-    if (isLiechtenstein(location)) {
-      console.log(`   ⏭️  Skipping Liechtenstein job: ${title} (${location})`);
+    const decision = resolveHiltiListingGeography(listing);
+    const geography = decision.geography;
+    if (!geography) {
+      console.log(`   ⏭️  Skipping non-CH or locationless job: ${title}`);
       continue;
     }
-    const inferredCanton = inferSwissTargetCanton(location);
-    const countryStr = normalize(listing.addressCountry || location);
-    const looksSwiss =
-      inferredCanton ||
-      /\b(switzerland|schweiz|suisse|svizzera)\b/.test(countryStr);
-    if (!looksSwiss) {
-      console.log(`   ⏭️  Skipping non-CH job: ${title} (${location})`);
-      continue;
-    }
-
-    const canton = inferredCanton || HQ.canton;
+    const { location, canton } = geography;
+    const evidence = decision.candidate;
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
 
@@ -453,7 +430,7 @@ export async function fetchAllHiltiJobs() {
       titleByLocale: { [sourceLang]: title },
       description: descriptionText || `${title} — ${HILTI_COMPANY_NAME}`,
       descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${HILTI_COMPANY_NAME}` },
-      location: location || HQ.addressLocality,
+      location,
       canton,
       url: publicUrl,
       source: 'Hilti Dedicated Parser',
@@ -461,9 +438,9 @@ export async function fetchAllHiltiJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: listing.addressLocality || location || HQ.addressLocality,
-      postalCode: listing.addressLocality ? '' : HQ.postalCode,
-      addressRegion: listing.addressRegion || HQ.addressRegion,
+      addressLocality: evidence.addressLocality || location.split(',')[0].trim(),
+      postalCode: evidence.postalCode || (location.startsWith(HQ.addressLocality) ? HQ.postalCode : ''),
+      addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(`${title} ${listing.team || ''}`),

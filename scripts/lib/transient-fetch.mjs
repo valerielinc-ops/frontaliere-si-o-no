@@ -65,6 +65,19 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 export function isTransientFetchError(err) {
   if (!err) return false;
+  // Undici wraps connector/lookup failures in `TypeError: fetch failed` and
+  // keeps the real error under one or more `.cause` links. A public-network
+  // policy rejection is deterministic, so it must win over the outer generic
+  // TypeError; retrying it only repeats the forbidden DNS lookup and backoff.
+  {
+    const seen = new Set();
+    let cause = err;
+    while (cause && (typeof cause === 'object' || typeof cause === 'function') && !seen.has(cause)) {
+      seen.add(cause);
+      if (cause.code === 'ERR_PUBLIC_FETCH_POLICY') return false;
+      cause = cause.cause;
+    }
+  }
   if (err.retryable === true) return true;
   if (err.name === 'AbortError') return true; // request timed out
   // Caller may tag a status directly (HTTP path) instead of throwing a typed err.

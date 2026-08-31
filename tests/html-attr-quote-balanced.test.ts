@@ -361,6 +361,13 @@ describe('readTagByAttr / readAllAttr — the two-attribute shapes', () => {
     // never reach into the following elements.
     expect(readAttr(html, 'title')).not.toContain('next card title');
   });
+
+  it('keeps scanning a start tag after > inside a quoted attribute', () => {
+    const html = '<meta data-label="A > B" itemprop="title" content="Quote-aware Engineer">';
+    const tag = readTagByAttr(html, 'itemprop', 'title');
+    expect(tag).toBe(html);
+    expect(readAttr(tag, 'content')).toBe('Quote-aware Engineer');
+  });
 });
 
 describe('extractMicrodata — same defect, same library (#6480 review)', () => {
