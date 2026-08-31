@@ -4828,6 +4828,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.divario-salariale-ust-2024-157.title': 'Wage gap UST 2024: fall to 15.7% in Switzerland',
     'blog.article.divario-salariale-ust-2024-157.excerpt': 'UST: in 2024 the wage gap between women and men fell to 15.7% from 16.2% in 2022. In the private sector it remains at 17.2%, in the public sector at 12.8%. Component not explained at 640 CHF gross.',
     'blog.article.divario-salariale-ust-2024-157.imageAlt': 'Modern Swiss office building with employees at the entrance',
+    'blog.article.scorte-mangimi-proteici-svizzera.title': 'Protein feed stocks released in Switzerland: up to 16,000 tonnes',
+    'blog.article.scorte-mangimi-proteici-svizzera.excerpt': 'The EPA frees 20% of the mandatory stocks of soybean meal for farmers, due to dry Rhine and Danube.',
+    'blog.article.scorte-mangimi-proteici-svizzera.imageAlt': 'Swiss farm with cattle near a dried-up riverbed',
+    'blog.article.swatch-samsung-risarcimento-marchi.title': 'Swatch beats Samsung: 11.6 million in compensation',
+    'blog.article.swatch-samsung-risarcimento-marchi.excerpt': 'UK court orders Samsung to pay $11.6 million for infringement of Swiss watch brands in the Galaxy App Store between 2015 and 2019.',
+    'blog.article.swatch-samsung-risarcimento-marchi.imageAlt': 'Close-up of luxury Swiss watchfaces and mechanical components in professional studio photography',
 };
 
 export default blogMetaChEn;

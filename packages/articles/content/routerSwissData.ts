@@ -1635,6 +1635,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'finanziamenti-partiti-ps-2025': { it: 'finanziamenti-partiti-ps-2025', en: 'party-financing-ps-2025', de: 'parteifinanzierung-ps-2025', fr: 'financement-partis-ps-2025' },
  'bollette-ses-2027-riduzione': { it: 'bollette-ses-2027-riduzione', en: 'ses-bills-2027-reduction', de: 'ses-rechnungen-2027-senkung', fr: 'factures-ses-2027-reduction' },
  'divario-salariale-ust-2024-157': { it: 'divario-salariale-ust-2024-157', en: 'swiss-gender-pay-gap-ust-2024', de: 'lohngefalle-ust-2024-schweiz', fr: 'ecart-salarial-ust-2024-suisse' },
+ 'scorte-mangimi-proteici-svizzera': { it: 'scorte-mangimi-proteici-svizzera', en: 'swiss-protein-feed-reserves-released', de: 'schweiz-protein-futter-reserven-freigegeben', fr: 'suisse-stocks-aliments-proteiques-libres' },
+ 'swatch-samsung-risarcimento-marchi': { it: 'swatch-samsung-risarcimento-marchi', en: 'swatch-samsung-settlement-trademark', de: 'swatch-samsung-schadensersatz-marken', fr: 'swatch-samsung-indemnisation-marques' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

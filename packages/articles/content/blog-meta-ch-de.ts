@@ -4828,6 +4828,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.divario-salariale-ust-2024-157.title': 'Lohngefälle BfS 2024: Rückgang auf 15,7% in der Schweiz',
     'blog.article.divario-salariale-ust-2024-157.excerpt': 'BFS: Im Jahr 2024 ist das Lohngefälle zwischen Frauen und Männern von 16,2% im Jahr 2022 auf 15,7% gesunken. Im privaten Bereich bleibt es bei 17,2%, im öffentlichen Sektor bei 12,8%. Unerklärte Komponente bei 640 CHF brutto.',
     'blog.article.divario-salariale-ust-2024-157.imageAlt': 'Modernes Schweizer Bürogebäude mit Mitarbeitern am Eingang',
+    'blog.article.scorte-mangimi-proteici-svizzera.title': 'Eiweißfuttervorräte in der Schweiz freigeschaltet: bis zu 16\'000 Tonnen',
+    'blog.article.scorte-mangimi-proteici-svizzera.excerpt': 'Die AEP gibt 20% der Pflichtvorräte an Sojamehl für die Viehzüchter frei, weil Rhein und Donau ausgetrocknet sind.',
+    'blog.article.scorte-mangimi-proteici-svizzera.imageAlt': 'Schweizer Bauernhof mit Rindern an einem trockenen Flussbett',
+    'blog.article.swatch-samsung-risarcimento-marchi.title': 'Swatch schlägt Samsung: 11,6 Mio. Entschädigung',
+    'blog.article.swatch-samsung-risarcimento-marchi.excerpt': 'Ein britisches Gericht verurteilt Samsung zur Zahlung von 11,6 Millionen Dollar wegen Verletzung von Schweizer Uhrenmarken im Galaxy App Store zwischen 2015 und 2019.',
+    'blog.article.swatch-samsung-risarcimento-marchi.imageAlt': 'Nahaufnahme von Luxus-Uhrengehäusen und mechanischen Komponenten in professioneller Studiofotografie',
 };
 
 export default blogMetaChDe;

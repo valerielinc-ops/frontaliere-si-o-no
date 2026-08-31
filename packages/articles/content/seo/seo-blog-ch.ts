@@ -62654,6 +62654,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scorte-mangimi-proteici-svizzera': {
+    title: 'Scorte di mangimi proteici sbloccate in Svizzera: fino a 16\'000 tonnellate',
+    description: 'AEP sblocca fino a 16\'000 tonnellate di scorte obbligatorie di mangimi proteici per la siccità di Reno e Danubio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, scorte, mangimi, proteici, sbloccate',
+    ogTitle: 'Scorte mangimi proteici sbloccate in Svizzera',
+    ogDescription: 'Il delegato all\'Approvvigionamento economico del Paese (AEP) Roland Pfister ha disposto l\'immissione sul mercato di quasi 16\'000 tonnellate di scorte obbligatorie di mangimi proteici, pari al 20% del totale. La misura è motivata dal basso livello',
+    canonicalPath: '/articoli-svizzera/scorte-mangimi-proteici-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scorte di mangimi proteici sbloccate in Svizzera: fino a 16'000 tonnellate",
+      "description": "AEP sblocca fino a 16'000 tonnellate di scorte obbligatorie di mangimi proteici per la siccità di Reno e Danubio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scorte-mangimi-proteici-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Allevamento svizzero con bovini vicino a un fiume in secca"
+      },
+      "datePublished": "2026-08-31T12:47:35+00:00",
+      "dateModified": "2026-08-31T12:47:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scorte-mangimi-proteici-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-swatch-samsung-risarcimento-marchi': {
+    title: 'Swatch batte Samsung: 11,6 mln di risarcimento',
+    description: 'Tribunale britannico condanna Samsung a pagare 11,6 milioni di dollari a Swatch per violazione di marchi orologieri svizzeri nel Galaxy App Store.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swatch, batte, samsung, risarcimento',
+    ogTitle: 'Swatch vince contro Samsung: 11,6 mln di dollari',
+    ogDescription: 'Il tribunale britannico ordina a Samsung di pagare 11,6 milioni di dollari a Swatch per la contraffazione di quadranti di orologi digitali nei marchi iconici dell\'azienda svizzera. Una vittoria storica per la proprietà intellettuale elvetica.',
+    canonicalPath: '/articoli-svizzera/swatch-samsung-risarcimento-marchi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swatch batte Samsung: 11,6 mln di risarcimento",
+      "description": "Tribunale britannico condanna Samsung a pagare 11,6 milioni di dollari a Swatch per violazione di marchi orologieri svizzeri nel Galaxy App Store.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swatch-samsung-risarcimento-marchi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dettagli di quadranti e componenti meccanici di orologi di lusso svizzeri in studio fotografico professionale"
+      },
+      "datePublished": "2026-08-31T13:34:49+00:00",
+      "dateModified": "2026-08-31T13:34:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swatch-samsung-risarcimento-marchi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
