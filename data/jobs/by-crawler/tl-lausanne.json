@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tl-lausanne",
-  "assembledAt": "2026-08-31T10:05:39.434Z",
+  "assembledAt": "2026-08-31T10:18:12.234Z",
   "jobs": [
     {
       "id": "tl-lausanne-7fdd1e80fc35",
@@ -34,7 +34,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Porte-Parole-et-Communication-institutionnelle/1424627433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:35.809Z",
+      "crawledAt": "2026-08-31T10:18:08.394Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Approvisionnement-Supply-Chain-Ferroviaire/1424618233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:35.174Z",
+      "crawledAt": "2026-08-31T10:18:07.602Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Chef%C2%B7fe-de-projet-ferroviaire-Installations-de-S%C3%A9curit%C3%A9/1425742733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:34.497Z",
+      "crawledAt": "2026-08-31T10:18:06.826Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Route-&-immobilier/1429774733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:33.826Z",
+      "crawledAt": "2026-08-31T10:18:06.062Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -348,7 +348,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Strat%C3%A9gie-&-Transformation-d'entreprise/1429773933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:33.173Z",
+      "crawledAt": "2026-08-31T10:18:05.309Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -413,7 +413,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:32.543Z",
+      "crawledAt": "2026-08-31T10:18:03.653Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -513,7 +513,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Data-Engineer/1431535933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T10:05:31.860Z",
+      "crawledAt": "2026-08-31T10:18:02.897Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -531,18 +531,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "firstSeenAt": "2026-08-31T07:36:14.214Z",
+      "previousSlugs": [
+        "data-engineer-tl-lausanne-lausanne",
+        "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "data-engineer-tl-lausanne-lausanne"
+          "data-engineer-tl-lausanne-lausanne",
+          "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
         ],
         "de": [
           "data-engineer-tl-lausanne-lausanne"
         ]
       },
-      "previousSlugs": [
-        "data-engineer-tl-lausanne-lausanne"
-      ],
+      "firstSeenAt": "2026-08-31T07:36:14.214Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
