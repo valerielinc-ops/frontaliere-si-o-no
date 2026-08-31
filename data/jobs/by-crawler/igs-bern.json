@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igs-bern",
-  "assembledAt": "2026-08-28T05:26:12.429Z",
+  "assembledAt": "2026-08-31T17:17:09.047Z",
   "jobs": [
     {
       "id": "igs-bern-f5747d81c7ce",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
         "en": "professional-care-fabe-health-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
-        "de": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
+        "de": "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
         "fr": "soins-professionnels-fabe-sante-fage-efz-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
@@ -34,7 +34,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job161595?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:09.566Z",
+      "crawledAt": "2026-08-31T17:17:05.090Z",
       "addressLocality": "Moosseedorf",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -63,11 +63,15 @@
           "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch",
           "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-80-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf",
           "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-cfc-50-70-interessengemeinschaft-sozialpsychiatrie-bern-moosseedorf"
+        ],
+        "de": [
+          "fachfrau-fachmann-betreuung-fabe-gesundheit-fage-efz-50-70-igs-bern-ch"
         ]
       },
       "firstSeenAt": "2026-08-05T22:43:24.350Z",
       "salaryMin": 59500,
       "salaryMax": 83300,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -86,7 +90,7 @@
       "slugByLocale": {
         "it": "assistente-psicologo-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
         "en": "assistant-psychologist-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
-        "de": "assistenzpsycholog-in-80-igs-bern-ch",
+        "de": "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern",
         "fr": "psychologue-assistant-en-80-interessengemeinschaft-sozialpsychiatrie-bern-bern"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
@@ -112,7 +116,7 @@
       "url": "https://www.publicjobs.ch/jobs/psychologie-psychotherapie/~job161634?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:08.993Z",
+      "crawledAt": "2026-08-31T17:17:04.571Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -147,11 +151,15 @@
         ],
         "fr": [
           "assistenzpsycholog-in-80-interessengemeinschaft-sozialpsychiatrie-bern-bern"
+        ],
+        "de": [
+          "assistenzpsycholog-in-80-igs-bern-ch"
         ]
       },
       "firstSeenAt": "2026-08-06T11:43:21.032Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -170,7 +178,7 @@
       "slugByLocale": {
         "it": "stage-nella-vita-assistita-interessengemeinschaft-sozialpsychiatrie-bern-bern",
         "en": "internship-in-assisted-living-interessengemeinschaft-sozialpsychiatrie-bern-bern",
-        "de": "praktikant-in-im-betreuten-wohnen-igs-bern-ch",
+        "de": "praktikant-in-im-betreuten-wohnen-interessengemeinschaft-sozialpsychiatrie-bern-bern",
         "fr": "stage-dans-la-vie-assistee-interessengemeinschaft-sozialpsychiatrie-bern-bern"
       },
       "company": "Interessengemeinschaft Sozialpsychiatrie Bern",
@@ -196,7 +204,7 @@
       "url": "https://www.publicjobs.ch/jobs/behinderung-beeintr%C3%A4chtigung-agogik/~job160824?ext",
       "source": "Interessengemeinschaft Sozialpsychiatrie Bern Dedicated Parser (PastaHR / publicjobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:26:08.417Z",
+      "crawledAt": "2026-08-31T17:17:04.022Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressCountry": "CH",
@@ -226,11 +234,15 @@
         ],
         "fr": [
           "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
+        ],
+        "de": [
+          "praktikant-in-im-betreuten-wohnen-igs-bern-ch"
         ]
       },
       "firstSeenAt": "2026-07-23T22:23:20.460Z",
       "salaryMin": 49500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
