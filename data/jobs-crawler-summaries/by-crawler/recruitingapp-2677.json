@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-08-31T21:07:46.261Z",
+  "generatedAt": "2026-08-31T22:31:44.911Z",
   "total": 26,
   "discovered": null,
   "written": 26,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 24,
-  "durationMs": 35901,
-  "avgDurationMs": 35901,
+  "durationMs": 35776,
+  "avgDurationMs": 35776,
   "durationHistory": [
-    35901
+    35776
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T21:07:41.773Z",
+      "crawledAt": "2026-08-31T22:31:40.451Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,11 +44,11 @@
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:27:13.870Z",
-      "_qualityScore": 71,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T21:07:42.077Z",
+      "crawledAt": "2026-08-31T22:31:40.760Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -80,11 +80,11 @@
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:36:47.734Z",
-      "_qualityScore": 71,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 18,
         "completeness": 14
       }
     }
@@ -122,7 +122,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:12:10.526Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -162,7 +162,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -202,7 +202,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -242,7 +242,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-28T05:27:13.458Z",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -282,7 +282,7 @@
       "salaryMax": 63000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -322,7 +322,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -362,7 +362,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -402,7 +402,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -442,7 +442,7 @@
       "salaryMax": 90500,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -482,7 +482,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -522,7 +522,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -562,7 +562,7 @@
       "salaryMax": 103000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -602,7 +602,7 @@
       "salaryMax": 63000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -642,7 +642,7 @@
       "salaryMax": 63000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -682,7 +682,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -722,7 +722,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -762,7 +762,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -802,7 +802,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -842,7 +842,7 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -882,7 +882,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -922,7 +922,7 @@
       "salaryMax": 103000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -962,7 +962,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1002,7 +1002,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 57,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1042,7 +1042,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
