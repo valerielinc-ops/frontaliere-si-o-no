@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-08-31T17:03:52.398Z",
+  "assembledAt": "2026-08-31T22:20:47.712Z",
   "jobs": [
     {
       "title": "Praktikum Waldrandbeweidung 80-100%",
@@ -120,7 +120,6 @@
         "fr": "responsable-du-groupe-de-recherche-extension-de-la-culture-maraichere-agroscope-8046-zurich"
       },
       "id": "agroscope-7cdf4cd694c5",
-      "needsRetranslation": true,
       "salaryMin": 95500,
       "salaryMax": 159000,
       "currency": "CHF",
@@ -135,7 +134,7 @@
         }
       },
       "firstSeenAt": "2026-08-27T00:35:38.161Z",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "forschungsgruppenleiter-in-extension-gemusebau-confederazione-zurich",
@@ -404,8 +403,8 @@
       "previousSlugsByLocale": {
         "it": [
           "postdoc-mikroplastik-quantifizierung-in-obst-e-gemuse-methodenentwicklung-e-erstanwendung-agroscope-zurich",
-          "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-agroscope-zurich",
-          "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-zurich"
+          "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-zurich",
+          "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-agroscope-zurich"
         ],
         "de": [
           "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-agroscope-zurich"
@@ -419,11 +418,11 @@
       },
       "previousSlugs": [
         "postdoc-mikroplastik-quantifizierung-in-obst-e-gemuse-methodenentwicklung-e-erstanwendung-agroscope-zurich",
-        "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-agroscope-zurich",
-        "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-zurich"
+        "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-zurich",
+        "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-agroscope-zurich"
       ],
-      "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Futtermittelinspektor/in",
@@ -467,7 +466,6 @@
         "fr": "inspecteur-trice-des-aliments-pour-animaux-agroscope-posieux-schweiz"
       },
       "id": "agroscope-1172f22c489c",
-      "needsRetranslation": true,
       "salaryMin": 89000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -554,6 +552,7 @@
         }
       },
       "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "sanitar-und-heizungstechniker-in-agroscope-posieux"
@@ -567,8 +566,7 @@
       },
       "previousSlugs": [
         "sanitar-und-heizungstechniker-in-agroscope-posieux"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Laborant/-in Saatgutqualität",
@@ -628,30 +626,30 @@
       "firstSeenAt": "2026-08-13T22:01:06.821Z",
       "previousSlugsByLocale": {
         "it": [
-          "laborant-in-saatgutqualitat-agroscope-reckenholz",
           "qualita-dei-semi-di-laboratorio-confederazione-svizzera-reckenholz",
-          "laborant-in-saatgutqualitat-confederazione-reckenholz"
+          "laborant-in-saatgutqualitat-confederazione-reckenholz",
+          "laborant-in-saatgutqualitat-agroscope-reckenholz"
         ],
         "en": [
-          "laborant-in-saatgutqualitat-agroscope-reckenholz",
           "laboratory-seed-quality-confederazione-svizzera-reckenholz",
-          "laborant-in-saatgutqualitat-confederazione-reckenholz"
+          "laborant-in-saatgutqualitat-confederazione-reckenholz",
+          "laborant-in-saatgutqualitat-agroscope-reckenholz"
         ],
         "fr": [
-          "laborant-in-saatgutqualitat-agroscope-reckenholz",
           "qualite-des-semences-de-laboratoire-confederazione-svizzera-reckenholz",
-          "laborant-in-saatgutqualitat-confederazione-reckenholz"
+          "laborant-in-saatgutqualitat-confederazione-reckenholz",
+          "laborant-in-saatgutqualitat-agroscope-reckenholz"
         ],
         "de": [
           "laborant-in-saatgutqualitat-confederazione-reckenholz"
         ]
       },
       "previousSlugs": [
-        "laborant-in-saatgutqualitat-agroscope-reckenholz",
         "qualita-dei-semi-di-laboratorio-confederazione-svizzera-reckenholz",
         "laborant-in-saatgutqualitat-confederazione-reckenholz",
         "laboratory-seed-quality-confederazione-svizzera-reckenholz",
-        "qualite-des-semences-de-laboratoire-confederazione-svizzera-reckenholz"
+        "qualite-des-semences-de-laboratoire-confederazione-svizzera-reckenholz",
+        "laborant-in-saatgutqualitat-agroscope-reckenholz"
       ],
       "salarySource": "reported"
     },
@@ -714,18 +712,18 @@
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-phytopathology-plant-biology-molecolare-agroscope-nyon-schweiz",
-          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon",
-          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon"
+          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon",
+          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon"
         ],
         "en": [
           "postdoctoral-researcher-in-phytopathology-plant-molecular-biology-agroscope-nyon-schweiz",
-          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon",
-          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon"
+          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon",
+          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon"
         ],
         "fr": [
           "chercheur-postdoctoral-en-phytopathologie-biologie-moleculaire-des-plantes-agroscope-nyon-schweiz",
-          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon",
-          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon"
+          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon",
+          "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon"
         ],
         "de": [
           "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon"
@@ -735,8 +733,8 @@
         "postdoctoral-researcher-in-phytopathology-plant-molecular-biology-agroscope-nyon-schweiz",
         "chercheur-postdoctoral-en-phytopathologie-biologie-moleculaire-des-plantes-agroscope-nyon-schweiz",
         "ricercatore-post-dottorato-in-phytopathology-plant-biology-molecolare-agroscope-nyon-schweiz",
-        "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon",
-        "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon"
+        "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-confederazione-nyon",
+        "postdoktorand-in-im-bereich-phytopathologie-pflanzenmolekularbiologie-agroscope-nyon"
       ],
       "salarySource": "reported"
     },
@@ -798,115 +796,30 @@
       "firstSeenAt": "2026-08-13T22:01:06.821Z",
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz",
           "wissenschaftliche-r-collaboratore-trice-verantwortliche-r-saatgutpruflabor-confederazione-svizzera-reckenholz",
-          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz"
+          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz",
+          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz"
         ],
         "en": [
-          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz",
           "scientific-staff-member-responsible-seed-testing-laboratory-confederazione-svizzera-reckenholz",
-          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz"
+          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz",
+          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz"
         ],
         "fr": [
-          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz",
           "membre-du-personnel-scientifique-laboratoire-responsable-d-analyse-des-semences-confederazione-svizzera-reckenholz",
-          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz"
+          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz",
+          "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz"
         ],
         "de": [
           "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz",
         "wissenschaftliche-r-collaboratore-trice-verantwortliche-r-saatgutpruflabor-confederazione-svizzera-reckenholz",
         "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-confederazione-reckenholz",
         "scientific-staff-member-responsible-seed-testing-laboratory-confederazione-svizzera-reckenholz",
-        "membre-du-personnel-scientifique-laboratoire-responsable-d-analyse-des-semences-confederazione-svizzera-reckenholz"
-      ],
-      "salarySource": "reported"
-    },
-    {
-      "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
-      "slug": "personale-agricolo-specialista-della-frutta-confederazione-svizzera-wadenswil",
-      "url": "https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/2c6e2470-3c64-4370-8bfd-d7b026c8f271",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18254",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Wädenswil, Schweiz",
-      "addressLocality": "Wädenswil",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-31",
-      "validThrough": "2026-08-31",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "description": "• Erstellung, Pflege und Beerntung von Kern- und Steinobstanlagen\n\n• Unterstützung der praxisnahen Obstbauforschung: Behandlungen mit verschiedenen Mitteln sowie Einzelbaum- oder Blockernten mit Ertrags- und Qualitätsbestimmungen\n\n• Mitarbeit in der Baumschule für die Sortenprüfung, die Obstzüchtung und die Sortenerhaltung\n\n• Einsatz von obstbauspezifischen Landwirtschaftsmaschinen und Geräten sowie deren Instandhaltung und Reparaturen\n\n• Praktische Ausbildung von lernenden Obstfachleuten\n\n• Obstfachmann/-frau EFZ oder gleichwertige Ausbildung\n\n• Fundierte obstbauliche Fachkenntnisse, Praxiserfahrung erwünscht\n\n• Interesse am Austausch und an der Zusammenarbeit mit der Obstforschung und Obstzüchtung\n\n• Leistungs- und lösungsorientierte, teamfähige und kommunikative Persönlichkeit\n\n• Freude an der Wissensvermittlung an Mitarbeitende und Lernende\n\n• Kenntnisse zweier Amtssprachen",
-      "titleByLocale": {
-        "it": "Personale agricolo/specialista della frutta",
-        "en": "Agricultural/specialist fruit growing staff",
-        "de": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
-        "fr": "Personnel agricole/spécialiste de la culture fruitière"
-      },
-      "descriptionByLocale": {
-        "it": "• Creazione, manutenzione e raccolta di piante da frutto di nucleo e pietra\n\n• Sostegno alla ricerca pratica dell'agricoltura della frutta: trattamenti di vario tipo e raccolti a singolo albero o a blocco con determinazione della resa e della qualità\n\n• Collaborazione in vivaio per prove di varietà, allevamento di frutta e conservazione della varietà\n\n• Utilizzo di macchine e attrezzature agricole specifiche per la frutta, nonché la loro manutenzione e riparazione\n\n• Formazione pratica dei professionisti dell'apprendimento della frutta\n\n• Specialista di frutta EFZ o istruzione equivalente\n\n• Esperienza di costruzione di frutta sana, esperienza pratica desiderata\n\n• Interessi di scambio e cooperazione con la ricerca e l'allevamento di frutta\n\n• Prestazioni e soluzioni, capacità di squadra e personalità comunicativa\n\n• Godere del trasferimento di conoscenze ai dipendenti e agli studenti\n\n• Conoscenza di due lingue ufficiali",
-        "en": "• Creation, maintenance and harvesting of core and stone fruit plants\n\n• Support for practical fruit farming research: treatments by various means as well as single-tree or block harvests with yield and quality determinations\n\n• Collaboration in the nursery for variety testing, fruit breeding and variety conservation\n\n• Use of fruit-specific agricultural machinery and equipment as well as their maintenance and repairs\n\n• Practical training of learning fruit professionals\n\n• Fruit specialist EFZ or equivalent education\n\n• Sound fruit building expertise, practical experience desired\n\n• Interest in exchange and cooperation with fruit research and fruit breeding\n\n• Performance- and solution-oriented, team-capable and communicative personality\n\n• Enjoying the transfer of knowledge to employees and learners\n\n• Knowledge of two official languages",
-        "de": "• Erstellung, Pflege und Beerntung von Kern- und Steinobstanlagen\n\n• Unterstützung der praxisnahen Obstbauforschung: Behandlungen mit verschiedenen Mitteln sowie Einzelbaum- oder Blockernten mit Ertrags- und Qualitätsbestimmungen\n\n• Mitarbeit in der Baumschule für die Sortenprüfung, die Obstzüchtung und die Sortenerhaltung\n\n• Einsatz von obstbauspezifischen Landwirtschaftsmaschinen und Geräten sowie deren Instandhaltung und Reparaturen\n\n• Praktische Ausbildung von lernenden Obstfachleuten\n\n• Obstfachmann/-frau EFZ oder gleichwertige Ausbildung\n\n• Fundierte obstbauliche Fachkenntnisse, Praxiserfahrung erwünscht\n\n• Interesse am Austausch und an der Zusammenarbeit mit der Obstforschung und Obstzüchtung\n\n• Leistungs- und lösungsorientierte, teamfähige und kommunikative Persönlichkeit\n\n• Freude an der Wissensvermittlung an Mitarbeitende und Lernende\n\n• Kenntnisse zweier Amtssprachen",
-        "fr": "• Création, entretien et récolte de plantes fruitières à noyau et à pierre\n\n• Soutien à la recherche pratique dans le domaine de l'agriculture fruitière: traitements par divers moyens ainsi que des récoltes simples ou en bloc avec détermination du rendement et de la qualité\n\n• Collaboration dans la pépinière pour l'analyse des variétés, la reproduction des fruits et la conservation des variétés\n\n• Utilisation de machines et d ' équipements agricoles spécifiques aux fruits, ainsi que leur entretien et leur réparation\n\n• Formation pratique des professionnels de l'apprentissage des fruits\n\n• EFZ spécialiste des fruits ou formation équivalente\n\n• Une bonne expertise de la construction de fruits, expérience pratique souhaitée\n\n• Intérêt pour l'échange et la coopération avec la recherche et l'élevage fruitiers\n\n• Personnalité axée sur la performance et la solution, capable d'équipe et communicative\n\n• Profiter du transfert des connaissances aux employés et aux apprenants\n\n• Connaissance des deux langues officielles"
-      },
-      "slugByLocale": {
-        "it": "personale-agricolo-specialista-della-frutta-confederazione-svizzera-wadenswil",
-        "en": "agricultural-specialist-fruit-growing-staff-confederazione-svizzera-wadenswil",
-        "de": "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-confederazione-wadenswil",
-        "fr": "personnel-agricole-specialiste-de-la-culture-fruitiere-confederazione-svizzera-wadenswil"
-      },
-      "id": "agroscope-422f8c606761",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-31T22:09:05.331Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "personale-agricolo-specialista-della-frutta-agroscope-wadenswil-schweiz",
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil",
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-confederazione-wadenswil"
-        ],
-        "en": [
-          "agricultural-specialist-fruit-growing-staff-agroscope-wadenswil-schweiz",
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil",
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-confederazione-wadenswil"
-        ],
-        "fr": [
-          "personnel-agricole-specialiste-de-la-culture-fruitiere-agroscope-wadenswil-schweiz",
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil",
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-confederazione-wadenswil"
-        ],
-        "de": [
-          "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil"
-        ]
-      },
-      "previousSlugs": [
-        "agricultural-specialist-fruit-growing-staff-agroscope-wadenswil-schweiz",
-        "personnel-agricole-specialiste-de-la-culture-fruitiere-agroscope-wadenswil-schweiz",
-        "personale-agricolo-specialista-della-frutta-agroscope-wadenswil-schweiz",
-        "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil",
-        "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-confederazione-wadenswil"
+        "membre-du-personnel-scientifique-laboratoire-responsable-d-analyse-des-semences-confederazione-svizzera-reckenholz",
+        "wissenschaftliche-r-mitarbeiter-in-verantwortliche-r-saatgutpruflabor-agroscope-reckenholz"
       ],
       "salarySource": "reported"
     }
