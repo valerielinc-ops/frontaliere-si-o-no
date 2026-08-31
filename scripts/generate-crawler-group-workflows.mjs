@@ -74,17 +74,24 @@
  */
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { applyProfilesToFile } from './ci/apply-checkout-profiles.mjs';
+import { computeProfiledText } from './ci/apply-checkout-profiles.mjs';
 // Stessa ragione di `generate-crawler-companies.mjs`, e stesso chiamante:
 // `prospect-promote.mjs` invoca entrambi in una run non presidiata e committa
 // cio' che trovano sul disco. `data/crawler-group-assignments.json` e' la
 // sorgente di verita' di QUALE crawler gira in QUALE finestra: troncato a meta'
 // non e' un dato brutto, e' il pin dell'intera schedulazione perso, committato.
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { writeFileAtomic } from './lib/atomic-shard-write.mjs';
+import {
+  canonicalJson,
+  createCrawlerGenerationRoster,
+  validateCrawlerGenerationRoster,
+} from './lib/crawler-generation-contract.mjs';
 import { CORPUS_OBSERVER_FILES } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -98,6 +105,16 @@ const CHECKOUT_BUCKETS_PATH = path.join(REPO_ROOT, 'scripts/ci/checkout-buckets.
 const TRANSLATE_LOGIC_PATH = path.join(WORKFLOWS_DIR, 'translate-pending-logic.yml');
 const PORTABLE_CORPUS_DIR = path.join(REPO_ROOT, '.github/corpus-workflows');
 const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
+const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
+const CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS = 14;
+const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
+  'scripts/ci/crawler-generation-roster.json',
+  'scripts/crawler-group-generation-finalizer.mjs',
+  'scripts/lib/atomic-write-json.mjs',
+  'scripts/lib/canonical-json-digest.mjs',
+  'scripts/lib/crawler-generation-contract.mjs',
+  'scripts/lib/crawler-generation-receipt.mjs',
+]);
 
 const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 const CROSS_REPO_BACKOFF_SECONDS = 30;
@@ -592,6 +609,70 @@ function buildCrawlerStepEnv(crawler, summaryFile) {
   return merged;
 }
 
+function crawlerGenerationMembers(group) {
+  return group.members
+    .map((crawler) => {
+      const env = buildCrawlerStepEnv(crawler, `/tmp/slug-history-summary-${crawler.slug}.txt`);
+      if (typeof env.JOBS_HOUSEKEEPING_SCOPE !== 'string' || env.JOBS_HOUSEKEEPING_SCOPE.length === 0 ||
+          typeof env.JOBS_SLICE_FILE !== 'string' || env.JOBS_SLICE_FILE.length === 0) {
+        throw new Error(`${crawler.slug}: missing crawler generation identity or primary slice`);
+      }
+      return {
+        crawlerId: env.JOBS_HOUSEKEEPING_SCOPE,
+        primarySlice: env.JOBS_SLICE_FILE,
+      };
+    })
+    .sort((left, right) => left.crawlerId < right.crawlerId ? -1 : left.crawlerId > right.crawlerId ? 1 : 0);
+}
+
+function crawlerGenerationRosterFromGroups(groups) {
+  const rosterGroups = {};
+  const primarySlices = {};
+  groups.forEach((group, index) => {
+    const groupId = String(index + 1).padStart(2, '0');
+    const members = crawlerGenerationMembers(group);
+    rosterGroups[groupId] = members.map(({ crawlerId }) => crawlerId);
+    for (const { crawlerId, primarySlice } of members) primarySlices[crawlerId] = primarySlice;
+  });
+  return createCrawlerGenerationRoster(rosterGroups, primarySlices);
+}
+
+function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
+  const nn = String(groupIndex).padStart(2, '0');
+  const output = `\${{ runner.temp }}/crawler-generation/crawler-group-${nn}-terminal.json`;
+  return [
+    {
+      name: 'Finalize crawler generation manifest (shadow)',
+      if: 'always()',
+      'continue-on-error': true,
+      env: {
+        CRAWLER_GENERATION_GROUP: nn,
+        CRAWLER_GENERATION_TOKEN: '${{ inputs.generation_token }}',
+        CRAWLER_GENERATION_CALLER_REPOSITORY: '${{ github.repository }}',
+        CRAWLER_GENERATION_CALLER_RUN_ID: '${{ github.run_id }}',
+        CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: '${{ github.run_attempt }}',
+        CRAWLER_GENERATION_WAIT_OUTCOME: '${{ steps.crawler-generation-wait.outcome }}',
+        CRAWLER_GENERATION_EXPECTED_CRAWLERS: JSON.stringify(expectedCrawlers),
+        CRAWLER_GENERATION_OUTPUT: output,
+      },
+      run: 'node scripts/crawler-group-generation-finalizer.mjs',
+    },
+    {
+      name: 'Upload crawler generation manifest (shadow)',
+      if: 'always()',
+      'continue-on-error': true,
+      uses: 'actions/upload-artifact@v7',
+      with: {
+        name: `crawler-group-${nn}-terminal-\${{ github.run_id }}`,
+        path: output,
+        'if-no-files-found': 'error',
+        overwrite: true,
+        'retention-days': CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS,
+      },
+    },
+  ];
+}
+
 /** Gli script di package.json servono all'analizzatore per risolvere `npm run <x>`. */
 let PKG_SCRIPTS = null;
 function npmScriptsForAnalyzer() {
@@ -717,8 +798,10 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
 
   steps.push({
     name: 'Wait for all crawlers in this group',
+    id: 'crawler-generation-wait',
     'wait-all': true,
   });
+  steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
 
   return {
     name: `Crawler Group ${String(groupIndex).padStart(2, '0')} (${group.members.length} crawlers)`,
@@ -729,6 +812,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
             description: 'Skip AI translation (1=yes, cache only)',
             required: false,
             default: '1',
+            type: 'string',
+          },
+          generation_token: {
+            description: 'Explicit generation correlation token (shadow only)',
+            required: false,
+            default: '',
             type: 'string',
           },
         },
@@ -749,6 +838,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       [groupName.replace(/-/g, '_')]: {
         'runs-on': 'ubuntu-latest',
         'timeout-minutes': JOB_TIMEOUT_MINUTES,
+        env: {
+          // Job-level env is inherited by every background shell and avoids
+          // 607 identical step overrides. The CLI resolves this relative
+          // path strictly underneath the runner-provided RUNNER_TEMP.
+          CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
+        },
         steps,
       },
     },
@@ -832,9 +927,12 @@ const SITE_RUNTIME_PATH_RE = /\bscripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|
  * @param {{repoRoot?: string}} [options]
  */
 export function collectSiteRuntimePaths(artifactContents, { repoRoot = REPO_ROOT } = {}) {
-  const runtimePaths = [...new Set(artifactContents.flatMap((content) =>
-    [...content.matchAll(SITE_RUNTIME_PATH_RE)].map((match) => match[0]),
-  ))].sort();
+  const runtimePaths = [...new Set([
+    ...CRAWLER_GENERATION_RUNTIME_PATHS,
+    ...artifactContents.flatMap((content) =>
+      [...content.matchAll(SITE_RUNTIME_PATH_RE)].map((match) => match[0]),
+    ),
+  ])].sort();
   const missing = runtimePaths.filter((runtimePath) =>
     !fs.existsSync(path.join(repoRoot, runtimePath)),
   );
@@ -968,7 +1066,7 @@ export function generateCrawlerLogicArtifacts({
     throw new Error(`logic generation requires exactly ${GROUP_COUNT} generated groups`);
   }
   if (write) fs.mkdirSync(workflowsDir, { recursive: true });
-  return groupResults.map((result) => {
+  const rendered = groupResults.map((result) => {
     const nn = String(result.groupIndex).padStart(2, '0');
     const fileName = `crawler-group-${nn}-logic.yml`;
     const outputPath = path.join(workflowsDir, fileName);
@@ -977,9 +1075,15 @@ export function generateCrawlerLogicArtifacts({
       groupIndex: result.groupIndex,
       existingText,
     });
-    if (write) fs.writeFileSync(outputPath, content);
+    YAML.parse(content);
     return { fileName, content };
   });
+  if (write) {
+    for (const artifact of rendered) {
+      writeFileAtomic(path.join(workflowsDir, artifact.fileName), artifact.content);
+    }
+  }
+  return rendered;
 }
 
 function normalizedContractStep(step, side, fileName, members) {
@@ -1109,6 +1213,7 @@ function checkoutWithSparse(sourceWith, sparsePatterns) {
 export function buildStandaloneCrossRepoWorkflow({
   logicText,
   name,
+  runName,
   workflowFile,
   trigger,
   concurrency,
@@ -1247,6 +1352,7 @@ export function buildStandaloneCrossRepoWorkflow({
 
   const standalone = {
     name,
+    ...(runName ? { 'run-name': runName } : {}),
     on: trigger,
     concurrency,
     permissions: { actions: 'read', contents: 'read', issues: 'write' },
@@ -1322,13 +1428,13 @@ export function generateCrossRepoExecutionArtifacts({
   if (!Array.isArray(groupResults) || groupResults.length !== GROUP_COUNT) {
     throw new Error(`cross-repo generation requires exactly ${GROUP_COUNT} generated groups`);
   }
-  if (write) {
-    fs.mkdirSync(outDir, { recursive: true });
-    fs.mkdirSync(path.dirname(contractPath), { recursive: true });
+  if (!validateCrawlerGenerationRoster(groupResults.generationRoster).valid) {
+    throw new Error('cross-repo generation requires a valid crawler generation roster');
   }
 
   const artifacts = [];
   const artifactContents = [];
+  const workflowPayloads = new Map();
   for (const result of groupResults) {
     const nn = String(result.groupIndex).padStart(2, '0');
     const fileName = `crawler-group-${nn}.yml`;
@@ -1339,11 +1445,13 @@ export function generateCrossRepoExecutionArtifacts({
     const content = buildStandaloneCrossRepoWorkflow({
       logicText,
       name: `Crawler Group ${nn} (sparse cross-repo execution)`,
+      runName: `crawler-generation-\${{ inputs.generation_token }}-group-${nn}`,
       workflowFile: fileName,
       trigger: groupTrigger(logic),
       concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
     });
-    if (write) fs.writeFileSync(path.join(outDir, fileName), content);
+    YAML.parse(content);
+    workflowPayloads.set(fileName, content);
     artifactContents.push(content);
     artifacts.push({
       file: fileName,
@@ -1363,7 +1471,8 @@ export function generateCrossRepoExecutionArtifacts({
     trigger: translateTrigger(translateLogic),
     concurrency: { group: 'jobs-data-pipeline', 'cancel-in-progress': false },
   });
-  if (write) fs.writeFileSync(path.join(outDir, 'translate-pending.yml'), translateContent);
+  YAML.parse(translateContent);
+  workflowPayloads.set('translate-pending.yml', translateContent);
   artifactContents.push(translateContent);
   artifacts.push({
     file: 'translate-pending.yml',
@@ -1377,14 +1486,11 @@ export function generateCrossRepoExecutionArtifacts({
   const excluded = bucketTable.buckets.filter((bucket) => CROSS_REPO_SAFE_EXCLUDED_BUCKETS.has(bucket.id));
   const crawlerMembers = artifacts.flatMap((artifact) => artifact.members);
   const siteRuntimePaths = collectSiteRuntimePaths(artifactContents);
+  const observerPayloads = [];
   const observers = CORPUS_OBSERVER_FILES.map(({ source, target }) => {
     const canonicalPath = path.join(PORTABLE_CORPUS_DIR, source);
     const content = fs.readFileSync(canonicalPath);
-    if (write) {
-      const outputPath = path.join(outDir, source);
-      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-      fs.writeFileSync(outputPath, content);
-    }
+    observerPayloads.push({ source, content });
     return { source, target, sha256: sha256(content) };
   });
   const contract = {
@@ -1396,6 +1502,13 @@ export function generateCrossRepoExecutionArtifacts({
     artifactCount: artifacts.length,
     observerCount: observers.length,
     crawlerCount: crawlerMembers.length,
+    crawlerGeneration: {
+      mode: 'shadow',
+      rosterPath: 'scripts/ci/crawler-generation-roster.json',
+      rosterDigest: groupResults.generationRoster.digest,
+      artifactRetentionDays: CRAWLER_GENERATION_ARTIFACT_RETENTION_DAYS,
+      dispatchesTranslation: false,
+    },
     siteRuntimePaths,
     observers,
     checkout: {
@@ -1409,8 +1522,51 @@ export function generateCrossRepoExecutionArtifacts({
     },
     artifacts,
   };
-  if (write) writeJsonAtomic(contractPath, contract);
-  return { artifacts, contract, translateContent };
+  if (write) {
+    fs.mkdirSync(outDir, { recursive: true });
+    fs.mkdirSync(path.dirname(contractPath), { recursive: true });
+    for (const [fileName, content] of workflowPayloads) {
+      writeFileAtomic(path.join(outDir, fileName), content);
+    }
+    for (const { source, content } of observerPayloads) {
+      const outputPath = path.join(outDir, source);
+      fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+      writeFileAtomic(outputPath, content);
+    }
+    writeJsonAtomic(contractPath, contract);
+  }
+  return { artifacts, contract, translateContent, workflowContents: Object.fromEntries(workflowPayloads) };
+}
+
+/** Render every generated artifact without writing and report committed drift. */
+export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText } = {}) {
+  const groupResults = generate({ profileRenderer, write: false });
+  const logicArtifacts = generateCrawlerLogicArtifacts({ groupResults, write: false });
+  const cross = generateCrossRepoExecutionArtifacts({
+    groupResults,
+    outDir: PORTABLE_CORPUS_DIR,
+    contractPath: PORTABLE_CONTRACT_PATH,
+    write: false,
+  });
+  const changed = [];
+  for (const result of groupResults) {
+    if (fs.readFileSync(result.filePath, 'utf8') !== result.content) changed.push(result.filePath);
+  }
+  for (const artifact of logicArtifacts) {
+    const filePath = path.join(WORKFLOWS_DIR, artifact.fileName);
+    if (fs.readFileSync(filePath, 'utf8') !== artifact.content) changed.push(filePath);
+  }
+  for (const [fileName, content] of Object.entries(cross.workflowContents)) {
+    const filePath = path.join(PORTABLE_CORPUS_DIR, fileName);
+    if (fs.readFileSync(filePath, 'utf8') !== content) changed.push(filePath);
+  }
+  if (canonicalJson(loadJson(CRAWLER_GENERATION_ROSTER_PATH)) !== canonicalJson(groupResults.generationRoster)) {
+    changed.push(CRAWLER_GENERATION_ROSTER_PATH);
+  }
+  if (canonicalJson(loadJson(PORTABLE_CONTRACT_PATH)) !== canonicalJson(cross.contract)) {
+    changed.push(PORTABLE_CONTRACT_PATH);
+  }
+  return { changed, groupResults, logicArtifacts, cross };
 }
 
 export function generate({
@@ -1424,6 +1580,10 @@ export function generate({
   assignmentsPath = outDir === WORKFLOWS_DIR
     ? ASSIGNMENTS_PATH
     : path.join(outDir, 'crawler-group-assignments.json'),
+  crawlerGenerationRosterPath = outDir === WORKFLOWS_DIR
+    ? CRAWLER_GENERATION_ROSTER_PATH
+    : path.join(outDir, 'crawler-generation-roster.json'),
+  profileRenderer = computeProfiledText,
   write = true,
   // `--rebalance`: throw the pins away and re-derive membership with the global
   // bin-pack. Rewrites all 23 files by design — a deliberate, reviewed action,
@@ -1466,61 +1626,63 @@ export function generate({
       throw new Error(`Group wall-clock ${g.wallClockMs}ms exceeds safety ceiling ${SAFETY_CEILING_MS}ms`);
     }
   }
-
-  // Persist the reconciled pins in the same run that writes the .yml, so the
-  // two can never be committed out of sync (tests/generate-crawler-group-workflows.ts
-  // asserts exactly that on the committed tree).
-  if (write) {
-    writeJsonAtomic(assignmentsPath, assignmentsDoc(assignments));
-  }
+  // Validate every crawler identity and slice before the first generated file
+  // is replaced. A malformed receipt roster must not leave a partial 23-group
+  // render on disk.
+  const generationRoster = crawlerGenerationRosterFromGroups(groups);
 
   const results = [];
-  groups.forEach((group, i) => {
-    const groupIndex = i + 1;
-    const needsPlaywright = group.members.some((m) =>
-      m.prepSteps.some((s) => /playwright/i.test(s.name || '')),
-    );
-    const needsIgnoreScripts = group.members.some((m) =>
-      m.prepSteps.some((s) => /^npm ci\b.*--ignore-scripts/.test(s.run || '')),
-    );
-    const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts);
-    const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
-    const fileName = `crawler-group-${String(groupIndex).padStart(2, '0')}.yml`;
-    const filePath = path.join(outDir, fileName);
-    // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
-    // rigenerazione: e' la nota che spiega perche' QUEL file e' speciale (il
-    // pilota cross-repo di crawler-group-23), e riscriverla a mano a ogni giro e'
-    // la stessa deriva che questa PR chiude. Il corpo resta rigenerato da zero.
-    const preamble = extractManualPreamble(fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '');
-    const fileContent = `${preamble}${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
-
-    let finalContent = fileContent;
-    if (write) {
-      fs.writeFileSync(filePath, fileContent, 'utf8');
-      // Lo sparse-checkout va riapplicato QUI, non lasciato al passaggio manuale:
-      // senza, il primo `--write` cancellerebbe in silenzio i profili dei 23
-      // crawler e ognuno tornerebbe a scaricare 6,7 GB. I gruppi non hanno tutti
-      // lo stesso profilo (leggono file diversi), quindi la lista non puo' essere
-      // fissa qui: la calcola l'analizzatore sul file appena scritto.
-      finalContent = applyProfilesToFile(filePath, npmScriptsForAnalyzer());
-    }
-
-    results.push({
-      fileName,
-      filePath,
-      groupIndex,
-      memberCount: group.members.length,
-      wallClockMs: group.wallClockMs,
-      members: group.members.map((m) => m.slug),
-      // In modalita' dry-run (`write=false`) il profilo non e' calcolabile:
-      // l'analizzatore legge dal disco. Il contenuto resta quello pre-profilo,
-      // che e' cio' che i test strutturali guardano.
-      content: finalContent,
+  const stagingDir = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-group-render-'));
+  try {
+    groups.forEach((group, i) => {
+      const groupIndex = i + 1;
+      const needsPlaywright = group.members.some((m) =>
+        m.prepSteps.some((s) => /playwright/i.test(s.name || '')),
+      );
+      const needsIgnoreScripts = group.members.some((m) =>
+        m.prepSteps.some((s) => /^npm ci\b.*--ignore-scripts/.test(s.run || '')),
+      );
+      const obj = buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnoreScripts);
+      const yamlBody = YAML.stringify(obj, { lineWidth: 0 });
+      const fileName = `crawler-group-${String(groupIndex).padStart(2, '0')}.yml`;
+      const filePath = path.join(outDir, fileName);
+      // Il preambolo scritto a mano sopra il marker AUTO-GENERATED sopravvive alla
+      // rigenerazione: e' la nota che spiega perche' QUEL file e' speciale (il
+      // pilota cross-repo di crawler-group-23), e riscriverla a mano a ogni giro e'
+      // la stessa deriva che questa PR chiude. Il corpo resta rigenerato da zero.
+      const preamble = extractManualPreamble(fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '');
+      const fileContent = `${preamble}${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
+      const stagingPath = path.join(stagingDir, fileName);
+      fs.writeFileSync(stagingPath, fileContent, 'utf8');
+      // Calcola il profilo su staging: tutti i 23 file sono renderizzati e
+      // validati prima che una sola destinazione venga sostituita.
+      const finalContent = profileRenderer(stagingPath, npmScriptsForAnalyzer()).text;
+      YAML.parse(finalContent);
+      results.push({
+        fileName,
+        filePath,
+        groupIndex,
+        memberCount: group.members.length,
+        wallClockMs: group.wallClockMs,
+        members: group.members.map((m) => m.slug),
+        content: finalContent,
+      });
     });
-  });
+  } finally {
+    fs.rmSync(stagingDir, { recursive: true, force: true });
+  }
 
   results.assignmentsAdded = added;
   results.assignmentsRemoved = removed;
+  results.generationRoster = generationRoster;
+  if (write) {
+    // Commit phase: render/validation is complete. Every individual replace is
+    // atomic; a late render/parity error above leaves every destination intact.
+    fs.mkdirSync(outDir, { recursive: true });
+    writeJsonAtomic(assignmentsPath, assignmentsDoc(assignments));
+    for (const result of results) writeFileAtomic(result.filePath, result.content);
+    writeJsonAtomic(crawlerGenerationRosterPath, generationRoster);
+  }
   return results;
 }
 
@@ -1563,18 +1725,31 @@ export function bootstrapAssignmentsFromWorkflows({
 // CLI entry point
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  if (process.argv.includes('--bootstrap-from-workflows')) {
+  const check = process.argv.includes('--check');
+  const bootstrap = process.argv.includes('--bootstrap-from-workflows');
+  const rebalance = process.argv.includes('--rebalance');
+  const crossRepoOutAt = process.argv.indexOf('--cross-repo-out-dir');
+  const crossRepoContractAt = process.argv.indexOf('--cross-repo-contract');
+  if (check && (bootstrap || rebalance || crossRepoOutAt >= 0 || crossRepoContractAt >= 0)) {
+    throw new Error('--check cannot be combined with bootstrap, output or rebalance options');
+  }
+  if (bootstrap) {
     const { assignmentsPath, groups } = bootstrapAssignmentsFromWorkflows();
     console.log(`Pins rebuilt from the committed workflows -> ${assignmentsPath}`);
     console.log(`  ${groups.length} groups, ${groups.flat().length} crawlers`);
     process.exit(0);
   }
-  const crossRepoOutAt = process.argv.indexOf('--cross-repo-out-dir');
-  const crossRepoContractAt = process.argv.indexOf('--cross-repo-contract');
   if ((crossRepoOutAt >= 0) !== (crossRepoContractAt >= 0)) {
     throw new Error('--cross-repo-out-dir and --cross-repo-contract must be passed together');
   }
-  const rebalance = process.argv.includes('--rebalance');
+  if (check) {
+    const { changed } = checkGeneratedArtifacts();
+    if (changed.length > 0) {
+      throw new Error(`Generated crawler artifacts are stale:\n${changed.map((filePath) => `  ${path.relative(REPO_ROOT, filePath)}`).join('\n')}`);
+    }
+    console.log('Generated crawler artifacts are up to date; wrote nothing.');
+    process.exit(0);
+  }
   // La generazione per il corpus legge il gruppo locale come sorgente ma non
   // deve riscriverlo: i due repo hanno PR/branch indipendenti e un export non
   // e' autorizzato a portarsi dietro un diff locale accidentale (es. stale pin).
