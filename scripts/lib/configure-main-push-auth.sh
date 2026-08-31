@@ -23,8 +23,38 @@ if [ -z "$PUSH_TOKEN" ]; then
   exit 1
 fi
 
-if [ -z "${GITHUB_REPOSITORY:-}" ]; then
-  echo "::error::GITHUB_REPOSITORY is not set; cannot configure origin for a main push."
+# Target repo: prefer the owner/repo already encoded in the CURRENT origin
+# URL over $GITHUB_REPOSITORY. A cross-repo `workflow_call` (e.g. the
+# crawler-group-NN-logic.yml reusable workflows physically hosted here but
+# invoked from nanakokyobashi-rgb/frontaliere-articles, #6537) sees
+# $GITHUB_REPOSITORY resolve to the CALLER's repo, not this one — callers
+# that explicitly pointed origin at a different repo (e.g. an earlier
+# "Bootstrap write auth" step targeting valerielinc-ops/frontaliere-si-o-no)
+# had that override silently clobbered back to the ambient repo on the very
+# first ensure_git_auth() call, so every push in that context landed in the
+# wrong repository (issue #6701: two days of crawler pushes vanished into
+# frontaliere-articles instead of updating data/jobs.json here, freezing
+# data/jobs-stats-history.json). Falls back to $GITHUB_REPOSITORY only when
+# origin has no parseable owner/repo path (e.g. a fresh checkout whose
+# origin was never explicitly overridden).
+target_repo=""
+case "$origin_url" in
+  https://*github.com/*/*)
+    _path="${origin_url#https://}"
+    _path="${_path#*github.com/}"
+    _path="${_path%.git}"
+    _path="${_path%/}"
+    case "$_path" in
+      */*/*) ;; # more than one path segment after owner/repo — not parseable
+      */*) target_repo="$_path" ;;
+    esac
+    ;;
+esac
+if [ -z "$target_repo" ]; then
+  target_repo="${GITHUB_REPOSITORY:-}"
+fi
+if [ -z "$target_repo" ]; then
+  echo "::error::Could not determine target owner/repo from origin ('${origin_url}') or \$GITHUB_REPOSITORY; cannot configure origin for a main push."
   exit 1
 fi
 
@@ -33,4 +63,4 @@ fi
 # embedded in the remote URL, so a rewrite without this unset silently
 # pushes back as github-actions[bot].
 git config --local --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${target_repo}.git"
