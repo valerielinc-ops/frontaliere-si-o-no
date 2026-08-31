@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alcon",
-  "assembledAt": "2026-08-31T07:36:47.982Z",
+  "assembledAt": "2026-08-31T10:06:10.707Z",
   "jobs": [
     {
       "id": "alcon-b66acee3cbdc",
@@ -34,7 +34,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Associate--Inter-Company-Order---Invoice-Flow_R-2026-47978-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:45.420Z",
+      "crawledAt": "2026-08-31T10:06:07.457Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -64,6 +64,7 @@
       "firstSeenAt": "2026-06-29T21:33:20.599Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -107,7 +108,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Geneva-Switzerland/Director--Corporate-Strategy---Business-Development_R-2026-48005-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:44.481Z",
+      "crawledAt": "2026-08-31T10:06:06.849Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -146,6 +147,7 @@
       "firstSeenAt": "2026-07-07T22:18:44.741Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -189,7 +191,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Schaffhausen-Switzerland/Senior-Manager-Materials-Management--m-w-d-_R-2026-48278-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:43.808Z",
+      "crawledAt": "2026-08-31T10:06:06.167Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -222,6 +224,7 @@
       "firstSeenAt": "2026-07-10T22:34:58.643Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -265,7 +268,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Territory-Sales-Manager--m-w-d----Medical-Devices--Ophthalmology--Switzerland-_R-2026-47026-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:43.145Z",
+      "crawledAt": "2026-08-31T10:06:05.547Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -330,6 +333,7 @@
       "firstSeenAt": "2026-05-19T17:18:35.934Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -373,7 +377,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:36:42.467Z",
+      "crawledAt": "2026-08-31T10:06:04.916Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -409,6 +413,7 @@
       "firstSeenAt": "2026-08-10T21:47:00.099Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -452,7 +457,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-48937-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T07:36:41.787Z",
+      "crawledAt": "2026-08-31T10:06:03.961Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -472,6 +477,7 @@
       "firstSeenAt": "2026-08-13T21:49:54.339Z",
       "salaryMin": 115000,
       "salaryMax": 160000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -556,7 +562,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     },
     {
       "id": "alcon-5c8c89269194",
@@ -633,8 +640,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated"
     }
   ]
 }
