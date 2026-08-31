@@ -56,6 +56,32 @@ describe('iPersonal AG crawler parser', () => {
       expect(description).not.toContain('Keyword- und Kontakttail');
     });
 
+    it('recognizes paragraph-only section headings and application boundaries', () => {
+      const html = `
+        <section class="job-profile-section"><div id="Jobdetails"><div>
+          <p>Eine verantwortungsvolle Aufgabe in der Intensivpflege mit langfristiger fachlicher Begleitung.</p>
+          <p>Deine Aufgaben im Intensivalltag</p>
+          <p>Patientinnen sicher betreuen und Veränderungen rechtzeitig erkennen.</p>
+          <p>Die Behandlung mit dem interdisziplinären Team sorgfältig abstimmen.</p>
+          <p>Das bringst du mit</p>
+          <p>Mehrjährige Berufserfahrung und eine anerkannte Weiterbildung.</p>
+          <p>Das erwartet dich</p>
+          <p>Ein unterstützendes Team und verlässliche Entwicklungsmöglichkeiten.</p>
+          <p>Interessiert?</p>
+          <p>Lebenslauf und Zeugnisse per E-Mail senden.</p>
+          <p>Keyword- und Kontakttail für Suchmaschinen.</p>
+        </div></div></section>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Patientinnen sicher betreuen');
+      expect(description).toContain('\n• Die Behandlung mit dem interdisziplinären Team');
+      expect(description).toContain('\n• Mehrjährige Berufserfahrung');
+      expect(description).toContain('\n• Ein unterstützendes Team');
+      expect(description).not.toContain('Interessiert?');
+      expect(description).not.toContain('Lebenslauf und Zeugnisse');
+      expect(description).not.toContain('Keyword- und Kontakttail');
+    });
+
     it('requests identity encoding and stays idempotent on the shared runtime', async () => {
       const seedUrl = 'https://ipersonal-fixture.example/';
       const detailUrl = `${seedUrl}jobs/pflegefachperson-zuerich/`;
