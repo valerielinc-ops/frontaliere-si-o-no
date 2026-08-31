@@ -38787,7 +38787,7 @@
         "env": {
           "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_ZURICH_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "JOBS_ZURICH_INSURANCE_SEDE_TICINO_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
           "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },
