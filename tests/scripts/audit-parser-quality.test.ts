@@ -33,6 +33,7 @@ import {
   checkSourceDetailsBatch,
   applySourceDetailResults,
   finishAudit,
+  filledLocaleCount,
 } from '../../scripts/audit-parser-quality.mjs';
 
 type Issue = {
@@ -311,6 +312,85 @@ describe('source-detail fidelity checks', () => {
     }
   });
 
+  it('prefers a corroborated Kanton Zürich listing workplace over administrative JSON-LD', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Dietikon',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Dietikon',
+        location: 'Horgen',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        locationEvidence: 'jsonld',
+        locationPolicy: 'listing-workplace-over-admin-jsonld',
+      },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('listing-workplace');
+  });
+
+  it('keeps a Kanton Zürich mismatch when the detail title does not corroborate the listing', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Dietikon',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Horgen',
+        location: 'Horgen',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        locationEvidence: 'jsonld',
+        locationPolicy: 'listing-workplace-over-admin-jsonld',
+      },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('applies the listing-workplace contract only to kanton-zuerich source checks', async () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),
+      'utf8',
+    );
+    const description = 'Ausführliche Stellenbeschreibung '.repeat(20);
+    const items = ['kanton-zuerich', 'another-solique-crawler'].map((crawlerKey) => ({
+      crawlerKey,
+      url: `https://example.test/${crawlerKey}`,
+      job: { addressLocality: 'Dietikon', sourceLang: 'de', description },
+    }));
+    const results = await checkSourceDetailsBatch(items, 2, {
+      fetchPage: async (url: string) => ({
+        ok: true,
+        status: 200,
+        url,
+        body: html,
+        host: 'example.test',
+      }),
+    });
+
+    expect(results[0]).toMatchObject({
+      crawlerKey: 'kanton-zuerich',
+      sourceLocation: 'Horgen, ZH',
+      locationMismatch: false,
+      locationAuthority: 'listing-workplace',
+    });
+    expect(results[1]).toMatchObject({
+      crawlerKey: 'another-solique-crawler',
+      sourceLocation: 'Horgen, ZH',
+      locationMismatch: true,
+      locationAuthority: 'source-detail',
+    });
+  });
+
   it('flags a wrong published location and a thin published description', () => {
     const result = compareSourceDetail(
       { location: 'Lugano', sourceLang: 'de', description: 'Polymechaniker in Lugano' },
@@ -424,6 +504,30 @@ describe('source-detail fidelity checks', () => {
       errorSpy.mockRestore();
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('filledLocaleCount', () => {
+  it('counts valid localized titles of ten characters or fewer', () => {
+    expect(filledLocaleCount({
+      it: 'Avvocato',
+      en: 'Lawyer',
+      de: 'Jurist/in',
+      fr: 'Avocat',
+    }, { minLength: 1 })).toBe(4);
+  });
+
+  it('does not count explicit placeholders as localized titles', () => {
+    expect(filledLocaleCount({
+      it: '-',
+      en: 'N/A',
+      de: 'TBD',
+      fr: 'Avocat',
+    }, { minLength: 1 })).toBe(1);
+  });
+
+  it('keeps the substantial-content threshold for localized descriptions', () => {
+    expect(filledLocaleCount({ it: 'Avvocato', de: 'Descrizione completa' })).toBe(1);
   });
 });
 

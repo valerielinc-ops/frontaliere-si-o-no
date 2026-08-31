@@ -426,7 +426,25 @@ function wordSet(value) {
   return new Set(normalizePlace(value).split(' ').filter((word) => word.length >= 4));
 }
 
-export function compareSourceDetail(job, detail, { locationEvidence = 'jsonld' } = {}) {
+const LISTING_WORKPLACE_OVER_ADMIN_JSONLD = new Set([
+  // Solique exposes the workplace in its listing API, while ktzh detail
+  // JSON-LD can contain the administrative district office instead. Require
+  // the rendered job title to corroborate the listing value before preferring
+  // it, so an actually wrong listing location still fails the audit.
+  'kanton-zuerich',
+]);
+
+function titleCorroboratesPublishedLocation(title, publishedLocation) {
+  const normalizedTitle = normalizePlace(title);
+  const normalizedLocation = normalizePlace(publishedLocation);
+  if (!normalizedTitle || normalizedLocation.length < 2) return false;
+  return ` ${normalizedTitle} `.includes(` ${normalizedLocation} `);
+}
+
+export function compareSourceDetail(job, detail, {
+  locationEvidence = 'jsonld',
+  locationPolicy = 'source-detail',
+} = {}) {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
   const publishedDescription = plainText(sourceDescription(job));
@@ -440,7 +458,11 @@ export function compareSourceDetail(job, detail, { locationEvidence = 'jsonld' }
     && (publishedDescription.length < 100
       || publishedDescription.length < sourceDescriptionText.length * 0.45
       || overlapRatio < 0.35);
-  const locationMatchesPublished = sourceLocationMatches(publishedLocation, sourceLocation);
+  const listingWorkplaceCorroborated = locationPolicy === 'listing-workplace-over-admin-jsonld'
+    && locationEvidence === 'jsonld'
+    && titleCorroboratesPublishedLocation(detail?.title || '', publishedLocation);
+  const locationMatchesPublished = sourceLocationMatches(publishedLocation, sourceLocation)
+    || listingWorkplaceCorroborated;
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic';
@@ -449,6 +471,7 @@ export function compareSourceDetail(job, detail, { locationEvidence = 'jsonld' }
     locationMismatch: locationChecked && !locationMatchesPublished,
     locationInconclusive: Boolean(sourceLocation) && !locationChecked,
     locationEvidence,
+    locationAuthority: listingWorkplaceCorroborated ? 'listing-workplace' : 'source-detail',
     descriptionMismatch,
     publishedLocation,
     sourceLocation,
@@ -497,7 +520,10 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       const locationObservation = observeLocation(fetched.body, fetched.url || item.url);
       if (locationObservation.location) detail.location = locationObservation.location;
       const locationEvidence = locationObservation.evidence;
-      return { ...item, ...compareSourceDetail(item.job, detail, { locationEvidence }) };
+      const locationPolicy = LISTING_WORKPLACE_OVER_ADMIN_JSONLD.has(item.crawlerKey)
+        ? 'listing-workplace-over-admin-jsonld'
+        : 'source-detail';
+      return { ...item, ...compareSourceDetail(item.job, detail, { locationEvidence, locationPolicy }) };
     } catch (error) {
       return processingFailureResult(item, error);
     }
@@ -686,9 +712,14 @@ function hasStructuredContent(desc) {
   return false;
 }
 
-function filledLocaleCount(byLocale) {
+const EMPTY_LOCALE_PLACEHOLDER_RE = /^(?:[-–—_.*?]+|n\/?a|none|null|undefined|todo|tbd|pending|placeholder|segnaposto|translation pending|pending translation)$/i;
+
+export function filledLocaleCount(byLocale, { minLength = 11 } = {}) {
   if (!byLocale || typeof byLocale !== 'object') return 0;
-  return Object.values(byLocale).filter((v) => v && String(v).trim().length > 10).length;
+  return Object.values(byLocale).filter((value) => {
+    const text = String(value || '').trim();
+    return text.length >= minLength && !EMPTY_LOCALE_PLACEHOLDER_RE.test(text);
+  }).length;
 }
 
 function descFingerprint(desc) {
@@ -944,7 +975,7 @@ async function main() {
     // 4. Missing locale coverage — skip in-flight translations
     const missingLocales = jobs.filter((j) => {
       if (j.needsRetranslation === true) return false;
-      const titleCount = filledLocaleCount(j.titleByLocale);
+      const titleCount = filledLocaleCount(j.titleByLocale, { minLength: 1 });
       const descCount = filledLocaleCount(j.descriptionByLocale);
       return titleCount < 2 || descCount < 2;
     });
@@ -952,7 +983,10 @@ async function main() {
       // Calculate how many locales are missing on average
       const avgMissing = Math.round(
         missingLocales.reduce((s, j) => {
-          const have = Math.max(filledLocaleCount(j.titleByLocale), filledLocaleCount(j.descriptionByLocale));
+          const have = Math.max(
+            filledLocaleCount(j.titleByLocale, { minLength: 1 }),
+            filledLocaleCount(j.descriptionByLocale),
+          );
           return s + (4 - have);
         }, 0) / missingLocales.length,
       );
