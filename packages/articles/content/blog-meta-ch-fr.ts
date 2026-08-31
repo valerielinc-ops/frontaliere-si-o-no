@@ -4852,6 +4852,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.siccita-depuratori-crisi-acque.title': 'Sécheresses et stations d\'épuration : les rivières en crise',
     'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Rivières suisses asséchées par la sécheresse : les eaux usées restent constantes. En Argovie, jusqu\'à 80 % du débit est de l\'eau purifiée contaminée. Programme fédéral 2024-2040 pour la mise à niveau de 140 installations.',
     'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Vue aérienne d\'un lac alpin suisse durant la sécheresse estivale avec des niveaux d\'eau réduits et des cours d\'eau amoindris',
+    'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Banques suisses, la cet-S freine le Conseil fédéral sur les capitaux propres',
+    'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'La Commission du Conseil des Etats modifie la proposition du gouvernement : jusqu\'à la moitié de la couverture pourra provenir d\'obligations AT1, et pas seulement de CET-1.',
+    'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Palais fédéral à Berne au crépuscule, siège du Conseil des États',
 };
 
 export default blogMetaChFr;

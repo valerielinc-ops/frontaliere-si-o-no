@@ -4852,6 +4852,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.siccita-depuratori-crisi-acque.title': 'Dürre und Kläranlagen: Flüsse in der Krise',
     'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Dürregetrocknete Schweizer Flüsse: Abwasser bleibt konstant. Im Aargau sind bis zu 80 % des Durchflusses mit verunreinigtem, gereinigtem Wasser belastet. Bundesprogramm 2024-2040 zur Modernisierung von 140 Anlagen.',
     'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Luftaufnahme eines Schweizer Alpensees während Sommerdürre mit gesunkenen Wasserständen und reduzierten Wasserläufen',
+    'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Schweizer Banken, WAK-S bremst Bundesrat auf Eigenkapital',
+    'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'Die Ständeratskommission ändert den Vorschlag der Regierung: Bis zur Hälfte der Deckung kann aus AT1-Anleihen kommen, nicht nur aus CET-1.',
+    'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Bundeshaus in Bern in der Abenddämmerung, Sitz des Ständerats',
 };
 
 export default blogMetaChDe;

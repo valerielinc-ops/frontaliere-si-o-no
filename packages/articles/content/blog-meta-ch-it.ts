@@ -4852,6 +4852,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.siccita-depuratori-crisi-acque.title': 'Siccità e depuratori: fiumi in crisi',
     'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Fiumi svizzeri prosciugati dalla siccità: acque reflue rimangono costanti. In Argovia fino all\'80% della portata è di acqua depurata contaminata. Programma federale 2024-2040 per aggiornare 140 impianti.',
     'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Veduta aerea di un lago alpino svizzero durante siccità estiva con livelli d\'acqua ridotti e corsi minori visibilmente prosciugati',
+    'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Banche svizzere, la CET-S frena il Consiglio federale sul capitale proprio',
+    'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'La Commissione del Consiglio degli Stati modifica la proposta del governo: fino a metà della copertura potrà arrivare da obbligazioni AT1, non solo da CET-1.',
+    'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Palazzo federale di Berna illuminato al tramonto, sede del Consiglio degli Stati',
 };
 
 export default blogMetaChIt;

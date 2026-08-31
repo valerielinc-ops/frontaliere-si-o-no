@@ -4852,6 +4852,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.siccita-depuratori-crisi-acque.title': 'Droughts and purifiers: rivers in crisis',
     'blog.article.siccita-depuratori-crisi-acque.excerpt': 'Swiss rivers drained by drought: wastewater remains constant. In Aargau up to 80% of the flow is contaminated purified water. Federal program 2024-2040 to upgrade 140 plants.',
     'blog.article.siccita-depuratori-crisi-acque.imageAlt': 'Aerial view of a Swiss Alpine lake during summer drought with reduced water levels and diminished waterstreams',
+    'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Swiss banks, the CET-S restrains the Federal Council on equity capital',
+    'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'The Commission of the Council of States modifies the government\'s proposal: up to half of the coverage may come from AT1 bonds, not just from CET-1.',
+    'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Federal Palace in Bern at dusk, seat of the Council of States',
 };
 
 export default blogMetaChEn;
