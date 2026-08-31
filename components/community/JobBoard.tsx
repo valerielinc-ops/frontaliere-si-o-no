@@ -148,6 +148,7 @@ import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/
 import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
+import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import Callout from '@/components/shared/Callout';
@@ -397,6 +398,10 @@ export interface JobListing {
  contract: ContractType;
  salaryMin?: number;
  salaryMax?: number;
+ /** Provenance of the salary band — 'estimated' bands get an «(stima)»-style
+  * suffix (see `SALARY_ESTIMATE_SUFFIX` in `build-plugins/shared/jobCardHtml.ts`,
+  * the same convention used by the SSG job cards). */
+ salarySource?: 'reported' | 'existing' | 'estimated';
  baseSalary?: {
  value?: {
  minValue?: number;
@@ -792,6 +797,21 @@ function readSeededJob(): JobListing | null {
  }
  } catch { /* SSR or missing */ }
  return null;
+}
+
+export function formatSalary(
+ job: Pick<JobListing, 'salaryMin' | 'salaryMax' | 'baseSalary' | 'currency' | 'salarySource'>,
+ locale: Locale,
+): string | null {
+ const salaryMin = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue);
+ if (!salaryMin || !Number.isFinite(salaryMin)) return null;
+ const salaryMax = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue);
+ const min = (salaryMin / 1000).toFixed(0);
+ const max = (salaryMax && Number.isFinite(salaryMax)) ? (salaryMax / 1000).toFixed(0) : null;
+ const range = max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
+ // Estimated bands are declared as such, same convention as the SSG job
+ // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
+ return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
 }
 
 function contractTranslationKey(job: Pick<JobListing, 'contract' | 'title' | 'description'>): string {
@@ -5418,15 +5438,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return cleanup;
  }, [filteredJobs, locale, selectedJob, initialJobSlug, selectedSector, selectedLocation, companyDisplayName, searchSlugFilter, companySlugFilter, locationSlugFilter, editorialLandingDescriptor, searchHeadingQuery, cantonI18n, t]);
 
- const formatSalary = (job: JobListing) => {
- const salaryMin = Number(job.salaryMin) || Number(job.baseSalary?.value?.minValue);
- if (!salaryMin || !Number.isFinite(salaryMin)) return null;
- const salaryMax = Number(job.salaryMax) || Number(job.baseSalary?.value?.maxValue);
- const min = (salaryMin / 1000).toFixed(0);
- const max = (salaryMax && Number.isFinite(salaryMax)) ? (salaryMax / 1000).toFixed(0) : null;
- return max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
- };
-
  const daysSincePosted = (dateStr: string) => {
  const diff = Math.floor((Date.now() - new Date(dateStr).getTime()) / 86400000);
  if (diff === 0) return t('jobBoard.today');
@@ -5851,7 +5862,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  key={buildListingDedupKey(job)}
  job={job}
  jobHref={buildJobPath(job)}
- salary={formatSalary(job)}
+ salary={formatSalary(job, locale)}
  logo={companyLogoUrl(job)}
  isNew={isNewJob(job)}
  postedLabel={daysSincePosted(job.postedDate)}
@@ -7793,7 +7804,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const companyName = selectedJob.company;
  const jobLocation = selectedJob.location || '';
  const jobCategory = selectedJob.category || '';
- const gateSalary = formatSalary(selectedJob);
+ const gateSalary = formatSalary(selectedJob, locale);
  const gateContract = t(contractTranslationKey(selectedJob));
  const gatePosted = daysSincePosted(selectedJob.postedDate);
  const gateIsNew = isNewJob(selectedJob);
@@ -8251,7 +8262,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {relatedJobs.flatMap((job, relIdx) => {
  const jobHref = buildJobPath(job);
  const jobLogo = companyLogoUrl(job);
- const jobSalary = formatSalary(job);
+ const jobSalary = formatSalary(job, locale);
  const card = (
  <article
  key={buildListingDedupKey(job)}
@@ -8353,7 +8364,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const description = normalizeDescriptionForCanonicalParser(descriptionCandidate);
  const requirements = selectedJob.requirementsByLocale?.[locale] ?? selectedJob.requirements;
  const requirementList = sanitizeRequirementTokens(Array.isArray(requirements) ? requirements : []);
- const salary = formatSalary(selectedJob);
+ const salary = formatSalary(selectedJob, locale);
  const logo = companyLogoUrl(selectedJob);
  const canonicalCopy = getCanonicalCopy(locale);
  const canonicalContent = readCanonicalLocaleContent(selectedJob, locale, description, requirementList);
