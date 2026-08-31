@@ -22,6 +22,7 @@
  * here to survive untouched.
  */
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   readAllAttr,
   readAttr,
@@ -35,6 +36,12 @@ import {
   joinAnchorParts,
 } from '../scripts/lib/prospector/careers-trail.mjs';
 import { detectQuoteTruncatedTitle } from '../scripts/repair-quote-truncated-titles.mjs';
+import {
+  extractDatesFromHtml,
+  extractHeadlines,
+  extractRssItems,
+} from '../scripts/create-article.mjs';
+import { extractAlliboConnectorUrl } from '../scripts/update-medacta-jobs.mjs';
 
 describe('readAttr — quote balanced', () => {
   it('keeps an apostrophe inside a double-quoted value (the #6480 root cause)', () => {
@@ -62,6 +69,65 @@ describe('readAttr — quote balanced', () => {
 
   it('returns empty string when absent', () => {
     expect(readAttr(`class="x"`, 'title')).toBe('');
+  });
+});
+
+describe('remaining attribute consumers — quote balanced (#6574)', () => {
+  it('keeps apostrophes in article HTML and Atom hrefs', () => {
+    const articleUrl = "https://example.ch/notizie/d'oggi";
+    const [headline] = extractHeadlines(
+      `<a href="${articleUrl}"><time datetime="2026-08-30">30.08.2026</time>Notizia importante per i frontalieri</a>`,
+      'https://example.ch/',
+    );
+    expect(headline.url).toBe(articleUrl);
+    expect(extractDatesFromHtml(`<a href="${articleUrl}"><time datetime="2026-08-30"></time></a>`, 'https://example.ch/').get(articleUrl))
+      .toEqual(new Date('2026-08-30'));
+
+    const [atom] = extractRssItems(
+      `<feed><entry><title>Notizia importante per i frontalieri</title><link rel="self"/><link href="${articleUrl}"/><updated>2026-08-30T08:00:00Z</updated></entry></feed>`,
+      'https://example.ch/feed.xml',
+    );
+    expect(atom.url).toBe(articleUrl);
+  });
+
+  it('skips unrelated Allibo attributes before a quote-balanced connector URL', () => {
+    const connectorUrl = "https://joblink.allibo.com/ats3/Connector.AsPx?FT=R&D's";
+    expect(extractAlliboConnectorUrl(
+      `<div data-allibo="widget-shell"></div><div data-allibo="${connectorUrl.replace('&', '&amp;')}"></div>`,
+    )).toBe(connectorUrl);
+  });
+
+  it('leaves only the six classified false positives in the ratified file set', () => {
+    const files = [
+      'scripts/lib/fondation-domus-job-parser.mjs',
+      'scripts/lib/laderach-job-parser.mjs',
+      'scripts/lib/gemeinde-st-moritz-job-parser.mjs',
+      'scripts/lib/cedes-job-parser.mjs',
+      'scripts/lib/davos-klosters-bergbahnen-job-parser.mjs',
+      'scripts/lib/tertianum-job-parser.mjs',
+      'scripts/import-swiss-hospitals.mjs',
+      'scripts/update-medacta-jobs.mjs',
+      'scripts/create-article.mjs',
+      'scripts/crawl-insurer-logos.mjs',
+      'build-plugins/shared/bridgeThinShell.ts',
+      'build-plugins/shared/softLandingThinShell.ts',
+    ];
+    const residualCounts = Object.fromEntries(
+      files
+        .map((file) => [
+          file,
+          readFileSync(file, 'utf8').split(`=["']([^"']`).length - 1,
+        ] as const)
+        .filter(([, count]) => count > 0),
+    );
+    expect(residualCounts).toEqual({
+      'scripts/lib/tertianum-job-parser.mjs': 1, // explanatory comment; code already uses readAllAttr
+      'scripts/import-swiss-hospitals.mjs': 1, // accepted href grammar is [a-z0-9-] or numeric hid
+      'scripts/create-article.mjs': 1, // datetime is ISO, not free text
+      'scripts/crawl-insurer-logos.mjs': 1, // rel is an HTML link-type token list
+      'build-plugins/shared/bridgeThinShell.ts': 1, // canonical path comes from slugify
+      'build-plugins/shared/softLandingThinShell.ts': 1, // canonical path comes from slugify
+    });
   });
 });
 

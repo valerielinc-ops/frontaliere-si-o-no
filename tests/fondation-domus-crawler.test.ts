@@ -4,10 +4,19 @@ import {
   FONDATION_DOMUS_COMPANY_NAME,
   isFondationDomusJob,
   isTrustedDomain,
+  parseJobsFromHtml,
 } from '../scripts/lib/fondation-domus-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Fondation Domus crawler parser', () => {
+  it("keeps an apostrophe inside a double-quoted application href", () => {
+    const jobs = parseJobsFromHtml(`
+      <h3>Educateur social</h3>
+      <a href="https://www.jobup.ch/fr/emploi/d'Oberwallis/42">Postuler</a>
+    `);
+    expect(jobs[0].applyUrl).toBe("https://www.jobup.ch/fr/emploi/d'Oberwallis/42");
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(FONDATION_DOMUS_KEY).toBe('fondation-domus');

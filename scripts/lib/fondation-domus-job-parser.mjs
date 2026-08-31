@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { readAttr } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -218,7 +219,7 @@ async function fetchCareerPage() {
  * Parse job listings from the career page HTML.
  * Returns array of { title, location, percentage, contractType, date, applyUrl }.
  */
-function parseJobsFromHtml(html = '') {
+export function parseJobsFromHtml(html = '') {
   const listings = [];
 
   // Split by <h3> tags to get individual job blocks
@@ -280,9 +281,10 @@ function parseJobsFromHtml(html = '') {
 
     // Extract apply URL (JobUp or fondation-domus.ch link)
     let applyUrl = '';
-    const linkMatch = block.match(/<a[^>]+href=["']([^"']*(?:jobup\.ch|fondation-domus\.ch)[^"']*)["']/i)
-      || block.match(/<a[^>]+href=["']([^"']+)["'][^>]*>[^<]*(?:postuler|candidature|apply)/i);
-    if (linkMatch) applyUrl = linkMatch[1];
+    const anchors = [...block.matchAll(/(<a\b[^>]*>)([\s\S]*?)<\/a>/gi)];
+    const linkMatch = anchors.find((match) => /(?:jobup\.ch|fondation-domus\.ch)/i.test(readAttr(match[1], 'href')))
+      || anchors.find((match) => /(?:postuler|candidature|apply)/i.test(stripHtml(match[2])));
+    if (linkMatch) applyUrl = readAttr(linkMatch[1], 'href');
 
     listings.push({ title, location, percentage, contractType, dateStr, applyUrl });
   }

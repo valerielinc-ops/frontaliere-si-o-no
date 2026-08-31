@@ -8,6 +8,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readAttr } from './lib/html-attr.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -70,11 +71,10 @@ function extractIconUrls(html, baseUrl) {
   while ((m = linkRe.exec(html)) !== null) {
     const tag = m[0];
     const relM = /rel=["']([^"']+)["']/i.exec(tag);
-    const hrefM = /href=["']([^"']+)["']/i.exec(tag);
-    if (!relM || !hrefM) continue;
+    const href = readAttr(tag, 'href');
+    if (!relM || !href) continue;
 
     const rel = relM[1].toLowerCase();
-    const href = hrefM[1];
     const url = resolve(href);
     if (!url) continue;
 
