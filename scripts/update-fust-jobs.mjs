@@ -80,7 +80,9 @@ const FUST_KEY = 'fust';
 // gitignored, CI-absent, cross-process-racy shared data/jobs.json (bug class
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(FUST_KEY);
+const FUST_SUMMARY_SLICE = path.resolve(ROOT, 'data', 'jobs-crawler-summaries', 'by-crawler', `${FUST_KEY}.json`);
 const FUST_COMPANY_NAME = 'Fust';
+const FUST_SLUG_MAX_LENGTH = 90;
 
 /**
  * Prospective.ch API — same medium as Coop (1000103), shared by Fust, Jumbo,
@@ -184,6 +186,14 @@ const FUST_DETAIL_FETCH_ATTEMPTS = 2;
  * @property {(jobs: object[], key: string) => number | Promise<number>} [archive]
  * @property {(summary: FustPublishSummary) => FustMaybePromise} [writeSummary]
  * @property {() => FustMaybePromise} [assemble]
+ */
+/**
+ * @typedef {FustPublishOptions & {
+ *   readSummary?: () => object | null | Promise<object | null>,
+ *   writeScratch?: (discovery: FustDiscoveryResult, priorJobs: object[]) => object[],
+ *   durationMs?: number,
+ *   generatedAt?: string,
+ * }} FustEmptyPublishOptions
  */
 
 /* ── Matchers ──────────────────────────────────────────────── */
@@ -755,14 +765,20 @@ export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = []) 
 function stableSlugSuffix(job = {}) {
   const idSuffix = String(job.id || '').replace(/^company-/i, '').replace(/[^a-z0-9]/gi, '').toLowerCase();
   if (idSuffix.length >= 6) return idSuffix.slice(0, 10);
-  return fustStableKey(job).replace(/^[^:]+:/, '').replace(/[^a-z0-9]/gi, '').slice(0, 10) || 'job';
+  // A UUID prefix alone is not an identity: two canonical jobs can share the
+  // first 10 characters. This fallback is used only when the generated
+  // company id is unavailable/too short, so keep the complete canonical UUID
+  // to make the disambiguation deterministic and collision-free.
+  return fustStableKey(job).replace(/^[^:]+:/, '').replace(/[^a-z0-9]/gi, '') || 'job';
 }
 
 function appendStableSlugSuffix(slug, job) {
   const suffix = stableSlugSuffix(job);
   const cleanSlug = String(slug || '').replace(/-+$/, '');
   if (cleanSlug.endsWith(`-${suffix}`)) return cleanSlug;
-  return `${cleanSlug}-${suffix}`;
+  const baseBudget = Math.max(1, FUST_SLUG_MAX_LENGTH - suffix.length - 1);
+  const boundedBase = cleanSlug.slice(0, baseBudget).replace(/-+$/, '') || 'job';
+  return `${boundedBase}-${suffix}`;
 }
 
 /**
@@ -952,6 +968,78 @@ export async function writeFustPublishPlan(plan, options = {}) {
   return { total: plan.sliceJobs.length, archived };
 }
 
+function readFustSummarySlice() {
+  if (!fs.existsSync(FUST_SUMMARY_SLICE)) return null;
+  let parsed;
+  try {
+    parsed = JSON.parse(fs.readFileSync(FUST_SUMMARY_SLICE, 'utf8'));
+  } catch (error) {
+    throw new Error(`Fust empty-snapshot confirmation state is unreadable: ${error.message}`);
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new Error('Fust empty-snapshot confirmation state must be a JSON object.');
+  }
+  return parsed;
+}
+
+function emptySnapshotRunCount(summary) {
+  const raw = summary?.authoritativeEmptyConsecutiveRuns;
+  if (raw === undefined) return 0;
+  if (!Number.isInteger(raw) || raw < 0) {
+    throw new Error('Fust empty-snapshot confirmation counter must be a non-negative integer.');
+  }
+  return raw;
+}
+
+/**
+ * A coherent `total=0` is destructive only after two consecutive successful
+ * observations. The first observation writes a durable marker into Fust's
+ * already-versioned summary slice while preserving the jobs slice verbatim.
+ * Any later successful non-empty publication overwrites that summary without
+ * the marker, resetting the sequence by construction.
+ *
+ * @param {FustDiscoveryResult} discovery
+ * @param {object[]} priorJobs
+ * @param {ReturnType<typeof snapshotJobSlugs>} beforeSnapshot
+ * @param {FustEmptyPublishOptions} [options]
+ */
+export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnapshot, options = {}) {
+  if (discovery?.apiTotal !== 0 || (discovery?.urls || []).length !== 0) {
+    throw new Error('Fust empty-snapshot confirmation requires an internally coherent total=0 discovery.');
+  }
+
+  const {
+    readSummary = readFustSummarySlice,
+    writeScratch = writeReconciledFustScratch,
+    durationMs = getCrawlerElapsedMs(),
+    generatedAt,
+    writeSummary = writeSummaryCrawlerSlice,
+    ...publishOptions
+  } = options;
+  const previousSummary = await readSummary();
+  const priorEmptyRuns = emptySnapshotRunCount(previousSummary);
+
+  if (priorEmptyRuns < 1) {
+    const preservedPlan = buildFustPublishPlan(priorJobs, beforeSnapshot, { durationMs, generatedAt });
+    await writeSummary({
+      ...preservedPlan.summary,
+      authoritativeEmptyConsecutiveRuns: 1,
+      authoritativeEmptyPending: true,
+    });
+    return { confirmed: false, total: priorJobs.length, archived: 0 };
+  }
+
+  const emptyJobs = writeScratch(discovery, priorJobs);
+  const emptyPlan = buildFustPublishPlan(emptyJobs, beforeSnapshot, { durationMs, generatedAt });
+  const result = await writeFustPublishPlan(emptyPlan, {
+    ...publishOptions,
+    authoritativeEmpty: true,
+    priorJobs,
+    writeSummary,
+  });
+  return { confirmed: true, ...result };
+}
+
 function validateLocaleCoverage() {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_FUST_STRICT',
@@ -990,20 +1078,18 @@ async function main() {
   const _beforeSnapshot = snapshotJobSlugs(_priorJobs);
 
   // A numeric API total of zero has passed every discovery completeness
-  // invariant above. It is an authoritative empty snapshot, not a crawler
-  // failure: reconcile stale scratch data away and publish the empty slice and
-  // its matching removal summary without running detail/translation stages.
+  // invariant above, but a single internally-coherent zero can still be an
+  // upstream cache/WAF incident. Persist the first observation without
+  // touching the jobs slice; only a second consecutive zero is authoritative.
   if (discovery.apiTotal === 0) {
-    const _emptyJobs = writeReconciledFustScratch(discovery, _priorJobs);
-    const _emptyPlan = buildFustPublishPlan(_emptyJobs, _beforeSnapshot, {
+    const result = await handleFustEmptyDiscovery(discovery, _priorJobs, _beforeSnapshot, {
       durationMs: getCrawlerElapsedMs(),
     });
-    logStats(_emptyPlan);
-    await writeFustPublishPlan(_emptyPlan, {
-      authoritativeEmpty: true,
-      priorJobs: _priorJobs,
-    });
-    console.log(`✅ Fust authoritative empty snapshot published (${_priorJobs.length} prior job(s) removed).`);
+    if (result.confirmed) {
+      console.log(`✅ Fust authoritative empty snapshot confirmed and published (${result.archived} prior job(s) removed).`);
+    } else {
+      console.log(`⚠️ Fust empty snapshot pending confirmation; preserved ${result.total} prior job(s).`);
+    }
     return;
   }
 

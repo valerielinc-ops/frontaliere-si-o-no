@@ -1,16 +1,19 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildFustPublishPlan,
   deriveFustWorkplaceCanton,
   ensureUniqueFustSlugs,
   extractFustWorkplaceFromHtml,
   fetchFustJobUrls,
+  handleFustEmptyDiscovery,
   isCanonicalFustDetailUrl,
   reconcileFustJobsWithDiscovery,
   writeFustPublishPlan,
 } from '../scripts/update-fust-jobs.mjs';
+import { exitCrawlerOnError } from '../scripts/lib/crawler-template.mjs';
 import { snapshotJobSlugs } from '../scripts/jobs-url-helper.mjs';
 
 type FustFixtureDetail = { url: string; workplace: string; canton: string; html: string };
@@ -61,6 +64,9 @@ describe('Fust authoritative discovery', () => {
   });
 
   it('fails loud when the real workplace cannot identify exactly one canton', () => {
+    // An API hint may choose only among canton pairs already corroborated by
+    // the shared municipality resolver; it is never accepted as free-form
+    // geography for an ambiguous known municipality.
     expect(deriveFustWorkplaceCanton('Rickenbach', 'TG')).toBe('TG');
     expect(() => deriveFustWorkplaceCanton('Rickenbach', 'BS'))
       .toThrow(/ambiguous across BL, LU, SO, TG, ZH/);
@@ -260,6 +266,33 @@ describe('Fust post-crawl reconciliation', () => {
     expect(ensureUniqueFustSlugs(stable, [stable[0]])).toEqual(stable);
   });
 
+  it('disambiguates canonical UUIDs that share the first 10 characters', () => {
+    const longCollisionSlug = 'x'.repeat(90);
+    const collision = [
+      {
+        ...crawled[0],
+        id: 'x',
+        url: 'https://jobs.fust.ch/offene-stellen/a/12345678-1234-4aaa-8aaa-111111111111',
+        slug: longCollisionSlug,
+        slugByLocale: { it: longCollisionSlug },
+      },
+      {
+        ...crawled[1],
+        id: 'y',
+        url: 'https://jobs.fust.ch/offene-stellen/b/12345678-1234-4bbb-8bbb-222222222222',
+        slug: longCollisionSlug,
+        slugByLocale: { it: longCollisionSlug },
+      },
+    ];
+    const stable = ensureUniqueFustSlugs(collision);
+    expect(stable[0].slug).toBe(longCollisionSlug);
+    expect(stable[1].slug).toContain('1234567812344bbb8bbb222222222222');
+    expect(new Set(stable.map((job) => job.slug)).size).toBe(2);
+    expect(new Set(stable.map((job) => job.slugByLocale.it)).size).toBe(2);
+    expect(stable.every((job) => job.slug.length <= 90)).toBe(true);
+    expect(stable.every((job) => job.slugByLocale.it.length <= 90)).toBe(true);
+  });
+
   it('fails loud instead of writing an incomplete authoritative snapshot', () => {
     expect(() => reconcileFustJobsWithDiscovery(crawled.slice(0, 3), discovery))
       .toThrow(/completeness invariant failed: 1\/4/);
@@ -332,6 +365,98 @@ describe('Fust post-crawl reconciliation', () => {
     expect(calls.assembled).toBe(true);
     expect(events).toEqual(['archive', 'slice', 'summary', 'assemble']);
     expect(result).toEqual({ total: 0, archived: 1 });
+  });
+
+  it('requires two durable zero snapshots before archiving the prior slice', async () => {
+    const prior = [crawled[0]];
+    const discovery = {
+      urls: [],
+      seedMetaByUrl: {},
+      apiTotal: 0,
+      droppedMalformedUrl: 0,
+      droppedDuplicateIdentity: 0,
+      workplaceCount: 0,
+      unknownCantonFallbacks: [],
+    };
+    const before = snapshotJobSlugs(prior);
+    const stateDir = fs.mkdtempSync(path.join(os.tmpdir(), 'fust-empty-confirmation-'));
+    const statePath = path.join(stateDir, 'fust.json');
+    let slice = [...prior];
+    const archive = vi.fn(async () => prior.length);
+    const writeSlice = vi.fn(async (_key: string, jobs: object[]) => { slice = [...jobs] as typeof prior; });
+    const readSummary = () => fs.existsSync(statePath)
+      ? JSON.parse(fs.readFileSync(statePath, 'utf8')) as Record<string, unknown>
+      : null;
+    const writeSummary = vi.fn(async (summary: Record<string, unknown>) => {
+      fs.writeFileSync(statePath, `${JSON.stringify(summary)}\n`, 'utf8');
+    });
+    const writeScratch = vi.fn(() => []);
+    const assemble = vi.fn(async () => {});
+    const options = {
+      readSummary,
+      writeSummary,
+      writeScratch,
+      archive,
+      writeSlice,
+      writeVerified: vi.fn(async () => { throw new Error('verified writer must not own total=0'); }),
+      assemble,
+      durationMs: 123,
+      generatedAt: '2026-08-31T00:00:00.000Z',
+    };
+
+    try {
+      const first = await handleFustEmptyDiscovery(discovery, prior, before, options);
+      expect(first).toEqual({ confirmed: false, total: 1, archived: 0 });
+      expect(slice).toEqual(prior);
+      expect(archive).not.toHaveBeenCalled();
+      expect(writeSlice).not.toHaveBeenCalled();
+      expect(writeScratch).not.toHaveBeenCalled();
+      expect(assemble).not.toHaveBeenCalled();
+      expect(readSummary()).toMatchObject({
+        total: 1,
+        removedCount: 0,
+        authoritativeEmptyConsecutiveRuns: 1,
+        authoritativeEmptyPending: true,
+      });
+
+      // Simulate a new process: the second call reconstructs confirmation
+      // exclusively from the versionable summary file, not module memory.
+      const second = await handleFustEmptyDiscovery(discovery, prior, before, options);
+      expect(second).toEqual({ confirmed: true, total: 0, archived: 1 });
+      expect(slice).toEqual([]);
+      expect(archive).toHaveBeenCalledWith(prior, 'fust');
+      expect(writeScratch).toHaveBeenCalledTimes(1);
+      expect(assemble).toHaveBeenCalledTimes(1);
+      expect(readSummary()).toMatchObject({ total: 0, removedCount: 1 });
+      expect(readSummary()).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
+    } finally {
+      fs.rmSync(stateDir, { recursive: true, force: true });
+    }
+  });
+
+  it('resets a pending zero marker on the next successful non-empty publication', async () => {
+    const plan = buildFustPublishPlan([crawled[0]]);
+    let summaryState: Record<string, unknown> = {
+      authoritativeEmptyConsecutiveRuns: 1,
+      authoritativeEmptyPending: true,
+    };
+    await writeFustPublishPlan(plan, {
+      writeVerified: async () => {},
+      writeSummary: async (summary: Record<string, unknown>) => { summaryState = summary; },
+      assemble: async () => {},
+    });
+    expect(summaryState).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
+    expect(summaryState).not.toHaveProperty('authoritativeEmptyPending');
+  });
+
+  it('routes an uncaught Fust invariant failure to exit code 1', () => {
+    const source = fs.readFileSync(path.resolve(import.meta.dirname, '..', 'scripts', 'update-fust-jobs.mjs'), 'utf8');
+    expect(source).toMatch(/main\(\)\.catch\(\(err\) => exitCrawlerOnError\(err, 'Fust'\)\)/);
+    const exit = vi.spyOn(process, 'exit').mockImplementation(((code?: number) => {
+      throw new Error(`exit:${code}`);
+    }) as never);
+    expect(() => exitCrawlerOnError(new Error('workplace invariant failed'), 'Fust')).toThrow('exit:1');
+    exit.mockRestore();
   });
 
   it('keeps the verified shrink guard on every non-empty publication', async () => {
