@@ -572,11 +572,7 @@ export function computeAssembleInputFingerprint() {
   const dirs = [JOBS_SLICES_DIR, EXPIRED_SLICES_DIR, SUMMARIES_SLICES_DIR];
   const files = [];
   for (const d of dirs) {
-    if (!fs.existsSync(d)) continue;
-    for (const f of fs.readdirSync(d)) {
-      if (!f.endsWith('.json')) continue;
-      files.push(path.join(d, f));
-    }
+    files.push(...listSliceFiles(d));
   }
   files.sort();
   const hasher = crypto.createHash('sha256');

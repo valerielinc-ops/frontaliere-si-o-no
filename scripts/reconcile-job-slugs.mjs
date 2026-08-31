@@ -37,6 +37,7 @@ import {
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { mergePreviousSlugsCapped } from './lib/slug-history-journal.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1190,9 +1191,9 @@ function updateCrawlerSlices(updatedJobs) {
  * @param {Set<string>} reconciledIds - IDs of expired entries that were reconciled
  */
 function updateExpiredCrawlerSlices(reconciledIds) {
-  if (!reconciledIds?.size || !fs.existsSync(DATA_EXPIRED_SLICES_DIR)) return;
+  if (!reconciledIds?.size) return;
 
-  const files = fs.readdirSync(DATA_EXPIRED_SLICES_DIR).filter((f) => f.endsWith('.json'));
+  const files = listSliceFileNames(DATA_EXPIRED_SLICES_DIR);
   let totalRemoved = 0;
 
   for (const file of files) {

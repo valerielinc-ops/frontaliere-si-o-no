@@ -25,6 +25,7 @@ import path from 'node:path';
 import { DATA_ROOT, ROOT } from './../config.mjs';
 import { registrableDomain, normalizeHost, sameOrg } from './../registrable.mjs';
 import { isPlatformEligible } from './../platform-registry.mjs';
+import { listSliceFileNames } from './../../crawler-slice-files.mjs';
 
 /**
  * @param {string} root
@@ -35,8 +36,7 @@ function readJobs(dataRoot) {
   /** @type {any[]} */
   const jobs = [];
   try {
-    for (const f of fs.readdirSync(sliceDir)) {
-      if (!f.endsWith('.json')) continue;
+    for (const f of listSliceFileNames(sliceDir)) {
       try {
         const raw = JSON.parse(fs.readFileSync(path.join(sliceDir, f), 'utf8'));
         const list = Array.isArray(raw) ? raw : raw?.jobs || [];

@@ -43,6 +43,7 @@ import {
   ORPHAN_ENRICHED_SHARD_DIR,
 } from './lib/orphan-enriched-store.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -379,7 +380,7 @@ function buildKnownSlugsSet() {
   const crawlerDir = dataPath('jobs', 'by-crawler');
   if (fs.existsSync(crawlerDir)) {
     let crawlerCount = 0;
-    for (const file of fs.readdirSync(crawlerDir).filter((f) => f.endsWith('.json'))) {
+    for (const file of listSliceFileNames(crawlerDir)) {
       const data = readJsonSafe(path.join(crawlerDir, file));
       if (data?.jobs && Array.isArray(data.jobs)) {
         for (const job of data.jobs) addJobSlugs(job);
@@ -393,7 +394,7 @@ function buildKnownSlugsSet() {
   const expiredCrawlerDir = dataPath('jobs', 'expired', 'by-crawler');
   if (fs.existsSync(expiredCrawlerDir)) {
     let expiredCrawlerCount = 0;
-    for (const file of fs.readdirSync(expiredCrawlerDir).filter((f) => f.endsWith('.json'))) {
+    for (const file of listSliceFileNames(expiredCrawlerDir)) {
       const data = readJsonSafe(path.join(expiredCrawlerDir, file));
       if (Array.isArray(data)) {
         for (const job of data) addJobSlugs(job);
@@ -1556,8 +1557,7 @@ async function main() {
   const bySliceDir = dataPath('jobs', 'by-crawler');
   const activeSlugSet = new Set();
   if (fs.existsSync(bySliceDir)) {
-    for (const f of fs.readdirSync(bySliceDir)) {
-      if (!f.endsWith('.json')) continue;
+    for (const f of listSliceFileNames(bySliceDir)) {
       try {
         const slice = JSON.parse(fs.readFileSync(path.join(bySliceDir, f), 'utf-8'));
         const jobs = Array.isArray(slice) ? slice : (slice.jobs || []);
