@@ -4846,6 +4846,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, saranno 50 i licenziamenti',
     'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide annuncia 50 licenziamenti in ristrutturazione. La consultazione sindacale ha ridotto il numero da 220 iniziali. Prima ondata: 14, seconda primavera 2027: circa 35.',
     'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Paesaggio svizzero con vedute di aeroporti e corridoi di traffico aereo, che rappresenta il controllo del traffico di Skyguide.',
+    'blog.article.divieto-velo-cellulari-scuole.title': 'Zurigo vieta velo e cellulari nelle scuole',
+    'blog.article.divieto-velo-cellulari-scuole.excerpt': 'Il Gran Consiglio zurighese approva con margine risicato il divieto di velo e cellulari. Argovia aveva già deciso per il velo. Tempi: due anni per leggi.',
+    'blog.article.divieto-velo-cellulari-scuole.imageAlt': 'Aula scolastica zurighese con studenti, arredamento contemporaneo e luce naturale',
 };
 
 export default blogMetaChIt;
