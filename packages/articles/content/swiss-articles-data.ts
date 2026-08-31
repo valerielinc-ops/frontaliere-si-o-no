@@ -14482,6 +14482,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scorte-mangimi-proteici-svizzera',
+    category: 'novita',
+    date: '2026-08-31T12:47:35.040Z',
+    image: '/images/blog/scorte-mangimi-proteici-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'swatch-samsung-risarcimento-marchi',
+    category: 'novita',
+    date: '2026-08-31T13:34:48.989Z',
+    image: '/images/blog/swatch-samsung-risarcimento-marchi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
