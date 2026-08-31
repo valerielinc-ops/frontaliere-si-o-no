@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-oc2u3s",
-      "slug": "springer-in-empfang-fitnesspark-regensdorf-oc2u3s",
+      "slug": "receptionist-fitnesspark-regensdorf",
       "company": "Fitnesspark",
       "title": "Springer*in Empfang",
       "location": "Regensdorf",
@@ -63,10 +63,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "springer-in-empfang-fitnesspark-regensdorf-oc2u3s",
+        "it": "receptionist-fitnesspark-regensdorf",
         "en": "springer-in-empfang-fitnesspark-regensdorf-oc2u3s",
         "de": "springer-in-empfang-fitnesspark-regensdorf-oc2u3s",
-        "fr": "springer-in-empfang-fitnesspark-regensdorf-oc2u3s"
+        "fr": "receptionniste-fitnesspark-regensdorf"
       },
       "requirementsByLocale": {
         "it": [],
@@ -86,11 +86,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "springer-in-empfang-fitnesspark-regensdorf"
+          "springer-in-empfang-fitnesspark-regensdorf",
+          "springer-in-empfang-fitnesspark-regensdorf-oc2u3s"
+        ],
+        "fr": [
+          "springer-in-empfang-fitnesspark-regensdorf-oc2u3s"
         ]
       },
       "previousSlugs": [
-        "springer-in-empfang-fitnesspark-regensdorf"
+        "springer-in-empfang-fitnesspark-regensdorf",
+        "springer-in-empfang-fitnesspark-regensdorf-oc2u3s"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1903,7 +1908,7 @@
     },
     {
       "id": "company-hfi45b",
-      "slug": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b",
+      "slug": "addetto-vendita-specializzato-macelleria-genossenschaft-migros-aare-rheinfelden",
       "company": "Genossenschaft Migros Aare",
       "title": "Fachverkäufer*in Metzgerei",
       "location": "Rheinfelden",
@@ -1962,10 +1967,10 @@
         "fr": "Connaissez-vous la saisonnalité de la boucherie, avez-vous déjà acquis de l'expérience dans ce domaine et aimez-vous travailler les produits carnés ? Vous sentez-vous interpellé ? Alors vous êtes au bon endroit. En tant que vendeur spécialisé à la boucherie, vous servez et inspirez nos clients avec une gamme étendue.\n\nManoir\n- Vous conseillez et servez nos clients avec joie et vos connaissances spécialisées au comptoir des viandes\n- Vous vous concentrez sur une présentation attrayante des produits, une gestion efficace des produits et la garantie de la disponibilité.\n- Vous respectez les processus définis dans le département et veillez au bon déroulement de tout\n- Les contrôles qualité et le respect du concept HACCP sont de votre responsabilité\n- Coordination et support des affaires quotidiennes en l'absence de la direction du département\n\nAccessoires\n- Idéalement quelques années d'expérience professionnelle : en tant que boucher, cuisinier ou dans le commerce de détail spécialisé dans l'industrie de la viande\n- Formation de base ou continue complétée : comme boucher, cuisinier ou dans le commerce de détail spécialisé dans l'industrie de la viande\n- En tant que personnalité orientée client et aimant vendre, vous faites du shopping une expérience positive\n- Des compétences informatiques et un haut niveau de forme physique numérique vous distinguent\n- Vous avez déjà de l'expérience au comptoir des viandes\n- Allemand (très bonne connaissance)\n\nCosa offriamo\n- Congé maternité / Congé paternité : 18 semaines de congé maternité et 4 semaines de congé paternité\n- Prévoyance professionnelle : des prestations supérieures à la moyenne garantissent la sécurité financière des salariés dans la troisième phase de la vie\n- Avantages sociaux : Conditions d'emploi attractives avec de très bonnes prestations sociales\n- Points Cumulus : Multiples points Cumulus sur les produits alimentaires et non alimentaires\n- École-Club Migros : généreuse contribution financière aux cours auto-sélectionnés\n- Offres de sport et de fitness: participations aux frais d'abonnement à plus de 50 parcs fitness, bien-être et aquatiques Migros\n- Mobilité : Participation à un abonnement annuel aux transports publics, réduction sur le carburant (Migrol), cotisation annuelle réduite pour l'autopartage Mobility et droit à une réduction flotte.\n- Abonnement mobile : Diverses réductions sur les abonnements mobiles\n- Banque Migros : gestion de compte gratuite, taux d'intérêt préférentiels sur le capital ou réduction des taux d'intérêt sur les nouvelles hypothèques à taux fixe\n- Offres salariés : conditions préférentielles pour les assurances et mutuelles\n- Offres de loisirs et culturelles : Diverses réductions sur les offres de vacances, séjours linguistiques, vacances Migros, Interhome et événements\n\nContact\nCandidature et contact Melanie Knuchel Recruiting Partner +41 58 565 85 85 ## Remarque destinée aux prestataires de services de personnel Pour ce poste, nous prenons uniquement en compte les candidatures directes.\n\nTaux d'occupation : 80-100%"
       },
       "slugByLocale": {
-        "it": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b",
-        "en": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b",
+        "it": "addetto-vendita-specializzato-macelleria-genossenschaft-migros-aare-rheinfelden",
+        "en": "specialist-sales-assistant-butchery-genossenschaft-migros-aare-rheinfelden",
         "de": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b",
-        "fr": "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b"
+        "fr": "vendeur-specialise-boucherie-genossenschaft-migros-aare-rheinfelden"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1981,11 +1986,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden"
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden",
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b"
+        ],
+        "en": [
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b"
+        ],
+        "fr": [
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b"
         ]
       },
       "previousSlugs": [
-        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden"
+        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden",
+        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-rheinfelden-hfi45b"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -2530,7 +2543,7 @@
     },
     {
       "id": "company-a2asrv",
-      "slug": "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv",
+      "slug": "assistente-alla-gestione-delle-filiali-denner-ag-zollikofen",
       "company": "Denner AG",
       "title": "Assistent*in Filialleitung",
       "location": "Zollikofen",
@@ -2590,10 +2603,10 @@
         "fr": "Vous voulez prendre la responsabilité de jour en jour? Vous n'êtes pas prêt pour Stv.? Ici vous pouvez prouver ce que vous avez. Partagez vos connaissances. Collectez l'expérience de leadership. Et bien sûr apprendre beaucoup. Denner. C'est notre boutique.\n\nMansioni - Vous faites une attention particulière à la fraîcheur des fruits, légumes et pain et dites Food Waste avec des commandes à vue de loin le combat - Produits frais et bien sûr tous les autres biens commandent, acceptent, vérifient et remplissent les étagères dans votre magasin - correctement mettre en œuvre les spécifications dans la disposition du magasin - assurer la ordre et la propreté dans le magasin et dans l'entrepôt - service et facture - guide, promouvoir et amener les employés au bureau comme assistants - et être un modèle pour eux\n\nRequisiti - Idéalement plus de deux ans d'expérience professionnelle: dans le commerce de détail (alimentaire) - Apprentissage professionnel terminé (EBA): dans le commerce de détail (alimentaire) ou le genre professionnel connexe serait idéal - joie dans les produits frais et idéalement déjà expérience professionnelle avec lui - prêt à travailler au-delà de «neuf à cinq» - et profiter du temps libre lorsque d'autres travaillent - En forme physique, certains Colis sont jusqu'à 10 kilos lourds - heureux parmi les gens, une bonne partie de la cordialité et une attitude de base positive - Allemand (très bonne connaissance)\n\nCosa offriamo - Une partie du groupe Migros : Une marque forte ancrée dans le commerce de détail sous l'égide du groupe Migros - Travail sain : des normes élevées en matière de sécurité au travail, d'ergonomie et d'hygiène. - Congé de maternité / congé de paternité : 5 semaines de pause-bébé (19 semaines) pour les mères et à 100% de salaire. - Salaire équitable : 13 salaires mensuels et augmentations de salaire fixes pour tous au lieu de primes pour peu. - Abonnement téléphone mobile : L'agonie de choix : Avec Galaxus Mobile, Wingo ou Sunrise déjà connecté à partir de CHF 10.- ou ainsi correctement.\n\n- Migros Bank : Meilleur voyage avec les intérêts et les frais de votre concessionnaire privé, d'investissement ou d'hypothèque. - Offres d'employé : 10% sur le prochain achat majeur (tuez par an). - Vacances : 6 semaines de vacances pour tous et encore plus de jours de service jubilees. - Loisirs et offres culturelles : Diverses réductions pour la location de voitures, hôtels, événements et bien plus encore. - Promotion ciblée : de la lave-vaisselle au millionnaire? Peut-être pas exactement, mais : Qui a mordu et talent, vient rapidement.\n\nDemande et contact pour Contatto Remo Herrmann Recruiter Sales Mittelland - LinkedIn ## Processus de recrutement Sélection de candidatures Nous vérifions en permanence les demandes reçues, créons une sélection préliminaire et les transmettons à la direction pour consultation.La décision concernant l'avancement ou le départ du processus de recrutement est communiquée par téléphone ou par courriel.Durée jusqu'à trois semaines Conversation personnelle avec un grand nombre de candidats, nous effectuons en option une conversation personnelle avec un téléphone ou une vidéo.\n\nCela nous donne l'occasion d'apprendre à connaître plus de candidats en peu de temps pour inviter des personnes appropriées pour la prochaine ronde. Durée de la rétroaction : Jusqu'à une semaine de travail d'essai Un jour ou la moitié d'une journée nous donne l'occasion de mieux connaître l'environnement de travail futur et les membres de l'équipe.\n\nDurée de la rétroaction : Jusqu'à trois semaines d'offre et d'exposition de contrat Après notre offre orale, les points de contrat les plus importants sont vérifiés à nouveau.Après accord, le contrat est commandé et envoyé par la poste.Durée de la rétroaction : Jusqu'à trois semaines ## Note pour les fournisseurs de services RH Nous ne prenons en compte que les demandes directes pour ce travail."
       },
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv",
-        "en": "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv",
+        "it": "assistente-alla-gestione-delle-filiali-denner-ag-zollikofen",
+        "en": "assistant-to-branch-management-denner-ag-zollikofen",
         "de": "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv",
-        "fr": "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv"
+        "fr": "assistant-a-la-gestion-des-succursales-denner-ag-zollikofen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -2612,11 +2625,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistent-in-filialleitung-denner-ag-zollikofen"
+          "assistent-in-filialleitung-denner-ag-zollikofen",
+          "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv"
+        ],
+        "en": [
+          "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv"
+        ],
+        "fr": [
+          "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv"
         ]
       },
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-ag-zollikofen"
+        "assistent-in-filialleitung-denner-ag-zollikofen",
+        "assistent-in-filialleitung-denner-ag-zollikofen-a2asrv"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -3684,7 +3705,7 @@
     },
     {
       "id": "company-4apa77",
-      "slug": "verkaufer-in-denner-ag-breitenbach",
+      "slug": "venditore-denner-ag-breitenbach",
       "company": "Denner AG",
       "title": "Verkäufer*in",
       "location": "Breitenbach",
@@ -3742,10 +3763,10 @@
         "fr": "Des produits frais qui méritent leur nom. Des étagères remplies. Commandes expédiées dans les temps. Surface propre. La caisse est correcte. Clients satisfaits. C'est notre boutique. Et bientôt le vôtre aussi. Passez à la nouvelle équipe gagnante maintenant.\n\nManoir\n- Gérer et facturer les caisses enregistreuses\n- Acceptez les produits frais et bien sûr toutes les autres marchandises, vérifiez-les et remplissez-les dans les rayons de votre magasin\n- Vérifier les dates de péremption des produits\n- Assurer l'ordre et la propreté dans la succursale et l'entrepôt\n- Implémenter correctement les spécifications dans l'agencement du magasin\n\nAccessoires\n- Idéalement plus de deux ans d'expérience professionnelle : dans le commerce de détail (alimentaire)\n- Un apprentissage professionnel terminé (EBA) : dans le commerce de détail (alimentation) ou une profession connexe serait idéal\n- Prêt à travailler au-delà de « neuf heures à cinq » – et à profiter du temps libre pendant que d'autres travaillent\n- En bonne forme physique, certains Colis pèsent jusqu'à 10 kilos\n- Vous êtes familier avec PC, tablette et smartphone - et vous devenez rapidement amis avec d'autres assistants numériques (par exemple pour la gestion des stocks).\n- Aime être entouré de gens, une bonne dose de chaleur et une attitude positive\n- Allemand (bonne connaissance)\n\nCosa offriamo\n- Fait partie du groupe Migros : marque forte ancrée dans le secteur du commerce de détail sous l'égide du groupe Migros\n- Travailler sainement : normes élevées en matière de sécurité au travail, d'ergonomie et d'hygiène.\n- Congé maternité/congé paternité : congé maternité prolongé de 5 semaines (19 semaines) pour les mamans et rémunéré à 100%. Les pères profitent de leur progéniture pendant 4 semaines payées.\n- Des salaires équitables : 13 salaires mensuels et des augmentations de salaire fixes pour tout le monde au lieu de primes pour quelques-uns.\n- Abonnement de téléphonie mobile : Vous avez l'embarras du choix : connectez-vous avec Galaxus Mobile, Wingo ou Sunrise à partir de seulement CHF 10.- dans les deux cas.\n- Banque Migros : Bénéficiez de meilleurs intérêts et frais sur vos comptes privés, d'investissement ou hypothécaires.\n- Offres pour les employés : 10 % de réduction sur votre prochain achat important (deux fois par an).\n- Vacances : 6 semaines de vacances pour tous et même des jours supplémentaires pour les anniversaires de service.\n- Offres de loisirs et culturelles : Diverses réductions sur les locations de voitures, les hôtels, les événements et bien d'autres domaines.\n\nContact\nCandidature et contact Remo Herrmann Recruiter Sales Mittelland - LinkedIn ## Processus de recrutement Présélection des candidatures Nous vérifions en permanence les candidatures que nous recevons, créons une présélection et la communiquons au manager pour consultation. La décision de poursuivre ou de quitter le processus de recrutement est communiquée par téléphone ou par courrier électronique. Durée jusqu'au retour d'information : jusqu'à trois semaines Conversation personnelle par vidéo ou par téléphone S'il y a un grand nombre de candidats, nous organiserons éventuellement une conversation téléphonique ou vidéo personnelle. Cela nous donne la possibilité de mieux connaître davantage de candidats dans un court laps de temps afin d'inviter des personnes appropriées pour le prochain tour. Durée jusqu'au feedback : Jusqu'à une semaine de travail d'essai. Une journée ou demi-journée d'essai vous donne l'occasion de mieux connaître le futur environnement de travail et les membres de l'équipe. Et à l’inverse, cela nous donne l’occasion d’évaluer dans quelle mesure quelqu’un s’intègre dans l’équipe. Durée jusqu'au retour d'information : jusqu'à trois semaines Émission de l'offre et du contrat Après notre offre d'emploi verbale, les points les plus importants du contrat seront à nouveau vérifiés. Une fois convenu, le contrat sera rédigé et envoyé par courrier. Durée jusqu'à la rétroaction : jusqu'à trois semaines ## Remarque destinée aux prestataires de services de personnel Nous ne considérons que les candidatures directes pour ce poste.\n\nTaux d'occupation : 60%"
       },
       "slugByLocale": {
-        "it": "verkaufer-in-denner-ag-breitenbach",
-        "en": "verkaufer-in-denner-ag-breitenbach",
+        "it": "venditore-denner-ag-breitenbach",
+        "en": "salesperson-denner-ag-breitenbach",
         "de": "verkaufer-in-denner-ag-breitenbach",
-        "fr": "verkaufer-in-denner-ag-breitenbach"
+        "fr": "vendeur-denner-ag-breitenbach"
       },
       "requirementsByLocale": {
         "it": [],
@@ -3763,20 +3784,24 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner-ag-breitenbach-4apa77"
+          "verkaufer-in-denner-ag-breitenbach-4apa77",
+          "verkaufer-in-denner-ag-breitenbach"
         ],
         "en": [
-          "verkaufer-in-denner-ag-breitenbach-4apa77"
+          "verkaufer-in-denner-ag-breitenbach-4apa77",
+          "verkaufer-in-denner-ag-breitenbach"
         ],
         "de": [
           "verkaufer-in-denner-ag-breitenbach-4apa77"
         ],
         "fr": [
-          "verkaufer-in-denner-ag-breitenbach-4apa77"
+          "verkaufer-in-denner-ag-breitenbach-4apa77",
+          "verkaufer-in-denner-ag-breitenbach"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-denner-ag-breitenbach-4apa77"
+        "verkaufer-in-denner-ag-breitenbach-4apa77",
+        "verkaufer-in-denner-ag-breitenbach"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -15690,8 +15715,7 @@
         "directeur-de-succursale-stv-in-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "stv-branch-manager-in-denner-ag-zurich-z8lf10",
-        "stv-branch-manager-in-denner-ag-zurich",
-        "vice-direttore-di-negozio-denner-ag-zurich"
+        "stv-branch-manager-in-denner-ag-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -25431,16 +25455,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu",
-          "fitness-instructor-m-w-d-activ-fitness-luzern"
+          "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu",
-        "fitness-instructor-m-w-d-activ-fitness-luzern"
+        "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -28979,16 +29001,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -51542,13 +51562,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-          "assistente-manager-fitness-club-activ-fitness-zofingen"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-        "assistente-manager-fitness-club-activ-fitness-zofingen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -52119,16 +52137,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-          "fitness-instructor-m-w-d-activ-fitness-zofingen"
+          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-        "fitness-instructor-m-w-d-activ-fitness-zofingen"
+        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -59974,16 +59990,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-          "fitness-instructor-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-        "fitness-instructor-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -66177,8 +66191,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
-          "fitness-instructor-m-w-d-activ-fitness-aarau"
+          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
@@ -66186,8 +66199,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
-        "fitness-instructor-m-w-d-activ-fitness-aarau"
+        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -67630,8 +67642,7 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
-          "cuciniera-gurten-park-im-grunen-wabern",
-          "chef-de-rang-gurten-park-im-grunen-wabern"
+          "cuciniera-gurten-park-im-grunen-wabern"
         ],
         "en": [
           "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl"
@@ -67642,8 +67653,7 @@
       },
       "previousSlugs": [
         "chef-de-rang-gurten-park-im-grunen-wabern-hyppfl",
-        "cuciniera-gurten-park-im-grunen-wabern",
-        "chef-de-rang-gurten-park-im-grunen-wabern"
+        "cuciniera-gurten-park-im-grunen-wabern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -68365,8 +68375,7 @@
           "fitness-instructor-w-activ-fitness-zurich",
           "instructeur-fitness-w-m-d-activ-fitness-zurich",
           "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-          "fitness-instructor-m-w-d-activ-fitness-zurich"
+          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
         ],
         "en": [
           "fitness-instructor-w-activ-fitness-zurich"
@@ -68385,8 +68394,7 @@
         "fitness-instructor-w-activ-fitness-zurich",
         "instructeur-fitness-w-m-d-activ-fitness-zurich",
         "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-        "fitness-instructor-m-w-d-activ-fitness-zurich"
+        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -96189,8 +96197,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
-          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -96206,8 +96213,7 @@
         "fitness-instructor-aushilfe-m-w-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
-        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -111354,8 +111360,7 @@
           "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen",
           "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-jmaavj",
           "professeur-minitrampoline-bellicon-en-salaire-horaire-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+          "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
           "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen"
@@ -111373,8 +111378,7 @@
         "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen",
         "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-jmaavj",
         "professeur-minitrampoline-bellicon-en-salaire-horaire-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+        "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -124147,14 +124151,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-          "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "fitness-instructor-m-w-d-activ-fitness-kloten"
+          "fitness-instructor-w-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-        "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "fitness-instructor-m-w-d-activ-fitness-kloten"
+        "fitness-instructor-w-m-d-activ-fitness-kloten"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500

@@ -39,9 +39,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "assistente-di-farmacia-a-tempo-parziale-50-presso-l-ufficio-del-farmacista-cantonale-mendrisio-amministrazione-cantonale-ti-bellinzona-213hls",
-        "en": "assistente-di-farmacia-a-tempo-parziale-50-presso-l-ufficio-del-farmacista-cantonale-mendrisio-amministrazione-cantonale-ti-bellinzona-213hls",
-        "de": "assistente-di-farmacia-a-tempo-parziale-50-presso-l-ufficio-del-farmacista-cantonale-mendrisio-amministrazione-cantonale-ti-bellinzona-213hls",
-        "fr": "assistente-di-farmacia-a-tempo-parziale-50-presso-l-ufficio-del-farmacista-cantonale-mendrisio-amministrazione-cantonale-ti-bellinzona-213hls"
+        "en": "partial-time-pharmacy-assistant-50-at-the-cantonal-pharmacist-s-office-mendrisio-organizzazione-sociopsichiatrica",
+        "de": "teilzeit-apothekenassistentin-50-im-kantonalen-apothekerburo-mendrisio-organizzazione-sociopsichiatrica-cantonale-osc",
+        "fr": "assistant-de-pharmacie-a-temps-partiel-50-au-bureau-du-pharmacien-cantonal-mendrisio-organizzazione-sociopsichiatrica"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -106,9 +106,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "medico-ai-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-istituto-delle-assicurazioni-sociali-ufficio-dell-assicurazione-invalidita-servizio-213hlr",
-        "en": "medico-ai-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-istituto-delle-assicurazioni-sociali-ufficio-dell-assicurazione-invalidita-servizio-213hlr",
-        "de": "medico-ai-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-istituto-delle-assicurazioni-sociali-ufficio-dell-assicurazione-invalidita-servizio-213hlr",
-        "fr": "medico-ai-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-istituto-delle-assicurazioni-sociali-ufficio-dell-assicurazione-invalidita-servizio-213hlr"
+        "en": "partial-time-ai-doctor-50-full-time-100-at-the-institute-of-social-insurance-department-of-insurance-regional-medical",
+        "de": "teilzeit-ki-arzt-50-vollzeit-100-am-institut-fur-sozialversicherung-abteilung-fur-versicherung-regional-medical-service",
+        "fr": "medecin-a-temps-partiel-50-a-temps-plein-100-a-l-institut-d-assurance-sociale-departement-d-assurance-service-medical"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -171,18 +171,30 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "medico-capo-clinica-in-psichiatria-a-tempo-parziale-60-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-osc-213hlt",
-        "en": "medical-head-in-partial-time-psychiatry-60-in-charge-art-15-and-16-gross-at-the-cantonal-sociopsychiatric-organization",
-        "de": "medizinische-leitung-in-teilzeitpsychiatrie-60-zustandig-art-15-und-16-gross-bei-der-kantonalen-soziopsychiatrischen",
-        "fr": "chef-medical-en-psychiatrie-a-temps-partiel-60-responsable-art-15-et-16-gross-a-l-organisation-sociopsychiatrique"
+        "en": "medical-head-in-partial-time-psychiatry-60-in-charge-art-15-and-16-gross-at-the-cantonal-sociopsychiatric-63c906",
+        "de": "medizinische-leitung-in-teilzeitpsychiatrie-60-zustandig-art-15-und-16-gross-bei-der-kantonalen-63c906",
+        "fr": "chef-medical-en-psychiatrie-a-temps-partiel-60-responsable-art-15-et-16-gross-a-l-organisation-sociopsychiatrique-63c906"
       },
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "medico-capo-clinica-in-psichiatria-a-tempo-parziale-60-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-osc"
+        ],
+        "en": [
+          "medical-head-in-partial-time-psychiatry-60-in-charge-art-15-and-16-gross-at-the-cantonal-sociopsychiatric-organization"
+        ],
+        "de": [
+          "medizinische-leitung-in-teilzeitpsychiatrie-60-zustandig-art-15-und-16-gross-bei-der-kantonalen-soziopsychiatrischen"
+        ],
+        "fr": [
+          "chef-medical-en-psychiatrie-a-temps-partiel-60-responsable-art-15-et-16-gross-a-l-organisation-sociopsychiatrique"
         ]
       },
       "previousSlugs": [
-        "medico-capo-clinica-in-psichiatria-a-tempo-parziale-60-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-osc"
+        "medico-capo-clinica-in-psichiatria-a-tempo-parziale-60-incaricato-a-art-15-e-16-lord-presso-l-organizzazione-sociopsichiatrica-cantonale-osc",
+        "medical-head-in-partial-time-psychiatry-60-in-charge-art-15-and-16-gross-at-the-cantonal-sociopsychiatric-organization",
+        "medizinische-leitung-in-teilzeitpsychiatrie-60-zustandig-art-15-und-16-gross-bei-der-kantonalen-soziopsychiatrischen",
+        "chef-medical-en-psychiatrie-a-temps-partiel-60-responsable-art-15-et-16-gross-a-l-organisation-sociopsychiatrique"
       ],
       "salaryMin": 42300,
       "salaryMax": 59100,

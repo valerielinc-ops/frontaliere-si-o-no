@@ -4346,9 +4346,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg",
+        "en": "staff-cleaning-m-f-d-30-lidl-svizzera-landquart",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg"
+        "fr": "nettoyage-du-personnel-h-f-d-30-lidl-svizzera-landquart"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -4356,10 +4356,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart"
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-30-lidl-svizzera-landquart-mesxwg"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
