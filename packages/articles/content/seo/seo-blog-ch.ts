@@ -62498,6 +62498,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asb-banche-svizzera-crescita-2026': {
+    title: 'ASB prevede crescita bancaria nel 2026 | Frontaliere Ticino',
+    description: 'Le banche svizzere cresceranno ancora nel 2026: patrimonio gestito oltre 10\'000 miliardi di franchi. ASB conferma outlook positivo nonostante tassi a zero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prevede, crescita, bancaria, banche',
+    ogTitle: 'ASB: banche svizzere in crescita nel 2026',
+    ogDescription: 'Settore bancario svizzero in espansione nel 2026 secondo ASB. Patrimonio gestito oltre 10\'000 miliardi di franchi, occupazione stabile, commissioni traino della crescita. Cosa cambia per investitori e risparmiatori svizzeri.',
+    canonicalPath: '/articoli-svizzera/asb-banche-svizzera-crescita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ASB prevede crescita bancaria nel 2026",
+      "description": "Le banche svizzere cresceranno ancora nel 2026: patrimonio gestito oltre 10'000 miliardi di franchi. ASB conferma outlook positivo nonostante tassi a zero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asb-banche-svizzera-crescita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno in un distretto finanziario svizzero con bandiera nazionale, architettura contemporanea"
+      },
+      "datePublished": "2026-08-31T08:28:56+00:00",
+      "dateModified": "2026-08-31T08:28:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asb-banche-svizzera-crescita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

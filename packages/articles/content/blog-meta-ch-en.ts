@@ -4816,6 +4816,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-grigioni-percorso-duale.title': 'Apprenticeship in Graubünden: dual path, AFC and CFC',
     'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Apprenticeship in Graubünden: dual school-company system regulated by the LFPr, AFC and CFC qualifications, salary and professional maturity to access the SUPPL.',
     'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Apprentice working in a craft business in Graubunden',
+    'blog.article.asb-banche-svizzera-crescita-2026.title': 'ASB forecasts bank growth in 2026',
+    'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Swiss banks will continue to grow in 2026 according to the Swiss Bankers Association. Assets managed over CHF 10,000 billion, commissions driving growth.',
+    'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Modern office building in Swiss financial district with Swiss flag and contemporary architecture',
 };
 
 export default blogMetaChEn;

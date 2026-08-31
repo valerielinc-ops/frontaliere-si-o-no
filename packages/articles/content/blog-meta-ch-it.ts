@@ -4816,6 +4816,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-grigioni-percorso-duale.title': 'Apprendistato nei Grigioni: percorso duale, AFC e CFC',
     'blog.article.apprendistato-grigioni-percorso-duale.excerpt': 'Apprendistato nei Grigioni: sistema duale scuola-azienda regolato dalla LFPr, titoli AFC e CFC, retribuzione e maturità professionale per accedere alle SUPPL.',
     'blog.article.apprendistato-grigioni-percorso-duale.imageAlt': 'Apprendista al lavoro in un\'azienda artigiana nei Grigioni',
+    'blog.article.asb-banche-svizzera-crescita-2026.title': 'ASB prevede crescita bancaria nel 2026',
+    'blog.article.asb-banche-svizzera-crescita-2026.excerpt': 'Le banche svizzere continueranno a crescere nel 2026 secondo l\'Associazione svizzera dei banchieri. Patrimonio gestito oltre i 10\'000 miliardi di franchi, commissioni traino della crescita.',
+    'blog.article.asb-banche-svizzera-crescita-2026.imageAlt': 'Edificio moderno in un distretto finanziario svizzero con bandiera nazionale, architettura contemporanea',
 };
 
 export default blogMetaChIt;
