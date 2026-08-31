@@ -52,6 +52,21 @@ jobs:
       - name: Validate dataset (compat self-map + plugin emit)
         run: npx vitest run tests/employer-profile-pages.test.ts tests/search-console-compat.test.ts
 
+      # load-rc-env.mjs needs GOOGLE_APPLICATION_CREDENTIALS to authenticate
+      # to Remote Config (scripts/load-rc-env.mjs:479-482 exits 0 as a no-op
+      # otherwise); this workflow never set it before, which made the step
+      # below inert. Same pattern as monitor-seo-ctr-by-template.yml.
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ No Firebase SA credentials — GITHUB_PAT load will be a no-op"
+          fi
+
       # GITHUB_PAT = the identity actually honoured by main's "main required
       # CI checks" ruleset bypass_actors on a direct git push (issue #6325:
       # the App installation token minted below alone got a HARD GH013
@@ -63,6 +78,10 @@ jobs:
       # exactly as before (no regression).
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
 
       # App installation token = secondary push identity fallback if
       # GITHUB_PAT above is unavailable. git-push-with-retry.sh picks up
