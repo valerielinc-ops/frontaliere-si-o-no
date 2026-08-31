@@ -1,7 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import {
   ISSUE_6759_COVERAGE,
+  ISSUE_6797_SHARED_BOARD_TRANSFERS,
   mergeRetiredCrawlerJobs,
   RETIREMENTS,
   SHARED_BOARD_TRANSFERS,
@@ -168,5 +170,63 @@ describe('issue #6759 reconciliation', () => {
       company: 'dedicated',
       slug: 'indexed-broad-slug',
     });
+  });
+});
+
+describe('issue #6797 reconciliation', () => {
+  it('registers the SMN umbrella to Obach ownership transfer separately', () => {
+    expect(ISSUE_6797_SHARED_BOARD_TRANSFERS).toEqual([expect.objectContaining({
+      broad: 'swiss-medical-network',
+      dedicated: 'privatklinik-obach',
+    })]);
+  });
+
+  it('preserves every locale route while collapsing the shared posting', () => {
+    const broad = job('swiss-medical-network', '146478439', 'smn-route');
+    broad.slugByLocale = { en: 'smn-route-en', it: 'smn-route-it' };
+    broad.previousSlugs = [];
+    broad.previousSlugsByLocale = {};
+    const dedicated = job('privatklinik-obach', '146478439', 'obach-route');
+    dedicated.slugByLocale = {
+      de: 'obach-route-de',
+      en: 'obach-route-en',
+      fr: 'obach-route-fr',
+      it: 'obach-route-it',
+    };
+
+    const before = [broad, dedicated];
+    const result = transferOverlappingJobs([broad], [dedicated]);
+
+    expect(result.sourceJobs).toEqual([]);
+    expect(result.targetJobs).toHaveLength(1);
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const routes = (jobs: FixtureJob[]) => new Set(jobs.flatMap((entry) => [
+        entry.slugByLocale[locale],
+        ...(locale === 'it' ? [entry.slug] : []),
+        ...getPreviousSlugsForLocale(entry, locale),
+      ].filter(Boolean)));
+      const beforeRoutes = routes(before);
+      const afterRoutes = routes(result.targetJobs as FixtureJob[]);
+      expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
+    }
+    expect(result.targetJobs[0].slugByLocale).toEqual(dedicated.slugByLocale);
+  });
+
+  it('keeps the checked-in witness under Obach only, with both former SMN locale routes bridged', () => {
+    const readJobs = (key: string) => JSON.parse(
+      readFileSync(`data/jobs/by-crawler/${key}.json`, 'utf8'),
+    ).jobs as FixtureJob[];
+    const witness = (entry: FixtureJob) => entry.url.includes('744000146478439');
+    const obach = readJobs('privatklinik-obach').filter(witness);
+    const umbrella = readJobs('swiss-medical-network').filter(witness);
+
+    expect(obach).toHaveLength(1);
+    expect(umbrella).toHaveLength(0);
+    expect(getPreviousSlugsForLocale(obach[0], 'en')).toContain(
+      'ausbildung-dipl-pflegefachperson-hf-swiss-medical-network',
+    );
+    expect(getPreviousSlugsForLocale(obach[0], 'it')).toContain(
+      'ausbildung-dipl-pflegefachperson-hf-swiss-medical-network',
+    );
   });
 });

@@ -31,5 +31,6 @@ const parser = createSmnClinicParser({
 
 export const fetchAllCliniqueGeneraleBeaulieuJobs = parser.fetchAllJobs;
 export const isCliniqueGeneraleBeaulieuJob = parser.isCompanyJob;
+export const matchesCliniqueGeneraleBeaulieuPosting = parser.matchesClinicPosting;
 export const isTrustedDomain = parser.isTrustedDomain;
 export const CLINIQUE_GENERALE_BEAULIEU_LISTING_URL = parser.LISTING_URL;

@@ -33,5 +33,6 @@ const parser = createSmnClinicParser({
 
 export const fetchAllPrivatklinikBethanienJobs = parser.fetchAllJobs;
 export const isPrivatklinikBethanienJob = parser.isCompanyJob;
+export const matchesPrivatklinikBethanienPosting = parser.matchesClinicPosting;
 export const isTrustedDomain = parser.isTrustedDomain;
 export const PRIVATKLINIK_BETHANIEN_LISTING_URL = parser.LISTING_URL;

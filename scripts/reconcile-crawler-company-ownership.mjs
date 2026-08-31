@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * One-time, idempotent reconciliation for issue #6759.
+ * One-time, idempotent reconciliation for issues #6759 and #6797.
  *
  * The live-source fixes prevent the 18 overlaps from returning. This script
  * repairs the committed slices without losing indexed routes: when two jobs
@@ -61,6 +61,14 @@ export const SHARED_BOARD_TRANSFERS = [
 ];
 
 export const ISSUE_6759_COVERAGE = [...RETIREMENTS, ...SHARED_BOARD_TRANSFERS];
+
+export const ISSUE_6797_SHARED_BOARD_TRANSFERS = [
+  {
+    broad: 'swiss-medical-network',
+    dedicated: 'privatklinik-obach',
+    cause: 'brand-distinti-board-condivisa-race',
+  },
+];
 
 function jobsOf(payload) {
   return Array.isArray(payload) ? payload : (Array.isArray(payload?.jobs) ? payload.jobs : []);
@@ -288,7 +296,7 @@ function run({ apply = false } = {}) {
     report.push({ ...item, ...result, jobs: undefined });
   }
 
-  for (const item of SHARED_BOARD_TRANSFERS) {
+  for (const item of [...SHARED_BOARD_TRANSFERS, ...ISSUE_6797_SHARED_BOARD_TRANSFERS]) {
     const source = readSlice(item.broad);
     const target = readSlice(item.dedicated);
     if (!source || !target) {
@@ -343,7 +351,11 @@ function run({ apply = false } = {}) {
 function main() {
   const apply = process.argv.includes('--apply');
   const report = run({ apply });
-  console.log(JSON.stringify({ mode: apply ? 'apply' : 'dry-run', coverage: ISSUE_6759_COVERAGE.length, report }, null, 2));
+  console.log(JSON.stringify({
+    mode: apply ? 'apply' : 'dry-run',
+    coverage: ISSUE_6759_COVERAGE.length + ISSUE_6797_SHARED_BOARD_TRANSFERS.length,
+    report,
+  }, null, 2));
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
