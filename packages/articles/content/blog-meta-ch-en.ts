@@ -4834,6 +4834,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swatch-samsung-risarcimento-marchi.title': 'Swatch beats Samsung: 11.6 million in compensation',
     'blog.article.swatch-samsung-risarcimento-marchi.excerpt': 'UK court orders Samsung to pay $11.6 million for infringement of Swiss watch brands in the Galaxy App Store between 2015 and 2019.',
     'blog.article.swatch-samsung-risarcimento-marchi.imageAlt': 'Close-up of luxury Swiss watchfaces and mechanical components in professional studio photography',
+    'blog.article.divario-salariale-svizzera-ust-640.title': 'Wage gap man-woman in Switzerland: CHF 640 from unexplained party',
+    'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'In 2024 the gap drops to 15.7% but the unexplained component remains 640 CHF gross per month. Finance reaches 30.6%.',
+    'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Zurich financial district with glass skyscrapers',
 };
 
 export default blogMetaChEn;

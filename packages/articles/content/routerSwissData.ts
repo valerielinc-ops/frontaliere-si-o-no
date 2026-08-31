@@ -1637,6 +1637,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'divario-salariale-ust-2024-157': { it: 'divario-salariale-ust-2024-157', en: 'swiss-gender-pay-gap-ust-2024', de: 'lohngefalle-ust-2024-schweiz', fr: 'ecart-salarial-ust-2024-suisse' },
  'scorte-mangimi-proteici-svizzera': { it: 'scorte-mangimi-proteici-svizzera', en: 'swiss-protein-feed-reserves-released', de: 'schweiz-protein-futter-reserven-freigegeben', fr: 'suisse-stocks-aliments-proteiques-libres' },
  'swatch-samsung-risarcimento-marchi': { it: 'swatch-samsung-risarcimento-marchi', en: 'swatch-samsung-settlement-trademark', de: 'swatch-samsung-schadensersatz-marken', fr: 'swatch-samsung-indemnisation-marques' },
+ 'divario-salariale-svizzera-ust-640': { it: 'divario-salariale-svizzera-ust-640', en: 'swiss-gender-pay-gap-ust-640', de: 'geschlechterlohngefalle-schweiz-bfs-640', fr: 'ecart-salarial-suisse-ofs-640' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

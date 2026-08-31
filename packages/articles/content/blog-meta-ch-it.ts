@@ -4834,6 +4834,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.swatch-samsung-risarcimento-marchi.title': 'Swatch batte Samsung: 11,6 mln di risarcimento',
     'blog.article.swatch-samsung-risarcimento-marchi.excerpt': 'Tribunale britannico condanna Samsung a pagare 11,6 milioni di dollari per violazione di marchi orologieri svizzeri nel Galaxy App Store tra 2015 e 2019.',
     'blog.article.swatch-samsung-risarcimento-marchi.imageAlt': 'Dettagli di quadranti e componenti meccanici di orologi di lusso svizzeri in studio fotografico professionale',
+    'blog.article.divario-salariale-svizzera-ust-640.title': 'Divario salariale uomo-donna in Svizzera: 640 CHF di parte non spiegata',
+    'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'Nel 2024 il gap scende al 15,7% ma la componente non spiegata resta 640 CHF lordi al mese. La finanza tocca il 30,6%.',
+    'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Distretto finanziario di Zurigo con grattacieli in vetro',
 };
 
 export default blogMetaChIt;

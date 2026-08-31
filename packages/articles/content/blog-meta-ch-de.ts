@@ -4834,6 +4834,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swatch-samsung-risarcimento-marchi.title': 'Swatch schlägt Samsung: 11,6 Mio. Entschädigung',
     'blog.article.swatch-samsung-risarcimento-marchi.excerpt': 'Ein britisches Gericht verurteilt Samsung zur Zahlung von 11,6 Millionen Dollar wegen Verletzung von Schweizer Uhrenmarken im Galaxy App Store zwischen 2015 und 2019.',
     'blog.article.swatch-samsung-risarcimento-marchi.imageAlt': 'Nahaufnahme von Luxus-Uhrengehäusen und mechanischen Komponenten in professioneller Studiofotografie',
+    'blog.article.divario-salariale-svizzera-ust-640.title': 'Lohngefälle Schweiz: 640 CHF ungeklärter Frauenanteil',
+    'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'Im Jahr 2024 sinkt die Lücke auf 15,7%, aber die ungeklärte Komponente bleibt 640 CHF brutto pro Monat. Die Finanzlage liegt bei 30,6%.',
+    'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Finanzdistrikt Zürich mit Glas-Hochhäusern',
 };
 
 export default blogMetaChDe;
