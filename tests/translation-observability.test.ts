@@ -30,9 +30,11 @@ describe('translation observability', () => {
     expect(one.digest).toBe(two.digest);
     expect(one).toMatchObject({ finalCommit: null, outcome: 'failure', delta: { added: 1, removed: 1, drain: 1, ingress: 1 } });
     expect(one.reappearance.scope).toMatch(/expired archive/);
+    expect(one.reappearance.interpretation).toMatch(/not a delete-to-readd/);
     expect(JSON.stringify(one)).not.toContain('Private title');
     expect(JSON.stringify(one)).not.toContain('private-url');
     expect(JSON.stringify(one)).not.toContain('internal-private-id');
+    expect(JSON.stringify(one)).not.toContain('acme');
     expect(one.reappearance.fingerprints).toHaveLength(2);
     expect(Buffer.byteLength(JSON.stringify(one))).toBeLessThanOrEqual(1_048_576);
   });
@@ -42,6 +44,7 @@ describe('translation observability', () => {
     const snapshot = createTranslationObservabilitySnapshot(jobs, { now: NOW });
     const report = finalizeTranslationObservabilityReport(buildTranslationObservabilityReport({ before: snapshot, final: snapshot, runId: '1', startedAt: '2026-08-31T00:00:00Z', sourceCommit: 'abc' }), 'def');
     expect(report.cohorts.topCompanies).toHaveLength(20);
+    expect(report.cohorts.topCompanies.every((row: any) => /^sha256:[a-f0-9]{64}$/.test(row.companyFingerprint))).toBe(true);
     let history: any = null;
     for (let index = 0; index < 110; index++) {
       history = rollupTranslationObservability(history, { ...report, runId: String(index), digest: `sha256:${index}`, finishedAt: new Date(Date.UTC(2016 + index, 0, 1)).toISOString() });

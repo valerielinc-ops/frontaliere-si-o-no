@@ -92,8 +92,9 @@ export function createTranslationObservabilitySnapshot(document, { now = Date.no
     const pending = incomplete || flagged;
     if (pending) {
       increment(cohorts.age, ageBucket(job, now));
-      const company = normalized(job.companyKey) || 'unknown';
-      increment(cohorts.companies, company);
+      // Cohort ranking only needs a stable bucket. Keep the crawled company key
+      // out of both the private snapshot and the uploaded/committed report.
+      increment(cohorts.companies, `sha256:${sha256(normalized(job.companyKey) || 'unknown')}`);
     }
     for (const reason of slotReasons(job, incomplete)) {
       increment(quality.reasons, reason);
@@ -122,7 +123,7 @@ function boundedCompanies(companies) {
   return Object.entries(companies)
     .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
     .slice(0, MAX_COMPANIES)
-    .map(([companyKey, pending]) => ({ companyKey, pending }));
+    .map(([companyFingerprint, pending]) => ({ companyFingerprint, pending }));
 }
 
 /** Combine two snapshots into the public, bounded report. */
@@ -155,7 +156,19 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
   }
   const previousUrl = new Map();
   for (const row of before.rows) if (row.urlKeyHash) increment(previousUrl, row.urlKeyHash);
-  const reappearance = { exact: delta.persisted, fallback: 0, unmatched: 0, ambiguous: 0, fingerprints: [], scope: 'active snapshots only; expired archive and between-snapshot deletion are not evidence' };
+  // A before/final pair cannot prove a deletion followed by re-addition. These
+  // are continuity buckets over active snapshots, kept under `reappearance`
+  // for the V1 schema but explicitly not interpreted as cross-run reuse.
+  const reappearance = {
+    exact: delta.persisted,
+    fallback: 0,
+    unmatched: 0,
+    ambiguous: 0,
+    provenDeleteReadds: 0,
+    fingerprints: [],
+    interpretation: 'exact is a persisted active identity, not a delete-to-readd event',
+    scope: 'active snapshots only; expired archive and between-snapshot deletion are not evidence',
+  };
   for (const [identityHash, row] of current) {
     if (previous.has(identityHash)) continue;
     const candidates = row.urlKeyHash ? (previousUrl.get(row.urlKeyHash) || 0) : 0;
