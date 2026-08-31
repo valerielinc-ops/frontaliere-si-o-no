@@ -6450,6 +6450,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @param {object[]} freshJobs     – Newly parsed jobs (may only have one locale filled)
  * @param {object}   [opts]
  * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
+ * @param {boolean}  [opts.retainMissingJobs=true] – Keep unmatched jobs under the grace-period policy
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
  */
 export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
@@ -6739,6 +6740,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
 
     return fresh;
   });
+
+  // A crawler may bypass the miss grace only after its own source-specific
+  // completeness validator has proved this run is an authoritative snapshot.
+  // The default remains unchanged for every other dedicated crawler.
+  if (opts.retainMissingJobs === false) return mergedFresh;
 
   // Grace period: a job present in `existingJobs` but absent from this
   // run's `freshJobs` isn't necessarily gone — pagination fail-soft
