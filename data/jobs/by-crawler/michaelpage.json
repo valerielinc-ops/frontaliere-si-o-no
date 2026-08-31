@@ -1,6 +1,6 @@
 {
   "crawlerKey": "michaelpage",
-  "assembledAt": "2026-08-28T05:37:08.247Z",
+  "assembledAt": "2026-08-31T16:03:37.360Z",
   "jobs": [
     {
       "id": "michaelpage-68e5dff578d0",
@@ -1004,75 +1004,6 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-28T05:37:00.825Z"
-    },
-    {
-      "id": "michaelpage-3c48fdc2eadb",
-      "slug": "vice-president-hr-north-america-michaelpage-ch",
-      "slugByLocale": {
-        "en": "vice-president-hr-north-america-michaelpage-ch",
-        "de": "vice-president-hr-north-america-michael-page-lugano",
-        "it": "vice-president-hr-north-america-michaelpage-ch",
-        "fr": "vice-president-hr-north-america-michaelpage-ch"
-      },
-      "company": "Michael Page",
-      "companyKey": "michaelpage",
-      "companyDomain": "pageexecutive.com",
-      "title": "Vice President HR - North America",
-      "titleByLocale": {
-        "en": "Vice President HR - North America",
-        "de": "Vice President HR - North America",
-        "it": "Vice President Risorse Umane - North America",
-        "fr": "Vice President Ressources Humaines - North America"
-      },
-      "description": "Vice President HR - North America — Michael Page",
-      "descriptionByLocale": {
-        "en": "Vice President HR - North America — Michael Page"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://www.pageexecutive.com/job-detail/vice-president-hr-north-america/ref/jn-062026-7043980",
-      "source": "Michael Page Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:37:00.522Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://www.pageexecutive.com/job-detail/vice-president-hr-north-america/ref/jn-062026-7043980",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 103000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-28T05:37:00.522Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "vice-president-risorse-umane-north-america-michael-page-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "vice-president-risorse-umane-north-america-michael-page-lugano"
-      ]
     },
     {
       "id": "michaelpage-152aa4f682be",

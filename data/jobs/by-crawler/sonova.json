@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-08-28T05:14:00.689Z",
+  "assembledAt": "2026-08-31T16:21:40.567Z",
   "jobs": [
     {
       "id": "sonova-2703f4b810b0",
@@ -220,83 +220,6 @@
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:06:52.220Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sonova-ecbce8c0a7a1",
-      "slug": "apprendistato-polymechaniker-in-cfc-m-w-d-sonova-staefa",
-      "slugByLocale": {
-        "it": "apprendistato-polymechaniker-in-cfc-m-w-d-sonova-staefa",
-        "en": "polymechanical-apprenticeship-m-f-d-sonova-staefa-switzerland",
-        "de": "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch",
-        "fr": "apprentissage-polymecanique-m-f-d-sonova-staefa-switzerland"
-      },
-      "company": "Sonova",
-      "companyKey": "sonova",
-      "companyDomain": "sonova.com",
-      "title": "Lehrstelle Polymechaniker/in EFZ (m/w/d)",
-      "titleByLocale": {
-        "it": "Apprendistato Polymechaniker/in CFC (m/w/d)",
-        "en": "Polymechanical apprenticeship (m/f/d)",
-        "de": "Lehrstelle Polymechaniker/in EFZ (m/w/d)",
-        "fr": "Apprentissage polymécanique (m/f/d)"
-      },
-      "description": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.Weitere Informationen zu deinem Traumberuf als Polymechaniker/in EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nPolymechaniker/in EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-      "descriptionByLocale": {
-        "it": "Giovani talenti volevano per l'inizio dell'insegnamento nell'agosto 2027!\n\nSiamo alla ricerca di giovani motivati e impegnati che vogliono plasmare il futuro con noi.\n• Offriamo ai nostri studenti una formazione ben fondata con un'alta rilevanza pratica, perché sono i nostri specialisti e manager di domani. Ulteriori informazioni sul vostro lavoro da sogno come polimeccanico / in EFZ (m/f/d) così come i requisiti necessari possono essere trovati a:\n\nPolymechanic in EFZ | Sonova International\n\nAttendiamo con ansia la vostra applicazione online completa, comprese le lettere di motivazione, certificati e test di interlock.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
-        "en": "Young talents wanted for the start of teaching in August 2027!\n\nWe are looking for motivated and committed young people who want to shape the future with us.\n• We offer our learners a well-founded training with a high practical relevance, because they are our specialists and managers of tomorrow.Further information about your dream job as a polymechanic / in EFZ (m/f/d) as well as the necessary prerequisites can be found at:\n\nPolymechanic in EFZ | Sonova International\n\nWe look forward to your complete online application including letters of motivation, certificates and interlock test.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Junge Talente für den Lehrstart im August 2027 gesucht!\n\nWir suchen motivierte und engagierte Jugendliche, die mit uns die Zukunft gestalten wollen. Unseren Lernenden bieten wir eine fundierte Ausbildung mit hohem Praxisbezug, denn sie sind unsere Fach- und Führungskräfte von morgen.Weitere Informationen zu deinem Traumberuf als Polymechaniker/in EFZ (m/w/d) sowie die notwendigen Voraussetzungen findest du auf:\n\nPolymechaniker/in EFZ | Sonova International\n\nWir freuen uns auf deine vollständige Online-Bewerbung inklusive Motivationsschreiben, Zeugnisse und Stellwerktest.\n\nSonova AG\n\nLaubisrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "fr": "Jeunes talents recherchés pour le début de l'enseignement en août 2027!\n\nNous cherchons des jeunes motivés et engagés qui veulent façonner l'avenir avec nous.\n• Nous offrons à nos apprenants une formation bien fondée avec une grande pertinence pratique, car ils sont nos spécialistes et gestionnaires de demain. De plus amples informations sur votre travail de rêve en tant que polymécanique / en EFZ (m/f/d) ainsi que les conditions préalables nécessaires peuvent être trouvées à:\n\nPolymécanique en EFZ-Sonova International\n\nNous attendons avec impatience votre demande en ligne complète, y compris les lettres de motivation, les certificats et le test de verrouillage.\n\nSonova AG\n\nLaubsrütistrasse 28 CH-8712 Stäfa\n\n+41 58 928 01 01\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
-      },
-      "location": "Staefa, Switzerland",
-      "canton": "ZH",
-      "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Polymechanikerin-EFZ-%28mwd%29/1421327533/",
-      "source": "Sonova Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:54.355Z",
-      "addressLocality": "Staefa",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "MedTech / Hearing care (hearing aids, cochlear implants, consumer hearing)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1421327533/?locale=en_US",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch",
-        "apprendistato-polymechaniker-in-cfc-m-w-d-sonova-staefa"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch",
-          "apprendistato-polymechaniker-in-cfc-m-w-d-sonova-staefa"
-        ],
-        "en": [
-          "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch"
-        ],
-        "fr": [
-          "lehrstelle-polymechaniker-in-efz-m-w-d-sonova-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-31T22:06:52.163Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "baseSalary": {
