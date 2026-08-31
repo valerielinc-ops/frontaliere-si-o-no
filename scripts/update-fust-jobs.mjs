@@ -977,16 +977,36 @@ export async function writeFustPublishPlan(plan, options = {}) {
   return { total: plan.sliceJobs.length, archived };
 }
 
-function readFustSummarySlice() {
+/**
+ * Reads the Fust summary slice as the source of empty-snapshot confirmation
+ * state. Corrupt or unexpected-shape content (e.g. truncated JSON from an
+ * interrupted write, or a shape written by tooling this crawler doesn't
+ * recognize) degrades to "no prior confirmation" (null) instead of crashing
+ * the crawler: `emptySnapshotRunCount(null)` is 0, which only ever delays
+ * authoritative-empty archival by one more confirmation cycle — never causes
+ * a wrongful bulk-archive of live Fust vacancies. A hard crash here would be
+ * strictly worse for the funnel (no job-board update at all for that run) for
+ * state that isn't required to be perfect, only safe-to-reset.
+ */
+export function readFustSummarySlice() {
   if (!fs.existsSync(FUST_SUMMARY_SLICE)) return null;
+  let raw;
+  try {
+    raw = fs.readFileSync(FUST_SUMMARY_SLICE, 'utf8');
+  } catch (error) {
+    console.warn(`⚠️ Fust empty-snapshot confirmation state could not be read (${error.message}) — treating as no prior confirmation.`);
+    return null;
+  }
   let parsed;
   try {
-    parsed = JSON.parse(fs.readFileSync(FUST_SUMMARY_SLICE, 'utf8'));
+    parsed = JSON.parse(raw);
   } catch (error) {
-    throw new Error(`Fust empty-snapshot confirmation state is unreadable: ${error.message}`);
+    console.warn(`⚠️ Fust empty-snapshot confirmation state is not valid JSON (${error.message}) — treating as no prior confirmation.`);
+    return null;
   }
   if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-    throw new Error('Fust empty-snapshot confirmation state must be a JSON object.');
+    console.warn('⚠️ Fust empty-snapshot confirmation state is not a JSON object — treating as no prior confirmation.');
+    return null;
   }
   return parsed;
 }
