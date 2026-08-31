@@ -3,12 +3,21 @@ import {
   NORD_ANGLIA_KEY,
   NORD_ANGLIA_COMPANY_NAME,
   NORD_ANGLIA_COMPANY_DOMAIN,
+  canonicalizeNordAngliaJobUrl,
   isNordAngliaJob,
   isTrustedDomain,
+  parseNordAngliaRss,
 } from '../scripts/lib/nord-anglia-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('La Côte International School Aubonne (Nord Anglia Education) crawler parser', () => {
+  const validRssItem = ({
+    title = '<title><![CDATA[Teacher of Biology (Aubonne, CH)]]></title>',
+    link = '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/</link>',
+    description = '<description><![CDATA[<p>Teach biology in Aubonne.</p>]]></description>',
+    pubDate = '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate>',
+  } = {}) => `<rss><channel><item>${title}${link}${description}${pubDate}</item></channel></rss>`;
+
   // ── Constants ──
   it('exports valid company key, name and domain', () => {
     expect(NORD_ANGLIA_KEY).toBe('nord-anglia');
@@ -93,6 +102,42 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  it('publishes canonical job URLs without jobs2web tracking parameters', () => {
+    expect(canonicalizeNordAngliaJobUrl(
+      'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS',
+    )).toBe('https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/');
+    expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Aubonne-Teacher/1/?utm_source=rss')).toBe('');
+  });
+
+  describe('RSS parser guards', () => {
+    it('preserves valid CDATA/text leaves', () => {
+      expect(parseNordAngliaRss(validRssItem())).toEqual([{
+        title: 'Teacher of Biology (Aubonne, CH)',
+        link: 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/',
+        description: '<p>Teach biology in Aubonne.</p>',
+        pubDate: 'Mon, 01 Apr 2026 12:00:00 +0000',
+      }]);
+    });
+
+    it.each([
+      '<rss><channel><item><title>Teacher</title></description></item></channel></rss>',
+      '<rss><channel><item><title>Teacher</title></item>',
+    ])('rejects malformed or truncated XML before parsing', (xml) => {
+      expect(() => parseNordAngliaRss(xml)).toThrow(/XML parse failed/);
+    });
+
+    it.each([
+      ['title', { title: '<title><strong>Teacher of Biology (Aubonne, CH)</strong></title>' }],
+      ['link', { link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-One/1/</link><link>https://careers.nordangliaeducation.com/job/Aubonne-Two/2/</link>' }],
+      ['description', { description: '<description>First</description><description>Second</description>' }],
+      ['pubDate', { pubDate: '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate><pubDate>Tue, 02 Apr 2026 12:00:00 +0000</pubDate>' }],
+    ])('rejects non-scalar or repeated %s leaves', (field, override) => {
+      expect(() => parseNordAngliaRss(validRssItem(override))).toThrow(
+        new RegExp(`${field} must be a single scalar string`),
+      );
     });
   });
 

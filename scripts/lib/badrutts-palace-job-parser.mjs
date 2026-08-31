@@ -16,7 +16,7 @@
  *   - parseRssItems()               — Parse RSS XML into structured items (exported for testing)
  */
 import { createHash } from 'node:crypto';
-import { XMLParser } from 'fast-xml-parser';
+import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
@@ -129,6 +129,17 @@ function detectExperienceLevel(title = '') {
 
 /* ── RSS Parsing ──────────────────────────────────────────── */
 
+function readOptionalRssScalar(item, field, itemNumber) {
+  const value = item?.[field];
+  if (value == null) return '';
+  if (typeof value !== 'string') {
+    throw new Error(
+      `Badrutt's Palace RSS item ${itemNumber} ${field} must be a single scalar string`,
+    );
+  }
+  return value;
+}
+
 /**
  * Parse RSS XML into structured job items.
  * Exported for testing.
@@ -144,6 +155,15 @@ function detectExperienceLevel(title = '') {
  *   </channel></rss>
  */
 export function parseRssItems(xml = '') {
+  if (typeof xml !== 'string') {
+    throw new Error(`Badrutt's Palace RSS feed failed to parse as XML: expected a string`);
+  }
+  const validation = XMLValidator.validate(xml);
+  if (validation !== true) {
+    const detail = validation?.err?.msg || validation?.err?.code || 'invalid XML';
+    throw new Error(`Badrutt's Palace RSS feed failed to parse as XML: ${detail}`);
+  }
+
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: '',
@@ -152,12 +172,6 @@ export function parseRssItems(xml = '') {
     processEntities: false,
   });
 
-  // Same unguarded-strict-XML-parse construct as parseAristonSitemapFeed
-  // (ariston-job-parser.mjs) — a parse-time throw (fast-xml-parser's strict
-  // XMLParser, e.g. "Maximum nested tags exceeded") means `xml` isn't the real
-  // Teamtailor RSS feed (WAF/error page, truncated body, etc). Surface a clear,
-  // low-drama error instead of the opaque library exception so it fails loudly
-  // and legibly (AGENTS.md #6 sibling-pattern fix alongside #4246).
   let parsed;
   try {
     parsed = parser.parse(xml);
@@ -167,11 +181,11 @@ export function parseRssItems(xml = '') {
   const normalizedItems = assertRssChannelItems(parsed, { source: 'badrutts-palace' });
 
   return normalizedItems
-    .map((item) => ({
-      title: normalizeSpace(item?.title || ''),
-      url: normalizeSpace(item?.link || ''),
-      descriptionHtml: String(item?.description || ''),
-      pubDate: normalizeSpace(item?.pubDate || ''),
+    .map((item, index) => ({
+      title: normalizeSpace(readOptionalRssScalar(item, 'title', index + 1)),
+      url: normalizeSpace(readOptionalRssScalar(item, 'link', index + 1)),
+      descriptionHtml: readOptionalRssScalar(item, 'description', index + 1),
+      pubDate: normalizeSpace(readOptionalRssScalar(item, 'pubDate', index + 1)),
     }))
     .filter((item) => item.title && item.url);
 }

@@ -45,7 +45,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { XMLParser } from 'fast-xml-parser';
+import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { httpFetchWithRetry } from './transient-fetch.mjs';
@@ -103,6 +103,15 @@ function normalizeSpace(s = '') {
 function toArray(val) {
   if (val == null) return [];
   return Array.isArray(val) ? val : [val];
+}
+
+function readOptionalRssScalar(item, field, itemNumber) {
+  const value = item?.[field];
+  if (value == null) return '';
+  if (typeof value !== 'string') {
+    throw new Error(`Nord Anglia RSS item ${itemNumber} ${field} must be a single scalar string`);
+  }
+  return value;
 }
 
 function toIsoDate(raw) {
@@ -200,6 +209,18 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
+export function canonicalizeNordAngliaJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(normalizeSpace(rawUrl));
+    if (url.hostname.toLowerCase() !== ATS_HOST || !AUBONNE_LINK_RE.test(url.pathname)) return '';
+    url.search = '';
+    url.hash = '';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
 /* ── Category Detection ────────────────────────────────────── */
 
 function detectCategory(title = '') {
@@ -249,6 +270,20 @@ async function fetchJobListings() {
   }
 
   const xml = await res.text();
+  return parseNordAngliaRss(xml);
+}
+
+/** Parse the Aubonne-scoped jobs2web RSS payload into scalar item fields. */
+export function parseNordAngliaRss(xml = '') {
+  if (typeof xml !== 'string') {
+    throw new Error('Nord Anglia RSS feed XML parse failed: expected a string');
+  }
+  const validation = XMLValidator.validate(xml);
+  if (validation !== true) {
+    const detail = validation?.err?.msg || validation?.err?.code || 'invalid XML';
+    throw new Error(`Nord Anglia RSS feed XML parse failed: ${detail}`);
+  }
+
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: '',
@@ -263,7 +298,17 @@ async function fetchJobListings() {
     throw new Error(`Nord Anglia RSS feed XML parse failed: ${err?.message || err}`);
   }
 
-  return toArray(parsed?.rss?.channel?.item);
+  return toArray(parsed?.rss?.channel?.item).map((item, index) => {
+    if (item == null || typeof item !== 'object' || Array.isArray(item)) {
+      throw new Error(`Nord Anglia RSS item ${index + 1} must be an object`);
+    }
+    return {
+      title: readOptionalRssScalar(item, 'title', index + 1),
+      link: readOptionalRssScalar(item, 'link', index + 1),
+      description: readOptionalRssScalar(item, 'description', index + 1),
+      pubDate: readOptionalRssScalar(item, 'pubDate', index + 1),
+    };
+  });
 }
 
 /**
@@ -300,16 +345,20 @@ export async function fetchAllNordAngliaJobs() {
     if (!title || title.length < 3) continue;
     if (isGenericOffer(title)) continue; // evergreen "share your profile" placeholder
 
-    const publicUrl = link || CAREER_URL;
+    const publicUrl = canonicalizeNordAngliaJobUrl(link);
+    if (!publicUrl) continue;
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const descriptionHtml = String(item.description || '');
+    const descriptionHtml = item.description;
     const descriptionText = stripHtml(descriptionHtml);
     const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} ad Aubonne.`;
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nord-anglia aubonne`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    // Preserve the indexed identity contract: existing IDs were hashed from
+    // the raw jobs2web link (including its stable vendor query). Publication
+    // URLs are canonicalized separately above so tracking is never emitted.
+    const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
     const jobReqId = extractJobReqId(publicUrl);
     const employmentType = detectEmploymentType(`${descriptionText} ${title}`);
     const postedDate = toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
