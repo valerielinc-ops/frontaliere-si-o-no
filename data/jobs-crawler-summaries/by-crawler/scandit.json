@@ -1,18 +1,18 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-08-31T17:22:20.271Z",
+  "generatedAt": "2026-08-31T22:19:44.773Z",
   "total": 1,
   "discovered": null,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5921,
-  "avgDurationMs": 5921,
+  "durationMs": 5488,
+  "avgDurationMs": 5488,
   "durationHistory": [
-    5921
+    5488
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:22:14.682Z",
+      "crawledAt": "2026-08-31T22:19:39.924Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,47 +51,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "scandit-fd9be409e48d",
-      "slug": "senior-product-manager-shelfview-scandit-ch",
-      "company": "Scandit AG",
-      "companyKey": "scandit",
-      "companyDomain": "scandit.com",
-      "title": "Senior Product Manager (ShelfView)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
-      "source": "Scandit AG Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-31T07:35:49.748Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "IT",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://www.scandit.com/careers/job-description/?gh_jid=8093936",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T11:51:58.923Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 17,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
