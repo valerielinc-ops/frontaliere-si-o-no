@@ -33,10 +33,12 @@ import { gradeExtraction, gradeVacancy } from '../scripts/lib/prospector/validat
 import { dedupeByIdentityPreservingMarks } from '../scripts/lib/job-mark-persistence.mjs';
 import { assembleUrlKey } from '../scripts/lib/job-url-key.mjs';
 
-const SEED_URL = 'https://careers.accor.com/fr/fr/';
+const SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
+const SECOND_SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=2';
 const JOB_URL = 'https://careers.accor.com/fr/fr/job/sales-executive';
 const LISTING_HTML = '<a href="/fr/fr/job/sales-executive">Sales Executive</a>';
-const DESCRIPTION = '<article class="vacancy-description"><p>Lead commercial development, manage client relationships and coordinate the local sales team for the hotel.</p></article>';
+const DESCRIPTION = '<div class="vacancy-description" data-type="DescriptionWidget"><div aria-label="Job description"><p>Lead commercial development, manage client relationships and coordinate the local sales team for the hotel.</p></div></div>';
+const isAccorSeed = (url: string) => url === SEED_URL || url === SECOND_SEED_URL;
 
 describe('prospector location and identity contract', () => {
   beforeEach(() => {
@@ -53,7 +55,7 @@ describe('prospector location and identity contract', () => {
   });
 
   it('keeps stable URL identity and slug while using source-backed geography', async () => {
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : `<h1>Sales Executive</h1><div class="job-location">Chiasso</div>${DESCRIPTION}`);
 
@@ -62,10 +64,17 @@ describe('prospector location and identity contract', () => {
     expect(job.id).toBe(`accor-${createHash('sha1').update(JOB_URL).digest('hex').slice(0, 12)}`);
     expect(job.slug).toBe('sales-executive-accor-ch');
     expect(job).toMatchObject({ url: JOB_URL, location: 'Chiasso', canton: 'TI' });
+    for (const seed of [SEED_URL, SECOND_SEED_URL]) {
+      expect(politeFetch).toHaveBeenCalledWith(seed, expect.objectContaining({
+        headers: {
+          'Accept-Encoding': 'identity',
+        },
+      }));
+    }
   });
 
   it('propagates the selected structured address through runtime and generated parser', async () => {
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : `<script type="application/ld+json">${JSON.stringify({
           '@type': 'JobPosting',
@@ -90,7 +99,7 @@ describe('prospector location and identity contract', () => {
   });
 
   it('drops unverifiable geography with an explicit inventory signal', async () => {
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : `<h1>Sales Executive</h1>${DESCRIPTION}`);
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
@@ -109,7 +118,7 @@ describe('prospector location and identity contract', () => {
       '<a href="/fr/fr/job/second-role">Second Role</a>',
     ].join('');
     fetchHtml.mockImplementation(async (url: string) => {
-      if (url === SEED_URL) return listing;
+      if (isAccorSeed(url)) return listing;
       if (url.endsWith('/first-role')) {
         await firstDetailMayFinish;
         return `<h1>First Role</h1><div class="job-location">Chiasso</div>${DESCRIPTION}`;
@@ -124,7 +133,7 @@ describe('prospector location and identity contract', () => {
   });
 
   it('drops authoritative foreign JSON-LD even when the locality has a Swiss homonym', async () => {
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : `<script type="application/ld+json">${JSON.stringify({
           '@type': 'JobPosting',
@@ -137,7 +146,7 @@ describe('prospector location and identity contract', () => {
   });
 
   it('selects a Swiss JSON-LD location after an earlier foreign location', async () => {
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : `<script type="application/ld+json">${JSON.stringify({
           '@type': 'JobPosting',
@@ -169,7 +178,7 @@ describe('prospector location and identity contract', () => {
       description: 'Listing description',
       jobLocation: { address: { addressLocality: 'Chiasso', addressCountry: 'CH' } },
     })}</script>`;
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? listing
       : `<h1>Sales Executive</h1><div class="job-location">Remote</div>${DESCRIPTION}`);
 
@@ -195,7 +204,7 @@ describe('prospector location and identity contract', () => {
     politeFetch.mockImplementation(async (url: string) => ({
       ok: true, status: 200, body: await fetchHtml(url), url, host: new URL(url).hostname,
     }));
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? listing
       : `<h1>Sales Executive</h1><div class="job-location">Chiasso</div>${DESCRIPTION}`);
     const rows = await runSpecInProduction(spec as any);
@@ -223,7 +232,7 @@ describe('prospector location and identity contract', () => {
     politeFetch.mockImplementation(async (url: string) => ({
       ok: true, status: 200, body: await fetchHtml(url), url, host: new URL(url).hostname,
     }));
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? listing
       : `<h1>Sales Executive</h1><div class="job-location">Chiasso</div>${DESCRIPTION}`);
     const rows = await runSpecInProduction(spec as any);
@@ -235,7 +244,7 @@ describe('prospector location and identity contract', () => {
   });
 
   it('does not fabricate an Accor description when detail remains empty', async () => {
-    fetchHtml.mockImplementation(async (url: string) => url === SEED_URL
+    fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : '<h1>Sales Executive</h1><div class="job-location">Chiasso</div>');
     await expect(fetchAllAccorJobs()).resolves.toEqual([]);

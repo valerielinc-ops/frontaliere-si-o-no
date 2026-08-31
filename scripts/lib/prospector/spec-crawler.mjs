@@ -283,9 +283,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (!fallbackUrl) throw error;
           page = await fetchRuntimePage(fallbackUrl, validateUrl, runtime);
         }
-        const detail = spec.platform === 'pageexecutive.com'
-          ? extractPageExecutiveDetailFields(page.body, page.url || row.url)
-          : extractDetailFields(page.body, page.url || row.url);
+        const detailExtractor = typeof runtime.detailExtractor === 'function'
+          ? runtime.detailExtractor
+          : spec.platform === 'pageexecutive.com'
+            ? extractPageExecutiveDetailFields
+            : extractDetailFields;
+        const detail = detailExtractor(
+          page.body,
+          page.url || row.url,
+        );
         if (spec.platform === 'umantis.com') {
           const umantisDetail = extractUmantisDetailFields(page.body);
           if (isSufficientVacancyDescription(umantisDetail.description)) {

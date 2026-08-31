@@ -1,11 +1,23 @@
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   ACCOR_KEY,
   ACCOR_COMPANY_NAME,
+  extractAccorDetailFields,
   isAccorJob,
   isTrustedDomain,
 } from '../scripts/lib/accor-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+const RICH_DETAIL = fs.readFileSync(
+  new URL('./__fixtures__/accor/detail-rich.html', import.meta.url),
+  'utf8',
+);
+const DEGRADED_DETAIL = fs.readFileSync(
+  new URL('./__fixtures__/accor/detail-degraded.html', import.meta.url),
+  'utf8',
+);
+const DETAIL_URL = 'https://careers.accor.com/fr/fr/job/receptionniste-in-geneva-switzerland-jid-12345';
 
 describe('Ibis Budget crawler parser', () => {
   // ── Constants ──
@@ -56,6 +68,29 @@ describe('Ibis Budget crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('Attrax detail boundary', () => {
+    it('extracts only the semantic DescriptionWidget body', () => {
+      const detail = extractAccorDetailFields(RICH_DETAIL, DETAIL_URL);
+
+      expect(detail.description).toContain('Vous accueillez les clients');
+      expect(detail.description).toContain('Garantir un service attentif');
+      expect(detail.description).not.toContain('Postuler Partager');
+      expect(detail.description).not.toContain('Director in Paris');
+      expect(detail).toMatchObject({
+        title: 'Réceptionniste (H/F/X)',
+        location: 'Genève, GE',
+        addressCountry: 'CH',
+      });
+    });
+
+    it('quarantines a degraded widget instead of promoting surrounding chrome', () => {
+      const detail = extractAccorDetailFields(DEGRADED_DETAIL, DETAIL_URL);
+
+      expect(detail.description).toBe('');
+      expect(detail.location).toContain('Genève');
     });
   });
 
