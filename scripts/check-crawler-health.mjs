@@ -987,11 +987,35 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   // that has genuinely stopped running is still caught by the `stale` gate
   // above once `freshnessAt` ages past `STALE_AFTER_DAYS` — that is the
   // correct signal for "the workflow stopped", not a fabricated empty streak.
+  // `freshnessAt` alone is not a complete run identity: some producers use
+  // day-granularity timestamps. Treat the observation as a repeat only when
+  // its count and empty classification also agree, and when any available
+  // secondary timestamps agree. This keeps a genuinely rewritten slice from
+  // being hidden behind the same coarse freshness value. Missing secondary
+  // fields remain compatible with pre-migration state.
+  const previousEmptyOk =
+    typeof previous._lastObservedEmptyOk === 'boolean'
+      ? previous._lastObservedEmptyOk
+      : EMPTY_OK_CRAWLERS.has(observation.slug) || previous._autoFilteredEmpty === true;
+  const sameOptionalSignal = (current, prior) =>
+    current === null ||
+    current === undefined ||
+    prior === null ||
+    prior === undefined ||
+    current === prior;
   const isRepeatObservation =
     hadPriorState &&
     freshnessAt !== null &&
     freshnessAt !== undefined &&
-    freshnessAt === previous._lastObservedFreshnessAt;
+    previous._lastObservedFreshnessAt !== null &&
+    previous._lastObservedFreshnessAt !== undefined &&
+    freshnessAt === previous._lastObservedFreshnessAt &&
+    previous._lastObservedJobs !== null &&
+    previous._lastObservedJobs !== undefined &&
+    lastObservedJobs === previous._lastObservedJobs &&
+    emptyOk === previousEmptyOk &&
+    sameOptionalSignal(observation.generatedAt, previous._lastObservedGeneratedAt) &&
+    sameOptionalSignal(observation.assembledAt, previous._lastObservedAssembledAt);
 
   const consecutiveEmptyRuns = isRepeatObservation
     ? (previous.consecutiveEmptyRuns ?? 0)
@@ -1071,6 +1095,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       status,
       _lastObservedAt: nowIso,
       _lastObservedJobs: lastObservedJobs,
+      _lastObservedEmptyOk: emptyOk,
       _lastObservedFreshnessAt: freshnessAt,
       _lastObservedFreshnessSource: freshnessSource,
       _lastObservedAssembledAt: observation.assembledAt ?? null,
