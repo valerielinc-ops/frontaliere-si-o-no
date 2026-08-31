@@ -135,6 +135,17 @@ jobs:
           echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
       - uses: ./.github/actions/setup-omniroute
       - uses: ./.github/actions/setup-claude-haiku-fallback
+      - name: Report shared setup failure to GitHub Issues
+        if: failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
+        uses: ./.github/actions/report-failure
+        with:
+          title: "Workflow Failure: Crawler Group 02 (sparse cross-repo execution)"
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ github.token }}
+          repo: ${{ github.repository }}
+          workflow-name: Crawler Group 02 (sparse cross-repo execution)
+          workflow-file: .github/corpus-workflows/crawler-group-02.yml
+          priority: "2"
       - name: Run roche
         id: crawler-roche
         background: true
