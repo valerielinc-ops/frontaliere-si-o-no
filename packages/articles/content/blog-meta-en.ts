@@ -10980,6 +10980,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Border tax credit 2026: common errors',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Framework EC of 730, new Agreement in force since 2024 and transitional regime: the most frequent errors of border workers.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Swiss payslip and Italian 730 form on a desk, Mendrisio background',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Border boarding house 2026 with children: AVS-INPS guide',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'New Agreement in force from 1 January 2024, AVS at 5.3% and coordination with INPS: what changes for the border family with children in 2026.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Cross-border commuters walking through Bellinzona station at dawn',
 };
 
 export default blogMetaEn;
