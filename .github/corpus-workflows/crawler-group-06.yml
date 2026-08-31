@@ -3,6 +3,7 @@
 # Only pre-logic checkout/install setup is retryable, so a partial crawl is never replayed.
 
 name: Crawler Group 06 (sparse cross-repo execution)
+run-name: crawler-generation-${{ inputs.generation_token }}-group-06
 on:
   workflow_dispatch:
     inputs:
@@ -10,6 +11,11 @@ on:
         description: Skip AI translation (1=yes, cache only)
         required: false
         default: "1"
+        type: string
+      generation_token:
+        description: Explicit generation correlation token (shadow only)
+        required: false
+        default: ""
         type: string
       timeout_ms:
         description: Per-crawler timeout override in milliseconds (empty uses the crawler default)
@@ -34,6 +40,8 @@ jobs:
   crawler_group_06:
     runs-on: ubuntu-latest
     timeout-minutes: 340
+    env:
+      CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
     steps:
       - name: Checkout frontaliere-si-o-no (attempt 1/2, sparse)
         id: site_checkout_primary
@@ -1605,4 +1613,28 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
+        id: crawler-generation-wait
         wait-all: true
+      - name: Finalize crawler generation manifest (shadow)
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_GENERATION_GROUP: "06"
+          CRAWLER_GENERATION_TOKEN: ${{ inputs.generation_token }}
+          CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
+          CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
+          CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"abb-svizzera-sede-ticino","primarySlice":"data/jobs/by-crawler/abb-svizzera-sede-ticino.json"},{"crawlerId":"arsante-clinique-de-carouge","primarySlice":"data/jobs/by-crawler/arsante-clinique-de-carouge.json"},{"crawlerId":"croix-rouge-fribourgeoise","primarySlice":"data/jobs/by-crawler/croix-rouge-fribourgeoise.json"},{"crawlerId":"denner","primarySlice":"data/jobs/by-crawler/denner.json"},{"crawlerId":"ehnv","primarySlice":"data/jobs/by-crawler/ehnv.json"},{"crawlerId":"epi-stiftung","primarySlice":"data/jobs/by-crawler/epi-stiftung.json"},{"crawlerId":"fincons-group","primarySlice":"data/jobs/by-crawler/fincons-group.json"},{"crawlerId":"gmo","primarySlice":"data/jobs/by-crawler/gmo.json"},{"crawlerId":"grand-resort-bad-ragaz","primarySlice":"data/jobs/by-crawler/grand-resort-bad-ragaz.json"},{"crawlerId":"hochgebirgsklinik-davos","primarySlice":"data/jobs/by-crawler/hochgebirgsklinik-davos.json"},{"crawlerId":"hopital-de-lavaux","primarySlice":"data/jobs/by-crawler/hopital-de-lavaux.json"},{"crawlerId":"hopital-du-valais","primarySlice":"data/jobs/by-crawler/hopital-du-valais.json"},{"crawlerId":"hoval","primarySlice":"data/jobs/by-crawler/hoval.json"},{"crawlerId":"julius-baer","primarySlice":"data/jobs/by-crawler/julius-baer.json"},{"crawlerId":"merian-iselin","primarySlice":"data/jobs/by-crawler/merian-iselin.json"},{"crawlerId":"migrolino","primarySlice":"data/jobs/by-crawler/migrolino.json"},{"crawlerId":"modellstation-somosa","primarySlice":"data/jobs/by-crawler/modellstation-somosa.json"},{"crawlerId":"palliativklinik","primarySlice":"data/jobs/by-crawler/palliativklinik.json"},{"crawlerId":"planzer","primarySlice":"data/jobs/by-crawler/planzer.json"},{"crawlerId":"privatklinik-bethanien","primarySlice":"data/jobs/by-crawler/privatklinik-bethanien.json"},{"crawlerId":"privatklinik-hohenegg","primarySlice":"data/jobs/by-crawler/privatklinik-hohenegg.json"},{"crawlerId":"reha-andeer","primarySlice":"data/jobs/by-crawler/reha-andeer.json"},{"crawlerId":"rolex","primarySlice":"data/jobs/by-crawler/rolex.json"},{"crawlerId":"spital-uster","primarySlice":"data/jobs/by-crawler/spital-uster.json"},{"crawlerId":"srg-ssr","primarySlice":"data/jobs/by-crawler/srg-ssr.json"},{"crawlerId":"swatchgroup","primarySlice":"data/jobs/by-crawler/swatchgroup.json"},{"crawlerId":"transgourmet","primarySlice":"data/jobs/by-crawler/transgourmet.json"}]'
+          CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-06-terminal.json
+        run: node scripts/crawler-group-generation-finalizer.mjs
+      - name: Upload crawler generation manifest (shadow)
+        if: always()
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-group-06-terminal-${{ github.run_id }}
+          path: ${{ runner.temp }}/crawler-generation/crawler-group-06-terminal.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14

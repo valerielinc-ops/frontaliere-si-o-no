@@ -134,11 +134,27 @@ fi
 
       expect(() => execFileSync('bash', [scriptPath], { cwd: ROOT, env, stdio: 'pipe' })).not.toThrow();
       expect(fs.readFileSync(calls, 'utf8').trim().split('\n')).toEqual(['create', 'create']);
-      expect(execFileSync('git', [
+      const transportedGroup = execFileSync('git', [
         '--git-dir', remote,
         'show',
         'crawler-workflows-lockstep-0123456789ab:.github/workflows/crawler-group-01.yml',
-      ], { encoding: 'utf8' })).toContain('sparse cross-repo execution');
+      ], { encoding: 'utf8' });
+      expect(transportedGroup).toContain('sparse cross-repo execution');
+      expect(transportedGroup).toContain('crawler-generation-${{ inputs.generation_token }}-group-01');
+      expect(transportedGroup).toContain('node scripts/crawler-group-generation-finalizer.mjs');
+      expect(transportedGroup).toContain('uses: actions/upload-artifact@v7');
+      expect(transportedGroup).toContain('retention-days: 14');
+      const transportedContract = JSON.parse(execFileSync('git', [
+        '--git-dir', remote,
+        'show',
+        'crawler-workflows-lockstep-0123456789ab:generator/data/crawler-cross-repo-contract.json',
+      ], { encoding: 'utf8' }));
+      expect(transportedContract.crawlerGeneration).toMatchObject({
+        mode: 'shadow',
+        artifactRetentionDays: 14,
+        dispatchesTranslation: false,
+      });
+      expect(transportedContract.siteRuntimePaths).toContain('scripts/lib/crawler-generation-receipt.mjs');
       expect(execFileSync('git', [
         '--git-dir', remote,
         'show',

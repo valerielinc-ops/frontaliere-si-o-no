@@ -181,7 +181,14 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       jobKey: `update-${slug}-jobs`,
       timeoutMinutes: 360,
       prepSteps: [{ name: 'Install dependencies', run: installRun }],
-      runStep: { name: `Run ${slug}`, env: {}, run: `node scripts/update-${slug}-jobs.mjs` },
+      runStep: {
+        name: `Run ${slug}`,
+        env: {
+          JOBS_HOUSEKEEPING_SCOPE: slug,
+          JOBS_SLICE_FILE: `data/jobs/by-crawler/${slug}.json`,
+        },
+        run: `node scripts/update-${slug}-jobs.mjs`,
+      },
       postSteps: [
         { name: 'Commit and push', id: 'changes', env: {}, run: `bash scripts/lib/git-commit-data.sh --slice-only "Auto-update ${slug} jobs"` },
         { name: 'Report failure to GitHub Issues', if: 'failure()', 'continue-on-error': true, env: {}, run: 'node scripts/lib/github-issue-creator.mjs --title "x"' },
@@ -655,6 +662,22 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     return changed.sort();
   }
 
+  function crawlerCloneWithIdentity(proto: any, slug: string) {
+    const crawler = JSON.parse(JSON.stringify(proto));
+    crawler.slug = slug;
+    crawler.file = `update-jobs-${slug}.yml`;
+    for (const step of [crawler.runStep, ...crawler.postSteps]) {
+      if (!step.env) continue;
+      if (Object.prototype.hasOwnProperty.call(step.env, 'JOBS_HOUSEKEEPING_SCOPE')) {
+        step.env.JOBS_HOUSEKEEPING_SCOPE = slug;
+      }
+      if (Object.prototype.hasOwnProperty.call(step.env, 'JOBS_SLICE_FILE')) {
+        step.env.JOBS_SLICE_FILE = `data/jobs/by-crawler/${slug}.json`;
+      }
+    }
+    return crawler;
+  }
+
   it('re-running the generator on the committed manifest+baseline+pins is a no-op', () => {
     const { outDir } = regenerate();
 
@@ -733,8 +756,7 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
 
   it('adding ONE crawler to the manifest rewrites ONE group file, not all 23', () => {
     const { outDir } = regenerate((doc) => {
-      const proto = JSON.parse(JSON.stringify(doc.manifest[0]));
-      doc.manifest.push({ ...proto, slug: 'zz-sync-test-crawler', file: 'update-jobs-zz-sync-test-crawler.yml' });
+      doc.manifest.push(crawlerCloneWithIdentity(doc.manifest[0], 'zz-sync-test-crawler'));
       doc.manifest.sort((a: any, b: any) => a.slug.localeCompare(b.slug));
     });
 
@@ -749,8 +771,7 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     // Order-independence is what makes the pin file mergeable: two agents
     // promoting one crawler each must not produce two different corpora.
     const add = (doc: any, slugs: string[]) => {
-      const proto = JSON.parse(JSON.stringify(doc.manifest[0]));
-      for (const slug of slugs) doc.manifest.push({ ...proto, slug, file: `update-jobs-${slug}.yml` });
+      for (const slug of slugs) doc.manifest.push(crawlerCloneWithIdentity(doc.manifest[0], slug));
     };
     const a = regenerate((doc) => add(doc, ['zz-alpha-crawler', 'zz-beta-crawler']));
     const b = regenerate((doc) => add(doc, ['zz-beta-crawler', 'zz-alpha-crawler']));
