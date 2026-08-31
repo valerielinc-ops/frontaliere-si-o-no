@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-1123",
-  "assembledAt": "2026-08-28T05:33:19.974Z",
+  "assembledAt": "2026-08-31T17:24:52.977Z",
   "jobs": [
     {
       "id": "recruitingapp-1123-ee08b7105086",
@@ -30,7 +30,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2482/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:16.941Z",
+      "crawledAt": "2026-08-31T17:24:50.410Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -65,6 +65,7 @@
       "firstSeenAt": "2026-08-24T10:22:21.026Z",
       "salaryMin": 79500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -84,7 +85,7 @@
         "it": "senior-it-systemadministrator-in-m-w-d-recruitingapp-1123-ch",
         "en": "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano",
         "de": "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano",
-        "fr": "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano"
+        "fr": "administrateur-informatique-principal-en-h-f-d-big-are-stellen-lugano"
       },
       "company": "BIG & ARE Stellen",
       "companyKey": "recruitingapp-1123",
@@ -105,7 +106,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2481/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:33:16.636Z",
+      "crawledAt": "2026-08-31T17:24:50.108Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -121,10 +122,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano",
         "administrateur-informatique-principal-en-h-f-d-big-are-stellen-lugano"
       ],
       "previousSlugsByLocale": {
         "fr": [
+          "senior-it-systemadministrator-in-m-w-d-big-are-stellen-lugano",
           "administrateur-informatique-principal-en-h-f-d-big-are-stellen-lugano"
         ]
       },
@@ -132,6 +135,7 @@
       "firstSeenAt": "2026-08-25T10:10:15.018Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -172,7 +176,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2508/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:33:16.333Z",
+      "crawledAt": "2026-08-31T17:24:49.805Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -207,6 +211,7 @@
       "firstSeenAt": "2026-08-27T00:49:50.917Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -235,7 +240,7 @@
       "titleByLocale": {
         "it": "Applikationsbetreuer:in der Immobilienverwaltung (m/f/d)",
         "en": "Applikationsbetreuer:in in der Immobilienverwaltung (m/f/d)",
-        "de": "Anwendungsbetreuer: in der Immobilienverwaltung (m/w/d)",
+        "de": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)",
         "fr": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d)"
       },
       "description": "Applikationsbetreuer:in in der Immobilienverwaltung (m/w/d) — BIG & ARE Stellen",
@@ -247,7 +252,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2440/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:33:16.031Z",
+      "crawledAt": "2026-08-31T17:24:49.502Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -276,6 +281,7 @@
       "firstSeenAt": "2026-08-25T21:46:43.363Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -316,7 +322,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2509/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:33:15.727Z",
+      "crawledAt": "2026-08-31T17:24:49.199Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -345,6 +351,7 @@
       "firstSeenAt": "2026-08-27T00:49:50.312Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -385,7 +392,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2426/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:15.425Z",
+      "crawledAt": "2026-08-31T17:24:48.897Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -422,6 +429,7 @@
       "firstSeenAt": "2026-08-23T09:37:55.029Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -450,7 +458,7 @@
       "titleByLocale": {
         "it": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
         "en": "Immobilienverwalter: in (m/f/d) VZ/TZ ab 30h/Woche",
-        "de": "Immobilienverwalter: in (m/w/d) VZ/TZ ab 30h/Woche",
+        "de": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche",
         "fr": "Immobilienverwalter: en (h/f/d) VZ/TZ ab 30h/Woche"
       },
       "description": "Immobilienverwalter:in (m/w/d) VZ/TZ ab 30h/Woche — BIG & ARE Stellen",
@@ -462,7 +470,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2465/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:33:15.122Z",
+      "crawledAt": "2026-08-31T17:24:48.594Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -491,6 +499,7 @@
       "firstSeenAt": "2026-08-23T09:37:54.727Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -531,7 +540,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2473/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:14.819Z",
+      "crawledAt": "2026-08-31T17:24:48.292Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -566,6 +575,7 @@
       "firstSeenAt": "2026-08-23T09:37:54.417Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -606,7 +616,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2479/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:14.515Z",
+      "crawledAt": "2026-08-31T17:24:47.977Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -643,6 +653,7 @@
       "firstSeenAt": "2026-08-23T09:37:54.112Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -683,7 +694,7 @@
       "url": "https://recruitingapp-1123.umantis.com/Vacancies/2497/Description/1",
       "source": "BIG & ARE Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:33:14.198Z",
+      "crawledAt": "2026-08-31T17:24:47.656Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -720,6 +731,7 @@
       "firstSeenAt": "2026-08-23T09:37:53.772Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
