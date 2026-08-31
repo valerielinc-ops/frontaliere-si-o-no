@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-08-31T17:13:56.147Z",
+  "generatedAt": "2026-08-31T21:07:37.768Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17984,
-  "avgDurationMs": 17984,
+  "durationMs": 16199,
+  "avgDurationMs": 16199,
   "durationHistory": [
-    17984
+    16199
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T21:38:26.963Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -78,6 +79,7 @@
       "currency": "CHF",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-06T14:18:05.737Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -116,6 +118,7 @@
       "streetAddress": "",
       "postalCode": "6512",
       "firstSeenAt": "2026-07-03T12:31:53.830Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -154,6 +157,7 @@
       "postalCode": "6512",
       "id": "lombardi-group-801be55e6f08",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -192,6 +196,7 @@
       "postalCode": "6512",
       "id": "lombardi-group-b8c45529f0b3",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -230,6 +235,7 @@
       "postalCode": "6512",
       "id": "lombardi-group-26762b52183c",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -268,6 +274,7 @@
       "postalCode": "6512",
       "id": "lombardi-group-3ce9ee408868",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -306,6 +313,7 @@
       "postalCode": "6512",
       "id": "lombardi-group-acf929491e4c",
       "firstSeenAt": "2026-04-13T22:03:39.621Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
