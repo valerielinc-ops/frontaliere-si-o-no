@@ -32,9 +32,14 @@ ancora `unverified`.
 - Fonte: `https://www.ofct.ch/farmacieturno/` (Ordine dei Farmacisti del
   Cantone Ticino), `accessMethod: "html-scrape"`, verificata in #6398.
 - Copre 4 delle 5 regioni ticinesi (Mendrisiotto, Luganese, Bellinzonese,
-  Biasca e Valli). **Locarnese resta fuori**: dominio/template separato
-  (`farmacielocarnese.ch`), non verificato — nessun dato pubblicato per
-  quell'area finché non lo sarà.
+  Biasca e Valli). La quinta, **Locarnese** (`farmacielocarnese.ch`,
+  dominio/template separato), è stata verificata di rete in #6740
+  (accessibile via HTML statico, nessun JS/API, nessun `robots.txt`) ma
+  **resta fuori dal connettore**: struttura dati diversa (nessuna
+  anagrafica pubblicata, tabella turni senza indirizzo/CAP) richiede un
+  parser dedicato non ancora scritto — nessun dato pubblicato per
+  quell'area finché non lo sarà. Vedi
+  `docs/data-sources/farmacie-turno-ticino.md`.
 - `robots.txt` dichiara `crawl-delay: 10`: rispettato da
   `scripts/import-pharmacies-ticino.mjs` (10s fra un fetch di regione e il
   successivo), UA dedicata e identificabile
