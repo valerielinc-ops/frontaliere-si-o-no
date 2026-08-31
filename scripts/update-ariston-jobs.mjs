@@ -38,6 +38,7 @@ import {
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -126,12 +127,12 @@ async function fetchAristonListings() {
   }
   const target = discovered.filter((row) => isAristonTargetLocation(`${row.location} ${row.title}`));
   console.log(`📋 Feed items: ${discovered.length}`);
-  console.log(`📋 Ticino/Grigioni rows: ${target.length}`);
+  console.log(`📋 Swiss rows: ${target.length}`);
   for (const row of target) {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
   if (target.length < 1) {
-    console.log('ℹ️ No Ariston jobs in Ticino/Grigioni — company may have no active openings.');
+    console.log('ℹ️ No Ariston jobs in Switzerland — company may have no active openings.');
   }
   return target;
 }
@@ -140,7 +141,9 @@ async function buildAristonJob(listing) {
   const detailUrl = absoluteUrl(listing.url);
   const html = await fetchHtml(detailUrl);
   const detail = parseAristonJobDetail(html);
-  const region = inferAristonRegion(detail.location || listing.location);
+  const sourceLocation = detail.location || listing.location;
+  const sourceTitle = detail.title || listing.title;
+  const region = inferAristonRegion(`${sourceLocation} ${sourceTitle}`);
   const localized = buildAristonLocalizedContent(detail);
   return {
     title: localized.titleByLocale.it || detail.title || listing.title,
@@ -150,13 +153,13 @@ async function buildAristonJob(listing) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: detail.location || listing.location,
-    addressLocality: detail.location || listing.location,
+    location: sourceLocation,
+    addressLocality: sourceLocation,
     addressRegion: region.canton,
     addressCountry: region.country,
     canton: region.canton,
     country: region.country,
-    category: inferAristonCategory(detail.title || listing.title, detail.description || ''),
+    category: inferAristonCategory(sourceTitle, detail.description || ''),
     sector: 'Energia & Riscaldamento',
     source: 'ariston-dedicated-crawler',
     sourceLang: detectLang(detail.description || '', 'it'),
@@ -202,12 +205,14 @@ function mergeJobs(discoveredJobs) {
     return merged;
   });
 
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
+
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
   writeJson(PUBLIC_JOBS, allJobs);
 
-  const afterSnapshot = snapshotJobSlugs(mergedTarget);
-  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, 'Ariston Group');
   writeCrawlChangeSummaryToGH(diff, 'Ariston Group');
   writeJobsSummary(mergedTarget, 'Ariston Group');
@@ -233,7 +238,7 @@ function updateAdapterConfig(jobs) {
     priority: 18,
     crawlerModes: ['html', 'xml'],
     seedUrls: [CAREERS_URL, FEED_URL],
-    notes: 'Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.',
+    notes: 'Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only jobs carrying the authoritative CH country marker and a source-backed Swiss location.',
     updatedAt: new Date().toISOString(),
     seedMetaByUrl,
   });
@@ -249,7 +254,7 @@ function validateLocales() {
     isTrustedDomain,
     untrustedDomainReason: 'url_not_ariston_domain',
     failWhenNoJobs: false,
-    noJobsMessage: 'No Ariston Group jobs found after dedicated crawl — company may have no active TI/GR openings.',
+    noJobsMessage: 'No Ariston Group jobs found after dedicated crawl — company may have no active Swiss openings.',
     detectSourceLang: (text) => detectLang(text, 'it'),
   });
 }
