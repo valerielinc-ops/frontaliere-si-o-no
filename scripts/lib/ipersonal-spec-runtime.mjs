@@ -28,12 +28,14 @@ function markParagraphLists(detail) {
   for (const container of [detail, ...detail.querySelectorAll('*')]) {
     let listSection = false;
     for (const item of container.children) {
-      if (/^H[2-4]$/.test(item.tagName)) {
-        listSection = IPERSONAL_SECTION_LIST_RX.test(String(item.textContent || ''));
+      const text = String(item.textContent || '').replace(/\s+/g, ' ').trim();
+      const isHeading = /^H[2-4]$/.test(item.tagName)
+        || (item.tagName === 'P' && text.length <= 80 && IPERSONAL_SECTION_LIST_RX.test(text));
+      if (isHeading) {
+        listSection = IPERSONAL_SECTION_LIST_RX.test(text);
       } else if (item.tagName === 'HR') {
         listSection = false;
       } else if (listSection && item.tagName === 'P') {
-        const text = String(item.textContent || '').trim();
         if (text.length >= 20 && !/^[›•*-]\s*/.test(text)) item.prepend('• ');
       }
     }
@@ -74,8 +76,8 @@ export function extractIpersonalDescription(html = '') {
     'script, style, noscript, form, nav, footer, aside, #sjb-application-form, .sjb-application-form',
   ).forEach((node) => node.remove());
 
-  const applicationBoundary = [...detail.querySelectorAll('h2, h3, h4')].find((heading) =>
-    /^(?:bewerben sie sich jetzt|jetzt bewerben|kontakt und bewerbung|weitere bewerbungsm[oö]glichkeiten|neugierig geworden)/i
+  const applicationBoundary = [...detail.querySelectorAll('h2, h3, h4, p')].find((heading) =>
+    /^(?:bewerben sie sich jetzt|jetzt bewerben|kontakt und bewerbung|weitere bewerbungsm[oö]glichkeiten|neugierig geworden|interessiert\b)/i
       .test(String(heading.textContent || '').replace(/\s+/g, ' ').trim()));
   if (applicationBoundary) removeFromBoundary(detail, applicationBoundary);
   markParagraphLists(detail);
