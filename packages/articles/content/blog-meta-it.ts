@@ -10987,6 +10987,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.unia-pause-calore-cantieri.title': 'Canicola nei cantieri: Unia chiede pause obbligatorie',
     'blog.article.unia-pause-calore-cantieri.excerpt': 'Solo il 18% riceve pause sistematiche oltre i 33°C. Su 984 lavoratori intervistati, l\'82% dei cantieri ignora le tutele previste. Ecco cosa chiede il sindacato.',
     'blog.article.unia-pause-calore-cantieri.imageAlt': 'Cantiere in Ticino con sole estivo: lavoratori edili seguono procedure di sicurezza con zone ombrate e attrezzature protettive.',
+    'blog.article.bollettino-frontaliere-2026-08-31.title': 'Bollettino del frontaliere – 31 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-31.excerpt': 'I numeri di oggi, 31 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'I numeri del giorno per i frontalieri – 31 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Bollettino frontalieri del 31 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'I numeri del 31 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
