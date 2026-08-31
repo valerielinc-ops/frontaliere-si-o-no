@@ -35,6 +35,10 @@ import {
   finishAudit,
   filledLocaleCount,
 } from '../../scripts/audit-parser-quality.mjs';
+import {
+  crawlerJobActivity,
+  partitionCrawlerJobsForActiveMetrics,
+} from '../../scripts/lib/crawler-job-activity.mjs';
 
 type Issue = {
   type: string;
@@ -50,6 +54,47 @@ type Entry = {
   severity: 'CRITICAL' | 'WARNING' | 'OK';
   action?: string;
 };
+
+describe('active parser-quality population', () => {
+  it('keeps live records and reports grace/expired exclusions separately', () => {
+    const activeRich = {
+      id: 'active-rich',
+      description: 'Responsibility '.repeat(60),
+      crawlerMissStreak: 0,
+    };
+    const graceThin = {
+      id: 'grace-thin',
+      description: 'thin',
+      crawlerMissStreak: '1',
+    };
+    const expired = {
+      id: 'expired',
+      description: 'thin',
+      expiredAt: '2026-08-31T00:00:00.000Z',
+    };
+
+    expect(crawlerJobActivity(activeRich)).toBe('active');
+    expect(crawlerJobActivity(graceThin)).toBe('grace');
+    expect(crawlerJobActivity(expired)).toBe('expired');
+    expect(partitionCrawlerJobsForActiveMetrics([activeRich, graceThin, expired])).toEqual({
+      activeJobs: [activeRich],
+      excluded: { grace: 1, expired: 1, total: 2 },
+    });
+  });
+
+  it('does not hide live records with malformed or non-positive grace metadata', () => {
+    const records = [
+      { id: 'missing' },
+      { id: 'zero', crawlerMissStreak: 0 },
+      { id: 'negative', crawlerMissStreak: -1 },
+      { id: 'malformed', crawlerMissStreak: 'unknown' },
+    ];
+
+    const result = partitionCrawlerJobsForActiveMetrics(records);
+    expect(result.activeJobs).toEqual(records);
+    expect(result.excluded).toEqual({ grace: 0, expired: 0, total: 0 });
+  });
+});
 
 function makeEntry(noStructCount: number, total: number, severity: Entry['severity'] = 'WARNING'): Entry {
   return {
