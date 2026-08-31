@@ -2,8 +2,9 @@ import { JSDOM } from 'jsdom';
 import { stripHtml } from './crawler-template.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
-import { runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 
+/** @param {string | URL} value */
 function canonicalUrl(value = '') {
   try {
     const url = new URL(String(value));
@@ -105,19 +106,41 @@ export function extractIpersonalDescription(html = '') {
  *
  * @param {any} spec
  * @param {Record<string, any>} [runtime]
+ * @returns {Promise<Array<Record<string, any>> & {
+ *   discoveredCount: number,
+ *   expectedSeedCount: number,
+ *   loadedSeedCount: number,
+ * }>}
  */
 export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const pages = new Map();
+  const attemptedDetailUrls = new Set();
+  const expectedSeedUrls = new Set(
+    (spec?.seedUrls || []).map((seed) => canonicalUrl(seed)).filter(Boolean),
+  );
+  const loadedSeedUrls = new Set();
+  const detailTemplateRx = spec?.detailTemplate ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
   const capturingFetch = async (input, init = {}) => {
     const headers = new Headers(init.headers || {});
     headers.set('Accept-Encoding', 'identity');
+    const method = String(init.method || 'GET').toUpperCase();
+    const inputUrl = typeof input === 'string' || input instanceof URL
+      ? String(input)
+      : input.url;
+    if (method !== 'HEAD' && detailTemplateRx) {
+      try {
+        const parsed = new URL(inputUrl);
+        if (detailTemplateRx.test(parsed.pathname)) attemptedDetailUrls.add(canonicalUrl(parsed));
+      } catch { /* the public fetch policy rejects invalid URLs */ }
+    }
     const response = await upstreamFetch(input, { ...init, headers });
-    if (String(init.method || 'GET').toUpperCase() !== 'HEAD') {
+    if (method !== 'HEAD') {
       const originalHtml = await response.clone().text();
-      const inputUrl = typeof input === 'string' || input instanceof URL
-        ? String(input)
-        : input.url;
+      const canonicalInputUrl = canonicalUrl(inputUrl);
+      if (expectedSeedUrls.has(canonicalInputUrl) && originalHtml.trim()) {
+        loadedSeedUrls.add(canonicalInputUrl);
+      }
       pages.set(canonicalUrl(inputUrl), originalHtml);
       if (response.url) pages.set(canonicalUrl(response.url), originalHtml);
       const normalizedHtml = normalizeKnownIpersonalLocalities(originalHtml);
@@ -136,8 +159,74 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     ...runtime,
     fetchImpl: capturingFetch,
   });
-  return rows.map((row) => {
+  const enriched = rows.map((row) => {
     const description = extractIpersonalDescription(pages.get(canonicalUrl(row.url)) || '');
     return description ? { ...row, description } : row;
   });
+  Object.defineProperty(enriched, 'discoveredCount', {
+    value: attemptedDetailUrls.size,
+    enumerable: false,
+  });
+  Object.defineProperty(enriched, 'expectedSeedCount', {
+    value: expectedSeedUrls.size,
+    enumerable: false,
+  });
+  Object.defineProperty(enriched, 'loadedSeedCount', {
+    value: loadedSeedUrls.size,
+    enumerable: false,
+  });
+  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }} */ (
+    /** @type {unknown} */ (enriched)
+  );
+}
+
+/**
+ * Prove that an iPersonal/MediPersonal batch is a complete source snapshot.
+ * A valid batch must account for every detail URL attempted by the listing
+ * crawl and every published row must retain a rich, list-structured body.
+ * Throws before merge/write so zero or partial runs keep the previous slice.
+ *
+ * @param {Array<Record<string, any>> & {
+ *   discoveredCount?: number,
+ *   expectedSeedCount?: number,
+ *   loadedSeedCount?: number,
+ * }} jobs
+ * @returns {true}
+ */
+export function assertCompleteIpersonalSnapshot(jobs) {
+  const discoveredCount = Number(jobs?.discoveredCount);
+  const expectedSeedCount = Number(jobs?.expectedSeedCount);
+  const loadedSeedCount = Number(jobs?.loadedSeedCount);
+  if (!Number.isInteger(expectedSeedCount) || expectedSeedCount <= 0) {
+    throw new Error('iPersonal snapshot incomplete: no authoritative seed count');
+  }
+  if (loadedSeedCount !== expectedSeedCount) {
+    throw new Error(
+      `iPersonal snapshot incomplete: loaded ${loadedSeedCount}/${expectedSeedCount} listing seeds`,
+    );
+  }
+  if (!Array.isArray(jobs) || !Number.isInteger(discoveredCount) || discoveredCount <= 0) {
+    throw new Error('iPersonal snapshot incomplete: no authoritative detail count');
+  }
+  if (jobs.length !== discoveredCount) {
+    throw new Error(`iPersonal snapshot incomplete: parsed ${jobs.length}/${discoveredCount} attempted details`);
+  }
+
+  const ids = new Set();
+  const urls = new Set();
+  for (const job of jobs) {
+    const id = String(job?.id || '').trim();
+    const url = canonicalUrl(job?.url || '');
+    const sourceLang = String(job?.sourceLang || '');
+    const description = job?.descriptionByLocale?.[sourceLang] || job?.description || '';
+    if (!id || !url || ids.has(id) || urls.has(url)) {
+      throw new Error('iPersonal snapshot incomplete: missing or duplicate job identity');
+    }
+    if (!isSufficientVacancyDescription(description) || !/^\s*[-•*]\s/m.test(description)) {
+      throw new Error(`iPersonal snapshot incomplete: ${id} lacks a rich structured description`);
+    }
+    ids.add(id);
+    urls.add(url);
+  }
+  return true;
 }

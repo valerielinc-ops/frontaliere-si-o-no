@@ -15,6 +15,7 @@ import {
   MED_IPERSONAL_KEY,
   MED_IPERSONAL_COMPANY_NAME,
 } from './lib/med-ipersonal-job-parser.mjs';
+import { assertCompleteIpersonalSnapshot } from './lib/ipersonal-spec-runtime.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -27,6 +28,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isMedIpersonalJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  validateAuthoritativeSnapshot: assertCompleteIpersonalSnapshot,
 }).catch((err) => {
   console.error(`❌ MediPersonal crawler failed: ${err?.message || err}`);
   process.exit(1);
