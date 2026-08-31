@@ -18,11 +18,11 @@ function period(date, month = false) {
   return `${weekYear}-W${String(Math.ceil((((day - start) / 86_400_000) + 1) / 7)).padStart(2, '0')}`;
 }
 function compactReport(report) {
-  const { fingerprints: _fingerprints, ...reappearance } = report.reappearance || {};
+  const { fingerprints: _fingerprints, ...continuity } = report.continuity || {};
   return {
     runId: report.runId, finishedAt: report.finishedAt, digest: report.digest, outcome: report.outcome,
     finalCommit: report.finalCommit, before: report.before, final: report.final, delta: report.delta,
-    cohorts: report.cohorts, quality: report.quality, reappearance,
+    cohorts: report.cohorts, quality: report.quality, continuity,
   };
 }
 function append(series, key, entry, cap) {

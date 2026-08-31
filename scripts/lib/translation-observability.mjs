@@ -155,26 +155,29 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
     }
   }
   const previousUrl = new Map();
-  for (const row of before.rows) if (row.urlKeyHash) increment(previousUrl, row.urlKeyHash);
-  // A before/final pair cannot prove a deletion followed by re-addition. These
-  // are continuity buckets over active snapshots, kept under `reappearance`
-  // for the V1 schema but explicitly not interpreted as cross-run reuse.
-  const reappearance = {
-    exact: delta.persisted,
-    fallback: 0,
-    unmatched: 0,
+  for (const row of before.rows) {
+    if (row.urlKeyHash) previousUrl.set(row.urlKeyHash, (previousUrl.get(row.urlKeyHash) || 0) + 1);
+  }
+  // A before/final pair only observes active records. It cannot prove a
+  // deletion followed by re-addition between snapshots.
+  const continuity = {
+    activePersisted: delta.persisted,
+    newIdentities: 0,
+    stableUrlIdentityChanges: 0,
     ambiguous: 0,
-    provenDeleteReadds: 0,
     fingerprints: [],
-    interpretation: 'exact is a persisted active identity, not a delete-to-readd event',
-    scope: 'active snapshots only; expired archive and between-snapshot deletion are not evidence',
+    deleteReaddEvidence: {
+      observable: false,
+      proven: 0,
+      reason: 'Active before/final snapshots retain neither deletions nor a durable re-add event.',
+    },
   };
   for (const [identityHash, row] of current) {
     if (previous.has(identityHash)) continue;
     const candidates = row.urlKeyHash ? (previousUrl.get(row.urlKeyHash) || 0) : 0;
-    if (candidates === 1) reappearance.fallback++;
-    else if (candidates > 1) reappearance.ambiguous++;
-    else reappearance.unmatched++;
+    if (candidates === 1) continuity.stableUrlIdentityChanges++;
+    else if (candidates > 1) continuity.ambiguous++;
+    else continuity.newIdentities++;
   }
   const report = {
     schemaVersion: 1,
@@ -189,7 +192,7 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
     delta,
     cohorts: { age: final.cohorts.age, topCompanies: boundedCompanies(final.cohorts.companies) },
     quality: final.quality,
-    reappearance: { ...reappearance, fingerprints: boundedFingerprints(fingerprints) },
+    continuity: { ...continuity, fingerprints: boundedFingerprints(fingerprints) },
   };
   report.digest = digestDocument(report);
   return report;

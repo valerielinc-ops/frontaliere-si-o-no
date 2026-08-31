@@ -29,14 +29,34 @@ describe('translation observability', () => {
     const two = finalizeTranslationObservabilityReport(buildTranslationObservabilityReport(input), null);
     expect(one.digest).toBe(two.digest);
     expect(one).toMatchObject({ finalCommit: null, outcome: 'failure', delta: { added: 1, removed: 1, drain: 1, ingress: 1 } });
-    expect(one.reappearance.scope).toMatch(/expired archive/);
-    expect(one.reappearance.interpretation).toMatch(/not a delete-to-readd/);
+    expect(one.continuity).toMatchObject({
+      activePersisted: 1,
+      newIdentities: 1,
+      stableUrlIdentityChanges: 0,
+      ambiguous: 0,
+      deleteReaddEvidence: { observable: false, proven: 0 },
+    });
+    expect(one.continuity.deleteReaddEvidence.reason).toMatch(/deletions/);
+    expect(JSON.stringify(one)).not.toContain('reappearance');
     expect(JSON.stringify(one)).not.toContain('Private title');
     expect(JSON.stringify(one)).not.toContain('private-url');
     expect(JSON.stringify(one)).not.toContain('internal-private-id');
     expect(JSON.stringify(one)).not.toContain('acme');
-    expect(one.reappearance.fingerprints).toHaveLength(2);
+    expect(one.continuity.fingerprints).toHaveLength(2);
     expect(Buffer.byteLength(JSON.stringify(one))).toBeLessThanOrEqual(1_048_576);
+  });
+
+  it('names a URL-key continuity change without claiming delete-to-readd evidence', () => {
+    const before = createTranslationObservabilitySnapshot([job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/title_R123?utm=before' })], { now: NOW });
+    const final = createTranslationObservabilitySnapshot([job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/title_R123?utm=after' })], { now: NOW });
+    const report = buildTranslationObservabilityReport({ before, final, runId: '8', startedAt: '2026-08-31T00:00:00Z' });
+    expect(report.continuity).toMatchObject({
+      activePersisted: 0,
+      newIdentities: 0,
+      stableUrlIdentityChanges: 1,
+      ambiguous: 0,
+      deleteReaddEvidence: { observable: false, proven: 0 },
+    });
   });
 
   it('caps companies, fingerprints, weeks, months and its first fourteen baseline reports', () => {
@@ -53,6 +73,8 @@ describe('translation observability', () => {
     expect(history.months.length).toBeLessThanOrEqual(36);
     expect(history.baselineReports).toHaveLength(14);
     expect(history.seenReports.length).toBeLessThanOrEqual(500);
+    expect(history.weeks[0].latest.continuity).toBeDefined();
+    expect(JSON.stringify(history)).not.toContain('fingerprints');
     expect(rollupTranslationObservability(history, { ...report, runId: '109', digest: 'sha256:109', finishedAt: new Date(Date.UTC(2125, 0, 1)).toISOString() })).toEqual(history);
   });
 });
