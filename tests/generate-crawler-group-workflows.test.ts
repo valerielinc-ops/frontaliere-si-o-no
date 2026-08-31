@@ -872,6 +872,22 @@ describe('cross-repo crawler execution artifacts', () => {
     return { ...result, outDir, contractPath };
   }
 
+  function collectRelativeImportClosure(entrypoint: string) {
+    const pending = [entrypoint];
+    const visited = new Set<string>();
+    while (pending.length > 0) {
+      const runtimePath = pending.pop()!;
+      if (visited.has(runtimePath)) continue;
+      visited.add(runtimePath);
+      const source = fs.readFileSync(path.join(repoRoot, runtimePath), 'utf8');
+      for (const match of source.matchAll(/^\s*(?:import|export)\s+(?:(?:\{[\s\S]*?\}|[^'"\n]+)\s+from\s+)?['"](\.[^'"]+)['"]/gm)) {
+        const importedPath = path.posix.normalize(path.posix.join(path.posix.dirname(runtimePath), match[1]));
+        pending.push(importedPath);
+      }
+    }
+    return [...visited].sort();
+  }
+
   it('lega i 23 job completi *-logic.yml alla stessa sorgente del generatore', () => {
     const { contract } = generateArtifacts();
     const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
@@ -889,12 +905,30 @@ describe('cross-repo crawler execution artifacts', () => {
     const contents = contract.artifacts.map((artifact: any) =>
       fs.readFileSync(path.join(outDir, artifact.file), 'utf8'),
     );
+    const citedRuntimePaths = [...new Set(contents.flatMap((content: string) =>
+      [...content.matchAll(/\bscripts\/[A-Za-z0-9._/-]+\.(?:cjs|js|json|jsonc|mjs|sh|ts|yaml|yml)\b/g)]
+        .map((match) => match[0]),
+    ))].sort();
     expect(contract.siteRuntimePaths).toEqual(collectSiteRuntimePaths(contents));
+    expect(contract.siteRuntimePaths).toEqual(citedRuntimePaths);
     expect(contract.siteRuntimePaths.length).toBeGreaterThan(0);
     expect(() => collectSiteRuntimePaths([
       ...contents,
       'run: node scripts/typo-nonexistent.mjs\n',
     ])).toThrow(/missing site runtime path.*scripts\/typo-nonexistent\.mjs/);
+  });
+
+  it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
+    const { contract, outDir } = generateArtifacts();
+    const expectedClosure = collectRelativeImportClosure('scripts/crawler-group-generation-finalizer.mjs');
+    expect(expectedClosure).not.toContain('scripts/ci/crawler-generation-roster.json');
+
+    for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {
+      const content = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
+      const declaredClosure = [...content.matchAll(/^# - (scripts\/[A-Za-z0-9._/-]+)$/gm)]
+        .map((match) => match[1]);
+      expect(declaredClosure, artifact.file).toEqual(expectedClosure);
+    }
   });
 
   it('rifiuta drift nel setup non-background, non soltanto nel roster', () => {

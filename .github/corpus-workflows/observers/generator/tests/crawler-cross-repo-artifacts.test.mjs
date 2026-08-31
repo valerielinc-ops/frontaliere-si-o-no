@@ -22,6 +22,21 @@ function occurrences(text, pattern) {
   return [...text.matchAll(pattern)].length;
 }
 
+function crawlerIdsFromArtifact(text) {
+  return [...text.matchAll(/^\s+id: crawler-(.+)\n\s+background: true$/gm)]
+    .map((match) => match[1]);
+}
+
+test('il parser del roster ignora il wait terminale non-background', () => {
+  const workflow = [
+    '      id: crawler-coop',
+    '      background: true',
+    '      id: crawler-generation-wait',
+    '      wait-all: true',
+  ].join('\n');
+  assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop']);
+});
+
 test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unici', () => {
   assert.equal(CONTRACT.schemaVersion, 1);
   assert.equal(CONTRACT.groupCount, 23);
@@ -194,7 +209,7 @@ test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo 
     assert.doesNotMatch(text, /uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/actions\//);
     assert.match(text, /uses: \.\/\.github\/actions\//);
 
-    const crawlerIds = [...text.matchAll(/^\s+id: crawler-(.+)$/gm)].map((match) => match[1]);
+    const crawlerIds = crawlerIdsFromArtifact(text);
     assert.deepEqual(crawlerIds, artifact.members, `${artifact.file}: roster diverso dal contratto`);
     assert.equal(new Set(crawlerIds).size, crawlerIds.length, `${artifact.file}: crawler duplicato`);
     assert.equal(occurrences(text, /^\s+background: true$/gm), artifact.members.length);
