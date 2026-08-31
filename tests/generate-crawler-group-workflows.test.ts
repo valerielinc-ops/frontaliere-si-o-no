@@ -1214,8 +1214,13 @@ describe('cross-repo crawler execution artifacts', () => {
     for (const artifact of contract.artifacts) {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
       const job: any = Object.values(doc.jobs)[0];
-      for (const reporter of job.steps.filter((step: any) => step.uses === './.github/actions/report-failure')) {
+      const reporters = job.steps.filter((step: any) => step.uses === './.github/actions/report-failure');
+      expect(reporters, artifact.file).toHaveLength(1);
+      for (const reporter of reporters) {
         diagnosticReporters += 1;
+        expect(reporter.if).toBe(
+          "failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')",
+        );
         expect(reporter.with).toMatchObject({
           title: `Workflow Failure: ${doc.name}`,
           'closed-by': 'close-recovered-failure-issues',
@@ -1227,8 +1232,17 @@ describe('cross-repo crawler execution artifacts', () => {
         expect(reporter.with.repo).not.toBe('valerielinc-ops/frontaliere-si-o-no');
         expect(reporter.with['workflow-file']).not.toContain('-logic.yml');
       }
+      const firstCrawlerAt = job.steps.findIndex((step: any) => step.background === true);
+      const reporterAt = job.steps.indexOf(reporters[0]);
+      if (artifact.members.length > 0) {
+        expect(reporterAt, artifact.file).toBeLessThan(firstCrawlerAt);
+        expect(reporters[0].name).toBe('Report shared setup failure to GitHub Issues');
+      } else {
+        expect(firstCrawlerAt, artifact.file).toBe(-1);
+        expect(reporters[0].name).toBe('Report failure to GitHub Issues');
+      }
     }
-    expect(diagnosticReporters).toBe(1);
+    expect(diagnosticReporters).toBe(24);
   });
 
   it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {

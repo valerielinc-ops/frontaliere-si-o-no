@@ -277,7 +277,7 @@ jobs:
             echo "   The next cron run will retry and trigger deploy once all jobs are translated."
           fi
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: failure() && (steps.site_checkout_primary.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')
         uses: ./.github/actions/report-failure
         with:
           title: "Workflow Failure: Translate Pending Jobs (sparse cross-repo execution)"

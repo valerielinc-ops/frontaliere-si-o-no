@@ -1179,6 +1179,10 @@ export function buildStandaloneCrossRepoWorkflow({
   };
   job.steps.splice(checkoutIndex, 1, primary, backoff, retry, reportCheckoutFailure, checkoutReady);
 
+  const diagnosticFailureCondition =
+    `failure() && (steps.${primaryId}.outcome == 'success' || steps.site_checkout_retry.outcome == 'success')`;
+  let diagnosticReporter = null;
+
   // Il repository del sito e' ora il working tree locale del job: le due
   // composite action non devono piu' provocare un secondo codeload cross-repo.
   for (const step of job.steps) {
@@ -1193,6 +1197,11 @@ export function buildStandaloneCrossRepoWorkflow({
     const match = /^valerielinc-ops\/frontaliere-si-o-no\/(\.github\/actions\/[^@]+)@main$/.exec(step.uses);
     if (match) step.uses = `./${match[1]}`;
     if (step.uses === './.github/actions/report-failure') {
+      if (diagnosticReporter) {
+        throw new Error(`${name}: standalone workflow has multiple diagnostic failure reporters`);
+      }
+      diagnosticReporter = step;
+      step.if = diagnosticFailureCondition;
       step.with = {
         ...step.with,
         title: `Workflow Failure: ${name}`,
@@ -1205,6 +1214,35 @@ export function buildStandaloneCrossRepoWorkflow({
         'workflow-file': `.github/corpus-workflows/${workflowFile}`,
       };
     }
+  }
+
+  // I gruppi crawler riportavano i guasti interni dei singoli crawler, ma non
+  // quelli degli step condivisi fra checkout e avvio della logica (setup-node,
+  // npm ci, Remote Config e composite action). Il reporter checkout resta uno
+  // shell step separato perché, se entrambi i checkout falliscono, l'action
+  // locale non esiste nel working tree. Dopo almeno un checkout riuscito,
+  // invece, questo catch-all viene inserito PRIMA del primo background step:
+  // vede i guasti del setup condiviso ma non duplica le issue per-crawler che
+  // ogni background step crea gia' da solo.
+  if (!diagnosticReporter) {
+    const firstCrawlerAt = job.steps.findIndex((step) => step?.background === true);
+    if (firstCrawlerAt < 0) {
+      throw new Error(`${name}: no diagnostic reporter and no crawler boundary`);
+    }
+    job.steps.splice(firstCrawlerAt, 0, {
+      name: 'Report shared setup failure to GitHub Issues',
+      if: diagnosticFailureCondition,
+      uses: './.github/actions/report-failure',
+      with: {
+        title: `Workflow Failure: ${name}`,
+        'closed-by': 'close-recovered-failure-issues',
+        'github-token': '${{ github.token }}',
+        repo: '${{ github.repository }}',
+        'workflow-name': name,
+        'workflow-file': `.github/corpus-workflows/${workflowFile}`,
+        priority: '2',
+      },
+    });
   }
 
   const standalone = {
