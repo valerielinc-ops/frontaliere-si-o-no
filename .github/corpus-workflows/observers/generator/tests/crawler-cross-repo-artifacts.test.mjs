@@ -154,18 +154,37 @@ test('il reporter diagnostico usa identita e workflow standalone corpus richiudi
   let reporterCount = 0;
   for (const artifact of CONTRACT.artifacts) {
     const text = readFileSync(path.join(WORKFLOWS, artifact.file), 'utf8');
-    if (!text.includes('uses: ./.github/actions/report-failure')) continue;
-    reporterCount += 1;
-    assert.match(text, /title: "Workflow Failure: Translate Pending Jobs \(sparse cross-repo execution\)"/);
+    const artifactReporters = occurrences(text, /^\s+uses: \.\/\.github\/actions\/report-failure$/gm);
+    assert.equal(artifactReporters, 1, `${artifact.file}: reporter diagnostico non unico`);
+    reporterCount += artifactReporters;
+    const group = /^crawler-group-(\d{2})\.yml$/.exec(artifact.file);
+    const workflowName = group
+      ? `Crawler Group ${group[1]} (sparse cross-repo execution)`
+      : 'Translate Pending Jobs (sparse cross-repo execution)';
+    const escapedName = workflowName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    assert.match(text, new RegExp(`title: "Workflow Failure: ${escapedName}"`));
     assert.match(text, /closed-by: close-recovered-failure-issues/);
     assert.match(text, /github-token: \$\{\{ github\.token \}\}/);
     assert.match(text, /repo: \$\{\{ github\.repository \}\}/);
-    assert.match(text, /workflow-name: Translate Pending Jobs \(sparse cross-repo execution\)/);
+    assert.match(text, new RegExp(`workflow-name: ${escapedName}`));
+    assert.match(
+      text,
+      /if: failure\(\) && \(steps\.site_checkout_primary\.outcome == 'success' \|\| steps\.site_checkout_retry\.outcome == 'success'\)/,
+    );
     assert.match(text, new RegExp(`workflow-file: \\.github/corpus-workflows/${artifact.file.replace('.', '\\.')}\\b`));
     assert.doesNotMatch(text, /workflow-file: .*logic\.yml/);
     assert.doesNotMatch(text, /repo: valerielinc-ops\/frontaliere-si-o-no/);
+    const reporterAt = text.indexOf('uses: ./.github/actions/report-failure');
+    const firstCrawlerAt = text.indexOf('background: true');
+    if (artifact.members.length > 0) {
+      assert.ok(reporterAt < firstCrawlerAt, `${artifact.file}: reporter setup dopo la logica crawler`);
+      assert.match(text, /name: Report shared setup failure to GitHub Issues/);
+    } else {
+      assert.equal(firstCrawlerAt, -1, `${artifact.file}: translate non deve contenere crawler`);
+      assert.match(text, /name: Report failure to GitHub Issues/);
+    }
   }
-  assert.equal(reporterCount, 1);
+  assert.equal(reporterCount, 24);
 });
 
 test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo un fallimento parziale', () => {
