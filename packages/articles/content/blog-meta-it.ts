@@ -11001,6 +11001,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Frontalieri Ticino Q2 2026: 79.121 (+0,64%)',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Ufficio Federale di Statistica: 79.121 frontalieri nel Canton Ticino al Q2 2026, in crescita di 505 unità (+0,64%) rispetto al Q1. Analisi dati BFS trimestrale.',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Vista di Lugano con grattacieli del distretto finanziario e professionisti al lavoro al mattino',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Vivere a Cirimido, lavorare in Ticino: guida frontaliere',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Scopri come trasferirsi a Cirimido e lavorare in Ticino da frontaliere: Permesso G, imposta alla fonte, AVS/LPP, costo della vita, valichi di confine.',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Vista aerea di Mendrisio, Ticino, con paesaggio collinare, vigneti e confine svizzero-italiano al tramonto.',
 };
 
 export default blogMetaIt;

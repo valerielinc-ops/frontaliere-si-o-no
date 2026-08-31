@@ -11002,6 +11002,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Frontières Tessin Q2 2026: 79 121 (+0,64 %)',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Office fédéral de la statistique : 79 121 frontaliers dans le canton du Tessin au Q2 2026, en hausse de 505 unités (+0,64 %) par rapport au Q1. Analyse des données BFS trimestrielle.',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Lac de Lugano avec district commercial moderne et professionnels au matin',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Vivre à Cirimido, travailler au Tessin : guide frontalier',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Découvrez comment déménager à Cirimido et travailler au Tessin en tant que frontalier : permis G, impôt à la source, AVS/LPP, coût de la vie, points de passage frontaliers.',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Vue aérienne de Mendrisio, Tessin, avec paysage vallonné, vignobles et frontière suisse-italienne au coucher du soleil.',
 };
 
 export default blogMetaFr;

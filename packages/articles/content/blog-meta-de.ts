@@ -10999,6 +10999,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Grenzgänger Tessin Q2 2026: 79.121 (+0,64%)',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Bundesamt für Statistik: 79.121 Grenzgänger im Kanton Tessin zum Q2 2026, ein Anstieg von 505 Einheiten (+0,64%) im Vergleich zum Q1. Vierteljährliche BfS-Datenanalyse.',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Lugano-Seeufer mit modernem Geschäftsviertel und Fachleuten am Morgen',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Leben in Cirimido, Arbeiten im Tessin: Grenzführer',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger nach Cirimido ziehen und im Tessin arbeiten können: Bewilligung G, Quellensteuer, AHV/BVG, Lebenshaltungskosten, Grenzübergänge.',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Luftaufnahme von Mendrisio, Tessin, mit Hügellandschaft, Rebbergen und Schweizer-Italienischer Grenze bei Sonnenuntergang.',
 };
 
 export default blogMetaDe;

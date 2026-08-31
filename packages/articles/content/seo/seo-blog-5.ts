@@ -81152,6 +81152,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cirimido-frontaliere-ticino-lavoro': {
+    title: 'Vivere a Cirimido, lavorare in Ticino: guida frontaliere',
+    description: 'Trasferirsi a Cirimido e lavorare in Ticino da frontaliere: guida completa su Permesso G, imposta alla fonte, AVS/LPP, costi della vita, valichi di confine.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cirimido, lavorare, scopri',
+    ogTitle: 'Vivere a Cirimido: guida frontaliere per Ticino',
+    ogDescription: 'Scopri come vivere a Cirimido (Lombardia) e lavorare in Ticino da frontaliere: Permesso G obbligatorio, imposta alla fonte in Svizzera, AVS/LPP, LAMal, tempi ai valichi di Brogeda e Gaggiolo, confronto costi Italia-Svizzera, vantaggi economici',
+    canonicalPath: '/articoli-frontaliere/cirimido-frontaliere-ticino-lavoro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cirimido, lavorare in Ticino: guida frontaliere",
+      "description": "Trasferirsi a Cirimido e lavorare in Ticino da frontaliere: guida completa su Permesso G, imposta alla fonte, AVS/LPP, costi della vita, valichi di confine.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cirimido-frontaliere-ticino-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Mendrisio, Ticino, con paesaggio collinare, vigneti e confine svizzero-italiano al tramonto."
+      },
+      "datePublished": "2026-08-31T16:30:40+00:00",
+      "dateModified": "2026-08-31T16:30:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cirimido-frontaliere-ticino-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

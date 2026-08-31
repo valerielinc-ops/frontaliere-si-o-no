@@ -32880,6 +32880,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cirimido-frontaliere-ticino-lavoro',
+ category: 'fiscale',
+ date: '2026-08-31T16:30:40.379Z',
+ image: '/images/blog/cirimido-frontaliere-ticino-lavoro.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
