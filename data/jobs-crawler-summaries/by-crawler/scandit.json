@@ -1,18 +1,18 @@
 {
   "key": "scandit",
   "label": "Scandit AG",
-  "generatedAt": "2026-08-31T10:15:58.239Z",
-  "total": 2,
+  "generatedAt": "2026-08-31T17:22:20.271Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5395,
-  "avgDurationMs": 5395,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5921,
+  "avgDurationMs": 5921,
   "durationHistory": [
-    5395
+    5921
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=7588975",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:15:53.328Z",
+      "crawledAt": "2026-08-31T17:22:14.682Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -51,8 +51,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "scandit-fd9be409e48d",
       "slug": "senior-product-manager-shelfview-scandit-ch",
@@ -93,5 +92,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
