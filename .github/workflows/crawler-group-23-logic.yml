@@ -53,13 +53,6 @@ on:
         required: false
       CLAUDE_CODE_OAUTH_TOKEN:
         required: false
-# No concurrency: block here — the caller (crawler-group-23.yml in
-# frontaliere-articles) already declares the same lock at its own workflow
-# level, which governs the actual job run. A duplicate top-level
-# concurrency: here (same group name) is suspected to break workflow
-# resolution for a cross-repo workflow_call — under experimental removal to
-# isolate the cause of a "likely failed because of a workflow file issue"
-# dispatch failure with zero jobs created.
 permissions:
   contents: read
 env:
@@ -69,13 +62,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 340
     steps:
-      # Bootstrap checkout #1: anonymous, read-only. frontaliere-si-o-no is
-      # PUBLIC, so an anonymous clone works for read. token: '' is the
-      # documented way to force actions/checkout to skip auth entirely (it
-      # would otherwise default to the CALLER's own ambient token, scoped to
-      # frontaliere-articles — the wrong repo/account here). This leaves NO
-      # persisted git credentials, so the "Bootstrap write auth" step below
-      # must configure its own before any step that pushes or opens issues.
       - name: Checkout frontaliere-si-o-no (public, read-only)
         uses: actions/checkout@v5
         with:
@@ -101,19 +87,6 @@ jobs:
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
-
-      # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT. Chicken-
-      # and-egg, resolved: reading GITHUB_PAT from Remote Config needed
-      # scripts/load-rc-env.mjs, which lives in this (just-checked-out)
-      # repo, which is why the FIRST checkout above had to be
-      # anonymous/read-only. Now that GITHUB_PAT is a real env var
-      # (persisted via $GITHUB_ENV in the PRIOR step), reconfigure the
-      # remote so any later git push / gh call in this job (crawler commits
-      # via scripts/lib/git-commit-data.sh, failure issues via
-      # scripts/lib/github-issue-creator.mjs) authenticates with a token
-      # that has write access to valerielinc-ops/frontaliere-si-o-no — not
-      # the ambient frontaliere-articles-scoped default token, not the
-      # anonymous checkout above.
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then

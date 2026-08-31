@@ -21,7 +21,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble } from '../scripts/generate-crawler-group-workflows.mjs';
+import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths } from '../scripts/generate-crawler-group-workflows.mjs';
+import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 
 interface Crawler {
   slug: string;
@@ -817,5 +818,406 @@ describe('#6482 — assignGroupsStable', () => {
     const crawlers = [crawler('a'), crawler('b')];
     const { groups } = assignGroupsStable(crawlers, [['a', 'b'], ['a']], median);
     expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], []]);
+  });
+});
+
+describe('cross-repo crawler execution artifacts', () => {
+  const repoRoot = path.resolve(import.meta.dirname, '..');
+  const workflowsDir = path.join(repoRoot, '.github/workflows');
+  const assignmentsPath = path.join(repoRoot, 'data/crawler-group-assignments.json');
+  let tmp = '';
+
+  beforeEach(() => {
+    tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-cross-repo-'));
+  });
+
+  afterEach(() => {
+    fs.rmSync(tmp, { recursive: true, force: true });
+  });
+
+  function generateArtifacts() {
+    const groupResults = generate({
+      outDir: workflowsDir,
+      assignmentsPath,
+      write: false,
+    });
+    const outDir = path.join(tmp, 'workflows');
+    const contractPath = path.join(tmp, 'crawler-cross-repo-contract.json');
+    const result = generateCrossRepoExecutionArtifacts({
+      groupResults,
+      outDir,
+      contractPath,
+    });
+    return { ...result, outDir, contractPath };
+  }
+
+  it('lega i 23 job completi *-logic.yml alla stessa sorgente del generatore', () => {
+    const { contract } = generateArtifacts();
+    const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
+    const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'));
+    const currentCrawlerCount = manifest.manifest.length;
+
+    expect(groups).toHaveLength(GROUP_COUNT);
+    expect(contract.crawlerCount).toBe(currentCrawlerCount);
+    expect(groups.flatMap((artifact: any) => artifact.members)).toHaveLength(currentCrawlerCount);
+    expect(new Set(groups.flatMap((artifact: any) => artifact.members)).size).toBe(currentCrawlerCount);
+  });
+
+  it('pubblica soltanto runtime path del sito esistenti e fallisce su un typo citato', () => {
+    const { contract, outDir } = generateArtifacts();
+    const contents = contract.artifacts.map((artifact: any) =>
+      fs.readFileSync(path.join(outDir, artifact.file), 'utf8'),
+    );
+    expect(contract.siteRuntimePaths).toEqual(collectSiteRuntimePaths(contents));
+    expect(contract.siteRuntimePaths.length).toBeGreaterThan(0);
+    expect(() => collectSiteRuntimePaths([
+      ...contents,
+      'run: node scripts/typo-nonexistent.mjs\n',
+    ])).toThrow(/missing site runtime path.*scripts\/typo-nonexistent\.mjs/);
+  });
+
+  it('rifiuta drift nel setup non-background, non soltanto nel roster', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const logic = fs.readFileSync(logicPath, 'utf8').replace('node-version: "22"', 'node-version: "20"');
+    expect(() => assertCrawlerLogicParity(generated.content, logic, path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+
+    const checkoutDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const checkoutJob: any = Object.values(checkoutDoc.jobs)[0];
+    checkoutJob.steps.find((step: any) => step.uses === 'actions/checkout@v5').if = 'always()';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(checkoutDoc), path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+  });
+
+  it('rifiuta campi futuri non normalizzati sui background step', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const doc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const job: any = Object.values(doc.jobs)[0];
+    job.steps.find((step: any) => step.background === true).if = 'always()';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(doc), path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+  });
+
+  it('rifiuta campi futuri non dichiarati a livello job e workflow', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const jobDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    const job: any = Object.values(jobDoc.jobs)[0];
+    job.strategy = { 'fail-fast': false };
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(jobDoc), path.basename(logicPath)))
+      .toThrow(/full job mismatch/);
+
+    const workflowDoc = YAML.parse(fs.readFileSync(logicPath, 'utf8'));
+    workflowDoc.defaults = { run: { shell: 'bash' } };
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(workflowDoc), path.basename(logicPath)))
+      .toThrow(/undeclared top-level workflow metadata/);
+  });
+
+  it('rifiuta righe extra nei bootstrap RC/PAT e metadata trigger annidati', () => {
+    const [generated] = generate({ outDir: workflowsDir, assignmentsPath, write: false });
+    const logicPath = path.join(workflowsDir, 'crawler-group-01-logic.yml');
+    const source = fs.readFileSync(logicPath, 'utf8');
+
+    const rcDoc = YAML.parse(source);
+    const rcJob: any = Object.values(rcDoc.jobs)[0];
+    rcJob.steps.find((step: any) => step.name === 'Load secrets from Remote Config').run += '\necho unexpected';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(rcDoc), path.basename(logicPath)))
+      .toThrow(/complete allowed form/);
+
+    const patDoc = YAML.parse(source);
+    const patJob: any = Object.values(patDoc.jobs)[0];
+    patJob.steps.find((step: any) => step.name?.startsWith('Bootstrap write auth')).run += '\necho unexpected';
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(patDoc), path.basename(logicPath)))
+      .toThrow(/write-auth bootstrap/);
+
+    const triggerDoc = YAML.parse(source);
+    triggerDoc.on.workflow_call.unexpected = true;
+    expect(() => assertCrawlerLogicParity(generated.content, YAML.stringify(triggerDoc), path.basename(logicPath)))
+      .toThrow(/workflow_call inputs\/secrets/);
+  });
+
+  it('include by default ogni nuovo bucket non dichiarato sicuro da escludere', () => {
+    const bucketsPath = path.join(tmp, 'checkout-buckets.json');
+    fs.writeFileSync(bucketsPath, JSON.stringify({
+      buckets: [
+        { id: 'public/images/', mb: 4_409 },
+        { id: 'data/future-crawler-input/', mb: 900 },
+      ],
+    }));
+    const patterns = crossRepoCrawlerSparsePatterns({ bucketsPath });
+    expect(patterns).toContain('!/public/images/');
+    expect(patterns).not.toContain('!/data/future-crawler-input/');
+  });
+
+  it('gli artifact portabili committati includono hash del transformer e sono la sorgente del corpus', () => {
+    const { contract, outDir, contractPath } = generateArtifacts();
+    const portableDir = path.join(repoRoot, '.github/corpus-workflows');
+    for (const artifact of contract.artifacts) {
+      expect(fs.readFileSync(path.join(portableDir, artifact.file), 'utf8'))
+        .toBe(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+    }
+    expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'))
+      .toBe(fs.readFileSync(contractPath, 'utf8'));
+    expect(contract.generatorSha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(contract.observerCount).toBe(1);
+    expect(contract.observers.map(({ source, target }: any) => ({ source, target })))
+      .toEqual(CORPUS_OBSERVER_FILES);
+    for (const observer of contract.observers) {
+      expect(fs.readFileSync(path.join(outDir, observer.source), 'utf8'))
+        .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
+    }
+  });
+
+  it('add/remove arriva al corpus eseguito e una nuova data lascia baseline allineate byte-identiche', () => {
+    const manifestPath = path.join(tmp, 'manifest.json');
+    const baselinePath = path.join(repoRoot, 'data/crawler-workflow-duration-baseline.json');
+    const pinsPath = path.join(tmp, 'assignments.json');
+    const localDir = path.join(tmp, 'local');
+    const logicDir = path.join(tmp, 'logic');
+    const portableDir = path.join(tmp, 'portable');
+    const contractPath = path.join(portableDir, 'contract.json');
+    const corpusRoot = path.join(tmp, 'corpus');
+    const corpusManifestPath = path.join(corpusRoot, 'scripts/ci/loop-sync-manifest.json');
+    const sourceManifest = JSON.parse(
+      fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'),
+    );
+    const target = sourceManifest.manifest[0].slug;
+    fs.mkdirSync(localDir, { recursive: true });
+    fs.mkdirSync(path.dirname(corpusManifestPath), { recursive: true });
+    fs.writeFileSync(corpusManifestPath, JSON.stringify({
+      files: [
+        ...CRAWLER_WORKFLOW_FILES.map((file) => ({
+          path: `.github/workflows/${file}`,
+          sitePath: `.github/corpus-workflows/${file}`,
+          mode: 'identical',
+          baseline: {},
+        })),
+        {
+          path: 'generator/data/crawler-cross-repo-contract.json',
+          sitePath: '.github/corpus-workflows/contract.json',
+          mode: 'identical',
+          baseline: {},
+        },
+      ],
+    }));
+    fs.copyFileSync(assignmentsPath, pinsPath);
+
+    const render = (doc: any) => {
+      fs.writeFileSync(manifestPath, JSON.stringify(doc));
+      const groups = generate({
+        manifestPath,
+        baselinePath,
+        assignmentsPath: pinsPath,
+        outDir: localDir,
+        write: true,
+      });
+      generateCrawlerLogicArtifacts({ groupResults: groups, workflowsDir: logicDir });
+      const generated = generateCrossRepoExecutionArtifacts({
+        groupResults: groups,
+        workflowsDir: logicDir,
+        outDir: portableDir,
+        contractPath,
+      });
+      prepareCrawlerWorkflowCorpusSync({ sourceDir: portableDir, corpusRoot, alignedAt: '2026-08-31' });
+      return generated;
+    };
+    const countInLogic = () => fs.readdirSync(logicDir)
+      .filter((file) => /-logic\.yml$/.test(file))
+      .map((file) => fs.readFileSync(path.join(logicDir, file), 'utf8'))
+      .filter((text) => text.includes(`id: crawler-${target}\n`)).length;
+
+    const without = structuredClone(sourceManifest);
+    without.manifest = without.manifest.filter((crawler: any) => crawler.slug !== target);
+    const removed = render(without);
+    expect(countInLogic()).toBe(0);
+    expect(removed.contract.artifacts.flatMap((artifact: any) => artifact.members)).not.toContain(target);
+
+    const added = render(sourceManifest);
+    expect(countInLogic()).toBe(1);
+    expect(added.contract.artifacts.flatMap((artifact: any) => artifact.members)
+      .filter((slug: string) => slug === target)).toHaveLength(1);
+    const executedDir = path.join(corpusRoot, '.github/workflows');
+    const executed = fs.readdirSync(executedDir)
+      .filter((file) => /^crawler-group-/.test(file))
+      .map((file) => fs.readFileSync(path.join(executedDir, file), 'utf8'))
+      .filter((text) => text.includes(`id: crawler-${target}\n`) && text.includes('background: true'));
+    expect(executed).toHaveLength(1);
+    for (const observer of CORPUS_OBSERVER_FILES) {
+      expect(fs.readFileSync(path.join(corpusRoot, observer.target), 'utf8'))
+        .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
+    }
+    const transportedManifest = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
+    const baselines = transportedManifest.files.map((entry: any) => entry.baseline);
+    expect(baselines).toHaveLength(25);
+    expect(baselines.every((baseline: any) => baseline.site === baseline.corpus && baseline.site.length === 16))
+      .toBe(true);
+    const stableManifest = fs.readFileSync(corpusManifestPath, 'utf8');
+    prepareCrawlerWorkflowCorpusSync({ sourceDir: portableDir, corpusRoot, alignedAt: '2026-09-01' });
+    expect(fs.readFileSync(corpusManifestPath, 'utf8')).toBe(stableManifest);
+  }, 30_000);
+
+  it('un artifact sorgente mancante fallisce prima di cancellare la destinazione', () => {
+    const { outDir } = generateArtifacts();
+    fs.renameSync(path.join(outDir, 'crawler-group-23.yml'), path.join(outDir, 'crawler-group-23.missing'));
+    const corpusRoot = path.join(tmp, 'truncated-corpus');
+    const sentinel = path.join(corpusRoot, '.github/workflows/crawler-group-23.yml');
+    fs.mkdirSync(path.dirname(sentinel), { recursive: true });
+    fs.writeFileSync(sentinel, 'sentinel\n');
+    expect(() => prepareCrawlerWorkflowCorpusSync({ sourceDir: outDir, corpusRoot }))
+      .toThrow(/required crawler transport input missing/);
+    expect(fs.readFileSync(sentinel, 'utf8')).toBe('sentinel\n');
+  });
+
+  it('rifiuta qualunque mutazione non-owned nel loop-sync manifest condiviso', () => {
+    const baseManifest: any = {
+      files: [
+        { path: 'generator/data/other.json', mode: 'corpus-only', reason: 'owned by corpus' },
+      ],
+      schemaVersion: 1,
+    };
+    const allowed = structuredClone(baseManifest);
+    allowed.files.push(
+      ...CRAWLER_WORKFLOW_FILES.map((file) => ({
+        path: `.github/workflows/${file}`,
+        sitePath: `.github/corpus-workflows/${file}`,
+        mode: 'identical',
+        baseline: { site: 'new', corpus: 'new', alignedAt: '2026-08-31' },
+      })),
+      {
+        path: 'generator/data/crawler-cross-repo-contract.json',
+        sitePath: '.github/corpus-workflows/contract.json',
+        mode: 'identical',
+        baseline: { site: 'new', corpus: 'new', alignedAt: '2026-08-31' },
+      },
+    );
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: allowed })).not.toThrow();
+
+    const contaminated = structuredClone(allowed);
+    contaminated.files[0].reason = 'silently changed by transport branch';
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: contaminated }))
+      .toThrow(/outside the 25 owned baselines/);
+  });
+
+  it('non consente al vecchio one-shot di rigenerare il reusable workflow difettoso', () => {
+    const legacyPath = path.join(repoRoot, 'scripts/migrate-crawler-groups-to-reusable-workflow.mjs');
+    expect(() => execFileSync(process.execPath, [legacyPath], { encoding: 'utf8', stdio: 'pipe' }))
+      .toThrow(/retired migration: use generate-crawler-group-workflows\.mjs/);
+    expect(fs.readFileSync(legacyPath, 'utf8').split('\n').length).toBeLessThan(20);
+  });
+
+  it('genera 23 gruppi + translate senza reusable workflow o composite action cross-repo', () => {
+    const { contract, outDir } = generateArtifacts();
+    expect(contract.artifactCount).toBe(24);
+
+    for (const artifact of contract.artifacts) {
+      const text = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
+      expect(text).not.toMatch(/uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/workflows\//);
+      expect(text).not.toMatch(/uses:\s+valerielinc-ops\/frontaliere-si-o-no\/.github\/actions\//);
+      expect(text).toContain('uses: ./.github/actions/');
+    }
+  });
+
+  it('ritenta soltanto il checkout sparse, con backoff prima di qualunque logica', () => {
+    const { contract, outDir } = generateArtifacts();
+    expect(contract.checkout).toMatchObject({
+      attempts: 2,
+      backoffSeconds: 30,
+      retryScope: 'checkout-before-logic-only',
+      reporter: 'corpus-issue-github-token',
+    });
+    expect(contract.checkout.excludedMb).toBeGreaterThan(5_000);
+
+    for (const artifact of contract.artifacts) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      expect(Object.keys(doc.jobs)).toHaveLength(1);
+      const job: any = Object.values(doc.jobs)[0];
+      const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
+      expect(checkouts).toHaveLength(2);
+      expect(checkouts[0]).toMatchObject({
+        id: 'site_checkout_primary',
+        'continue-on-error': true,
+      });
+      expect(checkouts[1].if).toBe("steps.site_checkout_primary.outcome == 'failure'");
+
+      const reporter = job.steps.find((step: any) => step.name === 'Report exhausted site checkout');
+      expect(reporter).toMatchObject({
+        if: "always() && steps.site_checkout_primary.outcome == 'failure' && steps.site_checkout_retry.outcome == 'failure'",
+        env: {
+          GH_TOKEN: '${{ github.token }}',
+          ISSUE_TITLE: `Workflow Failure: ${doc.name}`,
+        },
+      });
+      expect(reporter.env.ISSUE_TITLE).toMatch(/^Workflow Failure: .+/);
+      expect(reporter.run).toContain('gh issue list --repo "$GITHUB_REPOSITORY"');
+      expect(reporter.run).toContain('gh issue comment');
+      expect(reporter.run).toContain('gh issue create');
+      expect(reporter.run).not.toContain('GITHUB_PAT');
+      expect(doc.permissions.issues).toBe('write');
+      expect(doc.permissions.actions).toBe('read');
+
+      const checkoutReady = job.steps.find((step: any) => step.id === 'checkout');
+      expect(checkoutReady).toMatchObject({
+        name: 'Confirm site checkout succeeded',
+        run: 'true',
+      });
+      expect(checkoutReady.if).toContain("steps.site_checkout_retry.outcome == 'success'");
+
+      const backoffAt = job.steps.findIndex((step: any) => /Backoff 30s/.test(step.name ?? ''));
+      const firstLogicAt = job.steps.findIndex((step: any) =>
+        step.background === true || /^Phase /.test(step.name ?? ''));
+      expect(backoffAt).toBeGreaterThan(0);
+      expect(job.steps[backoffAt].run).toContain('sleep 30');
+      expect(firstLogicAt).toBeGreaterThan(backoffAt);
+      expect(firstLogicAt).toBeGreaterThan(job.steps.indexOf(checkoutReady));
+      expect(job.steps.indexOf(reporter)).toBeGreaterThan(job.steps.indexOf(checkouts[1]));
+      expect(job.steps.indexOf(reporter)).toBeLessThan(job.steps.indexOf(checkoutReady));
+
+      for (const checkout of checkouts) {
+        expect(checkout.with.repository).toBe('valerielinc-ops/frontaliere-si-o-no');
+        expect(checkout.with.token).toBeUndefined();
+        expect(checkout.with['sparse-checkout']).toContain('!/public/images/');
+        expect(checkout.with['sparse-checkout']).toContain('!/packages/articles/content/');
+        expect(checkout.with['sparse-checkout']).not.toContain('!/data/jobs/');
+      }
+    }
+  });
+
+  it('adatta ogni reporter diagnostico al repo e al workflow standalone del corpus', () => {
+    const { contract, outDir } = generateArtifacts();
+    let diagnosticReporters = 0;
+    for (const artifact of contract.artifacts) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = Object.values(doc.jobs)[0];
+      for (const reporter of job.steps.filter((step: any) => step.uses === './.github/actions/report-failure')) {
+        diagnosticReporters += 1;
+        expect(reporter.with).toMatchObject({
+          title: `Workflow Failure: ${doc.name}`,
+          'closed-by': 'close-recovered-failure-issues',
+          'github-token': '${{ github.token }}',
+          repo: '${{ github.repository }}',
+          'workflow-name': doc.name,
+          'workflow-file': `.github/corpus-workflows/${artifact.file}`,
+        });
+        expect(reporter.with.repo).not.toBe('valerielinc-ops/frontaliere-si-o-no');
+        expect(reporter.with['workflow-file']).not.toContain('-logic.yml');
+      }
+    }
+    expect(diagnosticReporters).toBe(1);
+  });
+
+  it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {
+    const { contract, outDir } = generateArtifacts();
+    for (const artifact of contract.artifacts.filter((item: any) => item.members.length > 0)) {
+      const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
+      const job: any = Object.values(doc.jobs)[0];
+      const executed = job.steps.filter((step: any) => step.background === true);
+      expect(executed.map((step: any) => step.id)).toEqual(
+        artifact.members.map((member: string) => `crawler-${member}`),
+      );
+      expect(new Set(executed.map((step: any) => step.id)).size).toBe(executed.length);
+      expect(job.needs).toBeUndefined();
+    }
   });
 });

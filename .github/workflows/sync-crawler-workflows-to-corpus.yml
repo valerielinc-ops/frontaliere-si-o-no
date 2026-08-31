@@ -1,0 +1,52 @@
+name: Sync crawler workflows to the corpus repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/corpus-workflows/**'
+      - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
+      - 'scripts/ci/sync-crawler-workflows-to-corpus.sh'
+      - '.github/workflows/sync-crawler-workflows-to-corpus.yml'
+  schedule:
+    - cron: '37 */6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-crawler-workflows-to-corpus
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /.github/corpus-workflows/
+            /scripts/ci/prepare-crawler-workflow-corpus-sync.mjs
+            /scripts/ci/sync-crawler-workflows-to-corpus.sh
+          sparse-checkout-cone-mode: false
+
+      - name: Deliver generated crawler workflows through a corpus PR
+        env:
+          ARTICLES_REPO_PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            if bash scripts/ci/sync-crawler-workflows-to-corpus.sh; then
+              exit 0
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo '::error::crawler workflow corpus transport exhausted 3 attempts'
+              exit 1
+            fi
+            delay=$((attempt * 30))
+            echo "::warning::crawler workflow transport attempt $attempt failed; retrying in ${delay}s"
+            sleep "$delay"
+          done
