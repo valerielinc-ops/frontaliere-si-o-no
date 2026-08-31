@@ -10991,6 +10991,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'The day\'s numbers for cross-border commuters – August 31, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Cross-border brief, August 31, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'The numbers for August 31, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Trains stopped between Arbedo-Castione and Biasca: inconvenience',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruption on Monday around noon on the Arbedo-Castione–Biasca route: SBB report "accident per person", trains cancelled.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Railway station with service interruption notice on the Ticino line',
 };
 
 export default blogMetaEn;

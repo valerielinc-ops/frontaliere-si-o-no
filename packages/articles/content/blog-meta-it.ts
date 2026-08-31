@@ -10992,6 +10992,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'I numeri del giorno per i frontalieri – 31 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Bollettino frontalieri del 31 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'I numeri del 31 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Treni fermi tra Arbedo-Castione e Biasca: disagi',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruzione lunedì verso mezzogiorno sulla tratta Arbedo-Castione–Biasca: FFS segnalano «incidente a persona», treni cancellati.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Stazione ferroviaria con avviso di interruzione del servizio sulla tratta ticinese',
 };
 
 export default blogMetaIt;
