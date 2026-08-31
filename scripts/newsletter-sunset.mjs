@@ -76,6 +76,12 @@ async function sendWinbacks(items) {
         // action on our canonical https origin (valid cert), and the resubscribe
         // hit is our own re-engagement signal — we don't need the ESP click event.
         tracking: false,
+        // campaign_id tag (#6317/#6765): forceProvider below is Resend, whose
+        // webhook only reads campaign_id off this tag — Maileroo's per-message
+        // ref fallback (functions/src/lib/mailerooRef.js defaultCampaignId)
+        // never applies here, so without it every send fell to the
+        // `unknown:<messageId>` fallback and was filed `unattributed`.
+        tags: [{ name: 'campaign_id', value: 'sunset_winback' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',

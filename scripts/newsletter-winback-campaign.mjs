@@ -110,6 +110,13 @@ async function sendStage1(items) {
         subject,
         html,
         text,
+        // campaign_id tag (#6317/#6765): when the cascade lands on anything
+        // other than Maileroo (mailgun/mailjet/resend/mailtrap), its webhook
+        // reads campaign_id off this tag — Maileroo's own per-message ref
+        // fallback (functions/src/lib/mailerooRef.js defaultCampaignId) never
+        // applies to those, so without it the send fell to the
+        // `unknown:<messageId>` fallback and was filed `unattributed`.
+        tags: [{ name: 'campaign_id', value: 'winback_stage1' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
@@ -145,6 +152,13 @@ async function sendStage2(items) {
         html,
         text,
         tracking: false,
+        // campaign_id tag (#6317/#6765): forceProvider below is Resend,
+        // whose webhook only reads campaign_id off this tag — Maileroo's
+        // per-message ref fallback (functions/src/lib/mailerooRef.js
+        // defaultCampaignId) never applies here, so without it every send
+        // fell to the `unknown:<messageId>` fallback and was filed
+        // `unattributed`.
+        tags: [{ name: 'campaign_id', value: 'winback_stage2' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
