@@ -34,17 +34,23 @@
     "vallese": {
       "canton": "Vallese",
       "plateCode": "VS",
-      "officialUrl": "https://www.vs.ch",
-      "accessMethod": "manual",
+      "officialUrl": "https://ecari.vs.ch/ecari-auction/",
+      "accessMethod": "html-scrape",
       "fetchFrequency": "P1D",
       "timezone": "Europe/Zurich",
-      "parserVersion": "unreleased",
-      "availableFields": [],
-      "rateLimit": "unknown — da verificare in Fase 0",
-      "termsOfUse": "da verificare in Fase 0 (robots, termini, licenze)",
+      "parserVersion": "1.0.0",
+      "availableFields": [
+        "plateNumber",
+        "currentBidChf",
+        "minimumIncrementChf",
+        "bidCount",
+        "endsAt"
+      ],
+      "rateLimit": "unknown — nessun rate-limit documentato dal fornitore, mantenere fetchFrequency P1D",
+      "termsOfUse": "nessuna pagina termini d'uso trovata; robots.txt root 503 (app montata solo sotto /ecari-auction/, non un Disallow) — vedi docs/data-sources/aste-targhe-vallese.md",
       "owner": "platform",
-      "status": "unverified",
-      "notes": "Fonte prevista: e-auction del Service de la circulation routière et de la navigation. URL della pagina d'asta specifica, metodo di accesso e termini d'uso ancora da confermare (#4854 Fase 0)."
+      "status": "active",
+      "notes": "Verificato in #6358: eCari (stesso fornitore white-label del Ticino) espone la tab \"Enchères en cours\" server-side renderizzata, senza login. Connettore: scripts/plate-auctions/connectors/vs.mjs (copre solo targhe auto, categorieID=1)."
     }
   }
 }

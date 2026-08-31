@@ -24,10 +24,16 @@ describe('plate-auction sources registry schema', () => {
     expect(cantons).toEqual(['Grigioni', 'Ticino', 'Vallese']);
   });
 
-  it('every entry starts as "unverified" (no auction data has been confirmed yet)', () => {
+  it('every entry has a valid status (cantons move out of "unverified" as Fase 0 verifies each source)', () => {
+    const validStatuses = ['unverified', 'active', 'blocked', 'degraded'];
     for (const [key, entry] of Object.entries(registry.sources)) {
-      expect(entry.status, `${key} should start unverified`).toBe('unverified');
+      expect(validStatuses, `${key} status "${entry.status}" should be a known value`).toContain(entry.status);
     }
+  });
+
+  it('vallese is verified and active (#6358: eCari public "Enchères en cours" table, scrapable)', () => {
+    expect(registry.sources.vallese.status).toBe('active');
+    expect(registry.sources.vallese.accessMethod).toBe('html-scrape');
   });
 
   it('rejects an entry missing a required field', () => {
