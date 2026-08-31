@@ -4843,6 +4843,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.title': 'Skyguide, redundancies reduced from 220 to 50: two-step plan',
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.excerpt': 'Skyguide cuts layoffs from 220 to 50: 14 in the first phase, about 35 in spring 2027. Target savings of CHF 51 million by 2027.',
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.imageAlt': 'Air traffic control tower at Zurich-Kloten airport at sunset',
+    'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, there will be 50 redundancies',
+    'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide announces 50 redundancies under restructuring. The trade union consultation reduced the number from 220 initials. First wave: 14, second spring 2027: about 35.',
+    'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Swiss landscape showing airports and air corridors, representing Skyguide\'s air traffic control role.',
 };
 
 export default blogMetaChEn;

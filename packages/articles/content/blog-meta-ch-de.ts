@@ -4843,6 +4843,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.title': 'Skyguide, Entlassungen von 220 auf 50 reduziert: Zwei-Phasen-Plan',
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.excerpt': 'Skyguide reduziert die Entlassungen von 220 auf 50: 14 in der ersten Phase, rund 35 im Frühjahr 2027. Zieleinsparungen von CHF 51 Mio. bis 2027.',
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.imageAlt': 'Flugsicherungsturm am Flughafen Zürich-Kloten bei Sonnenuntergang',
+    'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, es wird 50 Entlassungen geben',
+    'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide kündigt 50 Entlassungen im Umbau an. Die Gewerkschaftskonsultation reduzierte die Zahl von 220 Initialen. Erste Welle: 14., zweiter Frühling 2027: ca. 35.',
+    'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Schweizer Alpenlandschaft mit Flughäfen und Luftverkehrskorridoren, die Skyguides Flugsicherung darstellt.',
 };
 
 export default blogMetaChDe;

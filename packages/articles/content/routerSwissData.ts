@@ -1640,6 +1640,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'divario-salariale-svizzera-ust-640': { it: 'divario-salariale-svizzera-ust-640', en: 'swiss-gender-pay-gap-ust-640', de: 'geschlechterlohngefalle-schweiz-bfs-640', fr: 'ecart-salarial-suisse-ofs-640' },
  'commissione-lpp-tasso-minimo-2027': { it: 'commissione-lpp-tasso-minimo-2027', en: 'oak-bv-commission-minimum-rate-2027', de: 'bvg-kommission-mindestzinssatz-2027', fr: 'commission-lpp-taux-minimum-2027' },
  'skyguide-licenziamenti-50-ristrutturazione': { it: 'skyguide-licenziamenti-50-ristrutturazione', en: 'skyguide-layoffs-50-restructuring', de: 'skyguide-entlassungen-50-restrukturierung', fr: 'skyguide-licenciements-50-restructuration' },
+ 'skyguide-licenziamenti-consultazione': { it: 'skyguide-licenziamenti-consultazione', en: 'skyguide-50-layoffs-consultation', de: 'skyguide-50-entlassungen-konsultation', fr: 'skyguide-50-licenciements-consultation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

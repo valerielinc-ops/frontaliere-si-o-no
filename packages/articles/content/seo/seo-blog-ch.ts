@@ -62849,6 +62849,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-skyguide-licenziamenti-consultazione': {
+    title: 'Skyguide, saranno 50 i licenziamenti | Frontaliere Ticino',
+    description: 'Skyguide annuncia 50 licenziamenti in ristrutturazione. La consultazione sindacale ha ridotto da 220 a 50. Prima ondata: 14, seconda primavera 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, skyguide, saranno, licenziamenti, annuncia',
+    ogTitle: 'Skyguide, saranno 50 i licenziamenti',
+    ogDescription: 'Skyguide riduce il personale con 50 licenziamenti: 14 subito, ~35 in primavera 2027. La consultazione sindacale ha limitato i tagli da 220 a 50. Risparmio target: 51 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/skyguide-licenziamenti-consultazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Skyguide, saranno 50 i licenziamenti",
+      "description": "Skyguide annuncia 50 licenziamenti in ristrutturazione. La consultazione sindacale ha ridotto da 220 a 50. Prima ondata: 14, seconda primavera 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/skyguide-licenziamenti-consultazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio svizzero con vedute di aeroporti e corridoi di traffico aereo, che rappresenta il controllo del traffico di Skyguide."
+      },
+      "datePublished": "2026-08-31T15:49:35+00:00",
+      "dateModified": "2026-08-31T15:49:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/skyguide-licenziamenti-consultazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
