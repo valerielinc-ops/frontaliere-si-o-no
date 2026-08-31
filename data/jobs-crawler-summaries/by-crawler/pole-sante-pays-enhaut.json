@@ -1,20 +1,21 @@
 {
   "key": "pole-sante-pays-enhaut",
   "label": "Pôle Santé Pays-d'Enhaut",
-  "generatedAt": "2026-08-28T05:13:19.919Z",
+  "generatedAt": "2026-08-31T17:00:33.114Z",
   "total": 4,
   "discovered": null,
   "written": 4,
-  "newCount": 2,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5520,
-  "avgDurationMs": 5520,
+  "durationMs": 4908,
+  "avgDurationMs": 4908,
   "durationHistory": [
-    5520
+    4908
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "pole-sante-pays-enhaut-579cbc8a0ed6",
       "slug": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
@@ -22,13 +23,13 @@
       "companyKey": "pole-sante-pays-enhaut",
       "companyDomain": "pspe.ch",
       "title": "Assistant·e en soins et santé communautaire (ASSC)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Château d'Oex",
       "canton": "VD",
       "url": "https://www.jobup.ch/fr/emplois/detail/3ea4d3b3-fc82-4d41-a41e-8e05d6bed749/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:15.638Z",
+      "crawledAt": "2026-08-31T17:00:29.191Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -43,11 +44,12 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/3ea4d3b3-fc82-4d41-a41e-8e05d6bed749/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-28T05:13:15.638Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
     },
@@ -64,7 +66,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/ff20cb2d-bc7a-4eb5-a5e6-f952404b51c1/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:16.258Z",
+      "crawledAt": "2026-08-31T17:00:29.757Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -79,16 +81,15 @@
       "featured": false,
       "postedDate": "2026-08-27",
       "applyUrl": "https://www.jobup.ch/fr/emplois/detail/ff20cb2d-bc7a-4eb5-a5e6-f952404b51c1/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-08-28T05:13:16.258Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "pole-sante-pays-enhaut-26517f0bd7ed",
       "slug": "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
@@ -102,7 +103,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/e1ea54f6-4075-4446-a248-fa89d3151ccd/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:15.954Z",
+      "crawledAt": "2026-08-31T17:00:29.484Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -110,7 +111,7 @@
       "postalCode": "1660",
       "category": "Sanità / Ospedali",
       "contract": "full-time",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
@@ -139,7 +140,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/91a9a32a-a73c-40b5-bb4a-650b7054db03/",
       "source": "Pôle Santé Pays-d'Enhaut Dedicated Parser (jobup.ch feed hpe)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:13:16.553Z",
+      "crawledAt": "2026-08-31T17:00:30.027Z",
       "addressLocality": "Château d'Oex",
       "addressRegion": "VD",
       "addressCountry": "CH",
