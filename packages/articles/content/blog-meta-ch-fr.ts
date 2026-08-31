@@ -4834,6 +4834,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.swatch-samsung-risarcimento-marchi.title': 'Swatch bat Samsung : 11,6 millions d\'euros de dédommagement',
     'blog.article.swatch-samsung-risarcimento-marchi.excerpt': 'Le tribunal britannique condamne Samsung à payer 11,6 millions de dollars pour violation de marques horlogères suisses sur le Galaxy App Store entre 2015 et 2019.',
     'blog.article.swatch-samsung-risarcimento-marchi.imageAlt': 'Gros plan sur des cadrans de montres de luxe suisses et des composants mécaniques en photographie professionnelle',
+    'blog.article.divario-salariale-svizzera-ust-640.title': 'Écart salarial homme-femme en Suisse : 640 CHF de part non expliquée',
+    'blog.article.divario-salariale-svizzera-ust-640.excerpt': 'En 2024, l\'écart tombe à 15,7 % mais la composante non expliquée reste à 640 CHF bruts par mois. La finance touche 30,6 %.',
+    'blog.article.divario-salariale-svizzera-ust-640.imageAlt': 'Quartier financier de Zurich avec gratte-ciels en verre',
 };
 
 export default blogMetaChFr;

@@ -62732,6 +62732,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-divario-salariale-svizzera-ust-640': {
+    title: 'Divario salariale uomo-donna in Svizzera: 640 CHF di parte non spiegata',
+    description: 'Svizzera 2024: divario salariale uomo-donna al 15,7%. Componente non spiegata 640 CHF/mese. Finanza e assicurazioni al 30,6%. Dati UST. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, uomo-donna, parte',
+    ogTitle: 'Divario salariale uomo-donna in Svizzera: 640 CHF non spiegati',
+    ogDescription: 'Il gap uomo-donna scende al 15,7% nel 2024 ma la componente non spiegata resta di 640 franchi lordi al mese. In finanza e assicurazioni il divario tocca il 30,6%. Tutti i dati UST per settore.',
+    canonicalPath: '/articoli-svizzera/divario-salariale-svizzera-ust-640/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale uomo-donna in Svizzera: 640 CHF di parte non spiegata",
+      "description": "Svizzera 2024: divario salariale uomo-donna al 15,7%. Componente non spiegata 640 CHF/mese. Finanza e assicurazioni al 30,6%. Dati UST. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divario-salariale-svizzera-ust-640.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Distretto finanziario di Zurigo con grattacieli in vetro"
+      },
+      "datePublished": "2026-08-31T13:59:31+00:00",
+      "dateModified": "2026-08-31T13:59:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divario-salariale-svizzera-ust-640/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
