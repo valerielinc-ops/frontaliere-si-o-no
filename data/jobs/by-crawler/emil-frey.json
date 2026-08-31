@@ -4834,7 +4834,6 @@
       "hiringOrganizationName": "Filialleitung",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T21:38:48.025Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4856,7 +4855,9 @@
       "previousSlugs": [
         "koordinator-in-flotten-emil-frey-zurich"
       ],
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4470
     },
     {
       "id": "emil-frey-79b12771bbe6",
