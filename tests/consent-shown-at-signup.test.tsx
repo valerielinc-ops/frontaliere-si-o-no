@@ -1165,14 +1165,19 @@ describe('what the displayed formulas may and may not say', () => {
        * rule than the code is not a check on the code; it is a second
        * implementation, and the day they part company this one passes.
        *
-       * It is asked of the SENTENCE a gate stores today rather than of the bare
-       * identifier, because that string is what the sender will actually read
+       * It is asked of the DOCUMENT a gate stores today rather than of the bare
+       * identifier, because that shape is what the sender will actually read
        * off a subscriber's document, in whichever locale the person signed up.
+       * Since #6151 that document carries the version in `consent_page_version`
+       * — the sentence itself no longer names it — so the fixture passes both
+       * fields, exactly as `captureNewsletterSubscriber` persists them.
        */
       for (const locale of CONSENT_LOCALES) {
+        const proof = consentProof('communicationsOptIn', 'email_submit', locale);
         expect(
           advertisingDisclosureWasShown({
-            consent_text: consentDisplayText('communicationsOptIn', locale),
+            consent_text: proof.consentText,
+            consent_page_version: proof.consentPageVersion,
           }),
           `a consent collected today in ${locale} must be reported as told`,
         ).toBe(true);
@@ -1293,6 +1298,20 @@ describe('what the displayed formulas may and may not say', () => {
         // This is the shape the assertion in the sibling test used to be
         // written in (#5739).
         expect('2026-08-13.10' < '2026-08-13.2').toBe(true);
+      });
+
+      it('reads the version from consent_page_version, and falls back to the sentence when it is absent (#6151)', () => {
+        // A fallback not exercised in both directions is a fallback that does
+        // not exist: `consent_page_version` alone stands for a document written
+        // after this field started being set, and the sentence alone stands for
+        // one of the 8.605 documents written before it did.
+        expect(
+          advertisingDisclosureWasShown({ consent_page_version: ADVERTISING_NAMED_FROM_PAGE_VERSION }),
+          'field only, no version in the sentence',
+        ).toBe(true);
+        expect(advertisingDisclosureWasShown({ consent_text: NAMED }), 'sentence only, no field').toBe(
+          true,
+        );
       });
     });
 
@@ -1881,15 +1900,16 @@ describe('the page the formula points at cannot change without saying so (#5765)
     }
   });
 
-  it('carries the version inside the stored sentence, in every locale', () => {
-    // Not beside it, in a sibling field a call site has to remember: inside, so
-    // the proof is self-contained and `consentProof` cannot omit it.
+  it('carries the version in consentPageVersion, not inside the stored sentence (#6151)', () => {
+    // The reason it used to be inside the sentence decays only if the field is
+    // set by `consentProof` itself and not by a call site that has to
+    // remember to attach it — which is what this asserts.
     for (const key of DISPLAYED_KEYS) {
       for (const locale of CONSENT_LOCALES) {
-        expect(consentDisplayText(key, locale), `${key}/${locale} must name the page version`)
-          .toContain(COMMUNICATIONS_PAGE_VERSION);
+        expect(consentDisplayText(key, locale), `${key}/${locale} must not name the page version inline`)
+          .not.toContain(COMMUNICATIONS_PAGE_VERSION);
       }
-      expect(consentProof(key, 'email_submit', 'de').consentText).toContain(COMMUNICATIONS_PAGE_VERSION);
+      expect(consentProof(key, 'email_submit', 'de').consentPageVersion).toBe(COMMUNICATIONS_PAGE_VERSION);
     }
   });
 
