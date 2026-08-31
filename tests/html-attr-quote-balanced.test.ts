@@ -44,6 +44,7 @@ import {
 import { extractAlliboConnectorUrl } from '../scripts/update-medacta-jobs.mjs';
 import { parseCdsSavogninNewsItems } from '../scripts/lib/cds-savognin-job-parser.mjs';
 import { parsePostJobDetail } from '../scripts/lib/postch-job-parser.mjs';
+import { parseJobListHtml as parsePsgnJobListHtml } from '../scripts/lib/psgn-job-parser.mjs';
 import { parseTzmListing } from '../scripts/lib/therapiezentrum-meggen-job-parser.mjs';
 import { parsePostFinanceMetaPage } from '../scripts/update-postfinance-jobs.mjs';
 import { parseJobBlocks as parseUsiJobBlocks } from '../scripts/update-usi-jobs.mjs';
@@ -138,6 +139,18 @@ describe('remaining attribute consumers — quote balanced (#6574)', () => {
     `);
     expect(tzm.title).toBe("Psychologische Psychotherapeutin d'équipe");
     expect(tzm.pdfUrl).toBe('https://www.tzm.ch/app/download/42/stelle.pdf?t=1');
+  });
+
+  it('selects a PSGN job link independently from attribute order and quote style', () => {
+    const href = "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/pflege/12345678-1234-1234-1234-123456789abc?team=O'Brien";
+    const [job] = parsePsgnJobListHtml(`
+      <a href="${href}" data-kind="listing" class='featured job'>
+        <div class="jobTitle"><span>Pflege</span><h2>Leiterin d'équipe</h2></div>
+        <div class="jobArbeitsOrt">Wil SG</div>
+      </a>
+    `);
+    expect(job.detailHref).toBe(href);
+    expect(job.title).toBe("Leiterin d'équipe");
   });
 
   it('keeps apostrophes in USI and Zegna job hrefs', () => {
