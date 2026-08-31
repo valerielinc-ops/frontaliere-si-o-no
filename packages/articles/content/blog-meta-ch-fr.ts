@@ -4861,6 +4861,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS : nouvelles règles bancaires, le compromis de la Commission',
     'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31 août 2026 : le cet-S approuve des règles plus strictes sur les participations étrangères des grandes banques, avec une couverture à 50 % en AT1 au lieu de 100 % comme proposé par le Conseil fédéral.',
     'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Bureau bancaire suisse avec écrans affichant les données de marché: nouvelles règles de réglementation financière',
+    'blog.article.divario-salariale-genere-agosto-2026.title': 'Écart de rémunération entre les sexes : réduit à 15,7 %',
+    'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'L\'écart salarial entre les femmes et les hommes en Suisse continue de se réduire. En 2024, il s\'établit à 15,7 %, en baisse par rapport à 16,2 % en 2022. Le rapport OFS du 31 août 2026 analyse les données par secteur et par rôle.',
+    'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Travailleurs suisses consultent des documents salariaux en milieu professionnel',
 };
 
 export default blogMetaChFr;

@@ -4861,6 +4861,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS: new banking rules, the Commission\'s compromise',
     'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31 August 2026: CET-S approves stricter rules on foreign holdings of large banks, with 50% coverage in AT1 instead of 100% as proposed by the Federal Council.',
     'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Swiss bank office with screens displaying market data: new financial regulation rules',
+    'blog.article.divario-salariale-genere-agosto-2026.title': 'Gender pay gap: reduced to 15.7%',
+    'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'The wage gap between women and men in Switzerland continues to narrow. In 2024 it stands at 15.7%, down from 16.2% in 2022. The UST report of August 31, 2026 analyzes the data by sector and role.',
+    'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Swiss workers reviewing salary documents in a modern workplace environment',
 };
 
 export default blogMetaChEn;

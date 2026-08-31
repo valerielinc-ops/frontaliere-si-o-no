@@ -4861,6 +4861,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-norme-bancarie-compromesso.title': 'UBS: Neue Bankenregeln, der Kompromiss der Kommission',
     'blog.article.ubs-norme-bancarie-compromesso.excerpt': '31. August 2026: Die WAK-S genehmigt strengere Regeln für ausländische Beteiligungen von Grossbanken, mit 50% Deckung in AT1 statt 100% wie vom Bundesrat vorgeschlagen.',
     'blog.article.ubs-norme-bancarie-compromesso.imageAlt': 'Schweizer Bankbüro mit Bildschirmen, die Marktdaten anzeigen: neue Finanzregulierungsvorschriften',
+    'blog.article.divario-salariale-genere-agosto-2026.title': 'Lohngefälle zwischen den Geschlechtern: reduziert auf 15,7%',
+    'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'Das Lohngefälle zwischen Frauen und Männern in der Schweiz schrumpft weiter. Im Jahr 2024 liegt sie bei 15,7%, gegenüber 16,2% im Jahr 2022. Der BfS-Bericht vom 31. August 2026 analysiert die Daten nach Branche und Rolle.',
+    'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Schweizer Arbeitnehmer überprüfen Gehaltsdokumente in einem modernen Arbeitsumfeld',
 };
 
 export default blogMetaChDe;
