@@ -249,6 +249,10 @@ jobs:
             /packages/articles/content/blogImageCdnMirror.ts
             /packages/articles/content/blog-meta-*.ts
             /packages/articles/content/seo/seo-blog*.ts
+            # Runtime reads selected by the related-test graph when locale
+            # bundles change. The services/locales/blog-body symlink is in the
+            # checkout, but its corpus target is otherwise excluded.
+            /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
             # Type-only dependency imported by the SEO modules above; keep it
             # file-scoped so the article corpus remains excluded.
             /packages/articles/content/seo/seoMetadataType.ts
@@ -306,6 +310,7 @@ jobs:
             # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
             # questo carve-out puntuale.
             /docs/FIX-ISSUE-COMMAND.md
+            /docs/preferred-sources-checklist.md
             # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
             # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
             # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
@@ -313,6 +318,9 @@ jobs:
             # shipped silently until the sparse profile actually excluded them.
             /index.html
             /index.css
+            # Several related tests read this root file at runtime rather than
+            # importing it, so the dependency is invisible to the graph.
+            /firestore.rules
             /.gitignore
             /.npmrc
             /package-lock.json
