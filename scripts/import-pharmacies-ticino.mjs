@@ -26,9 +26,12 @@
 //     parsing (scripts/lib/pharmacy-ticino-parser.mjs) — no new dependency.
 //   - Locarnese is out of scope: separate domain/template, not covered by
 //     the #6398 verification (see the doc's "Verdetto").
+//   - Write guard: if every region fetch fails, the result is empty and the
+//     write is skipped (existing dataset preserved) rather than overwriting
+//     a good dataset with `pharmacies: []` (#6739).
 // =============================================================================
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -74,6 +77,20 @@ async function fetchHtml(url, { timeoutMs = 15_000 } = {}) {
   }
 }
 
+/**
+ * Reads the pharmacy count from a previously-written output file, if any.
+ * Returns 0 when the file is missing or unreadable (nothing to preserve).
+ */
+async function readPreviousPharmacyCount() {
+  try {
+    const raw = await readFile(OUTPUT_PATH, 'utf8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed?.pharmacies) ? parsed.pharmacies.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 async function main() {
   const fetchedAt = new Date().toISOString();
   const pharmacies = [];
@@ -106,6 +123,19 @@ async function main() {
     if (!byId.has(p.id)) byId.set(p.id, p);
   }
   const deduped = [...byId.values()].sort((a, b) => a.name.localeCompare(b.name, 'it'));
+
+  if (deduped.length === 0) {
+    const previousCount = await readPreviousPharmacyCount();
+    if (previousCount > 0) {
+      console.error(
+        `[import-pharmacies-ticino] All ${OFCT_REGIONS.length} regions failed (${errors.join('; ')}) — ` +
+          `refusing to overwrite the existing ${previousCount}-pharmacy dataset with an empty one. Skipping write.`,
+      );
+      // exitCode stays 0: per the "Behaviour" note above, an all-regions
+      // transient failure must not crash the autonomous orchestrator.
+      return;
+    }
+  }
 
   const output = {
     _source: 'https://www.ofct.ch/',
