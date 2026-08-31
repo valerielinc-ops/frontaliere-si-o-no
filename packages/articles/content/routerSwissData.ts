@@ -1649,6 +1649,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'divario-salariale-genere-agosto-2026': { it: 'divario-salariale-genere-agosto-2026', en: 'wage-gap-gender-august-2026', de: 'lohnluecke-geschlecht-august-2026', fr: 'ecart-salaires-genre-aout-2026' },
  'citta-clima-30-kmh-strade': { it: 'citta-clima-30-kmh-strade', en: 'cities-climate-30-kmh-roads', de: 'staedte-klima-30-kmh-strassen', fr: 'villes-climat-30-kmh-routes' },
  'cooperazione-polizia-confini': { it: 'cooperazione-polizia-confini', en: 'border-police-cooperation', de: 'grenzpolizei-kooperation', fr: 'cooperation-police-frontieres' },
+ 'aprire-attivita-zugo-registro-commercio': { it: 'aprire-attivita-zugo-registro-commercio', en: 'open-business-zug-commercial-register', de: 'geschaeft-eroeffnen-zug-handelsregister', fr: 'ouvrir-activite-zoug-registre-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

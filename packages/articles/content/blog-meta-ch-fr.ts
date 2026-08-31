@@ -4870,6 +4870,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cooperazione-polizia-confini.title': 'Jans et Dobrindt : coopération sur les frontières CH-Allemagne',
     'blog.article.cooperazione-polizia-confini.excerpt': '31 août 2026 : Chiasso. Conseiller fédéral et ministre allemand s\'accordent sur le renforcement de la coopération transfrontalière. Proposition Centre de coopération policière et douanière. Asile et arrêts en baisse.',
     'blog.article.cooperazione-polizia-confini.imageAlt': 'Poste frontière Suisse-Allemagne avec contrôle douanier et paysage alpin',
+    'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Ouvrir une entreprise à Zoug : registre du commerce et des coûts',
+    'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Canton de Zoug : formes juridiques, capital minimum fédéral, frais d\'inscription cantonaux, AVS, LAA et démarches opérationnelles pour créer une entreprise.',
+    'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'Vue du bord du lac de Zoug avec bureaux commerciaux et siège social',
 };
 
 export default blogMetaChFr;
