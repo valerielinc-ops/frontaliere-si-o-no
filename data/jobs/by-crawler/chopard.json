@@ -1,7 +1,547 @@
 {
   "crawlerKey": "chopard",
-  "assembledAt": "2026-08-28T05:18:45.758Z",
+  "assembledAt": "2026-08-31T17:09:07.786Z",
   "jobs": [
+    {
+      "id": "chopard-536808028c26",
+      "slug": "agent-methodes-industrialisation-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "agent-methodes-industrialisation-h-f-d-chopard-fleurier",
+        "en": "industrialization-methods-officer-h-f-d-chopard-fleurier",
+        "de": "industrialisierungsmethoden-officer-h-f-d-chopard-fleurier",
+        "fr": "agent-methodes-industrialisation-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Agent Méthodes Industrialisation (H/F/D)",
+      "titleByLocale": {
+        "it": "Agent Méthodes Industrialisation (f/m/d)",
+        "en": "Industrialization Methods Officer (H/F/D)",
+        "de": "Industrialisierungsmethoden Officer (H/F/D)",
+        "fr": "Agent Méthodes Industrialisation (H/F/D)"
+      },
+      "description": "Votre mission Assurer les méthodes d’industrialisation et le soutien au personnel des différents départements dans le respect des délais et des standards établis, selon la démarche Lean Manufacturing déployée. \n• Vos responsabilités majeures Piloter le suivi des projets d’industrialisation des nouveaux produits et accompagner les phases de pré-séries et séries. Piloter les projets d’amélioration continue et l’intégration des nouveaux processus de production. Développer l’outillage pour les nouveaux produits et en assurer la maintenance. Créer et maintenir les données techniques des produits (gammes, plans, instruction de travail, …). Piloter les projets d’investissement machine et participer à la veille technologique..",
+      "descriptionByLocale": {
+        "it": "La tua missione Per garantire i metodi di industrializzazione e sostenere il personale dei vari dipartimenti in conformità con i termini e gli standard stabiliti, secondo l'approccio Lean Manufacturing implementato.\n• Guidare il monitoraggio di nuovi progetti di industrializzazione dei prodotti e le fasi di pre-serie e serie di accompagnamento. Progetti pilota per il miglioramento continuo e l'integrazione di nuovi processi produttivi. Sviluppare e mantenere strumenti per nuovi prodotti. Creare e mantenere i dati tecnici dei prodotti (giochi, piani, istruzioni di lavoro, ...). Progetti di investimento di macchine pilota e partecipare a orologi tecnologici..",
+        "en": "Your mission To ensure the methods of industrialization and support the staff of the various departments in accordance with the deadlines and standards established, according to the Lean Manufacturing approach deployed.\n• Your major responsibilities Piloting the monitoring of new product industrialization projects and accompanying pre-series and series phases. Pilot projects for continuous improvement and integration of new production processes. Develop and maintain tools for new products. Create and maintain the technical data of the products (games, plans, work instructions, ...). Pilot machine investment projects and participate in technology watch..",
+        "de": "Deine Mission Um die Methoden der Industrialisierung zu gewährleisten und die Mitarbeiter der verschiedenen Abteilungen in Übereinstimmung mit den festgelegten Fristen und Standards nach dem Lean Manufacturing-Ansatz zu unterstützen.\n• Ihre Hauptverantwortung Pilotierung der Überwachung neuer Produkt-Industrialisierungsprojekte und begleitende Vorserien- und Serienphasen. Pilotprojekte zur kontinuierlichen Verbesserung und Integration neuer Produktionsprozesse. Entwicklung und Pflege von Tools für neue Produkte. Erstellen und pflegen Sie die technischen Daten der Produkte (Spiele, Pläne, Arbeitsanweisungen, ...). Pilot-Maschine Investitionsprojekte und beteiligen sich an Technologie-Watch..",
+        "fr": "Votre mission Assurer les méthodes d’industrialisation et le soutien au personnel des différents départements dans le respect des délais et des standards établis, selon la démarche Lean Manufacturing déployée. \n• Vos responsabilités majeures Piloter le suivi des projets d’industrialisation des nouveaux produits et accompagner les phases de pré-séries et séries. Piloter les projets d’amélioration continue et l’intégration des nouveaux processus de production. Développer l’outillage pour les nouveaux produits et en assurer la maintenance. Créer et maintenir les données techniques des produits (gammes, plans, instruction de travail, …). Piloter les projets d’investissement machine et participer à la veille technologique.."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.244Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
+      "jobReqId": "2552",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-10T22:09:12.302Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-5dded0f8e2fc",
+      "slug": "decorateur-angleur-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "decorateur-angleur-h-f-d-chopard-fleurier",
+        "en": "decorator-angleur-h-f-d-chopard-fleurier",
+        "de": "dekorateur-angleur-h-f-d-chopard-fleurier",
+        "fr": "decorateur-angleur-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Décorateur/Angleur (H/F/D)",
+      "titleByLocale": {
+        "it": "Décorateur/Angleur (f/m/d)",
+        "en": "Decorator/Angleur (H/F/D)",
+        "de": "Dekorateur/Angleur (H/F/D)",
+        "fr": "Décorateur/Angleur (H/F/D)"
+      },
+      "description": "CHRONOMETRIE FERDINAND BERTHOUD réalise des garde-temps d’exception en séries très limitées, inspirés des créations de celui qui fut horloger-mécanicien du roi et de la marine de France. Notre volonté est d’aller toujours plus loin dans la performance de nos calibres maison, en associant histoire et technologie d’avant-garde, bienfacture et savoir-faire traditionnel. A ce titre, nous recherchons pour notre atelier Décoration à Fleurier un Décorateur/Angleur (F/H/D) \n• Votre mission Assurer le processus de décoration et d’anglage main traditionnel sur les pièces de nos mouvements manufacturés Ferdinand Berthoud, dans le respect des délais, de la qualité et des normes de sécurité. \n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle. Réaliser ces opérations sur des mouvements Manufacturés Ferdinand Berthoud.",
+      "descriptionByLocale": {
+        "it": "CHRONOMETRIE FERDINAND BERTHOUD ha realizzato orologi eccezionali in serie molto limitate, ispirati alle creazioni della orologiera-meccanica del re e della marina di Francia. La nostra volontà è di andare sempre più oltre nelle prestazioni dei nostri calibri domestici, combinando la storia e la tecnologia d'avanguardia, il benessere e il know-how tradizionale. In questa capacità, stiamo cercando il nostro laboratorio di decorazione a Fleurier un Decoratore/Angleur (F/H/D)\n• La tua missione Per garantire la tradizionale decorazione manuale e il processo di aggancio sulle parti dei nostri movimenti realizzati Ferdinand Berthoud, entro i termini, qualità e standard di sicurezza.\n• Raggiungere l'angolo e la lucidatura di angoli, allungamento di angoli, lucidatura di modanature. Fare ammorbidire, trait disegnato, microboiling, smalto bloccato. Fai qualsiasi altra decorazione d'interni. Assicurarsi di autocontrollo. Eseguire queste operazioni sui movimenti realizzati di Ferdinand Berthoud.",
+        "en": "CHRONOMETRIE FERDINAND BERTHOUD made exceptional timepieces in very limited series, inspired by the creations of the watchmaker-mechanic of the king and the navy of France. Our will is to go ever further in the performance of our home calibres, combining history and avant-garde technology, well-billing and traditional know-how. In this capacity, we are looking for our decoration workshop in Fleurier a Decorator/Angleur (F/H/D)\n• Your mission To ensure the traditional hand-decoration and angling process on the parts of our manufactured Ferdinand Berthoud movements, within the deadlines, quality and safety standards.\n• Your major responsibilities Achieve angle and polishing of corners, stretching of corners, polishing of mouldings. Make softening, trait drawn, microboiling, polish blocked. Make any other interior decoration. Ensure self-control. Carry out these operations on manufactured Ferdinand Berthoud movements.",
+        "de": "CHRONOMETRIE FERDINAND BERTHOUD machte außergewöhnliche Uhren in sehr limitierten Serien, inspiriert von den Kreationen des Uhrmachers und der Marine von Frankreich. Unser Wille ist es, in der Leistung unserer Heimkaliber immer weiter zu gehen und Geschichte und avantgardistische Technologie, gut abrechnendes und traditionelles Know-how zu kombinieren. In dieser Eigenschaft suchen wir unsere Dekorationswerkstatt in Fleurier a Decorator/Angleur (F/H/D)\n• Deine Mission Um den traditionellen Handdekorations- und Angelprozess an den Teilen unserer hergestellten Ferdinand Berthoud Uhrwerke innerhalb der Fristen, Qualitäts- und Sicherheitsstandards zu gewährleisten.\n• Ihre Hauptaufgaben Erreichen Winkel und Polieren von Ecken, Dehnen von Ecken, Polieren von Formteilen. Weichmachen, Merkmal gezeichnet, Mikrosieden, Polieren blockiert. Machen Sie eine andere Innendekoration. Gewährleistung der Selbstkontrolle. Führen Sie diese Operationen an hergestellten Ferdinand Berthoud-Bewegungen durch.",
+        "fr": "CHRONOMETRIE FERDINAND BERTHOUD réalise des garde-temps d’exception en séries très limitées, inspirés des créations de celui qui fut horloger-mécanicien du roi et de la marine de France. Notre volonté est d’aller toujours plus loin dans la performance de nos calibres maison, en associant histoire et technologie d’avant-garde, bienfacture et savoir-faire traditionnel. A ce titre, nous recherchons pour notre atelier Décoration à Fleurier un Décorateur/Angleur (F/H/D) \n• Votre mission Assurer le processus de décoration et d’anglage main traditionnel sur les pièces de nos mouvements manufacturés Ferdinand Berthoud, dans le respect des délais, de la qualité et des normes de sécurité. \n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle. Réaliser ces opérations sur des mouvements Manufacturés Ferdinand Berthoud."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.242Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
+      "jobReqId": "2555",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-10T22:09:12.285Z",
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-34282272bd03",
+      "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "programmeur-cnc-h-f-d-chopard-fleurier",
+        "en": "cnc-programmer-h-f-d-chopard-fleurier",
+        "de": "cnc-programmierer-h-f-d-chopard-fleurier",
+        "fr": "programmeur-cnc-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Programmeur CNC (H/F/D)",
+      "titleByLocale": {
+        "it": "Programmeur CNC (f/m/d)",
+        "en": "CNC programmer (H/F/D)",
+        "de": "CNC-Programmierer (H/F/D)",
+        "fr": "Programmeur CNC (H/F/D)"
+      },
+      "description": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels.",
+      "descriptionByLocale": {
+        "it": "La vostra missione partecipa allo sviluppo e all'ottimizzazione dei processi di lavorazione programmando e migliorando i programmi CNC per garantire una produzione efficiente, affidabile e conforme alla qualità.\n• Le tue principali responsabilità Programmano nuove parti e ottimizzano continuamente i programmi CNC utilizzando il software FAO (CAM). Implementare e convalidare i programmi sui centri di lavoro CNC a 3 assi e a 5 assi. Analizzare e ottimizzare nuovi processi produttivi per garantire un funzionamento produttivo stabile ed efficiente. Partecipazione a miglioramenti tecnici e industrializzazione di nuovi prodotti. Fornire supporto tecnico a regolatori e operatori. Garantire il rispetto di qualità, produttività e standard di sicurezza. Programmi di documentazione, strategie di lavorazione e dati tecnici. Integrare i dati tecnici in Windchill in conformità con gli standard di designazione e il flusso di archivio. Monitorare lo sviluppo e garantire lo sviluppo dei postprocessori. Creare e mantenere: strumenti di taglio specifici e posate. strumenti di database. piani di fase. File DXF. volumi industriali.",
+        "en": "Your mission Participate in the development and optimization of machining processes by programming and improving CNC programs to ensure efficient, reliable and quality-compliant production.\n• Your major responsibilities Program new parts and continuously optimize CNC programs using FAO software (CAM). Implement and validate programs on 3-axis and 5-axis CNC machining centres. Analyse and optimize new manufacturing processes to ensure stable and efficient production operation. Participate in technical improvements and industrialisation of new products. Provide technical support to regulators and operators. Ensure compliance with quality, productivity and safety standards. Document programs, machining strategies and technical data. Integrate technical data into Windchill in accordance with designation standards and archive flow. Monitor development and ensure development of postprocessors. Create and maintain: specific cutting tools as well as posages. database tools. phase plans. DXF files. industrial volumes.",
+        "de": "Ihre Mission Beteiligen Sie sich an der Entwicklung und Optimierung von Bearbeitungsprozessen durch Programmierung und Verbesserung von CNC-Programmen, um eine effiziente, zuverlässige und qualitätskonforme Produktion zu gewährleisten.\n• Ihre Hauptverantwortung Programm neue Teile und kontinuierlich zu optimieren CNC-Programme mit FAO-Software (CAM). Implementieren und validieren Sie Programme auf 3-Achsen- und 5-Achsen-CNC-Bearbeitungszentren. Analysieren und optimieren Sie neue Fertigungsprozesse, um einen stabilen und effizienten Produktionsbetrieb zu gewährleisten. Beteiligen Sie sich an technischen Verbesserungen und der Industrialisierung neuer Produkte. Bereitstellung technischer Unterstützung für Regulierungsbehörden und Betreiber. Gewährleistung der Einhaltung von Qualitäts-, Produktivitäts- und Sicherheitsstandards. Dokumentation von Programmen, Bearbeitungsstrategien und technischen Daten. Integrieren Sie technische Daten in Windchill gemäß den Bezeichnungsstandards und dem Archivfluss. Überwachung der Entwicklung und Sicherstellung der Entwicklung von Postprozessoren. Erstellen und pflegen: spezifische Schneidwerkzeuge sowie Posagen. Datenbankwerkzeuge. Phasenpläne. DXF Dateien. Industrievolumen.",
+        "fr": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.240Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-16",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
+      "jobReqId": "2572",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-16T22:17:04.829Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-d9aab7dd07ce",
+      "slug": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
+        "en": "payroll-specialist-and-social-insurance-m-f-d-chopard-fleurier",
+        "de": "gehaltsabrechnungsspezialist-und-sozialversicherung-m-w-d-chopard-fleurier",
+        "fr": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Spécialiste payroll et assurances sociales (H/F/D)",
+      "titleByLocale": {
+        "it": "Spécialiste payroll et assurances sociales (f/m/d)",
+        "en": "Payroll Specialist and Social Insurance (M/F/D)",
+        "de": "Gehaltsabrechnungsspezialist und Sozialversicherung (M/W/D)",
+        "fr": "Spécialiste payroll et assurances sociales (H/F/D)"
+      },
+      "description": "Votre mission Etre le garant du payrolling et de la gestion des assurances sociales selon la convention horlogère et les divers règlements, dans le respect des bases légales, des délais et des normes qualité et sécurité. \n• Vos responsabilités majeures Assurer la gestion mensuelle des salaires du personnel et en assurer les clôtures mensuelles. Assurer le bouclement annuel. Coordonner les contrôles AVS et autres audits internes. Faire le décompte des impôts à la source. Contrôler, gérer et mettre à jour les cotisations LPP. Etablir les déclarations accidents ou maladie et en assurer le suivi. Assurer la gestion et le suivi des certificats médicaux ainsi que les statistiques d'absentéisme avec notre prestataire externe. Etablir, suivre et gérer les dossiers des allocations familiales. Gérer les demandes APG (service militaire, maternité, etc.). Gérer les rentes invalidité. Etablir les attestations de l’employeur. Effectuer les demandes des retraites ponts ainsi que des retraites modulées. Gérer les demandes liées au deuxième pilier. Assurer diverses tâches liées au département RH.",
+      "descriptionByLocale": {
+        "it": "La tua missione Essere il garante del pagamento e la gestione dell'assicurazione sociale secondo la convenzione di vigilanza e le varie normative, nel rispetto delle basi giuridiche, delle scadenze e delle norme di qualità e sicurezza.\n• Assicurare la gestione mensile degli stipendi del personale e delle chiusure mensili. Assicurare la chiusura annuale. Coordinare AVS e altri audit interni. Conta le tasse alla fonte. Monitorare, gestire e aggiornare i contributi PBA. Stabilire e monitorare i rapporti di incidenti o malattie. Gestire e monitorare i certificati medici e le statistiche di assenteismo con il nostro fornitore esterno. Stabilire, monitorare e gestire i file di assegni familiari. Gestisci applicazioni APG (servizio militare, maternità, ecc.). Gestire le pensioni di invalidità. Preparare i certificati del datore di lavoro. Fare domande per le pensioni di ponte e pensioni modulari. Gestire applicazioni di secondo pilastro. Fornisce vari compiti relativi alle risorse umane.",
+        "en": "Your mission To be the guarantor of payrolling and the management of social insurance according to the watch convention and the various regulations, respecting legal bases, deadlines and standards quality and safety.\n• Your major responsibilities Ensure monthly management of staff salaries and monthly closures. Ensure annual closure. Coordinate AVS and other internal audits. Count taxes at source. Monitor, manage and update PBA contributions. Establish and monitor accident or disease reports. Manage and monitor medical certificates as well as absenteeism statistics with our external provider. Establish, monitor and manage family allowance files. Manage APG applications (military service, maternity, etc.). Manage disability pensions. Prepare employer's certificates. Make applications for bridge pensions and modular pensions. Manage second pillar applications. Provides various HR related tasks.",
+        "de": "Deine Mission Der Garant für die Lohnabrechnung und die Verwaltung der Sozialversicherung gemäß der Uhrenkonvention und den verschiedenen Vorschriften zu sein, unter Beachtung der Rechtsgrundlagen, Fristen und Standards Qualität und Sicherheit.\n• Ihre Hauptaufgaben Sicherstellen der monatlichen Verwaltung der Mitarbeitergehälter und der monatlichen Schließungen. Jährliche Schließung. Koordination von AVS und anderen internen Audits. Steuern an der Quelle zählen. Überwachen, verwalten und aktualisieren Sie die PBA-Beiträge. Erstellung und Überwachung von Unfall- oder Krankheitsberichten. Verwalten und überwachen Sie ärztliche Atteste sowie Fehlzeitenstatistiken mit unserem externen Anbieter. Erstellung, Überwachung und Verwaltung von Familienzulagen. Verwalten Sie APG-Anwendungen (Militärdienst, Mutterschaft usw.). Verwalten Sie Invaliditätsrenten. Bereiten Sie Arbeitgeberbescheinigungen vor. Stellen Sie Anträge auf Brückenrenten und modulare Renten. Verwalten Sie Anwendungen der zweiten Säule. Bietet verschiedene HR-bezogene Aufgaben.",
+        "fr": "Votre mission Etre le garant du payrolling et de la gestion des assurances sociales selon la convention horlogère et les divers règlements, dans le respect des bases légales, des délais et des normes qualité et sécurité. \n• Vos responsabilités majeures Assurer la gestion mensuelle des salaires du personnel et en assurer les clôtures mensuelles. Assurer le bouclement annuel. Coordonner les contrôles AVS et autres audits internes. Faire le décompte des impôts à la source. Contrôler, gérer et mettre à jour les cotisations LPP. Etablir les déclarations accidents ou maladie et en assurer le suivi. Assurer la gestion et le suivi des certificats médicaux ainsi que les statistiques d'absentéisme avec notre prestataire externe. Etablir, suivre et gérer les dossiers des allocations familiales. Gérer les demandes APG (service militaire, maternité, etc.). Gérer les rentes invalidité. Etablir les attestations de l’employeur. Effectuer les demandes des retraites ponts ainsi que des retraites modulées. Gérer les demandes liées au deuxième pilier. Assurer diverses tâches liées au département RH."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2594?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.236Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2594?c=chopard&lang=en-US",
+      "jobReqId": "2594",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T10:53:25.239Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-158c37bc1fa3",
+      "slug": "agent-qualite-production-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "agent-qualite-production-h-f-d-chopard-fleurier",
+        "en": "production-quality-officer-m-f-d-chopard-fleurier",
+        "de": "produktionsqualitat-officer-m-w-d-chopard-fleurier",
+        "fr": "agent-qualite-production-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Agent Qualité Production (H/F/D)",
+      "titleByLocale": {
+        "it": "Agent Qualité Production (f/m/d)",
+        "en": "Production Quality Officer (M/F/D)",
+        "de": "Produktionsqualität Officer (M/W/D)",
+        "fr": "Agent Qualité Production (H/F/D)"
+      },
+      "description": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
+      "descriptionByLocale": {
+        "it": "La tua missione Essere il garante della garanzia di qualità nella produzione in conformità con le scadenze e le istruzioni di sicurezza.\n• Analizzare e gestire la non conformità del settore. Definire e rendere disponibili standard di controllo in collaborazione con le funzioni di supporto. Progetti di piombo. Impostazione e supporto autocontrollo. Gestione e monitoraggio degli indicatori di qualità. Assicurarsi che le attrezzature metrologiche siano soddisfatte. Condurre e allenare sessioni di problem solving. Coltivare e pilotare opportunità di miglioramento. Crea intervalli di controllo in base a intervalli generici.",
+        "en": "Your Mission To be the guarantor of quality assurance in production in accordance with deadlines and safety instructions.\n• Your major responsibilities Analyze and manage industry non-compliance. Define and make available control standards in collaboration with support functions. Lead projects. Set up and support self-control. Managing and monitoring quality indicators. Ensure that metrological equipment needs are met. Conduct and coach problem-solving sessions. Remount and pilot opportunities for improvement. Create control ranges according to generic ranges.",
+        "de": "Deine Mission Gewährleistung der Qualitätssicherung in der Produktion gemäß den Fristen und Sicherheitsanweisungen.\n• Ihre Hauptverantwortlichkeiten Analysieren und verwalten Sie die Nichteinhaltung von Industrievorschriften. Definieren und Bereitstellen von Steuerungsstandards in Zusammenarbeit mit Supportfunktionen. Leitprojekte. Aufbau und Unterstützung der Selbstkontrolle. Verwaltung und Überwachung von Qualitätsindikatoren. Gewährleistung, dass der Bedarf an messtechnischer Ausrüstung gedeckt wird. Durchführung und Coaching von Problemlösungssitzungen. Remount- und Pilotmöglichkeiten für Verbesserungen. Erstellen Sie Kontrollbereiche nach generischen Bereichen.",
+        "fr": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques."
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.234Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Produzione / Manifattura",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
+      "jobReqId": "2570",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-14T10:22:43.317Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-51dd98312b73",
+      "slug": "financial-controlling-tirocinante-chopard-meyrin",
+      "slugByLocale": {
+        "it": "financial-controlling-tirocinante-chopard-meyrin",
+        "en": "financial-controlling-intern-chopard-meyrin",
+        "de": "financial-controlling-praktikant-chopard-meyrin",
+        "fr": "financial-controlling-stagiaire-chopard-meyrin"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Financial Controlling Intern",
+      "titleByLocale": {
+        "it": "Financial Controlling Tirocinante",
+        "en": "Financial Controlling Intern",
+        "de": "Financial Controlling Praktikant",
+        "fr": "Financial Controlling Stagiaire"
+      },
+      "description": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+      "descriptionByLocale": {
+        "it": "Il tuo ruolo Fornirete il vostro supporto per i seguenti compiti: Monitorare le prestazioni e fornire raccomandazioni in caso di deviazioni principali vs. obiettivi finanziari concordati; Gestire il ciclo di bilancio delle filiali annuali e la revisione mensile/annuale delle performance rispetto agli obiettivi; Portare la struttura e gestire il ciclo di rendicontazione finanziaria, consolidare le informazioni finanziarie e fornire indicatori chiave rilevanti per le prestazioni; Monitorare il budget di costruzione e ristrutturazione al dettaglio; Monitoraggio e sostegno finanziario alla divisione High Jewellery Preparazione di proiezioni finanziarie per nuovi progetti di boutique e raccomandazione; Contribuire all'implementazione di nuove soluzioni di dati (Business Intelligence) e al miglioramento dei processi; Mantenere la strategia di posizionamento del Gruppo preparando report, fornendo prezzi, facendo benchmark e contribuendo ai cicli di regolazione dei prezzi; Comunicare e fornire indicazioni e supporto alle operazioni per migliorare le prestazioni finanziarie.",
+        "en": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
+        "de": "Deine Rolle Sie unterstützen Sie bei folgenden\n• Aufgaben: Überwachung der Leistung und Abgabe von Empfehlungen bei größeren Abweichungen gegenüber vereinbarten finanziellen Zielen; Verwaltung des jährlichen Budgetzyklus der Tochtergesellschaften und der monatlichen / jährlichen Leistungsüberprüfung gegenüber den Zielen; Bereitstellung von Struktur und Verwaltung des Finanzberichterstattungszyklus, Konsolidierung der Finanzinformationen und Bereitstellung relevanter wesentlicher Leistungsindikatoren; Überwachung des Bau- und Renovierungsbudgets für den Einzelhandel; Überwachung der operativen Marketingausgaben im Vergleich zu den Budgets; Überwachung und Bereitstellung finanzieller Unterstützung für die Division High Jewellery Vorbereitung finanzieller Projektionen für neue Boutiquenprojekte und Bereitstellung von Empfehlungen; Beitrag zur Implementierung neuer Datenlösungen (Business Intelligence) und zur Verbesserung der Prozesse; Aufrechterhaltung der Gruppenpreisstrategie durch Erstellung von Berichten, Bereitstellung von Preisen, Erstellung von Benchmarks und Beitrag zu den Preisanpassungszyklen; Kommunikation und Bereitstellung von Anweisungen und Unterstützung für die Operationen zur Verbesserung der finanziellen Leistung.",
+        "fr": "Votre rôle Vous fournirez votre soutien pour les tâches suivantes: surveiller les performances et formuler des recommandations en cas d'écarts majeurs par rapport aux objectifs financiers convenus; gérer le cycle budgétaire annuel des filiales et l'examen mensuel / annuel du rendement par rapport aux objectifs; Mettre en place une structure et gérer le cycle de rapports financiers, consolider l'information financière et fournir des indicateurs de rendement clés pertinents; surveiller le budget de construction et de rénovation du commerce de détail; surveiller les dépenses opérationnelles de commercialisation par rapport aux budgets; Suivi et soutien financier à la division Haute Joaillerie Préparer des projections financières pour les nouveaux projets de boutiques et formuler des recommandations; Contribuer à la mise en oeuvre de nouvelles solutions de données (Business Intelligence) et à l'amélioration des processus; Maintenir la stratégie de tarification du groupe en préparant des rapports, en fournissant des prix, en établissant des repères et en contribuant aux cycles d'ajustement des prix; Communiquer et fournir des orientations et un soutien aux opérations pour améliorer la performance financière."
+      },
+      "location": "Meyrin",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "en",
+      "crawledAt": "2026-08-31T17:09:05.232Z",
+      "addressLocality": "Meyrin",
+      "addressRegion": "Genève",
+      "streetAddress": "Route de Veyrot 8",
+      "postalCode": "1217",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
+      "jobReqId": "2351",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "financial-controlling-intern-chopard-meyrin",
+        "financial-controlling-tirocinante-chopard-meyrin"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-controlling-intern-chopard-meyrin",
+          "financial-controlling-tirocinante-chopard-meyrin"
+        ],
+        "de": [
+          "financial-controlling-intern-chopard-meyrin"
+        ],
+        "fr": [
+          "financial-controlling-intern-chopard-meyrin"
+        ]
+      },
+      "firstSeenAt": "2026-08-14T10:22:43.269Z",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51100,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-c5cb572704b6",
+      "slug": "apprenti-hologer-h-f-chopard-fleurier",
+      "slugByLocale": {
+        "it": "apprenti-hologer-h-f-chopard-fleurier",
+        "en": "apprenti-hologer-h-f-chopard-fleurier",
+        "de": "apprenti-hologer-h-f-chopard-fleurier",
+        "fr": "apprenti-hologer-h-f-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Apprenti Hologer (H/F)",
+      "titleByLocale": {
+        "it": "Apprenti Hologer (H/F)",
+        "en": "Apprenti Hologer (H/F)",
+        "de": "Apprenti Hologer (H/F)",
+        "fr": "Apprenti Hologer (H/F)"
+      },
+      "description": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+      "descriptionByLocale": {
+        "it": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+        "en": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+        "de": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+        "fr": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers"
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.231Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
+      "jobReqId": "2604",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-26T10:06:48.594Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "chopard-5918a2221e65",
+      "slug": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+      "slugByLocale": {
+        "it": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+        "en": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+        "de": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+        "fr": "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+      },
+      "company": "Chopard",
+      "companyKey": "chopard",
+      "companyDomain": "chopard.com",
+      "title": "Apprenti Micromécanicien (H/F/D)",
+      "titleByLocale": {
+        "it": "Apprenti Micromécanicien (f/m/d)",
+        "en": "Apprenti Micromécanicien (H/F/D)",
+        "de": "Apprenti Micromécanicien (H/F/D)",
+        "fr": "Apprenti Micromécanicien (H/F/D)"
+      },
+      "description": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+      "descriptionByLocale": {
+        "it": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+        "en": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+        "de": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
+        "fr": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers"
+      },
+      "location": "Fleurier",
+      "canton": "GE",
+      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
+      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:09:05.219Z",
+      "addressLocality": "Fleurier",
+      "addressRegion": "Genève",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Orologeria / Gioielleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
+      "jobReqId": "2608",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-26T10:06:48.576Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "chopard-b4f414c250a6",
       "slug": "responsabile-progetto-it-prodotti-b2b-m-f-d-chopard-meyrin",
@@ -16,17 +556,17 @@
       "companyDomain": "chopard.com",
       "title": "CHEF DE PROJET IT - PRODUITS, B2B (H/F)",
       "titleByLocale": {
-        "it": "IT PROGETTO HEAD - PRODOTTI, B2B (M/F)",
+        "it": "CHEF DE PROJET IT - PRODUITS, B2B (H/F)",
         "en": "IT PROJECT HEAD - PRODUCTS, B2B (H/F)",
         "de": "IT PROJECT HEAD - PRODUKTE, B2B (H/F)",
         "fr": "CHEF DE PROJET IT - PRODUITS, B2B (H/F)"
       },
-      "description": "Votre mission Rattaché au Head of Core Business Applications – Produits, B2B et SAV, vous pilotez et contribuez activement à la mise en oeuvre de projets IT de la phase de cadrage jusqu’au déploiement. Au-delà du pilotage, vous adoptez un rôle clé opérationnel en intervenant directement sur les problématiques, avec une approche pragmatique et orientée résultats. Vous interviendrez notamment sur les périmètres suivants : - Produits : PIM, DAM, gestion des données produit - B2B : ERP, plateformes B2B, flux partenaires \n• Vos responsabilités majeures Pilotage de projets Gérer des projets IT de bout en bout (cadrage, planning, coordination) Suivre les budgets, délais et qualité des livrables Anticiper et gérer les risques, dépendances et arbitrages Assurer un reporting structuré et régulier Contribution opérationnelle Participer directement aux analyses, spécifications et résolution de problématiques Apporter un support sur des situations complexes Intervenir en exécution lorsque nécessaire Analyse résolution de problèmes Identifier et analyser les enjeux fonctionnels et techniques Proposer des solutions concrètes et sécuriser les choix Intégration coordination Comprendre les flux SI et les architectures (APIs, interfaces) Faciliter la coordination entre équipes techniques et métiers Collaboration Travailler en étroite collaboration avec les équipes métiers et IT Fédérer les parties prenantes autour des projets Adopter une posture constructive, proactive et orientée solution",
+      "description": "Votre mission Rattaché au Head of Core Business Applications – Produits, B2B et SAV, vous pilotez et contribuez activement à la mise en oeuvre de projets IT de la phase de cadrage jusqu’au déploiement. Au-delà du pilotage, vous adoptez un rôle clé opérationnel en intervenant directement sur les problématiques, avec une approche pragmatique et orientée résultats. Vous interviendrez notamment sur les périmètres suivants : - Produits : PIM, DAM, gestion des données produit - B2B : ERP, plateformes B2B, flux partenaires\n• Vos responsabilités majeures Pilotage de projets Gérer des projets IT de bout en bout (cadrage, planning, coordination) Suivre les budgets, délais et qualité des livrables Anticiper et gérer les risques, dépendances et arbitrages Assurer un reporting structuré et régulier Contribution opérationnelle Participer directement aux analyses, spécifications et résolution de problématiques Apporter un support sur des situations complexes Intervenir en exécution lorsque nécessaire Analyse résolution de problèmes Identifier et analyser les enjeux fonctionnels et techniques Proposer des solutions concrètes et sécuriser les choix Intégration coordination Comprendre les flux SI et les architectures (APIs, interfaces) Faciliter la coordination entre équipes techniques et métiers Collaboration Travailler en étroite collaboration avec les équipes métiers et IT Fédérer les parties prenantes autour des projets Adopter une posture constructive, proactive et orientée solution",
       "descriptionByLocale": {
         "it": "La tua missione Connessa con il responsabile delle applicazioni aziendali core – Prodotti, B2B e SAV, stai conducendo attivamente e contribuendo all'implementazione di progetti IT dalla fase di scoping all'implementazione. Oltre al pilotaggio, si adotta un ruolo operativo chiave affrontando direttamente le questioni, con un approccio pragmatico e orientato ai risultati. Interverrete in particolare sui seguenti perimetro: - Prodotti: PIM, DAM, gestione dei dati dei prodotti - B2B: piattaforme ERP, B2B, flussi dei partner\n• Gestione del progetto Gestione dei progetti IT end-to-end (framework, pianificazione, coordinamento) Monitorare i bilanci, le linee temporali e la qualità delle consegne Anticipate e gestire i rischi, dipendenze e arbitrati Assicurare report strutturati e regolari Contributo operativo Partecipare direttamente a analisi, specifiche e problem solving Fornire supporto su situazioni complesse Intervenimento in esecuzione quando richiesto Analisi dei problemi Identificare e analizzare i flussi funzionali e tecnici Facilitare il coordinamento tra team tecnici e trade Collaborazione Lavorare a stretto contatto con i team aziendali e gli stakeholder IT Build intorno ai progetti",
         "en": "Your mission Connected with the Head of Core Business Applications – Products, B2B and SAV, you are actively leading and contributing to the implementation of IT projects from the scoping phase to deployment. Beyond piloting, you adopt a key operational role by directly addressing issues, with a pragmatic and results-oriented approach. You will intervene in particular on the following perimeters: - Products : PIM, DAM, product data management - B2B : ERP, B2B platforms, partner flows\n• Your major responsibilities Project management Manage end-to-end IT projects (framework, planning, coordination) Monitor budgets, timelines and quality of deliverables Anticipate and manage risks, dependencies and arbitrations Ensure structured and regular reporting Operational contribution Participate directly in analyses, specifications and problem solving Provide support on complex situations Intervene in execution when required Problem analysis Identify and analyse functional and technical issues Propose concrete solutions and secure choices Integration coordination Understand SI flows and architectures (APIs, interfaces) Facilitate coordination between technical teams and trades Collaboration Work closely with business teams and IT Build stakeholders around projects Adopt a constructive, proactive and solution-oriented posture",
         "de": "Verbunden mit dem Head of Core Business Applications – Products, B2B und SAV leiten und tragen Sie aktiv zur Umsetzung von IT-Projekten von der Scoping-Phase bis zum Deployment bei. Über das Pilotieren hinaus übernehmen Sie eine wichtige operative Rolle, indem Sie sich direkt mit Fragen befassen, mit einem pragmatischen und ergebnisorientierten Ansatz. Sie werden insbesondere in folgenden Bereichen eingreifen: - Produkte : PIM, DAM, Produktdatenmanagement - B2B : ERP, B2B-Plattformen, Partnerströme\n• Projektmanagement Projektmanagement End-to-End-IT-Projekte (Framework, Planung, Koordination) Budgets, Zeitpläne und Qualität der Ergebnisse überwachen Risiken, Abhängigkeiten und Schiedsverfahren antizipieren und verwalten Operativer Beitrag direkt an Analysen, Spezifikationen und Problemlösung beteiligen Unterstützung bei der Ausführung bei Bedarf Problemanalyse Identifizieren und analysieren funktionelle und technische Probleme Konkrete Lösungen und sichere Entscheidungen vorschlagen Integrationskoordination SI-Flows und Architekturen (APIs, Schnittstellen) verstehen Erleichterung der Koordination zwischen technischen Teams und Gewerken Zusammenarbeit Eng mit Geschäftsteams und IT Build Stakeholdern rund um Projekte Eine konstruktive, proaktive und lösungsorientierte Haltung einnehmen",
-        "fr": "Votre mission Rattaché au Head of Core Business Applications – Produits, B2B et SAV, vous pilotez et contribuez activement à la mise en oeuvre de projets IT de la phase de cadrage jusqu’au déploiement. Au-delà du pilotage, vous adoptez un rôle clé opérationnel en intervenant directement sur les problématiques, avec une approche pragmatique et orientée résultats. Vous interviendrez notamment sur les périmètres suivants : - Produits : PIM, DAM, gestion des données produit - B2B : ERP, plateformes B2B, flux partenaires \n• Vos responsabilités majeures Pilotage de projets Gérer des projets IT de bout en bout (cadrage, planning, coordination) Suivre les budgets, délais et qualité des livrables Anticiper et gérer les risques, dépendances et arbitrages Assurer un reporting structuré et régulier Contribution opérationnelle Participer directement aux analyses, spécifications et résolution de problématiques Apporter un support sur des situations complexes Intervenir en exécution lorsque nécessaire Analyse résolution de problèmes Identifier et analyser les enjeux fonctionnels et techniques Proposer des solutions concrètes et sécuriser les choix Intégration coordination Comprendre les flux SI et les architectures (APIs, interfaces) Faciliter la coordination entre équipes techniques et métiers Collaboration Travailler en étroite collaboration avec les équipes métiers et IT Fédérer les parties prenantes autour des projets Adopter une posture constructive, proactive et orientée solution"
+        "fr": "Votre mission Rattaché au Head of Core Business Applications – Produits, B2B et SAV, vous pilotez et contribuez activement à la mise en oeuvre de projets IT de la phase de cadrage jusqu’au déploiement. Au-delà du pilotage, vous adoptez un rôle clé opérationnel en intervenant directement sur les problématiques, avec une approche pragmatique et orientée résultats. Vous interviendrez notamment sur les périmètres suivants : - Produits : PIM, DAM, gestion des données produit - B2B : ERP, plateformes B2B, flux partenaires\n• Vos responsabilités majeures Pilotage de projets Gérer des projets IT de bout en bout (cadrage, planning, coordination) Suivre les budgets, délais et qualité des livrables Anticiper et gérer les risques, dépendances et arbitrages Assurer un reporting structuré et régulier Contribution opérationnelle Participer directement aux analyses, spécifications et résolution de problématiques Apporter un support sur des situations complexes Intervenir en exécution lorsque nécessaire Analyse résolution de problèmes Identifier et analyser les enjeux fonctionnels et techniques Proposer des solutions concrètes et sécuriser les choix Intégration coordination Comprendre les flux SI et les architectures (APIs, interfaces) Faciliter la coordination entre équipes techniques et métiers Collaboration Travailler en étroite collaboration avec les équipes métiers et IT Fédérer les parties prenantes autour des projets Adopter une posture constructive, proactive et orientée solution"
       },
       "location": "Meyrin",
       "canton": "GE",
@@ -80,538 +620,10 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "chopard-536808028c26",
-      "slug": "agent-methodes-industrialisation-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "agent-methodes-industrialisation-h-f-d-chopard-fleurier",
-        "en": "industrialization-methods-officer-h-f-d-chopard-fleurier",
-        "de": "industrialisierungsmethoden-officer-h-f-d-chopard-fleurier",
-        "fr": "agent-methodes-industrialisation-h-f-d-chopard-fleurier"
       },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Agent Méthodes Industrialisation (H/F/D)",
-      "titleByLocale": {
-        "it": "Agent Méthodes Industrialisation (f/m/d)",
-        "en": "Industrialization Methods Officer (H/F/D)",
-        "de": "Industrialisierungsmethoden Officer (H/F/D)",
-        "fr": "Agent Méthodes Industrialisation (H/F/D)"
-      },
-      "description": "Votre mission Assurer les méthodes d’industrialisation et le soutien au personnel des différents départements dans le respect des délais et des standards établis, selon la démarche Lean Manufacturing déployée. \n• Vos responsabilités majeures Piloter le suivi des projets d’industrialisation des nouveaux produits et accompagner les phases de pré-séries et séries. Piloter les projets d’amélioration continue et l’intégration des nouveaux processus de production. Développer l’outillage pour les nouveaux produits et en assurer la maintenance. Créer et maintenir les données techniques des produits (gammes, plans, instruction de travail, …). Piloter les projets d’investissement machine et participer à la veille technologique..",
-      "descriptionByLocale": {
-        "it": "La tua missione Per garantire i metodi di industrializzazione e sostenere il personale dei vari dipartimenti in conformità con i termini e gli standard stabiliti, secondo l'approccio Lean Manufacturing implementato.\n• Guidare il monitoraggio di nuovi progetti di industrializzazione dei prodotti e le fasi di pre-serie e serie di accompagnamento. Progetti pilota per il miglioramento continuo e l'integrazione di nuovi processi produttivi. Sviluppare e mantenere strumenti per nuovi prodotti. Creare e mantenere i dati tecnici dei prodotti (giochi, piani, istruzioni di lavoro, ...). Progetti di investimento di macchine pilota e partecipare a orologi tecnologici..",
-        "en": "Your mission To ensure the methods of industrialization and support the staff of the various departments in accordance with the deadlines and standards established, according to the Lean Manufacturing approach deployed.\n• Your major responsibilities Piloting the monitoring of new product industrialization projects and accompanying pre-series and series phases. Pilot projects for continuous improvement and integration of new production processes. Develop and maintain tools for new products. Create and maintain the technical data of the products (games, plans, work instructions, ...). Pilot machine investment projects and participate in technology watch..",
-        "de": "Deine Mission Um die Methoden der Industrialisierung zu gewährleisten und die Mitarbeiter der verschiedenen Abteilungen in Übereinstimmung mit den festgelegten Fristen und Standards nach dem Lean Manufacturing-Ansatz zu unterstützen.\n• Ihre Hauptverantwortung Pilotierung der Überwachung neuer Produkt-Industrialisierungsprojekte und begleitende Vorserien- und Serienphasen. Pilotprojekte zur kontinuierlichen Verbesserung und Integration neuer Produktionsprozesse. Entwicklung und Pflege von Tools für neue Produkte. Erstellen und pflegen Sie die technischen Daten der Produkte (Spiele, Pläne, Arbeitsanweisungen, ...). Pilot-Maschine Investitionsprojekte und beteiligen sich an Technologie-Watch..",
-        "fr": "Votre mission Assurer les méthodes d’industrialisation et le soutien au personnel des différents départements dans le respect des délais et des standards établis, selon la démarche Lean Manufacturing déployée. \n• Vos responsabilités majeures Piloter le suivi des projets d’industrialisation des nouveaux produits et accompagner les phases de pré-séries et séries. Piloter les projets d’amélioration continue et l’intégration des nouveaux processus de production. Développer l’outillage pour les nouveaux produits et en assurer la maintenance. Créer et maintenir les données techniques des produits (gammes, plans, instruction de travail, …). Piloter les projets d’investissement machine et participer à la veille technologique.."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.968Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2552?c=chopard&lang=en-US",
-      "jobReqId": "2552",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-10T22:09:12.302Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-5dded0f8e2fc",
-      "slug": "decorateur-angleur-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "decorateur-angleur-h-f-d-chopard-fleurier",
-        "en": "decorator-angleur-h-f-d-chopard-fleurier",
-        "de": "dekorateur-angleur-h-f-d-chopard-fleurier",
-        "fr": "decorateur-angleur-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Décorateur/Angleur (H/F/D)",
-      "titleByLocale": {
-        "it": "Décorateur/Angleur (f/m/d)",
-        "en": "Decorator/Angleur (H/F/D)",
-        "de": "Dekorateur/Angleur (H/F/D)",
-        "fr": "Décorateur/Angleur (H/F/D)"
-      },
-      "description": "CHRONOMETRIE FERDINAND BERTHOUD réalise des garde-temps d’exception en séries très limitées, inspirés des créations de celui qui fut horloger-mécanicien du roi et de la marine de France. Notre volonté est d’aller toujours plus loin dans la performance de nos calibres maison, en associant histoire et technologie d’avant-garde, bienfacture et savoir-faire traditionnel. A ce titre, nous recherchons pour notre atelier Décoration à Fleurier un Décorateur/Angleur (F/H/D) \n• Votre mission Assurer le processus de décoration et d’anglage main traditionnel sur les pièces de nos mouvements manufacturés Ferdinand Berthoud, dans le respect des délais, de la qualité et des normes de sécurité. \n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle. Réaliser ces opérations sur des mouvements Manufacturés Ferdinand Berthoud.",
-      "descriptionByLocale": {
-        "it": "CHRONOMETRIE FERDINAND BERTHOUD ha realizzato orologi eccezionali in serie molto limitate, ispirati alle creazioni della orologiera-meccanica del re e della marina di Francia. La nostra volontà è di andare sempre più oltre nelle prestazioni dei nostri calibri domestici, combinando la storia e la tecnologia d'avanguardia, il benessere e il know-how tradizionale. In questa capacità, stiamo cercando il nostro laboratorio di decorazione a Fleurier un Decoratore/Angleur (F/H/D)\n• La tua missione Per garantire la tradizionale decorazione manuale e il processo di aggancio sulle parti dei nostri movimenti realizzati Ferdinand Berthoud, entro i termini, qualità e standard di sicurezza.\n• Raggiungere l'angolo e la lucidatura di angoli, allungamento di angoli, lucidatura di modanature. Fare ammorbidire, trait disegnato, microboiling, smalto bloccato. Fai qualsiasi altra decorazione d'interni. Assicurarsi di autocontrollo. Eseguire queste operazioni sui movimenti realizzati di Ferdinand Berthoud.",
-        "en": "CHRONOMETRIE FERDINAND BERTHOUD made exceptional timepieces in very limited series, inspired by the creations of the watchmaker-mechanic of the king and the navy of France. Our will is to go ever further in the performance of our home calibres, combining history and avant-garde technology, well-billing and traditional know-how. In this capacity, we are looking for our decoration workshop in Fleurier a Decorator/Angleur (F/H/D)\n• Your mission To ensure the traditional hand-decoration and angling process on the parts of our manufactured Ferdinand Berthoud movements, within the deadlines, quality and safety standards.\n• Your major responsibilities Achieve angle and polishing of corners, stretching of corners, polishing of mouldings. Make softening, trait drawn, microboiling, polish blocked. Make any other interior decoration. Ensure self-control. Carry out these operations on manufactured Ferdinand Berthoud movements.",
-        "de": "CHRONOMETRIE FERDINAND BERTHOUD machte außergewöhnliche Uhren in sehr limitierten Serien, inspiriert von den Kreationen des Uhrmachers und der Marine von Frankreich. Unser Wille ist es, in der Leistung unserer Heimkaliber immer weiter zu gehen und Geschichte und avantgardistische Technologie, gut abrechnendes und traditionelles Know-how zu kombinieren. In dieser Eigenschaft suchen wir unsere Dekorationswerkstatt in Fleurier a Decorator/Angleur (F/H/D)\n• Deine Mission Um den traditionellen Handdekorations- und Angelprozess an den Teilen unserer hergestellten Ferdinand Berthoud Uhrwerke innerhalb der Fristen, Qualitäts- und Sicherheitsstandards zu gewährleisten.\n• Ihre Hauptaufgaben Erreichen Winkel und Polieren von Ecken, Dehnen von Ecken, Polieren von Formteilen. Weichmachen, Merkmal gezeichnet, Mikrosieden, Polieren blockiert. Machen Sie eine andere Innendekoration. Gewährleistung der Selbstkontrolle. Führen Sie diese Operationen an hergestellten Ferdinand Berthoud-Bewegungen durch.",
-        "fr": "CHRONOMETRIE FERDINAND BERTHOUD réalise des garde-temps d’exception en séries très limitées, inspirés des créations de celui qui fut horloger-mécanicien du roi et de la marine de France. Notre volonté est d’aller toujours plus loin dans la performance de nos calibres maison, en associant histoire et technologie d’avant-garde, bienfacture et savoir-faire traditionnel. A ce titre, nous recherchons pour notre atelier Décoration à Fleurier un Décorateur/Angleur (F/H/D) \n• Votre mission Assurer le processus de décoration et d’anglage main traditionnel sur les pièces de nos mouvements manufacturés Ferdinand Berthoud, dans le respect des délais, de la qualité et des normes de sécurité. \n• Vos responsabilités majeures Réaliser l’anglage et le polissage des angles, l’étirage des pourtours, le polissage des moulures. Réaliser l’adoucissage, le trait tiré, le microbillage, le poli bloqué. Réaliser toute autre décoration développée à l’interne. Assurer l’autocontrôle. Réaliser ces opérations sur des mouvements Manufacturés Ferdinand Berthoud."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.965Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2555?c=chopard&lang=en-US",
-      "jobReqId": "2555",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-10T22:09:12.285Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-34282272bd03",
-      "slug": "programmeur-cnc-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "programmeur-cnc-h-f-d-chopard-fleurier",
-        "en": "cnc-programmer-h-f-d-chopard-fleurier",
-        "de": "cnc-programmierer-h-f-d-chopard-fleurier",
-        "fr": "programmeur-cnc-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Programmeur CNC (H/F/D)",
-      "titleByLocale": {
-        "it": "Programmeur CNC (f/m/d)",
-        "en": "CNC programmer (H/F/D)",
-        "de": "CNC-Programmierer (H/F/D)",
-        "fr": "Programmeur CNC (H/F/D)"
-      },
-      "description": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels.",
-      "descriptionByLocale": {
-        "it": "La vostra missione partecipa allo sviluppo e all'ottimizzazione dei processi di lavorazione programmando e migliorando i programmi CNC per garantire una produzione efficiente, affidabile e conforme alla qualità.\n• Le tue principali responsabilità Programmano nuove parti e ottimizzano continuamente i programmi CNC utilizzando il software FAO (CAM). Implementare e convalidare i programmi sui centri di lavoro CNC a 3 assi e a 5 assi. Analizzare e ottimizzare nuovi processi produttivi per garantire un funzionamento produttivo stabile ed efficiente. Partecipazione a miglioramenti tecnici e industrializzazione di nuovi prodotti. Fornire supporto tecnico a regolatori e operatori. Garantire il rispetto di qualità, produttività e standard di sicurezza. Programmi di documentazione, strategie di lavorazione e dati tecnici. Integrare i dati tecnici in Windchill in conformità con gli standard di designazione e il flusso di archivio. Monitorare lo sviluppo e garantire lo sviluppo dei postprocessori. Creare e mantenere: strumenti di taglio specifici e posate. strumenti di database. piani di fase. File DXF. volumi industriali.",
-        "en": "Your mission Participate in the development and optimization of machining processes by programming and improving CNC programs to ensure efficient, reliable and quality-compliant production.\n• Your major responsibilities Program new parts and continuously optimize CNC programs using FAO software (CAM). Implement and validate programs on 3-axis and 5-axis CNC machining centres. Analyse and optimize new manufacturing processes to ensure stable and efficient production operation. Participate in technical improvements and industrialisation of new products. Provide technical support to regulators and operators. Ensure compliance with quality, productivity and safety standards. Document programs, machining strategies and technical data. Integrate technical data into Windchill in accordance with designation standards and archive flow. Monitor development and ensure development of postprocessors. Create and maintain: specific cutting tools as well as posages. database tools. phase plans. DXF files. industrial volumes.",
-        "de": "Ihre Mission Beteiligen Sie sich an der Entwicklung und Optimierung von Bearbeitungsprozessen durch Programmierung und Verbesserung von CNC-Programmen, um eine effiziente, zuverlässige und qualitätskonforme Produktion zu gewährleisten.\n• Ihre Hauptverantwortung Programm neue Teile und kontinuierlich zu optimieren CNC-Programme mit FAO-Software (CAM). Implementieren und validieren Sie Programme auf 3-Achsen- und 5-Achsen-CNC-Bearbeitungszentren. Analysieren und optimieren Sie neue Fertigungsprozesse, um einen stabilen und effizienten Produktionsbetrieb zu gewährleisten. Beteiligen Sie sich an technischen Verbesserungen und der Industrialisierung neuer Produkte. Bereitstellung technischer Unterstützung für Regulierungsbehörden und Betreiber. Gewährleistung der Einhaltung von Qualitäts-, Produktivitäts- und Sicherheitsstandards. Dokumentation von Programmen, Bearbeitungsstrategien und technischen Daten. Integrieren Sie technische Daten in Windchill gemäß den Bezeichnungsstandards und dem Archivfluss. Überwachung der Entwicklung und Sicherstellung der Entwicklung von Postprozessoren. Erstellen und pflegen: spezifische Schneidwerkzeuge sowie Posagen. Datenbankwerkzeuge. Phasenpläne. DXF Dateien. Industrievolumen.",
-        "fr": "Votre mission Participer au développement et à l’optimisation des processus d’usinage en programmant et en améliorant les programmes CNC afin de garantir une production performante, fiable et conforme aux exigences qualité. \n• Vos responsabilités majeures Programmer de nouvelles pièces et optimiser en continu les programmes CNC à l’aide de logiciels de FAO (CAM). Mettre en service et valider les programmes sur des centres d’usinage CNC 3 axes et 5 axes. Analyser et optimiser les nouveaux procédés de fabrication afin d’assurer un fonctionnement stable et efficace de la production. Participer aux améliorations techniques et à l’industrialisation des nouveaux produits. Assurer le support technique auprès des régleurs et opérateurs. Garantir le respect des standards qualité, productivité et sécurité. Documenter les programmes, les stratégies d’usinage et les données techniques. Intégrer les données techniques dans Windchill en respectant les standards de désignation ainsi que le flux d’archivage. Suivre le développement et assurer la mise au point des post-processeurs. Créer et maintenir : les outils de coupe spécifiques ainsi que les posages. les bases de données outils. les plans de phase. les fichiers DXF. les volumes industriels."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.963Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2572?c=chopard&lang=en-US",
-      "jobReqId": "2572",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-16T22:17:04.829Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-d9aab7dd07ce",
-      "slug": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
-        "en": "payroll-specialist-and-social-insurance-m-f-d-chopard-fleurier",
-        "de": "gehaltsabrechnungsspezialist-und-sozialversicherung-m-w-d-chopard-fleurier",
-        "fr": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Spécialiste payroll et assurances sociales (H/F/D)",
-      "titleByLocale": {
-        "it": "Spécialiste payroll et assurances sociales (f/m/d)",
-        "en": "Payroll Specialist and Social Insurance (M/F/D)",
-        "de": "Gehaltsabrechnungsspezialist und Sozialversicherung (M/W/D)",
-        "fr": "Spécialiste payroll et assurances sociales (H/F/D)"
-      },
-      "description": "Votre mission Etre le garant du payrolling et de la gestion des assurances sociales selon la convention horlogère et les divers règlements, dans le respect des bases légales, des délais et des normes qualité et sécurité. \n• Vos responsabilités majeures Assurer la gestion mensuelle des salaires du personnel et en assurer les clôtures mensuelles. Assurer le bouclement annuel. Coordonner les contrôles AVS et autres audits internes. Faire le décompte des impôts à la source. Contrôler, gérer et mettre à jour les cotisations LPP. Etablir les déclarations accidents ou maladie et en assurer le suivi. Assurer la gestion et le suivi des certificats médicaux ainsi que les statistiques d'absentéisme avec notre prestataire externe. Etablir, suivre et gérer les dossiers des allocations familiales. Gérer les demandes APG (service militaire, maternité, etc.). Gérer les rentes invalidité. Etablir les attestations de l’employeur. Effectuer les demandes des retraites ponts ainsi que des retraites modulées. Gérer les demandes liées au deuxième pilier. Assurer diverses tâches liées au département RH.",
-      "descriptionByLocale": {
-        "it": "La tua missione Essere il garante del pagamento e la gestione dell'assicurazione sociale secondo la convenzione di vigilanza e le varie normative, nel rispetto delle basi giuridiche, delle scadenze e delle norme di qualità e sicurezza.\n• Assicurare la gestione mensile degli stipendi del personale e delle chiusure mensili. Assicurare la chiusura annuale. Coordinare AVS e altri audit interni. Conta le tasse alla fonte. Monitorare, gestire e aggiornare i contributi PBA. Stabilire e monitorare i rapporti di incidenti o malattie. Gestire e monitorare i certificati medici e le statistiche di assenteismo con il nostro fornitore esterno. Stabilire, monitorare e gestire i file di assegni familiari. Gestisci applicazioni APG (servizio militare, maternità, ecc.). Gestire le pensioni di invalidità. Preparare i certificati del datore di lavoro. Fare domande per le pensioni di ponte e pensioni modulari. Gestire applicazioni di secondo pilastro. Fornisce vari compiti relativi alle risorse umane.",
-        "en": "Your mission To be the guarantor of payrolling and the management of social insurance according to the watch convention and the various regulations, respecting legal bases, deadlines and standards quality and safety.\n• Your major responsibilities Ensure monthly management of staff salaries and monthly closures. Ensure annual closure. Coordinate AVS and other internal audits. Count taxes at source. Monitor, manage and update PBA contributions. Establish and monitor accident or disease reports. Manage and monitor medical certificates as well as absenteeism statistics with our external provider. Establish, monitor and manage family allowance files. Manage APG applications (military service, maternity, etc.). Manage disability pensions. Prepare employer's certificates. Make applications for bridge pensions and modular pensions. Manage second pillar applications. Provides various HR related tasks.",
-        "de": "Deine Mission Der Garant für die Lohnabrechnung und die Verwaltung der Sozialversicherung gemäß der Uhrenkonvention und den verschiedenen Vorschriften zu sein, unter Beachtung der Rechtsgrundlagen, Fristen und Standards Qualität und Sicherheit.\n• Ihre Hauptaufgaben Sicherstellen der monatlichen Verwaltung der Mitarbeitergehälter und der monatlichen Schließungen. Jährliche Schließung. Koordination von AVS und anderen internen Audits. Steuern an der Quelle zählen. Überwachen, verwalten und aktualisieren Sie die PBA-Beiträge. Erstellung und Überwachung von Unfall- oder Krankheitsberichten. Verwalten und überwachen Sie ärztliche Atteste sowie Fehlzeitenstatistiken mit unserem externen Anbieter. Erstellung, Überwachung und Verwaltung von Familienzulagen. Verwalten Sie APG-Anwendungen (Militärdienst, Mutterschaft usw.). Verwalten Sie Invaliditätsrenten. Bereiten Sie Arbeitgeberbescheinigungen vor. Stellen Sie Anträge auf Brückenrenten und modulare Renten. Verwalten Sie Anwendungen der zweiten Säule. Bietet verschiedene HR-bezogene Aufgaben.",
-        "fr": "Votre mission Etre le garant du payrolling et de la gestion des assurances sociales selon la convention horlogère et les divers règlements, dans le respect des bases légales, des délais et des normes qualité et sécurité. \n• Vos responsabilités majeures Assurer la gestion mensuelle des salaires du personnel et en assurer les clôtures mensuelles. Assurer le bouclement annuel. Coordonner les contrôles AVS et autres audits internes. Faire le décompte des impôts à la source. Contrôler, gérer et mettre à jour les cotisations LPP. Etablir les déclarations accidents ou maladie et en assurer le suivi. Assurer la gestion et le suivi des certificats médicaux ainsi que les statistiques d'absentéisme avec notre prestataire externe. Etablir, suivre et gérer les dossiers des allocations familiales. Gérer les demandes APG (service militaire, maternité, etc.). Gérer les rentes invalidité. Etablir les attestations de l’employeur. Effectuer les demandes des retraites ponts ainsi que des retraites modulées. Gérer les demandes liées au deuxième pilier. Assurer diverses tâches liées au département RH."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2594?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.959Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2594?c=chopard&lang=en-US",
-      "jobReqId": "2594",
-      "requirements": [],
-      "requirementsByLocale": {},
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-13T10:53:25.239Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-158c37bc1fa3",
-      "slug": "agent-qualite-production-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "agent-qualite-production-h-f-d-chopard-fleurier",
-        "en": "production-quality-officer-m-f-d-chopard-fleurier",
-        "de": "produktionsqualitat-officer-m-w-d-chopard-fleurier",
-        "fr": "agent-qualite-production-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Agent Qualité Production (H/F/D)",
-      "titleByLocale": {
-        "it": "Agent Qualité Production (f/m/d)",
-        "en": "Production Quality Officer (M/F/D)",
-        "de": "Produktionsqualität Officer (M/W/D)",
-        "fr": "Agent Qualité Production (H/F/D)"
-      },
-      "description": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques.",
-      "descriptionByLocale": {
-        "it": "La tua missione Essere il garante della garanzia di qualità nella produzione in conformità con le scadenze e le istruzioni di sicurezza.\n• Analizzare e gestire la non conformità del settore. Definire e rendere disponibili standard di controllo in collaborazione con le funzioni di supporto. Progetti di piombo. Impostazione e supporto autocontrollo. Gestione e monitoraggio degli indicatori di qualità. Assicurarsi che le attrezzature metrologiche siano soddisfatte. Condurre e allenare sessioni di problem solving. Coltivare e pilotare opportunità di miglioramento. Crea intervalli di controllo in base a intervalli generici.",
-        "en": "Your Mission To be the guarantor of quality assurance in production in accordance with deadlines and safety instructions.\n• Your major responsibilities Analyze and manage industry non-compliance. Define and make available control standards in collaboration with support functions. Lead projects. Set up and support self-control. Managing and monitoring quality indicators. Ensure that metrological equipment needs are met. Conduct and coach problem-solving sessions. Remount and pilot opportunities for improvement. Create control ranges according to generic ranges.",
-        "de": "Deine Mission Gewährleistung der Qualitätssicherung in der Produktion gemäß den Fristen und Sicherheitsanweisungen.\n• Ihre Hauptverantwortlichkeiten Analysieren und verwalten Sie die Nichteinhaltung von Industrievorschriften. Definieren und Bereitstellen von Steuerungsstandards in Zusammenarbeit mit Supportfunktionen. Leitprojekte. Aufbau und Unterstützung der Selbstkontrolle. Verwaltung und Überwachung von Qualitätsindikatoren. Gewährleistung, dass der Bedarf an messtechnischer Ausrüstung gedeckt wird. Durchführung und Coaching von Problemlösungssitzungen. Remount- und Pilotmöglichkeiten für Verbesserungen. Erstellen Sie Kontrollbereiche nach generischen Bereichen.",
-        "fr": "Votre mission Etre le garant de l’assurance qualité en production dans le respect des délais et des consignes de sécurité. \n• Vos responsabilités majeures Analyser et gérer les non conformités du secteur. Définir et mettre à disposition les standards de contrôle en collaboration avec les fonctions supports. Piloter les projets. Mettre en place et accompagner la démarche d’auto-contrôle. Gérer et suivre les indicateurs qualité. S’assurer que les besoins en outillage métrologique soient couverts. Animer et coacher des séances de résolution de problèmes. Remonter et piloter les opportunités d’amélioration. Créer les gammes de contrôle selon les gammes génériques."
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.956Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione / Manifattura",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2570?c=chopard&lang=en-US",
-      "jobReqId": "2570",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-14T10:22:43.317Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-51dd98312b73",
-      "slug": "financial-controlling-tirocinante-chopard-meyrin",
-      "slugByLocale": {
-        "it": "financial-controlling-tirocinante-chopard-meyrin",
-        "en": "financial-controlling-intern-chopard-meyrin",
-        "de": "financial-controlling-praktikant-chopard-meyrin",
-        "fr": "financial-controlling-stagiaire-chopard-meyrin"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Financial Controlling Intern",
-      "titleByLocale": {
-        "it": "Financial Controlling Tirocinante",
-        "en": "Financial Controlling Intern",
-        "de": "Financial Controlling Praktikant",
-        "fr": "Financial Controlling Stagiaire"
-      },
-      "description": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
-      "descriptionByLocale": {
-        "it": "Il tuo ruolo Fornirete il vostro supporto per i seguenti compiti: Monitorare le prestazioni e fornire raccomandazioni in caso di deviazioni principali vs. obiettivi finanziari concordati; Gestire il ciclo di bilancio delle filiali annuali e la revisione mensile/annuale delle performance rispetto agli obiettivi; Portare la struttura e gestire il ciclo di rendicontazione finanziaria, consolidare le informazioni finanziarie e fornire indicatori chiave rilevanti per le prestazioni; Monitorare il budget di costruzione e ristrutturazione al dettaglio; Monitoraggio e sostegno finanziario alla divisione High Jewellery Preparazione di proiezioni finanziarie per nuovi progetti di boutique e raccomandazione; Contribuire all'implementazione di nuove soluzioni di dati (Business Intelligence) e al miglioramento dei processi; Mantenere la strategia di posizionamento del Gruppo preparando report, fornendo prezzi, facendo benchmark e contribuendo ai cicli di regolazione dei prezzi; Comunicare e fornire indicazioni e supporto alle operazioni per migliorare le prestazioni finanziarie.",
-        "en": "Your role You will provide your support for the following tasks: Monitoring performances and provide recommendations in case of major deviations vs. agreed financial targets; Managing the yearly subsidiaries budget cycle and the monthly / yearly performance review vs targets; Bringing structure and managing financial reporting cycle, consolidate financial information and deliver relevant key performance indicators; Monitoring Retail construction and renovation budget; Monitoring operational marketing expenses vs. budgets; Monitoring and providing financial support to the High Jewellery division Preparing financial projections for new boutiques projects and provide recommendation; Contributing to the implementation of new data solutions (Business Intelligence) and to the improvements of processes; Maintaining the Group Pricing Strategy by preparing reporting, providing prices, making benchmarks and contributing to the price adjustment cycles; Communicating and providing directions and support to the operations to improve financial performance.",
-        "de": "Deine Rolle Sie unterstützen Sie bei folgenden\n• Aufgaben: Überwachung der Leistung und Abgabe von Empfehlungen bei größeren Abweichungen gegenüber vereinbarten finanziellen Zielen; Verwaltung des jährlichen Budgetzyklus der Tochtergesellschaften und der monatlichen / jährlichen Leistungsüberprüfung gegenüber den Zielen; Bereitstellung von Struktur und Verwaltung des Finanzberichterstattungszyklus, Konsolidierung der Finanzinformationen und Bereitstellung relevanter wesentlicher Leistungsindikatoren; Überwachung des Bau- und Renovierungsbudgets für den Einzelhandel; Überwachung der operativen Marketingausgaben im Vergleich zu den Budgets; Überwachung und Bereitstellung finanzieller Unterstützung für die Division High Jewellery Vorbereitung finanzieller Projektionen für neue Boutiquenprojekte und Bereitstellung von Empfehlungen; Beitrag zur Implementierung neuer Datenlösungen (Business Intelligence) und zur Verbesserung der Prozesse; Aufrechterhaltung der Gruppenpreisstrategie durch Erstellung von Berichten, Bereitstellung von Preisen, Erstellung von Benchmarks und Beitrag zu den Preisanpassungszyklen; Kommunikation und Bereitstellung von Anweisungen und Unterstützung für die Operationen zur Verbesserung der finanziellen Leistung.",
-        "fr": "Votre rôle Vous fournirez votre soutien pour les tâches suivantes: surveiller les performances et formuler des recommandations en cas d'écarts majeurs par rapport aux objectifs financiers convenus; gérer le cycle budgétaire annuel des filiales et l'examen mensuel / annuel du rendement par rapport aux objectifs; Mettre en place une structure et gérer le cycle de rapports financiers, consolider l'information financière et fournir des indicateurs de rendement clés pertinents; surveiller le budget de construction et de rénovation du commerce de détail; surveiller les dépenses opérationnelles de commercialisation par rapport aux budgets; Suivi et soutien financier à la division Haute Joaillerie Préparer des projections financières pour les nouveaux projets de boutiques et formuler des recommandations; Contribuer à la mise en oeuvre de nouvelles solutions de données (Business Intelligence) et à l'amélioration des processus; Maintenir la stratégie de tarification du groupe en préparant des rapports, en fournissant des prix, en établissant des repères et en contribuant aux cycles d'ajustement des prix; Communiquer et fournir des orientations et un soutien aux opérations pour améliorer la performance financière."
-      },
-      "location": "Meyrin",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:18:42.954Z",
-      "addressLocality": "Meyrin",
-      "addressRegion": "Genève",
-      "streetAddress": "Route de Veyrot 8",
-      "postalCode": "1217",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2351?c=chopard&lang=en-US",
-      "jobReqId": "2351",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "financial-controlling-intern-chopard-meyrin",
-        "financial-controlling-tirocinante-chopard-meyrin"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "financial-controlling-intern-chopard-meyrin",
-          "financial-controlling-tirocinante-chopard-meyrin"
-        ],
-        "de": [
-          "financial-controlling-intern-chopard-meyrin"
-        ],
-        "fr": [
-          "financial-controlling-intern-chopard-meyrin"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T10:22:43.269Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-c5cb572704b6",
-      "slug": "apprenti-hologer-h-f-chopard-fleurier",
-      "slugByLocale": {
-        "it": "apprenti-hologer-h-f-chopard-fleurier",
-        "en": "apprenti-hologer-h-f-chopard-fleurier",
-        "de": "apprenti-hologer-h-f-chopard-fleurier",
-        "fr": "apprenti-hologer-h-f-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Apprenti Hologer (H/F)",
-      "titleByLocale": {
-        "it": "Apprenti Hologer (H/F)",
-        "en": "Apprenti Hologer (H/F)",
-        "de": "Apprenti Hologer (H/F)",
-        "fr": "Apprenti Hologer (H/F)"
-      },
-      "description": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-      "descriptionByLocale": {
-        "it": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-        "en": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-        "de": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-        "fr": "Vous êtes à la recherche d’une formation ? Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Horloger (H/F/D) Orientation Rhabillage Vous serez formé sur toutes les opérations d’assemblage, d’achevage, de réglage, de pose de cadran et d’aiguilles ainsi que d’emboitage. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers"
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.952Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2604?c=chopard&lang=en-US",
-      "jobReqId": "2604",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T10:06:48.594Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "chopard-5918a2221e65",
-      "slug": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-      "slugByLocale": {
-        "it": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "en": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "de": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "fr": "apprenti-micromecanicien-h-f-d-chopard-fleurier"
-      },
-      "company": "Chopard",
-      "companyKey": "chopard",
-      "companyDomain": "chopard.com",
-      "title": "Apprenti Micromécanicien (H/F/D)",
-      "titleByLocale": {
-        "it": "Apprenti Micromécanicien (f/m/d)",
-        "en": "Apprenti Micromécanicien (H/F/D)",
-        "de": "Apprenti Micromécanicien (H/F/D)",
-        "fr": "Apprenti Micromécanicien (H/F/D)"
-      },
-      "description": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-      "descriptionByLocale": {
-        "it": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-        "en": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-        "de": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers",
-        "fr": "Vous êtes à la recherche d’une formation ? Nous sommes une Manufacture horlogère de produits haut de gamme en plein essor, implantée depuis plusieurs années à Fleurier, Val-de-Travers. Notre ambition est d’être un centre d’excellence au niveau du développement et de l’industrialisation de mouvements mécaniques. Vous avez un bon niveau scolaire et êtes (ou serez) promu de votre 11ème année d’école. Votre intérêt marqué pour les branches de mathématiques et de physique vous oriente naturellement vers une place d’apprentissage dans un métier technique. Habile de vos mains et doté d’une bonne acuité visuelle, vous êtes intéressé à travailler sur des produits horlogers haut de gamme. De nature patiente, vous aimez le travail de précision et êtes sensible au soin comme à la propreté. Nous serons heureux de vous accueillir à la rentrée d’août 2027 dans un cadre agréable doté de machines dernière génération pour vous accompagner durant 4 ans de formation pour l'obtention du CFC de : Micromécanicien CFC (H/F/D), option Fabrication et CNC Vous serez formé à la fabrication de pièces et de composants pour nos ateliers d’horlogerie et de décoration sur machines conventionnelles ou commandes numériques. Si vous êtes prêt à relever le défi, nous attendons volontiers votre dossier de candidature complet (CV, lettre de motivation), accompagné de la copie de vos bulletins scolaires de ces 3 dernières années à nous envoyer en vous connectant sur notre site internet à l’adresse suivante : https://www.chopard.com/intl/careers"
-      },
-      "location": "Fleurier",
-      "canton": "GE",
-      "url": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
-      "source": "Chopard Dedicated Parser (Cornerstone OnDemand)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:18:42.938Z",
-      "addressLocality": "Fleurier",
-      "addressRegion": "Genève",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Orologeria / Gioielleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://chopard.csod.com/ux/ats/careersite/1/home/requisition/2608?c=chopard&lang=en-US",
-      "jobReqId": "2608",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T10:06:48.576Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
+      "salarySource": "estimated"
     }
   ]
 }
