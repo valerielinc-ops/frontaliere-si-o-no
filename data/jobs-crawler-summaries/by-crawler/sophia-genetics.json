@@ -1,18 +1,18 @@
 {
   "key": "sophia-genetics",
   "label": "SOPHiA GENETICS",
-  "generatedAt": "2026-08-28T05:26:32.884Z",
-  "total": 10,
+  "generatedAt": "2026-08-31T17:10:10.667Z",
+  "total": 7,
   "discovered": null,
-  "written": 10,
+  "written": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 10122,
-  "avgDurationMs": 10122,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 8717,
+  "avgDurationMs": 8717,
   "durationHistory": [
-    10122
+    8717
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/DCBD3D6F1B/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:24.245Z",
+      "crawledAt": "2026-08-31T17:10:03.415Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -66,7 +66,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/29E6DA069F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:24.589Z",
+      "crawledAt": "2026-08-31T17:10:03.668Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -104,7 +104,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/8FED2C584F/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:25.460Z",
+      "crawledAt": "2026-08-31T17:10:04.345Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -143,7 +143,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/0C21CE35F7/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:24.431Z",
+      "crawledAt": "2026-08-31T17:10:03.538Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -181,7 +181,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/AC77213E76/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:25.033Z",
+      "crawledAt": "2026-08-31T17:10:04.065Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -220,7 +220,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/39F1F5A7B1/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:23.215Z",
+      "crawledAt": "2026-08-31T17:10:02.510Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zurich",
       "streetAddress": "",
@@ -258,7 +258,7 @@
       "url": "https://apply.workable.com/sophia-genetics/j/F52E4089C5/",
       "source": "SOPHiA GENETICS Dedicated Parser (Workable)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-28T05:26:24.887Z",
+      "crawledAt": "2026-08-31T17:10:03.945Z",
       "addressLocality": "Rolle",
       "addressRegion": "Vaud",
       "streetAddress": "La Pièce 12",
@@ -285,8 +285,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "sophia-genetics-725a055dc710",
       "slug": "rappresentante-per-lo-sviluppo-delle-vendite-polacco-sophia-genetics-rolle",
@@ -411,5 +410,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
