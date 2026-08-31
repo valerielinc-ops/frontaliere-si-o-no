@@ -8,10 +8,11 @@ import {
 
 /**
  * Schema guard for `data/pharmacy-sources-registry.json` (#6397, prereq for
- * the #6173 pharmacy/pharmacy-duty MVP). Fase 1 only populates Ticino as
- * `status: "unverified"` source config — no pharmacy or duty data lives here
- * — but every entry must still carry the full source-config shape so a
- * future connector has a common contract to read.
+ * the #6173 pharmacy/pharmacy-duty MVP). Fase 1 populates Ticino as
+ * source config; every entry must carry the full source-config shape so a
+ * future connector has a common contract to read. Ticino moved from
+ * `unverified` to `active` after the #6398 network verification of
+ * `ofct.ch` (see `docs/data-sources/farmacie-turno-ticino.md`).
  */
 describe('pharmacy sources registry schema', () => {
   it('passes full-registry validation with zero errors', () => {
@@ -24,10 +25,9 @@ describe('pharmacy sources registry schema', () => {
     expect(cantons).toEqual(['Ticino']);
   });
 
-  it('every entry starts as "unverified" (no duty/pharmacy data has been confirmed yet)', () => {
-    for (const [key, entry] of Object.entries(registry.sources)) {
-      expect(entry.status, `${key} should start unverified`).toBe('unverified');
-    }
+  it('ticino is "active" with html-scrape access, verified against ofct.ch (#6398)', () => {
+    expect(registry.sources.ticino.status).toBe('active');
+    expect(registry.sources.ticino.accessMethod).toBe('html-scrape');
   });
 
   it('rejects an entry missing a required field', () => {
