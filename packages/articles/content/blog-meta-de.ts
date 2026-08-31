@@ -10982,6 +10982,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Grenzgängerrente 2026 mit Kindern: Leitfaden AHV-INPS',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Neue Vereinbarung per 1. Januar 2024, AHV 5.3% und Koordination mit NISF: Was ändert sich für die Grenzfamilie mit Kindern im Jahr 2026?',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Grenzgänger am Bahnhof Bellinzona im Morgenlicht',
+    'blog.article.unia-pause-calore-cantieri.title': 'Hitzewelle auf Baustellen: Unia fordert Zwangspausen',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Nur 18% erhalten systematische Pausen über 33°C. Von den 984 befragten Arbeitnehmern ignorieren 82% der Baustellen die vorgesehenen Schutzmaßnahmen. Das fordert die Gewerkschaft.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Baustelle in Tessin bei Sommerhitze: Arbeiter befolgen Sicherheitsverfahren mit schattierten Bereichen und Schutzausrüstung.',
 };
 
 export default blogMetaDe;

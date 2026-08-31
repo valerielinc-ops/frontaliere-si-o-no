@@ -10984,6 +10984,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Pensione frontaliere 2026 con figli: guida AVS-INPS',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Nuovo Accordo in vigore dal 1° gennaio 2024, AVS al 5.3% e coordinamento con INPS: cosa cambia per la famiglia frontaliera con figli nel 2026.',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Pendolari frontalieri attraversano la stazione di Bellinzona all\'alba',
+    'blog.article.unia-pause-calore-cantieri.title': 'Canicola nei cantieri: Unia chiede pause obbligatorie',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Solo il 18% riceve pause sistematiche oltre i 33°C. Su 984 lavoratori intervistati, l\'82% dei cantieri ignora le tutele previste. Ecco cosa chiede il sindacato.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Cantiere in Ticino con sole estivo: lavoratori edili seguono procedure di sicurezza con zone ombrate e attrezzature protettive.',
 };
 
 export default blogMetaIt;

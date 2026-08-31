@@ -10983,6 +10983,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Border boarding house 2026 with children: AVS-INPS guide',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'New Agreement in force from 1 January 2024, AVS at 5.3% and coordination with INPS: what changes for the border family with children in 2026.',
     'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Cross-border commuters walking through Bellinzona station at dawn',
+    'blog.article.unia-pause-calore-cantieri.title': 'Canicola in the construction sites: Unia asks for mandatory breaks',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Only 18% receive systematic breaks above 33°C. Out of 984 workers interviewed, 82% of construction sites ignore the protections provided. This is what the union is asking for.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Construction site in Ticino during summer heat: workers follow safety procedures with shaded areas and protective equipment.',
 };
 
 export default blogMetaEn;
