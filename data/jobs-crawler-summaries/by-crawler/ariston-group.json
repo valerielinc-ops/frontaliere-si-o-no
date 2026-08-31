@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-08-31T10:06:06.394Z",
+  "generatedAt": "2026-08-31T10:18:33.345Z",
   "total": 15,
   "newCount": 0,
   "updatedCount": 14,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 11031,
-  "avgDurationMs": 11031,
+  "durationMs": 13187,
+  "avgDurationMs": 13187,
   "durationHistory": [
-    11031
+    13187
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -77,6 +78,7 @@
       "currency": "CHF",
       "postalCode": "3900",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "salarySource": "reported",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,6 +114,7 @@
       "salaryMax": 90500,
       "currency": "CHF",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -148,6 +151,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:10:49.488Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -185,6 +189,7 @@
       "currency": "CHF",
       "postalCode": "4563",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,6 +226,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -257,6 +263,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-21T09:47:27.113Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -292,6 +299,7 @@
       "salaryMax": 110500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-08T22:10:49.488Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -329,6 +337,7 @@
       "currency": "CHF",
       "postalCode": "2501",
       "firstSeenAt": "2026-06-17T22:09:47.599Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -366,6 +375,7 @@
       "currency": "CHF",
       "postalCode": "4563",
       "firstSeenAt": "2026-06-17T22:09:47.599Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -402,6 +412,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-30T22:12:24.362Z",
+      "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -438,6 +449,7 @@
       "currency": "CHF",
       "postalCode": "6023",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -475,6 +487,7 @@
       "currency": "CHF",
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T11:36:36.719Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -511,6 +524,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T22:44:04.538Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -551,6 +565,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T10:10:55.350Z",
+      "salarySource": "estimated",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
