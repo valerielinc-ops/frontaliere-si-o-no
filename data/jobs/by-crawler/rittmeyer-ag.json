@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rittmeyer-ag",
-  "assembledAt": "2026-08-31T07:36:02.653Z",
+  "assembledAt": "2026-08-31T10:04:51.672Z",
   "jobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -74,6 +74,7 @@
         }
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "salarySource": "reported",
       "needsRetranslation": true
     },
     {
@@ -156,7 +157,8 @@
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1341
+      "localeMismatchSuppressedLen": 1341,
+      "salarySource": "estimated"
     },
     {
       "title": "Technicien de service Automation & Réseaux industriels (a) Région Fribourg, Bulle, Yverdon et environ",
@@ -227,7 +229,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-12T22:07:29.169Z"
+      "firstSeenAt": "2026-08-12T22:07:29.169Z",
+      "salarySource": "reported"
     },
     {
       "title": "Technicien de service (a) Région Fribourg, Bulle, Yverdon et environ",
@@ -298,7 +301,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-14T10:29:24.869Z"
+      "firstSeenAt": "2026-08-14T10:29:24.869Z",
+      "salarySource": "estimated"
     },
     {
       "title": "Service Techniker (a) Region Winterthur, Wil, St. Gallen",
@@ -362,9 +366,9 @@
       },
       "previousSlugs": [
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "service-techniker-a-region-winterthur-wil-st-gallen-rittmeyer-ag-nordostschweiz",
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin",
+        "service-techniker-a-region-winterthur-wil-st-gallen-rittmeyer-ag-nordostschweiz",
         "service-technician-m-w-d-winterthur-wil-st-gallen-region-rittmeyer-ag-baar",
         "technicien-de-service-m-w-d-region-winterthur-wil-st-gallen-rittmeyer-ag-baar"
       ],
@@ -382,6 +386,7 @@
         }
       },
       "firstSeenAt": "2026-07-06T15:19:20.855Z",
+      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -454,7 +459,8 @@
         }
       },
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "salarySource": "reported"
     },
     {
       "title": "Techniker Verkaufsinnendienst (a)",
@@ -525,7 +531,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-06-03T00:50:36.287Z"
+      "firstSeenAt": "2026-06-03T00:50:36.287Z",
+      "salarySource": "reported"
     },
     {
       "title": "Sales Project Engineer (a) Ticino",
@@ -611,7 +618,8 @@
           "sales-project-ingenieur-a-ticino-rittmeyer-ag-camorino-2oiwox"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:18:55.902Z"
+      "firstSeenAt": "2026-04-13T22:18:55.902Z",
+      "salarySource": "reported"
     }
   ]
 }
