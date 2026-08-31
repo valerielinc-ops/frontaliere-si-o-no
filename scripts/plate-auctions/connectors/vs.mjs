@@ -11,15 +11,37 @@
  * app is mounted only under `/ecari-auction/` (no separate crawl-block or
  * terms-of-use page gates this listing).
  *
- * Only the "Enchères en cours" tab (categorieID=1, car plates) is scraped:
- * "Inscription pour les futures enchères" and "Plaques souhaitées" require
- * an authenticated account and are out of scope.
+ * All three tabs — "Enchères en cours" (tabContent1), "Inscription pour les
+ * futures enchères" (tabContent2) and "Plaques souhaitées" (tabContent4) —
+ * are public: re-verified in issue #6801 (follow-up of #6775), which had
+ * originally (wrongly) declared tab2/tab4 as requiring an authenticated
+ * account. The site is a classic server-rendered tab widget: a single fetch
+ * of `VS_AUCTION_URL` returns ALL tab panels in one HTML document, with only
+ * the active one visible (`display:none` on the rest) — `curl`-ing
+ * `ui/app/changeTab/app?tabNumber=2` with a session cookie confirms tab2/4
+ * respond with their own `tabNumber` state and no redirect to a login page.
+ * tab2/tab4 currently render "Plaques indisponibles" (no entries) rather
+ * than being blocked, so `parseVsAuctionRows` legitimately returns zero rows
+ * for them until eCari actually lists something there.
  */
 import { createHash } from 'node:crypto';
 
 export const VS_CANTON = 'Vallese';
 export const VS_PLATE_CODE = 'VS';
 export const VS_AUCTION_URL = 'https://ecari.vs.ch/ecari-auction/';
+
+/**
+ * The three tabs with a visible nav entry on the VS eCari page (tab3 exists
+ * in the markup but has no nav link and is not user-reachable). Each panel
+ * is scraped with the same row parser — the site reuses one table component
+ * across tabs, so a not-yet-observed real row in tab2/4 is expected to use
+ * the same `<tr class="L" style=...>` markup as tab1's "Enchères en cours".
+ */
+const VS_TAB_SECTIONS = [
+  { tabContentId: 'tabContent1', auctionStatus: 'active', idPrefix: 'vs' },
+  { tabContentId: 'tabContent2', auctionStatus: 'upcoming', idPrefix: 'vs-future' },
+  { tabContentId: 'tabContent4', auctionStatus: 'upcoming', idPrefix: 'vs-wanted' },
+];
 
 const ROW_RE = /<tr class="L"\s+style="[^"]*">([\s\S]*?)<\/tr>/g;
 const NUMBER_RE = /<div class="number">(\d+)<\/div>/;
@@ -67,12 +89,31 @@ function parseEcariDate(raw) {
 }
 
 /**
- * Parses the "Enchères en cours" table out of the VS eCari HTML into
+ * Extracts a single tab panel's HTML out of the full VS eCari page. Panels
+ * are rendered as sibling `<div id="tabContentN">` blocks with no nesting
+ * between them, so a lazy scan up to the next `tabContent` div (or EOF) is
+ * enough to isolate one tab's rows from the others without an HTML parser.
+ * Returns `''` when the id is not found (e.g. a trimmed test fixture).
+ */
+export function extractTabSection(html, tabContentId) {
+  const re = new RegExp(`<div id="${tabContentId}"[\\s\\S]*?(?=<div id="tabContent\\d+"|$)`);
+  const match = html.match(re);
+  return match ? match[0] : '';
+}
+
+/**
+ * Parses an auction-rows table out of a VS eCari HTML fragment into
  * `PlateAuction`-shaped objects (see `services/plateAuctions/types.ts`).
  * Pure function — no network — so it is unit-testable against a saved
- * fixture (`tests/fixtures/vs-ecari-auction-sample.html`).
+ * fixture (`tests/fixtures/vs-ecari-auction-sample.html`). `auctionStatus`
+ * and `idPrefix` let the same parser cover tabs beyond "Enchères en cours"
+ * (see `VS_TAB_SECTIONS`) — a tab with no matching rows (e.g. today's empty
+ * "Plaques indisponibles" tab2/tab4) legitimately yields `[]`, not an error.
  */
-export function parseVsAuctionRows(html, { fetchedAt = new Date().toISOString() } = {}) {
+export function parseVsAuctionRows(
+  html,
+  { fetchedAt = new Date().toISOString(), auctionStatus = 'active', idPrefix = 'vs' } = {},
+) {
   const auctions = [];
   ROW_RE.lastIndex = 0;
   let match;
@@ -90,13 +131,13 @@ export function parseVsAuctionRows(html, { fetchedAt = new Date().toISOString() 
     const endsAt = parseEcariDate(closingMatch[1]);
 
     auctions.push({
-      id: `vs-${idMatch[1]}`,
+      id: `${idPrefix}-${idMatch[1]}`,
       canton: VS_CANTON,
       platePrefix: VS_PLATE_CODE,
       plateNumber,
       normalizedPlate: `${VS_PLATE_CODE}${plateNumber}`,
       vehicleType: 'car',
-      auctionStatus: 'active',
+      auctionStatus,
       currentBidChf,
       minimumIncrementChf,
       bidCount: bidCountMatch ? Number(bidCountMatch[1]) : undefined,
@@ -134,22 +175,26 @@ async function fetchPage(url) {
 }
 
 /**
- * Fetches the live VS eCari page and returns the current auctions as
- * `PlateAuction[]`. The entry URL redirects through a session-bootstrap
- * chain (`fetch` with `redirect: 'follow'` handles it in one call, no
- * manual cookie jar needed — verified against the live site in #6358).
+ * Fetches the live VS eCari page and returns auctions from all public tabs
+ * (`VS_TAB_SECTIONS`) as `PlateAuction[]`. The entry URL redirects through a
+ * session-bootstrap chain (`fetch` with `redirect: 'follow'` handles it in
+ * one call, no manual cookie jar needed — verified against the live site in
+ * #6358) and the single response already embeds every tab panel, so one
+ * fetch is enough to cover tab1/tab2/tab4 (#6801).
  */
 export async function fetchVsPlateAuctions() {
   const html = await fetchPage(VS_AUCTION_URL);
   const fetchedAt = new Date().toISOString();
-  return parseVsAuctionRows(html, { fetchedAt });
+  return VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, idPrefix }) =>
+    parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, idPrefix }),
+  );
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   fetchVsPlateAuctions()
     .then((auctions) => {
       console.log(JSON.stringify(auctions, null, 2));
-      console.log(`\n${auctions.length} active VS plate auction(s) found.`);
+      console.log(`\n${auctions.length} VS plate auction(s)/listing(s) found across tab1/tab2/tab4.`);
     })
     .catch((err) => {
       console.error('VS plate-auction fetch failed:', err);
