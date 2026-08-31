@@ -269,6 +269,33 @@ export const REGRESSION_RULES = {
   MAX_PROVIDER_MISSING_PCT: 1,
 };
 
+/**
+ * job_alert is sent by a tier-cascade (send-job-alerts.mjs sorts recipients
+ * by engagement, then fixed daily quotas per provider decide who lands where)
+ * so a provider's job_alert-inclusive rate reflects which tier populated its
+ * quota this week, not provider health — the same confound the report's
+ * "PER PROVIDER" note already calls out for cross-provider comparison, just
+ * along the time axis instead. Fold byPair down to per-provider totals with
+ * job_alert excluded so the provider-scope regression check compares only
+ * the non-cascade-ordered types (byPair is already computed by
+ * aggregateMessages and otherwise unused here).
+ */
+function providerRatesExcludingJobAlert(byPair) {
+  const out = {};
+  for (const [key, cell] of Object.entries(byPair || {})) {
+    const sep = key.indexOf('|');
+    const provider = key.slice(0, sep), emailType = key.slice(sep + 1);
+    if (emailType === 'job_alert') continue;
+    const bucket = (out[provider] ||= { sent: 0, delivered: 0, opened: 0, clicked: 0, bounced: 0 });
+    bucket.sent += cell.sent;
+    bucket.delivered += cell.delivered;
+    bucket.opened += cell.opened;
+    bucket.clicked += cell.clicked;
+    bucket.bounced += cell.bounced;
+  }
+  return out;
+}
+
 export function detectRegressions(current, previous, rules = REGRESSION_RULES) {
   const out = [];
   const rateOf = (c, k) => pct(c[k], c.sent);
@@ -299,9 +326,14 @@ export function detectRegressions(current, previous, rules = REGRESSION_RULES) {
 
   if (!previous) return out;
 
-  for (const [scope, curGroup] of [['type', current.byType], ['provider', current.byProvider]]) {
-    const prevGroup = (scope === 'type' ? previous.byType : previous.byProvider) || {};
-    for (const [name, cur] of Object.entries(curGroup)) {
+  const groups = [
+    ['type', current.byType, previous.byType],
+    ['provider', providerRatesExcludingJobAlert(current.byPair), providerRatesExcludingJobAlert(previous.byPair)],
+    ['pair', current.byPair, previous.byPair],
+  ];
+  for (const [scope, curGroup, prevGroupRaw] of groups) {
+    const prevGroup = prevGroupRaw || {};
+    for (const [name, cur] of Object.entries(curGroup || {})) {
       const prev = prevGroup[name];
       if (!prev) continue;
       if (cur.sent < rules.MIN_SENDS || prev.sent < rules.MIN_SENDS) continue;
