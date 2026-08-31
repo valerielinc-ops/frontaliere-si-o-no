@@ -62,12 +62,24 @@ import {
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { readCompatPaths, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { DEFAULT_LIVE_CHECK_USER_AGENT } from './lib/live-link-check.mjs';
+import {
+  DEFAULT_LIVE_CHECK_USER_AGENT,
+  DEFAULT_LIVE_CHECK_TIMEOUT_MS,
+  runWithConcurrency,
+} from './lib/live-link-check.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const ROOT = resolve(__dirname, '..');
 const BASE = 'https://frontaliereticino.ch';
+// Bounded parallelism for the per-city live-check pass below (issue #6774):
+// there can be 600+ distinct city-page candidates, and running them one
+// `await` at a time in series — with no per-request timeout at all — is what
+// let the job blow past the 20min workflow ceiling (a single slow/hanging
+// response stalled the whole run). Same fetch-liveness building block
+// (runWithConcurrency) send-job-alerts.mjs and check-journalist-article-links.mjs
+// already use for the same reason.
+const LIVE_CHECK_CONCURRENCY = 10;
 export const INDEXED = resolve(ROOT, 'data/indexed-cluster-urls.json');
 export const OUT = resolve(ROOT, 'data/search-cluster-301-map.json');
 
@@ -173,6 +185,7 @@ async function isLive(pathUrl) {
       method: 'GET',
       redirect: 'manual',
       headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+      signal: AbortSignal.timeout(DEFAULT_LIVE_CHECK_TIMEOUT_MS),
     });
     ok = res.status === 200;
   } catch {
@@ -316,7 +329,10 @@ export async function fetchLiveClusterSet() {
     const url = `${BASE}/sitemap-search-clusters-${idx}.xml`;
     let xml;
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT } });
+      const res = await fetch(url, {
+        headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+        signal: AbortSignal.timeout(DEFAULT_LIVE_CHECK_TIMEOUT_MS),
+      });
       if (!res.ok) break; // no more shards
       xml = await res.text();
     } catch {
@@ -351,17 +367,23 @@ async function main() {
   let cityPage = 0;
   let cityBoard = 0;
   let urlBoard = 0;
-  for (const [oldUrl, locale] of [...legacy.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+  const sortedLegacy = [...legacy.entries()].sort(([a], [b]) => a.localeCompare(b));
+
+  // Pass 1 (pure, no I/O): resolve each legacy URL down to either an
+  // immediate "specific"/"board" target, or a city-page candidate that still
+  // needs a liveness check. Kept separate from the fetch below so ALL city
+  // checks can run concurrently instead of one `await` per loop iteration
+  // (issue #6774 root cause: the old single sequential loop, combined with
+  // an un-timed-out fetch in isLive(), let one slow/hanging check stall the
+  // entire run past the workflow's 20min ceiling).
+  const resolved = sortedLegacy.map(([oldUrl, locale]) => {
     const cfg = LOCALE_CONFIG[locale];
     const body = nationalSlugBody(oldUrl, locale);
-    byLocale[locale]++;
 
     // 1) Specific live national cluster (de-junked role+city), best relevance.
     const national = body ? `${sectionRoot(locale, AGGREGATE_KEY)}/${cfg.searchPrefix}-${body}/` : null;
     if (national && live.has(national)) {
-      map[oldUrl] = national;
-      specific++;
-      continue;
+      return { oldUrl, locale, kind: 'specific', target: national };
     }
 
     // 2) City detected in the slug → the per-city job page in the city's REAL
@@ -376,23 +398,45 @@ async function main() {
     if (city) {
       const cantonCode = cityToCantonCode.get(city);
       const cityUrl = `${sectionRoot(locale, cantonCode)}/${city}/`;
-      if (verifyCity && (await isLive(cityUrl))) {
-        map[oldUrl] = cityUrl;
-        cityPage++;
-        continue;
-      }
-      // 3) City's REAL canton board (fixes the legacy ticino-prefix mislabel).
-      map[oldUrl] = `${sectionRoot(locale, cantonCode)}/`;
-      cityBoard++;
-      continue;
+      // 3) City's REAL canton board (fixes the legacy ticino-prefix mislabel)
+      //    is the fallback if the city page below turns out not to be live.
+      return { oldUrl, locale, kind: 'city', cityUrl, cantonBoard: `${sectionRoot(locale, cantonCode)}/` };
     }
 
     // 4) No city signal (role-only national cluster, no live specific page) →
     //    the national board, in the SAME locale. NOT the URL's own canton:
     //    every legacy orphan carries the misleading legacy per-canton section
     //    prefix, so the national board is the honest generic home.
-    map[oldUrl] = `${sectionRoot(locale, AGGREGATE_KEY)}/`;
-    urlBoard++;
+    return { oldUrl, locale, kind: 'board', target: `${sectionRoot(locale, AGGREGATE_KEY)}/` };
+  });
+
+  // Pass 2: warm the live-check cache for every DISTINCT city URL with
+  // bounded concurrency instead of one fetch at a time in series.
+  if (verifyCity) {
+    const cityUrls = [...new Set(resolved.filter((r) => r.kind === 'city').map((r) => r.cityUrl))];
+    await runWithConcurrency(cityUrls, LIVE_CHECK_CONCURRENCY, (cityUrl) => isLive(cityUrl));
+  }
+
+  // Pass 3: assemble the map from the resolved pieces + the now-warm cache.
+  for (const r of resolved) {
+    byLocale[r.locale]++;
+    if (r.kind === 'specific') {
+      map[r.oldUrl] = r.target;
+      specific++;
+      continue;
+    }
+    if (r.kind === 'board') {
+      map[r.oldUrl] = r.target;
+      urlBoard++;
+      continue;
+    }
+    if (verifyCity && liveCache.get(r.cityUrl)) {
+      map[r.oldUrl] = r.cityUrl;
+      cityPage++;
+    } else {
+      map[r.oldUrl] = r.cantonBoard;
+      cityBoard++;
+    }
   }
 
   const total = specific + cityPage + cityBoard + urlBoard;
