@@ -32871,6 +32871,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'lavoro-transfrontaliero-ticino-q2-2026',
+ category: 'pratico',
+ date: '2026-08-31T15:36:22.842Z',
+ image: '/images/blog/lavoro-transfrontaliero-ticino-q2-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -10997,6 +10997,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Border guesthouse 2026: plan with family and children',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'AVS 21 reform, new Frontier Agreement in force since 2024 and early retirement scenarios for those who work in Ticino with a family.',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Cross-border worker couple planning retirement by Lake Lugano',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Border Ticino Q2 2026: 79,121 (+0.64%)',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Federal Statistical Office: 79,121 border guards in the Canton of Ticino in Q2 2026, up 505 units (+0.64%) compared to Q1. Quarterly BFS data analysis.',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Lugano waterfront with modern business district and professionals in the morning light',
 };
 
 export default blogMetaEn;

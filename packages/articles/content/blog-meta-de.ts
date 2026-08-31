@@ -10996,6 +10996,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Rente Grenzgänger 2026: Planen mit Familie und Kindern',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'AHV-Reform 21, neue Frontalieri-Vereinbarung, die seit 2024 in Kraft ist, und Vorruhestands-Szenarien für diejenigen, die mit ihrer Familie im Tessin arbeiten.',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Grenzgänger-Ehepaar plant den Ruhestand am Luganersee',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Grenzgänger Tessin Q2 2026: 79.121 (+0,64%)',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Bundesamt für Statistik: 79.121 Grenzgänger im Kanton Tessin zum Q2 2026, ein Anstieg von 505 Einheiten (+0,64%) im Vergleich zum Q1. Vierteljährliche BfS-Datenanalyse.',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Lugano-Seeufer mit modernem Geschäftsviertel und Fachleuten am Morgen',
 };
 
 export default blogMetaDe;

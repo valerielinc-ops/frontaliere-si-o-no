@@ -10998,6 +10998,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Pensione frontalieri 2026: pianificare con famiglia e figli',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'Riforma AVS 21, nuovo Accordo Frontalieri in vigore dal 2024 e scenari di rendita anticipata per chi lavora in Ticino con famiglia.',
     'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Coppia di frontalieri anziani pianifica il pensionamento a Lugano',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Frontalieri Ticino Q2 2026: 79.121 (+0,64%)',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Ufficio Federale di Statistica: 79.121 frontalieri nel Canton Ticino al Q2 2026, in crescita di 505 unità (+0,64%) rispetto al Q1. Analisi dati BFS trimestrale.',
+    'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Vista di Lugano con grattacieli del distretto finanziario e professionisti al lavoro al mattino',
 };
 
 export default blogMetaIt;
