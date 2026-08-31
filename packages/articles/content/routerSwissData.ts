@@ -1643,6 +1643,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'skyguide-licenziamenti-consultazione': { it: 'skyguide-licenziamenti-consultazione', en: 'skyguide-50-layoffs-consultation', de: 'skyguide-50-entlassungen-konsultation', fr: 'skyguide-50-licenciements-consultation' },
  'divieto-velo-cellulari-scuole': { it: 'divieto-velo-cellulari-scuole', en: 'ban-veil-phones-schools-zurich', de: 'kopftuch-handy-verbot-schulen-zuerich', fr: 'interdiction-voile-telephones-ecoles-zurich' },
  'siccita-depuratori-crisi-acque': { it: 'siccita-depuratori-crisi-acque', en: 'drought-wastewater-plants-water-crisis', de: 'trockenheit-klaeranlage-wasserkrise', fr: 'secheresse-stations-epuration-crise-eau' },
+ 'commissione-cst-copertura-banche-svizzere': { it: 'commissione-cst-copertura-banche-svizzere', en: 'cst-commission-coverage-swiss-banks', de: 'wako-ausschuss-eigenkapitaldeckung-banken', fr: 'commission-cst-couverture-banques-suisses' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

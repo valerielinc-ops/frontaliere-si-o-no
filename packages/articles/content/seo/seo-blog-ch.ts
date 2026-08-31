@@ -62966,6 +62966,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commissione-cst-copertura-banche-svizzere': {
+    title: 'Banche svizzere, la CET-S frena il Consiglio federale sul capitale proprio',
+    description: 'La Commissione del Consiglio degli Stati modifica la proposta del Consiglio federale: fino a metà della copertura delle filiali estere potrà venire',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, svizzere, cet-s, frena',
+    ogTitle: 'Banche, la CET-S frena il governo sul capitale proprio',
+    ogDescription: 'La Commissione dell\'economia del Consiglio degli Stati ridimensiona la copertura al 100% in CET-1 voluta dal Consiglio federale per le filiali estere delle grandi banche: fino a metà potrà arrivare da obbligazioni AT1. Previste regole su dividendi',
+    canonicalPath: '/articoli-svizzera/commissione-cst-copertura-banche-svizzere/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche svizzere, la CET-S frena il Consiglio federale sul capitale proprio",
+      "description": "La Commissione del Consiglio degli Stati modifica la proposta del Consiglio federale: fino a metà della copertura delle filiali estere potrà venire",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissione-cst-copertura-banche-svizzere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale di Berna illuminato al tramonto, sede del Consiglio degli Stati"
+      },
+      "datePublished": "2026-08-31T20:27:08+00:00",
+      "dateModified": "2026-08-31T20:27:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissione-cst-copertura-banche-svizzere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
