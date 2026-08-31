@@ -32907,6 +32907,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'como-crisi-abitativa-alloggi-sfitti',
+ category: 'pratico',
+ date: '2026-08-31T21:24:57.785Z',
+ image: '/images/blog/como-crisi-abitativa-alloggi-sfitti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -81269,6 +81269,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-crisi-abitativa-alloggi-sfitti': {
+    title: 'Crisi casa a Como: 1.302 alloggi sfitti, giovani in fuga',
+    description: 'Nel luglio 2025 sono 1.302 gli alloggi pubblici sfitti in provincia di Como. CGIL, CISL e UIL denunciano crisi abitativa che spinge lavoratori verso il mercato',
+    keywords: 'frontalieri, ticino, svizzera, italia, crisi, casa, como, alloggi',
+    ogTitle: 'Crisi casa a Como: 1.302 alloggi sfitti, giovani in fuga',
+    ogDescription: 'Nel luglio 2025 sono 1.302 gli alloggi pubblici sfitti in provincia di Como. CGIL Como, CISL dei Laghi e UIL del Lario denunciano una crisi abitativa che spinge i lavoratori verso il mercato del lavoro svizzero. Scopri i dati e le soluzioni proposte.',
+    canonicalPath: '/articoli-frontaliere/como-crisi-abitativa-alloggi-sfitti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi casa a Como: 1.302 alloggi sfitti, giovani in fuga",
+      "description": "Nel luglio 2025 sono 1.302 gli alloggi pubblici sfitti in provincia di Como. CGIL, CISL e UIL denunciano crisi abitativa che spinge lavoratori verso il mercato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-crisi-abitativa-alloggi-sfitti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Como con edifici residenziali, simbolo della provincia attrattiva ma con costi abitativi elevati"
+      },
+      "datePublished": "2026-08-31T21:24:57+00:00",
+      "dateModified": "2026-08-31T21:24:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-crisi-abitativa-alloggi-sfitti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
