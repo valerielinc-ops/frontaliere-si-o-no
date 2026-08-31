@@ -264,8 +264,7 @@ export async function fetchAllFaulhaberJobs() {
   try {
     html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Faulhaber: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   let listings = parseListingPage(html);
   console.log(`  Swiss jobs found on listing page: ${listings.length}`);

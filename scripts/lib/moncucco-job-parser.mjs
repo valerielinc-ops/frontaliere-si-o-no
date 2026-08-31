@@ -225,8 +225,7 @@ export async function fetchAllMoncuccoJobs() {
   try {
     html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Moncucco: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   const listings = parseListingPage(html);
   console.log(`  Jobs found on listing page: ${listings.length}`);

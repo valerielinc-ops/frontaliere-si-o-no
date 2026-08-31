@@ -46,6 +46,8 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+class ListingSourceFetchError extends Error {}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -126,18 +128,26 @@ async function trySmartRecruitersApi() {
   const apiUrl = `${SR_API_URL}?${params}`;
   try {
     console.log(`   Trying SmartRecruiters API: ${apiUrl}`);
-    const data = await fetchJson(apiUrl, { timeoutMs: 20000 });
+    let data;
+    try {
+      data = await fetchJson(apiUrl, { timeoutMs: 20000 });
+    } catch (err) {
+      throw new ListingSourceFetchError(err.message, { cause: err });
+    }
+    let shapeMismatch = '';
     const items = assertJsonListShapeMultiKey(data, {
       keys: ['content', 'results', 'jobs'],
       allowBareArray: true,
       source: IMERYS_KEY,
+      warn: (message) => { shapeMismatch = message; },
     });
+    if (shapeMismatch) throw new Error(shapeMismatch);
     if (items.length > 0) {
       console.log(`   SmartRecruiters API returned ${items.length} Swiss jobs`);
       return items;
     }
   } catch (err) {
-    console.log(`   SmartRecruiters API attempt failed: ${err.message}`);
+    throw err;
   }
   return null;
 }
@@ -152,8 +162,7 @@ async function trySmartRecruitersHtml() {
   try {
     html = await fetchHtml(srUrl, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new ListingSourceFetchError(err.message, { cause: err });
   }
     if (!html) return [];
 
@@ -198,8 +207,7 @@ async function trySmartRecruitersHtml() {
 
     return jobs;
   } catch (err) {
-    console.log(`   SmartRecruiters HTML fetch failed: ${err.message}`);
-    return [];
+    throw err;
   }
 }
 
@@ -250,28 +258,56 @@ export async function fetchAllImerysJobs() {
   console.log(`🔍 Fetching Imerys jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
+  const imerysSourceFailures = [];
+
   // Strategy 1: SmartRecruiters API
-  let listings = await trySmartRecruitersApi();
+  let listings = null;
+  let successfulSources = 0;
+  try {
+    listings = await trySmartRecruitersApi();
+    successfulSources += 1;
+  } catch (err) {
+    if (!(err instanceof ListingSourceFetchError)) throw err;
+    console.warn(`   SmartRecruiters API attempt failed: ${err.message}`);
+    imerysSourceFailures.push(err);
+  }
 
   // Strategy 2: SmartRecruiters HTML
   if (!listings || listings.length === 0) {
-    listings = await trySmartRecruitersHtml();
+    try {
+      listings = await trySmartRecruitersHtml();
+      successfulSources += 1;
+    } catch (err) {
+      if (!(err instanceof ListingSourceFetchError)) throw err;
+      console.warn(`   SmartRecruiters HTML fetch failed: ${err.message}`);
+      imerysSourceFailures.push(err);
+    }
   }
 
   // Strategy 3: Imerys corporate page
   if (!listings || listings.length === 0) {
     console.log('   Trying Imerys corporate careers page...');
     try {
-      const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+      let html;
+      try {
+        html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
+      } catch (err) {
+        throw new ListingSourceFetchError(err.message, { cause: err });
+      }
       listings = parseImerysCareerPage(html);
+      successfulSources += 1;
       console.log(`   Corporate page found ${listings?.length || 0} links`);
     } catch (err) {
+      if (!(err instanceof ListingSourceFetchError)) throw err;
       console.warn(`   HTML fetch failed: ${err.message}`);
-      listings = [];
+      imerysSourceFailures.push(err);
     }
   }
 
   if (!listings || listings.length === 0) {
+    if (successfulSources === 0) {
+      throw new AggregateError(imerysSourceFailures, 'Imerys: all job listing sources failed to fetch');
+    }
     console.warn('⚠️ No Imerys job listings found.');
     return [];
   }

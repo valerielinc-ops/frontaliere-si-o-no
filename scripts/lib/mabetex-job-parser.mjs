@@ -214,8 +214,7 @@ export async function fetchAllMabetexJobs() {
   try {
     html = await fetchHtml(CAREERS_URL, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Mabetex: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   const listings = parseCareerPage(html);
   console.log(`  Jobs found on career page: ${listings.length}`);

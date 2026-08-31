@@ -213,8 +213,7 @@ export async function fetchAllNovelisJobs() {
     const html = await fetchHtml(CAREER_URL, { timeoutMs: 25000 });
     listings = parseListingPage(html);
   } catch (err) {
-    console.warn(`⚠️ Failed to fetch ${CAREER_URL}: ${err.message}`);
-    return [];
+    throw new Error(`Novelis: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
 
   if (!listings.length) {

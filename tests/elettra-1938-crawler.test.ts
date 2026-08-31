@@ -1,11 +1,10 @@
-import { describe, it, expect, vi } from 'vitest';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
 
-// Mock only `fetchHtml` from the shared template — everything else
-// (slugify, stripHtml, fetchHtml's siblings) stays real.
-const { fetchHtml } = vi.hoisted(() => ({ fetchHtml: vi.fn() }));
+// Mock only network access from the shared template; parsing helpers stay real.
+const { fetchHtml, fetchJson } = vi.hoisted(() => ({ fetchHtml: vi.fn(), fetchJson: vi.fn() }));
 vi.mock('@/scripts/lib/crawler-template.mjs', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
-  return { ...actual, fetchHtml };
+  return { ...actual, fetchHtml, fetchJson };
 });
 
 import {
@@ -35,7 +34,25 @@ const NON_STABIO_CARD = `
   </div>
 `;
 
+const AJAX_SCAFFOLD = `
+  <html><body>
+    <div id="vacancyList">
+      <input id="url-for-announces" value="https://inrecruiting.intervieweb.it/app.php?module=newcareer&amp;ajax=1">
+    </div>
+    <script>const request = { act1: "vacancyListCareer", "section": "test-section" };</script>
+  </body></html>
+`;
+
+const EMPTY_AJAX_RESPONSE = {
+  success: true,
+  data: '<div class="vacancy-list-empty">Nessun annuncio disponibile</div>',
+};
+
 describe('Elettra 1938 crawler parser', () => {
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(ELETTRA_1938_KEY).toBe('elettra-1938');
@@ -162,6 +179,7 @@ describe('Elettra 1938 crawler parser', () => {
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toHaveLength(1);
       expect(jobs[0].title).toBe('Tecnico elettrico');
+      expect(fetchJson).not.toHaveBeenCalled();
     });
 
     it('returns an empty array when the portal has cards but none in Stabio (genuine zero)', async () => {
@@ -170,31 +188,53 @@ describe('Elettra 1938 crawler parser', () => {
       expect(jobs).toEqual([]);
     });
 
-    it('throws when the vacancyListCareer AJAX loader is absent from the markup entirely (true selector/template drift)', async () => {
-      fetchHtml.mockResolvedValueOnce('<html><body><div class="unexpected-layout">No cards here</div></body></html>');
-      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector\/template drift/i);
-    });
-
-    it('returns an empty array when zero cards render but .vacancy__render is (only) referenced in an unrelated custom-CSS override, with the AJAX loader present (genuine portal-wide lull, #5970/#6066)', async () => {
-      fetchHtml.mockResolvedValueOnce('<html><head><style>.vacancy__render { display: block; }</style></head><body><div id="vacancyList"></div><script>act1: "vacancyListCareer"</script></body></html>');
+    it('accepts zero cards only when coherent markup and the live endpoint independently confirm an empty state', async () => {
+      fetchHtml.mockResolvedValueOnce(AJAX_SCAFFOLD);
+      fetchJson.mockResolvedValueOnce(EMPTY_AJAX_RESPONSE);
       const jobs = await fetchAllElettra1938Jobs();
       expect(jobs).toEqual([]);
+      expect(fetchJson).toHaveBeenCalledWith(
+        'https://inrecruiting.intervieweb.it/app.php?module=newcareer&ajax=1',
+        expect.objectContaining({
+          method: 'POST',
+          body: expect.stringContaining('act1=vacancyListCareer'),
+        }),
+      );
     });
 
-    it('returns an empty array when zero cards render and the .vacancy__render CSS string is entirely absent, as long as the vacancyListCareer AJAX loader is present (#6066: the CSS string is not a reliable intact-signal)', async () => {
-      fetchHtml.mockResolvedValueOnce('<html><body><div id="vacancyList"></div><script>act1: "vacancyListCareer"</script></body></html>');
+    it('uses cards returned by the live endpoint when the initial page has none', async () => {
+      fetchHtml.mockResolvedValueOnce(AJAX_SCAFFOLD);
+      fetchJson.mockResolvedValueOnce({ success: true, data: STABIO_CARD });
       const jobs = await fetchAllElettra1938Jobs();
-      expect(jobs).toEqual([]);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Tecnico elettrico');
     });
 
-    it('throws when the vacancyListCareer action name is present but the #vacancyList mount container is gone (a partial template rewrite leaving a stray reference, #6496)', async () => {
-      fetchHtml.mockResolvedValueOnce('<html><body><script>/* legacy: act1 was "vacancyListCareer" */</script></body></html>');
+    it('throws on a class rename even when a stray .vacancy__render reference survives', async () => {
+      fetchHtml.mockResolvedValueOnce(AJAX_SCAFFOLD);
+      fetchJson.mockResolvedValueOnce({
+        success: true,
+        data: '<style>.vacancy__render { display: block }</style><div class="vacancy-card-renamed">Posizione aperta</div>',
+      });
       await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector\/template drift/i);
     });
 
-    it('throws when the #vacancyList mount container is present but the vacancyListCareer action name is gone (the AJAX action was renamed, #6496)', async () => {
-      fetchHtml.mockResolvedValueOnce('<html><body><div id="vacancyList"></div></body></html>');
+    it('throws before probing when markup is partial and the endpoint is absent', async () => {
+      fetchHtml.mockResolvedValueOnce('<html><body><div id="vacancyList"></div><script>{ "section": "test-section" }</script></body></html>');
       await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/selector\/template drift/i);
+      expect(fetchJson).not.toHaveBeenCalled();
+    });
+
+    it('surfaces a career-page fetch error instead of treating it as a genuine lull', async () => {
+      fetchHtml.mockRejectedValueOnce(new Error('request timed out'));
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/failed to fetch.*request timed out/i);
+      expect(fetchJson).not.toHaveBeenCalled();
+    });
+
+    it('surfaces an endpoint fetch error instead of treating it as a genuine lull', async () => {
+      fetchHtml.mockResolvedValueOnce(AJAX_SCAFFOLD);
+      fetchJson.mockRejectedValueOnce(new Error('endpoint timed out'));
+      await expect(fetchAllElettra1938Jobs()).rejects.toThrow(/failed to verify.*endpoint timed out/i);
     });
   });
 });

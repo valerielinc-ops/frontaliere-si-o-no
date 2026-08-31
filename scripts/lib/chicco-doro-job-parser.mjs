@@ -279,24 +279,30 @@ export async function fetchAllChiccoDoroJobs() {
   console.log(`  Fetching Chicco d'Oro jobs`);
 
   let allListings = [];
+  let successfulListingPages = 0;
+  const listingFetchErrors = [];
 
   for (const url of CAREER_ALT_URLS) {
+    let html = '';
     try {
-      console.log(`  Trying: ${url}`);      let html = '';
-  try {
-    html = await fetchHtml(url, { timeoutMs: 20000 });
-  } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
-  }
-      const listings = parseListingPage(html, url);
-      if (listings.length > 0) {
-        console.log(`  Jobs found on ${url}: ${listings.length}`);
-        allListings = allListings.concat(listings);
-      }
+      console.log(`  Trying: ${url}`);
+      html = await fetchHtml(url, { timeoutMs: 20000 });
     } catch (err) {
       console.warn(`  Failed to fetch ${url}: ${err.message}`);
+      listingFetchErrors.push(err);
+      continue;
     }
+
+    successfulListingPages += 1;
+    const listings = parseListingPage(html, url);
+    if (listings.length > 0) {
+      console.log(`  Jobs found on ${url}: ${listings.length}`);
+      allListings = allListings.concat(listings);
+    }
+  }
+
+  if (successfulListingPages === 0) {
+    throw new AggregateError(listingFetchErrors, `Chicco d'Oro: all career listing pages failed to fetch`);
   }
 
   // Deduplicate by title
