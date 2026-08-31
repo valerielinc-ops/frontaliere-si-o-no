@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-08-31T17:19:27.687Z",
+  "assembledAt": "2026-08-31T22:32:45.367Z",
   "jobs": [
     {
       "id": "apg-sga-cc265091c6cd",
@@ -17,7 +17,7 @@
       "title": "Software Engineer 80-100%, Zürich",
       "titleByLocale": {
         "it": "Software Ingegnere 80-100%, Zürich",
-        "en": "Software Engineer 80-100%, Zurich",
+        "en": "Software Engineer 80-100%, Zürich",
         "de": "Software Ingenieur 80-100%, Zürich",
         "fr": "Software Ingénieur 80-100%, Zürich"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:19:25.840Z",
+      "crawledAt": "2026-08-31T22:32:43.665Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,9 +63,11 @@
           "software-engineer-80-100-zurich-apg-sga-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T22:32:51.344Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -75,9 +77,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "apg-sga-e2d7f5f4d041",
@@ -110,7 +110,7 @@
       "url": "https://jobs.apgsga.ch/publication/afficheur-in-st-gallen/d54gb1dntc7fxfdn0rc7os0h00w5cikgfy33eobs8dly2ddtfuxdpck4q2uqfl5m",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:19:25.229Z",
+      "crawledAt": "2026-08-31T22:32:43.060Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://jobs.apgsga.ch/publication/lernende-kaufmann-frau-efz-zuerich/xkgzq2jrdlmqx2722bonikgyocy76s5eicpvnct0j0w7bqclfmapniklq34qxcsh",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:19:24.566Z",
+      "crawledAt": "2026-08-31T22:32:42.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
