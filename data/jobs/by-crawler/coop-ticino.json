@@ -37,9 +37,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "kauffrau-mann-cfc-coop-dietikon-nz7buh",
-        "en": "kauffrau-mann-efz-coop-dietikon-nz7buh",
+        "en": "commercial-employee-apprenticeship-coop-dietikon",
         "de": "kauffrau-mann-efz-coop-dietikon-nz7buh",
-        "fr": "kauffrau-mann-efz-coop-dietikon-nz7buh"
+        "fr": "employe-e-de-commerce-cfc-coop-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -59,10 +59,17 @@
       "previousSlugsByLocale": {
         "it": [
           "kauffrau-mann-efz-coop-dietikon"
+        ],
+        "en": [
+          "kauffrau-mann-efz-coop-dietikon-nz7buh"
+        ],
+        "fr": [
+          "kauffrau-mann-efz-coop-dietikon-nz7buh"
         ]
       },
       "previousSlugs": [
-        "kauffrau-mann-efz-coop-dietikon"
+        "kauffrau-mann-efz-coop-dietikon",
+        "kauffrau-mann-efz-coop-dietikon-nz7buh"
       ]
     },
     {
@@ -145,7 +152,7 @@
     },
     {
       "id": "company-xk4x58",
-      "slug": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58",
+      "slug": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -186,10 +193,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58",
-        "en": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58",
+        "it": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-zurich",
         "de": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58"
+        "fr": "vendeur-euse-food-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -211,16 +218,19 @@
           "venditore-in-food-coop-genossenschaft-zurich-b14a6a",
           "seller-in-food-coop-genossenschaft-zurich-b14a6a",
           "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
-          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a",
+          "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58"
         ],
         "en": [
-          "seller-in-food-coop-genossenschaft-zurich-b14a6a"
+          "seller-in-food-coop-genossenschaft-zurich-b14a6a",
+          "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a",
+          "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58"
         ]
       },
       "previousSlugs": [
@@ -228,7 +238,8 @@
         "seller-in-food-coop-genossenschaft-zurich-b14a6a",
         "verkaufer-in-food-coop-genossenschaft-zurich-iamsdx",
         "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-b14a6a",
-        "verkaufer-in-food-coop-genossenschaft-zurich"
+        "verkaufer-in-food-coop-genossenschaft-zurich",
+        "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -238,7 +249,7 @@
     },
     {
       "id": "company-ltjyzj",
-      "slug": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj",
+      "slug": "commesso-a-casse-servizi-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Zürich",
@@ -281,10 +292,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj",
+        "it": "commesso-a-casse-servizi-coop-genossenschaft-zurich",
+        "en": "cashier-services-sales-associate-coop-genossenschaft-zurich",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj"
+        "fr": "vente-caisse-services-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -305,11 +316,19 @@
         "canton": "ZH"
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+        "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-zurich"
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-zurich-ltjyzj"
         ]
       },
       "salaryMin": 73500,
@@ -560,7 +579,7 @@
     },
     {
       "id": "company-931vd1",
-      "slug": "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1",
+      "slug": "addetto-a-cassa-servizi-coop-genossenschaft-uznach-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Uznach, Sankt Gallen",
@@ -608,10 +627,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1",
-        "en": "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1",
+        "it": "addetto-a-cassa-servizi-coop-genossenschaft-uznach-sankt-gallen",
+        "en": "checkout-services-sales-assistant-coop-genossenschaft-uznach-sankt-gallen",
         "de": "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1",
-        "fr": "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1"
+        "fr": "vendeur-euse-caisse-services-coop-genossenschaft-uznach-sankt-gallen"
       },
       "addressLocality": "Uznach",
       "sourceLang": "de",
@@ -632,16 +651,19 @@
           "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-5lrraz",
           "sales-assistant-cash-registers-services-coop-genossenschaft-uznach-5lrraz",
           "caisses-services-d-assistant-commercial-coop-genossenschaft-uznach-5lrraz",
-          "verkaufer-in-kassen-services-coop-uznach-sankt-gallen"
+          "verkaufer-in-kassen-services-coop-uznach-sankt-gallen",
+          "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1"
         ],
         "en": [
-          "sales-assistant-cash-registers-services-coop-genossenschaft-uznach-5lrraz"
+          "sales-assistant-cash-registers-services-coop-genossenschaft-uznach-5lrraz",
+          "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-5lrraz"
         ],
         "fr": [
-          "caisses-services-d-assistant-commercial-coop-genossenschaft-uznach-5lrraz"
+          "caisses-services-d-assistant-commercial-coop-genossenschaft-uznach-5lrraz",
+          "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1"
         ]
       },
       "previousSlugs": [
@@ -649,7 +671,8 @@
         "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-5lrraz",
         "sales-assistant-cash-registers-services-coop-genossenschaft-uznach-5lrraz",
         "caisses-services-d-assistant-commercial-coop-genossenschaft-uznach-5lrraz",
-        "verkaufer-in-kassen-services-coop-uznach-sankt-gallen"
+        "verkaufer-in-kassen-services-coop-uznach-sankt-gallen",
+        "verkaufer-in-kassen-services-coop-uznach-sankt-gallen-931vd1"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
@@ -741,7 +764,7 @@
     },
     {
       "id": "company-185u5n",
-      "slug": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n",
+      "slug": "addetto-a-alle-casse-e-servizi-aiuto-studenti-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services Studentenaushilfe",
       "location": "Zürich",
@@ -789,10 +812,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n",
-        "en": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n",
+        "it": "addetto-a-alle-casse-e-servizi-aiuto-studenti-coop-genossenschaft-zurich",
+        "en": "cashier-services-student-assistant-coop-genossenschaft-zurich",
         "de": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n",
-        "fr": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n"
+        "fr": "vendeur-euse-caisses-services-aide-etudiante-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -808,11 +831,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich"
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich"
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-185u5n"
         ]
       },
       "salaryMin": 73500,
@@ -1085,7 +1116,7 @@
     },
     {
       "id": "company-f4hvxf",
-      "slug": "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf",
+      "slug": "commesso-a-casse-servizi-coop-genossenschaft-madiswil-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Madiswil, Bern",
@@ -1133,10 +1164,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf",
-        "en": "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf",
+        "it": "commesso-a-casse-servizi-coop-genossenschaft-madiswil-bern",
+        "en": "cashier-services-sales-associate-coop-genossenschaft-madiswil-bern",
         "de": "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf",
-        "fr": "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf"
+        "fr": "vendeur-vendeuse-caisses-services-coop-genossenschaft-madiswil-bern"
       },
       "addressLocality": "Madiswil",
       "sourceLang": "de",
@@ -1152,11 +1183,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-madiswil-bern"
+        "verkaufer-in-kassen-services-coop-madiswil-bern",
+        "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-madiswil-bern"
+          "verkaufer-in-kassen-services-coop-madiswil-bern",
+          "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-madiswil-bern-f4hvxf"
         ]
       },
       "salaryMin": 68500,
@@ -1164,7 +1203,7 @@
     },
     {
       "id": "company-s7fopk",
-      "slug": "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk",
+      "slug": "venditore-trice-food-coop-genossenschaft-schwarzenburg-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Schwarzenburg, Bern",
@@ -1210,10 +1249,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk",
-        "en": "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk",
+        "it": "venditore-trice-food-coop-genossenschaft-schwarzenburg-bern",
+        "en": "salesman-food-coop-genossenschaft-schwarzenburg-bern",
         "de": "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk",
-        "fr": "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk"
+        "fr": "vendeur-aliment-coop-genossenschaft-schwarzenburg-bern"
       },
       "addressLocality": "Schwarzenburg",
       "sourceLang": "de",
@@ -1229,11 +1268,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-schwarzenburg-bern"
+        "verkaufer-in-food-coop-schwarzenburg-bern",
+        "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-schwarzenburg-bern"
+          "verkaufer-in-food-coop-schwarzenburg-bern",
+          "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-schwarzenburg-bern-s7fopk"
         ]
       },
       "salaryMin": 68500,
@@ -1445,7 +1492,7 @@
     },
     {
       "id": "company-yddeq3",
-      "slug": "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3",
+      "slug": "venditore-venditrice-alimentare-coop-genossenschaft-disentis-muster-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Disentis/Mustér, Graubünden",
@@ -1491,10 +1538,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3",
-        "en": "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3",
+        "it": "venditore-venditrice-alimentare-coop-genossenschaft-disentis-muster-graubunden",
+        "en": "food-sales-associate-coop-genossenschaft-disentis-muster-graubunden",
         "de": "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3",
-        "fr": "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3"
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-disentis-muster-graubunden"
       },
       "addressLocality": "Disentis/Mustér",
       "sourceLang": "de",
@@ -1513,23 +1560,31 @@
         "it": [
           "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
           "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
-          "verkaufer-in-food-coop-disentis-muster-graubunden"
+          "verkaufer-in-food-coop-disentis-muster-graubunden",
+          "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3"
         ],
         "de": [
           "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
         "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
-        "verkaufer-in-food-coop-disentis-muster-graubunden"
+        "verkaufer-in-food-coop-disentis-muster-graubunden",
+        "verkaufer-in-food-coop-disentis-muster-graubunden-yddeq3"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000
     },
     {
       "id": "company-1v0hsn",
-      "slug": "verkaufer-in-food-coop-schattdorf-uri-1v0hsn",
+      "slug": "addetto-addetta-vendite-alimentari-coop-genossenschaft-schattdorf-uri",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Schattdorf, Uri",
@@ -1575,10 +1630,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-schattdorf-uri-1v0hsn",
-        "en": "verkaufer-in-food-coop-schattdorf-uri-1v0hsn",
+        "it": "addetto-addetta-vendite-alimentari-coop-genossenschaft-schattdorf-uri",
+        "en": "food-sales-associate-coop-genossenschaft-schattdorf-uri",
         "de": "verkaufer-in-food-coop-schattdorf-uri-1v0hsn",
-        "fr": "verkaufer-in-food-coop-schattdorf-uri-1v0hsn"
+        "fr": "vendeur-vendeuse-rayon-alimentation-coop-genossenschaft-schattdorf-uri"
       },
       "addressLocality": "Schattdorf",
       "sourceLang": "de",
@@ -1594,11 +1649,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-schattdorf-uri"
+        "verkaufer-in-food-coop-schattdorf-uri",
+        "verkaufer-in-food-coop-schattdorf-uri-1v0hsn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-schattdorf-uri"
+          "verkaufer-in-food-coop-schattdorf-uri",
+          "verkaufer-in-food-coop-schattdorf-uri-1v0hsn"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-schattdorf-uri-1v0hsn"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-schattdorf-uri-1v0hsn"
         ]
       },
       "salaryMin": 69500,
@@ -2136,7 +2199,7 @@
     },
     {
       "id": "company-77ccll",
-      "slug": "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll",
+      "slug": "addetto-a-cassa-servizi-coop-genossenschaft-willisau-luzern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Willisau, Luzern",
@@ -2184,10 +2247,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll",
-        "en": "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll",
+        "it": "addetto-a-cassa-servizi-coop-genossenschaft-willisau-luzern",
+        "en": "cashier-services-assistant-coop-genossenschaft-willisau-luzern",
         "de": "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll",
-        "fr": "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll"
+        "fr": "vendeur-vendeuse-caisse-services-coop-genossenschaft-willisau-luzern"
       },
       "addressLocality": "Willisau",
       "sourceLang": "de",
@@ -2208,16 +2271,19 @@
           "verkaufer-in-kassen-services-coop-willisau-luzern-8uvkjd",
           "cashier-service-assistant-coop-genossenschaft-willisau-8uvkjd",
           "caissier-ere-service-client-coop-genossenschaft-willisau-8uvkjd",
-          "verkaufer-in-kassen-services-coop-willisau-luzern"
+          "verkaufer-in-kassen-services-coop-willisau-luzern",
+          "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll"
         ],
         "en": [
-          "cashier-service-assistant-coop-genossenschaft-willisau-8uvkjd"
+          "cashier-service-assistant-coop-genossenschaft-willisau-8uvkjd",
+          "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-willisau-luzern-8uvkjd"
         ],
         "fr": [
-          "caissier-ere-service-client-coop-genossenschaft-willisau-8uvkjd"
+          "caissier-ere-service-client-coop-genossenschaft-willisau-8uvkjd",
+          "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll"
         ]
       },
       "previousSlugs": [
@@ -2225,7 +2291,8 @@
         "verkaufer-in-kassen-services-coop-willisau-luzern-8uvkjd",
         "cashier-service-assistant-coop-genossenschaft-willisau-8uvkjd",
         "caissier-ere-service-client-coop-genossenschaft-willisau-8uvkjd",
-        "verkaufer-in-kassen-services-coop-willisau-luzern"
+        "verkaufer-in-kassen-services-coop-willisau-luzern",
+        "verkaufer-in-kassen-services-coop-willisau-luzern-77ccll"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -2304,7 +2371,7 @@
     },
     {
       "id": "company-e9t4ro",
-      "slug": "verkaufer-in-frischprodukte-coop-luzern-e9t4ro",
+      "slug": "venditore-venditrice-prodotti-freschi-coop-genossenschaft-luzern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Luzern",
@@ -2350,10 +2417,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-luzern-e9t4ro",
-        "en": "verkaufer-in-frischprodukte-coop-luzern-e9t4ro",
+        "it": "venditore-venditrice-prodotti-freschi-coop-genossenschaft-luzern",
+        "en": "fresh-products-sales-associate-coop-genossenschaft-luzern",
         "de": "verkaufer-in-frischprodukte-coop-luzern-e9t4ro",
-        "fr": "verkaufer-in-frischprodukte-coop-luzern-e9t4ro"
+        "fr": "vendeur-vendeuse-produits-frais-coop-genossenschaft-luzern"
       },
       "addressLocality": "Luzern",
       "sourceLang": "de",
@@ -2375,16 +2442,19 @@
           "fresh-produce-salesperson-coop-genossenschaft-luzern-jhdz3y",
           "vendeur-de-produits-frais-coop-genossenschaft-luzern-jhdz3y",
           "verkaufer-in-frischprodukte-coop-genossenschaft-luzern",
-          "verkaufer-in-frischprodukte-coop-luzern"
+          "verkaufer-in-frischprodukte-coop-luzern",
+          "verkaufer-in-frischprodukte-coop-luzern-e9t4ro"
         ],
         "en": [
-          "fresh-produce-salesperson-coop-genossenschaft-luzern-jhdz3y"
+          "fresh-produce-salesperson-coop-genossenschaft-luzern-jhdz3y",
+          "verkaufer-in-frischprodukte-coop-luzern-e9t4ro"
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-luzern-jhdz3y"
         ],
         "fr": [
-          "vendeur-de-produits-frais-coop-genossenschaft-luzern-jhdz3y"
+          "vendeur-de-produits-frais-coop-genossenschaft-luzern-jhdz3y",
+          "verkaufer-in-frischprodukte-coop-luzern-e9t4ro"
         ]
       },
       "previousSlugs": [
@@ -2393,14 +2463,15 @@
         "fresh-produce-salesperson-coop-genossenschaft-luzern-jhdz3y",
         "vendeur-de-produits-frais-coop-genossenschaft-luzern-jhdz3y",
         "verkaufer-in-frischprodukte-coop-genossenschaft-luzern",
-        "verkaufer-in-frischprodukte-coop-luzern"
+        "verkaufer-in-frischprodukte-coop-luzern",
+        "verkaufer-in-frischprodukte-coop-luzern-e9t4ro"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
     },
     {
       "id": "company-5xqfw8",
-      "slug": "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8",
+      "slug": "addetto-a-alla-vendita-di-prodotti-freschi-coop-genossenschaft-mels-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Mels, Sankt Gallen",
@@ -2446,10 +2517,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8",
-        "en": "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8",
+        "it": "addetto-a-alla-vendita-di-prodotti-freschi-coop-genossenschaft-mels-sankt-gallen",
+        "en": "fresh-food-sales-associate-coop-genossenschaft-mels-sankt-gallen",
         "de": "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8",
-        "fr": "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8"
+        "fr": "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-mels-sankt-gallen"
       },
       "addressLocality": "Mels",
       "sourceLang": "de",
@@ -2465,11 +2536,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-mels-sankt-gallen"
+        "verkaufer-in-frischprodukte-coop-mels-sankt-gallen",
+        "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-mels-sankt-gallen"
+          "verkaufer-in-frischprodukte-coop-mels-sankt-gallen",
+          "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-coop-mels-sankt-gallen-5xqfw8"
         ]
       },
       "salaryMin": 57500,
@@ -2817,7 +2896,7 @@
     },
     {
       "id": "company-254go2",
-      "slug": "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2",
+      "slug": "addetto-a-vendita-prodotti-freschi-prodotti-da-forno-coop-genossenschaft-kleinandelfingen-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte (Backwaren)",
       "location": "Kleinandelfingen, Zürich",
@@ -2863,10 +2942,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2",
-        "en": "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2",
+        "it": "addetto-a-vendita-prodotti-freschi-prodotti-da-forno-coop-genossenschaft-kleinandelfingen-zurich",
+        "en": "fresh-product-sales-associate-baked-goods-coop-genossenschaft-kleinandelfingen-zurich",
         "de": "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2",
-        "fr": "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2"
+        "fr": "vendeur-euse-produits-frais-produits-de-boulangerie-coop-genossenschaft-kleinandelfingen-zurich"
       },
       "addressLocality": "Kleinandelfingen",
       "sourceLang": "de",
@@ -2882,11 +2961,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich"
+        "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich",
+        "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich"
+          "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich",
+          "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-backwaren-coop-kleinandelfingen-zurich-254go2"
         ]
       },
       "salaryMin": 73500,
@@ -3085,7 +3172,7 @@
     },
     {
       "id": "company-r44bw2",
-      "slug": "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2",
+      "slug": "addetto-a-alle-vendite-nonfood-agenzia-postale-coop-genossenschaft-erlenbach-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood / Postagentur",
       "location": "Erlenbach, Zürich",
@@ -3131,10 +3218,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2",
-        "en": "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2",
+        "it": "addetto-a-alle-vendite-nonfood-agenzia-postale-coop-genossenschaft-erlenbach-zurich",
+        "en": "non-food-sales-associate-post-office-coop-genossenschaft-erlenbach-zurich",
         "de": "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2",
-        "fr": "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2"
+        "fr": "vendeur-vendeuse-nonfood-agence-postale-coop-genossenschaft-erlenbach-zurich"
       },
       "addressLocality": "Erlenbach",
       "sourceLang": "de",
@@ -3150,11 +3237,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich"
+        "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich",
+        "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich"
+          "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich",
+          "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2"
+        ],
+        "en": [
+          "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2"
+        ],
+        "fr": [
+          "verkaufer-in-nonfood-postagentur-coop-erlenbach-zurich-r44bw2"
         ]
       },
       "salaryMin": 73500,
@@ -3162,7 +3257,7 @@
     },
     {
       "id": "company-jwkd8i",
-      "slug": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i",
+      "slug": "addetto-a-cassa-e-servizi-aiuto-studenti-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services Studentenaushilfe",
       "location": "Zürich",
@@ -3210,10 +3305,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i",
-        "en": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i",
+        "it": "addetto-a-cassa-e-servizi-aiuto-studenti-coop-genossenschaft-zurich",
+        "en": "cashier-services-associate-student-assistant-coop-genossenschaft-zurich",
         "de": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i",
-        "fr": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i"
+        "fr": "vendeur-vendeuse-caisses-services-assistant-e-etudiant-e-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -3232,13 +3327,21 @@
         "it": [
           "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-s11tdf",
           "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2-2",
-          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2"
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2",
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-s11tdf",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2-2",
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2"
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-2",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-jwkd8i"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -3472,7 +3575,7 @@
     },
     {
       "id": "company-1rthd8",
-      "slug": "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8",
+      "slug": "commesso-a-casse-e-servizi-coop-genossenschaft-horgen-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Horgen, Zürich",
@@ -3520,10 +3623,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8",
-        "en": "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8",
+        "it": "commesso-a-casse-e-servizi-coop-genossenschaft-horgen-zurich",
+        "en": "cashier-and-services-sales-associate-coop-genossenschaft-horgen-zurich",
         "de": "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8",
-        "fr": "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8"
+        "fr": "vente-caisse-services-coop-genossenschaft-horgen-zurich"
       },
       "addressLocality": "Horgen",
       "sourceLang": "de",
@@ -3539,11 +3642,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-horgen-zurich"
+        "verkaufer-in-kassen-services-coop-horgen-zurich",
+        "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-horgen-zurich"
+          "verkaufer-in-kassen-services-coop-horgen-zurich",
+          "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-horgen-zurich-1rthd8"
         ]
       },
       "salaryMin": 73500,
@@ -3721,7 +3832,7 @@
     },
     {
       "id": "company-hy7rne",
-      "slug": "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne",
+      "slug": "commesso-a-prodotti-freschi-coop-genossenschaft-reiden-luzern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Reiden, Luzern",
@@ -3767,10 +3878,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne",
-        "en": "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne",
+        "it": "commesso-a-prodotti-freschi-coop-genossenschaft-reiden-luzern",
+        "en": "fresh-products-sales-associate-coop-genossenschaft-reiden-luzern",
         "de": "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne",
-        "fr": "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne"
+        "fr": "vendeur-vendeuse-produits-frais-coop-genossenschaft-reiden-luzern"
       },
       "addressLocality": "Reiden",
       "sourceLang": "de",
@@ -3786,11 +3897,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-reiden-luzern"
+        "verkaufer-in-frischprodukte-coop-reiden-luzern",
+        "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-reiden-luzern"
+          "verkaufer-in-frischprodukte-coop-reiden-luzern",
+          "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-coop-reiden-luzern-hy7rne"
         ]
       },
       "salaryMin": 69500,
@@ -3885,7 +4004,7 @@
     },
     {
       "id": "company-202duq",
-      "slug": "verkaufer-in-nonfood-coop-hinwil-zurich-202duq",
+      "slug": "venditore-venditrice-non-food-coop-genossenschaft-hinwil-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Nonfood",
       "location": "Hinwil, Zürich",
@@ -3931,10 +4050,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-nonfood-coop-hinwil-zurich-202duq",
-        "en": "verkaufer-in-nonfood-coop-hinwil-zurich-202duq",
+        "it": "venditore-venditrice-non-food-coop-genossenschaft-hinwil-zurich",
+        "en": "sales-associate-non-food-coop-genossenschaft-hinwil-zurich",
         "de": "verkaufer-in-nonfood-coop-hinwil-zurich-202duq",
-        "fr": "verkaufer-in-nonfood-coop-hinwil-zurich-202duq"
+        "fr": "vendeur-vendeuse-non-alimentaire-coop-genossenschaft-hinwil-zurich"
       },
       "addressLocality": "Hinwil",
       "sourceLang": "de",
@@ -3950,11 +4069,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-nonfood-coop-hinwil-zurich"
+        "verkaufer-in-nonfood-coop-hinwil-zurich",
+        "verkaufer-in-nonfood-coop-hinwil-zurich-202duq"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-nonfood-coop-hinwil-zurich"
+          "verkaufer-in-nonfood-coop-hinwil-zurich",
+          "verkaufer-in-nonfood-coop-hinwil-zurich-202duq"
+        ],
+        "en": [
+          "verkaufer-in-nonfood-coop-hinwil-zurich-202duq"
+        ],
+        "fr": [
+          "verkaufer-in-nonfood-coop-hinwil-zurich-202duq"
         ]
       },
       "salaryMin": 73500,
@@ -26260,13 +26387,11 @@
         "canton": "TG"
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-office-coop-genossenschaft-rickenbach-thurgau",
-        "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach-thurgau"
+        "mitarbeiter-in-gastronomie-office-coop-genossenschaft-rickenbach-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-office-coop-genossenschaft-rickenbach-thurgau",
-          "mitarbeiter-in-gastronomie-office-coop-ristorante-rickenbach-thurgau"
+          "mitarbeiter-in-gastronomie-office-coop-genossenschaft-rickenbach-thurgau"
         ]
       },
       "salaryMin": 57500,
@@ -26340,14 +26465,12 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-coop-genossenschaft-rickenbach-thurgau",
-        "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau",
-        "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau-2"
+        "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-coop-genossenschaft-rickenbach-thurgau",
-          "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau",
-          "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau-2"
+          "mitarbeiter-in-gastronomie-coop-ristorante-rickenbach-thurgau"
         ]
       },
       "salaryMin": 57500,
@@ -30454,13 +30577,11 @@
         "canton": "SG"
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-coop-genossenschaft-gossau-sankt-gallen",
-        "mitarbeiter-in-gastronomie-coop-gossau-sankt-gallen"
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-gossau-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-gossau-sankt-gallen",
-          "mitarbeiter-in-gastronomie-coop-gossau-sankt-gallen"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-gossau-sankt-gallen"
         ]
       },
       "salaryMin": 57500,
@@ -42548,13 +42669,11 @@
         "canton": "AG"
       },
       "previousSlugs": [
-        "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau",
-        "mitarbeiter-in-gastronomie-coop-ristorante-muri-aargau"
+        "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau",
-          "mitarbeiter-in-gastronomie-coop-ristorante-muri-aargau"
+          "mitarbeiter-in-gastronomie-coop-genossenschaft-muri-aargau"
         ]
       },
       "salaryMin": 62000,

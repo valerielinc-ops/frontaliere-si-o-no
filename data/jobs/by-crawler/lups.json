@@ -6117,12 +6117,12 @@
     },
     {
       "id": "lups-17a302acbab5",
-      "slug": "klinik-seelsorger-60-kath-m-w-d-lups-st-urban",
+      "slug": "cappellano-clinico-60-kath-m-f-d-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "klinik-seelsorger-60-kath-m-w-d-lups-st-urban",
-        "en": "klinik-seelsorger-60-kath-m-w-d-lups-st-urban",
+        "it": "cappellano-clinico-60-kath-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "en": "clinic-chaplain-60-kath-m-f-d-luzerner-psychiatrie-lups-st-urban",
         "de": "klinik-seelsorger-60-kath-m-w-d-lups-st-urban",
-        "fr": "klinik-seelsorger-60-kath-m-w-d-lups-st-urban"
+        "fr": "aumonier-de-clinique-60-kath-h-f-d-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6175,7 +6175,21 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "klinik-seelsorger-60-kath-m-w-d-lups-st-urban"
+        ],
+        "en": [
+          "klinik-seelsorger-60-kath-m-w-d-lups-st-urban"
+        ],
+        "fr": [
+          "klinik-seelsorger-60-kath-m-w-d-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "klinik-seelsorger-60-kath-m-w-d-lups-st-urban"
+      ]
     },
     {
       "id": "lups-f8d9f496bc4a",

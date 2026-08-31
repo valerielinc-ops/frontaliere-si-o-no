@@ -2456,11 +2456,11 @@
     },
     {
       "id": "hib-broye-7115ed20c773",
-      "slug": "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
+      "slug": "chief-medical-officer-in-medicina-fisica-e-riabilitazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer",
       "slugByLocale": {
-        "it": "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
-        "en": "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
-        "de": "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le",
+        "it": "chief-medical-officer-in-medicina-fisica-e-riabilitazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer",
+        "en": "chief-medical-officer-in-physical-medicine-and-rehabilitation-from-80-to-100-hopital-intercantonal-de-la-broye-hib",
+        "de": "chief-medical-officer-fur-physikalische-medizin-und-rehabilitation-von-80-bis-100-hopital-intercantonal-de-la-broye-hib",
         "fr": "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -2514,7 +2514,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+        ],
+        "en": [
+          "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+        ],
+        "de": [
+          "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-chef-fe-en-medecine-physique-et-readaptation-de-80-a-100-hib-broye-estavayer-le"
+      ]
     },
     {
       "id": "hib-broye-7560e5b3a31f",
@@ -3298,7 +3312,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "employe-e-d-administration-a-40-hib-broye-estavayer-le-lac",
-        "40-dipendente-amministrativo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "administrative-employee-in-invoicing-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
         "verwaltungsangestellte-r-in-der-fakturierung-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
@@ -3310,7 +3323,6 @@
       "previousSlugsByLocale": {
         "it": [
           "employe-e-d-administration-a-40-hib-broye-estavayer-le-lac",
-          "40-dipendente-amministrativo-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "impiegato-a-amministrativo-a-in-fatturazione-dall-80-al-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "administrative-employee-in-invoicing-from-80-to-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",
           "verwaltungsangestellte-r-in-der-fakturierung-von-80-bis-100-hopital-intercantonal-de-la-broye-hib-estavayer-le-lac",

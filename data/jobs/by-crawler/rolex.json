@@ -12831,11 +12831,11 @@
     },
     {
       "id": "rolex-a34e01ad7891",
-      "slug": "apprentissage-d-employe-e-de-commerce-cfc-rolex-geneve",
+      "slug": "swc-business-apprendimento-dei-dipendenti-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-d-employe-e-de-commerce-cfc-rolex-geneve",
-        "en": "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch-2",
-        "de": "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch-2",
+        "it": "swc-business-apprendimento-dei-dipendenti-rolex-geneve",
+        "en": "swc-business-employee-learning-rolex-geneve",
+        "de": "swc-business-employee-lernen-rolex-geneve",
         "fr": "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -12878,12 +12878,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch-2",
-        "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch"
+        "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch",
+        "apprentissage-d-employe-e-de-commerce-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch-2",
-          "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch"
+          "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch",
+          "apprentissage-d-employe-e-de-commerce-cfc-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch-2"
+        ],
+        "de": [
+          "apprentissage-d-employe-e-de-commerce-cfc-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,

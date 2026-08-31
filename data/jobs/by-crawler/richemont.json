@@ -4758,14 +4758,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -10329,7 +10327,6 @@
         "honour-buccellati-morbio-inferiore",
         "ehren-buccellati-morbio-inferiore",
         "honneur-buccellati-morbio-inferiore",
-        "orafo-buccellati-morbio-inferiore",
         "pulitore-di-gioielli-richemont-morbio-inferiore",
         "schmuckreiniger-buccellati-morbio-inferiore",
         "jewelry-cleaner-buccellati-morbio-inferiore",
@@ -10342,7 +10339,6 @@
           "honour-buccellati-morbio-inferiore",
           "ehren-buccellati-morbio-inferiore",
           "honneur-buccellati-morbio-inferiore",
-          "orafo-buccellati-morbio-inferiore",
           "pulitore-di-gioielli-richemont-morbio-inferiore",
           "schmuckreiniger-buccellati-morbio-inferiore",
           "jewelry-cleaner-buccellati-morbio-inferiore",
@@ -13075,20 +13071,6 @@
       "jobReqId": "jr132699",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "en": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ],
-        "de": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3089,
       "retranslationAttempts": 5,
@@ -13274,11 +13256,11 @@
     },
     {
       "id": "richemont-24e62aa91511",
-      "slug": "superviseur-paie-assurances-sociales-richemont-meyrin",
+      "slug": "pagamenti-e-assicurazioni-sociali-richemont-meyrin",
       "slugByLocale": {
-        "it": "superviseur-paie-assurances-sociales-richemont-meyrin",
-        "en": "superviseur-paie-assurances-sociales-richemont-meyrin",
-        "de": "superviseur-paie-assurances-sociales-richemont-meyrin",
+        "it": "pagamenti-e-assicurazioni-sociali-richemont-meyrin",
+        "en": "supervisor-pays-social-insurance-richemont-meyrin",
+        "de": "supervisor-zahlt-sozialversicherung-richemont-meyrin",
         "fr": "superviseur-paie-assurances-sociales-richemont-meyrin"
       },
       "company": "Richemont",
@@ -13332,7 +13314,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "superviseur-paie-assurances-sociales-richemont-meyrin"
+        ],
+        "en": [
+          "superviseur-paie-assurances-sociales-richemont-meyrin"
+        ],
+        "de": [
+          "superviseur-paie-assurances-sociales-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "superviseur-paie-assurances-sociales-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-bc349632b3b9",
