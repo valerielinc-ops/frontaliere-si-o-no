@@ -4843,6 +4843,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.title': 'Skyguide, licenziamenti ridotti da 220 a 50: piano in due fasi',
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.excerpt': 'Skyguide taglia i licenziamenti da 220 a 50: 14 nella prima fase, circa 35 nella primavera 2027. Risparmi target di 51 milioni di CHF entro il 2027.',
     'blog.article.skyguide-licenziamenti-50-ristrutturazione.imageAlt': 'Torre di controllo aereo all\'aeroporto di Zurigo-Kloten al tramonto',
+    'blog.article.skyguide-licenziamenti-consultazione.title': 'Skyguide, saranno 50 i licenziamenti',
+    'blog.article.skyguide-licenziamenti-consultazione.excerpt': 'Skyguide annuncia 50 licenziamenti in ristrutturazione. La consultazione sindacale ha ridotto il numero da 220 iniziali. Prima ondata: 14, seconda primavera 2027: circa 35.',
+    'blog.article.skyguide-licenziamenti-consultazione.imageAlt': 'Paesaggio svizzero con vedute di aeroporti e corridoi di traffico aereo, che rappresenta il controllo del traffico di Skyguide.',
 };
 
 export default blogMetaChIt;
