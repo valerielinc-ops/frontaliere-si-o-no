@@ -11000,6 +11000,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.title': 'Border Ticino Q2 2026: 79,121 (+0.64%)',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.excerpt': 'Federal Statistical Office: 79,121 border guards in the Canton of Ticino in Q2 2026, up 505 units (+0.64%) compared to Q1. Quarterly BFS data analysis.',
     'blog.article.lavoro-transfrontaliero-ticino-q2-2026.imageAlt': 'Lugano waterfront with modern business district and professionals in the morning light',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.title': 'Living in Cirimido, working in Ticino: border guide',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.excerpt': 'Find out how to move to Cirimido and work in Ticino as a border worker: G Permit, tax at source, AVS/LPP, cost of living, border crossings.',
+    'blog.article.cirimido-frontaliere-ticino-lavoro.imageAlt': 'Aerial view of Mendrisio, Ticino, with hillside, vineyards and Swiss-Italian border at sunset.',
 };
 
 export default blogMetaEn;
