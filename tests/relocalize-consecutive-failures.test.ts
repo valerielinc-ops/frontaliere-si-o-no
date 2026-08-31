@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
-  retryStopReason,
+  cascadeStopReason,
   shouldStopAfterConsecutiveFailures,
 } from '../scripts/relocalize-pending-jobs.mjs';
 
@@ -38,13 +38,13 @@ describe('shouldStopAfterConsecutiveFailures — per-company cascade circuit bre
   });
 });
 
-describe('retryStopReason — retry cascade deadline', () => {
+describe('cascadeStopReason — run-wide cascade deadline', () => {
   const minute = 60_000;
   const runStartMs = 1_000_000;
   const passStartMs = runStartMs + 10 * minute;
 
-  it('skips retries at the same run-wide cascade deadline used by localization', () => {
-    expect(retryStopReason({
+  it('stops the main pass before it starts when Phase 2a consumed the deadline', () => {
+    expect(cascadeStopReason({
       nowMs: runStartMs + 90 * minute,
       runStartMs,
       cascadeDeadlineMs: 90 * minute,
@@ -54,8 +54,19 @@ describe('retryStopReason — retry cascade deadline', () => {
     })).toBe('cascade deadline');
   });
 
+  it('allows the main pass one millisecond before the run-wide deadline', () => {
+    expect(cascadeStopReason({
+      nowMs: runStartMs + 90 * minute - 1,
+      runStartMs,
+      cascadeDeadlineMs: 90 * minute,
+      passStartMs,
+      timeBudgetMs: 320 * minute,
+      timeBudgetFraction: 1,
+    })).toBeNull();
+  });
+
   it('lets the 320-minute workflow budget remain a secondary guard before the deadline', () => {
-    expect(retryStopReason({
+    expect(cascadeStopReason({
       nowMs: passStartMs + 272 * minute,
       runStartMs,
       cascadeDeadlineMs: 300 * minute,
@@ -65,8 +76,19 @@ describe('retryStopReason — retry cascade deadline', () => {
     })).toBe('time budget');
   });
 
-  it('permits standalone retries before the default cascade deadline', () => {
-    expect(retryStopReason({
+  it('stops retry iteration at the same deadline even when its own pass clock has time left', () => {
+    expect(cascadeStopReason({
+      nowMs: runStartMs + 90 * minute,
+      runStartMs,
+      cascadeDeadlineMs: 90 * minute,
+      passStartMs,
+      timeBudgetMs: 320 * minute,
+      timeBudgetFraction: 0.95,
+    })).toBe('cascade deadline');
+  });
+
+  it('permits standalone retries before the default 250-minute deadline', () => {
+    expect(cascadeStopReason({
       nowMs: runStartMs + 249 * minute,
       runStartMs,
       cascadeDeadlineMs: 250 * minute,
