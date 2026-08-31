@@ -1,6 +1,6 @@
 {
   "crawlerKey": "prosenectute-ti",
-  "assembledAt": "2026-08-28T05:13:56.468Z",
+  "assembledAt": "2026-08-31T16:59:03.425Z",
   "jobs": [
     {
       "id": "prosenectute-ti-34a987b1a59e",
@@ -34,7 +34,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:cfa32a7b-6cf6-4e4d-a149-f05c25e772cf/Concorso%20generale%202026_Op.%20socio-assistenziali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:13:53.744Z",
+      "crawledAt": "2026-08-31T16:59:01.157Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -72,6 +72,7 @@
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -115,7 +116,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:78c23a82-c1e9-4123-8646-ad1601cf62be/Concorso%20generale%202026_Infermieri.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:13:53.242Z",
+      "crawledAt": "2026-08-31T16:59:00.689Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -145,6 +146,7 @@
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -188,7 +190,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:10d8a9dc-b56e-4720-8fac-80477410a90e/Concorso%20generale%202025_Assistenti%20Sociali.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:13:52.601Z",
+      "crawledAt": "2026-08-31T16:59:00.079Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -222,6 +224,7 @@
       "firstSeenAt": "2026-05-19T16:48:11.688Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -265,7 +268,7 @@
       "url": "https://ti.prosenectute.ch/dam/jcr:a2bbf7fb-c3b9-447e-bae6-e7a915b23c1f/Concorso%20generale%202026%20educatori.pdf",
       "source": "Pro Senectute Ticino Dedicated Parser (AEM HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-28T05:13:51.295Z",
+      "crawledAt": "2026-08-31T16:58:58.551Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -295,6 +298,7 @@
       "firstSeenAt": "2026-05-19T16:48:11.686Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
