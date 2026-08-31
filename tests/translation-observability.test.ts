@@ -192,6 +192,20 @@ describe('translation observability', () => {
     expect(() => unpackTranslationObservabilityState(corruptPacked)).toThrow(/packed row bytes|translation state/);
   });
 
+  it('accepts the maximum safe generation and blocks before overflowing it', () => {
+    const initial = generation(null, [job()], { now: NOW }).state;
+    const maximum = redigest({ ...initial, generation: Number.MAX_SAFE_INTEGER });
+    expect(unpackTranslationObservabilityState(maximum).generation).toBe(Number.MAX_SAFE_INTEGER);
+    const blocked = generation(maximum, [job()], { now: NOW });
+    expect(blocked).toMatchObject({
+      advanced: false,
+      state: maximum,
+      continuity: { deleteReaddEvidence: { observable: false, reason: 'state_generation_overflow' } },
+    });
+    const unsafe = redigest({ ...initial, generation: Number.MAX_SAFE_INTEGER + 1 });
+    expect(() => unpackTranslationObservabilityState(unsafe)).toThrow(/state generation/);
+  });
+
   it('caps retired evidence and expires it with explicit incomplete-evidence reasons', () => {
     const jobs = [job({ url: 'https://example.invalid/jobs/a' }), job({ url: 'https://example.invalid/jobs/b' })];
     const cappedN = generation(null, jobs, { policy: { retiredCap: 1, retentionDays: 2 }, now: NOW });

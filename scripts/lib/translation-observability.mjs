@@ -191,6 +191,7 @@ function boundedPolicy(policy = TRANSLATION_OBSERVABILITY_LIMITS) {
 }
 
 function buildPersistedState({ generation, observedDay, activeRows, retiredRows, policy, evidenceLoss }) {
+  if (!Number.isSafeInteger(generation) || generation < 1) throw new TypeError('Invalid state generation');
   const document = {
     schemaVersion: 2,
     encoding: STATE_ENCODING,
@@ -212,7 +213,7 @@ function buildPersistedState({ generation, observedDay, activeRows, retiredRows,
 /** Validate the state digest and enumerate its packed hash-only population. */
 export function unpackTranslationObservabilityState(document) {
   if (!document || document.schemaVersion !== 2 || document.encoding !== STATE_ENCODING) throw new TypeError('Unsupported translation observability state');
-  if (!Number.isInteger(document.generation) || document.generation < 1 || document.generation >= 0xffff_ffff) throw new TypeError('Invalid state generation');
+  if (!Number.isSafeInteger(document.generation) || document.generation < 1) throw new TypeError('Invalid state generation');
   if (!Number.isInteger(document.observedDay) || document.observedDay < 1 || document.observedDay > 0xffff_ffff) throw new TypeError('Invalid observed day');
   if (document.digest !== stateDigest(document)) throw new TypeError('Translation observability state digest mismatch');
   const policy = boundedPolicy(document.policy);
@@ -301,6 +302,9 @@ export function advanceTranslationObservabilityState({ previousState = null, fin
   }
 
   const previous = unpackTranslationObservabilityState(previousState);
+  if (previous.generation === Number.MAX_SAFE_INTEGER) {
+    return { advanced: false, state: previousState, continuity: unavailableContinuity('state_generation_overflow', previousState), identityHashes: [] };
+  }
   const generation = previous.generation + 1;
   const observedDay = Math.max(requestedDay, previous.observedDay);
   const active = new Map(previous.activeRows.map((row) => [row.identityHash, row]));
