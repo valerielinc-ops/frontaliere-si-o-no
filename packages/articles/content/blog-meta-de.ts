@@ -10990,6 +10990,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 31. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Grenzgänger-Bulletin vom 31. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'Die Zahlen vom 31. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Stillstehende Züge zwischen Arbedo-Castione und Biasca: Unannehmlichkeiten',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Unterbrechung am Montag gegen Mittag auf der Strecke Arbedo-Castione-Biasca: SBB meldet «Unfall pro Person», Züge gestrichen.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Bahnhof mit Betriebsunterbrechung auf der Tessiner Strecke',
 };
 
 export default blogMetaDe;

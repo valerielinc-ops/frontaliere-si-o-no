@@ -32853,6 +32853,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'traffico-ferroviario-bloccato-ticino',
+ category: 'pratico',
+ date: '2026-08-31T13:43:29.025Z',
+ image: '/images/blog/traffico-ferroviario-bloccato-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
