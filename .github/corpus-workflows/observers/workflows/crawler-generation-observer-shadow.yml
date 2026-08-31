@@ -1,0 +1,129 @@
+name: Crawler Generation Observer (shadow)
+run-name: crawler-generation-sentinel-${{ inputs.generation_token }}
+
+# PR A is deliberately manual-only. GitHub expressions cannot validate the
+# complete generation-token grammar before allocating a workflow_run job; PR B
+# will add the automatic trigger after the orchestrator emits a bound sentinel.
+on:
+  workflow_dispatch:
+    inputs:
+      generation_token:
+        description: Exact generation token (<orchestrator-run-id>-<run-attempt>)
+        required: true
+        type: string
+      site_code_commit:
+        description: Full immutable site commit containing this observer runtime
+        required: true
+        type: string
+      registry_json:
+        description: Canonical digest-bound 23-group sentinel envelope (max 32 KiB)
+        required: true
+        type: string
+
+concurrency:
+  group: crawler-generation-observer-${{ inputs.generation_token }}
+  cancel-in-progress: false
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  observe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Validate manual sentinel binding before checkout
+        env:
+          GENERATION_TOKEN: ${{ inputs.generation_token }}
+          SITE_CODE_COMMIT: ${{ inputs.site_code_commit }}
+          REGISTRY_JSON: ${{ inputs.registry_json }}
+          REGISTRY_INPUT: ${{ runner.temp }}/crawler-generation-observer/registry-input.json
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const token = process.env.GENERATION_TOKEN || '';
+          const commit = process.env.SITE_CODE_COMMIT || '';
+          const registry = process.env.REGISTRY_JSON || '';
+          if (!/^[1-9][0-9]*-[1-9][0-9]*$/.test(token)) throw new Error('invalid generation token');
+          if (!/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(commit)) throw new Error('site code commit must be a full SHA');
+          if (Buffer.byteLength(registry) < 2 || Buffer.byteLength(registry) > 32 * 1024) {
+            throw new Error('sentinel envelope exceeds the 32 KiB dispatch cap');
+          }
+          fs.mkdirSync(path.dirname(process.env.REGISTRY_INPUT), { recursive: true });
+          fs.writeFileSync(process.env.REGISTRY_INPUT, registry, { encoding: 'utf8', mode: 0o600 });
+          NODE
+
+      - name: Checkout immutable site observer runtime
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: ${{ inputs.site_code_commit }}
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          path: site-observer
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |-
+            /scripts/crawler-generation-observer.mjs
+            /scripts/ci/crawler-generation-roster.json
+            /scripts/lib/atomic-write-json.mjs
+            /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/crawler-generation-contract.mjs
+            /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/job-match-key.mjs
+            /scripts/lib/job-url-key.mjs
+            /scripts/lib/slug-history-journal.mjs
+            /scripts/lib/slug-preservation-guard.mjs
+
+      - name: Validate and persist same-run sentinel
+        working-directory: site-observer
+        env:
+          EXPECTED_GENERATION_TOKEN: ${{ inputs.generation_token }}
+          EXPECTED_SITE_CODE_COMMIT: ${{ inputs.site_code_commit }}
+        run: >-
+          node scripts/crawler-generation-observer.mjs prepare-sentinel
+          --input "${{ runner.temp }}/crawler-generation-observer/registry-input.json"
+          --expected-generation-token "$EXPECTED_GENERATION_TOKEN"
+          --expected-site-code-commit "$EXPECTED_SITE_CODE_COMMIT"
+          --runner-temp "${{ runner.temp }}"
+          --output "${{ runner.temp }}/crawler-generation-observer/crawler-generation-sentinel.json"
+
+      - name: Upload same-run sentinel
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-sentinel-${{ inputs.generation_token }}
+          path: ${{ runner.temp }}/crawler-generation-observer/crawler-generation-sentinel.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: Observe exact generation snapshot
+        id: observe
+        continue-on-error: true
+        working-directory: site-observer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: >-
+          node scripts/crawler-generation-observer.mjs observe
+          --sentinel "${{ runner.temp }}/crawler-generation-observer/crawler-generation-sentinel.json"
+          --roster scripts/ci/crawler-generation-roster.json
+          --repository "$PWD"
+          --runner-temp "${{ runner.temp }}"
+          --output "${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json"
+
+      - name: Upload bounded observer report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-observer-${{ inputs.generation_token }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: Surface observer infrastructure failure
+        if: steps.observe.outcome == 'failure'
+        run: exit 1
