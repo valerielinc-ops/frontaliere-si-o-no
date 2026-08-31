@@ -163,4 +163,18 @@ describe('computeAssembleInputFingerprint', () => {
     const fpAfter = computeAssembleInputFingerprint();
     expect(fpAfter).toEqual(fpBefore);
   });
+
+  it('ignores cache and cleanup-orphan JSON files in every input directory', () => {
+    const fpBefore = computeAssembleInputFingerprint();
+    for (const dir of [
+      'data/jobs/by-crawler',
+      'data/jobs/expired/by-crawler',
+      'data/jobs-crawler-summaries/by-crawler',
+    ]) {
+      writeSlice(`${dir}/fingerprint-locale-cache.json`, '{"decoy":true}');
+      writeSlice(`${dir}/fingerprint.json.cleanup-tmp.json`, '{"decoy":true}');
+    }
+    const fpAfter = computeAssembleInputFingerprint();
+    expect(fpAfter).toEqual(fpBefore);
+  });
 });
