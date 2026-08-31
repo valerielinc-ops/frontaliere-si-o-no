@@ -10979,6 +10979,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Grenzsteuergutschrift 2026: Häufige Fehler',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'EG-Rahmen von 730, neues Abkommen, das seit 2024 in Kraft ist, und Übergangsregelung: die häufigsten Fehler von Grenzgängern.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Schweizer Lohnabrechnung und italienisches 730-Formular, Mendrisio im Hintergrund',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Grenzgängerrente 2026 mit Kindern: Leitfaden AHV-INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Neue Vereinbarung per 1. Januar 2024, AHV 5.3% und Koordination mit NISF: Was ändert sich für die Grenzfamilie mit Kindern im Jahr 2026?',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Grenzgänger am Bahnhof Bellinzona im Morgenlicht',
 };
 
 export default blogMetaDe;

@@ -32826,6 +32826,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-pensione-avs-inps-2026-famiglia-checklist',
+ category: 'pensione',
+ date: '2026-08-31T07:00:33.088Z',
+ image: '/images/blog/frontaliere-pensione-avs-inps-2026-famiglia-checklist.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

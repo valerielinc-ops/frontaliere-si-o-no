@@ -10982,6 +10982,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Crédit d\'impôt frontalier 2026 : erreurs courantes',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Cadre CE de 730, nouvel accord en vigueur depuis 2024 et régime transitoire : les erreurs les plus fréquentes des frontaliers.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Bulletin de salaire suisse et formulaire 730 italien, arrière-plan Mendrisio',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Pension frontalière 2026 avec enfants : guide AVS-INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Nouvel accord en vigueur depuis le 1er janvier 2024, AVS à 5,3 % et coordination avec l\'INPS : ce qui change pour la famille frontalière avec enfants en 2026.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'frontaliers traversant la gare de Bellinzona à l\'aube',
 };
 
 export default blogMetaFr;

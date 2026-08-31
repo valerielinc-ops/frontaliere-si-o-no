@@ -80918,6 +80918,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensione-avs-inps-2026-famiglia-checklist': {
+    title: 'Pensione frontaliere 2026 con figli: guida AVS-INPS',
+    description: 'Pensione frontaliere 2026 con figli: coordinamento AVS-INPS, totalizzazione, aliquote 5,3% e Nuovo Accordo dal 2024. Guida operativa per famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, figli, avs-inps, nuovo',
+    ogTitle: 'Pensione frontaliere 2026 con figli: guida AVS-INPS',
+    ogDescription: 'Pensione del frontaliere nel 2026: aliquote AVS al 5,3%, totalizzazione con INPS, Nuovo Accordo in vigore dal 1° gennaio 2024 e differenze vecchi-nuovi frontalieri. Guida pratica per famiglie con figli.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-famiglia-checklist',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontaliere 2026 con figli: guida AVS-INPS",
+      "description": "Pensione frontaliere 2026 con figli: coordinamento AVS-INPS, totalizzazione, aliquote 5,3% e Nuovo Accordo dal 2024. Guida operativa per famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-avs-inps-2026-famiglia-checklist.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari frontalieri attraversano la stazione di Bellinzona all'alba"
+      },
+      "datePublished": "2026-08-31T07:00:33+00:00",
+      "dateModified": "2026-08-31T07:00:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-famiglia-checklist/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
