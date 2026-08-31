@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-08-31T17:34:06.345Z",
+  "savedAt": "2026-08-31T17:35:05.165Z",
   "entries": [
     {
       "key": "e3c1ae665893912e4b40d5e7ce429913fa750873d1fde5c832b84ab86d3439a0",
@@ -242034,7 +242034,7 @@
     },
     {
       "key": "a2d89a8e14d566a72d2f84405ede7a0cc9e3e57ac6d90ff299d703b20787f1da",
-      "touchedAt": 1787895159650,
+      "touchedAt": 1788197633010,
       "value": {
         "isJob": true,
         "confidence": 97,
@@ -254043,6 +254043,231 @@
         "isJob": true,
         "confidence": 0.99,
         "reason": "Concrete role title (Global Payroll & HR Systems Manager) with detailed responsibilities, requirements, qualifications, location, contract type, and application context including a selection process and 'Apply now' button."
+      }
+    },
+    {
+      "key": "6bff15368274a9e94f6aed8b6f1a027a838b1b77c7f9b3f1dfb88b8e9dad3c95",
+      "touchedAt": 1788197298808,
+      "value": {
+        "isJob": true,
+        "confidence": 0.95,
+        "reason": "Concrete single job posting with unique job ID (136566, 1370778957), specific role title, location (Kuala Lumpur), detailed responsibilities across multiple sections (Talent Management, Learning & Development, Stakeholder Partnership, Frameworks), explicit qualifications (Bachelor's degree, 5-8 years experience), and application call-to-action. All indicators of a genuine job detail page, not a generic careers listing or content page."
+      }
+    },
+    {
+      "key": "dbdf85964d6b7bd1a0eb9c5c3b58a5cecc17f655a8a4bdf58e1d99e28a6406df",
+      "touchedAt": 1788197306472,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete single job: title 'Gruppenleiter Kundensupport Einzelleben (m/w/d) 80-100%' with job ID 136487. Detailed responsibilities section ('Was du tust') describing team leadership duties, KPI management, and customer support operations. Specific requirements section ('Was du mitbringst') listing education, experience, and language skills. Clear application context with 'Jetzt bewerben' buttons and hiring contact (Philippe Frutiger). Specific location (Zürich, Oerlikon), employment percentage, and hybrid work details provided."
+      }
+    },
+    {
+      "key": "7ed45fbbb2bc7b7ffdb5405059e94a9c33710742f3836047a27465404f28a850",
+      "touchedAt": 1788197320268,
+      "value": {
+        "isJob": true,
+        "confidence": 0.7,
+        "reason": "URL structure (careers.zurich.com/job/[role]/[id]) and presence of concrete role title 'Director Comercial' with job ID (136591) and 'Apply now' buttons indicate a job detail page. However, extracted text lacks visible responsibilities/requirements sections—content may be dynamically loaded or extraction incomplete. Structure is consistent with a single job detail page rather than generic careers listing."
+      }
+    },
+    {
+      "key": "041eddc78c980ac98f96ce6eff7583de8c85f2023ad712b8f8add9ffe0f2558b",
+      "touchedAt": 1788197332656,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete role title (Schadenspezialist MF-Auslandschaden 80-100%), detailed responsibilities section (coverage reviews, claims clarification, stakeholder contact), specific requirements (3+ years motor vehicle claims experience, language skills), employment details (80-100%, Zürich Oerlikon, hybrid), job ID (136423), and clear application mechanism with contact person (Victor Sale). This is an individual job posting, not a generic careers listing."
+      }
+    },
+    {
+      "key": "aaa7603d67c121ef6bc6801f4eff2c1667a83c98bd334a17ef1c3563eb3199eb",
+      "touchedAt": 1788197333627,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete job title (Lead Business Architect Individual Life), detailed responsibilities (5 specific duties listed), clear requirements (5+ specific criteria including experience and certifications), application context (apply buttons, contact person Jasmina Pipic), and job metadata (80-100%, Zürich Oerlikon, hybrid up to 40%, job ID 136340). This is unambiguously a single job posting, not a generic careers page."
+      }
+    },
+    {
+      "key": "2f13462d87dd590ebdf898bb623726521608c06f6f3414c7fdc632c08034dbb6",
+      "touchedAt": 1788197341388,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "Concrete role title (Senior Data & Analytics Engineer), detailed responsibilities (data pipeline design, model maintenance, ETL/ELT work), specific requirements (7+ years experience, SQL, cloud platforms, Python/R), location (Bratislava, Slovak Republic), contract details (Full-time, Hybrid 60%), compensation range (3,800 EUR base), and active application interface present. All characteristics of a single job detail page."
+      }
+    },
+    {
+      "key": "c4e5bf662a4a46a597e6e5dda663fcd441894a5abc689f12145f5309451a1ac7",
+      "touchedAt": 1788197633346,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete job title (Responsable d'équipe sinistres complexes h/f/d 80-100%), detailed responsibilities ('Ce que tu fais'), requirements ('Ce que tu apportes'), application instructions, contact person, and location/work model details are all present."
+      }
+    },
+    {
+      "key": "74ed475b2c055f1241c9e058117abf9e72a937a48bc4900f5aba4c915aafaf30",
+      "touchedAt": 1788197654111,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "The page is a specific job listing for 'Global Head of Risk Advisory' at Zurich Insurance, including a job ID (136493), detailed responsibilities ('What you will do'), requirements ('What you bring'), and an application section ('Apply now')."
+      }
+    },
+    {
+      "key": "b7edc6214134fe76bac4e28fe877eb4a06f201e284795370e03415301da06ed8",
+      "touchedAt": 1788197676365,
+      "value": {
+        "isJob": true,
+        "confidence": 97,
+        "reason": "The page is a concrete job listing for a 'Surety Underwriting Specialist' role at Zurich Insurance in Toronto. It includes a specific job ID (133578), detailed responsibilities, qualifications, application instructions ('Apply now'), and role-specific context such as reporting structure, location, and work model. This is clearly an individual job posting, not a generic careers listing."
+      }
+    },
+    {
+      "key": "77118bab391cf856f02ca56f058e10a9ee5ec859638a1964beff9f27c40ae8cd",
+      "touchedAt": 1788197677058,
+      "value": {
+        "isJob": true,
+        "confidence": 99,
+        "reason": "The page is a specific job listing for 'Life Underwriter - Corporate Life & Pensions' at Zurich Insurance, with a unique job ID (135877), detailed responsibilities, required qualifications, experience requirements, and an application button. It describes a concrete role in Lisbon/Portugal with specific duties such as risk assessment, underwriting, and broker collaboration."
+      }
+    },
+    {
+      "key": "6c96f07ada6092595fc02d02bbff28044b473ff7d474990f4fdad73273e113af",
+      "touchedAt": 1788197677461,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete job title (Assistant Claims Manager / Senior Claims Officer (Commercial)), detailed job accountabilities, qualifications, location (Hong Kong), and an 'Apply now' button indicate this is a real single job detail page."
+      }
+    },
+    {
+      "key": "ec2f77cd326f136726100dfee089977e471cba69ce7027ff8de1f4f21e07594b",
+      "touchedAt": 1788197677781,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "The page is a real single job detail page for 'Branch Sales Manager - Seremban' at Zurich Insurance. It contains a specific job title, job ID (110733), location context, detailed job summary, key accountabilities/responsibilities, business accountabilities, and specific job requirements (required and preferred qualifications). It also has an 'Apply now' button, confirming this is an individual job posting rather than a generic careers listing."
+      }
+    },
+    {
+      "key": "42a20661bda8ff35f7f0318d0687c639f1e556105f422d454ad5698ca0788609",
+      "touchedAt": 1788197678213,
+      "value": {
+        "isJob": true,
+        "confidence": 99,
+        "reason": "The page is a concrete single job listing for an 'Accountant' position at Zurich Insurance in Cracow, containing a specific job title, detailed responsibilities, candidate profile requirements, and an 'Apply now' button with application context."
+      }
+    },
+    {
+      "key": "5c6d54fbfd13e10f736af3a14114392cc1e55130e4f03e94a0d153a2ce429a65",
+      "touchedAt": 1788197678535,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete job title (Talent Strategy, Assistant Manager, 1 Year Contract), detailed responsibilities across talent management, learning & development, and stakeholder partnership, along with qualifications and experience requirements, and an 'Apply now' call-to-action — clearly a single job detail page on Zurich's careers portal."
+      }
+    },
+    {
+      "key": "cf581b19161b3030fa5fc359e15e3ebdfc75419c623a4309a64c9791bd9ad13f",
+      "touchedAt": 1788197678883,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete role title (Gruppenleiter Kundensupport Einzelleben), detailed responsibilities (leading ~10 employees, managing KPIs, handling customer support), requirements (insurance experience, leadership skills, language skills), application context (online application, contact Philippe Frutiger, location Zürich Oerlikon, 80-100%), and job ID (136487)."
+      }
+    },
+    {
+      "key": "4666dab09515effd1ea431e260c4c693005d08d643de93408a0d058dbff0fe60",
+      "touchedAt": 1788197679231,
+      "value": {
+        "isJob": true,
+        "confidence": 0.72,
+        "reason": "Page contains a specific job title 'Director Comercial' with a job ID (136591) and an 'Apply now' / 'Submit application' button. However, the visible text lacks detailed responsibilities or requirements — most content is navigation and site-wide boilerplate. The URL pattern also confirms a single job posting, so it qualifies as a job detail page despite sparse detail extraction."
+      }
+    },
+    {
+      "key": "ad6e38be04246630b77c5f1a56e6c9b1c8541fa0bb011ae89a6c4b8fa25f0f35",
+      "touchedAt": 1788197679555,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete job title 'Schadenspezialist MF-Auslandschaden (m/w/d) 80-100%' with detailed responsibilities ('Was du tust'), requirements ('Was du mitbringst'), application instructions, contact info, job ID, work location, and employment percentage. This is a single job posting on Zurich's careers portal."
+      }
+    },
+    {
+      "key": "b2a791aab4ee8f0b35e5488b649c34226126e0423c387513f578fcf9363f4c9c",
+      "touchedAt": 1788197679984,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "The page contains a specific job title ('Lead Business Architect Individual Life (m/w/d) 80 - 100%'), detailed responsibilities ('Was du tust'), requirements ('Was du mitbringst'), work location (Zürich, Oerlikon), work model (hybrid 80-100%), and an application contact. This is a real single job detail page from Zurich Insurance's career portal."
+      }
+    },
+    {
+      "key": "a36ffe0319d2da33f5ffbe03c64169a58880e6b972749ffa50994b8447e95056",
+      "touchedAt": 1788197680368,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete job title (Senior Data & Analytics Engineer), detailed responsibilities, requirements/skills, and application context including location (Bratislava), contract type, and salary range are all present."
+      }
+    },
+    {
+      "key": "8edcce1b20081ddd4ba176e8771fd19a322fa998b0e5e54d8b9972a060e075e3",
+      "touchedAt": 1788197680685,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "The page is a specific job listing for 'Assistant Business Development Manager / Senior Officer (General Insurance)' at Zurich Insurance in Hong Kong. It includes a unique job ID (133554), detailed job summary, accountabilities, qualifications, location, and an apply button — all hallmarks of a real single job detail page."
+      }
+    },
+    {
+      "key": "f6f16bfb8f0b17cd8b9a13717caca1aa4c2d4498b3f44a3c394db7b7054aaf45",
+      "touchedAt": 1788197681015,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "Concrete role title 'Business Analyst (24 months contract)', full job description with key accountabilities, education/experience requirements, skills, and application context (Zurich Insurance careers page with 'Apply now' functionality)."
+      }
+    },
+    {
+      "key": "d4a4cf2750127030ed1e9097f4afcd18513b06e0800daf53a09a8c35281a773f",
+      "touchedAt": 1788197681354,
+      "value": {
+        "isJob": true,
+        "confidence": 0.97,
+        "reason": "Concrete job title (Marketing Support Executive), detailed responsibilities/accountabilities, qualifications (required and preferred), location (Kuala Lumpur), and application context (recruiter name, closing date, Apply Now buttons) are all present, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "a70dd07c5070a5693e7eb8a0daab1a5308849c4e124abc62445fbe621af19b7e",
+      "touchedAt": 1788197681771,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "Concrete role title 'AI & Process Automation Engineer (Agents, Automation & Digitalisation)' with detailed responsibilities (Process Automation & Solution Delivery, Digitisation & Enablement, Governance & Quality, Transformation & Stakeholder Engagement), recruiter introduction, job ID, company description (ServiZurich/Zurich Insurance Group), location (Barcelona), and an application mechanism (Apply Now). This is a specific single job posting, not a generic listing."
+      }
+    },
+    {
+      "key": "27b0ce2425f81f3984df2284e6ab24bfc4685c28c6d072aa1c56e63378f51d07",
+      "touchedAt": 1788197682270,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete job title 'Underwriting Service Specialist Commercial Receiving/Incoming Property (m/w/d)' with detailed responsibilities, requirements, location (Frankfurt), job ID (134948), and application instructions."
+      }
+    },
+    {
+      "key": "62963f95bdf8c1a50936585f9cc5f2fc4641d2cf0b29b25be82c9c585bc749ff",
+      "touchedAt": 1788197682656,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete job title '(Senior) Manager, Distribution Governance (Life Insurance)', detailed job accountabilities, qualifications, location (Hong Kong), and application button present."
       }
     }
   ]
