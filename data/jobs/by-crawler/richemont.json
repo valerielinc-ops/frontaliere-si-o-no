@@ -4758,12 +4758,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates",
+        "procurement-category-manager-piaget-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates",
+          "procurement-category-manager-piaget-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -13086,7 +13088,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-analyses-materiaux-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-analyses-materiaux-richemont-glovelier"
+      ]
     },
     {
       "id": "richemont-beb532d93689",
