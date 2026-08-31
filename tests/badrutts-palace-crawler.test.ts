@@ -134,6 +134,13 @@ describe('parseRssItems', () => {
   </channel>
 </rss>`;
 
+  const validItem = ({
+    title = '<title>Chef de Partie</title>',
+    link = '<link>https://jobs.badruttscareers.com/en-GB/jobs/12345-chef-de-partie</link>',
+    description = '<description><![CDATA[<p>Kitchen role</p>]]></description>',
+    pubDate = '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate>',
+  } = {}) => `<rss><channel><item>${title}${link}${description}${pubDate}</item></channel></rss>`;
+
   it('parses multiple items from RSS feed', () => {
     const items = parseRssItems(SAMPLE_RSS);
     expect(items).toHaveLength(2);
@@ -225,6 +232,26 @@ describe('parseRssItems', () => {
     const malformedHtml = `<html><head><title>Jobs</title></head><body>${unclosedBrPerItem}</body></html>`;
     expect(() => parseRssItems(malformedHtml)).toThrow(
       /Badrutt's Palace RSS feed failed to parse as XML/,
+    );
+  });
+
+  it.each([
+    '<rss><channel><item><title>Chef</title></description></item></channel></rss>',
+    '<rss><channel><item><title>Chef</title></item>',
+  ])('rejects malformed or truncated XML before parsing', (xml) => {
+    expect(() => parseRssItems(xml)).toThrow(/failed to parse as XML/);
+  });
+
+  it.each([
+    ['title', { title: '<title><strong>Chef de Partie</strong></title>' }],
+    ['link', {
+      link: '<link>https://jobs.badruttscareers.com/en-GB/jobs/1</link><link>https://jobs.badruttscareers.com/en-GB/jobs/2</link>',
+    }],
+    ['description', { description: '<description>First</description><description>Second</description>' }],
+    ['pubDate', { pubDate: '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate><pubDate>Tue, 02 Apr 2026 12:00:00 +0000</pubDate>' }],
+  ])('rejects non-scalar or repeated %s leaves', (field, override) => {
+    expect(() => parseRssItems(validItem(override))).toThrow(
+      new RegExp(`${field} must be a single scalar string`),
     );
   });
 });
