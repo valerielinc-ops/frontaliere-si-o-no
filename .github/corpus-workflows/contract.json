@@ -20,6 +20,7 @@
     "scripts/ci/crawler-generation-roster.json",
     "scripts/ci/crawler-retry-cmd.sh",
     "scripts/cleanup-jobs.mjs",
+    "scripts/collect-translation-observability.mjs",
     "scripts/crawler-generation-observer.mjs",
     "scripts/crawler-group-generation-finalizer.mjs",
     "scripts/fix-untranslated-titles.mjs",
@@ -44,6 +45,7 @@
     "scripts/mark-mistranslated-jobs.mjs",
     "scripts/regenerate-slugs-by-locale.mjs",
     "scripts/relocalize-pending-jobs.mjs",
+    "scripts/rollup-translation-observability.mjs",
     "scripts/scatter-jobs-to-slices.mjs",
     "scripts/update-aarreha-schinznach-jobs.mjs",
     "scripts/update-abbott-jobs.mjs",
@@ -1361,8 +1363,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "2c234b1f76a0b6a1970d1d166a8d31c7ef3d7bcb3adcaa6b46c780c59ee68199",
-      "artifactSha256": "2c73fcf54d0d2f265c4a400eadba0d9bbbd7c6cd3011c573406c9329535f299f",
+      "sourceSha256": "81b2c6625322d73e99b021225da7f9e2ac91db666131ce1844b8924b39ea3026",
+      "artifactSha256": "4c6ce8aabf0067f0acea6d5a56b1adf548246e6fd50706c714e94a56627f1f52",
       "members": []
     }
   ]
