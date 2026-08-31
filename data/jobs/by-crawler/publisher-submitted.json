@@ -1,6 +1,6 @@
 {
   "crawlerKey": "publisher-submitted",
-  "assembledAt": "2026-08-31T06:37:07.867Z",
+  "assembledAt": "2026-08-31T14:48:47.109Z",
   "jobs": [
     {
       "title": "Fisioterapista con riconoscimento CRS",
@@ -54,6 +54,7 @@
       "publisherUid": "eL1L3Wa8CJgkHQw8QizZS92Dr7i1",
       "publisherJobId": "8d0nltF3ZDHzWat5CMLR",
       "needsRetranslation": true,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -65,6 +66,11 @@
         }
       },
       "previousSlugsByLocale": {
+        "it": [
+          "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl",
+          "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl",
+          "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
+        ],
         "en": [
           "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl"
         ],
@@ -72,11 +78,6 @@
           "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl"
         ],
         "fr": [
-          "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
-        ],
-        "it": [
-          "physiotherapist-with-crs-recognition-fisiocare-sagl-fisiocare-sagl",
-          "physiotherapeut-mit-crs-erkennung-fisiocare-sagl-fisiocare-sagl",
           "physiotherapeute-reconnu-crs-fisiocare-sagl-fisiocare-sagl"
         ]
       },
