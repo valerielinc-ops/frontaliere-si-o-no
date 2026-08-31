@@ -6,8 +6,114 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/ipersonal-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  extractIpersonalDescription,
+  runIpersonalSpecInProduction,
+} from '../scripts/lib/ipersonal-spec-runtime.mjs';
 
 describe('iPersonal AG crawler parser', () => {
+  describe('shared Simple Job Board detail boundary', () => {
+    it('preserves legacy arrow lists and stops before application boilerplate', () => {
+      const html = `
+        <nav>Navigation noise</nav>
+        <section class="job-profile-section"><div id="Jobdetails">
+          <h2>Dipl. Pflegefachperson Spiez</h2>
+          <p>Du betreust Patientinnen und Patienten in einem professionellen Pflegeteam.</p>
+          <h3>Deine Aufgaben</h3>
+          <p>› Pflege planen und dokumentieren› Angehörige kompetent beraten</p>
+          <h3>Kontakt und Bewerbung</h3>
+          <p>Lebenslauf hochladen und info@example.test kontaktieren.</p>
+        </div></section>
+        <form id="sjb-application-form">Formularfelder</form>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Pflege planen und dokumentieren');
+      expect(description).toContain('\n• Angehörige kompetent beraten');
+      expect(description).not.toContain('Navigation noise');
+      expect(description).not.toContain('Lebenslauf hochladen');
+      expect(description).not.toContain('Formularfelder');
+    });
+
+    it('fails closed when the authoritative detail boundary is absent', () => {
+      expect(extractIpersonalDescription('<main><p>Generic page copy</p></main>')).toBe('');
+    });
+
+    it('keeps nested legacy content and recovers paragraph-backed lists', () => {
+      const html = `
+        <section class="job-profile-section"><div id="Jobdetails"><div>
+          <p>Wir suchen eine erfahrene Fachperson für einen langfristigen Einsatz.</p>
+          <h3>Deine Aufgaben</h3>
+          <p>Patientinnen und Patienten fachgerecht betreuen und dokumentieren.</p>
+          <p>Das interdisziplinäre Team im Alltag zuverlässig unterstützen.</p>
+          <h3>Jetzt bewerben</h3><p>Wiederholter Bewerbungstext.</p>
+        </div><p>Keyword- und Kontakttail.</p></div></section>`;
+
+      const description = extractIpersonalDescription(html);
+      expect(description).toContain('\n• Patientinnen und Patienten');
+      expect(description).toContain('\n• Das interdisziplinäre Team');
+      expect(description).not.toContain('Wiederholter Bewerbungstext');
+      expect(description).not.toContain('Keyword- und Kontakttail');
+    });
+
+    it('requests identity encoding and stays idempotent on the shared runtime', async () => {
+      const seedUrl = 'https://ipersonal-fixture.example/';
+      const detailUrl = `${seedUrl}jobs/pflegefachperson-zuerich/`;
+      const acceptedEncodings: string[] = [];
+      const fetchImpl = async (input: string | URL | Request, init: RequestInit = {}) => {
+        acceptedEncodings.push(new Headers(init.headers).get('Accept-Encoding') || '');
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`<a href="${detailUrl}">Pflegefachperson Zürich</a>`, {
+            status: 200, headers: { 'Content-Type': 'text/html' },
+          });
+        }
+        const escapedLocalitySchema = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Pflegefachperson Zürich',
+            url: detailUrl,
+            description: 'Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.',
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress', addressLocality: 'Züberwangen', addressRegion: 'St. Gallen',
+                addressCountry: 'CH', postalCode: '9523',
+              },
+            },
+          }).replace('Züberwangen', 'Z\\u00fcberwangen');
+        return new Response(`
+          <script type="application/ld+json">${escapedLocalitySchema}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.</p>
+            <h3>Deine Aufgaben</h3><ul><li>Patientinnen kompetent betreuen</li><li>Pflege sorgfältig dokumentieren</li></ul>
+          </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
+      };
+      const spec = {
+        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any;
+      const runtime = {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      };
+
+      const first = await runIpersonalSpecInProduction(spec, runtime);
+      const second = await runIpersonalSpecInProduction(spec, runtime);
+      expect(second).toEqual(first);
+      expect(first).toHaveLength(1);
+      expect(first[0]).toMatchObject({
+        title: 'Pflegefachperson Zürich', url: detailUrl,
+        location: 'Zuzwil SG, St. Gallen', canton: 'SG',
+      });
+      expect(first[0].description).toContain('\n• Patientinnen kompetent betreuen');
+      expect(acceptedEncodings.length).toBeGreaterThan(0);
+      expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
+    });
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(IPERSONAL_KEY).toBe('ipersonal');
