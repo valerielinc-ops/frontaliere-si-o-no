@@ -17,13 +17,16 @@
 //   - Graceful failure: on 404, network error, or unknown HTML structure the
 //     script writes a minimal output with `_error` and exits 0 (the autonomous
 //     orchestrator must NOT crash on a transient outside-world failure).
+//   - Write guard: if the fetch fails or 0 hospitals parse, and a previous
+//     non-empty dataset already exists, the write is skipped rather than
+//     overwriting good data with an empty one (#6739).
 //   - Native fetch (Node >= 18; project requires Node 22+).
 //   - No new npm dependencies — pure regex parsing of the listing page is
 //     sufficient for the simple <ul>/<li>/<a> structure exposed by
 //     welches-spital.ch.
 // =============================================================================
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -262,6 +265,20 @@ async function enrichSample(hospitals, sampleSize = 0) {
   return enriched;
 }
 
+/**
+ * Reads the hospital count from a previously-written output file, if any.
+ * Returns 0 when the file is missing or unreadable (nothing to preserve).
+ */
+async function readPreviousHospitalCount() {
+  try {
+    const raw = await readFile(OUTPUT_PATH, 'utf8');
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed?.hospitals) ? parsed.hospitals.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 async function main() {
   console.log(`[import-swiss-hospitals] Fetching ${SOURCE_URL} ...`);
 
@@ -271,6 +288,16 @@ async function main() {
   await mkdir(dirname(OUTPUT_PATH), { recursive: true });
 
   if (!html) {
+    const previousCount = await readPreviousHospitalCount();
+    if (previousCount > 0) {
+      console.error(
+        `[import-swiss-hospitals] Fetch failed — refusing to overwrite the existing ` +
+          `${previousCount}-hospital dataset with an empty placeholder. Skipping write.`,
+      );
+      // exitCode stays 0: per the "Behaviour" note above, a transient
+      // fetch failure must not crash the autonomous orchestrator.
+      return;
+    }
     const minimal = {
       _source: SOURCE_URL,
       _fetchedAt: fetchedAt,
@@ -295,6 +322,19 @@ async function main() {
   // Set HOSPITAL_SAMPLE=N env var to enable a sampled enrichment locally.
   const sampleSize = Number.parseInt(process.env.HOSPITAL_SAMPLE || '0', 10) || 0;
   const finalList = await enrichSample(parsed, sampleSize);
+
+  if (finalList.length === 0) {
+    const previousCount = await readPreviousHospitalCount();
+    if (previousCount > 0) {
+      console.error(
+        `[import-swiss-hospitals] Structure drift — 0 hospitals parsed, refusing to ` +
+          `overwrite the existing ${previousCount}-hospital dataset. Skipping write.`,
+      );
+      // exitCode stays 0: per the "Behaviour" note above, structure drift
+      // (0 parsed) must not crash the autonomous orchestrator.
+      return;
+    }
+  }
 
   const output = {
     _source: SOURCE_URL,
