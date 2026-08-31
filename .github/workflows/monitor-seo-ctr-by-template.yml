@@ -42,6 +42,18 @@ jobs:
             echo "⚠️ No Firebase SA credentials — monitor will skip GSC checks"
           fi
 
+      # GITHUB_PAT = the identity actually honoured by main's "main required
+      # CI checks" ruleset bypass_actors on a direct git push (issue #6325
+      # sibling class: the App installation token minted below alone gets a
+      # HARD GH013 rejection on all 40 retry attempts when pushing to main —
+      # observed on this exact workflow, run 33330172555). Loading GITHUB_PAT
+      # here matches every other main-writing data-refresh workflow;
+      # configure-main-push-auth.sh (invoked by git-push-with-retry.sh below)
+      # already prefers it over APP_TOKEN. Missing from Remote Config → falls
+      # back to APP_TOKEN exactly as before (no regression).
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       # Primary identity for issue creation = GitHub App installation token
       # (`frontaliere-automation[bot]`); PAT fallback. Same pattern as
       # monitor-gsc-seo.yml / seo-serp-autopilot.yml.
