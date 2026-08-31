@@ -1,6 +1,6 @@
 {
   "crawlerKey": "adus-klinik",
-  "assembledAt": "2026-08-28T05:32:54.706Z",
+  "assembledAt": "2026-08-31T17:23:09.326Z",
   "jobs": [
     {
       "id": "adus-klinik-8cd04c15239f",
@@ -33,7 +33,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/6277966-dipl-physiotherapeut-in-20-30-im-stundenlohn",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:32:51.477Z",
+      "crawledAt": "2026-08-31T17:23:06.880Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,6 +64,7 @@
       "firstSeenAt": "2026-05-20T06:03:25.425Z",
       "salaryMin": 27500,
       "salaryMax": 38400,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -106,7 +107,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/7537525-dipl-expert-in-anaesthesiepflege-50-60",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:32:51.475Z",
+      "crawledAt": "2026-08-31T17:23:06.878Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -137,6 +138,7 @@
       "firstSeenAt": "2026-05-20T06:03:25.423Z",
       "salaryMin": 54900,
       "salaryMax": 76800,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

@@ -1,7 +1,263 @@
 {
   "crawlerKey": "accor",
-  "assembledAt": "2026-08-28T05:32:09.047Z",
+  "assembledAt": "2026-08-31T17:21:54.888Z",
   "jobs": [
+    {
+      "id": "accor-f3d906ff76d6",
+      "slug": "chef-de-rang-mauro-colagreco-ibis-budget-lugano",
+      "slugByLocale": {
+        "fr": "chef-de-rang-mauro-colagreco-accor-ch",
+        "it": "chef-de-rang-mauro-colagreco-ibis-budget-lugano",
+        "en": "chef-de-rang-mauro-colagreco-accor-ch",
+        "de": "chef-de-rang-mauro-colagreco-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Chef de Rang - Mauro Colagreco",
+      "titleByLocale": {
+        "fr": "Chef de Rang - Mauro Colagreco",
+        "en": "Chef de Rang - Mauro Colagreco",
+        "it": "Chef de Rang - Mauro Colagreco",
+        "de": "Chef de Rang - Mauro Colagreco"
+      },
+      "description": "Chef de Rang - Mauro Colagreco — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Chef de Rang - Mauro Colagreco — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/chef-de-rang-mauro-colagreco-in-raffles-london-at-the-owo-london-united-kingdom-jid-104705",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-08-31T17:21:50.986Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/chef-de-rang-mauro-colagreco-in-raffles-london-at-the-owo-london-united-kingdom-jid-104705",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-mauro-colagreco-accor-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-mauro-colagreco-accor-ch"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:21:50.986Z"
+    },
+    {
+      "id": "accor-d2c790ce8428",
+      "slug": "food-and-beverage-team-member-accor-ch",
+      "slugByLocale": {
+        "de": "food-and-beverage-team-member-accor-ch",
+        "it": "food-and-beverage-team-member-accor-ch",
+        "en": "food-and-beverage-team-member-accor-ch",
+        "fr": "food-and-beverage-team-member-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Food and Beverage Team Member",
+      "titleByLocale": {
+        "de": "Food and Beverage Team Member",
+        "it": "Food and Beverage Team Member",
+        "en": "Food and Beverage Team Member",
+        "fr": "Food and Beverage Team Member"
+      },
+      "description": "Food and Beverage Team Member — Ibis Budget",
+      "descriptionByLocale": {
+        "de": "Food and Beverage Team Member — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/food-and-beverage-team-member-in-mercure-oxford-hawkwell-house-hotel-oxford-united--jid-108276",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:21:50.684Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/food-and-beverage-team-member-in-mercure-oxford-hawkwell-house-hotel-oxford-united--jid-108276",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:21:50.684Z"
+    },
+    {
+      "id": "accor-4fd9b4aa4269",
+      "slug": "front-office-team-member-days-nights-accor-ch",
+      "slugByLocale": {
+        "de": "front-office-team-member-days-nights-accor-ch",
+        "it": "front-office-team-member-days-nights-accor-ch",
+        "en": "front-office-team-member-days-nights-accor-ch",
+        "fr": "front-office-team-member-days-nights-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Front office team member (Days & Nights)",
+      "titleByLocale": {
+        "de": "Front office team member (Days & Nights)",
+        "it": "Front office team member (Days & Nights)",
+        "en": "Front office team member (Days & Nights)",
+        "fr": "Front office team member (Days & Nights)"
+      },
+      "description": "Front office team member (Days & Nights) — Ibis Budget",
+      "descriptionByLocale": {
+        "de": "Front office team member (Days & Nights) — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/front-office-team-member-days-and-nights-in-mercure-oxford-hawkwell-house-hotel-oxford-united--jid-108277",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:21:50.381Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/front-office-team-member-days-and-nights-in-mercure-oxford-hawkwell-house-hotel-oxford-united--jid-108277",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:21:50.381Z"
+    },
+    {
+      "id": "accor-f6068d98fbd9",
+      "slug": "responsable-commercial-f-h-x-cdd-accor-ch",
+      "slugByLocale": {
+        "fr": "responsable-commercial-f-h-x-cdd-accor-ch",
+        "it": "responsable-commercial-f-h-x-cdd-accor-ch",
+        "en": "responsable-commercial-f-h-x-cdd-accor-ch",
+        "de": "responsable-commercial-f-h-x-cdd-accor-ch"
+      },
+      "company": "Ibis Budget",
+      "companyKey": "accor",
+      "companyDomain": "careers.accor.com",
+      "title": "Responsable Commercial (F/H/X) - CDD",
+      "titleByLocale": {
+        "fr": "Responsable Commercial (F/H/X) - CDD",
+        "it": "Responsable Commercial (F/H/X) - CDD",
+        "en": "Responsable Commercial (F/H/X) - CDD",
+        "de": "Responsable Commercial (F/H/X) - CDD"
+      },
+      "description": "Responsable Commercial (F/H/X) - CDD — Ibis Budget",
+      "descriptionByLocale": {
+        "fr": "Responsable Commercial (F/H/X) - CDD — Ibis Budget"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://careers.accor.com/fr/fr/job/responsable-commercial-f-h-x-cdd-in-paris-france-jid-108284",
+      "source": "Ibis Budget Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:21:49.170Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://careers.accor.com/fr/fr/job/responsable-commercial-f-h-x-cdd-in-paris-france-jid-108284",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:21:49.170Z"
+    },
     {
       "id": "accor-d3a1f08d497d",
       "slug": "food-and-beverage-all-rounder-accor-ch",
@@ -61,7 +317,9 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-28T05:32:02.339Z"
+      "firstSeenAt": "2026-08-28T05:32:02.339Z",
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-761c3064eb41",
@@ -122,7 +380,9 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-28T05:32:01.429Z"
+      "firstSeenAt": "2026-08-28T05:32:01.429Z",
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-36d3b924f996",
@@ -183,7 +443,9 @@
         }
       },
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-28T05:31:59.915Z"
+      "firstSeenAt": "2026-08-28T05:31:59.915Z",
+      "crawlerMissStreak": 1,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-862994418aaa",
@@ -258,7 +520,8 @@
         "assistant-front-office-manager-accor-ch-jgn3jb",
         "assistant-front-office-manager-accor-ch-2"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-09ba7a79bd13",
@@ -320,7 +583,8 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-27T20:08:40.595Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-3723b9873277",
@@ -393,7 +657,8 @@
       "previousSlugs": [
         "people-culture-coordinator-12-months-maternity-cover-accor-ch"
       ],
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-2ff35e8c21ac",
@@ -455,7 +720,8 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-27T20:08:39.385Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     },
     {
       "id": "accor-1579d221bbfc",
@@ -525,204 +791,8 @@
       },
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-27T20:08:39.082Z",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "accor-886ec50568fd",
-      "slug": "sales-manager-conference-groups-events-accor-ch",
-      "slugByLocale": {
-        "fr": "sales-manager-conference-groups-events-accor-ch",
-        "it": "sales-manager-conference-groups-events-accor-ch",
-        "en": "sales-manager-conference-groups-events-ibis-budget-lugano",
-        "de": "sales-manager-conference-groups-events-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Sales Manager – Conference, Groups & Events",
-      "titleByLocale": {
-        "fr": "Sales Manager – Conference, Groups & Events",
-        "en": "Sales Manager – Conference, Groups & Events",
-        "it": "Sales Manager – Conference, Groups & Events",
-        "de": "Sales Manager – Conference, Groups & Events"
-      },
-      "description": "Sales Manager – Conference, Groups & Events — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Sales Manager – Conference, Groups & Events — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/sales-manager-conference-groups-and-events-in-novotel-melbourne-airport-melbourne-airport-austra-jid-107811",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:52:01.827Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/sales-manager-conference-groups-and-events-in-novotel-melbourne-airport-melbourne-airport-austra-jid-107811",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 82500,
-      "salaryMax": 127000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:52:01.827Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "accor-6dcb7844d19d",
-      "slug": "directeur-trice-des-ventes-et-marketing-accor-ch",
-      "slugByLocale": {
-        "fr": "directeur-trice-des-ventes-et-marketing-accor-ch",
-        "it": "directeur-trice-des-ventes-et-marketing-accor-ch",
-        "en": "directeur-trice-des-ventes-et-marketing-ibis-budget-lugano",
-        "de": "directeur-trice-des-ventes-et-marketing-accor-ch"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Directeur(trice) des ventes et marketing",
-      "titleByLocale": {
-        "fr": "Directeur(trice) des ventes et marketing",
-        "en": "Directeur(trice) des ventes et marketing",
-        "it": "Directeur(trice) des ventes et marketing",
-        "de": "Directeur(trice) des ventes et marketing"
-      },
-      "description": "Directeur(trice) des ventes et marketing — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Directeur(trice) des ventes et marketing — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/directeur-trice-des-ventes-et-marketing-in-sofitel-montreal-golden-mile-montreal-canada-jid-96322",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:52:00.616Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Marketing",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/directeur-trice-des-ventes-et-marketing-in-sofitel-montreal-golden-mile-montreal-canada-jid-96322",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 50500,
-      "salaryMax": 89000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 50500,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:52:00.616Z",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "accor-de9c7c69e1f9",
-      "slug": "housekeeping-villa-attendant-tempo-pieno-ibis-budget-lugano",
-      "slugByLocale": {
-        "fr": "housekeeping-villa-attendant-full-time-accor-ch",
-        "it": "housekeeping-villa-attendant-tempo-pieno-ibis-budget-lugano",
-        "en": "housekeeping-villa-attendant-full-time-accor-ch",
-        "de": "housekeeping-villa-attendant-vollzeit-ibis-budget-lugano"
-      },
-      "company": "Ibis Budget",
-      "companyKey": "accor",
-      "companyDomain": "careers.accor.com",
-      "title": "Housekeeping Villa Attendant | Full-Time",
-      "titleByLocale": {
-        "fr": "Housekeeping Villa Attendant | Full-Time",
-        "it": "Housekeeping Villa Attendant | Tempo pieno",
-        "en": "Housekeeping Villa Attendant | Full-Time",
-        "de": "Housekeeping Villa Attendant | Vollzeit"
-      },
-      "description": "Housekeeping Villa Attendant | Full-Time — Ibis Budget",
-      "descriptionByLocale": {
-        "fr": "Housekeeping Villa Attendant | Full-Time — Ibis Budget"
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "url": "https://careers.accor.com/fr/fr/job/housekeeping-villa-attendant-full-time-in-fairmont-kea-lani-maui-wailea-makena-united-states-jid-107817",
-      "source": "Ibis Budget Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-27T00:51:59.990Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://careers.accor.com/fr/fr/job/housekeeping-villa-attendant-full-time-in-fairmont-kea-lani-maui-wailea-makena-united-states-jid-107817",
-      "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
-      "needsRetranslation": true,
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-08-27T00:51:59.990Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "housekeeping-villa-attendant-full-time-accor-ch"
-        ],
-        "de": [
-          "housekeeping-villa-attendant-full-time-accor-ch"
-        ]
-      },
-      "previousSlugs": [
-        "housekeeping-villa-attendant-full-time-accor-ch"
-      ],
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated"
     }
   ]
 }

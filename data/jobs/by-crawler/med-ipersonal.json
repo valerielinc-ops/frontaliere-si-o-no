@@ -1,7 +1,147 @@
 {
   "crawlerKey": "med-ipersonal",
-  "assembledAt": "2026-08-31T10:18:00.969Z",
+  "assembledAt": "2026-08-31T17:26:37.841Z",
   "jobs": [
+    {
+      "id": "med-ipersonal-334a4bb9652f",
+      "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-dubendorf-gesucht-jetzt-bewerben-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt",
+        "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-dubendorf-gesucht-jetzt-bewerben-medipersonal-lugano",
+        "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt",
+        "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Dübendorf gesucht – jetzt bewerben",
+      "titleByLocale": {
+        "de": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Dübendorf gesucht – jetzt bewerben",
+        "it": "Akquisiteur/in per Grundstücke (w/m/d), 80–100 % per la Region Dübendorf gesucht – jetzt bewerben",
+        "en": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Dübendorf gesucht – jetzt bewerben",
+        "fr": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Dübendorf gesucht – jetzt bewerben"
+      },
+      "description": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Dübendorf gesucht – jetzt bewerben — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Dübendorf gesucht – jetzt bewerben — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-duebendorf-gesucht-jetzt-bewerben/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:26:34.333Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-duebendorf-gesucht-jetzt-bewerben/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt"
+        ]
+      },
+      "previousSlugs": [
+        "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:26:34.333Z"
+    },
+    {
+      "id": "med-ipersonal-87298da2f7bb",
+      "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bulach-stellenangebot-medipersonal-lugano",
+      "slugByLocale": {
+        "de": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med",
+        "it": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bulach-stellenangebot-medipersonal-lugano",
+        "en": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med",
+        "fr": "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med"
+      },
+      "company": "MediPersonal",
+      "companyKey": "med-ipersonal",
+      "companyDomain": "ipersonal.ch",
+      "title": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Bülach – Stellenangebot",
+      "titleByLocale": {
+        "de": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Bülach – Stellenangebot",
+        "it": "Akquisiteur/in per Grundstücke (w/m/d), 80–100 % per la Region Bülach – Stellenangebot",
+        "en": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Bülach – Stellenangebot",
+        "fr": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Bülach – Stellenangebot"
+      },
+      "description": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Bülach – Stellenangebot — MediPersonal",
+      "descriptionByLocale": {
+        "de": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Bülach – Stellenangebot — MediPersonal"
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-buelach-stellenangebot/",
+      "source": "MediPersonal Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-08-31T17:26:34.030Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-buelach-stellenangebot/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med"
+        ]
+      },
+      "previousSlugs": [
+        "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:26:34.030Z"
+    },
     {
       "id": "med-ipersonal-ee46f6c4b1e5",
       "slug": "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-opfikon-temporarburo-ipersonal-medipersonal-lugano",
@@ -18,7 +158,7 @@
       "titleByLocale": {
         "it": "Akquisiteur/in per Grundstücke (w/m/d), 80–100 % per la Region Opfikon – Temporärbüro iPersonal",
         "en": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Opfikon – Temporärbüro iPersonal",
-        "de": "Akquisiteur/in für Grundstücke (m/w/d), 80–100 % für die Region Opfikon – Temporärbüro iPersonal",
+        "de": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Opfikon – Temporärbüro iPersonal",
         "fr": "Akquisitur/in für Grundstücke (h/f/d), 80–100 % für die Région Opfikon – Temporärbüro iPersonal"
       },
       "description": "Akquisiteur/in für Grundstücke (w/m/d), 80–100 % für die Region Opfikon – Temporärbüro iPersonal — MediPersonal",
@@ -31,7 +171,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-opfikon-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:17:58.233Z",
+      "crawledAt": "2026-08-31T17:26:33.726Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,7 +258,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-regensdorf-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:57.930Z",
+      "crawledAt": "2026-08-31T17:26:33.423Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,7 +328,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-volketswil-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:57.628Z",
+      "crawledAt": "2026-08-31T17:26:33.120Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -259,7 +399,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-ruemlang-temporaerbuero-ipersonal/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T10:17:57.326Z",
+      "crawledAt": "2026-08-31T17:26:32.817Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -329,7 +469,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-bassersdorf-stellenangebot/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:57.021Z",
+      "crawledAt": "2026-08-31T17:26:32.514Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -349,9 +489,9 @@
         "akquisiteur-in-per-grundstucke-m-w-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
         "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
         "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med",
-        "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bassersdorf-stellenangebot-medipersonal-lugano",
         "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bulach-stellenangebot-medipersonal-lugano",
-        "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med"
+        "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med",
+        "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bassersdorf-stellenangebot-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -359,9 +499,9 @@
           "akquisiteur-in-per-grundstucke-m-w-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano",
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-med",
-          "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bassersdorf-stellenangebot-medipersonal-lugano",
           "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bulach-stellenangebot-medipersonal-lugano",
-          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med"
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-bulach-stellenangebot-med",
+          "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-bassersdorf-stellenangebot-medipersonal-lugano"
         ],
         "de": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-in-der-region-oberrieden-stellenangebot-medipersonal-lugano"
@@ -416,7 +556,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-meilen-offene-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:56.719Z",
+      "crawledAt": "2026-08-31T17:26:32.208Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -498,7 +638,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-maennedorf-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:56.417Z",
+      "crawledAt": "2026-08-31T17:26:31.906Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -568,7 +708,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-pfaeffikon-zh-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:56.113Z",
+      "crawledAt": "2026-08-31T17:26:31.604Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -638,7 +778,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-waedenswil-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:55.809Z",
+      "crawledAt": "2026-08-31T17:26:31.301Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -708,7 +848,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-gossau-zh-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:55.507Z",
+      "crawledAt": "2026-08-31T17:26:30.998Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -778,7 +918,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-weisslingen-freie-stelle/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:55.204Z",
+      "crawledAt": "2026-08-31T17:26:30.694Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -848,7 +988,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-fuer-die-region-neerach-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:54.901Z",
+      "crawledAt": "2026-08-31T17:26:30.392Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -865,16 +1005,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-neerach-gesucht-jetzt-bewerben",
-        "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-neerach-gesucht-jetzt-bewerben-medipersonal-lugano",
         "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-dubendorf-gesucht-jetzt-bewerben-medipersonal-lugano",
-        "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt"
+        "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt",
+        "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-neerach-gesucht-jetzt-bewerben-medipersonal-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-neerach-gesucht-jetzt-bewerben",
-          "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-neerach-gesucht-jetzt-bewerben-medipersonal-lugano",
           "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-dubendorf-gesucht-jetzt-bewerben-medipersonal-lugano",
-          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt"
+          "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt",
+          "akquisiteur-in-per-grundstucke-m-w-d-80-100-per-la-region-neerach-gesucht-jetzt-bewerben-medipersonal-lugano"
         ],
         "fr": [
           "akquisiteur-in-fur-grundstucke-w-m-d-80-100-fur-die-region-dubendorf-gesucht-jetzt"
@@ -925,7 +1065,7 @@
       "url": "https://www.ipersonal.ch/jobs/akquisiteur-in-fuer-grundstuecke-w-m-d-80-100-in-der-region-obfelden-gesucht-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T10:17:54.598Z",
+      "crawledAt": "2026-08-31T17:26:30.064Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1034,7 +1174,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
     },
     {
       "id": "med-ipersonal-a94a8876cd0b",
@@ -1094,7 +1235,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1
     }
   ]
 }
