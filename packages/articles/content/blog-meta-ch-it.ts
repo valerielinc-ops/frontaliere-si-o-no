@@ -4855,6 +4855,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Banche svizzere, la CET-S frena il Consiglio federale sul capitale proprio',
     'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'La Commissione del Consiglio degli Stati modifica la proposta del governo: fino a metà della copertura potrà arrivare da obbligazioni AT1, non solo da CET-1.',
     'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Palazzo federale di Berna illuminato al tramonto, sede del Consiglio degli Stati',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Reddito e risparmio record in Svizzera nel 2025',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': 'Nel 2025 il reddito disponibile per abitante supera 65.000 franchi. Tasso di risparmio volontario al 19,3%, massimo storico. I dati UST rivelano il benessere economico più elevato di sempre.',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'Una famiglia svizzera pianifica il risparmio domestico attorno a un tavolo, simbolo del benessere economico nazionale',
 };
 
 export default blogMetaChIt;

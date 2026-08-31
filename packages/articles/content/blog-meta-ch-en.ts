@@ -4855,6 +4855,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.commissione-cst-copertura-banche-svizzere.title': 'Swiss banks, the CET-S restrains the Federal Council on equity capital',
     'blog.article.commissione-cst-copertura-banche-svizzere.excerpt': 'The Commission of the Council of States modifies the government\'s proposal: up to half of the coverage may come from AT1 bonds, not just from CET-1.',
     'blog.article.commissione-cst-copertura-banche-svizzere.imageAlt': 'Federal Palace in Bern at dusk, seat of the Council of States',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.title': 'Record income and savings in Switzerland in 2025',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.excerpt': 'In 2025, the disposable income per inhabitant exceeds CHF 65,000. Voluntary savings rate at 19.3%, all-time high. UST data reveals the highest economic well-being ever.',
+    'blog.article.svizzeri-risparmiano-piu-che-mai.imageAlt': 'A Swiss family plans household savings around a table, symbolizing national economic well-being',
 };
 
 export default blogMetaChEn;

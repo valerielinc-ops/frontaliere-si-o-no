@@ -63005,6 +63005,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-risparmiano-piu-che-mai': {
+    title: 'Reddito e risparmio record in Svizzera nel 2025',
+    description: 'Nel 2025 il reddito disponibile per abitante supera 65.000 franchi. Tasso di risparmio volontario al 19,3%, massimo storico. I dati UST rivelano il benessere',
+    keywords: 'frontalieri, ticino, svizzera, italia, reddito, risparmio, record, disponibile',
+    ogTitle: 'Reddito e risparmio record in Svizzera nel 2025',
+    ogDescription: 'Nel 2025 il reddito disponibile per abitante supera 65.000 franchi. Tasso di risparmio volontario al 19,3%, massimo storico. I dati UST rivelano il benessere economico più elevato di sempre.',
+    canonicalPath: '/articoli-svizzera/svizzeri-risparmiano-piu-che-mai/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Reddito e risparmio record in Svizzera nel 2025",
+      "description": "Nel 2025 il reddito disponibile per abitante supera 65.000 franchi. Tasso di risparmio volontario al 19,3%, massimo storico. I dati UST rivelano il benessere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-risparmiano-piu-che-mai.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia svizzera pianifica il risparmio domestico attorno a un tavolo, simbolo del benessere economico nazionale"
+      },
+      "datePublished": "2026-08-31T21:13:26+00:00",
+      "dateModified": "2026-08-31T21:13:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzeri-risparmiano-piu-che-mai/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
