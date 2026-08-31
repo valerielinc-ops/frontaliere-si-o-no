@@ -125,4 +125,29 @@ describe('fetchOrphanCandidates', () => {
       expect(isArticleableOrphanQuery(query)).toBe(false);
     }
   });
+
+  it('recognises measured vocational phrases that disambiguate "offerte"/"posti"', () => {
+    for (const query of [
+      'apprendistato ticino posti liberi',
+      'posti di apprendistato in ticino',
+      'offerte apprendistato ticino',
+      'offerte di stage ticino',
+      'offerte stage ticino',
+      'posti di tirocinio ticino',
+      'posti vacanti ticino',
+    ]) {
+      expect(isArticleableOrphanQuery(query)).toBe(false);
+    }
+  });
+
+  it('does not let an unrelated vocational word turn a bare weak token into job intent', () => {
+    for (const query of [
+      'posti auto vicino allo stage musicale',
+      'offerte hotel per apprendisti',
+      'posti letto per tirocinanti',
+      'stage teatrale posti numerati',
+    ]) {
+      expect(isArticleableOrphanQuery(query)).toBe(true);
+    }
+  });
 });

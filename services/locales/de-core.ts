@@ -2770,6 +2770,9 @@ Regeln:
  'consultingCta.article.button': 'Beratung buchen',
 
  // v3.71.0 — Rechner-Upgrade
+ 'whatsNew.v3951.title': 'Interne Verbesserungen und Stabilität',
+ 'whatsNew.v3951.email.title': 'Zuverlässigere E-Mail-Zustellung',
+ 'whatsNew.v3951.email.desc': 'Wir haben die Kontrollen der E-Mail-Anbieterquoten verstärkt, damit auch bei gleichzeitig startenden Benachrichtigungen kein Limit überschritten wird.',
  'whatsNew.v3710.title': 'Rechner-Upgrade: Alerts, Gemeindesteuer, Kantonsvergleich',
  'whatsNew.v3710.salaryAlert.title': 'Lohn-Alert aus dem Rechner',
  'whatsNew.v3710.salaryAlert.desc': 'Nach der Simulation aktivierst du mit einem Tipp einen E-Mail-Alert für Stellen mit Nettolohn ab deinem Niveau.',

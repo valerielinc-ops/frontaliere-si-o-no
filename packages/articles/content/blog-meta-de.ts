@@ -10979,6 +10979,23 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Grenzsteuergutschrift 2026: Häufige Fehler',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'EG-Rahmen von 730, neues Abkommen, das seit 2024 in Kraft ist, und Übergangsregelung: die häufigsten Fehler von Grenzgängern.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Schweizer Lohnabrechnung und italienisches 730-Formular, Mendrisio im Hintergrund',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Grenzgängerrente 2026 mit Kindern: Leitfaden AHV-INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Neue Vereinbarung per 1. Januar 2024, AHV 5.3% und Koordination mit NISF: Was ändert sich für die Grenzfamilie mit Kindern im Jahr 2026?',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Grenzgänger am Bahnhof Bellinzona im Morgenlicht',
+    'blog.article.unia-pause-calore-cantieri.title': 'Hitzewelle auf Baustellen: Unia fordert Zwangspausen',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Nur 18% erhalten systematische Pausen über 33°C. Von den 984 befragten Arbeitnehmern ignorieren 82% der Baustellen die vorgesehenen Schutzmaßnahmen. Das fordert die Gewerkschaft.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Baustelle in Tessin bei Sommerhitze: Arbeiter befolgen Sicherheitsverfahren mit schattierten Bereichen und Schutzausrüstung.',
+    'blog.article.bollettino-frontaliere-2026-08-31.title': 'Grenzgänger-Tagesbulletin – 31. August 2026: 33 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-08-31.excerpt': 'Die Zahlen von heute, 31. August 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 31. August 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Grenzgänger-Bulletin vom 31. August 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'Die Zahlen vom 31. August 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Stillstehende Züge zwischen Arbedo-Castione und Biasca: Unannehmlichkeiten',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Unterbrechung am Montag gegen Mittag auf der Strecke Arbedo-Castione-Biasca: SBB meldet «Unfall pro Person», Züge gestrichen.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Bahnhof mit Betriebsunterbrechung auf der Tessiner Strecke',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Rente Grenzgänger 2026: Planen mit Familie und Kindern',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'AHV-Reform 21, neue Frontalieri-Vereinbarung, die seit 2024 in Kraft ist, und Vorruhestands-Szenarien für diejenigen, die mit ihrer Familie im Tessin arbeiten.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Grenzgänger-Ehepaar plant den Ruhestand am Luganersee',
 };
 
 export default blogMetaDe;

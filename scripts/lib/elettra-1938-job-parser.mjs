@@ -16,7 +16,7 @@
 import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
+import { slugify, stripHtml, fetchHtml, fetchJson } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -169,6 +169,55 @@ function parseCareerPage(html = '', pageUrl = '') {
   return { jobs, totalCards: cards.length };
 }
 
+function extractAjaxScaffold(html = '') {
+  const { document } = new JSDOM(html).window;
+  const hasMountContainer = Boolean(document.querySelector('#vacancyList'));
+  const endpointValue = document.querySelector('#url-for-announces')?.getAttribute('value') || '';
+  const section = html.match(/['"]section['"]\s*:\s*['"]([^'"]+)['"]/)?.[1] || '';
+
+  let endpoint = '';
+  if (endpointValue) {
+    try {
+      const parsed = new URL(endpointValue, CAREER_URL);
+      if (parsed.protocol === 'https:' && parsed.hostname === 'inrecruiting.intervieweb.it') {
+        endpoint = parsed.toString();
+      }
+    } catch { /* an invalid endpoint is treated as incomplete scaffold below */ }
+  }
+
+  return { hasMountContainer, endpoint, section };
+}
+
+async function fetchAjaxListings(endpoint, section) {
+  const body = new URLSearchParams({
+    act1: 'vacancyListCareer',
+    section,
+    order: '',
+    page: '1',
+    country: '',
+    region: '',
+    function: '',
+    project: '',
+    text: '',
+    office: '',
+  }).toString();
+
+  const response = await fetchJson(endpoint, {
+    method: 'POST',
+    timeoutMs: 20000,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    body,
+  });
+
+  if (response?.success !== true || typeof response?.data !== 'string') {
+    throw new Error('Elettra 1938: the vacancy AJAX endpoint returned an unexpected response — likely selector/template drift.');
+  }
+  return response.data;
+}
+
 /**
  * Fetch all Elettra 1938 jobs from the shared FIAMM Components portal.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -181,64 +230,41 @@ export async function fetchAllElettra1938Jobs() {
   try {
     html = await fetchHtml(CAREER_URL, { timeoutMs: 20000 });
   } catch (err) {
-    console.warn(`  Failed to fetch: ${err.message}`);
-    return [];
+    throw new Error(`Elettra 1938: failed to fetch the FIAMM Components career page: ${err.message}`, { cause: err });
   }
 
-  const { jobs: listings, totalCards } = parseCareerPage(html, CAREER_URL);
+  let { jobs: listings, totalCards } = parseCareerPage(html, CAREER_URL);
   console.log(`  📋 Listings found (Stabio, Svizzera): ${listings.length} (of ${totalCards} total cards on the shared portal)`);
 
-  // Markup sanity check (#5981, softened #5970, corrected #6066): the shared
-  // FIAMM Components / Gruppo Horien portal lists vacancies across MANY
-  // brands/countries, not just Elettra 1938's Stabio site — `cards` above is
-  // the portal-wide count, before the Stabio filter. Zero Stabio postings
-  // with cards > 0 is a genuine "no openings right now" (handled below,
-  // soft-exit).
-  //
-  // Zero cards is ambiguous between two cases: (a) the whole shared portal
-  // is genuinely empty right now — confirmed live by #5970/#5980/#6066 via
-  // the portal's own `act1=vacancyListCareer` AJAX response
-  // (`{"success":true,"data":"...No vacancies available..."}`), a state the
-  // group portal really does reach; or (b) the `.vacancy__render` selector
-  // itself drifted (template rename/rewrite) and would silently masquerade
-  // as empty forever. Distinguish them without a live probe using the
-  // `vacancyListCareer` AJAX action name — wired up in the page's own inline
-  // `<script>` that drives the dynamic card loading — as the intact-signal
-  // instead of the `.vacancy__render` class name itself: that class string
-  // can appear in the raw HTML ONLY inside an optional, tenant-editable
-  // custom-CSS override (`.vacancy__render .btn.btn-primary {...}`) that has
-  // nothing to do with the actual card template, so it flickers in and out
-  // of the fetched markup independently of whether the AJAX scaffold (and
-  // thus the parser's own selectors) is intact — observed live 2026-08-24/25
-  // (#6066): `vacancyListCareer` present on every fetch, `.vacancy__render`
-  // absent on the CI fetch that triggered the false "selector drift" alarm
-  // while the live AJAX endpoint confirmed a genuine empty listing. Only
-  // throw when the AJAX wiring itself is gone, so a legitimate portal-wide
-  // lull self-heals instead of freezing crawler-health freshness on every
-  // run until a human re-verifies live (#5970: 8 days stale after #5980's
-  // manual verification never made it back into the parser).
-  //
-  // Require BOTH the AJAX action name AND its `#vacancyList` mount container
-  // (#6496: a single-string check is exactly the shape of heuristic a partial
-  // template rewrite can defeat — renaming/removing the real render target
-  // while a stray reference to the old string survives elsewhere, e.g. a
-  // leftover comment or unrelated script). The two markers live in unrelated
-  // parts of the page (a JS action-name literal vs. a DOM mount-point id) and
-  // were observed live together on every confirmed-intact fetch
-  // (#5970/#5980/#6066, see also the `EMPTY_OK_CRAWLERS` note in
-  // check-crawler-health.mjs) — a rewrite has to coincidentally leave BOTH
-  // stray references intact to still fool this check, which is a materially
-  // smaller risk than fooling one.
+  // A zero-card page is accepted only when two independent surfaces agree:
+  // the HTML exposes the real AJAX mount/endpoint, and that live endpoint
+  // returns either parseable cards or its explicit empty-state message.
   if (totalCards === 0) {
-    const hasAjaxAction = html.includes('vacancyListCareer');
-    const hasMountContainer = /id=["']vacancyList["']/.test(html);
-    if (!hasAjaxAction || !hasMountContainer) {
+    const { hasMountContainer, endpoint, section } = extractAjaxScaffold(html);
+    if (!hasMountContainer || !endpoint || !section) {
       throw new Error(
-        `Elettra 1938: found 0 ".vacancy__render" cards on the FIAMM Components portal (${CAREER_URL}), and its AJAX scaffold isn't fully intact in the page markup ("vacancyListCareer" action name ${hasAjaxAction ? 'present' : 'MISSING'}, "#vacancyList" container ${hasMountContainer ? 'present' : 'MISSING'}) — likely selector/template drift. Investigate the parser's selectors before treating this as empty-ok.`,
+        `Elettra 1938: found 0 ".vacancy__render" cards and an incomplete AJAX scaffold ("#vacancyList" container ${hasMountContainer ? 'present' : 'MISSING'}, endpoint ${endpoint ? 'present' : 'MISSING'}, section token ${section ? 'present' : 'MISSING'}) — likely selector/template drift.`,
       );
     }
-    console.warn('⚠️ Elettra 1938: 0 cards on the shared FIAMM Components portal, but its AJAX scaffold ("vacancyListCareer" action name + "#vacancyList" container) is still fully intact in the page markup — genuine portal-wide lull (confirmed pattern, #5970/#5980/#6066), not selector drift.');
-    return [];
+
+    let endpointMarkup = '';
+    try {
+      endpointMarkup = await fetchAjaxListings(endpoint, section);
+    } catch (err) {
+      throw new Error(`Elettra 1938: failed to verify the zero-card page through its vacancy AJAX endpoint: ${err.message}`, { cause: err });
+    }
+
+    const ajaxResult = parseCareerPage(endpointMarkup, CAREER_URL);
+    if (ajaxResult.totalCards > 0) {
+      listings = ajaxResult.jobs;
+      totalCards = ajaxResult.totalCards;
+      console.log(`  📋 AJAX fallback found ${listings.length} Stabio listings (of ${totalCards} total cards)`);
+    } else if (/\b(?:nessun annuncio disponibile|no vacancies available|keine stellenangebote verfügbar|aucune offre disponible)\b/i.test(normalizeSpace(new JSDOM(endpointMarkup).window.document.body?.textContent || ''))) {
+      console.warn('⚠️ Elettra 1938: both the intact page scaffold and live AJAX endpoint confirm a genuine portal-wide lull.');
+      return [];
+    } else {
+      throw new Error('Elettra 1938: the live vacancy AJAX endpoint contains neither ".vacancy__render" cards nor an explicit empty state — likely selector/template drift.');
+    }
   }
 
   if (!listings.length) {

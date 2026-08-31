@@ -62381,6 +62381,474 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-parmelin-siccita-prestiti-agricoltura-2025': {
+    title: 'Siccità 2025: 54 milioni in prestiti alle aziende agricole',
+    description: 'Berna stanzia 54 milioni in prestiti senza interessi per le aziende agricole colpite dalla siccità. Parmelin difende la scelta e indica il foraggio come sfida',
+    keywords: 'frontalieri, ticino, svizzera, italia, siccità, milioni, prestiti, alle',
+    ogTitle: 'Siccità 2025: 54 milioni in prestiti alle aziende agricole',
+    ogDescription: 'Il presidente della Confederazione Guy Parmelin difende i 54 milioni di franchi in prestiti senza interessi alle aziende agricole colpite dalla siccità estiva del 2025 e spiega perché non è possibile introdurre aiuti a fondo perduto come durante',
+    canonicalPath: '/articoli-svizzera/parmelin-siccita-prestiti-agricoltura-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Siccità 2025: 54 milioni in prestiti alle aziende agricole",
+      "description": "Berna stanzia 54 milioni in prestiti senza interessi per le aziende agricole colpite dalla siccità. Parmelin difende la scelta e indica il foraggio come sfida",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/parmelin-siccita-prestiti-agricoltura-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campi agricoli svizzeri secchi durante l'estate 2025 con colline e Alpi sullo sfondo"
+      },
+      "datePublished": "2026-08-31T06:12:56+00:00",
+      "dateModified": "2026-08-31T06:12:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/parmelin-siccita-prestiti-agricoltura-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-grigioni-mutuo-ipotecario': {
+    title: 'Casa in Grigioni: mutuo, fondi propri e imposte',
+    description: 'Guida all\'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, casa, grigioni, mutuo, fondi',
+    ogTitle: 'Casa in Grigioni: mutuo, fondi propri e imposte',
+    ogDescription: 'Guida all\'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-grigioni-mutuo-ipotecario/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Casa in Grigioni: mutuo, fondi propri e imposte",
+      "description": "Guida all'acquisto immobiliare nel Canton Grigioni: mutuo ipotecario, fondi propri, imposte acquisizione, spese notarili e procedura step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-grigioni-mutuo-ipotecario.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chalet svizzero tradizionale con balcone in legno sulle pendici alpine del Canton Grigioni"
+      },
+      "datePublished": "2026-08-31T06:47:21+00:00",
+      "dateModified": "2026-08-31T06:47:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-grigioni-mutuo-ipotecario/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-grigioni-percorso-duale': {
+    title: 'Apprendistato nei Grigioni: percorso duale, AFC e CFC',
+    description: 'Apprendistato nei Grigioni: sistema duale scuola-azienda secondo la LFPr, titoli AFC e CFC, retribuzione cantonale, maturità professionale e diritti',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, grigioni, percorso, duale',
+    ogTitle: 'Apprendistato nei Grigioni: guida al percorso duale',
+    ogDescription: 'Tutto sull\'apprendistato nei Grigioni: percorso duale scuola-azienda regolato dalla LFPr, titoli AFC e CFC, retribuzione per anno e settore, maturità professionale per le SUPPL e diritti contrattuali degli apprendisti secondo il diritto federale.',
+    canonicalPath: '/articoli-svizzera/apprendistato-grigioni-percorso-duale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato nei Grigioni: percorso duale, AFC e CFC",
+      "description": "Apprendistato nei Grigioni: sistema duale scuola-azienda secondo la LFPr, titoli AFC e CFC, retribuzione cantonale, maturità professionale e diritti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-grigioni-percorso-duale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista al lavoro in un'azienda artigiana nei Grigioni"
+      },
+      "datePublished": "2026-08-31T07:38:12+00:00",
+      "dateModified": "2026-08-31T07:38:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-grigioni-percorso-duale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asb-banche-svizzera-crescita-2026': {
+    title: 'ASB prevede crescita bancaria nel 2026 | Frontaliere Ticino',
+    description: 'Le banche svizzere cresceranno ancora nel 2026: patrimonio gestito oltre 10\'000 miliardi di franchi. ASB conferma outlook positivo nonostante tassi a zero.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prevede, crescita, bancaria, banche',
+    ogTitle: 'ASB: banche svizzere in crescita nel 2026',
+    ogDescription: 'Settore bancario svizzero in espansione nel 2026 secondo ASB. Patrimonio gestito oltre 10\'000 miliardi di franchi, occupazione stabile, commissioni traino della crescita. Cosa cambia per investitori e risparmiatori svizzeri.',
+    canonicalPath: '/articoli-svizzera/asb-banche-svizzera-crescita-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "ASB prevede crescita bancaria nel 2026",
+      "description": "Le banche svizzere cresceranno ancora nel 2026: patrimonio gestito oltre 10'000 miliardi di franchi. ASB conferma outlook positivo nonostante tassi a zero.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asb-banche-svizzera-crescita-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio moderno in un distretto finanziario svizzero con bandiera nazionale, architettura contemporanea"
+      },
+      "datePublished": "2026-08-31T08:28:56+00:00",
+      "dateModified": "2026-08-31T08:28:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asb-banche-svizzera-crescita-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-finanziamenti-partiti-ps-2025': {
+    title: 'Finanziamenti ai partiti: il PS è quello che ha più soldi',
+    description: 'Nel 2025 il PS ha raccolto 7,9 milioni di franchi. Nove partiti federali dichiarano 24,6 milioni, in calo di 1 milione rispetto al 2024. Dati del Controllo',
+    keywords: 'frontalieri, ticino, svizzera, italia, finanziamenti, partiti, quello, soldi',
+    ogTitle: 'Finanziamenti ai partiti: PS ha più soldi nel 2025',
+    ogDescription: 'Il PS ha raccolto 7,9 milioni di franchi nel 2025, il massimo tra i partiti federali. Nove partiti dichiarano 24,6 milioni totali, in calo di un milione rispetto al 2024. Scopri i dati della trasparenza politica svizzera.',
+    canonicalPath: '/articoli-svizzera/finanziamenti-partiti-ps-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Finanziamenti ai partiti: il PS è quello che ha più soldi",
+      "description": "Nel 2025 il PS ha raccolto 7,9 milioni di franchi. Nove partiti federali dichiarano 24,6 milioni, in calo di 1 milione rispetto al 2024. Dati del Controllo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/finanziamenti-partiti-ps-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo del Parlamento federale svizzero a Berna, centro della politica nazionale elvetica"
+      },
+      "datePublished": "2026-08-31T09:31:17+00:00",
+      "dateModified": "2026-08-31T09:31:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/finanziamenti-partiti-ps-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollette-ses-2027-riduzione': {
+    title: 'Bollette SES più leggere per il terzo anno consecutivo',
+    description: 'SES riduce le tariffe elettriche nel 2027: -4% in Ticino, -5,5% in Mesolcina. Costi energetici in calo grazie a gestione efficiente del portafoglio energetico.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollette, leggere, terzo, anno',
+    ogTitle: 'SES: bollette giù nel 2027 per il terzo anno',
+    ogDescription: 'Nel 2027 le bollette SES scendono di nuovo. In Ticino una famiglia media con 4.500 kWh risparmia 53 CHF (4%), in Mesolcina 73 CHF (5,5%). Costi energetici riducono l\'impatto sul bilancio domestico.',
+    canonicalPath: '/articoli-svizzera/bollette-ses-2027-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollette SES più leggere per il terzo anno consecutivo",
+      "description": "SES riduce le tariffe elettriche nel 2027: -4% in Ticino, -5,5% in Mesolcina. Costi energetici in calo grazie a gestione efficiente del portafoglio energetico.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollette-ses-2027-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Abitazione svizzera con pannelli solari e linee elettriche nel paesaggio ticinese"
+      },
+      "datePublished": "2026-08-31T10:35:26+00:00",
+      "dateModified": "2026-08-31T10:35:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bollette-ses-2027-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-divario-salariale-ust-2024-157': {
+    title: 'Divario salariale UST 2024: cala al 15,7% in Svizzera',
+    description: 'UST 2024: divario salariale tra donne e uomini al 15,7% (dal 16,2% del 2022). Privato 17,2%, pubblico 12,8%. Componente non spiegata: 640 CHF. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, cala, donne',
+    ogTitle: 'Divario salariale UST 2024 al 15,7% in Svizzera',
+    ogDescription: 'Nel 2024 il divario salariale lordo tra donne e uomini in Svizzera è sceso al 15,7% dal 16,2% del 2022. Privato al 17,2%, pubblico al 12,8%. La componente non spiegata vale 640 CHF lordi mensili. Nelle finanze e assicurazioni il gap tocca il 30,6%.',
+    canonicalPath: '/articoli-svizzera/divario-salariale-ust-2024-157/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale UST 2024: cala al 15,7% in Svizzera",
+      "description": "UST 2024: divario salariale tra donne e uomini al 15,7% (dal 16,2% del 2022). Privato 17,2%, pubblico 12,8%. Componente non spiegata: 640 CHF. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divario-salariale-ust-2024-157.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Svizzera con impiegati davanti all'ingresso"
+      },
+      "datePublished": "2026-08-31T11:16:06+00:00",
+      "dateModified": "2026-08-31T11:16:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divario-salariale-ust-2024-157/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scorte-mangimi-proteici-svizzera': {
+    title: 'Scorte di mangimi proteici sbloccate in Svizzera: fino a 16\'000 tonnellate',
+    description: 'AEP sblocca fino a 16\'000 tonnellate di scorte obbligatorie di mangimi proteici per la siccità di Reno e Danubio. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, scorte, mangimi, proteici, sbloccate',
+    ogTitle: 'Scorte mangimi proteici sbloccate in Svizzera',
+    ogDescription: 'Il delegato all\'Approvvigionamento economico del Paese (AEP) Roland Pfister ha disposto l\'immissione sul mercato di quasi 16\'000 tonnellate di scorte obbligatorie di mangimi proteici, pari al 20% del totale. La misura è motivata dal basso livello',
+    canonicalPath: '/articoli-svizzera/scorte-mangimi-proteici-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scorte di mangimi proteici sbloccate in Svizzera: fino a 16'000 tonnellate",
+      "description": "AEP sblocca fino a 16'000 tonnellate di scorte obbligatorie di mangimi proteici per la siccità di Reno e Danubio. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scorte-mangimi-proteici-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Allevamento svizzero con bovini vicino a un fiume in secca"
+      },
+      "datePublished": "2026-08-31T12:47:35+00:00",
+      "dateModified": "2026-08-31T12:47:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scorte-mangimi-proteici-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-swatch-samsung-risarcimento-marchi': {
+    title: 'Swatch batte Samsung: 11,6 mln di risarcimento',
+    description: 'Tribunale britannico condanna Samsung a pagare 11,6 milioni di dollari a Swatch per violazione di marchi orologieri svizzeri nel Galaxy App Store.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swatch, batte, samsung, risarcimento',
+    ogTitle: 'Swatch vince contro Samsung: 11,6 mln di dollari',
+    ogDescription: 'Il tribunale britannico ordina a Samsung di pagare 11,6 milioni di dollari a Swatch per la contraffazione di quadranti di orologi digitali nei marchi iconici dell\'azienda svizzera. Una vittoria storica per la proprietà intellettuale elvetica.',
+    canonicalPath: '/articoli-svizzera/swatch-samsung-risarcimento-marchi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swatch batte Samsung: 11,6 mln di risarcimento",
+      "description": "Tribunale britannico condanna Samsung a pagare 11,6 milioni di dollari a Swatch per violazione di marchi orologieri svizzeri nel Galaxy App Store.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swatch-samsung-risarcimento-marchi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dettagli di quadranti e componenti meccanici di orologi di lusso svizzeri in studio fotografico professionale"
+      },
+      "datePublished": "2026-08-31T13:34:49+00:00",
+      "dateModified": "2026-08-31T13:34:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swatch-samsung-risarcimento-marchi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-divario-salariale-svizzera-ust-640': {
+    title: 'Divario salariale uomo-donna in Svizzera: 640 CHF di parte non spiegata',
+    description: 'Svizzera 2024: divario salariale uomo-donna al 15,7%. Componente non spiegata 640 CHF/mese. Finanza e assicurazioni al 30,6%. Dati UST. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, divario, salariale, uomo-donna, parte',
+    ogTitle: 'Divario salariale uomo-donna in Svizzera: 640 CHF non spiegati',
+    ogDescription: 'Il gap uomo-donna scende al 15,7% nel 2024 ma la componente non spiegata resta di 640 franchi lordi al mese. In finanza e assicurazioni il divario tocca il 30,6%. Tutti i dati UST per settore.',
+    canonicalPath: '/articoli-svizzera/divario-salariale-svizzera-ust-640/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Divario salariale uomo-donna in Svizzera: 640 CHF di parte non spiegata",
+      "description": "Svizzera 2024: divario salariale uomo-donna al 15,7%. Componente non spiegata 640 CHF/mese. Finanza e assicurazioni al 30,6%. Dati UST. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/divario-salariale-svizzera-ust-640.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Distretto finanziario di Zurigo con grattacieli in vetro"
+      },
+      "datePublished": "2026-08-31T13:59:31+00:00",
+      "dateModified": "2026-08-31T13:59:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/divario-salariale-svizzera-ust-640/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-commissione-lpp-tasso-minimo-2027': {
+    title: 'Previdenza professionale: tasso minimo LPP proposto all\'1,75% per il 2027',
+    description: 'Commissione LPP raccomanda tasso minimo LPP all\'1,75% per il 2027 (+0,50%): voto 10 a 4, decisione finale al Consiglio federale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, previdenza, professionale, tasso, minimo',
+    ogTitle: 'Tasso minimo LPP 2027 proposto all\'1,75% dalla Commissione',
+    ogDescription: 'La Commissione federale della previdenza professionale raccomanda di portare il tasso minimo LPP dall\'1,25% all\'1,75% per il 2027 (+0,50 punti). Voto 10 a 4 il 31 agosto 2026 a Berna. Decisione finale al Consiglio federale.',
+    canonicalPath: '/articoli-svizzera/commissione-lpp-tasso-minimo-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Previdenza professionale: tasso minimo LPP proposto all'1,75% per il 2027",
+      "description": "Commissione LPP raccomanda tasso minimo LPP all'1,75% per il 2027 (+0,50%): voto 10 a 4, decisione finale al Consiglio federale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commissione-lpp-tasso-minimo-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Consiglio federale"
+      },
+      "datePublished": "2026-08-31T14:33:27+00:00",
+      "dateModified": "2026-08-31T14:33:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commissione-lpp-tasso-minimo-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-skyguide-licenziamenti-50-ristrutturazione': {
+    title: 'Skyguide, licenziamenti ridotti da 220 a 50: piano in due fasi',
+    description: 'Skyguide riduce i licenziamenti da 220 a 50: prima fase da 14, seconda da circa 35 nella primavera 2027. Obiettivo: 51 mln CHF di risparmi entro il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, skyguide, licenziamenti, ridotti, piano',
+    ogTitle: 'Skyguide, licenziamenti ridotti a 50: piano in due fasi',
+    ogDescription: 'Skyguide chiude la ristrutturazione con 50 licenziamenti totali, contro i 220 inizialmente annunciati. Prima fase da 14, seconda da circa 35 nella primavera 2027. Obiettivo: 51 milioni di risparmi entro il 2027, direzione da 9 a 5 membri, sicurezza',
+    canonicalPath: '/articoli-svizzera/skyguide-licenziamenti-50-ristrutturazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Skyguide, licenziamenti ridotti da 220 a 50: piano in due fasi",
+      "description": "Skyguide riduce i licenziamenti da 220 a 50: prima fase da 14, seconda da circa 35 nella primavera 2027. Obiettivo: 51 mln CHF di risparmi entro il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/skyguide-licenziamenti-50-ristrutturazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Torre di controllo aereo all'aeroporto di Zurigo-Kloten al tramonto"
+      },
+      "datePublished": "2026-08-31T15:24:35+00:00",
+      "dateModified": "2026-08-31T15:24:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/skyguide-licenziamenti-50-ristrutturazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

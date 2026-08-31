@@ -10982,6 +10982,23 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Crédit d\'impôt frontalier 2026 : erreurs courantes',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Cadre CE de 730, nouvel accord en vigueur depuis 2024 et régime transitoire : les erreurs les plus fréquentes des frontaliers.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Bulletin de salaire suisse et formulaire 730 italien, arrière-plan Mendrisio',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Pension frontalière 2026 avec enfants : guide AVS-INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Nouvel accord en vigueur depuis le 1er janvier 2024, AVS à 5,3 % et coordination avec l\'INPS : ce qui change pour la famille frontalière avec enfants en 2026.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'frontaliers traversant la gare de Bellinzona à l\'aube',
+    'blog.article.unia-pause-calore-cantieri.title': 'Canicule sur les chantiers : Unia demande des pauses obligatoires',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Seulement 18% reçoivent des pauses systématiques supérieures à 33°C. Sur 984 travailleurs interrogés, 82% des chantiers ignorent les protections prévues. C\'est ce que demande le syndicat.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Chantier au Tessin par chaleur estivale : travailleurs suivant les procédures de sécurité avec zones ombragées et équipements de protection.',
+    'blog.article.bollettino-frontaliere-2026-08-31.title': 'Bulletin du frontalier – 31 août 2026 : 33 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-08-31.excerpt': 'Les chiffres du jour, 31 août 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'Les chiffres du jour pour les frontaliers – 31 août 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Bulletin du frontalier du 31 août 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'Les chiffres du 31 août 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Trains à l\'arrêt entre Arbedo-Castione et Biasca : désagréments',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruption lundi vers midi sur le tronçon Arbedo-Castione-Biasca : CFF signalent « accident par personne », trains annulés.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Gare ferroviaire avec avis d\'interruption sur la ligne tessinoise',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Pension frontalière 2026 : planifier avec famille et enfants',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'Réforme de l\'AVS 21, nouvel accord frontalier en vigueur à partir de 2024 et scénarios de rente anticipée pour ceux qui travaillent au Tessin avec leur famille.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Couple de frontaliers planifiant la retraite au bord du lac de Lugano',
 };
 
 export default blogMetaFr;

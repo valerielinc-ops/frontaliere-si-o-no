@@ -1,0 +1,23 @@
+{
+  "companyKey": "raiffeisen",
+  "companyName": "Raiffeisenbank Glarnerland",
+  "companyHost": "raiffeisen.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.raiffeisen.ch/rch/it/chi-siamo/carriera.html"
+  ],
+  "detailTemplate": "/rch/it/chi-siamo/carriera/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "La Banca Raiffeisen come datore di lavoro",
+    "<source srcset=\"https://scene7.raiff",
+    "<source srcset=\"https://scene7.raiffeisen.ch/is/image/raiffeisen/rb-kaufmann:16x9?wid=1677&he",
+    "<source srcset=\"https://scene7.raiffeisen.ch/is/image/r"
+  ],
+  "canton": "GL",
+  "sourceLang": "it",
+  "learnedAt": "2026-08-31T10:27:01.604Z"
+}

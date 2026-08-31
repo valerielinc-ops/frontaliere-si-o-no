@@ -80918,6 +80918,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-pensione-avs-inps-2026-famiglia-checklist': {
+    title: 'Pensione frontaliere 2026 con figli: guida AVS-INPS',
+    description: 'Pensione frontaliere 2026 con figli: coordinamento AVS-INPS, totalizzazione, aliquote 5,3% e Nuovo Accordo dal 2024. Guida operativa per famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, figli, avs-inps, nuovo',
+    ogTitle: 'Pensione frontaliere 2026 con figli: guida AVS-INPS',
+    ogDescription: 'Pensione del frontaliere nel 2026: aliquote AVS al 5,3%, totalizzazione con INPS, Nuovo Accordo in vigore dal 1° gennaio 2024 e differenze vecchi-nuovi frontalieri. Guida pratica per famiglie con figli.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-famiglia-checklist',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontaliere 2026 con figli: guida AVS-INPS",
+      "description": "Pensione frontaliere 2026 con figli: coordinamento AVS-INPS, totalizzazione, aliquote 5,3% e Nuovo Accordo dal 2024. Guida operativa per famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-avs-inps-2026-famiglia-checklist.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pendolari frontalieri attraversano la stazione di Bellinzona all'alba"
+      },
+      "datePublished": "2026-08-31T07:00:33+00:00",
+      "dateModified": "2026-08-31T07:00:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-avs-inps-2026-famiglia-checklist/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-unia-pause-calore-cantieri': {
+    title: 'Canicola nei cantieri: Unia chiede pause obbligatorie',
+    description: 'Indagine Unia su 984 lavoratori edili: l\'82% dei cantieri non concede pause anti-calore. Richieste precise e il modello Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, canicola, cantieri, unia, chiede',
+    ogTitle: 'Canicola nei cantieri: la denuncia di Unia',
+    ogDescription: 'Solo il 18% dei lavoratori ha pause sistematiche quando la temperatura supera i 33°C. Unia intervista 984 edili in Svizzera e chiede sospensione obbligatoria. Ticino esempio con stop lavori dalle 14:00 nelle ondate di calore.',
+    canonicalPath: '/articoli-frontaliere/unia-pause-calore-cantieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Canicola nei cantieri: Unia chiede pause obbligatorie",
+      "description": "Indagine Unia su 984 lavoratori edili: l'82% dei cantieri non concede pause anti-calore. Richieste precise e il modello Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/unia-pause-calore-cantieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cantiere in Ticino con sole estivo: lavoratori edili seguono procedure di sicurezza con zone ombrate e attrezzature protettive."
+      },
+      "datePublished": "2026-08-31T11:05:48+00:00",
+      "dateModified": "2026-08-31T11:05:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/unia-pause-calore-cantieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bollettino-frontaliere-2026-08-31': {
+    title: 'Bollettino del frontaliere – 31 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    description: 'Bollettino frontalieri del 31 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    keywords: 'bollettino frontaliere, dogana, attesa dogana, code valichi ticino, prezzi benzina confine, cambio franco euro, lavoro svizzera, frontalieri ticino',
+    ogTitle: 'Bollettino del frontaliere – 31 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    ogDescription: 'I numeri del 31 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/bollettino-frontaliere-2026-08-31',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollettino del frontaliere – 31 agosto 2026: 33 nuovi annunci di lavoro ieri",
+      "description": "Bollettino frontalieri del 31 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bollettino-frontaliere-2026-08-31.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "I numeri del giorno per i frontalieri – 31 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro"
+      },
+      "datePublished": "2026-08-31T11:28:15+00:00",
+      "dateModified": "2026-08-31T11:28:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/samuele-valente/#person",
+        "name": "Samuele Valente",
+        "url": "https://frontaliereticino.ch/autori/samuele-valente/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bollettino-frontaliere-2026-08-31/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-traffico-ferroviario-bloccato-ticino': {
+    title: 'Treni fermi tra Arbedo-Castione e Biasca: disagi',
+    description: 'Interruzione ferroviaria lunedì verso mezzogiorno tra Arbedo-Castione e Biasca: FFS indicano «incidente a persona». Disagi previsti nelle prossime ore.',
+    keywords: 'frontalieri, ticino, svizzera, italia, treni, fermi, arbedo-castione, biasca',
+    ogTitle: 'Treni fermi Arbedo-Castione–Biasca per «incidente a persona»',
+    ogDescription: 'Lunedì verso mezzogiorno il traffico ferroviario è andato in tilt tra Arbedo-Castione e Biasca: le FFS segnalano un «incidente a persona» e treni cancellati. I disagi sono destinati a protrarsi nelle ore successive, senza una previsione precisa',
+    canonicalPath: '/articoli-frontaliere/traffico-ferroviario-bloccato-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treni fermi tra Arbedo-Castione e Biasca: disagi",
+      "description": "Interruzione ferroviaria lunedì verso mezzogiorno tra Arbedo-Castione e Biasca: FFS indicano «incidente a persona». Disagi previsti nelle prossime ore.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/traffico-ferroviario-bloccato-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria con avviso di interruzione del servizio sulla tratta ticinese"
+      },
+      "datePublished": "2026-08-31T13:43:29+00:00",
+      "dateModified": "2026-08-31T13:43:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-ferroviario-bloccato-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-pensione-2026-famiglia-figli': {
+    title: 'Pensione frontalieri 2026: pianificare con famiglia e figli',
+    description: 'Pensionamento anticipato frontalieri 2026: AVS, LPP, nuove regole fiscali dal 2024 e scenari per famiglie con figli. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, pianificare, famiglia, figli',
+    ogTitle: 'Pensione frontalieri 2026: guida alla pianificazione familiare',
+    ogDescription: 'Età di riferimento AVS a 65 anni dal 2024, nuove regole fiscali dal 2024 e scenari di pensionamento anticipato per frontalieri ticinesi con famiglia e figli a carico. Tutti i dettagli.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-pensione-2026-famiglia-figli',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione frontalieri 2026: pianificare con famiglia e figli",
+      "description": "Pensionamento anticipato frontalieri 2026: AVS, LPP, nuove regole fiscali dal 2024 e scenari per famiglie con figli. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-pensione-2026-famiglia-figli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coppia di frontalieri anziani pianifica il pensionamento a Lugano"
+      },
+      "datePublished": "2026-08-31T14:22:10+00:00",
+      "dateModified": "2026-08-31T14:22:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-pensione-2026-famiglia-figli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

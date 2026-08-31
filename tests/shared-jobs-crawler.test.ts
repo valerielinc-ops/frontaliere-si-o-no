@@ -3,6 +3,32 @@ import { looksLikeShortLabelValue, extractCompanyFromText, extractLocationFromTe
 
 const { buildKnownJobUrlsSet } = __testables;
 
+describe('generic link discovery — quote-balanced hrefs (#6574)', () => {
+  const { absoluteLinks, absoluteSameHostLinks } = __testables;
+  const baseUrl = 'https://careers.example.ch/jobs/';
+  const href = "/jobs/dell'impiego?role=R&D&level=2#apply";
+
+  it('keeps apostrophes, query parameters and non-leading anchors in absoluteLinks', () => {
+    const links = absoluteLinks(
+      `<a onclick="window.location.href='/jobs/decoy'" class='job' data-kind="detail" href="${href}">Lavoro</a>`
+        + '<a href="#navigation">Indice</a>',
+      baseUrl,
+    );
+    expect(links).toEqual([`https://careers.example.ch${href}`]);
+  });
+
+  it('does the same for same-host hinted links and ignores fragment-only anchors', () => {
+    const links = absoluteSameHostLinks(
+      `<a href="${href}" class='job' data-template='href="/jobs/decoy"'>Offerta d'impiego</a>`
+        + '<a href="#jobs">Jobs</a>'
+        + '<a href="https://other.example/jobs/42">Jobs</a>',
+      baseUrl,
+      /(job|offerta)/i,
+    );
+    expect(links).toEqual([`https://careers.example.ch${href}`]);
+  });
+});
+
 describe('looksLikeShortLabelValue — prose-fragment sanity guard (#4587)', () => {
   it('rejects real production garbage captured by the loose label regexes', () => {
     const garbage = [

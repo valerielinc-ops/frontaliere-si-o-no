@@ -1628,6 +1628,18 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-domicilio-c-grigioni-requisiti': { it: 'permesso-domicilio-c-grigioni-requisiti', en: 'residence-permit-c-graubunden-requirements', de: 'aufenthaltserlaubnis-c-graubuenden-anforderungen', fr: 'permis-sejour-c-grisons-conditions' },
  'permesso-l-breve-durata-grigioni-validita': { it: 'permesso-l-breve-durata-grigioni-validita', en: 'short-term-l-permit-graubunden-validity', de: 'kurzaufenthaltsbewilligung-l-graubuenden-gueltigkeit', fr: 'permis-l-courte-duree-grisons-validite' },
  'apprendistato-formazione-grigioni': { it: 'apprendistato-formazione-grigioni', en: 'apprenticeship-vocational-training-graubunden', de: 'lehre-berufsbildung-graubuenden', fr: 'apprentissage-formation-professionnelle-grisons' },
+ 'parmelin-siccita-prestiti-agricoltura-2025': { it: 'parmelin-siccita-prestiti-agricoltura-2025', en: 'parmelin-drought-farm-loans-2025', de: 'parmelin-duerre-landwirtschaftskredite-2025', fr: 'parmelin-secheresse-prets-agricoles-2025' },
+ 'comprare-casa-grigioni-mutuo-ipotecario': { it: 'comprare-casa-grigioni-mutuo-ipotecario', en: 'buy-house-grisons-mortgage-procedure', de: 'haus-kauf-graubuenden-hypothek-verfahren', fr: 'acheter-maison-grisons-hypotheque-procedure' },
+ 'apprendistato-grigioni-percorso-duale': { it: 'apprendistato-grigioni-percorso-duale', en: 'apprenticeship-graubunden-dual-pathway', de: 'lehre-graubunden-dualer-bildungsweg', fr: 'apprentissage-grisons-voie-duale' },
+ 'asb-banche-svizzera-crescita-2026': { it: 'asb-banche-svizzera-crescita-2026', en: 'asb-swiss-banks-growth-2026', de: 'asb-schweizer-banken-wachstum-2026', fr: 'asb-banques-suisses-croissance-2026' },
+ 'finanziamenti-partiti-ps-2025': { it: 'finanziamenti-partiti-ps-2025', en: 'party-financing-ps-2025', de: 'parteifinanzierung-ps-2025', fr: 'financement-partis-ps-2025' },
+ 'bollette-ses-2027-riduzione': { it: 'bollette-ses-2027-riduzione', en: 'ses-bills-2027-reduction', de: 'ses-rechnungen-2027-senkung', fr: 'factures-ses-2027-reduction' },
+ 'divario-salariale-ust-2024-157': { it: 'divario-salariale-ust-2024-157', en: 'swiss-gender-pay-gap-ust-2024', de: 'lohngefalle-ust-2024-schweiz', fr: 'ecart-salarial-ust-2024-suisse' },
+ 'scorte-mangimi-proteici-svizzera': { it: 'scorte-mangimi-proteici-svizzera', en: 'swiss-protein-feed-reserves-released', de: 'schweiz-protein-futter-reserven-freigegeben', fr: 'suisse-stocks-aliments-proteiques-libres' },
+ 'swatch-samsung-risarcimento-marchi': { it: 'swatch-samsung-risarcimento-marchi', en: 'swatch-samsung-settlement-trademark', de: 'swatch-samsung-schadensersatz-marken', fr: 'swatch-samsung-indemnisation-marques' },
+ 'divario-salariale-svizzera-ust-640': { it: 'divario-salariale-svizzera-ust-640', en: 'swiss-gender-pay-gap-ust-640', de: 'geschlechterlohngefalle-schweiz-bfs-640', fr: 'ecart-salarial-suisse-ofs-640' },
+ 'commissione-lpp-tasso-minimo-2027': { it: 'commissione-lpp-tasso-minimo-2027', en: 'oak-bv-commission-minimum-rate-2027', de: 'bvg-kommission-mindestzinssatz-2027', fr: 'commission-lpp-taux-minimum-2027' },
+ 'skyguide-licenziamenti-50-ristrutturazione': { it: 'skyguide-licenziamenti-50-ristrutturazione', en: 'skyguide-layoffs-50-restructuring', de: 'skyguide-entlassungen-50-restrukturierung', fr: 'skyguide-licenciements-50-restructuration' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -18,7 +18,8 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execSync } from 'node:child_process';
-import { extractDetailFields } from './lib/prospector/extract.mjs';
+import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs';
+import { readAttr } from './lib/html-attr.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -225,11 +226,196 @@ function normalizePlace(value) {
     .replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
+const LOCATION_TOKEN_ALIASES = new Map([
+  ['sankt', 'st'], ['saint', 'st'], ['san', 'st'],
+  ['geneva', 'geneve'], ['ginevra', 'geneve'], ['genf', 'geneve'],
+  ['berne', 'bern'], ['berna', 'bern'],
+  ['bale', 'basel'], ['basilea', 'basel'],
+  ['freiburg', 'fribourg'], ['friburgo', 'fribourg'],
+  ['bienne', 'biel'],
+  ['coira', 'chur'], ['cuira', 'chur'],
+  ['lucerne', 'luzern'], ['lucerna', 'luzern'],
+  ['zurigo', 'zurich'],
+  ['argovia', 'aargau'],
+]);
+const LOCATION_NOISE_TOKENS = new Set([
+  'ch', 'che', 'suisse', 'schweiz', 'svizzera', 'switzerland',
+  'ag', 'ai', 'ar', 'be', 'bl', 'bs', 'fr', 'ge', 'gl', 'gr', 'ju', 'lu',
+  'ne', 'nw', 'ow', 'sg', 'sh', 'so', 'sz', 'tg', 'ti', 'ur', 'vd', 'vs',
+  'zg', 'zh', 'gva', 'gt', 'country', 'region', 'canton', 'sede',
+  'headquarter', 'headquarters', 'office', 'plant', 'site',
+]);
+const SWISS_REGION_NAMES = new Set([
+  'aargau', 'appenzell', 'basel', 'bern', 'fribourg', 'geneve', 'glarus',
+  'graubunden', 'jura', 'luzern', 'neuchatel', 'nidwalden', 'obwalden',
+  'schaffhausen', 'schwyz', 'solothurn', 'st gallen', 'thurgau', 'ticino',
+  'uri', 'valais', 'vaud', 'zug', 'zurich',
+]);
+const SOURCE_LOCATION_PLACEHOLDERS = new Set([
+  'location', 'locations', 'location s', 'search by location',
+  'nach standort suchen', 'rechercher par lieu', 'rechercher par lieu district',
+  'rechercher par lieu pays', 'nach ort bezirk suchen', 'country region',
+  'where', 'lieu de travail', 'arbeitsort', 'dein kontakt',
+  'labellocation locale',
+]);
+
+function canonicalLocationTokens(value) {
+  const tokens = normalizePlace(value).split(' ').filter(Boolean)
+    .map((token) => LOCATION_TOKEN_ALIASES.get(token) || token)
+    .filter((token) => !LOCATION_NOISE_TOKENS.has(token))
+    .filter((token) => !/^\d+$/.test(token) && !/^(?:[a-z]\d+|\d+[a-z])$/.test(token));
+  return tokens.filter((token, index) => index === 0 || token !== tokens[index - 1]);
+}
+
+function tokensEqual(left, right) {
+  return left.length === right.length && left.every((token, index) => token === right[index]);
+}
+
+function endsWithTokens(value, suffix) {
+  return suffix.length > 0 && suffix.length <= value.length
+    && suffix.every((token, index) => value[value.length - suffix.length + index] === token);
+}
+
+function hasCoherentCantonSuffix(value, locality) {
+  if (locality.length === 0 || value.length <= locality.length) return false;
+  if (!locality.every((token, index) => value[index] === token)) return false;
+  return SWISS_REGION_NAMES.has(value.slice(locality.length).join(' '));
+}
+
+function isUsableSourceLocation(value) {
+  const normalized = normalizePlace(value);
+  if (!normalized || SOURCE_LOCATION_PLACEHOLDERS.has(normalized)) return false;
+  return canonicalLocationTokens(value).some((token) => token.length >= 3);
+}
+
+/**
+ * Compare locality semantics rather than raw labels. Country/vendor prefixes,
+ * postal addresses and the four Swiss language spellings are equivalent, but
+ * a city is not allowed to match only the trailing canton component.
+ */
 export function sourceLocationMatches(published, source) {
-  const left = normalizePlace(published);
-  const right = normalizePlace(source);
-  if (!left || !right) return false;
-  return left === right || right.startsWith(`${left} `) || left.startsWith(`${right} `);
+  const left = canonicalLocationTokens(published);
+  const right = canonicalLocationTokens(source);
+  if (!left.length || !right.length) return false;
+  if (tokensEqual(left, right)) return true;
+
+  const publishedCandidates = plainText(published).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
+  const sourceCandidates = plainText(source).split(/[|;,>:]+|\s+-\s+/).map((part) => part.trim()).filter(Boolean);
+  for (const publishedCandidate of publishedCandidates) {
+    const publishedTokens = canonicalLocationTokens(publishedCandidate);
+    if (!publishedTokens.length) continue;
+    for (let sourceIndex = 0; sourceIndex < sourceCandidates.length; sourceIndex++) {
+      const rawSourceCandidate = sourceCandidates[sourceIndex];
+      const sourceTokens = canonicalLocationTokens(rawSourceCandidate);
+      if (!sourceTokens.length) continue;
+      const publishedHasPostalCode = /\b\d{4,5}\b/.test(publishedCandidate);
+      const candidateHasPostalCode = /\b\d{4,5}\b/.test(rawSourceCandidate);
+      // In structured `city, canton` values, a published city must not pass only
+      // because it equals the trailing canton (Zürich vs Winterthur, Zürich).
+      if (sourceIndex > 0 && tokensEqual(sourceTokens, publishedTokens)
+        && !candidateHasPostalCode && SWISS_REGION_NAMES.has(publishedTokens.join(' '))) continue;
+      if (tokensEqual(sourceTokens, publishedTokens)) return true;
+      if (candidateHasPostalCode && endsWithTokens(sourceTokens, publishedTokens)) return true;
+      if (publishedHasPostalCode && endsWithTokens(publishedTokens, sourceTokens)) return true;
+      if (hasCoherentCantonSuffix(sourceTokens, publishedTokens)
+        || hasCoherentCantonSuffix(publishedTokens, sourceTokens)) return true;
+    }
+  }
+  return false;
+}
+
+const VOID_HTML_TAGS = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']);
+const JOB_LOCATION_CLASS_TOKENS = new Set([
+  'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
+  'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
+  'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
+  'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
+]);
+const JOB_DETAIL_SCOPE_CLASS_TOKENS = new Set([
+  'job-detail', 'job_detail', 'job-details', 'job_details', 'job-posting', 'job_posting',
+  'vacancy-detail', 'vacancy_detail', 'vacancy-details', 'vacancy_details',
+  'vacancy-posting', 'vacancy_posting',
+]);
+const NON_CURRENT_JOB_SCOPE_CLASS_TOKENS = new Set([
+  'job-search-results', 'job_search_results', 'vacancy-search-results', 'vacancy_search_results',
+  'related-card', 'related_card', 'job-related-card', 'job_related_card',
+  'vacancy-related-card', 'vacancy_related_card', 'job-recommendations', 'job_recommendations',
+  'vacancy-recommendations', 'vacancy_recommendations', 'job-card', 'job_card',
+  'vacancy-card', 'vacancy_card',
+]);
+
+function classTokens(attrs) {
+  return [readAttr(attrs, 'class'), readAttr(attrs, 'id')]
+    .flatMap((value) => value.split(/\s+/))
+    .filter(Boolean);
+}
+
+function hasJobScope(attrs) {
+  if (/\bJobPosting\b/i.test(readAttr(attrs, 'itemtype'))) return true;
+  return classTokens(attrs).some((token) => JOB_DETAIL_SCOPE_CLASS_TOKENS.has(token.toLowerCase()));
+}
+
+function hasJobLocationClass(attrs) {
+  return classTokens(attrs).some((token) => JOB_LOCATION_CLASS_TOKENS.has(token.toLowerCase()));
+}
+
+function hasNonCurrentJobScope(attrs) {
+  return classTokens(attrs).some((token) => NON_CURRENT_JOB_SCOPE_CLASS_TOKENS.has(token.toLowerCase()));
+}
+
+function elementValue(html, openTagEnd, tagName, attrs) {
+  const content = readAttr(attrs, 'content');
+  if (content) return plainText(content);
+  const closingTag = new RegExp(`</${tagName}\\s*>`, 'ig');
+  closingTag.lastIndex = openTagEnd;
+  const closing = closingTag.exec(html);
+  if (!closing || closing.index - openTagEnd > 1000) return '';
+  return plainText(html.slice(openTagEnd, closing.index));
+}
+
+/**
+ * Return a location only together with the markup scope that makes it
+ * authoritative. This prevents a generic footer `addressLocality` from being
+ * promoted merely because a different job-scoped location exists later.
+ */
+export function extractSourceLocationObservation(html = '', pageUrl = '') {
+  const structured = extractJsonLd(html, pageUrl).find((item) => isUsableSourceLocation(item.location));
+  if (structured) return { location: structured.location, evidence: 'jsonld' };
+
+  const stack = [];
+  const tagRx = /<(\/?)\s*([a-z][a-z0-9:-]*)\b([^>]*)>/gi;
+  let match;
+  while ((match = tagRx.exec(html))) {
+    const [, closing, rawTagName, attrs] = match;
+    const tagName = rawTagName.toLowerCase();
+    if (closing) {
+      const matchingIndex = stack.map((item) => item.tagName).lastIndexOf(tagName);
+      if (matchingIndex >= 0) stack.length = matchingIndex;
+      continue;
+    }
+
+    const blocked = Boolean(stack.at(-1)?.blocked) || hasNonCurrentJobScope(attrs);
+    const jobScoped = !blocked && (Boolean(stack.at(-1)?.jobScoped) || hasJobScope(attrs));
+    const itemprops = readAttr(attrs, 'itemprop').split(/\s+/);
+    if (!blocked && (hasJobLocationClass(attrs) || (jobScoped && itemprops.includes('addressLocality')))) {
+      const location = elementValue(html, tagRx.lastIndex, tagName, attrs);
+      if (isUsableSourceLocation(location)) return { location, evidence: 'strong-markup' };
+    }
+
+    if (!VOID_HTML_TAGS.has(tagName) && !/\/\s*$/.test(attrs)) stack.push({ tagName, jobScoped, blocked });
+  }
+  return { location: '', evidence: 'generic' };
+}
+
+/**
+ * A generic `.location` class is common in navigation/search chrome and is not
+ * evidence that a published job location is wrong. Contradictions are
+ * authoritative only when the page supplies JobPosting JSON-LD or explicitly
+ * job/vacancy-scoped location markup; generic observations remain visible in
+ * sourceDetailSummary as inconclusive.
+ */
+export function classifySourceLocationEvidence(html = '', pageUrl = '') {
+  return extractSourceLocationObservation(html, pageUrl).evidence;
 }
 
 function sourceDescription(job) {
@@ -240,7 +426,7 @@ function wordSet(value) {
   return new Set(normalizePlace(value).split(' ').filter((word) => word.length >= 4));
 }
 
-export function compareSourceDetail(job, detail) {
+export function compareSourceDetail(job, detail, { locationEvidence = 'jsonld' } = {}) {
   const publishedLocation = job?.addressLocality || job?.location || '';
   const sourceLocation = detail?.location || '';
   const publishedDescription = plainText(sourceDescription(job));
@@ -254,8 +440,15 @@ export function compareSourceDetail(job, detail) {
     && (publishedDescription.length < 100
       || publishedDescription.length < sourceDescriptionText.length * 0.45
       || overlapRatio < 0.35);
+  const locationMatchesPublished = sourceLocationMatches(publishedLocation, sourceLocation);
+  const locationChecked = Boolean(publishedLocation)
+    && isUsableSourceLocation(sourceLocation)
+    && locationEvidence !== 'generic';
   return {
-    locationMismatch: Boolean(sourceLocation) && !sourceLocationMatches(publishedLocation, sourceLocation),
+    locationChecked,
+    locationMismatch: locationChecked && !locationMatchesPublished,
+    locationInconclusive: Boolean(sourceLocation) && !locationChecked,
+    locationEvidence,
     descriptionMismatch,
     publishedLocation,
     sourceLocation,
@@ -265,13 +458,133 @@ export function compareSourceDetail(job, detail) {
   };
 }
 
-async function checkSourceDetailsBatch(items, concurrency = 3) {
-  return mapPool(items, concurrency, async (item) => {
-    const fetched = await politeFetch(item.url, { timeoutMs: 10000, retries: 1 });
+function sanitizeProcessingError(error) {
+  const name = String(error?.name || 'Error').replace(/[^a-z0-9_-]/gi, '').slice(0, 40) || 'Error';
+  const message = String(error?.message || error || 'source detail processing failed')
+    .replace(/https?:\/\/[^\s]+/gi, '[url]')
+    .replace(/\b[\w.+-]+@[\w.-]+\.[a-z]{2,}\b/gi, '[email]')
+    .replace(/(?:\/[a-z0-9._~-]+){2,}/gi, '[path]')
+    .replace(/\b(token|secret|password|api[-_]?key)\s*[:=]\s*\S+/gi, '$1=[redacted]')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, 240);
+  return `${name}: ${message || 'source detail processing failed'}`;
+}
+
+function processingFailureResult(item, error) {
+  return {
+    ...item,
+    processingFailed: true,
+    processingError: sanitizeProcessingError(error),
+  };
+}
+
+export async function checkSourceDetailsBatch(items, concurrency = 3, {
+  fetchPage = politeFetch,
+  extractDetail = extractDetailFields,
+  observeLocation = extractSourceLocationObservation,
+} = {}) {
+  const results = await mapPool(items, concurrency, async (item) => {
+    let fetched;
+    try {
+      fetched = await fetchPage(item.url, { timeoutMs: 10000, retries: 1 });
+    } catch (error) {
+      return { ...item, fetchFailed: true, status: 0, fetchError: sanitizeProcessingError(error) };
+    }
     if (!fetched.ok || !fetched.body) return { ...item, fetchFailed: true, status: fetched.status || 0 };
-    const detail = extractDetailFields(fetched.body, fetched.url || item.url);
-    return { ...item, ...compareSourceDetail(item.job, detail) };
+    try {
+      const detail = extractDetail(fetched.body, fetched.url || item.url);
+      const locationObservation = observeLocation(fetched.body, fetched.url || item.url);
+      if (locationObservation.location) detail.location = locationObservation.location;
+      const locationEvidence = locationObservation.evidence;
+      return { ...item, ...compareSourceDetail(item.job, detail, { locationEvidence }) };
+    } catch (error) {
+      return processingFailureResult(item, error);
+    }
   });
+  return results.map((result, index) => result
+    ?? processingFailureResult(items[index], new Error('worker returned no result')));
+}
+
+export function applySourceDetailResults(report, sourceResults, requested = sourceResults.length) {
+  const sourceDetailSummary = {
+    requested,
+    fetched: 0,
+    fetchFailed: 0,
+    processingFailed: 0,
+    authoritativeLocationChecks: 0,
+    locationMatches: 0,
+    locationMismatches: 0,
+    inconclusiveLocationObservations: 0,
+    descriptionMismatches: 0,
+  };
+  const byKey = {};
+  for (const result of sourceResults) {
+    const key = result.crawlerKey;
+    if (!byKey[key]) byKey[key] = {
+      checked: 0, fetchFailed: 0, processingFailed: 0, processingErrors: [],
+      locationChecked: 0, locationInconclusive: 0, locationMismatches: 0,
+      descriptionMismatches: 0, details: [],
+    };
+    const info = byKey[key];
+    info.checked++;
+    if (result.fetchFailed) {
+      info.fetchFailed++;
+      sourceDetailSummary.fetchFailed++;
+      continue;
+    }
+    if (result.processingFailed) {
+      info.processingFailed++;
+      sourceDetailSummary.processingFailed++;
+      info.processingErrors.push(`${result.url}: ${result.processingError}`);
+      continue;
+    }
+    sourceDetailSummary.fetched++;
+    if (result.locationChecked) {
+      info.locationChecked++;
+      sourceDetailSummary.authoritativeLocationChecks++;
+      if (result.locationMismatch) sourceDetailSummary.locationMismatches++;
+      else sourceDetailSummary.locationMatches++;
+    } else if (result.locationInconclusive) {
+      info.locationInconclusive++;
+      sourceDetailSummary.inconclusiveLocationObservations++;
+    }
+    if (result.locationMismatch) {
+      info.locationMismatches++;
+      info.details.push(`${result.url}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}" [${result.locationEvidence}]`);
+    }
+    if (result.descriptionMismatch) {
+      info.descriptionMismatches++;
+      sourceDetailSummary.descriptionMismatches++;
+      info.details.push(`${result.url}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+    }
+  }
+  for (const [key, info] of Object.entries(byKey)) {
+    const entry = report[key] || (report[key] = { total: 0, issues: [] });
+    if (info.processingFailed > 0) {
+      entry.issues.push({
+        type: 'parse-error', count: info.processingFailed, total: info.checked,
+        processingFailed: info.processingFailed, details: info.processingErrors,
+        message: `${info.processingFailed}/${info.checked} source detail pages failed during local processing`,
+      });
+      entry.severity = 'CRITICAL';
+    }
+    const findings = info.locationMismatches + info.descriptionMismatches;
+    if (findings > 0) {
+      entry.issues.push({
+        type: 'source-detail-mismatch', count: findings, total: info.checked,
+        locationMismatches: info.locationMismatches,
+        locationChecked: info.locationChecked,
+        locationInconclusive: info.locationInconclusive,
+        descriptionMismatches: info.descriptionMismatches,
+        fetchFailed: info.fetchFailed,
+        processingFailed: info.processingFailed,
+        details: info.details,
+        message: `${info.locationMismatches}/${info.locationChecked} authoritative source location mismatches, ${info.descriptionMismatches}/${info.checked} incomplete descriptions`,
+      });
+    }
+  }
+  return sourceDetailSummary;
 }
 
 const BOILERPLATE_RE = /^(datore di lavoro|als arbeitgeber|come employer|en tant qu.?employeur|as employer)/i;
@@ -570,6 +883,7 @@ async function main() {
   const report = {}; // key → { issues[], severity }
   const urlsToCheck = []; // { crawlerKey, url }
   const sourceDetailsToCheck = []; // { crawlerKey, job, url }
+  let sourceDetailSummary = null;
 
   for (const { key, jobs, error } of slices) {
     const issues = [];
@@ -703,35 +1017,7 @@ async function main() {
   if (checkSourceDetails && sourceDetailsToCheck.length > 0) {
     console.log(`Checking ${sourceDetailsToCheck.length} source detail pages (concurrency=3)...\n`);
     const sourceResults = await checkSourceDetailsBatch(sourceDetailsToCheck, 3);
-    const byKey = {};
-    for (const result of sourceResults) {
-      if (!result) continue;
-      const key = result.crawlerKey;
-      if (!byKey[key]) byKey[key] = { checked: 0, fetchFailed: 0, locationMismatches: 0, descriptionMismatches: 0, details: [] };
-      const info = byKey[key];
-      info.checked++;
-      if (result.fetchFailed) { info.fetchFailed++; continue; }
-      if (result.locationMismatch) {
-        info.locationMismatches++;
-        info.details.push(`${result.url}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}"`);
-      }
-      if (result.descriptionMismatch) {
-        info.descriptionMismatches++;
-        info.details.push(`${result.url}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
-      }
-    }
-    for (const [key, info] of Object.entries(byKey)) {
-      const findings = info.locationMismatches + info.descriptionMismatches;
-      if (findings > 0) {
-        report[key].issues.push({
-          type: 'source-detail-mismatch', count: findings, total: info.checked,
-          locationMismatches: info.locationMismatches,
-          descriptionMismatches: info.descriptionMismatches,
-          fetchFailed: info.fetchFailed, details: info.details,
-          message: `${info.locationMismatches}/${info.checked} source location mismatches, ${info.descriptionMismatches}/${info.checked} incomplete descriptions`,
-        });
-      }
-    }
+    sourceDetailSummary = applySourceDetailResults(report, sourceResults, sourceDetailsToCheck.length);
   }
 
   // Run URL checks
@@ -760,6 +1046,7 @@ async function main() {
     const formChromeCount = thin?.reasons?.['form-chrome'] || 0;
     const urlFail = types.has('stale-urls');
     const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
+    const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
     if (types.has('parse-error')) entry.severity = 'CRITICAL';
     else if (sourceIssue?.locationMismatches > 0) entry.severity = 'CRITICAL';
     // Form-chrome is a hard signal: even one row means the parser is
@@ -778,7 +1065,8 @@ async function main() {
       if (urlFail) h.push('Detail URLs returning errors — likely site migration or URL structure change');
       if (sourceIssue?.locationMismatches > 0) h.push('Published locations disagree with sampled source detail pages — inspect the crawler location selector and remove generic-city fallbacks');
       if (sourceIssue?.descriptionMismatches > 0) h.push('Published descriptions are materially shorter or unrelated to sampled source detail pages — bound extraction to the job-detail content');
-      if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
+      if (sourceProcessingIssue) h.push('Source detail pages were fetched but the audit could not process them — inspect the sanitized per-page errors in the JSON report');
+      else if (types.has('parse-error')) h.push('Crawler JSON file could not be parsed');
       entry.action = h.join('. ') + '.';
     }
   }
@@ -814,26 +1102,51 @@ async function main() {
     process.exit(0);
   }
 
-  // Print report
-  printReport(report);
+  process.exitCode = finishAudit(report, {
+    strict: args.includes('--strict'),
+    provenance,
+    urlChecksEnabled: !skipUrls,
+    sourceDetailChecksEnabled: checkSourceDetails,
+    sourceDetailSummary,
+  });
+}
 
-  // Write JSON
+/**
+ * Print and persist one complete audit result, then return the CLI exit code.
+ * Returning instead of calling process.exit() guarantees that a strict
+ * failure cannot interrupt the JSON write used by CI diagnostics.
+ */
+export function finishAudit(report, {
+  strict = false,
+  outPath = path.join(ROOT, 'data', 'parser-quality-report.json'),
+  provenance = { repoHeadSha: null, datasetLastCommit: { sha: null, committedAt: null } },
+  urlChecksEnabled = false,
+  sourceDetailChecksEnabled = false,
+  sourceDetailSummary = null,
+} = {}) {
+  printReport(report);
+  const summary = {
+    critical: Object.values(report).filter((r) => r.severity === 'CRITICAL').length,
+    warning: Object.values(report).filter((r) => r.severity === 'WARNING').length,
+    ok: Object.values(report).filter((r) => r.severity === 'OK').length,
+  };
   const jsonReport = {
     timestamp: new Date().toISOString(),
     datasetProvenance: provenance,
     crawlersChecked: Object.keys(report).length,
-    urlChecksEnabled: !skipUrls,
-    sourceDetailChecksEnabled: checkSourceDetails,
+    urlChecksEnabled,
+    sourceDetailChecksEnabled,
+    sourceDetailSummary,
     crawlers: report,
-    summary: {
-      critical: Object.values(report).filter((r) => r.severity === 'CRITICAL').length,
-      warning: Object.values(report).filter((r) => r.severity === 'WARNING').length,
-      ok: Object.values(report).filter((r) => r.severity === 'OK').length,
-    },
+    summary,
   };
-  const outPath = path.join(ROOT, 'data', 'parser-quality-report.json');
   fs.writeFileSync(outPath, JSON.stringify(jsonReport, null, 2));
-  console.log(`\nJSON report saved to: data/parser-quality-report.json\n`);
+  console.log(`\nJSON report saved to: ${path.relative(ROOT, outPath) || path.basename(outPath)}\n`);
+  if (strict && summary.critical > 0) {
+    console.error(`\n❌ --strict: ${summary.critical} critical crawler(s) found. Failing.`);
+    return 1;
+  }
+  return 0;
 }
 
 /* ── Print report ──────────────────────────────────────────── */
@@ -883,11 +1196,6 @@ function printReport(report) {
   const total = Object.keys(report).length;
   console.log(`\n${total} crawlers checked, ${critical.length} critical, ${warnings.length} warnings`);
 
-  const strict = process.argv.includes('--strict');
-  if (strict && critical.length > 0) {
-    console.error(`\n❌ --strict: ${critical.length} critical crawler(s) found. Failing.`);
-    process.exit(1);
-  }
 }
 
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);

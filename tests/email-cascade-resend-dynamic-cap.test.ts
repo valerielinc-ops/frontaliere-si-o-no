@@ -4,10 +4,11 @@ import {
   computeResendDynamicDailyLimit,
   fetchResendCycleUsage,
   PROVIDERS,
+  sendEmailCascade,
 } from '../scripts/lib/email-cascade.mjs';
 
 /* ------------------------------------------------------------------ */
-/*  resendCycleBounds — pure, billing cycle anchored on the 6th        */
+/*  resendCycleBounds — pure, quota cycle anchored on the 6th          */
 /* ------------------------------------------------------------------ */
 
 describe('resendCycleBounds', () => {
@@ -106,38 +107,76 @@ describe('computeResendDynamicDailyLimit', () => {
     delete process.env.RESEND_API_KEY;
   });
 
-  it('paces the remaining monthly budget over the days left until renewal', async () => {
+  it('uses the free-plan limits and never exceeds 100/day', async () => {
     globalThis.fetch = (async () => ({
       ok: true,
       status: 200,
       json: async () => ({ data: [entry('c1', '2026-07-16')], has_more: false }),
     })) as any;
 
-    // cycleEnd 2026-08-06T00:00:00Z, now 2026-07-16T12:00:00Z -> 20.5d -> ceil 21
-    // remainingBudget = 50000 - 1 = 49999 -> floor(49999/21) = 2380
     const nowMs = new Date('2026-07-16T12:00:00.000Z').getTime();
     const limit = await computeResendDynamicDailyLimit(nowMs);
-    expect(limit).toBe(Math.floor((PROVIDERS.find(p => p.id === 'resend').monthlyLimit - 1) / 21));
+    const resend = PROVIDERS.find(p => p.id === 'resend');
+    expect(resend).toMatchObject({ dailyLimit: 100, monthlyLimit: 3000 });
+    expect(limit).toBe(100);
   });
 
-  it('falls back to the conservative 1666/day floor when cycle usage is unverifiable', async () => {
+  it('falls back to the 100/day ceiling when cycle usage is unverifiable', async () => {
     globalThis.fetch = (async () => ({ ok: false, status: 500, json: async () => ({}) })) as any;
     const nowMs = new Date('2026-07-16T12:00:00.000Z').getTime();
     const limit = await computeResendDynamicDailyLimit(nowMs);
-    expect(limit).toBe(1666);
+    expect(limit).toBe(100);
   });
 
-  it('allows a much larger daily budget than the conservative floor when usage is low late in the cycle', async () => {
-    const lightUsage = Array.from({ length: 100 }, (_, i) => entry(`c${i}`, '2026-07-16'));
+  it('reduces the daily limit further when needed to stay within 3000/month', async () => {
+    const heavyUsage = Array.from({ length: 2958 }, (_, i) => entry(`c${i}`, '2026-07-16'));
     globalThis.fetch = (async () => ({
       ok: true,
       status: 200,
-      json: async () => ({ data: lightUsage, has_more: false }),
+      json: async () => ({ data: heavyUsage, has_more: false }),
     })) as any;
-    const nowMs = new Date('2026-08-05T23:00:00.000Z').getTime(); // 1 day left in cycle
+    const nowMs = new Date('2026-07-16T12:00:00.000Z').getTime();
     const limit = await computeResendDynamicDailyLimit(nowMs);
-    // remainingBudget ≈ 50000 - 100 = 49900, daysRemaining = 1 -> dynamicLimit ≈ 49900
-    expect(limit).toBeGreaterThan(1666);
-    expect(limit).toBeLessThanOrEqual(50000);
+    expect(limit).toBe(2);
+  });
+});
+
+describe('Resend free-plan send cap', () => {
+  const realFetch = globalThis.fetch;
+
+  beforeEach(() => {
+    process.env.RESEND_API_KEY = 'test-key';
+    process.env.EMAIL_LINK_AUDIT = 'off';
+  });
+  afterEach(() => {
+    globalThis.fetch = realFetch;
+    delete process.env.RESEND_API_KEY;
+    delete process.env.EMAIL_LINK_AUDIT;
+  });
+
+  it('sends at most 100 messages even with concurrent workers', async () => {
+    let posts = 0;
+    globalThis.fetch = (async (url, opts: any = {}) => {
+      if (String(url).includes('api.resend.com/emails') && opts.method === 'POST') {
+        posts++;
+        await new Promise((resolve) => setTimeout(resolve, 1));
+        return { ok: true, status: 200, json: async () => ({ id: `resend-${posts}` }), text: async () => '{}' } as any;
+      }
+      if (String(url).includes('api.resend.com/emails')) {
+        return { ok: true, status: 200, json: async () => ({ data: [], has_more: false }) } as any;
+      }
+      return { ok: true, status: 200, json: async () => ({}) } as any;
+    }) as any;
+
+    const emails = Array.from({ length: 101 }, (_, i) => ({
+      payload: { from: 'sender@example.com', to: [`user-${i}@example.com`], subject: 'test', html: '<p>test</p>' },
+      recipient: { email: `user-${i}@example.com` },
+      meta: {},
+    }));
+    const result = await sendEmailCascade(emails, { forceProvider: 'resend', concurrency: 3, delayMs: 0 });
+
+    expect(posts).toBe(100);
+    expect(result.sent).toHaveLength(100);
+    expect(result.failed).toHaveLength(1);
   });
 });

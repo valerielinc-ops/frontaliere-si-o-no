@@ -10981,6 +10981,23 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Credito imposta frontalieri 2026: errori comuni',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Quadro CE del 730, nuovo Accordo in vigore dal 2024 e regime transitorio: gli errori più frequenti dei frontalieri.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Busta paga svizzera e modello 730 sul tavolo, sfondo Mendrisio',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Pensione frontaliere 2026 con figli: guida AVS-INPS',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'Nuovo Accordo in vigore dal 1° gennaio 2024, AVS al 5.3% e coordinamento con INPS: cosa cambia per la famiglia frontaliera con figli nel 2026.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Pendolari frontalieri attraversano la stazione di Bellinzona all\'alba',
+    'blog.article.unia-pause-calore-cantieri.title': 'Canicola nei cantieri: Unia chiede pause obbligatorie',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Solo il 18% riceve pause sistematiche oltre i 33°C. Su 984 lavoratori intervistati, l\'82% dei cantieri ignora le tutele previste. Ecco cosa chiede il sindacato.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Cantiere in Ticino con sole estivo: lavoratori edili seguono procedure di sicurezza con zone ombrate e attrezzature protettive.',
+    'blog.article.bollettino-frontaliere-2026-08-31.title': 'Bollettino del frontaliere – 31 agosto 2026: 33 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-08-31.excerpt': 'I numeri di oggi, 31 agosto 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'I numeri del giorno per i frontalieri – 31 agosto 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Bollettino frontalieri del 31 agosto 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'I numeri del 31 agosto 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Treni fermi tra Arbedo-Castione e Biasca: disagi',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruzione lunedì verso mezzogiorno sulla tratta Arbedo-Castione–Biasca: FFS segnalano «incidente a persona», treni cancellati.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Stazione ferroviaria con avviso di interruzione del servizio sulla tratta ticinese',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Pensione frontalieri 2026: pianificare con famiglia e figli',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'Riforma AVS 21, nuovo Accordo Frontalieri in vigore dal 2024 e scenari di rendita anticipata per chi lavora in Ticino con famiglia.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Coppia di frontalieri anziani pianifica il pensionamento a Lugano',
 };
 
 export default blogMetaIt;

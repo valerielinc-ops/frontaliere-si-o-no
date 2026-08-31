@@ -572,11 +572,7 @@ export function computeAssembleInputFingerprint() {
   const dirs = [JOBS_SLICES_DIR, EXPIRED_SLICES_DIR, SUMMARIES_SLICES_DIR];
   const files = [];
   for (const d of dirs) {
-    if (!fs.existsSync(d)) continue;
-    for (const f of fs.readdirSync(d)) {
-      if (!f.endsWith('.json')) continue;
-      files.push(path.join(d, f));
-    }
+    files.push(...listSliceFiles(d));
   }
   files.sort();
   const hasher = crypto.createHash('sha256');
@@ -615,7 +611,7 @@ function readJson(filePath, fallback) {
 // step in the same job picked up as a slice and refused to parse).
 export function listSliceFiles(dir) {
   // Predicato in scripts/lib/crawler-slice-files.mjs: era duplicato in tre
-  // copie divergenti, e le due piu' magre non escludevano ne' `-cache` ne'
+  // copie divergenti, e le due piu' magre non escludevano ne' `-locale-cache` ne'
   // `.cleanup-tmp` — cioe' proprio il file che ha fatto fallire questa
   // assembly nella run 28783188549.
   return listSliceFilePaths(dir);

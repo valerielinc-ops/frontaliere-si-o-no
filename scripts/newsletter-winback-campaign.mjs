@@ -98,7 +98,7 @@ function resolveStage1Articles(interest, locale) {
  * @param {Array<{email:string, locale:string, interest:string}>} items
  * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
  */
-async function sendStage1(items) {
+export async function sendStage1(items) {
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
   const cascade = items.map((w) => {
     const articles = resolveStage1Articles(w.interest, w.locale);
@@ -110,6 +110,13 @@ async function sendStage1(items) {
         subject,
         html,
         text,
+        // campaign_id tag (#6317/#6765): when the cascade lands on anything
+        // other than Maileroo (mailgun/mailjet/resend/mailtrap), its webhook
+        // reads campaign_id off this tag — Maileroo's own per-message ref
+        // fallback (functions/src/lib/mailerooRef.js defaultCampaignId) never
+        // applies to those, so without it the send fell to the
+        // `unknown:<messageId>` fallback and was filed `unattributed`.
+        tags: [{ name: 'campaign_id', value: 'winback_stage1' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
@@ -133,7 +140,7 @@ async function sendStage1(items) {
  * @param {Array<{email:string, locale:string}>} items
  * @returns {Promise<Set<string>>} lowercased emails that FAILED to send
  */
-async function sendStage2(items) {
+export async function sendStage2(items) {
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
   const cascade = items.map((w) => {
     const { subject, html, text, unsubscribeUrl } = buildWinbackEmail({ email: w.email, locale: w.locale });
@@ -145,6 +152,13 @@ async function sendStage2(items) {
         html,
         text,
         tracking: false,
+        // campaign_id tag (#6317/#6765): forceProvider below is Resend,
+        // whose webhook only reads campaign_id off this tag — Maileroo's
+        // per-message ref fallback (functions/src/lib/mailerooRef.js
+        // defaultCampaignId) never applies here, so without it every send
+        // fell to the `unknown:<messageId>` fallback and was filed
+        // `unattributed`.
+        tags: [{ name: 'campaign_id', value: 'winback_stage2' }],
         headers: {
           'List-Unsubscribe': `<${unsubscribeUrl}>`,
           'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
@@ -159,7 +173,7 @@ async function sendStage2(items) {
   // the open-rate measurement. Resend's send fn already sets open_tracking
   // and click_tracking independently, so it's the only cascade provider that
   // can honor "clicks off, opens on". Volume is weekly/low (dormant cohort
-  // only), well inside Resend's 50k/mo budget.
+  // only); the shared cascade enforces Resend's free-plan 100/day ceiling.
   const result = await sendEmailCascade(cascade, { concurrency: 3, forceProvider: 'resend' });
   logProviderSummary();
   return new Set(

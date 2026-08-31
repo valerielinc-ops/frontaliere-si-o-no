@@ -10980,6 +10980,23 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.title': 'Border tax credit 2026: common errors',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.excerpt': 'Framework EC of 730, new Agreement in force since 2024 and transitional regime: the most frequent errors of border workers.',
     'blog.article.credito-imposta-frontalieri-2026-errori-comuni.imageAlt': 'Swiss payslip and Italian 730 form on a desk, Mendrisio background',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.title': 'Border boarding house 2026 with children: AVS-INPS guide',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.excerpt': 'New Agreement in force from 1 January 2024, AVS at 5.3% and coordination with INPS: what changes for the border family with children in 2026.',
+    'blog.article.frontaliere-pensione-avs-inps-2026-famiglia-checklist.imageAlt': 'Cross-border commuters walking through Bellinzona station at dawn',
+    'blog.article.unia-pause-calore-cantieri.title': 'Canicola in the construction sites: Unia asks for mandatory breaks',
+    'blog.article.unia-pause-calore-cantieri.excerpt': 'Only 18% receive systematic breaks above 33°C. Out of 984 workers interviewed, 82% of construction sites ignore the protections provided. This is what the union is asking for.',
+    'blog.article.unia-pause-calore-cantieri.imageAlt': 'Construction site in Ticino during summer heat: workers follow safety procedures with shaded areas and protective equipment.',
+    'blog.article.bollettino-frontaliere-2026-08-31.title': 'Cross-border daily brief – August 31, 2026: 33 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-08-31.excerpt': 'Today\'s numbers, August 31, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-08-31.imageAlt': 'The day\'s numbers for cross-border commuters – August 31, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-08-31.seoDescription': 'Cross-border brief, August 31, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-08-31.ogDescription': 'The numbers for August 31, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.title': 'Trains stopped between Arbedo-Castione and Biasca: inconvenience',
+    'blog.article.traffico-ferroviario-bloccato-ticino.excerpt': 'Interruption on Monday around noon on the Arbedo-Castione–Biasca route: SBB report "accident per person", trains cancelled.',
+    'blog.article.traffico-ferroviario-bloccato-ticino.imageAlt': 'Railway station with service interruption notice on the Ticino line',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.title': 'Border guesthouse 2026: plan with family and children',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.excerpt': 'AVS 21 reform, new Frontier Agreement in force since 2024 and early retirement scenarios for those who work in Ticino with a family.',
+    'blog.article.frontaliere-pensione-2026-famiglia-figli.imageAlt': 'Cross-border worker couple planning retirement by Lake Lugano',
 };
 
 export default blogMetaEn;

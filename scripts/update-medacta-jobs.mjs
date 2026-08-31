@@ -46,6 +46,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractMetaDescriptionRaw } from './lib/meta-description-extract.mjs';
+import { readAllAttr } from './lib/html-attr.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -742,14 +743,14 @@ function parseAlliboLocation(raw = '', listPlaces = []) {
 
 /**
  * Extract the Allibo connector URL (data-allibo attribute) from a category page.
- * Each category page embeds exactly one connector URL with a per-category FT param.
+ * Select the connector URL with its per-category FT param when other widget
+ * attributes precede it in the page.
  */
-function extractAlliboConnectorUrl(html = '') {
-  // Match data-allibo="...connector.aspx?..." — handles single or double quotes.
-  const re = /data-allibo=["']([^"']*connector\.aspx[^"']+)["']/i;
-  const match = html.match(re);
-  if (!match) return '';
-  return match[1].replace(/&amp;/g, '&').trim();
+export function extractAlliboConnectorUrl(html = '') {
+  const connectorUrl = readAllAttr(html, 'data-allibo')
+    .find((value) => /connector\.aspx/i.test(value));
+  if (!connectorUrl) return '';
+  return connectorUrl.replace(/&amp;/g, '&').trim();
 }
 
 /**
@@ -1344,4 +1345,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Medacta'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Medacta'));
+}
