@@ -24,8 +24,9 @@
 //     outside-world failure).
 //   - Native fetch (Node >= 18; project requires Node 22+), regex-based HTML
 //     parsing (scripts/lib/pharmacy-ticino-parser.mjs) — no new dependency.
-//   - Locarnese is out of scope: separate domain/template, not covered by
-//     the #6398 verification (see the doc's "Verdetto").
+//   - Locarnese is out of scope: separate domain/template, network access
+//     verified (#6740) but no dedicated parser exists yet — no anagraphic
+//     table published there (see the verification doc's "Verdetto").
 // =============================================================================
 
 import { writeFile, mkdir } from 'node:fs/promises';
