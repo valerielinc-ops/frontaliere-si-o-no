@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rennbahnklinik",
-  "assembledAt": "2026-08-31T17:15:50.511Z",
+  "assembledAt": "2026-08-31T22:32:20.189Z",
   "jobs": [
     {
       "id": "rennbahnklinik-56d6e1ef71bf",
@@ -34,7 +34,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/assistenzarzt-aerztin-sport-orthopaedie",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:45.216Z",
+      "crawledAt": "2026-08-31T22:32:17.413Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -142,7 +142,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mpa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:44.136Z",
+      "crawledAt": "2026-08-31T22:32:16.301Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -218,9 +218,9 @@
     },
     {
       "id": "rennbahnklinik-6a1155962fc5",
-      "slug": "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz",
+      "slug": "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
       "slugByLocale": {
-        "it": "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz",
+        "it": "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
         "en": "dipl-nursing-professional-hf-60-100-rennbahnklinik-muttenz",
         "de": "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
         "fr": "dipl-professionnels-des-soins-infirmiers-hf-60-100-rennbahnklinik-muttenz"
@@ -248,7 +248,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegefachperson-hf",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:42.870Z",
+      "crawledAt": "2026-08-31T22:32:15.138Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -267,13 +267,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
-        "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz"
+        "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz",
+        "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz",
-          "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz"
+          "dipl-infermieristica-professionale-hf-60-100-rennbahnklinik-muttenz",
+          "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz"
         ],
         "en": [
           "dipl-pflegefachfrau-mann-hf-60-100-rennbahnklinik-muttenz"
@@ -329,7 +329,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/technische-operationsfachkraft-toa",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:41.763Z",
+      "crawledAt": "2026-08-31T22:32:13.965Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -449,7 +449,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/unterassistenz",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:40.649Z",
+      "crawledAt": "2026-08-31T22:32:12.835Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -542,7 +542,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/pflegepraktikum-fuer-medizinstudierende",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:39.395Z",
+      "crawledAt": "2026-08-31T22:32:11.634Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -629,7 +629,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mtr",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:38.214Z",
+      "crawledAt": "2026-08-31T22:32:10.357Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -712,7 +712,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/mitarbeiter-in-patientenaufnahme",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:36.970Z",
+      "crawledAt": "2026-08-31T22:32:09.080Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -793,7 +793,7 @@
       "url": "https://www.rennbahnklinik.ch/jobs/fachperson-gesundheit-fage",
       "source": "Rennbahnklinik Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:15:35.882Z",
+      "crawledAt": "2026-08-31T22:32:07.952Z",
       "addressLocality": "Muttenz",
       "addressRegion": "BL",
       "addressCountry": "CH",
