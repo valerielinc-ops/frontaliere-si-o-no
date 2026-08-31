@@ -491,6 +491,127 @@ describe('nextCrawlerState', () => {
     expect(state.consecutiveEmptyOkRuns).toBe(1);
   });
 
+  it('ignores changed secondary timestamps when freshness, count and emptyOk still match (#6710)', () => {
+    const frozenFreshness = new Date(NOW_MS - DAY_MS).toISOString();
+    const prev = {
+      lastNonZeroJobs: 12,
+      consecutiveEmptyRuns: 1,
+      consecutiveEmptyOkRuns: 1,
+      status: 'healthy',
+      _lastObservedJobs: 0,
+      _lastObservedEmptyOk: false,
+      _lastObservedFreshnessAt: frozenFreshness,
+      _lastObservedGeneratedAt: new Date(NOW_MS - 3 * 60 * 60 * 1000).toISOString(),
+      _lastObservedAssembledAt: new Date(NOW_MS - 2 * 60 * 60 * 1000).toISOString(),
+    };
+    const { state } = nextCrawlerState(
+      prev,
+      {
+        slug: 'same-observable-run',
+        jobCount: 0,
+        freshnessAt: frozenFreshness,
+        freshnessSource: 'summary',
+        generatedAt: new Date(NOW_MS - 60 * 60 * 1000).toISOString(),
+        assembledAt: NOW_ISO,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+
+    expect(state.consecutiveEmptyRuns).toBe(1);
+    expect(state.consecutiveEmptyOkRuns).toBe(1);
+  });
+
+  it('counts a changed job total as a new run even when freshnessAt is unchanged (#6710)', () => {
+    const frozenAt = new Date(NOW_MS - DAY_MS).toISOString();
+    const prev = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 2 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 12,
+      consecutiveEmptyRuns: 1,
+      consecutiveEmptyOkRuns: 1,
+      status: 'healthy',
+      _lastObservedJobs: 0,
+      _lastObservedEmptyOk: false,
+      _lastObservedFreshnessAt: frozenAt,
+      _lastObservedGeneratedAt: frozenAt,
+      _lastObservedAssembledAt: frozenAt,
+    };
+    const { state } = nextCrawlerState(
+      prev,
+      {
+        slug: 'same-day-granularity',
+        jobCount: 5,
+        freshnessAt: frozenAt,
+        freshnessSource: 'summary',
+        generatedAt: frozenAt,
+        assembledAt: frozenAt,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state.consecutiveEmptyOkRuns).toBe(0);
+  });
+
+  it('counts a changed emptyOk classification as a new run at equal freshnessAt (#6710)', () => {
+    const frozenAt = new Date(NOW_MS - DAY_MS).toISOString();
+    const prev = {
+      lastSuccessfulRunAt: new Date(NOW_MS - 2 * DAY_MS).toISOString(),
+      lastNonZeroJobs: 12,
+      consecutiveEmptyRuns: 1,
+      consecutiveEmptyOkRuns: 1,
+      status: 'healthy',
+      _lastObservedJobs: 0,
+      _lastObservedEmptyOk: false,
+      _lastObservedFreshnessAt: frozenAt,
+      _lastObservedGeneratedAt: frozenAt,
+      _lastObservedAssembledAt: frozenAt,
+    };
+    const { state } = nextCrawlerState(
+      prev,
+      {
+        slug: 'same-day-granularity',
+        jobCount: 0,
+        discovered: 3,
+        written: 0,
+        freshnessAt: frozenAt,
+        freshnessSource: 'summary',
+        generatedAt: frozenAt,
+        assembledAt: frozenAt,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(state.consecutiveEmptyRuns).toBe(0);
+    expect(state.consecutiveEmptyOkRuns).toBe(2);
+    expect(state._lastObservedEmptyOk).toBe(true);
+  });
+
+  it('treats explicit null legacy freshness as unobserved, never as a repeat (#6710)', () => {
+    const prev = {
+      consecutiveEmptyRuns: 1,
+      consecutiveEmptyOkRuns: 1,
+      status: 'healthy',
+      _lastObservedJobs: 0,
+      _lastObservedFreshnessAt: null,
+    };
+    const { state } = nextCrawlerState(
+      prev,
+      {
+        slug: 'legacy-null-state',
+        jobCount: 0,
+        freshnessAt: null,
+        freshnessSource: 'none',
+        assembledAt: null,
+        generatedAt: null,
+      },
+      NOW_ISO,
+      NOW_MS,
+    );
+    expect(state.consecutiveEmptyRuns).toBe(2);
+    expect(state.consecutiveEmptyOkRuns).toBe(2);
+  });
+
   it('still increments consecutiveEmptyRuns when a NEW empty run follows a prior empty run', () => {
     const prev = {
       lastSuccessfulRunAt: new Date(NOW_MS - 5 * DAY_MS).toISOString(),

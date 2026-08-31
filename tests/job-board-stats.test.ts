@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 
-import { buildJobsStatsArtifacts } from '../scripts/lib/job-board-stats.mjs';
+import {
+  buildJobsStatsArtifacts,
+  updateJobsStatsHistory,
+} from '../scripts/lib/job-board-stats.mjs';
 
 function job(overrides: Record<string, unknown> = {}) {
   return {
@@ -20,6 +23,42 @@ function job(overrides: Record<string, unknown> = {}) {
 }
 
 describe('job-board-stats', () => {
+  it('collapses duplicate same-date retry entries before building the baseline (#6720)', () => {
+    const now = new Date();
+    const date = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Europe/Zurich',
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+    }).format(now);
+    const baseEntry = {
+      date,
+      totalJobs: 2,
+      added: 1,
+      updated: 0,
+      removed: 0,
+      updatedKeys: [],
+      removedKeys: [],
+      companyStats: [],
+      locationStats: [],
+      titleStats: [],
+    };
+    const history = updateJobsStatsHistory(
+      {
+        entries: [
+          { ...baseEntry, addedKeys: ['url:https://example.com/job-a'] },
+          { ...baseEntry, addedKeys: ['url:https://example.com/job-b'] },
+        ],
+      },
+      {},
+      [],
+      { now: now.toISOString() },
+    );
+
+    expect(history.entries).toHaveLength(1);
+    expect(history.entries[0]).toMatchObject({ date, added: 2 });
+  });
+
   it('builds daily history and canonical summary links for current jobs and recent changes', () => {
     const previousJobs = [
       job({
@@ -222,6 +261,7 @@ describe('job-board-stats', () => {
       updated: 1,
       removed: 0,
     });
+    expect(history.entries).toHaveLength(1);
     expect(summary.totals.todayUpdated).toBe(1);
   });
 

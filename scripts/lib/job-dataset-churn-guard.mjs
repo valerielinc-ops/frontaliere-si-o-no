@@ -23,6 +23,8 @@
  * `removed`, independent of `MIN_BASELINE_DAYS`.
  */
 
+import { createHash } from 'node:crypto';
+
 const MIN_BASELINE_DAYS = 7; // bootstrap guard: too little history to have a distribution
 const STDDEV_MULTIPLIER = 4; // ~4 sigma — the 2026-08-24/27/28 spikes were 5-6 sigma out
 const ABSOLUTE_FLOOR = 1500; // never flag below this even if the baseline is near-zero
@@ -86,6 +88,7 @@ function detectStaleSnapshot(entries) {
   return {
     date: latest.date,
     metric: 'stale-snapshot',
+    issueTitle: '[job-dataset-churn] stale snapshot',
     observed: STALE_SNAPSHOT_FIELDS.map((field) => `${field}=${latest[field]}`).join(', '),
     baselineMean: null,
     baselineStddev: null,
@@ -132,15 +135,28 @@ export function detectChurnAnomalies(history = {}, options = {}) {
     if (observed < absoluteFloor || observed <= threshold) continue;
 
     const keysField = metric === 'added' ? 'addedKeys' : 'removedKeys';
+    const topHosts = topHostContributors(today[keysField]);
+    const dominantHost = topHosts[0]?.host;
+    const dominantHostKey = dominantHost
+      ? createHash('sha256').update(dominantHost).digest('hex').slice(0, 10)
+      : null;
+    const issueScope = dominantHostKey || `unattributed-${today.date}`;
+    const issueSubject = dominantHost || 'unknown-host';
     anomalies.push({
       date: today.date,
       metric,
+      // Keep the title stable across consecutive days for the same source so
+      // github-issue-creator comments on the live event instead of minting one
+      // issue per day. Different metric/host combinations remain distinct.
+      // When attribution is unavailable, retain the date as a fail-safe: two
+      // unknown events must not be silently collapsed.
+      issueTitle: `[job-dataset-churn] ${metric} spike ${issueScope}: ${issueSubject}`,
       observed,
       baselineMean: round(avg),
       baselineStddev: round(sd),
       threshold: round(threshold),
       baselineDays: baseline.length,
-      topHosts: topHostContributors(today[keysField]),
+      topHosts,
     });
   }
 
