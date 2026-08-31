@@ -4840,6 +4840,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Prévoyance professionnelle : taux minimum LPP proposé à 1,75% pour 2027',
     'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'La Commission LPP recommande de porter le taux minimum de 1,25% à 1,75% (+0,50 point). Vote 10 à 4, décision finale au Conseil fédéral.',
     'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Palais fédéral à Berne, siège du Conseil fédéral',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.title': 'Skyguide, licenciements réduits de 220 à 50 : plan en deux étapes',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.excerpt': 'Skyguide réduit les licenciements de 220 à 50: 14 dans la première phase, environ 35 au printemps 2027. Vous économisez 51 millions de CHF d\'ici 2027.',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.imageAlt': 'Tour de contrôle aérien à l\'aéroport de Zurich-Kloten au coucher du soleil',
 };
 
 export default blogMetaChFr;

@@ -62810,6 +62810,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-skyguide-licenziamenti-50-ristrutturazione': {
+    title: 'Skyguide, licenziamenti ridotti da 220 a 50: piano in due fasi',
+    description: 'Skyguide riduce i licenziamenti da 220 a 50: prima fase da 14, seconda da circa 35 nella primavera 2027. Obiettivo: 51 mln CHF di risparmi entro il 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, skyguide, licenziamenti, ridotti, piano',
+    ogTitle: 'Skyguide, licenziamenti ridotti a 50: piano in due fasi',
+    ogDescription: 'Skyguide chiude la ristrutturazione con 50 licenziamenti totali, contro i 220 inizialmente annunciati. Prima fase da 14, seconda da circa 35 nella primavera 2027. Obiettivo: 51 milioni di risparmi entro il 2027, direzione da 9 a 5 membri, sicurezza',
+    canonicalPath: '/articoli-svizzera/skyguide-licenziamenti-50-ristrutturazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Skyguide, licenziamenti ridotti da 220 a 50: piano in due fasi",
+      "description": "Skyguide riduce i licenziamenti da 220 a 50: prima fase da 14, seconda da circa 35 nella primavera 2027. Obiettivo: 51 mln CHF di risparmi entro il 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/skyguide-licenziamenti-50-ristrutturazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Torre di controllo aereo all'aeroporto di Zurigo-Kloten al tramonto"
+      },
+      "datePublished": "2026-08-31T15:24:35+00:00",
+      "dateModified": "2026-08-31T15:24:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/skyguide-licenziamenti-50-ristrutturazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

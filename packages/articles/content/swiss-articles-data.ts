@@ -14518,6 +14518,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'skyguide-licenziamenti-50-ristrutturazione',
+    category: 'pratico',
+    date: '2026-08-31T15:24:35.448Z',
+    image: '/images/blog/skyguide-licenziamenti-50-ristrutturazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

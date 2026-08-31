@@ -4840,6 +4840,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.commissione-lpp-tasso-minimo-2027.title': 'Occupational pension: minimum LPP rate proposed at 1.75% for 2027',
     'blog.article.commissione-lpp-tasso-minimo-2027.excerpt': 'The LPP Commission recommends raising the minimum rate from 1.25% to 1.75% (+0.50 points). Vote 10 to 4, final decision in the Federal Council.',
     'blog.article.commissione-lpp-tasso-minimo-2027.imageAlt': 'Federal Palace in Bern, seat of the Swiss Federal Council',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.title': 'Skyguide, redundancies reduced from 220 to 50: two-step plan',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.excerpt': 'Skyguide cuts layoffs from 220 to 50: 14 in the first phase, about 35 in spring 2027. Target savings of CHF 51 million by 2027.',
+    'blog.article.skyguide-licenziamenti-50-ristrutturazione.imageAlt': 'Air traffic control tower at Zurich-Kloten airport at sunset',
 };
 
 export default blogMetaChEn;
