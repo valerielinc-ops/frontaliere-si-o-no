@@ -1,0 +1,24 @@
+{
+  "companyKey": "silvaplana",
+  "companyName": "i-Lounge 3303",
+  "companyHost": "engadinerpost.ch",
+  "platform": "engadinerpost.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.engadinerpost.ch/marktplatz/kategorie/jobs"
+  ],
+  "detailTemplate": "/marktplatz/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 32,
+  "sampleTitles": [
+    "Sachbearbeiterin / Sachbearbeiter Grundbuch 60-100%",
+    "ÜNA GIARSUNA FORESTALA / ÜN GIARSUN FORESTAL",
+    "Köchin/Koch [Chef de Partie]",
+    "Stelle in Administration oder Büro gesucht (80-100%)",
+    "LEITER CORPORATE SERVICES / CFO (m/w) - 80-100% - Unbefristet"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:30.302Z"
+}

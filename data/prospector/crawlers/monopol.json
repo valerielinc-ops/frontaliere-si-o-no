@@ -1,0 +1,21 @@
+{
+  "companyKey": "monopol",
+  "companyName": "Monopol",
+  "companyHost": "hotelcareer.at",
+  "platform": "hotelcareer.at",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.at/jobs/art-boutique-hotel-monopol-112006"
+  ],
+  "detailTemplate": "/jobs/art-boutique-hotel-monopol-112006/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Barkeeper (m/w) Wintersaison 2026/27",
+    "Chef de Rang (m/w) Wintersaison 2026/27"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:38.390Z"
+}
