@@ -71,7 +71,10 @@ jobs:
             baselineDays=$(jq -r ".[$i].baselineDays" data/job-dataset-churn-issues.json)
             hosts=$(jq -r ".[$i].topHosts | map(\"\\(.host) (\\(.count))\") | join(\", \")" data/job-dataset-churn-issues.json)
 
-            title="[job-dataset-churn] ${date}: ${metric} spike"
+            # issueTitle is stable for the same metric + dominant-host hash, so a
+            # multi-day event becomes recurrence comments on one open issue.
+            # The guard keeps date-based titles for unattributed anomalies.
+            title=$(jq -r ".[${i}].issueTitle" data/job-dataset-churn-issues.json)
             body=$(cat <<EOF
           Automated churn guard flagged **${metric}** on **${date}**: **${observed}**
           vs a trailing ${baselineDays}-day baseline of mean=${baselineMean},

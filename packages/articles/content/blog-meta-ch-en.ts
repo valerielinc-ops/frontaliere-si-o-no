@@ -4807,6 +4807,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-grigioni.title': 'Apprenticeship and vocational training in Graubünden: a complete guide',
     'blog.article.apprendistato-formazione-grigioni.excerpt': 'Dual school-company model in the Graubünden: internship contract, salary per year, professional maturity and living costs for the apprentice.',
     'blog.article.apprendistato-formazione-grigioni.imageAlt': 'Apprentice working in a training company in Graubünden',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.title': 'Drought 2025: 54 million in loans to farms',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.excerpt': 'Parmelin defends the choice of interest-free loans instead of non-repayable aid: without legal bases, it is impossible to repeat the Covid model.',
+    'blog.article.parmelin-siccita-prestiti-agricoltura-2025.imageAlt': 'Dry Swiss farmland during summer 2025 with rolling hills and Alps in the background',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.title': 'House in Graubünden: mortgage, own funds and taxes',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.excerpt': 'Guide to the purchase of real estate in the Canton of Graubünden: mortgage loan, own funds, acquisition taxes, notary fees and step-by-step procedure.',
+    'blog.article.comprare-casa-grigioni-mutuo-ipotecario.imageAlt': 'Traditional Swiss alpine chalet with wooden balcony set in mountain foothills',
 };
 
 export default blogMetaChEn;

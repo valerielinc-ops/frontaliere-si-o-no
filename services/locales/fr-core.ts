@@ -2770,6 +2770,9 @@ Règles :
  'consultingCta.article.button': 'Réserver une consultation',
 
  // v3.71.0 — calculateur boosté
+ 'whatsNew.v3951.title': 'Améliorations internes et stabilité',
+ 'whatsNew.v3951.email.title': 'Envoi d\'e-mails plus fiable',
+ 'whatsNew.v3951.email.desc': 'Nous avons renforcé le contrôle des quotas du fournisseur d\'e-mails afin de ne pas dépasser les limites, même lorsque plusieurs notifications partent ensemble.',
  'whatsNew.v3710.title': 'Calculateur boosté : alertes, impôt communal, comparaison cantons',
  'whatsNew.v3710.salaryAlert.title': 'Alerte salaire depuis le calculateur',
  'whatsNew.v3710.salaryAlert.desc': 'Après une simulation, active en un tap une alerte e-mail pour les offres au net égal ou supérieur au tien.',
