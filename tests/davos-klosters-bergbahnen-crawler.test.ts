@@ -122,6 +122,17 @@ describe('Davos Klosters Bergbahnen job parser', () => {
       expect(jobs[1].department).toBe('Bergbahnen');
     });
 
+    it("keeps an apostrophe inside a double-quoted detail href", () => {
+      const [job] = parseDavosKlostersBergbahnenListingHtml(`
+        <div class="job-item">
+          <h3 class="job-item__title">Chef d'équipe</h3>
+          <a href="/de/mountains/stellenangebote/Chef-d'equipe_j_4242">Details</a>
+        </div>
+      `);
+      expect(job.url).toBe("https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-d'equipe_j_4242");
+      expect(job.jobId).toBe('4242');
+    });
+
     it('sets all locations to Davos and canton to GR', () => {
       const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
       for (const job of jobs) {

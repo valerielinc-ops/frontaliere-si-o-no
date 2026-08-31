@@ -59,6 +59,28 @@ describe('CEDES job parser', () => {
       expect(new Set(urls).size).toBe(urls.length);
     });
 
+    it("keeps an apostrophe inside a double-quoted job href", () => {
+      const [job] = parseCedesListingHtml(
+        `<a href="/en/career/jobs/chef-d'equipe">Chef d'équipe</a>`,
+      );
+      expect(job.url).toBe("https://www.cedes.com/en/career/jobs/chef-d'equipe");
+    });
+
+    it('preserves the generic fallback class substring matching', () => {
+      const [job] = parseCedesListingHtml(
+        '<a class="jobs-listing-link" href="/en/openings/123">Embedded Software Engineer</a>',
+      );
+      expect(job.url).toBe('https://www.cedes.com/en/openings/123');
+      expect(job.title).toBe('Embedded Software Engineer');
+    });
+
+    it('matches career URL paths case-insensitively', () => {
+      const [job] = parseCedesListingHtml(
+        '<a href="/EN/CAREER/JOBS/Embedded-Engineer">Embedded Software Engineer</a>',
+      );
+      expect(job.url).toBe('https://www.cedes.com/EN/CAREER/JOBS/Embedded-Engineer');
+    });
+
     it('sets canton to GR', () => {
       const jobs = parseCedesListingHtml(SAMPLE_LISTING_HTML);
       for (const job of jobs) {

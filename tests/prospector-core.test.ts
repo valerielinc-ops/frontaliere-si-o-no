@@ -379,6 +379,11 @@ describe('tenant enumeration', () => {
     // Nothing identifying: fall back to the tenant id, never to "Jobs".
     expect(employerNameFromPage('<title>Offene Stellen</title>', 'recruitingapp-2731.umantis.com')).toBe('recruitingapp-2731');
   });
+
+  it('finds a logo tag when its double-quoted class contains an apostrophe', () => {
+    const html = `<title>Jobs</title><img class="marchio d'azienda logo" alt="L'Oréal Suisse">`;
+    expect(employerNameFromPage(html, 'loreal.example.com')).toBe("L'Oréal Suisse");
+  });
 });
 
 describe('coverage', () => {
