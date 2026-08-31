@@ -4867,6 +4867,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.citta-clima-30-kmh-strade.title': 'Schweizer Städte: Mehr Spielraum für Klima und 30 km/h auf den Straßen',
     'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM und Städteverband fordern Bern und die Kantone auf, die 30-Zonen nicht zu behindern und fordern eine nationale «Verursacher» -Strategie.',
     'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Schweizer Stadtstrasse mit Grünflächen und 30-km/h-Schild zur Klimaanpassung',
+    'blog.article.cooperazione-polizia-confini.title': 'Jans und Dobrindt: Grenzkooperation CH-Deutschland',
+    'blog.article.cooperazione-polizia-confini.excerpt': '31. August 2026: Chiasso. Bundesrat und Bundesminister einigen sich auf eine Stärkung der grenzüberschreitenden Zusammenarbeit. Vorschlag Zentrum für die Zusammenarbeit von Polizei und Kanal. Asyl und Verhaftungen sinken.',
+    'blog.article.cooperazione-polizia-confini.imageAlt': 'Grenzübergang zwischen der Schweiz und Deutschland mit Zollkontrolle',
 };
 
 export default blogMetaChDe;

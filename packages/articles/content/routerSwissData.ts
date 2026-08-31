@@ -1648,6 +1648,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ubs-norme-bancarie-compromesso': { it: 'ubs-norme-bancarie-compromesso', en: 'ubs-banking-regulation-compromise', de: 'ubs-bankregulierung-kompromiss', fr: 'ubs-normes-bancaires-compromis' },
  'divario-salariale-genere-agosto-2026': { it: 'divario-salariale-genere-agosto-2026', en: 'wage-gap-gender-august-2026', de: 'lohnluecke-geschlecht-august-2026', fr: 'ecart-salaires-genre-aout-2026' },
  'citta-clima-30-kmh-strade': { it: 'citta-clima-30-kmh-strade', en: 'cities-climate-30-kmh-roads', de: 'staedte-klima-30-kmh-strassen', fr: 'villes-climat-30-kmh-routes' },
+ 'cooperazione-polizia-confini': { it: 'cooperazione-polizia-confini', en: 'border-police-cooperation', de: 'grenzpolizei-kooperation', fr: 'cooperation-police-frontieres' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

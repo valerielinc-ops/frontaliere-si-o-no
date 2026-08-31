@@ -4867,6 +4867,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.citta-clima-30-kmh-strade.title': 'Swiss cities: more margin for climate and 30 km/h on the roads',
     'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM and the Union of Cities call on Bern and the Cantons not to obstruct zones 30 and call for a national "polluter pays" strategy.',
     'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Swiss urban street with greenery and 30 km/h sign in climate adaptation context',
+    'blog.article.cooperazione-polizia-confini.title': 'Jans and Dobrindt: CH-Germany border cooperation',
+    'blog.article.cooperazione-polizia-confini.excerpt': 'August 31, 2026: Chiasso. Federal Councillor and German Minister agree on strengthening cross-border cooperation. Proposal for a Police-Doganale Cooperation Centre. Asylum and stops are decreasing.',
+    'blog.article.cooperazione-polizia-confini.imageAlt': 'Swiss-German border crossing with customs control and Alpine landscape',
 };
 
 export default blogMetaChEn;

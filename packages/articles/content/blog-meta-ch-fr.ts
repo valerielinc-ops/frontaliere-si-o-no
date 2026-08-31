@@ -4867,6 +4867,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.citta-clima-30-kmh-strade.title': 'Villes suisses : plus de marge pour le climat et 30 km/h sur les routes',
     'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM et l\'Union des villes demandent à Berne et aux cantons de ne pas entraver les zones 30 et appellent à une stratégie nationale « pollueur-payeur ».',
     'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Rue urbaine suisse avec verdure et signal 30 km/h pour l\'adaptation climatique',
+    'blog.article.cooperazione-polizia-confini.title': 'Jans et Dobrindt : coopération sur les frontières CH-Allemagne',
+    'blog.article.cooperazione-polizia-confini.excerpt': '31 août 2026 : Chiasso. Conseiller fédéral et ministre allemand s\'accordent sur le renforcement de la coopération transfrontalière. Proposition Centre de coopération policière et douanière. Asile et arrêts en baisse.',
+    'blog.article.cooperazione-polizia-confini.imageAlt': 'Poste frontière Suisse-Allemagne avec contrôle douanier et paysage alpin',
 };
 
 export default blogMetaChFr;
