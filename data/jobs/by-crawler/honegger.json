@@ -1,6 +1,6 @@
 {
   "crawlerKey": "honegger",
-  "assembledAt": "2026-08-31T15:45:50.738Z",
+  "assembledAt": "2026-08-31T17:02:58.112Z",
   "jobs": [
     {
       "id": "honegger-0823edf1fdcb",
@@ -33,7 +33,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:43.723Z",
+      "crawledAt": "2026-08-31T17:02:54.345Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -91,8 +91,10 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:39.153Z",
+      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -135,7 +137,7 @@
       "url": "https://honegger.ch/job/unterhaltsreiniger-in-m-w-d-adliswil-horgen-rapperswil-waedenswil-10-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:43.131Z",
+      "crawledAt": "2026-08-31T17:02:53.647Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "addressRegion": "ZH",
@@ -186,8 +188,10 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:38.618Z",
+      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -230,7 +234,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:41.313Z",
+      "crawledAt": "2026-08-31T17:02:51.609Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -286,8 +290,10 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:36.995Z",
+      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -330,7 +336,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:40.721Z",
+      "crawledAt": "2026-08-31T17:02:50.945Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -379,8 +385,10 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:36.457Z",
+      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -423,7 +431,7 @@
       "url": "https://honegger.ch/job/fachmitarbeiter-in-unterhaltsreinigung-m-w-d-region-obwalden-nidwalden-luzern-40-80/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:40.137Z",
+      "crawledAt": "2026-08-31T17:02:50.273Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -478,8 +486,10 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:35.923Z",
+      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -522,7 +532,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:39.536Z",
+      "crawledAt": "2026-08-31T17:02:49.601Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressRegion": "BE",
@@ -582,6 +592,7 @@
       "firstSeenAt": "2026-07-04T11:11:35.377Z",
       "salaryMin": 52000,
       "salaryMax": 70000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -624,7 +635,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:38.937Z",
+      "crawledAt": "2026-08-31T17:02:48.926Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -680,6 +691,7 @@
       "firstSeenAt": "2026-07-04T11:11:34.843Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -722,7 +734,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-20-30/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:36.555Z",
+      "crawledAt": "2026-08-31T17:02:46.220Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -778,6 +790,7 @@
       "firstSeenAt": "2026-07-04T11:11:33.747Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -820,7 +833,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-region-zuerich-unterer-zuerichsee-horgen-waedenswil-thalwil-50-80/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:35.965Z",
+      "crawledAt": "2026-08-31T17:02:45.546Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "ZH",
@@ -874,6 +887,7 @@
       "firstSeenAt": "2026-07-04T11:11:33.215Z",
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -881,104 +895,6 @@
           "@type": "QuantitativeValue",
           "minValue": 56500,
           "maxValue": 75500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "honegger-9c3d02280d62",
-      "slug": "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel",
-      "slugByLocale": {
-        "it": "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel",
-        "en": "employee-in-special-cleaning-m-f-d-honegger-ag-basel",
-        "de": "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel",
-        "fr": "employe-en-nettoyage-special-m-f-d-honegger-ag-basel"
-      },
-      "company": "Honegger AG",
-      "companyKey": "honegger",
-      "companyDomain": "honegger.ch",
-      "title": "Mitarbeiter/in Spezialreinigung (m/w/d)",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Spezialreinigung (m/w/d)",
-        "en": "Employee/in special cleaning (m/f/d)",
-        "de": "Mitarbeiter/in Spezialreinigung (m/w/d)",
-        "fr": "Employé/en nettoyage spécial (m/f/d)"
-      },
-      "description": "**Eintritt:** per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fenster und Fassadenreinigung\n- Diverse Grundreinigungen, auch maschinell\n- Schutzbehandlung von Böden und Oberflächen\n- Baureinigungen\n\n## Das bringst du mit\n- Mehrjährige Berufserfahrung in der Spezialreinigung.\n- Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.\n- Gute mündliche Deutschkenntnisse\n- Du bist bereit auch an Samstagen zu arbeiten\n- Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)\n- Führerausweis Kat. B, Kat. BE von Vorteil\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-      "descriptionByLocale": {
-        "it": "** Ingresso: ** immediatamente o con accordo ## Puoi farlo con noi. - Servizi di pulizia di finestre e facciate - Varie pulizie di base, anche meccaniche - Protezione del suolo e delle superfici - Lavori di costruzione ## Lo porti con te. - Diversi anni di esperienza professionale nella pulizia di specialità. - Si descrive come una personalità affidabile e responsabile con buone maniere. - Buone competenze linguistiche tedesche - Sei anche pronto a lavorare il sabato - Hai il diritto di operare ascensori o portare la motivazione per acquisire questo (IPAF) - Patente di guida Cat B, Cat BE benefico ## Noi come datore di lavoro - attività entusiasmanti e responsabili in una società svizzera che sta plasmando la trasformazione digitale nel settore - l'opportunità di acquisire conoscenze specialistiche, contribuire idee e approfondire la vostra esperienza professionale - molta libertà nel compiere i vostri compiti e l'opportunità di lavorare in modo flessibile e indipendente - una cultura aziendale apprezzativa in cui ci sosteniamo a vicenda in tempi frenetici - Ancora e ancora una buona ragione per ridere insieme",
-        "en": "**Admission:** immediately or by agreement ## You can do that with us. - Windows and facade cleaning services - Miscellaneous basic cleaning, whether or not mechanical - Protection of soil and surfaces - Construction works ## You bring that with you - Several years of professional experience in specialty cleaning. - You describe yourself as a reliable and responsible personality with well-groomed manners. - Good oral German language skills - You are also ready to work on Saturdays - You are entitled to operate lifts or bring the motivation to acquire this (IPAF) - Driving licence Cat B, Cat BE beneficial ## We as an employer - exciting and responsible tasks in a Swiss-wide company that is shaping the digital transformation in the industry - the opportunity to acquire specialist knowledge, contribute ideas and deepen your professional experience - a lot of freedom in fulfilling your tasks and the opportunity to work flexibly and independently - an appreciative corporate culture in which we support each other in hectic times - Again and again a good reason to laugh together",
-        "de": "**Eintritt:** per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fenster und Fassadenreinigung\n- Diverse Grundreinigungen, auch maschinell\n- Schutzbehandlung von Böden und Oberflächen\n- Baureinigungen\n\n## Das bringst du mit\n- Mehrjährige Berufserfahrung in der Spezialreinigung.\n- Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.\n- Gute mündliche Deutschkenntnisse\n- Du bist bereit auch an Samstagen zu arbeiten\n- Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)\n- Führerausweis Kat. B, Kat. BE von Vorteil\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-        "fr": "**Admission :** immédiatement ou par accord ## Tu peux faire ça avec nous. - Services de nettoyage des fenêtres et des façades - Nettoyage de base divers, même mécaniques - Protection des sols et des surfaces - Travaux de construction ## Apporte ça avec toi. - Plusieurs années d'expérience professionnelle en nettoyage spécialisé. - Vous vous décrivez comme une personnalité fiable et responsable aux bonnes manières. - Bonnes compétences orales en langue allemande - Vous êtes également prêt à travailler le samedi - Vous avez le droit d'utiliser des ascenseurs ou d'apporter la motivation pour acquérir ce (IPAF) - Permis de conduire Cat B, Cat BE bénéfique ## Nous en tant qu'employeur - des tâches passionnantes et responsables dans une entreprise suisse qui façonne la transformation numérique dans l'industrie - l'occasion d'acquérir des connaissances spécialisées, d'apporter des idées et d'approfondir votre expérience professionnelle - beaucoup de liberté dans l'accomplissement de vos tâches et la possibilité de travailler de manière flexible et indépendante - une culture d'entreprise reconnaissante dans laquelle nous nous soutenons les uns les autres en période agitée - Encore et encore une bonne raison de rire ensemble"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-basel-stadt-baselland-100/",
-      "source": "Honegger AG Dedicated Parser (custom WordPress board)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:35.364Z",
-      "addressLocality": "Basel",
-      "postalCode": "4001",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Pulizie Specializzate",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Facility Management / Pulizie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-basel-stadt-baselland-100/",
-      "requirements": [
-        "Mehrjährige Berufserfahrung in der Spezialreinigung.",
-        "Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.",
-        "Gute mündliche Deutschkenntnisse",
-        "Du bist bereit auch an Samstagen zu arbeiten",
-        "Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)",
-        "Führerausweis Kat. B, Kat. BE von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Mehrjährige Berufserfahrung in der Spezialreinigung.",
-          "Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.",
-          "Gute mündliche Deutschkenntnisse",
-          "Du bist bereit auch an Samstagen zu arbeiten",
-          "Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)",
-          "Führerausweis Kat. B, Kat. BE von Vorteil"
-        ]
-      },
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel",
-        "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel",
-          "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel"
-        ],
-        "en": [
-          "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel"
-        ],
-        "fr": [
-          "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:11:32.689Z",
-      "salaryMin": 51000,
-      "salaryMax": 68500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 68500,
           "unitText": "YEAR"
         }
       }
@@ -1014,7 +930,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-unterhaltsreinigung-m-w-d-langenthal-ca-40/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:34.767Z",
+      "crawledAt": "2026-08-31T17:02:44.872Z",
       "addressLocality": "Langenthal",
       "postalCode": "4900",
       "addressRegion": "BE",
@@ -1074,6 +990,7 @@
       "firstSeenAt": "2026-07-04T11:11:31.034Z",
       "salaryMin": 52000,
       "salaryMax": 70000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1116,7 +1033,7 @@
       "url": "https://honegger.ch/job/einsatzleiter-in-unterhaltsreinigung-m-w-d-boudry-ne-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:34.143Z",
+      "crawledAt": "2026-08-31T17:02:44.191Z",
       "addressLocality": "Boudry",
       "postalCode": "2017",
       "addressRegion": "NE",
@@ -1174,6 +1091,7 @@
       "firstSeenAt": "2026-07-04T11:11:30.504Z",
       "salaryMin": 64500,
       "salaryMax": 86500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1216,7 +1134,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-sarnen-40-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:33.545Z",
+      "crawledAt": "2026-08-31T17:02:43.509Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -1268,6 +1186,7 @@
       "firstSeenAt": "2026-07-04T11:11:29.969Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1310,7 +1229,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waeschelogistik-m-w-d-st-gallen-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:13:30.533Z",
+      "crawledAt": "2026-08-31T17:02:40.798Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -1358,6 +1277,7 @@
       "firstSeenAt": "2026-08-25T21:40:48.128Z",
       "salaryMin": 47500,
       "salaryMax": 63500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
