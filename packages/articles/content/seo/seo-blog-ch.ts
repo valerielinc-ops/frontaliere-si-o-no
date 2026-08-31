@@ -63161,6 +63161,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cooperazione-polizia-confini': {
+    title: 'Jans e Dobrindt: cooperazione sui confini CH-Germania',
+    description: '31 agosto 2026: Consigliere federale Jans e ministro tedesco Dobrindt concordano cooperazione transfrontaliera. Proposta Centro Cooperazione Polizia-Doganale',
+    keywords: 'frontalieri, ticino, svizzera, italia, jans, dobrindt, cooperazione, confini',
+    ogTitle: 'Cooperazione confini: Jans e Dobrindt d\'accordo',
+    ogDescription: 'Chiasso, 31 agosto 2026. Jans e Dobrindt concordano rafforzamento cooperazione transfrontaliera. Proposta Centro Cooperazione Polizia-Doganale al confine. Domande asilo in calo. Effetti positivi attesi dal Patto UE su migrazione (vigore 12 giugno',
+    canonicalPath: '/articoli-svizzera/cooperazione-polizia-confini/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Jans e Dobrindt: cooperazione sui confini CH-Germania",
+      "description": "31 agosto 2026: Consigliere federale Jans e ministro tedesco Dobrindt concordano cooperazione transfrontaliera. Proposta Centro Cooperazione Polizia-Doganale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cooperazione-polizia-confini.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di confine tra Svizzera e Germania con controlli doganali e paesaggio alpino"
+      },
+      "datePublished": "2026-08-31T22:12:52+00:00",
+      "dateModified": "2026-08-31T22:12:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cooperazione-polizia-confini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
