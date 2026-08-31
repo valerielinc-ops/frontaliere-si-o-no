@@ -4870,6 +4870,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cooperazione-polizia-confini.title': 'Jans e Dobrindt: cooperazione sui confini CH-Germania',
     'blog.article.cooperazione-polizia-confini.excerpt': '31 agosto 2026: Chiasso. Consigliere federale e ministro tedesco concordano rafforzamento cooperazione transfrontaliera. Proposta Centro Cooperazione Polizia-Doganale. Asilo e fermi in diminuzione.',
     'blog.article.cooperazione-polizia-confini.imageAlt': 'Valico di confine tra Svizzera e Germania con controlli doganali e paesaggio alpino',
+    'blog.article.aprire-attivita-zugo-registro-commercio.title': 'Aprire attività a Zugo: registro di commercio e costi',
+    'blog.article.aprire-attivita-zugo-registro-commercio.excerpt': 'Cantone di Zugo: forme giuridiche, capitale minimo federale, tasse d\'iscrizione cantonali, AVS, LAINF e passi operativi per avviare un\'impresa.',
+    'blog.article.aprire-attivita-zugo-registro-commercio.imageAlt': 'Vista del lungolago di Zugo con uffici commerciali e sede di attività',
 };
 
 export default blogMetaChIt;
