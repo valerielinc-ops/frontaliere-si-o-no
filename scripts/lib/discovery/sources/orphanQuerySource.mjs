@@ -29,7 +29,7 @@ const JOB_SEARCH_INTENT_WEAK_RE = /\b(offert[ae]|posti?)\b/i;
 
 /** Words that disambiguate a weak token appearing in the same query. */
 const JOB_SEARCH_INTENT_QUALIFIER_RE =
-  /\b(lavoro|lavori|jobs?|assunzion|impiego|occupazione|carriera|candidat|recruit)\b/i;
+  /\b(lavoro|lavori|jobs?|assunzion\w*|impieg\w*|occupazion\w*|carrier\w*|candidat\w*|recruit\w*)\b/i;
 
 /**
  * Whether a query reads as job-search intent.
