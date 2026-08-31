@@ -4864,6 +4864,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.divario-salariale-genere-agosto-2026.title': 'Lohngefälle zwischen den Geschlechtern: reduziert auf 15,7%',
     'blog.article.divario-salariale-genere-agosto-2026.excerpt': 'Das Lohngefälle zwischen Frauen und Männern in der Schweiz schrumpft weiter. Im Jahr 2024 liegt sie bei 15,7%, gegenüber 16,2% im Jahr 2022. Der BfS-Bericht vom 31. August 2026 analysiert die Daten nach Branche und Rolle.',
     'blog.article.divario-salariale-genere-agosto-2026.imageAlt': 'Schweizer Arbeitnehmer überprüfen Gehaltsdokumente in einem modernen Arbeitsumfeld',
+    'blog.article.citta-clima-30-kmh-strade.title': 'Schweizer Städte: Mehr Spielraum für Klima und 30 km/h auf den Straßen',
+    'blog.article.citta-clima-30-kmh-strade.excerpt': 'SKM und Städteverband fordern Bern und die Kantone auf, die 30-Zonen nicht zu behindern und fordern eine nationale «Verursacher» -Strategie.',
+    'blog.article.citta-clima-30-kmh-strade.imageAlt': 'Schweizer Stadtstrasse mit Grünflächen und 30-km/h-Schild zur Klimaanpassung',
 };
 
 export default blogMetaChDe;
