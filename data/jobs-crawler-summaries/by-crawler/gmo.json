@@ -1,20 +1,55 @@
 {
   "key": "gmo",
   "label": "gmo",
-  "generatedAt": "2026-08-28T05:19:29.376Z",
-  "total": 10,
+  "generatedAt": "2026-08-31T17:06:09.719Z",
+  "total": 11,
   "discovered": null,
-  "written": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "written": 11,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7111,
-  "avgDurationMs": 7111,
+  "unchangedCount": 1,
+  "durationMs": 7740,
+  "avgDurationMs": 7740,
   "durationHistory": [
-    7111
+    7740
   ],
   "newJobs": [
+    {
+      "id": "gmo-91ba1140d26f",
+      "slug": "coordinateur-rice-gmo-ch",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Coordinateur·rice",
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-31T17:06:03.377Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://www.arsante.ch/emploi/coordinateur-rice-99",
+      "_qualityScore": 53,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "gmo-2d73a3ff1c4a",
       "slug": "assistant-e-medical-e-gmo-ch",
@@ -27,7 +62,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:23.816Z",
+      "crawledAt": "2026-08-31T17:06:03.694Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,11 +75,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:23.816Z",
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -60,7 +97,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:24.134Z",
+      "crawledAt": "2026-08-31T17:06:03.997Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -73,11 +110,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:24.134Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -93,7 +132,7 @@
       "url": "https://www.arsante.ch/emploi/comptable-96",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:24.438Z",
+      "crawledAt": "2026-08-31T17:06:04.299Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,11 +145,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/comptable-96",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:24.438Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -126,7 +167,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:24.741Z",
+      "crawledAt": "2026-08-31T17:06:04.601Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -139,11 +180,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
-      "_qualityScore": 53,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:19:24.741Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -159,7 +202,7 @@
       "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:25.044Z",
+      "crawledAt": "2026-08-31T17:06:04.904Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -172,11 +215,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:25.044Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -192,7 +237,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:25.346Z",
+      "crawledAt": "2026-08-31T17:06:05.206Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -205,11 +250,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/experts-medicaux-93",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:25.346Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -225,7 +272,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:25.649Z",
+      "crawledAt": "2026-08-31T17:06:05.508Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -238,11 +285,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/pharmacien-ne-92",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:25.649Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -258,7 +307,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:25.951Z",
+      "crawledAt": "2026-08-31T17:06:05.810Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -271,11 +320,13 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
-      "_qualityScore": 53,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-28T05:19:25.951Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
     },
@@ -291,7 +342,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-chef-fe-89",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-28T05:19:26.253Z",
+      "crawledAt": "2026-08-31T17:06:06.112Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -304,14 +355,19 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/infirmier-ere-chef-fe-89",
-      "_qualityScore": 53,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:19:26.253Z",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
+        "translation": 18,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "gmo-45ad69cc39fe",
       "slug": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
@@ -337,16 +393,19 @@
       "featured": false,
       "postedDate": "2026-08-28",
       "applyUrl": "https://www.arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
-      "_qualityScore": 53,
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-28T05:19:26.557Z",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 4,
-        "completeness": 14
+        "translation": 16,
+        "completeness": 19
       }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
