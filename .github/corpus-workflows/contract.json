@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "generatedBy": "frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs",
-  "generatorSha256": "6cadfc118fc8c6ce16880b814b6d49a3428f0053171fcf84be173fac83ce98f8",
+  "generatorSha256": "d19dc01e34717b7ff5ef929e44ee54556b6c54dded8b9004c3134611e87213b0",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "groupCount": 23,
   "artifactCount": 24,
-  "observerCount": 1,
+  "observerCount": 2,
   "crawlerCount": 607,
   "crawlerGeneration": {
     "mode": "shadow",
@@ -16,8 +16,10 @@
   },
   "siteRuntimePaths": [
     "scripts/assemble-jobs-dataset.mjs",
+    "scripts/ci/crawler-generation-roster.json",
     "scripts/ci/crawler-retry-cmd.sh",
     "scripts/cleanup-jobs.mjs",
+    "scripts/crawler-generation-observer.mjs",
     "scripts/crawler-group-generation-finalizer.mjs",
     "scripts/fix-untranslated-titles.mjs",
     "scripts/generate-crawler-group-workflows.mjs",
@@ -533,7 +535,12 @@
     {
       "source": "observers/generator/tests/crawler-cross-repo-artifacts.test.mjs",
       "target": "generator/tests/crawler-cross-repo-artifacts.test.mjs",
-      "sha256": "ef455a5eafaccd60299878769bf65e4c2bb51e9c4e1e604f39a90474bb7ab218"
+      "sha256": "8d654e7a305e8358d5f217b68e00e1fbb6d3a8388749c94c3152546dfbfe2a7f"
+    },
+    {
+      "source": "observers/workflows/crawler-generation-observer-shadow.yml",
+      "target": ".github/workflows/crawler-generation-observer-shadow.yml",
+      "sha256": "e80c106614087c59bf2613a0d74a26ef04f410e49c07794f8d1a80e4c2f77f70"
     }
   ],
   "checkout": {

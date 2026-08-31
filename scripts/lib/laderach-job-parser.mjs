@@ -7,6 +7,7 @@
  */
 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
@@ -127,11 +128,12 @@ export function parseLaderachNextDataJobs(jobs) {
 function parseLaderachHtmlFallback(html) {
   const seen = new Set();
   const jobs = [];
-  const pattern = /<a[^>]+href=["']([^"']*?\/jobs\/\d+\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const pattern = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let m;
 
   while ((m = pattern.exec(html)) !== null) {
-    const rawUrl = m[1].trim();
+    const rawUrl = readAttr(m[1], 'href').trim();
+    if (!/\/jobs\/\d+\//i.test(rawUrl)) continue;
     const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
     if (seen.has(url)) continue;
     seen.add(url);

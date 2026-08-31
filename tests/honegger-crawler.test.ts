@@ -264,6 +264,17 @@ describe('parseHoneggerListingPage', () => {
   it('returns an empty array for a page with no job posts', () => {
     expect(parseHoneggerListingPage('<html><body>No jobs here</body></html>')).toEqual([]);
   });
+
+  it('keeps a quote-balanced href when attributes are reordered', () => {
+    const [listing] = parseHoneggerListingPage(`
+      <li class="wp-block-post post-104 jobs type-jobs status-publish">
+        <h2 class="wp-block-post-title">Responsabile dell'economia</h2>
+        <a href="https://honegger.ch/job/d'emploi/" data-role="job"
+           class="cta wp-block-post-excerpt__more-link">Apri</a>
+      </li>
+    `);
+    expect(listing.detailUrl).toBe("https://honegger.ch/job/d'emploi/");
+  });
 });
 
 // ─── Detail page parsing ────────────────────────────────────────────────────
@@ -335,6 +346,14 @@ describe('parseHoneggerDetailPage — multi-location', () => {
     );
     const d = parseHoneggerDetailPage(html, 'fallback');
     expect(d.postedDate).toBe('2026-06-01');
+  });
+
+  it('reads the modified time independently from meta attribute order', () => {
+    const html = DETAIL_HTML_SINGLE.replace(
+      '<meta property="article:modified_time" content="2026-06-20T08:00:00+00:00">',
+      '<meta content="2026-06-21T08:00:00+00:00" data-source="wp" property="article:modified_time">',
+    );
+    expect(parseHoneggerDetailPage(html, 'fallback').postedDate).toBe('2026-06-21');
   });
 });
 

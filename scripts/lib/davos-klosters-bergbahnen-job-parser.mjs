@@ -8,6 +8,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const HQ = getCompanyDefaults('davos-klosters-bergbahnen');
 
@@ -114,9 +115,11 @@ export function parseDavosKlostersBergbahnenListingHtml(html) {
     if (!title || title.length < 3) continue;
 
     // Extract detail link: <a href="/de/mountains/stellenangebote/Slug_j_ID">
-    const linkMatch = block.match(/<a[^>]+href=["']([^"']*?stellenangebote\/[^"']+_j_\d+[^"']*)["']/i);
-    if (!linkMatch) continue;
-    const rawUrl = linkMatch[1].trim();
+    const rawUrl = [...block.matchAll(/<a\b[^>]*>/gi)]
+      .map((match) => readAttr(match[0], 'href'))
+      .find((href) => /stellenangebote\/.*_j_\d+/i.test(href))
+      ?.trim();
+    if (!rawUrl) continue;
     const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
     if (seen.has(url)) continue;
     seen.add(url);

@@ -29,6 +29,25 @@ export const BARRIER_STATUSES = Object.freeze([
   'blocked_manifest_invalid',
   'blocked_timeout',
 ]);
+export const CRAWLER_GENERATION_DISPATCH_STATUSES = Object.freeze([
+  'direct',
+  'reconciled_transport_error',
+  'reconciled_protocol_mismatch',
+  'rejected',
+  'missing',
+  'duplicate',
+  'invalid_200_response',
+  'binding_mismatch',
+  'duplicate_run_id',
+  'api_protocol_mismatch',
+]);
+export const CRAWLER_GENERATION_NONTERMINAL_RUN_STATUSES = Object.freeze([
+  'queued',
+  'in_progress',
+  'requested',
+  'waiting',
+  'pending',
+]);
 
 export const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 export const SITE_MAIN_REF = 'refs/heads/main';
@@ -37,6 +56,9 @@ export const CALLER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 // below 1 MiB by construction, before artifact/container overhead.
 export const MAX_GROUP_MANIFEST_BYTES = 44 * 1024;
 export const MAX_CYCLE_MANIFEST_BYTES = 1024 * 1024;
+// workflow_dispatch has a 65,535-character aggregate input ceiling. Keep the
+// canonical registry plus its duplicate binding inputs comfortably below it.
+export const MAX_SENTINEL_BYTES = 32 * 1024;
 
 const GROUP_REASON_SET = new Set(GROUP_MANIFEST_REASON_CODES);
 const GROUP_ID_SET = new Set(GROUP_IDS);
@@ -50,6 +72,11 @@ const GENERATION_TOKEN_RE = /^[1-9][0-9]*-[1-9][0-9]*$/;
 const RECEIPT_OUTCOME_SET = new Set(['noop', 'pushed', 'push_contention', 'failed']);
 const ACCEPTED_RECEIPT_OUTCOMES = new Set(['noop', 'pushed']);
 const MAX_RECEIPT_FILES = 128;
+const DISPATCH_STATUS_SET = new Set(CRAWLER_GENERATION_DISPATCH_STATUSES);
+const ACCEPTED_DISPATCH_STATUS_SET = new Set(['direct', 'reconciled_transport_error']);
+const NULL_DISPATCH_RUN_ID_STATUS_SET = new Set([
+  'rejected', 'missing', 'duplicate', 'invalid_200_response', 'duplicate_run_id', 'api_protocol_mismatch',
+]);
 
 function compareCodePoint(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -68,6 +95,25 @@ function validIsoTimestamp(value) {
 
 function validRunId(value) {
   return typeof value === 'string' && /^[1-9][0-9]*$/.test(value);
+}
+
+export function crawlerGenerationWorkflowName(group) {
+  return `Crawler Group ${group} (sparse cross-repo execution)`;
+}
+
+export function crawlerGenerationRunName(group, generationToken) {
+  return `crawler-generation-${generationToken}-group-${group}`;
+}
+
+export function crawlerGenerationWorkflowIdentity(group, generationToken, runId) {
+  const boundRunId = validRunId(runId) ? runId : null;
+  return {
+    workflowFile: `crawler-group-${group}.yml`,
+    workflowName: crawlerGenerationWorkflowName(group),
+    runId: boundRunId,
+    runName: crawlerGenerationRunName(group, generationToken),
+    artifactName: boundRunId === null ? null : `crawler-group-${group}-terminal-${boundRunId}`,
+  };
 }
 
 function normalizeReasons(reasons) {
@@ -381,6 +427,199 @@ export function validateCrawlerGenerationRoster(roster) {
   return { valid: errors.length === 0, errors: normalizeReasons(errors) };
 }
 
+/**
+ * Immutable same-repository sentinel input for one crawler generation.
+ *
+ * `siteCodeCommit` pins the observer implementation only. The terminal data
+ * snapshot does not exist when the 23 runs are dispatched and is therefore
+ * deliberately absent; it is derived later from their terminal manifests.
+ */
+export function createCrawlerGenerationSentinel(input) {
+  if (!GENERATION_TOKEN_RE.test(input.generationToken ?? '')) throw new TypeError('Invalid generation token');
+  if (!COMMIT_RE.test(input.siteCodeCommit ?? '')) throw new TypeError('Invalid site code commit');
+  if (!input.groupRunIds || typeof input.groupRunIds !== 'object' || Array.isArray(input.groupRunIds)
+      || canonicalJson(Object.keys(input.groupRunIds).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+    throw new TypeError('Sentinel must bind exactly 23 groups');
+  }
+  const runIds = GROUP_IDS.map((group) => input.groupRunIds[group] === null
+    ? null
+    : String(input.groupRunIds[group] ?? ''));
+  const presentRunIds = runIds.filter((runId) => runId !== null);
+  if (runIds.some((runId) => runId !== null && !validRunId(runId))
+      || new Set(presentRunIds).size !== presentRunIds.length) {
+    throw new TypeError('Present sentinel run IDs must be unique positive integers');
+  }
+  const groups = Object.fromEntries(GROUP_IDS.map((group, index) => [
+    group,
+    crawlerGenerationWorkflowIdentity(group, input.generationToken, runIds[index]),
+  ]));
+  const diagnosticsInput = input.dispatchDiagnostics ?? Object.fromEntries(GROUP_IDS.map((group, index) => [
+    group,
+    { status: runIds[index] === null ? 'missing' : 'direct', runId: runIds[index] },
+  ]));
+  if (!diagnosticsInput || typeof diagnosticsInput !== 'object' || Array.isArray(diagnosticsInput)
+      || canonicalJson(Object.keys(diagnosticsInput).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+    throw new TypeError('Sentinel dispatch diagnostics must contain exactly 23 groups');
+  }
+  const dispatchDiagnostics = {};
+  for (const group of GROUP_IDS) {
+    const diagnostic = diagnosticsInput[group];
+    const diagnosticRunId = diagnostic?.runId === null ? null : String(diagnostic?.runId ?? '');
+    if (!exactKeys(diagnostic, ['status', 'runId']) || !DISPATCH_STATUS_SET.has(diagnostic.status)
+        || (diagnosticRunId !== null && !validRunId(diagnosticRunId))) {
+      throw new TypeError(`Invalid dispatch diagnostic for group ${group}`);
+    }
+    const boundRunId = groups[group].runId;
+    if (ACCEPTED_DISPATCH_STATUS_SET.has(diagnostic.status)) {
+      if (diagnosticRunId === null || diagnosticRunId !== boundRunId) {
+        throw new TypeError(`Accepted dispatch diagnostic is not bound for group ${group}`);
+      }
+    } else if (boundRunId !== null) {
+      throw new TypeError(`Negative dispatch diagnostic cannot bind group ${group}`);
+    }
+    if (NULL_DISPATCH_RUN_ID_STATUS_SET.has(diagnostic.status) && diagnosticRunId !== null) {
+      throw new TypeError(`Dispatch diagnostic must not retain a run ID for group ${group}`);
+    }
+    dispatchDiagnostics[group] = { status: diagnostic.status, runId: diagnosticRunId };
+  }
+  const payload = {
+    schemaVersion: 1,
+    generationToken: input.generationToken,
+    siteCodeCommit: input.siteCodeCommit,
+    callerRepository: CALLER_REPOSITORY,
+    groups,
+    dispatchDiagnostics,
+  };
+  const sentinel = { ...payload, digest: digestDocument(payload) };
+  if (Buffer.byteLength(JSON.stringify(sentinel)) > MAX_SENTINEL_BYTES) {
+    throw new TypeError('Crawler generation sentinel exceeds byte limit');
+  }
+  return Object.freeze(sentinel);
+}
+
+export function validateCrawlerGenerationSentinel(sentinel) {
+  const errors = [];
+  if (!exactKeys(sentinel, [
+    'schemaVersion', 'generationToken', 'siteCodeCommit', 'callerRepository', 'groups', 'dispatchDiagnostics', 'digest',
+  ])) return { valid: false, errors: ['unsupported_schema'] };
+  if (sentinel.schemaVersion !== 1) errors.push('unsupported_schema_version');
+  if (!GENERATION_TOKEN_RE.test(sentinel.generationToken ?? '')) errors.push('invalid_generation_token');
+  if (!COMMIT_RE.test(sentinel.siteCodeCommit ?? '')) errors.push('invalid_site_code_commit');
+  if (sentinel.callerRepository !== CALLER_REPOSITORY) errors.push('invalid_caller_repository');
+  if (!HASH_RE.test(sentinel.digest ?? '')) errors.push('invalid_digest');
+  if (!sentinel.groups || typeof sentinel.groups !== 'object' || Array.isArray(sentinel.groups)
+      || canonicalJson(Object.keys(sentinel.groups).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+    errors.push('invalid_group_set');
+  } else {
+    const runIds = [];
+    for (const group of GROUP_IDS) {
+      const entry = sentinel.groups[group];
+      if (!exactKeys(entry, ['workflowFile', 'workflowName', 'runId', 'runName', 'artifactName'])) {
+        errors.push('invalid_group_binding_schema');
+        continue;
+      }
+      runIds.push(entry.runId);
+      const expected = crawlerGenerationWorkflowIdentity(group, sentinel.generationToken, entry.runId);
+      if ((entry.runId !== null && !validRunId(entry.runId))
+          || canonicalJson(entry) !== canonicalJson(expected)) {
+        errors.push('invalid_group_binding');
+      }
+    }
+    const presentRunIds = runIds.filter((runId) => runId !== null);
+    if (runIds.length !== GROUP_IDS.length || new Set(presentRunIds).size !== presentRunIds.length) {
+      errors.push('duplicate_run_id');
+    }
+  }
+  if (!sentinel.dispatchDiagnostics || typeof sentinel.dispatchDiagnostics !== 'object'
+      || Array.isArray(sentinel.dispatchDiagnostics)
+      || canonicalJson(Object.keys(sentinel.dispatchDiagnostics).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+    errors.push('invalid_dispatch_diagnostics_set');
+  } else if (sentinel.groups && typeof sentinel.groups === 'object' && !Array.isArray(sentinel.groups)) {
+    for (const group of GROUP_IDS) {
+      const diagnostic = sentinel.dispatchDiagnostics[group];
+      const boundRunId = sentinel.groups[group]?.runId;
+      if (!exactKeys(diagnostic, ['status', 'runId']) || !DISPATCH_STATUS_SET.has(diagnostic.status)
+          || (diagnostic.runId !== null && !validRunId(diagnostic.runId))) {
+        errors.push('invalid_dispatch_diagnostic');
+        continue;
+      }
+      if (ACCEPTED_DISPATCH_STATUS_SET.has(diagnostic.status)
+          ? diagnostic.runId === null || diagnostic.runId !== boundRunId
+          : boundRunId !== null) {
+        errors.push('inconsistent_dispatch_diagnostic_binding');
+      }
+      if (NULL_DISPATCH_RUN_ID_STATUS_SET.has(diagnostic.status) && diagnostic.runId !== null) {
+        errors.push('invalid_dispatch_diagnostic_run_id');
+      }
+    }
+  }
+  try {
+    if (Buffer.byteLength(JSON.stringify(sentinel)) > MAX_SENTINEL_BYTES) errors.push('sentinel_too_large');
+    const { digest, ...payload } = sentinel;
+    if (digestDocument(payload) !== digest) errors.push('digest_mismatch');
+  } catch {
+    errors.push('invalid_canonical_payload');
+  }
+  return { valid: errors.length === 0, errors: normalizeReasons(errors) };
+}
+
+/** Resolve same-generation replays without choosing between conflicting evidence. */
+export function resolveCrawlerGenerationSentinels(sentinels) {
+  const values = Array.isArray(sentinels) ? sentinels : [];
+  if (values.length === 0) {
+    return { status: 'blocked', reason: 'sentinel_missing', sentinel: null, replayCount: 0 };
+  }
+  if (values.some((sentinel) => !validateCrawlerGenerationSentinel(sentinel).valid)) {
+    return { status: 'blocked', reason: 'sentinel_invalid', sentinel: null, replayCount: values.length };
+  }
+  const digests = new Set(values.map((sentinel) => sentinel.digest));
+  if (digests.size !== 1) {
+    return { status: 'blocked', reason: 'sentinel_conflict', sentinel: null, replayCount: values.length };
+  }
+  return { status: 'accepted', reason: null, sentinel: values[0], replayCount: values.length };
+}
+
+/**
+ * Select the immutable terminal snapshot without reading the current branch
+ * tip: it must be the sole manifest commit descending from every other tip.
+ */
+export function deriveCrawlerGenerationSourceCommit({ manifests, siteCodeCommit, isAncestor }) {
+  const keys = manifests && typeof manifests === 'object' && !Array.isArray(manifests)
+    ? Object.keys(manifests).sort(compareCodePoint)
+    : [];
+  if (!COMMIT_RE.test(siteCodeCommit ?? '') || canonicalJson(keys) !== canonicalJson(GROUP_IDS)) {
+    return { status: 'blocked', sourceCommit: null, reason: 'terminal_manifest_set_invalid' };
+  }
+  const commits = [];
+  for (const group of GROUP_IDS) {
+    const manifest = manifests[group];
+    if (!manifest || manifest.group !== group || !COMMIT_RE.test(manifest.remote?.commit ?? '')) {
+      return { status: 'blocked', sourceCommit: null, reason: 'terminal_manifest_set_invalid' };
+    }
+    commits.push(manifest.remote.commit);
+  }
+  const uniqueCommits = [...new Set(commits)].sort(compareCodePoint);
+  try {
+    // A single pass promotes the candidate whenever a later supplied commit
+    // descends from it. A second linear pass proves that the final candidate
+    // descends from every tip. This also handles a merge tip encountered after
+    // two incomparable parents, without the O(tips²) ancestry fan-out.
+    let candidate = uniqueCommits[0];
+    for (const commit of uniqueCommits.slice(1)) {
+      if (isAncestor(candidate, commit)) candidate = commit;
+    }
+    if (uniqueCommits.some((commit) => commit !== candidate && !isAncestor(commit, candidate))) {
+      return { status: 'blocked', sourceCommit: null, reason: 'source_history_incomparable' };
+    }
+    if (!isAncestor(siteCodeCommit, candidate)) {
+      return { status: 'blocked', sourceCommit: null, reason: 'source_history_rewritten' };
+    }
+    return { status: 'ready', sourceCommit: candidate, reason: null };
+  } catch {
+    return { status: 'infrastructure_error', sourceCommit: null, reason: 'source_history_check_failed' };
+  }
+}
+
 function registryEntryIsValid(entry, group, generationToken) {
   return exactKeys(entry, ['repository', 'workflow', 'runId', 'runName'])
     && entry.repository === CALLER_REPOSITORY
@@ -405,7 +644,8 @@ function runObservationIsBound(observation, entry) {
     && observation.runName === entry.runName
     && Number.isInteger(observation.runAttempt)
     && observation.runAttempt >= 1
-    && ['queued', 'in_progress', 'completed'].includes(observation.status))) return false;
+    && (observation.status === 'completed'
+      || CRAWLER_GENERATION_NONTERMINAL_RUN_STATUSES.includes(observation.status)))) return false;
   if (observation.status !== 'completed') return observation.conclusion === null;
   return ['success', 'failure', 'cancelled', 'timed_out', 'action_required', 'neutral', 'skipped', 'stale', 'startup_failure']
     .includes(observation.conclusion);
