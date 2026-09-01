@@ -11023,6 +11023,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riqualifica-frontaliere-genitore-2026.title': 'Reconversion transfrontalière 2026 : accent sur la famille',
     'blog.article.riqualifica-frontaliere-genitore-2026.excerpt': 'Nouvel accord transfrontalier de navetteurs de 2024 : requalification en 2026, augmentation nette et BVG pour les navetteurs transfrontaliers avec enfants. Analyse fiscale et liste de contrôle opérationnelle.',
     'blog.article.riqualifica-frontaliere-genitore-2026.imageAlt': 'Femme frontalière à l\'ordinateur pendant une formation professionnelle, vue sur le lac de Lugano',
+    'blog.article.valutare-simulazione-ritorno-formazione.title': 'Évaluer le retour de la formation : Guide pratique 2026',
+    'blog.article.valutare-simulazione-ritorno-formazione.excerpt': 'Comment évaluer si la formation en vaut la peine : liste de contrôle pratique, scénarios de simulation et critères de prise de décision pour les navetteurs transfrontaliers en 2026.',
+    'blog.article.valutare-simulazione-ritorno-formazione.imageAlt': 'Professionnel étudiant des documents de formation au bureau avec vue sur le Lac de Lugano',
 };
 
 export default blogMetaFr;

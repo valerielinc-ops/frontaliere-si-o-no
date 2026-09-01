@@ -11021,6 +11021,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riqualifica-frontaliere-genitore-2026.title': 'Cross-border retraining 2026: focus on the family',
     'blog.article.riqualifica-frontaliere-genitore-2026.excerpt': 'New Cross-Border Commuter Agreement from 2024: requalification in 2026 net increase and BVG for cross-border commuters with children. Tax analysis and operational checklist.',
     'blog.article.riqualifica-frontaliere-genitore-2026.imageAlt': 'Frontier worker woman at laptop during professional training course with Lake Lugano view in background',
+    'blog.article.valutare-simulazione-ritorno-formazione.title': 'Evaluating the Return of Training: 2026 How-To Guide',
+    'blog.article.valutare-simulazione-ritorno-formazione.excerpt': 'How to assess whether training is worthwhile: practical checklist, simulation scenarios and decision-making criteria for cross-border commuters in 2026.',
+    'blog.article.valutare-simulazione-ritorno-formazione.imageAlt': 'Professional studying training documents at desk with Lake Lugano view',
 };
 
 export default blogMetaEn;
