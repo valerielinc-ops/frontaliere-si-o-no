@@ -4969,6 +4969,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lucerna-taxi-cari-mondo.title': 'Switzerland\'s taxis: world\'s most expensive',
     'blog.article.lucerna-taxi-cari-mondo.excerpt': 'A 10km ride in Lucerne costs 58.89 francs, making the Swiss city the most expensive in the world for taxis.',
     'blog.article.lucerna-taxi-cari-mondo.imageAlt': 'Aerial view of Lucerne, Switzerland, with Lake Lucerne and the Chapel Bridge in the foreground.',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'L Fribourg permit: duration and renewal',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'L Freiburg permit: valid for up to 1 year, renewal and transition to B and C permits. Procedures, documents and employer constraints.',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'L permit documentation and employment contract in Swiss cantonal administrative office',
 };
 
 export default blogMetaChEn;

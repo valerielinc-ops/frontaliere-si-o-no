@@ -4969,6 +4969,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lucerna-taxi-cari-mondo.title': 'Lucerna in testa: la Svizzera è il Paese con i taxi più cari al mondo',
     'blog.article.lucerna-taxi-cari-mondo.excerpt': 'Una corsa di 10 km a Lucerna costa 58.89 franchi, rendendo la città svizzera la più cara al mondo per i taxi.',
     'blog.article.lucerna-taxi-cari-mondo.imageAlt': 'Vista aerea di Lucerna, Svizzera, con il Lago di Lucerna e il Ponte della Cappella in primo piano.',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'Permesso L Friburgo: durata e rinnovo',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'Permesso L Friburgo: validità fino a 1 anno, rinnovo e passaggio ai permessi B e C. Procedure, documenti e vincoli del datore di lavoro.',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'Documentazione del permesso L e contratto di lavoro presso ufficio amministrativo cantonale svizzero',
 };
 
 export default blogMetaChIt;
