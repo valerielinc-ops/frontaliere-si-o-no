@@ -13,8 +13,9 @@
  *   the careers site to the LiCa SPA platform — it now 404s.)
  *
  * This script:
- *   1. Calls Lidl search API UNFILTERED (no geo facet) and paginates the full
- *      national result set via the `general.page` param (meta.totalCount pages).
+ *   1. Reads the national count, then drains the source-declared language
+ *      facets independently. Each facet is strict-count paginated and their
+ *      totals must equal the national total exactly.
  *   2. Extracts unique job detail URLs from API hits.
  *   3. Infers each job's canton from the clean city signal via inferAnyCanton
  *      and drops jobs whose canton does not resolve to a Swiss canton.
@@ -26,6 +27,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
+import MUNICIPALITY_DATA from '../data/canton-municipalities.json' with { type: 'json' };
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -56,6 +58,7 @@ import {
   LIDL_DEFAULT_RESULTS_PER_PAGE,
   buildLidlSearchQuery,
   getLidlSearchPageCount,
+  extractLidlSearchLanguagePartitions,
   extractLidlApiHitFields,
 } from './lib/lidl-job-parser.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
@@ -96,6 +99,21 @@ function normalizeKey(value = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 }
+
+const LIDL_EXPLICIT_CITY_CANTONS = (() => {
+  const candidatesByCity = new Map();
+  for (const [canton, entry] of Object.entries(MUNICIPALITY_DATA.cantons || {})) {
+    const values = [...(entry?.municipalities || []), ...(entry?.aliases || [])];
+    for (const rawValue of values) {
+      const city = String(rawValue || '').replace(/\s*\([A-Z]{2}\)\s*$/i, '');
+      const key = normalizeKey(city);
+      if (!key) continue;
+      if (!candidatesByCity.has(key)) candidatesByCity.set(key, new Set());
+      candidatesByCity.get(key).add(canton);
+    }
+  }
+  return candidatesByCity;
+})();
 
 function isLidlJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
@@ -202,9 +220,24 @@ function languageScore(lang = '') {
  * Returns a 2-letter Swiss canton code, or '' when the location does not
  * resolve to any Swiss canton (caller drops such jobs — never default to TI).
  */
-function inferLidlCanton(fields) {
+export function inferLidlCanton(fields) {
   const city = String(fields?.city || '').trim();
-  return inferAnyCanton(city) || '';
+  const country = String(fields?.country || '').trim().toUpperCase();
+  if (!city || country !== 'CH') return '';
+
+  const inferred = inferAnyCanton(city);
+  if (inferred) return inferred;
+
+  // `inferAnyCanton` intentionally suppresses ambiguous everyday-word tokens
+  // in free prose (Bulle, Rolle, Court, Sâles). LiCa's `location.city` is an
+  // authoritative address field, not prose: accept an exact BFS municipality
+  // or alias only when it maps to one canton. The fallback never guesses exact
+  // homonyms, while already-resolved cities retain their historical behavior.
+  const exactCandidates = LIDL_EXPLICIT_CITY_CANTONS.get(normalizeKey(city));
+  if (exactCandidates) {
+    return exactCandidates.size === 1 ? [...exactCandidates][0] : '';
+  }
+  return '';
 }
 
 function normalizeLidlContract(raw = '') {
@@ -296,11 +329,18 @@ function buildSeedMetaFromFields(fields) {
   };
 }
 
-async function fetchLidlSearchPage(page, { userAgent, timeoutMs, fetchImpl = globalThis.fetch }) {
+async function fetchLidlSearchPage(
+  page,
+  { userAgent, timeoutMs, fetchImpl = globalThis.fetch, language = '' },
+) {
   // The LiCa API paginates via a JSON-encoded `general` object, NOT a bare
   // `page=N` query param (that one is silently ignored — meta.page stays 1).
   // Query + base URL contract live in lidl-job-parser.mjs (single source of truth).
-  const apiUrl = `${LIDL_SEARCH_API_BASE}?${buildLidlSearchQuery(page, LIDL_RESULTS_PER_PAGE)}`;
+  const apiUrl = `${LIDL_SEARCH_API_BASE}?${buildLidlSearchQuery(
+    page,
+    LIDL_RESULTS_PER_PAGE,
+    language,
+  )}`;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -314,7 +354,8 @@ async function fetchLidlSearchPage(page, { userAgent, timeoutMs, fetchImpl = glo
       },
     });
     if (!res.ok) {
-      throw new Error(`Lidl discovery failed: API returned ${res.status} for page ${page}.`);
+      const scope = language ? `language ${language}` : 'national';
+      throw new Error(`Lidl discovery failed: API returned ${res.status} for ${scope} page ${page}.`);
     }
     return await res.json();
   } finally {
@@ -346,80 +387,144 @@ export async function fetchLidlJobDetailUrls(options = {}) {
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-  // National, UNFILTERED fetch: no geo facet (midpoint/bbox/canton). The Lidl
-  // search API ignores the listing geo params here and paginates the full CH
-  // careers feed via `general.page` (up to 20 jobs/page). Per-job canton is
-  // resolved later from the clean city signal via inferLidlCanton (CH-wide, 26 cantons).
-  console.log('🔍 Fetching Lidl jobs CH-wide from team.lidl.ch search API (unfiltered, paginated)...');
+  // The national envelope is authoritative for the total and language facet
+  // counts, but its unfiltered pagination is not: live intermediate pages can
+  // be short while meta.totalCount remains unchanged. Drain each source-backed
+  // language facet independently and require exact parity with the national
+  // count, preserving CH-wide coverage without weakening completeness.
+  console.log('🔍 Fetching Lidl jobs CH-wide from count-bound language partitions...');
 
   let droppedNonCh = 0;
   let droppedMalformed = 0;
   let duplicateIdentity = 0;
   let rawFetched = 0;
-  let totalCount = null;
-  let pageCount = null;
-  for (let page = 1; page <= (pageCount || 1); page += 1) {
-    const payload = await fetchLidlSearchPage(page, { userAgent, timeoutMs, fetchImpl });
-    const metaTotal = Number(payload?.meta?.totalCount);
-    const metaPerPage = Number(payload?.meta?.resultsPerPage);
-    const metaPage = Number(payload?.meta?.page);
-    const metaCount = Number(payload?.meta?.count);
-    const hits = assertJsonListShape(payload, { key: LIDL_SEARCH_JOBS_KEY, source: `lidl:page${page}` });
-    if (!Number.isInteger(metaTotal) || metaTotal < 0
-        || !Number.isInteger(metaPerPage) || metaPerPage <= 0
-        || metaPerPage !== LIDL_RESULTS_PER_PAGE
-        || !Number.isInteger(metaPage) || metaPage !== page
-        || !Number.isInteger(metaCount) || metaCount !== hits.length) {
+  const nationalPayload = await fetchLidlSearchPage(1, { userAgent, timeoutMs, fetchImpl });
+  const nationalHits = assertJsonListShape(nationalPayload, {
+    key: LIDL_SEARCH_JOBS_KEY,
+    source: 'lidl:national:page1',
+  });
+  const totalCount = Number(nationalPayload?.meta?.totalCount);
+  const nationalPerPage = Number(nationalPayload?.meta?.resultsPerPage);
+  const nationalPage = Number(nationalPayload?.meta?.page);
+  const nationalCount = Number(nationalPayload?.meta?.count);
+  if (!Number.isInteger(totalCount) || totalCount < 0
+      || nationalPerPage !== LIDL_RESULTS_PER_PAGE
+      || nationalPage !== 1
+      || nationalCount !== nationalHits.length
+      || nationalHits.length > LIDL_RESULTS_PER_PAGE) {
+    throw new Error(
+      `Lidl discovery envelope invalid on national page 1: total=${nationalPayload?.meta?.totalCount ?? '?'}, perPage=${nationalPayload?.meta?.resultsPerPage ?? '?'}, page=${nationalPayload?.meta?.page ?? '?'}, count=${nationalPayload?.meta?.count ?? '?'}, hits=${nationalHits.length}.`,
+    );
+  }
+
+  const partitions = extractLidlSearchLanguagePartitions(nationalPayload.meta);
+  const totalPartitionPages = partitions.reduce(
+    (total, partition) => total + getLidlSearchPageCount(
+      { totalCount: partition.count, resultsPerPage: LIDL_RESULTS_PER_PAGE },
+      LIDL_RESULTS_PER_PAGE,
+    ),
+    0,
+  );
+  if (totalPartitionPages > LIDL_MAX_PAGES) {
+    throw new Error(
+      `Lidl discovery incomplete: ${totalPartitionPages} partition pages exceed LIDL_MAX_PAGES=${LIDL_MAX_PAGES}.`,
+    );
+  }
+  console.log(
+    `    📦 Reported national results: ${totalCount} (${partitions.map(({ language, count }) => `${language}:${count}`).join(', ') || 'empty'})`,
+  );
+
+  for (const partition of partitions) {
+    const pageCount = getLidlSearchPageCount(
+      { totalCount: partition.count, resultsPerPage: LIDL_RESULTS_PER_PAGE },
+      LIDL_RESULTS_PER_PAGE,
+    );
+    let partitionFetched = 0;
+    for (let page = 1; page <= pageCount; page += 1) {
+      const payload = await fetchLidlSearchPage(page, {
+        userAgent,
+        timeoutMs,
+        fetchImpl,
+        language: partition.language,
+      });
+      const metaTotal = Number(payload?.meta?.totalCount);
+      const metaPerPage = Number(payload?.meta?.resultsPerPage);
+      const metaPage = Number(payload?.meta?.page);
+      const metaCount = Number(payload?.meta?.count);
+      const hits = assertJsonListShape(payload, {
+        key: LIDL_SEARCH_JOBS_KEY,
+        source: `lidl:${partition.language}:page${page}`,
+      });
+      if (!Number.isInteger(metaTotal) || metaTotal < 0
+          || !Number.isInteger(metaPerPage) || metaPerPage <= 0
+          || metaPerPage !== LIDL_RESULTS_PER_PAGE
+          || !Number.isInteger(metaPage) || metaPage !== page
+          || !Number.isInteger(metaCount) || metaCount !== hits.length) {
+        throw new Error(
+          `Lidl discovery envelope invalid on ${partition.language} page ${page}: total=${payload?.meta?.totalCount ?? '?'}, perPage=${payload?.meta?.resultsPerPage ?? '?'}, page=${payload?.meta?.page ?? '?'}, count=${payload?.meta?.count ?? '?'}, hits=${hits.length}.`,
+        );
+      }
+      if (metaTotal !== partition.count) {
+        throw new Error(
+          `Lidl discovery total drift: ${partition.language} page ${page} reports ${metaTotal}, expected ${partition.count}.`,
+        );
+      }
+      const expectedPageCount = page < pageCount
+        ? LIDL_RESULTS_PER_PAGE
+        : partition.count - (pageCount - 1) * LIDL_RESULTS_PER_PAGE;
+      if (hits.length !== expectedPageCount) {
+        throw new Error(
+          `Lidl discovery incomplete: ${partition.language} page ${page} returned ${hits.length}/${expectedPageCount} expected hits.`,
+        );
+      }
+      rawFetched += hits.length;
+      partitionFetched += hits.length;
+      console.log(`    📡 ${partition.language} page ${page}: ${hits.length} hit(s)`);
+
+      for (const hit of hits) {
+        // Normalize the LiCa hit once; all downstream consumers read `fields`.
+        const fields = extractLidlApiHitFields(hit);
+        if (fields.language !== partition.language) {
+          throw new Error(
+            `Lidl discovery facet mismatch: ${partition.language} returned language ${fields.language || '?'}.`,
+          );
+        }
+        const reqId = extractReqIdFromFields(fields, fields.detailUrl);
+        const detailUrl = canonicalizeLidlDetailUrl(fields.detailUrl, reqId);
+        if (!detailUrl) {
+          droppedMalformed += 1;
+          continue;
+        }
+
+        // Drop jobs whose location does not resolve to a Swiss canton
+        // (non-CH / unresolved). Never default to TI.
+        const canton = inferLidlCanton(fields);
+        if (!canton) {
+          droppedNonCh += 1;
+          continue;
+        }
+
+        const key = `req:${reqId}`;
+        const lang = inferFieldsLanguage(fields, detailUrl);
+        const descLen = String(fields.descriptionHtml || '').length;
+        const score = languageScore(lang) + Math.min(8000, descLen) + (fields.highlight ? 120 : 0);
+
+        const prev = selectedByKey.get(key);
+        if (prev) duplicateIdentity += 1;
+        if (!prev || score > prev.score) {
+          selectedByKey.set(key, { score, detailUrl, reqId, fields });
+        }
+      }
+    }
+    if (partitionFetched !== partition.count) {
       throw new Error(
-        `Lidl discovery envelope invalid on page ${page}: total=${payload?.meta?.totalCount ?? '?'}, perPage=${payload?.meta?.resultsPerPage ?? '?'}, page=${payload?.meta?.page ?? '?'}, count=${payload?.meta?.count ?? '?'}, hits=${hits.length}.`
+        `Lidl discovery incomplete: ${partition.language} fetched ${partitionFetched}/${partition.count} API hits.`,
       );
-    }
-    if (totalCount === null) {
-      totalCount = metaTotal;
-      pageCount = getLidlSearchPageCount(payload.meta, LIDL_RESULTS_PER_PAGE);
-      if (pageCount > LIDL_MAX_PAGES) {
-        throw new Error(`Lidl discovery incomplete: ${pageCount} reported pages exceed LIDL_MAX_PAGES=${LIDL_MAX_PAGES}.`);
-      }
-      console.log(`    📦 Reported national results: ${totalCount || '?'} (${pageCount} page(s))`);
-    } else if (metaTotal !== totalCount) {
-      throw new Error(`Lidl discovery total drift: page ${page} reports ${metaTotal}, expected ${totalCount}.`);
-    }
-    rawFetched += hits.length;
-    console.log(`    📡 page ${page}: ${hits.length} hit(s)`);
-
-    for (const hit of hits) {
-      // Normalize the LiCa hit once; all downstream consumers read `fields`.
-      const fields = extractLidlApiHitFields(hit);
-      const reqId = extractReqIdFromFields(fields, fields.detailUrl);
-      const detailUrl = canonicalizeLidlDetailUrl(fields.detailUrl, reqId);
-      if (!detailUrl) {
-        droppedMalformed += 1;
-        continue;
-      }
-
-      // Drop jobs whose location does not resolve to a Swiss canton
-      // (non-CH / unresolved). Never default to TI.
-      const canton = inferLidlCanton(fields);
-      if (!canton) {
-        droppedNonCh += 1;
-        continue;
-      }
-
-      const key = `req:${reqId}`;
-      const lang = inferFieldsLanguage(fields, detailUrl);
-      const descLen = String(fields.descriptionHtml || '').length;
-      const score = languageScore(lang) + Math.min(8000, descLen) + (fields.highlight ? 120 : 0);
-
-      const prev = selectedByKey.get(key);
-      if (prev) duplicateIdentity += 1;
-      if (!prev || score > prev.score) {
-        selectedByKey.set(key, { score, detailUrl, reqId, fields });
-      }
     }
   }
 
-  if (totalCount === null || rawFetched !== totalCount) {
-    throw new Error(`Lidl discovery incomplete: fetched ${rawFetched}/${totalCount ?? '?'} API hits.`);
+  if (rawFetched !== totalCount) {
+    throw new Error(`Lidl discovery incomplete: fetched ${rawFetched}/${totalCount} API hits.`);
   }
 
   const detailUrls = [];
@@ -466,7 +571,7 @@ export async function fetchLidlJobDetailUrls(options = {}) {
 
 export function buildLidlAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl = {}, updatedAt = new Date().toISOString()) {
   const notes =
-    'Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.';
+    'Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from the city signal.';
   return {
     ...(baseAdapter || {}),
     companyName: LIDL_COMPANY_NAME,
