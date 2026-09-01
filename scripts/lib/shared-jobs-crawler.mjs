@@ -625,6 +625,9 @@ function loadCompanyAdapters() {
       && seedDetailUrls.length > 0
       && authoritativeLifecycleDomains.length > 0
       && seedDetailUrls.every((url) => authoritativeLifecycleDomainSet.has(normalizeHost(hostOf(url))));
+    const authoritativeLegacyCompanyAliases = Array.isArray(parsed.authoritativeLegacyCompanyAliases)
+      ? parsed.authoritativeLegacyCompanyAliases.map((alias) => normalizeCompanyKey(String(alias || ''))).filter(Boolean)
+      : [];
     const seedMetaByUrl = {};
     if (parsed.seedMetaByUrl && typeof parsed.seedMetaByUrl === 'object') {
       for (const [rawUrl, rawMeta] of Object.entries(parsed.seedMetaByUrl)) {
@@ -647,6 +650,7 @@ function loadCompanyAdapters() {
       seedMetaByUrl: Object.keys(seedMetaByUrl).length > 0 ? seedMetaByUrl : undefined,
       authoritativeDetailSnapshot,
       authoritativeLifecycleDomains: authoritativeDetailSnapshot ? authoritativeLifecycleDomains : undefined,
+      authoritativeLegacyCompanyAliases: authoritativeDetailSnapshot ? authoritativeLegacyCompanyAliases : undefined,
       priority,
       userAgent: userAgent || undefined,
     });
@@ -4470,6 +4474,7 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
     .filter((r) => (r?.processedCandidates || 0) > 0 || (r?.scrapedJobPages || 0) > 0 || (r?.discardedCount || 0) > 0);
   const activeDomains = new Set();
   const authoritativeFingerprintsByScope = new Map();
+  const authoritativeLegacyAliasesByCompanyKey = new Map();
   for (const result of activeResults) {
     const companyDomain = normalizeHost(result?.companyDomain || '');
     if (companyDomain) activeDomains.add(companyDomain);
@@ -4483,6 +4488,10 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
       ? result.authoritativeDetailFingerprintsByDomain
       : {};
     if (!companyKey || lifecycleDomains.length === 0) continue;
+    const legacyAliases = Array.isArray(result?.authoritativeLegacyCompanyAliases)
+      ? result.authoritativeLegacyCompanyAliases.map((alias) => normalizeCompanyKey(alias)).filter(Boolean)
+      : [];
+    authoritativeLegacyAliasesByCompanyKey.set(companyKey, new Set(legacyAliases));
     for (const domain of lifecycleDomains) {
       const sourceFingerprints = Array.isArray(sourceFingerprintsByDomain[domain])
         ? sourceFingerprintsByDomain[domain].filter(Boolean)
@@ -4508,9 +4517,11 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
     const domain = normalizeHost(hostOf(job?.url || ''));
     if (job?.source === 'Company Careers Crawler' && domain && activeDomains.has(domain)) {
       const explicitKey = normalizeCompanyKey(String(job?.companyKey || ''));
+      const legacyCompany = normalizeCompanyKey(String(job?.company || ''));
+      const legacyAliases = authoritativeLegacyAliasesByCompanyKey.get(singleScopedCompanyKey);
       const key = explicitKey
-        || singleScopedCompanyKey
-        || normalizeCompanyKey(String(job?.company || ''));
+        || (singleScopedCompanyKey && legacyAliases?.has(legacyCompany) ? singleScopedCompanyKey : '')
+        || legacyCompany;
       if (hasScopedCompanyKeys) {
         if (!scopeCompanyKeys.has(key)) {
           prunedExisting.push(job);
@@ -4599,6 +4610,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   }
   if (adapter?.authoritativeDetailSnapshot === true) {
     result.authoritativeLifecycleDomains = adapter.authoritativeLifecycleDomains;
+    result.authoritativeLegacyCompanyAliases = adapter.authoritativeLegacyCompanyAliases;
     const fingerprintsByDomain = {};
     for (const url of adapter.seedDetailUrls || []) {
       const domain = normalizeHost(hostOf(url));

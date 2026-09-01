@@ -317,6 +317,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
 
   /** Canton distribution for logging (2-letter code → count). */
   const cantonCounts = {};
+  const apiTotals = new Set();
   let apiTotal = null;
   let fetched = 0;
   let droppedNonCh = 0;
@@ -365,7 +366,10 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       }
 
       jobs = assertJsonListShape(data, { key: 'jobs', source: 'coop', lang: `offset:${offset}` });
-      if (apiTotal === null && typeof data?.total === 'number') apiTotal = data.total;
+      if (typeof data?.total === 'number') {
+        apiTotals.add(data.total);
+        if (apiTotal === null) apiTotal = data.total;
+      }
     } catch (err) {
       console.warn(`⚠️ API fetch failed at offset ${offset}: ${err.message}`);
       break;
@@ -446,6 +450,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     droppedMalformedUrl,
     droppedDuplicateUrl,
     droppedDuplicateIdentity,
+    apiTotals: [...apiTotals],
   };
 }
 
@@ -471,6 +476,7 @@ export function buildCoopAdapterConfig(
     seedMetaByUrl,
     authoritativeDetailSnapshot: true,
     authoritativeLifecycleDomains: COOP_LIFECYCLE_DOMAINS,
+    authoritativeLegacyCompanyAliases: [...COOP_DIVISION_COMPANY_NAMES],
     updatedAt,
   };
   delete adapter.seedUrls;
@@ -485,7 +491,8 @@ export function assertCoopAdapterParity(adapter, seedDetailUrls, seedMetaByUrl =
     throw new Error('Coop adapter parity failed: seedMetaByUrl differs from the authoritative feed.');
   }
   if (adapter?.authoritativeDetailSnapshot !== true
-      || JSON.stringify(adapter?.authoritativeLifecycleDomains) !== JSON.stringify(COOP_LIFECYCLE_DOMAINS)) {
+      || JSON.stringify(adapter?.authoritativeLifecycleDomains) !== JSON.stringify(COOP_LIFECYCLE_DOMAINS)
+      || !isDeepStrictEqual(adapter?.authoritativeLegacyCompanyAliases, [...COOP_DIVISION_COMPANY_NAMES])) {
     throw new Error('Coop adapter parity failed: authoritative lifecycle scope is missing or invalid.');
   }
   return true;
@@ -498,6 +505,7 @@ export function assertCompleteCoopDiscovery(discovery) {
   const droppedMalformedUrl = Number(discovery?.droppedMalformedUrl || 0);
   const droppedDuplicateUrl = Number(discovery?.droppedDuplicateUrl || 0);
   const droppedDuplicateIdentity = Number(discovery?.droppedDuplicateIdentity || 0);
+  const apiTotals = Array.isArray(discovery?.apiTotals) ? discovery.apiTotals : [discovery?.apiTotal];
   const urls = Array.isArray(discovery?.urls) ? discovery.urls : [];
   const seedMetaByUrl = discovery?.seedMetaByUrl && typeof discovery.seedMetaByUrl === 'object'
     ? discovery.seedMetaByUrl
@@ -520,12 +528,14 @@ export function assertCompleteCoopDiscovery(discovery) {
   const accounted = urls.length + droppedCounts.reduce((sum, count) => sum + count, 0);
   if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
       || accounted !== fetched
+      || apiTotals.length !== 1
+      || apiTotals[0] !== apiTotal
       || (apiTotal > 0 && urls.length === 0)
       || Object.keys(seedMetaByUrl).length !== urls.length
       || feedFingerprints.size !== urls.length
       || !trustedHostsOnly) {
     throw new Error(
-      `Coop discovery invariant failed: fetched=${fetched}, accounted=${accounted}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accounted=${accounted}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
     );
   }
   return true;

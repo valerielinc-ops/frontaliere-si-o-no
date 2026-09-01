@@ -79,12 +79,8 @@ describe('Coop authoritative detail routing', () => {
       [urls[1]]: { location: 'Bern', canton: 'BE' },
       [urls[0]]: { location: 'Zurich', canton: 'ZH' },
     };
-    expect(assertCoopAdapterParity({
-      seedDetailUrls: urls,
-      seedMetaByUrl: reversedMeta,
-      authoritativeDetailSnapshot: true,
-      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
-    }, urls, expectedMeta)).toBe(true);
+    const adapter = buildCoopAdapterConfig({}, urls, reversedMeta, 'fixed-for-test');
+    expect(assertCoopAdapterParity(adapter, urls, expectedMeta)).toBe(true);
   });
 
   it('accounts duplicate URLs, duplicate UUID aliases and malformed rows explicitly', async () => {
@@ -151,6 +147,28 @@ describe('Coop authoritative detail routing', () => {
     })).toThrow(/trusted-hosts=false/);
   });
 
+  it('fails closed on API total drift and on the pagination safety ceiling', () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/one/88888888-8888-4888-8888-888888888888';
+    const complete = {
+      apiTotal: 1,
+      fetched: 1,
+      droppedNonCh: 0,
+      droppedMalformedUrl: 0,
+      droppedDuplicateUrl: 0,
+      droppedDuplicateIdentity: 0,
+      urls: [url],
+      seedMetaByUrl: { [url]: { canton: 'ZH' } },
+    };
+    expect(() => assertCompleteCoopDiscovery({ ...complete, apiTotals: [1, 2] }))
+      .toThrow(/totals=1,2/);
+    expect(() => assertCompleteCoopDiscovery({
+      ...complete,
+      apiTotal: 10_001,
+      apiTotals: [10_001],
+      fetched: 10_000,
+    })).toThrow(/fetched 10000\/10001/);
+  });
+
   it('ages only feed-absent Coop identities across the homepage-to-ATS boundary', () => {
     const presentOldUrl = 'https://jobs.coopjobs.ch/offene-stellen/old-title/11111111-1111-4111-8111-111111111111';
     const presentFeedUrl = 'https://jobs.coopjobs.ch/postes-vacantes/new-title/11111111-1111-4111-8111-111111111111';
@@ -190,6 +208,7 @@ describe('Coop authoritative detail routing', () => {
         'jobs.coopjobs.ch': [fingerprintJob({ url: presentFeedUrl })],
       },
     };
+    expect(fingerprintJob({ url: presentOldUrl })).toBe(fingerprintJob({ url: presentFeedUrl }));
 
     const first = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
       scopeCompanyKeys: ['coop-ticino'],
@@ -234,6 +253,7 @@ describe('Coop authoritative detail routing', () => {
       companyDomain: 'coop.ch',
       processedCandidates: 1,
       authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+      authoritativeLegacyCompanyAliases: ['coop genossenschaft'],
       authoritativeDetailFingerprintsByDomain: {
         'jobs.coopjobs.ch': [fingerprintJob({ url })],
       },
@@ -245,6 +265,29 @@ describe('Coop authoritative detail routing', () => {
     expect(prunedExisting).toEqual([expect.objectContaining({ id: 'legacy', previousSlugs: ['legacy-route'] })]);
     expect(prunedExisting[0]).not.toHaveProperty('crawlerMissStreak');
     expect(prunedExisting[0].previousSlugs).toEqual(['legacy-route']);
+  });
+
+  it('does not scope a legacy sibling without companyKey to Coop', () => {
+    const sibling = {
+      id: 'legacy-jumbo',
+      company: 'Jumbo, Division der Coop Genossenschaft',
+      source: 'Company Careers Crawler',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/jumbo/99999999-9999-4999-8999-999999999999',
+      previousSlugs: ['jumbo-legacy-route'],
+    };
+    const result = {
+      companyKey: 'coop-ticino',
+      companyDomain: 'coop.ch',
+      processedCandidates: 1,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+      authoritativeLegacyCompanyAliases: ['coop', 'coop genossenschaft', 'coop city'],
+      authoritativeDetailFingerprintsByDomain: {
+        'jobs.coopjobs.ch': ['id|coopjobs.ch|11111111-1111-4111-8111-111111111111'],
+      },
+    };
+    expect(sharedCrawlerTestables.pruneStaleCrawlerJobs([sibling], [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    })).toEqual({ prunedExisting: [sibling], removed: 0 });
   });
 
   it('keeps authoritative fingerprints separated by lifecycle domain', () => {
