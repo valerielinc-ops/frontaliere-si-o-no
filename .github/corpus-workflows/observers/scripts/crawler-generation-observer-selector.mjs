@@ -18,6 +18,8 @@ const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const CALLER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 const OBSERVER_WORKFLOW = 'crawler-generation-observer-shadow.yml';
 const OBSERVER_PATH = `.github/workflows/${OBSERVER_WORKFLOW}`;
+const OBSERVER_WORKFLOW_NAME = 'Crawler Generation Observer (shadow)';
+const GENERATION_DISPATCH_REF_PREFIX = 'crawler-generation-shadow-';
 const TOKEN_RE = /^[1-9][0-9]*-[1-9][0-9]*$/;
 const RUN_ID_RE = /^[1-9][0-9]*$/;
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
@@ -74,11 +76,19 @@ function validLifecycle(run) {
     : run.conclusion === null;
 }
 
-function exactRunBase(run, runId) {
+function exactWorkflowPath(value, base, ref) {
+  return value === base || value === `${base}@${ref}`;
+}
+
+function generationDispatchRef(generationToken) {
+  return `${GENERATION_DISPATCH_REF_PREFIX}${generationToken}`;
+}
+
+function exactRunBase(run, runId, headBranch = 'main') {
   return String(run?.id ?? '') === String(runId)
     && run?.repository?.full_name === CALLER_REPOSITORY
-    && run?.path === OBSERVER_PATH
-    && run?.head_branch === 'main'
+    && exactWorkflowPath(run?.path, OBSERVER_PATH, headBranch)
+    && run?.head_branch === headBranch
     && COMMIT_RE.test(run?.head_sha ?? '')
     && validLifecycle(run);
 }
@@ -88,25 +98,30 @@ export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCo
   return RUN_ID_RE.test(String(runId ?? ''))
     && TOKEN_RE.test(generationToken ?? '')
     && COMMIT_RE.test(corpusCodeCommit ?? '')
-    && exactRunBase(run, runId)
-    && run.name === runName
+    && exactRunBase(run, runId, generationDispatchRef(generationToken))
+    && (run.name === OBSERVER_WORKFLOW_NAME || run.name === runName)
     && run.display_title === runName
     && run.event === 'workflow_dispatch'
     && run.head_sha === corpusCodeCommit;
 }
 
 export function validateObserverReportOwnerRun(run, runId, generationToken = null) {
-  if (!RUN_ID_RE.test(String(runId ?? '')) || !exactRunBase(run, runId)) return false;
+  const headBranch = run?.event === 'workflow_dispatch' && TOKEN_RE.test(generationToken ?? '')
+    ? generationDispatchRef(generationToken)
+    : 'main';
+  if (!RUN_ID_RE.test(String(runId ?? '')) || !exactRunBase(run, runId, headBranch)) return false;
   let expectedName;
   if (run.event === 'schedule') expectedName = `crawler-generation-observer-schedule-${runId}`;
   else if (run.event === 'workflow_run') {
-    expectedName = /^crawler-generation-observer-event-[1-9][0-9]*$/.test(run.name ?? '')
-      ? run.name
+    expectedName = /^crawler-generation-observer-event-[1-9][0-9]*$/.test(run.display_title ?? '')
+      ? run.display_title
       : null;
   } else if (run.event === 'workflow_dispatch' && TOKEN_RE.test(generationToken ?? '')) {
     expectedName = `crawler-generation-sentinel-${generationToken}`;
   } else return false;
-  return expectedName !== null && run.name === expectedName && run.display_title === expectedName;
+  return expectedName !== null
+    && (run.name === OBSERVER_WORKFLOW_NAME || run.name === expectedName)
+    && run.display_title === expectedName;
 }
 
 /** Select the newest self-validating report after exact-ID owner validation. */
@@ -231,11 +246,15 @@ function validateGroupRun(run, sentinel, group) {
   const binding = sentinel.groups[group];
   return String(run?.id ?? '') === String(binding.runId)
     && run?.repository?.full_name === CALLER_REPOSITORY
-    && run?.path === `.github/workflows/${binding.workflowFile}`
-    && run?.name === binding.runName
+    && exactWorkflowPath(
+      run?.path,
+      `.github/workflows/${binding.workflowFile}`,
+      generationDispatchRef(sentinel.generationToken),
+    )
+    && (run?.name === binding.workflowName || run?.name === binding.runName)
     && run?.display_title === binding.runName
     && run?.event === 'workflow_dispatch'
-    && run?.head_branch === 'main'
+    && run?.head_branch === generationDispatchRef(sentinel.generationToken)
     && run?.head_sha === sentinel.corpusCodeCommit
     && validLifecycle(run);
 }
@@ -283,8 +302,8 @@ async function downloadArtifactJson({ client, artifact, expectedName, maxBytes, 
 }
 
 function parseSentinelToken(run) {
-  const match = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(run?.name ?? '');
-  return match && run.display_title === run.name ? match[1] : null;
+  const match = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(run?.display_title ?? '');
+  return match && (run.name === OBSERVER_WORKFLOW_NAME || run.name === run.display_title) ? match[1] : null;
 }
 
 function assertList(response, key, cap) {

@@ -7,6 +7,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { assertSafeRunnerReportOutput } from './lib/crawler-generation-receipt.mjs';
 import {
   CALLER_REPOSITORY,
+  CRAWLER_GENERATION_DISPATCH_REF_PREFIX,
   CRAWLER_GENERATION_DISPATCH_STATUSES,
   CRAWLER_GENERATION_GITHUB_API_VERSION,
   GROUP_IDS,
@@ -14,11 +15,13 @@ import {
   canonicalJson,
   createCrawlerGenerationSentinel,
   crawlerGenerationLegacyWorkflowIdentity,
+  crawlerGenerationDispatchRef,
   crawlerGenerationRunName,
   crawlerGenerationSentinelWorkflowIdentity,
   crawlerGenerationWorkflowIdentity,
   digestDocument,
   isCrawlerGenerationToken,
+  SITE_REPOSITORY,
   validateCrawlerGenerationSentinel,
   validateCrawlerGenerationWorkflowRun,
 } from './lib/crawler-generation-contract.mjs';
@@ -38,6 +41,13 @@ const MAX_PREFLIGHT_READ_DELAY_MS = 5_000;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const ACCEPTED_STATUSES = new Set(['direct', 'reconciled_transport_error']);
 const DISPATCH_STATUS_SET = new Set(CRAWLER_GENERATION_DISPATCH_STATUSES);
+const ORCHESTRATOR_WORKFLOW_PATH = '.github/workflows/orchestrate-crawlers.yml';
+const TERMINAL_CONCLUSIONS = new Set([
+  'success', 'failure', 'cancelled', 'timed_out', 'action_required',
+  'neutral', 'skipped', 'stale', 'startup_failure',
+]);
+export const CRAWLER_GENERATION_REF_RETENTION_MS = 24 * 60 * 60 * 1_000;
+export const MAX_CRAWLER_GENERATION_REAPER_CANDIDATES = 4;
 
 function compareCodePoint(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -156,9 +166,8 @@ async function getAndValidateRun({
         identityForRunId(runId),
         repository,
       );
-      return validation.valid
-        ? { status: 'matched', observation: validation.observation }
-        : { status: 'binding_mismatch', observation: null };
+      if (validation.valid) return { status: 'matched', observation: validation.observation };
+      if (attempt === attempts) return { status: 'binding_mismatch', observation: null };
     }
     if (attempt < attempts) await sleep(attempt * 250);
   }
@@ -246,7 +255,10 @@ export async function dispatchWorkflowOnce({
       method: 'POST',
       path: `/repos/${repository}/actions/workflows/${encodeURIComponent(workflowFile)}/dispatches`,
       apiVersion: GITHUB_API_VERSION,
-      body: { ref: 'main', inputs },
+      body: {
+        ref: corpusCodeCommit === null ? 'main' : crawlerGenerationDispatchRef(generationToken),
+        inputs,
+      },
     });
   } catch {
     transportFailed = true;
@@ -291,6 +303,184 @@ export async function dispatchWorkflowOnce({
     return reconciled;
   }
   return { status: 'rejected', runId: null };
+}
+
+function exactPinnedRef(response, dispatchRef, corpusCodeCommit) {
+  return response?.status === 200
+    && response.body?.ref === `refs/heads/${dispatchRef}`
+    && response.body?.object?.type === 'commit'
+    && response.body?.object?.sha === corpusCodeCommit;
+}
+
+/** Pin one dedicated branch before the wave so a moving corpus main cannot split the generation. */
+export async function ensureCrawlerGenerationDispatchRef({ request, generationToken, corpusCodeCommit }) {
+  if (!COMMIT_RE.test(corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
+  const dispatchRef = crawlerGenerationDispatchRef(generationToken);
+  const endpoint = `/repos/${CALLER_REPOSITORY}/git/ref/heads/${dispatchRef}`;
+  const current = await request({ method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION });
+  if (exactPinnedRef(current, dispatchRef, corpusCodeCommit)) return dispatchRef;
+
+  let created = null;
+  if (current?.status === 404) {
+    created = await request({
+      method: 'POST',
+      path: `/repos/${CALLER_REPOSITORY}/git/refs`,
+      apiVersion: GITHUB_API_VERSION,
+      body: { ref: `refs/heads/${dispatchRef}`, sha: corpusCodeCommit },
+    });
+    if (created?.status === 201) created = { ...created, status: 200 };
+    if (!exactPinnedRef(created, dispatchRef, corpusCodeCommit)) {
+      created = await request({ method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION });
+    }
+  }
+  if (!exactPinnedRef(created, dispatchRef, corpusCodeCommit)) throw new Error('crawler_generation_ref_pin_failed');
+  return dispatchRef;
+}
+
+function exactObservedRef(response, dispatchRef, corpusCodeCommit) {
+  return exactPinnedRef(response, dispatchRef, corpusCodeCommit);
+}
+
+/**
+ * Workflow dispatch resolves and records the run head SHA before returning an accepted run ID.
+ * The generation ref is therefore removable only after every group and sentinel dispatch is accepted.
+ */
+export async function cleanupCrawlerGenerationDispatchRef({ request, generationToken, corpusCodeCommit }) {
+  if (!COMMIT_RE.test(corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
+  const dispatchRef = crawlerGenerationDispatchRef(generationToken);
+  const getPath = `/repos/${CALLER_REPOSITORY}/git/ref/heads/${dispatchRef}`;
+  const current = await request({ method: 'GET', path: getPath, apiVersion: GITHUB_API_VERSION });
+  if (current?.status === 404) return { status: 'already_missing', dispatchRef };
+  if (!exactObservedRef(current, dispatchRef, corpusCodeCommit)) {
+    throw new Error('crawler_generation_ref_cleanup_binding_mismatch');
+  }
+  const deleted = await request({
+    method: 'DELETE',
+    path: `/repos/${CALLER_REPOSITORY}/git/refs/heads/${dispatchRef}`,
+    apiVersion: GITHUB_API_VERSION,
+  });
+  if (deleted?.status !== 204 && deleted?.status !== 404) {
+    throw new Error('crawler_generation_ref_cleanup_failed');
+  }
+  return { status: deleted.status === 404 ? 'already_missing' : 'deleted', dispatchRef };
+}
+
+function parseGenerationRef(value) {
+  const match = new RegExp(
+    `^refs/heads/${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}([1-9][0-9]*)-([1-9][0-9]*)$`,
+  ).exec(value ?? '');
+  return match ? { generationToken: `${match[1]}-${match[2]}`, runId: match[1], runAttempt: Number(match[2]) } : null;
+}
+
+function exactOrchestratorOwner(run, candidate, now) {
+  const pathMatches = run?.path === ORCHESTRATOR_WORKFLOW_PATH
+    || (typeof run?.path === 'string' && run.path.startsWith(`${ORCHESTRATOR_WORKFLOW_PATH}@`));
+  const updatedAt = Date.parse(run?.updated_at ?? '');
+  return String(run?.id ?? '') === candidate.runId
+    && run?.repository?.full_name === SITE_REPOSITORY
+    && pathMatches
+    && run?.run_attempt === candidate.runAttempt
+    && run?.status === 'completed'
+    && TERMINAL_CONCLUSIONS.has(run?.conclusion)
+    && Number.isFinite(updatedAt)
+    && now - updatedAt >= CRAWLER_GENERATION_REF_RETENTION_MS;
+}
+
+/** Conservatively reap only old, terminal, exactly-owned pins left by cancellation or runner loss. */
+export async function reapStaleCrawlerGenerationDispatchRefs({
+  request,
+  currentGenerationToken,
+  now = Date.now(),
+}) {
+  if (!isCrawlerGenerationToken(currentGenerationToken) || !Number.isFinite(now)) {
+    throw new TypeError('Invalid crawler generation reaper input');
+  }
+  let response;
+  try {
+    response = await request({
+      method: 'GET',
+      path: `/repos/${CALLER_REPOSITORY}/git/matching-refs/heads/${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}`,
+      apiVersion: GITHUB_API_VERSION,
+    });
+  } catch {
+    return { status: 'list_failed', listed: 0, reaped: 0, preserved: 0, truncated: false };
+  }
+  if (response?.status !== 200 || !Array.isArray(response.body)) {
+    return { status: 'list_failed', listed: 0, reaped: 0, preserved: 0, truncated: false };
+  }
+  const listed = response.body;
+  const seenRefs = new Set();
+  let preserved = 0;
+  const candidates = [];
+  for (const observed of listed) {
+    const candidate = parseGenerationRef(observed?.ref);
+    if (!candidate || candidate.generationToken === currentGenerationToken
+        || observed?.object?.type !== 'commit' || !COMMIT_RE.test(observed?.object?.sha ?? '')
+        || seenRefs.has(observed.ref)) {
+      preserved += 1;
+      continue;
+    }
+    seenRefs.add(observed.ref);
+    candidates.push({ observed, ...candidate });
+  }
+  candidates.sort((left, right) => {
+    const leftRunId = BigInt(left.runId);
+    const rightRunId = BigInt(right.runId);
+    if (leftRunId !== rightRunId) return leftRunId < rightRunId ? -1 : 1;
+    return left.runAttempt - right.runAttempt;
+  });
+  const truncated = candidates.length > MAX_CRAWLER_GENERATION_REAPER_CANDIDATES;
+  preserved += Math.max(0, candidates.length - MAX_CRAWLER_GENERATION_REAPER_CANDIDATES);
+  let reaped = 0;
+  for (const candidate of candidates.slice(0, MAX_CRAWLER_GENERATION_REAPER_CANDIDATES)) {
+    const { observed } = candidate;
+    let owner;
+    try {
+      owner = await request({
+        method: 'GET',
+        path: `/repos/${SITE_REPOSITORY}/actions/runs/${candidate.runId}`,
+        apiVersion: GITHUB_API_VERSION,
+      });
+    } catch {
+      preserved += 1;
+      continue;
+    }
+    if (owner?.status !== 200 || !exactOrchestratorOwner(owner.body, candidate, now)) {
+      preserved += 1;
+      continue;
+    }
+    const dispatchRef = crawlerGenerationDispatchRef(candidate.generationToken);
+    const getPath = `/repos/${CALLER_REPOSITORY}/git/ref/heads/${dispatchRef}`;
+    let current;
+    try {
+      current = await request({ method: 'GET', path: getPath, apiVersion: GITHUB_API_VERSION });
+    } catch {
+      preserved += 1;
+      continue;
+    }
+    if (current?.status === 404) {
+      reaped += 1;
+      continue;
+    }
+    if (!exactObservedRef(current, dispatchRef, observed.object.sha)) {
+      preserved += 1;
+      continue;
+    }
+    let deleted;
+    try {
+      deleted = await request({
+        method: 'DELETE',
+        path: `/repos/${CALLER_REPOSITORY}/git/refs/heads/${dispatchRef}`,
+        apiVersion: GITHUB_API_VERSION,
+      });
+    } catch {
+      preserved += 1;
+      continue;
+    }
+    if (deleted?.status === 204 || deleted?.status === 404) reaped += 1;
+    else preserved += 1;
+  }
+  return { status: 'ok', listed: listed.length, reaped, preserved, truncated };
 }
 
 function legacyCheckpoint({ generationToken, siteCodeCommit, groupRunIds, dispatchDiagnostics }) {
@@ -367,7 +557,11 @@ export async function runCrawlerGenerationDispatchWave({
           ? crawlerGenerationRunName(group, generationToken)
           : `crawler-generation--group-${group}`,
         inputs: shadowReady
-          ? { skip_ai_translation: '1', generation_token: generationToken }
+          ? {
+              skip_ai_translation: '1',
+              generation_token: generationToken,
+              site_code_commit: siteCodeCommit,
+            }
           : { skip_ai_translation: '1' },
       });
     } catch {
@@ -550,7 +744,7 @@ export async function runPreflight({ request, contractPath, observerPath, sleep 
 
 function parseArguments(argv) {
   const mode = argv[0];
-  if (!['preflight', 'dispatch-groups', 'dispatch-sentinel'].includes(mode)) {
+  if (!['preflight', 'dispatch-groups', 'dispatch-sentinel', 'cleanup-ref'].includes(mode)) {
     throw new TypeError('Invalid crawler generation dispatch mode');
   }
   const values = {};
@@ -569,6 +763,7 @@ function parseArguments(argv) {
       '--failure-tolerance', '--dry-run', '--repository', '--runner-temp', '--checkpoint',
     ],
     'dispatch-sentinel': ['--generation-token', '--repository', '--runner-temp', '--checkpoint'],
+    'cleanup-ref': ['--generation-token', '--corpus-code-commit'],
   };
   const required = requiredByMode[mode];
   if (Object.keys(values).some((flag) => !required.includes(flag))
@@ -622,7 +817,6 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
   }
 
   const generationToken = values['--generation-token'];
-  const checkpointPath = safeCheckpoint(values);
   let request;
   try {
     request = createGitHubActionsRequester({
@@ -632,6 +826,17 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
   } catch {
     request = async () => { throw new Error('dispatch_api_unavailable'); };
   }
+  if (mode === 'cleanup-ref') {
+    const result = await cleanupCrawlerGenerationDispatchRef({
+      request,
+      generationToken,
+      corpusCodeCommit: values['--corpus-code-commit'],
+    });
+    process.stdout.write(`${JSON.stringify(result)}\n`);
+    return result;
+  }
+
+  const checkpointPath = safeCheckpoint(values);
   if (mode === 'dispatch-groups') {
     const dryRun = values['--dry-run'] === 'true';
     const shadowReady = values['--shadow-ready'] === 'true';
@@ -647,13 +852,30 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
     if (!Number.isInteger(failureTolerance) || failureTolerance < 0 || failureTolerance > GROUP_IDS.length) {
       throw new TypeError('Dispatch failure tolerance is invalid');
     }
+    let effectiveShadowReady = shadowReady;
+    if (!dryRun && shadowReady) {
+      const reaper = await reapStaleCrawlerGenerationDispatchRefs({
+        request,
+        currentGenerationToken: generationToken,
+      }).catch(() => ({ status: 'reaper_failed', listed: 0, reaped: 0, preserved: 0, truncated: false }));
+      process.stderr.write(`::notice::crawler generation ref reaper ${JSON.stringify(reaper)}\n`);
+      try {
+        await ensureCrawlerGenerationDispatchRef({
+          request,
+          generationToken,
+          corpusCodeCommit: values['--corpus-code-commit'],
+        });
+      } catch {
+        effectiveShadowReady = false;
+      }
+    }
     const result = await runCrawlerGenerationDispatchWave({
       generationToken,
       siteCodeCommit: values['--site-code-commit'],
       corpusCodeCommit: COMMIT_RE.test(values['--corpus-code-commit'])
         ? values['--corpus-code-commit']
         : null,
-      shadowReady,
+      shadowReady: effectiveShadowReady,
       checkpointPath,
       delayMs: dryRun ? 0 : delaySeconds * 1000,
       dispatch: dryRun
@@ -663,11 +885,11 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
           workflowFile,
           group,
           generationToken,
-          corpusCodeCommit: shadowReady ? values['--corpus-code-commit'] : null,
+          corpusCodeCommit: effectiveShadowReady ? values['--corpus-code-commit'] : null,
           inputs,
           request,
-          allowReconciliation: shadowReady,
-          identityForRunId: shadowReady
+          allowReconciliation: effectiveShadowReady,
+          identityForRunId: effectiveShadowReady
             ? (runId) => crawlerGenerationWorkflowIdentity(
               group, generationToken, runId, values['--corpus-code-commit'],
             )
@@ -675,6 +897,9 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         }),
     });
     const failures = GROUP_IDS.filter((group) => !ACCEPTED_STATUSES.has(result.dispatchDiagnostics[group].status)).length;
+    if (env.GITHUB_OUTPUT) {
+      fs.appendFileSync(env.GITHUB_OUTPUT, `shadow_ready=${effectiveShadowReady}\n`);
+    }
     process.stdout.write(`${JSON.stringify({ mode: result.dispatchMode ?? 'shadow', failures })}\n`);
     if (!dryRun && failures > failureTolerance) process.exitCode = 1;
     return result;
@@ -698,6 +923,9 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
     },
     request,
   });
+  if (env.GITHUB_OUTPUT) {
+    fs.appendFileSync(env.GITHUB_OUTPUT, `accepted=${ACCEPTED_STATUSES.has(outcome.status)}\n`);
+  }
   process.stdout.write(`${JSON.stringify(outcome)}\n`);
   if (!ACCEPTED_STATUSES.has(outcome.status)) process.exitCode = 1;
   return outcome;

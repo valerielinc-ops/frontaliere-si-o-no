@@ -47,6 +47,7 @@ on:
       - Crawler Group 22 (sparse cross-repo execution)
       - Crawler Group 23 (sparse cross-repo execution)
     types: [completed]
+    branches: ['crawler-generation-shadow-*']
   schedule:
     - cron: '23 2,8,14,20 * * *'
 
@@ -171,7 +172,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_run'
       && github.event.workflow_run.event == 'workflow_dispatch'
-      && github.event.workflow_run.head_branch == 'main'
+      && startsWith(github.event.workflow_run.head_branch, 'crawler-generation-shadow-')
       && !startsWith(github.event.workflow_run.display_title, 'crawler-generation--group-')
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -234,15 +235,17 @@ jobs:
               --argjson runId "$TRIGGER_RUN_ID" \
               --arg repository "$REPOSITORY" \
               --arg workflowPath ".github/workflows/crawler-group-${group}.yml" \
+              --arg workflowName "Crawler Group ${group} (sparse cross-repo execution)" \
+              --arg workflowRef "crawler-generation-shadow-$token" \
               --arg title "$TRIGGER_TITLE" \
               --arg headSha "$TRIGGER_HEAD_SHA" '
             .id == $runId
             and .repository.full_name == $repository
-            and .path == $workflowPath
-            and .name == $title
+            and (.path == $workflowPath or .path == ($workflowPath + "@" + $workflowRef))
+            and (.name == $workflowName or .name == $title)
             and .display_title == $title
             and .event == "workflow_dispatch"
-            and .head_branch == "main"
+            and .head_branch == $workflowRef
             and .head_sha == $headSha
             and (.run_attempt | type == "number" and floor == . and . >= 1)
             and .status == "completed"
@@ -276,14 +279,16 @@ jobs:
             if ! jq -e \
                 --argjson runId "$candidate_run_id" \
                 --arg repository "$REPOSITORY" \
+                --arg workflowRef "crawler-generation-shadow-$token" \
                 --arg title "crawler-generation-sentinel-$token" '
               .id == $runId
               and .repository.full_name == $repository
-              and .name == $title
-              and .path == ".github/workflows/crawler-generation-observer-shadow.yml"
+              and (.name == "Crawler Generation Observer (shadow)" or .name == $title)
+              and (.path == ".github/workflows/crawler-generation-observer-shadow.yml"
+                or .path == (".github/workflows/crawler-generation-observer-shadow.yml@" + $workflowRef))
               and .display_title == $title
               and .event == "workflow_dispatch"
-              and .head_branch == "main"
+              and .head_branch == $workflowRef
               and (.head_sha | type == "string" and test("^(?:[a-f0-9]{40}|[a-f0-9]{64})$"))
               and (.run_attempt | type == "number" and floor == . and . >= 1)
               and (.status | IN("requested", "queued", "pending", "waiting", "in_progress", "completed"))

@@ -28,6 +28,11 @@ on:
         required: false
         default: ""
         type: string
+      site_code_commit:
+        description: Full immutable site commit used by this generation (empty keeps legacy main)
+        required: false
+        default: ""
+        type: string
       timeout_ms:
         description: Per-crawler timeout override in milliseconds (empty uses the crawler default)
         required: false
@@ -61,7 +66,7 @@ jobs:
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           fetch-depth: 50
-          ref: main
+          ref: ${{ inputs.site_code_commit || 'main' }}
           clean: true
           sparse-checkout: |-
             /*
@@ -88,7 +93,7 @@ jobs:
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           fetch-depth: 50
-          ref: main
+          ref: ${{ inputs.site_code_commit || 'main' }}
           clean: true
           sparse-checkout: |-
             /*

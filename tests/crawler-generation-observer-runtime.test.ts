@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   GROUP_IDS,
   createCrawlerGenerationRoster,
@@ -28,6 +28,7 @@ import { GitHubActionsReadError } from '../scripts/lib/github-actions-read-clien
 const roots: string[] = [];
 const CORPUS_CODE_COMMIT = 'b'.repeat(40);
 afterEach(() => {
+  vi.unstubAllGlobals();
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
 
@@ -55,11 +56,11 @@ function boundRun(group: string, status = 'in_progress', conclusion: string | nu
   return {
     id: Number(binding.runId),
     run_attempt: 1,
-    name: binding.runName,
+    name: binding.workflowName,
     display_title: binding.runName,
     path: `.github/workflows/${binding.workflowFile}`,
     event: 'workflow_dispatch',
-    head_branch: 'main',
+    head_branch: 'crawler-generation-shadow-9001-2',
     head_sha: CORPUS_CODE_COMMIT,
     status,
     conclusion,
@@ -123,16 +124,16 @@ describe('crawler observer GitHub binding', () => {
     }, '10000')).rejects.toMatchObject({ code: 'run_binding_invalid' });
   });
 
-  it('accepts only the exact repository, workflow, run id and generation run-name', () => {
+  it('accepts only the exact repository, workflow, run id, static workflow name and generation run-name', () => {
     const binding = sentinel().groups['01'];
     const run = {
       id: 10_000,
       run_attempt: 2,
-      name: binding.runName,
+      name: binding.workflowName,
       display_title: binding.runName,
       path: `.github/workflows/${binding.workflowFile}`,
       event: 'workflow_dispatch',
-      head_branch: 'main',
+      head_branch: 'crawler-generation-shadow-9001-2',
       head_sha: CORPUS_CODE_COMMIT,
       status: 'completed',
       conclusion: 'failure',
@@ -146,6 +147,7 @@ describe('crawler observer GitHub binding', () => {
       status: 'completed',
       conclusion: 'failure',
     });
+    expect(() => validateBoundCrawlerRun({ ...run, name: binding.runName }, binding)).not.toThrow();
     expect(() => validateBoundCrawlerRun({ ...run, display_title: 'crawler-generation--group-01' }, binding))
       .toThrow(/run binding/i);
     expect(() => validateBoundCrawlerRun({ ...run, name: 'crawler-generation-9001-2-group-02' }, binding))
@@ -328,14 +330,14 @@ describe('crawler observer GitHub binding', () => {
     expect(replay.barrier.digest).toBe(report.barrier.digest);
   });
 
-  it('accepts sentinel replay evidence only from the exact manual workflow on main', () => {
+  it('accepts sentinel replay evidence only from the exact pinned manual workflow', () => {
     const run = {
       id: 90_001,
-      name: 'crawler-generation-sentinel-9001-2',
+      name: 'Crawler Generation Observer (shadow)',
       display_title: 'crawler-generation-sentinel-9001-2',
       path: '.github/workflows/crawler-generation-observer-shadow.yml',
       event: 'workflow_dispatch',
-      head_branch: 'main',
+      head_branch: 'crawler-generation-shadow-9001-2',
       head_sha: CORPUS_CODE_COMMIT,
       run_attempt: 1,
       status: 'in_progress',
@@ -352,12 +354,90 @@ describe('crawler observer GitHub binding', () => {
       .toThrow(/sentinel workflow run binding/i);
     expect(() => validateBoundSentinelRun({
       ...run,
-      name: 'Crawler Generation Observer (shadow)',
+      name: 'spoofed-observer-name',
     }, '9001-2', 90_001, CORPUS_CODE_COMMIT)).toThrow(/sentinel workflow run binding/i);
     expect(() => validateBoundSentinelRun({
       ...run,
       run_attempt: 0,
     }, '9001-2', 90_001, CORPUS_CODE_COMMIT)).toThrow(/sentinel workflow run binding/i);
+  });
+
+  it('observes an event sentinel through the pinned pre-check before proving its artifact commit', async () => {
+    const repositoryPath = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-observer-event-'));
+    const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-observer-event-tmp-'));
+    roots.push(repositoryPath, runnerTemp);
+    execFileSync('git', ['init', '-q'], { cwd: repositoryPath });
+    const rosterPath = path.join(repositoryPath, 'roster.json');
+    fs.writeFileSync(rosterPath, '{}\n');
+    execFileSync('git', ['add', '--', 'roster.json'], { cwd: repositoryPath });
+    execFileSync('git', [
+      '-c', 'user.name=Observer Test', '-c', 'user.email=observer@example.invalid',
+      'commit', '-qm', 'observer fixture',
+    ], { cwd: repositoryPath });
+    const siteCodeCommit = execFileSync('git', ['rev-parse', 'HEAD'], {
+      cwd: repositoryPath, encoding: 'utf8',
+    }).trim();
+    const value = createCrawlerGenerationSentinel({
+      generationToken: '9001-2',
+      siteCodeCommit,
+      corpusCodeCommit: CORPUS_CODE_COMMIT,
+      groupRunIds: Object.fromEntries(GROUP_IDS.map((group) => [group, null])),
+    });
+    const archivePath = zipFixture({
+      'crawler-generation-sentinel.json': JSON.stringify(value),
+    });
+    const archive = fs.readFileSync(archivePath);
+    const artifact = {
+      id: 77,
+      name: 'crawler-generation-sentinel-9001-2',
+      expired: false,
+      size_in_bytes: archive.length,
+      workflow_run: { id: 90_001 },
+    };
+    const run = {
+      id: 90_001,
+      name: 'crawler-generation-sentinel-9001-2',
+      display_title: 'crawler-generation-sentinel-9001-2',
+      path: '.github/workflows/crawler-generation-observer-shadow.yml',
+      event: 'workflow_dispatch',
+      head_branch: 'crawler-generation-shadow-9001-2',
+      head_sha: CORPUS_CODE_COMMIT,
+      run_attempt: 1,
+      status: 'in_progress',
+      conclusion: null,
+      repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
+    };
+    const requests: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      requests.push(url);
+      if (url.includes('/actions/artifacts?')) {
+        return new Response(JSON.stringify({ total_count: 1, artifacts: [artifact] }));
+      }
+      if (url.endsWith('/actions/runs/90001')) return new Response(JSON.stringify(run));
+      if (url.endsWith('/actions/artifacts/77/zip')) return new Response(archive);
+      return new Response('not found', { status: 404 });
+    }));
+    const output = path.join(runnerTemp, 'crawler-generation-observer', 'report.json');
+
+    const report = await runCrawlerGenerationObserverCli([
+      'observe-event',
+      '--generation-token', '9001-2',
+      '--sentinel-run-id', '90001',
+      '--roster', rosterPath,
+      '--repository', repositoryPath,
+      '--runner-temp', runnerTemp,
+      '--output', output,
+    ], {
+      GH_TOKEN: 'test-token',
+      GITHUB_API_URL: 'https://api.github.test',
+      CRAWLER_GENERATION_EVALUATED_AT: '2026-08-31T08:00:00.000Z',
+    });
+
+    expect(report.observer).toEqual({ status: 'blocked', reasons: ['blocked_dispatch_missing'] });
+    expect(report.sentinelDigest).toBe(value.digest);
+    expect(JSON.parse(fs.readFileSync(output, 'utf8'))).toEqual(report);
+    expect(requests.some((url) => url.endsWith('/actions/artifacts/77/zip'))).toBe(true);
   });
 
   it('counts unique sentinel runs independently of current-artifact API visibility', () => {

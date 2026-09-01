@@ -199,6 +199,7 @@ jobs:
           --observer .github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml
 
       - name: Dispatch crawler generation wave
+        id: generation_wave
         env:
           GITHUB_API_URL: ${{ github.api_url }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
@@ -222,12 +223,13 @@ jobs:
           --checkpoint "$CHECKPOINT"
 
       - name: Dispatch crawler generation sentinel
+        id: generation_sentinel
         if: always()
         continue-on-error: true
         env:
           GITHUB_API_URL: ${{ github.api_url }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
-          SHADOW_READY: ${{ steps.generation_preflight.outputs.ready || 'false' }}
+          SHADOW_READY: ${{ steps.generation_wave.outputs.shadow_ready || 'false' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           CHECKPOINT: ${{ runner.temp }}/crawler-generation-dispatch/checkpoint.json
         run: |
@@ -240,6 +242,22 @@ jobs:
             --repository "$GITHUB_WORKSPACE" \
             --runner-temp "$RUNNER_TEMP" \
             --checkpoint "$CHECKPOINT"
+
+      - name: Cleanup accepted crawler generation ref
+        if: >-
+          always()
+          && steps.generation_wave.outputs.shadow_ready == 'true'
+          && steps.generation_sentinel.outcome == 'success'
+          && steps.generation_sentinel.outputs.accepted == 'true'
+        env:
+          GITHUB_API_URL: ${{ github.api_url }}
+          GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
+          CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
+        run: |
+          set -euo pipefail
+          node scripts/crawler-generation-dispatch.mjs cleanup-ref \
+            --generation-token "$GENERATION_TOKEN" \
+            --corpus-code-commit "$CORPUS_CODE_COMMIT"
 
       # translate-pending.yml migrated to frontaliere-articles alongside the
       # crawler groups (same batch as the crawler-group-01..22 migration on
