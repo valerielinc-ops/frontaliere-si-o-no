@@ -59,6 +59,20 @@ import {
   type InjectedLink,
 } from './shared/contextualLinkInjector';
 
+function isMissingPathError(error: unknown): boolean {
+  return (error as NodeJS.ErrnoException).code === 'ENOENT';
+}
+
+function pathExists(pathname: string): boolean {
+  try {
+    fs.statSync(pathname);
+    return true;
+  } catch (err) {
+    if (isMissingPathError(err)) return false;
+    throw err;
+  }
+}
+
 export { countBodyWords };
 export type { ContextualLinkDefaults, InjectionResult, SkipReason, InjectedLink };
 
@@ -123,18 +137,21 @@ export function listBlogArticleHtmlFiles(
       const localeRoot = locale === 'it'
         ? path.join(distDir, indexSlug)
         : path.join(distDir, locale, indexSlug);
-      if (!fs.existsSync(localeRoot)) continue;
+      if (!pathExists(localeRoot)) continue;
 
       let entries: fs.Dirent[] = [];
       try {
         entries = fs.readdirSync(localeRoot, { withFileTypes: true });
-      } catch { continue; }
+      } catch (err) {
+        if (isMissingPathError(err)) continue;
+        throw err;
+      }
 
       for (const entry of entries) {
         if (entry.isDirectory()) {
           const dirSlug = entry.name;
           const indexHtml = path.join(localeRoot, dirSlug, 'index.html');
-          if (fs.existsSync(indexHtml)) {
+          if (pathExists(indexHtml)) {
             out.push({ locale, absPath: indexHtml, articleSlug: dirSlug });
           }
         } else if (entry.isFile() && entry.name.endsWith('.html') && entry.name !== 'index.html') {
@@ -170,7 +187,7 @@ export function blogContextualLinksPlugin(rootDir: string): Plugin {
       sequential: true,
       async handler() {
       const distDir = path.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) {
+      if (!pathExists(distDir)) {
         console.warn('[blog-contextual-links] dist/ missing — skipping');
         return;
       }
@@ -207,8 +224,9 @@ export function blogContextualLinksPlugin(rootDir: string): Plugin {
         let html: string;
         try {
           html = fs.readFileSync(preferred.absPath, 'utf-8');
-        } catch {
-          continue;
+        } catch (err) {
+          if (isMissingPathError(err)) continue;
+          throw err;
         }
 
         const locale = preferred.locale;
@@ -238,6 +256,7 @@ export function blogContextualLinksPlugin(rootDir: string): Plugin {
         } catch (err: unknown) {
           const msg = err instanceof Error ? err.message : String(err);
           console.warn(`[blog-contextual-links] failed to write ${preferred.absPath}: ${msg}`);
+          throw err;
         }
       }
 
@@ -256,4 +275,3 @@ export function blogContextualLinksPlugin(rootDir: string): Plugin {
     },
   };
 }
-
