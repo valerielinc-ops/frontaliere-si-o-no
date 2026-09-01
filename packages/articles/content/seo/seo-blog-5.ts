@@ -81698,6 +81698,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-origgio-tragedia-cantiere-2026': {
+    title: 'Tragedia in cantiere a Origgio: morto un uomo di 55 anni',
+    description: 'Un uomo di 55 anni ha perso la vita in un infortunio sul lavoro a Origgio. Davide Bellotto della Fillea Cgil Varese: «Non conosciamo ancora i dettagli»',
+    keywords: 'frontalieri, ticino, svizzera, italia, tragedia, cantiere, origgio, morto',
+    ogTitle: 'Tragedia in cantiere a Origgio: morto un uomo di 55 anni',
+    ogDescription: 'Un uomo di 55 anni ha perso la vita in un infortunio sul lavoro a Origgio. Davide Bellotto della Fillea Cgil Varese: «Non conosciamo ancora i dettagli». La sicurezza nei cantieri è un tema cruciale per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/origgio-tragedia-cantiere-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tragedia in cantiere a Origgio: morto un uomo di 55 anni",
+      "description": "Un uomo di 55 anni ha perso la vita in un infortunio sul lavoro a Origgio. Davide Bellotto della Fillea Cgil Varese: «Non conosciamo ancora i dettagli»",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/origgio-tragedia-cantiere-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scene di un cantiere a Origgio dopo una tragedia sul lavoro"
+      },
+      "datePublished": "2026-09-01T15:08:54+00:00",
+      "dateModified": "2026-09-01T15:08:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/origgio-tragedia-cantiere-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

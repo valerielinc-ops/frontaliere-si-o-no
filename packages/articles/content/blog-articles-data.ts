@@ -33006,6 +33006,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'origgio-tragedia-cantiere-2026',
+ category: 'pratico',
+ date: '2026-09-01T15:08:54.573Z',
+ image: '/images/blog/origgio-tragedia-cantiere-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
