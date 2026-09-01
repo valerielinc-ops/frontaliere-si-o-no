@@ -24,6 +24,24 @@ const SCAN_DIGEST = `sha256:${'b'.repeat(64)}`;
 const ENGINE_VERSION = 'engine-1';
 const GATE_VERSION = 'gate-1';
 const evidenceDigest = (token: string) => createHash('sha256').update(token).digest('hex');
+type SchedulerPlan = ReturnType<typeof planTranslationScheduleV2>['plan'];
+type SchedulerSettlement = ReturnType<typeof settleTranslationScheduleV2>;
+type SchedulerOutcomeStatus =
+  | 'already_valid'
+  | 'ambiguous_target'
+  | 'applied'
+  | 'conflict'
+  | 'generation_failed'
+  | 'malformed_target'
+  | 'negative_cache'
+  | 'rejected'
+  | 'rejected_candidate'
+  | 'reused'
+  | 'stale_scan'
+  | 'stale_source'
+  | 'stale_target'
+  | 'target_absent'
+  | 'validated';
 
 function identity(label: string, overrides: Record<string, unknown> = {}) {
   return createTranslationUnitIdentityV2({
@@ -90,14 +108,17 @@ function plannerInput(overrides: Record<string, unknown> = {}) {
   };
 }
 
-function outcomesFor(plan: any, status = 'generation_failed') {
-  return plan.selectedJobs.map((selected: any) => ({
+function outcomesFor(plan: SchedulerPlan, status: SchedulerOutcomeStatus = 'generation_failed') {
+  return plan.selectedJobs.map((selected) => ({
     schedulingKey: selected.schedulingKey,
-    units: selected.units.map((unit: any) => ({ attemptKey: unit.attemptKey, status })),
+    units: selected.units.map((unit) => ({ attemptKey: unit.attemptKey, status })),
   }));
 }
 
-function rehashSettlement(settlement: any, metrics: Record<string, unknown>) {
+function rehashSettlement(
+  settlement: SchedulerSettlement,
+  metrics: Partial<SchedulerSettlement['metrics']>,
+) {
   const copy = structuredClone(settlement);
   copy.metrics = { ...copy.metrics, ...metrics };
   const { settlementHash: _ignored, ...payload } = copy;
@@ -110,13 +131,19 @@ describe('translation completion scheduler v2', () => {
     const easy = job('easy', [identity('easy')], 5_000);
     const olderTwo = job('older-two', [identity('older-a'), identity('older-b')], 1_000);
     const newerTwo = job('newer-two', [identity('newer-a'), identity('newer-b')], 2_000);
-    const { plan } = planTranslationScheduleV2(plannerInput({
-      jobs: [newerTwo, olderTwo, easy],
+    const jobs = [newerTwo, olderTwo, easy];
+    const planned = planTranslationScheduleV2(plannerInput({
+      jobs,
       limits: { maxJobs: 3, maxUnits: 10, fairnessNumerator: 1, fairnessDenominator: 5 },
     }));
+    const { plan } = planned;
 
     expect(plan.selectedJobs.map((selected) => [selected.generationDistance, selected.queuedAtMs]))
       .toEqual([[1, 5_000], [2, 1_000], [2, 2_000]]);
+    expect(Object.isFrozen(planned)).toBe(true);
+    expect(Object.isFrozen(planned.cursor)).toBe(true);
+    expect(Object.isFrozen(plan.selectedJobs[0].units)).toBe(true);
+    expect(plan.selectedJobs).not.toBe(jobs);
   });
 
   it('reuses an exact validated memory hit and excludes it from generation distance', () => {

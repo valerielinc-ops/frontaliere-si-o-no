@@ -354,7 +354,7 @@ function validateSelectedUnit(unit) {
   return { ...unit };
 }
 
-function validatePlan(plan) {
+export function validateTranslationScheduleV2(plan) {
   assertTranslationPlainObjectV2(plan, 'translation schedule');
   assertTranslationExactKeysV2(plan, PLAN_KEYS, 'translation schedule');
   if (plan.schemaVersion !== TRANSLATION_COMPLETION_SCHEDULER_V2_SCHEMA_VERSION
@@ -560,7 +560,7 @@ export function planTranslationScheduleV2(input) {
   const scopeKey = normalizeScopeKey(input.scopeKey);
   if (cursor.scopeKey !== scopeKey) throw new TypeError('translation scheduler cursor scope mismatch');
   if (cursor.activePlanHash !== null) {
-    const activePlan = validatePlan(input.activePlan);
+    const activePlan = validateTranslationScheduleV2(input.activePlan);
     assertReservedCursorPlanBinding(cursor, activePlan);
     return deepFreezeTranslationV2({ cursor, plan: activePlan });
   }
@@ -679,7 +679,7 @@ export function planTranslationScheduleV2(input) {
     selectedJobs,
     metrics,
   };
-  const plan = validatePlan({
+  const plan = validateTranslationScheduleV2({
     ...payload,
     planHash: `translation-schedule:v2:${digestTranslationDocumentV2(payload)}`,
   });
@@ -726,7 +726,7 @@ export function settleTranslationScheduleV2(input) {
   assertTranslationPlainObjectV2(input, 'translation scheduler settlement input');
   assertTranslationExactKeysV2(input, SETTLE_INPUT_KEYS, 'translation scheduler settlement input');
   const cursor = validateTranslationSchedulerCursorV2(input.cursor);
-  const plan = validatePlan(input.plan);
+  const plan = validateTranslationScheduleV2(input.plan);
   assertReservedCursorPlanBinding(cursor, plan);
   const outcomes = validateOutcomes(input.outcomes, plan);
   const outcomeCounts = Object.fromEntries(OUTCOME_STATUSES.map((status) => [status, 0]));
@@ -775,11 +775,11 @@ export function settleTranslationScheduleV2(input) {
 }
 
 export function serializeTranslationScheduleV2(plan) {
-  return `${canonicalTranslationJsonV2(validatePlan(plan))}\n`;
+  return `${canonicalTranslationJsonV2(validateTranslationScheduleV2(plan))}\n`;
 }
 
 export function validateTranslationSettlementV2(settlement, planInput) {
-  const plan = validatePlan(planInput);
+  const plan = validateTranslationScheduleV2(planInput);
   assertTranslationPlainObjectV2(settlement, 'translation scheduler settlement');
   assertTranslationExactKeysV2(settlement, SETTLEMENT_KEYS, 'translation scheduler settlement');
   if (settlement.schemaVersion !== TRANSLATION_COMPLETION_SCHEDULER_V2_SCHEMA_VERSION
