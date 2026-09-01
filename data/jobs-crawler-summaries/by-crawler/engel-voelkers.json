@@ -1,18 +1,19 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-08-31T17:16:34.888Z",
+  "generatedAt": "2026-09-01T00:54:51.810Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21321,
-  "avgDurationMs": 21321,
+  "durationMs": 20554,
+  "avgDurationMs": 20554,
   "durationHistory": [
-    21321
+    20554
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Communication Manager | Team Support (Ascona/Lugano)",
       "slug": "communication-manager-team-support-ascona-lugano-engel-voelkers-lugano",
@@ -31,20 +32,27 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "_qualityScore": 73,
+      "id": "engel-voelkers-be988d8bd39a",
+      "needsRetranslation": true,
+      "salaryMin": 75500,
+      "salaryMax": 133000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "firstSeenAt": "2026-08-31T17:16:34.884Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 16,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
       "slug": "immobilienberater-in-m-w-d-100-rheinfelden-engel-voelkers-rheinfelden",
@@ -63,7 +71,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -73,6 +81,7 @@
       "currency": "CHF",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -99,7 +108,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -109,6 +118,7 @@
       "currency": "CHF",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -135,7 +145,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -145,6 +155,7 @@
       "currency": "CHF",
       "postalCode": "4001",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -171,7 +182,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -181,6 +192,7 @@
       "currency": "CHF",
       "postalCode": "5000",
       "firstSeenAt": "2026-06-08T12:49:56.721Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -207,7 +219,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -216,6 +228,7 @@
       "salaryMax": 127500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T12:59:03.749Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -242,7 +255,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -253,6 +266,7 @@
       "postalCode": "6612",
       "id": "engel-voelkers-066a32c6e88d",
       "firstSeenAt": "2026-04-13T21:38:03.110Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -279,7 +293,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -288,6 +302,7 @@
       "salaryMax": 147500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-27T12:41:12.434Z",
+      "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -314,7 +329,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -323,6 +338,7 @@
       "salaryMax": 147500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T22:24:13.060Z",
+      "salarySource": "estimated",
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -349,7 +365,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -358,6 +374,7 @@
       "salaryMax": 147500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-31T22:23:30.475Z",
+      "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -367,43 +384,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Junior Immobilienmakler/in 100%",
-      "slug": "junior-immobilienmakler-in-100-buutiq-immobilien-ag-schaffhausen",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/d73b3b54-fa87-47ce-b04b-ed260187c751",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Schaffhausen",
-      "addressLocality": "Schaffhausen",
-      "addressRegion": "SH",
-      "addressCountry": "CH",
-      "canton": "SH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-25",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "engel-voelkers-5229fd478d86",
-      "needsRetranslation": true,
-      "salaryMin": 54000,
-      "salaryMax": 82500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-25T21:47:45.182Z",
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
