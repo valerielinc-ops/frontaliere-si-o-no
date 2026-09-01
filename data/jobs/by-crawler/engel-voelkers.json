@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-09-01T14:18:10.768Z",
+  "assembledAt": "2026-09-01T23:16:21.302Z",
   "jobs": [
     {
       "title": "Communication Manager | Team Support (Ascona/Lugano)",
@@ -40,11 +40,10 @@
       "slugByLocale": {
         "it": "communication-manager-team-support-ascona-lugano-engel-voelkers-lugano",
         "en": "communication-manager-team-support-ascona-lugano-ticino-premium-properties-sa-lugano",
-        "de": "communication-manager-team-support-ascona-lugano-engel-voelkers-lugano",
+        "de": "kommunikationsmanager-team-support-ascona-lugano-ticino-premium-properties-sa-lugano",
         "fr": "gestionnaire-de-la-communication-ascona-lugano-ticino-premium-properties-sa-lugano"
       },
       "id": "engel-voelkers-be988d8bd39a",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "currency": "CHF",
@@ -61,7 +60,8 @@
       },
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
-      "firstSeenAt": "2026-08-31T17:16:34.884Z"
+      "firstSeenAt": "2026-08-31T17:16:34.884Z",
+      "needsRetranslation": true
     },
     {
       "title": "Immobilienberater:In (m/w/d) 100% - Rheinfelden",
