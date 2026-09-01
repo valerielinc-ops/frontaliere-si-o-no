@@ -217,7 +217,19 @@ export async function fetchAllIpersonalJobs() {
     enumerable: false,
   });
   Object.defineProperty(jobs, 'qualityDroppedCount', {
-    value: Number(listings.qualityDroppedCount) || 0,
+    value: listings.qualityDroppedCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'detailFailureCount', {
+    value: listings.detailFailureCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'sourceIdentityCollisionCount', {
+    value: listings.sourceIdentityCollisionCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'unaccountedReturnedCount', {
+    value: listings.unaccountedReturnedCount ?? 0,
     enumerable: false,
   });
   return jobs;

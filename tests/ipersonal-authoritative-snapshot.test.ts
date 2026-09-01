@@ -161,6 +161,51 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
     expect(() => assertCompleteIpersonalSnapshot(partiallyFiltered)).toThrow(/parsed 13\/15/);
   });
 
+  it('fails closed when a missing detail is explained by an HTTP/transport failure', () => {
+    const partiallyFetched = markDiscovered(
+      Array.from({ length: 13 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+    );
+    Object.defineProperty(partiallyFetched, 'qualityDroppedCount', { value: 1 });
+    Object.defineProperty(partiallyFetched, 'detailFailureCount', { value: 1 });
+    expect(() => assertCompleteIpersonalSnapshot(partiallyFetched)).toThrow(
+      /detail fetch\/parse failure/,
+    );
+  });
+
+  it.each([-1, 1.5, 16])('fails closed on malformed quality-drop accounting (%s)', (value) => {
+    const batch = markDiscovered(
+      Array.from({ length: 13 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+    );
+    Object.defineProperty(batch, 'qualityDroppedCount', { value });
+    expect(() => assertCompleteIpersonalSnapshot(batch)).toThrow(/invalid quality-drop accounting/);
+  });
+
+  it.each([
+    ['redirect collision', 'sourceIdentityCollisionCount'],
+    ['unaccounted returned row', 'unaccountedReturnedCount'],
+  ])('fails closed on %s instead of masking it as a quality drop', (_label, property) => {
+    const batch = markDiscovered(
+      Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+    );
+    Object.defineProperty(batch, property, { value: 1 });
+    expect(() => assertCompleteIpersonalSnapshot(batch)).toThrow(/detail identity accounting mismatch/);
+  });
+
+  it.each([
+    ['sourceIdentityCollisionCount', Number.NaN],
+    ['unaccountedReturnedCount', -1],
+  ])('fails closed on malformed %s evidence', (property, value) => {
+    const batch = markDiscovered(
+      Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+    );
+    Object.defineProperty(batch, property, { value });
+    expect(() => assertCompleteIpersonalSnapshot(batch)).toThrow(/detail identity accounting mismatch/);
+  });
+
   it('fails closed when any configured listing seed returns an empty body', () => {
     const partialSeedBatch = markDiscovered(
       Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),
@@ -182,5 +227,11 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
       'utf8',
     );
     expect(template).toContain('skipShrinkGuard: authoritativeSnapshotVerified');
+    const fetchIndex = template.indexOf('parsedJobs = await fetchJobs()');
+    const validationIndex = template.indexOf('evaluateAuthoritativeSnapshot(\n    parsedJobs');
+    const mergeIndex = template.indexOf('mergePreserveLocaleData(companyExisting, parsedJobs');
+    expect(fetchIndex).toBeGreaterThan(-1);
+    expect(validationIndex).toBeGreaterThan(fetchIndex);
+    expect(mergeIndex).toBeGreaterThan(validationIndex);
   });
 });

@@ -17,6 +17,7 @@ vi.mock('../scripts/lib/ipersonal-spec-runtime.mjs', async (importOriginal) => {
   return { ...actual, runIpersonalSpecInProduction: async () => mockListings.current };
 });
 
+const { assertCompleteIpersonalSnapshot } = await import('../scripts/lib/ipersonal-spec-runtime.mjs');
 const { fetchAllIpersonalJobs } = await import('../scripts/lib/ipersonal-job-parser.mjs');
 const { fetchAllMedIpersonalJobs } = await import('../scripts/lib/med-ipersonal-job-parser.mjs');
 
@@ -58,5 +59,18 @@ describe.each([
     expect(jobs).toHaveLength(1);
     expect((jobs as any).qualityDroppedCount).toBe(0);
     expect(jobs[0].canton).toBe('SG');
+  });
+
+  it.each([
+    ['short title', { title: 'X' }],
+    ['empty description', { description: '' }],
+  ])('does not relabel a downstream %s rejection as a legitimate quality drop', async (_label, change) => {
+    mockListings.current = withCounts([
+      { ...ambiguousMunicipalityListing(), ...change },
+    ]);
+    const jobs = await fetchAll();
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).qualityDroppedCount).toBe(0);
+    expect(() => assertCompleteIpersonalSnapshot(jobs as any)).toThrow(/parsed 0\/1/);
   });
 });

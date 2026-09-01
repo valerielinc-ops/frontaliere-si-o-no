@@ -1,7 +1,8 @@
 import { JSDOM } from 'jsdom';
 import { stripHtml } from './crawler-template.mjs';
 import { decodeEntities } from './prospector/entities.mjs';
-import { isSufficientVacancyDescription } from './prospector/extract.mjs';
+import { extractDetailFields, isSufficientVacancyDescription } from './prospector/extract.mjs';
+import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 
 /** @param {string | URL} value */
@@ -112,17 +113,24 @@ export function extractIpersonalDescription(html = '') {
  *   discoveredCount: number,
  *   expectedSeedCount: number,
  *   loadedSeedCount: number,
+ *   qualityDroppedCount: number,
+ *   detailFailureCount: number,
+ *   sourceIdentityCollisionCount: number,
+ *   unaccountedReturnedCount: number,
  * }>}
  */
 export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const pages = new Map();
   const attemptedDetailUrls = new Set();
+  const resolvedDetailsByAttempt = new Map();
+  const parsedDetails = new Map();
   const expectedSeedUrls = new Set(
     (spec?.seedUrls || []).map((seed) => canonicalUrl(seed)).filter(Boolean),
   );
   const loadedSeedUrls = new Set();
   const detailTemplateRx = spec?.detailTemplate ? templateToRegex(spec.detailTemplate) : null;
   const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
+  const upstreamDetailExtractor = runtime.detailExtractor || extractDetailFields;
   const capturingFetch = async (input, init = {}) => {
     const headers = new Headers(init.headers || {});
     headers.set('Accept-Encoding', 'identity');
@@ -130,16 +138,24 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     const inputUrl = typeof input === 'string' || input instanceof URL
       ? String(input)
       : input.url;
+    let attemptedDetailUrl = '';
     if (method !== 'HEAD' && detailTemplateRx) {
       try {
         const parsed = new URL(inputUrl);
-        if (detailTemplateRx.test(parsed.pathname)) attemptedDetailUrls.add(canonicalUrl(parsed));
+        if (detailTemplateRx.test(parsed.pathname)) {
+          attemptedDetailUrl = canonicalUrl(parsed);
+          attemptedDetailUrls.add(attemptedDetailUrl);
+        }
       } catch { /* the public fetch policy rejects invalid URLs */ }
     }
     const response = await upstreamFetch(input, { ...init, headers });
     if (method !== 'HEAD') {
       const originalHtml = await response.clone().text();
       const canonicalInputUrl = canonicalUrl(inputUrl);
+      const resolvedDetailUrl = canonicalUrl(response.url || inputUrl);
+      if (attemptedDetailUrl) {
+        resolvedDetailsByAttempt.set(attemptedDetailUrl, resolvedDetailUrl);
+      }
       if (expectedSeedUrls.has(canonicalInputUrl) && originalHtml.trim()) {
         loadedSeedUrls.add(canonicalInputUrl);
       }
@@ -156,10 +172,16 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     }
     return response;
   };
+  const capturingDetailExtractor = (html, pageUrl) => {
+    const detail = upstreamDetailExtractor(html, pageUrl);
+    parsedDetails.set(canonicalUrl(pageUrl), detail);
+    return detail;
+  };
 
   const rows = await runSpecInProduction(spec, {
     ...runtime,
     fetchImpl: capturingFetch,
+    detailExtractor: capturingDetailExtractor,
   });
   const enriched = rows.map((row) => {
     const description = extractIpersonalDescription(pages.get(canonicalUrl(row.url)) || '');
@@ -177,16 +199,55 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     value: loadedSeedUrls.size,
     enumerable: false,
   });
-  // `runSpecInProduction` itself drops rows whose detail page never yields a
-  // verifiable Swiss geography or a sufficient description — a legitimate,
-  // already-logged content-quality filter (`reportDroppedRows`), not a crawl
-  // failure. Surface the gap so the completeness assert below can tell "a
-  // listing was rightfully filtered" apart from "a listing vanished".
+  // Count only source-proven quality rejections. Arithmetic based solely on
+  // `attempted - returned` would also bless unrelated losses (dedup bugs,
+  // redirect aliasing, or a later adapter filter).
+  const returnedUrls = new Set(rows.map((row) => canonicalUrl(row?.url)).filter(Boolean));
+  const responseIdentityCounts = new Map();
+  for (const attemptedUrl of attemptedDetailUrls) {
+    const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
+    responseIdentityCounts.set(
+      resolvedDetailUrl,
+      (responseIdentityCounts.get(resolvedDetailUrl) || 0) + 1,
+    );
+  }
+  const qualityDroppedUrls = new Set();
+  const detailFailureUrls = new Set();
+  for (const attemptedUrl of attemptedDetailUrls) {
+    const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
+    if (returnedUrls.has(attemptedUrl) || returnedUrls.has(resolvedDetailUrl)) continue;
+    const detail = parsedDetails.get(resolvedDetailUrl) || parsedDetails.get(attemptedUrl);
+    if (!detail) {
+      detailFailureUrls.add(attemptedUrl);
+      continue;
+    }
+    const geography = resolveDetailOrListingSwissGeography(detail, {}).geography;
+    const sourceMarkup = pages.get(resolvedDetailUrl) || pages.get(attemptedUrl) || '';
+    const descriptionProven = isSufficientVacancyDescription(detail.description)
+      || isSufficientVacancyDescription(extractIpersonalDescription(sourceMarkup));
+    if (!geography || !descriptionProven) qualityDroppedUrls.add(attemptedUrl);
+  }
   Object.defineProperty(enriched, 'qualityDroppedCount', {
-    value: Math.max(0, attemptedDetailUrls.size - rows.length),
+    value: qualityDroppedUrls.size,
     enumerable: false,
   });
-  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, qualityDroppedCount: number }} */ (
+  Object.defineProperty(enriched, 'detailFailureCount', {
+    value: detailFailureUrls.size,
+    enumerable: false,
+  });
+  Object.defineProperty(enriched, 'sourceIdentityCollisionCount', {
+    value: [...responseIdentityCounts.values()].reduce((total, count) => total + Math.max(0, count - 1), 0),
+    enumerable: false,
+  });
+  const attemptedIdentities = new Set([
+    ...attemptedDetailUrls,
+    ...resolvedDetailsByAttempt.values(),
+  ]);
+  Object.defineProperty(enriched, 'unaccountedReturnedCount', {
+    value: [...returnedUrls].filter((url) => !attemptedIdentities.has(url)).length,
+    enumerable: false,
+  });
+  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, qualityDroppedCount: number, detailFailureCount: number, sourceIdentityCollisionCount: number, unaccountedReturnedCount: number }} */ (
     /** @type {unknown} */ (enriched)
   );
 }
@@ -201,6 +262,10 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
  *   discoveredCount?: number,
  *   expectedSeedCount?: number,
  *   loadedSeedCount?: number,
+ *   qualityDroppedCount?: number,
+ *   detailFailureCount?: number,
+ *   sourceIdentityCollisionCount?: number,
+ *   unaccountedReturnedCount?: number,
  * }} jobs
  * @returns {true}
  */
@@ -208,7 +273,10 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   const discoveredCount = Number(jobs?.discoveredCount);
   const expectedSeedCount = Number(jobs?.expectedSeedCount);
   const loadedSeedCount = Number(jobs?.loadedSeedCount);
-  const qualityDroppedCount = Number(jobs?.qualityDroppedCount) || 0;
+  const qualityDroppedCount = jobs?.qualityDroppedCount ?? 0;
+  const detailFailureCount = jobs?.detailFailureCount ?? 0;
+  const sourceIdentityCollisionCount = jobs?.sourceIdentityCollisionCount ?? 0;
+  const unaccountedReturnedCount = jobs?.unaccountedReturnedCount ?? 0;
   if (!Number.isInteger(expectedSeedCount) || expectedSeedCount <= 0) {
     throw new Error('iPersonal snapshot incomplete: no authoritative seed count');
   }
@@ -220,11 +288,25 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   if (!Array.isArray(jobs) || !Number.isInteger(discoveredCount) || discoveredCount <= 0) {
     throw new Error('iPersonal snapshot incomplete: no authoritative detail count');
   }
-  // A listing legitimately dropped upstream for lacking a verifiable Swiss
-  // geography or a sufficient description (reportDroppedRows) must not count
-  // against completeness — only an UNEXPLAINED gap (a listing that vanished
-  // without one of those documented reasons) proves a partial/broken crawl.
-  if (jobs.length !== discoveredCount - qualityDroppedCount) {
+  if (!Number.isInteger(qualityDroppedCount)
+    || qualityDroppedCount < 0
+    || qualityDroppedCount > discoveredCount) {
+    throw new Error('iPersonal snapshot incomplete: invalid quality-drop accounting');
+  }
+  if (!Number.isInteger(detailFailureCount)
+    || detailFailureCount < 0
+    || detailFailureCount !== 0) {
+    throw new Error('iPersonal snapshot incomplete: detail fetch/parse failure');
+  }
+  if (!Number.isInteger(sourceIdentityCollisionCount)
+    || sourceIdentityCollisionCount < 0
+    || !Number.isInteger(unaccountedReturnedCount)
+    || unaccountedReturnedCount < 0
+    || sourceIdentityCollisionCount !== 0
+    || unaccountedReturnedCount !== 0) {
+    throw new Error('iPersonal snapshot incomplete: detail identity accounting mismatch');
+  }
+  if (jobs.length + qualityDroppedCount !== discoveredCount) {
     throw new Error(`iPersonal snapshot incomplete: parsed ${jobs.length}/${discoveredCount} attempted details`);
   }
 
