@@ -4963,6 +4963,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comcom-esclude-nuovi-operatori-mobile.title': 'Schweizer Mobilfunk: Comcom schließt neue Anbieter aus',
     'blog.article.comcom-esclude-nuovi-operatori-mobile.excerpt': 'Die Schweizerische Bundeskommunikationskommission erklärt: Wirtschaftliche und regulatorische Barrieren machen es für neue Wettbewerber praktisch unmöglich, in den Mobiltelefonmarkt einzutreten.',
     'blog.article.comcom-esclude-nuovi-operatori-mobile.imageAlt': 'Panoramablick auf Lugano, Wirtschaftszentrum der Südschweiz, Symbol des Schweizer Telekommunikationsmarkts',
+    'blog.article.audizione-concezione-energia-eolica.title': 'Windenergie: Bundesanhörung für neue Anlagen',
+    'blog.article.audizione-concezione-energia-eolica.excerpt': 'Am 1. September startet die ARE die Konsultation der Kantone und der Öffentlichkeit zur Anpassung des Windenergiekonzepts und zur Stärkung der Planungssicherheit.',
+    'blog.article.audizione-concezione-energia-eolica.imageAlt': 'Alpiner Bergkamm in der Schweiz mit Windkraftanlagen, Symbol der Bundesenergiplanung und Gebietsentwicklung',
 };
 
 export default blogMetaChDe;
