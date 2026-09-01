@@ -143,11 +143,11 @@
           "kundenberaterin-vermogende-privatkunden-basel-m-w-d-80-100-bank-cler-8440-mwst-che-3w4xj9",
           "kundenberaterin-vermogende-privatkunden-basel-w-m-banca-cler"
         ],
-        "en": [
-          "kundenberaterin-vermogende-privatkunden-basel-m-w-d-80-100-bank-cler-8440-mwst-che-3w4xj9"
-        ],
         "de": [
           "kundenberaterin-vermogende-privatkunden-basel-m-w-d-80-100-bank-cler-8440-mwst-che-3w4xj9-ywgi1y",
+          "kundenberaterin-vermogende-privatkunden-basel-m-w-d-80-100-bank-cler-8440-mwst-che-3w4xj9"
+        ],
+        "en": [
           "kundenberaterin-vermogende-privatkunden-basel-m-w-d-80-100-bank-cler-8440-mwst-che-3w4xj9"
         ],
         "fr": [
@@ -164,7 +164,6 @@
       ],
       "salaryMin": 107000,
       "salaryMax": 187500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -186,7 +185,8 @@
       "sector": "Banca / Servizi finanziari",
       "department": "Private Banking und Privatkunden",
       "validThrough": "",
-      "contractType": "permanent"
+      "contractType": "permanent",
+      "salarySource": "estimated"
     },
     {
       "id": "company-3w4xj9",
@@ -319,7 +319,6 @@
       "sourceLang": "de",
       "salaryMin": 107000,
       "salaryMax": 187500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -341,14 +340,14 @@
           "fachspezialistin-front-support-m-w-d-80-100-bank-cler-8440-mwst-che-py53qo",
           "fachspezialistin-front-support-w-m-banca-cler"
         ],
-        "en": [
+        "fr": [
+          "specialiste-du-soutien-frontal-f-m-80-100-bank-cler-8440-mwst-che-6f82e7",
           "fachspezialistin-front-support-m-w-d-80-100-bank-cler-8440-mwst-che-py53qo"
         ],
         "de": [
           "fachspezialistin-front-support-m-w-d-80-100-bank-cler-8440-mwst-che-py53qo"
         ],
-        "fr": [
-          "specialiste-du-soutien-frontal-f-m-80-100-bank-cler-8440-mwst-che-6f82e7",
+        "en": [
           "fachspezialistin-front-support-m-w-d-80-100-bank-cler-8440-mwst-che-py53qo"
         ]
       },
@@ -369,6 +368,7 @@
       "department": "Produkt-, Segments- und Kanalmanagement",
       "validThrough": "",
       "contractType": "permanent",
+      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -721,9 +721,9 @@
       "firstSeenAt": "2026-08-27T00:35:28.513Z",
       "slugByLocale": {
         "it": "consulente-alla-clientela-privata-individuale-lugano-m-w-d-80-100-bank-cler-8440-mwst-che-1u7ff1",
-        "en": "individual-customer-advisor-lugano-m-f-80-100-banca-cler-8440-iva-che",
-        "de": "individueller-kundenberater-lugano-m-w-80-100-banca-cler-8440-iva-che",
-        "fr": "conseiller-client-individuel-lugano-h-f-80-100-banca-cler-8440-iva-che"
+        "en": "individual-customer-advisor-lugano-m-f-80-100-bank-cler-8440-mwst-che",
+        "de": "individueller-kundenberater-lugano-m-w-80-100-bank-cler-8440-mwst-che",
+        "fr": "conseiller-client-individuel-lugano-h-f-80-100-bank-cler-8440-mwst-che"
       },
       "titleByLocale": {
         "it": "Consulente alla clientela privata individuale Lugano (f/m) 80-100%",
@@ -968,7 +968,6 @@
       "sourceLang": "de",
       "salaryMin": 74500,
       "salaryMax": 131000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1034,6 +1033,7 @@
       "department": "Lehre, Praktikum und Trainee",
       "validThrough": "",
       "contractType": "permanent",
+      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -1109,10 +1109,12 @@
           "du-willst-mehr-come-nur-einen-schreibtischjob-aka-apprendistato-kauffrau-kaufmann-cfc-bank-region-basel-100-bank-cler-basel-zgqmji"
         ],
         "en": [
-          "you-want-more-than-just-a-desk-job-aka-apprenticeship-merchant-merchant-efz-bank-region-basel-100-bank-cler-basel"
+          "you-want-more-than-just-a-desk-job-aka-apprenticeship-merchant-merchant-efz-bank-region-basel-100-bank-cler-basel",
+          "you-want-more-than-just-a-desk-job-aka-apprenticeship-businesswoman-businessman-efz-bank-region-zurich-100-bank-e50610"
         ],
         "fr": [
-          "vous-voulez-plus-qu-un-simple-travail-de-bureau-alias-apprentissage-marchand-marchand-efz-banque-region-bale-100-bank"
+          "vous-voulez-plus-qu-un-simple-travail-de-bureau-alias-apprentissage-marchand-marchand-efz-banque-region-bale-100-bank",
+          "vous-voulez-plus-qu-un-simple-travail-de-bureau-il-s-agit-de-l-apprentissage-d-une-femme-d-affaires-homme-d-e50610"
         ]
       },
       "previousSlugs": [
