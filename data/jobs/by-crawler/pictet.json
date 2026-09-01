@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-09-01T01:51:54.861Z",
+  "assembledAt": "2026-09-01T04:04:40.255Z",
   "jobs": [
     {
       "id": "pictet-73ef067c6a43",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124893&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:50.443Z",
+      "crawledAt": "2026-09-01T04:04:36.897Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -66,8 +66,8 @@
           "internship-publishing-12-months-pictet-luxembourg"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:29:35.863Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:29:35.863Z",
       "salaryMin": 73000,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -113,7 +113,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124531&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:49.768Z",
+      "crawledAt": "2026-09-01T04:04:36.417Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124390&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:49.166Z",
+      "crawledAt": "2026-09-01T04:04:35.846Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -266,7 +266,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124917&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:48.602Z",
+      "crawledAt": "2026-09-01T04:04:35.320Z",
       "addressLocality": "Singapore",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124925&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:47.987Z",
+      "crawledAt": "2026-09-01T04:04:34.784Z",
       "addressLocality": "London",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -407,7 +407,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124437&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:51:47.376Z",
+      "crawledAt": "2026-09-01T04:04:34.289Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -447,7 +447,7 @@
         "it": "fondo-domiciliazione-ufficiale-contratto-a-termine-13-mesi-pictet-group-luxembourg",
         "en": "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg",
         "de": "fund-domiciliation-officer-festvertrag-13-monate-pictet-group-luxembourg",
-        "fr": "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg"
+        "fr": "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -471,7 +471,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124947&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:46.761Z",
+      "crawledAt": "2026-09-01T04:04:33.754Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -490,6 +490,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg",
+        "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg",
         "fondo-domiciliazione-ufficiale-contratto-a-termine-13-mesi-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -501,7 +502,8 @@
           "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg"
         ],
         "fr": [
-          "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg"
+          "fund-domiciliation-officer-fixed-term-contract-13-months-pictet-luxembourg",
+          "fonctionnaire-charge-de-la-domiciliation-des-fonds-contrat-a-duree-determinee-13-mois-pictet-group-luxembourg"
         ]
       },
       "needsRetranslation": true,
@@ -551,7 +553,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124903&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:46.133Z",
+      "crawledAt": "2026-09-01T04:04:31.931Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -632,7 +634,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124958&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:45.326Z",
+      "crawledAt": "2026-09-01T04:04:31.358Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -709,7 +711,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124778&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:51:44.033Z",
+      "crawledAt": "2026-09-01T04:04:30.313Z",
       "addressLocality": "Singapore",
       "addressRegion": "GE",
       "addressCountry": "CH",
