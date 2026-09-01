@@ -5,6 +5,7 @@ import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { GROUP_IDS, createCrawlerGenerationSentinel } from '../scripts/lib/crawler-generation-contract.mjs';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 const root = path.resolve(import.meta.dirname, '..');
 const orchestratorPath = '.github/workflows/orchestrate-crawlers.yml';
@@ -13,21 +14,6 @@ const observerPath = '.github/corpus-workflows/observers/workflows/crawler-gener
 function translateStep(document: string) {
   const parsed = YAML.parse(document);
   return parsed.jobs.dispatch.steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
-}
-
-function collectRelativeImportClosure(entrypoint: string) {
-  const pending = [entrypoint];
-  const visited = new Set<string>();
-  while (pending.length > 0) {
-    const runtimePath = pending.pop()!;
-    if (visited.has(runtimePath)) continue;
-    visited.add(runtimePath);
-    const source = fs.readFileSync(path.join(root, runtimePath), 'utf8');
-    for (const match of source.matchAll(/^\s*(?:import|export)\s+(?:(?:\{[\s\S]*?\}|[^'"\n]+)\s+from\s+)?['"](\.[^'"]+)['"]/gm)) {
-      pending.push(path.posix.normalize(path.posix.join(path.posix.dirname(runtimePath), match[1])));
-    }
-  }
-  return [...visited].sort();
 }
 
 describe('crawler generation PR B workflow wiring', () => {
@@ -72,7 +58,7 @@ describe('crawler generation PR B workflow wiring', () => {
     const isMaterialized = (runtimePath: string) => sparsePaths.some(
       (sparsePath: string) => runtimePath === sparsePath || runtimePath.startsWith(`${sparsePath}/`),
     );
-    const closure = collectRelativeImportClosure('scripts/crawler-generation-dispatch.mjs');
+    const closure = collectRelativeImportClosure(root, 'scripts/crawler-generation-dispatch.mjs');
     expect(closure).toContain('functions/src/githubApiHeaders.js');
     expect(closure.filter((runtimePath) => !isMaterialized(runtimePath))).toEqual([]);
   });
