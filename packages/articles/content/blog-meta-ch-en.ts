@@ -4882,6 +4882,15 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch beats Samsung in court: 11.6 million in compensation',
     'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch wins in London against Samsung: the court orders the giant to pay $11.6 million for counterfeiting digital dials.',
     'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Swiss luxury watch next to court decision document symbolizing Swatch\'s trademark victory against Samsung',
+    'blog.article.trasporti-pubblici-violenza-sev.title': 'Public transport under attack: the SEV raises its voice against violence',
+    'blog.article.trasporti-pubblici-violenza-sev.excerpt': 'On 3 September, the SEV union organises a day of action against violence against public transport employees, with events at different train stations.',
+    'blog.article.trasporti-pubblici-violenza-sev.imageAlt': 'Protest against violence towards public transport workers at Locarno station',
+    'blog.article.premi-lamal-friburgo-sussidi.title': 'KVG premiums Fribourg: deductibles and subsidies 2026',
+    'blog.article.premi-lamal-friburgo-sussidi.excerpt': 'KVG deductibles in the Canton of Fribourg, how to choose, procedures for accessing the premium reduction and official deadlines 2026.',
+    'blog.article.premi-lamal-friburgo-sussidi.imageAlt': 'Swiss cantonal office reception showing healthcare worker assisting person with health insurance documents',
+    'blog.article.sanzioni-onu-2026-aggiornamento.title': 'UN sanctions update: implications for Swiss companies',
+    'blog.article.sanzioni-onu-2026-aggiornamento.excerpt': 'The UN Sanctions Committee has updated the list of individuals, companies and organizations subject to sanctions.',
+    'blog.article.sanzioni-onu-2026-aggiornamento.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, Switzerland.',
 };
 
 export default blogMetaChEn;

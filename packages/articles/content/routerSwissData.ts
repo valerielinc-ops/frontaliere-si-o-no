@@ -1653,6 +1653,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-lamal-friburgo-2026': { it: 'premi-lamal-friburgo-2026', en: 'fribourg-health-insurance-premiums-2026', de: 'praemien-krankenversicherung-freiburg-2026', fr: 'primes-assurance-maladie-fribourg-2026' },
  'dichiarazioni-cdf-partiti-2025': { it: 'dichiarazioni-cdf-partiti-2025', en: 'political-funding-declarations-2025', de: 'parteifinanzierung-cdf-2025', fr: 'declarations-financement-partis-2025' },
  'swatch-vince-samsung-quadranti': { it: 'swatch-vince-samsung-quadranti', en: 'swatch-wins-samsung-watchfaces', de: 'swatch-gewinnt-samsung-uhrenblatter', fr: 'swatch-bat-samsung-cadrans' },
+ 'trasporti-pubblici-violenza-sev': { it: 'trasporti-pubblici-violenza-sev', en: 'public-transport-violence-sev', de: 'oeffentlicher-nahverkehr-gewalt-sev', fr: 'transport-public-violence-sev' },
+ 'premi-lamal-friburgo-sussidi': { it: 'premi-lamal-friburgo-sussidi', en: 'health-insurance-premiums-fribourg-subsidies', de: 'praemien-krankenversicherung-freiburg-subventionen', fr: 'primes-assurance-maladie-fribourg-subventions' },
+ 'sanzioni-onu-2026-aggiornamento': { it: 'sanzioni-onu-2026-aggiornamento', en: 'un-sanctions-2026-update', de: 'un-sanktionen-2026-aktualisierung', fr: 'sanctions-onu-2026-mise-a-jour' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

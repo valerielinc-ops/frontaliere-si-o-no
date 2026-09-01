@@ -4882,6 +4882,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch bat Samsung en justice : 11,6 millions de compensation',
     'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch gagne à Londres contre Samsung : le tribunal condamne le géant à payer 11,6 millions de dollars pour contrefaçon de cadrans numériques.',
     'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Montre de luxe suisse à côté d\'un document de décision judiciaire, symbole de la victoire de Swatch contre Samsung',
+    'blog.article.trasporti-pubblici-violenza-sev.title': 'Les transports publics attaqués : la SEV élève la voix contre la violence',
+    'blog.article.trasporti-pubblici-violenza-sev.excerpt': 'Le 3 septembre, le syndicat SEV organise une journée d’action contre la violence contre les employés des transports publics, avec des événements dans plusieurs gares.',
+    'blog.article.trasporti-pubblici-violenza-sev.imageAlt': 'Protestation contre la violence envers les travailleurs des transports publics à la gare de Locarno',
+    'blog.article.premi-lamal-friburgo-sussidi.title': 'Primes LAMal Fribourg : franchises et subventions 2026',
+    'blog.article.premi-lamal-friburgo-sussidi.excerpt': 'Les franchises KVG dans le canton de Fribourg, comment choisir, les procédures pour accéder à la réduction de prime et les délais officiels 2026.',
+    'blog.article.premi-lamal-friburgo-sussidi.imageAlt': 'Accueil d\'un bureau cantonal suisse avec agent aidant une personne avec des documents d\'assurance-maladie',
+    'blog.article.sanzioni-onu-2026-aggiornamento.title': 'Mise à jour des sanctions de l’ONU : implications pour les entreprises suisses',
+    'blog.article.sanzioni-onu-2026-aggiornamento.excerpt': 'Le Comité des sanctions de l’ONU a mis à jour la liste des individus, entreprises et organisations soumis à des sanctions.',
+    'blog.article.sanzioni-onu-2026-aggiornamento.imageAlt': 'Vue aérienne du lac de Lugano avec les montagnes en arrière-plan, Suisse.',
 };
 
 export default blogMetaChFr;
