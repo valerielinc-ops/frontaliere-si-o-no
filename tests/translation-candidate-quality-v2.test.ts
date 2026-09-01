@@ -171,6 +171,30 @@ describe('translation candidate quality v2', () => {
       candidateText: long('Lo stipendio è EUR10.'),
     });
     expect(codes(changedCurrency)).toContain('numeric.multiset_mismatch');
+    const completeRange = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The compensation range is - CHF 80 - + CHF 100%.'),
+      candidateText: long('La fascia salariale è -\nCHF 80 – +\nCHF 100 %.'),
+    });
+    expect(codes(completeRange)).not.toContain('numeric.multiset_mismatch');
+    for (const candidateText of [
+      'La fascia salariale è - EUR 80 – + EUR 100%.',
+      'La fascia salariale è - 80 – + CHF 100%.',
+      'La fascia salariale è + CHF 80 – + CHF 100%.',
+      'La fascia salariale è - CHF 80 – - CHF 100%.',
+    ]) {
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long('The compensation range is - CHF 80 - + CHF 100%.'),
+        candidateText: long(candidateText),
+      }))).toContain('numeric.multiset_mismatch');
+    }
+    const postfixedRange = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The compensation range is 80 CHF - 100 CHF.'),
+      candidateText: long('La fascia salariale è 80 EUR – 100 EUR.'),
+    });
+    expect(codes(postfixedRange)).toContain('numeric.multiset_mismatch');
   });
 
   it('blocks source echoes, flattened bullets, title residue and concatenated words', () => {
@@ -230,6 +254,14 @@ describe('translation candidate quality v2', () => {
       protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'company', value: 'AT&T' }],
     });
     expect(codes(symbols)).toContain('protected_token.missing');
+    for (const candidateText of ['C++X works with AT&T.', 'XC++ works with AT&T.', 'C++ works with AT&TX.', 'C++ works with XAT&T.']) {
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long('C++ works with C# and AT&T.'),
+        candidateText: long(candidateText),
+        protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'structured', value: 'C#' }, { category: 'company', value: 'AT&T' }],
+      }))).toContain('protected_token.missing');
+    }
     expect(() => assessTranslationCandidateQualityV2({
       ...base,
       protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'structured', value: 'c++' }],

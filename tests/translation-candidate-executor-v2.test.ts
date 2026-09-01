@@ -1,7 +1,8 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { executeTranslationCandidateV2 } from '../scripts/lib/translation-candidate-executor-v2.mjs';
 import {
   createEmptyTranslationMemoryV2,
+  invalidateTranslationCandidateV2,
   recordTranslationCandidateV2,
 } from '../scripts/lib/content-addressed-translation-memory-v2.mjs';
 import { createTranslationUnitIdentityV2 } from '../scripts/lib/translation-unit-identity-v2.mjs';
@@ -48,6 +49,7 @@ function input(overrides: Record<string, unknown> = {}) {
     gateVersion: 'quality-v2',
     scanDigest,
     currentScanDigest: scanDigest,
+    providerTimeoutMs: 10_000,
     quality,
     provider: stub.provider,
     stub,
@@ -92,7 +94,7 @@ describe('translation candidate executor v2', () => {
   });
 
   it('does not call or mutate memory for provider errors and empty output', async () => {
-    for (const generated of [new Error('stub failure'), '   ']) {
+    for (const generated of [new Error('stub failure'), '   ', null as unknown as string, 'x'.repeat(120_001)]) {
       const stub = provider(generated);
       const value = input({ provider: stub.provider });
       const result = await executeTranslationCandidateV2(executorInput(value));
@@ -133,6 +135,96 @@ describe('translation candidate executor v2', () => {
       const result = await executeTranslationCandidateV2(executorInput(value));
       expect(result).toMatchObject({ status: 'validated', metrics: { providerCalls: 1, recorded: true } });
       expect(stub.calls()).toBe(1);
+    }
+  });
+
+  it('binds the identity to validated quality before lookup or provider calls', async () => {
+    const alternatives = [
+      { identity: createTranslationUnitIdentityV2({
+        kind: 'job', fieldPath: 'description', sourceLocale: 'en', targetLocale: 'it', sourceText: `${sourceText} changed`,
+        context: { company: null, location: null },
+      }) },
+      { identity: createTranslationUnitIdentityV2({
+        kind: 'job', fieldPath: 'description', sourceLocale: 'en', targetLocale: 'de', sourceText,
+        context: { company: null, location: null },
+      }) },
+      { identity: createTranslationUnitIdentityV2({
+        kind: 'job', fieldPath: 'title', sourceLocale: 'en', targetLocale: 'it', sourceText,
+        context: { company: null, location: null },
+      }) },
+      { quality: { ...quality, sourceLang: 'de' } },
+    ];
+    for (const override of alternatives) {
+      const stub = provider();
+      const value = input({ provider: stub.provider, ...override });
+      await expect(executeTranslationCandidateV2(executorInput(value))).rejects.toThrow(TypeError);
+      expect(stub.calls()).toBe(0);
+    }
+    const malformed = input({ quality: { ...quality, sourceText: 42 } });
+    await expect(executeTranslationCandidateV2(executorInput(malformed))).rejects.toThrow(TypeError);
+    expect(malformed.stub.calls()).toBe(0);
+  });
+
+  it('deep-freezes an isolated quality request before the provider runs', async () => {
+    const callerQuality = { ...quality, protectedTokens: [{ category: 'company', value: 'Acme' }] };
+    let request: unknown;
+    const value = input({
+      quality: callerQuality,
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1',
+        async translate(next: { protectedTokens: Array<{ value: string }> }) {
+          request = next;
+          expect(Object.isFrozen(next)).toBe(true);
+          expect(Object.isFrozen(next.protectedTokens)).toBe(true);
+          expect(Object.isFrozen(next.protectedTokens[0])).toBe(true);
+          expect(() => { next.protectedTokens[0].value = 'changed'; }).toThrow();
+          return candidateText;
+        },
+      },
+    });
+    await executeTranslationCandidateV2(executorInput(value));
+    expect(request).not.toBe(callerQuality);
+    expect(callerQuality.protectedTokens[0].value).toBe('Acme');
+  });
+
+  it('quarantines an invalidated-only exact attempt without invoking the provider', async () => {
+    const recorded = recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), {
+      identity, engineVersion: 'stub-v1', gateVersion: 'quality-v2', outputText: candidateText, status: 'rejected', evidence: [],
+    });
+    const invalidated = invalidateTranslationCandidateV2(recorded, {
+      identityKey: identity.key,
+      candidateId: recorded.records[0].candidates[0].candidateId,
+      reasonCode: 'test_invalidated',
+    });
+    const stub = provider();
+    const result = await executeTranslationCandidateV2(executorInput(input({ memory: invalidated, provider: stub.provider })));
+    expect(result).toMatchObject({ status: 'duplicate_attempt', memory: invalidated, metrics: { providerCalls: 0, recorded: false } });
+    expect(stub.calls()).toBe(0);
+  });
+
+  it('aborts a pending provider at its required bounded timeout', async () => {
+    vi.useFakeTimers();
+    try {
+      let signal: AbortSignal | undefined;
+      let calls = 0;
+      const value = input({
+        providerTimeoutMs: 10,
+        provider: {
+          schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1',
+          translate(_request: unknown, options: { signal: AbortSignal }) {
+            calls += 1;
+            signal = options.signal;
+            return new Promise(() => {});
+          },
+        },
+      });
+      const pending = executeTranslationCandidateV2(executorInput(value));
+      await vi.advanceTimersByTimeAsync(10);
+      await expect(pending).resolves.toMatchObject({ status: 'generation_failed', metrics: { providerCalls: 1, recorded: false } });
+      expect(calls).toBe(1);
+      expect(signal?.aborted).toBe(true);
+    } finally {
+      vi.useRealTimers();
     }
   });
 });

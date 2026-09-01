@@ -28,7 +28,11 @@ const EMAIL_RE = /(?<![\p{L}\p{N}_%+\-])([\p{L}\p{N}][\p{L}\p{N}._%+\-]*@[\p{L}\
 const VERSION_RE = /\bv\d+(?:\.\d+)*\b/giu;
 const DATE_RE = /(?<![\p{L}\p{N}])\d{4}([./-])\d{1,2}\1\d{1,2}(?![\p{L}\p{N}])/gu;
 const NUMBER_ATOM = String.raw`(?:\d+(?:[ '\u2019\u00a0\u202f,.]\d+)*|[.,]\d+)`;
-const RANGE_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(${NUMBER_ATOM})\s*(?:-|\u2010|\u2011|\u2012|\u2013|\u2014|\u2212)\s*(${NUMBER_ATOM})(?:\s*%)?(?![\p{L}\p{N}_.])`, 'gu');
+const CURRENCY = String.raw`(?:CHF|EUR|USD|GBP|€|\$|£)`;
+const RANGE_SPACE = String.raw`\s{0,256}`;
+const RANGE_PREFIX = String.raw`(?:(?:[+\-−]${RANGE_SPACE}${CURRENCY}|${CURRENCY}${RANGE_SPACE}[+\-−]?|[+\-−])${RANGE_SPACE})?`;
+const RANGE_ENDPOINT = String.raw`(${RANGE_PREFIX}${NUMBER_ATOM}(?:${RANGE_SPACE}${CURRENCY})?)`;
+const RANGE_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])${RANGE_ENDPOINT}${RANGE_SPACE}(?:-|\u2010|\u2011|\u2012|\u2013|\u2014|\u2212)${RANGE_SPACE}${RANGE_ENDPOINT}(?:${RANGE_SPACE}%)?(?![\p{L}\p{N}_.])`, 'giu');
 const NUMBER_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(CHF|EUR|USD|GBP|€|\$|£)?(${NUMBER_ATOM})(?![\p{L}\p{N}_]|[.,]\d)`, 'giu');
 const MAX_NUMERIC_AFFIX_WHITESPACE = 256;
 
@@ -91,24 +95,34 @@ function visibleTokens(value) {
     .match(/[\p{L}\p{N}]+/gu) ?? [];
 }
 
-function canonicalProtectedParts(value) {
+function canonicalProtectedText(value) {
   return value
     .normalize('NFKD')
     .replace(/[\u0300-\u036f]/g, '')
-    .toLocaleLowerCase('und')
+    .toLocaleLowerCase('und');
+}
+
+function canonicalProtectedParts(value) {
+  return canonicalProtectedText(value)
     // `C++` and `AT&T` are names, not decoration. Keep symbol runs which can
     // change an identifier while deliberately ignoring ordinary separators.
-    .match(/[\p{L}\p{N}]+|[+&]+/gu) ?? [];
+    .match(/[\p{L}\p{N}]+|[+&#]+/gu) ?? [];
 }
 
 function sameSequence(left, right) {
   return left.length === right.length && left.every((value, index) => value === right[index]);
 }
 
-function containsTokenSequence(textTokens, valueTokens) {
-  if (valueTokens.length > textTokens.length) return false;
-  for (let index = 0; index <= textTokens.length - valueTokens.length; index += 1) {
-    if (valueTokens.every((token, offset) => textTokens[index + offset] === token)) return true;
+function containsProtectedToken(text, value) {
+  const canonicalText = canonicalProtectedText(text);
+  const textParts = [...canonicalText.matchAll(/[\p{L}\p{N}]+|[+&#]+/gu)];
+  const valueParts = canonicalProtectedParts(value);
+  if (valueParts.length > textParts.length) return false;
+  for (let index = 0; index <= textParts.length - valueParts.length; index += 1) {
+    if (!valueParts.every((part, offset) => textParts[index + offset][0] === part)) continue;
+    const start = textParts[index].index ?? 0;
+    const end = (textParts[index + valueParts.length - 1].index ?? 0) + textParts[index + valueParts.length - 1][0].length;
+    if (!/[\p{L}\p{N}]/u.test(canonicalText[start - 1] ?? '') && !/[\p{L}\p{N}]/u.test(canonicalText[end] ?? '')) return true;
   }
   return false;
 }
@@ -235,6 +249,15 @@ function numericAffix(text, start, end) {
   return { currency, hasPercent, sign };
 }
 
+function rangeEndpointSignature(raw, locale) {
+  const numberMatch = new RegExp(NUMBER_ATOM, 'u').exec(raw);
+  if (!numberMatch || numberMatch.index === undefined) return 'invalid';
+  const start = numberMatch.index;
+  const affix = numericAffix(raw, start, start + numberMatch[0].length);
+  const label = affix.currency ? `currency:${currencyCode(affix.currency)}` : 'number';
+  return `${label}:${affix.sign}:${numericCore(numberMatch[0], locale)}`;
+}
+
 function extractNumericSignatures(text, locale) {
   const ranges = [];
   const signatures = [];
@@ -255,7 +278,7 @@ function extractNumericSignatures(text, locale) {
     if (overlaps(ranges, start, end)) continue;
     ranges.push([start, end]);
     const percent = /%\s*$/u.test(match[0]) ? 'percent' : 'number';
-    signatures.push(`range:${percent}:${numericCore(match[1], locale)}:${numericCore(match[2], locale)}`);
+    signatures.push(`range:${percent}:${rangeEndpointSignature(match[1], locale)}:${rangeEndpointSignature(match[2], locale)}`);
   }
   for (const match of text.matchAll(NUMBER_RE)) {
     const start = match.index ?? 0;
@@ -312,8 +335,6 @@ export function assessTranslationCandidateQualityV2(input) {
   const candidate = value.candidateText.trim();
   const sourceTokens = visibleTokens(source);
   const candidateTokens = visibleTokens(candidate);
-  const sourceProtectedParts = canonicalProtectedParts(source);
-  const candidateProtectedParts = canonicalProtectedParts(candidate);
 
   appliedGates += 1;
   if (!source || sourceTokens.length === 0) blocking.push('source.empty');
@@ -338,10 +359,9 @@ export function assessTranslationCandidateQualityV2(input) {
     )) blocking.push('numeric.multiset_mismatch');
 
     for (const token of value.protectedTokens) {
-      const tokenParts = canonicalProtectedParts(token.value);
-      if (!containsTokenSequence(sourceProtectedParts, tokenParts)) continue;
+      if (!containsProtectedToken(source, token.value)) continue;
       appliedGates += 1;
-      if (!containsTokenSequence(candidateProtectedParts, tokenParts)) blocking.push('protected_token.missing');
+      if (!containsProtectedToken(candidate, token.value)) blocking.push('protected_token.missing');
     }
 
     if (value.field === 'description') {

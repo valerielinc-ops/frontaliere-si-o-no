@@ -17,10 +17,12 @@ import { normalizeTranslationText, sha256TranslationText } from './translation-u
 
 export const TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION = 2;
 
-const INPUT_KEYS = ['currentScanDigest', 'engineVersion', 'gateVersion', 'identity', 'memory', 'provider', 'quality', 'scanDigest'];
+const INPUT_KEYS = ['currentScanDigest', 'engineVersion', 'gateVersion', 'identity', 'memory', 'provider', 'providerTimeoutMs', 'quality', 'scanDigest'];
 const PROVIDER_KEYS = ['costClass', 'engineVersion', 'schemaVersion', 'translate'];
 const QUALITY_KEYS = ['field', 'protectedTokens', 'sourceLang', 'sourceText', 'targetLang'];
 const DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
+const MAX_PROVIDER_OUTPUT_LENGTH = 120_000;
+const MAX_PROVIDER_TIMEOUT_MS = 300_000;
 
 function fixedEvidence(code) {
   return Object.freeze([Object.freeze({
@@ -41,6 +43,23 @@ function outcome({ status, attemptKey, candidate = null, memory, evidence, provi
   });
 }
 
+function validateQuality(input, identity) {
+  assertTranslationPlainObjectV2(input, 'translation candidate executor v2 quality input');
+  assertTranslationExactKeysV2(input, QUALITY_KEYS, 'translation candidate executor v2 quality input');
+  const quality = deepFreezeTranslationV2(structuredClone(input));
+  // Reuse the public gate's exact schema and bounds before any provider call.
+  assessTranslationCandidateQualityV2({ ...quality, candidateText: quality.sourceText });
+  if (
+    sha256TranslationText(quality.sourceText) !== identity.sourceHash
+    || quality.sourceLang !== identity.sourceLocale
+    || quality.targetLang !== identity.targetLocale
+    || quality.field !== identity.fieldPath
+  ) {
+    throw new TypeError('translation candidate executor v2 quality does not match identity');
+  }
+  return quality;
+}
+
 function validateInput(input) {
   assertTranslationPlainObjectV2(input, 'translation candidate executor v2 input');
   assertTranslationExactKeysV2(input, INPUT_KEYS, 'translation candidate executor v2 input');
@@ -51,6 +70,9 @@ function validateInput(input) {
   const memory = validateTranslationMemoryV2(input.memory);
   const engineVersion = normalizeTranslationVersionV2(input.engineVersion, 'engineVersion');
   const gateVersion = normalizeTranslationVersionV2(input.gateVersion, 'gateVersion');
+  if (!Number.isSafeInteger(input.providerTimeoutMs) || input.providerTimeoutMs < 1 || input.providerTimeoutMs > MAX_PROVIDER_TIMEOUT_MS) {
+    throw new TypeError('translation candidate executor v2 providerTimeoutMs is invalid');
+  }
   assertTranslationPlainObjectV2(input.provider, 'translation candidate executor v2 provider');
   assertTranslationExactKeysV2(input.provider, PROVIDER_KEYS, 'translation candidate executor v2 provider');
   if (input.provider.schemaVersion !== TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION
@@ -59,8 +81,7 @@ function validateInput(input) {
       || typeof input.provider.translate !== 'function') {
     throw new TypeError('translation candidate executor v2 provider is invalid');
   }
-  assertTranslationPlainObjectV2(input.quality, 'translation candidate executor v2 quality input');
-  assertTranslationExactKeysV2(input.quality, QUALITY_KEYS, 'translation candidate executor v2 quality input');
+  const quality = validateQuality(input.quality, identity);
   return Object.freeze({
     currentScanDigest: input.currentScanDigest,
     engineVersion,
@@ -68,7 +89,8 @@ function validateInput(input) {
     identity,
     memory,
     provider: input.provider,
-    quality: Object.freeze({ ...input.quality }),
+    providerTimeoutMs: input.providerTimeoutMs,
+    quality,
     scanDigest: input.scanDigest,
   });
 }
@@ -108,17 +130,39 @@ export async function executeTranslationCandidateV2(input) {
       evidence: fixedEvidence('conflict'), providerCalls: 0, recorded: false,
     });
   }
-
-  let candidateText;
-  try {
-    candidateText = await value.provider.translate(value.quality);
-  } catch {
+  if (lookup.candidates.length > 0 && lookup.applicableCandidates.length === 0) {
     return outcome({
-      status: 'generation_failed', attemptKey: lookup.attemptKey, memory: value.memory,
-      evidence: fixedEvidence('generation_failed'), providerCalls: 1, recorded: false,
+      status: 'duplicate_attempt', attemptKey: lookup.attemptKey, memory: value.memory,
+      evidence: fixedEvidence('duplicate_attempt'), providerCalls: 0, recorded: false,
     });
   }
-  if (typeof candidateText !== 'string' || candidateText.trim().length === 0) {
+
+  let candidateText;
+  const controller = new AbortController();
+  let timeoutId;
+  try {
+    const timedOut = Symbol('provider timeout');
+    const timeout = new Promise((resolve) => {
+      timeoutId = setTimeout(() => {
+        controller.abort();
+        resolve(timedOut);
+      }, value.providerTimeoutMs);
+    });
+    // The request is a deep-frozen quality snapshot; the only second argument
+    // is an AbortSignal, so provider code cannot mutate caller-owned data.
+    candidateText = await Promise.race([
+      Promise.resolve().then(() => value.provider.translate(value.quality, { signal: controller.signal })),
+      timeout,
+    ]);
+    if (candidateText === timedOut) candidateText = null;
+  } catch {
+    candidateText = null;
+  } finally {
+    clearTimeout(timeoutId);
+  }
+  if (typeof candidateText !== 'string'
+      || candidateText.trim().length === 0
+      || candidateText.length > MAX_PROVIDER_OUTPUT_LENGTH) {
     return outcome({
       status: 'generation_failed', attemptKey: lookup.attemptKey, memory: value.memory,
       evidence: fixedEvidence('generation_failed'), providerCalls: 1, recorded: false,
