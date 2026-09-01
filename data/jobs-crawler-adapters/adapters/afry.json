@@ -11,7 +11,7 @@
     "https://afry.com/en/api/afp-hr-smartrecruiteres-job-list"
   ],
   "notes": "Dedicated AFRY crawler. Uses Drupal proxy to SmartRecruiters API. Returns all global jobs in one JSON call; filters by country=CH then keeps CH-wide jobs whose city resolves to a Swiss canton (all 26). ~18000 employees globally, major presence in Swiss engineering/infrastructure. Swiss HQ in Zurich, offices nationwide incl. Bellinzona/Airolo.",
-  "updatedAt": "2026-09-01T01:05:58.840Z",
+  "updatedAt": "2026-09-01T08:47:07.085Z",
   "seedMetaByUrl": {
     "https://afry.com/en/career/available-jobs/REF15518S-stagiaire-en-genie-civil-orientation-structure-80-100-f-h-d-lausanne": {
       "location": "Lausanne",
