@@ -1113,21 +1113,23 @@ export function createTranslationStateStoreV2(options) {
         }
         const changes = [];
         for (const { identity, candidate } of checkpoints) {
-          await putImmutable(
-            git,
-            tip,
-            changes,
-            memoryCandidatePath(identity, candidate),
-            candidateMemoryRecord(identity, candidate),
-          );
+          const candidatePath = memoryCandidatePath(identity, candidate);
+          const candidateContent = candidateMemoryRecord(identity, candidate);
+          const existingCandidate = await readPath(git, tip, candidatePath);
           let journal = await readAttemptJournal(git, pathLister, tip, candidate.attemptKey);
           const current = getTranslationJournalStateV2(journal, candidate.attemptKey);
-          if (current.state === 'rejected' && current.candidateId === candidate.candidateId) continue;
-          if (current.state !== null) {
-            throw new TypeError(
-              `translation rejected candidate cannot be checkpointed from lifecycle state ${current.state}`,
-            );
+          if (existingCandidate !== null) {
+            if (existingCandidate !== candidateContent
+                || current.state !== 'rejected'
+                || current.candidateId !== candidate.candidateId) {
+              throw new TypeError('translation rejected candidate memory and journal disagree');
+            }
+            continue;
           }
+          if (current.state !== null) {
+            throw new TypeError('translation rejected candidate memory and journal disagree');
+          }
+          await putImmutable(git, tip, changes, candidatePath, candidateContent);
           for (const target of ['missing', 'generated', 'rejected']) {
             const event = nextCandidateEvent(journal, candidate, target);
             await putImmutable(git, tip, changes, journalEventPath(event), canonicalArtifact(event));

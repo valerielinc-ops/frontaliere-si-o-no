@@ -945,6 +945,35 @@ describe('translation state store v2', () => {
       .rejects.toThrow(/between 1 and 250/);
   });
 
+  it('fails closed when rejected candidate memory and journal become asymmetric', async () => {
+    for (const removedKind of ['memory', 'journal']) {
+      const { one } = createRepositories();
+      const store = createTranslationStateStoreV2({ repository: one });
+      await store.initialize();
+      const identity = createJobTranslationUnitIdentityV2(JOB, {
+        fieldPath: 'title',
+        targetLocale: 'it',
+      });
+      const rejected = rejectedCheckpoint(identity);
+      const checkpoint = await store.checkpointRejectedCandidatesBatch([rejected]);
+      const prefix = removedKind === 'memory' ? 'v2/memory/' : 'v2/journal/';
+      const removedPaths = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit)
+        .split('\n')
+        .filter((path) => path.startsWith(prefix));
+      expect(removedPaths).toHaveLength(removedKind === 'memory' ? 1 : 3);
+      git(one, 'checkout', '-q', '-B', `tampered-rejected-${removedKind}`, checkpoint.commit);
+      git(one, 'rm', '-q', ...removedPaths);
+      git(one, 'commit', '-q', '-m', `delete rejected ${removedKind}`);
+      const tamperedTip = git(one, 'rev-parse', 'HEAD');
+      git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+      const replay = createTranslationStateStoreV2({ repository: one });
+      await expect(replay.checkpointRejectedCandidatesBatch([rejected]))
+        .rejects.toThrow(/memory and journal disagree/);
+      expect(await replay.isCurrentCommit(tamperedTip)).toBe(true);
+    }
+  });
+
   it('returns all 250 memory candidates and fails closed at the 251st artifact', async () => {
     const { one } = createRepositories();
     const initialized = await createTranslationStateStoreV2({ repository: one }).initialize();
