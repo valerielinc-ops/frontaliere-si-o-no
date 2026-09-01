@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllAlbergoGardeniaJobs,
+  assertCompleteAlbergoGardeniaSnapshot,
   isAlbergoGardeniaJob,
   isTrustedDomain,
   ALBERGO_GARDENIA_KEY,
@@ -27,6 +28,8 @@ runStandardCrawlerPipeline({
   isCompanyJob: isAlbergoGardeniaJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  validateAuthoritativeSnapshot: assertCompleteAlbergoGardeniaSnapshot,
+  allowAuthoritativeEmptySnapshot: true,
 }).catch((err) => {
   console.error(`❌ Albergo Gardenia crawler failed: ${err?.message || err}`);
   process.exit(1);
