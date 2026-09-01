@@ -1,20 +1,21 @@
 {
   "key": "cs-bregaglia",
   "label": "Centro Sanitario Bregaglia",
-  "generatedAt": "2026-09-01T14:14:19.782Z",
+  "generatedAt": "2026-09-01T17:55:28.082Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4132,
-  "avgDurationMs": 4132,
+  "durationMs": 3985,
+  "avgDurationMs": 3985,
   "durationHistory": [
-    4132
+    3985
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cs-bregaglia-39b430c315cf",
       "slug": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
@@ -22,13 +23,13 @@
       "companyKey": "cs-bregaglia",
       "companyDomain": "csbregaglia.ch",
       "title": "aiuto cucina al 50%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Promontogno",
       "canton": "GR",
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/467-offerta-di-lavoro-aiuto-cucina-al-51",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:14:16.640Z",
+      "crawledAt": "2026-09-01T17:55:24.959Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -43,16 +44,15 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/467-offerta-di-lavoro-aiuto-cucina-al-51",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T14:14:16.640Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cs-bregaglia-98393ca40498",
       "slug": "medico-di-medicina-interna-generale-cs-bregaglia-promontogno",
@@ -66,7 +66,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:14:16.642Z",
+      "crawledAt": "2026-09-01T17:55:24.961Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
