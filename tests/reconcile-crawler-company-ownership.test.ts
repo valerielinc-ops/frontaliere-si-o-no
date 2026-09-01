@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import {
   assertNoOverlappingJobs,
   ISSUE_6759_COVERAGE,
@@ -66,6 +66,12 @@ describe('issue #6759 reconciliation', () => {
     );
     for (const { retired } of RETIREMENTS) {
       expect(trackedSummaries.has(`data/jobs-crawler-summaries/by-crawler/${retired}.json`)).toBe(false);
+    }
+  });
+
+  it('does not leave retired active slices available to stale data writers', () => {
+    for (const { retired } of RETIREMENTS) {
+      expect(existsSync(`data/jobs/by-crawler/${retired}.json`)).toBe(false);
     }
   });
 

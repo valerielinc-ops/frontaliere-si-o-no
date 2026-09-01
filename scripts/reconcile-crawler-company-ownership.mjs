@@ -89,6 +89,13 @@ function writeSlice(slice) {
   writeJsonAtomic(slice.file, withJobs(slice.payload, slice.jobs));
 }
 
+function deleteSliceIfPresent(key) {
+  const file = path.join(SLICES_DIR, `${key}.json`);
+  if (!fs.existsSync(file)) return false;
+  fs.rmSync(file);
+  return true;
+}
+
 function ownershipIdentity(job = {}) {
   const url = String(job?.url || '');
   const yid = url.match(/[?&]yid=(\d+)/i)?.[1];
@@ -300,14 +307,32 @@ function run({ apply = false } = {}) {
   for (const item of RETIREMENTS) {
     const canonical = readSlice(item.canonical);
     const retired = readSlice(item.retired);
-    if (!canonical || !retired) {
+    if (!retired) {
       report.push({ ...item, skipped: 'retired slice already absent' });
       continue;
     }
+    if (!canonical) {
+      throw new Error(`${item.retired}->${item.canonical}: canonical slice absent; refusing to delete retired jobs`);
+    }
     const result = mergeRetiredCrawlerJobs(canonical.jobs, retired.jobs, item.canonical);
     canonical.jobs = result.jobs;
-    if (apply) writeSlice(canonical);
-    report.push({ ...item, ...result, jobs: undefined });
+    let deletedRetiredSlice = false;
+    if (apply) {
+      // Write the survivor first. A crash before the unlink leaves a duplicate
+      // that the next idempotent run can retry; unlinking first could lose the
+      // only copy of an alias-only job and its indexed routes.
+      writeSlice(canonical);
+      deletedRetiredSlice = deleteSliceIfPresent(item.retired);
+      if (!deletedRetiredSlice) {
+        throw new Error(`${item.retired}->${item.canonical}: retired slice was not deleted after merge`);
+      }
+    }
+    report.push({
+      ...item,
+      ...result,
+      jobs: undefined,
+      retiredSlice: apply ? 'deleted' : 'would-delete',
+    });
   }
 
   for (const item of [...SHARED_BOARD_TRANSFERS, ...ISSUE_6797_SHARED_BOARD_TRANSFERS]) {
