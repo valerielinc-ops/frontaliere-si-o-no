@@ -64,10 +64,11 @@
     "https://jobs.ruag.ch/offene-stellen/technician-avionics/87bc0c0c-6f48-44ec-8b71-d98a1e9f86ae",
     "https://jobs.ruag.ch/offene-stellen/lehrstelle-als-automatiker-in-efz-2027/3f24f18f-86b9-4562-81b4-232c469d4d5b",
     "https://jobs.ruag.ch/offene-stellen/devops-engineer-c5i/f48073a5-1687-46d4-b2ae-62a60c51c9ad",
-    "https://jobs.ruag.ch/offene-stellen/elektronikerin-com-nav-radar/7046ce4e-c975-494e-b517-11c4cbea139b"
+    "https://jobs.ruag.ch/offene-stellen/elektronikerin-com-nav-radar/7046ce4e-c975-494e-b517-11c4cbea139b",
+    "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/4ed6e938-293d-4f9a-9d22-627bab9bb5ae"
   ],
   "notes": "Dedicated RUAG crawler uses official jobs.ruag.ch detail pages and recursive discovery from internal similar-job links because the public listing often returns 400.",
-  "updatedAt": "2026-09-01T08:59:49.240Z",
+  "updatedAt": "2026-09-01T10:24:10.968Z",
   "seedMetaByUrl": {
     "https://jobs.ruag.ch/offene-stellen/betriebselektrikerin-faciliy-manager-technics/190b7508-d7e8-403d-b49f-7c2f57a59965": {
       "location": "Altdorf",
@@ -398,6 +399,12 @@
       "canton": "BE",
       "company": "RUAG AG",
       "postedDate": "2026-08-31"
+    },
+    "https://jobs.ruag.ch/open-vacancies/senior-software-engineer-c5i/4ed6e938-293d-4f9a-9d22-627bab9bb5ae": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "RUAG AG",
+      "postedDate": "2026-09-01"
     }
   }
 }
