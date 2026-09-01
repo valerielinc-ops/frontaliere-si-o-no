@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-09-01T01:14:38.991Z",
-  "total": 15,
+  "generatedAt": "2026-09-01T02:27:22.208Z",
+  "total": 14,
   "newCount": 0,
   "updatedCount": 14,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5848,
-  "avgDurationMs": 5848,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4387,
+  "avgDurationMs": 4387,
   "durationHistory": [
-    5848
+    4387
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -533,8 +533,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Praktikant:in Pflege, 100%",
       "slug": "interno-in-cura-100-berit-klinik-speicher",
@@ -568,7 +567,6 @@
       "currency": "CHF",
       "crawlerMissStreak": 2,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -577,5 +575,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
