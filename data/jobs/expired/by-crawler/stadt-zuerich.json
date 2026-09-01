@@ -18382,7 +18382,7 @@
       "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
     },
     "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-09-01T09:06:22.641Z",
+    "expiredAt": "2026-09-01T14:26:29.854Z",
     "previousSlugs": [
       "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
       "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
@@ -18426,7 +18426,7 @@
       "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0eatig"
     },
     "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-09-01T09:06:22.641Z",
+    "expiredAt": "2026-09-01T14:26:29.854Z",
     "previousSlugs": [
       "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51121",
       "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
@@ -18470,7 +18470,7 @@
       "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0c6utc"
     },
     "sector": "Amministrazione Pubblica",
-    "expiredAt": "2026-09-01T09:06:22.641Z",
+    "expiredAt": "2026-09-01T14:26:29.854Z",
     "previousSlugs": [
       "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51143",
       "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
@@ -31530,6 +31530,48 @@
     "streetAddress": "Stadthausquai 17",
     "salaryMin": 62000,
     "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "leiter-in-media-public-affairs-stadt-zurich",
+    "title": "Leiter*in Media & Public Affairs",
+    "titleByLocale": {
+      "it": "Leiter*in Media & Public Affairs",
+      "en": "Leiter*in Media & Public Affairs",
+      "de": "Leiter*in Media & Public Affairs",
+      "fr": "Leiter*in Media & Public Affairs"
+    },
+    "company": "Stadt Zürich",
+    "companyKey": "stadt-zuerich",
+    "location": "Zürich",
+    "addressLocality": "Zürich",
+    "descriptionByLocale": {
+      "it": "Leiter*in Media & Public Affairs bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Elektrizitätswerk. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51495. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
+      "en": "Leiter*in Media & Public Affairs bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Elektrizitätswerk. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51495. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
+      "de": "Leiter*in Media & Public Affairs bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Elektrizitätswerk. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51495. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
+      "fr": "Leiter*in Media & Public Affairs bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Elektrizitätswerk. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51495. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+    },
+    "slugByLocale": {
+      "it": "leiter-in-media-public-affairs-stadt-zurich",
+      "en": "leiter-in-media-public-affairs-stadt-zuerich-zurigo-51495",
+      "de": "leiter-in-media-public-affairs-stadt-zuerich-zurigo-51495",
+      "fr": "leiter-in-media-public-affairs-stadt-zuerich-zurigo-51495"
+    },
+    "sector": "Amministrazione Pubblica",
+    "expiredAt": "2026-09-01T14:26:21.944Z",
+    "previousSlugs": [
+      "leiter-in-media-public-affairs-stadt-zuerich-zurigo-51495"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "leiter-in-media-public-affairs-stadt-zuerich-zurigo-51495"
+      ]
+    },
+    "postalCode": "8001",
+    "streetAddress": "Stadthausquai 17",
+    "salaryMin": 140000,
+    "salaryMax": 214000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   }
