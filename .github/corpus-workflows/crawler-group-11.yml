@@ -146,7 +146,7 @@ jobs:
       - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
         run: |-
           if [ -z "${GITHUB_PAT:-}" ]; then
-            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 27 silent push failures."
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push crawler data to valerielinc-ops/frontaliere-si-o-no or file crawler-failure issues there. Aborting before any crawler runs so this fails loud, not as 26 silent push failures."
             exit 1
           fi
           git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
@@ -808,60 +808,6 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::hornbach: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ hornbach: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
-            exit 1
-          fi
-          exit 0
-      - name: Run de
-        id: crawler-de
-        background: true
-        env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-de.txt
-          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ github.event.inputs.timeout_ms || '' }}
-          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_DE_STRICT: ${{ github.event.inputs.strict_localization || '1' }}
-          CRAWLER_SLICE_ONLY: "1"
-          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: de
-          JOBS_SLICE_FILE: data/jobs/by-crawler/de.json
-        run: |-
-          set -uo pipefail
-          set +e
-
-          # ---- de: run crawler (verbatim from original workflow) ----
-          node scripts/update-de-jobs.mjs
-          crawler_exit=$?
-          git_commit_exit=0
-
-          # ---- de: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
-          if [ "$crawler_exit" -eq 0 ]; then
-            (node scripts/cleanup-jobs.mjs) || true
-          fi
-
-          # ---- de: Commit and push (verbatim, only if crawler succeeded) ----
-          if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update MPI AGE jobs (dedicated crawler)" data/jobs-crawler-adapters/'
-            git_commit_exit=$?
-          fi
-
-          # ---- de: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run de" \
-              --description "## Crawler fallito
-            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            **Branch:** ${{ github.ref_name }}
-            **Trigger:** ${{ github.event_name }}" \
-              --priority 2 \
-              --label Bug \
-              --workflow "Run de"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::de: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ de: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
           fi
 
           if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
@@ -1638,7 +1584,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"a-group","primarySlice":"data/jobs/by-crawler/a-group.json"},{"crawlerId":"amag-group","primarySlice":"data/jobs/by-crawler/amag-group.json"},{"crawlerId":"ardentis","primarySlice":"data/jobs/by-crawler/ardentis.json"},{"crawlerId":"axpo-group","primarySlice":"data/jobs/by-crawler/axpo-group.json"},{"crawlerId":"clienia-ag","primarySlice":"data/jobs/by-crawler/clienia-ag.json"},{"crawlerId":"cnp","primarySlice":"data/jobs/by-crawler/cnp.json"},{"crawlerId":"crr-suva-sion","primarySlice":"data/jobs/by-crawler/crr-suva-sion.json"},{"crawlerId":"de","primarySlice":"data/jobs/by-crawler/de.json"},{"crawlerId":"hess-carrosserie","primarySlice":"data/jobs/by-crawler/hess-carrosserie.json"},{"crawlerId":"hilcona","primarySlice":"data/jobs/by-crawler/hilcona.json"},{"crawlerId":"hornbach","primarySlice":"data/jobs/by-crawler/hornbach.json"},{"crawlerId":"igs-bern","primarySlice":"data/jobs/by-crawler/igs-bern.json"},{"crawlerId":"jysk","primarySlice":"data/jobs/by-crawler/jysk.json"},{"crawlerId":"klinik-siloah","primarySlice":"data/jobs/by-crawler/klinik-siloah.json"},{"crawlerId":"luks","primarySlice":"data/jobs/by-crawler/luks.json"},{"crawlerId":"michel-gruppe-ag","primarySlice":"data/jobs/by-crawler/michel-gruppe-ag.json"},{"crawlerId":"msc-cargo","primarySlice":"data/jobs/by-crawler/msc-cargo.json"},{"crawlerId":"nord-anglia","primarySlice":"data/jobs/by-crawler/nord-anglia.json"},{"crawlerId":"novelis","primarySlice":"data/jobs/by-crawler/novelis.json"},{"crawlerId":"pictet","primarySlice":"data/jobs/by-crawler/pictet.json"},{"crawlerId":"rehab-basel","primarySlice":"data/jobs/by-crawler/rehab-basel.json"},{"crawlerId":"spital-thurgau","primarySlice":"data/jobs/by-crawler/spital-thurgau.json"},{"crawlerId":"spitex-ch","primarySlice":"data/jobs/by-crawler/spitex-ch.json"},{"crawlerId":"swiss-re","primarySlice":"data/jobs/by-crawler/swiss-re.json"},{"crawlerId":"tecan","primarySlice":"data/jobs/by-crawler/tecan.json"},{"crawlerId":"tpl-lugano","primarySlice":"data/jobs/by-crawler/tpl-lugano.json"},{"crawlerId":"tsmg","primarySlice":"data/jobs/by-crawler/tsmg.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"a-group","primarySlice":"data/jobs/by-crawler/a-group.json"},{"crawlerId":"amag-group","primarySlice":"data/jobs/by-crawler/amag-group.json"},{"crawlerId":"ardentis","primarySlice":"data/jobs/by-crawler/ardentis.json"},{"crawlerId":"axpo-group","primarySlice":"data/jobs/by-crawler/axpo-group.json"},{"crawlerId":"clienia-ag","primarySlice":"data/jobs/by-crawler/clienia-ag.json"},{"crawlerId":"cnp","primarySlice":"data/jobs/by-crawler/cnp.json"},{"crawlerId":"crr-suva-sion","primarySlice":"data/jobs/by-crawler/crr-suva-sion.json"},{"crawlerId":"hess-carrosserie","primarySlice":"data/jobs/by-crawler/hess-carrosserie.json"},{"crawlerId":"hilcona","primarySlice":"data/jobs/by-crawler/hilcona.json"},{"crawlerId":"hornbach","primarySlice":"data/jobs/by-crawler/hornbach.json"},{"crawlerId":"igs-bern","primarySlice":"data/jobs/by-crawler/igs-bern.json"},{"crawlerId":"jysk","primarySlice":"data/jobs/by-crawler/jysk.json"},{"crawlerId":"klinik-siloah","primarySlice":"data/jobs/by-crawler/klinik-siloah.json"},{"crawlerId":"luks","primarySlice":"data/jobs/by-crawler/luks.json"},{"crawlerId":"michel-gruppe-ag","primarySlice":"data/jobs/by-crawler/michel-gruppe-ag.json"},{"crawlerId":"msc-cargo","primarySlice":"data/jobs/by-crawler/msc-cargo.json"},{"crawlerId":"nord-anglia","primarySlice":"data/jobs/by-crawler/nord-anglia.json"},{"crawlerId":"novelis","primarySlice":"data/jobs/by-crawler/novelis.json"},{"crawlerId":"pictet","primarySlice":"data/jobs/by-crawler/pictet.json"},{"crawlerId":"rehab-basel","primarySlice":"data/jobs/by-crawler/rehab-basel.json"},{"crawlerId":"spital-thurgau","primarySlice":"data/jobs/by-crawler/spital-thurgau.json"},{"crawlerId":"spitex-ch","primarySlice":"data/jobs/by-crawler/spitex-ch.json"},{"crawlerId":"swiss-re","primarySlice":"data/jobs/by-crawler/swiss-re.json"},{"crawlerId":"tecan","primarySlice":"data/jobs/by-crawler/tecan.json"},{"crawlerId":"tpl-lugano","primarySlice":"data/jobs/by-crawler/tpl-lugano.json"},{"crawlerId":"tsmg","primarySlice":"data/jobs/by-crawler/tsmg.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-11-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs
       - name: Upload crawler generation manifest (shadow)

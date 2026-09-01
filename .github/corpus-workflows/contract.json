@@ -6,11 +6,11 @@
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 6,
-  "crawlerCount": 597,
+  "crawlerCount": 596,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:3c22e5f3bc3fb5a71fe3e354467e337132943249b122e3fc7e89c38babddee0f",
+    "rosterDigest": "sha256:9782e1e37584f0dbd12baf5e0d0aca3f6ee0825aeab18d6dea96dd6be746ec9a",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -149,7 +149,6 @@
     "scripts/update-csvm-mustair-jobs.mjs",
     "scripts/update-csvp-poschiavo-jobs.mjs",
     "scripts/update-daler-hopital-jobs.mjs",
-    "scripts/update-de-jobs.mjs",
     "scripts/update-debiopharm-jobs.mjs",
     "scripts/update-decathlon-jobs.mjs",
     "scripts/update-deloitte-jobs.mjs",
@@ -902,8 +901,8 @@
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "80a4ba97f5b0a9bce59060f46a61614c1dd71da45bf23df45a985b3347991e65",
-      "artifactSha256": "32ec9bf41afd6356eac39f1dd8d15180069583d1bccf2ebb45a99e0841bdcb7c",
+      "sourceSha256": "a5f06d6d37cabc19a88e9f66f8a17387ee13cede96ebd30d49abe771fc02d8ff",
+      "artifactSha256": "08244c6562cee7163d72c5816e5adc1056e25f8d41e55005da71eb0d18c89df3",
       "members": [
         "rehab-basel",
         "luks",
@@ -917,7 +916,6 @@
         "tsmg",
         "novelis",
         "hornbach",
-        "de",
         "michel-gruppe",
         "tpl-lugano",
         "jysk",
