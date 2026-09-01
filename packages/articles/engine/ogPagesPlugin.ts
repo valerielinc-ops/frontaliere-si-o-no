@@ -771,7 +771,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  } catch { /* id not in this section/locale — superset-safe no-op */ }
  }
  } else {
- try { files = fs.readdirSync(dir); } catch { return out; }
+ try {
+ files = fs.readdirSync(dir);
+ } catch (err) {
+ if ((err as NodeJS.ErrnoException).code === 'ENOENT') return out;
+ throw err;
+ }
  }
  const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
  for (const file of files) {

@@ -128,7 +128,10 @@ export function listBlogArticleHtmlFiles(
       let entries: fs.Dirent[] = [];
       try {
         entries = fs.readdirSync(localeRoot, { withFileTypes: true });
-      } catch { continue; }
+      } catch (err) {
+        if ((err as NodeJS.ErrnoException).code === 'ENOENT') continue;
+        throw err;
+      }
 
       for (const entry of entries) {
         if (entry.isDirectory()) {
@@ -256,4 +259,3 @@ export function blogContextualLinksPlugin(rootDir: string): Plugin {
     },
   };
 }
-

@@ -156,8 +156,9 @@ export function enumerateSectionArticleIds(section: OgSection, rootDir: string):
   let files: string[] = [];
   try {
    files = fs.readdirSync(dir);
-  } catch {
-   continue;
+  } catch (err) {
+   if ((err as NodeJS.ErrnoException).code === 'ENOENT') continue;
+   throw err;
   }
   for (const file of files) {
    if (file.endsWith('.ts')) ids.add(file.slice(0, -3));
