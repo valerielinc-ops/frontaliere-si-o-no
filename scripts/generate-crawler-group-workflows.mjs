@@ -193,12 +193,29 @@ function loadJson(p) {
  * action — it simply no longer happens by accident on every unrelated edit.
  */
 
-/** Read the pin file. Missing file = no pins (every crawler is treated as new). */
+/**
+ * Read the pin file. Missing file = no pins (every crawler is treated as new).
+ *
+ * `doc.groupCount` must match the caller's `groupCount`: a foreign/stale pin
+ * file whose `groups` array has a different length would otherwise be
+ * silently reshaped by the `Array.from({ length: groupCount }, ...)` below —
+ * truncating any groups past `groupCount` (their crawlers would reappear as
+ * `added` on the next reconcile, an untraceable reshuffle) or padding with
+ * empty groups if it has fewer. That is exactly the class of silent-drift bug
+ * the pin file exists to prevent (#6482), so a mismatch fails loudly instead.
+ */
 function loadAssignments(assignmentsPath, groupCount) {
   if (!fs.existsSync(assignmentsPath)) {
     return Array.from({ length: groupCount }, () => []);
   }
   const doc = loadJson(assignmentsPath);
+  if (doc.groupCount !== groupCount) {
+    throw new Error(
+      `loadAssignments: ${assignmentsPath} has groupCount=${doc.groupCount}, expected ${groupCount} — ` +
+        'refusing to silently truncate/pad a mismatched pin file. If this is deliberate, ' +
+        're-run with --rebalance or --bootstrap-from-workflows to regenerate the pins.',
+    );
+  }
   const groups = Array.isArray(doc.groups) ? doc.groups : [];
   return Array.from({ length: groupCount }, (_, i) =>
     Array.isArray(groups[i]) ? groups[i].filter((s) => typeof s === 'string') : [],

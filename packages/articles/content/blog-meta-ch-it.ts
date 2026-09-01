@@ -4921,6 +4921,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Associazione inquilini: «occorre chiedere riduzione dell\'affitto»',
     'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Il tasso ipotecario di riferimento è sceso due volte nel 2025, ma la maggior parte degli inquilini non ha ottenuto una riduzione dell\'affitto.',
     'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Vista della città di Lugano con edifici residenziali',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Commercio al dettaglio, aumentano le vendite in luglio',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Le vendite del commercio al dettaglio svizzero aumentano dello 0,2% in luglio, con un incremento dell\'1,7% in termini reali.',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Vista aerea del centro di Lugano con negozi e aree commerciali, Svizzera',
 };
 
 export default blogMetaChIt;

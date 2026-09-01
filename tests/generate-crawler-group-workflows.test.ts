@@ -904,6 +904,29 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     );
   });
 
+  it('refuses a pin file whose groupCount does not match GROUP_COUNT, instead of silently truncating/padding it', () => {
+    // A foreign/stale pin file with a different groups.length would otherwise
+    // be reshaped by Array.from({ length: GROUP_COUNT }, ...) — truncating
+    // excess groups (their crawlers reappearing as `added`) or padding with
+    // empty ones, with no visible error. #6513 item 2.
+    const outDir = path.join(tmp, 'workflows');
+    fs.mkdirSync(outDir, { recursive: true });
+    for (const f of groupFiles()) fs.copyFileSync(path.join(WORKFLOWS_DIR, f), path.join(outDir, f));
+
+    const manifestPath = path.join(tmp, 'manifest.json');
+    const assignmentsPath = path.join(tmp, 'assignments.json');
+    fs.copyFileSync(MANIFEST_PATH, manifestPath);
+
+    const foreign = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    foreign.groupCount = foreign.groups.length + 1;
+    foreign.groups.push(['stray-crawler']);
+    fs.writeFileSync(assignmentsPath, JSON.stringify(foreign));
+
+    expect(() =>
+      generate({ manifestPath, baselinePath: BASELINE_PATH, assignmentsPath, outDir, write: true }),
+    ).toThrow(/groupCount=\d+, expected \d+/);
+  });
+
 });
 
 describe('#6482 — extractManualPreamble', () => {
