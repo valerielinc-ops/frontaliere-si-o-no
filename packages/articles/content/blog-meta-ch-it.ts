@@ -4942,6 +4942,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.novartis-studio-clinico-sospeso.title': 'Novartis sospende trial clinici, +5% in borsa',
     'blog.article.novartis-studio-clinico-sospeso.excerpt': 'Novartis ha interrotto studi su rap-cel per tre decessi; contemporaneamente annuncia risultati positivi su Remibrutinib. Azione +5% oggi, +19% YTD.',
     'blog.article.novartis-studio-clinico-sospeso.imageAlt': 'Laboratorio farmaceutico svizzero con ricercatori che analizzano dati su schermi in ambiente moderno di ricerca.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Sanzioni fino a 30 mila franchi per i disordini',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Mozione di Udc e Unione democratica federale a Mendrisio chiede rimborso spese polizia e pompieri per chi provoca disordini. Importo fino a 30 mila franchi.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Edificio municipale di Mendrisio dove è stata presentata la mozione sulle sanzioni per disordini',
 };
 
 export default blogMetaChIt;
