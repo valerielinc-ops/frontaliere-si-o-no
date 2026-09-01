@@ -1616,6 +1616,7 @@
       "file": "update-jobs-apleona-schweiz-ag.yml",
       "jobKey": "update-apleona-schweiz-ag-jobs",
       "timeoutMinutes": 360,
+      "targetTimeoutMinutes": 60,
       "prepSteps": [
         {
           "name": "Install dependencies",
