@@ -4945,6 +4945,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Penalties of up to 30 thousand francs for unrest',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Motion by the UDC and the Federal Democratic Union in Mendrisio calls for reimbursement of police and firefighters\' expenses for those who cause unrest. Amount up to 30 thousand francs.',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Mendrisio municipal building where the motion on fines for unlawful public disorder was submitted',
+    'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti warns: risks for the Swiss economy',
+    'blog.article.ubs-ermotti-capital-requirements.excerpt': 'UBS criticizes the CET-S proposal on capital requirements, warning that measures beyond international standards would increase costs for the entire Swiss economy.',
+    'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Financial district with office buildings and banking headquarters in Switzerland, symbol of the nation\'s financial center.',
 };
 
 export default blogMetaChEn;

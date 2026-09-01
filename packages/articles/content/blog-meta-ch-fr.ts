@@ -4945,6 +4945,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Des sanctions allant jusqu’à 30 000 francs en cas de troubles',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Une motion de l’UDC et de l’Union fédérale démocratique à Mendrisio demande le remboursement des frais de police et de pompiers pour ceux qui provoquent des troubles. Montant jusqu’à 30 000 francs.',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Bâtiment municipal de Mendrisio où la motion sur les amendes pour troubles a été présentée',
+    'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti met en garde : des risques pour l’économie suisse',
+    'blog.article.ubs-ermotti-capital-requirements.excerpt': 'UBS critique la proposition de la cet-S sur les exigences de capital, avertissant que des mesures dépassant les normes internationales augmenteraient les coûts pour l\'ensemble de l\'économie suisse.',
+    'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Quartier financier avec immeubles de bureaux et sièges de banques, symbole du centre financier suisse.',
 };
 
 export default blogMetaChFr;

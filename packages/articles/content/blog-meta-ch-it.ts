@@ -4945,6 +4945,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Sanzioni fino a 30 mila franchi per i disordini',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Mozione di Udc e Unione democratica federale a Mendrisio chiede rimborso spese polizia e pompieri per chi provoca disordini. Importo fino a 30 mila franchi.',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Edificio municipale di Mendrisio dove è stata presentata la mozione sulle sanzioni per disordini',
+    'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti avverte: rischi per l\'economia svizzera',
+    'blog.article.ubs-ermotti-capital-requirements.excerpt': 'UBS critica la proposta della CET-S su capital requirements, avvertendo che misure oltre gli standard internazionali aumenterebbero i costi per l\'intera economia svizzera.',
+    'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Quartiere finanziario con grattacieli e sedi bancarie, simbolo della piazza finanziaria svizzera.',
 };
 
 export default blogMetaChIt;
