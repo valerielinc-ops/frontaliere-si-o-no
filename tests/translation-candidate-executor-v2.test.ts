@@ -145,6 +145,41 @@ describe('translation candidate executor v2', () => {
     await expect(executeTranslationCandidateV2(executorInput(busy))).resolves.toMatchObject({
       status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
     });
+
+    let thenReads = 0;
+    const customThenable = input({
+      providerTimeoutMs: 10,
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        translate() {
+          const deadline = Date.now() + 50;
+          while (Date.now() < deadline) { /* untrusted thenables are never assimilated */ }
+          return Object.defineProperty({}, 'then', {
+            get() { thenReads += 1; return () => undefined; },
+          });
+        },
+      },
+    });
+    await expect(executeTranslationCandidateV2(executorInput(customThenable))).resolves.toMatchObject({
+      status: 'generation_failed', metrics: { providerCalls: 1, recorded: false },
+    });
+    expect(thenReads).toBe(0);
+
+    let lateSignal: AbortSignal | undefined;
+    const busyLateRejection = input({
+      providerTimeoutMs: 10,
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        translate(_request: unknown, options: { signal: AbortSignal }) {
+          const deadline = Date.now() + 50;
+          while (Date.now() < deadline) { /* tested synchronous overrun */ }
+          lateSignal = options.signal;
+          return Promise.reject(new Error('late provider failure'));
+        },
+      },
+    });
+    await expect(executeTranslationCandidateV2(executorInput(busyLateRejection))).resolves.toMatchObject({ status: 'generation_failed' });
+    expect(lateSignal?.aborted).toBe(true);
   });
 
   it('snapshots hostile identity and memory trees before legacy validators or provider calls', async () => {
@@ -183,6 +218,16 @@ describe('translation candidate executor v2', () => {
     }
     expect(sourceHashReads).toBe(0);
     expect(recordsReads).toBe(0);
+
+    for (const length of [500_000, 2 ** 32 - 1]) {
+      const records: unknown[] = [];
+      records.length = length;
+      const stub = provider();
+      await expect(executeTranslationCandidateV2(executorInput(input({
+        memory: { schemaVersion: 2, records }, provider: stub.provider,
+      })))).rejects.toThrow(TypeError);
+      expect(stub.calls()).toBe(0);
+    }
   });
 
   it('zero-calls exact reuse, negative cache, conflict and stale scan', async () => {

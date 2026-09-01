@@ -24,6 +24,7 @@ const MAX_PROVIDER_TIMEOUT_MS = 300_000;
 const MAX_UNTRUSTED_SNAPSHOT_DEPTH = 64;
 const MAX_UNTRUSTED_SNAPSHOT_NODES = 100_000;
 const MAX_UNTRUSTED_SNAPSHOT_BYTES = 16 * 1024 * 1024;
+const MAX_UNTRUSTED_SNAPSHOT_ARRAY_LENGTH = 100_000;
 
 function snapshotExactDataObject(value, keys, label) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) {
@@ -56,10 +57,17 @@ function snapshotProtectedTokens(value) {
   if (!Number.isSafeInteger(length) || length < 0 || length > 64) {
     throw new TypeError('protectedTokens must be a bounded array');
   }
-  const expectedKeys = [...Array.from({ length }, (_, index) => String(index)), 'length'];
   const ownKeys = Reflect.ownKeys(descriptors);
-  if (ownKeys.length !== expectedKeys.length || ownKeys.some((key) => typeof key !== 'string' || !expectedKeys.includes(key))) {
+  if (ownKeys.length !== length + 1 || !Object.hasOwn(descriptors, 'length')) {
     throw new TypeError('protectedTokens must be a bounded array');
+  }
+  for (const key of ownKeys) {
+    if (key === 'length') continue;
+    if (typeof key !== 'string') throw new TypeError('protectedTokens must be a bounded array');
+    const index = Number(key);
+    if (!Number.isSafeInteger(index) || index < 0 || index >= length || String(index) !== key) {
+      throw new TypeError('protectedTokens must be a bounded array');
+    }
   }
   const tokens = [];
   for (let index = 0; index < length; index += 1) {
@@ -102,10 +110,20 @@ function snapshotUntrustedData(value, label) {
       const ownKeys = Reflect.ownKeys(descriptors);
       if (Array.isArray(current)) {
         const length = descriptors.length?.value;
-        if (!Number.isSafeInteger(length) || length < 0) throw new TypeError(`${label} has an unsupported schema`);
-        const expectedKeys = [...Array.from({ length }, (_, index) => String(index)), 'length'];
-        if (ownKeys.length !== expectedKeys.length || ownKeys.some((key) => typeof key !== 'string' || !expectedKeys.includes(key))) {
+        const remainingNodes = MAX_UNTRUSTED_SNAPSHOT_NODES - state.nodes;
+        if (!Number.isSafeInteger(length) || length < 0 || length > MAX_UNTRUSTED_SNAPSHOT_ARRAY_LENGTH || length > remainingNodes) {
+          throw new TypeError(`${label} exceeds snapshot bounds`);
+        }
+        if (ownKeys.length !== length + 1 || !Object.hasOwn(descriptors, 'length')) {
           throw new TypeError(`${label} has an unsupported schema`);
+        }
+        for (const key of ownKeys) {
+          if (key === 'length') continue;
+          if (typeof key !== 'string') throw new TypeError(`${label} has an unsupported schema`);
+          const index = Number(key);
+          if (!Number.isSafeInteger(index) || index < 0 || index >= length || String(index) !== key) {
+            throw new TypeError(`${label} has an unsupported schema`);
+          }
         }
         const copy = [];
         for (let index = 0; index < length; index += 1) {
@@ -295,16 +313,22 @@ export async function executeTranslationCandidateV2(input) {
       provider,
       [value.quality, Object.freeze({ signal: controller.signal })],
     );
-    if (Date.now() - startedMs > value.providerTimeoutMs || pending === null
-        || (typeof pending !== 'object' && typeof pending !== 'function')
-        || typeof pending.then !== 'function') {
+    const isNativePromise = pending !== null
+      && typeof pending === 'object'
+      && Object.getPrototypeOf(pending) === Promise.prototype;
+    const observeRejection = () => {
+      if (isNativePromise) Promise.prototype.then.call(pending, undefined, () => undefined);
+    };
+    if (Date.now() - startedMs > value.providerTimeoutMs || !isNativePromise) {
+      controller.abort();
+      observeRejection();
       candidateText = null;
     } else {
-    candidateText = await Promise.race([
-      Promise.resolve(pending),
-      timeout,
-    ]);
-    if (candidateText === timedOut) candidateText = null;
+      candidateText = await Promise.race([pending, timeout]);
+      if (candidateText === timedOut) {
+        observeRejection();
+        candidateText = null;
+      }
     }
   } catch {
     candidateText = null;

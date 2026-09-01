@@ -92,6 +92,12 @@ describe('translation candidate quality v2', () => {
     });
     expect(() => assessTranslationCandidateQualityV2({ ...base, protectedTokens })).toThrow(TypeError);
     expect(itemReads).toBe(0);
+
+    for (const length of [500_000, 2 ** 32 - 1]) {
+      const sparse = [] as Array<{ category: string; value: string }>;
+      sparse.length = length;
+      expect(() => assessTranslationCandidateQualityV2({ ...base, protectedTokens: sparse })).toThrow(TypeError);
+    }
   });
 
   it('classifies empty source terminally and empty candidate as retryable', () => {
@@ -200,6 +206,21 @@ describe('translation candidate quality v2', () => {
       candidateText: long('Lo stipendio è EUR10.'),
     });
     expect(codes(changedCurrency)).toContain('numeric.multiset_mismatch');
+    for (const [sourceNumber, candidateNumber, expected] of [
+      ['CHF\u206110', 'CHF10', false],
+      ['CHF\u206110', 'EUR10', true],
+      ['+\u2061CHF\u206110', '+ CHF 10', false],
+      ['10\u2061%', '10%', false],
+      ['10\u2061%', '10', true],
+      ['CHF\u206180\u2061-\u2061100', '80-100 CHF', false],
+    ] as const) {
+      const result = assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`The amount is ${sourceNumber}.`),
+        candidateText: long(`L'importo è ${candidateNumber}.`),
+      });
+      expect(codes(result).includes('numeric.multiset_mismatch')).toBe(expected);
+    }
     const completeRange = assessTranslationCandidateQualityV2({
       ...base,
       sourceText: long('The compensation range is - CHF 80 - + CHF 100%.'),
@@ -445,6 +466,20 @@ describe('translation candidate quality v2', () => {
       ...base,
       candidateText: long('Il candidato coordina clienti, documentazione e responsabilità operative con il team.'),
     }))).not.toContain('description.degenerate_content');
+  });
+
+  it('rejects long-period repeated descriptions with bounded prefixes, tails and one replacement', () => {
+    for (const period of [17, 32, 100]) {
+      const phrase = Array.from({ length: period }, (_, index) => `term${index}`).join(' ');
+      const repeated = Array.from({ length: 4 }, () => phrase).join(' ');
+      const prefix = Array.from({ length: 16 }, (_, index) => `intro${index}`).join(' ');
+      for (const candidateText of [
+        `${prefix} ${repeated} tail`,
+        `${prefix} ${repeated}`.replace(`term${Math.floor(period / 2)}`, 'sostituito'),
+      ]) {
+        expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).toContain('description.degenerate_content');
+      }
+    }
   });
 
   it('measures the title fixture and uses a structural, not ratio, truncation gate', () => {

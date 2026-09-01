@@ -16,6 +16,7 @@ const TOKEN_CATEGORIES = new Set(['company', 'person', 'location', 'salary', 'st
 const MAX_TEXT_LENGTH = 120_000;
 const MAX_PROTECTED_TOKENS = 64;
 const MAX_PROTECTED_TOKEN_LENGTH = 512;
+const MIN_DOMINANT_PERIODIC_TOKENS = 32;
 // detect-language documents confidence >= 0.6 as reliable; do not create a
 // second calibration for this additive gate.
 const RELIABLE_LANGUAGE_CONFIDENCE = 0.6;
@@ -89,10 +90,17 @@ function snapshotProtectedTokens(value) {
   if (!Number.isSafeInteger(length) || length < 0 || length > MAX_PROTECTED_TOKENS) {
     throw new TypeError('protectedTokens must be a bounded array');
   }
-  const expectedKeys = [...Array.from({ length }, (_, index) => String(index)), 'length'];
   const ownKeys = Reflect.ownKeys(descriptors);
-  if (ownKeys.length !== expectedKeys.length || ownKeys.some((key) => typeof key !== 'string' || !expectedKeys.includes(key))) {
+  if (ownKeys.length !== length + 1 || !Object.hasOwn(descriptors, 'length')) {
     throw new TypeError('protectedTokens must be a bounded array');
+  }
+  for (const key of ownKeys) {
+    if (key === 'length') continue;
+    if (typeof key !== 'string') throw new TypeError('protectedTokens must be a bounded array');
+    const index = Number(key);
+    if (!Number.isSafeInteger(index) || index < 0 || index >= length || String(index) !== key) {
+      throw new TypeError('protectedTokens must be a bounded array');
+    }
   }
   const tokens = [];
   for (let index = 0; index < length; index += 1) {
@@ -187,14 +195,39 @@ function containsProtectedToken(text, value) {
 
 function isDegenerateDescription(tokens) {
   if (tokens.length === 0 || new Set(tokens).size < 2) return true;
-  // A near-repeat with a partial tail or one substituted token remains
-  // degenerate. Small periods keep this bounded at 16 linear passes.
-  for (let period = 1; period <= Math.min(16, Math.floor(tokens.length / 4)); period += 1) {
-    let matching = 0;
-    for (let index = 0; index < tokens.length; index += 1) {
-      if (tokens[index] === tokens[index % period]) matching += 1;
+  // The production corpus has a 1st-percentile unique-token ratio of 0.386
+  // but a 0.012 minimum (112,500 descriptions), so a diversity threshold
+  // would either reject real prose or miss a repeated long phrase. Instead,
+  // derive a period from four equal token positions, then make one bounded
+  // linear coverage pass. Keeping the first 20 positions per token admits the
+  // documented <=16-token prefix without a period cap or quadratic scan.
+  const positionsByToken = new Map();
+  for (let index = 0; index < tokens.length; index += 1) {
+    const positions = positionsByToken.get(tokens[index]) ?? [];
+    if (positions.length < 20) positions.push(index);
+    positionsByToken.set(tokens[index], positions);
+  }
+  for (const positions of positionsByToken.values()) {
+    if (positions.length < 4) continue;
+    const positionSet = new Set(positions);
+    for (let first = 0; first < positions.length - 3; first += 1) {
+      for (let second = first + 1; second < positions.length - 2; second += 1) {
+        const period = positions[second] - positions[first];
+        if (period < 1 || tokens.length < period * 4
+            || tokens.length - positions[first] < MIN_DOMINANT_PERIODIC_TOKENS
+            || !positionSet.has(positions[second] + period)
+            || !positionSet.has(positions[second] + period * 2)) continue;
+        let matches = 0;
+        // Begin at the repeated phase, not at a permitted short prefix. This
+        // prevents a 16-token introduction from diluting a 17-token period.
+        const comparisonStart = positions[first] + period;
+        const compared = tokens.length - comparisonStart;
+        for (let index = comparisonStart; index < tokens.length; index += 1) {
+          if (tokens[index] === tokens[index - period]) matches += 1;
+        }
+        if (matches / compared >= 0.9) return true;
+      }
     }
-    if (matching / tokens.length >= 0.9) return true;
   }
   return false;
 }
@@ -323,20 +356,24 @@ function rangeEndpointUnits(raw) {
 }
 
 function extractNumericSignatures(text, locale) {
+  // Numeric syntax is compared semantically only. Invisible/combining marks
+  // must not sever an adjacent sign, currency or percent affix, while neither
+  // the candidate text nor persisted memory is ever rewritten.
+  const numericText = canonicalProtectedText(text);
   const ranges = [];
   const signatures = [];
-  for (const match of text.matchAll(VERSION_RE)) {
+  for (const match of numericText.matchAll(VERSION_RE)) {
     const start = match.index ?? 0;
     ranges.push([start, start + match[0].length]);
     signatures.push(`version:${match[0].toLowerCase()}`);
   }
-  for (const match of text.matchAll(DATE_RE)) {
+  for (const match of numericText.matchAll(DATE_RE)) {
     const start = match.index ?? 0;
     ranges.push([start, start + match[0].length]);
     const [year, month, day] = match[0].split(match[1]);
     signatures.push(`date:${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
   }
-  for (const match of text.matchAll(RANGE_RE)) {
+  for (const match of numericText.matchAll(RANGE_RE)) {
     const start = match.index ?? 0;
     const end = start + match[0].length;
     if (overlaps(ranges, start, end)) continue;
@@ -351,11 +388,11 @@ function extractNumericSignatures(text, locale) {
       : `bound:${firstUnits.join('+') || 'number'}:${secondUnits.join('+') || 'number'}`;
     signatures.push(`range:unit:${unit}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
   }
-  for (const match of text.matchAll(NUMBER_RE)) {
+  for (const match of numericText.matchAll(NUMBER_RE)) {
     const start = match.index ?? 0;
     const end = start + match[0].length;
     if (overlaps(ranges, start, end)) continue;
-    const affix = numericAffix(text, start, end);
+    const affix = numericAffix(numericText, start, end);
     const currency = match[1] ?? affix.currency;
     const label = currency ? `currency:${currencyCode(currency)}` : affix.hasPercent ? 'percent' : 'number';
     signatures.push(`${label}:${affix.sign}:${numericCore(match[2], locale)}`);
