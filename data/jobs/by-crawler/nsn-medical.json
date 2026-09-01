@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nsn-medical",
-  "assembledAt": "2026-09-01T10:18:17.675Z",
+  "assembledAt": "2026-09-01T14:18:56.818Z",
   "jobs": [
     {
       "id": "nsn-medical-a79485ca05f1",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/822/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:14.300Z",
+      "crawledAt": "2026-09-01T14:18:53.693Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/827/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:13.640Z",
+      "crawledAt": "2026-09-01T14:18:53.019Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -232,7 +232,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/828/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:12.970Z",
+      "crawledAt": "2026-09-01T14:18:52.372Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/830/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:12.129Z",
+      "crawledAt": "2026-09-01T14:18:51.611Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -460,7 +460,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/823/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:11.471Z",
+      "crawledAt": "2026-09-01T14:18:51.180Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -543,7 +543,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/832/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:10.796Z",
+      "crawledAt": "2026-09-01T14:18:50.547Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/836/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:10.101Z",
+      "crawledAt": "2026-09-01T14:18:49.877Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -737,7 +737,8 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "nsn-medical-40f2d131fcdc",
@@ -771,7 +772,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/838/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:08.535Z",
+      "crawledAt": "2026-09-01T14:18:49.122Z",
       "addressLocality": "Onkologie",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -843,7 +844,7 @@
       "url": "https://recruitingapp-2884.umantis.com/Vacancies/839/Description/1",
       "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:18:07.759Z",
+      "crawledAt": "2026-09-01T14:18:48.398Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -874,6 +875,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "nsn-medical-f6ce5f68445e",
+      "slug": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+      "slugByLocale": {
+        "de": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+        "it": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+        "en": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie",
+        "fr": "leitende-r-arztin-arzt-onkologie-zio-zurichsee-60-100-nsn-medical-onkologie"
+      },
+      "company": "NSN Medical Group",
+      "companyKey": "nsn-medical",
+      "companyDomain": "nsn.ch",
+      "title": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100%",
+      "titleByLocale": {
+        "de": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100%",
+        "it": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100%",
+        "en": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100%",
+        "fr": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100%"
+      },
+      "description": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% - Zentrum für integrative Onkologie Das ZIO Zürichsee ist eine renommierte Einrichtung für Integrative Onkologie, die ihren Patientinnen und Patienten eine umfassende und ganzheitliche Behandlung bietet. Wir verbinden moderne, leitlinienorientierte fachärztliche Beratung und Behandlung mit ausgesuchten Verfahren der Komplementärmedizin. Der Standort ZIO Zürichsee in Richterswil sucht per sofort oder nach Vereinbarung eine/n Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% Ihr Profil: Abgeschlossener Facharzttitel in Medizinischer Onkologie oder Hämatologie/Onkologie\n\nBereitschaft zur interdisziplinären Zusammenarbeit\n\nInteresse an einem integrativ-medizinischen Ansatz\n\nEmpathische und verantwortungsbewusste Persönlichkeit mit einer patientenorientierten Haltung\n\nSelbstständigkeit und Engagement\n\nVorhandene BAB und OKP Bewilligung (Bewilligung zur ärztlichen Berufsausübung) ist von Vorteil.\n\nSelbständige Betreuung und Behandlung von Patientinnen und Patienten in der Sprechstunde und Tagesklinik Zusammenarbeit mit einem interdisziplinären Team, einschliesslich integrativer Medizin und weiteren Fachdisziplinen Teilnahme an Tumorkonferenzen und Fallbesprechungen Mitgestaltung der Weiterentwicklung des ZIO Zürichsee Sicherstellung einer hohen Qualität in der Dokumentation und im Qualitätsmanagement\n\nEin modernes und gut ausgestattetes Arbeitsumfeld in einem interdisziplinären Team Einen integrativen Ansatz in der Onkologie auf hohem fachlichen Niveau Flexible Arbeitszeiten und attraktive Rahmenbedingungen zur Förderung einer ausgewogenen Work-Life-Balance Ein wertschätzendes Arbeitsklima in einem engagierten Team Möglichkeiten zur fachlichen Weiterbildung und beruflichen Weiterentwicklung\n\n• Bereich: Ärztinnen/Ärzte\n• Art: Vollzeit\n• Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "de": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% - Zentrum für integrative Onkologie Das ZIO Zürichsee ist eine renommierte Einrichtung für Integrative Onkologie, die ihren Patientinnen und Patienten eine umfassende und ganzheitliche Behandlung bietet. Wir verbinden moderne, leitlinienorientierte fachärztliche Beratung und Behandlung mit ausgesuchten Verfahren der Komplementärmedizin. Der Standort ZIO Zürichsee in Richterswil sucht per sofort oder nach Vereinbarung eine/n Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% Ihr Profil: Abgeschlossener Facharzttitel in Medizinischer Onkologie oder Hämatologie/Onkologie\n\nBereitschaft zur interdisziplinären Zusammenarbeit\n\nInteresse an einem integrativ-medizinischen Ansatz\n\nEmpathische und verantwortungsbewusste Persönlichkeit mit einer patientenorientierten Haltung\n\nSelbstständigkeit und Engagement\n\nVorhandene BAB und OKP Bewilligung (Bewilligung zur ärztlichen Berufsausübung) ist von Vorteil.\n\nSelbständige Betreuung und Behandlung von Patientinnen und Patienten in der Sprechstunde und Tagesklinik Zusammenarbeit mit einem interdisziplinären Team, einschliesslich integrativer Medizin und weiteren Fachdisziplinen Teilnahme an Tumorkonferenzen und Fallbesprechungen Mitgestaltung der Weiterentwicklung des ZIO Zürichsee Sicherstellung einer hohen Qualität in der Dokumentation und im Qualitätsmanagement\n\nEin modernes und gut ausgestattetes Arbeitsumfeld in einem interdisziplinären Team Einen integrativen Ansatz in der Onkologie auf hohem fachlichen Niveau Flexible Arbeitszeiten und attraktive Rahmenbedingungen zur Förderung einer ausgewogenen Work-Life-Balance Ein wertschätzendes Arbeitsklima in einem engagierten Team Möglichkeiten zur fachlichen Weiterbildung und beruflichen Weiterentwicklung\n\n• Bereich: Ärztinnen/Ärzte\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "it": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% - Zentrum für integrative Onkologie Das ZIO Zürichsee ist eine renommierte Einrichtung für Integrative Onkologie, die ihren Patientinnen und Patienten eine umfassende und ganzheitliche Behandlung bietet. Wir verbinden moderne, leitlinienorientierte fachärztliche Beratung und Behandlung mit ausgesuchten Verfahren der Komplementärmedizin. Der Standort ZIO Zürichsee in Richterswil sucht per sofort oder nach Vereinbarung eine/n Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% Ihr Profil: Abgeschlossener Facharzttitel in Medizinischer Onkologie oder Hämatologie/Onkologie\n\nBereitschaft zur interdisziplinären Zusammenarbeit\n\nInteresse an einem integrativ-medizinischen Ansatz\n\nEmpathische und verantwortungsbewusste Persönlichkeit mit einer patientenorientierten Haltung\n\nSelbstständigkeit und Engagement\n\nVorhandene BAB und OKP Bewilligung (Bewilligung zur ärztlichen Berufsausübung) ist von Vorteil.\n\nSelbständige Betreuung und Behandlung von Patientinnen und Patienten in der Sprechstunde und Tagesklinik Zusammenarbeit mit einem interdisziplinären Team, einschliesslich integrativer Medizin und weiteren Fachdisziplinen Teilnahme an Tumorkonferenzen und Fallbesprechungen Mitgestaltung der Weiterentwicklung des ZIO Zürichsee Sicherstellung einer hohen Qualität in der Dokumentation und im Qualitätsmanagement\n\nEin modernes und gut ausgestattetes Arbeitsumfeld in einem interdisziplinären Team Einen integrativen Ansatz in der Onkologie auf hohem fachlichen Niveau Flexible Arbeitszeiten und attraktive Rahmenbedingungen zur Förderung einer ausgewogenen Work-Life-Balance Ein wertschätzendes Arbeitsklima in einem engagierten Team Möglichkeiten zur fachlichen Weiterbildung und beruflichen Weiterentwicklung\n\n• Bereich: Ärztinnen/Ärzte\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "en": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% - Zentrum für integrative Onkologie Das ZIO Zürichsee ist eine renommierte Einrichtung für Integrative Onkologie, die ihren Patientinnen und Patienten eine umfassende und ganzheitliche Behandlung bietet. Wir verbinden moderne, leitlinienorientierte fachärztliche Beratung und Behandlung mit ausgesuchten Verfahren der Komplementärmedizin. Der Standort ZIO Zürichsee in Richterswil sucht per sofort oder nach Vereinbarung eine/n Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% Ihr Profil: Abgeschlossener Facharzttitel in Medizinischer Onkologie oder Hämatologie/Onkologie\n\nBereitschaft zur interdisziplinären Zusammenarbeit\n\nInteresse an einem integrativ-medizinischen Ansatz\n\nEmpathische und verantwortungsbewusste Persönlichkeit mit einer patientenorientierten Haltung\n\nSelbstständigkeit und Engagement\n\nVorhandene BAB und OKP Bewilligung (Bewilligung zur ärztlichen Berufsausübung) ist von Vorteil.\n\nSelbständige Betreuung und Behandlung von Patientinnen und Patienten in der Sprechstunde und Tagesklinik Zusammenarbeit mit einem interdisziplinären Team, einschliesslich integrativer Medizin und weiteren Fachdisziplinen Teilnahme an Tumorkonferenzen und Fallbesprechungen Mitgestaltung der Weiterentwicklung des ZIO Zürichsee Sicherstellung einer hohen Qualität in der Dokumentation und im Qualitätsmanagement\n\nEin modernes und gut ausgestattetes Arbeitsumfeld in einem interdisziplinären Team Einen integrativen Ansatz in der Onkologie auf hohem fachlichen Niveau Flexible Arbeitszeiten und attraktive Rahmenbedingungen zur Förderung einer ausgewogenen Work-Life-Balance Ein wertschätzendes Arbeitsklima in einem engagierten Team Möglichkeiten zur fachlichen Weiterbildung und beruflichen Weiterentwicklung\n\n• Bereich: Ärztinnen/Ärzte\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% - Zentrum für integrative Onkologie Das ZIO Zürichsee ist eine renommierte Einrichtung für Integrative Onkologie, die ihren Patientinnen und Patienten eine umfassende und ganzheitliche Behandlung bietet. Wir verbinden moderne, leitlinienorientierte fachärztliche Beratung und Behandlung mit ausgesuchten Verfahren der Komplementärmedizin. Der Standort ZIO Zürichsee in Richterswil sucht per sofort oder nach Vereinbarung eine/n Leitende/r Ärztin/Arzt Onkologie – ZIO Zürichsee 60-100% Ihr Profil: Abgeschlossener Facharzttitel in Medizinischer Onkologie oder Hämatologie/Onkologie\n\nBereitschaft zur interdisziplinären Zusammenarbeit\n\nInteresse an einem integrativ-medizinischen Ansatz\n\nEmpathische und verantwortungsbewusste Persönlichkeit mit einer patientenorientierten Haltung\n\nSelbstständigkeit und Engagement\n\nVorhandene BAB und OKP Bewilligung (Bewilligung zur ärztlichen Berufsausübung) ist von Vorteil.\n\nSelbständige Betreuung und Behandlung von Patientinnen und Patienten in der Sprechstunde und Tagesklinik Zusammenarbeit mit einem interdisziplinären Team, einschliesslich integrativer Medizin und weiteren Fachdisziplinen Teilnahme an Tumorkonferenzen und Fallbesprechungen Mitgestaltung der Weiterentwicklung des ZIO Zürichsee Sicherstellung einer hohen Qualität in der Dokumentation und im Qualitätsmanagement\n\nEin modernes und gut ausgestattetes Arbeitsumfeld in einem interdisziplinären Team Einen integrativen Ansatz in der Onkologie auf hohem fachlichen Niveau Flexible Arbeitszeiten und attraktive Rahmenbedingungen zur Förderung einer ausgewogenen Work-Life-Balance Ein wertschätzendes Arbeitsklima in einem engagierten Team Möglichkeiten zur fachlichen Weiterbildung und beruflichen Weiterentwicklung\n\n• Bereich: Ärztinnen/Ärzte\n• Art: Vollzeit\n• Befristung: Unbefristet"
+      },
+      "needsRetranslation": true,
+      "location": "Onkologie",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2884.umantis.com/Vacancies/817/Description/1",
+      "source": "NSN Medical Group Dedicated Parser (Umantis listing tenant 2884)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:18:54.321Z",
+      "addressLocality": "Onkologie",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-10",
+      "applyUrl": "https://recruitingapp-2884.umantis.com/Vacancies/817/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T14:18:54.321Z"
     }
   ]
 }
