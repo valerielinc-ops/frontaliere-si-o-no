@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ophtalmique",
-  "assembledAt": "2026-09-01T07:28:53.458Z",
+  "assembledAt": "2026-09-01T08:47:26.559Z",
   "jobs": [
     {
       "id": "ophtalmique-d5943b26ebe2",
@@ -34,7 +34,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1893",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:48.891Z",
+      "crawledAt": "2026-09-01T08:47:22.662Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1886",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:48.446Z",
+      "crawledAt": "2026-09-01T08:47:22.226Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -202,7 +202,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1862",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:48.019Z",
+      "crawledAt": "2026-09-01T08:47:21.801Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -285,7 +285,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:47.588Z",
+      "crawledAt": "2026-09-01T08:47:21.375Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -366,7 +366,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1870",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:47.162Z",
+      "crawledAt": "2026-09-01T08:47:20.939Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -384,12 +384,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "careerSiteUrl": "https://emploi.ophtalmique.ch/",
+      "previousSlugs": [
+        "optometriste-ophtalmique-lausanne",
+        "optometrista-di-ricerca-clinica-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "clinical-research-optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "klinische-forschung-optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "optometriste-de-recherche-clinique-ophtalmique-lausanne",
+        "optometriste-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+        "optometria-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "optometriste-de-recherche-clinique-ophtalmique-lausanne",
-          "optometriste-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-          "optometriste-ophtalmique-lausanne"
-        ],
         "it": [
           "optometriste-ophtalmique-lausanne",
           "optometrista-di-ricerca-clinica-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
@@ -405,17 +409,13 @@
         "de": [
           "optometriste-ophtalmique-lausanne",
           "klinische-forschung-optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
+        ],
+        "fr": [
+          "optometriste-de-recherche-clinique-ophtalmique-lausanne",
+          "optometriste-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
+          "optometriste-ophtalmique-lausanne"
         ]
       },
-      "previousSlugs": [
-        "optometriste-ophtalmique-lausanne",
-        "optometrista-di-ricerca-clinica-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "clinical-research-optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "klinische-forschung-optometrist-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "optometriste-de-recherche-clinique-ophtalmique-lausanne",
-        "optometriste-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
-        "optometria-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne"
-      ],
       "firstSeenAt": "2026-07-01T22:50:35.171Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -463,7 +463,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1856",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:46.735Z",
+      "crawledAt": "2026-09-01T08:47:20.511Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -544,7 +544,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1842",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:46.305Z",
+      "crawledAt": "2026-09-01T08:47:20.086Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -625,7 +625,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1841",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:45.878Z",
+      "crawledAt": "2026-09-01T08:47:19.661Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -710,7 +710,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1826",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:28:45.297Z",
+      "crawledAt": "2026-09-01T08:47:19.070Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
