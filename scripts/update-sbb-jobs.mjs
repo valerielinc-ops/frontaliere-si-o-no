@@ -146,6 +146,45 @@ function isSbbJob(job) {
   );
 }
 
+function isLoginSbbJob(job) {
+  try {
+    const host = new URL(String(job?.url || '')).hostname.toLowerCase();
+    return host === 'login.org' || host === 'www.login.org';
+  } catch {
+    return false;
+  }
+}
+
+export function buildSbbSourceHealth(apiSeed = {}, loginDiscovery = {}) {
+  const loginDegraded = loginDiscovery?.degraded === true;
+  return {
+    status: loginDegraded ? 'degraded' : 'healthy',
+    degradedSources: loginDegraded ? ['login.org-apprenticeships'] : [],
+    sources: {
+      aem: {
+        id: 'sbb-aem',
+        role: 'primary',
+        status: 'healthy',
+        sourceZero: apiSeed?.sourceZero === true,
+        aemUrlCount: Array.isArray(apiSeed?.urls) ? apiSeed.urls.length : 0,
+      },
+      loginOrg: {
+        id: 'login.org-apprenticeships',
+        role: 'secondary',
+        status: loginDegraded ? 'degraded' : 'healthy',
+        sourceZero: loginDiscovery?.sourceZero === true,
+        apprenticeshipUrlCount: Array.isArray(loginDiscovery?.urls) ? loginDiscovery.urls.length : 0,
+        pagesAttempted: Number(loginDiscovery?.pagesAttempted) || 0,
+        pagesFetched: Number(loginDiscovery?.pagesFetched) || 0,
+        failureReason: loginDegraded
+          ? String(loginDiscovery?.failureReason || 'listing-fetch-unavailable')
+          : null,
+        failedPageUrl: loginDegraded ? String(loginDiscovery?.failedPageUrl || '') : null,
+      },
+    },
+  };
+}
+
 /**
  * Check whether a URL belongs to one of SBB's trusted domains.
  */
@@ -252,6 +291,7 @@ export async function fetchLoginSbbDetailUrls(options = {}) {
   const visited = new Set();
   const detailUrls = new Set();
   let duplicateIdentity = 0;
+  let pagesSucceeded = 0;
 
   while (queue.length > 0 && visited.size < LOGIN_MAX_PAGES) {
     const pageUrl = queue.shift();
@@ -269,22 +309,28 @@ export async function fetchLoginSbbDetailUrls(options = {}) {
       // source that is not authoritative for the union. Degrade in place
       // instead: report zero NEW seeds from this source WITHOUT claiming it
       // is verified-empty (`sourceZero: false`), so the caller keeps
-      // publishing AEM jobs and mergePreserveLocaleData()'s grace-period
-      // retention (default retainMissingJobs) keeps any already-persisted
-      // login.org apprenticeship jobs — ID/URL/slug/previousSlugs — instead
+      // publishing AEM jobs. The source-aware merge below re-submits any
+      // already-persisted login.org apprenticeship jobs — preserving their
+      // ID/URL/slug/previousSlugs without advancing its missing-run counter —
+      // instead
       // of retiring them on an unproven "source is empty" read.
       console.warn(`⚠️ SBB login.org listing unavailable — degrading (secondary source, existing apprenticeship jobs retained): ${pageUrl}`);
       return {
         urls: [...detailUrls].sort((a, b) => a.localeCompare(b)),
         sourceZero: false,
         degraded: true,
-        pagesFetched: visited.size,
+        pagesAttempted: visited.size,
+        pagesFetched: pagesSucceeded,
+        pagesSucceeded,
         duplicateIdentity,
+        failureReason: 'listing-fetch-unavailable',
+        failedPageUrl: pageUrl,
       };
     }
     if (!/(?:login\.org|panoramica-dei-posti-di-tirocinio|panoramica dei posti di tirocinio|\/it\/\d+-)/i.test(html)) {
       throw new Error(`SBB login.org discovery failed: listing identity marker missing (${pageUrl}).`);
     }
+    pagesSucceeded += 1;
 
     const pageDetails = extractLoginDetailUrlsFromHtml(html);
     const pagerLinks = extractLoginPaginationUrlsFromHtml(html);
@@ -317,7 +363,10 @@ export async function fetchLoginSbbDetailUrls(options = {}) {
   return {
     urls,
     sourceZero: urls.length === 0,
-    pagesFetched: visited.size,
+    degraded: false,
+    pagesAttempted: visited.size,
+    pagesFetched: pagesSucceeded,
+    pagesSucceeded,
     duplicateIdentity,
   };
 }
@@ -1059,9 +1108,8 @@ function writeJobsFiles(jobs) {
   }
 }
 
-function mergeParsedSbbJobs(parsedJobs) {
-  const existing = readExistingCrawlerJobs(SBB_KEY, DATA_JOBS);
-  const allJobs = Array.isArray(existing) ? existing : [];
+export function mergeSbbJobsWithDiscoveryState(sbbPriorSnapshot, parsedJobs, options = {}) {
+  const allJobs = Array.isArray(sbbPriorSnapshot) ? sbbPriorSnapshot : [];
   const nonSbb = allJobs.filter((job) => !isSbbJob(job));
   const sbbExisting = allJobs.filter(isSbbJob);
 
@@ -1073,13 +1121,35 @@ function mergeParsedSbbJobs(parsedJobs) {
   }
   const deduped = [...byUrl.values()];
 
+  // A degraded secondary snapshot cannot advance the shared missing-job
+  // streak for login.org records. Re-submit only the unobserved login.org
+  // records as fresh identities so mergePreserveLocaleData keeps their exact
+  // ID/slug/history and leaves the missing-run counter unchanged. A healthy
+  // login.org snapshot does not enter this branch, so real removals still use
+  // the normal two-miss grace and disappear on the third confirmed miss.
+  if (options.loginDegraded === true) {
+    for (const retainedLoginJob of sbbExisting) {
+      if (!isLoginSbbJob(retainedLoginJob)) continue;
+      const key = normalizeDetailUrl(retainedLoginJob?.url || '');
+      if (!key || byUrl.has(key)) continue;
+      deduped.push({ ...retainedLoginJob });
+    }
+  }
+
   // Preserve existing AI translations and slugs
   const cleanSbbJobs = mergePreserveLocaleData(sbbExisting, deduped).sort(
     (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonSbb, ...cleanSbbJobs];
+  return { merged, sbbJobs: cleanSbbJobs };
+}
+
+function mergeParsedSbbJobs(parsedJobs, options = {}) {
+  const existing = readExistingCrawlerJobs(SBB_KEY, DATA_JOBS);
+  const allJobs = Array.isArray(existing) ? existing : [];
+  const { merged, sbbJobs } = mergeSbbJobsWithDiscoveryState(allJobs, parsedJobs, options);
   writeJobsFiles(merged);
-  return cleanSbbJobs;
+  return sbbJobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1213,8 +1283,9 @@ async function main() {
   // Step 2: Fetch login.org SBB apprenticeship URLs
   const loginDiscovery = await fetchLoginSbbDetailUrls();
   const loginDetailUrls = loginDiscovery.urls;
+  const sourceHealth = buildSbbSourceHealth(apiSeed, loginDiscovery);
   if (loginDiscovery.degraded) {
-    console.log('⚠️ login.org degraded this run — continuing with AEM-only discovery; existing apprenticeship jobs are retained via the merge grace period, not retired.');
+    console.log('⚠️ login.org degraded this run — continuing with AEM discovery; existing apprenticeship jobs are source-retained without advancing their miss streak.');
   }
   const mergedDetailUrls = [...new Set([...apiUrls, ...loginDetailUrls])].sort((a, b) => a.localeCompare(b));
   console.log(`✅ Total merged SBB detail URLs (API + login.org): ${mergedDetailUrls.length}`);
@@ -1235,7 +1306,9 @@ async function main() {
   const parsedSbbJobs = await parseAllSbbDetailJobs(mergedDetailUrls, apiMetaByUrl, apiMetaByTitle);
   console.log(`✅ Parsed SBB jobs (clean): ${parsedSbbJobs.length}`);
   if (parsedSbbJobs.length > 0) {
-    const publishedJobs = mergeParsedSbbJobs(parsedSbbJobs);
+    const publishedJobs = mergeParsedSbbJobs(parsedSbbJobs, {
+      loginDegraded: loginDiscovery.degraded === true,
+    });
     await translateMissingJobLocales({
       dataJobsPath: DATA_JOBS,
       isTargetJob: isSbbJob,
@@ -1277,6 +1350,7 @@ async function main() {
     updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
     removedJobs: crawlDiff.removedJobs.slice(0, 30),
     unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    sourceHealth,
   });
   await assembleJobsDataset();
 }
