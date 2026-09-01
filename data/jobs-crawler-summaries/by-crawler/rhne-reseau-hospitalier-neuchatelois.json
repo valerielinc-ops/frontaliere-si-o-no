@@ -1,18 +1,18 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-09-01T08:40:10.214Z",
+  "generatedAt": "2026-09-01T10:21:08.553Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9355,
-  "avgDurationMs": 9355,
+  "unchangedCount": 1,
+  "durationMs": 7036,
+  "avgDurationMs": 7036,
   "durationHistory": [
-    9355
+    7036
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=7d8be38b-93e4-4258-b4a0-47a77e6250c1&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:40:05.694Z",
+      "crawledAt": "2026-09-01T10:21:05.291Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -53,7 +53,10 @@
         "translation": 16,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-9f9f89f8d0a7",
       "slug": "specialiste-rh-a-70-rhne-reseau-hospitalier-neuchatelois-neuchatel",
@@ -61,7 +64,7 @@
       "companyKey": "rhne-reseau-hospitalier-neuchatelois",
       "companyDomain": "rhne.ch",
       "title": "Spécialiste RH à 70%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Neuchâtel",
       "canton": "NE",
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=29e6659d-1c0b-41c2-b8ca-0aa28bcb044a&cat=all",
@@ -84,15 +87,17 @@
       "applyUrl": "https://www.jobup.ch/fr/application/create/29e6659d-1c0b-41c2-b8ca-0aa28bcb044a?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
       "externalId": "29",
       "firstSeenAt": "2026-08-31T17:15:54.164Z",
-      "_qualityScore": 76,
+      "salaryMin": 60200,
+      "salaryMax": 84000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 16,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
