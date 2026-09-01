@@ -4894,6 +4894,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.swiss-life-taglio-posti-lavoro-2028.title': 'Swiss Life to cut 600 jobs by the end of 2028',
     'blog.article.swiss-life-taglio-posti-lavoro-2028.excerpt': 'The life insurer announced a restructuring plan to improve operational efficiency.',
     'blog.article.swiss-life-taglio-posti-lavoro-2028.imageAlt': 'Aerial view of Lugano cityscape with Swiss Life headquarters.',
+    'blog.article.drg-fatture-trasparenza.title': 'Hospital bills: why they don\'t explain everything',
+    'blog.article.drg-fatture-trasparenza.excerpt': 'Since 2012, DRG has been hiding diagnoses in the invoice received. How to ask the hospital for clarification and dispute with the health insurer.',
+    'blog.article.drg-fatture-trasparenza.imageAlt': 'Patient reviewing a Swiss hospital bill at desk with clinical documents and stethoscope',
 };
 
 export default blogMetaChEn;
