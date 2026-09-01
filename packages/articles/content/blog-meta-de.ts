@@ -11043,6 +11043,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dogane-udsc-nuova-informatica.title': 'Neue IT bei FOCBS: Kosten sinken, Vorteile für die Wirtschaft',
     'blog.article.dogane-udsc-nuova-informatica.excerpt': 'Das DaziT-Programm des UDSC endet Ende 2023 mit einer Reduktion der Regulierungskosten für die Wirtschaft um 125 Millionen Franken.',
     'blog.article.dogane-udsc-nuova-informatica.imageAlt': 'Bundesamt für Zoll und Grenzsicherheit in Lugano',
+    'blog.article.origgio-tragedia-cantiere-2026.title': 'Tragödie auf der Baustelle in Origgio: Ein 55-jähriger Mann starb',
+    'blog.article.origgio-tragedia-cantiere-2026.excerpt': 'Ein 55-jähriger Mann verlor bei einem Arbeitsunfall in Origgio sein Leben. Davide Bellotto von Fillea Cgil Varese: "Wir kennen die Details noch nicht"',
+    'blog.article.origgio-tragedia-cantiere-2026.imageAlt': 'Szene einer Baustelle in Origgio nach einer Arbeitsplatz-Tragödie',
 };
 
 export default blogMetaDe;

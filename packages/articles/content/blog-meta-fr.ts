@@ -11046,6 +11046,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dogane-udsc-nuova-informatica.title': 'FOCBS : nouvelles technologies, coûts en baisse',
     'blog.article.dogane-udsc-nuova-informatica.excerpt': 'Le programme DaziT de la FOCBS se termine fin 2023, avec une réduction de 125 millions de CHF en coûts réglementaires pour l’économie.',
     'blog.article.dogane-udsc-nuova-informatica.imageAlt': 'Office fédéral des douanes et de la sécurité des frontières à Lugano',
+    'blog.article.origgio-tragedia-cantiere-2026.title': 'Tragédie sur le chantier d’Origgio : un homme de 55 ans est décédé',
+    'blog.article.origgio-tragedia-cantiere-2026.excerpt': 'Un homme de 55 ans a perdu la vie dans un accident de travail à Origgio. Davide Bellotto de Fillea Cgil Varese : « Nous ne connaissons pas encore les détails »',
+    'blog.article.origgio-tragedia-cantiere-2026.imageAlt': 'Scène d\'un chantier à Origgio après une tragédie sur le lieu de travail',
 };
 
 export default blogMetaFr;
