@@ -1,7 +1,7 @@
 {
   "key": "staubli",
   "label": "Stäubli",
-  "generatedAt": "2026-09-01T07:22:15.791Z",
+  "generatedAt": "2026-09-01T08:38:12.547Z",
   "total": 5,
   "discovered": null,
   "written": 5,
@@ -9,10 +9,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10854,
-  "avgDurationMs": 10854,
+  "durationMs": 10657,
+  "avgDurationMs": 10657,
   "durationHistory": [
-    10854
+    10657
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145931140-lehre-als-kauffrau-oder-kaufmann-efz?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T07:22:08.726Z",
+      "crawledAt": "2026-09-01T08:38:05.622Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -68,7 +68,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:22:08.734Z",
+      "crawledAt": "2026-09-01T08:38:05.629Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Tombet",
@@ -107,7 +107,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T07:22:08.730Z",
+      "crawledAt": "2026-09-01T08:38:05.718Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -146,7 +146,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000142111489-global-learning-development-lead?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:22:08.789Z",
+      "crawledAt": "2026-09-01T08:38:05.712Z",
       "addressLocality": "Pfaffikon",
       "addressRegion": "ZH",
       "streetAddress": "Poststrasse 5",
@@ -185,7 +185,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T07:22:08.729Z",
+      "crawledAt": "2026-09-01T08:38:05.719Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -203,11 +203,11 @@
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "jobReqId": "744000135670729",
       "firstSeenAt": "2026-07-03T23:34:24.710Z",
-      "_qualityScore": 81,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     }
