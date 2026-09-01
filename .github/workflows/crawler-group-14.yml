@@ -67,6 +67,7 @@ jobs:
     timeout-minutes: 340
     env:
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
+      CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -130,7 +131,7 @@ jobs:
 
           # ---- spruengli: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sprüngli jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Sprüngli jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -185,7 +186,7 @@ jobs:
 
           # ---- medacta: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏥 Auto-update Medacta jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏥 Auto-update Medacta jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -240,7 +241,7 @@ jobs:
 
           # ---- tschuggen: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Tschuggen Collection jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Tschuggen Collection jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -295,7 +296,7 @@ jobs:
 
           # ---- selecta: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Selecta jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Selecta jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -350,7 +351,7 @@ jobs:
 
           # ---- thermo-fisher-scientific: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Thermo Fisher Scientific (Schweiz) AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Thermo Fisher Scientific (Schweiz) AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -405,7 +406,7 @@ jobs:
 
           # ---- somedia: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Somedia AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Somedia AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -460,7 +461,7 @@ jobs:
 
           # ---- pallas-kliniken: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Pallas Kliniken jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Pallas Kliniken jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -515,7 +516,7 @@ jobs:
 
           # ---- leukerbad-clinic: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update LEUKERBAD_CLINIC jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update LEUKERBAD_CLINIC jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -569,7 +570,7 @@ jobs:
 
           # ---- wuerth-international: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Würth International jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Würth International jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -624,7 +625,7 @@ jobs:
 
           # ---- spital-schwyz: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SPITAL-SCHWYZ jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update SPITAL-SCHWYZ jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -679,7 +680,7 @@ jobs:
 
           # ---- rhne-reseau-hospitalier-neuchatelois: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update RHNE jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update RHNE jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -734,7 +735,7 @@ jobs:
 
           # ---- stadt-chur: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Stadt Chur jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏛️ Auto-update Stadt Chur jobs (dedicated crawler)"'
             git_commit_exit=$?
           fi
 
@@ -789,7 +790,7 @@ jobs:
 
           # ---- lalive: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update LALIVE jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update LALIVE jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -844,7 +845,7 @@ jobs:
 
           # ---- recruitingapp-2649: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Alexander von Humboldt-Stiftung Stellen jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Alexander von Humboldt-Stiftung Stellen jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -899,7 +900,7 @@ jobs:
 
           # ---- fondation-soins-lausanne: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Fondation Soins Lausanne jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Fondation Soins Lausanne jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -954,7 +955,7 @@ jobs:
 
           # ---- lhm-luzerner-hohenklinik-montana: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update LHM jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update LHM jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1009,7 +1010,7 @@ jobs:
 
           # ---- duferco: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Duferco jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Duferco jobs (dedicated crawler)"'
             git_commit_exit=$?
           fi
 
@@ -1064,7 +1065,7 @@ jobs:
 
           # ---- ksow: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kantonsspital Obwalden jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Kantonsspital Obwalden jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1119,7 +1120,7 @@ jobs:
 
           # ---- clinique-de-genolier: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clinique de Genolier jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Clinique de Genolier jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1174,7 +1175,7 @@ jobs:
 
           # ---- engelvoelkers: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Engel & Völkers jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Engel & Völkers jobs (dedicated crawler)"'
             git_commit_exit=$?
           fi
 
@@ -1229,7 +1230,7 @@ jobs:
 
           # ---- delvitech: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🔴 Auto-update Delvitech jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🔴 Auto-update Delvitech jobs (dedicated crawler)"'
             git_commit_exit=$?
           fi
 
@@ -1283,7 +1284,7 @@ jobs:
 
           # ---- cham-swiss-properties: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Cham Swiss Properties jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Cham Swiss Properties jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1338,7 +1339,7 @@ jobs:
 
           # ---- artisa: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Artisa Group jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🏗️ Auto-update Artisa Group jobs (dedicated crawler)"'
             git_commit_exit=$?
           fi
 
@@ -1393,7 +1394,7 @@ jobs:
 
           # ---- daler-hopital: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Daler jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Daler jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1448,7 +1449,7 @@ jobs:
 
           # ---- audemars-piguet: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Audemars Piguet jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Audemars Piguet jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1502,7 +1503,7 @@ jobs:
 
           # ---- alten: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🧩 Auto-update ALTEN jobs (dedicated crawler)"'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "🧩 Auto-update ALTEN jobs (dedicated crawler)"'
             git_commit_exit=$?
           fi
 
@@ -1556,7 +1557,7 @@ jobs:
 
           # ---- city-pop: Commit and push (verbatim, only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update City Pop jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update City Pop jobs (dedicated crawler)" data/jobs-crawler-adapters/'
             git_commit_exit=$?
           fi
 
@@ -1583,6 +1584,9 @@ jobs:
           exit 0
       - name: Wait for all crawlers in this group
         wait-all: true
+      - name: Commit crawler group data atomically
+        if: always()
+        run: bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 14 jobs"
       - name: Finalize crawler generation manifest (shadow)
         if: always()
         continue-on-error: true

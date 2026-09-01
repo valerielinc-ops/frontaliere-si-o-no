@@ -16,6 +16,7 @@ const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const OBJECT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const CRAWLER_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
 const MAX_FILES = 128;
+const MAX_COMMIT_MESSAGE_BYTES = 128 * 1024;
 export const MAX_RECEIPT_BYTES = 32 * 1024;
 const MAX_HASHED_SLICE_BYTES = 128 * 1024 * 1024;
 
@@ -164,6 +165,51 @@ export function validateCrawlerGenerationReceipt(receipt) {
   return { valid: errors.length === 0, errors: [...new Set(errors)].sort(compareCodePoint) };
 }
 
+export function createCrawlerGroupCommitDescriptor(input) {
+  if (!CRAWLER_ID_RE.test(input.crawlerId ?? '')) throw new TypeError('Invalid crawler commit descriptor identity');
+  if (typeof input.commitMessage !== 'string' || input.commitMessage.trim().length === 0 ||
+      Buffer.byteLength(input.commitMessage) > MAX_COMMIT_MESSAGE_BYTES) {
+    throw new TypeError('Invalid crawler commit descriptor message');
+  }
+  if (!Array.isArray(input.paths) || input.paths.length === 0 || input.paths.length > MAX_FILES) {
+    throw new TypeError('Invalid crawler commit descriptor path count');
+  }
+  if (input.paths.some((filePath) => !validRepositoryPath(filePath))) {
+    throw new TypeError('Invalid crawler commit descriptor path');
+  }
+  const paths = [...input.paths].sort(compareCodePoint);
+  if (new Set(paths).size !== paths.length) throw new TypeError('Duplicate crawler commit descriptor path');
+  return {
+    schemaVersion: 1,
+    crawlerId: input.crawlerId,
+    commitMessage: input.commitMessage,
+    paths,
+  };
+}
+
+export function validateCrawlerGroupCommitDescriptor(descriptor) {
+  const errors = [];
+  if (!exactKeys(descriptor, ['schemaVersion', 'crawlerId', 'commitMessage', 'paths'])) {
+    return { valid: false, errors: ['unsupported_schema'] };
+  }
+  if (descriptor.schemaVersion !== 1) errors.push('unsupported_schema_version');
+  if (!CRAWLER_ID_RE.test(descriptor.crawlerId ?? '')) errors.push('invalid_crawler_id');
+  if (typeof descriptor.commitMessage !== 'string' || descriptor.commitMessage.trim().length === 0 ||
+      Buffer.byteLength(descriptor.commitMessage ?? '') > MAX_COMMIT_MESSAGE_BYTES) {
+    errors.push('invalid_commit_message');
+  }
+  if (!Array.isArray(descriptor.paths) || descriptor.paths.length === 0 || descriptor.paths.length > MAX_FILES) {
+    errors.push('invalid_paths');
+  } else {
+    if (descriptor.paths.some((filePath) => !validRepositoryPath(filePath))) errors.push('invalid_path');
+    if (new Set(descriptor.paths).size !== descriptor.paths.length) errors.push('duplicate_path');
+    if (canonicalJson(descriptor.paths) !== canonicalJson([...descriptor.paths].sort(compareCodePoint))) {
+      errors.push('non_canonical_path_order');
+    }
+  }
+  return { valid: errors.length === 0, errors: [...new Set(errors)].sort(compareCodePoint) };
+}
+
 function isWithin(root, target) {
   const relative = path.relative(root, target);
   return relative === '' || (!relative.startsWith(`..${path.sep}`) && relative !== '..' && !path.isAbsolute(relative));
@@ -215,6 +261,26 @@ function safeReceiptOutput(cwd, receiptDir, runnerTemp, crawlerId) {
   return assertSafeRunnerReportOutput(cwd, runnerTemp, output, path.join('crawler-generation', 'receipts'));
 }
 
+function safeBatchDescriptorOutput(cwd, descriptorDir, runnerTemp, crawlerId) {
+  const descriptorRoot = path.isAbsolute(descriptorDir)
+    ? path.resolve(descriptorDir)
+    : path.resolve(runnerTemp, descriptorDir);
+  const output = path.join(descriptorRoot, `${crawlerId}.json`);
+  return assertSafeRunnerReportOutput(cwd, runnerTemp, output, path.join('crawler-generation', 'commit-batch'));
+}
+
+function safeBatchDescriptorRoot(cwd, descriptorDir, runnerTemp) {
+  const descriptorRoot = path.isAbsolute(descriptorDir)
+    ? path.resolve(descriptorDir)
+    : path.resolve(runnerTemp, descriptorDir);
+  return assertSafeRunnerReportOutput(
+    cwd,
+    runnerTemp,
+    descriptorRoot,
+    path.join('crawler-generation', 'commit-batch'),
+  );
+}
+
 function requiredEnv(name) {
   const value = process.env[name];
   if (typeof value !== 'string' || value.length === 0) throw new TypeError(`Missing ${name}`);
@@ -242,9 +308,107 @@ export function runCrawlerGenerationReceiptCli(paths = process.argv.slice(2)) {
   return receipt;
 }
 
+export function runCrawlerGroupCommitDescriptorCli(paths = process.argv.slice(3)) {
+  const cwd = process.cwd();
+  const crawlerId = requiredEnv('JOBS_HOUSEKEEPING_SCOPE');
+  const descriptor = createCrawlerGroupCommitDescriptor({
+    crawlerId,
+    commitMessage: requiredEnv('CRAWLER_GROUP_COMMIT_MESSAGE'),
+    paths,
+  });
+  const output = safeBatchDescriptorOutput(
+    cwd,
+    requiredEnv('CRAWLER_GROUP_COMMIT_DIR'),
+    requiredEnv('RUNNER_TEMP'),
+    crawlerId,
+  );
+  writeJsonAtomic(output, descriptor);
+  return descriptor;
+}
+
+export function readCrawlerGroupCommitDescriptors({
+  cwd = process.cwd(),
+  descriptorDir = requiredEnv('CRAWLER_GROUP_COMMIT_DIR'),
+  runnerTemp = requiredEnv('RUNNER_TEMP'),
+} = {}) {
+  const root = safeBatchDescriptorRoot(cwd, descriptorDir, runnerTemp);
+  if (!fs.existsSync(root)) return [];
+  if (!fs.lstatSync(root).isDirectory()) throw new TypeError('Crawler commit descriptor root must be a directory');
+  const descriptors = [];
+  for (const entry of fs.readdirSync(root, { withFileTypes: true }).sort((left, right) => compareCodePoint(left.name, right.name))) {
+    if (!entry.isFile() || entry.isSymbolicLink() || !entry.name.endsWith('.json')) {
+      throw new TypeError('Invalid crawler commit descriptor entry');
+    }
+    const descriptor = JSON.parse(fs.readFileSync(path.join(root, entry.name), 'utf8'));
+    const validation = validateCrawlerGroupCommitDescriptor(descriptor);
+    if (!validation.valid || entry.name !== `${descriptor.crawlerId}.json`) {
+      throw new TypeError(`Invalid crawler commit descriptor: ${validation.errors.join(',') || 'identity_mismatch'}`);
+    }
+    descriptors.push(descriptor);
+  }
+  if (new Set(descriptors.map(({ crawlerId }) => crawlerId)).size !== descriptors.length) {
+    throw new TypeError('Duplicate crawler commit descriptor identity');
+  }
+  return descriptors;
+}
+
+export function crawlerGroupCommitPaths(descriptors) {
+  return [...new Set(descriptors.flatMap(({ paths }) => paths))].sort(compareCodePoint);
+}
+
+export function crawlerGroupCommitMessage(baseMessage, descriptors) {
+  if (typeof baseMessage !== 'string' || baseMessage.trim().length === 0) {
+    throw new TypeError('Missing crawler group commit message');
+  }
+  const attribution = descriptors.map(({ crawlerId, commitMessage }) => (
+    `--- ${crawlerId} ---\n${commitMessage.trimEnd()}`
+  ));
+  return attribution.length === 0
+    ? baseMessage.trimEnd()
+    : `${baseMessage.trimEnd()}\n\nPer-crawler attribution:\n\n${attribution.join('\n\n')}`;
+}
+
+export function runCrawlerGroupCommitBatchReceiptsCli() {
+  const cwd = process.cwd();
+  const descriptors = readCrawlerGroupCommitDescriptors({ cwd });
+  const outcome = requiredEnv('CRAWLER_GENERATION_RECEIPT_OUTCOME');
+  const commit = requiredEnv('CRAWLER_GENERATION_RECEIPT_COMMIT');
+  const remoteBaseCommit = requiredEnv('CRAWLER_GENERATION_RECEIPT_REMOTE_BASE');
+  for (const descriptor of descriptors) {
+    const receipt = createCrawlerGenerationReceipt({
+      cwd,
+      crawlerId: descriptor.crawlerId,
+      outcome,
+      commit,
+      remoteBaseCommit,
+      paths: descriptor.paths,
+    });
+    const output = safeReceiptOutput(
+      cwd,
+      requiredEnv('CRAWLER_GENERATION_RECEIPT_DIR'),
+      requiredEnv('RUNNER_TEMP'),
+      descriptor.crawlerId,
+    );
+    writeJsonAtomic(output, receipt);
+  }
+  return descriptors.length;
+}
+
 if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
   try {
-    runCrawlerGenerationReceiptCli();
+    const command = process.argv[2];
+    if (command === '--defer-group-commit') {
+      runCrawlerGroupCommitDescriptorCli();
+    } else if (command === '--batch-paths') {
+      const paths = crawlerGroupCommitPaths(readCrawlerGroupCommitDescriptors());
+      process.stdout.write(paths.length === 0 ? '' : `${paths.join('\0')}\0`);
+    } else if (command === '--batch-message') {
+      process.stdout.write(crawlerGroupCommitMessage(process.argv[3] ?? '', readCrawlerGroupCommitDescriptors()));
+    } else if (command === '--batch-receipts') {
+      runCrawlerGroupCommitBatchReceiptsCli();
+    } else {
+      runCrawlerGenerationReceiptCli();
+    }
   } catch (error) {
     process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`);
     process.exitCode = 1;

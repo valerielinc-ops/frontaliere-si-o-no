@@ -596,6 +596,36 @@ describe('push-contention class (exit 42) in generated steps', () => {
   });
 });
 
+describe('#6380 — one atomic commit per crawler group', () => {
+  it('defers every successful crawler commit and joins them before finalization', () => {
+    const workflowsDir = path.resolve(import.meta.dirname, '../.github/workflows');
+    const files = fs.readdirSync(workflowsDir).filter((file) => /^crawler-group-\d+\.yml$/.test(file));
+    expect(files).toHaveLength(GROUP_COUNT);
+
+    for (const file of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(workflowsDir, file), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      expect(job.env.CRAWLER_GROUP_COMMIT_DIR).toBe('crawler-generation/commit-batch');
+      const background = job.steps.filter((step) => step.background === true);
+      expect(background.length).toBeGreaterThan(0);
+      for (const step of background) {
+        expect(step.run).toContain('CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock');
+      }
+
+      const waitIndex = job.steps.findIndex((step) => step['wait-all'] === true);
+      const batchIndexes = job.steps
+        .map((step, index) => ({ step, index }))
+        .filter(({ step }) => step.name === 'Commit crawler group data atomically');
+      expect(batchIndexes).toHaveLength(1);
+      expect(batchIndexes[0].index).toBe(waitIndex + 1);
+      expect(batchIndexes[0].step.if).toBe('always()');
+      expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
+      const finalizerIndex = job.steps.findIndex((step) => step.name === 'Finalize crawler generation manifest (shadow)');
+      expect(finalizerIndex).toBe(batchIndexes[0].index + 1);
+    }
+  });
+});
+
 describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
   const ROOT = path.resolve(import.meta.dirname, '..');
 

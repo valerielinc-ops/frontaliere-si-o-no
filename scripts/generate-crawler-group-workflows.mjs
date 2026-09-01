@@ -16,16 +16,16 @@
  * A `wait-all: true` step rejoins them; a failed background step fails
  * the job.
  *
- * DESIGN CONSTRAINT (owner-mandated): every crawler's commit-and-push and
- * error-reporting mechanism must remain EXACTLY as implemented in its own
- * script — no shared/generic commit or error-reporting step. Because GitHub
+ * DESIGN CONSTRAINT: every crawler's data-path selection and error-reporting
+ * mechanism remains the one implemented in its own script. Because GitHub
  * Actions `background: true` applies to a single self-contained `run:`
  * step (not a group of steps), each crawler's entire per-crawler sequence
- * (run script -> housekeeping -> commit+push -> failure report) is inlined
+ * (run script -> housekeeping -> commit descriptor -> failure report) is inlined
  * as ONE shell script body per background step, using each crawler's own
  * verbatim `run:` bodies (extracted from its original workflow) concatenated
  * in original order — nothing shared/generic is introduced, only the
- * ORIGINAL per-crawler shell fragments spliced together.
+ * ORIGINAL per-crawler shell fragments spliced together. After `wait-all`,
+ * one group commit atomically persists the union of successful descriptors.
  *
  * TWO CONCURRENCY HAZARDS this generator fixes at the callsite (not in the
  * shared libraries, which stay untouched and correct for standalone/manual
@@ -44,21 +44,14 @@
  *     `SLUG_HISTORY_SUMMARY_FILE=/tmp/slug-history-summary-<slug>.txt`
  *     (unique per crawler name).
  *
- *  2. scripts/lib/git-commit-data.sh runs `git add`/`git commit` directly
- *     against the shared working-copy `.git/index` with no locking. That is
- *     safe when each crawler is its own separate runner/clone (today's
- *     architecture), but multiple background steps in ONE job share the
- *     SAME working directory and .git/index — concurrent `git add`/`git
- *     commit` invocations would race on the index. Fix: each crawler's
- *     commit+push invocation is wrapped in `flock` against a shared
- *     lockfile (`/tmp/crawler-group-git.lock`), serializing ONLY the
- *     commit-and-push moment (a few seconds) while the actual crawl/fetch
- *     work (the slow part) still runs fully concurrently. This does not
- *     change what is committed or how — it only serializes WHEN the git
- *     commands run relative to siblings, exactly mirroring how the retry
- *     logic already inside git-commit-data.sh handles remote-side
- *     conflicts (this closes the *local*-index race the same script has no
- *     visibility into).
+ *  2. Per-crawler commits from the same checkout were serialized locally but
+ *     still raced remotely: every sibling rebuilt from a moving origin/main,
+ *     producing avoidable push_contention receipts and non-ancestor commits.
+ *     Fix: successful crawlers atomically record their exact file scope under
+ *     RUNNER_TEMP; one post-join invocation builds and pushes one private-index
+ *     commit, then emits one receipt per successful crawler against that same
+ *     ancestor commit. Failed crawlers produce no descriptor, so their partial
+ *     worktree files cannot leak into the batch.
  *
  * Re-run this script any time a crawler is added/removed/renamed, or the
  * duration baseline is refreshed (see
@@ -462,7 +455,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
     work.push('if [ "$crawler_exit" -eq 0 ]; then');
     if (isCommitStep) {
-      work.push(indentBlock(`flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2));
+      work.push(indentBlock(`CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2));
       work.push(indentBlock('git_commit_exit=$?', 2));
     } else {
       work.push(indentBlock(`(${step.run.trimEnd()}) || true`, 2));
@@ -659,7 +652,7 @@ export function buildCrawlerShellBody(crawler) {
       // `git_commit_exit=$?` capture on the next line is what makes the
       // failure-report gate and this step's final `exit` (below) see it.
       lines.push(
-        indentBlock(`flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2),
+        indentBlock(`CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2),
       );
       lines.push(indentBlock('git_commit_exit=$?', 2));
     } else {
@@ -928,6 +921,11 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     name: 'Wait for all crawlers in this group',
     'wait-all': true,
   });
+  steps.push({
+    name: 'Commit crawler group data atomically',
+    if: 'always()',
+    run: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${String(groupIndex).padStart(2, '0')} jobs"`,
+  });
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
 
   return {
@@ -970,6 +968,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           // hundreds of identical step overrides. The CLI resolves this relative
           // path strictly underneath the runner-provided RUNNER_TEMP.
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
+          CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
         },
         steps,
       },
