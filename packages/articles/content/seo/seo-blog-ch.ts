@@ -64487,6 +64487,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-friburgo-durata-rinnovo': {
+    title: 'Permesso L Friburgo: durata e rinnovo | Frontaliere Ticino',
+    description: 'Permesso L Friburgo: validità fino a 1 anno, rinnovo e passaggio ai permessi B e C. Procedure, documenti e vincoli del datore di lavoro. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, friburgo, durata, rinnovo',
+    ogTitle: 'Permesso L Friburgo: durata, rinnovo e passaggio a B',
+    ogDescription: 'Lavori in Friburgo con permesso L di breve durata? Scopri la validità fino a 1 anno, come rinnovare il permesso, i vincoli con il datore di lavoro e quando transizionare verso il permesso di dimora stabile B.',
+    canonicalPath: '/articoli-svizzera/permesso-l-friburgo-durata-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Friburgo: durata e rinnovo",
+      "description": "Permesso L Friburgo: validità fino a 1 anno, rinnovo e passaggio ai permessi B e C. Procedure, documenti e vincoli del datore di lavoro. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-friburgo-durata-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documentazione del permesso L e contratto di lavoro presso ufficio amministrativo cantonale svizzero"
+      },
+      "datePublished": "2026-09-01T17:14:48+00:00",
+      "dateModified": "2026-09-01T17:14:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-friburgo-durata-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

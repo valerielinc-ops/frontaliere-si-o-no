@@ -4969,6 +4969,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lucerna-taxi-cari-mondo.title': 'Luzern führt: Die Schweiz ist das Land mit den teuersten Taxis der Welt',
     'blog.article.lucerna-taxi-cari-mondo.excerpt': 'Eine 10 km lange Fahrt in Luzern kostet 58,89 Francs, womit die Schweizer Stadt die teuerste der Welt für Taxis ist.',
     'blog.article.lucerna-taxi-cari-mondo.imageAlt': 'Luftaufnahme von Luzern, Schweiz, mit dem Vierwaldstättersee und der Kapellbrücke im Vordergrund.',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'L-Fribourg-Genehmigung: Dauer und Verlängerung',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'L-Freiburg-Permit: gültig bis zu 1 Jahr, Verlängerung und Umstellung auf B- und C-Permits. Verfahren, Dokumente und Arbeitgeberbeschränkungen.',
+    'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'L-Bewilligung und Arbeitsvertrag in Schweizer Kantonsamt für Migration',
 };
 
 export default blogMetaChDe;
