@@ -321,6 +321,22 @@ describe('translation derived reducer v2', () => {
     expect(reduced.slice).toEqual(slice(rotated));
   });
 
+  it('rejects a numeric id reassigned to a different URL across crawler runs', () => {
+    const previousJob = { ...BASE_JOB, id: '123456' };
+    const reassignedJob = {
+      ...BASE_JOB,
+      id: '123456',
+      url: 'https://jobs.example.test/positions/unrelated-role/',
+    };
+    const active = slice(reassignedJob);
+    const before = structuredClone(active);
+    const reduced = reduceTranslationDerivedPatchV2(active, patchFor(previousJob));
+
+    expect(reduced.outcome).toBe('stale_target');
+    expect(reduced.slice).toEqual(before);
+    expect(active).toEqual(before);
+  });
+
   it('keeps absence non-resurrecting, reuses an exact logical re-add and requires a fresh patch after URL/id rotation', () => {
     const oldPatch = patchFor(BASE_JOB);
     expect(reduceTranslationDerivedPatchV2(
