@@ -60,6 +60,8 @@ const CAREER_URL = 'https://careers.nordangliaeducation.com/services/rss/job/?lo
 const ATS_HOST = 'careers.nordangliaeducation.com';
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
+const MAX_ITEM_DROP_RATIO = 0.5;
+const RSS_ITEM_STATS = Symbol('nordAngliaRssItemStats');
 
 /** Confirmed real-world address of the Aubonne VD campus (Non-Negotiable #3 inputs). */
 const HQ = {
@@ -105,13 +107,44 @@ function toArray(val) {
   return Array.isArray(val) ? val : [val];
 }
 
+class NordAngliaRssItemShapeError extends Error {}
+
 function readOptionalRssScalar(item, field, itemNumber) {
   const value = item?.[field];
   if (value == null) return '';
   if (typeof value !== 'string') {
-    throw new Error(`Nord Anglia RSS item ${itemNumber} ${field} must be a single scalar string`);
+    throw new NordAngliaRssItemShapeError(
+      `Nord Anglia RSS item ${itemNumber} ${field} must be a single scalar string`,
+    );
   }
   return value;
+}
+
+function readRequiredRssScalar(item, field, itemNumber) {
+  const value = readOptionalRssScalar(item, field, itemNumber);
+  if (!normalizeSpace(value)) {
+    throw new NordAngliaRssItemShapeError(
+      `Nord Anglia RSS item ${itemNumber} ${field} must be a non-empty scalar string`,
+    );
+  }
+  return value;
+}
+
+function assertDropRatioWithinLimit(label, total, dropped) {
+  if (!dropped || total <= 0 || dropped / total <= MAX_ITEM_DROP_RATIO) return;
+  const percentage = Math.round((dropped / total) * 100);
+  throw new Error(
+    `[nord-anglia-drop-ratio] ${label}: dropped ${dropped}/${total} items (${percentage}%, max 50%)`,
+  );
+}
+
+function jobUrlForDiagnostic(rawUrl = '') {
+  try {
+    const url = new URL(normalizeSpace(rawUrl));
+    return `${url.origin}${url.pathname}`;
+  } catch {
+    return '[missing or invalid URL]';
+  }
 }
 
 function toIsoDate(raw) {
@@ -298,19 +331,30 @@ export function parseNordAngliaRss(xml = '') {
     throw new Error(`Nord Anglia RSS feed XML parse failed: ${err?.message || err}`);
   }
 
-  return toArray(parsed?.rss?.channel?.item).map((item, index) => {
+  const channel = parsed?.rss?.channel;
+  if (channel == null || typeof channel !== 'object' || Array.isArray(channel)) {
+    throw new Error('Nord Anglia RSS feed shape drift: expected an rss.channel object');
+  }
+
+  const sourceItems = toArray(channel.item);
+  let malformedItems = 0;
+  const validItems = sourceItems.map((item, index) => {
     const itemNumber = index + 1;
     try {
       if (item == null || typeof item !== 'object' || Array.isArray(item)) {
-        throw new Error(`Nord Anglia RSS item ${itemNumber} must be an object`);
+        throw new NordAngliaRssItemShapeError(`Nord Anglia RSS item ${itemNumber} must be an object`);
       }
       return {
-        title: readOptionalRssScalar(item, 'title', itemNumber),
-        link: readOptionalRssScalar(item, 'link', itemNumber),
+        title: readRequiredRssScalar(item, 'title', itemNumber),
+        link: readRequiredRssScalar(item, 'link', itemNumber),
         description: readOptionalRssScalar(item, 'description', itemNumber),
         pubDate: readOptionalRssScalar(item, 'pubDate', itemNumber),
       };
     } catch (err) {
+      // Only the item-shape failures declared above are recoverable. A coding
+      // regression or an unexpected parser error must still abort the feed.
+      if (!(err instanceof NordAngliaRssItemShapeError)) throw err;
+      malformedItems++;
       // Per-item guard: one degenerate item (non-object shape, non-scalar or
       // repeated leaf) must not zero out the whole feed. Feed-shape drift
       // (malformed XML, missing envelope) still throws above, before this map.
@@ -318,6 +362,14 @@ export function parseNordAngliaRss(xml = '') {
       return null;
     }
   }).filter(Boolean);
+
+  // Keep parseNordAngliaRss() array-compatible while carrying the aggregate
+  // evidence needed by fetchAllNordAngliaJobs() to distinguish one bad item
+  // from a feed-wide leaf/schema drift.
+  Object.defineProperty(validItems, RSS_ITEM_STATS, {
+    value: { total: sourceItems.length, dropped: malformedItems },
+  });
+  return validItems;
 }
 
 /**
@@ -332,6 +384,10 @@ export async function fetchAllNordAngliaJobs() {
   console.log(`   Source: ${CAREER_URL}\n`);
 
   const listings = await fetchJobListings();
+  const rssItemStats = listings?.[RSS_ITEM_STATS];
+  if (rssItemStats) {
+    assertDropRatioWithinLimit('malformed RSS item guard', rssItemStats.total, rssItemStats.dropped);
+  }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned (may genuinely mean zero open Aubonne roles right now).');
     return [];
@@ -341,22 +397,31 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
+  let canonicalCandidates = 0;
+  let canonicalUrlDrops = 0;
   for (const item of listings) {
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
 
-    // Scope guard: BOTH the title suffix AND the link path must confirm
-    // Aubonne — the RSS `keywords=` param is full-text search, not a strict
-    // location filter, and this tenant serves several other Swiss schools.
-    if (!AUBONNE_TITLE_RE.test(rawTitle) || !AUBONNE_LINK_RE.test(link)) continue;
+    // The RSS `keywords=` param is full-text search, not a strict location
+    // filter. The title identifies an Aubonne candidate; canonicalization
+    // below independently requires the trusted host + Aubonne path. Keeping
+    // those checks separate makes a vendor URL-template drift observable.
+    if (!AUBONNE_TITLE_RE.test(rawTitle)) continue;
 
     const title = stripLocationSuffix(rawTitle);
     if (!title || title.length < 3) continue;
     if (isGenericOffer(title)) continue; // evergreen "share your profile" placeholder
 
+    canonicalCandidates++;
     const publicUrl = canonicalizeNordAngliaJobUrl(link);
     if (!publicUrl) {
-      throw new Error(`Nord Anglia RSS item has a non-canonical Aubonne job URL: ${link}`);
+      canonicalUrlDrops++;
+      console.warn(
+        `[nord-anglia-canonical-url-drop] Skipped "${title}"; candidate URL `
+        + `${jobUrlForDiagnostic(link)} is not a trusted canonical Aubonne job URL`,
+      );
+      continue;
     }
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
@@ -366,10 +431,11 @@ export async function fetchAllNordAngliaJobs() {
     const description = descriptionText || `${title} presso ${NORD_ANGLIA_COMPANY_NAME} ad Aubonne.`;
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nord-anglia aubonne`);
-    // Preserve the indexed identity contract: existing IDs were hashed from
-    // the raw jobs2web link (including its stable vendor query). Publication
-    // URLs are canonicalized separately above so tracking is never emitted.
-    const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
+    // New identity is derived from the same canonical URL that is published,
+    // so tracking/session query rotation cannot mint a new job. The standard
+    // crawler merge matches the stable numeric requisition ID in this URL and
+    // preserves any already-indexed legacy raw-link ID and slug history.
+    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
     const jobReqId = extractJobReqId(publicUrl);
     const employmentType = detectEmploymentType(`${descriptionText} ${title}`);
     const postedDate = toIsoDate(item.pubDate) || new Date().toISOString().split('T')[0];
@@ -416,6 +482,10 @@ export async function fetchAllNordAngliaJobs() {
 
     jobs.push(job);
   }
+
+  // One malformed candidate is logged and dropped, but a vendor-wide host or
+  // path change remains a hard failure so the existing slice is kept intact.
+  assertDropRatioWithinLimit('canonical Aubonne URL guard', canonicalCandidates, canonicalUrlDrops);
 
   console.log(`\n📋 Total ${NORD_ANGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
