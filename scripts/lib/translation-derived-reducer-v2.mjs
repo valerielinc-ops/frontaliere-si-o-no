@@ -190,7 +190,7 @@ export function reduceTranslationDerivedPatchBatchV2(activeSlice, rawPatches) {
   assertJsonData(rawPatches, 'translation derived patch batch');
   const patches = rawPatches.map((patch) => validateTranslationDerivedPatchV2(patch));
   const mutableSlice = structuredClone(activeSlice);
-  const indicesByJobKey = Array.isArray(mutableSlice.jobs)
+  const indicesByJobKey = Object.hasOwn(mutableSlice, 'jobs') && Array.isArray(mutableSlice.jobs)
     ? buildJobKeyIndex(mutableSlice.jobs)
     : new Map();
   const outcomes = patches.map((patch) => applyValidatedPatch(

@@ -217,6 +217,41 @@ describe('translation derived reducer v2', () => {
     }
   });
 
+  it('does not read or index inherited jobs and crawlerKey fields', () => {
+    const previousJobs = Object.getOwnPropertyDescriptor(Object.prototype, 'jobs');
+    const previousCrawlerKey = Object.getOwnPropertyDescriptor(Object.prototype, 'crawlerKey');
+    const inheritedJobs = new Proxy([], {
+      get() {
+        throw new Error('inherited jobs must not be scanned');
+      },
+    });
+    try {
+      Object.defineProperty(Object.prototype, 'jobs', {
+        configurable: true,
+        value: inheritedJobs,
+        writable: true,
+      });
+      Object.defineProperty(Object.prototype, 'crawlerKey', {
+        configurable: true,
+        value: 'example-crawler',
+        writable: true,
+      });
+
+      const reduced = reduceTranslationDerivedPatchV2(
+        { metadata: 'malformed-slice-without-own-required-fields' } as any,
+        patchFor(BASE_JOB),
+      );
+      expect(reduced.outcome).toBe('malformed_target');
+      expect(Object.hasOwn(reduced.slice, 'jobs')).toBe(false);
+      expect(Object.hasOwn(reduced.slice, 'crawlerKey')).toBe(false);
+    } finally {
+      if (previousJobs) Object.defineProperty(Object.prototype, 'jobs', previousJobs);
+      else delete (Object.prototype as any).jobs;
+      if (previousCrawlerKey) Object.defineProperty(Object.prototype, 'crawlerKey', previousCrawlerKey);
+      else delete (Object.prototype as any).crawlerKey;
+    }
+  });
+
   it('never overwrites a non-source translation and is idempotent after apply', () => {
     const good = { ...BASE_JOB, titleByLocale: { ...BASE_JOB.titleByLocale, it: 'Traduzione curata' } };
     const alreadyValid = reduceTranslationDerivedPatchV2(slice(good), patchFor(good));
