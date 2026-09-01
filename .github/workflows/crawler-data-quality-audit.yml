@@ -113,6 +113,16 @@ jobs:
             --description "Weekly Claude audit: semantic data-quality finding in data/jobs/by-crawler" \
             --force 2>/dev/null || true
 
+      # Pre-create exactly five slots (the prompt's hard cap) so Claude only
+      # needs the Edit tool. Exact-path grants avoid relying on wildcard
+      # matching and never authorize a write inside the checkout.
+      - name: Prepare scoped issue body slots
+        run: |
+          for n in 1 2 3 4 5; do
+            printf '%s\n' '<!-- CRAWLER_DATA_QUALITY_BODY -->' \
+              > "/tmp/crawler-data-quality-issue-${n}.md"
+          done
+
       - name: Setup Headroom compression proxy
         uses: ./.github/actions/setup-headroom
 
@@ -146,8 +156,8 @@ jobs:
           # triggered siblings (pr-review-loop, issue-fix) get real bypassPermissions
           # with the same config — the differentiator is event_name, not settings, not
           # actor (confirmed with both a human and a bot actor on the broken side).
-          # Falling back to scoped --allowedTools (read-only audit: no Edit/Write
-          # needed) until the upstream root cause is understood.
+          # Falling back to scoped --allowedTools until the upstream root cause
+          # is understood.
           # max-turns raised 40→65 after run 28790742227 hit error_max_turns
           # without reaching a finding: 2 denied compound Bash calls (cd+redirect,
           # xargs -I{} — Claude Code rejects compound patterns regardless of an
@@ -155,7 +165,13 @@ jobs:
           # turns before any real audit work (issue #3679). Not a cost-cut lower,
           # AGENTS.md permits raising turns for legitimate complexity.
           # 65→80 (2026-07-17, owner): fleet-wide bump of every Claude max-turns cap.
-          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
+          # Run 33412802101 (#6787) found and opened all three real findings
+          # (#6784-#6786), but only after six denied Write calls and four denied
+          # inline/multiline Bash bodies; the workaround consumed turn 81/80 and
+          # made the workflow red after doing the useful work. Five exact-path
+          # Edit grants match the five pre-created slots above: no Write tool,
+          # no wildcard matcher and no repository file is authorized.
+          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit(//tmp/crawler-data-quality-issue-1.md),Edit(//tmp/crawler-data-quality-issue-2.md),Edit(//tmp/crawler-data-quality-issue-3.md),Edit(//tmp/crawler-data-quality-issue-4.md),Edit(//tmp/crawler-data-quality-issue-5.md)'"
           prompt: |
             Audit qualità dati crawler, settimanale. Finestra lookback: ${{ env.WINDOW_DAYS }} giorni.
 
@@ -175,20 +191,23 @@ jobs:
 
             **Filtro evidenza (CRITICO — no rumore):** apri un finding SOLO con evidenza concreta e citabile (comando eseguito + output, o file:riga specifici) — mai un sospetto vago. Se una categoria non produce nulla di anomalo, salta silenziosamente: NON forzare un finding per "coprire" ogni categoria.
 
-            **Dedup (prima di creare qualsiasi issue):** `gh issue list --state open --label crawler-data-quality --json number,title,body --limit 50`. Se un'issue aperta copre già lo stesso pattern (stesso script/categoria, non necessariamente stesso job) → posta un commento `🔁 Ricorrenza rilevata nel run <link run>` su quella issue con la nuova evidenza invece di aprirne una nuova.
+            **Dedup (prima di creare qualsiasi issue):** `gh issue list --state open --label crawler-data-quality --json number,title,body --limit 50`. Se un'issue aperta copre già lo stesso pattern (stesso script/categoria, non necessariamente stesso job) → usa uno slot body come descritto sotto e posta il commento con `gh issue comment <numero> --body-file /tmp/crawler-data-quality-issue-N.md`, includendo `🔁 Ricorrenza rilevata nel run <link run>` e la nuova evidenza, invece di aprirne una nuova.
 
             **Se trovi evidenza NUOVA (nessun match dedup):**
-            - `gh issue create --title "[data-quality] <categoria>: <sintesi breve>" --label crawler-data-quality --body "<evidenza + comando/output + file interessati + prossimo passo suggerito + link a questo run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>"`.
+            - Per ogni finding o commento dedup (massimo 5 azioni totali), usa lo strumento **Edit** sul successivo slot pre-creato `/tmp/crawler-data-quality-issue-N.md` (N da 1 a 5) e sostituisci il marker esatto `<!-- CRAWLER_DATA_QUALITY_BODY -->` con il body multilinea. Non usare Write: gli slot esistono gia'.
+            - Per una nuova issue il body deve contenere evidenza + comando/output + file interessati + prossimo passo suggerito + link a questo run (`https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`); poi esegui `gh issue create --title "[data-quality] <categoria>: <sintesi breve>" --label crawler-data-quality --body-file /tmp/crawler-data-quality-issue-N.md`.
+            - **MAI** passare il body inline con `--body`: i body multilinea/quotati non sono analizzabili dal permission mode unattended e nel run 33412802101 hanno bruciato turni in retry prima di raggiungere `error_max_turns`.
             - **NON** usare i label `crawler`, `parser-broken`, o `priority:high` insieme a un titolo che contiene "crawler"/"parser" — instraderebbero l'issue nella route `agent:fix` IMMEDIATA (`issue-triage.yml`), riservata al caso production-critical/alto-volume già provato sicuro. Un giudizio LLM come questo entra comunque in auto-fix, ma dalla coda anti-starvation (`agent:fix-queued` → `other`, drenata da `followup-drainer`), non dal bypass diretto.
             - Massimo 5 issue per run (se trovi più pattern, aggrega i correlati in una singola issue invece di aprirne 5+).
 
             **Se non trovi nulla:** non fare nulla, log pulito, nessuna issue. Non e' un errore.
 
             **Constraint:**
-            - Read-only sul codice/dati: NIENTE `git commit`/`push`/edit di file. L'unica scrittura ammessa è `gh issue create`/`gh issue comment` (e la lettura via `gh issue list`).
+            - Read-only sul codice/dati: NIENTE `git commit`/`push`/edit di file nel checkout. Le uniche modifiche su file ammesse sono la sostituzione del marker nei cinque slot `/tmp/crawler-data-quality-issue-N.md`, solo per passarli a `gh issue create/comment --body-file`; restano ammesse `gh issue create`/`gh issue comment` e la lettura via `gh issue list`.
             - Non tentare fix — questo audit trova, non ripara.
             - Incerto se qualcosa è un vero difetto → non aprire issue; se borderline ma degno di attenzione umana, apri comunque MA marca chiaramente "da verificare" nel body.
             - Bash qui è allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`/redirect (`> file`), niente `xargs -I{}`. Un comando per invocazione, output letto via tool separato — i pattern composti vengono negati a prescindere dal binario in testa e sprecano turni (causa di #3679).
+            - Solo dopo aver completato create o dedup-comment per TUTTI i pattern supportati dall'evidenza (entro il cap di 5 azioni), termina con un riepilogo conciso: non ripetere misure gia' concluse e non tentare ulteriori workaround di scrittura.
 
       - name: Claude usage metrics
         if: always()
