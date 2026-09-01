@@ -11055,6 +11055,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'EOC-Krankenhäuser im Tessin: ANQ-Suche erkennt Licht und Schatten',
     'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'Die nationale ANQ-Umfrage belohnt die Tessiner Spitäler (75% zufriedene Patienten), weist aber auf Verbesserungspotenziale in der erwarteten Kommunikation hin.',
     'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Krankenhausstation des Kantonalen Spitals Tessin mit Pflegepersonal im Gespräch mit Patient',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Wohnen in Cocquio-Trevisago als Tessiner Grenzgänger: Guide 2024',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Umzug nach Cocquio-Trevisago, um im Tessin zu arbeiten: die Neue Grenzgängervereinbarung 2024, Quellensteuer, Befreiungen von €7500- € 10000 und Schritt-für-Schritt-Verfahren.',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Panoramablick auf Luganos Seeufer mit Wohn- und Bürogebäuden unter dem Monte San Salvatore.',
 };
 
 export default blogMetaDe;
