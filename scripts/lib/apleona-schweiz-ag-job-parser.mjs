@@ -11,10 +11,16 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import {
+  extractDetailFields,
+  isSufficientVacancyDescription,
+} from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -23,6 +29,13 @@ export const APLEONA_SCHWEIZ_AG_COMPANY_NAME = 'Apleona Schweiz AG';
 export const APLEONA_SCHWEIZ_AG_COMPANY_DOMAIN = 'recruitingapp-2765.umantis.com';
 
 const CAREER_URL = 'https://recruitingapp-2765.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+const APLEONA_DETAIL_SECTIONS = [
+  { className: 'tasks', vacancySpecific: true },
+  { className: 'requirements', vacancySpecific: true },
+  { className: 'why-apleona', vacancySpecific: false },
+  { className: 'benefits', vacancySpecific: false },
+];
+const APLEONA_CANTON_CODES = new Set(ALL_CANTON_CODES);
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -32,6 +45,141 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/** Preserve paragraph boundaries and list bullets from a vacancy-owned node. */
+function structuredElementText(element) {
+  if (!element) return '';
+  const clone = element.cloneNode(true);
+  for (const removable of clone.querySelectorAll('script, style, template, h1, h2, h3, .button')) {
+    removable.remove();
+  }
+  for (const br of clone.querySelectorAll('br')) br.replaceWith('\n');
+  for (const item of clone.querySelectorAll('li')) {
+    const text = normalizeSpace(item.textContent || '');
+    item.replaceWith(text ? `\n• ${text}\n` : '');
+  }
+  for (const paragraph of clone.querySelectorAll('p')) paragraph.append('\n');
+  return String(clone.textContent || '')
+    .split(/\n+/)
+    .map(normalizeSpace)
+    .filter(Boolean)
+    .join('\n');
+}
+
+/** @param {string} location */
+function apleonaLocationCandidate(location = '') {
+  const display = normalizeSpace(location);
+  if (!display) return null;
+  const suffix = /\s+([A-Z]{2})$/.exec(display);
+  const addressRegion = suffix && APLEONA_CANTON_CODES.has(suffix[1]) ? suffix[1] : '';
+  const addressLocality = addressRegion
+    ? display.slice(0, suffix.index).trim()
+    : display;
+  if (addressRegion) {
+    const independentlyResolved = resolveSourceBackedSwissGeography(addressLocality);
+    if (!independentlyResolved || independentlyResolved.canton !== addressRegion) return null;
+  }
+  return {
+    // Feed the municipality and CH evidence to the shared resolver separately.
+    // Some ISO country/subdivision inventories also contain a colliding `BE`;
+    // the municipality must independently resolve to the declared Swiss canton
+    // instead of letting that suffix become foreign evidence.
+    location: addressLocality,
+    addressLocality,
+    addressRegion: '',
+    // A terminal code is accepted only after exact validation against all 26
+    // Swiss cantons. That paired locality+region is explicit CH evidence, not
+    // an employer/HQ fallback (and avoids interpreting BE as Belgium).
+    addressCountry: addressRegion ? 'CH' : '',
+    postalCode: '',
+    streetAddress: '',
+  };
+}
+
+/**
+ * Extract the exact Apleona vacancy boundary rendered inside the Umantis
+ * detail page. The surrounding page also contains branding, application and
+ * contact chrome; selecting only these four job sections keeps useful headings
+ * and bullets without publishing that repeated boilerplate as a description.
+ *
+ * At least one vacancy-specific section (tasks or requirements) is mandatory.
+ * A page containing only the shared benefits panel therefore stays empty and
+ * is quarantined by the shared detail-enrichment floor.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ */
+export function extractApleonaDetailFields(html = '', pageUrl = '') {
+  const source = String(html || '');
+  const base = extractDetailFields(source, pageUrl);
+  if (!source) return base;
+
+  const dom = new JSDOM(source);
+  const { document } = dom.window;
+  try {
+    const title = normalizeSpace(
+      document.querySelector('.heading .title')?.textContent
+      || document.querySelector('.hero-title h1')?.textContent
+      || '',
+    );
+    const location = normalizeSpace(
+      document.querySelector('.heading .location .text')?.textContent
+      || document.querySelector('.hero-details span')?.textContent
+      || '',
+    );
+    const descriptionBlocks = [];
+    let hasVacancySpecificSection = false;
+
+    for (const sectionConfig of APLEONA_DETAIL_SECTIONS) {
+      const section = document.querySelector(`.section.${sectionConfig.className}`);
+      const body = section?.querySelector('.body');
+      if (!section || !body) continue;
+
+      const heading = normalizeSpace(section.querySelector('.title span')?.textContent || '');
+      const bodyText = structuredElementText(body);
+      if (!bodyText) continue;
+
+      if (sectionConfig.vacancySpecific) hasVacancySpecificSection = true;
+      descriptionBlocks.push([heading, bodyText].filter(Boolean).join('\n'));
+    }
+
+    // The same tenant currently serves a second Apleona-owned skin where the
+    // vacancy sections are plain `<section><div class="container"><h2>...`.
+    // Heading identity is the boundary: generic company/contact sections are
+    // intentionally excluded even when they are longer.
+    if (descriptionBlocks.length === 0) {
+      for (const section of document.querySelectorAll('section')) {
+        const heading = normalizeSpace(section.querySelector('h2')?.textContent || '');
+        if (!/^(?:deine\s+)?(?:aufgaben|anforderungen)$/i.test(heading)) continue;
+        const body = section.querySelector('.container') || section;
+        const bodyText = structuredElementText(body);
+        if (!bodyText) continue;
+        hasVacancySpecificSection = true;
+        descriptionBlocks.push([heading, bodyText].join('\n'));
+      }
+    }
+
+    const candidateDescription = descriptionBlocks.join('\n\n');
+    const description = hasVacancySpecificSection
+      && isSufficientVacancyDescription(candidateDescription)
+      ? candidateDescription
+      : '';
+    const locationCandidate = apleonaLocationCandidate(location);
+
+    return {
+      ...base,
+      title: title || base.title,
+      description,
+      location: locationCandidate?.location || location,
+      addressLocality: locationCandidate?.addressLocality || '',
+      addressRegion: '',
+      addressCountry: locationCandidate?.addressCountry || '',
+      locationCandidates: locationCandidate ? [locationCandidate] : [],
+    };
+  } finally {
+    dom.window.close();
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -107,9 +255,12 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings(runtime = {}) {
   const spec = loadSpec(APLEONA_SCHWEIZ_AG_KEY);
-  return runSpecInProduction(spec);
+  return runSpecInProduction(spec, {
+    ...runtime,
+    detailExtractor: extractApleonaDetailFields,
+  });
 }
 
 /**
@@ -119,11 +270,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllApleonaSchweizAgJobs() {
+export async function fetchAllApleonaSchweizAgJobs(runtime = {}) {
   console.log(`🔍 Fetching Apleona Schweiz AG jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -147,7 +298,10 @@ export async function fetchAllApleonaSchweizAgJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} apleona-schweiz-ag ch`);
+    // Location is source-backed and separates same-title postings in distinct
+    // offices. Existing routes are re-pinned by the runner; this only gives
+    // newcomers a deterministic collision-free source slug.
+    const jobSlug = slugify(`${title} apleona-schweiz-ag ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {
@@ -190,7 +344,8 @@ export async function fetchAllApleonaSchweizAgJobs() {
     };
 
     jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+    if (typeof runtime.sleepImpl === 'function') await runtime.sleepImpl(300);
+    else await new Promise((r) => setTimeout(r, 300)); // Rate limiting
   }
 
   console.log(`\n📋 Total Apleona Schweiz AG jobs discovered: ${jobs.length}`);
