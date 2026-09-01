@@ -4951,6 +4951,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'Il tasso ipotecario di riferimento nei contratti di locazione rimane all’1,25 %',
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'L\'Ufficio federale delle abitazioni (UFAB) ha annunciato che il tasso ipotecario di riferimento rimane all’1,25 % dal 2 settembre 2026.',
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra il distretto finanziario.',
+    'blog.article.asib-normativa-ubs-sostegno.title': 'ASIB spinge per piani sociali nella normativa UBS',
+    'blog.article.asib-normativa-ubs-sostegno.excerpt': 'L\'associazione degli impiegati di banca chiede protezioni obbligatorie nel pacchetto normativo UBS della CET-S, citando la crisi occupazionale del settore.',
+    'blog.article.asib-normativa-ubs-sostegno.imageAlt': 'Sede di una banca svizzera: il settore bancario affronta pressioni occupazionali crescenti.',
 };
 
 export default blogMetaChIt;

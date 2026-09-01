@@ -14851,6 +14851,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'asib-normativa-ubs-sostegno',
+    category: 'novita',
+    date: '2026-09-01T15:00:15.290Z',
+    image: '/images/blog/asib-normativa-ubs-sostegno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

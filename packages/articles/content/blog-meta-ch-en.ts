@@ -4951,6 +4951,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'The reference mortgage rate in leases remains at 1.25%',
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'The Federal Office for Housing (FOH) has announced that the reference mortgage interest rate will remain at 1.25% as of 2 September 2026.',
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background, showcasing the financial district.',
+    'blog.article.asib-normativa-ubs-sostegno.title': 'ASIB pushes for social plans in UBS regulation',
+    'blog.article.asib-normativa-ubs-sostegno.excerpt': 'The bank employees\' association calls for mandatory protections in the UBS CET-S regulatory package, citing the employment crisis in the sector.',
+    'blog.article.asib-normativa-ubs-sostegno.imageAlt': 'Swiss bank headquarters: the banking sector faces mounting employment pressures.',
 };
 
 export default blogMetaChEn;
