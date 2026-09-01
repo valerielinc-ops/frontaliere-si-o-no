@@ -124,7 +124,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T00:50:23.248Z"
+      "firstSeenAt": "2026-09-01T00:50:23.248Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-transport-e-logistikadministration-m-w-d-traveco-transporte-ag-nebikon",
+          "transport-and-logistics-administration-m-f-d-traveco-transporte-ag-nebikon",
+          "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon",
+          "administration-des-transports-et-de-la-logistique-h-f-d-traveco-transporte-ag-nebikon"
+        ],
+        "en": [
+          "transport-and-logistics-administration-m-f-d-traveco-transporte-ag-nebikon"
+        ],
+        "de": [
+          "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon"
+        ],
+        "fr": [
+          "administration-des-transports-et-de-la-logistique-h-f-d-traveco-transporte-ag-nebikon"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-transport-e-logistikadministration-m-w-d-traveco-transporte-ag-nebikon",
+        "transport-and-logistics-administration-m-f-d-traveco-transporte-ag-nebikon",
+        "sachbearbeitung-transport-und-logistikadministration-w-m-d-traveco-transporte-ag-nebikon",
+        "administration-des-transports-et-de-la-logistique-h-f-d-traveco-transporte-ag-nebikon"
+      ]
     },
     {
       "title": "Logistikerin / Logistiker EFZ (m/w/d)",
@@ -21776,7 +21799,7 @@
       "contractType": "fixed-term",
       "description": "## Vorteile\n- Aus- und Weiterbildung Wir investieren in die Entwicklung unserer Mitarbeitenden. Auch Mitarbeitende in einem befristeten Arbeitsverhältnis haben Zugang zu unserem internen Bildungsangebot. Attraktive Ferienregelung Unsere Ferienregelung garantiert allen Mitarbeitenden mindestens 5 Wochen Ferien. Ab dem 50. Lebensjahr sind es 6 Wochen und ab dem 60. Lebensjahr sogar 7 Wochen. Familienzeit Mütter erhalten während der 18 Wochen Mutterschaftsurlaub 100 Prozent ihres versicherten Lohns. Der andere Elternteil geniesst 3 Wochen Familienzeit bei vollem Lohn. Versicherungsleistungen Wir sichern unsere Mitarbeitenden mit überdurchschnittlichen Sozial- und Vorsorgeleistungen ab und bieten Sonderkonditionen auf Zusatzversicherungen bei diversen Krankenkassen für ihre gesamte Familie. Vergünstigungen und Rabatte Unsere Mitarbeitenden profitieren von attraktiven Vergünstigungen und Rabatten bei verschiedenen Partnern.",
       "titleByLocale": {
-        "it": "Erntehelfer m/w/d (Tageweise)",
+        "it": "Assistente di raccolta m/f/d (daily)",
         "en": "Harvesting aides m/f/d (daily)",
         "de": "Erntehelfer m/w/d (Tageweise)",
         "fr": "Récolte des aides m/f/d (par jour)"
@@ -21817,8 +21840,7 @@
       "previousSlugs": [
         "aiuti-di-allevamento-m-f-d-daily-rutishauser-divino-sa-winterthur"
       ],
-      "salarySource": "reported",
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "title": "Lehrstelle als Automobil-Fachfrau/Automobil-Fachmann EFZ Nutzfahrzeuge w/m/d",

@@ -840,11 +840,86 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:45:43.984Z",
       "previousSlugs": [
-        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-basel"
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-basel",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-biel",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-biel",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-zurich",
+        "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-zurich",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-zurich",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-zurich",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-brugg-ag",
+        "drivers-in-category-b-passenger-transport-ffs-officine-ferrovie-federali-brugg-ag",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-brugg-ag",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-brugg-ag",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-alle",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-bern",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-schaffhausen",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-ziegelbrucke",
+        "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-biel",
+        "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-bern",
+        "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-schaffhausen",
+        "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-ziegelbrucke",
+        "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-biel",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-bern",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-schaffhausen",
+        "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-ziegelbrucke",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-bern",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-schaffhausen",
+        "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-ziegelbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-basel"
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-basel",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-biel",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-biel",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-zurich",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-zurich",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-zurich",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-zurich",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-brugg-ag",
+          "drivers-in-category-b-passenger-transport-ffs-officine-ferrovie-federali-brugg-ag",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-brugg-ag",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-brugg-ag",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-alle",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-bern",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-schaffhausen",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-ziegelbrucke",
+          "trasporto-passeggeri-di-categoria-b-per-macchinisti-ffs-officine-ferrovie-federali-biel"
+        ],
+        "en": [
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-bern",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-schaffhausen",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-ziegelbrucke",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-biel",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-zurich",
+          "train-driver-category-b-passenger-transport-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "drivers-in-category-b-passenger-transport-ffs-officine-ferrovie-federali-brugg-ag"
+        ],
+        "de": [
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-bern",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-schaffhausen",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-ziegelbrucke",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-biel",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-zurich",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "lokfuhrer-in-kategorie-b-personenverkehr-ffs-officine-ferrovie-federali-brugg-ag"
+        ],
+        "fr": [
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-bern",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-schaffhausen",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-ziegelbrucke",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-biel",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-zurich",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "transport-de-passagers-de-categorie-b-pour-conducteurs-de-train-ffs-officine-ferrovie-federali-brugg-ag"
         ]
       },
       "firstSeenAt": "2026-08-31T17:14:10.943Z",
@@ -7750,11 +7825,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:55:03.694Z",
       "previousSlugs": [
-        "leiter-in-accounting-m-w-d-80-100-ffs-officine-ferrovie-federali-olten"
+        "leiter-in-accounting-m-w-d-80-100-ffs-officine-ferrovie-federali-olten",
+        "responsabile-del-personale-in-carreggiata-ffs-officine-ferrovie-federali-olten",
+        "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten",
+        "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten",
+        "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-accounting-m-w-d-80-100-ffs-officine-ferrovie-federali-olten"
+          "leiter-in-accounting-m-w-d-80-100-ffs-officine-ferrovie-federali-olten",
+          "responsabile-del-personale-in-carreggiata-ffs-officine-ferrovie-federali-olten",
+          "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten",
+          "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten",
+          "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten"
+        ],
+        "en": [
+          "personnel-dispatcher-roadway-ffs-officine-ferrovie-federali-olten"
+        ],
+        "de": [
+          "personaldisponent-in-fahrbahn-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
+          "operateur-de-personnel-a-fahrbahn-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-08-14T21:31:31.317Z",

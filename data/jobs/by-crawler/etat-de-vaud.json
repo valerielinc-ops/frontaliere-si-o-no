@@ -566,8 +566,8 @@
       "companyDomain": "vd.ch",
       "title": "Greffier·ère",
       "titleByLocale": {
-        "it": "Greffier·ère",
-        "en": "Greffier·ère",
+        "it": "Registrazione",
+        "en": "Registrar",
         "de": "Kanzler",
         "fr": "Greffier·ère"
       },
@@ -1112,11 +1112,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fiscaliste-etat-de-vaud-lausanne"
+        "fiscaliste-etat-de-vaud-lausanne",
+        "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fiscaliste-etat-de-vaud-lausanne"
+          "fiscaliste-etat-de-vaud-lausanne",
+          "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "fiscaliste-etat-de-vaud-lausanne"
@@ -3320,12 +3324,14 @@
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "previousSlugs": [
         "responsable-rh-etat-de-vaud-lausanne",
-        "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-rh-etat-de-vaud-lausanne",
-          "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-rh-etat-de-vaud-lausanne"

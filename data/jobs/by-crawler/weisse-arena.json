@@ -1987,13 +1987,15 @@
         "cuisiniere-kochin-weisse-arena-gruppe-laax",
         "auxiliary-cook-weisse-arena-gruppe-laax",
         "cuoco-ausiliario-weisse-arena-gruppe-laax",
-        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax"
+        "hilfskoch-hilfskochin-weisse-arena-gruppe-laax",
+        "cook-kochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
           "cuisiniere-kochin-weisse-arena-gruppe-laax",
-          "cuoco-ausiliario-weisse-arena-gruppe-laax"
+          "cuoco-ausiliario-weisse-arena-gruppe-laax",
+          "cook-kochin-weisse-arena-gruppe-laax"
         ],
         "en": [
           "hilfskoch-hilfskochin-weisse-arena-ch",
@@ -2005,7 +2007,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:08.545Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2019,7 +2020,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-a7169823ff53",
@@ -2778,7 +2780,32 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "guest-experience-coordinatore-con-schichtverantwortung-weisse-arena-gruppe-laax",
+          "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax",
+          "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
+          "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
+          "guest-experience-coordinator-shift-lead-weisse-arena-ch"
+        ],
+        "en": [
+          "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax"
+        ],
+        "de": [
+          "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch"
+        ],
+        "fr": [
+          "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax"
+        ]
+      },
+      "previousSlugs": [
+        "guest-experience-coordinatore-con-schichtverantwortung-weisse-arena-gruppe-laax",
+        "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax",
+        "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
+        "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
+        "guest-experience-coordinator-shift-lead-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-47f247ef882c",
@@ -2901,12 +2928,28 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
         "kuchenverantwortliche-r-weisse-arena-ch",
-        "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
+        "kuchenverantwortliche-r-weisse-arena-gruppe-laax",
+        "ricevitore-in-weisse-arena-gruppe-laax",
+        "receptionist-in-weisse-arena-gruppe-laax",
+        "receptionniste-in-weisse-arena-gruppe-laax",
+        "receptionist-in-weisse-arena-ch-p7l4qu",
+        "receptionist-in-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kuchenverantwortliche-r-weisse-arena-ch",
-          "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
+          "kuchenverantwortliche-r-weisse-arena-gruppe-laax",
+          "ricevitore-in-weisse-arena-gruppe-laax",
+          "receptionist-in-weisse-arena-gruppe-laax",
+          "receptionniste-in-weisse-arena-gruppe-laax",
+          "receptionist-in-weisse-arena-ch-p7l4qu",
+          "receptionist-in-weisse-arena-ch"
+        ],
+        "de": [
+          "receptionist-in-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "receptionniste-in-weisse-arena-gruppe-laax"
         ]
       },
       "needsRetranslation": true,

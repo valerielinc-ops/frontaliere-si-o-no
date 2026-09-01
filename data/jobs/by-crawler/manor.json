@@ -1798,7 +1798,7 @@
         "it": "servizio-collaboratore-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "en": "service-collaborator-manora-50-manor-ag-chavannes-de-bogis-collaborateurtrice",
         "de": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b",
-        "fr": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
+        "fr": "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice service (Manora) 50%",
@@ -1827,7 +1827,8 @@
           "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
         ],
         "fr": [
-          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b"
+          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice-t0vx9b",
+          "manor-collaborateur-trice-service-manora-50-chavannes-de-bogis-collaborateurtrice"
         ]
       },
       "needsRetranslation": true,
@@ -2830,7 +2831,7 @@
       "slugByLocale": {
         "it": "addetto-a-cassa-20-manor-ag-basel-mitarbeiterin-kasse-20",
         "en": "cashier-staff-20-manor-ag-basel-mitarbeiterin-kasse-20",
-        "de": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20",
+        "de": "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20-s5hryj",
         "fr": "employe-dans-la-caisse-enregistreuse-20-manor-ag-basel-mitarbeiterin-kasse-20"
       },
       "titleByLocale": {
@@ -2857,7 +2858,8 @@
           "employee-in-cash-register-20-manor-ag-basel-mitarbeiterin-kasse-20"
         ],
         "de": [
-          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20-s5hryj"
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20-s5hryj",
+          "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
         ],
         "fr": [
           "manor-mitarbeiter-in-kasse-20-basel-mitarbeiterin-kasse-20"
@@ -2945,8 +2947,7 @@
       "addressLocality": "Emmen Assistentin Restaurant 100",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "title": "Mitarbeiter*in Service 100%",
@@ -3020,7 +3021,8 @@
       "addressLocality": "Luzern Mitarbeiterin Service 100",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeiter*in Verkauf 60%",
