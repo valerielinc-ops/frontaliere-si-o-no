@@ -1,23 +1,23 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-09-01T10:15:15.076Z",
+  "assembledAt": "2026-09-01T14:09:20.624Z",
   "jobs": [
     {
       "id": "gavi-b02c416d7edd",
       "slug": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
       "slugByLocale": {
         "it": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
-        "en": "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand",
+        "en": "senior-manager-market-shaping-gavi-le-grand-saconnex",
         "de": "aktivitaten-in-der-nahe-von-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-the-vaccine-alliance-le",
         "fr": "gestionnaire-principal-accelerateur-de-fabrication-de-vaccins-en-afrique-avma-gavi-the-vaccine-alliance-le-grand"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
       "companyDomain": "gavi.org",
-      "title": "Senior Manager, African Vaccine Manufacturing Accelerator (AVMA) Market Shaping",
+      "title": "Senior Manager, Market Shaping",
       "titleByLocale": {
         "it": "Senior Manager, African Vaccine Manufacturing Accelerator (AVMA) Market Shaping",
-        "en": "Senior Manager, African Vaccine Manufacturing Accelerator (AVMA) Market Shaping",
+        "en": "Senior Manager, Market Shaping",
         "de": "Aktivitäten in der Nähe von African Vaccine Manufacturing Accelerator (AVMA) Market Shaping",
         "fr": "Gestionnaire principal, Accélérateur de fabrication de vaccins en Afrique (AVMA)"
       },
@@ -33,14 +33,14 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:15:12.737Z",
+      "crawledAt": "2026-09-01T14:09:17.579Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
       "postalCode": "1218",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Sanità",
+      "category": "Marketing",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "senior",
@@ -52,18 +52,31 @@
       "jobReqId": "VN2524",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-manager-market-shaping-gavi-le-grand-saconnex",
+          "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
+        ],
+        "en": [
+          "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
+        ]
+      },
+      "previousSlugs": [
+        "senior-manager-market-shaping-gavi-le-grand-saconnex",
+        "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T21:31:21.445Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
+      "salaryMin": 92000,
+      "salaryMax": 163000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
+          "minValue": 92000,
+          "maxValue": 163000,
           "unitText": "YEAR"
         }
       }
