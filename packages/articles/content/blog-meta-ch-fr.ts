@@ -5011,6 +5011,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Garderie et garde d\'enfants dans le canton des Grisons',
     'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Options de garde, tarifs calculés sur le revenu et allocations cantonales : guide pratique pour les familles dans les Grisons.',
     'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Salle de garderie moderne en Suisse avec enfants et éducateurs en plein jeu',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Acheter une maison dans le canton des Grisons : hypothèque, coûts et procédures',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Guide pratique de l\'achat immobilier dans les Grisons : procédures d\'achat et de vente, fonds propres requis, viabilité du prêt hypothécaire, taxes de passage et frais de notaire.',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Propriété résidentielle moderne dans le style alpin suisse traditionnel avec architecture en bois.',
 };
 
 export default blogMetaChFr;
