@@ -11043,6 +11043,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'Avec le 1er septembre, les billets et les abonnements Trenord augmentent',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'Depuis le 1er septembre 2026, les billets et abonnements Trenord subissent des augmentations significatives, avec des impacts sur des trajets tels que Gallarate-Milan.',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Augmentation des billets Trenord à partir du 1er septembre 2026',
+    'blog.article.dogane-udsc-nuova-informatica.title': 'FOCBS : nouvelles technologies, coûts en baisse',
+    'blog.article.dogane-udsc-nuova-informatica.excerpt': 'Le programme DaziT de la FOCBS se termine fin 2023, avec une réduction de 125 millions de CHF en coûts réglementaires pour l’économie.',
+    'blog.article.dogane-udsc-nuova-informatica.imageAlt': 'Office fédéral des douanes et de la sécurité des frontières à Lugano',
 };
 
 export default blogMetaFr;

@@ -81659,6 +81659,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dogane-udsc-nuova-informatica': {
+    title: 'Nuova informatica a UDSC: costi giù, benefici per l\'economia',
+    description: 'Il programma DaziT dell\'UDSC si conclude alla fine del 2023, con una riduzione di 125 milioni di franchi nei costi di regolamentazione per l\'economia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, informatica, udsc, costi',
+    ogTitle: 'Nuova informatica a UDSC: costi giù, benefici per l\'economia',
+    ogDescription: 'Scopri come il programma DaziT dell\'UDSC sta riducendo i costi di regolamentazione per l\'economia e migliorando l\'efficienza delle attività doganali.',
+    canonicalPath: '/articoli-frontaliere/dogane-udsc-nuova-informatica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova informatica a UDSC: costi giù, benefici per l'economia",
+      "description": "Il programma DaziT dell'UDSC si conclude alla fine del 2023, con una riduzione di 125 milioni di franchi nei costi di regolamentazione per l'economia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dogane-udsc-nuova-informatica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio federale della dogana e della sicurezza dei confini a Lugano"
+      },
+      "datePublished": "2026-09-01T13:39:37+00:00",
+      "dateModified": "2026-09-01T13:39:37+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dogane-udsc-nuova-informatica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
