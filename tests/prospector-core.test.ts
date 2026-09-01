@@ -680,6 +680,17 @@ describe('careers trail', () => {
     expect(externalAtsLinks(pageLinks, 'hotel.example', { relaxed: true, globalLinks: homeLinks }))
       .toEqual([{ host: 'tenant.real-ats.example', url: 'https://tenant.real-ats.example/openings', text: '' }]);
   });
+
+  it('resolves relative evidence against each document actual URL', () => {
+    const home = '<html><title>Hotel</title><body><a href="jobs.html">Jobs</a><main>Benvenuti</main></body></html>';
+    const careers = '<html><title>Hotel</title><body><a href="jobs.html">Jobs</a><main>Informazioni per il team</main></body></html>';
+    expect(isDistinctCareerSurface(
+      home,
+      careers,
+      'https://hotel.example/careers/index.html',
+      'https://hotel.example/about/index.html',
+    )).toBe(true);
+  });
 });
 
 describe('tenant enumeration', () => {

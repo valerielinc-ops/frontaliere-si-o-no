@@ -264,12 +264,12 @@ function careerSurfaceEvidence(html = '', pageUrl = '') {
  * unknown path, as well as pages whose only job-ish link lives in global
  * navigation/footer chrome.
  */
-export function isDistinctCareerSurface(homeHtml = '', pageHtml = '', pageUrl = '') {
+export function isDistinctCareerSurface(homeHtml = '', pageHtml = '', pageUrl = '', homeUrl = pageUrl) {
   const homeText = normalizedSemanticText(homeHtml);
   const pageText = normalizedSemanticText(pageHtml);
   if (!pageText || pageText === homeText) return false;
 
-  const homeEvidence = careerSurfaceEvidence(homeHtml, pageUrl);
+  const homeEvidence = careerSurfaceEvidence(homeHtml, homeUrl);
   const pageEvidence = careerSurfaceEvidence(pageHtml, pageUrl);
   return [...pageEvidence].some((signal) => !homeEvidence.has(signal));
 }
@@ -384,7 +384,7 @@ export async function traceCareers(domain, opts = {}) {
       if (
         probe.ok
         && probe.body.length > 500
-        && isDistinctCareerSurface(home.body, probe.body, probe.url)
+        && isDistinctCareerSurface(home.body, probe.body, probe.url, home.url)
       ) {
         candidates.push(probe.url);
         result.via.push('path-probe');
@@ -400,7 +400,7 @@ export async function traceCareers(domain, opts = {}) {
     seen.add(key);
     const page = await politeFetch(url);
     if (!page.ok) continue;
-    if (!isDistinctCareerSurface(home.body, page.body, page.url)) continue;
+    if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
     result.careersUrls.push(page.url);
     const links = extractLinks(page.body, page.url);
     for (const ext of externalAtsLinks(links, domain, { relaxed: true, globalLinks: homeLinks })) {
