@@ -286,6 +286,30 @@ describe('translation candidate quality v2', () => {
         candidateText: long(`La fascia è ${candidateRange}.`),
       }))).toContain('numeric.multiset_mismatch');
     }
+    for (const [sourceNumber, candidateNumber] of [
+      ['40 hours/week', '40 ore/settimana'],
+      ['40h', '40 heures'],
+      ['40 Stunden/Woche', '40 hours/week'],
+      ['40 months', '40 mesi'],
+    ]) {
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`The contract is ${sourceNumber}.`),
+        candidateText: long(`Il contratto è ${candidateNumber}.`),
+      }))).not.toContain('numeric.multiset_mismatch');
+    }
+    for (const [sourceNumber, candidateNumber] of [
+      ['100CHF', '200CHF'],
+      ['100CHF', '100EUR'],
+      ['40h', '20h'],
+      ['40 hours/week', '40 ore/mese'],
+    ]) {
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`The contract is ${sourceNumber}.`),
+        candidateText: long(`Il contratto è ${candidateNumber}.`),
+      }))).toContain('numeric.multiset_mismatch');
+    }
     let seed = 0x5eed;
     for (let index = 0; index < 32; index += 1) {
       seed = (seed * 1_103_515_245 + 12_345) >>> 0;
@@ -482,6 +506,16 @@ describe('translation candidate quality v2', () => {
     }
   });
 
+  it('rejects a periodic tail that dominates despite a long contaminating prefix', () => {
+    const prefix = Array.from({ length: 500 }, (_, index) => `intro${index}`).join(' ');
+    const phrase = Array.from({ length: 25 }, (_, index) => `tail${index}`).join(' ');
+    const candidateText = `${prefix} ${Array.from({ length: 200 }, () => phrase).join(' ')}`;
+    expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).toContain('description.degenerate_content');
+    const period100 = Array.from({ length: 100 }, (_, index) => `period${index}`).join(' ');
+    const withSuffix = `${Array.from({ length: 4 }, () => period100).join(' ')} ${Array.from({ length: 35 }, (_, index) => `suffix${index}`).join(' ')}`;
+    expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: withSuffix }))).toContain('description.degenerate_content');
+  });
+
   it('measures the title fixture and uses a structural, not ratio, truncation gate', () => {
     const fixture = JSON.parse(readFileSync(new URL('./fixtures/title-locale-corpus.json', import.meta.url), 'utf8'));
     const tokens = (text: string | null) => String(text ?? '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').match(/[\p{L}\p{N}]+/gu) ?? [];
@@ -520,7 +554,7 @@ describe('translation candidate quality v2', () => {
     }
   });
 
-  it('makes only documented high-confidence language mismatch blocking', () => {
+  it('blocks every known non-target language while retaining truly unknown detection as advisory', () => {
     const mismatch = assessTranslationCandidateQualityV2({
       ...base,
       candidateText: 'Wir suchen eine erfahrene Person mit Berufserfahrung. Die Aufgaben und Anforderungen sind klar. '.repeat(12),
@@ -530,6 +564,7 @@ describe('translation candidate quality v2', () => {
       ...base,
       candidateText: 'The position requires qualifications and responsibilities, and the team will support you. '.repeat(12),
     });
+    expect(advisory.status).toBe('rejected');
     expect(codes(advisory)).toContain('language.low_confidence_mismatch');
     const shortTitle = assessTranslationCandidateQualityV2({
       ...base,

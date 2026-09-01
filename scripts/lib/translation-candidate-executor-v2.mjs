@@ -166,6 +166,26 @@ function fixedEvidence(code) {
   })]);
 }
 
+function wrapIntrinsicPromise(value) {
+  let resolveTrusted;
+  let rejectTrusted;
+  const trusted = new Promise((resolve, reject) => {
+    resolveTrusted = resolve;
+    rejectTrusted = reject;
+  });
+  try {
+    // This checks the Promise internal slot. It accepts genuine subclass and
+    // cross-realm promises, while Proxy/custom thenable values fail without a
+    // `then` property read or attacker-controlled assimilation.
+    Promise.prototype.then.call(value, resolveTrusted, rejectTrusted);
+  } catch {
+    return null;
+  }
+  // Observe immediately, including synchronous and late provider rejection.
+  Promise.prototype.then.call(trusted, undefined, () => undefined);
+  return trusted;
+}
+
 function outcome({ status, attemptKey, candidate = null, memory, evidence, providerCalls, recorded }) {
   return deepFreezeTranslationV2({
     schemaVersion: TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION,
@@ -313,20 +333,13 @@ export async function executeTranslationCandidateV2(input) {
       provider,
       [value.quality, Object.freeze({ signal: controller.signal })],
     );
-    const isNativePromise = pending !== null
-      && typeof pending === 'object'
-      && Object.getPrototypeOf(pending) === Promise.prototype;
-    const observeRejection = () => {
-      if (isNativePromise) Promise.prototype.then.call(pending, undefined, () => undefined);
-    };
-    if (Date.now() - startedMs > value.providerTimeoutMs || !isNativePromise) {
+    const trusted = wrapIntrinsicPromise(pending);
+    if (Date.now() - startedMs > value.providerTimeoutMs || trusted === null) {
       controller.abort();
-      observeRejection();
       candidateText = null;
     } else {
-      candidateText = await Promise.race([pending, timeout]);
+      candidateText = await Promise.race([trusted, timeout]);
       if (candidateText === timedOut) {
-        observeRejection();
         candidateText = null;
       }
     }
@@ -345,6 +358,12 @@ export async function executeTranslationCandidateV2(input) {
   }
 
   const quality = assessTranslationCandidateQualityV2({ ...value.quality, candidateText });
+  if (quality.status === 'rejected' && quality.retryClass === 'retryable') {
+    return outcome({
+      status: 'retryable_reject', attemptKey: lookup.attemptKey, memory: value.memory,
+      evidence: quality.evidence, providerCalls: 1, recorded: false,
+    });
+  }
   const nextMemory = recordTranslationCandidateV2(value.memory, {
     identity: value.identity,
     engineVersion: value.engineVersion,

@@ -81,7 +81,7 @@ describe('translation candidate executor v2', () => {
     expect(JSON.stringify({ evidence: result.evidence, metrics: result.metrics })).not.toContain(candidateText);
   });
 
-  it('records validation and rejection outcomes but never patches a target', async () => {
+  it('records validated/terminal outcomes but keeps retryable rejects out of memory', async () => {
     const validated = input();
     const positive = await executeTranslationCandidateV2(executorInput(validated));
     expect(positive.memory.records[0].candidates[0]).toMatchObject({ status: 'validated', outputText: candidateText });
@@ -89,9 +89,20 @@ describe('translation candidate executor v2', () => {
     const rejected = input();
     rejected.provider = provider(sourceText).provider;
     const negative = await executeTranslationCandidateV2(executorInput(rejected));
-    expect(negative).toMatchObject({ status: 'rejected_candidate', metrics: { recorded: true } });
-    expect(negative.memory.records[0].candidates[0].status).toBe('rejected');
+    expect(negative).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
+    expect(JSON.stringify(negative)).not.toContain(sourceText);
     expect(Object.keys(negative)).not.toContain('patch');
+
+    const recovered = await executeTranslationCandidateV2(executorInput(input({ memory: negative.memory })));
+    expect(recovered).toMatchObject({ status: 'validated', metrics: { providerCalls: 1, recorded: true } });
+    const reused = await executeTranslationCandidateV2(executorInput(input({ memory: recovered.memory })));
+    expect(reused).toMatchObject({ status: 'reused', metrics: { providerCalls: 0, recorded: false } });
+
+    const longEnglish = 'The role requires demonstrated experience with customers and technical documentation. Candidates plan work, report progress, collaborate across teams, and deliver reliable results. The successful person communicates clearly, supports colleagues, manages priorities, and contributes practical ideas. This position offers a varied environment with training, responsibility, and opportunities to develop professional skills.';
+    const languageRejected = await executeTranslationCandidateV2(executorInput(input({ provider: provider(longEnglish).provider })));
+    expect(languageRejected).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
+    expect(languageRejected.evidence.map((item) => item.code)).toEqual(expect.arrayContaining(['language.low_confidence_mismatch']));
+    expect(JSON.stringify(languageRejected)).not.toContain(longEnglish);
 
     const echoSource = long('The candidate supports clients and the team.');
     const echoIdentity = createTranslationUnitIdentityV2({
@@ -104,8 +115,7 @@ describe('translation candidate executor v2', () => {
       quality: { ...quality, sourceText: echoSource },
       provider: provider(invisibleEcho).provider,
     })));
-    expect(echoed).toMatchObject({ status: 'rejected_candidate', metrics: { recorded: true } });
-    expect(echoed.memory.records[0].candidates[0].status).toBe('rejected');
+    expect(echoed).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
   });
 
   it('does not call or mutate memory for provider errors and empty output', async () => {
@@ -180,6 +190,57 @@ describe('translation candidate executor v2', () => {
     });
     await expect(executeTranslationCandidateV2(executorInput(busyLateRejection))).resolves.toMatchObject({ status: 'generation_failed' });
     expect(lateSignal?.aborted).toBe(true);
+
+    let proxyGets = 0;
+    const proxyPromise = input({
+      providerTimeoutMs: 5,
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        translate() {
+          return new Proxy(Promise.resolve(candidateText), {
+            get(target, key, receiver) {
+              proxyGets += 1;
+              const deadline = Date.now() + 75;
+              while (Date.now() < deadline) { /* attacker trap must stay untouched */ }
+              return Reflect.get(target, key, receiver);
+            },
+          });
+        },
+      },
+    });
+    await expect(executeTranslationCandidateV2(executorInput(proxyPromise))).resolves.toMatchObject({ status: 'generation_failed' });
+    expect(proxyGets).toBe(0);
+
+    class ProviderPromise<T> extends Promise<T> {}
+    const subclassRejected = input({
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        translate() { return ProviderPromise.reject(new Error('subclass rejection')); },
+      },
+    });
+    await expect(executeTranslationCandidateV2(executorInput(subclassRejected))).resolves.toMatchObject({ status: 'generation_failed' });
+
+    vi.useFakeTimers();
+    try {
+      let signal: AbortSignal | undefined;
+      const subclassLate = input({
+        providerTimeoutMs: 5,
+        provider: {
+          schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+          translate(_request: unknown, options: { signal: AbortSignal }) {
+            signal = options.signal;
+            return new ProviderPromise((_, reject) => setTimeout(() => reject(new Error('late subclass rejection')), 75));
+          },
+        },
+      });
+      const pending = executeTranslationCandidateV2(executorInput(subclassLate));
+      await vi.advanceTimersByTimeAsync(5);
+      await expect(pending).resolves.toMatchObject({ status: 'generation_failed' });
+      await vi.advanceTimersByTimeAsync(75);
+      expect(signal?.aborted).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('snapshots hostile identity and memory trees before legacy validators or provider calls', async () => {

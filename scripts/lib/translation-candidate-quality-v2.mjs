@@ -40,13 +40,27 @@ const VERSION_RE = /\bv\d+(?:\.\d+)*\b/giu;
 const DATE_RE = /(?<![\p{L}\p{N}])\d{4}([./-])\d{1,2}\1\d{1,2}(?![\p{L}\p{N}])/gu;
 const NUMBER_ATOM = String.raw`(?:\d+(?:[ '\u2019\u00a0\u202f,.]\d+)*|[.,]\d+)`;
 const CURRENCY = String.raw`(?:CHF|EUR|USD|GBP|€|\$|£)`;
+// Deliberately narrow, corpus-backed units: this recognizes translations of
+// employment hours and rates without treating arbitrary prose as a unit.
+const UNIT_ATOM = String.raw`(?:heures?|hours?|or[ae]|h|stunden?|weeks?|settiman[ae]|semaines?|wochen?|months?|mesi?|mois|monate?n?)`;
 const RANGE_SPACE = String.raw`\s{0,256}`;
 const RANGE_PREFIX = String.raw`(?:(?:[+\-−]${RANGE_SPACE}${CURRENCY}|${CURRENCY}${RANGE_SPACE}[+\-−]?|[+\-−])${RANGE_SPACE})?`;
 const RANGE_SUFFIX = String.raw`(?:(?:${RANGE_SPACE}${CURRENCY})|(?:${RANGE_SPACE}%))*`;
 const RANGE_ENDPOINT = String.raw`(${RANGE_PREFIX}${NUMBER_ATOM}${RANGE_SUFFIX})`;
 const RANGE_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])${RANGE_ENDPOINT}${RANGE_SPACE}(?:-|\u2010|\u2011|\u2012|\u2013|\u2014|\u2212)${RANGE_SPACE}${RANGE_ENDPOINT}${RANGE_SUFFIX}(?![\p{L}\p{N}_]|[.,]\d)`, 'giu');
-const NUMBER_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(CHF|EUR|USD|GBP|€|\$|£)?(${NUMBER_ATOM})(?![\p{L}\p{N}_]|[.,]\d)`, 'giu');
+const NUMBER_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(CHF|EUR|USD|GBP|€|\$|£)?(${NUMBER_ATOM})(?:${RANGE_SPACE}(${UNIT_ATOM})(?:${RANGE_SPACE}\/${RANGE_SPACE}(${UNIT_ATOM}))?)?(?![.,]\d)`, 'giu');
 const MAX_NUMERIC_AFFIX_WHITESPACE = 256;
+const AFFIX_SPACE = String.raw`\s{0,${MAX_NUMERIC_AFFIX_WHITESPACE}}`;
+const AFFIX_SIGN_THEN_CURRENCY_RE = new RegExp(String.raw`([+\-−])?${AFFIX_SPACE}(CHF|EUR|USD|GBP|€|\$|£)${AFFIX_SPACE}$`, 'iu');
+const AFFIX_CURRENCY_THEN_SIGN_RE = new RegExp(String.raw`(CHF|EUR|USD|GBP|€|\$|£)${AFFIX_SPACE}([+\-−])?${AFFIX_SPACE}$`, 'iu');
+const AFFIX_CURRENCY_AFTER_RE = new RegExp(String.raw`^${AFFIX_SPACE}(CHF|EUR|USD|GBP|€|\$|£)`, 'iu');
+const AFFIX_SIGN_RE = new RegExp(String.raw`([+\-−])${AFFIX_SPACE}$`, 'u');
+const AFFIX_PERCENT_RE = new RegExp(String.raw`^${AFFIX_SPACE}%`, 'u');
+const UNIT_CANONICAL = new Map([
+  ['h', 'hour'], ['hour', 'hour'], ['hours', 'hour'], ['ora', 'hour'], ['ore', 'hour'], ['heure', 'hour'], ['heures', 'hour'], ['stunde', 'hour'], ['stunden', 'hour'],
+  ['week', 'week'], ['weeks', 'week'], ['settimana', 'week'], ['settimane', 'week'], ['semaine', 'week'], ['semaines', 'week'], ['woche', 'week'], ['wochen', 'week'],
+  ['month', 'month'], ['months', 'month'], ['mese', 'month'], ['mesi', 'month'], ['mois', 'month'], ['monat', 'month'], ['monate', 'month'], ['monaten', 'month'],
+]);
 
 function compareText(left, right) {
   if (left === right) return 0;
@@ -195,39 +209,95 @@ function containsProtectedToken(text, value) {
 
 function isDegenerateDescription(tokens) {
   if (tokens.length === 0 || new Set(tokens).size < 2) return true;
-  // The production corpus has a 1st-percentile unique-token ratio of 0.386
-  // but a 0.012 minimum (112,500 descriptions), so a diversity threshold
-  // would either reject real prose or miss a repeated long phrase. Instead,
-  // derive a period from four equal token positions, then make one bounded
-  // linear coverage pass. Keeping the first 20 positions per token admits the
-  // documented <=16-token prefix without a period cap or quadratic scan.
-  const positionsByToken = new Map();
+  // A lexical diversity cutoff is unsound here: the real corpus includes
+  // legitimate descriptions with a 1.18% unique-token ratio. Detect instead
+  // an exact contiguous periodic region. Candidate periods are derived in one
+  // pass from four equally-spaced occurrences; rolling hashes only shortlist
+  // candidates, and a final direct comparison decides the result.
+  const tokenIds = new Map();
+  const values = new Uint32Array(tokens.length);
+  let nextId = 1;
   for (let index = 0; index < tokens.length; index += 1) {
-    const positions = positionsByToken.get(tokens[index]) ?? [];
-    if (positions.length < 20) positions.push(index);
-    positionsByToken.set(tokens[index], positions);
+    let id = tokenIds.get(tokens[index]);
+    if (id === undefined) {
+      id = nextId;
+      nextId += 1;
+      tokenIds.set(tokens[index], id);
+    }
+    values[index] = id;
   }
-  for (const positions of positionsByToken.values()) {
-    if (positions.length < 4) continue;
-    const positionSet = new Set(positions);
-    for (let first = 0; first < positions.length - 3; first += 1) {
-      for (let second = first + 1; second < positions.length - 2; second += 1) {
-        const period = positions[second] - positions[first];
-        if (period < 1 || tokens.length < period * 4
-            || tokens.length - positions[first] < MIN_DOMINANT_PERIODIC_TOKENS
-            || !positionSet.has(positions[second] + period)
-            || !positionSet.has(positions[second] + period * 2)) continue;
-        let matches = 0;
-        // Begin at the repeated phase, not at a permitted short prefix. This
-        // prevents a 16-token introduction from diluting a 17-token period.
-        const comparisonStart = positions[first] + period;
-        const compared = tokens.length - comparisonStart;
-        for (let index = comparisonStart; index < tokens.length; index += 1) {
-          if (tokens[index] === tokens[index - period]) matches += 1;
-        }
-        if (matches / compared >= 0.9) return true;
+  const base = 1_000_003;
+  const forward = new Uint32Array(values.length + 1);
+  const reverse = new Uint32Array(values.length + 1);
+  const powers = new Uint32Array(values.length + 1);
+  powers[0] = 1;
+  for (let index = 0; index < values.length; index += 1) {
+    forward[index + 1] = Math.imul(forward[index], base) + values[index];
+    reverse[index + 1] = Math.imul(reverse[index], base) + values[values.length - index - 1];
+    powers[index + 1] = Math.imul(powers[index], base);
+  }
+  const hash = (table, start, length) => (
+    table[start + length] - Math.imul(table[start], powers[length])
+  ) >>> 0;
+  const equalPrefixLength = (left, right, limit, table) => {
+    let low = 0;
+    let high = limit;
+    while (low < high) {
+      const middle = Math.ceil((low + high) / 2);
+      if (hash(table, left, middle) === hash(table, right, middle)) low = middle;
+      else high = middle - 1;
+    }
+    return low;
+  };
+  const candidates = new Map();
+  const occurrences = new Map();
+  for (let index = 0; index < values.length; index += 1) {
+    const previous = occurrences.get(values[index]);
+    if (!previous) {
+      occurrences.set(values[index], { last: index, gap: 0, run: 0 });
+      continue;
+    }
+    const gap = index - previous.last;
+    const run = gap === previous.gap ? previous.run + 1 : 1;
+    if (run >= 3 && !candidates.has(gap)) candidates.set(gap, index);
+    occurrences.set(values[index], { last: index, gap, run });
+  }
+  for (const [period, anchor] of candidates) {
+    if (period < 1 || period * 4 > tokens.length) continue;
+    const right = equalPrefixLength(anchor - period, anchor, tokens.length - anchor, forward);
+    const left = equalPrefixLength(
+      tokens.length - anchor,
+      tokens.length - (anchor - period),
+      anchor - period,
+      reverse,
+    );
+    const start = anchor - left - period;
+    const end = anchor + right;
+    const regionLength = end - start;
+    if (regionLength < MIN_DOMINANT_PERIODIC_TOKENS || regionLength * 10 < tokens.length * 9) continue;
+    let exact = true;
+    for (let index = start + period; index < end; index += 1) {
+      if (tokens[index] !== tokens[index - period]) {
+        exact = false;
+        break;
       }
     }
+    if (exact) return true;
+  }
+  // Preserve the prior short-prefix/one-substitution closure without turning
+  // every period candidate into another full pass. The fourth occurrence gives
+  // exactly three period comparisons; this fixed local verification is O(p),
+  // and its total work is bounded by the candidate construction pass.
+  for (const [period, anchor] of candidates) {
+    const comparisonStart = anchor - period * 2;
+    const comparisonEnd = anchor + period;
+    if (comparisonStart - period > 16 || comparisonStart < period
+        || comparisonEnd > tokens.length || period * 4 < MIN_DOMINANT_PERIODIC_TOKENS) continue;
+    let mismatches = 0;
+    for (let index = comparisonStart; index < comparisonEnd; index += 1) {
+      if (tokens[index] !== tokens[index - period]) mismatches += 1;
+    }
+    if (mismatches * 10 <= comparisonEnd - comparisonStart) return true;
   }
   return false;
 }
@@ -322,22 +392,30 @@ function currencyCode(raw) {
   return 'GBP';
 }
 
-function overlaps(ranges, start, end) {
-  return ranges.some(([rangeStart, rangeEnd]) => start < rangeEnd && rangeStart < end);
+function mergeRanges(ranges) {
+  const ordered = [...ranges].sort(([leftStart, leftEnd], [rightStart, rightEnd]) => (
+    leftStart - rightStart || rightEnd - leftEnd
+  ));
+  const merged = [];
+  for (const [start, end] of ordered) {
+    const previous = merged[merged.length - 1];
+    if (previous && start <= previous[1]) previous[1] = Math.max(previous[1], end);
+    else merged.push([start, end]);
+  }
+  return merged;
 }
 
 function numericAffix(text, start, end) {
   const prefix = text.slice(Math.max(0, start - MAX_NUMERIC_AFFIX_WHITESPACE - 16), start);
   const suffix = text.slice(end, Math.min(text.length, end + MAX_NUMERIC_AFFIX_WHITESPACE + 16));
-  const space = String.raw`\s{0,${MAX_NUMERIC_AFFIX_WHITESPACE}}`;
-  const signThenCurrency = new RegExp(String.raw`([+\-−])?${space}(CHF|EUR|USD|GBP|€|\$|£)${space}$`, 'iu').exec(prefix);
-  const currencyThenSign = new RegExp(String.raw`(CHF|EUR|USD|GBP|€|\$|£)${space}([+\-−])?${space}$`, 'iu').exec(prefix);
-  const currencyAfter = new RegExp(String.raw`^${space}(CHF|EUR|USD|GBP|€|\$|£)`, 'iu').exec(suffix);
-  const directSign = new RegExp(String.raw`([+\-−])${space}$`, 'u').exec(prefix)?.[1] ?? '';
+  const signThenCurrency = AFFIX_SIGN_THEN_CURRENCY_RE.exec(prefix);
+  const currencyThenSign = AFFIX_CURRENCY_THEN_SIGN_RE.exec(prefix);
+  const currencyAfter = AFFIX_CURRENCY_AFTER_RE.exec(suffix);
+  const directSign = AFFIX_SIGN_RE.exec(prefix)?.[1] ?? '';
   const currency = signThenCurrency?.[2] ?? currencyThenSign?.[1] ?? currencyAfter?.[1] ?? '';
   const currencySign = signThenCurrency?.[1] ?? currencyThenSign?.[2] ?? '';
   const sign = (currencySign || directSign).replace('−', '-') || 'none';
-  const hasPercent = new RegExp(String.raw`^${space}%`, 'u').test(suffix);
+  const hasPercent = AFFIX_PERCENT_RE.test(suffix);
   return { currency, hasPercent, sign };
 }
 
@@ -355,46 +433,74 @@ function rangeEndpointUnits(raw) {
   return [...new Set(units)].sort(compareText);
 }
 
+function canonicalUnit(raw) {
+  return raw ? UNIT_CANONICAL.get(raw.toLocaleLowerCase('und')) ?? null : null;
+}
+
+function unitLabel(numerator, denominator) {
+  const unit = canonicalUnit(numerator);
+  if (!unit) return '';
+  const per = canonicalUnit(denominator);
+  return per ? `unit:${unit}/${per}` : `unit:${unit}`;
+}
+
 function extractNumericSignatures(text, locale) {
   // Numeric syntax is compared semantically only. Invisible/combining marks
   // must not sever an adjacent sign, currency or percent affix, while neither
   // the candidate text nor persisted memory is ever rewritten.
   const numericText = canonicalProtectedText(text);
-  const ranges = [];
+  const protectedEvents = [];
   const signatures = [];
   for (const match of numericText.matchAll(VERSION_RE)) {
     const start = match.index ?? 0;
-    ranges.push([start, start + match[0].length]);
-    signatures.push(`version:${match[0].toLowerCase()}`);
+    protectedEvents.push({ start, end: start + match[0].length, kind: 'version', match });
   }
   for (const match of numericText.matchAll(DATE_RE)) {
     const start = match.index ?? 0;
-    ranges.push([start, start + match[0].length]);
-    const [year, month, day] = match[0].split(match[1]);
-    signatures.push(`date:${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
+    protectedEvents.push({ start, end: start + match[0].length, kind: 'date', match });
   }
   for (const match of numericText.matchAll(RANGE_RE)) {
     const start = match.index ?? 0;
     const end = start + match[0].length;
-    if (overlaps(ranges, start, end)) continue;
-    ranges.push([start, end]);
-    const first = rangeEndpointSignature(match[1], locale);
-    const second = rangeEndpointSignature(match[2], locale);
-    const firstUnits = rangeEndpointUnits(match[1]);
-    const secondUnits = rangeEndpointUnits(match[2]);
-    const allUnits = [...new Set([...firstUnits, ...secondUnits])].sort(compareText);
-    const unit = allUnits.length <= 1
-      ? `global:${allUnits[0] ?? 'number'}`
-      : `bound:${firstUnits.join('+') || 'number'}:${secondUnits.join('+') || 'number'}`;
-    signatures.push(`range:unit:${unit}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
+    protectedEvents.push({ start, end, kind: 'range', match });
   }
+  let occupiedEnd = -1;
+  const acceptedRanges = [];
+  for (const event of protectedEvents.sort((left, right) => (
+    left.start - right.start || right.end - left.end || compareText(left.kind, right.kind)
+  ))) {
+    if (event.start < occupiedEnd) continue;
+    occupiedEnd = event.end;
+    acceptedRanges.push([event.start, event.end]);
+    if (event.kind === 'version') {
+      signatures.push(`version:${event.match[0].toLowerCase()}`);
+    } else if (event.kind === 'date') {
+      const [year, month, day] = event.match[0].split(event.match[1]);
+      signatures.push(`date:${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
+    } else {
+      const first = rangeEndpointSignature(event.match[1], locale);
+      const second = rangeEndpointSignature(event.match[2], locale);
+      const firstUnits = rangeEndpointUnits(event.match[1]);
+      const secondUnits = rangeEndpointUnits(event.match[2]);
+      const allUnits = [...new Set([...firstUnits, ...secondUnits])].sort(compareText);
+      const unit = allUnits.length <= 1
+        ? `global:${allUnits[0] ?? 'number'}`
+        : `bound:${firstUnits.join('+') || 'number'}:${secondUnits.join('+') || 'number'}`;
+      signatures.push(`range:unit:${unit}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
+    }
+  }
+  const ranges = mergeRanges(acceptedRanges);
+  let rangeCursor = 0;
   for (const match of numericText.matchAll(NUMBER_RE)) {
     const start = match.index ?? 0;
     const end = start + match[0].length;
-    if (overlaps(ranges, start, end)) continue;
+    while (rangeCursor < ranges.length && ranges[rangeCursor][1] <= start) rangeCursor += 1;
+    if (rangeCursor < ranges.length && start < ranges[rangeCursor][1] && end > ranges[rangeCursor][0]) continue;
     const affix = numericAffix(numericText, start, end);
     const currency = match[1] ?? affix.currency;
-    const label = currency ? `currency:${currencyCode(currency)}` : affix.hasPercent ? 'percent' : 'number';
+    const label = currency
+      ? `currency:${currencyCode(currency)}`
+      : affix.hasPercent ? 'percent' : unitLabel(match[3], match[4]) || 'number';
     signatures.push(`${label}:${affix.sign}:${numericCore(match[2], locale)}`);
   }
   return sortedMultiset(signatures);
@@ -494,7 +600,7 @@ export function assessTranslationCandidateQualityV2(input) {
     const language = detectLanguageWithConfidence(candidate, value.targetLang);
     if (language.lang !== value.targetLang) {
       if (language.confidence >= RELIABLE_LANGUAGE_CONFIDENCE) blocking.push('language.high_confidence_mismatch');
-      else advisory.push('language.low_confidence_mismatch');
+      else blocking.push('language.low_confidence_mismatch');
     }
   }
 
