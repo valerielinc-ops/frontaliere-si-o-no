@@ -4975,6 +4975,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.processo-ndrangheta-svizzera.title': 'Processo al presunto punto di riferimento finanziario della \'ndrangheta',
     'blog.article.processo-ndrangheta-svizzera.excerpt': 'Iniziato il procedimento contro un 59enne italiano residente nel Canton Argovia, accusato di legami con il clan Anello-Fruci.',
     'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Vista aerea del Tribunale penale federale di Bellinzona con focus sull\'aula di tribunale dove si svolge il processo.',
+    'blog.article.legumi-texture-carne-ricerca-eth.title': 'Legumi con texture di carne: ricerca ETH Zurigo',
+    'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'Ricercatori ETH trasformano piselli, fagioli e lenticchie in prodotti con struttura fibrosa simile a carne, riducendo lo spreco alimentare.',
+    'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Laboratorio di ricerca moderno con legumi freschi su bancone, attrezzature scientifiche sullo sfondo',
 };
 
 export default blogMetaChIt;
