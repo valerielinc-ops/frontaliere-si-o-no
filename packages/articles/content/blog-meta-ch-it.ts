@@ -4879,6 +4879,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dichiarazioni-cdf-partiti-2025.title': 'Partiti 2025: 24,6 milioni, -1 milione da 2024',
     'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'Nel 2025 i partiti svizzeri dichiarano 24,6 milioni di franchi di entrate, un calo di circa un milione rispetto al 2024. Il PS guida con 7,9 milioni di franchi.',
     'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Sala del Parlamento federale svizzero durante una sessione plenaria con i parlamentari riuniti',
+    'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch batte Samsung al tribunale: 11,6 milioni di risarcimento',
+    'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch vince a Londra contro Samsung: il tribunale condanna il colosso a pagare 11,6 milioni di dollari per contraffazione di quadranti digitali.',
+    'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Orologio di lusso svizzero accanto a documento di sentenza legale, simbolo della vittoria di Swatch contro Samsung',
 };
 
 export default blogMetaChIt;

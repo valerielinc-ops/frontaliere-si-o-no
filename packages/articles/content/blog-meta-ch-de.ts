@@ -4879,6 +4879,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dichiarazioni-cdf-partiti-2025.title': 'Parteien 2025: 24,6 Millionen, -1 Million ab 2024',
     'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'Im Jahr 2025 melden die Schweizer Parteien Einnahmen von 24,6 Millionen Franken, was einem Rückgang von rund einer Million Franken gegenüber 2024 entspricht. Die SP führt mit 7,9 Millionen Franken.',
     'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Plenarsaal des Schweizer Bundesparlaments während einer Sitzung',
+    'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch besiegt Samsung vor Gericht: 11,6 Millionen Entschädigung',
+    'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch gewinnt in London gegen Samsung: Das Gericht verurteilt den Riesen zu einer Zahlung von 11,6 Millionen Dollar wegen Fälschung digitaler Zifferblätter.',
+    'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Schweizer Luxusuhr neben Gerichtsbeschluss, Symbol von Swatchs Sieg gegen Samsung wegen Markenrechtsverletzung',
 };
 
 export default blogMetaChDe;
