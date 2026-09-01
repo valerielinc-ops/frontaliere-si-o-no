@@ -2,6 +2,9 @@ import { createHash } from 'node:crypto';
 import { digestDocument } from './canonical-json-digest.mjs';
 import { buildStableJobIdentity } from './job-identity.mjs';
 import { isIncomplete, summarizeJobs, finalizeEntry } from '../log-translation-stats.mjs';
+import { detectLanguageWithConfidence } from './detect-language.mjs';
+import { titleLooksUntranslated } from './job-locale-utils.mjs';
+import { measureDescriptionLocales, measureTitleLocales } from './job-locale-population.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MAX_COMPANIES = 20;
@@ -79,6 +82,32 @@ function canonicalMetrics(jobs, now) {
   };
 }
 
+function unmeasuredLanguageQuality() {
+  return { measured: false, titles: null, descriptions: null };
+}
+
+function wrongLanguageRate(count, populationSlots) {
+  return populationSlots > 0 ? count / populationSlots : 0;
+}
+
+function measureWrongLanguageQuality(jobs) {
+  const titles = measureTitleLocales(jobs, titleLooksUntranslated, LOCALES, 0);
+  const descriptions = measureDescriptionLocales(jobs, detectLanguageWithConfidence, LOCALES);
+  return {
+    measured: true,
+    titles: {
+      populationSlots: titles.slots,
+      wrongLanguageCount: titles.flagged,
+      wrongLanguageRate: wrongLanguageRate(titles.flagged, titles.slots),
+    },
+    descriptions: {
+      populationSlots: descriptions.slots,
+      wrongLanguageCount: descriptions.mismatches.length,
+      wrongLanguageRate: wrongLanguageRate(descriptions.mismatches.length, descriptions.slots),
+    },
+  };
+}
+
 function sourceTranslationUnitHash(job) {
   return digestDocument({
     sourceLang: normalized(job.sourceLang) || 'unknown',
@@ -89,7 +118,7 @@ function sourceTranslationUnitHash(job) {
 }
 
 /** Build a private, hash-only snapshot. It contains no job text, id, slug or URL. */
-export function createTranslationObservabilitySnapshot(document, { now = Date.now() } = {}) {
+export function createTranslationObservabilitySnapshot(document, { now = Date.now(), measureLanguageQuality = false } = {}) {
   const jobs = jobsFrom(document);
   const quality = { reasons: {}, byLocale: {}, bySourceLang: {}, byLocaleSourceLang: {} };
   const cohorts = { age: { '0-1d': 0, '2-7d': 0, '8-30d': 0, '31-90d': 0, '91d+': 0, unknown: 0 }, companies: {} };
@@ -121,6 +150,7 @@ export function createTranslationObservabilitySnapshot(document, { now = Date.no
     jobSetDigest: digestDocument(rows.map((row) => row.identityHash)),
     rows,
     quality,
+    languageQuality: measureLanguageQuality ? measureWrongLanguageQuality(jobs) : unmeasuredLanguageQuality(),
     cohorts,
   };
 }
@@ -458,6 +488,10 @@ export function buildTranslationObservabilityReport({ before, final, runId, star
     delta,
     cohorts: { age: final.cohorts.age, topCompanies: boundedCompanies(final.cohorts.companies) },
     quality: final.quality,
+    languageQuality: {
+      baseline: before.languageQuality || unmeasuredLanguageQuality(),
+      trueFinal: final.languageQuality || unmeasuredLanguageQuality(),
+    },
     continuity: { ...observation.continuity, fingerprints: boundedFingerprints([...fingerprints, ...(observation.identityHashes || [])]) },
   };
   report.digest = digestDocument(report);

@@ -36,8 +36,8 @@ function job(overrides: Record<string, unknown> = {}) {
   };
 }
 
-function snapshot(jobs: unknown[]) {
-  return createTranslationObservabilitySnapshot(jobs, { now: NOW });
+function snapshot(jobs: unknown[], options: Record<string, unknown> = {}) {
+  return createTranslationObservabilitySnapshot(jobs, { now: NOW, ...options });
 }
 
 function generation(previousState: any, jobs: unknown[], options: Record<string, unknown> = {}) {
@@ -243,6 +243,55 @@ describe('translation observability', () => {
     expect(serialized).not.toContain('private-company');
     expect(serialized).not.toContain('acme-private');
     expect(serialized).not.toContain('example.invalid');
+  });
+
+  it('measures wrong-language slots only on the true-final, with the canonical populations and no offenders', () => {
+    const wrongLanguage = job({
+      titleByLocale: { it: 'Ingegnere software', en: 'Ingegnere software', de: 'Softwareingenieur', fr: 'Ingénieur logiciel' },
+      descriptionByLocale: { it: DESCRIPTION, en: GERMAN, de: GERMAN, fr: FRENCH },
+    });
+    const baseline = snapshot([wrongLanguage]);
+    const trueFinal = snapshot([wrongLanguage], { measureLanguageQuality: true });
+    const value = finalizeTranslationObservabilityReport(buildTranslationObservabilityReport({
+      before: baseline,
+      final: trueFinal,
+      runId: 'language-quality',
+      startedAt: '2026-08-31T00:00:00Z',
+      finishedAt: '2026-08-31T00:01:00Z',
+      sourceCommit: 'abc',
+      outcome: 'success',
+    }), 'def');
+
+    expect(value.languageQuality).toEqual({
+      baseline: { measured: false, titles: null, descriptions: null },
+      trueFinal: {
+        measured: true,
+        titles: { populationSlots: 3, wrongLanguageCount: 1, wrongLanguageRate: 1 / 3 },
+        descriptions: { populationSlots: 4, wrongLanguageCount: 1, wrongLanguageRate: 1 / 4 },
+      },
+    });
+    expect(JSON.stringify(value.languageQuality)).not.toContain('Ingegnere software');
+    expect(JSON.stringify(value.languageQuality)).not.toContain('acme-private');
+  });
+
+  it('keeps the collector start snapshot unmeasured and measures only its finish snapshot', () => {
+    const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-observability-language-quality-'));
+    try {
+      const jobsPath = path.join(directory, 'jobs.json');
+      const beforePath = path.join(directory, 'before.json');
+      const reportPath = path.join(directory, 'report.json');
+      fs.writeFileSync(jobsPath, JSON.stringify([job()]));
+      const start = runTranslationObservabilityCollector(['--mode', 'start', '--jobs', jobsPath, '--output', beforePath]);
+      const finish = runTranslationObservabilityCollector([
+        '--mode', 'finish', '--jobs', jobsPath, '--before', beforePath, '--output', reportPath,
+        '--run-id', 'language-quality', '--started-at', '2026-08-31T00:00:00Z', '--source-commit', 'abc', '--outcome', 'success',
+      ]);
+      expect(start.languageQuality).toEqual({ measured: false, titles: null, descriptions: null });
+      expect(finish.languageQuality.baseline.measured).toBe(false);
+      expect(finish.languageQuality.trueFinal.measured).toBe(true);
+    } finally {
+      fs.rmSync(directory, { recursive: true, force: true });
+    }
   });
 
   it('finalizes byte-stably, validates digest before rollup, and rolls up idempotently', () => {
