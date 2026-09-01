@@ -130,7 +130,11 @@ jobs:
       # successivo. Il titolo resta `Workflow Failure: <name:>` proprio perché è
       # quello il pattern che quel reconciler riconosce — non cambiarlo.
       - name: Report failure to GitHub Issues
-        if: failure()
+        # A job timeout marks the interrupted audit cancelled, not failed. The
+        # report upload above deliberately still runs and fails if no JSON was
+        # finalized; include cancelled() so that exact fail-closed path also
+        # reaches the durable issue reporter (run 33525971231 skipped it).
+        if: failure() || cancelled()
         uses: ./.github/actions/report-failure
         with:
           title: 'Workflow Failure: ${{ github.workflow }}'
