@@ -1681,6 +1681,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sindacato-banca-ubs-regolamentazione': { it: 'sindacato-banca-ubs-regolamentazione', en: 'bank-employees-asib-supports-ubs-regulation', de: 'bankangestellte-asib-ubs-verordnung', fr: 'employes-banque-asib-norme-ubs' },
  'comcom-esclude-nuovi-operatori-mobile': { it: 'comcom-esclude-nuovi-operatori-mobile', en: 'comcom-blocks-new-operators-telecom', de: 'comcom-schliesst-neue-betreiber-mobile', fr: 'comcom-exclut-nouveaux-operateurs-mobile' },
  'audizione-concezione-energia-eolica': { it: 'audizione-concezione-energia-eolica', en: 'hearing-wind-energy-concept-framework', de: 'anhorung-windenergie-konzept-schweiz', fr: 'consultation-conception-energie-eolienne' },
+ 'lucerna-taxi-cari-mondo': { it: 'lucerna-taxi-cari-mondo', en: 'lucerne-most-expensive-taxis-world', de: 'luzern-teuerste-taxis-welt', fr: 'lucerne-taxis-plus-chers-monde' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

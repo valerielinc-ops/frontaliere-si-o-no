@@ -64448,6 +64448,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lucerna-taxi-cari-mondo': {
+    title: 'Lucerna in testa: la Svizzera è il Paese con i taxi più cari al mondo',
+    description: 'Scopri perché Lucerna ha i taxi più cari al mondo e come pianificare al meglio i tuoi spostamenti in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lucerna, testa, paese, taxi',
+    ogTitle: 'Lucerna in testa: la Svizzera è il Paese con i taxi più cari al mondo',
+    ogDescription: 'Lucerna è la città con i taxi più cari al mondo, con una corsa di 10 km che costa 58.89 franchi. Scopri come pianificare al meglio i tuoi spostamenti in Svizzera.',
+    canonicalPath: '/articoli-svizzera/lucerna-taxi-cari-mondo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lucerna in testa: la Svizzera è il Paese con i taxi più cari al mondo",
+      "description": "Scopri perché Lucerna ha i taxi più cari al mondo e come pianificare al meglio i tuoi spostamenti in Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lucerna-taxi-cari-mondo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lucerna, Svizzera, con il Lago di Lucerna e il Ponte della Cappella in primo piano."
+      },
+      "datePublished": "2026-09-01T17:00:15+00:00",
+      "dateModified": "2026-09-01T17:00:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lucerna-taxi-cari-mondo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
