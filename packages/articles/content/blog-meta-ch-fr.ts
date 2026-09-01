@@ -4906,6 +4906,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasso-riferimento-ipotecario-1-25.title': 'Le taux de référence hypothécaire reste à un niveau historiquement bas de 1,25 %',
     'blog.article.tasso-riferimento-ipotecario-1-25.excerpt': 'Le taux de référence hypothécaire reste à 1,25 %, maintenant les loyers en Suisse inchangés.',
     'blog.article.tasso-riferimento-ipotecario-1-25.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le panorama de la ville et le lac de Lugano en arrière-plan.',
+    'blog.article.svizzeri-chiedono-misure-clima.title': 'De plus en plus de Suisses demandent des mesures contre le réchauffement climatique',
+    'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'Après la vague de chaleur estivale, les Suisses réclament des mesures concrètes, telles que la rénovation des bâtiments ou l’installation de panneaux solaires.',
+    'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Vue aérienne du Lac de Lugano avec des panneaux solaires sur les toits.',
 };
 
 export default blogMetaChFr;

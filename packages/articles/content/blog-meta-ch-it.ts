@@ -4906,6 +4906,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasso-riferimento-ipotecario-1-25.title': 'Tasso di riferimento ipotecario rimane al minimo storico dell\'1,25 per cento',
     'blog.article.tasso-riferimento-ipotecario-1-25.excerpt': 'Il tasso di riferimento ipotecario rimane all\'1,25 per cento, mantenendo gli affitti in Svizzera invariati.',
     'blog.article.tasso-riferimento-ipotecario-1-25.imageAlt': 'Vista aerea di Lugano, Svizzera, con il panorama della città e il Lago di Lugano sullo sfondo.',
+    'blog.article.svizzeri-chiedono-misure-clima.title': 'Di più Svizzeri chiedono misure contro riscaldamento climatico',
+    'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'Dopo l\'ondata di caldo estiva, gli svizzeri chiedono misure concrete, quali la ristrutturazione degli edifici o l\'installazione di pannelli solari.',
+    'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti.',
 };
 
 export default blogMetaChIt;

@@ -4906,6 +4906,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasso-riferimento-ipotecario-1-25.title': 'Der Leitzins für Hypotheken bleibt mit 1,25 Prozent auf einem Rekordtief',
     'blog.article.tasso-riferimento-ipotecario-1-25.excerpt': 'Der Hypothekenreferenzzins bleibt bei 1,25 Prozent, sodass die Mieten in der Schweiz unverändert bleiben.',
     'blog.article.tasso-riferimento-ipotecario-1-25.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit der Stadtlandschaft und dem Luganersee im Hintergrund.',
+    'blog.article.svizzeri-chiedono-misure-clima.title': 'Mehr Schweizer fordern Maßnahmen gegen die globale Erwärmung',
+    'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'Nach der Hitzewelle im Sommer fordern die Schweizer konkrete Maßnahmen wie die Renovierung von Gebäuden oder die Installation von Solarpanels.',
+    'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Luftaufnahme des Luganer Sees mit Solarpaneelen auf den Dächern.',
 };
 
 export default blogMetaChDe;

@@ -1661,6 +1661,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'breve-durata-friburgo-proroga': { it: 'breve-durata-friburgo-proroga', en: 'short-term-fribourg-renewal', de: 'kurzzeitaufenthalt-freiburg-verlangerung', fr: 'courte-duree-fribourg-renouvellement' },
  'swiss-life-600-tagli-2028': { it: 'swiss-life-600-tagli-2028', en: 'swiss-life-600-job-cuts-2028', de: 'swiss-life-600-stellenabbau-2028', fr: 'swiss-life-600-suppressions-2028' },
  'tasso-riferimento-ipotecario-1-25': { it: 'tasso-riferimento-ipotecario-1-25', en: 'mortgage-reference-rate-remains-at-1-25', de: 'hypothekenreferenzzins-bleibt-bei-1-25', fr: 'taux-de-reference-hypothecaire-remporte-a-1-25' },
+ 'svizzeri-chiedono-misure-clima': { it: 'svizzeri-chiedono-misure-clima', en: 'swiss-demand-climate-measures', de: 'schweizer-fordern-klimamasnahmen', fr: 'suisses-demandent-mesures-climat' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
