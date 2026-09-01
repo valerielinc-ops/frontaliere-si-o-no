@@ -242,7 +242,7 @@ jobs:
             .id == $runId
             and .repository.full_name == $repository
             and (.path == $workflowPath or .path == ($workflowPath + "@" + $workflowRef))
-            and .name == $workflowName
+            and (.name == $workflowName or .name == $title)
             and .display_title == $title
             and .event == "workflow_dispatch"
             and .head_branch == $workflowRef
@@ -283,7 +283,7 @@ jobs:
                 --arg title "crawler-generation-sentinel-$token" '
               .id == $runId
               and .repository.full_name == $repository
-              and .name == "Crawler Generation Observer (shadow)"
+              and (.name == "Crawler Generation Observer (shadow)" or .name == $title)
               and (.path == ".github/workflows/crawler-generation-observer-shadow.yml"
                 or .path == (".github/workflows/crawler-generation-observer-shadow.yml@" + $workflowRef))
               and .display_title == $title

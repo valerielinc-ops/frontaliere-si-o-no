@@ -534,12 +534,12 @@
     {
       "source": "observers/workflows/crawler-generation-observer-shadow.yml",
       "target": ".github/workflows/crawler-generation-observer-shadow.yml",
-      "sha256": "fbbf061c03fd31bf53f70cd7ffd289f7e8665778351673dd53903db4cd5a7e6a"
+      "sha256": "7571e5faabd188877b13f2df6ce6920bf55cb0d76e7954ad10fa131da595662d"
     },
     {
       "source": "observers/scripts/crawler-generation-observer-selector.mjs",
       "target": "scripts/ci/crawler-generation-observer-selector.mjs",
-      "sha256": "ee3bd242ee2911d676c6fa580a688dacbec76090639ab2958b341c852b2f6c56"
+      "sha256": "8df1af50f6b01d4535e316bfb947c9e8fce2390c9a76391fda1f35949d55370d"
     },
     {
       "source": "observers/scripts/lib/canonical-json-digest.mjs",

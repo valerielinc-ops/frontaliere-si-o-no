@@ -47,8 +47,7 @@ const TERMINAL_CONCLUSIONS = new Set([
   'neutral', 'skipped', 'stale', 'startup_failure',
 ]);
 export const CRAWLER_GENERATION_REF_RETENTION_MS = 24 * 60 * 60 * 1_000;
-export const MAX_CRAWLER_GENERATION_REF_PAGES = 2;
-export const MAX_CRAWLER_GENERATION_REFS = 100;
+export const MAX_CRAWLER_GENERATION_REAPER_CANDIDATES = 4;
 
 function compareCodePoint(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -167,9 +166,8 @@ async function getAndValidateRun({
         identityForRunId(runId),
         repository,
       );
-      return validation.valid
-        ? { status: 'matched', observation: validation.observation }
-        : { status: 'binding_mismatch', observation: null };
+      if (validation.valid) return { status: 'matched', observation: validation.observation };
+      if (attempt === attempts) return { status: 'binding_mismatch', observation: null };
     }
     if (attempt < attempts) await sleep(attempt * 250);
   }
@@ -397,34 +395,45 @@ export async function reapStaleCrawlerGenerationDispatchRefs({
   if (!isCrawlerGenerationToken(currentGenerationToken) || !Number.isFinite(now)) {
     throw new TypeError('Invalid crawler generation reaper input');
   }
-  const listed = [];
-  for (let page = 1; page <= MAX_CRAWLER_GENERATION_REF_PAGES; page += 1) {
-    let response;
-    try {
-      response = await request({
-        method: 'GET',
-        path: `/repos/${CALLER_REPOSITORY}/git/matching-refs/heads/${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}?per_page=50&page=${page}`,
-        apiVersion: GITHUB_API_VERSION,
-      });
-    } catch {
-      return { status: 'list_failed', listed: 0, reaped: 0, preserved: 0, truncated: false };
-    }
-    if (response?.status !== 200 || !Array.isArray(response.body) || response.body.length > 50) {
-      return { status: 'list_failed', listed: 0, reaped: 0, preserved: 0, truncated: false };
-    }
-    listed.push(...response.body);
-    if (response.body.length < 50) break;
+  let response;
+  try {
+    response = await request({
+      method: 'GET',
+      path: `/repos/${CALLER_REPOSITORY}/git/matching-refs/heads/${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}`,
+      apiVersion: GITHUB_API_VERSION,
+    });
+  } catch {
+    return { status: 'list_failed', listed: 0, reaped: 0, preserved: 0, truncated: false };
   }
-  const truncated = listed.length === MAX_CRAWLER_GENERATION_REFS;
-  let reaped = 0;
+  if (response?.status !== 200 || !Array.isArray(response.body)) {
+    return { status: 'list_failed', listed: 0, reaped: 0, preserved: 0, truncated: false };
+  }
+  const listed = response.body;
+  const seenRefs = new Set();
   let preserved = 0;
+  const candidates = [];
   for (const observed of listed) {
     const candidate = parseGenerationRef(observed?.ref);
     if (!candidate || candidate.generationToken === currentGenerationToken
-        || observed?.object?.type !== 'commit' || !COMMIT_RE.test(observed?.object?.sha ?? '')) {
+        || observed?.object?.type !== 'commit' || !COMMIT_RE.test(observed?.object?.sha ?? '')
+        || seenRefs.has(observed.ref)) {
       preserved += 1;
       continue;
     }
+    seenRefs.add(observed.ref);
+    candidates.push({ observed, ...candidate });
+  }
+  candidates.sort((left, right) => {
+    const leftRunId = BigInt(left.runId);
+    const rightRunId = BigInt(right.runId);
+    if (leftRunId !== rightRunId) return leftRunId < rightRunId ? -1 : 1;
+    return left.runAttempt - right.runAttempt;
+  });
+  const truncated = candidates.length > MAX_CRAWLER_GENERATION_REAPER_CANDIDATES;
+  preserved += Math.max(0, candidates.length - MAX_CRAWLER_GENERATION_REAPER_CANDIDATES);
+  let reaped = 0;
+  for (const candidate of candidates.slice(0, MAX_CRAWLER_GENERATION_REAPER_CANDIDATES)) {
+    const { observed } = candidate;
     let owner;
     try {
       owner = await request({
@@ -449,7 +458,10 @@ export async function reapStaleCrawlerGenerationDispatchRefs({
       preserved += 1;
       continue;
     }
-    if (current?.status === 404) continue;
+    if (current?.status === 404) {
+      reaped += 1;
+      continue;
+    }
     if (!exactObservedRef(current, dispatchRef, observed.object.sha)) {
       preserved += 1;
       continue;

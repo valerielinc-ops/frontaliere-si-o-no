@@ -190,7 +190,12 @@ export function validateCrawlerGenerationWorkflowRun(
   if (runId !== binding?.runId) errors.push('run_id_mismatch');
   if (run?.repository?.full_name !== repository) errors.push('repository_mismatch');
   const expectedRef = dispatchRefForBinding(binding);
-  if (run?.name !== binding?.workflowName) errors.push('workflow_name_mismatch');
+  // Actions has exposed `name` as either the static workflow name or the
+  // dynamic run-name across lifecycle snapshots. The preflight artifact hash
+  // binds the static workflow at the exact head SHA; both API forms stay exact.
+  if (run?.name !== binding?.workflowName && run?.name !== binding?.runName) {
+    errors.push('workflow_name_mismatch');
+  }
   if (run?.display_title !== binding?.runName) errors.push('run_name_mismatch');
   if (expectedRef === null || !exactWorkflowRunPath(run?.path, binding?.workflowFile, expectedRef)) {
     errors.push('workflow_path_mismatch');

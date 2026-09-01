@@ -146,6 +146,7 @@ describe('crawler observer GitHub binding', () => {
       status: 'completed',
       conclusion: 'failure',
     });
+    expect(() => validateBoundCrawlerRun({ ...run, name: binding.runName }, binding)).not.toThrow();
     expect(() => validateBoundCrawlerRun({ ...run, display_title: 'crawler-generation--group-01' }, binding))
       .toThrow(/run binding/i);
     expect(() => validateBoundCrawlerRun({ ...run, name: 'crawler-generation-9001-2-group-02' }, binding))
@@ -352,7 +353,7 @@ describe('crawler observer GitHub binding', () => {
       .toThrow(/sentinel workflow run binding/i);
     expect(() => validateBoundSentinelRun({
       ...run,
-      name: 'crawler-generation-sentinel-9001-2',
+      name: 'spoofed-observer-name',
     }, '9001-2', 90_001, CORPUS_CODE_COMMIT)).toThrow(/sentinel workflow run binding/i);
     expect(() => validateBoundSentinelRun({
       ...run,

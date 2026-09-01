@@ -99,7 +99,7 @@ export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCo
     && TOKEN_RE.test(generationToken ?? '')
     && COMMIT_RE.test(corpusCodeCommit ?? '')
     && exactRunBase(run, runId, generationDispatchRef(generationToken))
-    && run.name === OBSERVER_WORKFLOW_NAME
+    && (run.name === OBSERVER_WORKFLOW_NAME || run.name === runName)
     && run.display_title === runName
     && run.event === 'workflow_dispatch'
     && run.head_sha === corpusCodeCommit;
@@ -120,7 +120,7 @@ export function validateObserverReportOwnerRun(run, runId, generationToken = nul
     expectedName = `crawler-generation-sentinel-${generationToken}`;
   } else return false;
   return expectedName !== null
-    && run.name === OBSERVER_WORKFLOW_NAME
+    && (run.name === OBSERVER_WORKFLOW_NAME || run.name === expectedName)
     && run.display_title === expectedName;
 }
 
@@ -251,7 +251,7 @@ function validateGroupRun(run, sentinel, group) {
       `.github/workflows/${binding.workflowFile}`,
       generationDispatchRef(sentinel.generationToken),
     )
-    && run?.name === binding.workflowName
+    && (run?.name === binding.workflowName || run?.name === binding.runName)
     && run?.display_title === binding.runName
     && run?.event === 'workflow_dispatch'
     && run?.head_branch === generationDispatchRef(sentinel.generationToken)
@@ -303,7 +303,7 @@ async function downloadArtifactJson({ client, artifact, expectedName, maxBytes, 
 
 function parseSentinelToken(run) {
   const match = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(run?.display_title ?? '');
-  return match && run.name === OBSERVER_WORKFLOW_NAME ? match[1] : null;
+  return match && (run.name === OBSERVER_WORKFLOW_NAME || run.name === run.display_title) ? match[1] : null;
 }
 
 function assertList(response, key, cap) {

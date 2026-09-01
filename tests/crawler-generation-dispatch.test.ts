@@ -6,7 +6,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   CRAWLER_GENERATION_REF_RETENTION_MS,
   GITHUB_API_VERSION,
-  MAX_CRAWLER_GENERATION_REF_PAGES,
+  MAX_CRAWLER_GENERATION_REAPER_CANDIDATES,
   cleanupCrawlerGenerationDispatchRef,
   createGitHubActionsRequester,
   dispatchWorkflowOnce,
@@ -19,8 +19,10 @@ import {
 } from '../scripts/crawler-generation-dispatch.mjs';
 import {
   GROUP_IDS,
+  crawlerGenerationSentinelWorkflowIdentity,
   crawlerGenerationLegacyWorkflowIdentity,
   crawlerGenerationWorkflowIdentity,
+  validateCrawlerGenerationWorkflowRun,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 
 const repository = 'nanakokyobashi-rgb/frontaliere-articles';
@@ -93,6 +95,54 @@ describe('crawler generation dispatch protocol', () => {
       method: 'GET',
       path: '/repos/nanakokyobashi-rgb/frontaliere-articles/actions/runs/7001',
     });
+  });
+
+  it('accepts the dynamic name/display_title shape returned by the three incident runs after completion', () => {
+    const token = '33454436082-1';
+    const fixtures = [
+      {
+        binding: crawlerGenerationWorkflowIdentity('01', token, '33454460732'),
+        run: {
+          id: 33454460732,
+          name: 'crawler-generation-33454436082-1-group-01',
+          display_title: 'crawler-generation-33454436082-1-group-01',
+          path: '.github/workflows/crawler-group-01.yml',
+          event: 'workflow_dispatch', head_branch: 'main',
+          head_sha: '079cc61cf369366083ccdb56255c4b86f0d099ce',
+          run_attempt: 1, status: 'completed', conclusion: 'success',
+          repository: { full_name: repository },
+        },
+      },
+      {
+        binding: crawlerGenerationWorkflowIdentity('23', token, '33455982350'),
+        run: {
+          id: 33455982350,
+          name: 'crawler-generation-33454436082-1-group-23',
+          display_title: 'crawler-generation-33454436082-1-group-23',
+          path: '.github/workflows/crawler-group-23.yml',
+          event: 'workflow_dispatch', head_branch: 'main',
+          head_sha: 'e5b77d5a46812ca57b35abdf269900c35e71cc53',
+          run_attempt: 1, status: 'completed', conclusion: 'success',
+          repository: { full_name: repository },
+        },
+      },
+      {
+        binding: crawlerGenerationSentinelWorkflowIdentity(token, '33455984398'),
+        run: {
+          id: 33455984398,
+          name: 'crawler-generation-sentinel-33454436082-1',
+          display_title: 'crawler-generation-sentinel-33454436082-1',
+          path: '.github/workflows/crawler-generation-observer-shadow.yml',
+          event: 'workflow_dispatch', head_branch: 'main',
+          head_sha: 'e5b77d5a46812ca57b35abdf269900c35e71cc53',
+          run_attempt: 1, status: 'completed', conclusion: 'failure',
+          repository: { full_name: repository },
+        },
+      },
+    ];
+    for (const { binding, run } of fixtures) {
+      expect(validateCrawlerGenerationWorkflowRun(run, binding)).toMatchObject({ valid: true, errors: [] });
+    }
   });
 
   it('rejects translate or a group/workflow mismatch before any POST', async () => {
@@ -184,6 +234,7 @@ describe('crawler generation dispatch protocol', () => {
   it('pins one corpus ref so main advancing between dispatches cannot split workflow code', async () => {
     let nextRunId = 7100;
     let mainCommit = 'c'.repeat(40);
+    const resolvedCommits = new Map<number, string>();
     const request = vi.fn(async (input: any) => {
       if (input.path.includes('/git/ref/heads/')) {
         return {
@@ -197,6 +248,7 @@ describe('crawler generation dispatch protocol', () => {
       if (input.method === 'POST') {
         expect(input.body.ref).toBe(dispatchRef);
         nextRunId += 1;
+        resolvedCommits.set(nextRunId, input.body.ref === 'main' ? mainCommit : corpusCodeCommit);
         return {
           status: 200,
           body: {
@@ -207,7 +259,7 @@ describe('crawler generation dispatch protocol', () => {
         };
       }
       const group = nextRunId === 7101 ? '01' : '02';
-      return { status: 200, body: boundRun(group, nextRunId, corpusCodeCommit) };
+      return { status: 200, body: boundRun(group, nextRunId, resolvedCommits.get(nextRunId) ?? null) };
     });
 
     await expect(ensureCrawlerGenerationDispatchRef({ request, generationToken, corpusCodeCommit }))
@@ -232,6 +284,7 @@ describe('crawler generation dispatch protocol', () => {
       request,
     })).resolves.toEqual({ status: 'direct', runId: '7102' });
     expect(mainCommit).not.toBe(corpusCodeCommit);
+    expect([...resolvedCommits.values()]).toEqual([corpusCodeCommit, corpusCodeCommit]);
     expect(request.mock.calls.flatMap(([input]) => input.method).filter((method) => method === 'PATCH')).toEqual([]);
   });
 
@@ -340,18 +393,14 @@ describe('crawler generation dispatch protocol', () => {
     expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
-  it('reaps only exact stale terminal owners and preserves active, young, malformed or changed refs', async () => {
+  it('reaps exact stale cancelled/timed-out owners with one documented list request', async () => {
     const now = Date.parse('2026-09-01T12:00:00.000Z');
-    const tokens = [
-      '8001-1', '8002-2', '8003-1', '8004-1', '8005-3', '8006-1', '8007-1', '8008-1', '8009-1',
-      generationToken,
-    ];
+    const tokens = ['8001-1', '8002-2', generationToken, 'invalid-token'];
     const refs = tokens.map((token, index) => ({
       ref: `refs/heads/crawler-generation-shadow-${token}`,
       object: { type: 'commit', sha: String(index + 1).repeat(40) },
     }));
     const stale = new Date(now - CRAWLER_GENERATION_REF_RETENTION_MS - 1).toISOString();
-    const young = new Date(now - CRAWLER_GENERATION_REF_RETENTION_MS + 1).toISOString();
     const owner = (token: string, overrides: Record<string, unknown> = {}) => {
       const [runId, runAttempt] = token.split('-');
       return {
@@ -368,13 +417,6 @@ describe('crawler generation dispatch protocol', () => {
     const owners: Record<string, any> = {
       '8001': owner('8001-1'),
       '8002': owner('8002-2', { conclusion: 'timed_out' }),
-      '8003': owner('8003-1', { status: 'in_progress', conclusion: null }),
-      '8004': owner('8004-1', { updated_at: young }),
-      '8005': owner('8005-3', { path: '.github/workflows/other.yml' }),
-      '8006': owner('8006-1', { run_attempt: 2 }),
-      '8007': { malformed: true },
-      '8008': owner('8008-1'),
-      '8009': owner('8009-1', { repository: { full_name: 'attacker/untrusted' } }),
     };
     const deleted: string[] = [];
     const request = vi.fn(async (input: any) => {
@@ -384,9 +426,6 @@ describe('crawler generation dispatch protocol', () => {
       const refMatch = /\/git\/ref\/heads\/(.+)$/.exec(input.path);
       if (refMatch) {
         const observed = refs.find(({ ref }) => ref === `refs/heads/${refMatch[1]}`)!;
-        if (refMatch[1] === 'crawler-generation-shadow-8008-1') {
-          return { status: 200, body: { ...observed, object: { type: 'commit', sha: 'f'.repeat(40) } } };
-        }
         return { status: 200, body: observed };
       }
       if (input.method === 'DELETE') {
@@ -398,23 +437,88 @@ describe('crawler generation dispatch protocol', () => {
 
     await expect(reapStaleCrawlerGenerationDispatchRefs({
       request, currentGenerationToken: generationToken, now,
-    })).resolves.toEqual({ status: 'ok', listed: 10, reaped: 2, preserved: 8, truncated: false });
+    })).resolves.toEqual({ status: 'ok', listed: 4, reaped: 2, preserved: 2, truncated: false });
     expect(deleted).toEqual([
       `/repos/${repository}/git/refs/heads/crawler-generation-shadow-8001-1`,
       `/repos/${repository}/git/refs/heads/crawler-generation-shadow-8002-2`,
     ]);
+    const listCalls = request.mock.calls.filter(([input]) => input.path.includes('/git/matching-refs/'));
+    expect(listCalls).toHaveLength(1);
+    expect(listCalls[0]?.[0].path).not.toContain('?');
   });
 
-  it('bounds reaper pagination and does not derive candidates from malformed list responses', async () => {
-    const page = Array.from({ length: 50 }, (_, index) => ({
-      ref: `refs/heads/crawler-generation-shadow-invalid-${index}`,
+  it('processes at most four generation refs oldest-first from one unpaginated response', async () => {
+    const tokens = ['9100-1', '7000-2', '8000-1', '6000-3', '5000-1', '9200-1'];
+    const refs = tokens.map((token) => ({
+      ref: `refs/heads/crawler-generation-shadow-${token}`,
       object: { type: 'commit', sha: corpusCodeCommit },
     }));
-    const request = vi.fn(async () => ({ status: 200, body: page }));
+    const ownerCalls: string[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.path.includes('/git/matching-refs/')) return { status: 200, body: refs };
+      ownerCalls.push(input.path);
+      return { status: 200, body: { status: 'in_progress' } };
+    });
     await expect(reapStaleCrawlerGenerationDispatchRefs({
       request, currentGenerationToken: generationToken,
-    })).resolves.toEqual({ status: 'ok', listed: 100, reaped: 0, preserved: 100, truncated: true });
-    expect(request).toHaveBeenCalledTimes(MAX_CRAWLER_GENERATION_REF_PAGES);
+    })).resolves.toEqual({ status: 'ok', listed: 6, reaped: 0, preserved: 6, truncated: true });
+    expect(ownerCalls).toEqual(['5000', '6000', '7000', '8000'].map(
+      (runId) => `/repos/valerielinc-ops/frontaliere-si-o-no/actions/runs/${runId}`,
+    ));
+    expect(ownerCalls).toHaveLength(MAX_CRAWLER_GENERATION_REAPER_CANDIDATES);
+    expect(request.mock.calls.filter(([input]) => input.path.includes('/git/matching-refs/'))).toHaveLength(1);
+  });
+
+  it('preserves active, young, wrong-owner, malformed, uncertain and changed refs', async () => {
+    const now = Date.parse('2026-09-01T12:00:00.000Z');
+    const stale = new Date(now - CRAWLER_GENERATION_REF_RETENTION_MS - 1).toISOString();
+    const young = new Date(now - CRAWLER_GENERATION_REF_RETENTION_MS + 1).toISOString();
+    const baseOwner = {
+      id: 8100,
+      repository: { full_name: 'valerielinc-ops/frontaliere-si-o-no' },
+      path: '.github/workflows/orchestrate-crawlers.yml',
+      run_attempt: 1,
+      status: 'completed',
+      conclusion: 'cancelled',
+      updated_at: stale,
+    };
+    const variants = [
+      { owner: { ...baseOwner, status: 'in_progress', conclusion: null } },
+      { owner: { ...baseOwner, updated_at: young } },
+      { owner: { ...baseOwner, repository: { full_name: 'attacker/untrusted' } } },
+      { owner: { ...baseOwner, path: '.github/workflows/other.yml' } },
+      { owner: { ...baseOwner, run_attempt: 2 } },
+      { owner: { malformed: true } },
+      { ownerStatus: 503 },
+      { owner: baseOwner, changedRef: true },
+    ];
+    for (const variant of variants) {
+      const observed = {
+        ref: 'refs/heads/crawler-generation-shadow-8100-1',
+        object: { type: 'commit', sha: corpusCodeCommit },
+      };
+      const request = vi.fn(async (input: any) => {
+        if (input.path.includes('/git/matching-refs/')) return { status: 200, body: [observed] };
+        if (input.path.includes('/actions/runs/')) {
+          return { status: variant.ownerStatus ?? 200, body: variant.owner ?? null };
+        }
+        if (input.method === 'GET') return {
+          status: 200,
+          body: variant.changedRef
+            ? { ...observed, object: { type: 'commit', sha: 'f'.repeat(40) } }
+            : observed,
+        };
+        throw new Error('DELETE must not be reached');
+      });
+      await expect(reapStaleCrawlerGenerationDispatchRefs({
+        request, currentGenerationToken: generationToken, now,
+      })).resolves.toEqual({ status: 'ok', listed: 1, reaped: 0, preserved: 1, truncated: false });
+      expect(request.mock.calls.some(([input]) => input.method === 'DELETE')).toBe(false);
+    }
+  });
+
+  it('does not derive reaper candidates from a malformed list response', async () => {
+    const page = [{ ref: 'refs/heads/crawler-generation-shadow-8001-1' }];
 
     const malformed = vi.fn(async () => ({ status: 200, body: { refs: page } }));
     await expect(reapStaleCrawlerGenerationDispatchRefs({
@@ -603,6 +707,35 @@ describe('crawler generation dispatch protocol', () => {
     expect(getCalls).toBe(2);
   });
 
+  it('retries a transient 200 binding mismatch until the exact run snapshot hydrates', async () => {
+    let getCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') return {
+        status: 200,
+        body: {
+          workflow_run_id: 7001,
+          run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+          html_url: `https://github.com/${repository}/actions/runs/7001`,
+        },
+      };
+      getCalls += 1;
+      return {
+        status: 200,
+        body: getCalls === 1 ? { ...boundRun(), path: null } : boundRun(),
+      };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'direct', runId: '7001' });
+    expect(getCalls).toBe(2);
+  });
+
   it('fails shadow binding closed if corpus main advances between preflight and POST', async () => {
     let postCalls = 0;
     const request = vi.fn(async (input: any) => {
@@ -630,7 +763,7 @@ describe('crawler generation dispatch protocol', () => {
       sleep: async () => {},
     })).resolves.toEqual({ status: 'binding_mismatch', runId: null });
     expect(postCalls).toBe(1);
-    expect(request).toHaveBeenCalledTimes(2);
+    expect(request).toHaveBeenCalledTimes(4);
   });
 
   it('returns a negative status after bounded direct-ID GET propagation retries', async () => {

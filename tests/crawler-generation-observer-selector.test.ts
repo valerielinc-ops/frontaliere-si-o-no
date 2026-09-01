@@ -96,10 +96,15 @@ describe('crawler generation scheduled selector', () => {
     expect(validateSentinelOwnerRun(sentinel, {
       runId: '90001', generationToken: '9001-2', corpusCodeCommit,
     })).toBe(true);
+    expect(validateSentinelOwnerRun({ ...sentinel, name: sentinel.display_title }, {
+      runId: '90001', generationToken: '9001-2', corpusCodeCommit,
+    })).toBe(true);
     expect(validateSentinelOwnerRun({ ...sentinel, path: '.github/workflows/spoof.yml' }, {
       runId: '90001', generationToken: '9001-2', corpusCodeCommit,
     })).toBe(false);
     expect(validateObserverReportOwnerRun(reportOwner(), '95001')).toBe(true);
+    expect(validateObserverReportOwnerRun({ ...reportOwner(), name: reportOwner().display_title }, '95001'))
+      .toBe(true);
     expect(validateObserverReportOwnerRun({ ...reportOwner(), display_title: 'spoof' }, '95001'))
       .toBe(false);
   });
