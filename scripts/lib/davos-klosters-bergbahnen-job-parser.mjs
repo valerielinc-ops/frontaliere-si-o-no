@@ -20,7 +20,13 @@ const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontali
 export function normalizeDavosKlostersBergbahnenJobUrl(rawUrl = '') {
   try {
     const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
-    const isJobPath = /^\/de\/mountains\/stellenangebote\/[^/]+_j_\d+\/?$/i.test(url.pathname);
+    // Anchored on `_j_<id>` but tolerates one extra path segment after it
+    // (e.g. a descriptive slug rexx-systems could append) instead of
+    // rejecting the whole URL outright — mirrors the listing-side match at
+    // line ~134, which already accepts `_j_\d+` without anchoring the end.
+    // Live-verified 2026-09-01: the 9 jobs currently on the site carry no
+    // such suffix, but origin/base-path stay exact-matched either way.
+    const isJobPath = /^\/de\/mountains\/stellenangebote\/[^/]+_j_\d+(?:\/[^/]+)?\/?$/i.test(url.pathname);
     if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
       return null;
     }
