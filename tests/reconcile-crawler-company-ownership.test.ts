@@ -116,6 +116,26 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
+  it('observes a zero-change dry run after repairing the SOH stale-writer resurrection', () => {
+    const dryRun = JSON.parse(execFileSync(
+      process.execPath,
+      ['scripts/reconcile-crawler-company-ownership.mjs'],
+      { encoding: 'utf8' },
+    ));
+    const soh = dryRun.report.find(
+      (entry: { retired?: string }) => entry.retired === 'solothurner-spitaeler',
+    );
+
+    expect(dryRun.mode).toBe('dry-run');
+    expect(soh).toMatchObject({
+      canonical: 'soh-solothurner-spitaeler',
+      active: { skipped: 'retired active slice already absent' },
+      archive: {
+        skipped: 'retired expired slice already absent; canonical archive already deduplicated',
+      },
+    });
+  });
+
   it('merges expired aliases by locale route without losing soft landings', () => {
     const canonical = job('canonical', '1', 'canonical-current');
     canonical.previousSlugs = [];
