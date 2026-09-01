@@ -8,6 +8,7 @@ vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
 
 import { fetchDennerJobUrls, main as runDennerCrawler } from '../scripts/update-denner-jobs.mjs';
 import { fetchMigrolinoListingHrefs } from '../scripts/lib/migrolino-job-parser.mjs';
+import { fetchMigrosJobDetailUrls } from '../scripts/update-migros-jobs.mjs';
 import { crawlerScratchPathFor } from '../scripts/lib/crawler-scratch-path.mjs';
 
 afterEach(() => {
@@ -16,6 +17,8 @@ afterEach(() => {
   delete process.env.JOBS_DENNER_PAGINATION_STALL_POLLS;
   delete process.env.JOBS_MIGROLINO_PAGINATION_TIMEOUT_MS;
   delete process.env.JOBS_MIGROLINO_PAGINATION_STALL_POLLS;
+  delete process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS;
+  delete process.env.JOBS_MIGROS_PAGINATION_STALL_POLLS;
   vi.restoreAllMocks();
 });
 
@@ -37,6 +40,35 @@ function mockStalledBrowser(detailHref: string, clickError?: Error) {
     evaluate: vi.fn().mockResolvedValue([detailHref]),
     locator: vi.fn((selector: string) => ({
       first: () => selector.includes('Akzeptieren') ? consent : nextButton,
+    })),
+  };
+  launchChromiumMock.mockResolvedValue({
+    newContext: vi.fn().mockResolvedValue({
+      newPage: vi.fn().mockResolvedValue(page),
+    }),
+    close: vi.fn().mockResolvedValue(undefined),
+  });
+  return nextButton;
+}
+
+function mockStalledMigrosBrowser(detailHref: string, clickError?: Error) {
+  const consent = {
+    isVisible: vi.fn().mockResolvedValue(false),
+  };
+  const nextButton = {
+    isVisible: vi.fn().mockResolvedValue(true),
+    isDisabled: vi.fn().mockResolvedValue(false),
+    scrollIntoViewIfNeeded: vi.fn().mockResolvedValue(undefined),
+    click: clickError
+      ? vi.fn().mockRejectedValue(clickError)
+      : vi.fn().mockResolvedValue(undefined),
+  };
+  const page = {
+    goto: vi.fn().mockResolvedValue(undefined),
+    waitForTimeout: vi.fn().mockResolvedValue(undefined),
+    evaluate: vi.fn().mockResolvedValue([detailHref]),
+    locator: vi.fn((selector: string) => ({
+      first: () => selector.includes('successiva') ? nextButton : consent,
     })),
   };
   launchChromiumMock.mockResolvedValue({
@@ -111,6 +143,15 @@ describe('Denner Playwright pagination', () => {
 
     await expect(fetchMigrolinoListingHrefs()).rejects.toThrow(
       'migrolino discovery incomplete at page 1: next control click failed (detached)',
+    );
+  });
+
+  it('rejects a Migros snapshot when the next-page click fails', async () => {
+    const detailHref = '/it/le-nostre-imprese/job/migros-ticino/vendita/example-id';
+    mockStalledMigrosBrowser(detailHref, new Error('detached'));
+
+    await expect(fetchMigrosJobDetailUrls()).rejects.toThrow(
+      'Migros discovery incomplete at page 1: next control click failed (detached)',
     );
   });
 });
