@@ -65072,6 +65072,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soletta-locazione-affitti-guida-pratica': {
+    title: 'Mercato affitti Soletta: canoni e diritto di locazione',
+    description: 'Diritto di locazione nel Canton Soletta: deposito cauzionale max 3 mesi, disdetta su modulo ufficiale, contestazione canone entro 30 giorni, autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, soletta, canoni',
+    ogTitle: 'Mercato affitti Soletta: canoni e diritto di locazione',
+    ogDescription: 'Nel Canton Soletta vale il diritto federale di locazione svizzero: deposito max 3 mesi, disdetta su modulo ufficiale, contestazione entro 30 giorni all\'autorità di conciliazione. Scopri come tutelare i tuoi diritti di inquilino.',
+    canonicalPath: '/articoli-svizzera/soletta-locazione-affitti-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato affitti Soletta: canoni e diritto di locazione",
+      "description": "Diritto di locazione nel Canton Soletta: deposito cauzionale max 3 mesi, disdetta su modulo ufficiale, contestazione canone entro 30 giorni, autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-locazione-affitti-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una palazzina residenziale svizzera con finestre e balconi in contesto urbano"
+      },
+      "datePublished": "2026-09-01T23:05:26+00:00",
+      "dateModified": "2026-09-01T23:05:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-locazione-affitti-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

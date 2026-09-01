@@ -5014,6 +5014,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Comprare casa nel canton Grigioni: mutuo, costi e procedure',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Guida pratica all\'acquisto immobiliare nel Grigioni: procedure di compravendita, fondi propri richiesti, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese notarili.',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Casa residenziale moderna con architettura tradizionale svizzera in ambiente alpino del canton Grigioni.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Mercato affitti Soletta: canoni e diritto di locazione',
+    'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Guida completa al diritto di locazione nel Canton Soletta: regole federali su deposito cauzionale, disdetta, contestazione dei canoni e autorità di conciliazione.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Veduta di una palazzina residenziale svizzera con finestre e balconi in contesto urbano',
 };
 
 export default blogMetaChIt;
