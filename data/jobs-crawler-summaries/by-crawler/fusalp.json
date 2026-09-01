@@ -1,20 +1,21 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-09-01T14:16:37.034Z",
+  "generatedAt": "2026-09-01T23:14:14.524Z",
   "total": 5,
   "discovered": null,
   "written": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 36841,
-  "avgDurationMs": 36841,
+  "durationMs": 14414,
+  "avgDurationMs": 14414,
   "durationHistory": [
-    36841
+    14414
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "fusalp-bf5d9e570581",
       "slug": "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
@@ -27,7 +28,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:16:04.933Z",
+      "crawledAt": "2026-09-01T23:14:01.192Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -41,16 +42,16 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-01T14:16:04.933Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "fusalp-6e36f7c9deae",
       "slug": "assistant-store-manager-m-w-dec-26-to-april-27-100-fusalp-saanen",
@@ -63,7 +64,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:16:07.981Z",
+      "crawledAt": "2026-09-01T23:14:02.518Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +100,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:16:10.833Z",
+      "crawledAt": "2026-09-01T23:14:03.531Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -135,7 +136,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-100_val-de-bagnes",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:16:12.059Z",
+      "crawledAt": "2026-09-01T23:14:04.433Z",
       "addressLocality": "Val De Bagnes",
       "addressCountry": "CH",
       "country": "CH",
@@ -171,7 +172,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:16:13.393Z",
+      "crawledAt": "2026-09-01T23:14:05.329Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",

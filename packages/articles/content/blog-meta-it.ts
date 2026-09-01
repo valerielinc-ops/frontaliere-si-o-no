@@ -11069,6 +11069,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo: vivere e lavorare in Ticino',
     'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Frontaliere da Lambrugo: guida pratica su valichi, fiscalità, AVS e LAMal. Come iniziare, costi e vantaggi del pendolarismo Como–Ticino.',
     'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere in auto al valico di confine con il Lago di Lugano sullo sfondo',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.title': 'Vivere a Turate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento da Turate al Ticino.',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

@@ -1,18 +1,18 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-09-01T14:17:35.215Z",
-  "total": 2,
+  "generatedAt": "2026-09-01T23:15:48.536Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7508,
-  "avgDurationMs": 7508,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 7509,
+  "avgDurationMs": 7509,
   "durationHistory": [
-    7508
+    7509
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=7d8be38b-93e4-4258-b4a0-47a77e6250c1&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:17:31.415Z",
+      "crawledAt": "2026-09-01T23:15:44.918Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -55,8 +55,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-9f9f89f8d0a7",
       "slug": "specialiste-rh-a-70-rhne-reseau-hospitalier-neuchatelois-neuchatel",
@@ -99,5 +98,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

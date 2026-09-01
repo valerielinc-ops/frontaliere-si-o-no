@@ -1698,6 +1698,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-grigioni': { it: 'asilo-nido-custodia-bambini-grigioni', en: 'nursery-childcare-graubunden-costs', de: 'kindergarten-betreuung-graubuenden-kosten', fr: 'garderie-enfants-grisons-tarifs' },
  'acquisto-immobiliare-grigioni-mutuo': { it: 'acquisto-immobiliare-grigioni-mutuo', en: 'buy-property-grisons-mortgage', de: 'immobilienkauf-graubuenden-hypothek', fr: 'achat-immobilier-grisons-hypotheque' },
  'soletta-locazione-affitti-guida-pratica': { it: 'soletta-locazione-affitti-guida-pratica', en: 'soletta-rental-lease-rights-guide', de: 'soletta-mietwohnung-mietrecht-leitfaden', fr: 'soletta-location-droits-locataire-guide' },
+ 'soletta-contestazione-canone-affitti': { it: 'soletta-contestazione-canone-affitti', en: 'soletta-contesting-rent-cantonal-law', de: 'soletta-miete-anfechtung-schweizer-recht', fr: 'soletta-contestation-loyer-droit-suisse' },
+ 'affitti-soletta-diritti-inquilini': { it: 'affitti-soletta-diritti-inquilini', en: 'soletta-rental-tenant-rights', de: 'soletta-mietrecht-mieterrechte', fr: 'soletta-droit-location-locataires' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

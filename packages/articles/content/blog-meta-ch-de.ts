@@ -5017,6 +5017,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Mietmarkt Solothurn: Mieten und Mietrecht',
     'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Vollständiger Leitfaden zum Mietrecht im Kanton Solothurn: Bundesregeln zur Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsbehörde.',
     'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Schweizer Wohngebäude mit Fenstern und Balkonen in städtischer Nachbarschaft',
+    'blog.article.soletta-contestazione-canone-affitti.title': 'Mietrecht in der Schweiz: Gebühren und Anfechtung',
+    'blog.article.soletta-contestazione-canone-affitti.excerpt': 'Im schweizerischen Recht ist die Kaution auf 3 Monatsmieten begrenzt und der Mieter kann die Anfangsmiete innerhalb von 30 Tagen bei der kantonalen Schlichtungsbehörde anfechten.',
+    'blog.article.soletta-contestazione-canone-affitti.imageAlt': 'Fassade eines Schweizer Wohngebäudes mit modernen Balkonen, ruhige Straße, realistische DSLR-Fotografie',
+    'blog.article.affitti-soletta-diritti-inquilini.title': 'Mieten Solothurn: Durchschnittsmieten und Mietrecht',
+    'blog.article.affitti-soletta-diritti-inquilini.excerpt': 'Kaution, Gebührenbeanstandung, Kündigung: Die eidgenössischen Miet- und Pachtvorschriften in der Schweiz und die kantonalen Schlichtungsverfahren.',
+    'blog.article.affitti-soletta-diritti-inquilini.imageAlt': 'Schweizer Wohngebäude mit Balkonen in einem modernen städtischen Wohnviertel.',
 };
 
 export default blogMetaChDe;

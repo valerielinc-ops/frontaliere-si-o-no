@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-09-01T14:15:54.202Z",
+  "assembledAt": "2026-09-01T23:13:55.432Z",
   "jobs": [
     {
       "id": "spital-sts-9027335d8af9",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:51.565Z",
+      "crawledAt": "2026-09-01T23:13:51.940Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:50.976Z",
+      "crawledAt": "2026-09-01T23:13:51.473Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -130,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
+        "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
+        "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
+          "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
+          "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun"
         ],
         "en": [
           "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
@@ -190,7 +192,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:50.380Z",
+      "crawledAt": "2026-09-01T23:13:51.005Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -220,7 +222,8 @@
         "medical-practice-assistant-urology-spital-sts-thun",
         "med-praxisassistent-in-urologie-spital-sts-thun",
         "assistant-medical-en-urologie-spital-sts-thun",
-        "med-praxisassistent-in-kardiologie-spital-sts-thun"
+        "med-praxisassistent-in-kardiologie-spital-sts-thun",
+        "med-assistente-pratica-in-cardiologia-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -236,7 +239,8 @@
           "medical-practice-assistant-urology-spital-sts-thun",
           "med-praxisassistent-in-urologie-spital-sts-thun",
           "assistant-medical-en-urologie-spital-sts-thun",
-          "med-praxisassistent-in-kardiologie-spital-sts-thun"
+          "med-praxisassistent-in-kardiologie-spital-sts-thun",
+          "med-assistente-pratica-in-cardiologia-spital-sts-thun"
         ],
         "en": [
           "med-practice-assistant-in-spinal-surgery-spital-sts-thun",
@@ -251,6 +255,502 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:23:41.218Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-e7754823486b",
+      "slug": "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun",
+      "slugByLocale": {
+        "it": "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun",
+        "en": "specialist-doctor-walk-in-praxis-medical-centre-thun-spital-sts-thun",
+        "de": "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
+        "fr": "specialiste-medecin-walk-in-praxis-centre-medical-thun-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Facharzt/-ärztin Walk-In Praxis Medizinisches Zentrum Thun",
+      "titleByLocale": {
+        "it": "Specialista / medico Walk-In Praxis Medical Centre Thun",
+        "en": "Specialist / doctor Walk-In Praxis Medical Centre Thun",
+        "de": "Facharzt/-ärztin Walk-In Praxis Medizinisches Zentrum Thun",
+        "fr": "Spécialiste / médecin Walk-In Praxis Centre médical Thun"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUnsere moderne Walk-in-Praxis ist Teil des Spitals Thun und verbindet die Dynamik der Notfallmedizin mit der Kontinuität der ambulanten Versorgung. Als Fachärztin unserer Walkin Praxis betreuen Sie Patient:innen aus einem allgemeinmedizinischen Spektrum (Innere Medizin, Traumatologie, Kleinchirurgie, Pädiatrie u.a.). Mit Ihrer zuverlässigen und motivierten Arbeit helfen Sie mit, eine hochqualifizierte Versorgung und Betreuung sicherzustellen. In Ihrer anspruchsvollen Tätigkeit werden Sie von einem jungen, motivierten und qualitätsorientierten Team unterstützt.\nZur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit.\n\nStellenantritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Geregelte Arbeitszeiten von Montag bis Freitag innerhalb unserer Sprechstunden (08.00–19.00 Uhr)\n\n• Ein abwechslungsreiches Patientenspektrum aus Allgemeiner Innerer Medizin, Traumatologie, Kleinchirurgie, Pädiatrie und weiteren Fachgebieten\n\n• Direkte Anbindung an das Spital Thun mit unkompliziertem Zugang zu SpezialistInnen verschiedenster Disziplinen\n\n• Moderne Praxis mit vollständig elektronischer Krankengeschichte, digitalem Röntgen, Laboranbindung, Ultraschall, EKG und Spirometrie\n\n• Möglichkeit zum Erwerb der POCUS-Basisnotfallsonographie\n\n• Kollegiales, junges und engagiertes Team mit wertschätzender Zusammenarbeit\n\n• Zentraler Arbeitsplatz direkt beim Bahnhof Thun\n\n• Kurze Entscheidungswege und eine offene Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen sowie gute Möglichkeiten zur fachlichen Weiterentwicklung\n\nSo werden Sie Teil unseres Teams\n\n• Arztdiplom (Schweiz oder EU)\n\n• Facharzttitel oder fortgeschrittene Weiterbildung, vorzugsweise Allgemeine Innere Medizin, Chirurgie/Orthopädie oder Notfallmedizin\n\n• Freude an einem breiten medizinischen Spektrum und selbstständigem Arbeiten\n\n• Zuverlässige, motivierte und teamfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
+      "descriptionByLocale": {
+        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nLa nostra moderna pratica di walk-in fa parte dell'ospedale Thun e combina le dinamiche della medicina di emergenza con la continuità della cura ambulatoriale. Come specialista nella nostra pratica di Walkin, si prende cura di pazienti da uno spettro medico generale (medicina interna, traumatologia, chirurgia piccola, pediatrica, ecc). Con il vostro lavoro affidabile e motivato, aiutate a garantire assistenza e supporto altamente qualificati. Nel vostro lavoro impegnativo, sarete sostenuti da un team giovane, motivato e orientato alla qualità.\nPer rafforzare il nostro team, stiamo cercando una personalità impegnata.\n\nLavoro a partire dal 1° gennaio 2027 o per accordo.\n\nQuesto ti aspetta\n\n• Ore lavorative regolamentate da lunedì a venerdì entro le ore di ufficio (08.00-19.00)\n\n• Una variegata gamma di pazienti provenienti da medicina interna generale, traumatologia, piccola chirurgia, pediatrica e altre aree specializzate\n\n• Collegamento diretto a Spital Thun con accesso semplice a specialisti di varie discipline\n\n• Pratica moderna con storia medica completamente elettronica, raggi X digitali, connessione di laboratorio, ultrasuoni, ECG e Spirometria\n\n• Possibilità di acquisire POCUS linea base di emergenza onografia\n\n• Squadra Collegiale, giovane e impegnata con una collaborazione apprezzata\n\n• Posto di lavoro centrale direttamente alla stazione Thun\n\n• Brevi percorsi decisionali e una cultura aziendale aperta\n\n• Condizioni di lavoro attraenti e buone opportunità di sviluppo professionale\n\nDiventa parte del nostro team\n\n• Diploma medico (Svizzera o UE)\n\n• Titolo specialistico o formazione avanzata, preferibilmente Medicina Interna Generale, Chirurgia/Ortopedia o Medicina di Emergenza\n\n• Godere di un ampio spettro medico e lavorare in modo indipendente\n\n• Personalità affidabile, motivata e capace di squadra\n\n• Molto buona conoscenza del tedesco in parola e scrittura",
+        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nOur modern walk-in practice is part of the hospital Thun and combines the dynamics of emergency medicine with the continuity of outpatient care. As a specialist in our Walkin practice, you look after patients from a general medical spectrum (internal medicine, traumatology, small surgery, paediatrics, etc.). With your reliable and motivated work, you help to ensure highly qualified care and support. In your demanding job, you will be supported by a young, motivated and quality-oriented team.\nTo strengthen our team, we are looking for a committed personality.\n\nJob as of 1 January 2027 or by arrangement.\n\nThis is waiting for you\n\n• Regulated working hours from Monday to Friday within our office hours (08.00-19.00)\n\n• A varied spectrum of patients from general internal medicine, traumatology, small surgery, pediatrics and other specialist areas\n\n• Direct connection to Spital Thun with uncomplicated access to specialists from various disciplines\n\n• Modern practice with fully electronic medical history, digital X-ray, laboratory connection, ultrasound, ECG and spirometry\n\n• Possibility to acquire POCUS baseline emergency onography\n\n• Collegial, young and committed team with appreciative cooperation\n\n• Central workplace directly at Thun station\n\n• Short decision-making paths and an open corporate culture\n\n• Attractive employment conditions and good opportunities for professional development\n\nBecome part of our team\n\n• Medical diploma (Switzerland or EU)\n\n• Specialist title or advanced training, preferably General Internal Medicine, Surgery/Orthopedics or Emergency Medicine\n\n• Enjoying a broad medical spectrum and working independently\n\n• Reliable, motivated and team capable personality\n\n• Very good knowledge of German in word and writing",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUnsere moderne Walk-in-Praxis ist Teil des Spitals Thun und verbindet die Dynamik der Notfallmedizin mit der Kontinuität der ambulanten Versorgung. Als Fachärztin unserer Walkin Praxis betreuen Sie Patient:innen aus einem allgemeinmedizinischen Spektrum (Innere Medizin, Traumatologie, Kleinchirurgie, Pädiatrie u.a.). Mit Ihrer zuverlässigen und motivierten Arbeit helfen Sie mit, eine hochqualifizierte Versorgung und Betreuung sicherzustellen. In Ihrer anspruchsvollen Tätigkeit werden Sie von einem jungen, motivierten und qualitätsorientierten Team unterstützt.\nZur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit.\n\nStellenantritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Geregelte Arbeitszeiten von Montag bis Freitag innerhalb unserer Sprechstunden (08.00–19.00 Uhr)\n\n• Ein abwechslungsreiches Patientenspektrum aus Allgemeiner Innerer Medizin, Traumatologie, Kleinchirurgie, Pädiatrie und weiteren Fachgebieten\n\n• Direkte Anbindung an das Spital Thun mit unkompliziertem Zugang zu SpezialistInnen verschiedenster Disziplinen\n\n• Moderne Praxis mit vollständig elektronischer Krankengeschichte, digitalem Röntgen, Laboranbindung, Ultraschall, EKG und Spirometrie\n\n• Möglichkeit zum Erwerb der POCUS-Basisnotfallsonographie\n\n• Kollegiales, junges und engagiertes Team mit wertschätzender Zusammenarbeit\n\n• Zentraler Arbeitsplatz direkt beim Bahnhof Thun\n\n• Kurze Entscheidungswege und eine offene Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen sowie gute Möglichkeiten zur fachlichen Weiterentwicklung\n\nSo werden Sie Teil unseres Teams\n\n• Arztdiplom (Schweiz oder EU)\n\n• Facharzttitel oder fortgeschrittene Weiterbildung, vorzugsweise Allgemeine Innere Medizin, Chirurgie/Orthopädie oder Notfallmedizin\n\n• Freude an einem breiten medizinischen Spektrum und selbstständigem Arbeiten\n\n• Zuverlässige, motivierte und teamfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
+        "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nNotre pratique moderne de la promenade fait partie de l'hôpital Thun et combine la dynamique de la médecine d'urgence avec la continuité des soins ambulatoires. En tant que spécialiste de notre pratique de Walkin, vous vous occupez de patients d'un spectre médical général (médecine interne, traumatologie, petite chirurgie, pédiatrie, etc.). Grâce à votre travail fiable et motivé, vous contribuez à assurer des soins et un soutien hautement qualifiés. Dans votre travail exigeant, vous serez soutenu par une équipe jeune, motivée et de qualité.\nPour renforcer notre équipe, nous recherchons une personnalité engagée.\n\nEmploi au 1er janvier 2027 ou par arrangement.\n\nÇa vous attend.\n\n• Heures de travail réglementées du lundi au vendredi dans nos heures de bureau (08.00-19.00)\n\n• Un éventail varié de patients de médecine interne générale, traumatologie, petite chirurgie, pédiatrie et autres domaines spécialisés\n\n• Connexion directe à Spital Thun avec accès simple à des spécialistes de diverses disciplines\n\n• Pratique moderne avec histoire médicale entièrement électronique, radiographie numérique, connexion en laboratoire, échographie, ECG et spirométrie\n\n• Possibilité d'acquérir l'onographie d'urgence de base de POCUS\n\n• Équipe collégiale, jeune et engagée avec une coopération appréciée\n\n• Lieu de travail central directement à la gare de Thun\n\n• Courts processus décisionnels et culture d'entreprise ouverte\n\n• Des conditions d'emploi attrayantes et de bonnes possibilités de perfectionnement professionnel\n\nDevenez membre de notre équipe\n\n• Diplôme de médecine (Suisse ou UE)\n\n• Titre de spécialiste ou formation avancée, de préférence médecine interne générale, chirurgie/orthopédie ou médecine d'urgence\n\n• Appréciant un large spectre médical et travaillant de manière indépendante\n\n• Personnalité fiable, motivée et capable d'équipe\n\n• Très bonne connaissance de l'allemand en paroles et en écriture"
+      },
+      "needsRetranslation": false,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:50.608Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/5d0b469e-cf82-4f48-817f-f5bcb8fa9150",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
+        "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
+          "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun"
+        ],
+        "en": [
+          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
+        ],
+        "fr": [
+          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-08-20T09:53:24.004Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-10cba5f6c3b0",
+      "slug": "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
+      "slugByLocale": {
+        "it": "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
+        "en": "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
+      "titleByLocale": {
+        "it": "Dipl. Specialista HF/FH Oncologia",
+        "en": "Dipl. Nursing specialist HF/FH Oncology",
+        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
+        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH Oncologie"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
+      "descriptionByLocale": {
+        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nVoi siete congiuntamente responsabili di una cura professionale, olistica e del trattamento di pazienti oncologici ed ematologici: nel nostro ambulatorio portate esperienza e idealmente un'ulteriore formazione nella cura dell'oncologia. La familiarizzazione con l'area del soggetto complesso è accuratamente e strutturato. Apprezziamo il vostro pensiero, che contribuisce ai nostri standard di alta qualità. Sarete attivamente coinvolti nelle decisioni e nella loro attuazione.\n\nTi sta aspettando.\n\n• Attività varie e impegnative in un settore dinamico specializzato e team collegiale\n\n• Atmosfera di lavoro apprezzata in una cooperazione interprofessionale e interdisciplinare\n\n• Un lavoro con opportunità di formazione e sviluppo\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\n• Condizioni di lavoro flessibili per l'acquisto e i modelli di fondi pensione\n\nDiventa parte del nostro team\n\n• Hai completato l'allenamento come infermiera HF/FH e l'esperienza professionale in oncologia e/o cura acuta\n\n• Avete formazione specialistica oncologia o la volontà di completare uno\n\n• Il lavoro nella squadra è importante per voi\n\n• Si lavora orientato al servizio e sono pronti per andare il miglio supplementare\n\n• Sei flessibile e adattabile nella progettazione della vita quotidiana\n\n• Hai una mentalità in rete e previsionale",
+        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYou are jointly responsible for a professional, holistic care and treatment of oncological & hematological patients: in our ambulatory you bring experience and ideally a further education in oncology care. The familiarization with the complex subject area is carefully and structured. We appreciate your thinking, which contributes to our high quality standards. You will be actively involved in decisions and their implementation.\n\nThis is waiting for you\n\n• Varied and demanding activities in a dynamic specialist area and collegial team\n\n• Appreciative working atmosphere in an interprofessional and interdisciplinary cooperation\n\n• A job with training and development opportunities\n\n• Leisure and nature experiences in the immediate vicinity\n\n• Flexible employment conditions regarding holiday purchase and pension fund models\n\nBecome part of our team\n\n• You have completed training as a nurse HF/FH and professional experience in oncology and/or acute care\n\n• You have oncology specialist training or the willingness to complete one\n\n• Work in the team is important to you\n\n• You work service-oriented and are ready to go the extra mile\n\n• You are flexible and adaptable in the design of everyday life\n\n• You have a networked and forward-looking mindset",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
+        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous êtes conjointement responsable d'un traitement et d'un traitement professionnels et holistiques des patients oncologiques et hématologiques : dans notre ambulatoire vous apportez de l'expérience et idéalement une formation complémentaire en soins oncologiques. La familiarisation avec le sujet complexe est soigneusement et structurée. Nous apprécions votre réflexion, qui contribue à nos normes de qualité élevées. Vous participerez activement aux décisions et à leur mise en œuvre.\n\nÇa vous attend.\n\n• Activités variées et exigeantes dans un domaine spécialisé dynamique et une équipe collégiale\n\n• Ambiance de travail appréciée dans une coopération interprofessionnelle et interdisciplinaire\n\n• Un emploi avec des possibilités de formation et de perfectionnement\n\n• Loisirs et expériences nature dans les environs immédiats\n\n• Conditions d'emploi flexibles en ce qui concerne les modèles d'achat de vacances et de fonds de pension\n\nDevenez membre de notre équipe\n\n• Vous avez suivi une formation d'infirmière HF/FH et une expérience professionnelle en oncologie et/ou en soins actifs\n\n• Vous avez une formation de spécialiste en oncologie ou la volonté de compléter une\n\n• Le travail dans l'équipe est important pour vous\n\n• Vous travaillez orienté service et êtes prêt à faire le mile supplémentaire\n\n• Vous êtes flexible et adaptable dans la conception de la vie quotidienne\n\n• Vous avez un état d'esprit en réseau et tourné vers l'avenir"
+      },
+      "needsRetranslation": false,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:50.155Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/ff4bf947-1859-4029-88b8-e7c49381df7a",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
+        "dipl-specialista-hf-fh-oncologia-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
+          "dipl-specialista-hf-fh-oncologia-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-08-20T21:36:24.760Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-7f9deb32d7b4",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+      "slugByLocale": {
+        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
+      "titleByLocale": {
+        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
+        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
+        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
+        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
+      "descriptionByLocale": {
+        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
+        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
+        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind"
+      },
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:49.765Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-25T21:38:08.484Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-7a0da6b9787b",
+      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+      "slugByLocale": {
+        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
+      "titleByLocale": {
+        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
+        "en": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
+        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
+        "fr": "Dipl. Radiologiefachfrau / Radiologiefachmann HF"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
+      "descriptionByLocale": {
+        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
+        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
+        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person"
+      },
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:49.367Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/dd98eeeb-12e0-4b44-9f9e-4ace58014df9",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-26T09:59:57.131Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-6d0bf6370767",
+      "slug": "ausbildner-in-pflege-spital-sts-thun",
+      "slugByLocale": {
+        "it": "ausbildner-in-pflege-spital-sts-thun",
+        "en": "ausbildner-in-pflege-spital-sts-thun",
+        "de": "ausbildner-in-pflege-spital-sts-thun",
+        "fr": "ausbildner-in-pflege-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Ausbildner:in Pflege",
+      "titleByLocale": {
+        "it": "Ausbildner:in Pflege",
+        "en": "Ausbildner:in Pflege",
+        "de": "Ausbildner:in Pflege",
+        "fr": "Ausbildner:in Pflege"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
+      "descriptionByLocale": {
+        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
+        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
+        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit"
+      },
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/af91efba-2736-4d8d-b7ac-59fa72006411/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:48.959Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-27",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/af91efba-2736-4d8d-b7ac-59fa72006411",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-27T00:40:28.963Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-758caf44a350",
+      "slug": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
+      "slugByLocale": {
+        "it": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
+        "en": "professional-health-emergency-center-spital-sts-thun",
+        "de": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+        "fr": "centre-professionnel-d-urgence-en-sante-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Fachfrau/ -mann Gesundheit Notfallzentrum",
+      "titleByLocale": {
+        "it": "Centro di emergenza sanitaria professionale",
+        "en": "Professional Health Emergency Center",
+        "de": "Fachfrau/ -mann Gesundheit Notfallzentrum",
+        "fr": "Centre professionnel d'urgence en santé"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUns ist eine individuelle, kompetente und kundenorientierte Patientenbetreuung wichtig. Die Bezugspflege ist ein prägendes Element unseres Notfallprozesses. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und dem Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Du betreust die Patient:innen zum grössten Teil selbständig oder auf Delegation. Zusätzlich arbeitest du im Fasttrack mit (Praxisbereich innerhalb NFZ).\n\nEintritt per 1. Februar 2027 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interessantes und anspruchsvolles Arbeitsumfeld\n• Spannende und abwechslungsreiche Tätigkeit\n• Entwicklungsmöglichkeiten\n• Interdisziplinäres Team\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung, vorzugsweise bereits im Akutbereich\n• Engagierte und belastbare Art\n• Freude an schnellen Prozessen\n• Ruhe bewahren auch in hektischen Situationen",
+      "descriptionByLocale": {
+        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nPer noi, la cura individuale, competente e orientata al cliente è importante. La manutenzione è un elemento determinante del nostro processo di emergenza. Trattare con la documentazione di assistenza elettronica, il monitoraggio centrale e il sistema di distribuzione della droga fanno parte del vostro lavoro quotidiano. Si prende cura del paziente: per lo più indipendente o su delegazione. Inoltre, si lavora nel Fasttrack (area pratica all'interno di NFZ).\n\nEntrata a decorrere dal 1° febbraio 2027 o per accordo\n\nTi sta aspettando.\n\n• Ambiente di lavoro interessante ed esigente\n• Attività emozionanti e varie\n• Opportunità di sviluppo\n• Gruppo interdisciplinare\n\nDiventa parte del nostro team\n\n• Formazione completa come specialista Health EFZ\n• Esperienza professionale, preferibilmente già nel campo acuto\n• Tipo misto e resiliente\n• Godere di processi veloci\n• Tenere la calma anche in situazioni frenetiche",
+        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nFor us, individual, competent and customer-oriented patient care is important. Maintenance is a defining element of our emergency process. Dealing with electronic care documentation, central monitoring and the drug distribution system are part of your daily work. You look after the patient: mostly independently or on delegation. In addition, you work in the Fasttrack (practical area within NFZ).\n\nEntry as of 1 February 2027 or by agreement\n\nThis is waiting for you\n\n• Interesting and demanding working environment\n• Exciting and varied activity\n• Development opportunities\n• Interdisciplinary team\n\nBecome part of our team\n\n• Completed training as a specialist Health EFZ\n• Professional experience, preferably already in the acute field\n• Committed and resilient type\n• Enjoying fast processes\n• Keep calm even in hectic situations",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUns ist eine individuelle, kompetente und kundenorientierte Patientenbetreuung wichtig. Die Bezugspflege ist ein prägendes Element unseres Notfallprozesses. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und dem Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Du betreust die Patient:innen zum grössten Teil selbständig oder auf Delegation. Zusätzlich arbeitest du im Fasttrack mit (Praxisbereich innerhalb NFZ).\n\nEintritt per 1. Februar 2027 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interessantes und anspruchsvolles Arbeitsumfeld\n• Spannende und abwechslungsreiche Tätigkeit\n• Entwicklungsmöglichkeiten\n• Interdisziplinäres Team\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung, vorzugsweise bereits im Akutbereich\n• Engagierte und belastbare Art\n• Freude an schnellen Prozessen\n• Ruhe bewahren auch in hektischen Situationen",
+        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nPour nous, les soins individuels, compétents et axés sur le client sont importants. L'entretien est un élément déterminant de notre processus d'urgence. Le traitement de la documentation sur les soins électroniques, la surveillance centrale et le système de distribution des médicaments font partie de votre travail quotidien. Vous prenez soin du patient : la plupart du temps indépendamment ou en délégation. De plus, vous travaillez dans le Fasttrack (zone pratique au sein de NFZ).\n\nEntrée au 1er février 2027 ou par accord\n\nÇa vous attend.\n\n• Environnement de travail intéressant et exigeant\n• Activité passionnante et variée\n• Possibilités de développement\n• Équipe interdisciplinaire\n\nDevenez membre de notre équipe\n\n• Formation complète en tant que spécialiste de la santé EFZ\n• Expérience professionnelle, de préférence déjà dans le domaine aigu\n• Type engagé et résistant\n• Profiter de processus rapides\n• Restez calme même dans des situations agitées"
+      },
+      "needsRetranslation": false,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/dd880936-cecc-4a3a-b88c-27be9d0f071e/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:48.472Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/dd880936-cecc-4a3a-b88c-27be9d0f071e",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
+          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+        ],
+        "fr": [
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:22:52.678Z",
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "spital-sts-9c484d0cb9f5",
+      "slug": "med-praxisassistent-in-chirurgie-spital-sts-thun",
+      "slugByLocale": {
+        "it": "med-praxisassistent-in-chirurgie-spital-sts-thun",
+        "en": "med-praxisassistent-in-chirurgie-spital-sts-thun",
+        "de": "med-praxisassistent-in-chirurgie-spital-sts-thun",
+        "fr": "med-praxisassistent-in-chirurgie-spital-sts-thun"
+      },
+      "company": "Spital STS",
+      "companyKey": "spital-sts",
+      "companyDomain": "spitalstsag.ch",
+      "title": "Med. Praxisassistent/in Chirurgie",
+      "titleByLocale": {
+        "it": "Med. Praxisassistent/in Chirurgie",
+        "en": "Med. Praxisassistent/in Chirurgie",
+        "de": "Med. Praxisassistent/in Chirurgie",
+        "fr": "Med. Praxisassistent/in Chirurgie"
+      },
+      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
+      "descriptionByLocale": {
+        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
+        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
+        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
+        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement"
+      },
+      "needsRetranslation": true,
+      "location": "Thun",
+      "canton": "BE",
+      "url": "https://ohws.prospective.ch/public/v1/redirect/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b/ats/",
+      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:13:48.057Z",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3600",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-01T14:15:46.707Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -349,498 +849,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "spital-sts-e7754823486b",
-      "slug": "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun",
-      "slugByLocale": {
-        "it": "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun",
-        "en": "specialist-doctor-walk-in-praxis-medical-centre-thun-spital-sts-thun",
-        "de": "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
-        "fr": "specialiste-medecin-walk-in-praxis-centre-medical-thun-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Facharzt/-ärztin Walk-In Praxis Medizinisches Zentrum Thun",
-      "titleByLocale": {
-        "it": "Specialista / medico Walk-In Praxis Medical Centre Thun",
-        "en": "Specialist / doctor Walk-In Praxis Medical Centre Thun",
-        "de": "Facharzt/-ärztin Walk-In Praxis Medizinisches Zentrum Thun",
-        "fr": "Spécialiste / médecin Walk-In Praxis Centre médical Thun"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUnsere moderne Walk-in-Praxis ist Teil des Spitals Thun und verbindet die Dynamik der Notfallmedizin mit der Kontinuität der ambulanten Versorgung. Als Fachärztin unserer Walkin Praxis betreuen Sie Patient:innen aus einem allgemeinmedizinischen Spektrum (Innere Medizin, Traumatologie, Kleinchirurgie, Pädiatrie u.a.). Mit Ihrer zuverlässigen und motivierten Arbeit helfen Sie mit, eine hochqualifizierte Versorgung und Betreuung sicherzustellen. In Ihrer anspruchsvollen Tätigkeit werden Sie von einem jungen, motivierten und qualitätsorientierten Team unterstützt.\nZur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit.\n\nStellenantritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Geregelte Arbeitszeiten von Montag bis Freitag innerhalb unserer Sprechstunden (08.00–19.00 Uhr)\n\n• Ein abwechslungsreiches Patientenspektrum aus Allgemeiner Innerer Medizin, Traumatologie, Kleinchirurgie, Pädiatrie und weiteren Fachgebieten\n\n• Direkte Anbindung an das Spital Thun mit unkompliziertem Zugang zu SpezialistInnen verschiedenster Disziplinen\n\n• Moderne Praxis mit vollständig elektronischer Krankengeschichte, digitalem Röntgen, Laboranbindung, Ultraschall, EKG und Spirometrie\n\n• Möglichkeit zum Erwerb der POCUS-Basisnotfallsonographie\n\n• Kollegiales, junges und engagiertes Team mit wertschätzender Zusammenarbeit\n\n• Zentraler Arbeitsplatz direkt beim Bahnhof Thun\n\n• Kurze Entscheidungswege und eine offene Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen sowie gute Möglichkeiten zur fachlichen Weiterentwicklung\n\nSo werden Sie Teil unseres Teams\n\n• Arztdiplom (Schweiz oder EU)\n\n• Facharzttitel oder fortgeschrittene Weiterbildung, vorzugsweise Allgemeine Innere Medizin, Chirurgie/Orthopädie oder Notfallmedizin\n\n• Freude an einem breiten medizinischen Spektrum und selbstständigem Arbeiten\n\n• Zuverlässige, motivierte und teamfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nLa nostra moderna pratica di walk-in fa parte dell'ospedale Thun e combina le dinamiche della medicina di emergenza con la continuità della cura ambulatoriale. Come specialista nella nostra pratica di Walkin, si prende cura di pazienti da uno spettro medico generale (medicina interna, traumatologia, chirurgia piccola, pediatrica, ecc). Con il vostro lavoro affidabile e motivato, aiutate a garantire assistenza e supporto altamente qualificati. Nel vostro lavoro impegnativo, sarete sostenuti da un team giovane, motivato e orientato alla qualità.\nPer rafforzare il nostro team, stiamo cercando una personalità impegnata.\n\nLavoro a partire dal 1° gennaio 2027 o per accordo.\n\nQuesto ti aspetta\n\n• Ore lavorative regolamentate da lunedì a venerdì entro le ore di ufficio (08.00-19.00)\n\n• Una variegata gamma di pazienti provenienti da medicina interna generale, traumatologia, piccola chirurgia, pediatrica e altre aree specializzate\n\n• Collegamento diretto a Spital Thun con accesso semplice a specialisti di varie discipline\n\n• Pratica moderna con storia medica completamente elettronica, raggi X digitali, connessione di laboratorio, ultrasuoni, ECG e Spirometria\n\n• Possibilità di acquisire POCUS linea base di emergenza onografia\n\n• Squadra Collegiale, giovane e impegnata con una collaborazione apprezzata\n\n• Posto di lavoro centrale direttamente alla stazione Thun\n\n• Brevi percorsi decisionali e una cultura aziendale aperta\n\n• Condizioni di lavoro attraenti e buone opportunità di sviluppo professionale\n\nDiventa parte del nostro team\n\n• Diploma medico (Svizzera o UE)\n\n• Titolo specialistico o formazione avanzata, preferibilmente Medicina Interna Generale, Chirurgia/Ortopedia o Medicina di Emergenza\n\n• Godere di un ampio spettro medico e lavorare in modo indipendente\n\n• Personalità affidabile, motivata e capace di squadra\n\n• Molto buona conoscenza del tedesco in parola e scrittura",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nOur modern walk-in practice is part of the hospital Thun and combines the dynamics of emergency medicine with the continuity of outpatient care. As a specialist in our Walkin practice, you look after patients from a general medical spectrum (internal medicine, traumatology, small surgery, paediatrics, etc.). With your reliable and motivated work, you help to ensure highly qualified care and support. In your demanding job, you will be supported by a young, motivated and quality-oriented team.\nTo strengthen our team, we are looking for a committed personality.\n\nJob as of 1 January 2027 or by arrangement.\n\nThis is waiting for you\n\n• Regulated working hours from Monday to Friday within our office hours (08.00-19.00)\n\n• A varied spectrum of patients from general internal medicine, traumatology, small surgery, pediatrics and other specialist areas\n\n• Direct connection to Spital Thun with uncomplicated access to specialists from various disciplines\n\n• Modern practice with fully electronic medical history, digital X-ray, laboratory connection, ultrasound, ECG and spirometry\n\n• Possibility to acquire POCUS baseline emergency onography\n\n• Collegial, young and committed team with appreciative cooperation\n\n• Central workplace directly at Thun station\n\n• Short decision-making paths and an open corporate culture\n\n• Attractive employment conditions and good opportunities for professional development\n\nBecome part of our team\n\n• Medical diploma (Switzerland or EU)\n\n• Specialist title or advanced training, preferably General Internal Medicine, Surgery/Orthopedics or Emergency Medicine\n\n• Enjoying a broad medical spectrum and working independently\n\n• Reliable, motivated and team capable personality\n\n• Very good knowledge of German in word and writing",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUnsere moderne Walk-in-Praxis ist Teil des Spitals Thun und verbindet die Dynamik der Notfallmedizin mit der Kontinuität der ambulanten Versorgung. Als Fachärztin unserer Walkin Praxis betreuen Sie Patient:innen aus einem allgemeinmedizinischen Spektrum (Innere Medizin, Traumatologie, Kleinchirurgie, Pädiatrie u.a.). Mit Ihrer zuverlässigen und motivierten Arbeit helfen Sie mit, eine hochqualifizierte Versorgung und Betreuung sicherzustellen. In Ihrer anspruchsvollen Tätigkeit werden Sie von einem jungen, motivierten und qualitätsorientierten Team unterstützt.\nZur Verstärkung unseres Teams suchen wir eine engagierte Persönlichkeit.\n\nStellenantritt per 1. Januar 2027 oder nach Vereinbarung.\n\nDas wartet auf Sie\n\n• Geregelte Arbeitszeiten von Montag bis Freitag innerhalb unserer Sprechstunden (08.00–19.00 Uhr)\n\n• Ein abwechslungsreiches Patientenspektrum aus Allgemeiner Innerer Medizin, Traumatologie, Kleinchirurgie, Pädiatrie und weiteren Fachgebieten\n\n• Direkte Anbindung an das Spital Thun mit unkompliziertem Zugang zu SpezialistInnen verschiedenster Disziplinen\n\n• Moderne Praxis mit vollständig elektronischer Krankengeschichte, digitalem Röntgen, Laboranbindung, Ultraschall, EKG und Spirometrie\n\n• Möglichkeit zum Erwerb der POCUS-Basisnotfallsonographie\n\n• Kollegiales, junges und engagiertes Team mit wertschätzender Zusammenarbeit\n\n• Zentraler Arbeitsplatz direkt beim Bahnhof Thun\n\n• Kurze Entscheidungswege und eine offene Unternehmenskultur\n\n• Attraktive Anstellungsbedingungen sowie gute Möglichkeiten zur fachlichen Weiterentwicklung\n\nSo werden Sie Teil unseres Teams\n\n• Arztdiplom (Schweiz oder EU)\n\n• Facharzttitel oder fortgeschrittene Weiterbildung, vorzugsweise Allgemeine Innere Medizin, Chirurgie/Orthopädie oder Notfallmedizin\n\n• Freude an einem breiten medizinischen Spektrum und selbstständigem Arbeiten\n\n• Zuverlässige, motivierte und teamfähige Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift",
-        "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nNotre pratique moderne de la promenade fait partie de l'hôpital Thun et combine la dynamique de la médecine d'urgence avec la continuité des soins ambulatoires. En tant que spécialiste de notre pratique de Walkin, vous vous occupez de patients d'un spectre médical général (médecine interne, traumatologie, petite chirurgie, pédiatrie, etc.). Grâce à votre travail fiable et motivé, vous contribuez à assurer des soins et un soutien hautement qualifiés. Dans votre travail exigeant, vous serez soutenu par une équipe jeune, motivée et de qualité.\nPour renforcer notre équipe, nous recherchons une personnalité engagée.\n\nEmploi au 1er janvier 2027 ou par arrangement.\n\nÇa vous attend.\n\n• Heures de travail réglementées du lundi au vendredi dans nos heures de bureau (08.00-19.00)\n\n• Un éventail varié de patients de médecine interne générale, traumatologie, petite chirurgie, pédiatrie et autres domaines spécialisés\n\n• Connexion directe à Spital Thun avec accès simple à des spécialistes de diverses disciplines\n\n• Pratique moderne avec histoire médicale entièrement électronique, radiographie numérique, connexion en laboratoire, échographie, ECG et spirométrie\n\n• Possibilité d'acquérir l'onographie d'urgence de base de POCUS\n\n• Équipe collégiale, jeune et engagée avec une coopération appréciée\n\n• Lieu de travail central directement à la gare de Thun\n\n• Courts processus décisionnels et culture d'entreprise ouverte\n\n• Des conditions d'emploi attrayantes et de bonnes possibilités de perfectionnement professionnel\n\nDevenez membre de notre équipe\n\n• Diplôme de médecine (Suisse ou UE)\n\n• Titre de spécialiste ou formation avancée, de préférence médecine interne générale, chirurgie/orthopédie ou médecine d'urgence\n\n• Appréciant un large spectre médical et travaillant de manière indépendante\n\n• Personnalité fiable, motivée et capable d'équipe\n\n• Très bonne connaissance de l'allemand en paroles et en écriture"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:49.908Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/5d0b469e-cf82-4f48-817f-f5bcb8fa9150",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
-        ],
-        "en": [
-          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
-        ],
-        "fr": [
-          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T09:53:24.004Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-sts-10cba5f6c3b0",
-      "slug": "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-specialista-hf-fh-oncologia-spital-sts-thun",
-        "en": "dipl-nursing-specialist-hf-fh-oncology-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-oncologie-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
-      "titleByLocale": {
-        "it": "Dipl. Specialista HF/FH Oncologia",
-        "en": "Dipl. Nursing specialist HF/FH Oncology",
-        "de": "Dipl. Pflegefachfrau/Pflegefachmann HF/FH Onkologie",
-        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH Oncologie"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nVoi siete congiuntamente responsabili di una cura professionale, olistica e del trattamento di pazienti oncologici ed ematologici: nel nostro ambulatorio portate esperienza e idealmente un'ulteriore formazione nella cura dell'oncologia. La familiarizzazione con l'area del soggetto complesso è accuratamente e strutturato. Apprezziamo il vostro pensiero, che contribuisce ai nostri standard di alta qualità. Sarete attivamente coinvolti nelle decisioni e nella loro attuazione.\n\nTi sta aspettando.\n\n• Attività varie e impegnative in un settore dinamico specializzato e team collegiale\n\n• Atmosfera di lavoro apprezzata in una cooperazione interprofessionale e interdisciplinare\n\n• Un lavoro con opportunità di formazione e sviluppo\n\n• Esperienze di svago e natura nelle immediate vicinanze\n\n• Condizioni di lavoro flessibili per l'acquisto e i modelli di fondi pensione\n\nDiventa parte del nostro team\n\n• Hai completato l'allenamento come infermiera HF/FH e l'esperienza professionale in oncologia e/o cura acuta\n\n• Avete formazione specialistica oncologia o la volontà di completare uno\n\n• Il lavoro nella squadra è importante per voi\n\n• Si lavora orientato al servizio e sono pronti per andare il miglio supplementare\n\n• Sei flessibile e adattabile nella progettazione della vita quotidiana\n\n• Hai una mentalità in rete e previsionale",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nYou are jointly responsible for a professional, holistic care and treatment of oncological & hematological patients: in our ambulatory you bring experience and ideally a further education in oncology care. The familiarization with the complex subject area is carefully and structured. We appreciate your thinking, which contributes to our high quality standards. You will be actively involved in decisions and their implementation.\n\nThis is waiting for you\n\n• Varied and demanding activities in a dynamic specialist area and collegial team\n\n• Appreciative working atmosphere in an interprofessional and interdisciplinary cooperation\n\n• A job with training and development opportunities\n\n• Leisure and nature experiences in the immediate vicinity\n\n• Flexible employment conditions regarding holiday purchase and pension fund models\n\nBecome part of our team\n\n• You have completed training as a nurse HF/FH and professional experience in oncology and/or acute care\n\n• You have oncology specialist training or the willingness to complete one\n\n• Work in the team is important to you\n\n• You work service-oriented and are ready to go the extra mile\n\n• You are flexible and adaptable in the design of everyday life\n\n• You have a networked and forward-looking mindset",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu bist mitverantwortlich für eine professionelle, ganzheitliche Betreuung und Behandlungspflege von onkologischen & hämatologischen Patient:innen in unserem Ambulatorium Du bringst Erfahrung und idealerweise eine Weiterbildung in der Onkologiepflege mit. Die Einarbeitung in das komplexe Fachgebiet erfolgt sorgfältig und strukturiert. Wir schätzen dein Mitdenken, welches zu unserem hohen Qualitätsanspruch beiträgt. Bei Entscheidungen und deren Umsetzung wirst du aktiv eingebunden.\n\nDas wartet auf dich\n\n• Abwechslungsreiche und anspruchsvolle Tätigkeiten in einem dynamischen Fachgebiet und kollegialem Team\n\n• Wertschätzende Arbeitsatmosphäre in einer interprofessionellen und interdisziplinären Zusammenarbeit\n\n• Eine Stelle mit Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Freizeit- und Naturerlebnisse in nächster Umgebung\n\n• Flexibel Anstellungsbedingungen betreffend Ferienkauf und Pensionskassenmodelle\n\nSo wirst du Teil unseres Teams\n\n• Du hast eine abgeschlossene Ausbildung als Pflegefachperson HF/ FH und Berufserfahrung in der Onkologie und/ oder Akutpflege\n\n• Du hast eine onkologische Fachweiterbildung oder die Bereitschaft, eine zu absolvieren\n\n• Dir ist die Arbeit im Team wichtig\n\n• Du arbeitest dienstleistungsorientiert und bist bereit die Extrameile zu gehen\n\n• Du bist bist flexibel und anpassungsfähig in der Gestaltung des Alltags\n\n• Du hast eine vernetzte und vorausschauende Denkweise",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nVous êtes conjointement responsable d'un traitement et d'un traitement professionnels et holistiques des patients oncologiques et hématologiques : dans notre ambulatoire vous apportez de l'expérience et idéalement une formation complémentaire en soins oncologiques. La familiarisation avec le sujet complexe est soigneusement et structurée. Nous apprécions votre réflexion, qui contribue à nos normes de qualité élevées. Vous participerez activement aux décisions et à leur mise en œuvre.\n\nÇa vous attend.\n\n• Activités variées et exigeantes dans un domaine spécialisé dynamique et une équipe collégiale\n\n• Ambiance de travail appréciée dans une coopération interprofessionnelle et interdisciplinaire\n\n• Un emploi avec des possibilités de formation et de perfectionnement\n\n• Loisirs et expériences nature dans les environs immédiats\n\n• Conditions d'emploi flexibles en ce qui concerne les modèles d'achat de vacances et de fonds de pension\n\nDevenez membre de notre équipe\n\n• Vous avez suivi une formation d'infirmière HF/FH et une expérience professionnelle en oncologie et/ou en soins actifs\n\n• Vous avez une formation de spécialiste en oncologie ou la volonté de compléter une\n\n• Le travail dans l'équipe est important pour vous\n\n• Vous travaillez orienté service et êtes prêt à faire le mile supplémentaire\n\n• Vous êtes flexible et adaptable dans la conception de la vie quotidienne\n\n• Vous avez un état d'esprit en réseau et tourné vers l'avenir"
-      },
-      "needsRetranslation": false,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:49.119Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/ff4bf947-1859-4029-88b8-e7c49381df7a",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T21:36:24.760Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-sts-7f9deb32d7b4",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-        "de": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-      "descriptionByLocale": {
-        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind",
-        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu arbeitest auf einer chirurgischen Bettenstation mit Schwerpunkt Orthopädie / Traumatologie, Wirbelsäulen- und Viszeralchirurgie. Es erwartet Dich ein interessantes und abwechslungsreiches Arbeitsumfeld. Der Umgang mit der elektronischen Pflegedokumentation und dem Medikamentendistributionssystem ist integrierter Bestandteil unserer täglichen Arbeit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Ein humorvolles, junges, motiviertes Team mit gutem Teamzusammenhalt\n• Laufendes Projekt zur mitarbeitergesteuerten Dienstplanung\n• Spannende Herausforderungen mit eigenem Verantwortungsbereich\n• Gute Zusammenarbeit mit dem Team und der Stationsleitung\n• Möglichkeit des zusätzlichen Ferienkaufs, attraktive Anstellungsbedingungen\n\nSo wirst du Teil unseres Teams\n\n• Abschluss als dipl. Pflegefachfrau/Pflegefachmann\n• Vorzugsweise Berufserfahrung in der Orthopädie\n• Inspirierend, Engagiert, Verantwortungsvoll und Professionell - Unsere Spital STS-Werte, die uns wichtig sind"
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:48.659Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-25T21:38:08.484Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-sts-7a0da6b9787b",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-      "titleByLocale": {
-        "it": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-        "en": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-        "de": "Dipl. Radiologiefachfrau / Radiologiefachmann HF",
-        "fr": "Dipl. Radiologiefachfrau / Radiologiefachmann HF"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
-      "descriptionByLocale": {
-        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
-        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person",
-        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDas Aufgabengebiet in der digitalen Radiologie umfasst die konventionelle Diagnostik, die Computertomografie sowie MRI. Du planst selbstständig die Patiententermine und erledigst die Patientenadministration, inkl. Abrechnungserstellung. Dazu stehen dir unser standortübergreifendes Ris- und Pacs-System zur Verfügung. Dieses wird durch die vollständige Einbindung in das gesamte Unternehmen geprägt und garantiert einen papier- und filmlosen Betrieb. Zudem stehen andere moderne Geräte wie DR, DSI und die CT-Systeme zur Verfügung. Du wirst in allen Diensten eingesetzt (24-Stunden-Notfallbetrieb).\n\nEintritt per sofort oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit mit Ärzt:innen und anderen Berufsgruppen\n\n• Aufgestelltes, professionelles und erfahrenes Team\n\n• Chance, sich zu einer/einem erfahrenen Radiologiefachfrau/-mann zu entwickeln\n\n• Selbständiges Arbeiten in Gruppen\n\n• Digitale Radiologie\n\n• Flexibel wählbares Ferien- und Pensionskassenmodell\n\n• Attraktive Freizeitmöglichkeiten in See- und Bergregion\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung Dipl. Radiologiefachfrau/-mann HF mit Berufserfahrung oder Studienabgänger:in für einen Berufseinstieg\n\n• Teamorientierte, flexible und hilfsbereite Person"
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:48.196Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/dd98eeeb-12e0-4b44-9f9e-4ace58014df9",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-26T09:59:57.131Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-sts-6d0bf6370767",
-      "slug": "ausbildner-in-pflege-spital-sts-thun",
-      "slugByLocale": {
-        "it": "ausbildner-in-pflege-spital-sts-thun",
-        "en": "ausbildner-in-pflege-spital-sts-thun",
-        "de": "ausbildner-in-pflege-spital-sts-thun",
-        "fr": "ausbildner-in-pflege-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Ausbildner:in Pflege",
-      "titleByLocale": {
-        "it": "Ausbildner:in Pflege",
-        "en": "Ausbildner:in Pflege",
-        "de": "Ausbildner:in Pflege",
-        "fr": "Ausbildner:in Pflege"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
-      "descriptionByLocale": {
-        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
-        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit",
-        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nAls Ausbildner:in Pflege begleitest, förderst und unterrichtest du Lernende und Studierende verschiedener Pflege- und Gesundheitsausbildungen (FaGe, Pflegefachpersonen HF und FH). Das Erteilen von Gruppen- und Einzelunterricht (Lernbegleitung, Transfercoaching FH, LTT Praxis Unterricht HF, betriebliche FaGe Unterrichte) ist ein prägendes Element deiner Tätigkeit. Engagiert setzt du dich für die praktische Ausbildung von jungen Erwachsenen sowie für die Nachwuchsförderung- und rekrutierung ein. Das Unterstützen und Begleiten der Berufsbildner:innen auf den Bettenstationen gehört ebenso zu deinen Hauptaufgaben. Zudem hilfst du im Team Bildung Pflege bei der Gestaltung der Bildungsstrukturen und der Erarbeitung von Ausbildungsdokumenten mit.\n\nEintritt per sofort oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Regelmässige Arbeitszeiten (Montag-Freitag)\n\n• Ein innovatives und engagiertes Bildungsteam\n\n• Gut verankerte Bildungsstrukturen\n\n• Ein abwechslungsreiches und spannendes Arbeitsgebiet\n\n• Ein Arbeitsumfeld, in dem Theorie und Praxis eng vernetzt sind\n\n• Transferbegleitungen mit direktem Patientenkontakt\n\nSo wirst du Teil unseres Teams\n\n• Abschluss in Pflege HF oder FH\n\n• Mehrere Jahre Berufs- und Ausbildungserfahrung im Pflegebereich\n\n• Berufspädagogische und didaktische Ausbildung (Berufsbildnerkurs 100 Stunden, SVEB 1 oder Ausbildner mit eidg. Fachausweis) oder die Bereitschaft, diese zu absolvieren\n\n• Ein positives Menschenbild - geprägt von Respekt, Geduld und dem Glauben an die Entwicklungsfähigkeit jedes Menschen\n\n• Freude daran, junge Menschen zu fördern und in ihrer Entwicklung zu begleiten\n\n• Hohe Sozial- und Kommunikationskompetenz\n\n• Organisationstalent und Freude am selbständigen Arbeiten\n\n• Eine flexible, belastbare und verantwortungsbewusste Persönlichkeit"
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/af91efba-2736-4d8d-b7ac-59fa72006411/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:47.745Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/af91efba-2736-4d8d-b7ac-59fa72006411",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-27T00:40:28.963Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-sts-758caf44a350",
-      "slug": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
-      "slugByLocale": {
-        "it": "centro-di-emergenza-sanitaria-professionale-spital-sts-thun",
-        "en": "professional-health-emergency-center-spital-sts-thun",
-        "de": "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "fr": "centre-professionnel-d-urgence-en-sante-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Fachfrau/ -mann Gesundheit Notfallzentrum",
-      "titleByLocale": {
-        "it": "Centro di emergenza sanitaria professionale",
-        "en": "Professional Health Emergency Center",
-        "de": "Fachfrau/ -mann Gesundheit Notfallzentrum",
-        "fr": "Centre professionnel d'urgence en santé"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUns ist eine individuelle, kompetente und kundenorientierte Patientenbetreuung wichtig. Die Bezugspflege ist ein prägendes Element unseres Notfallprozesses. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und dem Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Du betreust die Patient:innen zum grössten Teil selbständig oder auf Delegation. Zusätzlich arbeitest du im Fasttrack mit (Praxisbereich innerhalb NFZ).\n\nEintritt per 1. Februar 2027 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interessantes und anspruchsvolles Arbeitsumfeld\n• Spannende und abwechslungsreiche Tätigkeit\n• Entwicklungsmöglichkeiten\n• Interdisziplinäres Team\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung, vorzugsweise bereits im Akutbereich\n• Engagierte und belastbare Art\n• Freude an schnellen Prozessen\n• Ruhe bewahren auch in hektischen Situationen",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nPer noi, la cura individuale, competente e orientata al cliente è importante. La manutenzione è un elemento determinante del nostro processo di emergenza. Trattare con la documentazione di assistenza elettronica, il monitoraggio centrale e il sistema di distribuzione della droga fanno parte del vostro lavoro quotidiano. Si prende cura del paziente: per lo più indipendente o su delegazione. Inoltre, si lavora nel Fasttrack (area pratica all'interno di NFZ).\n\nEntrata a decorrere dal 1° febbraio 2027 o per accordo\n\nTi sta aspettando.\n\n• Ambiente di lavoro interessante ed esigente\n• Attività emozionanti e varie\n• Opportunità di sviluppo\n• Gruppo interdisciplinare\n\nDiventa parte del nostro team\n\n• Formazione completa come specialista Health EFZ\n• Esperienza professionale, preferibilmente già nel campo acuto\n• Tipo misto e resiliente\n• Godere di processi veloci\n• Tenere la calma anche in situazioni frenetiche",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nFor us, individual, competent and customer-oriented patient care is important. Maintenance is a defining element of our emergency process. Dealing with electronic care documentation, central monitoring and the drug distribution system are part of your daily work. You look after the patient: mostly independently or on delegation. In addition, you work in the Fasttrack (practical area within NFZ).\n\nEntry as of 1 February 2027 or by agreement\n\nThis is waiting for you\n\n• Interesting and demanding working environment\n• Exciting and varied activity\n• Development opportunities\n• Interdisciplinary team\n\nBecome part of our team\n\n• Completed training as a specialist Health EFZ\n• Professional experience, preferably already in the acute field\n• Committed and resilient type\n• Enjoying fast processes\n• Keep calm even in hectic situations",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUns ist eine individuelle, kompetente und kundenorientierte Patientenbetreuung wichtig. Die Bezugspflege ist ein prägendes Element unseres Notfallprozesses. Der Umgang mit der elektronischen Pflegedokumentation, dem zentralen Monitoring und dem Medikamentendistributionssystem sind Bestandteil deiner täglichen Arbeit. Du betreust die Patient:innen zum grössten Teil selbständig oder auf Delegation. Zusätzlich arbeitest du im Fasttrack mit (Praxisbereich innerhalb NFZ).\n\nEintritt per 1. Februar 2027 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interessantes und anspruchsvolles Arbeitsumfeld\n• Spannende und abwechslungsreiche Tätigkeit\n• Entwicklungsmöglichkeiten\n• Interdisziplinäres Team\n\nSo wirst du Teil unseres Teams\n\n• Abgeschlossene Ausbildung als Fachfrau/Fachmann Gesundheit EFZ\n• Berufserfahrung, vorzugsweise bereits im Akutbereich\n• Engagierte und belastbare Art\n• Freude an schnellen Prozessen\n• Ruhe bewahren auch in hektischen Situationen",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nPour nous, les soins individuels, compétents et axés sur le client sont importants. L'entretien est un élément déterminant de notre processus d'urgence. Le traitement de la documentation sur les soins électroniques, la surveillance centrale et le système de distribution des médicaments font partie de votre travail quotidien. Vous prenez soin du patient : la plupart du temps indépendamment ou en délégation. De plus, vous travaillez dans le Fasttrack (zone pratique au sein de NFZ).\n\nEntrée au 1er février 2027 ou par accord\n\nÇa vous attend.\n\n• Environnement de travail intéressant et exigeant\n• Activité passionnante et variée\n• Possibilités de développement\n• Équipe interdisciplinaire\n\nDevenez membre de notre équipe\n\n• Formation complète en tant que spécialiste de la santé EFZ\n• Expérience professionnelle, de préférence déjà dans le domaine aigu\n• Type engagé et résistant\n• Profiter de processus rapides\n• Restez calme même dans des situations agitées"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/dd880936-cecc-4a3a-b88c-27be9d0f071e/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:47.156Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/dd880936-cecc-4a3a-b88c-27be9d0f071e",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:22:52.678Z",
-      "salaryMin": 73000,
-      "salaryMax": 124500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 124500,
-          "unitText": "YEAR"
-        }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-        ],
-        "en": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-        ],
-        "fr": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
-      ]
-    },
-    {
-      "id": "spital-sts-9c484d0cb9f5",
-      "slug": "med-praxisassistent-in-chirurgie-spital-sts-thun",
-      "slugByLocale": {
-        "de": "med-praxisassistent-in-chirurgie-spital-sts-thun",
-        "it": "med-praxisassistent-in-chirurgie-spital-sts-thun",
-        "en": "med-praxisassistent-in-chirurgie-spital-sts-thun",
-        "fr": "med-praxisassistent-in-chirurgie-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Med. Praxisassistent/in Chirurgie",
-      "titleByLocale": {
-        "de": "Med. Praxisassistent/in Chirurgie",
-        "it": "Med. Praxisassistent/in Chirurgie",
-        "en": "Med. Praxisassistent/in Chirurgie",
-        "fr": "Med. Praxisassistent/in Chirurgie"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
-      "descriptionByLocale": {
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
-        "it": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
-        "en": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement",
-        "fr": "Ein Job mit Aussichten: Im Spital Thun erwarten Sie nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Sie suchen Sinnhaftigkeit, aber auch Fairness? Dann sind Sie hier richtig.\n\nZu Ihren Hauptaufgaben gehören der Patientenempfang, die Bedienung des Telefons, Sprechstundenorganisation, Schreiben von Sprechstundenberichten ab Diktat, die Sprechstundenassistenz inkl. Wundversorgung, verschiedenste Verbandswechsel (inkl. VAC-Verband), Blutentnahmen, Wunddokumentationen inkl. Leistungsabrechnungen sowie die Materialbewirtschaftung.\n\nEintritt nach Vereinbarung\n\nDas wartet auf Sie\n\n• Abwechslungsreiche Arbeit in Kombination von Pflege und Administration\n\n• Aufgestelltes kleines MPA-Team\n\n• Enge Zusammenarbeit mit dem ärztlichen Personal\n\n• Kollegiales und wertschätzendes Arbeitsklima\n\n• Interdisziplinäre Zusammenarbeit mit anderen Fachspezialisten im Hause\n\n• Regelmässige Arbeitszeiten, kein Wochenenddienst\n\n• Attraktives Ferien flex-Modell\n\nSo werden Sie Teil unseres Teams\n\n• Ausbildung als Med. Praxisassistent/in\n\n• Erfahrung in der Chirurgie (Wundpflege, Fadenentfernung, kleine Eingriffe)\n\n• Gute Deutschkenntnisse\n\n• Kenntnisse der Medizinischen Terminologie (Chirurgie)\n\n• Kenntnisse im Wundmanagement"
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:15:46.707Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b",
-      "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-01T14:15:46.707Z"
+      "crawlerMissStreak": 2
     }
   ]
 }

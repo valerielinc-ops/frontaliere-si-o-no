@@ -5017,6 +5017,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Mercato affitti Soletta: canoni e diritto di locazione',
     'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Guida completa al diritto di locazione nel Canton Soletta: regole federali su deposito cauzionale, disdetta, contestazione dei canoni e autorità di conciliazione.',
     'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Veduta di una palazzina residenziale svizzera con finestre e balconi in contesto urbano',
+    'blog.article.soletta-contestazione-canone-affitti.title': 'Diritto di locazione in Svizzera: canoni e contestazione',
+    'blog.article.soletta-contestazione-canone-affitti.excerpt': 'Nel diritto svizzero, il deposito cauzionale è limitato a 3 mesi di pigione e il locatario può contestare il canone iniziale entro 30 giorni presso l\'autorità di conciliazione cantonale.',
+    'blog.article.soletta-contestazione-canone-affitti.imageAlt': 'Facciata di un edificio residenziale svizzero con balconi moderni, strada tranquilla, fotografia realistica',
+    'blog.article.affitti-soletta-diritti-inquilini.title': 'Affitti Soletta: canoni medi e diritto locazione',
+    'blog.article.affitti-soletta-diritti-inquilini.excerpt': 'Deposito cauzionale, contestazione canoni, disdetta: le regole federali su affitti e locazione in Svizzera e le procedure cantonali di conciliazione.',
+    'blog.article.affitti-soletta-diritti-inquilini.imageAlt': 'Edificio residenziale svizzero con balconate in quartiere urbano moderno.',
 };
 
 export default blogMetaChIt;

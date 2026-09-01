@@ -3,6 +3,9 @@ import { describe, it, expect } from 'vitest';
 import {
   ACCOR_KEY,
   ACCOR_COMPANY_NAME,
+  accorPageCount,
+  accorPageUrl,
+  collectAccorPageUrls,
   extractAccorDetailFields,
   isAccorJob,
   isTrustedDomain,
@@ -91,6 +94,76 @@ describe('Ibis Budget crawler parser', () => {
 
       expect(detail.description).toBe('');
       expect(detail.location).toContain('Genève');
+    });
+  });
+
+  describe('Swiss listing pagination', () => {
+    const pagination = (lastPage: number, total = lastPage * 12) => `
+      <span class="attrax-pagination__total-results">${total} résultat(s)</span>
+      <span class="attrax-pagination__results-of--2">${lastPage}</span>
+      <span class="attrax-pagination__resultsperpage"><a class="active" aria-label="12 results per page"></a></span>`;
+
+    it('builds page URLs without changing the Swiss filters', () => {
+      expect(accorPageUrl('https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1', 3))
+        .toBe('https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=3');
+    });
+
+    it('drains every declared page through the final page', async () => {
+      const fetched: number[] = [];
+      const urls = await collectAccorPageUrls(
+        'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1',
+        async (url) => {
+          const page = Number(new URL(url).searchParams.get('page'));
+          fetched.push(page);
+          return pagination(3, 25);
+        },
+      );
+
+      expect(fetched).toEqual([1, 2, 3]);
+      expect(urls.map((url) => Number(new URL(url).searchParams.get('page')))).toEqual([1, 2, 3]);
+    });
+
+    it('uses the greater bound when the semantic marker understates the result count', () => {
+      expect(accorPageCount(pagination(1, 13))).toBe(2);
+    });
+
+    it('keeps walking when jobs reorder and a later page raises the bound', async () => {
+      const fetched: number[] = [];
+      const htmlByPage = new Map([
+        [1, pagination(2, 13)],
+        [2, pagination(3, 25)],
+        [3, pagination(3, 25)],
+      ]);
+      const urls = await collectAccorPageUrls(
+        'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1',
+        async (url) => {
+          const page = Number(new URL(url).searchParams.get('page'));
+          fetched.push(page);
+          return htmlByPage.get(page) || '';
+        },
+      );
+
+      expect(fetched).toEqual([1, 2, 3]);
+      expect(new Set(urls).size).toBe(urls.length);
+    });
+
+    it('rejects an incomplete zero or multi-page snapshot without authoritative pagination', () => {
+      expect(() => accorPageCount('<span class="attrax-pagination__total-results">13 résultat(s)</span><span class="attrax-pagination__resultsperpage"><a class="active" aria-label="12 results per page"></a></span>'))
+        .toThrow(/trustworthy last-page marker/);
+      expect(() => accorPageCount('')).toThrow(/trustworthy last-page marker/);
+      expect(() => accorPageCount('<span class="attrax-pagination__total-results">13 résultat(s)</span><span class="attrax-pagination__results-of--2">2</span>'))
+        .toThrow(/unreadable total or page-size metadata/);
+      expect(accorPageCount('<span class="attrax-pagination__total-results">0 résultat(s)</span><span class="attrax-pagination__resultsperpage"><a class="active" aria-label="12 results per page"></a></span>'))
+        .toBe(1);
+    });
+
+    it('rejects a failed intermediate page and a non-terminating page count at the hard cap', async () => {
+      await expect(collectAccorPageUrls('https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1',
+        async (url) => Number(new URL(url).searchParams.get('page')) === 2
+          ? Promise.reject(new Error('HTTP 503'))
+          : pagination(3), 20)).rejects.toThrow('HTTP 503');
+      await expect(collectAccorPageUrls('https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1',
+        async () => pagination(21), 20)).rejects.toThrow(/safe limit 20/);
     });
   });
 

@@ -5017,6 +5017,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Marché locations Soleure : loyers et droit de location',
     'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Guide complet du droit locatif dans le canton de Soleure : règles fédérales sur le dépôt de garantie, la résiliation, la contestation des loyers et l\'autorité de conciliation.',
     'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Immeuble résidentiel suisse avec fenêtres et balcons dans un quartier urbain',
+    'blog.article.soletta-contestazione-canone-affitti.title': 'Droit de location en Suisse : redevances et contestation',
+    'blog.article.soletta-contestazione-canone-affitti.excerpt': 'En droit suisse, le dépôt de garantie est limité à 3 mois de loyer et le locataire peut contester le loyer initial dans les 30 jours auprès de l\'autorité de conciliation cantonale.',
+    'blog.article.soletta-contestazione-canone-affitti.imageAlt': 'Façade d\'un immeuble résidentiel suisse avec balcons modernes, rue calme, photographie réaliste',
+    'blog.article.affitti-soletta-diritti-inquilini.title': 'Location Soleure : loyers moyens et droit locatif',
+    'blog.article.affitti-soletta-diritti-inquilini.excerpt': 'Caution, contestation de redevances, résiliation : les règles fédérales sur les loyers et loyers en Suisse et les procédures cantonales de conciliation.',
+    'blog.article.affitti-soletta-diritti-inquilini.imageAlt': 'Immeuble résidentiel suisse avec balcons dans un quartier urbain moderne.',
 };
 
 export default blogMetaChFr;
