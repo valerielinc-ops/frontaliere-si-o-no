@@ -227,6 +227,26 @@ describe('Fust authoritative discovery', () => {
     });
   });
 
+  it('drops a job whose canton label does not resolve to a Swiss canton without failing the run (#7024)', async () => {
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.includes('/public/v1/medium/1000103/jobs?')) {
+        const jobs = fixture.api.jobs.slice(0, 4).map((job, index) => index === 0
+          ? { ...job, attributes: { ...job.attributes, 30: ['Not A Real Swiss Region'] } }
+          : job);
+        return new Response(JSON.stringify({ total: 4, jobs }), { status: 200 });
+      }
+      const html = detailByUrl.get(url);
+      return new Response(html || 'not found', { status: html ? 200 : 404 });
+    };
+
+    const discovery = await fetchFustJobUrls({ fetchImpl, enrichDetails: false });
+    expect(discovery.apiTotal).toBe(4);
+    expect(discovery.droppedNonCh).toBe(1);
+    expect(discovery.droppedMalformedUrl).toBe(0);
+    expect(discovery.urls).toHaveLength(3);
+  });
+
   it('fails loud when an authoritative API snapshot contains an off-host URL', async () => {
     const fetchImpl = async (input: string | URL | Request) => {
       if (String(input).includes('/public/v1/medium/1000103/jobs?')) {

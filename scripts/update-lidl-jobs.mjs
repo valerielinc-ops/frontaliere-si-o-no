@@ -541,9 +541,13 @@ export async function fetchLidlJobDetailUrls(options = {}) {
   }
 
   detailUrls.sort((a, b) => a.localeCompare(b));
+  // droppedNonCh is a normal, expected outcome (a hit whose city doesn't
+  // resolve to a Swiss canton — e.g. a locality absent from the BFS
+  // municipality dataset — is dropped, never defaulted to TI) and is already
+  // folded into `accounted` below; it must NOT gate a hard failure the way
+  // droppedMalformed does (a real parser/URL-format drift).
   const accounted = detailUrls.length + duplicateIdentity + droppedNonCh + droppedMalformed;
   if (accounted !== rawFetched
-      || droppedNonCh !== 0
       || droppedMalformed !== 0
       || jobsFromApi.length !== detailUrls.length
       || Object.keys(seedMetaByUrl).length !== detailUrls.length) {
