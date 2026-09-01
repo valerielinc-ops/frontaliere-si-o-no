@@ -18,6 +18,9 @@
  * `daysAgo()` discipline AGENTS.md requires of pipeline fixtures.
  */
 import { describe, expect, it } from 'vitest';
+import { readFileSync, readdirSync } from 'node:fs';
+import { join } from 'node:path';
+import { parseDocument } from 'yaml';
 import {
   QUEUE_STALE_DAYS,
   measureTranslationQueue,
@@ -49,7 +52,62 @@ function job(overrides: Job = {}): Job {
 
 const measure = (jobs: Job[]) => measureTranslationQueue(jobs, { now: NOW });
 
+const JOBS_DATA_PIPELINE_GROUP = 'jobs-data-pipeline';
+const WORKFLOWS_DIR = '.github/workflows';
+const PORTABLE_TRANSLATE_WORKFLOW = '.github/corpus-workflows/translate-pending.yml';
+
+function workflowConfig(workflowPath: string): Record<string, unknown> {
+  const document = parseDocument(readFileSync(workflowPath, 'utf8'), { prettyErrors: true, uniqueKeys: true });
+  if (document.errors.length > 0) {
+    throw new Error(`Invalid workflow YAML in ${workflowPath}: ${document.errors.map(String).join('; ')}`);
+  }
+
+  const workflow = document.toJS();
+  if (workflow === null || typeof workflow !== 'object' || Array.isArray(workflow)) {
+    throw new Error(`Workflow ${workflowPath} must be a YAML mapping`);
+  }
+
+  return workflow as Record<string, unknown>;
+}
+
+function concurrencyConfig(workflowPath: string): Record<string, unknown> {
+  const concurrency = workflowConfig(workflowPath).concurrency;
+  if (concurrency === null || typeof concurrency !== 'object' || Array.isArray(concurrency)) {
+    throw new Error(`Workflow ${workflowPath} must define concurrency as a YAML mapping`);
+  }
+
+  return concurrency as Record<string, unknown>;
+}
+
 describe('measureTranslationQueue', () => {
+  it('keeps every jobs-data-pipeline workflow queued without cancellation', () => {
+    const matchingWorkflows = readdirSync(WORKFLOWS_DIR)
+      .filter((name) => /\.ya?ml$/.test(name))
+      .sort()
+      .map((name) => join(WORKFLOWS_DIR, name))
+      .filter((workflowPath) => {
+        const concurrency = workflowConfig(workflowPath).concurrency;
+        return concurrency !== null
+          && typeof concurrency === 'object'
+          && !Array.isArray(concurrency)
+          && (concurrency as Record<string, unknown>).group === JOBS_DATA_PIPELINE_GROUP;
+      });
+
+    expect(matchingWorkflows.sort()).toEqual([
+      '.github/workflows/backfill-expired-from-history.yml',
+      '.github/workflows/cleanup-stale-jobs.yml',
+      '.github/workflows/sync-gsc-orphans.yml',
+      '.github/workflows/translate-pending.yml',
+    ]);
+
+    for (const workflowPath of [...matchingWorkflows, PORTABLE_TRANSLATE_WORKFLOW]) {
+      const concurrency = concurrencyConfig(workflowPath);
+      expect(concurrency.group).toBe(JOBS_DATA_PIPELINE_GROUP);
+      expect(concurrency['cancel-in-progress']).toBe(false);
+      expect(concurrency.queue).toBe('max');
+    }
+  });
+
   it('counts a queued job whose target slots are byte-identical to the source', () => {
     const q = measure([job()]);
     expect(q.queuedJobs).toBe(1);
