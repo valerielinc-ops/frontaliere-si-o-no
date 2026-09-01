@@ -1,18 +1,18 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-09-01T01:01:29.986Z",
+  "generatedAt": "2026-09-01T07:40:25.998Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4091,
-  "avgDurationMs": 4091,
+  "durationMs": 5375,
+  "avgDurationMs": 5375,
   "durationHistory": [
-    4091
+    5375
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:01:27.158Z",
+      "crawledAt": "2026-09-01T07:40:22.011Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:01:27.817Z",
+      "crawledAt": "2026-09-01T07:40:22.735Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,47 +89,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ardian-0bcff807da42",
-      "slug": "customized-solutions-tirocinante-september-2026-january-2027-zurich-ardian-zurich",
-      "company": "Ardian",
-      "companyKey": "ardian",
-      "companyDomain": "ardian.com",
-      "title": "Customized Solutions Intern - September 2026 / January 2027 | Zurich",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---September-2026---January-2027---Zurich_JR1001808",
-      "source": "Ardian Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:38:19.276Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Private Equity",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---September-2026---January-2027---Zurich_JR1001808",
-      "firstSeenAt": "2026-07-03T21:19:18.688Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "crawlerMissStreak": 2,
-      "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
