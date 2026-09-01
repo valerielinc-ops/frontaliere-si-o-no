@@ -44,10 +44,9 @@ import {
   readCrawlerSummaryStore,
   writeCrawlerSummaryStore,
 } from './lib/crawler-summary-store.mjs';
-import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { buildAssembledJobIdentity, buildStableJobIdentity } from './lib/job-identity.mjs';
 import { carryForwardMarks, dedupeByIdentityPreservingMarks } from './lib/job-mark-persistence.mjs';
 import { supersedeCrawledByPublisher } from './lib/publisher-supersede.mjs';
-import { assembleUrlKey } from './lib/job-url-key.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
 import { normalizeDescriptionBullets, cleanCrawlerArtifacts, restoreExistingSlugIdentity } from './lib/crawler-template.mjs';
 import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId, cleanPreviousSlugsPerLocale, isLocationExplicitlyForeign, healTruncatedStLocalities, addPreviousSlugForLocale, captureLostSlugs, DEFAULT_PREV_SLUG_CAP, stableSlugHash, appendSlugDisambiguator } from './lib/dedicated-crawler-common.mjs';
@@ -124,18 +123,6 @@ export function registerCrawlerSummaryGuard(key, label, counts = null) {
   });
 }
 
-/* ── Assembler-specific identity ──────────────────────────────────────── */
-
-/**
- * Build a deduplication key for the assembler.
- *
- * Unlike buildStableJobIdentity (which normalises URLs by stripping the hash),
- * we preserve the full raw URL including hash fragments. This is essential for
- * crawlers like Galenica that use hash-fragment URLs to distinguish individual
- * job positions (e.g. /it/jobs/#job.id=12345).
- *
- * Fallback chain: raw URL → slug → title+company+location
- */
 /**
  * Defensive sanitizer for the `location` / `addressLocality` field.
  *
@@ -431,14 +418,7 @@ export function normalizeParsedJobsForSlice(jobs) {
 }
 
 function assemblerIdentity(job = {}) {
-  // assembleUrlKey preserves the full raw URL incl. hash fragments (Galenica).
-  // Logic centralized in scripts/lib/job-url-key.mjs; behavior unchanged and
-  // pinned by tests/job-url-key.test.ts.
-  const rawUrl = assembleUrlKey(job.url);
-  if (rawUrl) return `url:${rawUrl}`;
-
-  // Delegate to the shared identity for non-URL fallbacks
-  return buildStableJobIdentity(job);
+  return buildAssembledJobIdentity(job);
 }
 
 /**

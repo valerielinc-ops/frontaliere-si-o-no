@@ -1,4 +1,4 @@
-import { identityUrlKey } from './job-url-key.mjs';
+import { assembleUrlKey, identityUrlKey } from './job-url-key.mjs';
 import { stableStringify } from './stable-stringify.mjs';
 
 function normalizeSpace(value = '') {
@@ -50,6 +50,18 @@ export function buildStableJobIdentity(job = {}) {
   if (rawSlug) return `slug:${rawSlug.toLowerCase()}`;
 
   return `fallback:${identityFallback(job)}`;
+}
+
+/**
+ * Identity of a record in the assembled jobs population.
+ *
+ * URL keys deliberately retain hash fragments, matching the assembler's
+ * deduplication semantics. Other identity fallbacks remain stable-job keys.
+ */
+export function buildAssembledJobIdentity(job = {}) {
+  const rawUrl = assembleUrlKey(job.url);
+  if (rawUrl) return `url:${rawUrl}`;
+  return buildStableJobIdentity(job);
 }
 
 export function comparableJobShape(job = {}) {

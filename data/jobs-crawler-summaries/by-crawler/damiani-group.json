@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-09-01T07:36:25.278Z",
+  "generatedAt": "2026-09-01T09:20:39.166Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7627,
-  "avgDurationMs": 7627,
+  "durationMs": 6011,
+  "avgDurationMs": 6011,
   "durationHistory": [
-    7627
+    6011
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -159,11 +159,11 @@
       "firstSeenAt": "2026-07-24T11:12:56.301Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
