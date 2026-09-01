@@ -394,6 +394,12 @@ export function createTranslationStateDrainerV2(options) {
         retries += 1;
         return null;
       }
+      const confirmedState = await stateStore.readCommit();
+      if (confirmedState.commit !== snapshot.commit) {
+        consumeAttemptBudget();
+        retries += 1;
+        return null;
+      }
       const outcomes = Array(requestedPatches.length).fill(null);
       const activeIndexes = requestedPatches.flatMap((_patch, index) => {
         const acknowledgment = snapshot.acknowledgments[index];

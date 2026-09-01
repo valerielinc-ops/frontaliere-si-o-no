@@ -307,6 +307,12 @@ function validateAcknowledgment(value, expectedPatchHash = null) {
   if (value.intentHash !== null && (typeof value.intentHash !== 'string' || !/^[a-f0-9]{64}$/.test(value.intentHash))) {
     throw new TypeError('translation acknowledgment intentHash is invalid');
   }
+  if ((value.publishedCommit === null) !== (value.intentHash === null)) {
+    throw new TypeError('translation acknowledgment publish commit and intent must both be present or absent');
+  }
+  if (value.outcome === 'applied' && value.publishedCommit === null) {
+    throw new TypeError('applied translation acknowledgment requires publish provenance');
+  }
   if (
     !Number.isSafeInteger(value.lifecycleSequence)
     || value.lifecycleSequence < 1
@@ -946,6 +952,10 @@ export function createTranslationStateStoreV2(options) {
     return deepFreezeTranslationV2({ commit: tip, acknowledgments, queued });
   }
 
+  async function readCommit() {
+    return deepFreezeTranslationV2({ commit: await snapshotTip() });
+  }
+
   async function readAcknowledgment(patchHash) {
     const result = await readAcknowledgments([patchHash]);
     return deepFreezeTranslationV2({
@@ -963,6 +973,7 @@ export function createTranslationStateStoreV2(options) {
     recordIntent,
     listIntents,
     acknowledgeBatch,
+    readCommit,
     readAcknowledgments,
     readAcknowledgment,
   });

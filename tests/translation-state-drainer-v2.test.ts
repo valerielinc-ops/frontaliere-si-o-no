@@ -356,6 +356,47 @@ describe('translation state drainer v2', () => {
     expect((await baseStore.listPending({ crawlerKey: 'example-crawler' })).pending).toHaveLength(0);
   }, 30_000);
 
+  it('retries when the state tip changes after an acknowledgment snapshot', async () => {
+    const { one, rival, slice } = setup();
+    const patch = patchFor(slice.jobs[0]);
+    const initial = createPair(one);
+    await initial.drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const firstAck = (await initial.stateStore.readAcknowledgment(patch.patchHash)).acknowledgment;
+    let injected = false;
+    const racingStore = {
+      ...initial.stateStore,
+      async readAcknowledgments(patchHashes: string[]) {
+        const snapshot = await initial.stateStore.readAcknowledgments(patchHashes);
+        if (!injected) {
+          injected = true;
+          advanceMain(rival, 'translation-removed-during-state-audit', (current) => {
+            current.jobs[0].titleByLocale.it = '';
+          });
+          await initial.stateStore.checkpointBatch({
+            slicePath: SLICE_PATH,
+            patches: [patch],
+            requeue: true,
+          });
+          advanceMain(rival, 'translation-restored-during-state-audit', (current) => {
+            current.jobs[0].titleByLocale.it = `Traduzione ${slice.jobs[0].slug}`;
+          });
+        }
+        return snapshot;
+      },
+    };
+    const drainer = createTranslationStateDrainerV2({ repository: one, stateStore: racingStore });
+
+    const result = await drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const latest = await initial.stateStore.readAcknowledgment(patch.patchHash);
+
+    expect(result.outcomes).toEqual(['applied']);
+    expect(result.retries).toBeGreaterThanOrEqual(1);
+    expect(latest.queued).toBe(false);
+    expect(latest.acknowledgment.lifecycleSequence).toBeGreaterThan(firstAck.lifecycleSequence);
+    expect((await initial.stateStore.listPending({ crawlerKey: 'example-crawler' })).pending)
+      .toHaveLength(0);
+  }, 30_000);
+
   it.each(['afterCheckpoint', 'afterIntent', 'afterMainPush', 'beforeAck'])(
     'replays idempotently after a crash at %s',
     async (crashStage) => {
