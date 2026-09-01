@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-09-01T08:55:00.455Z",
+  "assembledAt": "2026-09-01T14:28:30.553Z",
   "jobs": [
     {
       "id": "company-viaqie",
@@ -101,7 +101,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-a24znt",
@@ -128,7 +129,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-08-31T23:21:55.729Z",
+      "crawledAt": "2026-09-01T14:28:29.718Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-a24znt",
@@ -193,8 +194,7 @@
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-lugano"
         ]
       },
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "salarySource": "estimated"
     },
     {
       "id": "company-fooban",
@@ -221,7 +221,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-08-31T23:21:55.729Z",
+      "crawledAt": "2026-09-01T14:28:29.718Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
@@ -283,8 +283,7 @@
         ]
       },
       "needsRetranslation": true,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "salarySource": "estimated"
     }
   ]
 }

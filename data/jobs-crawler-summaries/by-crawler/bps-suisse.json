@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-01T10:33:08.726Z",
+  "generatedAt": "2026-09-01T14:26:10.527Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6438,
-  "avgDurationMs": 6438,
+  "durationMs": 7286,
+  "avgDurationMs": 7286,
   "durationHistory": [
-    6438
+    7286
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-01T10:33:03.940Z",
+      "crawledAt": "2026-09-01T14:26:04.657Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -80,7 +80,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-01T10:33:05.134Z",
+      "crawledAt": "2026-09-01T14:26:05.845Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -90,7 +90,6 @@
       "salaryMax": 150000,
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -122,7 +121,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-01T10:33:05.727Z",
+      "crawledAt": "2026-09-01T14:26:06.295Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -163,7 +162,7 @@
       "currency": "CHF",
       "postedDate": "2026-09-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-01T10:33:06.268Z",
+      "crawledAt": "2026-09-01T14:26:06.684Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -173,7 +172,6 @@
       "salaryMax": 150000,
       "firstSeenAt": "2026-07-07T11:59:13.173Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
