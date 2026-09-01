@@ -63551,6 +63551,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-breve-durata-friburgo-proroga': {
+    title: 'Permesso L Friburgo: validità, proroga e requisiti',
+    description: 'Il permesso L di breve durata in Friburgo: validità massima 1 anno, condizioni di proroga, vincoli datore lavoro e passaggio a permesso B o C. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, friburgo, validità, proroga',
+    ogTitle: 'Permesso L Friburgo: validità, proroga e requisiti',
+    ogDescription: 'Scopri tutto sul permesso L di breve durata nel Cantone Friburgo: durata massima di un anno, procedure di proroga, vincoli legati al datore di lavoro e come passare a un permesso di dimora più stabile. Guida pratica per stranieri che lavorano',
+    canonicalPath: '/articoli-svizzera/breve-durata-friburgo-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Friburgo: validità, proroga e requisiti",
+      "description": "Il permesso L di breve durata in Friburgo: validità massima 1 anno, condizioni di proroga, vincoli datore lavoro e passaggio a permesso B o C. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/breve-durata-friburgo-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con documenti e computer per procedure di richiesta permessi cantonali"
+      },
+      "datePublished": "2026-09-01T06:00:09+00:00",
+      "dateModified": "2026-09-01T06:00:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/breve-durata-friburgo-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

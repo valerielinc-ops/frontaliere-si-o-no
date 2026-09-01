@@ -4897,6 +4897,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.drg-fatture-trasparenza.title': 'Factures d’hôpital : pourquoi ils n’expliquent pas tout',
     'blog.article.drg-fatture-trasparenza.excerpt': 'Système DRG depuis 2012 cache les diagnostics dans la facture reçue. Comment demander des éclaircissements à l\'hôpital et contester auprès de l\'assureur-maladie.',
     'blog.article.drg-fatture-trasparenza.imageAlt': 'Patient examinant une facture hospitalière à son bureau avec des documents médicaux',
+    'blog.article.breve-durata-friburgo-proroga.title': 'Permis de L Fribourg : validité, prolongation et exigences',
+    'blog.article.breve-durata-friburgo-proroga.excerpt': 'Le permis L à court terme dans le canton de Fribourg est valable pour un maximum d’un an et peut être renouvelé sous certaines conditions. Renseignez-vous sur la durée, la prolongation et les contraintes.',
+    'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Bureau administratif suisse avec documents et ordinateur pour les procédures de permis cantonaux',
 };
 
 export default blogMetaChFr;

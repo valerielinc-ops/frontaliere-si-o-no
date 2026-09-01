@@ -4897,6 +4897,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.drg-fatture-trasparenza.title': 'Fatture ospedaliere: perché non spiegano tutto',
     'blog.article.drg-fatture-trasparenza.excerpt': 'Sistema DRG dal 2012 nasconde diagnosi nella fattura ricevuta. Come chiedere chiarimenti all\'ospedale e contestare all\'assicuratore malattia.',
     'blog.article.drg-fatture-trasparenza.imageAlt': 'Paziente che esamina una fattura ospedaliera dettagliata su scrivania con documenti clinici',
+    'blog.article.breve-durata-friburgo-proroga.title': 'Permesso L Friburgo: validità, proroga e requisiti',
+    'blog.article.breve-durata-friburgo-proroga.excerpt': 'Il permesso L di breve durata nel Cantone Friburgo ha validità massima di un anno ed è rinnovabile con specifiche condizioni. Scopri durata, proroga e vincoli.',
+    'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Ufficio amministrativo svizzero con documenti e computer per procedure di richiesta permessi cantonali',
 };
 
 export default blogMetaChIt;
