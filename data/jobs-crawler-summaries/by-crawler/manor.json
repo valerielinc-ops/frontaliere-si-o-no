@@ -1,42 +1,18 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-09-01T00:57:44.086Z",
-  "total": 201,
+  "generatedAt": "2026-09-01T07:37:54.752Z",
+  "total": 185,
   "newCount": 10,
   "updatedCount": 175,
-  "removedCount": 0,
-  "unchangedCount": 16,
-  "durationMs": 327701,
-  "avgDurationMs": 327701,
+  "removedCount": 16,
+  "unchangedCount": 0,
+  "durationMs": 350758,
+  "avgDurationMs": 350758,
   "durationHistory": [
-    327701
+    350758
   ],
   "newJobs": [
-    {
-      "title": "Retail Media Coordinator 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234155/",
-      "location": "Basel Retail Media Coordinator",
-      "canton": "BS",
-      "country": "CH",
-      "category": "retail",
-      "descriptionIt": "• Strong organizational skills and communication skills (collaborate closely with a Sales Manager in the team)\n• Competent in bringing people together, building cooperative relationships\n• Strong analytical skills; advanced Excel/Sheets\n• Comfortable with product feeds, tagging standards, UTMs and basic tracking concepts\n• Excellent project management across multiple stakeholders and suppliers; structured, reliable and detail‑oriented\n• Customer and solution focused; able to translate data into actionable recommendations\n• Languages: strong proficiency in English; German or French is a plus",
-      "postedDate": "2026-08-29",
-      "source": "company-website",
-      "slug": "manor-retail-media-coordinator-100-basel-retail-media-coordinator",
-      "sourceLang": "en",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
     {
       "title": "Retail Media Coordinator 100%",
       "company": "Manor AG",
@@ -57,6 +33,30 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Retail Media Coordinator 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234055/",
+      "location": "Basel Retail Media Coordinator",
+      "canton": "BS",
+      "country": "CH",
+      "category": "retail",
+      "descriptionIt": "• Strong organizational skills and communication skills (collaborate closely with a Sales Manager in the team)\n• Competent in bringing people together, building cooperative relationships\n• Strong analytical skills; advanced Excel/Sheets\n• Comfortable with product feeds, tagging standards, UTMs and basic tracking concepts\n• Excellent project management across multiple stakeholders and suppliers; structured, reliable and detail‑oriented\n• Customer and solution focused; able to translate data into actionable recommendations\n• Languages: strong proficiency in English; German or French is a plus",
+      "postedDate": "2026-08-29",
+      "source": "company-website",
+      "slug": "manor-retail-media-coordinator-100-basel-retail-media-coordinator",
+      "sourceLang": "en",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
         "translation": 16,
         "completeness": 11
       }
@@ -110,18 +110,42 @@
       }
     },
     {
-      "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
+      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-%28Montagsaushilfe-eManor%29-20/1363665955/",
-      "location": "Hochdorf Mitarbeiterin Logistik (Montagsaushilfe",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1363665755/",
+      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "canton": "LU",
       "country": "CH",
       "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "postedDate": "2026-08-12",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
+      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
+      "sourceLang": "it",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 16,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1363666055/",
+      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
+      "canton": "LU",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-08-12",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
       "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
@@ -158,18 +182,18 @@
       }
     },
     {
-      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
+      "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1363665755/",
-      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-%28Montagsaushilfe-eManor%29-20/1363665955/",
+      "location": "Hochdorf Mitarbeiterin Logistik (Montagsaushilfe",
       "canton": "LU",
       "country": "CH",
       "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "descriptionIt": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik (Montagsaushilfe, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "postedDate": "2026-08-12",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
+      "slug": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
       "sourceLang": "it",
       "crawledAt": "",
       "needsRetranslation": true,
@@ -186,30 +210,6 @@
       "company": "Manor AG",
       "companyKey": "manor",
       "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1363665855/",
-      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-12",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1363666055/",
       "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
       "canton": "LU",
       "country": "CH",
@@ -415,7 +415,7 @@
       "title": "Retail Media Coordinator 100%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234055/",
+      "url": "https://positions.manor.ch/job/Basel-Retail-Media-Coordinator-100/1359234155/",
       "location": "Basel Retail Media Coordinator",
       "canton": "BS",
       "country": "CH",
@@ -425,41 +425,15 @@
       "source": "company-website",
       "slug": "manor-retail-media-coordinator-100-basel-retail-media-coordinator",
       "sourceLang": "en",
-      "id": "manor-37dc131a7091",
+      "id": "manor-24de8fb27a46",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:20:15.201Z",
+      "firstSeenAt": "2026-09-01T00:57:44.072Z",
       "crawledAt": "",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Collaborateur/trice supermarché (take out cuisine) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-supermarch%C3%A9-%28take-out-cuisine%29-50/1365899155/",
-      "location": "Fribourg Collaborateurtrice supermarché (take",
-      "canton": "FR",
-      "country": "CH",
-      "category": "retail",
-      "descriptionIt": "Collaborateur/trice supermarché (take out cuisine) 50% presso Manor, con sede a Fribourg Collaborateurtrice supermarché (take, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-28",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-take-out-cuisine-50-fribourg-collaborateurtrice-supermarche-take",
-      "sourceLang": "it",
-      "id": "manor-94a138d4cc69",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:20:15.201Z",
-      "crawledAt": "",
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 20,
         "completeness": 11
       }
     },
@@ -504,7 +478,6 @@
       "slug": "manor-impiegato-a-del-commercio-dettaglio-afc-confezione-donna-100-lugano-impiegatoa-del-commercio",
       "sourceLang": "it",
       "id": "manor-1f9f5255cadb",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -530,32 +503,6 @@
       "slug": "manor-collaborateur-trice-vente-papeterie-100-fribourg-collaborateurtrice-vente-papeterie",
       "sourceLang": "it",
       "id": "manor-3f8d69994369",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:20:15.201Z",
-      "crawledAt": "",
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 20,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Cuisinier/ère (Manora) 60%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Monthey-Cuisinier%C3%A8re-%28Manora%29-60/1365897055/",
-      "location": "Monthey Cuisinierère (Manora) 60",
-      "canton": "VS",
-      "country": "CH",
-      "category": "hospitality",
-      "descriptionIt": "Cuisinier/ère (Manora) 60% presso Manor, con sede a Monthey Cuisinierère (Manora) 60, Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-28",
-      "source": "company-website",
-      "slug": "manor-cuisinier-ere-manora-60-monthey-cuisinierere-manora-60",
-      "sourceLang": "it",
-      "id": "manor-c7a412728d02",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
@@ -608,7 +555,6 @@
       "slug": "manor-impiegato-a-del-commercio-dettaglio-afc-confezione-donna-100-ascona-impiegatoa-del-commercio",
       "sourceLang": "it",
       "id": "manor-5e6cbfe892fe",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
       "_qualityScore": 75,
@@ -616,6 +562,58 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Cuisinier/ère (Manora) 60%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Monthey-Cuisinier%C3%A8re-%28Manora%29-60/1365897055/",
+      "location": "Monthey Cuisinierère (Manora) 60",
+      "canton": "VS",
+      "country": "CH",
+      "category": "hospitality",
+      "descriptionIt": "Cuisinier/ère (Manora) 60% presso Manor, con sede a Monthey Cuisinierère (Manora) 60, Canton Vallese, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-08-28",
+      "source": "company-website",
+      "slug": "manor-cuisinier-ere-manora-60-monthey-cuisinierere-manora-60",
+      "sourceLang": "it",
+      "id": "manor-c7a412728d02",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:20:15.201Z",
+      "crawledAt": "",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 20,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Collaborateur/trice supermarché (take out cuisine) 50%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-supermarch%C3%A9-%28take-out-cuisine%29-50/1365899155/",
+      "location": "Fribourg Collaborateurtrice supermarché (take",
+      "canton": "FR",
+      "country": "CH",
+      "category": "retail",
+      "descriptionIt": "Collaborateur/trice supermarché (take out cuisine) 50% presso Manor, con sede a Fribourg Collaborateurtrice supermarché (take, Canton Friburgo, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-08-28",
+      "source": "company-website",
+      "slug": "manor-collaborateur-trice-supermarche-take-out-cuisine-50-fribourg-collaborateurtrice-supermarche-take",
+      "sourceLang": "it",
+      "id": "manor-94a138d4cc69",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:20:15.201Z",
+      "crawledAt": "",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 20,
         "completeness": 11
       }
     },
@@ -660,9 +658,9 @@
       "slug": "consulente-vendite-gioielleria-orologi-60-manor-ag-lausanne-conseillerere-de-vente",
       "sourceLang": "fr",
       "id": "manor-2d72cbab20e8",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -712,9 +710,9 @@
       "slug": "manor-mitarbeiter-in-merchandising-60-baden-mitarbeiterin-merchandising-60",
       "sourceLang": "it",
       "id": "manor-776fb202ad55",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -738,7 +736,6 @@
       "slug": "manor-impiegato-a-del-commercio-dettaglio-afc-vezia-impiegatoa-del-commercio",
       "sourceLang": "it",
       "id": "manor-a1a28996b90b",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
       "_qualityScore": 64,
@@ -776,28 +773,28 @@
       }
     },
     {
-      "title": "Impiegato/a del commercio dettaglio AFC 100%",
+      "title": "Mitarbeiter*in Verkauf 40%",
       "company": "Manor AG",
       "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Locarno-Impiegatoa-del-commercio-dettaglio-AFC-100/1365814355/",
-      "location": "Locarno Impiegatoa del commercio",
-      "canton": "TI",
+      "url": "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-40/1365799855/",
+      "location": "Luzern Mitarbeiterin Verkauf 40",
+      "canton": "LU",
       "country": "CH",
-      "category": "apprenticeship",
-      "descriptionIt": "puntualità e rispetto degli orari, motivazione e interesse per il lavoro, precisione nello svolgere i compiti, portare sempre a termine i compiti scolastici.",
+      "category": "sales",
+      "descriptionIt": "Mitarbeiter*in Verkauf 40% presso Manor, con sede a Luzern Mitarbeiterin Verkauf 40, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "postedDate": "2026-08-27",
       "source": "company-website",
-      "slug": "manor-impiegato-a-del-commercio-dettaglio-afc-100-locarno-impiegatoa-del-commercio",
+      "slug": "manor-mitarbeiter-in-verkauf-40-luzern-mitarbeiterin-verkauf-40",
       "sourceLang": "it",
-      "id": "manor-31ecae485cb1",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-28T05:29:15.749Z",
+      "id": "manor-862b76d472b7",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:20:15.201Z",
       "crawledAt": "",
-      "_qualityScore": 64,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
+        "richness": 14,
+        "translation": 16,
         "completeness": 11
       }
     },
@@ -816,13 +813,37 @@
       "slug": "manor-mitarbeiter-in-verkauf-80-luzern-mitarbeiterin-verkauf-80",
       "sourceLang": "de",
       "id": "manor-4723136b83f8",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
       "crawledAt": "",
       "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 0,
+        "translation": 25,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Impiegato/a del commercio dettaglio AFC 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Locarno-Impiegatoa-del-commercio-dettaglio-AFC-100/1365814355/",
+      "location": "Locarno Impiegatoa del commercio",
+      "canton": "TI",
+      "country": "CH",
+      "category": "apprenticeship",
+      "descriptionIt": "puntualità e rispetto degli orari, motivazione e interesse per il lavoro, precisione nello svolgere i compiti, portare sempre a termine i compiti scolastici.",
+      "postedDate": "2026-08-27",
+      "source": "company-website",
+      "slug": "manor-impiegato-a-del-commercio-dettaglio-afc-100-locarno-impiegatoa-del-commercio",
+      "sourceLang": "it",
+      "id": "manor-31ecae485cb1",
+      "firstSeenAt": "2026-08-28T05:29:15.749Z",
+      "crawledAt": "",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
         "translation": 25,
         "completeness": 11
       }
@@ -850,32 +871,6 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 20,
-        "completeness": 11
-      }
-    },
-    {
-      "title": "Mitarbeiter*in Verkauf 40%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Luzern-Mitarbeiterin-Verkauf-40/1365799855/",
-      "location": "Luzern Mitarbeiterin Verkauf 40",
-      "canton": "LU",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Mitarbeiter*in Verkauf 40% presso Manor, con sede a Luzern Mitarbeiterin Verkauf 40, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-27",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-40-luzern-mitarbeiterin-verkauf-40",
-      "sourceLang": "it",
-      "id": "manor-862b76d472b7",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:20:15.201Z",
-      "crawledAt": "",
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
         "completeness": 11
       }
     },
@@ -931,32 +926,6 @@
       }
     },
     {
-      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362291455/",
-      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
-      "canton": "LU",
-      "country": "CH",
-      "category": "logistics",
-      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-26",
-      "source": "company-website",
-      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
-      "sourceLang": "it",
-      "id": "manor-73c17e883462",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-26T10:09:10.054Z",
-      "crawledAt": "",
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 20,
-        "completeness": 11
-      }
-    },
-    {
       "title": "Mitarbeiter*in Logistik (Montagsaushilfe eManor) 20%",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -979,6 +948,32 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 20,
+        "completeness": 11
+      }
+    },
+    {
+      "title": "Mitarbeiter*in Logistik Kommissionierung 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-Kommissionierung-100/1362291455/",
+      "location": "Hochdorf Mitarbeiterin Logistik Kommissionierung",
+      "canton": "LU",
+      "country": "CH",
+      "category": "logistics",
+      "descriptionIt": "Mitarbeiter*in Logistik Kommissionierung 100% presso Manor, con sede a Hochdorf Mitarbeiterin Logistik Kommissionierung, Canton Lucerna, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-08-26",
+      "source": "company-website",
+      "slug": "manor-mitarbeiter-in-logistik-kommissionierung-100-hochdorf-mitarbeiterin-logistik-kommissionierung",
+      "sourceLang": "it",
+      "id": "manor-73c17e883462",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-26T10:09:10.054Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -1020,12 +1015,12 @@
       "descriptionIt": "expérience dans le domaine de la logistique souhaité.\nêtre disponible dès 5h le matin tous les jours.",
       "postedDate": "2026-08-25",
       "source": "company-website",
-      "slug": "collaborateur-trice-logistique-80-manor-ag-geneve-1-collaborateurtrice-logistique",
+      "slug": "collaboratore-logistico-80-manor-ag-geneve-1-collaborateurtrice-logistique",
       "sourceLang": "fr",
       "id": "manor-79867d0b8597",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T22:08:10.423Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1035,8 +1030,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Mitarbeiter*in Logistik 100%",
       "company": "Manor AG",
@@ -1052,7 +1046,6 @@
       "slug": "collaboratore-trice-in-logistik-100-manor-ag-mohlin-mitarbeiterin-logistik-100",
       "sourceLang": "de",
       "id": "manor-63c87f2dd108",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T22:01:54.783Z",
       "crawledAt": "",
       "salaryMin": 62000,
@@ -1063,7 +1056,6 @@
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
       "salarySource": "estimated",
-      "retranslationAttempts": 1,
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1096,7 +1088,6 @@
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -1191,7 +1182,7 @@
       "id": "manor-4b2841d3763e",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 138,
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-08-18T10:15:44.805Z",
       "crawledAt": "",
       "salaryMin": 43200,
@@ -1201,7 +1192,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 69,
       "_qualityBreakdown": {
@@ -1269,7 +1259,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 69,
       "_qualityBreakdown": {
@@ -1303,7 +1292,6 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1439,7 +1427,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 76,
       "_qualityBreakdown": {
@@ -1585,5 +1572,6 @@
         "completeness": 16
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
