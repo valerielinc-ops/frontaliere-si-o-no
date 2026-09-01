@@ -581,6 +581,7 @@ export async function fetchFustJobUrls(options = {}) {
     urls,
     seedMetaByUrl,
     apiTotal,
+    droppedNonCh,
     droppedMalformedUrl,
     droppedDuplicateIdentity,
     workplaceCount,
