@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-09-01T10:14:07.471Z",
+  "assembledAt": "2026-09-01T14:09:57.686Z",
   "jobs": [
     {
       "id": "kispi-zurich-6337814c5aec",
@@ -80,7 +80,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "kispi-zurich-68c752d460e6",
@@ -113,7 +114,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:59.222Z",
+      "crawledAt": "2026-09-01T14:09:53.604Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -157,7 +158,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-9a4dece2b049",
@@ -191,7 +193,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:55.141Z",
+      "crawledAt": "2026-09-01T14:09:49.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -269,7 +271,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3731/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:53.202Z",
+      "crawledAt": "2026-09-01T14:09:48.221Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -347,7 +349,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:51.892Z",
+      "crawledAt": "2026-09-01T14:09:47.277Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -410,7 +412,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3714/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:51.013Z",
+      "crawledAt": "2026-09-01T14:09:46.336Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -432,7 +434,8 @@
         "senior-consultant-head-of-unit-100-stem-cell-transplantation-kispi-zurich-zurich",
         "consulente-senior-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich"
+        "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "senior-consulente-responsabile-division-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -440,7 +443,8 @@
           "senior-consultant-head-of-unit-100-stem-cell-transplantation-kispi-zurich-zurich",
           "consulente-senior-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
           "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich"
+          "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
+          "senior-consulente-responsabile-division-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "de": [
           "senior-consultant-head-of-division-100-kispi-zurich-zurich"
@@ -462,7 +466,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-8bf163faa35f",
@@ -496,7 +501,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3734/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:50.229Z",
+      "crawledAt": "2026-09-01T14:09:45.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -560,7 +565,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3733/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:49.344Z",
+      "crawledAt": "2026-09-01T14:09:44.584Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -624,7 +629,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:48.467Z",
+      "crawledAt": "2026-09-01T14:09:43.654Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -715,7 +720,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3736/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:47.587Z",
+      "crawledAt": "2026-09-01T14:09:42.714Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -759,6 +764,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kispi-zurich-0a38b3dc1a38",
+      "slug": "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+      "slugByLocale": {
+        "de": "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+        "it": "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+        "en": "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+        "fr": "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich"
+      },
+      "company": "Universitäts-Kinderspital Zürich (Kispi)",
+      "companyKey": "kispi-zurich",
+      "companyDomain": "kispi.uzh.ch",
+      "title": "Applikationsverantwortliche PolyPoint PEP (m/w) 70%",
+      "titleByLocale": {
+        "de": "Applikationsverantwortliche PolyPoint PEP (m/w) 70%",
+        "fr": "Applikationsverantwortliche PolyPoint PEP (m/w) 70%",
+        "it": "Applikationsverantwortliche PolyPoint PEP (m/w) 70%",
+        "en": "Applikationsverantwortliche PolyPoint PEP (m/w) 70%"
+      },
+      "description": "Applikationsverantwortliche PolyPoint PEP (m/w) 70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+      "descriptionByLocale": {
+        "de": "Applikationsverantwortliche PolyPoint PEP (m/w) 70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "it": "Applikationsverantwortliche PolyPoint PEP (m/w) 70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "en": "Applikationsverantwortliche PolyPoint PEP (m/w) 70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
+        "fr": "Applikationsverantwortliche PolyPoint PEP (m/w) 70% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Description/1",
+      "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:09:41.793Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 64000,
+      "salaryMax": 89600,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64000,
+          "maxValue": 89600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T14:09:41.793Z"
     }
   ]
 }
