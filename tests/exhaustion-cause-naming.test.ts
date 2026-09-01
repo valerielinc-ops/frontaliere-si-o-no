@@ -49,7 +49,7 @@ import {
 // node:test. Tenerle nella stessa forma e' cio' che permette di diffare i due
 // file quando il manifest segnala drift su ai-models.mjs.
 const assert = {
-  equal: (a, b, m) => expect(a, m).toBe(b),
+  equal: (a, b, m?: string) => expect(a, m).toBe(b),
   deepEqual: (a, b, m) => expect(a, m).toEqual(b),
   ok: (a, m) => expect(a, m).toBeTruthy(),
 };

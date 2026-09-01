@@ -116,11 +116,12 @@ describe('sortChainByScore — affidabilita prima della somma additiva', () => {
       text: async () => JSON.stringify({ choices: [{ message: { content: 'ok' } }] }),
     }) as Response));
 
-    await aiModels.callLLM([{ role: 'user', content: 'ping' }], {
+    const opts = {
       chain: [LOWER_RATE_HIGH_VOLUME],
       maxRetriesPerModel: 1,
       recordScore: false,
-    });
+    };
+    await aiModels.callLLM([{ role: 'user', content: 'ping' }], opts);
 
     expect(aiModels.getPreferredModel({ chain: [HIGHER_RATE_LOW_VOLUME, LOWER_RATE_HIGH_VOLUME] }))
       .toBe(HIGHER_RATE_LOW_VOLUME);
@@ -135,11 +136,12 @@ describe('sortChainByScore — affidabilita prima della somma additiva', () => {
       text: async () => '',
     }) as Response));
 
-    await expect(aiModels.callLLM([{ role: 'user', content: 'ping' }], {
+    const opts = {
       chain: [LOWER_RATE_HIGH_VOLUME],
       maxRetriesPerModel: 1,
       recordScore: false,
-    })).rejects.toThrow(/HTTP 404/);
+    };
+    await expect(aiModels.callLLM([{ role: 'user', content: 'ping' }], opts)).rejects.toThrow(/HTTP 404/);
 
     expect(aiModels.getPreferredModel({ chain: [LOWER_RATE_HIGH_VOLUME, HIGHER_RATE_LOW_VOLUME] }))
       .toBe(LOWER_RATE_HIGH_VOLUME);
