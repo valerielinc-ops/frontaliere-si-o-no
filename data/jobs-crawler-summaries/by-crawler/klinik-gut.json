@@ -1,21 +1,23 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-08-31T17:14:57.132Z",
+  "generatedAt": "2026-09-01T00:52:36.881Z",
   "total": 12,
   "discovered": null,
   "written": 12,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3582,
-  "avgDurationMs": 3582,
+  "unchangedCount": 1,
+  "durationMs": 3720,
+  "avgDurationMs": 3720,
   "durationHistory": [
-    3582
+    3720
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-gut-1764-30693b2d9c0b",
       "slug": "esperto-a-diploma-anestesia-nds-hf-50-100-klinik-gut-ag-flasch",
@@ -46,7 +48,9 @@
       "firstSeenAt": "2026-06-29T22:54:47.985Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -55,7 +59,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
