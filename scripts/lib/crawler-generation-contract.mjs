@@ -164,9 +164,20 @@ export function crawlerGenerationDispatchRef(generationToken) {
 
 function dispatchRefForBinding(binding) {
   if (!binding?.corpusCodeCommit) return 'main';
-  return isCrawlerGenerationToken(binding?.generationToken)
-    ? crawlerGenerationDispatchRef(binding.generationToken)
-    : null;
+  if (binding && Object.prototype.hasOwnProperty.call(binding, 'generationToken')) {
+    return isCrawlerGenerationToken(binding.generationToken)
+      ? crawlerGenerationDispatchRef(binding.generationToken)
+      : null;
+  }
+  // Legacy shim: a sentinel group entry persisted before `generationToken`
+  // joined the binding schema carries the token only inside `runName`. A
+  // generation cycle dispatched pre-deploy and observed post-deploy must
+  // keep resolving instead of failing every group closed on the schema edge.
+  const runName = binding?.runName ?? '';
+  const groupMatch = /^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(?:0[1-9]|1[0-9]|2[0-3])$/.exec(runName);
+  const sentinelMatch = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(runName);
+  const generationToken = groupMatch?.[1] ?? sentinelMatch?.[1] ?? null;
+  return generationToken ? crawlerGenerationDispatchRef(generationToken) : null;
 }
 
 /**
@@ -624,7 +635,16 @@ export function validateCrawlerGenerationSentinel(sentinel) {
     const runIds = [];
     for (const group of GROUP_IDS) {
       const entry = sentinel.groups[group];
-      if (!exactKeys(entry, ['workflowFile', 'workflowName', 'runId', 'runName', 'generationToken', 'artifactName', 'corpusCodeCommit'])) {
+      // Legacy shim (paired with dispatchRefForBinding above): a group entry
+      // persisted by a dispatcher run before `generationToken` joined the
+      // binding schema is missing that key entirely. Accept both shapes so a
+      // generation cycle in flight across a deploy still validates.
+      const isLegacyEntry = entry && typeof entry === 'object' && !Array.isArray(entry)
+        && !Object.prototype.hasOwnProperty.call(entry, 'generationToken');
+      const entryKeys = isLegacyEntry
+        ? ['workflowFile', 'workflowName', 'runId', 'runName', 'artifactName', 'corpusCodeCommit']
+        : ['workflowFile', 'workflowName', 'runId', 'runName', 'generationToken', 'artifactName', 'corpusCodeCommit'];
+      if (!exactKeys(entry, entryKeys)) {
         errors.push('invalid_group_binding_schema');
         continue;
       }
@@ -632,8 +652,11 @@ export function validateCrawlerGenerationSentinel(sentinel) {
       const expected = crawlerGenerationWorkflowIdentity(
         group, sentinel.generationToken, entry.runId, sentinel.corpusCodeCommit,
       );
+      const expectedComparable = isLegacyEntry
+        ? Object.fromEntries(Object.entries(expected).filter(([key]) => key !== 'generationToken'))
+        : expected;
       if ((entry.runId !== null && !validRunId(entry.runId))
-          || canonicalJson(entry) !== canonicalJson(expected)) {
+          || canonicalJson(entry) !== canonicalJson(expectedComparable)) {
         errors.push('invalid_group_binding');
       }
     }

@@ -1,12 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import {
+  CALLER_REPOSITORY,
   GROUP_IDS,
   createCrawlerGenerationSentinel,
   crawlerGenerationSentinelWorkflowIdentity,
   deriveCrawlerGenerationSourceCommit,
+  digestDocument,
   parseCrawlerGenerationRunName,
   resolveCrawlerGenerationSentinels,
   validateCrawlerGenerationSentinel,
+  validateCrawlerGenerationWorkflowRun,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 
 const SITE_CODE_COMMIT = 'a'.repeat(40);
@@ -68,6 +71,42 @@ describe('crawler generation sentinel contract', () => {
     expect(value).not.toHaveProperty('sourceCommit');
     expect(value.dispatchDiagnostics['01']).toEqual({ status: 'direct', runId: runIds()['01'] });
     expect(value.digest).toMatch(/^sha256:[a-f0-9]{64}$/);
+  });
+
+  it('accepts a legacy group entry persisted before generationToken joined the binding schema (cross-deploy in-flight cycle)', () => {
+    const value = sentinel();
+    const legacyGroups = Object.fromEntries(GROUP_IDS.map((group) => {
+      const { generationToken, ...legacyEntry } = value.groups[group];
+      return [group, legacyEntry];
+    }));
+    const legacyPayload = {
+      schemaVersion: value.schemaVersion,
+      generationToken: value.generationToken,
+      siteCodeCommit: value.siteCodeCommit,
+      corpusCodeCommit: value.corpusCodeCommit,
+      callerRepository: value.callerRepository,
+      groups: legacyGroups,
+      dispatchDiagnostics: value.dispatchDiagnostics,
+    };
+    const legacySentinel = { ...legacyPayload, digest: digestDocument(legacyPayload) };
+    expect(validateCrawlerGenerationSentinel(legacySentinel)).toEqual({ valid: true, errors: [] });
+
+    const binding = legacySentinel.groups['01'];
+    expect(binding).not.toHaveProperty('generationToken');
+    const run = {
+      id: Number(binding.runId),
+      repository: { full_name: CALLER_REPOSITORY },
+      name: binding.workflowName,
+      display_title: binding.runName,
+      path: `.github/workflows/${binding.workflowFile}`,
+      event: 'workflow_dispatch',
+      head_branch: `crawler-generation-shadow-${legacySentinel.generationToken}`,
+      head_sha: legacySentinel.corpusCodeCommit,
+      run_attempt: 1,
+      status: 'queued',
+      conclusion: null,
+    };
+    expect(validateCrawlerGenerationWorkflowRun(run, binding)).toMatchObject({ valid: true, errors: [] });
   });
 
   it('accepts byte-equivalent replay and fails closed on two divergent sentinels for one generation', () => {
