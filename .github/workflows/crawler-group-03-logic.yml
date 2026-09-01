@@ -1562,7 +1562,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1573,7 +1572,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"arosa-lenzerheide","primarySlice":"data/jobs/by-crawler/arosa-lenzerheide.json"},{"crawlerId":"berner-montage","primarySlice":"data/jobs/by-crawler/berner-montage.json"},{"crawlerId":"bosch-thermotechnik-ag","primarySlice":"data/jobs/by-crawler/bosch-thermotechnik-ag.json"},{"crawlerId":"casale","primarySlice":"data/jobs/by-crawler/casale.json"},{"crawlerId":"climeworks","primarySlice":"data/jobs/by-crawler/climeworks.json"},{"crawlerId":"clinique-cic","primarySlice":"data/jobs/by-crawler/clinique-cic.json"},{"crawlerId":"efg-international","primarySlice":"data/jobs/by-crawler/efg-international.json"},{"crawlerId":"felfel","primarySlice":"data/jobs/by-crawler/felfel.json"},{"crawlerId":"galliker","primarySlice":"data/jobs/by-crawler/galliker.json"},{"crawlerId":"helsinn","primarySlice":"data/jobs/by-crawler/helsinn.json"},{"crawlerId":"hib-broye","primarySlice":"data/jobs/by-crawler/hib-broye.json"},{"crawlerId":"hopital-de-moutier","primarySlice":"data/jobs/by-crawler/hopital-de-moutier.json"},{"crawlerId":"interdiscount","primarySlice":"data/jobs/by-crawler/interdiscount.json"},{"crawlerId":"kispi-zurich","primarySlice":"data/jobs/by-crawler/kispi-zurich.json"},{"crawlerId":"klinik-aadorf","primarySlice":"data/jobs/by-crawler/klinik-aadorf.json"},{"crawlerId":"ksa","primarySlice":"data/jobs/by-crawler/ksa.json"},{"crawlerId":"linnea","primarySlice":"data/jobs/by-crawler/linnea.json"},{"crawlerId":"mobiliar","primarySlice":"data/jobs/by-crawler/mobiliar.json"},{"crawlerId":"oscam-castelrotto","primarySlice":"data/jobs/by-crawler/oscam-castelrotto.json"},{"crawlerId":"rss-surselva","primarySlice":"data/jobs/by-crawler/rss-surselva.json"},{"crawlerId":"siemens","primarySlice":"data/jobs/by-crawler/siemens.json"},{"crawlerId":"spital-maennedorf","primarySlice":"data/jobs/by-crawler/spital-maennedorf.json"},{"crawlerId":"totalenergies","primarySlice":"data/jobs/by-crawler/totalenergies.json"},{"crawlerId":"ubs","primarySlice":"data/jobs/by-crawler/ubs.json"},{"crawlerId":"ukbb","primarySlice":"data/jobs/by-crawler/ukbb.json"},{"crawlerId":"uzh","primarySlice":"data/jobs/by-crawler/uzh.json"},{"crawlerId":"zkb","primarySlice":"data/jobs/by-crawler/zkb.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-03-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

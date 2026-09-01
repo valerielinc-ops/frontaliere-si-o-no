@@ -1561,7 +1561,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1572,7 +1571,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"burkhalter","primarySlice":"data/jobs/by-crawler/burkhalter-group.json"},{"crawlerId":"caritas-schweiz","primarySlice":"data/jobs/by-crawler/caritas-schweiz.json"},{"crawlerId":"cds-savognin","primarySlice":"data/jobs/by-crawler/cds-savognin.json"},{"crawlerId":"chopard","primarySlice":"data/jobs/by-crawler/chopard.json"},{"crawlerId":"cs-bregaglia","primarySlice":"data/jobs/by-crawler/cs-bregaglia.json"},{"crawlerId":"damiani-group","primarySlice":"data/jobs/by-crawler/damiani-group.json"},{"crawlerId":"dic-sa","primarySlice":"data/jobs/by-crawler/dic-sa.json"},{"crawlerId":"dxt-commodities","primarySlice":"data/jobs/by-crawler/dxt-commodities.json"},{"crawlerId":"ehc-vd","primarySlice":"data/jobs/by-crawler/ehc-vd.json"},{"crawlerId":"fachkraft","primarySlice":"data/jobs/by-crawler/fachkraft.json"},{"crawlerId":"has-healthcare","primarySlice":"data/jobs/by-crawler/has-healthcare.json"},{"crawlerId":"hes-so-valais","primarySlice":"data/jobs/by-crawler/hes-so-valais.json"},{"crawlerId":"josef-mueller","primarySlice":"data/jobs/by-crawler/josef-mueller.json"},{"crawlerId":"klinik-schoenberg","primarySlice":"data/jobs/by-crawler/klinik-schoenberg.json"},{"crawlerId":"molecular-partners","primarySlice":"data/jobs/by-crawler/molecular-partners.json"},{"crawlerId":"patek-philippe","primarySlice":"data/jobs/by-crawler/patek-philippe.json"},{"crawlerId":"posta-svizzera-centro-regionale","primarySlice":"data/jobs/by-crawler/posta-svizzera-centro-regionale.json"},{"crawlerId":"rieter","primarySlice":"data/jobs/by-crawler/rieter.json"},{"crawlerId":"salina-reha","primarySlice":"data/jobs/by-crawler/salina-reha.json"},{"crawlerId":"skyguide-sa","primarySlice":"data/jobs/by-crawler/skyguide-sa.json"},{"crawlerId":"smg-swiss-marketplace-group","primarySlice":"data/jobs/by-crawler/smg-swiss-marketplace-group.json"},{"crawlerId":"soh-solothurner-spitaeler","primarySlice":"data/jobs/by-crawler/soh-solothurner-spitaeler.json"},{"crawlerId":"sro","primarySlice":"data/jobs/by-crawler/sro.json"},{"crawlerId":"szb-chb","primarySlice":"data/jobs/by-crawler/szb-chb.json"},{"crawlerId":"thurklinik","primarySlice":"data/jobs/by-crawler/thurklinik.json"},{"crawlerId":"victorinox","primarySlice":"data/jobs/by-crawler/victorinox.json"},{"crawlerId":"volg-fenaco","primarySlice":"data/jobs/by-crawler/volg-fenaco.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-08-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

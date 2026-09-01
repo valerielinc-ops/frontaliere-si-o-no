@@ -758,7 +758,11 @@ function crawlerGenerationTerminalSteps(groupIndex, expectedCrawlers) {
         CRAWLER_GENERATION_CALLER_REPOSITORY: '${{ github.repository }}',
         CRAWLER_GENERATION_CALLER_RUN_ID: '${{ github.run_id }}',
         CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: '${{ github.run_attempt }}',
-        CRAWLER_GENERATION_WAIT_OUTCOME: '${{ steps.crawler-generation-wait.outcome }}',
+        // `wait-all` is a runner pseudo-step whose schema deliberately has no
+        // `id`, so it cannot populate the `steps` context. At this point the
+        // join has completed and `job.status` is the supported job-level
+        // surface that preserves success/failure/cancelled distinctly.
+        CRAWLER_GENERATION_WAIT_OUTCOME: '${{ job.status }}',
         CRAWLER_GENERATION_EXPECTED_CRAWLERS: JSON.stringify(expectedCrawlers),
         CRAWLER_GENERATION_OUTPUT: output,
       },
@@ -905,7 +909,6 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
 
   steps.push({
     name: 'Wait for all crawlers in this group',
-    id: 'crawler-generation-wait',
     'wait-all': true,
   });
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));

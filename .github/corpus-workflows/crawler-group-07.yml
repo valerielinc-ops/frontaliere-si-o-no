@@ -1524,7 +1524,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1535,7 +1534,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"citta-di-locarno","primarySlice":"data/jobs/by-crawler/citta-di-locarno.json"},{"crawlerId":"citta-di-lugano","primarySlice":"data/jobs/by-crawler/citta-di-lugano.json"},{"crawlerId":"clinica-varini","primarySlice":"data/jobs/by-crawler/clinica-varini.json"},{"crawlerId":"clinique-de-valere","primarySlice":"data/jobs/by-crawler/clinique-de-valere.json"},{"crawlerId":"deloitte","primarySlice":"data/jobs/by-crawler/deloitte.json"},{"crawlerId":"fnz","primarySlice":"data/jobs/by-crawler/fnz.json"},{"crawlerId":"gesundheitszentrum-fricktal","primarySlice":"data/jobs/by-crawler/gesundheitszentrum-fricktal.json"},{"crawlerId":"groupe-mutuel","primarySlice":"data/jobs/by-crawler/groupe-mutuel.json"},{"crawlerId":"guess-europe","primarySlice":"data/jobs/by-crawler/guess-europe.json"},{"crawlerId":"kzu","primarySlice":"data/jobs/by-crawler/kzu.json"},{"crawlerId":"medtronic","primarySlice":"data/jobs/by-crawler/medtronic.json"},{"crawlerId":"moncucco","primarySlice":"data/jobs/by-crawler/moncucco.json"},{"crawlerId":"psgn","primarySlice":"data/jobs/by-crawler/psgn.json"},{"crawlerId":"riveneuve","primarySlice":"data/jobs/by-crawler/riveneuve.json"},{"crawlerId":"sobi","primarySlice":"data/jobs/by-crawler/sobi.json"},{"crawlerId":"spital-emmental","primarySlice":"data/jobs/by-crawler/spital-emmental.json"},{"crawlerId":"stiftung-diaconis","primarySlice":"data/jobs/by-crawler/stiftung-diaconis.json"},{"crawlerId":"svar-spitalverbund-ar","primarySlice":"data/jobs/by-crawler/svar-spitalverbund-ar.json"},{"crawlerId":"swisslog","primarySlice":"data/jobs/by-crawler/swisslog.json"},{"crawlerId":"temenos","primarySlice":"data/jobs/by-crawler/temenos.json"},{"crawlerId":"therapiezentrum-meggen","primarySlice":"data/jobs/by-crawler/therapiezentrum-meggen.json"},{"crawlerId":"trafigura","primarySlice":"data/jobs/by-crawler/trafigura.json"},{"crawlerId":"vaudoise","primarySlice":"data/jobs/by-crawler/vaudoise.json"},{"crawlerId":"vf-international-the-north-face-timberland","primarySlice":"data/jobs/by-crawler/vf-international-the-north-face-timberland.json"},{"crawlerId":"villa-im-park","primarySlice":"data/jobs/by-crawler/villa-im-park.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-07-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

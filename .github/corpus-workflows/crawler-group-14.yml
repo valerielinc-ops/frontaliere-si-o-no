@@ -1625,7 +1625,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1636,7 +1635,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"alten-switzerland","primarySlice":"data/jobs/by-crawler/alten-switzerland.json"},{"crawlerId":"artisa-group","primarySlice":"data/jobs/by-crawler/artisa-group.json"},{"crawlerId":"audemars-piguet","primarySlice":"data/jobs/by-crawler/audemars-piguet.json"},{"crawlerId":"cham-swiss-properties","primarySlice":"data/jobs/by-crawler/cham-swiss-properties.json"},{"crawlerId":"city-pop","primarySlice":"data/jobs/by-crawler/city-pop.json"},{"crawlerId":"clinique-de-genolier","primarySlice":"data/jobs/by-crawler/clinique-de-genolier.json"},{"crawlerId":"daler-hopital","primarySlice":"data/jobs/by-crawler/daler-hopital.json"},{"crawlerId":"delvitech-sa","primarySlice":"data/jobs/by-crawler/delvitech-sa.json"},{"crawlerId":"duferco","primarySlice":"data/jobs/by-crawler/duferco.json"},{"crawlerId":"engel-voelkers","primarySlice":"data/jobs/by-crawler/engel-voelkers.json"},{"crawlerId":"fondation-soins-lausanne","primarySlice":"data/jobs/by-crawler/fondation-soins-lausanne.json"},{"crawlerId":"ksow","primarySlice":"data/jobs/by-crawler/ksow.json"},{"crawlerId":"lalive","primarySlice":"data/jobs/by-crawler/lalive.json"},{"crawlerId":"leukerbad-clinic","primarySlice":"data/jobs/by-crawler/leukerbad-clinic.json"},{"crawlerId":"lhm-luzerner-hohenklinik-montana","primarySlice":"data/jobs/by-crawler/lhm-luzerner-hohenklinik-montana.json"},{"crawlerId":"medacta-international","primarySlice":"data/jobs/by-crawler/medacta-international.json"},{"crawlerId":"pallas-kliniken","primarySlice":"data/jobs/by-crawler/pallas-kliniken.json"},{"crawlerId":"recruitingapp-2649","primarySlice":"data/jobs/by-crawler/recruitingapp-2649.json"},{"crawlerId":"rhne-reseau-hospitalier-neuchatelois","primarySlice":"data/jobs/by-crawler/rhne-reseau-hospitalier-neuchatelois.json"},{"crawlerId":"selecta","primarySlice":"data/jobs/by-crawler/selecta.json"},{"crawlerId":"somedia","primarySlice":"data/jobs/by-crawler/somedia.json"},{"crawlerId":"spital-schwyz","primarySlice":"data/jobs/by-crawler/spital-schwyz.json"},{"crawlerId":"spruengli","primarySlice":"data/jobs/by-crawler/spruengli.json"},{"crawlerId":"stadt-chur","primarySlice":"data/jobs/by-crawler/stadt-chur.json"},{"crawlerId":"thermo-fisher-scientific","primarySlice":"data/jobs/by-crawler/thermo-fisher-scientific.json"},{"crawlerId":"tschuggen","primarySlice":"data/jobs/by-crawler/tschuggen.json"},{"crawlerId":"wuerth-international","primarySlice":"data/jobs/by-crawler/wuerth-international.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-14-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

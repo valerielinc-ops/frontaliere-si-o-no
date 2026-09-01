@@ -1508,7 +1508,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1519,7 +1518,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"a-group","primarySlice":"data/jobs/by-crawler/a-group.json"},{"crawlerId":"amag-group","primarySlice":"data/jobs/by-crawler/amag-group.json"},{"crawlerId":"ardentis","primarySlice":"data/jobs/by-crawler/ardentis.json"},{"crawlerId":"axpo-group","primarySlice":"data/jobs/by-crawler/axpo-group.json"},{"crawlerId":"clienia-ag","primarySlice":"data/jobs/by-crawler/clienia-ag.json"},{"crawlerId":"cnp","primarySlice":"data/jobs/by-crawler/cnp.json"},{"crawlerId":"crr-suva-sion","primarySlice":"data/jobs/by-crawler/crr-suva-sion.json"},{"crawlerId":"hess-carrosserie","primarySlice":"data/jobs/by-crawler/hess-carrosserie.json"},{"crawlerId":"hilcona","primarySlice":"data/jobs/by-crawler/hilcona.json"},{"crawlerId":"hornbach","primarySlice":"data/jobs/by-crawler/hornbach.json"},{"crawlerId":"igs-bern","primarySlice":"data/jobs/by-crawler/igs-bern.json"},{"crawlerId":"jysk","primarySlice":"data/jobs/by-crawler/jysk.json"},{"crawlerId":"klinik-siloah","primarySlice":"data/jobs/by-crawler/klinik-siloah.json"},{"crawlerId":"luks","primarySlice":"data/jobs/by-crawler/luks.json"},{"crawlerId":"michel-gruppe-ag","primarySlice":"data/jobs/by-crawler/michel-gruppe-ag.json"},{"crawlerId":"msc-cargo","primarySlice":"data/jobs/by-crawler/msc-cargo.json"},{"crawlerId":"nord-anglia","primarySlice":"data/jobs/by-crawler/nord-anglia.json"},{"crawlerId":"novelis","primarySlice":"data/jobs/by-crawler/novelis.json"},{"crawlerId":"pictet","primarySlice":"data/jobs/by-crawler/pictet.json"},{"crawlerId":"rehab-basel","primarySlice":"data/jobs/by-crawler/rehab-basel.json"},{"crawlerId":"spital-thurgau","primarySlice":"data/jobs/by-crawler/spital-thurgau.json"},{"crawlerId":"spitex-ch","primarySlice":"data/jobs/by-crawler/spitex-ch.json"},{"crawlerId":"swiss-re","primarySlice":"data/jobs/by-crawler/swiss-re.json"},{"crawlerId":"tecan","primarySlice":"data/jobs/by-crawler/tecan.json"},{"crawlerId":"tpl-lugano","primarySlice":"data/jobs/by-crawler/tpl-lugano.json"},{"crawlerId":"tsmg","primarySlice":"data/jobs/by-crawler/tsmg.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-11-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

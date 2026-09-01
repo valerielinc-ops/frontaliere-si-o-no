@@ -153,4 +153,16 @@ describe('crawler group generation finalizer', () => {
     expect(manifest.reasons).toEqual(expect.arrayContaining(['wait_failed', 'remote_fetch_failed']));
     expect(fs.readFileSync(path.join(fixture.work, fixture.slice))).toEqual(before);
   });
+
+  it.each(['failure', 'cancelled'])('preserves the terminal job status %s and fails closed', (waitOutcome) => {
+    const fixture = fixtureRepository();
+    writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));
+
+    const manifest = finalizeCrawlerGroup({ ...baseInput(fixture), waitOutcome });
+
+    expect(manifest.waitOutcome).toBe(waitOutcome);
+    expect(manifest.valid).toBe(false);
+    expect(manifest.reasons).toContain('wait_failed');
+    expect(validateGroupTerminalManifest(manifest)).toEqual({ valid: true, errors: [] });
+  });
 });
