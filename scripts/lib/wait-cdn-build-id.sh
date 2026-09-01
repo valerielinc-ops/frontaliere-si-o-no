@@ -37,6 +37,14 @@
 #   CDN_IT_CHECK_EVERY_N  consult the jobs API once every N polls (default 4, so
 #                       ~60s at the default 15s interval). Keeps the API cost at
 #                       ~45 calls per leg instead of ~180.
+#   CDN_IT_READY_STEP_NAME  when set, arm the #7049 first phase: wait until this
+#                       exact IT step is in_progress/completed before starting
+#                       the marker budget. Empty/unset preserves the legacy
+#                       single-phase contract for standalone callers.
+#   CDN_IT_READY_TIMEOUT_S  separate bounded budget for that first phase
+#                       (default 10800s). It never consumes CDN_WAIT_TIMEOUT_S.
+#   CDN_IT_READY_INTERVAL_S jobs API poll interval for the first phase
+#                       (default 30s).
 #
 # Exit codes:
 #   0  — the CDN marker matched <expected_build_id> within the timeout, OR the
@@ -88,7 +96,10 @@
 #
 # MACHINE-READABLE FACTS. Both terminal states append to $GITHUB_OUTPUT
 # (cdn_wait_result / cdn_waited_s / cdn_margin_s / cdn_last_seen /
-# cdn_expected / cdn_timeout_s) so the caller can name the cause precisely
+# cdn_expected / cdn_timeout_s). The optional readiness phase also appends
+# cdn_ready_result / cdn_ready_waited_s / cdn_ready_timeout_s /
+# cdn_ready_api_failures, so marker time and pre-marker time never blur together.
+# These facts let the caller name the cause precisely
 # instead of guessing between "shard push failed" and "ordering gate timed
 # out" — the two were reported identically before, and issues #5224/#5225/#5227
 # were filed on 2026-08-06 blaming an expired shard deploy key for what was
@@ -135,14 +146,20 @@ margin_warn_s="${CDN_WAIT_MARGIN_WARN_S:-300}"
 # than interpolating it into the filter text — a job name is workflow-controlled
 # input and must never be able to rewrite the query it is matched against.
 export WAIT_CDN_IT_JOB="${CDN_IT_JOB_NAME:-}"
+export WAIT_CDN_IT_READY_STEP="${CDN_IT_READY_STEP_NAME:-}"
 it_check_every="${CDN_IT_CHECK_EVERY_N:-4}"
+it_ready_timeout_s="${CDN_IT_READY_TIMEOUT_S:-10800}"
+it_ready_interval_s="${CDN_IT_READY_INTERVAL_S:-30}"
 [[ "$it_check_every" =~ ^[0-9]+$ ]] || it_check_every=4
+[[ "$it_ready_timeout_s" =~ ^[0-9]+$ ]] || it_ready_timeout_s=10800
+[[ "$it_ready_interval_s" =~ ^[0-9]+$ ]] || it_ready_interval_s=30
 [ "$it_check_every" -ge 1 ] || it_check_every=4
+[ "$it_ready_interval_s" -ge 1 ] || it_ready_interval_s=30
 
-# Every precondition is checked ONCE, up front, and failure means the abort is
-# switched off for the whole run — never "retry and maybe abort later". A gate
-# that silently keeps its old 2700s behaviour is the safe degradation; a gate
-# that aborts on a half-configured environment is not.
+# Every precondition is checked ONCE, up front. The legacy #5331 observer keeps
+# its historical safe degradation (disabled → plain marker wait). The #7049
+# readiness gate cannot degrade that way because doing so would restart the
+# exact budget bug: once explicitly armed, missing observability fails closed.
 it_abort_reason_disabled=""
 if [ -z "$WAIT_CDN_IT_JOB" ]; then
   it_abort_reason_disabled="CDN_IT_JOB_NAME unset"
@@ -153,11 +170,140 @@ elif [ -z "${GH_TOKEN:-${GITHUB_TOKEN:-}}" ]; then
 elif [ -z "${GITHUB_REPOSITORY:-}" ] || [ -z "${GITHUB_RUN_ID:-}" ]; then
   it_abort_reason_disabled="GITHUB_REPOSITORY/GITHUB_RUN_ID unset (not an Actions run)"
 fi
-if [ -n "$it_abort_reason_disabled" ]; then
+if [ -n "$WAIT_CDN_IT_READY_STEP" ] && [ -n "$it_abort_reason_disabled" ]; then
+  echo "::error title=CDN readiness gate unobservable::[wait-cdn-build-id] #7049 two-phase gate requires the jobs API, but ${it_abort_reason_disabled} — marker polling was NOT started and this shard is NOT published"
+  emit_output cdn_ready_result unobservable
+  emit_output cdn_ready_waited_s 0
+  emit_output cdn_ready_timeout_s "$it_ready_timeout_s"
+  emit_output cdn_ready_api_failures 1
+  emit_output cdn_wait_result it_ready_unobservable
+  emit_output cdn_waited_s 0
+  emit_output cdn_margin_s "$timeout_s"
+  emit_output cdn_last_seen ""
+  emit_output cdn_expected "$expected"
+  emit_output cdn_timeout_s "$timeout_s"
+  emit_output cdn_near_miss false
+  emit_summary "🛑 **#7049 CDN readiness gate UNOBSERVABLE**: ${it_abort_reason_disabled}. Marker polling did not start; this shard was NOT published."
+  exit 1
+elif [ -n "$it_abort_reason_disabled" ]; then
   WAIT_CDN_IT_JOB=""
   echo "[wait-cdn-build-id] #5331 early abort DISABLED (${it_abort_reason_disabled}) — falling back to the plain ${timeout_s}s budget"
 else
   echo "[wait-cdn-build-id] #5331 early abort armed on job '${WAIT_CDN_IT_JOB}' (checked every ${it_check_every} polls)"
+fi
+
+# One authenticated, exact-name snapshot of the IT job and the early-CDN step.
+# Output is deliberately reduced to five literals before it reaches shell:
+# ready / waiting / dead:<conclusion> / unreachable / unobservable. A transport
+# failure is a non-zero return, distinct from an authoritative "not seen" body.
+# Step readiness deliberately wins over a later job failure: phase 2 still
+# checks the dead job before the marker, and the exact marker remains the last
+# word when the early push succeeded before some unrelated later step failed.
+it_readiness_state() {
+  # shellcheck disable=SC2016 # jq reads the exported exact names via env.*.
+  gh api \
+    "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/jobs?per_page=100&filter=latest" \
+    --jq '([ .jobs[]? | select(.name == env.WAIT_CDN_IT_JOB) ] | first) as $job
+      | ([ $job.steps[]? | select(.name == env.WAIT_CDN_IT_READY_STEP) ] | first) as $step
+      | if $job == null then "unobservable"
+        elif ($step.status == "in_progress" or $step.status == "completed") then "ready"
+        elif $job.status == "completed" and $job.conclusion != "success" then
+          "dead:" + (if ($job.conclusion == "failure" or $job.conclusion == "cancelled"
+                            or $job.conclusion == "timed_out" or $job.conclusion == "skipped")
+                       then $job.conclusion else "unknown" end)
+        elif $job.status == "completed" then "unreachable"
+        elif ($job.status == "queued" or $job.status == "waiting"
+              or $job.status == "pending" or $job.status == "in_progress") then "waiting"
+        else "unobservable" end' 2>/dev/null
+}
+
+fail_before_marker() {
+  local result="$1"
+  local ready_result="$2"
+  local ready_elapsed="$3"
+  local api_failures="$4"
+  local conclusion="${5:-}"
+  emit_output cdn_ready_result "$ready_result"
+  emit_output cdn_ready_waited_s "$ready_elapsed"
+  emit_output cdn_ready_timeout_s "$it_ready_timeout_s"
+  emit_output cdn_ready_api_failures "$api_failures"
+  emit_output cdn_wait_result "$result"
+  emit_output cdn_waited_s 0
+  emit_output cdn_margin_s "$timeout_s"
+  emit_output cdn_last_seen ""
+  emit_output cdn_expected "$expected"
+  emit_output cdn_timeout_s "$timeout_s"
+  emit_output cdn_near_miss false
+  [ -z "$conclusion" ] || emit_output cdn_it_conclusion "$conclusion"
+}
+
+# ── #7049 phase 1: wait for the IT leg to REACH the early CDN push ───────────
+# The old single-phase gate started burning its 2700s marker budget as soon as a
+# faster non-IT build finished. Run 33520063656 measured why that is unsound:
+# IT legitimately spent ~2h22 in Build, while the sibling builds finished in
+# ~65–69m. This separate phase observes the exact IT step and has its own
+# deadline. Only after the step starts/completes does the unchanged marker
+# budget begin at elapsed=0.
+if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
+  echo "[wait-cdn-build-id] phase 1/2: waiting up to ${it_ready_timeout_s}s for IT step '${WAIT_CDN_IT_READY_STEP}' before starting the ${timeout_s}s marker budget"
+  ready_elapsed=0
+  ready_attempt=0
+  ready_api_failures=0
+  ready_observations=0
+  while :; do
+    ready_attempt=$((ready_attempt + 1))
+    readiness=""
+    if readiness="$(it_readiness_state)"; then
+      readiness="$(printf '%s' "$readiness" | tr -d '[:space:]')"
+    else
+      readiness="unobservable"
+    fi
+    case "$readiness" in
+      ready)
+        echo "[wait-cdn-build-id] ✅ phase 1/2 ready after ${ready_elapsed}s (${ready_attempt} API polls) — starting the full ${timeout_s}s marker budget now"
+        emit_output cdn_ready_result ready
+        emit_output cdn_ready_waited_s "$ready_elapsed"
+        emit_output cdn_ready_timeout_s "$it_ready_timeout_s"
+        emit_output cdn_ready_api_failures "$ready_api_failures"
+        break
+        ;;
+      waiting)
+        ready_observations=$((ready_observations + 1))
+        ;;
+      dead:failure|dead:cancelled|dead:timed_out|dead:skipped|dead:unknown)
+        it_dead="${readiness#dead:}"
+        echo "::error title=CDN readiness gate ABORTED (IT leg ${it_dead})::[wait-cdn-build-id] the IT leg ended '${it_dead}' before '${WAIT_CDN_IT_READY_STEP}' became ready — marker polling was NOT started and this shard is NOT published"
+        fail_before_marker it_leg_failed it_leg_failed "$ready_elapsed" "$ready_api_failures" "$it_dead"
+        emit_summary "🛑 **#7049 CDN readiness gate ABORTED** after \`${ready_elapsed}s\`: the IT leg ended \`${it_dead}\` before the early CDN step became ready. Marker polling did not start; this shard was NOT published."
+        exit 1
+        ;;
+      unreachable)
+        echo "::error title=CDN readiness step unreachable::[wait-cdn-build-id] the IT leg completed successfully without '${WAIT_CDN_IT_READY_STEP}' ever becoming ready — marker polling was NOT started and this shard is NOT published"
+        fail_before_marker it_ready_unreachable unreachable "$ready_elapsed" "$ready_api_failures"
+        emit_summary "🛑 **#7049 CDN readiness step UNREACHABLE** after \`${ready_elapsed}s\`: the IT job completed without the early CDN step. Marker polling did not start; this shard was NOT published."
+        exit 1
+        ;;
+      *)
+        ready_api_failures=$((ready_api_failures + 1))
+        echo "[wait-cdn-build-id] phase 1/2 jobs API uncertain (attempt ${ready_attempt}, elapsed ${ready_elapsed}s/${it_ready_timeout_s}s) — keeping the shard fail-closed"
+        ;;
+    esac
+    if [ "$ready_elapsed" -ge "$it_ready_timeout_s" ]; then
+      if [ "$ready_observations" -gt 0 ]; then
+        ready_result=timeout
+        wait_result=it_ready_timeout
+      else
+        ready_result=unobservable
+        wait_result=it_ready_unobservable
+      fi
+      echo "::error title=CDN readiness gate deadline::[wait-cdn-build-id] phase 1/2 reached its ${it_ready_timeout_s}s deadline (API failures=${ready_api_failures}, authoritative waiting observations=${ready_observations}) before '${WAIT_CDN_IT_READY_STEP}' became ready — the ${timeout_s}s marker budget was NOT consumed and this shard is NOT published"
+      fail_before_marker "$wait_result" "$ready_result" "$ready_elapsed" "$ready_api_failures"
+      emit_summary "🛑 **#7049 CDN readiness gate DEADLINE** after \`${ready_elapsed}s\`: early CDN step not ready (API failures \`${ready_api_failures}\`, waiting observations \`${ready_observations}\`). The marker budget remained untouched; this shard was NOT published."
+      exit 1
+    fi
+    sleep "$it_ready_interval_s"
+    ready_elapsed=$((ready_elapsed + it_ready_interval_s))
+  done
 fi
 
 # Echoes the IT leg's conclusion ONLY when the jobs API positively reports that
@@ -187,7 +333,7 @@ it_leg_dead_conclusion() {
   esac
 }
 
-echo "[wait-cdn-build-id] gating shard publish on CDN build id=${expected} (url=${url}, timeout=${timeout_s}s, interval=${interval_s}s, near-miss<${margin_warn_s}s)"
+echo "[wait-cdn-build-id] phase 2/2: gating shard publish on CDN build id=${expected} (url=${url}, timeout=${timeout_s}s, interval=${interval_s}s, near-miss<${margin_warn_s}s)"
 
 elapsed=0
 attempt=0

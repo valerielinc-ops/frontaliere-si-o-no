@@ -95,4 +95,20 @@ describe('scripts/lib/wait-cdn-build-id.sh', () => {
     expect(code).toBe(1);
     expect(stdout).toMatch(/timed out/i);
   });
+
+  it('fails closed before marker polling when #7049 readiness is armed but the jobs API is unobservable', () => {
+    const { code, stdout } = run(['the-new-build-id'], {
+      // Even an already-matching marker cannot bypass a readiness phase whose
+      // authenticated source is missing: production wires all prerequisites.
+      CDN_BUILD_ID_URL: markerUrl('the-new-build-id'),
+      CDN_IT_JOB_NAME: 'build-locale (it)',
+      CDN_IT_READY_STEP_NAME: 'Push generated assets to CDN (early — ahead of the shard pushes)',
+      GH_TOKEN: '',
+      GITHUB_TOKEN: '',
+    });
+    expect(code).toBe(1);
+    expect(stdout).toMatch(/readiness gate unobservable/i);
+    expect(stdout).toMatch(/marker polling was NOT started/i);
+    expect(stdout).not.toMatch(/CDN published build id/);
+  });
 });
