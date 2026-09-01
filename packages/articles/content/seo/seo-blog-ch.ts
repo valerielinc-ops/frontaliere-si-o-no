@@ -63668,6 +63668,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzeri-chiedono-misure-clima': {
+    title: 'Di più Svizzeri chiedono misure contro riscaldamento climatico',
+    description: 'Dopo l\'ondata di caldo estiva, gli svizzeri chiedono misure concrete, quali la ristrutturazione degli edifici o l\'installazione di pannelli solari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzeri, chiedono, misure, contro',
+    ogTitle: 'Di più Svizzeri chiedono misure contro riscaldamento climatico',
+    ogDescription: 'Un sondaggio rivela che il 73% degli svizzeri chiede misure concrete contro il riscaldamento climatico, con un forte sostegno per il rinnovo energetico degli edifici e il sostegno finanziario all\'agricoltura.',
+    canonicalPath: '/articoli-svizzera/svizzeri-chiedono-misure-clima/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più Svizzeri chiedono misure contro riscaldamento climatico",
+      "description": "Dopo l'ondata di caldo estiva, gli svizzeri chiedono misure concrete, quali la ristrutturazione degli edifici o l'installazione di pannelli solari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzeri-chiedono-misure-clima.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con pannelli solari sui tetti."
+      },
+      "datePublished": "2026-09-01T10:00:23+00:00",
+      "dateModified": "2026-09-01T10:00:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzeri-chiedono-misure-clima/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
