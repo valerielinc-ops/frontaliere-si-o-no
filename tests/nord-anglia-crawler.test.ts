@@ -128,7 +128,7 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
 
     await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
-      /\[nord-anglia-drop-ratio\] canonical Aubonne URL guard: dropped 1\/1 items/,
+      /\[nord-anglia-drop-ratio\] Aubonne title\/URL scope guard: dropped 1\/1 items/,
     );
     expect(warnSpy).toHaveBeenCalledWith(
       expect.stringContaining('[nord-anglia-canonical-url-drop]'),
@@ -161,16 +161,60 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
   it('fails on feed-wide title-scope drift instead of silently returning an empty slice', async () => {
     const driftedFeed = validRssItem({
       title: '<title><![CDATA[Teacher of Biology - Aubonne]]></title>',
+      link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/?session=secret-token</link>',
     });
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
 
     await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
-      /\[nord-anglia-drop-ratio\] title Aubonne scope guard: dropped 1\/1 items/,
+      /\[nord-anglia-drop-ratio\] Aubonne title\/URL scope guard: dropped 1\/1 items/,
     );
     expect(warnSpy).toHaveBeenCalledWith(
       expect.stringContaining('[nord-anglia-title-scope-drop]'),
     );
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain('Teacher of Biology - Aubonne');
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain(
+      'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/',
+    );
+    expect(warnSpy.mock.calls.flat().join(' ')).not.toContain('secret-token');
+    warnSpy.mockRestore();
+  });
+
+  it('ignores unrelated full-text search noise outside both Aubonne signals', async () => {
+    const noisyFeed = rssFeed(
+      rssItemXml(),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Mathematics (Geneva, CH)]]></title>',
+        link: '<link>https://careers.nordangliaeducation.com/job/Geneva-Teacher-of-Mathematics/1400000000/</link>',
+      }),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Physics (Pully, CH)]]></title>',
+        link: '<link>https://careers.nordangliaeducation.com/job/Pully-Teacher-of-Physics/1400000001/</link>',
+      }),
+    );
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(noisyFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).resolves.toHaveLength(1);
+  });
+
+  it('combines title and URL failures across different Aubonne candidates', async () => {
+    const splitDriftFeed = rssFeed(
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Biology - Aubonne]]></title>',
+      }),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Mathematics (Aubonne, CH)]]></title>',
+        link: '<link>https://example.com/new-job-template/1400000000/</link>',
+      }),
+    );
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(splitDriftFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] Aubonne title\/URL scope guard: dropped 2\/2 items/,
+    );
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain('[nord-anglia-title-scope-drop]');
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain('[nord-anglia-canonical-url-drop]');
     warnSpy.mockRestore();
   });
 

@@ -79,6 +79,7 @@ const SECTOR = 'Istruzione / Scuole internazionali';
 
 /** Marker required in BOTH title and link before a listing is trusted as Aubonne-scoped. */
 const AUBONNE_TITLE_RE = /\(Aubonne,\s*CH\)\s*$/i;
+const AUBONNE_TITLE_HINT_RE = /\baubonne\b/i;
 const AUBONNE_LINK_RE = /\/job\/Aubonne-/i;
 
 /** Evergreen talent-pool / "share your profile" placeholders — not real open roles. */
@@ -400,10 +401,8 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
-  let titleScopeCandidates = 0;
-  let titleScopeDrops = 0;
-  let canonicalCandidates = 0;
-  let canonicalUrlDrops = 0;
+  let aubonneScopeCandidates = 0;
+  let aubonneScopeDrops = 0;
   for (const item of listings) {
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
@@ -412,30 +411,40 @@ export async function fetchAllNordAngliaJobs() {
     // Evergreen placeholders are intentionally outside the drop-ratio
     // denominator: they are valid vendor records, but not open positions.
     if (isGenericOffer(title)) continue;
-    titleScopeCandidates++;
+
+    const publicUrl = canonicalizeNordAngliaJobUrl(link);
+    const hasTitleScope = AUBONNE_TITLE_RE.test(rawTitle) && title.length >= 3;
+    // The vendor search is full-text and may legitimately return unrelated
+    // records. Count an item only when either independent signal still hints
+    // at Aubonne; then require both signals before publishing it. This catches
+    // one-sided vendor drift without treating ordinary search noise as drift.
+    const isAubonneCandidate = AUBONNE_TITLE_HINT_RE.test(rawTitle) || Boolean(publicUrl);
+    if (!isAubonneCandidate) continue;
+    aubonneScopeCandidates++;
 
     // The RSS `keywords=` param is full-text search, not a strict location
     // filter. The title identifies an Aubonne candidate; canonicalization
     // below independently requires the trusted host + Aubonne path. Keeping
     // those checks separate makes vendor title and URL-template drift
     // independently observable.
-    if (!AUBONNE_TITLE_RE.test(rawTitle) || !title || title.length < 3) {
-      titleScopeDrops++;
+    let scopeDropped = false;
+    if (!hasTitleScope) {
+      scopeDropped = true;
       console.warn(
-        '[nord-anglia-title-scope-drop] Skipped RSS item because its title '
-        + 'no longer matches the expected Aubonne scope marker',
+        `[nord-anglia-title-scope-drop] Skipped "${title || '[missing title]'}" at `
+        + `${jobUrlForDiagnostic(link)} because its `
+        + 'title no longer matches the expected Aubonne scope marker',
       );
-      continue;
     }
-
-    canonicalCandidates++;
-    const publicUrl = canonicalizeNordAngliaJobUrl(link);
     if (!publicUrl) {
-      canonicalUrlDrops++;
+      scopeDropped = true;
       console.warn(
         `[nord-anglia-canonical-url-drop] Skipped "${title}"; candidate URL `
         + `${jobUrlForDiagnostic(link)} is not a trusted canonical Aubonne job URL`,
       );
+    }
+    if (scopeDropped) {
+      aubonneScopeDrops++;
       continue;
     }
     if (seen.has(publicUrl)) continue;
@@ -498,10 +507,10 @@ export async function fetchAllNordAngliaJobs() {
     jobs.push(job);
   }
 
-  // One malformed candidate is logged and dropped, but a vendor-wide title,
-  // host or path change remains a hard failure so the indexed slice is kept.
-  assertDropRatioWithinLimit('title Aubonne scope guard', titleScopeCandidates, titleScopeDrops);
-  assertDropRatioWithinLimit('canonical Aubonne URL guard', canonicalCandidates, canonicalUrlDrops);
+  // One malformed candidate is logged and dropped, but combined title/URL
+  // drift over half of the relevant items remains a hard failure so the
+  // indexed slice is kept.
+  assertDropRatioWithinLimit('Aubonne title/URL scope guard', aubonneScopeCandidates, aubonneScopeDrops);
 
   console.log(`\n📋 Total ${NORD_ANGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
