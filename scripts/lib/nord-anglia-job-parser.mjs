@@ -60,6 +60,9 @@ const CAREER_URL = 'https://careers.nordangliaeducation.com/services/rss/job/?lo
 const ATS_HOST = 'careers.nordangliaeducation.com';
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
+// Exactly 50% is deliberately tolerated: one malformed vendor item must not
+// suppress the one valid job in a two-item boutique feed. More than half
+// indicates feed-wide drift and aborts the refresh so the indexed slice stays.
 const MAX_ITEM_DROP_RATIO = 0.5;
 const RSS_ITEM_STATS = Symbol('nordAngliaRssItemStats');
 
@@ -397,21 +400,33 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
+  let titleScopeCandidates = 0;
+  let titleScopeDrops = 0;
   let canonicalCandidates = 0;
   let canonicalUrlDrops = 0;
   for (const item of listings) {
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
+    const title = stripLocationSuffix(rawTitle);
+
+    // Evergreen placeholders are intentionally outside the drop-ratio
+    // denominator: they are valid vendor records, but not open positions.
+    if (isGenericOffer(title)) continue;
+    titleScopeCandidates++;
 
     // The RSS `keywords=` param is full-text search, not a strict location
     // filter. The title identifies an Aubonne candidate; canonicalization
     // below independently requires the trusted host + Aubonne path. Keeping
-    // those checks separate makes a vendor URL-template drift observable.
-    if (!AUBONNE_TITLE_RE.test(rawTitle)) continue;
-
-    const title = stripLocationSuffix(rawTitle);
-    if (!title || title.length < 3) continue;
-    if (isGenericOffer(title)) continue; // evergreen "share your profile" placeholder
+    // those checks separate makes vendor title and URL-template drift
+    // independently observable.
+    if (!AUBONNE_TITLE_RE.test(rawTitle) || !title || title.length < 3) {
+      titleScopeDrops++;
+      console.warn(
+        '[nord-anglia-title-scope-drop] Skipped RSS item because its title '
+        + 'no longer matches the expected Aubonne scope marker',
+      );
+      continue;
+    }
 
     canonicalCandidates++;
     const publicUrl = canonicalizeNordAngliaJobUrl(link);
@@ -483,8 +498,9 @@ export async function fetchAllNordAngliaJobs() {
     jobs.push(job);
   }
 
-  // One malformed candidate is logged and dropped, but a vendor-wide host or
-  // path change remains a hard failure so the existing slice is kept intact.
+  // One malformed candidate is logged and dropped, but a vendor-wide title,
+  // host or path change remains a hard failure so the indexed slice is kept.
+  assertDropRatioWithinLimit('title Aubonne scope guard', titleScopeCandidates, titleScopeDrops);
   assertDropRatioWithinLimit('canonical Aubonne URL guard', canonicalCandidates, canonicalUrlDrops);
 
   console.log(`\n📋 Total ${NORD_ANGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);

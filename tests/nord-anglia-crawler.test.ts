@@ -158,6 +158,40 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     warnSpy.mockRestore();
   });
 
+  it('fails on feed-wide title-scope drift instead of silently returning an empty slice', async () => {
+    const driftedFeed = validRssItem({
+      title: '<title><![CDATA[Teacher of Biology - Aubonne]]></title>',
+    });
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] title Aubonne scope guard: dropped 1\/1 items/,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[nord-anglia-title-scope-drop]'),
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('keeps a valid job when title-scope drops are exactly 50% of a small feed', async () => {
+    const mixedFeed = rssFeed(
+      rssItemXml(),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Mathematics - Aubonne]]></title>',
+        link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Mathematics/1400000000/</link>',
+      }),
+    );
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(mixedFeed, { status: 200 })));
+
+    await expect(fetchAllNordAngliaJobs()).resolves.toHaveLength(1);
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[nord-anglia-title-scope-drop]'),
+    );
+    warnSpy.mockRestore();
+  });
+
   it('derives new identity from the canonical URL, not rotating jobs2web query tokens', async () => {
     const base = 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/';
     const fetchMock = vi.fn()
