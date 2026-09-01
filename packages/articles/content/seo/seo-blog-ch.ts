@@ -63473,6 +63473,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-life-taglio-posti-lavoro-2028': {
+    title: 'Swiss Life taglierà 600 posti di lavoro entro la fine del 2028',
+    description: 'Swiss Life ha annunciato l\'intenzione di tagliare circa 600 posti di lavoro entro la fine del 2028, come parte di un piano di ristrutturazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, life, taglierà, posti',
+    ogTitle: 'Swiss Life taglierà 600 posti di lavoro entro la fine del 2028',
+    ogDescription: 'Swiss Life ha annunciato l\'intenzione di tagliare circa 600 posti di lavoro entro la fine del 2028, come parte di un piano di ristrutturazione per migliorare l\'efficienza operativa e ridurre i costi.',
+    canonicalPath: '/articoli-svizzera/swiss-life-taglio-posti-lavoro-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss Life taglierà 600 posti di lavoro entro la fine del 2028",
+      "description": "Swiss Life ha annunciato l'intenzione di tagliare circa 600 posti di lavoro entro la fine del 2028, come parte di un piano di ristrutturazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-life-taglio-posti-lavoro-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del panorama di Lugano con gli uffici di Swiss Life."
+      },
+      "datePublished": "2026-09-01T05:35:30+00:00",
+      "dateModified": "2026-09-01T05:35:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-life-taglio-posti-lavoro-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
