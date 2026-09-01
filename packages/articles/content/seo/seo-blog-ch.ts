@@ -63863,6 +63863,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-commercio-dettaglio-vendite-luglio-2025': {
+    title: 'Commercio al dettaglio, aumentano le vendite in luglio',
+    description: 'Le vendite del commercio al dettaglio svizzero aumentano dello 0,2% in luglio, con un incremento dell\'1,7% in termini reali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, commercio, dettaglio, aumentano, vendite',
+    ogTitle: 'Commercio al dettaglio, aumentano le vendite in luglio',
+    ogDescription: 'Le vendite del commercio al dettaglio svizzero aumentano dello 0,2% in luglio, con un incremento dell\'1,7% in termini reali. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/commercio-dettaglio-vendite-luglio-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Commercio al dettaglio, aumentano le vendite in luglio",
+      "description": "Le vendite del commercio al dettaglio svizzero aumentano dello 0,2% in luglio, con un incremento dell'1,7% in termini reali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/commercio-dettaglio-vendite-luglio-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Lugano con negozi e aree commerciali, Svizzera"
+      },
+      "datePublished": "2026-09-01T11:48:32+00:00",
+      "dateModified": "2026-09-01T11:48:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/commercio-dettaglio-vendite-luglio-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

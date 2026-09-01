@@ -4921,6 +4921,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Tenants\' association: "it is necessary to ask for a reduction in rent"',
     'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'The benchmark mortgage rate fell twice in 2025, but most tenants did not get a rent reduction.',
     'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'View of Lugano city with residential buildings',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Retail trade, sales increase in July',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Swiss retail sales increased by 0.2% in July, an increase of 1.7% in real terms.',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Aerial view of Lugano city center with shops and commercial areas, Switzerland',
 };
 
 export default blogMetaChEn;

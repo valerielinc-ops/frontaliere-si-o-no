@@ -4921,6 +4921,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Mietervereinigung: "Es ist notwendig, eine Mietminderung zu beantragen"',
     'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Der Leitzins für die Hypothek fiel 2025 zweimal, aber die meisten Mieter erhielten keine Mietreduzierung.',
     'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Ansicht der Stadt Lugano mit Wohngebäuden',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Einzelhandel, Umsatzsteigerung im Juli',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Der Umsatz des Schweizer Detailhandels stieg im Juli um 0,2%, real um 1,7%.',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit Geschäften und Einkaufsgebieten, Schweiz',
 };
 
 export default blogMetaChDe;

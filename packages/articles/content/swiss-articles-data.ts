@@ -14761,6 +14761,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'commercio-dettaglio-vendite-luglio-2025',
+    category: 'novita',
+    date: '2026-09-01T11:48:32.423Z',
+    image: '/images/blog/commercio-dettaglio-vendite-luglio-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
