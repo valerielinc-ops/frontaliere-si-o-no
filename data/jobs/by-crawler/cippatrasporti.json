@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-09-01T10:16:22.118Z",
+  "assembledAt": "2026-09-01T14:15:21.735Z",
   "jobs": [
     {
       "id": "cippatrasporti-5dd16ddc181a",
@@ -33,7 +33,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:16:19.063Z",
+      "crawledAt": "2026-09-01T14:15:19.175Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:16:18.760Z",
+      "crawledAt": "2026-09-01T14:15:18.871Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -120,6 +120,11 @@
       "applyUrl": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
+        "customer-service-transport-specialist-cippatrasporti-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
@@ -132,10 +137,6 @@
           "customer-service-transport-specialist-cippatrasporti-ch"
         ]
       },
-      "previousSlugs": [
-        "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
-        "customer-service-transport-specialist-cippatrasporti-ch"
-      ],
       "firstSeenAt": "2026-08-24T10:37:33.453Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
