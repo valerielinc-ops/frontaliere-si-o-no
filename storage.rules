@@ -18,6 +18,20 @@ service firebase.storage {
       allow read: if false;
     }
 
+    // Assisted-application CV uploads (#6406/#6408). Same shape as
+    // cv-uploads/** above: clients may create, never read. The
+    // scanAssistedApplicationCv Cloud Function (Admin SDK, bypasses these
+    // rules) scans every upload and writes cvScanStatus onto the order doc;
+    // the admin manual-submission queue (#6407) only surfaces orders whose
+    // scan resolved to 'clean' — a rejected/pending scan keeps the file out
+    // of any admin-visible flow even though the byte-level read rule below
+    // (`false`, same as cv-uploads) already denies client reads outright.
+    match /assisted-application-uploads/{orderId}/{file} {
+      allow create: if request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('application/.*|text/.*');
+      allow read: if false;
+    }
+
     // Journalist hero-image uploads for draft/queued articles (see
     // firestore.rules `journalist_articles`). Only the owning journalist may
     // write or read their own path; the publish pipeline reads via the Admin

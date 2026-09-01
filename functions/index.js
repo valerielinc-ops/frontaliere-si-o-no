@@ -72,6 +72,11 @@ import { reapStalePendingPayments } from './src/publisherPendingReapCore.js';
 import { onDocumentCreated, onDocumentWritten } from 'firebase-functions/v2/firestore';
 import * as functionsV1 from 'firebase-functions/v1';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
+import { onObjectFinalized } from 'firebase-functions/v2/storage';
+import {
+  scanAssistedApplicationCvUpload,
+  ASSISTED_APPLICATION_UPLOAD_PATH_RE,
+} from './src/assistedApplicationCvScanCore.js';
 import {
   handleForwardApplication,
   handleGetApplicationCvUrl,
@@ -1743,6 +1748,24 @@ export const forwardPublisherApplication = onDocumentCreated(
  if (!result.ok) console.error('[forwardPublisherApplication]', result.error);
  } catch (error) {
  console.error('[forwardPublisherApplication]', error instanceof Error ? error.message : String(error));
+ }
+ },
+);
+
+// Antivirus scan on assisted-application CV uploads (#6408): no admin sees
+// the file until this writes cvScanStatus on the order doc. Fails closed
+// (see assistedApplicationCvScanCore.js) — a scan error is treated the same
+// as `infected`, never surfaced silently as if scanning had passed.
+export const scanAssistedApplicationCv = onObjectFinalized(
+ { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 60 },
+ async (event) => {
+ const filePath = event.data?.name;
+ if (!ASSISTED_APPLICATION_UPLOAD_PATH_RE.test(filePath || '')) return;
+ try {
+ const result = await scanAssistedApplicationCvUpload(filePath);
+ if (result.handled) console.log(`[scanAssistedApplicationCv] order=${result.orderId} status=${result.cvScanStatus}`);
+ } catch (error) {
+ console.error('[scanAssistedApplicationCv]', error instanceof Error ? error.message : String(error));
  }
  },
 );
