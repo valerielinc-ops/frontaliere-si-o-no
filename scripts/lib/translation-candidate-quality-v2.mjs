@@ -17,6 +17,7 @@ const MAX_TEXT_LENGTH = 120_000;
 const MAX_PROTECTED_TOKENS = 64;
 const MAX_PROTECTED_TOKEN_LENGTH = 512;
 const MIN_DOMINANT_PERIODIC_TOKENS = 32;
+const MAX_EXHAUSTIVE_PERIODIC_COMPARISONS = 16_000_000;
 // detect-language documents confidence >= 0.6 as reliable; do not create a
 // second calibration for this additive gate.
 const RELIABLE_LANGUAGE_CONFIDENCE = 0.6;
@@ -232,6 +233,28 @@ function isDegenerateDescription(tokens) {
     }
     values[index] = id;
   }
+  // Exhaustively score primitive periods before using occurrence anchors.
+  // This path depends only on positional equality, so repeated tokens and
+  // repeated n-grams inside the primitive unit cannot hide its true period.
+  // The comparison budget is independent of vocabulary and caps hostile
+  // 120k-character input; the anchor/LCP path below covers remaining periods.
+  const requiredMatches = Math.ceil(values.length * 0.9);
+  const allowedMismatches = values.length - requiredMatches + 2;
+  const maxPeriod = Math.floor(values.length / 4);
+  let exhaustiveComparisons = 0;
+  if (values.length >= MIN_DOMINANT_PERIODIC_TOKENS) {
+    exhaustivePeriods:
+    for (let period = 1; period <= maxPeriod; period += 1) {
+      let mismatches = 0;
+      for (let index = period; index < values.length; index += 1) {
+        exhaustiveComparisons += 1;
+        if (values[index] !== values[index - period]) mismatches += 1;
+        if (exhaustiveComparisons >= MAX_EXHAUSTIVE_PERIODIC_COMPARISONS) break exhaustivePeriods;
+        if (mismatches > allowedMismatches) break;
+      }
+      if (mismatches <= allowedMismatches) return true;
+    }
+  }
   const base = 1_000_003;
   const forward = new Uint32Array(values.length + 1);
   const reverse = new Uint32Array(values.length + 1);
@@ -328,7 +351,6 @@ function isDegenerateDescription(tokens) {
   // O(n log n): there is one interval per anchor and at most one anchor per
   // token index. A global direct pass, rather than the former prefix-limited
   // check, is the authority for a near-periodic decision.
-  const requiredMatches = Math.ceil(tokens.length * 0.9);
   const promisingPeriods = [];
   for (const [period, intervals] of comparisonIntervals) {
     intervals.sort(([leftStart, leftEnd], [rightStart, rightEnd]) => (

@@ -529,13 +529,27 @@ describe('translation candidate quality v2', () => {
   });
 
   it('rejects duplicate-bearing periods through intra-period changes, decoys, prefixes and tails', () => {
-    for (const phrase of ['uno uno due due tre tre', 'a a b b', 'a b b a']) {
+    for (const phrase of [
+      'uno uno due due tre tre',
+      'a a b b',
+      'a b b a',
+      'uno due uno due due due',
+      'a b a b c c',
+      'a a b a a c',
+    ]) {
       const repeated = Array.from({ length: 64 }, () => phrase).join(' ');
       const prefixTokens = Array.from({ length: 20 }, (_, index) => (
         index % 4 === 0 ? 'a' : `intro${index}`
       ));
       const candidateText = `${prefixTokens.join(' ')} ${repeated} finale uno due tre quattro cinque`;
-      for (const text of [candidateText, candidateText.replace(phrase, phrase.replace(/due|b/u, 'variante'))]) {
+      const sparseVariation = repeated.split(' ');
+      for (let index = 0; index < sparseVariation.length; index += 53) sparseVariation[index] = `variante${index}`;
+      for (const text of [
+        repeated,
+        candidateText,
+        candidateText.replace(phrase, phrase.replace(/uno|due|b/u, 'variante')),
+        `prefisso ${sparseVariation.join(' ')} coda`,
+      ]) {
         expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: text }))).toContain('description.degenerate_content');
       }
     }
@@ -688,6 +702,25 @@ describe('translation candidate quality v2', () => {
       protectedTokens,
     });
     expect(result.status).toBe('rejected');
+    expect(performance.now() - start).toBeLessThan(2_000);
+  });
+
+  it('bounds exhaustive periodicity work for a high-diversity 120k candidate', () => {
+    const alphabeticOrdinal = (value: number) => {
+      let current = value;
+      let encoded = '';
+      do {
+        encoded = String.fromCharCode(97 + current % 26) + encoded;
+        current = Math.floor(current / 26);
+      } while (current > 0);
+      return encoded;
+    };
+    const candidateText = Array.from({ length: 20_000 }, (_, index) => `term${alphabeticOrdinal(index)}`)
+      .join(' ')
+      .slice(0, 120_000);
+    const start = performance.now();
+    const result = assessTranslationCandidateQualityV2({ ...base, candidateText });
+    expect(codes(result)).not.toContain('description.degenerate_content');
     expect(performance.now() - start).toBeLessThan(2_000);
   });
 });

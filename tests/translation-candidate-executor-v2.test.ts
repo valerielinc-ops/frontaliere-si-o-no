@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+import { runInNewContext } from 'node:vm';
 import { executeTranslationCandidateV2 } from '../scripts/lib/translation-candidate-executor-v2.mjs';
 import {
   createEmptyTranslationMemoryV2,
@@ -119,7 +120,7 @@ describe('translation candidate executor v2', () => {
   });
 
   it('does not persist or reuse a duplicate-bearing periodic candidate', async () => {
-    const periodic = `${Array.from({ length: 64 }, () => 'uno uno due due tre tre').join(' ')} finale uno due tre quattro cinque`;
+    const periodic = Array.from({ length: 64 }, () => 'uno due uno due due due').join(' ');
     const firstStub = provider(periodic);
     const first = await executeTranslationCandidateV2(executorInput(input({ provider: firstStub.provider })));
     expect(first).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
@@ -255,12 +256,43 @@ describe('translation candidate executor v2', () => {
     }
   });
 
+  it('observes hardened native and cross-realm promises without mutating them', async () => {
+    const listenerCount = process.listenerCount('unhandledRejection');
+    const nonExtensibleRejected = Object.preventExtensions(Promise.reject(new Error('non-extensible rejection')));
+    const frozenFulfilled = Object.freeze(Promise.resolve(candidateText));
+    const fixedConstructor = Promise.resolve(candidateText);
+    Object.defineProperty(fixedConstructor, 'constructor', {
+      value: Promise, configurable: false, enumerable: false, writable: false,
+    });
+    const crossRealm = runInNewContext('Promise.resolve(value)', { value: candidateText }) as Promise<string>;
+    const promises = [nonExtensibleRejected, frozenFulfilled, fixedConstructor, crossRealm];
+    const expectedStatuses = ['generation_failed', 'validated', 'validated', 'validated'];
+    for (let index = 0; index < promises.length; index += 1) {
+      const promise = promises[index];
+      const extensible = Object.isExtensible(promise);
+      const constructor = Object.getOwnPropertyDescriptor(promise, 'constructor');
+      const value = input({
+        provider: {
+          schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+          translate() { return promise; },
+        },
+      });
+      await expect(executeTranslationCandidateV2(executorInput(value))).resolves.toMatchObject({
+        status: expectedStatuses[index], metrics: { providerCalls: 1 },
+      });
+      expect(Object.isExtensible(promise)).toBe(extensible);
+      expect(Object.getOwnPropertyDescriptor(promise, 'constructor')).toEqual(constructor);
+    }
+    await Promise.resolve();
+    expect(process.listenerCount('unhandledRejection')).toBe(listenerCount);
+  });
+
   it('observes immediate and late hostile-species promise rejections without persistence or reuse', async () => {
     const unhandled: unknown[] = [];
     const observeUnhandled = (reason: unknown) => unhandled.push(reason);
     process.on('unhandledRejection', observeUnhandled);
     class HostileSpeciesPromise<T> extends Promise<T> {
-      static get [Symbol.species]() { throw new Error('hostile species getter'); }
+      static get [Symbol.species](): PromiseConstructor { throw new Error('hostile species getter'); }
     }
     try {
       const immediate = input({

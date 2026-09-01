@@ -169,10 +169,9 @@ function fixedEvidence(code) {
 
 function wrapIntrinsicPromise(value) {
   // `Promise.prototype.then` checks a Promise internal slot without invoking
-  // an untrusted `then`. It does, however, consult the source promise's
-  // species before attaching its handlers. Pin that synchronous lookup to the
-  // intrinsic constructor so a hostile subclass cannot throw and leave an
-  // already-rejected provider promise unobserved.
+  // an untrusted `then`. Attach directly first: ordinary native, subclass and
+  // cross-realm promises remain observable even when frozen/non-extensible or
+  // when an own constructor is non-configurable.
   if (!isPromise(value)) return null;
   let resolveTrusted;
   let rejectTrusted;
@@ -180,18 +179,32 @@ function wrapIntrinsicPromise(value) {
     resolveTrusted = resolve;
     rejectTrusted = reject;
   });
-  const constructor = Object.getOwnPropertyDescriptor(value, 'constructor');
+  let attached = false;
   try {
-    Object.defineProperty(value, 'constructor', {
-      value: Promise, configurable: true, enumerable: false, writable: true,
-    });
     Promise.prototype.then.call(value, resolveTrusted, rejectTrusted);
+    attached = true;
   } catch {
-    return null;
-  } finally {
-    if (constructor) Object.defineProperty(value, 'constructor', constructor);
-    else delete value.constructor;
+    // SpeciesConstructor runs before PerformPromiseThen, so a synchronous
+    // species failure has not attached either handler. An extensible promise
+    // can be retried with a temporary intrinsic constructor without reading
+    // `then` or invoking the hostile species again. ECMAScript exposes no
+    // species-bypassing observation primitive for a non-extensible hostile
+    // subclass; that pathological value is rejected by returning null.
+    const constructor = Object.getOwnPropertyDescriptor(value, 'constructor');
+    try {
+      Object.defineProperty(value, 'constructor', {
+        value: Promise, configurable: true, enumerable: false, writable: true,
+      });
+      Promise.prototype.then.call(value, resolveTrusted, rejectTrusted);
+      attached = true;
+    } catch {
+      return null;
+    } finally {
+      if (constructor) Object.defineProperty(value, 'constructor', constructor);
+      else delete value.constructor;
+    }
   }
+  if (!attached) return null;
   // Observe immediately, including synchronous and late provider rejection.
   Promise.prototype.then.call(trusted, undefined, () => undefined);
   return trusted;
