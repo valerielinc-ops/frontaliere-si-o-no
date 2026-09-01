@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-09-01T00:34:43.947Z",
+  "assembledAt": "2026-09-01T07:22:22.193Z",
   "jobs": [
     {
       "id": "rieter-384aba749112",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:40.561Z",
+      "crawledAt": "2026-09-01T07:22:18.593Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -54,19 +54,23 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-network-engineer-rieter-winterthur",
-        "senior-network-ingegnere-rieter-winterthur",
         "senior-system-ingegnere-rieter-winterthur",
         "senior-system-engineer-rieter-winterthur",
         "senior-system-ingenieur-rieter-winterthur",
-        "senior-system-engineer-100-w-m-d-rieter-winterthur"
+        "senior-system-engineer-100-w-m-d-rieter-winterthur",
+        "senior-network-ingegnere-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-network-engineer-rieter-winterthur",
-          "senior-network-ingegnere-rieter-winterthur",
           "senior-system-ingegnere-rieter-winterthur",
           "senior-system-engineer-rieter-winterthur",
           "senior-system-ingenieur-rieter-winterthur",
+          "senior-system-engineer-100-w-m-d-rieter-winterthur",
+          "senior-network-ingegnere-rieter-winterthur"
+        ],
+        "en": [
+          "senior-system-engineer-rieter-winterthur",
           "senior-system-engineer-100-w-m-d-rieter-winterthur"
         ],
         "de": [
@@ -75,10 +79,6 @@
         "fr": [
           "senior-network-engineer-rieter-winterthur",
           "senior-system-ingenieur-rieter-winterthur"
-        ],
-        "en": [
-          "senior-system-engineer-rieter-winterthur",
-          "senior-system-engineer-100-w-m-d-rieter-winterthur"
         ]
       },
       "needsRetranslation": true,
@@ -112,7 +112,7 @@
       "title": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
       "titleByLocale": {
         "it": "Sachbearbeiter/in Export e Sales Administration (80 % - 100 %)",
-        "en": "Export and Sales Administration (80 % - 100 %)",
+        "en": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "fr": "Administration des exportations et des ventes (80 % - 100 %)"
       },
@@ -128,7 +128,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4059400",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:40.018Z",
+      "crawledAt": "2026-09-01T07:22:17.934Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -208,7 +208,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Technical-Service-Delivery-Lead-100-fmd---4052910",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:39.474Z",
+      "crawledAt": "2026-09-01T07:22:17.287Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -274,7 +274,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Senior-Consultant-Service-and-Repair-CS-100-wmd---4048335",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:38.914Z",
+      "crawledAt": "2026-09-01T07:22:16.639Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -339,7 +339,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Product-Manager-Automation-100-wmd---4048539",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:38.365Z",
+      "crawledAt": "2026-09-01T07:22:15.952Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -433,7 +433,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4051990",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:37.819Z",
+      "crawledAt": "2026-09-01T07:22:15.128Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -453,6 +453,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-10T10:27:28.480Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -498,7 +499,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Lehrstelle-als-Konstrukteurin-EFZ-mit-BM-m%C3%B6glich---4051090",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:37.194Z",
+      "crawledAt": "2026-09-01T07:22:14.373Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Rütihof 8",
@@ -580,7 +581,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/IT-Project-Manager--4057804",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:36.594Z",
+      "crawledAt": "2026-09-01T07:22:13.701Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -646,7 +647,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Head-of-Trade-Compliance--4054686",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:36.026Z",
+      "crawledAt": "2026-09-01T07:22:13.012Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -727,7 +728,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:34:35.460Z",
+      "crawledAt": "2026-09-01T07:22:12.283Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
