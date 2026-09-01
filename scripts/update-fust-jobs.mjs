@@ -34,6 +34,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { exitCrawlerOnError, slugify } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
@@ -82,6 +83,7 @@ const FUST_KEY = 'fust';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(FUST_KEY);
 const FUST_SUMMARY_SLICE = path.resolve(ROOT, 'data', 'jobs-crawler-summaries', 'by-crawler', `${FUST_KEY}.json`);
+const FUST_SUMMARY_SLICE_REL = path.relative(ROOT, FUST_SUMMARY_SLICE).split(path.sep).join('/');
 const FUST_COMPANY_NAME = 'Fust';
 const FUST_SLUG_MAX_LENGTH = 90;
 
@@ -1005,6 +1007,21 @@ export async function writeFustPublishPlan(plan, options = {}) {
  * strictly worse for the funnel (no job-board update at all for that run) for
  * state that isn't required to be perfect, only safe-to-reset.
  */
+function parseFustSummaryJson(raw, warnPrefix) {
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch (error) {
+    console.warn(`⚠️ ${warnPrefix} is not valid JSON (${error.message}) — treating as no prior confirmation.`);
+    return null;
+  }
+  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    console.warn(`⚠️ ${warnPrefix} is not a JSON object — treating as no prior confirmation.`);
+    return null;
+  }
+  return parsed;
+}
+
 export function readFustSummarySlice() {
   if (!fs.existsSync(FUST_SUMMARY_SLICE)) return null;
   let raw;
@@ -1014,18 +1031,36 @@ export function readFustSummarySlice() {
     console.warn(`⚠️ Fust empty-snapshot confirmation state could not be read (${error.message}) — treating as no prior confirmation.`);
     return null;
   }
-  let parsed;
+  return parseFustSummaryJson(raw, 'Fust empty-snapshot confirmation state');
+}
+
+/**
+ * Live variant of readFustSummarySlice(): reads the confirmation state from
+ * `origin/main` instead of the local checkout. Two Fust crawler runs whose
+ * execution windows overlap (crawl + discovery, several minutes) each read
+ * their OWN pre-run local checkout in handleFustEmptyDiscovery(), so the
+ * previous local-only read made the race window the full run duration
+ * instead of the sub-second gap between a live read and the eventual push
+ * (#6803): both runs would see `authoritativeEmptyConsecutiveRuns=0` and
+ * both take the "first observation" branch, so neither ever confirms.
+ * Fetching+reading `origin/main` immediately before the decision lets a run
+ * that starts after another run's write see that write instead of stale
+ * local state, shrinking the race window to the (still nonzero, but much
+ * smaller) gap between this read and the eventual commit+push.
+ *
+ * Any git failure (no repo, offline, sandboxed test run, no `origin` remote,
+ * summary not yet present on origin/main) falls back to the local-file read
+ * — this never throws, matching the fail-soft philosophy of
+ * readFustSummarySlice() above.
+ */
+export function readFustSummarySliceLive() {
   try {
-    parsed = JSON.parse(raw);
-  } catch (error) {
-    console.warn(`⚠️ Fust empty-snapshot confirmation state is not valid JSON (${error.message}) — treating as no prior confirmation.`);
-    return null;
+    execFileSync('git', ['fetch', '--quiet', 'origin', 'main'], { cwd: ROOT, stdio: 'ignore' });
+    const raw = execFileSync('git', ['show', `origin/main:${FUST_SUMMARY_SLICE_REL}`], { cwd: ROOT, encoding: 'utf8' });
+    return parseFustSummaryJson(raw, 'Fust empty-snapshot confirmation state (origin/main)');
+  } catch {
+    return readFustSummarySlice();
   }
-  if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-    console.warn('⚠️ Fust empty-snapshot confirmation state is not a JSON object — treating as no prior confirmation.');
-    return null;
-  }
-  return parsed;
 }
 
 function emptySnapshotRunCount(summary) {
@@ -1055,7 +1090,7 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
   }
 
   const {
-    readSummary = readFustSummarySlice,
+    readSummary = readFustSummarySliceLive,
     writeScratch = writeReconciledFustScratch,
     durationMs = getCrawlerElapsedMs(),
     generatedAt,

@@ -1,7 +1,14 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { describe, expect, it, vi } from 'vitest';
+
+vi.mock('node:child_process', async () => {
+  const actual = await vi.importActual<typeof import('node:child_process')>('node:child_process');
+  return { ...actual, execFileSync: vi.fn(actual.execFileSync) };
+});
+
 import {
   buildFustAdapterConfig,
   buildFustPublishPlan,
@@ -12,6 +19,7 @@ import {
   handleFustEmptyDiscovery,
   isCanonicalFustDetailUrl,
   readFustSummarySlice,
+  readFustSummarySliceLive,
   reconcileFustJobsWithDiscovery,
   writeFustPublishPlan,
 } from '../scripts/update-fust-jobs.mjs';
@@ -499,6 +507,96 @@ describe('Fust post-crawl reconciliation', () => {
       expect(readSummary()).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     } finally {
       fs.rmSync(stateDir, { recursive: true, force: true });
+    }
+  });
+
+  it('confirms+archives on an already-advanced remote summary instead of re-writing pending over it (#6803)', async () => {
+    // Simulates the overlap race: this process's own local checkout still has
+    // authoritativeEmptyConsecutiveRuns=0 (stale, pre-run state), but a
+    // concurrent run already pushed authoritativeEmptyConsecutiveRuns=1 to
+    // origin/main. A live read (what readFustSummarySliceLive() provides in
+    // production) must see the remote's advanced state and confirm+archive,
+    // not the local run's own stale "first observation".
+    const prior = [crawled[0]];
+    const discovery = {
+      urls: [],
+      seedMetaByUrl: {},
+      apiTotal: 0,
+      droppedMalformedUrl: 0,
+      droppedDuplicateIdentity: 0,
+      workplaceCount: 0,
+      unknownCantonFallbacks: [],
+    };
+    const before = snapshotJobSlugs(prior);
+    let slice = [...prior];
+    const archive = vi.fn(async () => prior.length);
+    const writeSlice = vi.fn(async (_key: string, jobs: object[]) => { slice = [...jobs] as typeof prior; });
+    const writeSummary = vi.fn(async () => {});
+    const writeScratch = vi.fn(() => []);
+    const assemble = vi.fn(async () => {});
+    // readSummary simulates the live remote read: it ignores this process's
+    // own stale local state and returns the already-advanced remote value.
+    const readSummary = vi.fn(async () => ({
+      total: 1,
+      removedCount: 0,
+      authoritativeEmptyConsecutiveRuns: 1,
+      authoritativeEmptyPending: true,
+    }));
+
+    const result = await handleFustEmptyDiscovery(discovery, prior, before, {
+      readSummary,
+      writeSummary,
+      writeScratch,
+      archive,
+      writeSlice,
+      writeVerified: vi.fn(async () => { throw new Error('verified writer must not own total=0'); }),
+      assemble,
+      durationMs: 123,
+      generatedAt: '2026-08-31T00:00:00.000Z',
+    });
+
+    expect(result).toEqual({ confirmed: true, total: 0, archived: 1 });
+    expect(slice).toEqual([]);
+    expect(archive).toHaveBeenCalledWith(prior, 'fust');
+    expect(writeScratch).toHaveBeenCalledTimes(1);
+    expect(assemble).toHaveBeenCalledTimes(1);
+    // Must confirm, never re-write "pending" over the already-advanced state.
+    const [writtenSummary] = writeSummary.mock.calls[0] ?? [];
+    expect(writtenSummary).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
+    expect(writtenSummary).not.toHaveProperty('authoritativeEmptyPending');
+  });
+
+  it('readFustSummarySliceLive() parses the origin/main summary via git show', () => {
+    const mockedExecFileSync = vi.mocked(execFileSync);
+    mockedExecFileSync.mockImplementation(((_cmd: string, args: readonly string[]) => {
+      if (args[0] === 'fetch') return '';
+      if (args[0] === 'show') {
+        return JSON.stringify({ total: 0, authoritativeEmptyConsecutiveRuns: 1, authoritativeEmptyPending: true });
+      }
+      throw new Error(`unexpected git invocation: ${args.join(' ')}`);
+    }) as unknown as typeof execFileSync);
+    try {
+      expect(readFustSummarySliceLive()).toMatchObject({
+        authoritativeEmptyConsecutiveRuns: 1,
+        authoritativeEmptyPending: true,
+      });
+    } finally {
+      mockedExecFileSync.mockReset();
+    }
+  });
+
+  it('readFustSummarySliceLive() falls back to the local file when git fails (offline/sandboxed)', () => {
+    const mockedExecFileSync = vi.mocked(execFileSync);
+    mockedExecFileSync.mockImplementation(() => {
+      throw new Error('fatal: not a git repository');
+    });
+    const readLocalSpy = vi.spyOn(fs, 'existsSync').mockReturnValue(false);
+    try {
+      expect(readFustSummarySliceLive()).toBeNull();
+      expect(readFustSummarySlice()).toBeNull();
+    } finally {
+      mockedExecFileSync.mockReset();
+      readLocalSpy.mockRestore();
     }
   });
 
