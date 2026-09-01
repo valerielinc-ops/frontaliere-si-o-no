@@ -55,11 +55,11 @@ function boundRun(group: string, status = 'in_progress', conclusion: string | nu
   return {
     id: Number(binding.runId),
     run_attempt: 1,
-    name: binding.runName,
+    name: binding.workflowName,
     display_title: binding.runName,
     path: `.github/workflows/${binding.workflowFile}`,
     event: 'workflow_dispatch',
-    head_branch: 'main',
+    head_branch: 'crawler-generation-shadow-9001-2',
     head_sha: CORPUS_CODE_COMMIT,
     status,
     conclusion,
@@ -123,16 +123,16 @@ describe('crawler observer GitHub binding', () => {
     }, '10000')).rejects.toMatchObject({ code: 'run_binding_invalid' });
   });
 
-  it('accepts only the exact repository, workflow, run id and generation run-name', () => {
+  it('accepts only the exact repository, workflow, run id, static workflow name and generation run-name', () => {
     const binding = sentinel().groups['01'];
     const run = {
       id: 10_000,
       run_attempt: 2,
-      name: binding.runName,
+      name: binding.workflowName,
       display_title: binding.runName,
       path: `.github/workflows/${binding.workflowFile}`,
       event: 'workflow_dispatch',
-      head_branch: 'main',
+      head_branch: 'crawler-generation-shadow-9001-2',
       head_sha: CORPUS_CODE_COMMIT,
       status: 'completed',
       conclusion: 'failure',
@@ -328,14 +328,14 @@ describe('crawler observer GitHub binding', () => {
     expect(replay.barrier.digest).toBe(report.barrier.digest);
   });
 
-  it('accepts sentinel replay evidence only from the exact manual workflow on main', () => {
+  it('accepts sentinel replay evidence only from the exact pinned manual workflow', () => {
     const run = {
       id: 90_001,
-      name: 'crawler-generation-sentinel-9001-2',
+      name: 'Crawler Generation Observer (shadow)',
       display_title: 'crawler-generation-sentinel-9001-2',
       path: '.github/workflows/crawler-generation-observer-shadow.yml',
       event: 'workflow_dispatch',
-      head_branch: 'main',
+      head_branch: 'crawler-generation-shadow-9001-2',
       head_sha: CORPUS_CODE_COMMIT,
       run_attempt: 1,
       status: 'in_progress',
@@ -352,7 +352,7 @@ describe('crawler observer GitHub binding', () => {
       .toThrow(/sentinel workflow run binding/i);
     expect(() => validateBoundSentinelRun({
       ...run,
-      name: 'Crawler Generation Observer (shadow)',
+      name: 'crawler-generation-sentinel-9001-2',
     }, '9001-2', 90_001, CORPUS_CODE_COMMIT)).toThrow(/sentinel workflow run binding/i);
     expect(() => validateBoundSentinelRun({
       ...run,

@@ -49,12 +49,22 @@ describe('crawler generation PR B workflow wiring', () => {
     const steps = parsed.jobs.dispatch.steps;
     const dispatch = steps.find((step: any) => step.name === 'Dispatch crawler generation wave');
     const sentinel = steps.find((step: any) => step.name === 'Dispatch crawler generation sentinel');
+    const cleanup = steps.find((step: any) => step.name === 'Cleanup accepted crawler generation ref');
+    expect(dispatch.id).toBe('generation_wave');
     expect(dispatch.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-groups');
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');
     expect(sentinel.if).toBe('always()');
+    expect(sentinel.id).toBe('generation_sentinel');
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
     expect(sentinel.run).toContain('[ "$SHADOW_READY" != "true" ]');
+    expect(sentinel.env.SHADOW_READY).toContain('steps.generation_wave.outputs.shadow_ready');
+    expect(cleanup.if).toContain("steps.generation_wave.outputs.shadow_ready == 'true'");
+    expect(cleanup.if).toContain("steps.generation_sentinel.outcome == 'success'");
+    expect(cleanup.if).toContain("steps.generation_sentinel.outputs.accepted == 'true'");
+    expect(cleanup.run).toContain('scripts/crawler-generation-dispatch.mjs cleanup-ref');
+    expect(cleanup.env).not.toHaveProperty('GITHUB_PAT_NANAKO');
+    expect(JSON.stringify(cleanup)).not.toContain('secrets.GITHUB_PAT_NANAKO');
     expect(source).not.toContain('return_run_details');
     const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');
@@ -83,19 +93,21 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(workflow.on.workflow_run.workflows).toEqual(GROUP_IDS.map(
       (group) => `Crawler Group ${group} (sparse cross-repo execution)`,
     ));
+    expect(workflow.on.workflow_run.branches).toEqual(['crawler-generation-shadow-*']);
     expect(workflow['run-name']).toContain('github.event.workflow_run.id');
     expect(workflow.jobs.probe.if).toContain("!startsWith(github.event.workflow_run.display_title, 'crawler-generation--group-')");
+    expect(workflow.jobs.probe.if).toContain("startsWith(github.event.workflow_run.head_branch, 'crawler-generation-shadow-')");
     const probeScript = workflow.jobs.probe.steps[0].run;
     for (const binding of [
       '.id == $runId',
       '.repository.full_name == $repository',
-      '.path == $workflowPath',
-      '.name == $title',
+      '.path == $workflowPath or .path == ($workflowPath + "@" + $workflowRef)',
+      '.name == $workflowName',
       '.head_sha == $headSha',
       '.path == ".github/workflows/crawler-generation-observer-shadow.yml"',
       '.display_title == $title',
       '.event == "workflow_dispatch"',
-      '.head_branch == "main"',
+      '.head_branch == $workflowRef',
       '.head_sha | type == "string"',
       '.run_attempt | type == "number"',
       '.status == "completed"',
@@ -173,11 +185,11 @@ describe('crawler generation PR B workflow wiring', () => {
       const validSentinelRun = {
         id: 88,
         repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
-        name: 'crawler-generation-sentinel-9001-2',
+        name: 'Crawler Generation Observer (shadow)',
         path: '.github/workflows/crawler-generation-observer-shadow.yml',
         display_title: 'crawler-generation-sentinel-9001-2',
         event: 'workflow_dispatch',
-        head_branch: 'main',
+        head_branch: 'crawler-generation-shadow-9001-2',
         head_sha: 'b'.repeat(40),
         run_attempt: 1,
         status: 'in_progress',
@@ -188,11 +200,11 @@ describe('crawler generation PR B workflow wiring', () => {
       const validTriggerRun = {
         id: 10_000,
         repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
-        name: 'crawler-generation-9001-2-group-01',
+        name: 'Crawler Group 01 (sparse cross-repo execution)',
         display_title: 'crawler-generation-9001-2-group-01',
         path: '.github/workflows/crawler-group-01.yml',
         event: 'workflow_dispatch',
-        head_branch: 'main',
+        head_branch: 'crawler-generation-shadow-9001-2',
         head_sha: 'b'.repeat(40),
         run_attempt: 1,
         status: 'completed',
@@ -327,7 +339,7 @@ esac
 
       for (const [label, triggerOverride] of [
         ['path', { path: '.github/workflows/untrusted-producer.yml' }],
-        ['name', { name: 'Crawler Group 01 (sparse cross-repo execution)' }],
+        ['name', { name: 'Crawler Group 02 (sparse cross-repo execution)' }],
       ] as const) {
         fs.writeFileSync(triggerRunJson, JSON.stringify({ ...validTriggerRun, ...triggerOverride }));
         fs.writeFileSync(output, '');

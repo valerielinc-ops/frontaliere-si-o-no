@@ -1297,11 +1297,11 @@ export function assertCrawlerLogicParity(generatedWorkflowText, logicWorkflowTex
     .map((step) => step.id.replace(/^crawler-/, ''));
 }
 
-function checkoutWithSparse(sourceWith, sparsePatterns) {
+function checkoutWithSparse(sourceWith, sparsePatterns, ref = 'main') {
   return {
     ...(sourceWith ?? {}),
     repository: SITE_REPOSITORY,
-    ref: 'main',
+    ref,
     clean: true,
     'sparse-checkout': sparsePatterns.join('\n'),
     'sparse-checkout-cone-mode': false,
@@ -1322,6 +1322,7 @@ export function buildStandaloneCrossRepoWorkflow({
   concurrency,
   sparsePatterns = crossRepoCrawlerSparsePatterns(),
   runtimePaths = [],
+  checkoutRef = 'main',
 }) {
   if (!workflowFile) {
     throw new Error(`${name}: workflow file is required`);
@@ -1335,7 +1336,7 @@ export function buildStandaloneCrossRepoWorkflow({
   if (checkoutIndex < 0) throw new Error(`${name}: reusable logic has no actions/checkout step`);
 
   const sourceCheckout = job.steps[checkoutIndex];
-  const checkout = checkoutWithSparse(sourceCheckout.with, sparsePatterns);
+  const checkout = checkoutWithSparse(sourceCheckout.with, sparsePatterns, checkoutRef);
   const primaryId = 'site_checkout_primary';
   const primary = {
     name: 'Checkout frontaliere-si-o-no (attempt 1/2, sparse)',
@@ -1486,6 +1487,12 @@ function groupTrigger(logic) {
     workflow_dispatch: {
       inputs: {
         ...logic.on.workflow_call.inputs,
+        site_code_commit: {
+          description: 'Full immutable site commit used by this generation (empty keeps legacy main)',
+          required: false,
+          default: '',
+          type: 'string',
+        },
         timeout_ms: {
           description: 'Per-crawler timeout override in milliseconds (empty uses the crawler default)',
           required: false,
@@ -1561,6 +1568,7 @@ export function generateCrossRepoExecutionArtifacts({
       trigger: groupTrigger(logic),
       concurrency: { group: `jobs-crawler-group-${nn}`, 'cancel-in-progress': false },
       runtimePaths: CRAWLER_GENERATION_RUNTIME_PATHS,
+      checkoutRef: "${{ inputs.site_code_commit || 'main' }}",
     });
     YAML.parse(content);
     workflowPayloads.set(fileName, content);

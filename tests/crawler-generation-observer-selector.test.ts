@@ -75,10 +75,10 @@ function reportOwner(runId = 95_001, event = 'schedule') {
     id: runId,
     repository: { full_name: 'nanakokyobashi-rgb/frontaliere-articles' },
     path: '.github/workflows/crawler-generation-observer-shadow.yml',
-    name: runName,
+    name: 'Crawler Generation Observer (shadow)',
     display_title: runName,
     event,
-    head_branch: 'main',
+    head_branch: event === 'workflow_dispatch' ? 'crawler-generation-shadow-9001-2' : 'main',
     head_sha: corpusCodeCommit,
     run_attempt: 1,
     status: 'completed',
@@ -87,10 +87,10 @@ function reportOwner(runId = 95_001, event = 'schedule') {
 }
 
 describe('crawler generation scheduled selector', () => {
-  it('binds sentinel and report owners to exact repository/path/name/event/main identities', () => {
+  it('binds sentinel and report owners to exact static name, dynamic title and event-specific ref', () => {
     const sentinel = {
       ...reportOwner(90_001, 'workflow_dispatch'),
-      name: 'crawler-generation-sentinel-9001-2',
+      name: 'Crawler Generation Observer (shadow)',
       display_title: 'crawler-generation-sentinel-9001-2',
     };
     expect(validateSentinelOwnerRun(sentinel, {

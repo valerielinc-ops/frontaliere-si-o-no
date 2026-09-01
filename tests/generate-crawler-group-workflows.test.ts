@@ -1331,6 +1331,13 @@ describe('cross-repo crawler execution artifacts', () => {
       const doc = YAML.parse(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
       expect(Object.keys(doc.jobs)).toHaveLength(1);
       const job: any = Object.values(doc.jobs)[0];
+      if (artifact.members.length > 0) {
+        expect(doc.on.workflow_dispatch.inputs.site_code_commit).toMatchObject({
+          required: false,
+          default: '',
+          type: 'string',
+        });
+      }
       const checkouts = job.steps.filter((step: any) => step.uses === 'actions/checkout@v5');
       expect(checkouts).toHaveLength(2);
       expect(checkouts[0]).toMatchObject({
@@ -1375,6 +1382,9 @@ describe('cross-repo crawler execution artifacts', () => {
       for (const checkout of checkouts) {
         expect(checkout.with.repository).toBe('valerielinc-ops/frontaliere-si-o-no');
         expect(checkout.with.token).toBeUndefined();
+        expect(checkout.with.ref).toBe(artifact.members.length > 0
+          ? "${{ inputs.site_code_commit || 'main' }}"
+          : 'main');
         expect(checkout.with['sparse-checkout']).toContain('!/public/images/');
         expect(checkout.with['sparse-checkout']).toContain('!/packages/articles/content/');
         expect(checkout.with['sparse-checkout']).not.toContain('!/data/jobs/');

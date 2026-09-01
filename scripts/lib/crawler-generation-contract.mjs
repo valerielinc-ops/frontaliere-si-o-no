@@ -54,6 +54,7 @@ export const SITE_REPOSITORY = 'valerielinc-ops/frontaliere-si-o-no';
 export const SITE_MAIN_REF = 'refs/heads/main';
 export const CALLER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 export const CRAWLER_GENERATION_GITHUB_API_VERSION = GITHUB_WORKFLOW_DISPATCH_API_VERSION;
+export const CRAWLER_GENERATION_DISPATCH_REF_PREFIX = 'crawler-generation-shadow-';
 // 44 KiB × 23 groups = 1,036,288 bytes: the complete shadow cycle stays
 // below 1 MiB by construction, before artifact/container overhead.
 export const MAX_GROUP_MANIFEST_BYTES = 44 * 1024;
@@ -149,8 +150,23 @@ export function crawlerGenerationSentinelWorkflowIdentity(generationToken, runId
   };
 }
 
-function exactWorkflowRunPath(value, workflowFile) {
-  return value === `.github/workflows/${workflowFile}`;
+function exactWorkflowRunPath(value, workflowFile, ref) {
+  const base = `.github/workflows/${workflowFile}`;
+  return value === base || value === `${base}@${ref}`;
+}
+
+export function crawlerGenerationDispatchRef(generationToken) {
+  if (!isCrawlerGenerationToken(generationToken)) throw new TypeError('Invalid crawler generation token');
+  return `${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}${generationToken}`;
+}
+
+function dispatchRefForBinding(binding) {
+  if (!binding?.corpusCodeCommit) return 'main';
+  const runName = binding?.runName ?? '';
+  const groupMatch = /^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(?:0[1-9]|1[0-9]|2[0-3])$/.exec(runName);
+  const sentinelMatch = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(runName);
+  const generationToken = groupMatch?.[1] ?? sentinelMatch?.[1] ?? null;
+  return generationToken ? crawlerGenerationDispatchRef(generationToken) : null;
 }
 
 /**
@@ -173,11 +189,14 @@ export function validateCrawlerGenerationWorkflowRun(
     : run?.conclusion === null;
   if (runId !== binding?.runId) errors.push('run_id_mismatch');
   if (run?.repository?.full_name !== repository) errors.push('repository_mismatch');
-  if (run?.name !== binding?.runName) errors.push('workflow_name_mismatch');
+  const expectedRef = dispatchRefForBinding(binding);
+  if (run?.name !== binding?.workflowName) errors.push('workflow_name_mismatch');
   if (run?.display_title !== binding?.runName) errors.push('run_name_mismatch');
-  if (!exactWorkflowRunPath(run?.path, binding?.workflowFile)) errors.push('workflow_path_mismatch');
+  if (expectedRef === null || !exactWorkflowRunPath(run?.path, binding?.workflowFile, expectedRef)) {
+    errors.push('workflow_path_mismatch');
+  }
   if (run?.event !== 'workflow_dispatch') errors.push('event_mismatch');
-  if (run?.head_branch !== 'main') errors.push('head_branch_mismatch');
+  if (run?.head_branch !== expectedRef) errors.push('head_branch_mismatch');
   if (binding?.corpusCodeCommit !== null && binding?.corpusCodeCommit !== undefined) {
     if (!COMMIT_RE.test(binding.corpusCodeCommit)) errors.push('expected_corpus_commit_invalid');
     else if (run?.head_sha !== binding.corpusCodeCommit) errors.push('head_sha_mismatch');
