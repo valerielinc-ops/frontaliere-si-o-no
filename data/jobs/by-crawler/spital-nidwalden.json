@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-nidwalden",
-  "assembledAt": "2026-08-31T17:27:30.351Z",
+  "assembledAt": "2026-09-01T00:42:31.667Z",
   "jobs": [
     {
       "id": "spital-nidwalden-3026ca67f725",
@@ -34,7 +34,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/0f466a40-2631-4d35-a2fd-3823bfa4e780",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:26.486Z",
+      "crawledAt": "2026-09-01T00:42:28.515Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -57,15 +57,15 @@
         "head-of-hospital-nidwalden-100-spital-nidwalden-stans",
         "chef-de-l-hopital-nidwalden-100-spital-nidwalden-stans",
         "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans",
-        "responsabile-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
-        "leitung-spital-nidwalden-100-luks-stans"
+        "leitung-spital-nidwalden-100-luks-stans",
+        "responsabile-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans",
           "responsabile-ospedale-nidwalden-100-spital-nidwalden-stans",
-          "responsabile-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
-          "leitung-spital-nidwalden-100-luks-stans"
+          "leitung-spital-nidwalden-100-luks-stans",
+          "responsabile-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans",
@@ -128,7 +128,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/36066625-1773-4459-afcc-8a9c7f575c5e",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:26.485Z",
+      "crawledAt": "2026-09-01T00:42:28.514Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -152,18 +152,18 @@
         "head-of-hospital-nidwalden-100-spital-nidwalden-stans-241c1a",
         "chef-de-l-hopital-nidwalden-100-spital-nidwalden-stans-241c1a",
         "capo-ospedale-nidwalden-100-spital-nidwalden-stans",
-        "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
         "leitung-spital-nidwalden-100-luks-stans",
-        "leitung-spital-nidwalden-100-luks-stans-2"
+        "leitung-spital-nidwalden-100-luks-stans-2",
+        "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans",
           "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
           "capo-ospedale-nidwalden-100-spital-nidwalden-stans",
-          "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans",
           "leitung-spital-nidwalden-100-luks-stans",
-          "leitung-spital-nidwalden-100-luks-stans-2"
+          "leitung-spital-nidwalden-100-luks-stans-2",
+          "capo-ospedale-nidwalden-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "leitung-spital-nidwalden-100-spital-nidwalden-stans-2",
@@ -190,105 +190,6 @@
           "@type": "QuantitativeValue",
           "minValue": 117000,
           "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "spital-nidwalden-5cade8756bec",
-      "slug": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
-      "slugByLocale": {
-        "it": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
-        "en": "dipl-caregiver-hf-endoscopy-100-luzerner-kantonsspital-luks-stans",
-        "de": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-        "fr": "dipl-endoscopie-hf-du-soignant-100-luzerner-kantonsspital-luks-stans"
-      },
-      "company": "Spital Nidwalden",
-      "companyKey": "spital-nidwalden",
-      "companyDomain": "spital-nidwalden.ch",
-      "title": "Dipl. Pflegefachperson HF Endoskopie 100%",
-      "titleByLocale": {
-        "it": "Dipl. HF Endoscopia 100%",
-        "en": "Dipl. Caregiver HF Endoscopy 100%",
-        "de": "Dipl. Pflegefachperson HF Endoskopie 100%",
-        "fr": "Dipl. Endoscopie HF du soignant 100%"
-      },
-      "description": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per 1. Oktober oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sie assistieren bei diagnostischen und interventionellen Endoskopien und führen die Sedation und Vitalzeichenüberwachung durch\n\n• Sie bereiten technische Geräte und endoskopische Instrumente vor und nach und kontrollieren diese auf ihre Funktionalität\n\n• Sie betreuen Patientinnen und Patienten vor, während und nach den Endoskopien\n\n• Sie bestellen und kontrollieren Medikamente und Sie kontrollieren und versenden Untersuchungsmaterial\n\n• Sie erfassen alle abrechnungsrelevanten Patientendaten und erledigen administrative Tätigkeiten\n\nAnforderungen:\n• Freuen Sie sich auf eine strukturierte Einarbeitung und die Zusammenarbeit in einem kollegialen Team\n\n• Wir unterstützen Sie aktiv bei Ihrer fachlichen Weiterentwicklung\n\n• Sie arbeiten eng und auf Augenhöhe mit Ärztinnen und Ärzten zusammen\n\n• Wir bieten Ihnen Gestaltungsfreiraum zur Weiterentwicklung von Prozessen und Arbeitsabläufen.\n\nWir bieten:\n• Sie sind Pflegefachperson (HF oder FaGe) und bringen idealerweise bereits Erfahrung in der Endoskopie mit\n\n• Sie verfügen über hohe Sozialkompetenzen im Umgang mit den Patienten und Patientinnen\n\n• Sie schätzen die Teamarbeit, arbeiten Hand in Hand und überzeugen durch Ihre wertschätzende Art\n\n• Sie behalten im Tagesgeschäft mehrere Themen gleichzeitig im Blick\n\n• Sie haben Freude an manuellen Tätigkeiten, besitzen ein Flair für technische Geräte und arbeiten ruhig, überlegt und verantwortungsbewusst\n\n• Sie schätzen geregelte Arbeitszeiten (Montag bis Freitag)",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Nidwalden è un moderno ospedale per la cura acuta con 90 posti letto, circa 600 dipendenti dedicati ed è responsabile dell'assistenza di base estesa. Come azienda del Gruppo LUKS, siamo parte di una potente rete che è uno dei principali gruppi ospedalieri in Svizzera. Insieme, forniamo tutto l'orologio con passione e impegno per la salute coordinata, digitalmente collegata e accessibile per tutti. <br/> <br/ > Cerchiamo uno o più entro il 1° ottobre o per accordo\n\nCompiti:\n• Assistere in endoscopi diagnostici e interventistici ed eseguire sedazione e monitoraggio dei segni vitali\n\n• Preparano dispositivi tecnici e strumenti endoscopici prima e dopo e controllano la loro funzionalità\n\n• Si occupano di pazienti prima, durante e dopo endoscopi\n\n• Si ordinano e controllano i farmaci e si controllano e spediscono materiali di prova\n\n• Essi raccolgono tutti i dati rilevanti del paziente e svolgono attività amministrative\n\nRequisiti\n• Attendere con ansia una familiarizzazione strutturata e la cooperazione in un team collegiale\n\n• Vi sosteniamo attivamente nel vostro sviluppo professionale\n\n• Lavorano a stretto contatto e a livello degli occhi con i medici\n\n• Vi offriamo la libertà di progettazione per l'ulteriore sviluppo di processi e flussi di lavoro.\n\nOffriamo:\n• Sei un'infermiera (HF o FaGe) e idealmente già hanno esperienza nell'endoscopia\n\n• Hanno alte capacità sociali nel trattare con i pazienti\n\n• Apprezzi il lavoro di squadra, il lavoro di mano in mano e convinci attraverso la tua natura apprezzata\n\n• Nel business quotidiano, tieni d'occhio diversi argomenti contemporaneamente\n\n• Ti piace l'attività manuale, avere un tocco per le attrezzature tecniche e lavorare con calma, ponderata e responsabilmente\n\n• Si stima che le ore di lavoro regolamentate (da lunedì a venerdì)",
-        "en": "The Nidwalden Hospital is a modern acute care hospital with 90 beds, around 600 dedicated employees and is responsible for the extended basic care. As a LUKS Group company, we are part of a powerful network that is one of the leading hospital groups in Switzerland. Together, we provide around the clock with passion and commitment for coordinated, digitally connected and accessible healthcare for all. <br/><br/ >We are looking for one or more by 1 October or by agreement\n\nTasks:\n• Assist in diagnostic and interventional endoscopies and perform sedation and vital sign monitoring\n\n• They prepare technical devices and endoscopic instruments before and after and check their functionality\n\n• They look after patients before, during and after endoscopies\n\n• You order and control medicines and you control and ship test materials\n\n• They collect all billing-relevant patient data and perform administrative tasks\n\nRequirements\n• Look forward to a structured familiarization and cooperation in a collegial team\n\n• We actively support you in your professional development\n\n• They work closely and at eye level with doctors\n\n• We offer you design freedom for the further development of processes and workflows.\n\nWe offer:\n• You are a nurse (HF or FaGe) and ideally already have experience in endoscopy\n\n• They have high social skills in dealing with patients\n\n• You appreciate teamwork, work hand in hand and convince through your appreciative nature\n\n• In day-to-day business, you keep an eye on several topics simultaneously\n\n• You enjoy manual activities, have a flair for technical equipment and work calmly, thoughtfully and responsibly\n\n• You estimate regulated working hours (Monday to Friday)",
-        "de": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per 1. Oktober oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sie assistieren bei diagnostischen und interventionellen Endoskopien und führen die Sedation und Vitalzeichenüberwachung durch\n\n• Sie bereiten technische Geräte und endoskopische Instrumente vor und nach und kontrollieren diese auf ihre Funktionalität\n\n• Sie betreuen Patientinnen und Patienten vor, während und nach den Endoskopien\n\n• Sie bestellen und kontrollieren Medikamente und Sie kontrollieren und versenden Untersuchungsmaterial\n\n• Sie erfassen alle abrechnungsrelevanten Patientendaten und erledigen administrative Tätigkeiten\n\nAnforderungen:\n• Freuen Sie sich auf eine strukturierte Einarbeitung und die Zusammenarbeit in einem kollegialen Team\n\n• Wir unterstützen Sie aktiv bei Ihrer fachlichen Weiterentwicklung\n\n• Sie arbeiten eng und auf Augenhöhe mit Ärztinnen und Ärzten zusammen\n\n• Wir bieten Ihnen Gestaltungsfreiraum zur Weiterentwicklung von Prozessen und Arbeitsabläufen.\n\nWir bieten:\n• Sie sind Pflegefachperson (HF oder FaGe) und bringen idealerweise bereits Erfahrung in der Endoskopie mit\n\n• Sie verfügen über hohe Sozialkompetenzen im Umgang mit den Patienten und Patientinnen\n\n• Sie schätzen die Teamarbeit, arbeiten Hand in Hand und überzeugen durch Ihre wertschätzende Art\n\n• Sie behalten im Tagesgeschäft mehrere Themen gleichzeitig im Blick\n\n• Sie haben Freude an manuellen Tätigkeiten, besitzen ein Flair für technische Geräte und arbeiten ruhig, überlegt und verantwortungsbewusst\n\n• Sie schätzen geregelte Arbeitszeiten (Montag bis Freitag)",
-        "fr": "L'hôpital de Nidwalden est un hôpital moderne de soins actifs avec 90 lits, environ 600 employés dévoués et est responsable des soins de base prolongés. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un puissant réseau qui est l'un des principaux groupes hospitaliers en Suisse. Ensemble, nous fournissons 24 heures sur 24 avec passion et engagement pour des soins de santé coordonnés, connectés numériquement et accessibles pour tous. <br/><br/ > Nous sommes à la recherche d'un ou plusieurs d'ici le 1er octobre ou d'un accord\n\nTâches :\n• Aider aux endoscopies diagnostiques et interventionnelles et effectuer la sédation et la surveillance des signes vitaux\n\n• Ils préparent des dispositifs techniques et des instruments endoscopiques avant et après et vérifient leur fonctionnalité\n\n• Ils s'occupent des patients avant, pendant et après les endoscopies\n\n• Vous commandez et contrôlez des médicaments et vous contrôlez et expédiez des matériaux d'essai\n\n• Ils recueillent toutes les données relatives aux patients et effectuent des tâches administratives\n\nExigences\n• Souhaite une familiarisation et une coopération structurées au sein d'une équipe collégiale\n\n• Nous vous soutenons activement dans votre développement professionnel\n\n• Ils travaillent étroitement et au niveau des yeux avec les médecins\n\n• Nous vous offrons la liberté de concevoir pour le développement ultérieur des processus et des workflows.\n\nNous offrons:\n• Vous êtes infirmière (HF ou FaGe) et avez idéalement déjà de l'expérience en endoscopie\n\n• Ils ont des compétences sociales élevées dans le traitement des patients\n\n• Vous appréciez le travail d'équipe, travaillez main dans la main et convainquez par votre nature reconnaissante\n\n• Dans les affaires quotidiennes, vous gardez un œil sur plusieurs sujets simultanément\n\n• Vous appréciez les activités manuelles, avez un style pour l'équipement technique et travaillez calmement, réfléchiment et de manière responsable\n\n• Vous estimez les heures de travail réglementées (du lundi au vendredi)"
-      },
-      "needsRetranslation": false,
-      "location": "Stans",
-      "canton": "NW",
-      "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/145804c1-3f2f-46d7-a531-c8d07aade199",
-      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:26.484Z",
-      "addressLocality": "Stans",
-      "addressRegion": "NW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6370",
-      "streetAddress": "",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019ff54607340ae1&j=jobexchange",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
-        ],
-        "it": [
-          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-          "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans",
-          "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans",
-          "dipl-hf-endoscopia-100-spital-nidwalden-stans",
-          "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
-          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-          "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans",
-          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-          "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans",
-          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
-        "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans",
-        "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans",
-        "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans",
-        "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans",
-        "dipl-hf-endoscopia-100-spital-nidwalden-stans",
-        "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
-        "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans"
-      ],
-      "firstSeenAt": "2026-08-17T21:51:41.182Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -325,7 +226,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-arztsekretaer-in-sekretariat-klinik-allgemeine-und-viszerale-chirurgie-sowie-adipositaszentrum/e95f0cdb-d12f-40aa-a06e-5a14962fc8e4",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:26.483Z",
+      "crawledAt": "2026-09-01T00:42:28.513Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -379,6 +280,105 @@
       }
     },
     {
+      "id": "spital-nidwalden-5cade8756bec",
+      "slug": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
+      "slugByLocale": {
+        "it": "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans",
+        "en": "dipl-caregiver-hf-endoscopy-100-luzerner-kantonsspital-luks-stans",
+        "de": "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
+        "fr": "dipl-endoscopie-hf-du-soignant-100-luzerner-kantonsspital-luks-stans"
+      },
+      "company": "Spital Nidwalden",
+      "companyKey": "spital-nidwalden",
+      "companyDomain": "spital-nidwalden.ch",
+      "title": "Dipl. Pflegefachperson HF Endoskopie 100%",
+      "titleByLocale": {
+        "it": "Dipl. HF Endoscopia 100%",
+        "en": "Dipl. Caregiver HF Endoscopy 100%",
+        "de": "Dipl. Pflegefachperson HF Endoskopie 100%",
+        "fr": "Dipl. Endoscopie HF du soignant 100%"
+      },
+      "description": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per 1. Oktober oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sie assistieren bei diagnostischen und interventionellen Endoskopien und führen die Sedation und Vitalzeichenüberwachung durch\n\n• Sie bereiten technische Geräte und endoskopische Instrumente vor und nach und kontrollieren diese auf ihre Funktionalität\n\n• Sie betreuen Patientinnen und Patienten vor, während und nach den Endoskopien\n\n• Sie bestellen und kontrollieren Medikamente und Sie kontrollieren und versenden Untersuchungsmaterial\n\n• Sie erfassen alle abrechnungsrelevanten Patientendaten und erledigen administrative Tätigkeiten\n\nAnforderungen:\n• Freuen Sie sich auf eine strukturierte Einarbeitung und die Zusammenarbeit in einem kollegialen Team\n\n• Wir unterstützen Sie aktiv bei Ihrer fachlichen Weiterentwicklung\n\n• Sie arbeiten eng und auf Augenhöhe mit Ärztinnen und Ärzten zusammen\n\n• Wir bieten Ihnen Gestaltungsfreiraum zur Weiterentwicklung von Prozessen und Arbeitsabläufen.\n\nWir bieten:\n• Sie sind Pflegefachperson (HF oder FaGe) und bringen idealerweise bereits Erfahrung in der Endoskopie mit\n\n• Sie verfügen über hohe Sozialkompetenzen im Umgang mit den Patienten und Patientinnen\n\n• Sie schätzen die Teamarbeit, arbeiten Hand in Hand und überzeugen durch Ihre wertschätzende Art\n\n• Sie behalten im Tagesgeschäft mehrere Themen gleichzeitig im Blick\n\n• Sie haben Freude an manuellen Tätigkeiten, besitzen ein Flair für technische Geräte und arbeiten ruhig, überlegt und verantwortungsbewusst\n\n• Sie schätzen geregelte Arbeitszeiten (Montag bis Freitag)",
+      "descriptionByLocale": {
+        "it": "L'Ospedale Nidwalden è un moderno ospedale per la cura acuta con 90 posti letto, circa 600 dipendenti dedicati ed è responsabile dell'assistenza di base estesa. Come azienda del Gruppo LUKS, siamo parte di una potente rete che è uno dei principali gruppi ospedalieri in Svizzera. Insieme, forniamo tutto l'orologio con passione e impegno per la salute coordinata, digitalmente collegata e accessibile per tutti. <br/> <br/ > Cerchiamo uno o più entro il 1° ottobre o per accordo\n\nCompiti:\n• Assistere in endoscopi diagnostici e interventistici ed eseguire sedazione e monitoraggio dei segni vitali\n\n• Preparano dispositivi tecnici e strumenti endoscopici prima e dopo e controllano la loro funzionalità\n\n• Si occupano di pazienti prima, durante e dopo endoscopi\n\n• Si ordinano e controllano i farmaci e si controllano e spediscono materiali di prova\n\n• Essi raccolgono tutti i dati rilevanti del paziente e svolgono attività amministrative\n\nRequisiti\n• Attendere con ansia una familiarizzazione strutturata e la cooperazione in un team collegiale\n\n• Vi sosteniamo attivamente nel vostro sviluppo professionale\n\n• Lavorano a stretto contatto e a livello degli occhi con i medici\n\n• Vi offriamo la libertà di progettazione per l'ulteriore sviluppo di processi e flussi di lavoro.\n\nOffriamo:\n• Sei un'infermiera (HF o FaGe) e idealmente già hanno esperienza nell'endoscopia\n\n• Hanno alte capacità sociali nel trattare con i pazienti\n\n• Apprezzi il lavoro di squadra, il lavoro di mano in mano e convinci attraverso la tua natura apprezzata\n\n• Nel business quotidiano, tieni d'occhio diversi argomenti contemporaneamente\n\n• Ti piace l'attività manuale, avere un tocco per le attrezzature tecniche e lavorare con calma, ponderata e responsabilmente\n\n• Si stima che le ore di lavoro regolamentate (da lunedì a venerdì)",
+        "en": "The Nidwalden Hospital is a modern acute care hospital with 90 beds, around 600 dedicated employees and is responsible for the extended basic care. As a LUKS Group company, we are part of a powerful network that is one of the leading hospital groups in Switzerland. Together, we provide around the clock with passion and commitment for coordinated, digitally connected and accessible healthcare for all. <br/><br/ >We are looking for one or more by 1 October or by agreement\n\nTasks:\n• Assist in diagnostic and interventional endoscopies and perform sedation and vital sign monitoring\n\n• They prepare technical devices and endoscopic instruments before and after and check their functionality\n\n• They look after patients before, during and after endoscopies\n\n• You order and control medicines and you control and ship test materials\n\n• They collect all billing-relevant patient data and perform administrative tasks\n\nRequirements\n• Look forward to a structured familiarization and cooperation in a collegial team\n\n• We actively support you in your professional development\n\n• They work closely and at eye level with doctors\n\n• We offer you design freedom for the further development of processes and workflows.\n\nWe offer:\n• You are a nurse (HF or FaGe) and ideally already have experience in endoscopy\n\n• They have high social skills in dealing with patients\n\n• You appreciate teamwork, work hand in hand and convince through your appreciative nature\n\n• In day-to-day business, you keep an eye on several topics simultaneously\n\n• You enjoy manual activities, have a flair for technical equipment and work calmly, thoughtfully and responsibly\n\n• You estimate regulated working hours (Monday to Friday)",
+        "de": "Das Spital Nidwalden ist ein modernes Akutspital mit 90 Betten, rund 600 engagierten Mitarbeitenden und ist für die erweiterte Grundversorgung verantwortlich. Als Unternehmen der LUKS Gruppe sind wir Teil eines leistungsstarken Netzwerks, das zu den führenden Spitalgruppen der Schweiz gehört. Gemeinsam sorgen wir rund um die Uhr mit Leidenschaft und Engagement für eine koordinierte, digital vernetzte und für alle zugängliche Gesundheitsversorgung.<br/><br/>Wir suchen per 1. Oktober oder nach Vereinbarung eine/n\n\nAufgaben:\n• Sie assistieren bei diagnostischen und interventionellen Endoskopien und führen die Sedation und Vitalzeichenüberwachung durch\n\n• Sie bereiten technische Geräte und endoskopische Instrumente vor und nach und kontrollieren diese auf ihre Funktionalität\n\n• Sie betreuen Patientinnen und Patienten vor, während und nach den Endoskopien\n\n• Sie bestellen und kontrollieren Medikamente und Sie kontrollieren und versenden Untersuchungsmaterial\n\n• Sie erfassen alle abrechnungsrelevanten Patientendaten und erledigen administrative Tätigkeiten\n\nAnforderungen:\n• Freuen Sie sich auf eine strukturierte Einarbeitung und die Zusammenarbeit in einem kollegialen Team\n\n• Wir unterstützen Sie aktiv bei Ihrer fachlichen Weiterentwicklung\n\n• Sie arbeiten eng und auf Augenhöhe mit Ärztinnen und Ärzten zusammen\n\n• Wir bieten Ihnen Gestaltungsfreiraum zur Weiterentwicklung von Prozessen und Arbeitsabläufen.\n\nWir bieten:\n• Sie sind Pflegefachperson (HF oder FaGe) und bringen idealerweise bereits Erfahrung in der Endoskopie mit\n\n• Sie verfügen über hohe Sozialkompetenzen im Umgang mit den Patienten und Patientinnen\n\n• Sie schätzen die Teamarbeit, arbeiten Hand in Hand und überzeugen durch Ihre wertschätzende Art\n\n• Sie behalten im Tagesgeschäft mehrere Themen gleichzeitig im Blick\n\n• Sie haben Freude an manuellen Tätigkeiten, besitzen ein Flair für technische Geräte und arbeiten ruhig, überlegt und verantwortungsbewusst\n\n• Sie schätzen geregelte Arbeitszeiten (Montag bis Freitag)",
+        "fr": "L'hôpital de Nidwalden est un hôpital moderne de soins actifs avec 90 lits, environ 600 employés dévoués et est responsable des soins de base prolongés. En tant qu'entreprise du groupe LUKS, nous faisons partie d'un puissant réseau qui est l'un des principaux groupes hospitaliers en Suisse. Ensemble, nous fournissons 24 heures sur 24 avec passion et engagement pour des soins de santé coordonnés, connectés numériquement et accessibles pour tous. <br/><br/ > Nous sommes à la recherche d'un ou plusieurs d'ici le 1er octobre ou d'un accord\n\nTâches :\n• Aider aux endoscopies diagnostiques et interventionnelles et effectuer la sédation et la surveillance des signes vitaux\n\n• Ils préparent des dispositifs techniques et des instruments endoscopiques avant et après et vérifient leur fonctionnalité\n\n• Ils s'occupent des patients avant, pendant et après les endoscopies\n\n• Vous commandez et contrôlez des médicaments et vous contrôlez et expédiez des matériaux d'essai\n\n• Ils recueillent toutes les données relatives aux patients et effectuent des tâches administratives\n\nExigences\n• Souhaite une familiarisation et une coopération structurées au sein d'une équipe collégiale\n\n• Nous vous soutenons activement dans votre développement professionnel\n\n• Ils travaillent étroitement et au niveau des yeux avec les médecins\n\n• Nous vous offrons la liberté de concevoir pour le développement ultérieur des processus et des workflows.\n\nNous offrons:\n• Vous êtes infirmière (HF ou FaGe) et avez idéalement déjà de l'expérience en endoscopie\n\n• Ils ont des compétences sociales élevées dans le traitement des patients\n\n• Vous appréciez le travail d'équipe, travaillez main dans la main et convainquez par votre nature reconnaissante\n\n• Dans les affaires quotidiennes, vous gardez un œil sur plusieurs sujets simultanément\n\n• Vous appréciez les activités manuelles, avez un style pour l'équipement technique et travaillez calmement, réfléchiment et de manière responsable\n\n• Vous estimez les heures de travail réglementées (du lundi au vendredi)"
+      },
+      "needsRetranslation": false,
+      "location": "Stans",
+      "canton": "NW",
+      "url": "https://jobs.luks.ch/offene-stellen/dipl-pflegefachperson-hf-endoskopie/145804c1-3f2f-46d7-a531-c8d07aade199",
+      "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T00:42:28.513Z",
+      "addressLocality": "Stans",
+      "addressRegion": "NW",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6370",
+      "streetAddress": "",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://recruitment.luks.ch/engage/jobexchange/applyBy.do?jobOfferId=8a8883029e222cb9019ff54607340ae1&j=jobexchange",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        ],
+        "it": [
+          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+          "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans",
+          "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans",
+          "dipl-hf-endoscopia-100-spital-nidwalden-stans",
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
+          "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+          "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans",
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+          "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans",
+          "dipl-pflegefachperson-hf-endoskopie-100-luks-stans"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-endoskopie-100-spital-nidwalden-stans",
+        "pflegefachperson-hf-endoskopie-60-spital-nidwalden-stans",
+        "dipl-caregiver-hf-endoscopy-100-spital-nidwalden-stans",
+        "dipl-endoscopie-hf-du-soignant-100-spital-nidwalden-stans",
+        "hf-endoscopia-40-60-luzerner-kantonsspital-luks-stans",
+        "dipl-hf-endoscopia-100-spital-nidwalden-stans",
+        "dipl-pflegefachperson-hf-endoskopie-100-luks-stans",
+        "dipl-hf-endoscopia-100-luzerner-kantonsspital-luks-stans"
+      ],
+      "firstSeenAt": "2026-08-17T21:51:41.182Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "spital-nidwalden-796f71c8e89a",
       "slug": "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans",
       "slugByLocale": {
@@ -410,7 +410,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/oberaerztin-oberarzt-intensivmedizin-50/4db0abe4-9ba2-4178-9421-2d8d676397d5",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:26.482Z",
+      "crawledAt": "2026-09-01T00:42:28.512Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -436,8 +436,8 @@
         "it": [
           "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
           "medico-senior-medico-intensivo-senior-50-100-spital-nidwalden-stans",
-          "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans",
-          "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans"
+          "oberarztin-oberarzt-intensivmedizin-50-100-luks-stans",
+          "medico-senior-medico-intensivo-senior-50-100-luzerner-kantonsspital-luks-stans"
         ],
         "en": [
           "oberarztin-oberarzt-intensivmedizin-50-100-spital-nidwalden-stans",
@@ -505,7 +505,7 @@
       "url": "https://jobs.luks.ch/offene-stellen/mpa-oder-arztsekretaer-in-sekretariat-klinik-anaesthesie-intensiv-und-schmerzmedizin/3274f595-7e18-4d13-8faf-71ed1170fbd7",
       "source": "Spital Nidwalden Dedicated Parser (Prospective medium 1003280)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:26.479Z",
+      "crawledAt": "2026-09-01T00:42:28.510Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -541,12 +541,12 @@
           "mpa-or-medical-secretary-in-secretariat-clinic-anesthesia-intensive-care-and-pain-medicine-50-luzerner-kantonsspital",
           "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks"
         ],
+        "de": [
+          "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks"
+        ],
         "fr": [
           "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50",
           "mpa-ou-secretaire-medical-dans-la-clinique-de-secretariat-anesthesie-soins-intensifs-et-medecine-de-la-douleur-50",
-          "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks"
-        ],
-        "de": [
           "mpa-oder-arztsekretar-in-sekretariat-klinik-anasthesie-intensiv-und-schmerzmedizin-50-luks"
         ]
       },
