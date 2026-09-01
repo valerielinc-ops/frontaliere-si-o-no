@@ -521,6 +521,20 @@ function languageFilters(counts: Record<string, number>) {
   }];
 }
 
+const LIDL_VERIFIED_LOCATIONS = [
+  ['Staad', '9422', 'SG'],
+  ['Rudolfstetten', '8964', 'AG'],
+  ['Gattikon', '8136', 'ZH'],
+  ['Jona', '8645', 'SG'],
+  ['Siebnen', '8854', 'SZ'],
+  ['Samstagern', '8833', 'ZH'],
+  ['Bützberg', '4922', 'BE'],
+  ['Küssnacht a. R.', '6403', 'SZ'],
+  ['Perlen', '6035', 'LU'],
+  ['Emmenbrücke', '6020', 'LU'],
+  ['Bevaix', '2022', 'NE'],
+] as const;
+
 function licaEnvelope(
   jobs: ReturnType<typeof licaHit>[],
   { totalCount, page = 1, filters }: { totalCount: number; page?: number; filters?: unknown[] },
@@ -545,6 +559,14 @@ describe('Lidl authoritative LiCa discovery', () => {
     expect(inferLidlCanton({ city: 'Unknown place', country: 'CH' })).toBe('');
   });
 
+  it.each(LIDL_VERIFIED_LOCATIONS)(
+    'resolves the source-verified Lidl delivery locality %s %s to %s',
+    (city, zipCode, canton) => {
+      expect(inferLidlCanton({ city, zipCode, country: 'CH' })).toBe(canton);
+      expect(inferLidlCanton({ city, zipCode: '0000', country: 'CH' })).toBe('');
+    },
+  );
+
   it('drains every reported language page and preserves exact feed-to-adapter accounting', async () => {
     const allHits = Array.from({ length: 21 }, (_, index) => licaHit(70000 + index));
     const fetchImpl = async (input: string | URL | Request) => {
@@ -565,7 +587,8 @@ describe('Lidl authoritative LiCa discovery', () => {
       totalCount: 21,
       rawFetched: 21,
       duplicateIdentity: 0,
-      droppedNonCh: 0,
+      droppedForeign: 0,
+      unresolvedSwiss: 0,
       droppedMalformed: 0,
       sourceZero: false,
     });
@@ -651,14 +674,15 @@ describe('Lidl authoritative LiCa discovery', () => {
       totalCount: 2,
       rawFetched: 2,
       duplicateIdentity: 1,
-      droppedNonCh: 0,
+      droppedForeign: 0,
+      unresolvedSwiss: 0,
       droppedMalformed: 0,
       urls: [expect.stringMatching(/73500$/)],
       jobsFromApi: [expect.objectContaining({ url: expect.stringMatching(/73500$/) })],
     });
   });
 
-  it('drops a hit whose city does not resolve to a Swiss canton without failing the run (#7024)', async () => {
+  it('fails closed when a source-declared Swiss city/postal pair is unresolved', async () => {
     const fetchImpl = async (input: string | URL | Request) => {
       const { language } = lidlRequest(input);
       if (!language) {
@@ -673,12 +697,40 @@ describe('Lidl authoritative LiCa discovery', () => {
       ];
       return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 2 })), { status: 200 });
     };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 }))
+      .rejects.toThrow(/unresolved Swiss locations: 1 hit.*Not A Real Swiss Village\|\?\|CH/);
+  });
+
+  it('recovers every source-verified Swiss locality while distinguishing a real foreign hit', async () => {
+    const swissHits = LIDL_VERIFIED_LOCATIONS.map(([city, zipCode], index) => licaHit(
+      73810 + index,
+      { location: { city, zipCode, country: 'CH' } },
+    ));
+    const foreignHit = licaHit(73830, {
+      location: { city: 'Milano', zipCode: '20121', country: 'IT' },
+    });
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      const jobs = language ? [...swissHits, foreignHit] : [];
+      return new Response(JSON.stringify(licaEnvelope(jobs, {
+        totalCount: jobs.length || swissHits.length + 1,
+        filters: language ? undefined : languageFilters({ it: swissHits.length + 1 }),
+      })), { status: 200 });
+    };
+
     await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
-      totalCount: 2,
-      rawFetched: 2,
-      droppedNonCh: 1,
+      totalCount: 12,
+      rawFetched: 12,
+      duplicateIdentity: 0,
+      droppedForeign: 1,
+      unresolvedSwiss: 0,
       droppedMalformed: 0,
-      urls: [expect.stringMatching(/73800$/)],
+      urls: expect.arrayContaining(LIDL_VERIFIED_LOCATIONS.map((_, index) => (
+        expect.stringMatching(new RegExp(`${73810 + index}$`))
+      ))),
+      jobsFromApi: expect.arrayContaining(LIDL_VERIFIED_LOCATIONS.map(([, , canton]) => (
+        expect.objectContaining({ canton })
+      ))),
     });
   });
 
