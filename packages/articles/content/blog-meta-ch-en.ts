@@ -4960,6 +4960,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sindacato-banca-ubs-regolamentazione.title': 'Bank employees: ASIB accepts UBS regulations',
     'blog.article.sindacato-banca-ubs-regolamentazione.excerpt': 'The ASIB supports the CET-S\'s proposal to regulate UBS and calls for mandatory social plans as the banking sector faces an unprecedented employment crisis.',
     'blog.article.sindacato-banca-ubs-regolamentazione.imageAlt': 'Swiss bank sign symbolizing the debate on financial regulation and employment in Switzerland\'s banking sector',
+    'blog.article.comcom-esclude-nuovi-operatori-mobile.title': 'Swiss mobile telephony: Comcom excludes new providers',
+    'blog.article.comcom-esclude-nuovi-operatori-mobile.excerpt': 'The Swiss Federal Communications Commission states: Economic and regulatory barriers make it virtually impossible for new competitors to enter the mobile phone market.',
+    'blog.article.comcom-esclude-nuovi-operatori-mobile.imageAlt': 'Panoramic view of Lugano, economic hub of southern Switzerland, representing Swiss telecom market',
 };
 
 export default blogMetaChEn;
