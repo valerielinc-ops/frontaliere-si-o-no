@@ -11038,6 +11038,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.title': 'Night closures between A8 and Gallarate-Gattico branch on 4 September',
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.excerpt': 'Autostrade per l\'Italia announces night closures between the A8 and the Gallarate-Gattico branch for paving work and noise barriers.',
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.imageAlt': 'Nighttime closures between A8 and Diramazione Gallarate-Gattico',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'With the first of September, Trenord tickets and passes increase',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'From 1 September 2026, Trenord tickets and passes will undergo significant increases, with impacts on routes such as Gallarate-Milan.',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Increase in Trenord tickets from September 1, 2026',
 };
 
 export default blogMetaEn;
