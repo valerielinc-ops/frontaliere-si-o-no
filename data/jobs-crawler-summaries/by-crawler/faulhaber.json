@@ -1,20 +1,21 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-01T01:16:50.735Z",
+  "generatedAt": "2026-09-01T02:24:56.453Z",
   "total": 3,
   "discovered": null,
   "written": 3,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 46104,
-  "avgDurationMs": 46104,
+  "durationMs": 49967,
+  "avgDurationMs": 49967,
   "durationHistory": [
-    46104
+    49967
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "faulhaber-cd396bb6e76c",
       "slug": "tecnico-di-misura-croglio-faulhaber",
@@ -40,12 +41,14 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:16:28.159Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-09-01T02:24:30.400Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T01:16:28.159Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -74,12 +77,14 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T01:16:38.472Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-09-01T02:24:43.088Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T01:16:38.472Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -108,17 +113,18 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:16:48.809Z",
-      "_qualityScore": 52,
+      "crawledAt": "2026-09-01T02:24:54.427Z",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-01T01:16:48.809Z",
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
