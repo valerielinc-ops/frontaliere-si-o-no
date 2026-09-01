@@ -11026,6 +11026,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-villette-frontaliere.title': 'Leben in Villette und Arbeit im Tessin als grenzüberschreitender Pendler',
     'blog.article.vivere-villette-frontaliere.excerpt': 'Wohnen in Villette als Grenzgänger und Arbeiten im Tessin: Transport, Kosten und Steuervorteile. Leitfaden für Passagen, AHV-Regeln, G-Bewilligung und administrative Fristen.',
     'blog.article.vivere-villette-frontaliere.imageAlt': 'Wohnstraße in einem kleinen Ort in der Provinz Como an der Grenze zum Kanton Tessin',
+    'blog.article.bollettino-frontaliere-2026-09-01.title': 'Grenzgänger-Tagesbulletin – 1. September 2026: 33 Minuten Wartezeit in Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-09-01.excerpt': 'Die Zahlen von heute, 1. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 1. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Grenzgänger-Bulletin vom 1. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'Die Zahlen vom 1. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;

@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllChiccoDoroJobs,
+  assertCompleteChiccoDoroSnapshot,
   isChiccoDoroJob,
   isTrustedDomain,
   CHICCO_DORO_KEY,
@@ -27,6 +28,9 @@ runStandardCrawlerPipeline({
   isCompanyJob: isChiccoDoroJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Chicco d'Oro crawler failed: ${err?.message || err}`);
   process.exit(1);

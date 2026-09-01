@@ -4906,6 +4906,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tasso-riferimento-ipotecario-1-25.title': 'Mortgage benchmark rate remains at record low of 1.25 percent',
     'blog.article.tasso-riferimento-ipotecario-1-25.excerpt': 'The mortgage reference rate remains at 1.25 percent, keeping rents in Switzerland unchanged.',
     'blog.article.tasso-riferimento-ipotecario-1-25.imageAlt': 'Aerial view of Lugano, Switzerland, with the cityscape and Lake Lugano in the background.',
+    'blog.article.svizzeri-chiedono-misure-clima.title': 'More Swiss call for measures against global warming',
+    'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'After the summer heatwave, the Swiss are calling for concrete measures, such as the renovation of buildings or the installation of solar panels.',
+    'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Aerial view of Lake Lugano with solar panels on rooftops.',
 };
 
 export default blogMetaChEn;

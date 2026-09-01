@@ -1,13 +1,142 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { describe, it, expect, vi } from 'vitest';
 import {
   CHICCO_DORO_KEY,
   CHICCO_DORO_COMPANY_NAME,
+  assertCompleteChiccoDoroSnapshot,
+  fetchAllChiccoDoroJobs,
   isChiccoDoroJob,
   isTrustedDomain,
+  parseListingPage,
 } from '../scripts/lib/chicco-doro-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
+
+const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const OPEN_APPLICATION_FIXTURE = fs.readFileSync(
+  path.join(ROOT, 'tests/fixtures/chicco-doro/contatti-open-application-only.html'),
+  'utf8',
+);
+
+const brandedPage = (body = '') => `<!doctype html><html><head><title>Chicco d'Oro</title></head><body>${body}</body></html>`;
 
 describe('Chicco d\u2019Oro crawler parser', () => {
+  it('rejects the generic open-application CTA that caused the 1 -> 0 health loop', () => {
+    expect(parseListingPage(OPEN_APPLICATION_FIXTURE, 'https://www.chiccodoro.com/contatti')).toEqual([]);
+  });
+
+  it('keeps a concrete vacancy beside the generic invitation', () => {
+    const html = brandedPage(`
+      <main>
+        <h2>Lavora con noi</h2>
+        <h3><a href="/jobs/tecnico-manutentore">Tecnico manutentore</a></h3>
+        <p>Posizione aperta per la manutenzione degli impianti di produzione.</p>
+      </main>
+    `);
+    expect(parseListingPage(html, 'https://www.chiccodoro.com/contatti')).toEqual([
+      expect.objectContaining({
+        title: 'Tecnico manutentore',
+        url: 'https://www.chiccodoro.com/jobs/tecnico-manutentore',
+      }),
+    ]);
+  });
+
+  it('proves an empty snapshot only after the bounded source inventory resolves', async () => {
+    const fetchPage = vi.fn(async (url: string) => {
+      if (url.endsWith('/contatti')) {
+        return OPEN_APPLICATION_FIXTURE;
+      }
+      throw new Error(`HTTP 404 from ${url}`);
+    });
+    const jobs = await fetchAllChiccoDoroJobs({ fetchPage, sleep: async () => {} });
+
+    expect(jobs).toEqual([]);
+    expect(fetchPage).toHaveBeenCalledTimes(3);
+    expect(assertCompleteChiccoDoroSnapshot(jobs)).toBe(true);
+    expect(evaluateAuthoritativeSnapshot(jobs, {
+      validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
+      allowAuthoritativeEmptySnapshot: true,
+      companyLabel: CHICCO_DORO_COMPANY_NAME,
+    })).toEqual({
+      authoritativeSnapshotVerified: true,
+      authoritativeEmptySnapshot: true,
+    });
+  });
+
+  it('keeps real vacancies when an optional source path times out', async () => {
+    const fetchPage = vi.fn(async (url: string) => {
+      if (url.endsWith('/contatti')) {
+        return brandedPage(`
+          <h2>Lavora con noi</h2>
+          <h3><a href="/jobs/tecnico-manutentore">Tecnico manutentore</a></h3>
+          <p>Posizione aperta per la manutenzione degli impianti di produzione.</p>
+        `);
+      }
+      if (url.endsWith('/jobs/tecnico-manutentore')) {
+        return brandedPage(`<main class="job-detail">${'Descrizione autorevole della posizione '.repeat(8)}</main>`);
+      }
+      if (url.endsWith('/careers')) throw new Error(`HTTP 404 from ${url}`);
+      throw new Error('socket timeout');
+    });
+
+    const jobs = await fetchAllChiccoDoroJobs({ fetchPage, sleep: async () => {} });
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toEqual(expect.objectContaining({ title: 'Tecnico manutentore' }));
+    expect(() => assertCompleteChiccoDoroSnapshot(jobs)).toThrow(/not a proven complete/);
+    expect(evaluateAuthoritativeSnapshot(jobs, {
+      validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
+      allowAuthoritativeEmptySnapshot: true,
+      authoritativeSnapshotScope: 'empty-only',
+      companyLabel: CHICCO_DORO_COMPANY_NAME,
+    })).toEqual({
+      authoritativeSnapshotVerified: false,
+      authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('fails closed when one source path is unresolved or the source identity disappears', async () => {
+    const unresolved = vi.fn(async (url: string) => {
+      if (url.endsWith('/contatti')) return brandedPage('<h2>Lavora con noi</h2>');
+      if (url.endsWith('/careers')) throw new Error(`HTTP 404 from ${url}`);
+      throw new Error('socket timeout');
+    });
+    const incomplete = await fetchAllChiccoDoroJobs({ fetchPage: unresolved, sleep: async () => {} });
+    expect(() => assertCompleteChiccoDoroSnapshot(incomplete)).toThrow(/not a proven complete/);
+
+    const wrongBrand = vi.fn(async (url: string) => {
+      if (url.endsWith('/contatti')) return '<html><title>Unrelated company</title><h2>Lavora con noi</h2></html>';
+      throw new Error(`HTTP 404 from ${url}`);
+    });
+    const untrusted = await fetchAllChiccoDoroJobs({ fetchPage: wrongBrand, sleep: async () => {} });
+    expect(() => assertCompleteChiccoDoroSnapshot(untrusted)).toThrow(/not a proven complete/);
+
+    const unparsedStructuredJob = vi.fn(async (url: string) => {
+      if (url.endsWith('/contatti')) {
+        return brandedPage('<h2>Lavora con noi</h2><script type="application/ld+json">{"@type":"JobPosting"}</script>');
+      }
+      throw new Error(`HTTP 404 from ${url}`);
+    });
+    const structured = await fetchAllChiccoDoroJobs({ fetchPage: unparsedStructuredJob, sleep: async () => {} });
+    expect(() => assertCompleteChiccoDoroSnapshot(structured)).toThrow(/not a proven complete/);
+
+    const unrelatedSchemaMention = vi.fn(async (url: string) => {
+      if (url.endsWith('/contatti')) {
+        return brandedPage('<h2>Lavora con noi</h2><script type="application/ld+json">{"description":"What is a JobPosting?"}</script>');
+      }
+      throw new Error(`HTTP 404 from ${url}`);
+    });
+    const unrelated = await fetchAllChiccoDoroJobs({ fetchPage: unrelatedSchemaMention, sleep: async () => {} });
+    expect(assertCompleteChiccoDoroSnapshot(unrelated)).toBe(true);
+  });
+
+  it('opts the runner into source-validated authoritative empty publishing', () => {
+    const runner = fs.readFileSync(path.join(ROOT, 'scripts/update-chicco-doro-jobs.mjs'), 'utf8');
+    expect(runner).toContain('validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot');
+    expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(CHICCO_DORO_KEY).toBe('chicco-doro');
