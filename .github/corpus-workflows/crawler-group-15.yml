@@ -1569,7 +1569,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1580,7 +1579,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"ail-lugano","primarySlice":"data/jobs/by-crawler/ail-lugano.json"},{"crawlerId":"apg-sga","primarySlice":"data/jobs/by-crawler/apg-sga.json"},{"crawlerId":"asana-spital","primarySlice":"data/jobs/by-crawler/asana-spital.json"},{"crawlerId":"avaloq","primarySlice":"data/jobs/by-crawler/avaloq.json"},{"crawlerId":"bachem","primarySlice":"data/jobs/by-crawler/bachem.json"},{"crawlerId":"css-versicherung","primarySlice":"data/jobs/by-crawler/css-versicherung.json"},{"crawlerId":"ffs-officine-ferrovie-federali","primarySlice":"data/jobs/by-crawler/ffs-officine-ferrovie-federali.json"},{"crawlerId":"gesundheitsnetz-kuesnacht","primarySlice":"data/jobs/by-crawler/gesundheitsnetz-kuesnacht.json"},{"crawlerId":"grand-hotel-kronenhof","primarySlice":"data/jobs/by-crawler/grand-hotel-kronenhof.json"},{"crawlerId":"gzo-wetzikon","primarySlice":"data/jobs/by-crawler/gzo-wetzikon.json"},{"crawlerId":"holcim","primarySlice":"data/jobs/by-crawler/holcim.json"},{"crawlerId":"ibsa-institut-biochimique","primarySlice":"data/jobs/by-crawler/ibsa-institut-biochimique.json"},{"crawlerId":"kanton-aargau","primarySlice":"data/jobs/by-crawler/kanton-aargau.json"},{"crawlerId":"kanton-solothurn","primarySlice":"data/jobs/by-crawler/kanton-solothurn.json"},{"crawlerId":"klinik-adelheid","primarySlice":"data/jobs/by-crawler/klinik-adelheid.json"},{"crawlerId":"knowledge-lab","primarySlice":"data/jobs/by-crawler/knowledge-lab.json"},{"crawlerId":"mabetex","primarySlice":"data/jobs/by-crawler/mabetex.json"},{"crawlerId":"migros-hq","primarySlice":"data/jobs/by-crawler/migros-hq.json"},{"crawlerId":"octapharma","primarySlice":"data/jobs/by-crawler/octapharma.json"},{"crawlerId":"pfister","primarySlice":"data/jobs/by-crawler/pfister.json"},{"crawlerId":"recruitingapp-2563","primarySlice":"data/jobs/by-crawler/recruitingapp-2563.json"},{"crawlerId":"rennbahnklinik","primarySlice":"data/jobs/by-crawler/rennbahnklinik.json"},{"crawlerId":"spital-affoltern","primarySlice":"data/jobs/by-crawler/spital-affoltern.json"},{"crawlerId":"unispital-basel","primarySlice":"data/jobs/by-crawler/unispital-basel.json"},{"crawlerId":"valiant-bank","primarySlice":"data/jobs/by-crawler/valiant-bank.json"},{"crawlerId":"wagerenhof","primarySlice":"data/jobs/by-crawler/wagerenhof.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-15-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

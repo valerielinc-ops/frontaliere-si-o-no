@@ -180,7 +180,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(background).toHaveLength(results.generationRoster.groups[group].length);
       expect(background.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
-      expect(job.steps.at(-3)).toMatchObject({ id: 'crawler-generation-wait', 'wait-all': true });
+      expect(job.steps.at(-3)).toEqual({
+        name: 'Wait for all crawlers in this group',
+        'wait-all': true,
+      });
+      expect(job.steps.at(-2).env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
       expect(JSON.parse(job.steps.at(-2).env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
         results.generationRoster.groups[group].map((crawlerId: string) => ({
           crawlerId,

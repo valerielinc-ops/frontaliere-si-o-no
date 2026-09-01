@@ -1676,7 +1676,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1687,7 +1686,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"abbott","primarySlice":"data/jobs/by-crawler/abbott.json"},{"crawlerId":"abraxas","primarySlice":"data/jobs/by-crawler/abraxas.json"},{"crawlerId":"axa-svizzera","primarySlice":"data/jobs/by-crawler/axa-svizzera.json"},{"crawlerId":"bitfinex","primarySlice":"data/jobs/by-crawler/bitfinex.json"},{"crawlerId":"bls","primarySlice":"data/jobs/by-crawler/bls.json"},{"crawlerId":"c-and-a-schweiz","primarySlice":"data/jobs/by-crawler/c-and-a-schweiz.json"},{"crawlerId":"debiopharm","primarySlice":"data/jobs/by-crawler/debiopharm.json"},{"crawlerId":"fmi","primarySlice":"data/jobs/by-crawler/fmi.json"},{"crawlerId":"hospice-general","primarySlice":"data/jobs/by-crawler/hospice-general.json"},{"crawlerId":"international-school-of-ticino","primarySlice":"data/jobs/by-crawler/international-school-of-ticino.json"},{"crawlerId":"kone","primarySlice":"data/jobs/by-crawler/kone.json"},{"crawlerId":"lindt-spruengli","primarySlice":"data/jobs/by-crawler/lindt-spruengli.json"},{"crawlerId":"lombard-odier","primarySlice":"data/jobs/by-crawler/lombard-odier.json"},{"crawlerId":"lonza","primarySlice":"data/jobs/by-crawler/lonza.json"},{"crawlerId":"matterhorn-gotthard-bahn","primarySlice":"data/jobs/by-crawler/matterhorn-gotthard-bahn.json"},{"crawlerId":"mcdonald-s-switzerland","primarySlice":"data/jobs/by-crawler/mcdonald-s-switzerland.json"},{"crawlerId":"oscam","primarySlice":"data/jobs/by-crawler/oscam.json"},{"crawlerId":"rituals-cosmetics","primarySlice":"data/jobs/by-crawler/rituals-cosmetics.json"},{"crawlerId":"ruag-ag","primarySlice":"data/jobs/by-crawler/ruag-ag.json"},{"crawlerId":"schindler","primarySlice":"data/jobs/by-crawler/schindler.json"},{"crawlerId":"see-spital","primarySlice":"data/jobs/by-crawler/see-spital.json"},{"crawlerId":"siegfried","primarySlice":"data/jobs/by-crawler/siegfried.json"},{"crawlerId":"sonarsource","primarySlice":"data/jobs/by-crawler/sonarsource.json"},{"crawlerId":"spitex-basel","primarySlice":"data/jobs/by-crawler/spitex-basel.json"},{"crawlerId":"stadt-luzern","primarySlice":"data/jobs/by-crawler/stadt-luzern.json"},{"crawlerId":"unibe","primarySlice":"data/jobs/by-crawler/unibe.json"},{"crawlerId":"usz","primarySlice":"data/jobs/by-crawler/usz.json"},{"crawlerId":"vista","primarySlice":"data/jobs/by-crawler/vista.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-23-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

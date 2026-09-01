@@ -1506,7 +1506,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1517,7 +1516,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"banca-cler","primarySlice":"data/jobs/by-crawler/banca-cler.json"},{"crawlerId":"banca-raiffeisen-vedeggio-cassarate","primarySlice":"data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json"},{"crawlerId":"belimo","primarySlice":"data/jobs/by-crawler/belimo.json"},{"crawlerId":"bkw","primarySlice":"data/jobs/by-crawler/bkw.json"},{"crawlerId":"breitling","primarySlice":"data/jobs/by-crawler/breitling.json"},{"crawlerId":"chicco-doro","primarySlice":"data/jobs/by-crawler/chicco-doro.json"},{"crawlerId":"cordenpharma","primarySlice":"data/jobs/by-crawler/cordenpharma.json"},{"crawlerId":"fart","primarySlice":"data/jobs/by-crawler/fart.json"},{"crawlerId":"galenica","primarySlice":"data/jobs/by-crawler/galenica.json"},{"crawlerId":"globus","primarySlice":"data/jobs/by-crawler/globus.json"},{"crawlerId":"helvetia","primarySlice":"data/jobs/by-crawler/helvetia.json"},{"crawlerId":"ikea","primarySlice":"data/jobs/by-crawler/ikea.json"},{"crawlerId":"kanton-gr","primarySlice":"data/jobs/by-crawler/kanton-gr.json"},{"crawlerId":"ksw","primarySlice":"data/jobs/by-crawler/ksw.json"},{"crawlerId":"lups","primarySlice":"data/jobs/by-crawler/lups.json"},{"crawlerId":"microsoft","primarySlice":"data/jobs/by-crawler/microsoft.json"},{"crawlerId":"privatklinik-wyss","primarySlice":"data/jobs/by-crawler/privatklinik-wyss.json"},{"crawlerId":"prosenectute-ti","primarySlice":"data/jobs/by-crawler/prosenectute-ti.json"},{"crawlerId":"roche","primarySlice":"data/jobs/by-crawler/roche.json"},{"crawlerId":"sintetica","primarySlice":"data/jobs/by-crawler/sintetica.json"},{"crawlerId":"sodexo","primarySlice":"data/jobs/by-crawler/sodexo.json"},{"crawlerId":"sonnweid","primarySlice":"data/jobs/by-crawler/sonnweid.json"},{"crawlerId":"sonova","primarySlice":"data/jobs/by-crawler/sonova.json"},{"crawlerId":"spital-zollikerberg","primarySlice":"data/jobs/by-crawler/spital-zollikerberg.json"},{"crawlerId":"stadt-bern","primarySlice":"data/jobs/by-crawler/stadt-bern.json"},{"crawlerId":"yapeal","primarySlice":"data/jobs/by-crawler/yapeal.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-02-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs
