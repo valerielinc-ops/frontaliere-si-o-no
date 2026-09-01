@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-09-01T10:21:28.997Z",
-  "total": 215,
+  "generatedAt": "2026-09-01T14:18:51.945Z",
+  "total": 214,
   "newCount": 1,
   "updatedCount": 56,
-  "removedCount": 0,
-  "unchangedCount": 158,
-  "durationMs": 520410,
-  "avgDurationMs": 520410,
+  "removedCount": 1,
+  "unchangedCount": 157,
+  "durationMs": 535967,
+  "avgDurationMs": 535967,
   "durationHistory": [
-    520410
+    535967
   ],
   "newJobs": [
     {
@@ -1145,7 +1145,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Operatore di produzione – Produzione / Confezionamento",
+      "slug": "operatore-di-produzione-produzione-confezionamento-pemsa-fribourg",
+      "url": "https://www.pemsa.ch/it/job/operatore-di-produzione-produzione-confezionamento-2690229/",
+      "applyUrl": "https://www.pemsa.ch/it/job/operatore-di-produzione-produzione-confezionamento-2690229/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Fribourg",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-08-28",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2027-01-31",
+      "id": "pemsa-e76f79a5dff9",
+      "salaryMin": 76500,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-31T17:09:18.558Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Pittore",
@@ -1324,11 +1361,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T07:31:09.249Z",
-      "_qualityScore": 86,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 20,
+        "translation": 25,
         "completeness": 19
       }
     },
