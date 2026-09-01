@@ -1,18 +1,18 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-09-01T07:22:23.043Z",
+  "generatedAt": "2026-09-01T08:50:24.157Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3057,
-  "avgDurationMs": 3057,
+  "durationMs": 5368,
+  "avgDurationMs": 5368,
   "durationHistory": [
-    3057
+    5368
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/3cd91f76-ad2e-4837-8ce9-5039ff5c16d6",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:22:20.288Z",
+      "crawledAt": "2026-09-01T08:50:20.073Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -74,7 +74,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/814e07df-c3c8-43dd-807e-6995bd54c9f0",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T07:22:20.958Z",
+      "crawledAt": "2026-09-01T08:50:20.524Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -109,56 +109,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "croix-rouge-fribourgeoise-9cadb67cda0a",
-      "slug": "one-e-leader-in-area-home-support-membro-di-gestione-croix-rouge-fribourgeoise-fribourg",
-      "company": "Croix-Rouge fribourgeoise",
-      "companyKey": "croix-rouge-fribourgeoise",
-      "companyDomain": "croix-rouge-fr.ch",
-      "title": "Ein-e Leiter-in Bereich Unterstützung zu Hause (Mitglied der Geschäftsleitung)",
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://company.jobcloud.ch/fr/jobs/502b52ba-d781-416d-a177-27ac2a10c989",
-      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
-      "sourceLang": "de",
-      "crawledAt": "2026-07-31T11:42:46.770Z",
-      "hiringOrganization": {
-        "name": "Croix-Rouge fribourgeoise"
-      },
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "streetAddress": "Rue G.-Techtermann 2",
-      "postalCode": "1700",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://www.jobup.ch/fr/application/create/502b52ba-d781-416d-a177-27ac2a10c989?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
-      "department": "",
-      "_targetScope": {
-        "canton": "FR",
-        "location": "Fribourg"
-      },
-      "firstSeenAt": "2026-07-07T12:13:54.398Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
