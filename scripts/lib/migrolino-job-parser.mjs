@@ -345,7 +345,12 @@ export async function fetchMigrolinoListingHrefs() {
         for (const u of await collect()) allUrls.add(u);
         if (allUrls.size > before) break;
       }
-      if (allUrls.size === before) break;
+      if (allUrls.size === before) {
+        console.warn(
+          `\u26a0\ufe0f migrolino pagination stalled after page ${pageIdx}: next control was clickable but yielded no new URLs after ${paginationStallPolls} poll(s) (${allUrls.size} total).`,
+        );
+        break;
+      }
     }
 
     return [...allUrls];

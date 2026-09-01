@@ -208,7 +208,12 @@ export async function fetchDennerJobUrls() {
         if (allUrls.size > before) break;
       }
       console.log(`  \ud83d\udce6 page ${pageIndex}: ${allUrls.size} total URL(s)`);
-      if (allUrls.size === before) break;
+      if (allUrls.size === before) {
+        console.warn(
+          `\u26a0\ufe0f Denner pagination stalled after page ${pageIndex}: next control was clickable but yielded no new URLs after ${paginationStallPolls} poll(s) (${allUrls.size} total).`,
+        );
+        break;
+      }
     }
   } finally {
     await browser.close().catch(() => {});
