@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ardian",
-  "assembledAt": "2026-08-31T23:20:15.901Z",
+  "assembledAt": "2026-09-01T01:01:29.985Z",
   "jobs": [
     {
       "id": "ardian-9f5eec77bfad",
@@ -34,7 +34,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:13.327Z",
+      "crawledAt": "2026-09-01T01:01:27.817Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,10 +50,14 @@
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:40:33.185Z",
+      "previousSlugs": [
+        "investor-relations-intern-january-2027-i-zurich-ardian-ch",
+        "investor-relations-tirocinante-january-2027-i-zurich-ardian-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "investor-relations-intern-january-2027-i-zurich-ardian-ch"
+          "investor-relations-intern-january-2027-i-zurich-ardian-ch",
+          "investor-relations-tirocinante-january-2027-i-zurich-ardian-zurich"
         ],
         "de": [
           "investor-relations-intern-january-2027-i-zurich-ardian-ch"
@@ -62,9 +66,7 @@
           "investor-relations-intern-january-2027-i-zurich-ardian-ch"
         ]
       },
-      "previousSlugs": [
-        "investor-relations-intern-january-2027-i-zurich-ardian-ch"
-      ],
+      "firstSeenAt": "2026-08-31T17:40:33.185Z",
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
@@ -111,7 +113,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:12.657Z",
+      "crawledAt": "2026-09-01T01:01:27.158Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -127,10 +129,14 @@
       "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-31T17:40:32.438Z",
+      "previousSlugs": [
+        "secondaries-primaries-intern-january-2027-i-zurich-ardian-ch",
+        "secondaries-primaries-tirocinante-january-2027-i-zurich-ardian-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "secondaries-primaries-intern-january-2027-i-zurich-ardian-ch"
+          "secondaries-primaries-intern-january-2027-i-zurich-ardian-ch",
+          "secondaries-primaries-tirocinante-january-2027-i-zurich-ardian-zurich"
         ],
         "de": [
           "secondaries-primaries-intern-january-2027-i-zurich-ardian-ch"
@@ -139,9 +145,7 @@
           "secondaries-primaries-intern-january-2027-i-zurich-ardian-ch"
         ]
       },
-      "previousSlugs": [
-        "secondaries-primaries-intern-january-2027-i-zurich-ardian-ch"
-      ],
+      "firstSeenAt": "2026-08-31T17:40:32.438Z",
       "salaryMin": 79000,
       "salaryMax": 138500,
       "salarySource": "estimated",
@@ -155,86 +159,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "ardian-0bcff807da42",
-      "slug": "customized-solutions-tirocinante-september-2026-january-2027-zurich-ardian-zurich",
-      "slugByLocale": {
-        "it": "customized-solutions-tirocinante-september-2026-january-2027-zurich-ardian-zurich",
-        "en": "customized-solutions-intern-september-2026-january-2027-zurich-ardian-ch",
-        "de": "customized-solutions-praktikant-september-2026-january-2027-zurich-ardian-zurich",
-        "fr": "customized-solutions-stagiaire-september-2026-january-2027-zurich-ardian-zurich"
-      },
-      "company": "Ardian",
-      "companyKey": "ardian",
-      "companyDomain": "ardian.com",
-      "title": "Customized Solutions Intern - September 2026 / January 2027 | Zurich",
-      "titleByLocale": {
-        "it": "Customized Solutions Tirocinante - September 2026 / January 2027 | Zurich",
-        "en": "Customized Solutions Intern - September 2026 / January 2027 | Zurich",
-        "de": "Customized Solutions Praktikant - September 2026 / January 2027 | Zurich",
-        "fr": "Customized Solutions Stagiaire - September 2026 / January 2027 | Zurich"
-      },
-      "description": "Department :\nCustomized Solutions\n\nLocation :\nZurich\n\nContract :\nInternship (fixed-term)\n\nDuration :\n6 months\n\nStart date :\nSeptember or October 2026 / January 2027\n\nThe role\n\nArdian’s dedicated Customized Solutions team based in Zurich develops and creates proposals for bespoke private market investment solutions that precisely fit our clients’ needs. You will support the team in its global fundraising activities from day one and will play a key role in the team, with responsibilities and opportunities including:\n\n• Supporting the creation of tailored private market investment solution proposals (RFI, RFP, presentations) for large institutional investors worldwide\n\n• Transforming complex investment ideas into convincing fundraising content in different private market asset classes including Private Equity, Infrastructure, Credit and Real Estate\n\n• Developing concise marketing material for Ardian’s bespoke investment programs and working on a wide range of solutions for different client segments globally\n\n• Updating the Customized Solutions’ proposal databases and supporting the development of internal tools and processes\n\n• Participation in the team’s discussions and close collaboration with senior professionals in investment and specialist teams across Ardian\n\n• Opportunity to broaden your knowledge of private markets and develop capabilities in a world leading private investment house characterized by a growth-oriented entrepreneurial culture\n\nAs a member of a young, dynamic and growing team, our Interns have the opportunity to bring in their own initiatives and can take on increasing responsibility throughout their internship.\n\nRequired skills\n\n• Multi-tasking and organization skills; capable of managing deadlines and working under pressure on multiple tasks simultaneously\n\n• Strong writing skills and ability to transform complex ideas into convincing high-quality content, combined with a high attention to detail\n\n• Ability to work independently and efficiently; eager to learn on-the-job\n\n• Reliable team player with a broad set of qualitative and quantitative skills, as well as strong interpersonal competencies\n\n• Professional demeanor with excellent skills in English (verbal and written) as well as fluent/native in German and/or French; further language skills are an advantage\n\n• Proficient user of MS Office applications (Word, PowerPoint and Excel); VBA skills are a plus\n\nProfile\n\n• Penultimate or final-year university student or recent graduate (Master’s or Bachelor’s degree) in Finance, Banking, Business, Economics or related studies with top academic credentials from a leading university\n\n• Relevant internship experience in financial services, consulting or in marketing in comparable industries; prior experience with investment proposal processes (RFIs, RFPs and presentations) is a strong advantage\n\n• Keen interest in private markets, with a basic knowledge of private market investments; previous exposure to fund of funds (primaries, secondaries and co-investments) is a strong advantage\n\n• Eligible to work in Switzerland\n\nAbout the Team\nArdian has been a leading provider of high-quality tailored investment solutions for private market asset classes for more than 25 years. Ardian’s dedicated Customized Solutions team is based in Zurich and is responsible for the global fundraising and development of bespoke client solutions with a variety of portfolio compositions, investment objectives and targets, including both diversified and focused portfolios. For further information on our team and its activities, please visit: www.ardian.com/customized-solutions\n\nOther informations\nCompetitive compensation\nLunch voucher\n\nApplication process\nPlease send your application (CV and cover letter) by clicking on APPLY . Applications without a cover letter may not be considered by the recruitment team .\n\nTo enhance your recruitment prospects and prepare for potential interviews, please consult our Resource Center . There, you will gain",
-      "descriptionByLocale": {
-        "it": "Dipartimento: Soluzioni personalizzate Posizione: Zurigo Contratto : Stage (fisso-term) Durata: 6 mesi Data di inizio: Settembre o ottobre 2026 / gennaio 2027 Il ruolo Il team dedicato di Ardian su misura Solutions con sede a Zurigo sviluppa e crea proposte per soluzioni di investimento di mercato private su misura che si adattano perfettamente alle esigenze dei nostri clienti. Potrai sostenere il team nelle sue attività di raccolta fondi globali dal primo giorno e giocherà un ruolo chiave nel team, con responsabilità e opportunità tra cui:\n• Sostenere la creazione di proposte di soluzioni di investimento di mercato privato su misura (RFI, RFP, presentazioni) per grandi investitori istituzionali in tutto il mondo\n• Trasformare idee di investimento complesse in convincenti contenuti di raccolta fondi in diverse classi di asset di mercato privato, tra cui Private Equity, Infrastructure, Credit and Real Estate\n• Sviluppare materiale di marketing conciso per i programmi di investimento su misura di Ardian e lavorare su una vasta gamma di soluzioni per diversi segmenti client a livello globale\n• Aggiornamento dei database di proposte di soluzioni personalizzate e supporto allo sviluppo di strumenti e processi interni\n• Partecipazione alle discussioni del team e stretta collaborazione con professionisti senior in investimenti e team specializzati in Ardian\n• Opportunità di ampliare la vostra conoscenza dei mercati privati e sviluppare capacità in un mondo leader casa di investimento privato caratterizzata da una cultura imprenditoriale orientata alla crescita Come membro di un team giovane, dinamico e in crescita, i nostri Interni hanno l'opportunità di portare le proprie iniziative e possono assumersi la responsabilità crescente durante il loro stage. Competenze necessarie\n• Capacità multi-tasking e di organizzazione; in grado di gestire le scadenze e lavorare sotto pressione su più compiti simultaneamente\n• Forte capacità di scrittura e capacità di trasformare idee complesse in convincenti contenuti di alta qualità, combinati con una grande attenzione ai dettagli\n• Capacità di lavorare in modo indipendente ed efficiente; desideroso di imparare sul lavoro\n• Affidabile giocatore di squadra con una vasta gamma di competenze qualitative e quantitative, nonché forti competenze interpersonali\n• Demeanor professionale con eccellenti competenze in inglese (verbale e scritto) e fluente/nativo in tedesco e/o francese; ulteriori competenze linguistiche sono un vantaggio\n• L'utente competente delle applicazioni MS Office (Word, PowerPoint ed Excel); le competenze VBA sono un plus Profilo\n• Penultimo o ultimo anno studente universitario o laureato recente (Master’s o Bachelor’s Degree) in Finanza, Banking, Business, Economia o studi correlati con le migliori credenziali accademiche di una università leader\n• L'esperienza di tirocinio rilevante nei servizi finanziari, nella consulenza o nella commercializzazione in settori comparabili; l'esperienza precedente con i processi di proposta di investimento (RFI, RFP e presentazioni) è un vantaggio forte\n• L'interesse per i mercati privati, con una conoscenza di base degli investimenti nel mercato privato; l'esposizione precedente al fondo (primarie, secondarie e co-investimenti) è un forte vantaggio\n• Idonea a lavorare in Svizzera Informazioni sulla squadra Ardian è stato un fornitore leader di soluzioni di investimento su misura di alta qualità per le classi di asset di mercato privato da oltre 25 anni. Il team dedicato di Ardian su misura Solutions ha sede a Zurigo ed è responsabile della raccolta fondi globale e dello sviluppo di soluzioni client su misura con una varietà di composizioni di portafoglio, obiettivi di investimento e obiettivi, tra cui portafogli diversificati e focalizzati. Per ulteriori informazioni sul nostro team e sulle sue attività, visitare: www.ardian.com/customized-solutions Altre informazioni Compensazione competitiva Buono pranzo Processo di applicazione Si prega di inviare la domanda (CV e lettera di copertura) facendo clic su APPLY . Le domande senza lettera di copertura non possono essere considerate dal team di reclutamento . Per migliorare le tue prospettive di reclutamento e prepararti a potenziali interviste, consulta il nostro Centro risorse . là, si otterrà",
-        "en": "Department :\nCustomized Solutions\n\nLocation :\nZurich\n\nContract :\nInternship (fixed-term)\n\nDuration :\n6 months\n\nStart date :\nSeptember or October 2026 / January 2027\n\nThe role\n\nArdian’s dedicated Customized Solutions team based in Zurich develops and creates proposals for bespoke private market investment solutions that precisely fit our clients’ needs. You will support the team in its global fundraising activities from day one and will play a key role in the team, with responsibilities and opportunities including:\n\n• Supporting the creation of tailored private market investment solution proposals (RFI, RFP, presentations) for large institutional investors worldwide\n\n• Transforming complex investment ideas into convincing fundraising content in different private market asset classes including Private Equity, Infrastructure, Credit and Real Estate\n\n• Developing concise marketing material for Ardian’s bespoke investment programs and working on a wide range of solutions for different client segments globally\n\n• Updating the Customized Solutions’ proposal databases and supporting the development of internal tools and processes\n\n• Participation in the team’s discussions and close collaboration with senior professionals in investment and specialist teams across Ardian\n\n• Opportunity to broaden your knowledge of private markets and develop capabilities in a world leading private investment house characterized by a growth-oriented entrepreneurial culture\n\nAs a member of a young, dynamic and growing team, our Interns have the opportunity to bring in their own initiatives and can take on increasing responsibility throughout their internship.\n\nRequired skills\n\n• Multi-tasking and organization skills; capable of managing deadlines and working under pressure on multiple tasks simultaneously\n\n• Strong writing skills and ability to transform complex ideas into convincing high-quality content, combined with a high attention to detail\n\n• Ability to work independently and efficiently; eager to learn on-the-job\n\n• Reliable team player with a broad set of qualitative and quantitative skills, as well as strong interpersonal competencies\n\n• Professional demeanor with excellent skills in English (verbal and written) as well as fluent/native in German and/or French; further language skills are an advantage\n\n• Proficient user of MS Office applications (Word, PowerPoint and Excel); VBA skills are a plus\n\nProfile\n\n• Penultimate or final-year university student or recent graduate (Master’s or Bachelor’s degree) in Finance, Banking, Business, Economics or related studies with top academic credentials from a leading university\n\n• Relevant internship experience in financial services, consulting or in marketing in comparable industries; prior experience with investment proposal processes (RFIs, RFPs and presentations) is a strong advantage\n\n• Keen interest in private markets, with a basic knowledge of private market investments; previous exposure to fund of funds (primaries, secondaries and co-investments) is a strong advantage\n\n• Eligible to work in Switzerland\n\nAbout the Team\nArdian has been a leading provider of high-quality tailored investment solutions for private market asset classes for more than 25 years. Ardian’s dedicated Customized Solutions team is based in Zurich and is responsible for the global fundraising and development of bespoke client solutions with a variety of portfolio compositions, investment objectives and targets, including both diversified and focused portfolios. For further information on our team and its activities, please visit: www.ardian.com/customized-solutions\n\nOther informations\nCompetitive compensation\nLunch voucher\n\nApplication process\nPlease send your application (CV and cover letter) by clicking on APPLY . Applications without a cover letter may not be considered by the recruitment team .\n\nTo enhance your recruitment prospects and prepare for potential interviews, please consult our Resource Center . There, you will gain",
-        "de": "Abteilung : Maßgeschneiderte Lösungen Standort: Zürich Vertrag : Praktikum (befristet) Dauer : 6 Monate Startdatum : September oder Oktober 2026 / Januar 2027 Die Rolle Das engagierte Customized Solutions-Team von Ardian mit Sitz in Zürich entwickelt und erstellt Vorschläge für maßgeschneiderte Private-Market-Investmentlösungen, die genau auf die Bedürfnisse unserer Kunden zugeschnitten sind. Sie werden das Team bei seinen globalen Fundraising-Aktivitäten vom ersten Tag an unterstützen und eine Schlüsselrolle im Team spielen, mit Verantwortlichkeiten und Möglichkeiten wie:\n• Unterstützung der Erstellung maßgeschneiderter Vorschläge für private Marktinvestmentlösungen (RFI, RFP, Präsentationen) für große institutionelle Investoren weltweit\n• Umwandlung komplexer Anlageideen in überzeugende Fundraising-Inhalte in verschiedenen Anlageklassen des privaten Marktes, einschließlich Private Equity, Infrastruktur, Kredit und Immobilien\n• Entwicklung von prägnantem Marketingmaterial für die maßgeschneiderten Investitionsprogramme von Ardian und Arbeit an einer breiten Palette von Lösungen für verschiedene Kundensegmente weltweit\n• Aktualisierung der Angebotsdatenbanken der Customized Solutions und Unterstützung der Entwicklung interner Tools und Prozesse\n• Teilnahme an den Diskussionen des Teams und enge Zusammenarbeit mit leitenden Fachleuten in Investment- und Fachteams in ganz Ardian\n• Möglichkeit, Ihr Wissen über private Märkte zu erweitern und Fähigkeiten in einem weltweit führenden privaten Investmenthaus zu entwickeln, das sich durch eine wachstumsorientierte Unternehmenskultur auszeichnet Als Mitglied eines jungen, dynamischen und wachsenden Teams haben unsere Praktikanten die Möglichkeit, eigene Initiativen einzubringen und während ihres Praktikums zunehmend Verantwortung zu übernehmen. Erforderliche Fähigkeiten\n• Multitasking- und Organisationsfähigkeiten; in der Lage, Termine zu verwalten und gleichzeitig unter Druck an mehreren Aufgaben zu arbeiten\n• Starke Schreibfähigkeiten und die Fähigkeit, komplexe Ideen in überzeugende hochwertige Inhalte zu verwandeln, kombiniert mit einer hohen Liebe zum Detail\n• Fähigkeit, unabhängig und effizient zu arbeiten; eifrig, am Arbeitsplatz zu lernen\n• Zuverlässiger Teamplayer mit einem breiten Spektrum an qualitativen und quantitativen Fähigkeiten sowie starken zwischenmenschlichen Kompetenzen\n• Professionelles Verhalten mit hervorragenden Englischkenntnissen (verbal und schriftlich) sowie fließend / muttersprachlich in Deutsch und / oder Französisch; weitere Sprachkenntnisse sind von Vorteil\n• Proficient Benutzer von MS Office-Anwendungen (Word, PowerPoint und Excel); VBA Fähigkeiten sind ein Plus Profil\n• Vorletzter oder Abschlussstudent oder neuer Absolvent (Master- oder Bachelor-Abschluss) in Finanzen, Banken, Wirtschaft, Wirtschaft oder verwandten Studien mit erstklassigen akademischen Qualifikationen von einer führenden Universität\n• Relevante Praktikumserfahrung in Finanzdienstleistungen, Beratung oder Marketing in vergleichbaren Branchen; Vorkenntnisse mit Anlagevorschlagsprozessen (RFIs, RFPs und Präsentationen) sind ein großer Vorteil\n• Keen Interesse an privaten Märkten, mit einem grundlegenden Wissen über private Marktinvestitionen; vorherige Exposition gegenüber Dachfonds (Primär-, Sekundär- und Co-Investitionen) ist ein starker Vorteil\n• Anspruch auf Arbeit in der Schweiz Über das Team Ardian ist seit mehr als 25 Jahren ein führender Anbieter von hochwertigen maßgeschneiderten Anlagelösungen für private Anlageklassen. Das engagierte Team von Ardian Customized Solutions hat seinen Sitz in Zürich und ist verantwortlich für das globale Fundraising und die Entwicklung maßgeschneiderter Kundenlösungen mit einer Vielzahl von Portfoliozusammensetzungen, Anlagezielen und -zielen, einschließlich diversifizierter und fokussierter Portfolios. Für weitere Informationen über unser Team und seine Aktivitäten besuchen Sie bitte: www.ardian.com/customized-solutions Sonstige Angaben Wettbewerbliche Ausgleichszahlungen Lunchgutschein Anwendungsprozess Bitte senden Sie Ihre Bewerbung (CV und Anschreiben), indem Sie auf APPLY klicken. Bewerbungen ohne Anschreiben können vom Rekrutierungsteam nicht berücksichtigt werden. Um Ihre Rekrutierungsaussichten zu verbessern und sich auf mögliche Interviews vorzubereiten, wenden Sie sich bitte an unser Resource Center. Dort wirst du gewinnen",
-        "fr": "Département : Solutions personnalisées Lieu : Zurich Contrat : Stages (à durée déterminée) Durée : 6 mois Date de début : Septembre ou octobre 2026 / janvier 2027 Le rôle L'équipe dédiée de Solutions Personnalisées basée à Zurich développe et crée des propositions pour des solutions d'investissement sur mesure du marché privé qui répondent précisément aux besoins de nos clients. Vous soutenirz l'équipe dans ses activités de financement à l'échelle mondiale dès le premier jour et jouerez un rôle clé au sein de l'équipe, avec des responsabilités et des possibilités, notamment :\n• Soutenir la création de propositions de solutions d'investissement sur mesure pour les grands investisseurs institutionnels dans le monde entier (RFI, DP, présentations)\n• Transformer des idées d'investissement complexes en contenu de collecte de fonds convaincant dans différentes catégories d'actifs du marché privé, y compris Private Equity, Infrastructure, Credit and Real Estate\n• Développer du matériel de marketing concis pour les programmes d'investissement sur mesure et travailler sur une large gamme de solutions pour différents segments de clients dans le monde\n• Mise à jour des bases de données sur les propositions de solutions personnalisées et appui au développement d'outils et de processus internes\n• Participation aux discussions de l'équipe et collaboration étroite avec les cadres supérieurs dans les équipes d'investissement et les équipes spécialisées dans l'ensemble de l'Ardian\n• Possibilité d'élargir vos connaissances des marchés privés et de développer vos capacités dans une maison d'investissement privée de premier plan au monde caractérisée par une culture entrepreneuriale axée sur la croissance En tant que membre d'une équipe jeune, dynamique et en pleine croissance, nos stagiaires ont l'occasion de prendre leurs propres initiatives et peuvent assumer une responsabilité croissante tout au long de leur stage. Compétences requises\n• Compétences multitâches et organisation; capable de gérer les délais et de travailler sous pression sur plusieurs tâches simultanément\n• Des compétences d'écriture solides et la capacité de transformer des idées complexes en un contenu convaincant de haute qualité, combiné avec une grande attention au détail\n• Capacité de travailler de façon indépendante et efficace; désireux d'apprendre en cours d'emploi\n• Joueur d'équipe fiable avec un large éventail de compétences qualitatives et quantitatives, ainsi que de solides compétences interpersonnelles\n• Déontologie professionnelle avec d'excellentes compétences en anglais (verbal et écrit) ainsi qu'en allemand et/ou en français.\n• Utilisateur compétent des applications MS Office (Word, PowerPoint et Excel); les compétences VBA sont un plus Profil\n• Étudiante en fin d'année universitaire ou diplômée récente (maîtrise ou baccalauréat) en finance, banque, affaires, économie ou études connexes avec les meilleurs diplômes universitaires d'une université de premier plan\n• Expérience pertinente de stage dans les services financiers, la consultation ou la commercialisation dans des industries comparables; l'expérience antérieure des processus de propositions d'investissement (IF, DP et présentations) est un avantage important\n• Intérêt élevé sur les marchés privés, avec une connaissance de base des investissements sur les marchés privés; exposition antérieure au fonds de fonds (primaires, secondaires et co-investissements) est un avantage important\n• Admissibilité au travail en Suisse À propos de l'équipe Ardian est depuis plus de 25 ans l'un des principaux fournisseurs de solutions d'investissement sur mesure pour les catégories d'actifs du marché privé. L'équipe dédiée de Solutions Personnalisées d'Ardian est basée à Zurich et est responsable de la collecte de fonds et du développement de solutions clients sur mesure avec une variété de compositions de portefeuilles, d'objectifs d'investissement et d'objectifs, y compris des portefeuilles diversifiés et ciblés. Pour de plus amples informations sur notre équipe et ses activités, veuillez consulter : www.ardian.com/customized-solutions Autres informations Compensation concurrentielle Bon de repas Processus de demande Veuillez envoyer votre demande (CV et lettre de motivation) en cliquant sur APPLIQUER . Les candidatures sans lettre de motivation ne peuvent pas être examinées par l' équipe de recrutement . Pour améliorer vos perspectives de recrutement et vous préparer à des entretiens potentiels, veuillez consulter notre centre de ressources . Voilà, vous gagnerez"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---September-2026---January-2027---Zurich_JR1001808",
-      "source": "Ardian Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-20T21:38:19.276Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Private Equity",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-03",
-      "applyUrl": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Customized-Solutions-Intern---September-2026---January-2027---Zurich_JR1001808",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "customized-solutions-intern-september-2026-january-2027-zurich-ardian-ch",
-        "customized-solutions-tirocinante-september-2026-january-2027-zurich-ardian-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "customized-solutions-intern-september-2026-january-2027-zurich-ardian-ch",
-          "customized-solutions-tirocinante-september-2026-january-2027-zurich-ardian-zurich"
-        ],
-        "de": [
-          "customized-solutions-intern-september-2026-january-2027-zurich-ardian-ch"
-        ],
-        "fr": [
-          "customized-solutions-intern-september-2026-january-2027-zurich-ardian-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T21:19:18.688Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "salarySource": "reported",
-      "needsRetranslation": true
     }
   ]
 }
