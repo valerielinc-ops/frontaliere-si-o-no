@@ -347,6 +347,8 @@ async function main() {
     slugsRestoredFromHistory: 0,
     slugsRestoredFromDetection: 0,
     slugsSkippedAtCap: 0,
+    slugsRedirected: 0,
+    slugsSkippedForeignOwner: 0,
     jobsMissing: 0,
   };
   const filesByName = new Map();
@@ -407,13 +409,13 @@ async function main() {
       for (const slug of slugs) {
         const foreignOwnerFile = resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles);
         if (foreignOwnerFile) {
-          stats.slugsSkippedForeignOwner = (stats.slugsSkippedForeignOwner || 0) + 1;
+          stats.slugsSkippedForeignOwner++;
           console.warn(`  ↪️  Skip "${slug}" for ${jobId}: unique current owner is in ${foreignOwnerFile}`);
           continue;
         }
         const { targetJob, redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
         if (redirected) {
-          stats.slugsRedirected = (stats.slugsRedirected || 0) + 1;
+          stats.slugsRedirected++;
           console.warn(`  ↪️  Redirect "${slug}" from ${jobId} to ${resolveJobDiffKey(targetJob)} (disambiguator tail matches that job instead)`);
         }
         let locale = slugLocaleIndex.get(slug);
@@ -452,10 +454,10 @@ async function main() {
   console.log(`  slugs restored (byLocale):   ${stats.slugsRestoredByLocale}`);
   console.log(`  ├─ from git history:        ${stats.slugsRestoredFromHistory}`);
   console.log(`  └─ from language detection: ${stats.slugsRestoredFromDetection}`);
-  console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected || 0}`);
+  console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected}`);
   console.log(`  slugs skipped (denylisted):  ${denylistSkipped}`);
   console.log(`  slugs skipped (bucket full): ${stats.slugsSkippedAtCap}`);
-  console.log(`  slugs skipped (foreign owner): ${stats.slugsSkippedForeignOwner || 0}`);
+  console.log(`  slugs skipped (foreign owner): ${stats.slugsSkippedForeignOwner}`);
   console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
 }
 
