@@ -4936,6 +4936,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendisti-lacune-competenze-base.title': 'Unternehmen erkennen Qualifikationsengpässe bei Auszubildenden',
     'blog.article.apprendisti-lacune-competenze-base.excerpt': 'Umfrage von Economiesuisse zeigt kritische Lücken in Schreiben und Mathematik bei Schweizer Lernenden. Drei Viertel der Unternehmen bieten zusätzliche Unterstützung.',
     'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Lehrling bei konzentrierter Arbeit an einer technischen Aufgabe in einer Schweizer Berufsausbildungswerkstatt',
+    'blog.article.telefonia-asta-frequenze-2029.title': 'Mobiltelefonie, die Auktion beginnt bei 855 Millionen',
+    'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom startet die Auktion für Mobilfunkfrequenzen mit einer Basis von 855 Millionen. Anwendungen bis zum 3. Dezember, Zuweisung 2027, Konzessionen ab 2029 für 15 Jahre.',
+    'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Luftansicht von Lugano mit Telekommunikationsinfrastruktur und Funknetz-Symbolen',
 };
 
 export default blogMetaChDe;

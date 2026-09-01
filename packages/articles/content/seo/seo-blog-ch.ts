@@ -64058,6 +64058,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-telefonia-asta-frequenze-2029': {
+    title: 'Telefonia mobile, l\'asta parte da 855 milioni | Frontaliere Ticino',
+    description: 'ComCom lancia l\'asta per le frequenze mobili con base di 855 milioni. Candidature entro 3 dicembre, assegnazione nel 2027, concessioni dal 2029 per 15 anni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, telefonia, mobile, asta, parte',
+    ogTitle: 'Asta frequenze mobili: 855 milioni di base',
+    ogDescription: 'La Commissione federale delle comunicazioni lancia l\'asta per le frequenze di telefonia mobile. Base minima 855 milioni per Swisscom, Sunrise e Salt. Nuove concessioni dal 1° gennaio 2029 per 15 anni.',
+    canonicalPath: '/articoli-svizzera/telefonia-asta-frequenze-2029/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telefonia mobile, l'asta parte da 855 milioni",
+      "description": "ComCom lancia l'asta per le frequenze mobili con base di 855 milioni. Candidature entro 3 dicembre, assegnazione nel 2027, concessioni dal 2029 per 15 anni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/telefonia-asta-frequenze-2029.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con infrastrutture di telecomunicazione e simboli di rete wireless sulla Svizzera"
+      },
+      "datePublished": "2026-09-01T13:46:32+00:00",
+      "dateModified": "2026-09-01T13:46:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/telefonia-asta-frequenze-2029/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

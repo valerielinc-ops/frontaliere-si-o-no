@@ -4936,6 +4936,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendisti-lacune-competenze-base.title': 'Companies detect skills shortages in apprentices',
     'blog.article.apprendisti-lacune-competenze-base.excerpt': 'Survey by Economiesuisse reveals critical gaps in writing and mathematics among Swiss apprentices. Three-quarters of companies provide additional support.',
     'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Young apprentice focused on technical work in a Swiss vocational training workshop',
+    'blog.article.telefonia-asta-frequenze-2029.title': 'Mobile telephony, the auction starts at 855 million',
+    'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom launches the auction for mobile frequencies with a base of 855 million. Applications by 3 December, assignment in 2027, concessions from 2029 for 15 years.',
+    'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Aerial view of Lugano with telecommunications infrastructure and wireless network symbols',
 };
 
 export default blogMetaChEn;
