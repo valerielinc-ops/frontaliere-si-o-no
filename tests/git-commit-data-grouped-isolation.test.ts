@@ -21,7 +21,7 @@ function initClonePair() {
   return { originDir, repoDir };
 }
 
-function runScript(repoDir: string, sliceFile: string) {
+function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
   execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'test commit'], {
     cwd: repoDir,
     env: {
@@ -33,7 +33,7 @@ function runScript(repoDir: string, sliceFile: string) {
       GITHUB_TOKEN: '',
       GITHUB_RUN_ID: '',
       GITHUB_REPOSITORY: '',
-      GITHUB_OUTPUT: '',
+      GITHUB_OUTPUT: githubOutput,
     },
   });
 }
@@ -332,7 +332,12 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
   // green step. Simulated deterministically with a PATH `git` shim that fails
   // every `git push` with a canned output and delegates everything else to
   // the real git; MAX_PUSH_ATTEMPTS=1 exhausts the loop on the first attempt.
-  function runScriptWithPushShim(repoDir: string, sliceFile: string, pushFailureOutput: string) {
+  function runScriptWithPushShim(
+    repoDir: string,
+    sliceFile: string | undefined,
+    pushFailureOutput: string,
+    githubOutput = '',
+  ) {
     const realGit = execFileSync('which', ['git'], { encoding: 'utf-8' }).trim();
     const shimDir = mkdtempSync(join(tmpdir(), 'gcd-git-shim-'));
     const outputFile = join(shimDir, 'push-output.txt');
@@ -350,14 +355,14 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
         ...process.env,
         PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
         MAX_PUSH_ATTEMPTS: '1',
-        JOBS_SLICE_FILE: sliceFile,
+        ...(sliceFile ? { JOBS_SLICE_FILE: sliceFile } : {}),
         SKIP_AI_TRANSLATION: '1',
         SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
         GH_TOKEN: '',
         GITHUB_TOKEN: '',
         GITHUB_RUN_ID: '',
         GITHUB_REPOSITORY: '',
-        GITHUB_OUTPUT: '',
+        GITHUB_OUTPUT: githubOutput,
       },
     });
     rmSync(shimDir, { recursive: true, force: true });
@@ -372,6 +377,47 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
     execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
     writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
   }
+
+  it('emits the pushed SHA while preserving the local HEAD', () => {
+    const { originDir, repoDir } = initClonePair();
+    const output = join(repoDir, 'github-output.txt');
+    try {
+      seedRepoWithPendingSlice(repoDir);
+      const headBefore = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf-8' }).trim();
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json', output);
+
+      const pushed = execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], { cwd: repoDir, encoding: 'utf-8' })
+        .split(/\s+/)[0];
+      expect(readFileSync(output, 'utf-8')).toBe(`has_changes=true\nfinal_commit=${pushed}\n`);
+      expect(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf-8' }).trim()).toBe(headBefore);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
+  it('does not emit final_commit for a no-op or sequential soft push contention', () => {
+    const { originDir, repoDir } = initClonePair();
+    const output = join(repoDir, 'github-output.txt');
+    const contention = ' ! [rejected]        main -> main (fetch first)\nerror: failed to push some refs\n';
+    try {
+      seedRepoWithPendingSlice(repoDir);
+      execFileSync('git', ['checkout', '--', 'data/jobs/by-crawler/a.json'], { cwd: repoDir });
+
+      runScript(repoDir, 'data/jobs/by-crawler/a.json', output);
+      expect(readFileSync(output, 'utf-8')).toBe('has_changes=false\n');
+
+      writeFileSync(output, '');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      const result = runScriptWithPushShim(repoDir, undefined, contention, output);
+      expect(result.status).toBe(0);
+      expect(readFileSync(output, 'utf-8')).not.toContain('final_commit=');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
 
   it('exits 42 when retries are exhausted by a genuine ref rejection/race', () => {
     const { originDir, repoDir } = initClonePair();
