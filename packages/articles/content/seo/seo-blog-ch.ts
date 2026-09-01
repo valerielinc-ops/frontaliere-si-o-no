@@ -64955,6 +64955,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vendite-auto-svizzera-agosto-2026': {
+    title: 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    description: 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendite, auto, nuove, calo',
+    ogTitle: 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    ogDescription: 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Le auto ibride rappresentano il 37% delle vendite.',
+    canonicalPath: '/articoli-svizzera/vendite-auto-svizzera-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vendite auto nuove in calo in agosto, quasi una su tre è elettrica",
+      "description": "Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vendite-auto-svizzera-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con auto in movimento"
+      },
+      "datePublished": "2026-09-01T21:20:56+00:00",
+      "dateModified": "2026-09-01T21:20:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vendite-auto-svizzera-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5005,6 +5005,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-friburgo-procedura.title': 'Patente di guida in Friburgo: conversione ed esami',
     'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
     'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Auto su strada di montagna svizzera con segnaletica stradale e paesaggio alpino soleggiato',
+    'blog.article.vendite-auto-svizzera-agosto-2026.title': 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica.',
+    'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Vista aerea di Lugano con auto in movimento',
 };
 
 export default blogMetaChIt;
