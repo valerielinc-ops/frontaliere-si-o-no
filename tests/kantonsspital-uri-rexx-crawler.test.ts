@@ -37,6 +37,7 @@ function realRexxDetailFixture({
   structuredUrl = '',
   addressCountry = 'CH',
   extraStructuredHtml = '',
+  includeJobLocation = true,
   description = `<h2></h2><p>Das Kantonsspital Uri stellt mit seinem erweiterten Leistungsangebot die medizinische Grundversorgung für die Region sicher.</p>
     <h2>WIR SUCHEN</h2><p>Wir suchen eine motivierte Persönlichkeit für die Gynäkologie und Geburtshilfe.</p>
     <ul><li>Interdisziplinäre Betreuung der Patientinnen</li><li>Mitarbeit im Ambulatorium und im Operationsbetrieb</li></ul>
@@ -54,7 +55,7 @@ function realRexxDetailFixture({
     datePosted: SOURCE_POSTED_DATE,
     employmentType: 'FULL_TIME',
     hiringOrganization: { '@type': 'Organization', name: 'Kantonsspital Uri' },
-    jobLocation: {
+    ...(includeJobLocation ? { jobLocation: {
       '@type': 'Place',
       address: {
         '@type': 'PostalAddress',
@@ -64,7 +65,7 @@ function realRexxDetailFixture({
         postalCode,
         addressCountry,
       },
-    },
+    } } : {}),
   })}</script>${extraStructuredHtml}</head><body>
     <main id="pageframework_content"><div id="jobTplContainer" class="ck_content">
       <h1>${title}</h1>${renderedDescription}
@@ -179,6 +180,60 @@ describe('Kantonsspital Uri shared rexx parser', () => {
     }));
 
     await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+  });
+
+  it('rejects rich detail with no source workplace instead of publishing the configured headquarters', async () => {
+    stubKantonsspitalSource(realRexxDetailFixture({ includeJobLocation: false }));
+
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+  });
+
+  it('expands an employer label only when source postal or region evidence corroborates it', async () => {
+    stubKantonsspitalSource(realRexxDetailFixture({
+      locality: 'Kantonsspital Uri',
+      region: '',
+      postalCode: '',
+    }));
+
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+  });
+
+  it.each([
+    'http://127.0.0.1:9/Private-de-j901.html',
+    'https://malicious.example/Off-origin-de-j902.html',
+  ])('rejects an off-origin detail before fetch: %s', async (untrustedUrl) => {
+    let untrustedFetches = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/stellenangebote.html')) {
+        return new Response(listingFixture([{ url: untrustedUrl, title: TITLE }]), { status: 200 });
+      }
+      untrustedFetches++;
+      return new Response(realRexxDetailFixture(), { status: 200 });
+    }));
+
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+    expect(untrustedFetches).toBe(0);
+  });
+
+  it('rejects a cross-origin detail redirect without following the target', async () => {
+    let crossOriginFetches = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+      const url = String(input);
+      expect(init?.redirect).toBe('manual');
+      if (url.endsWith('/stellenangebote.html')) return new Response(listingFixture(), { status: 200 });
+      if (url === DETAIL_URL) {
+        return new Response(null, {
+          status: 302,
+          headers: { location: 'https://malicious.example/redirected-de-j402.html' },
+        });
+      }
+      crossOriginFetches++;
+      return new Response(realRexxDetailFixture(), { status: 200 });
+    }));
+
+    await expect(fetchAllKantonsspitalUriJobs()).resolves.toEqual([]);
+    expect(crossOriginFetches).toBe(0);
   });
 
   it('rejects conflicting current-job location evidence across structured formats', async () => {

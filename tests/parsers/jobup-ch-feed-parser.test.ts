@@ -289,6 +289,23 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     expect(jobs[0].description.length).toBeGreaterThan(300);
   });
 
+  it('keeps source URL identity and output stable across two equivalent runs', async () => {
+    stubJobupSource(() => new Response(RICH_JOBUP_DETAIL, { status: 200 }));
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    const first = await parser.fetchAllJobs();
+    const second = await parser.fetchAllJobs();
+
+    expect(second.map(({ crawledAt: _crawledAt, ...job }) => job))
+      .toEqual(first.map(({ crawledAt: _crawledAt, ...job }) => job));
+    expect(second[0]).toMatchObject({
+      id: first[0].id,
+      url: JOBUP_DETAIL_URL,
+      applyUrl: JOBUP_DETAIL_URL,
+      slug: first[0].slug,
+    });
+  });
+
   it.each([
     ['HTTP non-ok', () => new Response('unavailable', { status: 503 })],
     ['missing JSON-LD', () => new Response('<html><body>no job posting</body></html>', { status: 200 })],
@@ -316,6 +333,70 @@ describe('createJobupChFeedParser — fail-closed detail contract', () => {
     stubJobupSource((_init, url) => url === JOBUP_DETAIL_URL
       ? new Response(RICH_JOBUP_DETAIL, { status: 200 })
       : new Response('unavailable', { status: 503 }), [JOBUP_FEED_JOB, secondJob]);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    await expect(parser.fetchAllJobs()).resolves.toEqual([]);
+  });
+
+  it.each([
+    'http://127.0.0.1:9/private-job/',
+    'https://malicious.example/off-origin-job/',
+  ])('rejects an off-origin detail before fetch: %s', async (untrustedUrl) => {
+    let untrustedFetches = 0;
+    const feedJob = { ...JOBUP_FEED_JOB, link: untrustedUrl };
+    stubJobupSource(() => {
+      untrustedFetches++;
+      return new Response(RICH_JOBUP_DETAIL, { status: 200 });
+    }, [feedJob]);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    await expect(parser.fetchAllJobs()).resolves.toEqual([]);
+    expect(untrustedFetches).toBe(0);
+  });
+
+  it('rejects a cross-origin detail redirect without following the target', async () => {
+    let crossOriginFetches = 0;
+    vi.stubGlobal('fetch', vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+      const url = String(input);
+      if (url.includes('/masks/')) {
+        return new Response(JSON.stringify({ jobcount: '1', jobs: [JOBUP_FEED_JOB] }), { status: 200 });
+      }
+      expect(init?.redirect).toBe('manual');
+      if (url === JOBUP_DETAIL_URL) {
+        return new Response(null, {
+          status: 302,
+          headers: { location: 'https://malicious.example/redirected-job/' },
+        });
+      }
+      crossOriginFetches++;
+      return new Response(RICH_JOBUP_DETAIL, { status: 200 });
+    }));
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    await expect(parser.fetchAllJobs()).resolves.toEqual([]);
+    expect(crossOriginFetches).toBe(0);
+  });
+
+  it.each(['', '75000 Paris', 'Bern, US'])('rejects missing or foreign source lieu instead of using configured headquarters: %s', async (lieu) => {
+    let detailFetches = 0;
+    stubJobupSource(() => {
+      detailFetches++;
+      return new Response(RICH_JOBUP_DETAIL, { status: 200 });
+    }, [{ ...JOBUP_FEED_JOB, lieu }]);
+    const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
+
+    await expect(parser.fetchAllJobs()).resolves.toEqual([]);
+    expect(detailFetches).toBe(0);
+  });
+
+  it('invalidates the whole batch when a sibling row has unresolved source geography', async () => {
+    const foreignJob = {
+      ...JOBUP_FEED_JOB,
+      titre: 'Médecin chef·fe de clinique',
+      link: SECOND_JOBUP_DETAIL_URL,
+      lieu: 'Berlin',
+    };
+    stubJobupSource(() => new Response(RICH_JOBUP_DETAIL, { status: 200 }), [JOBUP_FEED_JOB, foreignJob]);
     const parser = createJobupChFeedParser(JOBUP_CONSUMERS[0]);
 
     await expect(parser.fetchAllJobs()).resolves.toEqual([]);

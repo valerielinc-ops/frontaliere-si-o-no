@@ -38,8 +38,12 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferAnyCanton, inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchFollowingValidatedRedirects,
+} from './prospector/public-fetch-policy.mjs';
 import {
   extractDetailFields as readRexxStructuredDetail,
   isSufficientVacancyDescription as hasPublishableRexxBody,
@@ -74,16 +78,19 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
-async function fetchHtml(url) {
+async function fetchHtml(url, validateUrl) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   return fetchWithRetry(async () => {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(url, {
-        headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
-        signal: controller.signal,
-        redirect: 'follow',
+      const res = await fetchFollowingValidatedRedirects(url, {
+        validateUrl,
+        requestOptions: {
+          headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': USER_AGENT },
+          signal: controller.signal,
+          ...(validateUrl?.dispatcher ? { dispatcher: validateUrl.dispatcher } : {}),
+        },
       });
       if (!res.ok) {
         const err = new Error(`HTTP ${res.status} from ${url}`);
@@ -344,6 +351,7 @@ export function createRexxSystemsParser(config) {
   const LISTING_URL = `https://${atsHost}${listingPath}`;
   const corporateHost = String(companyDomain || '').replace(/^www\./, '').toLowerCase();
   const atsHostLower = String(atsHost).toLowerCase();
+  const sourceUrlPolicy = createSpecUrlPolicy({ seedUrls: [LISTING_URL] });
 
   function resolveRexxWorkplace(detail) {
     if (detail?.authoritativeLocationConflict) return null;
@@ -369,27 +377,32 @@ export function createRexxSystemsParser(config) {
       return {
         location: locality,
         canton: decision.geography.canton,
-        postalCode: normalizeSpace(decision.candidate?.postalCode || '') || defaultPostalCode,
+        postalCode: normalizeSpace(decision.candidate?.postalCode || ''),
         streetAddress: normalizeSpace(decision.candidate?.streetAddress || ''),
       };
     }
 
     const employerCandidate = candidates.find(isEmployerLabel);
-    if (employerCandidate) {
-      const candidatePostalCode = normalizeSpace(employerCandidate?.postalCode || '');
-      if (candidatePostalCode && candidatePostalCode !== defaultPostalCode) return null;
-      const region = normalizeSpace(employerCandidate?.addressRegion || '');
-      const decision = evaluateSourceBackedSwissGeography([{
-        ...employerCandidate,
-        location: [defaultCity, region].filter(Boolean).join(', '),
-        addressLocality: defaultCity,
-      }]);
-      if (!decision.geography || decision.geography.canton !== defaultCanton) return null;
-    }
+    if (!employerCandidate) return null;
+    const candidatePostalCode = normalizeSpace(employerCandidate?.postalCode || '');
+    const region = normalizeSpace(employerCandidate?.addressRegion || '');
+    const country = normalizeSpace(employerCandidate?.addressCountry || employerCandidate?.country || '');
+    if (country && !/^(?:ch|che|switzerland|schweiz|suisse|svizzera)$/i.test(country)) return null;
+    const postalCorroborates = Boolean(
+      candidatePostalCode && defaultPostalCode && candidatePostalCode === defaultPostalCode,
+    );
+    const regionCorroborates = Boolean(region && inferAnyCanton(region) === defaultCanton);
+    if (!postalCorroborates && !regionCorroborates) return null;
+    const decision = evaluateSourceBackedSwissGeography([{
+      ...employerCandidate,
+      location: [defaultCity, region].filter(Boolean).join(', '),
+      addressLocality: defaultCity,
+    }]);
+    if (!decision.geography || decision.geography.canton !== defaultCanton) return null;
     return {
       location: defaultCity,
       canton: defaultCanton,
-      postalCode: normalizeSpace(employerCandidate?.postalCode || '') || defaultPostalCode,
+      postalCode: candidatePostalCode,
       streetAddress: normalizeSpace(employerCandidate?.streetAddress || ''),
     };
   }
@@ -420,7 +433,7 @@ export function createRexxSystemsParser(config) {
     if (publicCareerUrl) console.log(`   Public:  ${publicCareerUrl}`);
     console.log();
 
-    const html = await fetchHtml(LISTING_URL);
+    const html = await fetchHtml(LISTING_URL, sourceUrlPolicy);
     const entries = parseRexxListing(html);
     console.log(`  ✓ ${entries.length} jobs in listing`);
     if (!entries.length) return [];
@@ -434,7 +447,7 @@ export function createRexxSystemsParser(config) {
       let detailTitle = '';
       let detail;
       try {
-        const detailHtml = await fetchHtml(entry.detailUrl);
+        const detailHtml = await fetchHtml(entry.detailUrl, sourceUrlPolicy);
         detail = extractRexxDetail(detailHtml, entry.detailUrl);
         detailDescription = detail.description;
         detailTitle = detail.title;
