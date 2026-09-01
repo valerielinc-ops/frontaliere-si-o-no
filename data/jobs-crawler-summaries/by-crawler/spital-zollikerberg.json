@@ -1,21 +1,23 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-08-31T16:58:51.708Z",
+  "generatedAt": "2026-09-01T00:29:48.127Z",
   "total": 8,
   "discovered": null,
   "written": 8,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 35283,
-  "avgDurationMs": 35283,
+  "unchangedCount": 1,
+  "durationMs": 33407,
+  "avgDurationMs": 33407,
   "durationHistory": [
-    35283
+    33407
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "spital-zollikerberg-53f8b308e15e",
       "slug": "collaboratore-trice-mitarbeiterin-hotelservice-im-spital-zollikerberg-station-chirurgie-e-gynakologie-gastronomie-spital-zollikerberg",
@@ -47,7 +49,8 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,7 +59,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
