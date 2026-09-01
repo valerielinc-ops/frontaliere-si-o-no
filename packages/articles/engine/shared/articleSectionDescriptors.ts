@@ -46,6 +46,10 @@ import path from 'node:path';
 import { ARTICLE_SECTION_CORE } from './articleSectionCore.mjs';
 import { CANONICAL_OVERRIDE_FILES } from './canonicalOverrideFiles.mjs';
 
+function isMissingPathError(error: unknown): boolean {
+ return (error as NodeJS.ErrnoException).code === 'ENOENT';
+}
+
 export interface OgSection {
  name: 'frontaliere' | 'svizzera';
  seoFiles: string[];
@@ -145,7 +149,8 @@ export function enumerateSectionArticleIds(section: OgSection, rootDir: string):
   let src = '';
   try {
    src = fs.readFileSync(path.resolve(rootDir, seoFile), 'utf-8');
-  } catch {
+  } catch (err) {
+   if (!isMissingPathError(err)) throw err;
    continue; // matches renderArticlePages's own per-seoFile tolerance
   }
   for (const { key } of extractBlogEntryPositions(src)) ids.add(blogKeyToArticleId(key));
@@ -157,7 +162,7 @@ export function enumerateSectionArticleIds(section: OgSection, rootDir: string):
   try {
    files = fs.readdirSync(dir);
   } catch (err) {
-   if ((err as NodeJS.ErrnoException).code === 'ENOENT') continue;
+   if (isMissingPathError(err)) continue;
    throw err;
   }
   for (const file of files) {
