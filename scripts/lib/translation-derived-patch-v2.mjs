@@ -21,6 +21,7 @@ const CREATE_KEYS = ['candidate', 'crawlerKey', 'fieldPath', 'job', 'targetLocal
 const PATCH_KEYS = ['candidate', 'destination', 'identity', 'patchHash', 'schemaVersion', 'target'];
 const TARGET_KEYS = ['crawlerKey', 'jobKey', 'url'];
 const DESTINATION_KEYS = ['fieldPath', 'localeFieldPath', 'targetLocale'];
+const IDENTITY_OPTIONS_KEYS = ['fieldPath', 'targetLocale'];
 const ALLOWED_FIELDS = new Set(['description', 'title']);
 const CRAWLER_KEY_PATTERN = /^[a-z0-9][a-z0-9._-]{0,127}$/;
 
@@ -54,6 +55,10 @@ function validateFieldPath(fieldPath) {
   return fieldPath;
 }
 
+function own(job, key) {
+  return Object.hasOwn(job, key) ? job[key] : undefined;
+}
+
 function validateCandidateForIdentity(candidate, identity) {
   const memory = validateTranslationMemoryV2({
     schemaVersion: TRANSLATION_MEMORY_V2_SCHEMA_VERSION,
@@ -75,20 +80,35 @@ function patchPayload({ candidate, destination, identity, target }) {
 export function canonicalJobTranslationContextV2(job) {
   assertTranslationPlainObjectV2(job, 'translation derived patch job');
   return Object.freeze({
-    company: canonicalContextValue(job.company, 'job company'),
-    location: canonicalContextValue(job.location, 'job location'),
+    company: canonicalContextValue(own(job, 'company'), 'job company'),
+    location: canonicalContextValue(own(job, 'location'), 'job location'),
   });
 }
 
-export function createJobTranslationUnitIdentityV2(job, { fieldPath, targetLocale }) {
+export function resolveJobTranslationTargetKeyV2(job) {
   assertTranslationPlainObjectV2(job, 'translation derived patch job');
-  const checkedFieldPath = validateFieldPath(fieldPath);
+  return resolveJobDiffKey({
+    id: own(job, 'id'),
+    slug: own(job, 'slug'),
+    url: own(job, 'url'),
+  });
+}
+
+export function createJobTranslationUnitIdentityV2(job, options) {
+  assertTranslationPlainObjectV2(job, 'translation derived patch job');
+  assertTranslationPlainObjectV2(options, 'translation identity v2 job options');
+  assertTranslationExactKeysV2(
+    options,
+    IDENTITY_OPTIONS_KEYS,
+    'translation identity v2 job options',
+  );
+  const checkedFieldPath = validateFieldPath(options.fieldPath);
   return createTranslationUnitIdentityV2({
     kind: 'job',
     fieldPath: checkedFieldPath,
-    sourceLocale: job.sourceLang,
-    targetLocale,
-    sourceText: job[checkedFieldPath],
+    sourceLocale: own(job, 'sourceLang'),
+    targetLocale: options.targetLocale,
+    sourceText: own(job, checkedFieldPath),
     context: canonicalJobTranslationContextV2(job),
   });
 }
@@ -104,14 +124,14 @@ export function createTranslationDerivedPatchV2(input) {
     fieldPath,
     targetLocale: input.targetLocale,
   });
-  const jobKey = resolveJobDiffKey(input.job);
+  const jobKey = resolveJobTranslationTargetKeyV2(input.job);
   if (typeof jobKey !== 'string') {
     throw new TypeError('translation derived patch job has no stable key');
   }
   const target = Object.freeze({
     crawlerKey: input.crawlerKey,
     jobKey: assertCanonicalTargetText(jobKey, 'translation derived patch jobKey', 4096),
-    url: assertCanonicalTargetText(input.job.url, 'translation derived patch url', 4096),
+    url: assertCanonicalTargetText(own(input.job, 'url'), 'translation derived patch url', 4096),
   });
   const destination = Object.freeze({
     fieldPath,

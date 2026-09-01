@@ -7,7 +7,11 @@ import {
   createJobTranslationUnitIdentityV2,
   createTranslationDerivedPatchV2,
 } from '../scripts/lib/translation-derived-patch-v2.mjs';
-import { reduceTranslationDerivedPatchV2 } from '../scripts/lib/translation-derived-reducer-v2.mjs';
+import {
+  MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2,
+  reduceTranslationDerivedPatchBatchV2,
+  reduceTranslationDerivedPatchV2,
+} from '../scripts/lib/translation-derived-reducer-v2.mjs';
 
 const BASE_JOB = {
   url: 'https://jobs.example.test/positions/123456/',
@@ -146,6 +150,63 @@ describe('translation derived reducer v2', () => {
     expect(active).toEqual(before);
   });
 
+  it('rejects non-JSON slice values before cloning or applying', () => {
+    const patch = patchFor(BASE_JOB);
+    const invalidSlices = [
+      { ...slice(), metadata: new Map([['key', 'value']]) },
+      { ...slice(), assembledAt: new Date() },
+      { ...slice(), metadata: undefined },
+      { ...slice(), metadata: () => 'value' },
+      { ...slice(), metadata: Symbol('value') },
+      { ...slice(), metadata: 1n },
+      { ...slice(), metadata: Number.NaN },
+      { ...slice(), metadata: Number.POSITIVE_INFINITY },
+      { ...slice(), metadata: Object.create({ inherited: true }) },
+    ];
+    const cyclic: Record<string, unknown> = slice();
+    cyclic.self = cyclic;
+    invalidSlices.push(cyclic as any);
+
+    for (const invalid of invalidSlices) {
+      expect(() => reduceTranslationDerivedPatchV2(invalid as any, patch)).toThrow(/JSON/);
+    }
+  });
+
+  it('ignores inherited locale maps, creates an own map and leaves the prototype untouched', () => {
+    const pollutedMap = { it: 'PROTOTYPE_TRANSLATION' };
+    const previousMap = Object.getOwnPropertyDescriptor(Object.prototype, 'titleByLocale');
+    const previousSlot = Object.getOwnPropertyDescriptor(Object.prototype, 'it');
+    try {
+      Object.defineProperty(Object.prototype, 'titleByLocale', {
+        configurable: true,
+        enumerable: true,
+        value: pollutedMap,
+        writable: true,
+      });
+      Object.defineProperty(Object.prototype, 'it', {
+        configurable: true,
+        enumerable: true,
+        value: 'PROTOTYPE_SLOT',
+        writable: true,
+      });
+      const job = structuredClone(BASE_JOB);
+      delete job.titleByLocale;
+      const applied = reduceTranslationDerivedPatchV2(slice(job), patchFor(job));
+
+      expect(applied.outcome).toBe('applied');
+      expect(Object.hasOwn(applied.slice.jobs[0], 'titleByLocale')).toBe(true);
+      expect(applied.slice.jobs[0].titleByLocale).toEqual({ it: 'Sviluppatrice senior' });
+      expect((Object.prototype as any).titleByLocale).toBe(pollutedMap);
+      expect((Object.prototype as any).it).toBe('PROTOTYPE_SLOT');
+      expect(Object.isFrozen(pollutedMap)).toBe(false);
+    } finally {
+      if (previousMap) Object.defineProperty(Object.prototype, 'titleByLocale', previousMap);
+      else delete (Object.prototype as any).titleByLocale;
+      if (previousSlot) Object.defineProperty(Object.prototype, 'it', previousSlot);
+      else delete (Object.prototype as any).it;
+    }
+  });
+
   it('never overwrites a non-source translation and is idempotent after apply', () => {
     const good = { ...BASE_JOB, titleByLocale: { ...BASE_JOB.titleByLocale, it: 'Traduzione curata' } };
     const alreadyValid = reduceTranslationDerivedPatchV2(slice(good), patchFor(good));
@@ -196,6 +257,8 @@ describe('translation derived reducer v2', () => {
       { crawlerKey: 'example-crawler', jobs: [] },
       oldPatch,
     ).outcome).toBe('target_absent');
+    expect(reduceTranslationDerivedPatchV2(slice(structuredClone(BASE_JOB)), oldPatch).outcome)
+      .toBe('applied');
 
     const readded = {
       ...BASE_JOB,
@@ -208,6 +271,59 @@ describe('translation derived reducer v2', () => {
 
     const freshPatch = patchFor(readded);
     expect(reduceTranslationDerivedPatchV2(slice(readded), freshPatch).outcome).toBe('applied');
+  });
+
+  it('applies bounded batches sequentially with one deterministic outcome per patch', () => {
+    const secondJob = {
+      ...structuredClone(BASE_JOB),
+      url: 'https://jobs.example.test/positions/654321/',
+      slug: 'leiterin-entwicklung',
+      title: 'Leiterin Entwicklung',
+      titleByLocale: { de: 'Leiterin Entwicklung', it: '' },
+    };
+    const firstPatch = patchFor(BASE_JOB);
+    const secondPatch = patchFor(secondJob, { outputText: 'Responsabile sviluppo' });
+    const active = { crawlerKey: 'example-crawler', jobs: [BASE_JOB, secondJob] };
+    const before = structuredClone(active);
+    const originalStructuredClone = globalThis.structuredClone;
+    let cloneCalls = 0;
+    globalThis.structuredClone = ((value: unknown) => {
+      cloneCalls += 1;
+      return originalStructuredClone(value);
+    }) as typeof structuredClone;
+    const bothApplied = (() => {
+      try {
+        return reduceTranslationDerivedPatchBatchV2(active, [firstPatch, secondPatch]);
+      } finally {
+        globalThis.structuredClone = originalStructuredClone;
+      }
+    })();
+
+    expect(cloneCalls).toBe(1);
+    expect(bothApplied.outcomes).toEqual(['applied', 'applied']);
+    expect(bothApplied.slice.jobs.map((job: any) => job.titleByLocale.it))
+      .toEqual(['Sviluppatrice senior', 'Responsabile sviluppo']);
+    expect(active).toEqual(before);
+    expect(Object.isFrozen(bothApplied.slice)).toBe(true);
+
+    const noOpThenApply = reduceTranslationDerivedPatchBatchV2(
+      {
+        crawlerKey: 'example-crawler',
+        jobs: [
+          { ...BASE_JOB, titleByLocale: { ...BASE_JOB.titleByLocale, it: 'Traduzione curata' } },
+          secondJob,
+        ],
+      },
+      [firstPatch, secondPatch],
+    );
+    expect(noOpThenApply.outcomes).toEqual(['already_valid', 'applied']);
+
+    const repeated = reduceTranslationDerivedPatchBatchV2(slice(BASE_JOB), [firstPatch, firstPatch]);
+    expect(repeated.outcomes).toEqual(['applied', 'already_valid']);
+    expect(() => reduceTranslationDerivedPatchBatchV2(
+      slice(BASE_JOB),
+      Array.from({ length: MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2 + 1 }, () => firstPatch),
+    )).toThrow(/at most 250/);
   });
 
   it('fails closed on duplicate exact stable keys', () => {
