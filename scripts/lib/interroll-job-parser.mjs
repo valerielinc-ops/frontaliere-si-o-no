@@ -17,6 +17,7 @@
 
 import { JSDOM } from 'jsdom';
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const INTERROLL_HOST = 'www.interroll.com';
 const INTERROLL_BASE_URL = `https://${INTERROLL_HOST}`;
@@ -52,7 +53,7 @@ export function slugify(value = '', suffix = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /** Minimum description length to accept. */

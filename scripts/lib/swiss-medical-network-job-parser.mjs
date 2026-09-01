@@ -15,6 +15,7 @@
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { normalizeAnyCantonCode } from './crawler-location-config.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 export const TICINO_REGION_UUID = '7845726f-4952-4b7c-88da-8ff4f85e6afb';
 
@@ -139,7 +140,7 @@ export function slugify(value = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /**

@@ -369,6 +369,33 @@ describe('Fust post-crawl reconciliation', () => {
     expect(stable.every((job) => job.slugByLocale.it.length <= 90)).toBe(true);
   });
 
+  it('keeps the deterministic UUID suffix while truncating a long multi-word base at a boundary', () => {
+    const longCollisionSlug = `${'responsabile-infrastrutture-digitali-'.repeat(4)}senior`;
+    const collision = [
+      {
+        ...crawled[0],
+        id: 'published',
+        slug: longCollisionSlug,
+        slugByLocale: { it: longCollisionSlug },
+      },
+      {
+        ...crawled[1],
+        id: 'newcomer42',
+        slug: longCollisionSlug,
+        slugByLocale: { it: longCollisionSlug },
+      },
+    ];
+    const first = ensureUniqueFustSlugs(collision, [collision[0]]);
+    const second = ensureUniqueFustSlugs(first, [first[0]]);
+
+    expect(first[0].slug).toBe(longCollisionSlug);
+    expect(first[1].slug).toMatch(/-newcomer42$/);
+    expect(first[1].slug.length).toBeLessThanOrEqual(90);
+    expect(first[1].slug).not.toMatch(/(?:responsab|infrastr|digita)-newcomer42$/);
+    expect(new Set(first.map((job) => job.slug)).size).toBe(2);
+    expect(second).toEqual(first);
+  });
+
   it('fails loud instead of writing an incomplete authoritative snapshot', () => {
     expect(() => reconcileFustJobsWithDiscovery(crawled.slice(0, 3), discovery))
       .toThrow(/completeness invariant failed: 1\/4/);

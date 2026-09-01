@@ -56,4 +56,14 @@ describe('truncateSlugAtWordBoundary', () => {
     const input = 'tirocinio-di-3-mesi-in-audit-servizi-finanziari-gennaio-a-marzo-2027-pwc-switzerland-geneva';
     expect(truncateSlugAtWordBoundary(input, 120)).toBe(input);
   });
+
+  it.each([120, 140, 180, 200])('uses the same word-boundary rule at the bespoke %i-char cap', (cap) => {
+    const prefix = `${'stable-token-'.repeat(Math.ceil(cap / 13))}complete-ending`;
+    const result = truncateSlugAtWordBoundary(prefix, cap);
+
+    expect(result.length).toBeLessThanOrEqual(cap);
+    expect(result).toMatch(/[a-z0-9]$/);
+    expect(prefix[result.length]).toBe('-');
+    expect(truncateSlugAtWordBoundary(prefix, cap)).toBe(result);
+  });
 });

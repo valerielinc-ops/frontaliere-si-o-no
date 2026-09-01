@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Läderach (Schweiz) AG job parser — Softgarden career platform (Next.js).
  * Source: https://laderach.career.softgarden.de/jobs/
@@ -54,8 +55,8 @@ export function stripHtml(html = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 180);
+  return truncateSlugAtWordBoundary(String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-'), 180);
 }
 
 export function inferEmploymentType(title = '', description = '', percentage = '') {

@@ -33,6 +33,7 @@ import { normalizeDescriptionBullets, exitCrawlerOnError } from './lib/crawler-t
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -180,10 +181,10 @@ export function buildEocRegeneratedSlug(job, location) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (!baseSlug) return '';
-  if (!suffix) return baseSlug.slice(0, 200);
+  if (!suffix) return truncateSlugAtWordBoundary(baseSlug, 200);
   // Reserve room for the `-{suffix}` tail (7 chars) so the final slug stays ≤ 90.
   const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
-  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
   return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
 }
 

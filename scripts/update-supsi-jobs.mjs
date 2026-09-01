@@ -50,6 +50,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -708,13 +709,13 @@ async function repairSupsiJobFromSource(job) {
 }
 
 function slugifySupsi(input = '') {
-  return String(input || '')
+  const slug = String(input || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 140);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(slug, 140);
 }
 
 function normalizeSupsiRow(job) {

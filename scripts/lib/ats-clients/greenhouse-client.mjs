@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
 /**
  * Greenhouse ATS — Shared client.
  *
@@ -285,13 +286,12 @@ export async function fetchGreenhouseJobs(boardToken, options = {}) {
  * @returns {string}
  */
 function inlineSlugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 200);
+    .replace(/^-+|-+$/g, ''), 200);
 }
 
 function normalizeWhitespace(value = '') {

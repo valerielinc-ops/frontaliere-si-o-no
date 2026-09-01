@@ -54,6 +54,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
 import { launchChromium } from './lib/ensure-chromium.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -89,14 +90,14 @@ const UA =
 const DENNER_JOB_PATH_RE = /\/job\/denner(?:-[^/]+)?\//i;
 
 function slugify(value = '') {
-  return String(value || '')
+  const slug = String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-');
+  return truncateSlugAtWordBoundary(slug, 180);
 }
 
 /* -- Matchers ---------------------------------------------------------- */

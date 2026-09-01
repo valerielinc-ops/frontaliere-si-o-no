@@ -16,6 +16,7 @@
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const HQ = getCompanyDefaults('julius-baer');
 
@@ -76,7 +77,7 @@ export function slugify(value = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /**

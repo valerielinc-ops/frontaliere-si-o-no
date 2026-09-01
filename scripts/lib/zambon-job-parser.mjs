@@ -21,6 +21,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const ZAMBON_BASE_URL = 'https://www.zambon.com';
 
@@ -55,7 +56,7 @@ export function slugify(value = '', suffix = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /** Minimum description length to accept. */

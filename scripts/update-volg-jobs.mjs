@@ -61,6 +61,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -114,13 +115,13 @@ function jobMatchKey(job) {
 }
 
 function slugify(text = '') {
-  return text
+  const slug = text
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 120);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(slug, 120);
 }
 
 /* ── Fetch HTML ────────────────────────────────────────────── */
