@@ -1,5 +1,95 @@
 [
   {
+    "slug": "esperto-di-affari-transfrontaliero-j-safra-sarasin-lugano",
+    "title": "Cross-Border Business Expert",
+    "titleByLocale": {
+      "it": "Esperto di affari transfrontaliero",
+      "en": "Cross-Border Business Expert",
+      "de": "Grenzüberschreitender Wirtschaftsexperte",
+      "fr": "Expert en commerce transfrontalier"
+    },
+    "company": "J. Safra Sarasin",
+    "companyKey": "jsafrasarasin",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "en": "Cross-Border Business Expert — J. Safra Sarasin"
+    },
+    "slugByLocale": {
+      "it": "esperto-di-affari-transfrontaliero-j-safra-sarasin-lugano",
+      "en": "cross-border-business-expert-jsafrasarasin-ch",
+      "de": "grenzuberschreitender-wirtschaftsexperte-j-safra-sarasin-lugano",
+      "fr": "expert-en-commerce-transfrontalier-j-safra-sarasin-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-01T00:32:29.884Z",
+    "previousSlugs": [
+      "cross-border-business-expert-jsafrasarasin-ch",
+      "esperto-di-affari-transfrontaliero-j-safra-sarasin-lugano"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "cross-border-business-expert-jsafrasarasin-ch",
+        "esperto-di-affari-transfrontaliero-j-safra-sarasin-lugano"
+      ],
+      "de": [
+        "cross-border-business-expert-jsafrasarasin-ch"
+      ],
+      "fr": [
+        "cross-border-business-expert-jsafrasarasin-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "client-service-executive-j-safra-sarasin-lugano",
+    "title": "Client Service Executive",
+    "titleByLocale": {
+      "it": "Client Service Executive",
+      "en": "Client Service Executive",
+      "de": "Kundenservice Executive",
+      "fr": "Service à la clientèle"
+    },
+    "company": "J. Safra Sarasin",
+    "companyKey": "jsafrasarasin",
+    "location": "Lugano",
+    "addressLocality": "Lugano",
+    "descriptionByLocale": {
+      "en": "Client Service Executive — J. Safra Sarasin"
+    },
+    "slugByLocale": {
+      "it": "client-service-executive-j-safra-sarasin-lugano",
+      "en": "client-service-executive-jsafrasarasin-ch",
+      "de": "kundenservice-executive-j-safra-sarasin-lugano",
+      "fr": "service-a-la-clientele-j-safra-sarasin-lugano"
+    },
+    "sector": "Altro",
+    "expiredAt": "2026-09-01T00:32:29.884Z",
+    "previousSlugs": [
+      "client-service-executive-jsafrasarasin-ch",
+      "client-service-executive-j-safra-sarasin-lugano"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "client-service-executive-jsafrasarasin-ch",
+        "client-service-executive-j-safra-sarasin-lugano"
+      ],
+      "de": [
+        "client-service-executive-jsafrasarasin-ch"
+      ],
+      "fr": [
+        "client-service-executive-jsafrasarasin-ch"
+      ]
+    },
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "lead-auditor-group-internal-audit-jsafrasarasin-ch",
     "title": "Lead Auditor - Group Internal Audit",
     "titleByLocale": {
