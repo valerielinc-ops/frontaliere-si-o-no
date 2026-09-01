@@ -4987,6 +4987,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.title': 'Apprenticeship and vocational training in the Canton of Freiburg',
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.excerpt': 'Find out how to find a traineeship, contract details and the remuneration of apprentices in the Canton of Freiburg.',
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.imageAlt': 'An apprentice working in the Canton of Fribourg',
+    'blog.article.apprendistato-formazione-friburgo.title': 'Apprenticeship in the Canton of Fribourg: practical guide',
+    'blog.article.apprendistato-formazione-friburgo.excerpt': 'How to find an internship, sign the contract, know your rights and salary. The complete guide to the Swiss vocational training system in the Canton of Fribourg.',
+    'blog.article.apprendistato-formazione-friburgo.imageAlt': 'Apprentices during practical training in a Swiss vocational school workshop',
 };
 
 export default blogMetaChEn;
