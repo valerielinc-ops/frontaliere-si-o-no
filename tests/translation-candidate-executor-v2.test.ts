@@ -30,6 +30,7 @@ function provider(result: string | Error = candidateText) {
       schemaVersion: 2,
       costClass: 'zero',
       engineVersion: 'stub-v1',
+      executionClass: 'cooperative_async',
       async translate() {
         calls += 1;
         if (result instanceof Error) throw result;
@@ -91,6 +92,20 @@ describe('translation candidate executor v2', () => {
     expect(negative).toMatchObject({ status: 'rejected_candidate', metrics: { recorded: true } });
     expect(negative.memory.records[0].candidates[0].status).toBe('rejected');
     expect(Object.keys(negative)).not.toContain('patch');
+
+    const echoSource = long('The candidate supports clients and the team.');
+    const echoIdentity = createTranslationUnitIdentityV2({
+      kind: 'job', fieldPath: 'description', sourceLocale: 'en', targetLocale: 'it', sourceText: echoSource,
+      context: { company: null, location: null },
+    });
+    const invisibleEcho = echoSource.replace('supports', 'sup\u2061ports');
+    const echoed = await executeTranslationCandidateV2(executorInput(input({
+      identity: echoIdentity,
+      quality: { ...quality, sourceText: echoSource },
+      provider: provider(invisibleEcho).provider,
+    })));
+    expect(echoed).toMatchObject({ status: 'rejected_candidate', metrics: { recorded: true } });
+    expect(echoed.memory.records[0].candidates[0].status).toBe('rejected');
   });
 
   it('does not call or mutate memory for provider errors and empty output', async () => {
@@ -101,6 +116,73 @@ describe('translation candidate executor v2', () => {
       expect(result).toMatchObject({ status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
       expect(stub.calls()).toBe(1);
     }
+  });
+
+  it('requires cooperative thenable providers and rejects synchronous over-budget work', async () => {
+    let nonThenableCalls = 0;
+    const nonThenable = input({
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        translate() { nonThenableCalls += 1; return candidateText; },
+      },
+    });
+    await expect(executeTranslationCandidateV2(executorInput(nonThenable))).resolves.toMatchObject({
+      status: 'generation_failed', metrics: { providerCalls: 1, recorded: false },
+    });
+    expect(nonThenableCalls).toBe(1);
+
+    const busy = input({
+      providerTimeoutMs: 10,
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        translate() {
+          const deadline = Date.now() + 120;
+          while (Date.now() < deadline) { /* cooperative contract violation */ }
+          return Promise.resolve(candidateText);
+        },
+      },
+    });
+    await expect(executeTranslationCandidateV2(executorInput(busy))).resolves.toMatchObject({
+      status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
+    });
+  });
+
+  it('snapshots hostile identity and memory trees before legacy validators or provider calls', async () => {
+    const malformedIdentity = { ...identity } as Record<string, unknown>;
+    let sourceHashReads = 0;
+    Object.defineProperty(malformedIdentity, 'sourceHash', {
+      enumerable: true,
+      get() { sourceHashReads += 1; return identity.sourceHash; },
+    });
+    const existingMemory = recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), {
+      identity, engineVersion: 'stub-v1', gateVersion: 'quality-v2', outputText: candidateText, status: 'validated', evidence: [],
+    });
+    const candidateExtra = { ...existingMemory.records[0].candidates[0], extra: true };
+    const malformedMemory = {
+      ...existingMemory,
+      records: [{ ...existingMemory.records[0], candidates: [candidateExtra] }],
+    };
+    const cyclicMemory: { schemaVersion: number; records: unknown[] } = { schemaVersion: 2, records: [] };
+    cyclicMemory.records.push(cyclicMemory);
+    let recordsReads = 0;
+    const accessorMemory = Object.defineProperty({ ...createEmptyTranslationMemoryV2() }, 'records', {
+      enumerable: true,
+      get() { recordsReads += 1; return []; },
+    });
+    for (const [identityValue, memory] of [
+      [malformedIdentity, createEmptyTranslationMemoryV2()],
+      [Object.assign({ ...identity }, { [Symbol('extra')]: true }), createEmptyTranslationMemoryV2()],
+      [Object.defineProperty({ ...identity }, 'hidden', { value: true }), createEmptyTranslationMemoryV2()],
+      [identity, accessorMemory],
+      [identity, malformedMemory],
+      [identity, cyclicMemory],
+    ] as const) {
+      const stub = provider();
+      await expect(executeTranslationCandidateV2(executorInput(input({ identity: identityValue, memory, provider: stub.provider })))).rejects.toThrow(TypeError);
+      expect(stub.calls()).toBe(0);
+    }
+    expect(sourceHashReads).toBe(0);
+    expect(recordsReads).toBe(0);
   });
 
   it('zero-calls exact reuse, negative cache, conflict and stale scan', async () => {
@@ -171,7 +253,7 @@ describe('translation candidate executor v2', () => {
     const value = input({
       quality: callerQuality,
       provider: {
-        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1',
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
         async translate(next: { protectedTokens: Array<{ value: string }> }) {
           request = next;
           expect(Object.isFrozen(next)).toBe(true);
@@ -210,7 +292,7 @@ describe('translation candidate executor v2', () => {
       const value = input({
         providerTimeoutMs: 10,
         provider: {
-          schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1',
+          schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
           translate(_request: unknown, options: { signal: AbortSignal }) {
             calls += 1;
             signal = options.signal;
@@ -235,6 +317,7 @@ describe('translation candidate executor v2', () => {
       schemaVersion: 2,
       costClass: 'zero',
       engineVersion: 'stub-v1',
+      executionClass: 'cooperative_async',
       async translate() {
         validatedCalls += 1;
         return candidateText;
@@ -256,6 +339,7 @@ describe('translation candidate executor v2', () => {
       schemaVersion: 2,
       costClass: 'zero',
       engineVersion: 'stub-v1',
+      executionClass: 'cooperative_async',
       get translate() {
         getterCalls += 1;
         return async () => candidateText;
@@ -293,7 +377,7 @@ describe('translation candidate executor v2', () => {
     let receiver: unknown;
     const result = await executeTranslationCandidateV2(executorInput(input({
       provider: {
-        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1',
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
         async translate(this: unknown) {
           receiver = this;
           return candidateText;
@@ -301,18 +385,18 @@ describe('translation candidate executor v2', () => {
       },
     })));
     expect(result.status).toBe('validated');
-    expect(receiver).toEqual(expect.objectContaining({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1' }));
-    expect(Object.keys(receiver as object).sort()).toEqual(['costClass', 'engineVersion', 'schemaVersion', 'translate']);
+    expect(receiver).toEqual(expect.objectContaining({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async' }));
+    expect(Object.keys(receiver as object).sort()).toEqual(['costClass', 'engineVersion', 'executionClass', 'schemaVersion', 'translate']);
     expect(Object.isFrozen(receiver)).toBe(true);
 
     for (const provider of [
-      Object.defineProperty({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', translate: async () => candidateText }, 'hidden', { value: true }),
-      Object.assign({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', translate: async () => candidateText }, { [Symbol('extra')]: true }),
+      Object.defineProperty({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async', translate: async () => candidateText }, 'hidden', { value: true }),
+      Object.assign({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async', translate: async () => candidateText }, { [Symbol('extra')]: true }),
     ]) {
       const value = input({ provider });
       await expect(executeTranslationCandidateV2(executorInput(value))).rejects.toThrow(TypeError);
     }
-    const stableProxy = new Proxy({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', translate: async () => candidateText }, {});
+    const stableProxy = new Proxy({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async', translate: async () => candidateText }, {});
     await expect(executeTranslationCandidateV2(executorInput(input({ provider: stableProxy })))).resolves.toMatchObject({ status: 'validated' });
   });
 });

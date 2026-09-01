@@ -246,6 +246,25 @@ describe('translation candidate quality v2', () => {
       candidateText: long('La fascia è EUR 80-CHF 100.'),
     });
     expect(codes(mixedCurrency)).toContain('numeric.multiset_mismatch');
+    for (const currency of ['CHF', 'EUR', 'USD', 'GBP']) {
+      for (const candidateRange of [`10-20 ${currency}`, `10 ${currency} - 20 ${currency}`]) {
+        expect(codes(assessTranslationCandidateQualityV2({
+          ...base,
+          sourceText: long(`The range is ${currency} 10-20.`),
+          candidateText: long(`La fascia è ${candidateRange}.`),
+        }))).not.toContain('numeric.multiset_mismatch');
+      }
+    }
+    for (const [sourceRange, candidateRange] of [
+      ['10% - EUR20', 'EUR10 - 20%'],
+      ['10CHF-20%', '10%-20CHF'],
+    ]) {
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`The range is ${sourceRange}.`),
+        candidateText: long(`La fascia è ${candidateRange}.`),
+      }))).toContain('numeric.multiset_mismatch');
+    }
     let seed = 0x5eed;
     for (let index = 0; index < 32; index += 1) {
       seed = (seed * 1_103_515_245 + 12_345) >>> 0;
@@ -283,6 +302,19 @@ describe('translation candidate quality v2', () => {
       candidateText: 'Direttoredifiliale',
     });
     expect(codes(glued)).toContain('title.concatenated_words');
+  });
+
+  it('recognizes source echoes through default-ignorable and combining insertions', () => {
+    for (const insertion of ['\u200b', '\u2061', '\u{e0100}', '\ufe0f', '\u034f', '\u1ab0']) {
+      const sourceText = long('The candidate supports clients with practical experience.');
+      for (const candidateText of [
+        `${insertion}${sourceText}`,
+        sourceText.replace('supports', `sup${insertion}ports`),
+        `${sourceText}${insertion}`,
+      ]) {
+        expect(codes(assessTranslationCandidateQualityV2({ ...base, sourceText, candidateText }))).toContain('source.echo');
+      }
+    }
   });
 
   it('requires source-present protected values with case and Unicode-insensitive matching', () => {
@@ -398,6 +430,21 @@ describe('translation candidate quality v2', () => {
       });
       expect(stored.records[0].candidates[0].status).toBe('rejected');
     }
+  });
+
+  it('rejects dominant near-periodic descriptions but preserves ordinary prose', () => {
+    const repeated = Array.from({ length: 40 }, () => 'ciao mondo').join(' ');
+    for (const candidateText of [
+      `${repeated} ciao`,
+      repeated.replace('ciao mondo ciao mondo', 'ciao mondo ciao universo'),
+    ]) {
+      const outcome = assessTranslationCandidateQualityV2({ ...base, candidateText });
+      expect(codes(outcome)).toContain('description.degenerate_content');
+    }
+    expect(codes(assessTranslationCandidateQualityV2({
+      ...base,
+      candidateText: long('Il candidato coordina clienti, documentazione e responsabilità operative con il team.'),
+    }))).not.toContain('description.degenerate_content');
   });
 
   it('measures the title fixture and uses a structural, not ratio, truncation gate', () => {

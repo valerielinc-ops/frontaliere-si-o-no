@@ -140,11 +140,7 @@ function validateInput(input) {
 }
 
 function visibleTokens(value) {
-  return value
-    .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLocaleLowerCase('und')
-    .match(/[\p{L}\p{N}]+/gu) ?? [];
+  return canonicalProtectedText(value).match(/[\p{L}\p{N}]+/gu) ?? [];
 }
 
 function canonicalProtectedText(value) {
@@ -191,15 +187,16 @@ function containsProtectedToken(text, value) {
 
 function isDegenerateDescription(tokens) {
   if (tokens.length === 0 || new Set(tokens).size < 2) return true;
-  const prefix = new Array(tokens.length).fill(0);
-  for (let index = 1; index < tokens.length; index += 1) {
-    let length = prefix[index - 1];
-    while (length > 0 && tokens[index] !== tokens[length]) length = prefix[length - 1];
-    if (tokens[index] === tokens[length]) length += 1;
-    prefix[index] = length;
+  // A near-repeat with a partial tail or one substituted token remains
+  // degenerate. Small periods keep this bounded at 16 linear passes.
+  for (let period = 1; period <= Math.min(16, Math.floor(tokens.length / 4)); period += 1) {
+    let matching = 0;
+    for (let index = 0; index < tokens.length; index += 1) {
+      if (tokens[index] === tokens[index % period]) matching += 1;
+    }
+    if (matching / tokens.length >= 0.9) return true;
   }
-  const period = tokens.length - prefix.at(-1);
-  return period < tokens.length && tokens.length % period === 0;
+  return false;
 }
 
 function isIncompleteTitle(sourceTokens, candidateTokens, candidateText) {
@@ -319,10 +316,10 @@ function rangeEndpointSignature(raw, locale) {
   return { core: numericCore(numberMatch[0], locale), sign: affix.sign };
 }
 
-function rangeCurrencySignature(raw) {
-  const currencies = [...raw.matchAll(new RegExp(CURRENCY, 'giu'))].map((match) => currencyCode(match[0]));
-  const unique = [...new Set(currencies)].sort(compareText);
-  return unique.length === 0 ? 'none' : unique.length === 1 ? unique[0] : `mixed:${unique.join('+')}`;
+function rangeEndpointUnits(raw) {
+  const units = [...raw.matchAll(new RegExp(CURRENCY, 'giu'))].map((match) => `currency:${currencyCode(match[0])}`);
+  if (raw.includes('%')) units.push('percent');
+  return [...new Set(units)].sort(compareText);
 }
 
 function extractNumericSignatures(text, locale) {
@@ -346,14 +343,13 @@ function extractNumericSignatures(text, locale) {
     ranges.push([start, end]);
     const first = rangeEndpointSignature(match[1], locale);
     const second = rangeEndpointSignature(match[2], locale);
-    const percent = match[0].includes('%') ? 'percent' : 'number';
-    const firstCurrency = rangeCurrencySignature(match[1]);
-    const secondCurrency = rangeCurrencySignature(match[2]);
-    const unitCurrency = rangeCurrencySignature(match[0]);
-    const currency = unitCurrency.startsWith('mixed:')
-      ? `bound:${firstCurrency}:${secondCurrency}`
-      : `global:${unitCurrency}`;
-    signatures.push(`range:currency:${currency}:${percent}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
+    const firstUnits = rangeEndpointUnits(match[1]);
+    const secondUnits = rangeEndpointUnits(match[2]);
+    const allUnits = [...new Set([...firstUnits, ...secondUnits])].sort(compareText);
+    const unit = allUnits.length <= 1
+      ? `global:${allUnits[0] ?? 'number'}`
+      : `bound:${firstUnits.join('+') || 'number'}:${secondUnits.join('+') || 'number'}`;
+    signatures.push(`range:unit:${unit}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
   }
   for (const match of text.matchAll(NUMBER_RE)) {
     const start = match.index ?? 0;

@@ -16,11 +16,14 @@ import { normalizeTranslationText, sha256TranslationText } from './translation-u
 export const TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION = 2;
 
 const INPUT_KEYS = ['currentScanDigest', 'engineVersion', 'gateVersion', 'identity', 'memory', 'provider', 'providerTimeoutMs', 'quality', 'scanDigest'];
-const PROVIDER_KEYS = ['costClass', 'engineVersion', 'schemaVersion', 'translate'];
+const PROVIDER_KEYS = ['costClass', 'engineVersion', 'executionClass', 'schemaVersion', 'translate'];
 const QUALITY_KEYS = ['field', 'protectedTokens', 'sourceLang', 'sourceText', 'targetLang'];
 const DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
 const MAX_PROVIDER_OUTPUT_LENGTH = 120_000;
 const MAX_PROVIDER_TIMEOUT_MS = 300_000;
+const MAX_UNTRUSTED_SNAPSHOT_DEPTH = 64;
+const MAX_UNTRUSTED_SNAPSHOT_NODES = 100_000;
+const MAX_UNTRUSTED_SNAPSHOT_BYTES = 16 * 1024 * 1024;
 
 function snapshotExactDataObject(value, keys, label) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) {
@@ -67,6 +70,75 @@ function snapshotProtectedTokens(value) {
     tokens.push(snapshotExactDataObject(descriptor.value, ['category', 'value'], 'protected token'));
   }
   return Object.freeze(tokens);
+}
+
+function snapshotUntrustedData(value, label) {
+  const state = { bytes: 0, nodes: 0, ancestors: new WeakSet() };
+  const addBytes = (count) => {
+    state.bytes += count;
+    if (state.bytes > MAX_UNTRUSTED_SNAPSHOT_BYTES) {
+      throw new TypeError(`${label} exceeds snapshot bounds`);
+    }
+  };
+  const clone = (current, depth) => {
+    if (typeof current === 'string') {
+      addBytes(Buffer.byteLength(current, 'utf8') + 2);
+      return current;
+    }
+    if (current === null || typeof current === 'boolean' || typeof current === 'number' || current === undefined) {
+      addBytes(16);
+      return current;
+    }
+    if (typeof current !== 'object' || depth > MAX_UNTRUSTED_SNAPSHOT_DEPTH) {
+      throw new TypeError(`${label} exceeds snapshot bounds`);
+    }
+    state.nodes += 1;
+    if (state.nodes > MAX_UNTRUSTED_SNAPSHOT_NODES || state.ancestors.has(current)) {
+      throw new TypeError(`${label} exceeds snapshot bounds`);
+    }
+    state.ancestors.add(current);
+    try {
+      const descriptors = Object.getOwnPropertyDescriptors(current);
+      const ownKeys = Reflect.ownKeys(descriptors);
+      if (Array.isArray(current)) {
+        const length = descriptors.length?.value;
+        if (!Number.isSafeInteger(length) || length < 0) throw new TypeError(`${label} has an unsupported schema`);
+        const expectedKeys = [...Array.from({ length }, (_, index) => String(index)), 'length'];
+        if (ownKeys.length !== expectedKeys.length || ownKeys.some((key) => typeof key !== 'string' || !expectedKeys.includes(key))) {
+          throw new TypeError(`${label} has an unsupported schema`);
+        }
+        const copy = [];
+        for (let index = 0; index < length; index += 1) {
+          const descriptor = descriptors[index];
+          if (!descriptor || !descriptor.enumerable || !Object.hasOwn(descriptor, 'value') || descriptor.get || descriptor.set) {
+            throw new TypeError(`${label} must use data properties`);
+          }
+          copy.push(clone(descriptor.value, depth + 1));
+        }
+        return Object.freeze(copy);
+      }
+      const prototype = Object.getPrototypeOf(current);
+      if (prototype !== Object.prototype && prototype !== null
+          || ownKeys.some((key) => typeof key !== 'string' || !descriptors[key].enumerable)) {
+        throw new TypeError(`${label} has an unsupported schema`);
+      }
+      const copy = Object.create(null);
+      for (const key of ownKeys) {
+        const descriptor = descriptors[key];
+        if (!Object.hasOwn(descriptor, 'value') || descriptor.get || descriptor.set) {
+          throw new TypeError(`${label} must use data properties`);
+        }
+        addBytes(Buffer.byteLength(key, 'utf8') + 3);
+        Object.defineProperty(copy, key, {
+          value: clone(descriptor.value, depth + 1), enumerable: true, writable: true, configurable: true,
+        });
+      }
+      return Object.freeze(copy);
+    } finally {
+      state.ancestors.delete(current);
+    }
+  };
+  return clone(value, 0);
 }
 
 function fixedEvidence(code) {
@@ -118,11 +190,13 @@ function snapshotProvider(input, engineVersion) {
   const provider = deepFreezeTranslationV2({
     costClass: descriptors.costClass,
     engineVersion: descriptors.engineVersion,
+    executionClass: descriptors.executionClass,
     schemaVersion: descriptors.schemaVersion,
     translate: descriptors.translate,
   });
   if (provider.schemaVersion !== TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION
       || provider.costClass !== 'zero'
+      || provider.executionClass !== 'cooperative_async'
       || normalizeTranslationVersionV2(provider.engineVersion, 'provider engineVersion') !== engineVersion
       || typeof provider.translate !== 'function') {
     throw new TypeError('translation candidate executor v2 provider is invalid');
@@ -135,8 +209,8 @@ function validateInput(input) {
   if (!DIGEST_PATTERN.test(value.scanDigest ?? '') || !DIGEST_PATTERN.test(value.currentScanDigest ?? '')) {
     throw new TypeError('translation candidate executor v2 scan digest is invalid');
   }
-  const identity = validateTranslationUnitIdentityV2(value.identity);
-  const memory = validateTranslationMemoryV2(value.memory);
+  const identity = validateTranslationUnitIdentityV2(snapshotUntrustedData(value.identity, 'translation candidate executor v2 identity'));
+  const memory = validateTranslationMemoryV2(snapshotUntrustedData(value.memory, 'translation candidate executor v2 memory'));
   const engineVersion = normalizeTranslationVersionV2(value.engineVersion, 'engineVersion');
   const gateVersion = normalizeTranslationVersionV2(value.gateVersion, 'gateVersion');
   if (!Number.isSafeInteger(value.providerTimeoutMs) || value.providerTimeoutMs < 1 || value.providerTimeoutMs > MAX_PROVIDER_TIMEOUT_MS) {
@@ -212,17 +286,26 @@ export async function executeTranslationCandidateV2(input) {
         resolve(timedOut);
       }, value.providerTimeoutMs);
     });
-    // The request is a deep-frozen quality snapshot; the only second argument
-    // is an AbortSignal, so provider code cannot mutate caller-owned data.
+    // This is cooperative async only: a synchronous provider cannot be
+    // preempted in this isolate, so elapsed synchronous work is rejected after
+    // it returns. Hard isolation belongs to a future runtime adapter.
+    const startedMs = Date.now();
+    const pending = Reflect.apply(
+      translate,
+      provider,
+      [value.quality, Object.freeze({ signal: controller.signal })],
+    );
+    if (Date.now() - startedMs > value.providerTimeoutMs || pending === null
+        || (typeof pending !== 'object' && typeof pending !== 'function')
+        || typeof pending.then !== 'function') {
+      candidateText = null;
+    } else {
     candidateText = await Promise.race([
-      Promise.resolve().then(() => Reflect.apply(
-        translate,
-        provider,
-        [value.quality, Object.freeze({ signal: controller.signal })],
-      )),
+      Promise.resolve(pending),
       timeout,
     ]);
     if (candidateText === timedOut) candidateText = null;
+    }
   } catch {
     candidateText = null;
   } finally {
