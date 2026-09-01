@@ -137,6 +137,30 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
     expect(() => assertCompleteIpersonalSnapshot(partial)).toThrow(/parsed 14\/15/);
   });
 
+  it('does not fail closed when the gap is fully explained by legitimate quality drops', () => {
+    const partiallyFiltered = markDiscovered(
+      Array.from({ length: 13 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+    );
+    Object.defineProperty(partiallyFiltered, 'qualityDroppedCount', {
+      value: 2,
+      enumerable: false,
+    });
+    expect(assertCompleteIpersonalSnapshot(partiallyFiltered)).toBe(true);
+  });
+
+  it('still fails closed when the gap exceeds the explained quality drops', () => {
+    const partiallyFiltered = markDiscovered(
+      Array.from({ length: 13 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+    );
+    Object.defineProperty(partiallyFiltered, 'qualityDroppedCount', {
+      value: 1,
+      enumerable: false,
+    });
+    expect(() => assertCompleteIpersonalSnapshot(partiallyFiltered)).toThrow(/parsed 13\/15/);
+  });
+
   it('fails closed when any configured listing seed returns an empty body', () => {
     const partialSeedBatch = markDiscovered(
       Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),

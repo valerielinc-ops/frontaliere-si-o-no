@@ -177,7 +177,16 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     value: loadedSeedUrls.size,
     enumerable: false,
   });
-  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }} */ (
+  // `runSpecInProduction` itself drops rows whose detail page never yields a
+  // verifiable Swiss geography or a sufficient description — a legitimate,
+  // already-logged content-quality filter (`reportDroppedRows`), not a crawl
+  // failure. Surface the gap so the completeness assert below can tell "a
+  // listing was rightfully filtered" apart from "a listing vanished".
+  Object.defineProperty(enriched, 'qualityDroppedCount', {
+    value: Math.max(0, attemptedDetailUrls.size - rows.length),
+    enumerable: false,
+  });
+  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, qualityDroppedCount: number }} */ (
     /** @type {unknown} */ (enriched)
   );
 }
@@ -199,6 +208,7 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   const discoveredCount = Number(jobs?.discoveredCount);
   const expectedSeedCount = Number(jobs?.expectedSeedCount);
   const loadedSeedCount = Number(jobs?.loadedSeedCount);
+  const qualityDroppedCount = Number(jobs?.qualityDroppedCount) || 0;
   if (!Number.isInteger(expectedSeedCount) || expectedSeedCount <= 0) {
     throw new Error('iPersonal snapshot incomplete: no authoritative seed count');
   }
@@ -210,7 +220,11 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   if (!Array.isArray(jobs) || !Number.isInteger(discoveredCount) || discoveredCount <= 0) {
     throw new Error('iPersonal snapshot incomplete: no authoritative detail count');
   }
-  if (jobs.length !== discoveredCount) {
+  // A listing legitimately dropped upstream for lacking a verifiable Swiss
+  // geography or a sufficient description (reportDroppedRows) must not count
+  // against completeness — only an UNEXPLAINED gap (a listing that vanished
+  // without one of those documented reasons) proves a partial/broken crawl.
+  if (jobs.length !== discoveredCount - qualityDroppedCount) {
     throw new Error(`iPersonal snapshot incomplete: parsed ${jobs.length}/${discoveredCount} attempted details`);
   }
 

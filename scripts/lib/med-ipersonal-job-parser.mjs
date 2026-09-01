@@ -209,5 +209,9 @@ export async function fetchAllMedIpersonalJobs() {
     value: Number(listings.loadedSeedCount),
     enumerable: false,
   });
+  Object.defineProperty(jobs, 'qualityDroppedCount', {
+    value: Number(listings.qualityDroppedCount) || 0,
+    enumerable: false,
+  });
   return jobs;
 }
