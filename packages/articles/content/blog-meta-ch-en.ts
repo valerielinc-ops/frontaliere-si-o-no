@@ -4879,6 +4879,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dichiarazioni-cdf-partiti-2025.title': '2025 parties: 24.6 million, -1 million from 2024',
     'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'In 2025, Swiss parties declare 24.6 million francs of revenue, a decrease of about one million compared to 2024. The SP leads with 7.9 million francs.',
     'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Swiss Federal Parliament chamber during a plenary session with parliamentarians in session',
+    'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch beats Samsung in court: 11.6 million in compensation',
+    'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch wins in London against Samsung: the court orders the giant to pay $11.6 million for counterfeiting digital dials.',
+    'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Swiss luxury watch next to court decision document symbolizing Swatch\'s trademark victory against Samsung',
 };
 
 export default blogMetaChEn;

@@ -4879,6 +4879,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dichiarazioni-cdf-partiti-2025.title': 'Partis 2025 : 24,6 millions, -1 million par rapport à 2024',
     'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'En 2025, les parties suisses déclarent un chiffre d’affaires de 24,6 millions de francs, soit une baisse d’environ un million par rapport à 2024. Le SP mène avec 7,9 millions de francs.',
     'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Chambre du Parlement fédéral suisse lors d\'une séance plénière',
+    'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch bat Samsung en justice : 11,6 millions de compensation',
+    'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch gagne à Londres contre Samsung : le tribunal condamne le géant à payer 11,6 millions de dollars pour contrefaçon de cadrans numériques.',
+    'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Montre de luxe suisse à côté d\'un document de décision judiciaire, symbole de la victoire de Swatch contre Samsung',
 };
 
 export default blogMetaChFr;
