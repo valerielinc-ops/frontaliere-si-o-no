@@ -386,6 +386,8 @@ export async function fetchAllSpitalDavosJobs() {
   // The two Umantis listing routes expose different element ids and may carry
   // partially different catalogues. Union both by vacancy id so the canonical
   // crawler retains every row previously covered by either view.
+  // Sequential (no Promise.all) by design: mergeSpitalDavosListing relies on
+  // `existing` being the first-seen view, and this loop is what guarantees that order.
   const listingsById = new Map();
   for (const listingUrl of LISTING_URLS) {
     try {

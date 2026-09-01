@@ -410,6 +410,8 @@ export async function fetchAllTschuggenJobs() {
 
   // /Jobs/All and /Jobs/1 are not equivalent on this tenant. Union both by
   // vacancy id so the canonical crawler keeps every listing found by either.
+  // Sequential (no Promise.all) by design: mergeTschuggenListing relies on
+  // `existing` being the first-seen view, and this loop is what guarantees that order.
   const listingsById = new Map();
   for (const listingUrl of LISTING_URLS) {
     try {
