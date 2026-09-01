@@ -5,6 +5,7 @@ import {
   buildCscAdapterConfig,
   canonicalCscDetailUrl,
   fetchCscJobUrls,
+  parseCscPrimaryJobDetail,
   parseCscCareersPage,
   verifyCscDetailUrls,
 } from '../scripts/update-csc-costruzioni-jobs.mjs';
@@ -66,6 +67,11 @@ describe('CSC authoritative Drupal discovery', () => {
     });
     expect(fetchImpl).toHaveBeenCalledTimes(1 + fixture.details.length);
     expect(new Set(discovery.urls).size).toBe(discovery.urls.length);
+    expect(fixture.details.map((detail) => parseCscPrimaryJobDetail(detail.html)?.identity)).toEqual([
+      'drupal-node:301',
+      'drupal-node:321',
+      'drupal-node:322',
+    ]);
   });
 
   it('accepts the live-shaped explicit empty state without probing details', async () => {
@@ -103,6 +109,37 @@ describe('CSC authoritative Drupal discovery', () => {
       fetchImpl: vi.fn(async () => htmlResponse(shellUrl, '<!doctype html><html><body>career shell</body></html>')),
       timeoutMs: 1000,
     })).rejects.toThrow(/did not return a canonical work-position page/);
+  });
+
+  it('rejects job markers that exist only inside a related-vacancy widget', async () => {
+    const shellUrl = fixture.details[0].url;
+    const widgetShell = '<!doctype html><html><body><main><article data-history-node-id="24" class="node node--type-page"><h1>Pagina generica</h1><aside><article class="node node--type-work-position"><script type="application/ld+json">{"@type":"JobPosting","title":"Vacancy correlata"}</script></article></aside></article></main></body></html>';
+    expect(parseCscPrimaryJobDetail(widgetShell)).toBeNull();
+    await expect(verifyCscDetailUrls([shellUrl], {
+      fetchImpl: vi.fn(async () => htmlResponse(shellUrl, widgetShell)),
+      timeoutMs: 1000,
+    })).rejects.toThrow(/did not return a canonical work-position page/);
+  });
+
+  it('fails closed when two Drupal routes expose the same semantic vacancy', async () => {
+    const [first, alias] = fixture.details;
+    const identitylessHtml = first.html.replace(/ data-history-node-id="301"/, '');
+    const aliasFetch = fixtureFetch({
+      [first.url]: htmlResponse(first.url, identitylessHtml),
+      [alias.url]: htmlResponse(alias.url, identitylessHtml),
+    });
+    await expect(verifyCscDetailUrls([first.url, alias.url], {
+      fetchImpl: aliasFetch,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/share semantic identity semantic:/);
+  });
+
+  it('requires the final URL supplied by production fetch responses', async () => {
+    const detail = fixture.details[0];
+    await expect(verifyCscDetailUrls([detail.url], {
+      fetchImpl: vi.fn(async () => ({ ...htmlResponse(detail.url, detail.html), url: '' })),
+      timeoutMs: 1000,
+    })).rejects.toThrow(/returned no final response URL/);
   });
 
   it('builds an idempotent adapter with no generic listing seeds', () => {
