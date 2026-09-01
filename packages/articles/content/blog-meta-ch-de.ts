@@ -4999,6 +4999,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Mietrecht im Kanton Freiburg: Praxisleitfaden',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'Im Kanton Freiburg die maximale Mietkaution von 3 Monaten. Leitfaden zur Anfechtung der anfänglichen Gebühr, Kündigung auf kantonalem Formular und Beschwerde bei der Schlichtungsbehörde nach OR Art. 253.',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Wohnstraße im Kanton Freiburg mit typischen Schweizer Mietshäusern.',
+    'blog.article.affitti-friburgo-contestazione-canone.title': 'Mieten in Freiburg: Mietrecht',
+    'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Vollständiger Leitfaden zur Kaution, Gebührenbeanstandung und Kündigung gemäss Bundesobligationenrecht. Schlichtungsverfahren und Fristen.',
+    'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Schweizer Wohngebäude mit Blick auf Berglandschaft',
 };
 
 export default blogMetaChDe;

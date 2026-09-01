@@ -64877,6 +64877,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-friburgo-contestazione-canone': {
+    title: 'Affitti in Friburgo: diritto di locazione | Frontaliere Ticino',
+    description: 'Guida federale su deposito cauzionale, contestazione canone, disdetta e conciliazione locazione in Friburgo secondo Codice Obbligazioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, friburgo, diritto, locazione',
+    ogTitle: 'Affitti in Friburgo: diritto di locazione',
+    ogDescription: 'Come contestare il canone entro 30 giorni, gestire il deposito cauzionale su conto vincolato e disdire correttamente secondo il Codice Obbligazioni federale. Procedura step-by-step con l\'autorità conciliazione friburghese.',
+    canonicalPath: '/articoli-svizzera/affitti-friburgo-contestazione-canone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Friburgo: diritto di locazione",
+      "description": "Guida federale su deposito cauzionale, contestazione canone, disdetta e conciliazione locazione in Friburgo secondo Codice Obbligazioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-friburgo-contestazione-canone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero con vista su paesaggio montano"
+      },
+      "datePublished": "2026-09-01T20:34:13+00:00",
+      "dateModified": "2026-09-01T20:34:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-friburgo-contestazione-canone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

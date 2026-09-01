@@ -4999,6 +4999,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Diritto di locazione nel Cantone Friburgo: guida pratica',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'Nel Cantone di Friburgo il deposito cauzionale max 3 mesi pigione. Guida a contestazione canone iniziale, disdetta su modulo cantonale e ricorso all\'autorità di conciliazione secondo il CO art. 253.',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Via residenziale nel Cantone di Friburgo con tipici edifici di appartamenti in affitto svizzeri.',
+    'blog.article.affitti-friburgo-contestazione-canone.title': 'Affitti in Friburgo: diritto di locazione',
+    'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Guida completa al deposito cauzionale, contestazione canone e disdetta secondo Codice Obbligazioni federale. Procedura conciliazione e scadenze.',
+    'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Edificio residenziale svizzero con vista su paesaggio montano',
 };
 
 export default blogMetaChIt;

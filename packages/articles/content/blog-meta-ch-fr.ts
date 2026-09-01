@@ -4999,6 +4999,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Droit de la location dans le canton de Fribourg : guide pratique',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'Dans le canton de Fribourg, le dépôt de garantie est plafonné à 3 mois de loyer. Guide de contestation de la redevance initiale, résiliation sur formulaire cantonal et recours à l\'autorité de conciliation selon le CO art. 253.',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Rue résidentielle du Canton de Fribourg avec des immeubles de location typiques suisses.',
+    'blog.article.affitti-friburgo-contestazione-canone.title': 'Location à Fribourg : droit de location',
+    'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Guide complet du dépôt de garantie, de la contestation de la redevance et de la résiliation selon le Code fédéral des obligations. Procédure de conciliation et délais.',
+    'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Immeuble résidentiel suisse surplombant le paysage montagneux',
 };
 
 export default blogMetaChFr;
