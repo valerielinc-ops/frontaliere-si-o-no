@@ -325,6 +325,21 @@ describe('translation candidate quality v2', () => {
     }
   });
 
+  it('keeps numeric and email extraction bounded for dense hostile-looking text', () => {
+    const numericRun = Array.from({ length: 8_000 }, (_, index) => String(index + 1)).join(' ');
+    const emailRun = 'http://x.co u@e.co '.repeat(6_000);
+    const start = performance.now();
+    const numeric = assessTranslationCandidateQualityV2({
+      ...base, sourceText: numericRun, candidateText: numericRun,
+    });
+    const emails = assessTranslationCandidateQualityV2({
+      ...base, sourceText: emailRun, candidateText: emailRun,
+    });
+    expect(numeric.status).toBe('rejected');
+    expect(emails.status).toBe('rejected');
+    expect(performance.now() - start).toBeLessThan(2_000);
+  });
+
   it('blocks source echoes, flattened bullets, title residue and concatenated words', () => {
     expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: base.sourceText }))).toContain('source.echo');
     const echoSource = `Skills: JavaScript, SQL; 2024-10-01! ${'unique skills roles '.repeat(8)}`;
@@ -575,6 +590,28 @@ describe('translation candidate quality v2', () => {
       targetLang: 'it',
     });
     expect(codes(shortTitle)).not.toContain('language.high_confidence_mismatch');
+  });
+
+  it('keeps clean title fixture entries out of low-confidence language rejection', () => {
+    const fixture = JSON.parse(readFileSync(new URL('./fixtures/title-locale-corpus.json', import.meta.url), 'utf8'));
+    const clean = fixture.entries.filter((entry: Record<string, unknown>) => (
+      entry.broken === false && !entry.isSourceSlot && entry.sourceTitle && entry.title
+        && entry.sourceTitle.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('und')
+          !== entry.title.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('und')
+        && entry.sourceLang !== entry.targetLocale
+    ));
+    expect(clean).toHaveLength(81);
+    for (const entry of clean) {
+      const result = assessTranslationCandidateQualityV2({
+        ...base,
+        field: 'title',
+        sourceText: entry.sourceTitle,
+        candidateText: entry.title,
+        sourceLang: entry.sourceLang,
+        targetLang: entry.targetLocale,
+      });
+      expect(result.status === 'rejected' && codes(result).every((code) => code === 'language.low_confidence_mismatch')).toBe(false);
+    }
   });
 
   it('can be recorded directly by translation memory v2 for both outcomes', () => {

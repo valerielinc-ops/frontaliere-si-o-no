@@ -145,6 +145,7 @@ const OUTCOME_STATUSES = Object.freeze([
   'negative_cache',
   'rejected',
   'rejected_candidate',
+  'retryable_reject',
   'reused',
   'stale_scan',
   'stale_source',

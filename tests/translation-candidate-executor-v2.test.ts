@@ -98,7 +98,7 @@ describe('translation candidate executor v2', () => {
     const reused = await executeTranslationCandidateV2(executorInput(input({ memory: recovered.memory })));
     expect(reused).toMatchObject({ status: 'reused', metrics: { providerCalls: 0, recorded: false } });
 
-    const longEnglish = 'The role requires demonstrated experience with customers and technical documentation. Candidates plan work, report progress, collaborate across teams, and deliver reliable results. The successful person communicates clearly, supports colleagues, manages priorities, and contributes practical ideas. This position offers a varied environment with training, responsibility, and opportunities to develop professional skills.';
+    const longEnglish = 'The role requires demonstrated experience with customers and technical documentation. Candidates plan work, report progress, collaborate across teams, and deliver reliable results. The successful person communicates clearly, supports colleagues, manages priorities, and contributes practical ideas. This position offers a varied environment with training, responsibility, and opportunities to develop professional skills. Daily work includes reviewing requests, preparing clear updates, resolving issues, coordinating meetings, and sharing useful feedback with stakeholders.';
     const languageRejected = await executeTranslationCandidateV2(executorInput(input({ provider: provider(longEnglish).provider })));
     expect(languageRejected).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
     expect(languageRejected.evidence.map((item) => item.code)).toEqual(expect.arrayContaining(['language.low_confidence_mismatch']));

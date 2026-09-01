@@ -38,7 +38,10 @@ const URL_RE = /https?:\/\/[^\s<>"']+/giu;
 const EMAIL_RE = /(?<![\p{L}\p{N}_%+\-])([\p{L}\p{N}][\p{L}\p{N}._%+\-]*@[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?(?:\.[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?)+)(?![\p{L}\p{N}_%+\-])/gu;
 const VERSION_RE = /\bv\d+(?:\.\d+)*\b/giu;
 const DATE_RE = /(?<![\p{L}\p{N}])\d{4}([./-])\d{1,2}\1\d{1,2}(?![\p{L}\p{N}])/gu;
-const NUMBER_ATOM = String.raw`(?:\d+(?:[ '\u2019\u00a0\u202f,.]\d+)*|[.,]\d+)`;
+// Spaces/apostrophes are grouping separators only before exact 3-digit
+// groups. This avoids treating a prose sequence such as `1 2 3 ...` as one
+// enormous number (and keeps the regex's repetition bounded by its input).
+const NUMBER_ATOM = String.raw`(?:\d{1,3}(?:(?:[ '\u2019\u00a0\u202f]\d{3})+|(?:[.,]\d{3})+)(?:[.,]\d+)?|\d+(?:[.,]\d+)?|[.,]\d+)`;
 const CURRENCY = String.raw`(?:CHF|EUR|USD|GBP|€|\$|£)`;
 // Deliberately narrow, corpus-backed units: this recognizes translations of
 // employment hours and rates without treating arbitrary prose as a unit.
@@ -56,6 +59,9 @@ const AFFIX_CURRENCY_THEN_SIGN_RE = new RegExp(String.raw`(CHF|EUR|USD|GBP|€|\
 const AFFIX_CURRENCY_AFTER_RE = new RegExp(String.raw`^${AFFIX_SPACE}(CHF|EUR|USD|GBP|€|\$|£)`, 'iu');
 const AFFIX_SIGN_RE = new RegExp(String.raw`([+\-−])${AFFIX_SPACE}$`, 'u');
 const AFFIX_PERCENT_RE = new RegExp(String.raw`^${AFFIX_SPACE}%`, 'u');
+const AFFIX_LEFT_START_RE = /[+\-−A-Za-z€$£]/u;
+const AFFIX_RIGHT_START_RE = /[%A-Za-z€$£]/u;
+const WHITESPACE_RE = /\s/u;
 const UNIT_CANONICAL = new Map([
   ['h', 'hour'], ['hour', 'hour'], ['hours', 'hour'], ['ora', 'hour'], ['ore', 'hour'], ['heure', 'hour'], ['heures', 'hour'], ['stunde', 'hour'], ['stunden', 'hour'],
   ['week', 'week'], ['weeks', 'week'], ['settimana', 'week'], ['settimane', 'week'], ['semaine', 'week'], ['semaines', 'week'], ['woche', 'week'], ['wochen', 'week'],
@@ -350,10 +356,17 @@ function extractUrls(text) {
 
 function extractEmails(text) {
   if (!text.includes('@')) return [];
-  const urlRanges = [...text.matchAll(URL_RE)].map((match) => [match.index ?? 0, (match.index ?? 0) + match[0].length]);
-  return sortedMultiset([...text.matchAll(EMAIL_RE)]
-    .filter((match) => !urlRanges.some(([start, end]) => (match.index ?? 0) >= start && (match.index ?? 0) < end))
-    .map((match) => match[1]));
+  const urlRanges = mergeRanges([...text.matchAll(URL_RE)]
+    .map((match) => [match.index ?? 0, (match.index ?? 0) + match[0].length]));
+  let cursor = 0;
+  const emails = [];
+  for (const match of text.matchAll(EMAIL_RE)) {
+    const start = match.index ?? 0;
+    while (cursor < urlRanges.length && urlRanges[cursor][1] <= start) cursor += 1;
+    if (cursor < urlRanges.length && start >= urlRanges[cursor][0] && start < urlRanges[cursor][1]) continue;
+    emails.push(match[1]);
+  }
+  return sortedMultiset(emails);
 }
 
 function numericCore(raw, locale) {
@@ -406,16 +419,22 @@ function mergeRanges(ranges) {
 }
 
 function numericAffix(text, start, end) {
-  const prefix = text.slice(Math.max(0, start - MAX_NUMERIC_AFFIX_WHITESPACE - 16), start);
-  const suffix = text.slice(end, Math.min(text.length, end + MAX_NUMERIC_AFFIX_WHITESPACE + 16));
-  const signThenCurrency = AFFIX_SIGN_THEN_CURRENCY_RE.exec(prefix);
-  const currencyThenSign = AFFIX_CURRENCY_THEN_SIGN_RE.exec(prefix);
-  const currencyAfter = AFFIX_CURRENCY_AFTER_RE.exec(suffix);
-  const directSign = AFFIX_SIGN_RE.exec(prefix)?.[1] ?? '';
+  let left = start - 1;
+  while (left >= 0 && start - left <= MAX_NUMERIC_AFFIX_WHITESPACE && WHITESPACE_RE.test(text[left])) left -= 1;
+  let right = end;
+  while (right < text.length && right - end < MAX_NUMERIC_AFFIX_WHITESPACE && WHITESPACE_RE.test(text[right])) right += 1;
+  const prefix = left >= 0 && AFFIX_LEFT_START_RE.test(text[left])
+    ? text.slice(Math.max(0, start - MAX_NUMERIC_AFFIX_WHITESPACE - 16), start) : '';
+  const suffix = right < text.length && AFFIX_RIGHT_START_RE.test(text[right])
+    ? text.slice(end, Math.min(text.length, end + MAX_NUMERIC_AFFIX_WHITESPACE + 16)) : '';
+  const signThenCurrency = prefix ? AFFIX_SIGN_THEN_CURRENCY_RE.exec(prefix) : null;
+  const currencyThenSign = prefix ? AFFIX_CURRENCY_THEN_SIGN_RE.exec(prefix) : null;
+  const currencyAfter = suffix ? AFFIX_CURRENCY_AFTER_RE.exec(suffix) : null;
+  const directSign = prefix ? AFFIX_SIGN_RE.exec(prefix)?.[1] ?? '' : '';
   const currency = signThenCurrency?.[2] ?? currencyThenSign?.[1] ?? currencyAfter?.[1] ?? '';
   const currencySign = signThenCurrency?.[1] ?? currencyThenSign?.[2] ?? '';
   const sign = (currencySign || directSign).replace('−', '-') || 'none';
-  const hasPercent = AFFIX_PERCENT_RE.test(suffix);
+  const hasPercent = suffix ? AFFIX_PERCENT_RE.test(suffix) : false;
   return { currency, hasPercent, sign };
 }
 
@@ -599,8 +618,13 @@ export function assessTranslationCandidateQualityV2(input) {
     appliedGates += 1;
     const language = detectLanguageWithConfidence(candidate, value.targetLang);
     if (language.lang !== value.targetLang) {
-      if (language.confidence >= RELIABLE_LANGUAGE_CONFIDENCE) blocking.push('language.high_confidence_mismatch');
-      else blocking.push('language.low_confidence_mismatch');
+      if (language.confidence >= RELIABLE_LANGUAGE_CONFIDENCE) {
+        blocking.push('language.high_confidence_mismatch');
+      } else if (value.field === 'description' && candidateTokens.length >= 64 && language.lang === value.sourceLang) {
+        blocking.push('language.low_confidence_mismatch');
+      } else {
+        advisory.push('language.low_confidence_mismatch');
+      }
     }
   }
 

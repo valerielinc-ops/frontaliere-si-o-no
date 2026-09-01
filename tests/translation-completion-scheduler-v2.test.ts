@@ -13,6 +13,7 @@ import {
   settleTranslationScheduleV2,
   validateTranslationSchedulerCursorV2,
 } from '../scripts/lib/translation-completion-scheduler-v2.mjs';
+import { executeTranslationCandidateV2 } from '../scripts/lib/translation-candidate-executor-v2.mjs';
 import {
   createTranslationUnitIdentityV2,
   digestTranslationDocumentV2,
@@ -36,6 +37,7 @@ type SchedulerOutcomeStatus =
   | 'negative_cache'
   | 'rejected'
   | 'rejected_candidate'
+  | 'retryable_reject'
   | 'reused'
   | 'stale_scan'
   | 'stale_source'
@@ -490,6 +492,33 @@ describe('translation completion scheduler v2', () => {
       outcomes: outcomesFor(planned.plan, 'applied'),
     });
     expect(completed.metrics).toMatchObject({ jobsCompleted: 1, queueJobsOut: 0, queueUnitsOut: 0 });
+  });
+
+  it('settles a retryable executor rejection without completing or patching its queued unit', async () => {
+    const sourceText = 'Die Aufgabe umfasst Planung, Zusammenarbeit und verlässliche Kommunikation im Team.';
+    const unitIdentity = createTranslationUnitIdentityV2({
+      kind: 'job', fieldPath: 'description', sourceLocale: 'de', targetLocale: 'it',
+      sourceText,
+      context: { company: null, location: null },
+    });
+    const planned = planTranslationScheduleV2(plannerInput({ jobs: [job('retryable', [unitIdentity])] }));
+    const selected = planned.plan.selectedJobs[0].units[0];
+    const execution = await executeTranslationCandidateV2({
+      identity: unitIdentity, memory: createEmptyTranslationMemoryV2(), engineVersion: ENGINE_VERSION, gateVersion: GATE_VERSION,
+      scanDigest: SCAN_DIGEST, currentScanDigest: SCAN_DIGEST, providerTimeoutMs: 1_000,
+      quality: { sourceText, sourceLang: 'de', targetLang: 'it', field: 'description', protectedTokens: [] },
+      provider: { schemaVersion: 2, costClass: 'zero', engineVersion: ENGINE_VERSION, executionClass: 'cooperative_async', translate: async () => sourceText },
+    });
+    expect(execution).toMatchObject({ status: 'retryable_reject', attemptKey: selected.attemptKey });
+    const outcomes = [{ schedulingKey: planned.plan.selectedJobs[0].schedulingKey, units: [{ attemptKey: execution.attemptKey, status: execution.status }] }];
+    const settlement = settleTranslationScheduleV2({ cursor: planned.cursor, plan: planned.plan, outcomes });
+    expect(settlement.metrics).toMatchObject({ jobsCompleted: 0, patchesQueued: 0, patchesApplied: 0, queueJobsOut: 1, queueUnitsOut: 1 });
+    expect(settlement.metrics.outcomeCounts.retryable_reject).toBe(1);
+    expect(serializeTranslationSettlementV2(settlement, planned.plan)).toContain(settlement.settlementHash);
+    await expect(Promise.resolve().then(() => settleTranslationScheduleV2({
+      cursor: planned.cursor, plan: planned.plan,
+      outcomes: [{ schedulingKey: planned.plan.selectedJobs[0].schedulingKey, units: [{ attemptKey: execution.attemptKey, status: 'unknown' }] }],
+    } as any))).rejects.toThrow();
   });
 
   it('rejects incomplete, duplicate or mismatched settlement outcomes', () => {
