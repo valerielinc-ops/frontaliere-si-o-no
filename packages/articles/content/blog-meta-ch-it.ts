@@ -4924,6 +4924,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Commercio al dettaglio, aumentano le vendite in luglio',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Le vendite del commercio al dettaglio svizzero aumentano dello 0,2% in luglio, con un incremento dell\'1,7% in termini reali.',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Vista aerea del centro di Lugano con negozi e aree commerciali, Svizzera',
+    'blog.article.tasso-ipotecario-riferimento-stabile.title': 'Il tasso ipotecario di riferimento rimane stabile',
+    'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'Il tasso ipotecario di riferimento in Svizzera rimane all\'1,25%. L\'Ufficio federale delle abitazioni (UFAB) conferma il valore invariato dal 2 settembre 2025.',
+    'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Vista aerea di Lugano e del suo lago, Svizzera',
 };
 
 export default blogMetaChIt;

@@ -4924,6 +4924,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Einzelhandel, Umsatzsteigerung im Juli',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Der Umsatz des Schweizer Detailhandels stieg im Juli um 0,2%, real um 1,7%.',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit Geschäften und Einkaufsgebieten, Schweiz',
+    'blog.article.tasso-ipotecario-riferimento-stabile.title': 'Der Referenzhypothekenzins bleibt stabil',
+    'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'Der Referenzhypothekenzins in der Schweiz bleibt bei 1,25 %. Das Bundesbüro für Wohnungswesen (FOH) bestätigt den unveränderten Wert vom 2. September 2025.',
+    'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Luftaufnahme von Lugano und seinem See, Schweiz',
 };
 
 export default blogMetaChDe;
