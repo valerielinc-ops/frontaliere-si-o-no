@@ -43,7 +43,6 @@
     "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-Caisse-%28Jouets%29-50/1366046155/",
     "https://positions.manor.ch/job/Liestal-Mitarbeiterin-Kasse-50/1363513155/",
     "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-30/1363511655/",
-    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Jouets%29-20/1363554355/",
     "https://positions.manor.ch/job/Solothurn-Mitarbeiterin-Verkauf-%28Springer%29-10/1363511355/",
     "https://positions.manor.ch/job/Vevey-Collaborateurtrice-logistique-Etudiante-20/1363554955/",
     "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-%28Montagsaushilfe-eManor%29-20/1362225055/",
@@ -118,7 +117,6 @@
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-service-%28Manora%29-50/1365415455/",
     "https://positions.manor.ch/job/Thun-Mitarbeiterin-Verkauf-Papeterie-&-Accesoires-60/1361599355/",
     "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Verkauf-Parf%C3%BCmerie-30/1355425855/",
-    "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Kasse-20/1365806855/",
     "https://positions.manor.ch/job/Monthey-Cuisinier%C3%A8re-%28Manora%29-60/1365897055/",
     "https://positions.manor.ch/job/La-Chaux-de-Fonds-Collaborateurtrice-visual-merchandising-60/1359657755/",
     "https://positions.manor.ch/job/Basel-Mitarbeiterin-Kasse-40/1363511455/",
@@ -185,16 +183,24 @@
     "https://positions.manor.ch/job/Affoltern-am-Albis-Mitarbeiterin-KasseKundendienst-80/1364485655/",
     "https://positions.manor.ch/job/Schaffhausen-Mitarbeiterin-Verkauf-Haushalt-%28Vorh%C3%A4nge%29-60/1362943055/",
     "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-supermarch%C3%A9-%28take-out-cuisine%29-50/1365899155/",
+    "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-Bijouterie/1366180555/",
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Visual-Merchandising-70/1366180055/",
     "https://positions.manor.ch/job/Affoltern-am-Albis-Mitarbeiterin-Verkauf-45/1364486055/",
     "https://positions.manor.ch/job/Fribourg-Collaborateurtrice-supermarch%C3%A9-%28Charcuterie-&-Fromages%29-50/1364983655/",
     "https://positions.manor.ch/job/Lugano-Impiegatoa-del-commercio-dettaglio-AFC-%28Confezione-Donna%29-100/1365919055/",
     "https://positions.manor.ch/job/Vevey-Collaborateurtrice-caisse-%28Non-Food%29-Etudiante-5/1361737155/",
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Boulanger%C3%A8re-100/1363554155/",
     "https://positions.manor.ch/job/Ascona-Impiegatoa-del-commercio-dettaglio-AFC-%28Confezione-Donna%29-100/1365911855/",
-    "https://positions.manor.ch/job/Lausanne-Conseiller%C3%A8re-vente-%28Bijouterie%29-100/1366042055/"
+    "https://positions.manor.ch/job/Basel-Assistant-Product-Manager-80/1366177755/",
+    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-20/1366176655/",
+    "https://positions.manor.ch/job/Lausanne-Conseiller%C3%A8re-vente-%28Bijouterie%29-100/1366042055/",
+    "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Supermarkt-60/1366181955/",
+    "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Supermarkt-Epicerie-45/1366182155/",
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-50/1366179355/",
+    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Jouets%29-20/1363554355/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-09-01T09:03:16.378Z",
+  "updatedAt": "2026-09-01T10:28:46.893Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Biel-Drogistin-EFZ-%28Dermacenter%29-50-80/1337310655/": {
       "company": "Manor AG",
@@ -333,10 +339,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-30/1363511655/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Jouets%29-20/1363554355/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -636,10 +638,6 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
-    "https://positions.manor.ch/job/Spreitenbach-Mitarbeiterin-Kasse-20/1365806855/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
     "https://positions.manor.ch/job/Monthey-Cuisinier%C3%A8re-%28Manora%29-60/1365897055/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -904,6 +902,14 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
+    "https://positions.manor.ch/job/Basel-Mitarbeiterin-Verkauf-Bijouterie/1366180555/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Chur-Mitarbeiterin-Visual-Merchandising-70/1366180055/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
     "https://positions.manor.ch/job/Affoltern-am-Albis-Mitarbeiterin-Verkauf-45/1364486055/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
@@ -928,7 +934,31 @@
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
+    "https://positions.manor.ch/job/Basel-Assistant-Product-Manager-80/1366177755/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Verkauf-20/1366176655/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
     "https://positions.manor.ch/job/Lausanne-Conseiller%C3%A8re-vente-%28Bijouterie%29-100/1366042055/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Supermarkt-60/1366181955/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Sargans-Mitarbeiterin-Supermarkt-Epicerie-45/1366182155/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Hochdorf-Mitarbeiterin-Logistik-50/1366179355/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28Jouets%29-20/1363554355/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }
