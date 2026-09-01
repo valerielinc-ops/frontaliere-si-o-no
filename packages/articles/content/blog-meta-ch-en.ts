@@ -5005,6 +5005,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-friburgo-procedura.title': 'Driving license in Freiburg: conversion and exams',
     'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procedure for converting a foreign driver\'s license in the Canton of Freiburg: compulsory courses, theoretical and practical exams, required documents and step-by-step roadmaps.',
     'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Car on Swiss mountain road with traffic signs and sunny Alpine landscape',
+    'blog.article.vendite-auto-svizzera-agosto-2026.title': 'New car sales down in August, almost one in three is electric',
+    'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Sales of new cars in Switzerland fell by 0.6% in August, with almost one in three cars sold electric.',
+    'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Aerial view of Lugano with cars in motion',
 };
 
 export default blogMetaChEn;

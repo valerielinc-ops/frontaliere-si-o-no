@@ -5005,6 +5005,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-guida-friburgo-procedura.title': 'Permis de conduire à Fribourg : conversion et examens',
     'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procédure de conversion du permis étranger dans le canton de Fribourg : cours obligatoires, examens théoriques et pratiques, documents requis et feuille de route étape par étape.',
     'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Voiture sur route de montagne suisse avec panneaux de circulation et paysage alpin ensoleillé',
+    'blog.article.vendite-auto-svizzera-agosto-2026.title': 'Ventes de voitures neuves en baisse en août, près d\'une sur trois est électrique',
+    'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Les ventes de voitures neuves en Suisse ont diminué de 0,6% en août, avec près d\'une voiture électrique sur trois vendue.',
+    'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Vue aérienne de Lugano avec des voitures en mouvement',
 };
 
 export default blogMetaChFr;
