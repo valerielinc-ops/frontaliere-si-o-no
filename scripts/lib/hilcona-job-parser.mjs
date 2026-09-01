@@ -179,13 +179,30 @@ export function parseHilconaDetailHtml(html) {
   let description = parts.join(' ').trim();
   if (description.length < 30 && metaDesc) description = metaDesc;
 
-  // Extract location from address (postal code + city)
+  // Extract source-backed geography from the address and the portal's own
+  // Google Maps route. The sitemap spans several countries; a four-digit
+  // postal code alone is not Swiss evidence (Liechtenstein uses it too).
   let location = '';
+  let postalCode = '';
   if (addressRaw) {
     // Address format: "Hauptstrasse 80 5223 Pfaffstätt" or "Landquart"
     const postalCityMatch = addressRaw.match(/(\d{4,5})\s+(\S+(?:\s+\S+)?)/);
+    postalCode = postalCityMatch ? postalCityMatch[1] : '';
     location = postalCityMatch ? postalCityMatch[2] : addressRaw.split('\n').pop().trim();
   }
+  const mapRouteMatch = html.match(/google\.com\/maps\/dir\/\/([^"']+?)(?:\/@|["'])/i);
+  const mapRoute = mapRouteMatch
+    ? decodeURIComponent(mapRouteMatch[1]).replace(/\+/g, ' ')
+    : '';
+  const addressCountry = /\b(?:Schweiz|Switzerland|Suisse|Svizzera)\b/i.test(mapRoute)
+    ? 'CH'
+    : /\bLiechtenstein\b/i.test(mapRoute)
+      ? 'LI'
+      : /\bDeutschland\b/i.test(mapRoute)
+        ? 'DE'
+        : /\bÖsterreich\b/i.test(mapRoute)
+          ? 'AT'
+          : '';
 
   if (!description || description.length < 30) return null;
 
@@ -194,6 +211,8 @@ export function parseHilconaDetailHtml(html) {
     description,
     company: company || brandName || '',
     location,
+    postalCode,
+    addressCountry,
     contractType,
     pensum,
     language,

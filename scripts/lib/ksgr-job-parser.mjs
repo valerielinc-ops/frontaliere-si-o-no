@@ -34,10 +34,11 @@ function pickLocation(job = {}) {
     .split('\n')
     .map((line) => normalizeSpace(line))
     .filter(Boolean);
-  const postalCityLine = [...lines].reverse().find((line) => /\b\d{4}\s+/.test(line));
-  if (postalCityLine) {
-    return normalizeSpace(postalCityLine.replace(/^.*\b\d{4}\s+/, ''));
-  }
+  const postalCityMatch = [...lines]
+    .reverse()
+    .map((line) => line.match(/\b\d{4}(?:\s+|-(?=\p{L}))(\p{L}[^\n]*)/u))
+    .find(Boolean);
+  if (postalCityMatch) return normalizeSpace(postalCityMatch[1]);
   return lines[lines.length - 1] || '';
 }
 
@@ -82,7 +83,7 @@ function buildDescription(job = {}) {
 function parseWorkplace(raw = '') {
   const lines = String(raw || '').split('\n').map((l) => l.trim()).filter(Boolean);
   const postalLine = lines.find((l) => /CH-\d{4}/.test(l));
-  const postalMatch = postalLine?.match(/CH-(\d{4})\s+(.*)/);
+  const postalMatch = postalLine?.match(/CH-(\d{4})(?:\s+|-(?=\p{L}))(\p{L}.*)/u);
   return {
     streetAddress: lines.find((l) => /strasse|weg|gasse|platz/i.test(l)) || '',
     postalCode: postalMatch ? postalMatch[1] : '',

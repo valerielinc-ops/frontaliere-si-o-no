@@ -40,7 +40,7 @@ export function cleanAgieCharmillesCity(rawLocation = '') {
   // real cities starting with "Ch" (Chur, Chiasso, Cham, Chêne) are NOT mangled.
   let s = String(rawLocation || '').replace(/\bCH[-\s]+/i, '').trim();
   s = s.split(/,| or /i)[0].trim(); // first city only
-  s = s.replace(/^\d{4}\s+/, '').trim(); // strip leading 4-digit PLZ
+  s = s.replace(/^\d{4}(?:\s+|-(?=\p{L}))(?=\p{L})/u, '').trim(); // strip leading 4-digit PLZ
   return s;
 }
 

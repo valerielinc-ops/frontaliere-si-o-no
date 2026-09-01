@@ -25,6 +25,7 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const HQ = getCompanyDefaults('prada');
 
@@ -46,6 +47,20 @@ export function normalizePradaJobUrl(rawUrl = '') {
   }
 }
 
+// SuccessFactors detail pages sometimes prefix the city with a Swiss postal
+// code ("6850 Mendrisio", "CH-6850 Mendrisio, Ticino") — the same convention
+// already stripped for other crawlers, e.g. `agroscope-job-parser.mjs`. The
+// separator between the postal code and the city is a space or a hyphen
+// ("6850-Mendrisio"): a space-only strip left that variant unstripped and
+// still fail-closed, same bug class as the one this stripper exists to fix.
+// Only the leading digits (+ separator) are stripped for the ownership
+// check. A proven match is returned as the canonical city name so the
+// downstream BFS-backed JobPosting locality validator does not reject a
+// display-formatted value and fall back to the canton capital.
+function stripLeadingSwissPostalCode(value = '') {
+  return value.replace(/^(?:CH[-\s])?\d{4}(?:\s+|-(?=\p{L}))(?=\p{L})/iu, '');
+}
+
 /**
  * Resolve a Prada listing to the only location owned by this Ticino crawler.
  * The upstream `locationsearch` parameters are currently ignored by the
@@ -65,7 +80,8 @@ export function resolvePradaTicinoLocation(job = {}) {
     const routeIsMendrisio = /^\/job\/Mendrisio(?:-|\/)/i.test(path);
     if (!routeIsMendrisio) return null;
     if (!location) return 'Mendrisio';
-    return /^mendrisio(?:\b|\s*[,(/-])/i.test(location) ? location : null;
+    const candidate = stripLeadingSwissPostalCode(location);
+    return /^mendrisio(?:\b|\s*[,(/-])/i.test(candidate) ? 'Mendrisio' : null;
   } catch {
     return null;
   }
@@ -349,30 +365,57 @@ export function parsePradaDetailHtml(html) {
  * Searches for both "switzerland" and "ticino" to maximize coverage.
  */
 export async function fetchPradaJobUrls(timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const allJobs = [];
     const seenIds = new Set();
 
     for (const searchUrl of [SEARCH_URL, TICINO_SEARCH_URL]) {
-      const res = await fetch(searchUrl, {
-        signal: controller.signal,
-        headers: { Accept: 'text/html', 'User-Agent': UA },
-        redirect: 'error',
-      });
-      if (!res.ok) throw new Error(`Prada search returned HTTP ${res.status}`);
-      if (res.url) {
-        const effectiveUrl = new URL(res.url);
-        if (effectiveUrl.protocol !== 'https:' || effectiveUrl.origin !== CAREERS_BASE) {
-          throw new Error('Prada search resolved outside jobs.pradagroup.com');
+      const html = await fetchWithRetry(async () => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          // Manual redirect handling distinguishes a structural 3xx from a
+          // transient network TypeError. Redirects are never followed or
+          // retried: the two authoritative search routes are fixed.
+          const res = await fetch(searchUrl, {
+            signal: controller.signal,
+            headers: { Accept: 'text/html', 'User-Agent': UA },
+            redirect: 'manual',
+          });
+          if (res.status >= 300 && res.status < 400) {
+            throw new Error(`Prada search returned structural redirect HTTP ${res.status}`);
+          }
+          if (!res.ok) {
+            const err = new Error(`Prada search returned HTTP ${res.status}`);
+            err.status = res.status;
+            err.retryable = RETRYABLE_STATUS.has(res.status);
+            throw err;
+          }
+
+          const expectedUrl = new URL(searchUrl);
+          const effectiveUrl = new URL(res.url || searchUrl);
+          if (
+            effectiveUrl.protocol !== 'https:'
+            || effectiveUrl.origin !== CAREERS_BASE
+            || effectiveUrl.pathname !== expectedUrl.pathname
+          ) {
+            throw new Error('Prada search resolved to an untrusted origin or path');
+          }
+
+          const body = await res.text();
+          if (!/class=["'][^"']*searchResults\b/i.test(body)) {
+            throw new Error('Prada search response did not contain the authoritative results table');
+          }
+          return body;
+        } finally {
+          clearTimeout(timer);
         }
-      }
-      const html = await res.text();
+      }, {
+        retries: 2,
+        label: `Prada search ${new URL(searchUrl).searchParams.get('locationsearch')}`,
+      });
+
       const jobs = parsePradaListingHtml(html);
-      if (!/class=["'][^"']*searchResults\b/i.test(html)) {
-        throw new Error('Prada search response did not contain the authoritative results table');
-      }
       for (const job of jobs) {
         if (!seenIds.has(job.jobId)) {
           seenIds.add(job.jobId);
@@ -381,13 +424,10 @@ export async function fetchPradaJobUrls(timeoutMs = 15000) {
       }
     }
 
-    clearTimeout(timer);
     return allJobs;
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Prada Group careers page: ${err.message}`);
     return [];
-  } finally {
-    clearTimeout(timer);
   }
 }
 

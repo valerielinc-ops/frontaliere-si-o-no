@@ -89,7 +89,7 @@ export function cleanAgroscopeCity(rawLocation = '') {
   return String(rawLocation || '')
     .split(/\s+o\s+|\s*\/\s*/i)[0]
     .replace(/,\s*(?:svizzera|schweiz|suisse|switzerland)\s*$/i, '')
-    .replace(/^\d{4}\s+/, '')
+    .replace(/^\d{4}(?:\s+|-(?=\p{L}))(?=\p{L})/u, '')
     .trim();
 }
 

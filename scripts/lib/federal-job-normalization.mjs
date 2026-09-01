@@ -18,7 +18,8 @@ function normalizeFederalLocationDisplay(raw = '') {
 }
 
 function extractFederalLocality(displayLocation = '') {
-  const withoutPostal = normalizeSpace(displayLocation).replace(/^\d{4}\s+/, '');
+  const withoutPostal = normalizeSpace(displayLocation)
+    .replace(/^\d{4}(?:\s+|-(?=\p{L}))(?=\p{L})/u, '');
   return withoutPostal.replace(/\s*\(([A-Z]{2})\)\s*$/i, '').trim();
 }
 

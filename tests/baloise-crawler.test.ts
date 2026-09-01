@@ -26,7 +26,7 @@ function mixedFeedResponse() {
           szas: {
             sza_title: 'Leiter Assistenz-Hub Privatkunden Bank (w/m/d)',
             sza_workplace: 'Baloise Solothurn, Amthausplatz 4, 4500 Solothurn',
-            'sza_location.city': 'Solothurn',
+            'sza_location.city': '4500-Solothurn',
             'sza_location.zip': '4500',
             sza_introduction:
               'Werde Teil der neu formierten Helvetia Baloise und gestalte die Zukunft des Schweizer Bankings mit einem motivierten Team in Solothurn. Wir suchen eine engagierte Führungspersönlichkeit für unseren Assistenz-Hub, die unsere Privatkundinnen und Privatkunden mit Herzblut und hoher Servicequalität betreut und das Team fachlich sowie menschlich weiterentwickelt.',
@@ -45,7 +45,7 @@ function mixedFeedResponse() {
           szas: {
             sza_title: 'Underwriter Sachversicherung (w/m/d)',
             sza_workplace: 'Helvetia St. Gallen, Dufourstrasse 40, 9001 St. Gallen',
-            'sza_location.city': 'St. Gallen',
+            'sza_location.city': '9001-St. Gallen',
             'sza_location.zip': '9001',
             sza_introduction:
               'Für unser Underwriting-Team in St. Gallen suchen wir eine erfahrene Fachperson im Bereich Sachversicherung, die unsere Kundinnen und Kunden kompetent berät und komplexe Risiken sauber einschätzt.',
@@ -239,6 +239,7 @@ describe('Baloise crawler parser', () => {
       expect(jobs[0]).toMatchObject({
         company: 'Baloise',
         companyKey: 'baloise',
+        location: 'Solothurn',
         canton: 'SO',
         country: 'CH',
         postalCode: '4500',
@@ -266,6 +267,7 @@ describe('Baloise crawler parser', () => {
       expect(baloiseJobs[0].url).not.toBe(helvetiaJobs[0].url);
       expect(helvetiaJobs[0].title).toBe('Underwriter Sachversicherung (w/m/d)');
       expect(helvetiaJobs[0].companyKey).toBe('helvetia');
+      expect(helvetiaJobs[0].location).toBe('St. Gallen');
     });
 
     it('description clears the 50-word thin-content floor', async () => {
