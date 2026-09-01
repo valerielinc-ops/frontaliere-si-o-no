@@ -52,6 +52,7 @@ const TERMINAL_CONCLUSIONS = new Set([
 ]);
 export const CRAWLER_GENERATION_REF_RETENTION_MS = 24 * 60 * 60 * 1_000;
 export const MAX_CRAWLER_GENERATION_REAPER_CANDIDATES = 4;
+export const DISPATCH_REF_CONFLICT_BACKOFF_MS = Object.freeze([250, 500, 1_000, 2_000]);
 
 function compareCodePoint(left, right) {
   return left < right ? -1 : left > right ? 1 : 0;
@@ -427,29 +428,52 @@ function exactPinnedRef(response, dispatchRef, corpusCodeCommit) {
     && response.body?.object?.sha === corpusCodeCommit;
 }
 
+function isExactRefAlreadyExistsConflict(response) {
+  return response?.status === 422 && response.body?.message === 'Reference already exists';
+}
+
 /** Pin one dedicated branch before the wave so a moving corpus main cannot split the generation. */
-export async function ensureCrawlerGenerationDispatchRef({ request, generationToken, corpusCodeCommit }) {
+export async function ensureCrawlerGenerationDispatchRef({
+  request,
+  generationToken,
+  corpusCodeCommit,
+  sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
+}) {
   if (!COMMIT_RE.test(corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
   const dispatchRef = crawlerGenerationDispatchRef(generationToken);
   const endpoint = `/repos/${CALLER_REPOSITORY}/git/ref/heads/${dispatchRef}`;
   const current = await request({ method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION });
   if (exactPinnedRef(current, dispatchRef, corpusCodeCommit)) return dispatchRef;
 
-  let created = null;
   if (current?.status === 404) {
-    created = await request({
+    const created = await request({
       method: 'POST',
       path: `/repos/${CALLER_REPOSITORY}/git/refs`,
       apiVersion: GITHUB_API_VERSION,
       body: { ref: `refs/heads/${dispatchRef}`, sha: corpusCodeCommit },
     });
-    if (created?.status === 201) created = { ...created, status: 200 };
-    if (!exactPinnedRef(created, dispatchRef, corpusCodeCommit)) {
-      created = await request({ method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION });
+    const normalizedCreated = created?.status === 201 ? { ...created, status: 200 } : created;
+    if (exactPinnedRef(normalizedCreated, dispatchRef, corpusCodeCommit)) return dispatchRef;
+
+    // A concurrent creator can win the race while the exact-ref read replica
+    // still returns 404. Hydrate only the same immutable ref after GitHub's
+    // documented already-exists conflict; never repeat the POST or discover by
+    // listing. A populated mismatch or any other response is terminal.
+    if (isExactRefAlreadyExistsConflict(created)) {
+      for (let attempt = 0; attempt <= DISPATCH_REF_CONFLICT_BACKOFF_MS.length; attempt += 1) {
+        if (attempt > 0) await sleep(DISPATCH_REF_CONFLICT_BACKOFF_MS[attempt - 1]);
+        let reread;
+        try {
+          reread = await request({ method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION });
+        } catch {
+          break;
+        }
+        if (exactPinnedRef(reread, dispatchRef, corpusCodeCommit)) return dispatchRef;
+        if (reread?.status !== 404) break;
+      }
     }
   }
-  if (!exactPinnedRef(created, dispatchRef, corpusCodeCommit)) throw new Error('crawler_generation_ref_pin_failed');
-  return dispatchRef;
+  throw new Error('crawler_generation_ref_pin_failed');
 }
 
 function exactObservedRef(response, dispatchRef, corpusCodeCommit) {

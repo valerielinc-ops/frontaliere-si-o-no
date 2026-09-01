@@ -1663,6 +1663,10 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tasso-riferimento-ipotecario-1-25': { it: 'tasso-riferimento-ipotecario-1-25', en: 'mortgage-reference-rate-remains-at-1-25', de: 'hypothekenreferenzzins-bleibt-bei-1-25', fr: 'taux-de-reference-hypothecaire-remporte-a-1-25' },
  'svizzeri-chiedono-misure-clima': { it: 'svizzeri-chiedono-misure-clima', en: 'swiss-demand-climate-measures', de: 'schweizer-fordern-klimamasnahmen', fr: 'suisses-demandent-mesures-climat' },
  'affitti-riduzione-tasso-riferimento': { it: 'affitti-riduzione-tasso-riferimento', en: 'rentals-reduction-reference-rate', de: 'mieten-reduktion-referenzsatz', fr: 'loyers-reduction-taux-reference' },
+ 'dogane-strumenti-digitali-merci': { it: 'dogane-strumenti-digitali-merci', en: 'customs-digital-tools-goods', de: 'zoll-digitale-werkzeuge-waren', fr: 'douanes-outils-numeriques-marchandises' },
+ 'tasso-ipotecario-riferimento-1-25-stabile': { it: 'tasso-ipotecario-riferimento-1-25-stabile', en: 'swiss-reference-mortgage-rate-stays-1-25', de: 'referenzzinssatz-bleibt-1-25-prozent', fr: 'taux-hypothecaire-reference-reste-1-25' },
+ 'riduzione-affitto-tassi-ipotecari': { it: 'riduzione-affitto-tassi-ipotecari', en: 'rent-reduction-mortgage-rates', de: 'mietreduktion-hypothekenzinsen', fr: 'reduction-loyer-taux-hypothecaires' },
+ 'commercio-dettaglio-vendite-luglio-2025': { it: 'commercio-dettaglio-vendite-luglio-2025', en: 'retail-sales-increase-july-2025', de: 'einzelhandelsumsatz-steigt-im-juli-2025', fr: 'ventes-au-detail-augmentent-en-juillet-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -189,6 +189,17 @@ describe('Graubündner Kantonalbank crawler parser', () => {
       location: 'Thusis',
     });
   });
+  it('warns when the two Umantis views disagree on a populated field', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mergeGkbListing(
+      { vacancyId: '1924', title: 'First title' },
+      { vacancyId: '1924', title: 'Second title' },
+    );
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining(
+      'GKB vacancy 1924: conflicting title',
+    ));
+    warn.mockRestore();
+  });
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(GKB_KEY).toBe('gkb');

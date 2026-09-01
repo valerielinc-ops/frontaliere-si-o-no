@@ -4912,6 +4912,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-riduzione-tasso-riferimento.title': 'Loyers : baisse de tarif mais la réduction n’est pas automatique',
     'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'En 2025, le taux d’intérêt hypothécaire de référence a baissé deux fois. Seuls 12 % des locataires ont demandé cette réduction. L’ASI rappelle qu’il est payant de demander activement cette réduction.',
     'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Vue de Lugano au coucher du soleil avec immeubles résidentiels et lac en arrière-plan',
+    'blog.article.dogane-strumenti-digitali-merci.title': 'Douane, nouveaux outils numériques pour les biens et les achats',
+    'blog.article.dogane-strumenti-digitali-merci.excerpt': 'DaziT se conclut fin 2026 avec Passar et QuickZoll. Simplification du trafic transfrontalier, modernisation des contrôles frontaliers.',
+    'blog.article.dogane-strumenti-digitali-merci.imageAlt': 'Contrôle douanier numérique avec applications Passar et QuickZoll sur écrans modernes à un poste frontière suisse',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Taux hypothécaire à 1,25 % : impact sur les loyers',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'FOAB confirme ce paramètre à 1,25 % pour le troisième trimestre : historiquement bas, taux hypothécaire moyen à 1,31 %, SNB bloquée à 0,0 %. Que se passe-t-il maintenant pour les locataires et les propriétaires.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Façade d\'un immeuble résidentiel suisse avec appartements en location',
+    'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Association des locataires : « réduction du loyer »',
+    'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Le taux hypothécaire de référence a baissé deux fois en 2025, mais la plupart des locataires n’ont pas bénéficié de réduction de loyer.',
+    'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Vue de la ville de Lugano avec des bâtiments résidentiels',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Augmentation du commerce de détail et des ventes en juillet',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Les ventes dans le commerce de détail suisse ont augmenté de 0,2 % en juillet, en hausse de 1,7 % en termes réels.',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Vue aérienne du centre-ville de Lugano avec des magasins et des zones commerciales, Suisse',
 };
 
 export default blogMetaChFr;

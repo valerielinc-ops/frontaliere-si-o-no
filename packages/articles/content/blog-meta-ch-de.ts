@@ -4912,6 +4912,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-riduzione-tasso-riferimento.title': 'Mieten: Zinssenkung, aber die Senkung erfolgt nicht automatisch',
     'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'Im Jahr 2025 sank der Referenzhypothekenzins zweimal. Nur 12 % der Mieter haben die Senkung beantragt. Die ASI erinnert daran, dass es sich lohnt, die Senkung aktiv zu beantragen.',
     'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Stadtansicht von Lugano bei Sonnenuntergang mit Wohngebäuden und Seepanorama',
+    'blog.article.dogane-strumenti-digitali-merci.title': 'Zoll, neue digitale Werkzeuge für Waren und Einkäufe',
+    'blog.article.dogane-strumenti-digitali-merci.excerpt': 'DaziT wird Ende 2026 mit Passar und QuickZoll abgeschlossen. Vereinfachung des grenzüberschreitenden Verkehrs, modernisierte Grenzkontrollen.',
+    'blog.article.dogane-strumenti-digitali-merci.imageAlt': 'Digitale Zollkontrolle mit Passar- und QuickZoll-Apps auf modernen Bildschirmen an einem Schweizer Grenzübergang',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Der Referenzhypothekenzins bleibt bei 1,25 %: Was ändert sich bei den Mieten',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'FOAB bestätigt den Parameter für das dritte Quartal bei 1,25 %: historisch niedrig, durchschnittlicher Hypothekenzins 1,31 %, SNB bleibt bei 0,0 %. Was passiert jetzt mit Mietern und Vermietern?',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Fassade eines Schweizer Wohnhauses mit Mietwohnungen',
+    'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Mietervereinigung: "Es ist notwendig, eine Mietminderung zu beantragen"',
+    'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Der Leitzins für die Hypothek fiel 2025 zweimal, aber die meisten Mieter erhielten keine Mietreduzierung.',
+    'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Ansicht der Stadt Lugano mit Wohngebäuden',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Einzelhandel, Umsatzsteigerung im Juli',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Der Umsatz des Schweizer Detailhandels stieg im Juli um 0,2%, real um 1,7%.',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit Geschäften und Einkaufsgebieten, Schweiz',
 };
 
 export default blogMetaChDe;

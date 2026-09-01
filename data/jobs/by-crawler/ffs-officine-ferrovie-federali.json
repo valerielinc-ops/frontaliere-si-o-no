@@ -396,7 +396,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3953b12ae0f3",
@@ -1250,15 +1251,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-fm-prozesse-und-dokumentenmanagement/d3fa504a-58d2-4cd2-94bd-4cc658970bb0",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T10:17:29.534Z",
-      "previousSlugs": [
-        "spezialist-in-fm-prozesse-und-dokumentenmanagement-ffs-officine-ferrovie-federali-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-fm-prozesse-und-dokumentenmanagement-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "firstSeenAt": "2026-09-01T07:21:35.228Z",
+      "previousSlugs": [
+        "spezialist-in-fm-prozesse-und-dokumentenmanagement-ffs-officine-ferrovie-federali-bern"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1273,7 +1273,9 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-01T07:21:35.228Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -1334,15 +1336,26 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/4fa797e9-59b0-4ffb-9d4a-0d2f83b12256",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T10:18:11.356Z",
-      "previousSlugs": [
-        "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken"
+          "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "gatto-macchinista-un-trattore-a-catenaria-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
+          "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken"
+        ],
+        "en": [
+          "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken"
+        ],
+        "fr": [
+          "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken"
         ]
       },
-      "firstSeenAt": "2026-09-01T07:21:24.164Z",
+      "previousSlugs": [
+        "triebfahrzeugfuhrer-in-kat-a-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "gatto-macchinista-un-trattore-a-catenaria-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "train-driver-cat-a-catenary-tractor-fzm-ffs-officine-ferrovie-federali-dulliken",
+        "conducteur-de-train-cat-un-tracteur-a-catenaire-fzm-ffs-officine-ferrovie-federali-dulliken"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1357,7 +1370,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-01T07:21:24.164Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-80b42f8bd990",
@@ -1454,7 +1469,8 @@
         }
       },
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -1629,7 +1645,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9602863d2dd1",
@@ -2217,7 +2234,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-aec1034087eb",
@@ -2393,7 +2411,8 @@
         }
       },
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-417cffcec717",
@@ -2932,7 +2951,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9b5ff90b38c1",
@@ -3339,7 +3359,8 @@
         }
       },
       "addressRegion": "TG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ebe5d3eef7b9",
@@ -3893,7 +3914,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-59b2f7527f2d",
@@ -3992,7 +4014,8 @@
         }
       },
       "addressRegion": "SZ",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a372b1346856",
@@ -5629,7 +5652,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -12026,9 +12049,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -12089,8 +12112,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -12100,12 +12121,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

@@ -14734,6 +14734,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dogane-strumenti-digitali-merci',
+    category: 'novita',
+    date: '2026-09-01T10:43:34.724Z',
+    image: '/images/blog/dogane-strumenti-digitali-merci.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'tasso-ipotecario-riferimento-1-25-stabile',
+    category: 'pratico',
+    date: '2026-09-01T10:53:04.590Z',
+    image: '/images/blog/tasso-ipotecario-riferimento-1-25-stabile.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'riduzione-affitto-tassi-ipotecari',
+    category: 'pratico',
+    date: '2026-09-01T11:09:31.742Z',
+    image: '/images/blog/riduzione-affitto-tassi-ipotecari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'commercio-dettaglio-vendite-luglio-2025',
+    category: 'novita',
+    date: '2026-09-01T11:48:32.423Z',
+    image: '/images/blog/commercio-dettaglio-vendite-luglio-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
