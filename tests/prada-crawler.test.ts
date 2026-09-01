@@ -204,6 +204,9 @@ describe('Prada Group crawler — Ticino ownership', () => {
     expect(resolvePradaTicinoLocation({ location: '6850 Mendrisio', url })).toBe('6850 Mendrisio');
     expect(resolvePradaTicinoLocation({ location: 'CH-6850 Mendrisio, Ticino', url }))
       .toBe('CH-6850 Mendrisio, Ticino');
+    // Hyphen-joined variant (same bug class: a space-only strip left this
+    // unstripped and still fail-closed).
+    expect(resolvePradaTicinoLocation({ location: '6850-Mendrisio', url })).toBe('6850-Mendrisio');
     // Case and stray whitespace already tolerated — kept here as regression guards.
     expect(resolvePradaTicinoLocation({ location: '  MENDRISIO  ', url })).toBe('MENDRISIO');
   });
@@ -212,6 +215,7 @@ describe('Prada Group crawler — Ticino ownership', () => {
     const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
     expect(resolvePradaTicinoLocation({ location: '6850', url })).toBeNull();
     expect(resolvePradaTicinoLocation({ location: '6900 Lugano', url })).toBeNull();
+    expect(resolvePradaTicinoLocation({ location: '6900-Lugano', url })).toBeNull();
   });
 
   it('does not let a Mendrisio title override an authoritative foreign location', () => {

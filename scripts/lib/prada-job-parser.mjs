@@ -48,11 +48,15 @@ export function normalizePradaJobUrl(rawUrl = '') {
 
 // SuccessFactors detail pages sometimes prefix the city with a Swiss postal
 // code ("6850 Mendrisio", "CH-6850 Mendrisio, Ticino") — the same convention
-// already stripped for other crawlers, e.g. `agroscope-job-parser.mjs`. Only
-// the leading digits are stripped for the ownership check; the original
-// string (with postal code) is still what gets returned/persisted.
+// already stripped for other crawlers, e.g. `agroscope-job-parser.mjs`. The
+// separator between the postal code and the city is a space or a hyphen
+// ("6850-Mendrisio"): a space-only strip left that variant unstripped and
+// still fail-closed, same bug class as the one this stripper exists to fix.
+// Only the leading digits (+ separator) are stripped for the ownership
+// check; the original string (with postal code) is still what gets
+// returned/persisted.
 function stripLeadingSwissPostalCode(value = '') {
-  return value.replace(/^(?:CH-)?\d{4}\s+/i, '');
+  return value.replace(/^(?:CH-)?\d{4}[\s-]+/i, '');
 }
 
 /**
