@@ -4876,6 +4876,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-lamal-friburgo-2026.title': 'Krankenkassenprämien Freiburg: Kürzung und Zuschüsse',
     'blog.article.premi-lamal-friburgo-2026.excerpt': 'Prämienleitfaden für die obligatorische Krankenversicherung im Kanton Freiburg: Franchisen, alternative Modelle und Verfahren zur Erlangung der Prämienverbilligung',
     'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Schweizer Krankenversicherungsformular mit Dokumenten und Taschenrechner auf Schreibtisch',
+    'blog.article.dichiarazioni-cdf-partiti-2025.title': 'Parteien 2025: 24,6 Millionen, -1 Million ab 2024',
+    'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'Im Jahr 2025 melden die Schweizer Parteien Einnahmen von 24,6 Millionen Franken, was einem Rückgang von rund einer Million Franken gegenüber 2024 entspricht. Die SP führt mit 7,9 Millionen Franken.',
+    'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Plenarsaal des Schweizer Bundesparlaments während einer Sitzung',
 };
 
 export default blogMetaChDe;

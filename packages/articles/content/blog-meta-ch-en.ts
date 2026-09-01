@@ -4876,6 +4876,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-lamal-friburgo-2026.title': 'Sick pay premiums Freiburg: reduction and subsidies',
     'blog.article.premi-lamal-friburgo-2026.excerpt': 'Guide to compulsory health insurance premiums in the Canton of Fribourg: deductibles, alternative models and procedure for obtaining premium reductions',
     'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Swiss health insurance enrollment form with medical documents and calculator on desk',
+    'blog.article.dichiarazioni-cdf-partiti-2025.title': '2025 parties: 24.6 million, -1 million from 2024',
+    'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'In 2025, Swiss parties declare 24.6 million francs of revenue, a decrease of about one million compared to 2024. The SP leads with 7.9 million francs.',
+    'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Swiss Federal Parliament chamber during a plenary session with parliamentarians in session',
 };
 
 export default blogMetaChEn;

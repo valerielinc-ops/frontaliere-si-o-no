@@ -4876,6 +4876,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-lamal-friburgo-2026.title': 'Premi cassa malati Friburgo: riduzione e sussidi',
     'blog.article.premi-lamal-friburgo-2026.excerpt': 'Guida ai premi dell\'assicurazione malattia obbligatoria nel Canton Friburgo: franchigie, modelli alternativi e procedura per ottenere la riduzione dei premi',
     'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Modulo di iscrizione assicurazione malattia svizzera con documenti medici e calcolatrice su scrivania',
+    'blog.article.dichiarazioni-cdf-partiti-2025.title': 'Partiti 2025: 24,6 milioni, -1 milione da 2024',
+    'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'Nel 2025 i partiti svizzeri dichiarano 24,6 milioni di franchi di entrate, un calo di circa un milione rispetto al 2024. Il PS guida con 7,9 milioni di franchi.',
+    'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Sala del Parlamento federale svizzero durante una sessione plenaria con i parlamentari riuniti',
 };
 
 export default blogMetaChIt;
