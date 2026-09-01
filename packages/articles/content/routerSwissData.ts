@@ -1692,6 +1692,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'custodia-bambini-friburgo-costi-sussidi': { it: 'custodia-bambini-friburgo-costi-sussidi', en: 'childcare-friburgo-costs-subsidies', de: 'kinderbetreuung-freiburg-kosten-subventionen', fr: 'garde-enfants-fribourg-couts-subventions' },
  'shein-ipo-hong-kong-malus-francese': { it: 'shein-ipo-hong-kong-malus-francese', en: 'shein-hong-kong-ipo-french-tax-fast-fashion', de: 'shein-hongkong-boersendebut-franzoesische-steuer', fr: 'shein-hongkong-ipo-malus-francais-mode-rapide' },
  'affitti-friburgo-deposito-disdetta-locazione': { it: 'affitti-friburgo-deposito-disdetta-locazione', en: 'rentals-fribourg-deposit-termination-tenancy', de: 'mietvertraege-freiburg-kaution-kuendigung-mietrecht', fr: 'locations-fribourg-depot-resiliation-bail' },
+ 'affitti-friburgo-contestazione-canone': { it: 'affitti-friburgo-contestazione-canone', en: 'rentals-friburg-contestation-rent', de: 'miete-freiburg-einspruch-mietzins', fr: 'locations-fribourg-contestation-loyer' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

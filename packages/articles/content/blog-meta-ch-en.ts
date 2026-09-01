@@ -4999,6 +4999,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Right of lease in the Canton of Fribourg: practical guide',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'In the Canton of Freiburg, the maximum security deposit is 3 months\' rent. Guide to dispute initial fee, cancellation on cantonal form and recourse to the conciliation authority according to CO art. 253.',
     'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Residential street in Canton Fribourg with typical Swiss rental apartment buildings.',
+    'blog.article.affitti-friburgo-contestazione-canone.title': 'Rentals in Freiburg: right of lease',
+    'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Complete guide to security deposit, fee dispute and cancellation according to the Federal Bond Code. Conciliation procedure and deadlines.',
+    'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Swiss residential building overlooking mountain landscape',
 };
 
 export default blogMetaChEn;

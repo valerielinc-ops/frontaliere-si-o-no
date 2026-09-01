@@ -14995,6 +14995,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-friburgo-contestazione-canone',
+    category: 'pratico',
+    date: '2026-09-01T20:34:13.566Z',
+    image: '/images/blog/affitti-friburgo-contestazione-canone.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
