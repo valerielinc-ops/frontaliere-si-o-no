@@ -1,18 +1,49 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-09-01T08:50:28.836Z",
-  "total": 9,
-  "newCount": 0,
+  "generatedAt": "2026-09-01T10:25:50.815Z",
+  "total": 10,
+  "newCount": 1,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 13126,
-  "avgDurationMs": 13126,
+  "durationMs": 14408,
+  "avgDurationMs": 14408,
   "durationHistory": [
-    13126
+    14408
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Technischer Verkaufsberater Aussendienst Komfortlüftung & Hallenklima (m/w/d)",
+      "slug": "technischer-verkaufsberater-aussendienst-komfortluftung-hallenklima-m-w-d-hoval-feldmeilen-region-nws",
+      "url": "https://www.hoval.it/it_IT/job/3994",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/3994/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Feldmeilen ( Region NWS )",
+      "addressLocality": "Feldmeilen ( Region NWS )",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "IT & Digital",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Business Application Spezialist/in (m/w/d)",
