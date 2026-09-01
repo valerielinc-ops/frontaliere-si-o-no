@@ -5014,6 +5014,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Haus kaufen im Kanton Graubünden: Hypothek, Kosten und Verfahren',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Praktischer Leitfaden für den Immobilienkauf in Graubünden: Kauf- und Verkaufsverfahren, erforderliche Eigenmittel, Tragbarkeit des Hypothekendarlehens, Abgaben und Notargebühren.',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Modernes Wohnhaus im traditionellen Schweizer Alpin-Stil mit Holzarchitektur und alpiner Umgebung.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Mietmarkt Solothurn: Mieten und Mietrecht',
+    'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Vollständiger Leitfaden zum Mietrecht im Kanton Solothurn: Bundesregeln zur Kaution, Kündigung, Gebührenbeanstandung und Schlichtungsbehörde.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Schweizer Wohngebäude mit Fenstern und Balkonen in städtischer Nachbarschaft',
 };
 
 export default blogMetaChDe;

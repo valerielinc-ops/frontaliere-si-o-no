@@ -5014,6 +5014,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Buying a house in the canton of Graubünden: mortgage, costs and procedures',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Practical guide to buying real estate in Graubünden: purchase and sale procedures, own funds required, mortgage loan sustainability, transfer taxes and notary fees.',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Modern Swiss residential property in traditional Alpine architectural style with wooden elements and landscape.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Soletta rental market: fees and rental rights',
+    'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Complete Guide to the Right of Tenancy in the Canton of Solothurn: Federal Rules on Security Deposit, Cancellation, Rent Dispute and Conciliation Authority.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Swiss residential apartment building with windows and balconies in urban neighborhood',
 };
 
 export default blogMetaChEn;
