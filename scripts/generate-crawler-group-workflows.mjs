@@ -1615,7 +1615,7 @@ export function generateCrossRepoExecutionArtifacts({
     name: 'Translate Pending Jobs (sparse cross-repo execution)',
     workflowFile: 'translate-pending.yml',
     trigger: translateTrigger(translateLogic),
-    concurrency: { group: 'jobs-data-pipeline', 'cancel-in-progress': false },
+    concurrency: { group: 'jobs-data-pipeline', 'cancel-in-progress': false, queue: 'max' },
   });
   YAML.parse(translateContent);
   workflowPayloads.set('translate-pending.yml', translateContent);
