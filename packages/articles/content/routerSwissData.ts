@@ -1684,6 +1684,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lucerna-taxi-cari-mondo': { it: 'lucerna-taxi-cari-mondo', en: 'lucerne-most-expensive-taxis-world', de: 'luzern-teuerste-taxis-welt', fr: 'lucerne-taxis-plus-chers-monde' },
  'permesso-l-friburgo-durata-rinnovo': { it: 'permesso-l-friburgo-durata-rinnovo', en: 'l-permit-fribourg-duration-renewal', de: 'l-bewilligung-freiburg-gueltigkeitsdauer-verlaengerung', fr: 'permis-l-fribourg-duree-renouvellement' },
  'processo-ndrangheta-svizzera': { it: 'processo-ndrangheta-svizzera', en: 'ndrangheta-trial-switzerland', de: 'ndrangheta-prozess-schweiz', fr: 'proces-ndrangheta-suisse' },
+ 'legumi-texture-carne-ricerca-eth': { it: 'legumi-texture-carne-ricerca-eth', en: 'legumes-meat-texture-eth-research', de: 'huelsenfruechte-fleischstruktur-eth-forschung', fr: 'legumes-texture-viande-recherche-eth' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

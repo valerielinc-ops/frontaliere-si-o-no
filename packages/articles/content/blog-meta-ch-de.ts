@@ -4975,6 +4975,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.processo-ndrangheta-svizzera.title': 'Verfahren am mutmaßlichen finanziellen Bezugspunkt der \'Ndrangheta',
     'blog.article.processo-ndrangheta-svizzera.excerpt': 'Das Verfahren gegen einen 59-jährigen Italiener aus dem Kanton Aargau, dem Verbindungen zum Clan Anello-Fruci vorgeworfen werden, wurde eingeleitet.',
     'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Luftaufnahme des Tribunale penale federale di Bellinzona mit Fokus auf dem Gerichtssaal, in dem der Prozess stattfindet.',
+    'blog.article.legumi-texture-carne-ricerca-eth.title': 'Hülsenfrüchte mit Fleischtextur: Forschung ETH Zürich',
+    'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'ETH-Forscher verwandeln Erbsen, Bohnen und Linsen in Produkte mit fleischähnlicher Faserstruktur und reduzieren so die Lebensmittelverschwendung.',
+    'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Modernes Forschungsküchlenlabor mit frischen Hülsenfrüchten auf Arbeitsfläche, Geräte im Hintergrund',
 };
 
 export default blogMetaChDe;

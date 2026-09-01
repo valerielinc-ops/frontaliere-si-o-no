@@ -4975,6 +4975,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.processo-ndrangheta-svizzera.title': 'Processus au point de référence financier présumé de la \'ndrangheta',
     'blog.article.processo-ndrangheta-svizzera.excerpt': 'Une procédure a été engagée contre un Italien de 59 ans résidant dans le canton d\'Argovie, accusé de liens avec le clan Anello-Fruci.',
     'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Vue aérienne du Tribunale penale federale di Bellinzona avec un focus sur la salle d\'audience où se déroule le procès.',
+    'blog.article.legumi-texture-carne-ricerca-eth.title': 'Légumineuses à texture de viande : recherche ETH Zurich',
+    'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'Les chercheurs de l\'ETH transforment les pois, les haricots et les lentilles en produits à structure fibreuse ressemblant à de la viande, réduisant ainsi le gaspillage alimentaire.',
+    'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Laboratoire de cuisine moderne avec légumineuses fraîches sur comptoir, équipements scientifiques',
 };
 
 export default blogMetaChFr;

@@ -4975,6 +4975,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.processo-ndrangheta-svizzera.title': 'Process at the alleged financial reference point of the \'ndrangheta',
     'blog.article.processo-ndrangheta-svizzera.excerpt': 'The proceedings against a 59-year-old Italian resident in the Canton of Aargau, accused of links with the Anello-Fruci clan, have begun.',
     'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Aerial view of the Tribunale penale federale di Bellinzona with a focus on the courtroom where the trial is taking place.',
+    'blog.article.legumi-texture-carne-ricerca-eth.title': 'Legumes with meat textures: ETH Zurich research',
+    'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'ETH researchers transform peas, beans and lentils into products with a fibrous meat-like structure, reducing food waste.',
+    'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Modern research kitchen laboratory with fresh legumes on counter, scientific equipment visible',
 };
 
 export default blogMetaChEn;
