@@ -4927,6 +4927,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-stabile.title': 'The reference mortgage rate remains stable',
     'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'The reference mortgage rate in Switzerland remains at 1.25%. The Federal Office for Housing (FOH) confirms the unchanged value from 2 September 2025.',
     'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Aerial view of Lugano city and lake, Switzerland',
+    'blog.article.formazione-azienda-prioritario.title': 'In-company training: new federal priority until 2028',
+    'blog.article.formazione-azienda-prioritario.excerpt': 'SERI is allocating CHF 3 million to strengthen the quality of dual vocational education and training in the period 2026-2028.',
+    'blog.article.formazione-azienda-prioritario.imageAlt': 'Swiss apprentice during hands-on training session in a professional workshop setting.',
 };
 
 export default blogMetaChEn;
