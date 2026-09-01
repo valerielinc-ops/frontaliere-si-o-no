@@ -268,6 +268,7 @@ jobs:
           echo "ready=true" >> "$GITHUB_OUTPUT"
 
       - name: "Phase 2b: Translate pending jobs (cascade top-up)"
+        id: translation_shadow_preflight_v2_decision
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
@@ -279,12 +280,40 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
           INPUT_COMPANY_KEY: ${{ inputs.company_key }}
+          SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SHADOW_RUN_ID: ${{ github.run_id }}
+          SHADOW_SOURCE_REPOSITORY: ${{ github.repository }}
+          SHADOW_SOURCE_WORKFLOW: ${{ github.workflow_ref }}
+          SHADOW_WORKFLOW_BLOB_SHA: ${{ github.workflow_sha }}
         run: |
           ARGS=(--max-jobs "$INPUT_MAX_JOBS")
           if [ -n "$INPUT_COMPANY_KEY" ]; then
             ARGS+=(--company-key "$INPUT_COMPANY_KEY")
           fi
+          # Hash-bind the runtime library in the generated cross-repo contract:
+          # scripts/lib/translation-shadow-preflight-v2.mjs
+          ARGS+=(
+            --shadow-preflight-v2-output "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json"
+            --shadow-preflight-v2-baseline-main-sha "${{ steps.translation_observability_before.outputs.source_commit }}"
+            --shadow-preflight-v2-runner-temp "$RUNNER_TEMP"
+            --shadow-preflight-v2-repository "$SHADOW_SOURCE_REPOSITORY"
+            --shadow-preflight-v2-workflow "$SHADOW_SOURCE_WORKFLOW"
+            --shadow-preflight-v2-run-id "$SHADOW_RUN_ID"
+            --shadow-preflight-v2-run-attempt "$SHADOW_RUN_ATTEMPT"
+            --shadow-preflight-v2-workflow-blob-sha "$SHADOW_WORKFLOW_BLOB_SHA"
+          )
+          set +e
           node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
+          legacy_status=$?
+          set -e
+          while IFS= read -r binding; do
+            if [[ "$binding" =~ ^expected_(decision|contract)_digest=sha256:[a-f0-9]{64}$ ]]; then
+              echo "$binding" >> "$GITHUB_OUTPUT"
+            fi
+          done < <(node scripts/translation-shadow-preflight-v2.mjs \
+            --mode capture \
+            --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
+          exit "$legacy_status"
 
       - name: Log translation stats (after)
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
@@ -364,6 +393,65 @@ jobs:
             --output "$RUNNER_TEMP/translation-observability.json" \
             --final-commit "${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
 
+      - name: Finalize translation shadow preflight v2 observation
+        id: translation_shadow_preflight_v2_finalize
+        if: always() && steps.checkout.outcome == 'success'
+        continue-on-error: true
+        env:
+          SHADOW_DEFAULT_COMPANY_KEY: ${{ inputs.company_key }}
+          SHADOW_DEFAULT_DRY_RUN: ${{ inputs.dry_run }}
+          SHADOW_DEFAULT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
+          SHADOW_DEFAULT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+          SHADOW_DEFAULT_SKIP_HOUSEKEEPING: ${{ inputs.skip_housekeeping }}
+          SHADOW_DEFAULT_SKIP_TRANSLATE: ${{ inputs.skip_translate }}
+          SHADOW_EVENT_ACTION: ${{ github.event.action }}
+          SHADOW_EVENT_NAME: ${{ github.event_name }}
+          SHADOW_EXPECTED_CONTRACT_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_contract_digest }}
+          SHADOW_EXPECTED_DECISION_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_decision_digest }}
+          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
+          SHADOW_OBSERVED_JOB_STATUS: ${{ job.status }}
+          SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SHADOW_RUN_ID: ${{ github.run_id }}
+          SHADOW_SOURCE_COMMIT: ${{ steps.translation_observability_before.outputs.source_commit }}
+          SHADOW_SOURCE_REPOSITORY: ${{ github.repository }}
+          SHADOW_SOURCE_WORKFLOW: ${{ github.workflow_ref }}
+          SHADOW_WORKFLOW_BLOB_SHA: ${{ github.workflow_sha }}
+        run: |
+          node scripts/translation-shadow-preflight-v2.mjs \
+            --mode observe \
+            --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" \
+            --output "$RUNNER_TEMP/translation-shadow-preflight-v2-observation.json" \
+            --expected-decision-digest "$SHADOW_EXPECTED_DECISION_DIGEST" \
+            --expected-contract-digest "$SHADOW_EXPECTED_CONTRACT_DIGEST" \
+            --event-name "$SHADOW_EVENT_NAME" \
+            --event-action "$SHADOW_EVENT_ACTION" \
+            --run-id "$SHADOW_RUN_ID" \
+            --run-attempt "$SHADOW_RUN_ATTEMPT" \
+            --default-max-jobs "$SHADOW_DEFAULT_MAX_JOBS" \
+            --default-mopup-max-jobs "$SHADOW_DEFAULT_MOPUP_MAX_JOBS" \
+            --default-company-key "$SHADOW_DEFAULT_COMPANY_KEY" \
+            --default-skip-housekeeping "$SHADOW_DEFAULT_SKIP_HOUSEKEEPING" \
+            --default-skip-translate "$SHADOW_DEFAULT_SKIP_TRANSLATE" \
+            --default-dry-run "$SHADOW_DEFAULT_DRY_RUN" \
+            --source-repository "$SHADOW_SOURCE_REPOSITORY" \
+            --source-workflow "$SHADOW_SOURCE_WORKFLOW" \
+            --source-commit "$SHADOW_SOURCE_COMMIT" \
+            --workflow-blob-sha "$SHADOW_WORKFLOW_BLOB_SHA" \
+            --final-translation-commit "$SHADOW_FINAL_TRANSLATION_COMMIT" \
+            --observed-job-status "$SHADOW_OBSERVED_JOB_STATUS"
+
+      - name: Upload translation shadow preflight v2 artifacts
+        if: always() && steps.translation_shadow_preflight_v2_finalize.outcome != 'skipped'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-shadow-preflight-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/translation-shadow-preflight-v2-decision.json
+            ${{ runner.temp }}/translation-shadow-preflight-v2-observation.json
+          retention-days: 14
+          if-no-files-found: warn
+
       - name: Roll up translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
@@ -379,7 +467,7 @@ jobs:
 
       - name: Upload translation observability report
         if: always() && steps.translation_observability_before.outputs.ready == 'true'
-        uses: actions/upload-artifact@v7
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
         with:
           name: translation-observability-${{ github.run_id }}
           path: ${{ runner.temp }}/translation-observability.json
