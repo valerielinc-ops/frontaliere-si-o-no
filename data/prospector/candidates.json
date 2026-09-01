@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-31T10:31:18.617Z",
+  "updatedAt": "2026-09-01T03:29:19.315Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -136967,12 +136967,12 @@
     },
     "de@umantis.com": {
       "key": "de@umantis.com",
-      "status": "production",
+      "status": "rejected",
       "sources": [
         "tenant:umantis.com"
       ],
       "firstSeenAt": "2026-08-21T09:06:49.403Z",
-      "updatedAt": "2026-08-30T09:52:35.455Z",
+      "updatedAt": "2026-09-01T03:29:19.314Z",
       "name": "MPI AGE",
       "tenantHost": "mpi-age.de.umantis.com",
       "platform": "umantis.com",
@@ -136983,13 +136983,15 @@
         "vacancy-copy",
         "vacancy-path"
       ],
-      "country": "CH",
+      "country": "DE",
       "crawlerKey": "de",
       "mode": "template",
       "sourceLang": "de",
-      "qualityScore": 1,
-      "qualityVerdict": "good",
-      "qualityProblems": [],
+      "qualityScore": 0,
+      "qualityVerdict": "bad",
+      "qualityProblems": [
+        "foreign source: Köln, Germany; no Swiss vacancies"
+      ],
       "validationHistory": [
         {
           "at": "2026-08-22T16:22:05.440Z",
@@ -137091,7 +137093,8 @@
       "promotionPr": "6320",
       "promotionBranch": "prospector/promote-2026-08-24",
       "promotedAt": "2026-08-25T04:42:37.515Z",
-      "detailEnrichment": false
+      "detailEnrichment": false,
+      "reason": "retired: source vacancies are in Köln, Germany and outside Swiss scope (#6822)"
     },
     "recruitingapp-2696@umantis.com": {
       "key": "recruitingapp-2696@umantis.com",

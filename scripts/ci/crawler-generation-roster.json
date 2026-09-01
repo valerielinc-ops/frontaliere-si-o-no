@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 597,
+  "crawlerCount": 596,
   "groups": {
     "10": [
       "berit-klinik",
@@ -39,7 +39,6 @@
       "clienia-ag",
       "cnp",
       "crr-suva-sion",
-      "de",
       "hess-carrosserie",
       "hilcona",
       "hornbach",
@@ -790,7 +789,6 @@
     "daler-hopital": "data/jobs/by-crawler/daler-hopital.json",
     "damiani-group": "data/jobs/by-crawler/damiani-group.json",
     "davos-klosters-bergbahnen": "data/jobs/by-crawler/davos-klosters-bergbahnen.json",
-    "de": "data/jobs/by-crawler/de.json",
     "debiopharm": "data/jobs/by-crawler/debiopharm.json",
     "decathlon": "data/jobs/by-crawler/decathlon.json",
     "deloitte": "data/jobs/by-crawler/deloitte.json",
@@ -1246,5 +1244,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:3c22e5f3bc3fb5a71fe3e354467e337132943249b122e3fc7e89c38babddee0f"
+  "digest": "sha256:9782e1e37584f0dbd12baf5e0d0aca3f6ee0825aeab18d6dea96dd6be746ec9a"
 }
