@@ -11,17 +11,22 @@
  *   - Job shape validation
  *   - Category detection for hotel/hospitality roles
  */
-import { describe, it, expect, vi } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   BADRUTTS_PALACE_KEY,
   BADRUTTS_PALACE_COMPANY_NAME,
   BADRUTTS_PALACE_COMPANY_DOMAIN,
+  fetchAllBadruttsPalaceJobs,
   isBadruttsPalaceJob,
   isTrustedDomain,
   parseRssItems,
   parseRssDate,
 } from '../scripts/lib/badrutts-palace-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
@@ -134,12 +139,14 @@ describe('parseRssItems', () => {
   </channel>
 </rss>`;
 
-  const validItem = ({
+  const rssItemXml = ({
     title = '<title>Chef de Partie</title>',
     link = '<link>https://jobs.badruttscareers.com/en-GB/jobs/12345-chef-de-partie</link>',
     description = '<description><![CDATA[<p>Kitchen role</p>]]></description>',
     pubDate = '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate>',
-  } = {}) => `<rss><channel><item>${title}${link}${description}${pubDate}</item></channel></rss>`;
+  } = {}) => `<item>${title}${link}${description}${pubDate}</item>`;
+  const rssFeed = (...items: string[]) => `<rss><channel>${items.join('')}</channel></rss>`;
+  const validItem = (overrides = {}) => rssFeed(rssItemXml(overrides));
 
   it('parses multiple items from RSS feed', () => {
     const items = parseRssItems(SAMPLE_RSS);
@@ -255,6 +262,25 @@ describe('parseRssItems', () => {
     expect(warnSpy).toHaveBeenCalledWith(
       expect.stringMatching(new RegExp(`${field} must be a single scalar string`)),
     );
+    warnSpy.mockRestore();
+  });
+
+  it('keeps one malformed sibling but aborts when item drops exceed 50%', async () => {
+    const valid = rssItemXml();
+    const malformed = rssItemXml({
+      link: '<link>https://jobs.badruttscareers.com/en-GB/jobs/1</link><link>https://jobs.badruttscareers.com/en-GB/jobs/2</link>',
+    });
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(rssFeed(valid, malformed), { status: 200 }))
+      .mockResolvedValueOnce(new Response(rssFeed(valid, malformed, malformed), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchAllBadruttsPalaceJobs()).resolves.toHaveLength(1);
+    await expect(fetchAllBadruttsPalaceJobs()).rejects.toThrow(
+      /\[badrutts-rss-drop-ratio\] dropped 2\/3 items/,
+    );
+    expect(warnSpy).toHaveBeenCalled();
     warnSpy.mockRestore();
   });
 });

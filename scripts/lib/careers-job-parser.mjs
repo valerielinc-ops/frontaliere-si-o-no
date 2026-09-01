@@ -24,6 +24,8 @@ export const CAREERS_COMPANY_NAME = 'lepatron';
 export const CAREERS_COMPANY_DOMAIN = 'careers.orior.ch';
 
 const CAREERS_RSS_URL = 'https://careers.orior.ch/services/rss/category/?catid=4574301';
+const MAX_ITEM_DROP_RATIO = 0.5;
+const RSS_ITEM_STATS = Symbol('careersRssItemStats');
 const CAREERS_EMPTY_RSS_CHANNEL_KEYS = new Set([
   '#text',
   'atom:link',
@@ -134,14 +136,24 @@ function canonicalizeCareersRssUrl(rawUrl = '') {
   }
 }
 
+class CareersRssItemError extends Error {}
+
 function readCareersRssScalar(item, field, itemNumber) {
   const value = item?.[field];
   if (typeof value !== 'string') {
-    throw new Error(
+    throw new CareersRssItemError(
       `Le Patron RSS item ${itemNumber} ${field} must be a single scalar string`,
     );
   }
   return value;
+}
+
+function assertDropRatioWithinLimit(total, dropped) {
+  if (!dropped || total <= 0 || dropped / total <= MAX_ITEM_DROP_RATIO) return;
+  const percentage = Math.round((dropped / total) * 100);
+  throw new Error(
+    `[careers-rss-drop-ratio] dropped ${dropped}/${total} eligible items (${percentage}%, max 50%)`,
+  );
 }
 
 function isGenericCareersApplication(title = '') {
@@ -212,13 +224,18 @@ export function parseCareersRss(xml = '') {
   });
 
   const items = assertRssChannelItems(parsed, { source: CAREERS_KEY });
-  return items.map((item, index) => {
+  let ignoredItems = 0;
+  let malformedItems = 0;
+  const validItems = items.map((item, index) => {
     const itemNumber = index + 1;
     try {
       const rawTitle = normalizeSpace(stripHtml(readCareersRssScalar(item, 'title', itemNumber)));
       const parsedTitleLocation = rawTitle.match(/^(.*?)\s+\(([^,()]+),\s*([A-Z]{2})\)\s*$/u);
       const title = normalizeSpace(parsedTitleLocation?.[1] || rawTitle);
-      if (isGenericCareersApplication(title)) return null;
+      if (isGenericCareersApplication(title)) {
+        ignoredItems++;
+        return null;
+      }
 
       const location = normalizeSpace(parsedTitleLocation?.[2] || '');
       const locationWithRegion = `${location}, ${parsedTitleLocation?.[3] || ''}`;
@@ -237,11 +254,15 @@ export function parseCareersRss(xml = '') {
         !postedDate && 'publication date',
       ].filter(Boolean);
       if (missing.length) {
-        throw new Error(`Le Patron RSS item ${itemNumber} is missing ${missing.join(', ')}`);
+        throw new CareersRssItemError(`Le Patron RSS item ${itemNumber} is missing ${missing.join(', ')}`);
       }
 
       return { title, url, location, canton, description, postedDate };
     } catch (err) {
+      // Only declared item-data failures are recoverable. Unexpected code or
+      // parser errors must still abort the feed instead of dropping every row.
+      if (!(err instanceof CareersRssItemError)) throw err;
+      malformedItems++;
       // Per-item fail-closed guard (data-quality invariant), NOT a feed-shape
       // guard: a single degenerate item (e.g. a Spontanbewerbung variant that
       // drops the `(City, XX)` suffix) must not zero out every other valid
@@ -251,6 +272,11 @@ export function parseCareersRss(xml = '') {
       return null;
     }
   }).filter(Boolean);
+
+  Object.defineProperty(validItems, RSS_ITEM_STATS, {
+    value: { total: items.length - ignoredItems, dropped: malformedItems },
+  });
+  return validItems;
 }
 
 async function fetchJobListings() {
@@ -272,6 +298,8 @@ export async function fetchAllCareersJobs() {
   console.log(`   Source: ${CAREERS_RSS_URL}\n`);
 
   const listings = await fetchJobListings();
+  const rssItemStats = listings?.[RSS_ITEM_STATS];
+  if (rssItemStats) assertDropRatioWithinLimit(rssItemStats.total, rssItemStats.dropped);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ The valid Le Patron RSS channel currently has no job items.');
     return [];
