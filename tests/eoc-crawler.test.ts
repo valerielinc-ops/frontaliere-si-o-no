@@ -10,12 +10,87 @@
  * the regenerated slug must encode that identity so the slugs remain unique
  * across openings even when title + location are identical.
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  assertEocAdapterParity,
   buildEocRegeneratedSlug,
+  ensureAdapterSeedUrls,
+  fetchEocJobDetailUrls,
   postProcessEocJobsInMemory,
   stabilizeEocSlugsInMemory,
 } from '@/scripts/update-eoc-jobs.mjs';
+
+function eocListing(ids: number[], { token = true } = {}) {
+  return `${token ? '<a href="?x=1&_search_token66856=123456">next</a>' : ''}${ids
+    .map((id) => `<a href="/Vacancies/${id}/Description/4">job</a>`)
+    .join('')}`;
+}
+
+describe('EOC authoritative Umantis discovery', () => {
+  it('requires explicit pagination termination and accounts cross-page duplicates', async () => {
+    const fetchPageImpl = async (url: string) => String(url).includes('tc66856=p2')
+      ? eocListing([1001, 1002, 1003, 1011])
+      : eocListing(Array.from({ length: 10 }, (_, index) => 1001 + index));
+    const result = await fetchEocJobDetailUrls({ fetchPageImpl, delayMs: 0 });
+    expect(result).toMatchObject({
+      sourceZero: false,
+      termination: 'partial',
+      pagesFetched: 2,
+      duplicateIdentity: 3,
+    });
+    expect(result.urls).toHaveLength(11);
+    expect(new Set(result.urls).size).toBe(11);
+  });
+
+  it('fails closed on unavailable pagination or a missing filtered-listing token', async () => {
+    const page1 = eocListing(Array.from({ length: 10 }, (_, index) => 2001 + index));
+    const unavailable = async (url: string) => String(url).includes('tc66856=p2') ? null : page1;
+    await expect(fetchEocJobDetailUrls({ fetchPageImpl: unavailable, delayMs: 0 }))
+      .rejects.toThrow(/page 2 was unavailable/);
+
+    const missingToken = async () => eocListing([3001], { token: false });
+    await expect(fetchEocJobDetailUrls({ fetchPageImpl: missingToken, delayMs: 0 }))
+      .rejects.toThrow(/search token/);
+  });
+
+  it('accepts source-zero only when page 1 is available and carries the search token', async () => {
+    const fetchPageImpl = async () => eocListing([]);
+    await expect(fetchEocJobDetailUrls({ fetchPageImpl, delayMs: 0 })).resolves.toEqual({
+      urls: [],
+      sourceZero: true,
+      termination: 'verified-zero',
+      pagesFetched: 1,
+      duplicateIdentity: 0,
+    });
+  });
+});
+
+describe('EOC adapter persistence', () => {
+  it('is atomic, parity-checked, idempotent, and never swallows stale/write failures', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'eoc-adapter-'));
+    const adapterPath = path.join(dir, 'eoc.json');
+    const urls = ['https://recruitingapp-2761.umantis.com/Vacancies/4001/Description/4'];
+    const updatedAt = '2026-09-01T00:00:00.000Z';
+    try {
+      ensureAdapterSeedUrls(urls, adapterPath, updatedAt);
+      const firstBytes = fs.readFileSync(adapterPath, 'utf8');
+      ensureAdapterSeedUrls(urls, adapterPath, updatedAt);
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(firstBytes);
+      expect(() => assertEocAdapterParity({ seedUrls: [] }, urls)).toThrow(/parity failed/);
+
+      fs.writeFileSync(adapterPath, '{ stale');
+      const staleBytes = fs.readFileSync(adapterPath, 'utf8');
+      expect(() => ensureAdapterSeedUrls(urls, adapterPath, updatedAt)).toThrow();
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(staleBytes);
+      expect(() => ensureAdapterSeedUrls(urls, dir, updatedAt)).toThrow();
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
 
 interface EocJobFixture {
   url: string;

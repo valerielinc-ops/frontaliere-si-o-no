@@ -28,6 +28,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { launchChromium } from './lib/ensure-chromium.mjs';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -146,7 +147,7 @@ function isTrustedMigrosDomain(rawUrl = '') {
  * Returns absolute job detail URLs in whatever locale Migros served them
  * (mixed IT/DE is normal — individual job sourceLang is detected downstream).
  */
-async function fetchMigrosJobDetailUrls() {
+export async function fetchMigrosJobDetailUrls() {
   const headless = process.env.JOBS_MIGROS_HEADLESS !== '0';
   const navTimeoutMs = Number(process.env.JOBS_MIGROS_NAV_TIMEOUT_MS) || 30000;
   const paginationTimeoutMs = Number(process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS) || 2000;
@@ -179,6 +180,8 @@ async function fetchMigrosJobDetailUrls() {
   const page = await context.newPage();
 
   const allUrls = new Set();
+  let termination = '';
+  let pageIdx = 1;
 
   try {
     console.log(`🔍 Opening Migros listing (${LISTING_URL})`);
@@ -210,7 +213,6 @@ async function fetchMigrosJobDetailUrls() {
         return [...out];
       }, JOB_DETAIL_HREF_RE.source);
 
-    let pageIdx = 1;
     for (const u of await collect()) allUrls.add(u);
     console.log(`  📄 Page ${pageIdx}: ${allUrls.size} unique URLs so far`);
 
@@ -221,10 +223,13 @@ async function fetchMigrosJobDetailUrls() {
 
       const visible = await nextBtn.isVisible().catch(() => false);
       const disabled = await nextBtn.isDisabled().catch(() => true);
-      if (!visible || disabled) break;
+      if (!visible || disabled) {
+        termination = visible ? 'next-disabled' : 'next-unavailable';
+        break;
+      }
 
       await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
-      await nextBtn.click().catch(() => {});
+      await nextBtn.click();
       pageIdx += 1;
 
       // Re-poll the DOM until the clicked page actually renders new anchors.
@@ -241,7 +246,15 @@ async function fetchMigrosJobDetailUrls() {
         if (added > 0) break;
       }
       console.log(`  📄 Page ${pageIdx}: +${added} (${allUrls.size} total)`);
-      if (added === 0) break;
+      if (added === 0) {
+        const stillVisible = await nextBtn.isVisible().catch(() => false);
+        const nowDisabled = await nextBtn.isDisabled().catch(() => true);
+        if (stillVisible && !nowDisabled) {
+          throw new Error(`Migros discovery incomplete: page ${pageIdx} stalled while the next-page control remained enabled.`);
+        }
+        termination = stillVisible ? 'next-disabled' : 'next-unavailable';
+        break;
+      }
     }
   } finally {
     await browser.close();
@@ -256,11 +269,54 @@ async function fetchMigrosJobDetailUrls() {
   // (scripts/lib/job-url-key.mjs:assembleUrlKey), which does not normalize
   // away the locale-prefix differences between the two crawlers' URLs, so
   // the two copies would not collapse into one.
-  const absoluteUrls = [...allUrls]
+  return finalizeMigrosDiscovery([...allUrls], { termination, pagesFetched: pageIdx, maxPages });
+}
+
+/**
+ * @param {string[]} rawPaths
+ * @param {{ termination?: string, pagesFetched?: number, maxPages?: number }} options
+ */
+export function finalizeMigrosDiscovery(rawPaths, options = {}) {
+  const { termination = '', pagesFetched = 0, maxPages = 1000 } = options;
+  if (!['next-disabled', 'next-unavailable'].includes(termination)
+      || !Number.isInteger(pagesFetched) || pagesFetched < 1 || pagesFetched > maxPages) {
+    throw new Error(`Migros discovery incomplete: reached JOBS_MIGROS_MAX_PAGES=${maxPages} without terminal pagination state.`);
+  }
+  const absoluteCandidates = rawPaths
     .map((p) => `https://jobs.migros.ch${p}`)
     .filter((u) => !dedicatedMigrosOwner(u));
+  const byIdentity = new Map();
+  let duplicateIdentity = 0;
+  for (const url of absoluteCandidates) {
+    const parsed = new URL(url);
+    const match = parsed.pathname.match(JOB_DETAIL_HREF_RE);
+    const identity = match ? parsed.pathname.split('/').pop()?.toLowerCase() : '';
+    if (parsed.protocol !== 'https:' || parsed.hostname !== 'jobs.migros.ch' || !identity) {
+      throw new Error(`Migros discovery invariant failed: non-canonical detail URL ${url}.`);
+    }
+    if (byIdentity.has(identity)) {
+      duplicateIdentity += 1;
+      if (url.localeCompare(byIdentity.get(identity)) < 0) byIdentity.set(identity, url);
+    } else {
+      byIdentity.set(identity, url);
+    }
+  }
+  const absoluteUrls = [...byIdentity.values()].sort((a, b) => a.localeCompare(b));
+  const excludedDedicated = rawPaths.length - absoluteCandidates.length;
+  if (absoluteUrls.length + duplicateIdentity + excludedDedicated !== rawPaths.length) {
+    throw new Error(`Migros discovery accounting failed: raw=${rawPaths.length}, canonical=${absoluteUrls.length}, duplicates=${duplicateIdentity}, dedicated=${excludedDedicated}.`);
+  }
+  const result = {
+    urls: absoluteUrls,
+    sourceZero: absoluteUrls.length === 0,
+    termination,
+    pagesFetched,
+    rawUniqueUrls: rawPaths.length,
+    duplicateIdentity,
+    excludedDedicated,
+  };
   console.log(`✅ Total unique Migros detail URLs discovered: ${absoluteUrls.length}`);
-  return absoluteUrls;
+  return result;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -271,46 +327,47 @@ async function fetchMigrosJobDetailUrls() {
  * Ensure the Migros adapter JSON has the correct seed URLs
  * (detail page URLs discovered from the listing page).
  */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${MIGROS_KEY}.json`);
+export function buildMigrosAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyHost: 'jobs.migros.ch',
+    seedUrls,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html']))
+      .filter((mode) => mode !== 'jsonld'),
+    notes: 'Nuxt.js SSR careers portal — detail URLs scraped from listing pages, each page has rich HTML content.',
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${MIGROS_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertMigrosAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls) || adapter?.crawlerModes?.includes('jsonld')) {
+    throw new Error('Migros adapter parity failed: persisted seeds or crawler modes differ from the complete SPA listing.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${MIGROS_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: MIGROS_KEY,
       companyName: 'Migros Ticino',
       companyHost: 'jobs.migros.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html'],
-      seedUrls,
-      notes: 'Nuxt.js SSR careers portal — detail URLs scraped from listing pages, each page has rich HTML content.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = 'jobs.migros.ch';
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    // Remove jsonld mode since Migros doesn't have JSON-LD
-    adapter.crawlerModes = adapter.crawlerModes.filter((m) => m !== 'jsonld');
-    if (!adapter.crawlerModes.includes('html')) adapter.crawlerModes.push('html');
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes = 'Nuxt.js SSR careers portal — detail URLs scraped from listing pages, each page has rich HTML content.';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${MIGROS_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildMigrosAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertMigrosAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${MIGROS_KEY} updated with ${seedUrls.length} seed URLs (listing parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -394,8 +451,9 @@ async function main() {
   console.log('');
 
   // Step 1: Fetch job detail URLs from the SSR listing pages
-  const detailUrls = await fetchMigrosJobDetailUrls();
-  if (detailUrls.length === 0) {
+  const discovery = await fetchMigrosJobDetailUrls();
+  const detailUrls = discovery.urls;
+  if (discovery.sourceZero) {
     console.log('ℹ️ Nessun URL di dettaglio Migros trovato dalla listing. Uscita OK.');
     return;
   }
@@ -489,4 +547,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Migros'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Migros'));
+}
