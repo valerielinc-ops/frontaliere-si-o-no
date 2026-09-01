@@ -30,14 +30,29 @@ function assertJsonData(value, label, ancestors = new Set()) {
   ancestors.add(value);
   if (Array.isArray(value)) {
     const keys = Reflect.ownKeys(value);
-    if (
-      keys.some((key) => typeof key === 'symbol' || (key !== 'length' && !/^(?:0|[1-9]\d*)$/.test(key)))
-      || Array.from({ length: value.length }, (_, index) => index)
-        .some((index) => !Object.hasOwn(value, index))
-    ) {
+    const indexKeys = [];
+    for (const key of keys) {
+      if (key === 'length') continue;
+      if (
+        typeof key === 'symbol'
+        || !/^(?:0|[1-9]\d*)$/.test(key)
+        || Number(key) >= value.length
+        || Number(key) >= 0xffffffff
+      ) {
+        throw new TypeError(`${label} must contain only dense JSON arrays`);
+      }
+      indexKeys.push(key);
+    }
+    if (indexKeys.length !== value.length) {
       throw new TypeError(`${label} must contain only dense JSON arrays`);
     }
-    for (const item of value) assertJsonData(item, label, ancestors);
+    for (const key of indexKeys) {
+      const descriptor = Object.getOwnPropertyDescriptor(value, key);
+      if (!descriptor?.enumerable || !Object.hasOwn(descriptor, 'value')) {
+        throw new TypeError(`${label} must contain only JSON data properties`);
+      }
+      assertJsonData(descriptor.value, label, ancestors);
+    }
   } else {
     if (!isPlainObject(value)) throw new TypeError(`${label} must contain only plain JSON objects`);
     for (const key of Reflect.ownKeys(value)) {
@@ -66,7 +81,26 @@ function sameIdentity(left, right) {
     && left.contextHash === right.contextHash;
 }
 
-function applyValidatedPatch(mutableSlice, patch) {
+function buildJobKeyIndex(jobs) {
+  const indicesByJobKey = new Map();
+  for (let index = 0; index < jobs.length; index += 1) {
+    const job = jobs[index];
+    if (!isPlainObject(job)) continue;
+    let jobKey;
+    try {
+      jobKey = resolveJobTranslationTargetKeyV2(job);
+    } catch {
+      continue;
+    }
+    if (typeof jobKey !== 'string') continue;
+    const indices = indicesByJobKey.get(jobKey) ?? [];
+    indices.push(index);
+    indicesByJobKey.set(jobKey, indices);
+  }
+  return indicesByJobKey;
+}
+
+function applyValidatedPatch(mutableSlice, patch, indicesByJobKey) {
   if (
     !Object.hasOwn(mutableSlice, 'crawlerKey')
     || !Object.hasOwn(mutableSlice, 'jobs')
@@ -77,12 +111,7 @@ function applyValidatedPatch(mutableSlice, patch) {
   }
   if (mutableSlice.crawlerKey !== patch.target.crawlerKey) return 'target_absent';
 
-  const matches = [];
-  for (let index = 0; index < mutableSlice.jobs.length; index += 1) {
-    const job = mutableSlice.jobs[index];
-    if (!isPlainObject(job)) continue;
-    if (resolveJobTranslationTargetKeyV2(job) === patch.target.jobKey) matches.push(index);
-  }
+  const matches = indicesByJobKey.get(patch.target.jobKey) ?? [];
   // Absence never writes. A later re-add may reuse this patch only if every
   // target and identity guard still describes the same logical job.
   if (matches.length === 0) return 'target_absent';
@@ -149,15 +178,26 @@ function applyValidatedPatch(mutableSlice, patch) {
 export function reduceTranslationDerivedPatchBatchV2(activeSlice, rawPatches) {
   assertJsonData(activeSlice, 'active crawler slice');
   assertTranslationPlainObjectV2(activeSlice, 'active crawler slice');
-  if (!Array.isArray(rawPatches) || rawPatches.length > MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2) {
+  if (
+    !Array.isArray(rawPatches)
+    || rawPatches.length < 1
+    || rawPatches.length > MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2
+  ) {
     throw new TypeError(
-      `translation derived patch batch must contain at most ${MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2} patches`,
+      `translation derived patch batch must contain between 1 and ${MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2} patches`,
     );
   }
   assertJsonData(rawPatches, 'translation derived patch batch');
   const patches = rawPatches.map((patch) => validateTranslationDerivedPatchV2(patch));
   const mutableSlice = structuredClone(activeSlice);
-  const outcomes = patches.map((patch) => applyValidatedPatch(mutableSlice, patch));
+  const indicesByJobKey = Array.isArray(mutableSlice.jobs)
+    ? buildJobKeyIndex(mutableSlice.jobs)
+    : new Map();
+  const outcomes = patches.map((patch) => applyValidatedPatch(
+    mutableSlice,
+    patch,
+    indicesByJobKey,
+  ));
   return deepFreezeTranslationV2({ outcomes, slice: mutableSlice });
 }
 

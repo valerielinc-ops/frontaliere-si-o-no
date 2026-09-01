@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   createEmptyTranslationMemoryV2,
@@ -172,6 +173,15 @@ describe('translation derived reducer v2', () => {
     }
   });
 
+  it('rejects a huge sparse JSON array without allocating from its length', () => {
+    const huge: unknown[] = [];
+    huge.length = 0xffffffff;
+    expect(() => reduceTranslationDerivedPatchV2(
+      { ...slice(), metadata: huge },
+      patchFor(BASE_JOB),
+    )).toThrow(/dense JSON arrays/);
+  });
+
   it('ignores inherited locale maps, creates an own map and leaves the prototype untouched', () => {
     const pollutedMap = { it: 'PROTOTYPE_TRANSLATION' };
     const previousMap = Object.getOwnPropertyDescriptor(Object.prototype, 'titleByLocale');
@@ -251,7 +261,7 @@ describe('translation derived reducer v2', () => {
     expect(reduced.slice).toEqual(slice(rotated));
   });
 
-  it('does not resurrect a deleted target and requires a fresh patch after re-add', () => {
+  it('keeps absence non-resurrecting, reuses an exact logical re-add and requires a fresh patch after URL/id rotation', () => {
     const oldPatch = patchFor(BASE_JOB);
     expect(reduceTranslationDerivedPatchV2(
       { crawlerKey: 'example-crawler', jobs: [] },
@@ -323,7 +333,27 @@ describe('translation derived reducer v2', () => {
     expect(() => reduceTranslationDerivedPatchBatchV2(
       slice(BASE_JOB),
       Array.from({ length: MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2 + 1 }, () => firstPatch),
-    )).toThrow(/at most 250/);
+    )).toThrow(/between 1 and 250/);
+    expect(() => reduceTranslationDerivedPatchBatchV2(slice(BASE_JOB), []))
+      .toThrow(/between 1 and 250/);
+  });
+
+  it('builds the job-key index once per batch and never scans jobs inside patch application', () => {
+    const source = readFileSync(
+      new URL('../scripts/lib/translation-derived-reducer-v2.mjs', import.meta.url),
+      'utf8',
+    );
+    const batchBody = source.slice(
+      source.indexOf('export function reduceTranslationDerivedPatchBatchV2'),
+      source.indexOf('export function reduceTranslationDerivedPatchV2'),
+    );
+    const applyBody = source.slice(
+      source.indexOf('function applyValidatedPatch'),
+      source.indexOf('export function reduceTranslationDerivedPatchBatchV2'),
+    );
+
+    expect(batchBody.match(/buildJobKeyIndex\(mutableSlice\.jobs\)/g)).toHaveLength(1);
+    expect(applyBody).not.toMatch(/for\s*\([^)]*mutableSlice\.jobs/);
   });
 
   it('fails closed on duplicate exact stable keys', () => {
