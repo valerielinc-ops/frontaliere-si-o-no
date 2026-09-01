@@ -4478,11 +4478,16 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
     const lifecycleDomains = Array.isArray(result?.authoritativeLifecycleDomains)
       ? result.authoritativeLifecycleDomains.map((domain) => normalizeHost(domain)).filter(Boolean)
       : [];
-    const sourceFingerprints = Array.isArray(result?.authoritativeDetailFingerprints)
-      ? result.authoritativeDetailFingerprints.filter(Boolean)
-      : [];
-    if (!companyKey || lifecycleDomains.length === 0 || sourceFingerprints.length === 0) continue;
+    const sourceFingerprintsByDomain = result?.authoritativeDetailFingerprintsByDomain
+      && typeof result.authoritativeDetailFingerprintsByDomain === 'object'
+      ? result.authoritativeDetailFingerprintsByDomain
+      : {};
+    if (!companyKey || lifecycleDomains.length === 0) continue;
     for (const domain of lifecycleDomains) {
+      const sourceFingerprints = Array.isArray(sourceFingerprintsByDomain[domain])
+        ? sourceFingerprintsByDomain[domain].filter(Boolean)
+        : [];
+      if (sourceFingerprints.length === 0) continue;
       activeDomains.add(domain);
       authoritativeFingerprintsByScope.set(`${companyKey}|${domain}`, new Set(sourceFingerprints));
     }
@@ -4494,6 +4499,7 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
+  const singleScopedCompanyKey = scopeCompanyKeys.size === 1 ? [...scopeCompanyKeys][0] : '';
 
   const incomingFp = new Set((incomingJobs || []).map((j) => fingerprintJob(j)).filter(Boolean));
   const prunedExisting = [];
@@ -4501,7 +4507,10 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   for (const job of existingJobs || []) {
     const domain = normalizeHost(hostOf(job?.url || ''));
     if (job?.source === 'Company Careers Crawler' && domain && activeDomains.has(domain)) {
-      const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
+      const explicitKey = normalizeCompanyKey(String(job?.companyKey || ''));
+      const key = explicitKey
+        || singleScopedCompanyKey
+        || normalizeCompanyKey(String(job?.company || ''));
       if (hasScopedCompanyKeys) {
         if (!scopeCompanyKeys.has(key)) {
           prunedExisting.push(job);
@@ -4590,9 +4599,15 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   }
   if (adapter?.authoritativeDetailSnapshot === true) {
     result.authoritativeLifecycleDomains = adapter.authoritativeLifecycleDomains;
-    result.authoritativeDetailFingerprints = (adapter.seedDetailUrls || [])
-      .map((url) => fingerprintJob({ url }))
-      .filter(Boolean);
+    const fingerprintsByDomain = {};
+    for (const url of adapter.seedDetailUrls || []) {
+      const domain = normalizeHost(hostOf(url));
+      const fingerprint = fingerprintJob({ url });
+      if (!domain || !fingerprint) continue;
+      if (!fingerprintsByDomain[domain]) fingerprintsByDomain[domain] = [];
+      fingerprintsByDomain[domain].push(fingerprint);
+    }
+    result.authoritativeDetailFingerprintsByDomain = fingerprintsByDomain;
   }
   const defaultModes = ['workday', 'greenhouse', 'lever', 'smartrecruiters', 'generic_ats', 'teaser_api', 'jsonld', 'html'];
   const companyModeConfig =

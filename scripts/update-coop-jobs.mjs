@@ -39,6 +39,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -307,16 +308,21 @@ function buildSeedMetaFromApiJob(job, fallbackCanton = '') {
  *
  * Returns unique detail URLs + metadata indexed by URL.
  */
-export async function fetchCoopJobDetailUrls() {
+export async function fetchCoopJobDetailUrls(options = {}) {
   const allUrls = new Set();
+  const allFingerprints = new Set();
   const seedMetaByUrl = {};
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
 
   /** Canton distribution for logging (2-letter code → count). */
   const cantonCounts = {};
   let apiTotal = null;
   let fetched = 0;
   let droppedNonCh = 0;
+  let droppedMalformedUrl = 0;
+  let droppedDuplicateUrl = 0;
+  let droppedDuplicateIdentity = 0;
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -339,7 +345,7 @@ export async function fetchCoopJobDetailUrls() {
       let res;
       let data;
       try {
-        res = await fetch(apiUrl, {
+        res = await fetchImpl(apiUrl, {
           signal: controller.signal,
           headers: {
             Accept: 'application/json',
@@ -370,19 +376,44 @@ export async function fetchCoopJobDetailUrls() {
 
     for (const job of jobs) {
       const directLink = String(job?.links?.directlink || '').trim();
-      if (directLink && directLink.startsWith('http') && !allUrls.has(directLink)) {
-        const meta = buildSeedMetaFromApiJob(job);
-        // CH-only gate: drop foreign postings (e.g. "Principato del Liechtenstein")
-        // whose label doesn't resolve to a Swiss canton — mirrors confederazione's
-        // Boolean(job.canton) filter. Keeps JobPosting structured data complete
-        // (addressRegion present) and the dataset on-target for a CH site.
-        if (!meta.canton) { droppedNonCh += 1; continue; }
-        const discoveredHost = hostOf(directLink);
-        if (discoveredHost) DISCOVERED_COOP_HOSTS.add(discoveredHost);
-        allUrls.add(directLink);
-        seedMetaByUrl[directLink] = meta;
-        cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
+      let parsedUrl;
+      try {
+        parsedUrl = new URL(directLink);
+      } catch {
+        droppedMalformedUrl += 1;
+        continue;
       }
+      const discoveredHost = parsedUrl.hostname.toLowerCase();
+      if (!['http:', 'https:'].includes(parsedUrl.protocol)
+          || !COOP_LIFECYCLE_DOMAINS.includes(discoveredHost)) {
+        droppedMalformedUrl += 1;
+        continue;
+      }
+      if (allUrls.has(directLink)) {
+        droppedDuplicateUrl += 1;
+        continue;
+      }
+      const fingerprint = fingerprintJob({ url: directLink });
+      if (!fingerprint) {
+        droppedMalformedUrl += 1;
+        continue;
+      }
+      if (allFingerprints.has(fingerprint)) {
+        droppedDuplicateIdentity += 1;
+        continue;
+      }
+
+      const meta = buildSeedMetaFromApiJob(job);
+      // CH-only gate: drop foreign postings (e.g. "Principato del Liechtenstein")
+      // whose label doesn't resolve to a Swiss canton — mirrors confederazione's
+      // Boolean(job.canton) filter. Keeps JobPosting structured data complete
+      // (addressRegion present) and the dataset on-target for a CH site.
+      if (!meta.canton) { droppedNonCh += 1; continue; }
+      DISCOVERED_COOP_HOSTS.add(discoveredHost);
+      allUrls.add(directLink);
+      allFingerprints.add(fingerprint);
+      seedMetaByUrl[directLink] = meta;
+      cantonCounts[meta.canton] = (cantonCounts[meta.canton] || 0) + 1;
     }
 
     console.log(`  📦 page ${page + 1}: ${jobs.length} jobs (cumulative ${fetched}${apiTotal !== null ? `/${apiTotal}` : ''})`);
@@ -399,7 +430,7 @@ export async function fetchCoopJobDetailUrls() {
 
   // Summary log
   console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
-  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH (e.g. Liechtenstein): ${droppedNonCh} · unique detail URLs: ${allUrls.size}`);
+  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
   const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
   console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
@@ -412,6 +443,9 @@ export async function fetchCoopJobDetailUrls() {
     apiTotal,
     fetched,
     droppedNonCh,
+    droppedMalformedUrl,
+    droppedDuplicateUrl,
+    droppedDuplicateIdentity,
   };
 }
 
@@ -447,7 +481,7 @@ export function assertCoopAdapterParity(adapter, seedDetailUrls, seedMetaByUrl =
   if (JSON.stringify(adapter?.seedDetailUrls) !== JSON.stringify(seedDetailUrls)) {
     throw new Error('Coop adapter parity failed: seedDetailUrls differ from the authoritative feed.');
   }
-  if (JSON.stringify(adapter?.seedMetaByUrl) !== JSON.stringify(seedMetaByUrl)) {
+  if (!isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
     throw new Error('Coop adapter parity failed: seedMetaByUrl differs from the authoritative feed.');
   }
   if (adapter?.authoritativeDetailSnapshot !== true
@@ -461,6 +495,9 @@ export function assertCompleteCoopDiscovery(discovery) {
   const apiTotal = Number(discovery?.apiTotal);
   const fetched = Number(discovery?.fetched);
   const droppedNonCh = Number(discovery?.droppedNonCh);
+  const droppedMalformedUrl = Number(discovery?.droppedMalformedUrl || 0);
+  const droppedDuplicateUrl = Number(discovery?.droppedDuplicateUrl || 0);
+  const droppedDuplicateIdentity = Number(discovery?.droppedDuplicateIdentity || 0);
   const urls = Array.isArray(discovery?.urls) ? discovery.urls : [];
   const seedMetaByUrl = discovery?.seedMetaByUrl && typeof discovery.seedMetaByUrl === 'object'
     ? discovery.seedMetaByUrl
@@ -479,13 +516,16 @@ export function assertCompleteCoopDiscovery(discovery) {
       return false;
     }
   });
-  if (!Number.isInteger(droppedNonCh) || droppedNonCh < 0
-      || urls.length + droppedNonCh !== fetched
+  const droppedCounts = [droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
+  const accounted = urls.length + droppedCounts.reduce((sum, count) => sum + count, 0);
+  if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
+      || accounted !== fetched
+      || (apiTotal > 0 && urls.length === 0)
       || Object.keys(seedMetaByUrl).length !== urls.length
       || feedFingerprints.size !== urls.length
       || !trustedHostsOnly) {
     throw new Error(
-      `Coop discovery invariant failed: fetched=${fetched}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+      `Coop discovery invariant failed: fetched=${fetched}, accounted=${accounted}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
     );
   }
   return true;

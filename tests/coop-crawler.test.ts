@@ -3,9 +3,11 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
+  assertCoopAdapterParity,
   assertCompleteCoopDiscovery,
   buildCoopAdapterConfig,
   ensureAdapterSeedUrls,
+  fetchCoopJobDetailUrls,
 } from '../scripts/update-coop-jobs.mjs';
 import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
@@ -62,6 +64,56 @@ describe('Coop authoritative detail routing', () => {
 
     fs.writeFileSync(adapterPath, '{ invalid json');
     expect(() => ensureAdapterSeedUrls(urls, meta, adapterPath)).toThrow();
+  });
+
+  it('compares adapter metadata structurally, independent of object key order', () => {
+    const urls = [
+      'https://jobs.coopjobs.ch/offene-stellen/one/11111111-1111-4111-8111-111111111111',
+      'https://jobs.coopjobs.ch/offene-stellen/two/22222222-2222-4222-8222-222222222222',
+    ];
+    const expectedMeta = {
+      [urls[0]]: { canton: 'ZH', location: 'Zurich' },
+      [urls[1]]: { canton: 'BE', location: 'Bern' },
+    };
+    const reversedMeta = {
+      [urls[1]]: { location: 'Bern', canton: 'BE' },
+      [urls[0]]: { location: 'Zurich', canton: 'ZH' },
+    };
+    expect(assertCoopAdapterParity({
+      seedDetailUrls: urls,
+      seedMetaByUrl: reversedMeta,
+      authoritativeDetailSnapshot: true,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+    }, urls, expectedMeta)).toBe(true);
+  });
+
+  it('accounts duplicate URLs, duplicate UUID aliases and malformed rows explicitly', async () => {
+    const canonicalUrl = 'https://jobs.coopjobs.ch/offene-stellen/one/11111111-1111-4111-8111-111111111111';
+    const aliasUrl = 'https://jobs.coopjobs.ch/postes-vacantes/un/11111111-1111-4111-8111-111111111111';
+    const swissJob = (directlink) => ({
+      links: { directlink },
+      attributes: { '30': ['Zurigo'], '70': ['Coop Genossenschaft'] },
+    });
+    const jobs = [
+      swissJob(canonicalUrl),
+      swissJob(canonicalUrl),
+      swissJob(aliasUrl),
+      { links: {}, attributes: { '30': ['Zurigo'] } },
+    ];
+    const discovery = await fetchCoopJobDetailUrls({
+      fetchImpl: async () => new Response(JSON.stringify({ total: jobs.length, jobs }), { status: 200 }),
+    });
+
+    expect(discovery).toMatchObject({
+      apiTotal: 4,
+      fetched: 4,
+      urls: [canonicalUrl],
+      droppedNonCh: 0,
+      droppedMalformedUrl: 1,
+      droppedDuplicateUrl: 1,
+      droppedDuplicateIdentity: 1,
+    });
+    expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
   });
 
   it('rejects a partial or internally inconsistent authoritative feed', () => {
@@ -134,7 +186,9 @@ describe('Coop authoritative detail routing', () => {
       companyDomain: 'coop.ch',
       processedCandidates: 1,
       authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
-      authoritativeDetailFingerprints: [fingerprintJob({ url: presentFeedUrl })],
+      authoritativeDetailFingerprintsByDomain: {
+        'jobs.coopjobs.ch': [fingerprintJob({ url: presentFeedUrl })],
+      },
     };
 
     const first = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
@@ -163,6 +217,59 @@ describe('Coop authoritative detail routing', () => {
     });
     expect(third.removed).toBe(1);
     expect(third.prunedExisting.map((job) => job.id)).toEqual(['present', 'sibling']);
+  });
+
+  it('maps a legacy record without companyKey to the only scoped crawler key', () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/legacy/55555555-5555-4555-8555-555555555555';
+    const existing = [{
+      id: 'legacy',
+      company: 'Coop Genossenschaft',
+      source: 'Company Careers Crawler',
+      url,
+      crawlerMissStreak: 1,
+      previousSlugs: ['legacy-route'],
+    }];
+    const result = {
+      companyKey: 'coop-ticino',
+      companyDomain: 'coop.ch',
+      processedCandidates: 1,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+      authoritativeDetailFingerprintsByDomain: {
+        'jobs.coopjobs.ch': [fingerprintJob({ url })],
+      },
+    };
+    const { prunedExisting, removed } = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    });
+    expect(removed).toBe(0);
+    expect(prunedExisting).toEqual([expect.objectContaining({ id: 'legacy', previousSlugs: ['legacy-route'] })]);
+    expect(prunedExisting[0]).not.toHaveProperty('crawlerMissStreak');
+    expect(prunedExisting[0].previousSlugs).toEqual(['legacy-route']);
+  });
+
+  it('keeps authoritative fingerprints separated by lifecycle domain', () => {
+    const coopUrl = 'https://jobs.coopjobs.ch/offene-stellen/coop/66666666-6666-4666-8666-666666666666';
+    const otherUrl = 'https://careers.example.ch/job/77777777-7777-4777-8777-777777777777';
+    const existing = [{
+      id: 'coop-domain-only',
+      companyKey: 'coop-ticino',
+      source: 'Company Careers Crawler',
+      url: coopUrl,
+    }];
+    const result = {
+      companyKey: 'coop-ticino',
+      companyDomain: 'coop.ch',
+      processedCandidates: 1,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch', 'careers.example.ch'],
+      authoritativeDetailFingerprintsByDomain: {
+        'jobs.coopjobs.ch': [fingerprintJob({ url: otherUrl })],
+        'careers.example.ch': [fingerprintJob({ url: coopUrl })],
+      },
+    };
+    const { prunedExisting } = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    });
+    expect(prunedExisting[0].crawlerMissStreak).toBe(1);
   });
 
   it('does not apply cross-domain lifecycle to a non-authoritative feed', () => {
