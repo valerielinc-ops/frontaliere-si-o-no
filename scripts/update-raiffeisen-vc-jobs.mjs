@@ -19,6 +19,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
@@ -101,27 +102,32 @@ function isRaiffeisenVCJob(job) {
  * Scrape the Raiffeisen Vedeggio Cassarate careers pages for
  * jobs.raiffeisen.ch links (Prospective career center).
  */
-async function fetchJobUrls() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
-  const urls = new Set();
+export async function fetchJobUrls(options = {}) {
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  const byIdentity = new Map();
+  let duplicateIdentity = 0;
+  let pagesSucceeded = 0;
 
   for (const pageUrl of CAREERS_URLS) {
     console.log(`🔍 Fetching: ${pageUrl}`);
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(pageUrl, {
+      const res = await fetchImpl(pageUrl, {
         signal: controller.signal,
         headers: { Accept: 'text/html', 'User-Agent': UA },
         redirect: 'follow',
       });
 
       if (!res.ok) {
-        console.warn(`   ⚠️ HTTP ${res.status}`);
-        continue;
+        throw new Error(`Raiffeisen VC discovery failed: ${pageUrl} returned HTTP ${res.status}.`);
       }
-
       const html = await res.text();
+      if (!/vedeggio-cassarate/i.test(html) || !/raiffeisen/i.test(html)) {
+        throw new Error(`Raiffeisen VC discovery failed: careers page identity marker missing (${pageUrl}).`);
+      }
+      pagesSucceeded += 1;
 
       // Extract all jobs.raiffeisen.ch links (Prospective career center)
       const hrefPattern = /href="(https?:\/\/jobs\.raiffeisen\.ch\/[^"]+)"/g;
@@ -134,18 +140,35 @@ async function fetchJobUrls() {
             href.includes('/offene-stellen/') ||
             href.includes('/postes-vacants/') ||
             href.includes('/open-positions/')) {
-          urls.add(href);
+          const parsed = new URL(href);
+          const detailMatch = parsed.pathname.match(/^\/(posti-vacanti|offene-stellen|postes-vacants|open-positions)\/[^/]+\/([0-9a-f-]{20,})\/?$/i);
+          if (parsed.protocol !== 'https:' || parsed.hostname !== RAIFF_JOBS_HOST
+              || !detailMatch || parsed.search || parsed.hash) {
+            throw new Error(`Raiffeisen VC discovery invariant failed: non-canonical detail URL ${href}.`);
+          }
+          const identity = detailMatch[2].toLowerCase();
+          if (byIdentity.has(identity)) {
+            duplicateIdentity += 1;
+            if (href.localeCompare(byIdentity.get(identity)) < 0) byIdentity.set(identity, href);
+          } else {
+            byIdentity.set(identity, href);
+          }
         }
       }
     } catch (err) {
-      console.warn(`   ⚠️ Failed: ${err.message}`);
+      if (String(err?.message || '').startsWith('Raiffeisen VC discovery')) throw err;
+      throw new Error(`Raiffeisen VC discovery failed for ${pageUrl}: ${err.message}`, { cause: err });
     } finally {
       clearTimeout(timer);
     }
   }
 
-  console.log(`✅ Discovered ${urls.size} Raiffeisen VC job detail URLs`);
-  return [...urls];
+  if (pagesSucceeded !== CAREERS_URLS.length) {
+    throw new Error(`Raiffeisen VC discovery incomplete: careers pages ${pagesSucceeded}/${CAREERS_URLS.length}.`);
+  }
+  const urls = [...byIdentity.values()].sort((a, b) => a.localeCompare(b));
+  console.log(`✅ Discovered ${urls.length} Raiffeisen VC job detail URLs`);
+  return { urls, sourceZero: urls.length === 0, pagesSucceeded, duplicateIdentity };
 }
 
 /* ── Detail page fetching ──────────────────────────────────── */
@@ -217,9 +240,7 @@ async function enrichJobsWithDetailBody(urls) {
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${RAIFF_KEY}.json`);
-
+function buildRaiffeisenSeedMeta(seedUrls) {
   // Build seedMetaByUrl so the base crawler knows these are TI jobs
   // (avoids false-positive rejection from Italian-language descriptions
   // containing substrings that match foreign location markers).
@@ -227,36 +248,48 @@ function ensureAdapterSeedUrls(seedUrls) {
   for (const u of seedUrls) {
     seedMetaByUrl[u] = { canton: HQ.canton, location: 'Gravesano' };
   }
+  return seedMetaByUrl;
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${RAIFF_KEY}.json not found — creating it.`);
-    const adapter = {
+export function buildRaiffeisenAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    seedUrls,
+    seedMetaByUrl: buildRaiffeisenSeedMeta(seedUrls),
+    updatedAt,
+  };
+}
+
+export function assertRaiffeisenAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)
+      || !isDeepStrictEqual(adapter?.seedMetaByUrl, buildRaiffeisenSeedMeta(seedUrls))) {
+    throw new Error('Raiffeisen VC adapter parity failed: persisted seeds differ from the verified bilingual careers pages.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${RAIFF_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: RAIFF_KEY,
       companyName: RAIFF_COMPANY_NAME,
       companyHost: RAIFF_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      seedUrls,
-      seedMetaByUrl,
       notes: 'Banca Raiffeisen Vedeggio Cassarate — local cooperative bank in TI. Jobs on Prospective career center (jobs.raiffeisen.ch). Seed URLs auto-discovered from careers page.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${RAIFF_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildRaiffeisenAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertRaiffeisenAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${RAIFF_KEY} updated with ${seedUrls.length} seed URLs (bilingual listing parity verified).`);
+  return persisted;
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
@@ -392,8 +425,9 @@ async function main() {
   console.log('');
 
   // Step 1: Discover job detail URLs from careers page
-  const detailUrls = await fetchJobUrls();
-  if (detailUrls.length === 0) {
+  const discovery = await fetchJobUrls();
+  const detailUrls = discovery.urls;
+  if (discovery.sourceZero) {
     console.log('ℹ️ No Raiffeisen VC job URLs discovered. Exiting OK.');
     return;
   }
@@ -461,4 +495,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Raiffeisen VC'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Raiffeisen VC'));
+}

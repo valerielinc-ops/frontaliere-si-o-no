@@ -17,6 +17,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -88,15 +89,16 @@ function isJyskJob(job) {
  * The listing page is server-rendered HTML (Drupal CMS) with links like:
  *   /offene-stellen/{slug}
  */
-async function fetchJyskJobUrls() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+export async function fetchJyskJobUrls(options = {}) {
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
   console.log(`🔍 Fetching JYSK listing page: ${JYSK_LISTING_URL}`);
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const res = await fetch(JYSK_LISTING_URL, {
+    const res = await fetchImpl(JYSK_LISTING_URL, {
       signal: controller.signal,
       headers: {
         Accept: 'text/html',
@@ -104,64 +106,87 @@ async function fetchJyskJobUrls() {
       },
     });
     if (!res.ok) {
-      console.warn(`⚠️ JYSK listing page returned ${res.status}`);
-      return [];
+      throw new Error(`JYSK discovery failed: listing returned HTTP ${res.status}.`);
     }
 
     const html = await res.text();
+    if (!/<title[^>]*>[^<]*JYSK Open Positions/i.test(html)) {
+      throw new Error('JYSK discovery failed: listing identity marker missing.');
+    }
 
     // Extract all /offene-stellen/{slug} links (excluding the listing page itself)
     const urlPattern = /href="(\/offene-stellen\/[^"]+)"/g;
     const urls = new Set();
+    let discoveredOccurrences = 0;
     let match;
     while ((match = urlPattern.exec(html)) !== null) {
+      discoveredOccurrences += 1;
       const slug = match[1];
       // Skip if it's just the listing page or a non-job link
       if (slug === '/offene-stellen' || slug === '/offene-stellen/') continue;
-      urls.add(`https://${JYSK_HOST}${slug}`);
+      const parsed = new URL(slug, JYSK_LISTING_URL);
+      parsed.hash = '';
+      parsed.search = '';
+      if (parsed.protocol !== 'https:' || parsed.hostname !== JYSK_HOST
+          || !/^\/offene-stellen\/[^/]+$/.test(parsed.pathname)) {
+        throw new Error(`JYSK discovery invariant failed: non-canonical detail URL ${parsed.href}.`);
+      }
+      urls.add(parsed.href);
     }
 
     console.log(`✅ Discovered ${urls.size} JYSK job detail URLs`);
-    return [...urls];
+    return {
+      urls: [...urls].sort((a, b) => a.localeCompare(b)),
+      sourceZero: urls.size === 0,
+      discoveredOccurrences,
+      duplicateIdentity: Math.max(0, discoveredOccurrences - urls.size),
+    };
   } catch (err) {
-    console.warn(`⚠️ Failed to fetch JYSK listing page: ${err.message}`);
-    return [];
+    if (String(err?.message || '').startsWith('JYSK discovery')) throw err;
+    throw new Error(`JYSK discovery failed: ${err.message}`, { cause: err });
   } finally {
     clearTimeout(timer);
   }
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${JYSK_KEY}.json`);
+export function buildJyskAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    seedUrls,
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${JYSK_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertJyskAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)) {
+    throw new Error('JYSK adapter parity failed: persisted seeds differ from the verified Drupal listing.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${JYSK_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: JYSK_KEY,
       companyName: JYSK_COMPANY_NAME,
       companyHost: JYSK_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      seedUrls,
       notes: 'JYSK Swiss-German careers portal (Drupal CMS). Detail pages have JSON-LD JobPosting. Seed URLs auto-discovered from /offene-stellen listing page.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${JYSK_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildJyskAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertJyskAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${JYSK_KEY} updated with ${seedUrls.length} seed URLs (Drupal parity verified).`);
+  return persisted;
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
@@ -228,8 +253,9 @@ async function main() {
   console.log('');
 
   // Step 1: Discover job detail URLs from the listing page
-  const detailUrls = await fetchJyskJobUrls();
-  if (detailUrls.length === 0) {
+  const discovery = await fetchJyskJobUrls();
+  const detailUrls = discovery.urls;
+  if (discovery.sourceZero) {
     console.log('ℹ️ No JYSK job URLs discovered. Exiting OK.');
     return;
   }
@@ -297,4 +323,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'JYSK'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'JYSK'));
+}

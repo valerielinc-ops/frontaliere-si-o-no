@@ -8,6 +8,9 @@
  *   - https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-20-40-st-moritz-657113
  *   - https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-656562
  */
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   parseLidlDetailPage,
@@ -20,6 +23,11 @@ import {
   getLidlSearchPageCount,
   extractLidlApiHitFields,
 } from '../scripts/lib/lidl-job-parser.mjs';
+import {
+  assertLidlAdapterParity,
+  ensureAdapterSeedUrls,
+  fetchLidlJobDetailUrls,
+} from '../scripts/update-lidl-jobs.mjs';
 
 // ─── Fixture helpers ──────────────────────────────────────────────────────────
 
@@ -426,5 +434,122 @@ describe('extractLidlApiHitFields', () => {
     expect(f.detailUrl).toBe('');
     expect(f.city).toBe('');
     expect(f.highlight).toBe(false);
+  });
+});
+
+function licaHit(id: number, overrides: Record<string, unknown> = {}) {
+  return {
+    title: `Collaboratore vendita ${id}`,
+    descResponsibilities: '<ul><li>Consulenza alla clientela e gestione accurata della merce.</li><li>Collaborazione quotidiana con il team della filiale.</li></ul>',
+    language: 'it',
+    requisitionId: String(id),
+    jobDetailUrl: `https://team.lidl.ch/it/jobs/collaboratore-vendita-lugano-${id}`,
+    location: { city: 'Lugano', country: 'CH' },
+    ...overrides,
+  };
+}
+
+function lidlPage(input: string | URL | Request) {
+  const general = JSON.parse(new URL(String(input)).searchParams.get('general') || '{}');
+  return Number(general.page);
+}
+
+describe('Lidl authoritative LiCa discovery', () => {
+  it('drains every reported page and preserves exact feed-to-adapter accounting', async () => {
+    const allHits = Array.from({ length: 21 }, (_, index) => licaHit(70000 + index));
+    const fetchImpl = async (input: string | URL | Request) => {
+      const page = lidlPage(input);
+      const jobs = page === 1 ? allHits.slice(0, 20) : allHits.slice(20);
+      return new Response(JSON.stringify({
+        jobs,
+        meta: { totalCount: 21, resultsPerPage: 20, page, count: jobs.length },
+      }), { status: 200 });
+    };
+    const result = await fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 });
+    expect(result).toMatchObject({
+      totalCount: 21,
+      rawFetched: 21,
+      duplicateIdentity: 0,
+      droppedNonCh: 0,
+      droppedMalformed: 0,
+      sourceZero: false,
+    });
+    expect(result.urls).toHaveLength(21);
+    expect(result.jobsFromApi).toHaveLength(21);
+    expect(Object.keys(result.seedMetaByUrl)).toHaveLength(21);
+  });
+
+  it('fails closed on partial pagination, total drift, malformed URLs, and HTTP failure', async () => {
+    const partial = async (input: string | URL | Request) => {
+      const page = lidlPage(input);
+      const jobs = page === 1
+        ? Array.from({ length: 20 }, (_, index) => licaHit(71000 + index))
+        : [licaHit(71020)];
+      return new Response(JSON.stringify({
+        jobs,
+        meta: { totalCount: 22, resultsPerPage: 20, page, count: jobs.length },
+      }), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: partial, timeoutMs: 1000 }))
+      .rejects.toThrow(/fetched 21\/22/);
+
+    const drift = async (input: string | URL | Request) => {
+      const page = lidlPage(input);
+      const jobs = page === 1
+        ? Array.from({ length: 20 }, (_, index) => licaHit(72000 + index))
+        : [licaHit(72020)];
+      return new Response(JSON.stringify({
+        jobs,
+        meta: { totalCount: page === 1 ? 21 : 22, resultsPerPage: 20, page, count: jobs.length },
+      }), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: drift, timeoutMs: 1000 }))
+      .rejects.toThrow(/total drift/);
+
+    const malformed = async () => new Response(JSON.stringify({
+      jobs: [licaHit(73000, { jobDetailUrl: 'https://example.test/it/jobs/x-73000' })],
+      meta: { totalCount: 1, resultsPerPage: 20, page: 1, count: 1 },
+    }), { status: 200 });
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: malformed, timeoutMs: 1000 }))
+      .rejects.toThrow(/malformed=1/);
+
+    const unavailable = async () => new Response('down', { status: 503 });
+    await expect(fetchLidlJobDetailUrls({ fetchImpl: unavailable, timeoutMs: 1000 }))
+      .rejects.toThrow(/503/);
+  });
+
+  it('accepts an authoritative zero only with a complete empty envelope', async () => {
+    const fetchImpl = async () => new Response(JSON.stringify({
+      jobs: [],
+      meta: { totalCount: 0, resultsPerPage: 20, page: 1, count: 0 },
+    }), { status: 200 });
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
+      urls: [], jobsFromApi: [], totalCount: 0, rawFetched: 0, sourceZero: true,
+    });
+  });
+});
+
+describe('Lidl adapter persistence', () => {
+  it('is atomic, parity-checked, idempotent, and never swallows stale/write failures', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lidl-adapter-'));
+    const adapterPath = path.join(dir, 'lidl.json');
+    const urls = ['https://team.lidl.ch/it/jobs/collaboratore-vendita-lugano-74000'];
+    const meta = { [urls[0]]: { location: 'Lugano', canton: 'TI' } };
+    const updatedAt = '2026-09-01T00:00:00.000Z';
+    try {
+      ensureAdapterSeedUrls(urls, meta, adapterPath, updatedAt);
+      const firstBytes = fs.readFileSync(adapterPath, 'utf8');
+      ensureAdapterSeedUrls(urls, meta, adapterPath, updatedAt);
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(firstBytes);
+      expect(() => assertLidlAdapterParity({ seedUrls: [] }, urls, meta)).toThrow(/parity failed/);
+
+      fs.writeFileSync(adapterPath, '{ stale');
+      const staleBytes = fs.readFileSync(adapterPath, 'utf8');
+      expect(() => ensureAdapterSeedUrls(urls, meta, adapterPath, updatedAt)).toThrow();
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(staleBytes);
+      expect(() => ensureAdapterSeedUrls(urls, meta, dir, updatedAt)).toThrow();
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 });

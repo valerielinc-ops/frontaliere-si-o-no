@@ -13,6 +13,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -897,44 +898,55 @@ function purgeLisJobsForRecrawl() {
  * The Arca24 platform serves content at lavoraconnoi.lugano-lis.ch
  * with pagination via ?page=N parameter.
  */
-function ensureAdapterSeedUrls() {
-  const adapterPath = path.join(ADAPTERS_DIR, `${LIS_KEY}.json`);
-  const seedUrls = [...LIS_LISTING_URLS];
+export function buildLisAdapterConfig(baseAdapter, seedUrls = [...LIS_LISTING_URLS], updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyHost: baseAdapter?.companyHost || 'lavoraconnoi.lugano-lis.ch',
+    seedUrls,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || [])])),
+    notes: 'Arca24 ATS at lavoraconnoi.lugano-lis.ch — requires bot-compatible User-Agent.',
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${LIS_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertLisAdapterParity(adapter, seedUrls = [...LIS_LISTING_URLS]) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)) {
+    throw new Error('LIS adapter parity failed: persisted seeds differ from the configured Arca24 listing pages.');
+  }
+  return true;
+}
+
+export function assertLisListingSeeds(seedUrls = [...LIS_LISTING_URLS]) {
+  if (!isDeepStrictEqual(seedUrls, [...LIS_LISTING_URLS]) || new Set(seedUrls).size !== seedUrls.length) {
+    throw new Error('LIS adapter seed invariant failed: the two configured Arca24 listing pages must stay exact and unique.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls = [...LIS_LISTING_URLS],
+  adapterPath = path.join(ADAPTERS_DIR, `${LIS_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  assertLisListingSeeds(seedUrls);
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: LIS_KEY,
       companyName: 'LIS – Lugano Istituti Sociali',
       companyHost: 'lavoraconnoi.lugano-lis.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
       notes: 'Arca24 ATS at lavoraconnoi.lugano-lis.ch — requires bot-compatible User-Agent.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = adapter.companyHost || 'lavoraconnoi.lugano-lis.ch';
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes = 'Arca24 ATS at lavoraconnoi.lugano-lis.ch — requires bot-compatible User-Agent.';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${LIS_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildLisAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertLisAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${LIS_KEY} updated with ${seedUrls.length} seed URLs (configured listing parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1244,4 +1256,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'LIS'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'LIS'));
+}

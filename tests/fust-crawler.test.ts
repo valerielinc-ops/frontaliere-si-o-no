@@ -10,10 +10,12 @@ vi.mock('node:child_process', async () => {
 });
 
 import {
+  assertFustAdapterParity,
   buildFustAdapterConfig,
   buildFustPublishPlan,
   deriveFustWorkplaceCanton,
   ensureUniqueFustSlugs,
+  ensureAdapterSeedUrls,
   extractFustWorkplaceFromHtml,
   fetchFustJobUrls,
   handleFustEmptyDiscovery,
@@ -69,6 +71,32 @@ describe('Fust authoritative discovery', () => {
     expect(adapter.seedDetailUrls).toEqual(seedDetailUrls);
     expect(adapter.seedMetaByUrl).toEqual(seedMetaByUrl);
     expect(adapter.updatedAt).toBe('2026-09-01T00:00:00.000Z');
+  });
+
+  it('persists the complete adapter atomically, with readback parity and idempotence', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'fust-adapter-'));
+    const adapterPath = path.join(dir, 'fust.json');
+    const seedUrls = [fixture.details[0].url];
+    const seedMeta = { [seedUrls[0]]: { location: 'Mendrisio', canton: 'TI' } };
+    const updatedAt = '2026-09-01T00:00:00.000Z';
+    try {
+      const persisted = ensureAdapterSeedUrls(seedUrls, seedMeta, adapterPath, updatedAt);
+      expect(persisted.seedDetailUrls).toEqual(seedUrls);
+      expect(persisted.seedUrls).toBeUndefined();
+      const firstBytes = fs.readFileSync(adapterPath, 'utf8');
+      ensureAdapterSeedUrls(seedUrls, seedMeta, adapterPath, updatedAt);
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(firstBytes);
+      expect(() => assertFustAdapterParity({ seedDetailUrls: [] }, seedUrls, seedMeta))
+        .toThrow(/parity failed/);
+
+      fs.writeFileSync(adapterPath, '{ malformed adapter');
+      const staleBytes = fs.readFileSync(adapterPath, 'utf8');
+      expect(() => ensureAdapterSeedUrls(seedUrls, seedMeta, adapterPath, updatedAt)).toThrow();
+      expect(fs.readFileSync(adapterPath, 'utf8')).toBe(staleBytes);
+      expect(() => ensureAdapterSeedUrls(seedUrls, seedMeta, dir, updatedAt)).toThrow();
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('parses the representative French detail fixture only through that explicit contract', () => {
