@@ -11020,6 +11020,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-potenziamento-a2-misure.title': 'Chiasso et A2 : renforcement et défis financiers',
     'blog.article.chiasso-potenziamento-a2-misure.excerpt': 'Chiasso fait face à des projections complexes pour la modernisation A2 Lugano-Mendrisio. La FEDRO demande à l’exécutif du Tessin des mesures complémentaires. Ce que cela signifie pour les navetteurs transfrontaliers.',
     'blog.article.chiasso-potenziamento-a2-misure.imageAlt': 'Vue aérienne de Chiasso avec passage frontalier suisse-italien et trafic sur l\'A2 au crépuscule',
+    'blog.article.riqualifica-frontaliere-genitore-2026.title': 'Reconversion transfrontalière 2026 : accent sur la famille',
+    'blog.article.riqualifica-frontaliere-genitore-2026.excerpt': 'Nouvel accord transfrontalier de navetteurs de 2024 : requalification en 2026, augmentation nette et BVG pour les navetteurs transfrontaliers avec enfants. Analyse fiscale et liste de contrôle opérationnelle.',
+    'blog.article.riqualifica-frontaliere-genitore-2026.imageAlt': 'Femme frontalière à l\'ordinateur pendant une formation professionnelle, vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

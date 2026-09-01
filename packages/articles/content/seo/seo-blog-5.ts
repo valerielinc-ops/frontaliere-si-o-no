@@ -81386,6 +81386,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riqualifica-frontaliere-genitore-2026': {
+    title: 'Riqualifica frontaliere 2026: focus famiglia | Frontaliere Ticino',
+    description: 'Nuovo Accordo Frontalieri 2026: come funziona la riqualifica professionale per frontalieri con figli. Benefici fiscali, esenzioni, imposta alla fonte',
+    keywords: 'frontalieri, ticino, svizzera, italia, riqualifica, focus, famiglia, nuovo',
+    ogTitle: 'Riqualifica frontaliere 2026: focus famiglia',
+    ogDescription: 'Frontaliere con figli che si riqualificano nel 2026? Scopri come il Nuovo Accordo Frontalieri dal 2024 aumenta il tuo netto stipendio, con esenzioni fiscali fino a €10.000 e coordinamento INPS-AVS. Calcola il vantaggio in 5 minuti.',
+    canonicalPath: '/articoli-frontaliere/riqualifica-frontaliere-genitore-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riqualifica frontaliere 2026: focus famiglia",
+      "description": "Nuovo Accordo Frontalieri 2026: come funziona la riqualifica professionale per frontalieri con figli. Benefici fiscali, esenzioni, imposta alla fonte",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riqualifica-frontaliere-genitore-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Donna frontaliera al computer durante una videolezione di formazione professionale, con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-09-01T06:09:35+00:00",
+      "dateModified": "2026-09-01T06:09:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riqualifica-frontaliere-genitore-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
