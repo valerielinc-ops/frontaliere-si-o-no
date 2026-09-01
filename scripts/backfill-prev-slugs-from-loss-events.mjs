@@ -143,6 +143,28 @@ function detectLocaleFromSlug(slug) {
 
 const HASH_TAIL_RE = /-([a-z0-9]{6})$/;
 
+/** Build hash → file only when exactly one current record owns that hash. */
+export function buildUniqueSuffixOwnerFiles(slices) {
+  const owners = new Map();
+  for (const { file, jobs } of slices) {
+    for (const job of jobs || []) {
+      const hash = stableSlugHash(job);
+      if (!hash) continue;
+      if (!owners.has(hash)) owners.set(hash, []);
+      owners.get(hash).push(file);
+    }
+  }
+  return new Map([...owners].filter(([, files]) => files.length === 1).map(([hash, files]) => [hash, files[0]]));
+}
+
+/** Return a confirmed foreign owner file, or null when the tail is absent/ambiguous/local. */
+export function resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles) {
+  const match = HASH_TAIL_RE.exec(String(slug || ''));
+  if (!match) return null;
+  const ownerFile = uniqueOwnerFiles.get(match[1]);
+  return ownerFile && ownerFile !== file ? ownerFile : null;
+}
+
 /**
  * A recovered slug's loss event is keyed by a historical `job.id` snapshot,
  * which can be up to 400 commits stale. If that id was ever transiently
@@ -333,6 +355,20 @@ async function main() {
     filesByName.get(entry.file).push(entry);
   }
 
+  // Recovery events are grouped by their historical claimant file, but a
+  // hash-tagged slug may now have a unique owner in another crawler slice.
+  // This writer cannot atomically mutate two live slices. Fail closed instead
+  // of re-contaminating the claimant: the post-recovery scan keeps the loss
+  // visible until the fleet-wide decontamination surface can re-home it.
+  const currentSlices = fs.readdirSync(BY_CRAWLER_DIR)
+    .filter((file) => file.endsWith('.json'))
+    .sort()
+    .map((file) => {
+      const slice = JSON.parse(fs.readFileSync(path.join(BY_CRAWLER_DIR, file), 'utf8'));
+      return { file, jobs: Array.isArray(slice.jobs) ? slice.jobs : [] };
+    });
+  const uniqueOwnerFiles = buildUniqueSuffixOwnerFiles(currentSlices);
+
   // Shared long-lived `git cat-file --batch` process (see
   // scripts/lib/git-cat-file-batch.mjs) — ONE process serves every historical
   // blob lookup across every file below instead of one subprocess per commit.
@@ -369,6 +405,12 @@ async function main() {
       if (!job) { stats.jobsMissing++; continue; }
       const slugLocaleIndex = fileIndex.get(jobId) || new Map();
       for (const slug of slugs) {
+        const foreignOwnerFile = resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles);
+        if (foreignOwnerFile) {
+          stats.slugsSkippedForeignOwner = (stats.slugsSkippedForeignOwner || 0) + 1;
+          console.warn(`  ↪️  Skip "${slug}" for ${jobId}: unique current owner is in ${foreignOwnerFile}`);
+          continue;
+        }
         const { targetJob, redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
         if (redirected) {
           stats.slugsRedirected = (stats.slugsRedirected || 0) + 1;
@@ -413,6 +455,7 @@ async function main() {
   console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected || 0}`);
   console.log(`  slugs skipped (denylisted):  ${denylistSkipped}`);
   console.log(`  slugs skipped (bucket full): ${stats.slugsSkippedAtCap}`);
+  console.log(`  slugs skipped (foreign owner): ${stats.slugsSkippedForeignOwner || 0}`);
   console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
 }
 

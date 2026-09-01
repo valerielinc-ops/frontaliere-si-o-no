@@ -1,6 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
-import { resolveRecoveryTarget } from '../scripts/backfill-prev-slugs-from-loss-events.mjs';
+import {
+  buildUniqueSuffixOwnerFiles,
+  resolveForeignRecoveryOwnerFile,
+  resolveRecoveryTarget,
+} from '../scripts/backfill-prev-slugs-from-loss-events.mjs';
 import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 // Reproduces the real coop-ticino bug: a loss event recorded against a stale
@@ -82,5 +86,30 @@ describe('resolveRecoveryTarget', () => {
 
     expect(result.redirected).toBe(false);
     expect(result.targetJob).toBe(weakJob);
+  });
+});
+
+describe('cross-file recovery ownership', () => {
+  it('fails closed on a uniquely-owned foreign hash instead of contaminating the claimant', () => {
+    const ownerFiles = buildUniqueSuffixOwnerFiles([
+      { file: 'claimant.json', jobs: [zurich] },
+      { file: 'owner.json', jobs: [basel] },
+    ]);
+    const baselSlug = `verkaufer-in-food-coop-basel-stadt-${stableSlugHash(basel)}`;
+
+    expect(resolveForeignRecoveryOwnerFile('claimant.json', baselSlug, ownerFiles)).toBe('owner.json');
+    expect(resolveForeignRecoveryOwnerFile('owner.json', baselSlug, ownerFiles)).toBeNull();
+  });
+
+  it('does not choose between duplicate current records sharing the same hash', () => {
+    const duplicateBasel = { ...basel, id: 'company-duplicate' };
+    const ownerFiles = buildUniqueSuffixOwnerFiles([
+      { file: 'claimant.json', jobs: [zurich] },
+      { file: 'owner-a.json', jobs: [basel] },
+      { file: 'owner-b.json', jobs: [duplicateBasel] },
+    ]);
+    const baselSlug = `verkaufer-in-food-coop-basel-stadt-${stableSlugHash(basel)}`;
+
+    expect(resolveForeignRecoveryOwnerFile('claimant.json', baselSlug, ownerFiles)).toBeNull();
   });
 });
