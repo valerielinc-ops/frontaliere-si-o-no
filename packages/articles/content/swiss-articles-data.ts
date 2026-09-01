@@ -14932,6 +14932,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'settore-servizi-aumento-fatturato-giugno',
+    category: 'fiscale',
+    date: '2026-09-01T18:16:11.606Z',
+    image: '/images/blog/settore-servizi-aumento-fatturato-giugno.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4978,6 +4978,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.legumi-texture-carne-ricerca-eth.title': 'Légumineuses à texture de viande : recherche ETH Zurich',
     'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'Les chercheurs de l\'ETH transforment les pois, les haricots et les lentilles en produits à structure fibreuse ressemblant à de la viande, réduisant ainsi le gaspillage alimentaire.',
     'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Laboratoire de cuisine moderne avec légumineuses fraîches sur comptoir, équipements scientifiques',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Secteur des services : forte augmentation du chiffre d\'affaires en juin',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Le chiffre d\'affaires du secteur des services en Suisse a augmenté de 6,8% en juin par rapport à 2025.',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'Vue d\'une rue animée d\'une ville suisse avec des magasins et des entreprises.',
 };
 
 export default blogMetaChFr;

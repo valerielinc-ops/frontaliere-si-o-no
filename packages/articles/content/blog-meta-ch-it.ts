@@ -4978,6 +4978,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.legumi-texture-carne-ricerca-eth.title': 'Legumi con texture di carne: ricerca ETH Zurigo',
     'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'Ricercatori ETH trasformano piselli, fagioli e lenticchie in prodotti con struttura fibrosa simile a carne, riducendo lo spreco alimentare.',
     'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Laboratorio di ricerca moderno con legumi freschi su bancone, attrezzature scientifiche sullo sfondo',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Settore dei servizi: forte aumento del fatturato in giugno',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Il fatturato del settore dei servizi in Svizzera è aumentato del 6,8% in giugno rispetto al 2025.',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'Vista di una strada cittadina svizzera con negozi e attività commerciali.',
 };
 
 export default blogMetaChIt;
