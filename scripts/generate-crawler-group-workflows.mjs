@@ -403,6 +403,92 @@ function indentBlock(text, spaces) {
     .join('\n');
 }
 
+function validateTargetTimeoutMinutes(crawler) {
+  if (crawler.targetTimeoutMinutes == null) return null;
+  const minutes = Number(crawler.targetTimeoutMinutes);
+  if (!Number.isSafeInteger(minutes) || minutes < 1 || minutes >= JOB_TIMEOUT_MINUTES) {
+    throw new Error(
+      `${crawler.slug}: targetTimeoutMinutes must be a positive integer below the ${JOB_TIMEOUT_MINUTES} minute group timeout`,
+    );
+  }
+  return minutes;
+}
+
+/**
+ * Build the isolated work phase for a crawler with an explicit wall timeout.
+ *
+ * The timeout must cover more than the network fetch: housekeeping and the
+ * serialized commit can also block a background target indefinitely. Failure
+ * reporting deliberately remains outside this phase so a timeout is still
+ * observable and the target exits non-zero without committing partial data.
+ */
+function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
+  const outer = ['set -uo pipefail', 'set +e', ''];
+  const work = ['set -uo pipefail', 'set +e', ''];
+
+  work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
+  work.push(crawler.runStep.run.trimEnd());
+  work.push('crawler_exit=$?');
+  work.push('git_commit_exit=0');
+  work.push('');
+
+  for (const step of crawler.postSteps) {
+    if (step.if === 'failure()') continue;
+    const isCommitStep = /git-commit-data\.sh/.test(step.run || '');
+    work.push(`# ---- ${crawler.slug}: ${step.name} (only if crawler succeeded) ----`);
+    work.push('if [ "$crawler_exit" -eq 0 ]; then');
+    if (isCommitStep) {
+      work.push(indentBlock(`flock /tmp/crawler-group-git.lock -c ${shellQuote(step.run.trimEnd())}`, 2));
+      work.push(indentBlock('git_commit_exit=$?', 2));
+    } else {
+      work.push(indentBlock(`(${step.run.trimEnd()}) || true`, 2));
+    }
+    work.push('fi');
+    work.push('');
+  }
+
+  work.push('if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then');
+  work.push(`  echo "::warning::${crawler.slug}: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."`);
+  work.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
+  work.push('  exit 0');
+  work.push('fi');
+  work.push('if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then');
+  work.push('  exit 1');
+  work.push('fi');
+  work.push('exit 0');
+
+  outer.push(`# ---- ${crawler.slug}: ${timeoutMinutes} minute target wall timeout ----`);
+  outer.push('# shellcheck disable=SC2016 -- child-shell variables expand inside the quoted bash -c body');
+  outer.push(
+    `timeout --signal=TERM --kill-after=30s ${timeoutMinutes}m bash -c ${shellQuote(work.join('\n'))}`,
+  );
+  outer.push('target_exit=$?');
+  outer.push('if [ "$target_exit" -eq 124 ]; then');
+  outer.push(`  echo "::error::${crawler.slug}: target exceeded ${timeoutMinutes} minute wall timeout"`);
+  outer.push(`  if [ -n "${'$'}{GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ ${crawler.slug}: target timed out after ${timeoutMinutes} minutes" >> "$GITHUB_STEP_SUMMARY"; fi`);
+  outer.push('fi');
+  outer.push('');
+
+  for (const step of crawler.postSteps) {
+    if (step.if !== 'failure()') continue;
+    const crawlerWorkflowId = `Run ${crawler.slug}`;
+    const literalizedRun = step.run
+      .split('${{ github.workflow }}')
+      .join(crawlerWorkflowId);
+    outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    outer.push('if [ "$target_exit" -ne 0 ]; then');
+    outer.push(indentBlock(literalizedRun.trimEnd(), 2));
+    outer.push('fi');
+    outer.push('');
+  }
+
+  outer.push('if [ "$target_exit" -ne 0 ]; then');
+  outer.push('  exit 1');
+  outer.push('fi');
+  outer.push('exit 0');
+  return outer.join('\n');
+}
+
 /**
  * Build the single inline shell script for one crawler's background step:
  * run -> [if success: housekeeping -> commit+push (flock-serialized)] ->
@@ -438,6 +524,10 @@ function indentBlock(text, spaces) {
  * failure-report gate and this background step's own final exit code.
  */
 export function buildCrawlerShellBody(crawler) {
+  const targetTimeoutMinutes = validateTargetTimeoutMinutes(crawler);
+  if (targetTimeoutMinutes != null) {
+    return buildTimedCrawlerShellBody(crawler, targetTimeoutMinutes);
+  }
   const lines = [];
   lines.push('set -uo pipefail');
   // GitHub Actions invokes `run:` steps as `bash -e {0}` by default (errexit
