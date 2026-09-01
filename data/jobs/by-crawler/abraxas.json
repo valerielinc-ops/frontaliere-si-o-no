@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-09-01T01:12:38.715Z",
+  "assembledAt": "2026-09-01T07:48:53.716Z",
   "jobs": [
     {
       "id": "abraxas-d6bc90937a78",
@@ -17,7 +17,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:35.284Z",
+      "crawledAt": "2026-09-01T07:48:49.320Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -71,6 +72,7 @@
       "firstSeenAt": "2026-08-25T20:16:01.039Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -80,8 +82,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-4186cb192b04",
@@ -114,7 +115,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-1974",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:34.795Z",
+      "crawledAt": "2026-09-01T07:48:48.827Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -183,7 +184,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-2052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:34.302Z",
+      "crawledAt": "2026-09-01T07:48:48.344Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -268,7 +269,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:33.812Z",
+      "crawledAt": "2026-09-01T07:48:47.859Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -306,6 +308,7 @@
       "firstSeenAt": "2026-08-18T09:46:24.423Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -315,8 +318,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -349,7 +351,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:33.322Z",
+      "crawledAt": "2026-09-01T07:48:47.355Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -403,6 +406,7 @@
       "firstSeenAt": "2026-07-22T22:11:01.072Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -412,8 +416,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-77b5af7a4ae0",
@@ -446,7 +449,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:32.831Z",
+      "crawledAt": "2026-09-01T07:48:46.865Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -484,6 +488,7 @@
       "firstSeenAt": "2026-08-18T09:46:23.561Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -493,8 +498,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-f3e387a7f60a",
@@ -527,7 +531,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:32.340Z",
+      "crawledAt": "2026-09-01T07:48:46.379Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -565,6 +570,7 @@
       "firstSeenAt": "2026-08-18T21:41:19.258Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -574,8 +580,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-1220cfbd005b",
@@ -608,7 +613,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:31.849Z",
+      "crawledAt": "2026-09-01T07:48:45.894Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -646,6 +652,7 @@
       "firstSeenAt": "2026-08-18T21:41:18.784Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -655,8 +662,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-bc3e6930a65a",
@@ -689,7 +695,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:31.354Z",
+      "crawledAt": "2026-09-01T07:48:45.405Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -787,7 +793,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:30.862Z",
+      "crawledAt": "2026-09-01T07:48:44.916Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -872,7 +878,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:30.375Z",
+      "crawledAt": "2026-09-01T07:48:44.429Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -908,6 +915,7 @@
       "firstSeenAt": "2026-07-23T22:07:23.364Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -917,8 +925,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-c86315bb4efb",
@@ -935,7 +942,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -951,7 +958,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:29.884Z",
+      "crawledAt": "2026-09-01T07:48:43.931Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -990,6 +997,7 @@
       "firstSeenAt": "2026-08-06T11:37:32.667Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -999,8 +1007,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-ef84e9748cd1",
@@ -1033,7 +1040,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-7205",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:29.395Z",
+      "crawledAt": "2026-09-01T07:48:43.441Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1102,7 +1109,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:28.902Z",
+      "crawledAt": "2026-09-01T07:48:42.954Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1127,6 +1135,7 @@
       "firstSeenAt": "2026-07-04T09:59:59.787Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1136,8 +1145,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-0b494c346556",
@@ -1170,7 +1178,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:28.396Z",
+      "crawledAt": "2026-09-01T07:48:42.458Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1195,6 +1204,7 @@
       "firstSeenAt": "2026-08-13T21:49:40.729Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1204,8 +1214,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-179cbea5d6dc",
@@ -1238,7 +1247,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/datenschutzspezialistin-50-5528",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:27.865Z",
+      "crawledAt": "2026-09-01T07:48:41.965Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1317,7 +1326,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:27.364Z",
+      "crawledAt": "2026-09-01T07:48:41.474Z",
       "needsRetranslation": true,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1372,9 +1381,9 @@
       "id": "abraxas-b1585a9e182d",
       "slug": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
-        "de": "bereichscontroller-in-60-80-abraxas-st-gallen",
         "it": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
         "en": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen",
+        "de": "bereichscontroller-in-60-80-abraxas-st-gallen",
         "fr": "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -1382,16 +1391,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Bereichscontroller:in 60–80 %",
       "titleByLocale": {
-        "de": "Bereichscontroller:in 60–80 %",
         "it": "Bereichscontroller:in 60–80 %",
         "en": "Bereichscontroller:in 60–80 %",
+        "de": "Bereichscontroller:in 60–80 %",
         "fr": "Bereichscontroller:in 60–80 %"
       },
       "description": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "en": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "de": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Im Bereich Finanzen & Controlling suchen wir Verstärkung für unser Controlling-Team. Du übernimmst die Verantwortung für einen Unternehmensbereich und pflegst einen intensiven Austausch mit diesem. Dabei sorgst du für finanzielle Transparenz, unterstützt die Führungskräfte bei ihren Entscheidungen und übernimmst bei der Weiterentwicklung des Bereichs eine wichtige Rolle.\nDeine Rolle\n• Verantwortlich für das Controlling eines Unternehmensbereichs\n• Beratung der Linie in allen betriebswirtschaftlichen Fragen\n• Mitarbeit und Teilverantwortung bei Budget, Forecast und rollierender Planung\n• Mitarbeit in Projekten zur Weiterentwicklung der Controllingprozesse und -instrumente\n• Erstellung von periodischen Management- und Finanzreportings, Ergebnisanalysen sowie Ad-hoc Auswertungen\n• Verantwortlich für das Projektcontrolling und die Pflege des Projektcontrollingsystems im Bereich\n• Prüfung von Investitions- und Gemeinkostenprojekte\n• Mitarbeit bei der Weiterentwicklung des SAP-Systems\n• Bewirtschaftung des BI-Tools DeltaMaster\n• Organisation und Durchführung von Schulungen\nDein Profil\n• Fachausweis in Finanz- und Rechnungswesen oder Fach-/Hochschulabschluss (mit Vertiefung Accounting / Controlling) - allenfalls in fortgeschrittenem Bachelor-Studium\n• Erste Erfahrung im Rechnungswesen, insbesondere in der Kosten- und Leistungsrechnung\n• Erfahrung im SAP Umfeld (Module FI/CO und PS), mit BI-Tool DeltaMaster sowie mit Microsoft Power BI von Vorteil\n• Sicheres Auftreten, Freude an der Beratung von Führungskräften\n• Versiert in der Anwendung MS-Office insbesondere Excel\n• Zahlenflair, analytisches Denken und Erkennen von komplexen Zusammenhängen\n• Fliessende Deutschkenntnisse in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
       },
       "location": "St. Gallen",
@@ -1399,7 +1408,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7586",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:26.874Z",
+      "crawledAt": "2026-09-01T07:48:40.976Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1417,21 +1426,22 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://apply.refline.ch/215876/2474/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2474",
       "pensumMin": 60,
       "pensumMax": 80,
       "pensum": "60 - 80%",
+      "previousSlugs": [
+        "bereichscontroller-in-60-80-abraxas-st-gallen",
+        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "bereichscontroller-in-60-80-abraxas-st-gallen"
+          "bereichscontroller-in-60-80-abraxas-st-gallen",
+          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "bereichscontroller-in-60-80-abraxas-st-gallen"
-      ],
+      "firstSeenAt": "2026-09-01T01:12:26.874Z",
       "salaryMin": 48000,
       "salaryMax": 81600,
       "salarySource": "estimated",
@@ -1444,8 +1454,7 @@
           "maxValue": 81600,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T01:12:26.874Z"
+      }
     },
     {
       "id": "abraxas-2e2867951ec8",
@@ -1462,7 +1471,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in 80-100%",
-        "en": "Application Manager: in 80-100%",
+        "en": "Applikations-Manager:in 80–100 %",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1478,7 +1487,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-4224",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:26.384Z",
+      "crawledAt": "2026-09-01T07:48:40.490Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1517,6 +1526,7 @@
       "firstSeenAt": "2026-08-25T10:09:09.773Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1526,8 +1536,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-c3450fe11f56",
@@ -1560,7 +1569,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:25.879Z",
+      "crawledAt": "2026-09-01T07:48:39.995Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1629,7 +1638,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:25.375Z",
+      "crawledAt": "2026-09-01T07:48:39.504Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1670,6 +1680,7 @@
       "firstSeenAt": "2026-07-04T09:59:56.081Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1679,8 +1690,7 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "abraxas-9abf9398ee81",
@@ -1713,7 +1723,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:24.880Z",
+      "crawledAt": "2026-09-01T07:48:39.016Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1798,7 +1808,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:12:24.387Z",
+      "crawledAt": "2026-09-01T07:48:38.376Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1918,7 +1928,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-3a4bb14ac442",
@@ -1987,7 +1997,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-b69666f6a186",
@@ -2065,7 +2075,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-3b40f56c9e1e",
@@ -2134,7 +2144,8 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "abraxas-a33cc5665148",
@@ -2151,7 +2162,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -2231,7 +2242,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-cdc5597b1779",
@@ -2362,7 +2373,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-11cfca267105",
@@ -2446,7 +2457,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "abraxas-23b2d68de772",
@@ -2530,256 +2541,7 @@
         }
       },
       "salarySource": "estimated",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "abraxas-da45b37cd6de",
-      "slug": "ims-stage-12-mesi-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "ims-stage-12-mesi-abraxas-informatik-ag-st-gallen",
-        "en": "ims-internship-12-months-abraxas-informatik-ag-st-gallen",
-        "de": "ims-praktikum-12-monate-abraxas-st-gallen",
-        "fr": "ims-stage-12-mois-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "IMS – Praktikum (12 Monate)",
-      "titleByLocale": {
-        "it": "IMS – Stage (12 mesi)",
-        "en": "IMS – Internship (12 months)",
-        "de": "IMS – Praktikum (12 Monate)",
-        "fr": "IMS – Stage (12 mois)"
-      },
-      "description": "Es ist Zeit für Taten statt Worte! Nach drei Jahren Informatikmittelschule hast du bei uns die Chance, deine Freude an der Entwicklung und Wartung von Software auszuleben.\nWerde Teil der Abraxas YoungTalents!\nDeine Rolle\nDu absolvierst dein Praktikum im YoungTalents Team in der Lernwerkstatt bei der Abraxas St. Gallen. Dieses aus Lernenden bestehende Team erledigt in Eigenverantwortung vollständige Projekte. Du möchtest alle Faceten der Applikationsentwicklung (kennen)lernen? Dann bist du bei uns genau richtig. Du erhebst beispielsweise Kundenanforderungen, analysierst, entwickelst, testest und dokumentierst neue Applikationen und pflegst bestehende Software. Bei uns lernst du die neuesten Standards der Softwareentwicklung kennen und erlernst ein breites Angebot an Technologien innerhalb unserer agilen Entwicklung. Eine Auswahl unserer Fachapplikationen und weitere Informationen findest du auf www.abraxas.ch .\nDein Profil\n• Eine dreijährige Ausbildung an einer Informatikmittelschule\n• Begeisterungsfähigkeit, Neugierde und Zielstrebigkeit\n• Kontaktfreudigkeit, Zuverlässigkeit und Teamgeist\n• Erste Erfahrungen in einer Programmiersprache\n• Abstraktes und logisches Denkvermögen\n• stilsicheres Deutsch in Wort und Schrift\nDeine Benefits\nDu brauchst zwischendurch Abstand vom Digitalen? Bei uns stehen Stifte, Papier sowie beschreibbare Wände allzeit bereit. Zum Hirn lüften steht dir je nach Standort Kickerkasten, Ruheraum oder sogar Massageangebote zur Verfügung. Klingt gut? Dann bewirb dich jetzt und werde einen Teil von #TeamAbraxas!",
-      "descriptionByLocale": {
-        "it": "È tempo di agire invece delle parole! Dopo tre anni di scuola informatica, hai la possibilità di vivere la tua gioia nello sviluppo e nella manutenzione del software.\nDiventa parte di Abraxas YoungTalents!\nIl tuo ruolo\nCompleta il tuo tirocinio nel team YoungTalents nel laboratorio di apprendimento di Abraxas St. Gallen. Questo team di studenti gestisce progetti completi sulla propria responsabilità. Vuoi (sape) tutte le sfaccettature dello sviluppo delle applicazioni? Allora hai ragione con noi. Ad esempio, si raccolgono i requisiti del cliente, analizzano, sviluppano, testano e documentano nuove applicazioni e mantengono il software esistente. Con noi si arriva a conoscere gli ultimi standard di sviluppo del software e imparare una vasta gamma di tecnologie all'interno del nostro sviluppo agile. Su www.abraxas.ch trovate una selezione delle nostre applicazioni specializzate e ulteriori informazioni.\nIl tuo profilo\n• Una formazione triennale in una scuola informatica\n• Entusiasmo, curiosità e determinazione\n• Socibilità, affidabilità e spirito di squadra\n• Le prime esperienze in un linguaggio di programmazione\n• Il pensiero astratto e logico\n• elegante tedesco in parola e scrittura\nI tuoi vantaggi\nHai bisogno di una distanza dal digitale? Con noi, penne, carta e pareti descrivibili sono sempre disponibili. A seconda della posizione, è possibile ventilare il cervello con un kicker box, riposo o anche offerte di massaggio. Va bene? Quindi applicare ora e diventare una parte di #TeamAbraxas!",
-        "en": "It is time for action instead of words! After three years of computer science school, you have the chance to live out your joy in the development and maintenance of software.\nBecome part of Abraxas YoungTalents!\nYour role\nYou will complete your internship in the YoungTalents team in the learning workshop at Abraxas St. Gallen. This team of learners handles complete projects on their own responsibility. Do you want to (know) all facets of application development? Then you are exactly right with us. For example, you collect customer requirements, analyze, develop, test and document new applications and maintain existing software. With us you get to know the latest standards of software development and learn a wide range of technologies within our agile development. A selection of our specialist applications and further information can be found at www.abraxas.ch.\nYour profile\n• A three-year education at a computer science school\n• Enthusiasm, curiosity and determination\n• Sociability, reliability and team spirit\n• First experiences in a programming language\n• Abstract and logical thinking\n• stylish German in word and writing\nYour Benefits\nDo you need a distance from the digital? With us, pens, paper and describable walls are always available. Depending on the location, you can ventilate the brain with a kicker box, rest room or even massage offers. Sounds good? Then apply now and become a part of #TeamAbraxas!",
-        "de": "Es ist Zeit für Taten statt Worte! Nach drei Jahren Informatikmittelschule hast du bei uns die Chance, deine Freude an der Entwicklung und Wartung von Software auszuleben.\nWerde Teil der Abraxas YoungTalents!\nDeine Rolle\nDu absolvierst dein Praktikum im YoungTalents Team in der Lernwerkstatt bei der Abraxas St. Gallen. Dieses aus Lernenden bestehende Team erledigt in Eigenverantwortung vollständige Projekte. Du möchtest alle Faceten der Applikationsentwicklung (kennen)lernen? Dann bist du bei uns genau richtig. Du erhebst beispielsweise Kundenanforderungen, analysierst, entwickelst, testest und dokumentierst neue Applikationen und pflegst bestehende Software. Bei uns lernst du die neuesten Standards der Softwareentwicklung kennen und erlernst ein breites Angebot an Technologien innerhalb unserer agilen Entwicklung. Eine Auswahl unserer Fachapplikationen und weitere Informationen findest du auf www.abraxas.ch .\nDein Profil\n• Eine dreijährige Ausbildung an einer Informatikmittelschule\n• Begeisterungsfähigkeit, Neugierde und Zielstrebigkeit\n• Kontaktfreudigkeit, Zuverlässigkeit und Teamgeist\n• Erste Erfahrungen in einer Programmiersprache\n• Abstraktes und logisches Denkvermögen\n• stilsicheres Deutsch in Wort und Schrift\nDeine Benefits\nDu brauchst zwischendurch Abstand vom Digitalen? Bei uns stehen Stifte, Papier sowie beschreibbare Wände allzeit bereit. Zum Hirn lüften steht dir je nach Standort Kickerkasten, Ruheraum oder sogar Massageangebote zur Verfügung. Klingt gut? Dann bewirb dich jetzt und werde einen Teil von #TeamAbraxas!",
-        "fr": "Il est temps d'agir au lieu de parler ! Après trois ans d'école d'informatique, vous avez la chance de vivre votre joie dans le développement et la maintenance des logiciels.\nDevenez membre d'Abraxas YoungTalents!\nVotre rôle\nVous terminerez votre stage dans l'équipe de YoungTalents dans l'atelier d'apprentissage à Abraxas St. Gallen. Cette équipe d'apprenants gère des projets complets sous leur propre responsabilité. Voulez-vous (connaître) toutes les facettes du développement d'applications? Alors vous avez raison avec nous. Par exemple, vous recueillez les besoins des clients, analysez, développez, testez et documentez de nouvelles applications et maintenez les logiciels existants. Avec nous, vous apprenez à connaître les dernières normes de développement logiciel et apprenez une large gamme de technologies dans notre développement agile. Une sélection de nos applications spécialisées et d'autres informations sont disponibles sur www.abraxas.ch.\nVotre profil\n• Une formation de trois ans dans une école d'informatique\n• Enthousiasme, curiosité et détermination\n• Sociabilité, fiabilité et esprit d'équipe\n• Premières expériences dans un langage de programmation\n• Résumé et logique\n• allemand élégant en paroles et en écriture\nVos avantages\nVous avez besoin d'une distance par rapport au numérique? Avec nous, des stylos, du papier et des murs déchiffrables sont toujours disponibles. Selon l'emplacement, vous pouvez ventiler le cerveau avec un boyau, une salle de repos ou même des offres de massage. Ça te va ? Alors appliquez maintenant et devenez une partie de #TeamAbraxas!"
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ims-praktikum-12-monate-4196",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T01:00:05.698Z",
-      "needsRetranslation": false,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sviluppo software",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "entry",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://apply.refline.ch/215876/2525/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2525",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "ims-praktikum-12-monate-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ims-praktikum-12-monate-abraxas-st-gallen"
-        ],
-        "en": [
-          "ims-praktikum-12-monate-abraxas-st-gallen"
-        ],
-        "fr": [
-          "ims-praktikum-12-monate-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:33:39.816Z",
-      "salaryMin": 54000,
-      "salaryMax": 91500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
-    },
-    {
-      "id": "abraxas-a3884f6a485b",
-      "slug": "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "cybersecurity-ingegnere-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "cybersecurity-engineer-in-the-public-sector-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen",
-        "fr": "cybersecurity-ingenieur-im-offentlichen-sektor-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
-      "titleByLocale": {
-        "it": "Cybersecurity Ingegnere im öffentlichen Sektor 80–100 %",
-        "en": "Cybersecurity Engineer in the public sector 80-100%",
-        "de": "Cybersecurity Engineer im öffentlichen Sektor 80–100 %",
-        "fr": "Cybersecurity Ingénieur im öffentlichen Sektor 80–100 %"
-      },
-      "description": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Non credi in silos in sicurezza? Capisci sia la prospettiva degli attaccanti che dei difensori e sai che la vera sicurezza viene dalla cooperazione? Combinate il pensiero offensivo con l'empatia pratica e avete la capacità non solo di trovare problemi di sicurezza complessi, ma di renderli rapidamente riparabili? Allora ti stiamo cercando!\nCome Purple Hat, sei l'interfaccia tra ricerca di attacco e strategia di difesa. Convalida dei risultati, velocizzi la risoluzione dei vuoti di sicurezza e assicurati che le tue conoscenze raggiungano i team. Si muove direttamente nel contesto dei nostri sviluppi – dalle piattaforme interne alle soluzioni specializzate produttive dei nostri clienti.\nIl tuo ruolo\n• Eseguire test di sicurezza interni continui e cercare vulnerabilità in sistemi, codice e configurazioni\n• Convalida ingressi esterni da programmi di divulgazione di vulnerabilità, bounties di bug e consulenti di sicurezza per la sfruttabilità\n• Lavorate a stretto contatto con i team di sviluppo e di operazioni e tradurre i risultati tecnici in misure concrete e attuabili\n• Si creano liste di controllo indurimento, regole di rilevamento e riproduzioni passo per passo invece di mostrare solo i problemi\n• Suggerisci strategie di patch, correzioni di revisione e validazione di correzione orchestrata\n• Priorizzare nella giungla dei rapporti di vulnerabilità generati dall'IA e aiutare il vostro team a concentrarsi sui rischi critici\n• Si comunica a livello degli occhi, riesce a ispirare e portare diverse squadre a bordo\nIl tuo profilo\n• Esperienza nell'analisi offensiva della sicurezza e del codice\n• Solida capacità di programmazione e debugging – si capisce il codice, non solo i concetti\n• Comprensione ed esperienza in uno o più linguaggi di programmazione.\n• Sviluppiamo in .NET, Java e per lo più creiamo frontendi web angolari\n• Conoscenze di cloud e piattaforma (Kubernetes, infrastrutture moderne)\n• Esperienza pratica con misure di sicurezza difensive e possibilità di rilevamento\n• Alta affinità per strumenti di automazione e analisi, compresi i nuovi metodi di sicurezza basati su AI\n• Buona scrittura tecnica e la capacità di rendere il contenuto complesso comprensibile a diversi gruppi target\n• Autooccupazione, metodi di lavoro strutturati e soprattutto: comprensione dei team che hanno bisogno di implementare i risultati\nI tuoi vantaggi\n• Fino al 60% home office possibile con un carico di lavoro al 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Supporto per una formazione finanziaria o temporale al 100%\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You do not believe in silos in safety? You understand both the perspective of the attackers and the defenders and know that real security comes from cooperation? You combine offensive thinking with practical empathy and have the ability not only to find complex security problems, but to make them quickly fixable? Then we are looking for you!\nAs Purple Hat, you are the interface between attack research and defense strategy. You validate finds, speed up the resolution of security gaps and ensure that your knowledge reaches the teams. You move directly in the context of our own developments – from internal platforms to productive specialist solutions from our customers.\nYour role\n• Perform continuous internal security tests and search for vulnerabilities in systems, code and configurations\n• Validate external inputs from vulnerability disclosure programs, bug bounties and security advisories for exploitability\n• You work closely with development and operations teams and translate technical findings into concrete, actionable measures\n• You create hardening checklists, detection rules and step-by-step reproductions instead of just showing the problems\n• Suggest patch strategies, review fixes, and orchestrate fix validation\n• Prioritize in the jungle of AI-generated vulnerability reports and help your team focus on critical risks\n• You communicate at eye level, manage to inspire and bring different teams on board\nYour profile\n• Experience in offensive security and code analysis\n• Solid programming and debugging skills – you understand code, not just the concepts\n• Understanding and experience in one or more programming languages.\n• We develop in .NET, Java and mostly create Angular web frontends\n• Cloud and platform knowledge (Kubernetes, modern infrastructures)\n• Practical experience with defensive safety measures and detection possibilities\n• High affinity for automation and analysis tools, including new AI-based security methods\n• Good technical writing and the ability to make complex content understandable to different target groups\n• Self-employment, structured working methods and above all: understanding of the teams that need to implement the findings\nYour Benefits\n• Up to 60% home office possible with a 100% workload\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Support for 100% financial or temporal training\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du glaubst nicht an Silodenken in der Sicherheit? Du verstehst sowohl die Perspektive der Angreifer als auch der Verteidiger und weisst, dass echte Sicherheit aus Zusammenarbeit entsteht? Du kombinierst offensives Denken mit praktischer Empathie und hast die Gabe, komplexe Sicherheitsprobleme nicht nur zu finden, sondern sie schnell fixbar zu machen? Dann suchen wir genau dich!\nAls \"Purple Hat\" bist du die Schnittstelle zwischen Angriffsforschung und Verteidigungsstrategie. Du validierst Findings, beschleunigst die Behebung von Sicherheitslücken und stellst sicher, dass Dein Wissen bei den Teams ankommt. Dabei bewegst du dich direkt im Kontext unserer Eigenentwicklungen – von internen Plattformen bis hin zu produktiven Fachlösungen unserer Kunden.\nDeine Rolle\n• Du führst kontinuierliche interne Security-Tests durch und jagst nach Schwachstellen in Systemen, Code und Konfigurationen\n• Du validierst externe Inputs aus Vulnerability Disclosure Programmen, Bug Bounties und Security-Advisories auf Exploitierbarkeit\n• Du arbeitest eng mit Development- und Operations-Teams zusammen und übersetzt technische Findings in konkrete, umsetzbare Massnahmen\n• Du erstellst Hardening-Checklisten, Detektionsregeln und Schritt-für-Schritt-Reproduktionen statt nur die Probleme zu zeigen\n• Du schlägst Patch-Strategien vor, reviewst Fixes und orchestrierst die Validierung von Korrekturen\n• Du priorisierst im Dschungel von KI-generierten Vulnerability-Reports und hilfst deinem Team, den Fokus auf die kritischen Risiken zu legen\n• Du kommunizierst auf Augenhöhe, schaffst es zu begeistern und unterschiedliche Teams ins Boot zu holen\nDein Profil\n• Erfahrungen in Offensive Security und Code-Analyse\n• Solide Programmier- und Debugging- Fähigkeiten – du verstehst Code, nicht nur die Konzepte\n• Verständnis und Erfahrungen in einer oder mehrere Programmiersprachen.\n• Wir entwickeln in .NET, Java und erstellen mehrheitlich Angular-Web-Frontends\n• Cloud- und Plattform-Wissen (Kubernetes, moderne Infrastrukturen)\n• Praktische Erfahrung mit defensiven Sicherheitsmassnahmen und Detektionsmöglichkeiten\n• Hohe Affinität zu Automations- und Analyse-Tools, inklusive neuer AI-basierter Security-Methoden\n• Gutes technisches Schreiben und die Gabe, komplexe Inhalte verschiedenen Zielgruppen verständlich zu machen\n• Selbständigkeit, strukturierte Arbeitsweise und vor allem: Verständnis für die Teams, die die Findings implementieren müssen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous ne croyez pas aux silos en sécurité ? Vous comprenez le point de vue des agresseurs et des défenseurs et savez que la vraie sécurité vient de la coopération ? Vous combinez la pensée offensive avec l'empathie pratique et avez la capacité non seulement de trouver des problèmes de sécurité complexes, mais de les réparer rapidement? Alors nous vous cherchons !\nEn tant que Purple Hat, vous êtes l'interface entre la recherche d'attaque et la stratégie de défense. Vous validez les découvertes, accélèrez la résolution des lacunes de sécurité et assurez-vous que vos connaissances parviennent aux équipes. Vous vous déplacez directement dans le contexte de nos propres développements – des plateformes internes aux solutions spécialisées productives de nos clients.\nVotre rôle\n• Effectuer des tests de sécurité interne continus et rechercher des vulnérabilités dans les systèmes, les codes et les configurations\n• Valider les entrées externes des programmes de divulgation de vulnérabilité, des primes de bug et des avis de sécurité pour l'exploitation\n• Vous travaillez en étroite collaboration avec les équipes de développement et d'opérations et traduisez les résultats techniques en mesures concrètes et réalisables\n• Vous créez des listes de contrôle, des règles de détection et des reproductions étape par étape au lieu de simplement montrer les problèmes\n• Proposer des stratégies de patch, des correctifs d'examen et une validation de fixateur d'orchestre\n• Prioriser dans la jungle des rapports de vulnérabilité générés par l'IA et aider votre équipe à se concentrer sur les risques critiques\n• Vous communiquez au niveau des yeux, réussissez à inspirer et à amener différentes équipes à bord\nVotre profil\n• Expérience en matière de sécurité offensive et d'analyse de code\n• Programmation solide et compétences de débogage – vous comprenez le code, pas seulement les concepts\n• Compréhension et expérience dans un ou plusieurs langages de programmation.\n• Nous développons en .NET, Java et créons principalement des frontends de web angulaires\n• Connaissance du cloud et des plateformes (Kubernetes, infrastructures modernes)\n• Expérience pratique des mesures de sécurité défensive et des possibilités de détection\n• Haute affinité pour les outils d'automatisation et d'analyse, y compris les nouvelles méthodes de sécurité basées sur l'IA\n• Bonne rédaction technique et capacité à rendre le contenu complexe compréhensible pour différents groupes cibles\n• Travail indépendant, méthodes de travail structurées et surtout : compréhension des équipes qui doivent mettre en œuvre les conclusions\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une charge de travail 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Soutien à 100% de formation financière ou temporelle\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/cybersecurity-engineer-im-oeffentlichen-sektor-80-100-9583",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T01:00:00.358Z",
-      "needsRetranslation": true,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://apply.refline.ch/215876/2481/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2481",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "cybersecurity-engineer-im-offentlichen-sektor-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:45:18.807Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
-    },
-    {
-      "id": "abraxas-0b9c9aa9a7a0",
-      "slug": "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "consulente-abacus-in-finanza-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "abacus-consultant-in-finance-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "abacus-berater-in-finanzen-80-100-abraxas-st-gallen",
-        "fr": "consultant-en-abacus-en-finance-80-100-abraxas-informatik-ag-st-gallen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Abacus Berater:in Finanzen 80–100 %",
-      "titleByLocale": {
-        "it": "Consulente Abacus: in finanza 80-100%",
-        "en": "Abacus consultant: in finance 80-100%",
-        "de": "Abacus Berater:in Finanzen 80–100 %",
-        "fr": "Consultant en Abacus : en finance 80-100%"
-      },
-      "description": "Du bist in der Finanzwelt zu Hause, kennst Abacus Finanzen aus der Praxis und möchtest Kunden mit deinem Fachwissen gezielt unterstützen? Als erfahrene:r Abacus Berater:in Finanzen begleitest du unsere Kunden kompetent, entwickelst nachhaltige Lösungen und trägst aktiv zu ihrem Erfolg bei.\nDeine Rolle\n• Als Beratungsexpert:in berätst du unsere Kunden in allen Fragen rund um Abacus Finanzen und unterstützt sie bei der optimalen Nutzung ihrer Finanzprozesse\n• Als Lösungsfinder:in analysierst du fachliche und technische Fragestellungen, entwickelst passende Lösungen und stehst mit Kunden in engem Austausch – telefonisch, schriftlich und bei Bedarf vor Ort\n• Als Teilprojekt leiter:in unterstützt du bei Einführungen, Optimierungen und Weiterentwicklungen von Finanzlösungen und bringst deine Erfahrung aktiv in Kundenprojekte ein\n• Als Qualitätssicherer:in & Schulungsprofi testest du neue Funktionen und Lösungen, erarbeitest Best Practices und führst Schulungen sowie Workshops für Kunden durch\n• Als Teamplayer:in arbeitest du eng mit Kolleginnen und Kollegen aus Beratung, Support und Entwicklung zusammen und bringst deine Ideen zur kontinuierlichen Verbesserung unserer Dienstleistungen ein\nDein Profil\n• Mehrjährige Erfahrung im Bereich Finanz- und Rechnungswesen\n• Sehr gute Kenntnisse von Abacus Finanzen erforderlich\n• Erfahrung in der Beratung, Kundenbetreuung oder Projektarbeit von Vorteil\n• Hohe IT-Affinität sowie gute Kenntnisse der MS-Office-Produkte\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kundenorientierung und Freude am direkten Kontakt mit Menschen\n• Sehr gutes Deutsch in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Sei a casa nel mondo finanziario, conosci Abacus finanza dalla pratica e vuoi supportare i clienti con le tue conoscenze specialistiche? In qualità di consulente esperto:r Abacus: nel finanziamento supporti competenti i nostri clienti, sviluppi soluzioni sostenibili e contribuisca attivamente al loro successo. Il tuo ruolo\n• In qualità di esperto di consulenza, si consiglia ai nostri clienti su tutte le domande relative alla finanza Abacus e li supporta nell'uso ottimale dei loro processi finanziari.\n• Come ricercatore di soluzioni, si analizzano questioni tecniche e tecniche, sviluppare soluzioni adeguate e essere in stretto contatto con i clienti – per telefono, per iscritto e in loco se necessario.\n• In qualità di subprogetto manager: in, supporti le introduzioni, le ottimizzazioni e gli ulteriori sviluppi delle soluzioni finanziarie e contribuisci attivamente alla tua esperienza nei progetti dei clienti\n• Come garanzia di qualità: in & formazione professionale si testa nuove funzioni e soluzioni, sviluppare le migliori pratiche e svolgere formazione e workshop per i clienti\n• Come giocatore di squadra: si lavora a stretto contatto con i colleghi di consulenza, supporto e sviluppo e contribuire le vostre idee al miglioramento continuo dei nostri servizi Il tuo profilo\n• Diversi anni di esperienza nella finanza e nella contabilità\n• Ottima conoscenza della finanza di Abacus richiesta\n• L'esperienza di consulenza, assistenza clienti o lavoro di progetto è vantaggiosa\n• Alta affinità IT e buona conoscenza dei prodotti MS-Office\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Forte orientamento del cliente e godimento del contatto diretto con le persone\n• Molto buono tedesco in parola e scrittura I tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti Manteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "You are at home in the financial world, know Abacus finance from practice and want to support customers with your specialist knowledge? As an experienced:r Abacus consultant: in finance you support our customers competently, develop sustainable solutions and actively contribute to their success. Your role\n• As a consulting expert, you will advise our customers on all questions regarding Abacus finance and support them in the optimal use of their financial processes.\n• As a solution finder, you will analyse technical and technical issues, develop suitable solutions and be in close contact with customers – by telephone, in writing and on site if required.\n• As a subproject manager:in, you support introductions, optimizations and further developments of financial solutions and actively contribute your experience to customer projects\n• As a quality assurance: in & training professional you test new functions and solutions, develop best practices and carry out training and workshops for customers\n• As a team player: you work closely with colleagues from consulting, support and development and contribute your ideas to the continuous improvement of our services Your profile\n• Several years of experience in finance and accounting\n• Very good knowledge of Abacus finance required\n• Experience in consulting, customer support or project work is advantageous\n• High IT affinity and good knowledge of MS-Office products\n• Independent, structured and solution-oriented working method\n• Strong customer orientation and enjoyment of direct contact with people\n• Very good German in word and writing Your Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees We maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du bist in der Finanzwelt zu Hause, kennst Abacus Finanzen aus der Praxis und möchtest Kunden mit deinem Fachwissen gezielt unterstützen? Als erfahrene:r Abacus Berater:in Finanzen begleitest du unsere Kunden kompetent, entwickelst nachhaltige Lösungen und trägst aktiv zu ihrem Erfolg bei.\nDeine Rolle\n• Als Beratungsexpert:in berätst du unsere Kunden in allen Fragen rund um Abacus Finanzen und unterstützt sie bei der optimalen Nutzung ihrer Finanzprozesse\n• Als Lösungsfinder:in analysierst du fachliche und technische Fragestellungen, entwickelst passende Lösungen und stehst mit Kunden in engem Austausch – telefonisch, schriftlich und bei Bedarf vor Ort\n• Als Teilprojekt leiter:in unterstützt du bei Einführungen, Optimierungen und Weiterentwicklungen von Finanzlösungen und bringst deine Erfahrung aktiv in Kundenprojekte ein\n• Als Qualitätssicherer:in & Schulungsprofi testest du neue Funktionen und Lösungen, erarbeitest Best Practices und führst Schulungen sowie Workshops für Kunden durch\n• Als Teamplayer:in arbeitest du eng mit Kolleginnen und Kollegen aus Beratung, Support und Entwicklung zusammen und bringst deine Ideen zur kontinuierlichen Verbesserung unserer Dienstleistungen ein\nDein Profil\n• Mehrjährige Erfahrung im Bereich Finanz- und Rechnungswesen\n• Sehr gute Kenntnisse von Abacus Finanzen erforderlich\n• Erfahrung in der Beratung, Kundenbetreuung oder Projektarbeit von Vorteil\n• Hohe IT-Affinität sowie gute Kenntnisse der MS-Office-Produkte\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Ausgeprägte Kundenorientierung und Freude am direkten Kontakt mit Menschen\n• Sehr gutes Deutsch in Wort und Schrift\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Vous êtes à la maison dans le monde financier, connaissez Abacus finance de la pratique et voulez soutenir vos clients avec vos connaissances spécialisées? En tant que consultant expérimenté :r Abacus : en finance, vous aidez nos clients avec compétence, développez des solutions durables et contribuez activement à leur succès. Votre rôle\n• En tant qu'expert-conseil, vous conseillerez nos clients sur toutes les questions concernant la finance d'Abacus et les accompagnerez dans l'utilisation optimale de leurs processus financiers.\n• En tant que chercheur de solutions, vous analyserez les problèmes techniques, développerez des solutions appropriées et serez en contact étroit avec les clients – par téléphone, par écrit et sur place si nécessaire.\n• En tant que gestionnaire de sous-projets, vous soutenez des introductions, des optimisations et d'autres développements de solutions financières et apportez activement votre expérience à des projets clients\n• En tant qu'assurance qualité: dans & formation professionnelle, vous testez de nouvelles fonctions et solutions, développez les meilleures pratiques et effectuez des formations et des ateliers pour les clients\n• En tant que partenaire d'équipe, vous travaillez en étroite collaboration avec vos collègues en matière de conseil, de soutien et de développement et contribuez à l'amélioration continue de nos services. Votre profil\n• Plusieurs années d'expérience en finance et en comptabilité\n• Très bonne connaissance du financement d'Abacus\n• L'expérience en conseil, assistance à la clientèle ou travail de projet est avantageuse\n• Haute affinité informatique et bonne connaissance des produits MS-Office\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Orientation client forte et plaisir du contact direct avec les personnes\n• Très bon allemand en paroles et en écriture Vos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés Nous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-finanzen-80-100-5481",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-27T00:59:56.368Z",
-      "needsRetranslation": true,
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sviluppo software",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://apply.refline.ch/215876/2468/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2468",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
-        ],
-        "en": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
-        ],
-        "fr": [
-          "abacus-berater-in-finanzen-80-100-abraxas-st-gallen"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T09:59:54.759Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
+      "crawlerMissStreak": 2
     }
   ]
 }
