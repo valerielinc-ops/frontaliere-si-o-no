@@ -161,8 +161,8 @@ describe('Denner Playwright pagination', () => {
     process.env.JOBS_MIGROS_PAGINATION_TIMEOUT_MS = '1';
     process.env.JOBS_MIGROS_PAGINATION_STALL_POLLS = '1';
 
-    const firstHref = '/it/le-nostre-imprese/job/migros-ticino/vendita/first-id';
-    const slowHref = '/it/le-nostre-imprese/job/migros-ticino/vendita/slow-id';
+    const firstHref = '/it/le-nostre-imprese/job/migros-ticino/vendita/00000000-0000-4000-8000-000000000001';
+    const slowHref = '/it/le-nostre-imprese/job/migros-ticino/vendita/00000000-0000-4000-8000-000000000002';
     const consent = { isVisible: vi.fn().mockResolvedValue(false) };
     let disabledCalls = 0;
     const nextButton = {
@@ -196,11 +196,11 @@ describe('Denner Playwright pagination', () => {
       close: vi.fn().mockResolvedValue(undefined),
     });
 
-    const urls = await fetchMigrosJobDetailUrls();
+    const result = await fetchMigrosJobDetailUrls();
 
-    expect(urls).toEqual(expect.arrayContaining([
-      expect.stringContaining('first-id'),
-      expect.stringContaining('slow-id'),
+    expect(result.urls).toEqual(expect.arrayContaining([
+      expect.stringContaining('000000000001'),
+      expect.stringContaining('000000000002'),
     ]));
     expect(page.waitForLoadState).toHaveBeenCalledWith('networkidle', { timeout: 1 });
   });
