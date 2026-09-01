@@ -1270,6 +1270,20 @@ commit_isolated_from_worktree() {
       local_blob="$(git hash-object -w -- "$f")"
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
       base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+
+      # Delete-vs-stale-modify must resolve to the CURRENT remote deletion.
+      # A long-running writer can start while a slice still exists, modify its
+      # stale worktree copy hours later, then arrive here after another commit
+      # deliberately retired that slice. The private index is already seeded
+      # from origin/main, so skipping the stale local blob preserves the remote
+      # deletion while allowing every other file from this run to commit.
+      # A genuinely new file remains allowed: it has no blob in either the
+      # checkout base or origin/main.
+      if [ -n "$base_blob" ] && [ -z "$remote_blob" ]; then
+        echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
+        continue
+      fi
+
       blob_to_stage="$local_blob"
 
       # Remote moved for this file since our checkout AND disagrees with our
