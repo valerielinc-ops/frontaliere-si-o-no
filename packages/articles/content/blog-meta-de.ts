@@ -11034,6 +11034,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Moscia-Acapulco-Tunnel: 180 Millionen für das Straßennetz',
     'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'Das Moscia-Acapulco-Tunnelprojekt und die Neugestaltung der Küstenstraße stellen eine bedeutende Investition in die Verbesserung des Straßennetzes und der Lebensqualität grenzüberschreitender Pendler dar.',
     'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Luftaufnahme des Moscia-Acapulco-Tunnelprojekts im Tessin',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.title': 'Nächtliche Sperrungen A8 und Gallarate-Gattico am 4. September',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.excerpt': 'Autostrade per l\'Italia kündigt nächtliche Sperrungen zwischen der A8 und dem Gallarate-Gattico-Zweig wegen Pflasterarbeiten und Lärmschutzwänden an.',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.imageAlt': 'Nächtliche Sperrungen zwischen A8 und Diramazione Gallarate-Gattico',
 };
 
 export default blogMetaDe;

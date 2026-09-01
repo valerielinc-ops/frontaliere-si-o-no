@@ -32979,6 +32979,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiusure-notturne-a8-dir-gallarate-gattico',
+ category: 'pratico',
+ date: '2026-09-01T12:13:48.096Z',
+ image: '/images/blog/chiusure-notturne-a8-dir-gallarate-gattico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

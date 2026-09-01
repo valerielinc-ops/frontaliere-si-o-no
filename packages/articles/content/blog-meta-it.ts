@@ -11036,6 +11036,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Galleria Moscia-Acapulco: 180 milioni per la viabilità',
     'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'Il progetto della galleria Moscia-Acapulco e la riqualifica della strada litoranea rappresentano un investimento significativo per il miglioramento della viabilità e della qualità della vita dei frontalieri.',
     'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Vista aerea del progetto della galleria Moscia-Acapulco in Ticino',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.title': 'Chiusure notturne tra A8 e Diramazione Gallarate-Gattico il 4 settembre',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.excerpt': 'Autostrade per l\'Italia annuncia chiusure notturne tra A8 e Diramazione Gallarate-Gattico per lavori di pavimentazione e barriere antirumore.',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.imageAlt': 'Chiusure notturne tra A8 e Diramazione Gallarate-Gattico',
 };
 
 export default blogMetaIt;

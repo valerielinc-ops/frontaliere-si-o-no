@@ -81581,6 +81581,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiusure-notturne-a8-dir-gallarate-gattico': {
+    title: 'Chiusure notturne tra A8 e Diramazione Gallarate-Gattico il 4 settembre',
+    description: 'Autostrade per l\'Italia annuncia chiusure notturne tra A8 e Diramazione Gallarate-Gattico per lavori di pavimentazione e barriere antirumore. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, notturne, diramazione, gallarate-gattico',
+    ogTitle: 'Chiusure notturne tra A8 e Diramazione Gallarate-Gattico il 4 settembre',
+    ogDescription: 'Autostrade per l\'Italia ha annunciato una serie di chiusure notturne lungo le arterie autostradali del Varesotto per consentire interventi di pavimentazione e il potenziamento delle barriere antirumore. I provvedimenti saranno attivi dalle ore 21:00',
+    canonicalPath: '/articoli-frontaliere/chiusure-notturne-a8-dir-gallarate-gattico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure notturne tra A8 e Diramazione Gallarate-Gattico il 4 settembre",
+      "description": "Autostrade per l'Italia annuncia chiusure notturne tra A8 e Diramazione Gallarate-Gattico per lavori di pavimentazione e barriere antirumore. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiusure-notturne-a8-dir-gallarate-gattico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Chiusure notturne tra A8 e Diramazione Gallarate-Gattico"
+      },
+      "datePublished": "2026-09-01T12:13:48+00:00",
+      "dateModified": "2026-09-01T12:13:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a8-dir-gallarate-gattico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
