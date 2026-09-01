@@ -553,13 +553,14 @@ describe('Fust post-crawl reconciliation', () => {
       // Simulate a new process: the second call reconstructs confirmation
       // exclusively from the versionable summary file, not module memory.
       const second = await handleFustEmptyDiscovery(discovery, prior, before, options);
-      expect(second).toEqual({ confirmed: true, total: 0, archived: 1 });
+      expect(second).toEqual({ confirmed: true, total: 0, archived: 1, noop: false });
       expect(slice).toEqual([]);
       expect(archive).toHaveBeenCalledWith(prior, 'fust');
       expect(writeScratch).toHaveBeenCalledTimes(1);
       expect(assemble).toHaveBeenCalledTimes(1);
       expect(readSummary()).toMatchObject({ total: 0, removedCount: 1 });
       expect(readSummary()).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
+      expect(readSummary()).toMatchObject({ authoritativeEmptyConfirmed: true });
     } finally {
       fs.rmSync(stateDir, { recursive: true, force: true });
     }
@@ -610,7 +611,7 @@ describe('Fust post-crawl reconciliation', () => {
       generatedAt: '2026-08-31T00:00:00.000Z',
     });
 
-    expect(result).toEqual({ confirmed: true, total: 0, archived: 1 });
+    expect(result).toEqual({ confirmed: true, total: 0, archived: 1, noop: false });
     expect(slice).toEqual([]);
     expect(archive).toHaveBeenCalledWith(prior, 'fust');
     expect(writeScratch).toHaveBeenCalledTimes(1);
@@ -619,6 +620,79 @@ describe('Fust post-crawl reconciliation', () => {
     const [writtenSummary] = writeSummary.mock.calls[0] ?? [];
     expect(writtenSummary).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     expect(writtenSummary).not.toHaveProperty('authoritativeEmptyPending');
+    expect(writtenSummary).toMatchObject({ authoritativeEmptyConfirmed: true });
+  });
+
+  it('makes the third and later durable zero observations confirmed no-ops', async () => {
+    const prior = [crawled[0]];
+    const discovery = {
+      urls: [], seedMetaByUrl: {}, apiTotal: 0, droppedMalformedUrl: 0,
+      droppedDuplicateIdentity: 0, workplaceCount: 0, unknownCantonFallbacks: [],
+    };
+    const archive = vi.fn(async () => prior.length);
+    const writeSlice = vi.fn(async () => {});
+    const writeSummary = vi.fn(async () => {});
+    const writeScratch = vi.fn(() => []);
+    const assemble = vi.fn(async () => {});
+
+    const result = await handleFustEmptyDiscovery(discovery, [], snapshotJobSlugs(prior), {
+      readSummary: () => ({ total: 0, authoritativeEmptyConfirmed: true }),
+      archive, writeSlice, writeSummary, writeScratch, assemble,
+    });
+
+    expect(result).toEqual({ confirmed: true, total: 0, archived: 0, noop: true });
+    expect(archive).not.toHaveBeenCalled();
+    expect(writeSlice).not.toHaveBeenCalled();
+    expect(writeSummary).not.toHaveBeenCalled();
+    expect(writeScratch).not.toHaveBeenCalled();
+    expect(assemble).not.toHaveBeenCalled();
+  });
+
+  it('keeps the full durable zero-state contract across independent processes (#6772)', async () => {
+    const prior = [crawled[0]];
+    const discovery = {
+      urls: [], seedMetaByUrl: {}, apiTotal: 0, droppedMalformedUrl: 0,
+      droppedDuplicateIdentity: 0, workplaceCount: 0, unknownCantonFallbacks: [],
+    };
+    let summaryState: Record<string, unknown> | null = null;
+    let slice = [...prior];
+    const archive = vi.fn(async () => prior.length);
+    const writeSlice = vi.fn(async (_key: string, jobs: object[]) => { slice = [...jobs] as typeof prior; });
+    const writeSummary = vi.fn(async (summary: Record<string, unknown>) => { summaryState = summary; });
+    const writeScratch = vi.fn(() => []);
+    const assemble = vi.fn(async () => {});
+    const options = {
+      readSummary: () => summaryState,
+      writeSummary, writeScratch, archive, writeSlice, assemble,
+      writeVerified: vi.fn(async () => {}),
+      durationMs: 123,
+      generatedAt: '2026-08-31T00:00:00.000Z',
+    };
+
+    expect(await handleFustEmptyDiscovery(discovery, prior, snapshotJobSlugs(prior), options))
+      .toEqual({ confirmed: false, total: 1, archived: 0 });
+    expect(slice).toEqual(prior);
+    expect(summaryState).toMatchObject({ authoritativeEmptyPending: true });
+
+    expect(await handleFustEmptyDiscovery(discovery, prior, snapshotJobSlugs(prior), options))
+      .toEqual({ confirmed: true, total: 0, archived: 1, noop: false });
+    expect(slice).toEqual([]);
+    expect(summaryState).toMatchObject({ authoritativeEmptyConfirmed: true });
+
+    const writesAfterConfirmation = writeSummary.mock.calls.length;
+    expect(await handleFustEmptyDiscovery(discovery, [], snapshotJobSlugs(prior), options))
+      .toEqual({ confirmed: true, total: 0, archived: 0, noop: true });
+    expect(writeSummary).toHaveBeenCalledTimes(writesAfterConfirmation);
+    expect(archive).toHaveBeenCalledTimes(1);
+
+    await writeFustPublishPlan(buildFustPublishPlan(prior), options);
+    expect(summaryState).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
+    expect(summaryState).not.toHaveProperty('authoritativeEmptyPending');
+    expect(summaryState).not.toHaveProperty('authoritativeEmptyConfirmed');
+
+    expect(await handleFustEmptyDiscovery(discovery, prior, snapshotJobSlugs(prior), options))
+      .toEqual({ confirmed: false, total: 1, archived: 0 });
+    expect(summaryState).toMatchObject({ authoritativeEmptyPending: true });
   });
 
   it('readFustSummarySliceLive() parses the origin/main summary via git show', () => {
@@ -668,6 +742,7 @@ describe('Fust post-crawl reconciliation', () => {
     });
     expect(summaryState).not.toHaveProperty('authoritativeEmptyConsecutiveRuns');
     expect(summaryState).not.toHaveProperty('authoritativeEmptyPending');
+    expect(summaryState).not.toHaveProperty('authoritativeEmptyConfirmed');
   });
 
   it('degrades to "no prior confirmation" instead of crashing on an unreadable summary slice', () => {
