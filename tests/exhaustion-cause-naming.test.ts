@@ -78,14 +78,21 @@ describe('classifyNonRetryableError — la ruggine va marcata esaurita', () => {
     assert.equal(r.markExhausted, true);
   });
 
-  it('non marca esaurito un 404 di cui non riconosce la causa', () => {
-    // Un 404 generico puo' essere un typo nell'URL o un guasto transitorio del
-    // routing del provider: marcarlo esaurito toglierebbe il modello dal roster
-    // per tutta la run senza prove. Comportamento invariato, asserito perche'
-    // allargare il matcher e' esattamente il modo di romperlo.
+  it('marca esaurito un 404 col body vuoto, che nessun matcher testuale puo vedere', () => {
+    // Run 32169621635: 163 risposte su 163 avevano body vuoto. Lasciarle
+    // eleggibili faceva crescere i round-trip con ogni passata della cascata.
+    const r = classifyNonRetryableError(404, '');
+    assert.equal(r.nonRetryable, true);
+    assert.equal(r.markExhausted, true);
+  });
+
+  it('marca esaurito ogni 404 per la run corrente, come gia fa il 402', () => {
+    // L'esaurimento non e' persistito per questa causa: un endpoint recuperato
+    // rientra nella run successiva, mentre uno morto costa un solo tentativo.
     const r = classifyNonRetryableError(404, '{"error":"Not Found"}');
     assert.equal(r.nonRetryable, true);
-    assert.equal(r.markExhausted, false);
+    assert.equal(r.markExhausted, true);
+    assert.deepEqual(r, classifyNonRetryableError(402, '{"error":"Not Found"}'));
   });
 
   it('402 e 401 restano non-ritentabili ed esauriti', () => {
