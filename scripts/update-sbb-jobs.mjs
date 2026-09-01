@@ -1132,7 +1132,8 @@ export function mergeSbbJobsWithDiscoveryState(sbbPriorSnapshot, parsedJobs, opt
       if (!isLoginSbbJob(retainedLoginJob)) continue;
       const key = normalizeDetailUrl(retainedLoginJob?.url || '');
       if (!key || byUrl.has(key)) continue;
-      deduped.push({ ...retainedLoginJob });
+      const { crawlerMissStreak: _priorMissStreak, ...observedLoginJob } = retainedLoginJob;
+      deduped.push(observedLoginJob);
     }
   }
 
