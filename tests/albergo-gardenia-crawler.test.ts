@@ -5,11 +5,13 @@ import {
   ALBERGO_GARDENIA_COMPANY_DOMAIN,
   ALBERGO_GARDENIA_COMPANY_NAME,
   ALBERGO_GARDENIA_FETCH_BUDGET,
+  ALBERGO_GARDENIA_HOME_URL,
   ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS,
   ALBERGO_GARDENIA_KEY,
   ALBERGO_GARDENIA_SITEMAP_URL,
   ALBERGO_GARDENIA_TOTAL_BUDGET_MS,
   assertCompleteAlbergoGardeniaSnapshot,
+  createAlbergoGardeniaBrowserTransport,
   fetchAlbergoGardeniaSourcePage,
   assertNoGardeniaCareerSurface,
   fetchAllAlbergoGardeniaJobs,
@@ -18,6 +20,7 @@ import {
   parseAlbergoGardeniaSitemap,
 } from '../scripts/lib/albergo-gardenia-job-parser.mjs';
 import { buildExpiredEntry } from '../scripts/lib/expired-jobs-archive.mjs';
+import { HOST_DELAY_MS } from '../scripts/lib/prospector/config.mjs';
 import { isConnectionLevelFetchError } from '../scripts/lib/transient-fetch.mjs';
 import { expiredJobSlugVariants } from '../build-plugins/shared/expiredSlugVariants';
 
@@ -126,18 +129,208 @@ describe('Albergo Gardenia authoritative crawler', () => {
     );
   });
 
+  it('switches once to bounded Chromium after both HTTP aliases exhaust and keeps that transport sticky', async () => {
+    const sitemap = representativeSitemap();
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const browserFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: new URL(url).pathname === '/sitemap.xml' ? sitemap : gardeniaPage(),
+      host: new URL(url).hostname,
+    }));
+
+    const jobs = await fetchAllAlbergoGardeniaJobs({ fetchPage, browserFetchPage });
+    expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(browserFetchPage).toHaveBeenCalledTimes(41);
+    expect(browserFetchPage).toHaveBeenNthCalledWith(
+      1,
+      ALBERGO_GARDENIA_SITEMAP_URL,
+      expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.sitemap),
+    );
+    expect(browserFetchPage).toHaveBeenNthCalledWith(
+      2,
+      'https://www.albergo-gardenia.ch/index.php?mid=1&pid=1',
+      expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.content),
+    );
+  });
+
+  it('never turns an exhausted Chromium fallback into an authoritative empty snapshot', async () => {
+    const failed = (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    });
+    const fetchPage = vi.fn(async (url: string) => failed(url));
+    const browserFetchPage = vi.fn(async (url: string) => failed(url));
+
+    let failure: unknown;
+    try {
+      await fetchAllAlbergoGardeniaJobs({ fetchPage, browserFetchPage });
+    } catch (error) {
+      failure = error;
+    }
+    expect(failure).toMatchObject({
+      code: 'ERR_GARDENIA_CONNECTION_EXHAUSTED',
+      retryable: true,
+    });
+    expect(isConnectionLevelFetchError(failure)).toBe(true);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(browserFetchPage).toHaveBeenCalledOnce();
+  });
+
+  it('fails hard when Chromium receives HTTP or redirects to another Gardenia resource', async () => {
+    const failedDirect = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const httpFailure = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 503,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    await expect(fetchAllAlbergoGardeniaJobs({
+      fetchPage: failedDirect,
+      browserFetchPage: httpFailure,
+    })).rejects.toMatchObject({ status: 503 });
+
+    const redirected = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url: 'https://www.albergo-gardenia.ch/',
+      body: representativeSitemap(),
+      host: new URL(url).hostname,
+    }));
+    await expect(fetchAllAlbergoGardeniaJobs({
+      fetchPage: failedDirect,
+      browserFetchPage: redirected,
+    })).rejects.toMatchObject({ code: 'ERR_GARDENIA_RESOURCE_IDENTITY' });
+  });
+
+  it('keeps the Chromium transport scoped to canonical Gardenia documents', async () => {
+    let routeHandler: ((route: any) => Promise<void>) | undefined;
+    const response = {
+      status: vi.fn(() => 200),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      body: vi.fn(async () => Buffer.from(representativeSitemap())),
+    };
+    const page = {
+      goto: vi.fn(async () => response),
+      close: vi.fn(async () => {}),
+    };
+    const context = {
+      route: vi.fn(async (_pattern: string, handler: (route: any) => Promise<void>) => {
+        routeHandler = handler;
+      }),
+      newPage: vi.fn(async () => page),
+      close: vi.fn(async () => {}),
+    };
+    const browser = {
+      newContext: vi.fn(async () => context),
+      close: vi.fn(async () => {}),
+    };
+    const launchBrowserImpl = vi.fn(async () => browser);
+    let now = 1_000;
+    const sleepImpl = vi.fn(async (ms: number) => { now += ms; });
+    const transport = createAlbergoGardeniaBrowserTransport({
+      launchBrowserImpl,
+      nowImpl: () => now,
+      sleepImpl,
+    });
+
+    const result = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL, { timeoutMs: 12_345 });
+    expect(result).toMatchObject({
+      ok: true,
+      status: 200,
+      url: ALBERGO_GARDENIA_SITEMAP_URL,
+    });
+    expect(page.goto).toHaveBeenCalledWith(ALBERGO_GARDENIA_SITEMAP_URL, {
+      waitUntil: 'domcontentloaded',
+      timeout: 12_345,
+    });
+    await transport.fetchPage('https://www.albergo-gardenia.ch/story.php?mid=1&pid=1');
+    expect(sleepImpl).toHaveBeenCalledOnce();
+    expect(sleepImpl).toHaveBeenCalledWith(HOST_DELAY_MS);
+
+    const trustedRoute = {
+      request: () => ({
+        resourceType: () => 'document',
+        url: () => 'https://albergo-gardenia.ch/story.php?mid=1&pid=1',
+      }),
+      abort: vi.fn(async () => {}),
+      continue: vi.fn(async () => {}),
+    };
+    const foreignRoute = {
+      request: () => ({ resourceType: () => 'document', url: () => 'https://attacker.example/' }),
+      abort: vi.fn(async () => {}),
+      continue: vi.fn(async () => {}),
+    };
+    const assetRoute = {
+      request: () => ({ resourceType: () => 'script', url: () => ALBERGO_GARDENIA_HOME_URL }),
+      abort: vi.fn(async () => {}),
+      continue: vi.fn(async () => {}),
+    };
+    await routeHandler?.(trustedRoute);
+    await routeHandler?.(foreignRoute);
+    await routeHandler?.(assetRoute);
+    expect(trustedRoute.continue).toHaveBeenCalledOnce();
+    expect(foreignRoute.abort).toHaveBeenCalledWith('blockedbyclient');
+    expect(assetRoute.abort).toHaveBeenCalledWith('blockedbyclient');
+
+    const rejected = await transport.fetchPage('https://attacker.example/jobs');
+    expect(rejected).toMatchObject({ ok: false, status: 0, policyBlocked: true });
+    expect(launchBrowserImpl).toHaveBeenCalledOnce();
+    await transport.close();
+    expect(context.close).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('turns a missing Chromium executable into a safe connection-level result', async () => {
+    const transport = createAlbergoGardeniaBrowserTransport({
+      launchBrowserImpl: vi.fn(async () => {
+        throw new Error("Executable doesn't exist");
+      }),
+      sleepImpl: vi.fn(async () => {}),
+    });
+    const response = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(response).toMatchObject({
+      ok: false,
+      status: 0,
+      url: ALBERGO_GARDENIA_SITEMAP_URL,
+    });
+    expect(response.error).toMatch(/Executable doesn't exist/);
+    await expect(transport.close()).resolves.toBeUndefined();
+  });
+
   it.each([
     ['robots denial', { ok: false, status: 0, blockedByRobots: true }],
     ['URL-policy denial', { ok: false, status: 0, policyBlocked: true }],
     ['HTTP response', { ok: false, status: 503 }],
   ])('does not cross the host alias for %s', async (_label, result) => {
     const fetchPage = vi.fn(async (url: string) => ({ ...result, url, body: '', host: new URL(url).hostname }));
+    const browserFetchPage = vi.fn();
     const response = await fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
       kind: 'sitemap',
       fetchPage,
+      browserFetchPage,
     });
     expect(response).toEqual(expect.objectContaining(result));
     expect(fetchPage).toHaveBeenCalledOnce();
+    expect(browserFetchPage).not.toHaveBeenCalled();
   });
 
   it.each([
