@@ -64136,6 +64136,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sanzioni-disordini-rimborso-mendrisio': {
+    title: 'Sanzioni fino a 30 mila franchi per i disordini',
+    description: 'Mozione Mendrisio chiede rimborso spese polizia per chi provoca disordini. Fino a 30 mila franchi per persona in casi gravi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sanzioni, fino, mila, franchi',
+    ogTitle: 'Sanzioni fino a 30 mila franchi per i disordini',
+    ogDescription: 'Mozione di Udc e Unione democratica federale a Mendrisio propone rimborso costi polizia e pompieri fino a 30 mila franchi per chi provoca disordini pubblici. Il nuovo articolo 15 bis del regolamento comunale farebbe pagare i responsabili.',
+    canonicalPath: '/articoli-svizzera/sanzioni-disordini-rimborso-mendrisio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sanzioni fino a 30 mila franchi per i disordini",
+      "description": "Mozione Mendrisio chiede rimborso spese polizia per chi provoca disordini. Fino a 30 mila franchi per persona in casi gravi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-disordini-rimborso-mendrisio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio municipale di Mendrisio dove è stata presentata la mozione sulle sanzioni per disordini"
+      },
+      "datePublished": "2026-09-01T14:17:27+00:00",
+      "dateModified": "2026-09-01T14:17:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanzioni-disordini-rimborso-mendrisio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

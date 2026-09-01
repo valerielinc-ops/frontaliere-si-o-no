@@ -4942,6 +4942,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novartis-studio-clinico-sospeso.title': 'Novartis setzt klinische Studien aus, +5 % am Aktienmarkt',
     'blog.article.novartis-studio-clinico-sospeso.excerpt': 'Novartis hat die Studien zu Rap-cel aufgrund von drei Todesfällen eingestellt; gleichzeitig gibt es positive Ergebnisse zu Remibrutinib bekannt. Aktien +5 % heute, +19 % bis heute in die Saison.',
     'blog.article.novartis-studio-clinico-sospeso.imageAlt': 'Schweizer Pharmalabor mit Forschern, die Daten auf Bildschirmen in moderner Forschungsumgebung analysieren.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Strafen von bis zu 30.000 Francs für Unruhen',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Ein Antrag der UDC und der Bundesdemokratischen Union in Mendrisio fordert die Erstattung der Polizei- und Feuerwehrkosten für diejenigen, die Unruhen verursachen. Höhe bis zu 30.000 Francs.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Gemeindebüro Mendrisio, Ort der Eingabe von Strafen-Initiative für Unruhen',
 };
 
 export default blogMetaChDe;

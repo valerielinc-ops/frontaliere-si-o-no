@@ -4942,6 +4942,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.novartis-studio-clinico-sospeso.title': 'Novartis suspend les essais cliniques, +5 % sur le marché boursier',
     'blog.article.novartis-studio-clinico-sospeso.excerpt': 'Novartis a arrêté les études sur le rap-cel en raison de trois décès ; en même temps, elle annonce des résultats positifs sur le Remibrutinib. Actions +5 % aujourd’hui, +19 % depuis le début.',
     'blog.article.novartis-studio-clinico-sospeso.imageAlt': 'Laboratoire pharmaceutique suisse avec chercheurs analysant des données sur écrans dans un environnement de recherche moderne.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Des sanctions allant jusqu’à 30 000 francs en cas de troubles',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Une motion de l’UDC et de l’Union fédérale démocratique à Mendrisio demande le remboursement des frais de police et de pompiers pour ceux qui provoquent des troubles. Montant jusqu’à 30 000 francs.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Bâtiment municipal de Mendrisio où la motion sur les amendes pour troubles a été présentée',
 };
 
 export default blogMetaChFr;
