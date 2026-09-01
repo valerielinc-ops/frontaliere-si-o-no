@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-raiffeisen-vedeggio-cassarate",
-  "assembledAt": "2026-09-01T07:21:46.597Z",
+  "assembledAt": "2026-09-01T08:39:02.847Z",
   "jobs": [
     {
       "id": "company-8jc1jx",
@@ -27,7 +27,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-08-31T16:59:24.926Z",
+      "crawledAt": "2026-09-01T08:39:02.103Z",
       "firstSeenAt": "2026-08-12T10:16:12.004Z",
       "titleByLocale": {
         "it": "Collaboratore/trice HR",
@@ -77,9 +77,9 @@
       "addressLocality": "Gravesano, Ticino",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "salarySource": "estimated",
       "salaryMin": 85500,
-      "salaryMax": 150000,
-      "salarySource": "estimated"
+      "salaryMax": 150000
     }
   ]
 }
