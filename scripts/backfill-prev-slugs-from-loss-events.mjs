@@ -160,7 +160,7 @@ const HASH_TAIL_RE = /-([a-z0-9]{6})$/;
  *
  * @param {object} job job currently resolved via the loss event's stale id
  * @param {string} slug slug being recovered
- * @param {Map<string, object>} bySuffixHash stableSlugHash(job) → job, for every job in the same slice
+ * @param {Map<string, object>} bySuffixHash stableSlugHash(job) → unambiguous current owner in the selected scope
  * @returns {{ targetJob: object, skip: boolean, redirected: boolean }}
  */
 export function resolveRecoveryTarget(job, slug, bySuffixHash) {

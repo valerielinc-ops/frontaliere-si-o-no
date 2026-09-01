@@ -6913,7 +6913,12 @@ export function pruneEmptyPreviousSlugLocaleBuckets(job) {
     delete locales[locale];
     pruned++;
   }
-  if (Object.keys(locales).length === 0) delete job.previousSlugsByLocale;
+  if (Object.keys(locales).length === 0) {
+    delete job.previousSlugsByLocale;
+    // An already-empty container has no locale key to count, but deleting it
+    // is still a material cleanup that the caller must persist.
+    if (pruned === 0) pruned = 1;
+  }
   return pruned;
 }
 
