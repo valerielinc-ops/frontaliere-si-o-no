@@ -215,6 +215,27 @@ export function isCoopJob(job) {
 }
 
 /**
+ * Find distinct company names among jobs scoped to this crawler's own
+ * companyKey that isCoopJob() nonetheless rejects (#6945 item 1).
+ * COOP_DIVISION_COMPANY_NAMES is a hand-maintained allowlist and may not be
+ * exhaustive against every Coop division Prospective.ch exposes; a job stamped
+ * with this crawler's companyKey (so it was discovered/scraped as Coop) but
+ * whose scraped company text isn't in the allowlist silently drops out of
+ * stats/postprocessing/translation-cache with no signal. Callers surface the
+ * result instead of letting an incomplete allowlist fail closed unnoticed.
+ */
+export function findUnrecognizedCoopDivisions(allJobs) {
+  const unrecognized = new Set();
+  for (const job of Array.isArray(allJobs) ? allJobs : []) {
+    if (isCoopJob(job)) continue;
+    if (normalizeKey(job?.companyKey || '') !== COOP_KEY) continue;
+    const company = String(job?.company || '').trim();
+    if (company) unrecognized.add(company);
+  }
+  return [...unrecognized];
+}
+
+/**
  * Check whether a URL belongs to one of Coop's trusted domains.
  */
 function isTrustedCoopDomain(rawUrl = '') {
@@ -940,6 +961,14 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   const allJobs = Array.isArray(raw) ? raw : [];
   const coopJobs = allJobs.filter(isCoopJob);
   const ticinoJobs = coopJobs.filter((job) => normalize(job?.canton) === 'ti');
+
+  const unrecognizedDivisions = findUnrecognizedCoopDivisions(allJobs);
+  if (unrecognizedDivisions.length > 0) {
+    console.warn(
+      `⚠️ ${unrecognizedDivisions.length} Coop-scoped job(s) have a company name not in COOP_DIVISION_COMPANY_NAMES ` +
+      `(excluded from Coop stats/postprocessing/translation-cache) — verify the allowlist: ${unrecognizedDivisions.join(', ')}`
+    );
+  }
 
   // CH-wide canton distribution (2-letter code → count).
   const byCanton = {};
