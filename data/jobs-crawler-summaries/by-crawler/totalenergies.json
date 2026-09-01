@@ -1,20 +1,21 @@
 {
   "key": "totalenergies",
   "label": "TotalEnergies",
-  "generatedAt": "2026-08-31T17:01:27.135Z",
+  "generatedAt": "2026-09-01T00:29:53.729Z",
   "total": 11,
   "discovered": null,
   "written": 11,
-  "newCount": 1,
-  "updatedCount": 10,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 29943,
-  "avgDurationMs": 29943,
+  "durationMs": 30380,
+  "avgDurationMs": 30380,
   "durationHistory": [
-    29943
+    30380
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "totalenergies-b5f7014a85b1",
       "slug": "machine-learning-for-wind-solar-asset-yield-estimation-internship-totalenergies-geneve",
@@ -27,7 +28,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Machine-Learning-for-Wind-Solar-Asset-Yield-Estimation-Internship/83689",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.300Z",
+      "crawledAt": "2026-09-01T00:29:51.139Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -45,16 +46,16 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Machine-Learning-for-Wind-Solar-Asset-Yield-Estimation-Internship/83689",
       "jobReqId": "83689",
       "hiringOrganizationName": "TotalEnergies Gas & Power Ltd",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T17:01:24.300Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "totalenergies-e254c5d86a0e",
       "slug": "trading-operator-totalenergies-geneve",
@@ -67,7 +68,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Trading-Operator/83309",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.312Z",
+      "crawledAt": "2026-09-01T00:29:51.141Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -85,6 +86,7 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Trading-Operator/83309",
       "jobReqId": "83309",
       "hiringOrganizationName": "TOTSA TotalEnergies Trading SA",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-13T21:48:43.472Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -106,7 +108,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Administrative-Assistant-Fixed-Term-Contract/83184",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.314Z",
+      "crawledAt": "2026-09-01T00:29:51.144Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -124,6 +126,7 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Administrative-Assistant-Fixed-Term-Contract/83184",
       "jobReqId": "83184",
       "hiringOrganizationName": "TOTSA TotalEnergies Trading SA",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T10:09:17.503Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -145,7 +148,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Tech-Lead-Advanced-Analytics/83204",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.322Z",
+      "crawledAt": "2026-09-01T00:29:51.148Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -185,7 +188,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Power-Trading-New-Ventures-Regulatory-Affairs-Intern/82734",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.327Z",
+      "crawledAt": "2026-09-01T00:29:51.149Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -203,6 +206,7 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Power-Trading-New-Ventures-Regulatory-Affairs-Intern/82734",
       "jobReqId": "82734",
       "hiringOrganizationName": "TotalEnergies Gas & Power Ltd",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T22:10:29.852Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -224,7 +228,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Corporate-Compliance-Officer-Fixed-Term-contract-6-months/82946",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.328Z",
+      "crawledAt": "2026-09-01T00:29:51.152Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -244,11 +248,11 @@
       "hiringOrganizationName": "TOTSA TotalEnergies Trading SA",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-03T22:10:29.849Z",
-      "_qualityScore": 88,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 20,
         "completeness": 20
       }
     },
@@ -264,7 +268,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Structured-Origination-Finance-Junior-Analyst-Intern/82708",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.320Z",
+      "crawledAt": "2026-09-01T00:29:51.146Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -303,7 +307,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Derivative-Market-Risk-Analyst/82555",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.316Z",
+      "crawledAt": "2026-09-01T00:29:51.151Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -342,7 +346,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/CDD-TGI-Comptable-polyvalent/82348",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:01:24.318Z",
+      "crawledAt": "2026-09-01T00:29:51.136Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -360,6 +364,7 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/CDD-TGI-Comptable-polyvalent/82348",
       "jobReqId": "82348",
       "hiringOrganizationName": "TotalEnergies Global Human Resources Services",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-13T21:57:28.103Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -381,7 +386,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Business-Analyst-Finance-Shared-Services/82058",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.325Z",
+      "crawledAt": "2026-09-01T00:29:51.143Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -399,6 +404,7 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Business-Analyst-Finance-Shared-Services/82058",
       "jobReqId": "82058",
       "hiringOrganizationName": "TOTSA TotalEnergies Trading SA",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:38:28.341Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -420,7 +426,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Legal-Operations-Artificial-Intelligence-Intern/81726",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:01:24.323Z",
+      "crawledAt": "2026-09-01T00:29:51.125Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
@@ -438,6 +444,7 @@
       "applyUrl": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Legal-Operations-Artificial-Intelligence-Intern/81726",
       "jobReqId": "81726",
       "hiringOrganizationName": "TOTSA TotalEnergies Trading SA",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T12:38:28.345Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
