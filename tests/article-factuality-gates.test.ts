@@ -612,6 +612,39 @@ describe('checkFabricatedNormAcronyms', () => {
     ))).toContain('fabricated-norm-acronym');
   });
 
+  it('leaves explicit entity/product uses of LFW/LPS alone', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Il gruppo LFW ha aperto un nuovo sportello vicino al confine per i frontalieri.',
+    )).toEqual([]);
+    expect(checkFabricatedNormAcronyms(
+      'La app LPS aiuta i frontalieri a calcolare lo stipendio netto in Svizzera.',
+    )).toEqual([]);
+  });
+
+  it('keeps blocking unambiguous norm uses even without legge/art./RS nearby', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'Secondo la LFW, il datore di lavoro deve registrare ogni ora supplementare.',
+    ))).toContain('fabricated-norm-acronym');
+    expect(codes(checkFabricatedNormAcronyms(
+      'I requisiti della LPS si applicano a tutti i residenti del Cantone.',
+    ))).toContain('fabricated-norm-acronym');
+    expect(codes(checkFabricatedNormAcronyms(
+      'La LCO del 2013 disciplina il contrasto alla criminalità organizzata.',
+    ))).toContain('fabricated-norm-acronym');
+  });
+
+  it('does not let an earlier benign entity mention hide a later legal use of the same sigla', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'Il gruppo LFW apre uno sportello. Secondo la LFW, ogni datore deve registrare le ore.',
+    ))).toContain('fabricated-norm-acronym');
+  });
+
+  it('still flags LFW inside a German compound that embeds -gesetz mid-word', () => {
+    expect(codes(checkFabricatedNormAcronyms(
+      'Nach dem Bundesarbeitsgesetz (LFW) vom 13. März 1943 ist die Lehre ein Vertrag.',
+    ))).toContain('fabricated-norm-acronym');
+  });
+
   // #6017 item 2/3: LCL e LCO, misurate sul corpus tirato con la stessa
   // firma di fabbricazione — LCL fabbrica due leggi diverse e incompatibili
   // (naturalizzazione cantonale 2020 vs legge cantonale sul lavoro 1995),
@@ -631,6 +664,16 @@ describe('checkFabricatedNormAcronyms', () => {
     );
     expect(codes(issues)).toContain('fabricated-norm-acronym');
     expect(issues[0].message).toContain('LCO');
+  });
+
+  it('leaves an explicit LCO entity mention alone but still flags its measured legal context', () => {
+    expect(checkFabricatedNormAcronyms(
+      'Il gruppo LCO ha aperto una nuova filiale vicino al confine per i frontalieri.',
+    )).toEqual([]);
+    expect(codes(checkFabricatedNormAcronyms(
+      'La legge federale sul contrasto alla criminalità organizzata (LCO), approvata nel 2013, '
+      + 'prevede la creazione di un ufficio federale dedicato.',
+    ))).toContain('fabricated-norm-acronym');
   });
 
   // La guardia `context` di LCL, e i due modi in cui puo' sbagliare.
