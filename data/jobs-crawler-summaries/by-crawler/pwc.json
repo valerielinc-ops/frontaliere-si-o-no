@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-01T08:38:05.001Z",
-  "total": 134,
+  "generatedAt": "2026-09-01T10:12:39.635Z",
+  "total": 133,
   "newCount": 0,
-  "updatedCount": 86,
-  "removedCount": 0,
+  "updatedCount": 85,
+  "removedCount": 1,
   "unchangedCount": 12,
-  "durationMs": 3371,
-  "avgDurationMs": 3371,
+  "durationMs": 3626,
+  "avgDurationMs": 3626,
   "durationHistory": [
-    3371
+    3626
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,7 +42,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:26:25.590Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -693,6 +692,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -765,6 +765,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1094,7 +1095,45 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Intern - Audit - Trade, Industries and Services",
+      "slug": "tirocinante-audit-trade-industries-and-services-pwc-switzerland-geneva",
+      "url": "https://jobs.pwc.ch/job-vacancies/intern-audit-trade-industries-and-services/5d6a07da-c8ad-429c-9674-5a042044f109",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Genve/FY27---ASR---ASR-TIS-GE---Genve---Intern-Trainee---Start-01012027_737756WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Geneva",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "canton": "GE",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-06-17",
+      "validThrough": "2036-06-13",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-e044d557134c",
+      "salaryMin": 51100,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "postalCode": "1204",
+      "firstSeenAt": "2026-06-17T13:31:14.058Z",
+      "salarySource": "reported",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Career Start in Audit – Asset Management – Herbst 2026",
