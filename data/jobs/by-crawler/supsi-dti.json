@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-09-01T07:38:39.917Z",
+  "assembledAt": "2026-09-01T08:51:35.830Z",
   "jobs": [
     {
       "id": "company-l4u55a",
@@ -28,7 +28,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "titleByLocale": {
         "it": "Ricercatrice / Ricercatore con PhD nell’area del controllo intelligente per sistemi e reti",
@@ -81,7 +81,15 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-2026-informativa-privacy-e-sicurezza-aree-ris"
+        ]
+      },
+      "previousSlugs": [
+        "ricercatrice-ricercatore-con-phd-nell-area-del-controllo-intelligente-per-sistemi-e-reti-supsi-2026-informativa-privacy-e-sicurezza-aree-ris"
+      ]
     },
     {
       "id": "company-l4s845",
@@ -125,7 +133,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "de": "associate-professor-professor-oder-governance-von-nachhaltigkeit-und-systemischer-transformation-supsi-dti-manno",
@@ -266,7 +274,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "titleByLocale": {
         "it": "Assistente alla Ricerca presso il Centro competenze anziani (CCA)",
@@ -328,7 +336,15 @@
       "postalCode": "6928",
       "addressLocality": "Manno",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-alla-ricerca-presso-il-centro-competenze-anziani-cca-supsi-manno"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-alla-ricerca-presso-il-centro-competenze-anziani-cca-supsi-manno"
+      ]
     },
     {
       "id": "company-l4ti2z",
@@ -362,7 +378,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
@@ -496,7 +512,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-09-01T07:37:53.290Z",
       "slugByLocale": {
         "it": "stage-anno-preformativo-per-l-ammissione-al-bachelor-of-science-in-sostenibilita-e-transizione-sistemica-supsi-dti-manno",
@@ -619,7 +635,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-08-31T17:20:37.623Z",
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-robotica-supsi-dti-lugano",
@@ -680,6 +696,10 @@
         "en": [
           "phd-phd-in-robotics-supsi-dti-lugano"
         ],
+        "it": [
+          "phd-phd-in-robotik-supsi-dti-lugano",
+          "doctorat-doctorat-en-robotique-supsi-dti-lugano"
+        ],
         "de": [
           "phd-phd-in-robotik-supsi-dti-lugano"
         ],
@@ -727,7 +747,7 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-09-01T07:37:53.290Z",
+      "crawledAt": "2026-09-01T08:51:06.814Z",
       "firstSeenAt": "2026-08-31T17:20:37.623Z",
       "slugByLocale": {
         "de": "professoressa-professore-associata-o-in-ergoterapia-e-condizioni-croniche-supsi-dti-manno",
@@ -827,6 +847,10 @@
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "it": [
+          "associate-professor-professor-in-ergotherapie-und-chronischen-erkrankungen-supsi-dti-manno",
+          "professeur-associe-professeur-en-ergotherapie-et-affections-chroniques-supsi-dti-manno"
+        ],
         "de": [
           "associate-professor-professor-in-ergotherapie-und-chronischen-erkrankungen-supsi-dti-manno"
         ],
@@ -958,7 +982,7 @@
         "bachelor-in-education-master-mse-in-data-science-supsi-dti-lugano-l4u54a"
       ],
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1090,7 +1114,7 @@
         "assistenti-bachelor-in-formazione-master-mse-in-mechanical-engineering-and-materials-supsi-dti-lugano"
       ],
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1226,7 +1250,7 @@
         "assistant-bachelor-in-education-mse-master-in-electrical-engineering-supsi-dti-lugano"
       ],
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1370,7 +1394,7 @@
         "assistente-bachelor-in-formazione-master-of-science-in-engineering-mse-presso-l-istituto-isteps-supsi-dti-manno"
       ],
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1540,7 +1564,7 @@
         "bachelor-in-education-master-mse-in-data-science-supsi-dti-lugano"
       ],
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -1717,7 +1741,7 @@
         "assistente-bachelor-in-formazione-master-in-ambito-bioelettronica-per-lo-sviluppo-di-bioreattori-miniaturizzati-organ-on-chip-supsi-dti"
       ],
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
