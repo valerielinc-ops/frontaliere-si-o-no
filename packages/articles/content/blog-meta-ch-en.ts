@@ -4954,6 +4954,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asib-normativa-ubs-sostegno.title': 'ASIB pushes for social plans in UBS regulation',
     'blog.article.asib-normativa-ubs-sostegno.excerpt': 'The bank employees\' association calls for mandatory protections in the UBS CET-S regulatory package, citing the employment crisis in the sector.',
     'blog.article.asib-normativa-ubs-sostegno.imageAlt': 'Swiss bank headquarters: the banking sector faces mounting employment pressures.',
+    'blog.article.ubs-requisiti-patrimoniali.title': 'UBS challenges CET-S proposal on capital requirements',
+    'blog.article.ubs-requisiti-patrimoniali.excerpt': 'The big bank appreciates the Commission\'s work but criticizes the new capital requirements, which would cost a total of 30 billion dollars.',
+    'blog.article.ubs-requisiti-patrimoniali.imageAlt': 'Swiss banking office with capital requirement documents and financial charts displayed.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.title': 'Bank employees: ASIB accepts UBS regulations',
+    'blog.article.sindacato-banca-ubs-regolamentazione.excerpt': 'The ASIB supports the CET-S\'s proposal to regulate UBS and calls for mandatory social plans as the banking sector faces an unprecedented employment crisis.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.imageAlt': 'Swiss bank sign symbolizing the debate on financial regulation and employment in Switzerland\'s banking sector',
 };
 
 export default blogMetaChEn;
