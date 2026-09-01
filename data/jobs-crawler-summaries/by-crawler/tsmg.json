@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-09-01T00:39:04.939Z",
+  "generatedAt": "2026-09-01T01:51:55.311Z",
   "total": 99,
   "newCount": 0,
   "updatedCount": 99,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15676,
-  "avgDurationMs": 15676,
+  "durationMs": 18827,
+  "avgDurationMs": 18827,
   "durationHistory": [
-    15676
+    18827
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -46,6 +46,7 @@
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -86,6 +87,7 @@
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -126,6 +128,7 @@
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -321,7 +324,6 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -588,7 +590,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -626,7 +627,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -664,7 +664,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -703,7 +702,6 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -742,7 +740,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -781,7 +778,6 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -820,7 +816,6 @@
       "postalCode": "1204",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -898,7 +893,6 @@
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -937,7 +931,6 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1089,6 +1082,7 @@
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1127,6 +1121,7 @@
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
