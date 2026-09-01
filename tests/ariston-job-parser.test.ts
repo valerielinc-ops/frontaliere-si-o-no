@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildAristonLocalizedContent,
   inferAristonRegion,
@@ -77,10 +77,15 @@ describe('ariston job parser', () => {
     ['g:employer', { employer: '<g:employer><strong>Ariston</strong></g:employer>' }],
     ['g:job_function', { category: '<g:job_function>Service</g:job_function><g:job_function>Sales</g:job_function>' }],
     ['g:expiration_date', { validThrough: '<g:expiration_date>2026-12-31</g:expiration_date><g:expiration_date>2027-01-31</g:expiration_date>' }],
-  ])('rejects non-scalar or repeated %s leaves', (field, override) => {
-    expect(() => parseAristonSitemapFeed(validFeedItem(override))).toThrow(
-      new RegExp(`${field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} must be a single scalar string`),
+  ])('drops a single item with a non-scalar or repeated %s leaf instead of aborting the whole feed', (field, override) => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseAristonSitemapFeed(validFeedItem(override))).toEqual([]);
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringMatching(
+        new RegExp(`${field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} must be a single scalar string`),
+      ),
     );
+    warnSpy.mockRestore();
   });
 
   it('parses detail page metadata and description', () => {

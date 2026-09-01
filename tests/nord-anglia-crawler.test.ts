@@ -148,10 +148,13 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       ['link', { link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-One/1/</link><link>https://careers.nordangliaeducation.com/job/Aubonne-Two/2/</link>' }],
       ['description', { description: '<description>First</description><description>Second</description>' }],
       ['pubDate', { pubDate: '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate><pubDate>Tue, 02 Apr 2026 12:00:00 +0000</pubDate>' }],
-    ])('rejects non-scalar or repeated %s leaves', (field, override) => {
-      expect(() => parseNordAngliaRss(validRssItem(override))).toThrow(
-        new RegExp(`${field} must be a single scalar string`),
+    ])('drops a single item with a non-scalar or repeated %s leaf instead of aborting the whole feed', (field, override) => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      expect(parseNordAngliaRss(validRssItem(override))).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringMatching(new RegExp(`${field} must be a single scalar string`)),
       );
+      warnSpy.mockRestore();
     });
   });
 
