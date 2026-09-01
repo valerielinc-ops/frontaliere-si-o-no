@@ -14,6 +14,7 @@
  */
 
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -22,11 +23,54 @@ import { extractDetailFields, extractJsonLd } from './lib/prospector/extract.mjs
 import { readAttr } from './lib/html-attr.mjs';
 import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 import { partitionCrawlerJobsForActiveMetrics } from './lib/crawler-job-activity.mjs';
+import {
+  classifySourceDetailObservation,
+  createSourceDetailEvidence,
+  createSourceDetailEvidenceBundle,
+  createSourceDetailEvidenceFailureBundle,
+} from './lib/parser-quality-source-detail-replay.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const BASELINE_PATH = path.join(ROOT, 'data', 'parser-quality-no-structure-baseline.json');
+
+export const SOURCE_DETAIL_EXTRACTOR_VERSION_FILES = Object.freeze([
+  'scripts/lib/prospector/extract.mjs',
+  'scripts/lib/prospector/registrable.mjs',
+  'scripts/lib/prospector/entities.mjs',
+  'scripts/lib/decode-html-entities.mjs',
+  'scripts/lib/html-attr.mjs',
+  'scripts/lib/prospector/location-evidence.mjs',
+  'scripts/lib/target-swiss-locations.mjs',
+  'scripts/lib/crawler-location-config.mjs',
+  'scripts/lib/prospector/country-inventory.mjs',
+  'scripts/lib/prospector/subdivision-inventory.mjs',
+  'data/canton-municipalities.json',
+]);
+export const SOURCE_DETAIL_NORMALIZER_VERSION_FILES = Object.freeze([
+  'scripts/audit-parser-quality.mjs',
+  'scripts/lib/parser-quality-source-detail-replay.mjs',
+  'scripts/lib/stable-stringify.mjs',
+]);
+
+function filesSha256(filePaths, readFile) {
+  const digest = createHash('sha256');
+  for (const filePath of filePaths) {
+    const contents = Buffer.from(readFile(path.join(ROOT, filePath)));
+    digest.update(`${filePath}\0${contents.byteLength}\0`);
+    digest.update(contents);
+  }
+  return digest.digest('hex');
+}
+
+/** Exact code versions persisted with every replayable source-detail sample. */
+export function getSourceDetailImplementationVersions({ readFile = fs.readFileSync } = {}) {
+  return {
+    extractor: filesSha256(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES, readFile),
+    normalizer: filesSha256(SOURCE_DETAIL_NORMALIZER_VERSION_FILES, readFile),
+  };
+}
 
 /**
  * Capture git provenance for the dataset being audited, so a report can be
@@ -454,11 +498,6 @@ export function compareSourceDetail(job, detail, {
   const sourceWords = wordSet(sourceDescriptionText);
   let overlap = 0;
   for (const word of publishedWords) if (sourceWords.has(word)) overlap++;
-  const overlapRatio = publishedWords.size ? overlap / publishedWords.size : 0;
-  const descriptionMismatch = sourceDescriptionText.length >= 200
-    && (publishedDescription.length < 100
-      || publishedDescription.length < sourceDescriptionText.length * 0.45
-      || overlapRatio < 0.35);
   const listingWorkplaceCorroborated = locationPolicy === 'listing-workplace-over-admin-jsonld'
     && locationEvidence === 'jsonld'
     && titleCorroboratesPublishedLocation(detail?.title || '', publishedLocation);
@@ -467,19 +506,25 @@ export function compareSourceDetail(job, detail, {
   const locationChecked = Boolean(publishedLocation)
     && isUsableSourceLocation(sourceLocation)
     && locationEvidence !== 'generic';
-  return {
-    locationChecked,
-    locationMismatch: locationChecked && !locationMatchesPublished,
-    locationInconclusive: Boolean(sourceLocation) && !locationChecked,
-    locationEvidence,
-    locationAuthority: listingWorkplaceCorroborated ? 'listing-workplace' : 'source-detail',
-    descriptionMismatch,
-    publishedLocation,
-    sourceLocation,
-    publishedDescriptionLength: publishedDescription.length,
-    sourceDescriptionLength: sourceDescriptionText.length,
-    overlapRatio: Number(overlapRatio.toFixed(2)),
+  const observation = {
+    location: {
+      checked: locationChecked,
+      matchesPublished: locationMatchesPublished,
+      inconclusive: Boolean(sourceLocation) && !locationChecked,
+      evidence: locationEvidence,
+      authority: listingWorkplaceCorroborated ? 'listing-workplace' : 'source-detail',
+      published: publishedLocation,
+      source: sourceLocation,
+    },
+    description: {
+      publishedDescriptionLength: publishedDescription.length,
+      sourceDescriptionLength: sourceDescriptionText.length,
+      publishedWordCount: publishedWords.size,
+      overlapWordCount: overlap,
+    },
   };
+  const classified = classifySourceDetailObservation(observation);
+  return { ...classified, replayObservation: observation };
 }
 
 function sanitizeProcessingError(error) {
@@ -503,10 +548,22 @@ function processingFailureResult(item, error) {
   };
 }
 
+function sourceDetailReportReference(value) {
+  if (/^sha256:[a-f0-9]{64}$/.test(String(value))) return String(value);
+  try {
+    const parsed = new URL(String(value));
+    if (!/^https?:$/.test(parsed.protocol)) return '[source-url]';
+    return `${parsed.origin}${parsed.pathname}`;
+  } catch {
+    return '[source-url]';
+  }
+}
+
 export async function checkSourceDetailsBatch(items, concurrency = 3, {
   fetchPage = politeFetch,
   extractDetail = extractDetailFields,
   observeLocation = extractSourceLocationObservation,
+  evidenceContext = null,
 } = {}) {
   const results = await mapPool(items, concurrency, async (item) => {
     let fetched;
@@ -524,7 +581,18 @@ export async function checkSourceDetailsBatch(items, concurrency = 3, {
       const locationPolicy = LISTING_WORKPLACE_OVER_ADMIN_JSONLD.has(item.crawlerKey)
         ? 'listing-workplace-over-admin-jsonld'
         : 'source-detail';
-      return { ...item, ...compareSourceDetail(item.job, detail, { locationEvidence, locationPolicy }) };
+      const comparison = compareSourceDetail(item.job, detail, { locationEvidence, locationPolicy });
+      const sourceDetailEvidence = evidenceContext
+        ? createSourceDetailEvidence({
+          crawlerKey: item.crawlerKey,
+          sourceUrl: fetched.url || item.url,
+          body: fetched.body,
+          observation: comparison.replayObservation,
+          provenance: evidenceContext.provenance,
+          versions: evidenceContext.versions,
+        })
+        : null;
+      return { ...item, ...comparison, ...(sourceDetailEvidence ? { sourceDetailEvidence } : {}) };
     } catch (error) {
       return processingFailureResult(item, error);
     }
@@ -554,6 +622,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
       descriptionMismatches: 0, details: [],
     };
     const info = byKey[key];
+    const sourceReference = sourceDetailReportReference(result.url);
     info.checked++;
     if (result.fetchFailed) {
       info.fetchFailed++;
@@ -563,7 +632,7 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     if (result.processingFailed) {
       info.processingFailed++;
       sourceDetailSummary.processingFailed++;
-      info.processingErrors.push(`${result.url}: ${result.processingError}`);
+      info.processingErrors.push(`${sourceReference}: ${result.processingError}`);
       continue;
     }
     sourceDetailSummary.fetched++;
@@ -578,12 +647,12 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     }
     if (result.locationMismatch) {
       info.locationMismatches++;
-      info.details.push(`${result.url}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}" [${result.locationEvidence}]`);
+      info.details.push(`${sourceReference}: published "${result.publishedLocation || 'empty'}", source "${result.sourceLocation}" [${result.locationEvidence}]`);
     }
     if (result.descriptionMismatch) {
       info.descriptionMismatches++;
       sourceDetailSummary.descriptionMismatches++;
-      info.details.push(`${result.url}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
+      info.details.push(`${sourceReference}: published description ${result.publishedDescriptionLength} chars, source ${result.sourceDescriptionLength} chars`);
     }
   }
   for (const [key, info] of Object.entries(byKey)) {
@@ -612,6 +681,80 @@ export function applySourceDetailResults(report, sourceResults, requested = sour
     }
   }
   return sourceDetailSummary;
+}
+
+/**
+ * Persist either a complete request-bound bundle or an explicit invalid
+ * artifact. Bundle failures become CRITICAL parser findings before the common
+ * report writer runs, so missing provenance or a tampered/partial result can
+ * never abort the audit without leaving replay diagnostics behind.
+ */
+export function finalizeSourceDetailEvidence(report, sourceResults, evidenceContext) {
+  try {
+    return createSourceDetailEvidenceBundle(sourceResults, evidenceContext);
+  } catch (error) {
+    const errorCode = String(error?.code || 'bundle-failed')
+      .replace(/[^a-z0-9_-]/gi, '-')
+      .slice(0, 64) || 'bundle-failed';
+    const crawlerKeys = new Set([
+      ...(Array.isArray(evidenceContext?.requestedSamples)
+        ? evidenceContext.requestedSamples.map((sample) => sample?.crawlerKey)
+        : []),
+      ...(Array.isArray(sourceResults) ? sourceResults.map((result) => result?.crawlerKey) : []),
+    ].filter((key) => typeof key === 'string' && key));
+    if (crawlerKeys.size === 0) crawlerKeys.add('source-detail-evidence');
+    for (const key of crawlerKeys) {
+      const entry = report[key] || (report[key] = { total: 0, issues: [] });
+      entry.issues.push({
+        type: 'parse-error',
+        count: 1,
+        total: 1,
+        processingFailed: 1,
+        evidenceBundleFailed: true,
+        details: [`SourceDetailEvidenceError: ${errorCode}`],
+        message: 'source detail evidence could not be sealed; replay is invalid',
+      });
+      entry.severity = 'CRITICAL';
+    }
+    return createSourceDetailEvidenceFailureBundle({
+      requestedCount: Number.isInteger(evidenceContext?.requestedCount)
+        ? evidenceContext.requestedCount
+        : Array.isArray(sourceResults) ? sourceResults.length : 0,
+      errorCode,
+    });
+  }
+}
+
+/** Run the complete source-detail observer, including the zero-sample case. */
+export async function runSourceDetailChecks(report, sourceDetailsToCheck, {
+  provenance,
+  versions = getSourceDetailImplementationVersions(),
+  concurrency = 3,
+  checkBatch = checkSourceDetailsBatch,
+} = {}) {
+  const evidenceContext = {
+    provenance,
+    versions,
+    requestedCount: sourceDetailsToCheck.length,
+    requestedSamples: sourceDetailsToCheck.map(({ crawlerKey, url }) => ({ crawlerKey, url })),
+  };
+  const sourceResults = await checkBatch(sourceDetailsToCheck, concurrency, { evidenceContext });
+  return {
+    sourceDetailSummary: applySourceDetailResults(
+      report,
+      sourceResults,
+      sourceDetailsToCheck.length,
+    ),
+    sourceDetailEvidence: finalizeSourceDetailEvidence(report, sourceResults, evidenceContext),
+  };
+}
+
+/** Source-detail portion of the audit's shared severity contract. */
+export function sourceDetailSeverity(entry) {
+  const issue = entry?.issues?.find((candidate) => candidate.type === 'source-detail-mismatch');
+  if (issue?.locationMismatches > 0) return 'CRITICAL';
+  if (issue?.descriptionMismatches > 0) return 'WARNING';
+  return null;
 }
 
 const BOILERPLATE_RE = /^(datore di lavoro|als arbeitgeber|come employer|en tant qu.?employeur|as employer)/i;
@@ -918,6 +1061,7 @@ async function main() {
   const urlsToCheck = []; // { crawlerKey, url }
   const sourceDetailsToCheck = []; // { crawlerKey, job, url }
   let sourceDetailSummary = null;
+  let sourceDetailEvidence = null;
 
   for (const { key, jobs, storedTotal = jobs.length, excluded = { grace: 0, expired: 0, total: 0 }, error } of slices) {
     const issues = [];
@@ -1052,10 +1196,15 @@ async function main() {
     report[key] = { total: jobs.length, population, issues };
   }
 
-  if (checkSourceDetails && sourceDetailsToCheck.length > 0) {
-    console.log(`Checking ${sourceDetailsToCheck.length} source detail pages (concurrency=3)...\n`);
-    const sourceResults = await checkSourceDetailsBatch(sourceDetailsToCheck, 3);
-    sourceDetailSummary = applySourceDetailResults(report, sourceResults, sourceDetailsToCheck.length);
+  if (checkSourceDetails) {
+    if (sourceDetailsToCheck.length > 0) {
+      console.log(`Checking ${sourceDetailsToCheck.length} source detail pages (concurrency=3)...\n`);
+    }
+    ({ sourceDetailSummary, sourceDetailEvidence } = await runSourceDetailChecks(
+      report,
+      sourceDetailsToCheck,
+      { provenance },
+    ));
   }
 
   // Run URL checks
@@ -1085,15 +1234,16 @@ async function main() {
     const urlFail = types.has('stale-urls');
     const sourceIssue = entry.issues.find((i) => i.type === 'source-detail-mismatch');
     const sourceProcessingIssue = entry.issues.find((i) => i.type === 'parse-error' && i.processingFailed > 0);
+    const detailSeverity = sourceDetailSeverity(entry);
     if (types.has('parse-error')) entry.severity = 'CRITICAL';
-    else if (sourceIssue?.locationMismatches > 0) entry.severity = 'CRITICAL';
+    else if (detailSeverity === 'CRITICAL') entry.severity = 'CRITICAL';
     // Form-chrome is a hard signal: even one row means the parser is
     // leaking the surrounding page (form, footer, contact info) into the
     // job description. There is no benign source of these phrases — never
     // a false positive — so skip the ratio gate.
     else if (formChromeCount > 0) entry.severity = 'CRITICAL';
     else if (thinRatio >= 0.5 || (thinRatio > 0 && urlFail)) entry.severity = 'CRITICAL';
-    else if (sourceIssue?.descriptionMismatches > 0) entry.severity = 'WARNING';
+    else if (detailSeverity === 'WARNING') entry.severity = 'WARNING';
     else if (entry.issues.length > 0) entry.severity = 'WARNING';
     else entry.severity = 'OK';
     if (entry.severity === 'CRITICAL') {
@@ -1146,6 +1296,7 @@ async function main() {
     urlChecksEnabled: !skipUrls,
     sourceDetailChecksEnabled: checkSourceDetails,
     sourceDetailSummary,
+    sourceDetailEvidence,
   });
 }
 
@@ -1161,6 +1312,7 @@ export function finishAudit(report, {
   urlChecksEnabled = false,
   sourceDetailChecksEnabled = false,
   sourceDetailSummary = null,
+  sourceDetailEvidence = null,
 } = {}) {
   printReport(report);
   const summary = {
@@ -1175,6 +1327,7 @@ export function finishAudit(report, {
     urlChecksEnabled,
     sourceDetailChecksEnabled,
     sourceDetailSummary,
+    sourceDetailEvidence,
     crawlers: report,
     summary,
   };
