@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { GROUP_IDS, createCrawlerGenerationSentinel } from '../scripts/lib/crawler-generation-contract.mjs';
@@ -10,10 +11,132 @@ import { collectRelativeImportClosure } from './helpers/collectRelativeImportClo
 const root = path.resolve(import.meta.dirname, '..');
 const orchestratorPath = '.github/workflows/orchestrate-crawlers.yml';
 const observerPath = '.github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml';
+const uploadArtifactV7Sha = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
+const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation';
+const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
+const shadowCascadeEnv = {
+  SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
+  SHADOW_RUN_ID: '${{ github.run_id }}',
+  SHADOW_SOURCE_REPOSITORY: '${{ github.repository }}',
+  SHADOW_SOURCE_WORKFLOW: '${{ github.workflow_ref }}',
+  SHADOW_WORKFLOW_BLOB_SHA: '${{ github.workflow_sha }}',
+};
+const expectedShadowHashes = {
+  cascadeRun: 'd111ba88beb2ff9af1eb4246f81fdf7d9e87c866e7e0061b055430dc59e176af',
+  finalize: '74dee29ad0d005a9a350bfce73c68348ac31e3d50fe1b5c5c8df4803b9a7e857',
+  upload: '0c184849503095b03f5d268617fed8cfac7aa8fd4e112a99ed3aa7a782dc9568',
+};
 
 function translateStep(document: string) {
   const parsed = YAML.parse(document);
   return parsed.jobs.dispatch.steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
+}
+
+function sha256(value: string) {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+function cloneDocument<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function findUniqueStep(steps: any[], name: string) {
+  const indexes = steps.flatMap((step, index) => step.name === name ? [index] : []);
+  expect(indexes, `${name}: expected exactly one step`).toHaveLength(1);
+  const index = indexes[0];
+  return { index, step: steps[index] };
+}
+
+function projectStrictShadowAdditions(currentDocument: any, baseDocument: any, sourceDocument: any) {
+  const projected = cloneDocument(currentDocument);
+  expect(projected.concurrency).toEqual({
+    group: 'jobs-data-pipeline',
+    'cancel-in-progress': false,
+    queue: 'max',
+  });
+  projected.concurrency = cloneDocument(baseDocument.concurrency);
+
+  const currentSteps = projected.jobs.translate.steps;
+  const baseSteps = baseDocument.jobs.translate.steps;
+  const sourceSteps = sourceDocument.jobs.translate.steps;
+  const baseNameCounts = new Map<string, number>();
+  for (const step of baseSteps) {
+    baseNameCounts.set(step.name, (baseNameCounts.get(step.name) ?? 0) + 1);
+  }
+  const addedStepNames = [];
+  for (const step of currentSteps) {
+    const remaining = baseNameCounts.get(step.name) ?? 0;
+    if (remaining > 0) baseNameCounts.set(step.name, remaining - 1);
+    else addedStepNames.push(step.name);
+  }
+  expect(addedStepNames).toEqual([shadowFinalizeName, shadowUploadName]);
+
+  const cascadeName = 'Phase 2b: Translate pending jobs (cascade top-up)';
+  const currentCascade = findUniqueStep(currentSteps, cascadeName).step;
+  const baseCascade = findUniqueStep(baseSteps, cascadeName).step;
+  const sourceCascade = findUniqueStep(sourceSteps, cascadeName).step;
+  expect(Object.keys(currentCascade).sort()).toEqual([...Object.keys(baseCascade), 'id'].sort());
+  const { id: cascadeId, run: cascadeRun, ...currentCascadeRest } = currentCascade;
+  const currentCascadeLegacy = cloneDocument(currentCascadeRest);
+  const { run: baseCascadeRun, ...baseCascadeLegacy } = baseCascade;
+  expect(cascadeId).toBe('translation_shadow_preflight_v2_decision');
+  expect(typeof cascadeRun).toBe('string');
+  expect(sha256(cascadeRun)).toBe(expectedShadowHashes.cascadeRun);
+  expect(Object.fromEntries(Object.keys(shadowCascadeEnv).map((key) => [
+    key, currentCascade.env[key],
+  ]))).toEqual(shadowCascadeEnv);
+  for (const key of Object.keys(shadowCascadeEnv)) {
+    expect(baseCascade.env).not.toHaveProperty(key);
+    delete currentCascadeLegacy.env[key];
+  }
+  expect(currentCascadeLegacy).toEqual(baseCascadeLegacy);
+  expect(currentCascade).toEqual(sourceCascade);
+  delete currentCascade.id;
+  currentCascade.run = baseCascadeRun;
+  for (const key of Object.keys(shadowCascadeEnv)) delete currentCascade.env[key];
+
+  const finalize = findUniqueStep(currentSteps, shadowFinalizeName);
+  const upload = findUniqueStep(currentSteps, shadowUploadName);
+  const rollup = findUniqueStep(currentSteps, 'Roll up translation observability history');
+  expect(finalize.index + 1).toBe(upload.index);
+  expect(upload.index + 1).toBe(rollup.index);
+  expect(Object.keys(finalize.step).sort()).toEqual([
+    'continue-on-error', 'env', 'id', 'if', 'name', 'run',
+  ]);
+  expect(Object.keys(finalize.step.env).sort()).toEqual([
+    'SHADOW_DEFAULT_COMPANY_KEY', 'SHADOW_DEFAULT_DRY_RUN', 'SHADOW_DEFAULT_MAX_JOBS',
+    'SHADOW_DEFAULT_MOPUP_MAX_JOBS', 'SHADOW_DEFAULT_SKIP_HOUSEKEEPING',
+    'SHADOW_DEFAULT_SKIP_TRANSLATE', 'SHADOW_EVENT_ACTION', 'SHADOW_EVENT_NAME',
+    'SHADOW_EXPECTED_CONTRACT_DIGEST', 'SHADOW_EXPECTED_DECISION_DIGEST',
+    'SHADOW_FINAL_TRANSLATION_COMMIT', 'SHADOW_OBSERVED_JOB_STATUS', 'SHADOW_RUN_ATTEMPT',
+    'SHADOW_RUN_ID', 'SHADOW_SOURCE_COMMIT', 'SHADOW_SOURCE_REPOSITORY',
+    'SHADOW_SOURCE_WORKFLOW', 'SHADOW_WORKFLOW_BLOB_SHA',
+  ]);
+  expect(Object.keys(upload.step).sort()).toEqual([
+    'continue-on-error', 'if', 'name', 'uses', 'with',
+  ]);
+  expect(Object.keys(upload.step.with).sort()).toEqual([
+    'if-no-files-found', 'name', 'path', 'retention-days',
+  ]);
+  expect(finalize.step).toEqual(findUniqueStep(sourceSteps, shadowFinalizeName).step);
+  expect(upload.step).toEqual(findUniqueStep(sourceSteps, shadowUploadName).step);
+  expect(sha256(JSON.stringify(finalize.step))).toBe(expectedShadowHashes.finalize);
+  expect(sha256(JSON.stringify(upload.step))).toBe(expectedShadowHashes.upload);
+  expect(upload.step.uses).toBe(`actions/upload-artifact@${uploadArtifactV7Sha}`);
+  currentSteps.splice(upload.index, 1);
+  currentSteps.splice(finalize.index, 1);
+
+  const currentLegacyUpload = findUniqueStep(currentSteps, 'Upload translation observability report').step;
+  const baseLegacyUpload = findUniqueStep(baseSteps, 'Upload translation observability report').step;
+  expect(currentLegacyUpload.uses).toBe(`actions/upload-artifact@${uploadArtifactV7Sha}`);
+  expect(baseLegacyUpload.uses).toBe('actions/upload-artifact@v7');
+  currentLegacyUpload.uses = baseLegacyUpload.uses;
+  return projected;
+}
+
+function expectStrictLegacyParity(currentDocument: any, baseDocument: any, sourceDocument: any) {
+  expect(projectStrictShadowAdditions(currentDocument, baseDocument, sourceDocument))
+    .toEqual(baseDocument);
 }
 
 describe('crawler generation PR B workflow wiring', () => {
@@ -31,13 +154,15 @@ describe('crawler generation PR B workflow wiring', () => {
       'cancel-in-progress': false,
       queue: 'max',
     });
-    const { concurrency: _currentConcurrency, ...portableCurrentWithoutConcurrency } = portableCurrent;
-    const { concurrency: _baseConcurrency, ...portableBaseWithoutConcurrency } = portableBase;
-    expect(portableCurrentWithoutConcurrency).toEqual(portableBaseWithoutConcurrency);
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
     ));
+    expectStrictLegacyParity(portableCurrent, portableBase, sourceTranslate);
+    const legacyMutation = cloneDocument(portableCurrent);
+    legacyMutation.jobs.translate['timeout-minutes'] += 1;
+    expect(() => expectStrictLegacyParity(legacyMutation, portableBase, sourceTranslate))
+      .toThrowError();
     const currentTriggerDeploy = portableCurrent.jobs.translate.steps
       .find((step: any) => step.name === 'Trigger deploy');
     const sourceTriggerDeploy = sourceTranslate.jobs.translate.steps

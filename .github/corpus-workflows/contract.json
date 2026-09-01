@@ -38,6 +38,7 @@
     "scripts/lib/job-url-key.mjs",
     "scripts/lib/slug-history-journal.mjs",
     "scripts/lib/slug-preservation-guard.mjs",
+    "scripts/lib/translation-shadow-preflight-v2.mjs",
     "scripts/lib/trigger-deploy.sh",
     "scripts/load-rc-env.mjs",
     "scripts/local-mt-mopup.mjs",
@@ -48,6 +49,7 @@
     "scripts/relocalize-pending-jobs.mjs",
     "scripts/rollup-translation-observability.mjs",
     "scripts/scatter-jobs-to-slices.mjs",
+    "scripts/translation-shadow-preflight-v2.mjs",
     "scripts/update-aarreha-schinznach-jobs.mjs",
     "scripts/update-abbott-jobs.mjs",
     "scripts/update-abraxas-jobs.mjs",
@@ -1367,8 +1369,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "25399bdadfab0b46d4cb1f05c48311a76df0d06ab9a74ef6df706e2e3b3cae0e",
-      "artifactSha256": "fd81f8f22d85ba850d0cf058c70b2e8d282342f9318aad9929b0a6e8da99909d",
+      "sourceSha256": "e149c6d1f3d4d27da849922c584ef3fc6b2985596d68fd38eb8634c8ade2783e",
+      "artifactSha256": "5a9537680bb5fddbdec29a197772c332f56c2ad6590f07ea9576b338ad33bf5d",
       "members": []
     }
   ]
