@@ -1,6 +1,6 @@
-name: Crawler Data Quality Audit (weekly, Claude)
+name: Crawler Data Quality Audit (weekly, bounded)
 
-# Weekly LLM-driven audit mirroring the manual review that produced PR #3245
+# Weekly deterministic audit mirroring the manual review that produced PR #3245
 # (15-day git-history audit of `data/jobs/by-crawler/*.json` — slug stability,
 # translation system, crawling/merge system, slug regeneration, needsTranslation
 # staleness, housekeeping). That manual pass found 7-8 real defects (incl. the
@@ -9,24 +9,23 @@ name: Crawler Data Quality Audit (weekly, Claude)
 # UP/DOWN freshness (empty/stale runs), not semantic correctness of the JSON
 # content itself. This workflow fills that gap.
 #
-# Hybrid by construction: deterministic fleet-wide scanners build a bounded
-# evidence packet and pre-render at most five issue bodies; Claude only executes
-# the already-planned create/comment actions. The semantic defect classes remain
-# those found by the manual audit, while checkout exploration can no longer burn
-# the whole 80-turn budget before issue transport (run 33480042764).
+# Deterministic by construction: fleet-wide scanners build a bounded evidence
+# packet, pre-render at most five issue bodies and execute the planned mutations
+# serially with fail-fast semantics. There is no LLM exploration phase, so run
+# 33480042764's 81-turn checkout scan cannot recur.
 #
 # Deliberately NOT auto-routed to the IMMEDIATE crawler route (ISSUES.md
 # category `other` — no label/title pattern here matches issue-triage's
 # `crawler`/`parser-broken`/`priority:high`+crawler regex, see
-# scripts/lib/classify-issue.mjs): an LLM audit's findings are judgment calls,
-# not the production-critical/high-volume-proven case that justifies bypassing
+# scripts/lib/classify-issue.mjs): these findings are not the
+# production-critical/high-volume-proven case that justifies bypassing
 # the anti-starvation queue. They still enter the `agent:fix-queued` pipeline
 # like any other category (autofix, 2026-07-05 owner decision) and get a fix
 # attempt via followup-drainer — this workflow itself stays read-only except
 # `gh issue create/list/comment` — no self-fix.
 #
 # Zero-issue runs are silent (mirrors evergreen-refresh-audit.yml /
-# dmarc-monitor.yml): the agent creates an issue ONLY when it has real evidence.
+# dmarc-monitor.yml): the executor creates an issue ONLY with measured evidence.
 
 on:
   schedule:
@@ -41,7 +40,6 @@ on:
 permissions:
   contents: read
   issues: write
-  id-token: write
 
 concurrency:
   group: crawler-data-quality-audit
@@ -50,7 +48,7 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    # 25→30 (2026-07-17): headroom per il cap turni alzato 65→80.
+    # Preserve the historical 30-minute cap for the bounded history fetch.
     timeout-minutes: 30
     steps:
       - name: Checkout
@@ -62,7 +60,7 @@ jobs:
           # FULL blob content for every commit in the lookback window, not just
           # commit/tree metadata. Measured on run 32709774280 (2026-08-24): that
           # step alone took 21m30s of the 30min budget (09:10:57→09:32:27),
-          # leaving the actual Claude audit ~5min before cancellation — 100% of
+          # leaving the actual audit ~5min before cancellation — 100% of
           # this job's timeouts trace to this one fetch, none to the audit step
           # itself. `filter: blob:none` here is inherited by the plain `git
           # fetch` in "Deepen history" (git remembers the partial-clone filter
@@ -71,12 +69,9 @@ jobs:
           # that job's `scan-prev-slug-losses.mjs` reads the blob content of
           # EVERY commit in its window via `git cat-file --batch`, so blobless
           # would trade one big upfront fetch for hundreds of tiny lazy-fetch
-          # stalls. This audit's prompt explicitly does the opposite — samples
-          # a handful of commits (`git log --stat`, no full-diff walk) and
-          # treats deterministic scripts as the primary signal — so the few
-          # blobs it does touch (sampled `git show`/`git diff`) are cheap
-          # lazy-fetches, and the working tree at HEAD (which the audit's own
-          # scripts like decontaminate-prev-slugs.mjs read) is unaffected: it's
+          # stalls. This audit reads only the baseline blobs required by its
+          # deterministic scanners. The working tree at HEAD (which scripts
+          # such as decontaminate-prev-slugs.mjs read) is unaffected: it is
           # materialized in full by this same Checkout step regardless of the
           # filter.
           filter: blob:none
@@ -104,106 +99,44 @@ jobs:
         with:
           node-version: '22'
 
-      # Ensure the label exists BEFORE the Claude step — `gh issue create --label`
-      # on a non-existent label fails the call, which would otherwise burn a Claude
-      # turn on a retry loop for something a 1-line deterministic step prevents.
+      # Ensure the label exists before the bounded executor.
       - name: Ensure label exists
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh label create "crawler-data-quality" --color "5319E7" \
-            --description "Weekly Claude audit: semantic data-quality finding in data/jobs/by-crawler" \
+            --description "Weekly audit: semantic data-quality finding in data/jobs/by-crawler" \
             --force 2>/dev/null || true
 
-      # Run every fleet-wide scan once, before Claude. The script also snapshots
+      # Run every fleet-wide scan once. The script also snapshots
       # open issues, plans marker/title-based dedup and materializes each body;
-      # only the compact action packet crosses into the prompt. This makes the
-      # five-finding worst case exactly five gh mutations, not an open-ended
-      # investigation followed by permission-sensitive file editing.
+      # the five-finding worst case exactly five gh mutations. Comments are
+      # included so a partial/retried run is a no-op for actions already
+      # persisted during the same weekly audit cycle.
       - name: Build bounded data-quality action packet
-        id: evidence
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WINDOW_DAYS: ${{ inputs.window_days || '15' }}
         run: |
           set -euo pipefail
           gh issue list --state open --label crawler-data-quality \
-            --json number,title,body --limit 50 \
+            --json number,title,body,comments --limit 100 \
             > /tmp/crawler-data-quality-open-issues.json
-          PACKET=$(node scripts/ci/crawler-data-quality-candidates.mjs \
+          node scripts/ci/crawler-data-quality-candidates.mjs \
             --data-dir data/jobs/by-crawler \
             --open-issues /tmp/crawler-data-quality-open-issues.json \
             --output /tmp/crawler-data-quality-candidates.json \
             --body-dir /tmp \
             --window-days "$WINDOW_DAYS" \
-            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}")
-          printf 'packet=%s\n' "$PACKET" >> "$GITHUB_OUTPUT"
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-      - name: Setup Headroom compression proxy
-        uses: ./.github/actions/setup-headroom
-
-      - name: Run Claude data quality audit
-        id: audit
-        uses: anthropics/claude-code-action@v1
+      - name: Execute bounded issue actions
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          WINDOW_DAYS: ${{ inputs.window_days || '15' }}
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # github_token required alongside claude_code_oauth_token: without it
-          # allowed_non_write_users is a silent no-op (post-merge-followup.yml,
-          # PR #3182 — every scheduled run failed "User does not have write
-          # access", zero turns, zero cost, until this line was added there).
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Schedule → triggering_actor is frontaliere-automation[bot] (same
-          # correction as post-merge-followup.yml, PR #3157). Whitelist mirrors
-          # every other scheduled Claude workflow. Never `*`.
-          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          show_full_output: true
-          # 2026-07-02: `--dangerously-skip-permissions` (+ `settings` JSON fallback,
-          # PR #3277) tried and failed across 3 live runs (28593412005, 28594828826,
-          # 28599900446) — permissionMode resolves to "default" every time on this
-          # workflow's schedule/workflow_dispatch trigger, blocking ~75% of Bash calls
-          # incl. the actual audit script ("requires approval", issue #3269). Confirmed
-          # NOT specific to this workflow: post-merge-followup.yml's own `schedule` run
-          # the same day (28594653701) hit the identical wall. workflow_run/issues-
-          # triggered siblings (pr-review-loop, issue-fix) get real bypassPermissions
-          # with the same config — the differentiator is event_name, not settings, not
-          # actor (confirmed with both a human and a bot actor on the broken side).
-          # Falling back to scoped --allowedTools until the upstream root cause
-          # is understood.
-          # Keep the established 80-turn ceiling, but make it unreachable by
-          # construction in normal operation: the only tool is gh and the packet
-          # contains at most five planned actions. Run 33480042764 proved that
-          # merely fixing Edit permissions was insufficient (61 Bash, 19 Read,
-          # 6 Grep, then turn 81/80); removing git/node/read/grep/glob/edit from
-          # the Claude phase closes that exploration surface instead of blindly
-          # increasing the cap.
-          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*)'"
-          prompt: |
-            Sei il dispatcher read-only dell'audit qualità crawler. Le scansioni,
-            la dedup e i body sono già stati prodotti deterministicamente.
-
-            Action packet (JSON, massimo cinque azioni):
-            ${{ steps.evidence.outputs.packet }}
-
-            Esegui le azioni in ordine, esattamente una volta ciascuna:
-            - `kind=create`: `gh issue create --title <title> --label crawler-data-quality --body-file <bodyFile>`
-            - `kind=comment`: `gh issue comment <issueNumber> --body-file <bodyFile>`
-
-            Non eseguire `gh issue list`: la dedup è già incorporata nel packet.
-            Non investigare, non leggere file, non usare git/node/grep/glob/Edit/Write,
-            non modificare il checkout e non tentare fix. Non inventare azioni oltre
-            a quelle nel packet. Se `actions` è vuoto, termina senza tool call.
-            Se un comando fallisce, non cambiare forma né usare body inline: riporta
-            l'errore e termina, così il workflow resta fail-closed. Dopo tutte le
-            azioni, riepiloga solo conteggio create/comment e metriche del packet.
-
-      - name: Claude usage metrics
-        if: always()
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.audit.outputs.execution_file }}" "crawler-data-quality-audit"
+        run: |
+          node scripts/ci/crawler-data-quality-candidates.mjs \
+            --execute true \
+            --packet /tmp/crawler-data-quality-candidates.json
 
       - name: Report failure to GitHub Issues
         if: failure()

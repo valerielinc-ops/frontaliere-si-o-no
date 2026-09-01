@@ -25,6 +25,7 @@ const MAX_FINDINGS = 5;
 const MAX_EXAMPLES = 5;
 const STALE_ACTIVE_DAYS = 60;
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+export const GH_ACTION_TIMEOUT_MS = 2 * 60 * 1000;
 
 function parseArgs(argv) {
   const args = {};
@@ -42,6 +43,13 @@ function parseArgs(argv) {
 
 function normalizeText(value, max = 240) {
   return String(value ?? '').replace(/[\r\n\t]+/g, ' ').trim().slice(0, max);
+}
+
+function sanitizeIssueError(value) {
+  return normalizeText(value, 800)
+    .replace(/\b(?:gh[pousr]_|github_pat_)[A-Za-z0-9_]+\b/gi, '[redacted-token]')
+    .replace(/\bBearer\s+\S+/gi, 'Bearer [redacted-token]')
+    .replace(/https:\/\/[^\s/@:]+:[^\s/@]+@/gi, 'https://[redacted-credentials]@');
 }
 
 function isSubpath(parent, child) {
@@ -298,7 +306,6 @@ export function buildCrawlerDataQualityReport({
       needsRetranslationDelta: translation.delta,
       emptyLocaleBuckets: housekeeping.emptyLocaleBuckets.length,
       staleActiveRecords: housekeeping.staleActive.length,
-      slugBoundarySourceGuard: 'delegated to tests/bespoke-crawler-slug-boundary.test.ts (118 writers, raw prefix cuts=0)',
     },
     findings,
   };
@@ -306,6 +313,12 @@ export function buildCrawlerDataQualityReport({
 
 function dedupMarker(key) {
   return `<!-- crawler-data-quality:${key} -->`;
+}
+
+function auditCycleMarker(generatedAt) {
+  const timestamp = Date.parse(generatedAt);
+  if (!Number.isFinite(timestamp)) throw new Error(`Invalid report.generatedAt: ${generatedAt}`);
+  return `<!-- crawler-data-quality-cycle:${Math.floor(timestamp / WEEK_MS)} -->`;
 }
 
 function boundedFindingWindow(report) {
@@ -324,19 +337,33 @@ function boundedFindingWindow(report) {
 /** Plan at most five deterministic create/comment actions for this audit week. */
 export function planIssueActions(report, openIssues = [], bodyDir = '/tmp') {
   const window = boundedFindingWindow(report);
-  return window.findings.map((entry, index) => {
+  const actions = [];
+  for (const entry of window.findings) {
     const marker = dedupMarker(entry.key);
+    const cycleMarker = auditCycleMarker(report.generatedAt);
     const existing = openIssues.find((issue) => (
       String(issue?.body || '').includes(marker) || String(issue?.title || '') === entry.title
     ));
-    return {
-      index: index + 1,
+    const evidenceSurfaces = existing
+      ? [existing.body, ...(Array.isArray(existing.comments)
+        ? existing.comments.map((comment) => comment?.body)
+        : [])]
+      : [];
+    const alreadyHandledThisCycle = evidenceSurfaces.some((value) => {
+      const text = String(value || '');
+      return text.includes(marker) && text.includes(cycleMarker);
+    });
+    if (alreadyHandledThisCycle) continue;
+
+    actions.push({
+      index: actions.length + 1,
       key: entry.key,
       kind: existing ? 'comment' : 'create',
       ...(existing ? { issueNumber: Number(existing.number) } : { title: entry.title }),
-      bodyFile: path.join(bodyDir, `crawler-data-quality-issue-${index + 1}.md`),
-    };
-  });
+      bodyFile: path.join(bodyDir, `crawler-data-quality-issue-${actions.length + 1}.md`),
+    });
+  }
+  return actions;
 }
 
 function markdownBody(entry, report, action) {
@@ -345,6 +372,7 @@ function markdownBody(entry, report, action) {
     : '';
   const lines = [
     dedupMarker(entry.key),
+    auditCycleMarker(report.generatedAt),
     recurrence.trim(),
     '## Evidenza deterministica',
     '',
@@ -395,7 +423,8 @@ export function materializeIssuePacket(report, openIssues, { outputPath, bodyDir
     scheduling: {
       totalFindings: report.findings.length,
       actionCursor: window.cursor,
-      deferredFindings: Math.max(0, report.findings.length - actions.length),
+      alreadyHandledThisCycle: window.findings.length - actions.length,
+      deferredFindings: Math.max(0, report.findings.length - window.findings.length),
     },
     actions,
   };
@@ -411,8 +440,78 @@ function loadOpenIssues(filePath) {
   return parsed;
 }
 
+/**
+ * @param {string} command
+ * @param {string[]} args
+ * @returns {{ status: number | null, stdout: string, stderr: string, signal?: NodeJS.Signals | null, error?: Error }}
+ */
+function defaultIssueRunner(command, args) {
+  return spawnSync(command, args, {
+    cwd: ROOT,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: GH_ACTION_TIMEOUT_MS,
+    killSignal: 'SIGTERM',
+    maxBuffer: 1024 * 1024,
+  });
+}
+
+/**
+ * Execute a validated packet serially; the first failed mutation stops the run.
+ * @param {any} packet
+ * @param {(command: string, args: string[]) => { status: number | null, stdout: string, stderr: string, signal?: NodeJS.Signals | null, error?: Error }} runner
+ */
+export function executeIssuePacket(packet, runner = defaultIssueRunner) {
+  if (!packet || !Array.isArray(packet.actions)) throw new Error('packet.actions must be an array');
+  if (packet.actions.length > MAX_FINDINGS) {
+    throw new Error(`packet exceeds mutation cap: ${packet.actions.length} > ${MAX_FINDINGS}`);
+  }
+
+  let created = 0;
+  let commented = 0;
+  for (const [offset, action] of packet.actions.entries()) {
+    if (!action || action.index !== offset + 1) throw new Error(`Invalid action index at offset ${offset}`);
+    const bodyFile = assertTemporaryPath(action.bodyFile, `action ${action.index} bodyFile`);
+    if (!fs.statSync(bodyFile).isFile()) throw new Error(`Missing body file for action ${action.index}`);
+
+    let args;
+    if (action.kind === 'create') {
+      const title = String(action.title || '');
+      if (!/^\[data-quality\] [^\r\n]{1,180}$/.test(title)) {
+        throw new Error(`Invalid create title for action ${action.index}`);
+      }
+      args = ['issue', 'create', '--title', title, '--label', 'crawler-data-quality', '--body-file', bodyFile];
+    } else if (action.kind === 'comment') {
+      if (!Number.isSafeInteger(action.issueNumber) || action.issueNumber < 1) {
+        throw new Error(`Invalid issue number for action ${action.index}`);
+      }
+      args = ['issue', 'comment', String(action.issueNumber), '--body-file', bodyFile];
+    } else {
+      throw new Error(`Unsupported action kind at ${action.index}: ${action.kind}`);
+    }
+
+    const result = runner('gh', args);
+    if (!result || result.status !== 0) {
+      const failure = result?.error?.message || result?.stderr || result?.stdout || 'unknown error';
+      throw new Error(
+        `gh action ${action.index} failed (status=${result?.status ?? 'null'}, signal=${result?.signal ?? 'none'}): ${sanitizeIssueError(failure)}`,
+      );
+    }
+    if (action.kind === 'create') created += 1;
+    else commented += 1;
+  }
+  return { attempted: packet.actions.length, created, commented };
+}
+
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (args.execute === 'true') {
+    if (!args.packet) throw new Error('--packet is required with --execute true');
+    const packetPath = assertTemporaryPath(args.packet, 'packetPath');
+    const packet = JSON.parse(fs.readFileSync(packetPath, 'utf8'));
+    process.stdout.write(`${JSON.stringify(executeIssuePacket(packet))}\n`);
+    return;
+  }
   const dataDir = path.resolve(args['data-dir'] || DEFAULT_DATA_DIR);
   const outputPath = args.output;
   const bodyDir = args['body-dir'];
