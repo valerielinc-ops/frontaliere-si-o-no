@@ -132,22 +132,37 @@ describe('feed(): il buffer fra due newline ha un cap (follow-up #6063 item 3)',
   // aggiungeva un consumo di memoria non limitato al fallimento che si stava
   // gia' cercando di diagnosticare.
 
-  it('una riga senza terminatore non cresce oltre il cap', async () => {
+  it('un evento valido da 2,4 MB resta pending sotto il cap fisico', async () => {
     const { createClaudeCliStreamTrace } = await import('../scripts/lib/ai-models.mjs');
     const trace = createClaudeCliStreamTrace();
-    // Ben oltre il cap, spezzato in chunk come arriva davvero da stdout.
-    for (let i = 0; i < 24; i++) trace.feed('x'.repeat(100_000));
-    expect(trace.pendingBytes).toBeLessThan(2_000_000);
+    const grande = JSON.stringify({ type: 'result', result: 'x'.repeat(2_400_000) });
+    // Prima del newline il parser non puo' sapere se il JSON sia completo:
+    // il residuo deve quindi restare disponibile, non essere scartato in base
+    // al vecchio cap campionario da 1 MB.
+    for (let i = 0; i < grande.length; i += 100_000) {
+      trace.feed(grande.slice(i, i + 100_000));
+    }
+    expect(trace.pendingBytes).toBe(grande.length);
+    expect(trace.state.malformed).toBe(0);
+
+    trace.feed('\n');
+    expect(trace.state.events).toBe(1);
+    expect(trace.state.malformed).toBe(0);
   });
 
-  it('scartare la riga illeggibile la CONTA come malformata, non la ignora', async () => {
+  it('oltre 10 MB scarta e conta il residuo senza conservarlo nella diagnostica', async () => {
     // Il cap non deve diventare una perdita silenziosa: cio' che viene buttato
-    // resta visibile nella diagnostica, che e' tutto il punto di questo modulo.
+    // resta visibile come conteggio, ma il payload enorme non deve finire nello
+    // stato/log del timeout (gli estratti diagnostici restano troncati sopra).
     const { createClaudeCliStreamTrace } = await import('../scripts/lib/ai-models.mjs');
     const trace = createClaudeCliStreamTrace();
-    for (let i = 0; i < 24; i++) trace.feed('x'.repeat(100_000));
-    trace.end();
-    expect(trace.state.malformed).toBeGreaterThan(0);
+    const sentinel = 'RAW_PAYLOAD_SHOULD_NOT_LEAK';
+    trace.feed(sentinel);
+    for (let i = 0; i < 100; i++) trace.feed('x'.repeat(100_000));
+
+    expect(trace.pendingBytes).toBe(0);
+    expect(trace.state.malformed).toBe(1);
+    expect(JSON.stringify(trace.state)).not.toContain(sentinel);
   });
 
   it('un evento grande ma TERMINATO passa intero: il cap non tronca il lavoro buono', async () => {
