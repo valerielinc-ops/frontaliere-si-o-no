@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-09-01T01:12:08.738Z",
+  "generatedAt": "2026-09-01T07:48:23.594Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 4452,
-  "avgDurationMs": 4452,
+  "durationMs": 4411,
+  "avgDurationMs": 4411,
   "durationHistory": [
-    4452
+    4411
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,8 +50,8 @@
       "salaryMax": 183500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -94,7 +94,6 @@
       "salaryMax": 162500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -138,7 +137,6 @@
       "salaryMax": 77500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -182,7 +180,6 @@
       "salaryMax": 306000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -227,7 +224,6 @@
       "salaryMax": 126500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -265,7 +261,6 @@
       "salaryMax": 120500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -304,7 +299,6 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -349,8 +343,8 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -388,7 +382,6 @@
       "currency": "CHF",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
