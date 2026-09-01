@@ -1,10 +1,10 @@
 import { digestDocument } from './canonical-json-digest.mjs';
+import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
 
 export const CRAWLER_GENERATION_OBSERVER_REPORT_SCHEMA_VERSION = 2;
 export const ARTIFACT_MISSING_GRACE_MS = 6 * 60 * 60 * 1_000;
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
-const TOKEN_RE = /^[1-9][0-9]*-[1-9][0-9]*$/;
 const STATUS_SET = new Set(['ready', 'blocked', 'waiting', 'infrastructure_error']);
 const GROUP_IDS = Object.freeze(Array.from(
   { length: 23 },
@@ -135,7 +135,7 @@ export function validateCrawlerGenerationObserverReport(report, expected = null)
     errors.push('unsupported_schema_version');
   }
   if (!Number.isFinite(Date.parse(report.evaluatedAt ?? ''))) errors.push('invalid_evaluated_at');
-  if (report.generationToken !== null && !TOKEN_RE.test(report.generationToken ?? '')) {
+  if (report.generationToken !== null && !isCrawlerGenerationToken(report.generationToken)) {
     errors.push('invalid_generation_token');
   }
   if (report.siteCodeCommit !== null && !COMMIT_RE.test(report.siteCodeCommit ?? '')) {

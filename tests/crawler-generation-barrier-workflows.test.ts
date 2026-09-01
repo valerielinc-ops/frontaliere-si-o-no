@@ -174,12 +174,16 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(() => assertCrawlerLogicParity(generated, logic, `crawler-group-${group}-logic.yml`)).not.toThrow();
 
       const job = jobFrom(logic);
+      expect(job.env.CRAWLER_GENERATION_TOKEN)
+        .toBe('${{ inputs.generation_token }}');
       expect(job.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
       const background = job.steps.filter((step: any) => step.background === true);
       expect(background).toHaveLength(results.generationRoster.groups[group].length);
       expect(background.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
+      expect(background.every((step: any) =>
+        !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(job.steps.at(-4)).toEqual({
         name: 'Wait for all crawlers in this group',
         'wait-all': true,
@@ -207,8 +211,17 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(portable.on.workflow_dispatch.inputs.generation_token)
         .toMatchObject({ required: false, default: '', type: 'string' });
       const portableJob = Object.values(portable.jobs)[0] as any;
+      expect(portableJob.env.CRAWLER_GENERATION_TOKEN)
+        .toBe('${{ inputs.generation_token }}');
+      expect(portableJob.env.CRAWLER_GENERATION_TOKEN)
+        .not.toMatch(/\|\||github\.run_id|github\.run_attempt/);
       expect(portableJob.env.CRAWLER_GENERATION_RECEIPT_DIR)
         .toBe('crawler-generation/receipts');
+      const portableProducers = portableJob.steps.filter((step: any) =>
+        step.background === true || step.name === 'Commit crawler group data atomically');
+      expect(portableProducers).toHaveLength(results.generationRoster.groups[group].length + 1);
+      expect(portableProducers.every((step: any) =>
+        !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_TOKEN'))).toBe(true);
       expect(portableJob.steps.at(-1).with['retention-days']).toBe(14);
     }
   }, 30_000);
