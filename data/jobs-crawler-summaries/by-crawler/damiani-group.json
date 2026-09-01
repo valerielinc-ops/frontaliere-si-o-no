@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-08-31T17:09:21.284Z",
+  "generatedAt": "2026-09-01T00:56:06.162Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6357,
-  "avgDurationMs": 6357,
+  "durationMs": 5692,
+  "avgDurationMs": 5692,
   "durationHistory": [
-    6357
+    5692
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-08-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-08-31",
+      "validThrough": "2026-09-01",
       "id": "damiani-group-d11e38db046a",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -43,6 +43,7 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-07-01T22:08:15.321Z",
+      "salarySource": "estimated",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -80,6 +81,7 @@
       "postalCode": "6850",
       "id": "damiani-group-2fbffcd3e777",
       "firstSeenAt": "2026-04-13T21:32:28.163Z",
+      "salarySource": "reported",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -109,7 +111,7 @@
       "postedDate": "2026-08-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-08-31",
+      "validThrough": "2026-09-01",
       "id": "damiani-group-f5ab2d7c6cb7",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -117,6 +119,7 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-05-27T22:45:37.761Z",
+      "salarySource": "estimated",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -146,7 +149,7 @@
       "postedDate": "2026-08-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-08-31",
+      "validThrough": "2026-09-01",
       "id": "damiani-group-5460459c212f",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -154,12 +157,13 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-07-24T11:12:56.301Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -184,7 +188,7 @@
       "postedDate": "2026-08-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-08-31",
+      "validThrough": "2026-09-01",
       "id": "damiani-group-604443163c6a",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -192,6 +196,7 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-06-18T22:39:21.798Z",
+      "salarySource": "estimated",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,7 +226,7 @@
       "postedDate": "2026-08-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-08-31",
+      "validThrough": "2026-09-01",
       "id": "damiani-group-ab68c04a261c",
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -229,6 +234,7 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-08-04T11:36:36.581Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -261,7 +267,7 @@
       "postedDate": "2026-08-04",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-08-31",
+      "validThrough": "2026-09-01",
       "id": "damiani-group-90a504da8d41",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -269,6 +275,7 @@
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
       "firstSeenAt": "2026-08-04T11:36:36.581Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
