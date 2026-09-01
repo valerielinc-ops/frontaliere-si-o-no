@@ -96,11 +96,11 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
   });
 
   /**
-   * Canton in-feed A/B test (2026-08-25, owner request): Lucerna ('LU') is
-   * the TREATMENT canton for the manual in-feed slot on the canton
-   * job-search listing (JOBLIST_INFEED_DESKTOP/MOBILE) — Basilea
-   * ('BASILEA', the merged BS+BL URL-group key) is the CONTROL and MUST
-   * stay on the unmodified cadence, same as every other canton. The two
+   * Canton in-feed A/B tests: Lucerna ('LU') is the treatment against
+   * Basilea, and Ticino ('TI') is the treatment against the national
+   * Switzerland listing. Both treatment canton listings suppress the manual
+   * in-feed slot (JOBLIST_INFEED_DESKTOP/MOBILE); Basilea and the national
+   * listing stay on the unmodified cadence. The two
    * call sites that opt into this (components/community/JobBoard.tsx
    * `displayJobs.map` main list, build-plugins/jobsSeoPagesPlugin.ts
    * canton-index `cantonJobs.map`) both pass `{ canton }` straight through
@@ -108,15 +108,19 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
    * suppression, so pinning its contract here covers both render paths.
    */
   describe('canton in-feed A/B test (opt-in `opts.canton`)', () => {
-    it('suppresses every in-feed placement for the treatment canton (LU), regardless of cadence', () => {
-      for (const pos of [3, 6, 9, 12, 36]) {
-        expect(shouldPlaceInfeedAd(pos, { canton: 'LU' })).toBe(false);
+    it('suppresses every in-feed placement for both treatment cantons, regardless of cadence', () => {
+      for (const canton of ['LU', 'TI']) {
+        for (const pos of [3, 6, 9, 12, 36]) {
+          expect(shouldPlaceInfeedAd(pos, { canton })).toBe(false);
+        }
       }
     });
 
     it('is case-insensitive on the canton code', () => {
       expect(shouldPlaceInfeedAd(3, { canton: 'lu' })).toBe(false);
       expect(shouldPlaceInfeedAd(3, { canton: 'Lu' })).toBe(false);
+      expect(shouldPlaceInfeedAd(3, { canton: 'ti' })).toBe(false);
+      expect(shouldPlaceInfeedAd(3, { canton: 'Ti' })).toBe(false);
     });
 
     it('never suppresses positions that were already non-cadence (no false "it never fires at all" pass)', () => {
@@ -136,7 +140,7 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
     });
 
     it('leaves every other canton on the unmodified cadence', () => {
-      for (const canton of ['TI', 'ZH', 'GE', 'BS', 'BL', 'VD', 'AG']) {
+      for (const canton of ['ZH', 'GE', 'BS', 'BL', 'VD', 'AG']) {
         const hits = [1, 2, 3, 4, 5, 6].filter((p) => shouldPlaceInfeedAd(p, { canton }));
         expect(hits).toEqual([3, 6]);
       }
@@ -163,7 +167,7 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
     });
 
     it('INFEED_AD_AB_TEST_SUPPRESSED_CANTONS contains exactly the documented treatment set', () => {
-      expect([...INFEED_AD_AB_TEST_SUPPRESSED_CANTONS]).toEqual(['LU']);
+      expect([...INFEED_AD_AB_TEST_SUPPRESSED_CANTONS]).toEqual(['LU', 'TI']);
       expect(INFEED_AD_AB_TEST_SUPPRESSED_CANTONS.has('BASILEA')).toBe(false);
     });
   });

@@ -1251,7 +1251,7 @@ describe('cross-repo crawler execution artifacts', () => {
     }
     const transportedManifest = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
     const baselines = transportedManifest.files.map((entry: any) => entry.baseline);
-    expect(baselines).toHaveLength(31);
+    expect(baselines).toHaveLength(CRAWLER_WORKFLOW_FILES.length + CORPUS_OBSERVER_FILES.length + 1);
     expect(baselines.every((baseline: any) => baseline.site === baseline.corpus && baseline.site.length === 16))
       .toBe(true);
     const stableManifest = fs.readFileSync(corpusManifestPath, 'utf8');
@@ -1317,7 +1317,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const contaminated = structuredClone(allowed);
     contaminated.files[0].reason = 'silently changed by transport branch';
     expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: contaminated }))
-      .toThrow(/outside the 31 owned baselines/);
+      .toThrow(/outside its owned baselines/);
   });
 
   it('non consente al vecchio one-shot di rigenerare il reusable workflow difettoso', () => {

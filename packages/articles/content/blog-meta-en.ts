@@ -11056,6 +11056,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'EoC hospitals in Ticino: ANQ research detects lights and shadows',
     'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'The national ANQ survey rewards Ticino hospitals (75% satisfied patients), but indicates margins for improvement in communication during waits.',
     'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'EOC hospital ward in Ticino with medical staff communicating with a patient during admission',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Living in Cocquio-Trevisago as a Ticino border worker: guide 2024',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Moving from Cocquio-Trevisago to work in Ticino: the New Frontier Agreement 2024, tax at source, exemptions €7500–€10000 and step-by-step procedure.',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Panoramic view of Lugano lakefront with residential and office buildings under Monte San Salvatore.',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.title': 'Living in Cambiasca, working in Ticino: frontier guide',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.excerpt': 'Taxation, G permit, costs and concrete procedures for border workers living in Cambiasca and working in the Canton of Ticino. What you need to know.',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Lugano and Lake Ceresio, Swiss-Italian border landscape for Ticino frontier workers.',
 };
 
 export default blogMetaEn;

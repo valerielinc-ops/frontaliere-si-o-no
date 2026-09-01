@@ -1693,6 +1693,9 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'shein-ipo-hong-kong-malus-francese': { it: 'shein-ipo-hong-kong-malus-francese', en: 'shein-hong-kong-ipo-french-tax-fast-fashion', de: 'shein-hongkong-boersendebut-franzoesische-steuer', fr: 'shein-hongkong-ipo-malus-francais-mode-rapide' },
  'affitti-friburgo-deposito-disdetta-locazione': { it: 'affitti-friburgo-deposito-disdetta-locazione', en: 'rentals-fribourg-deposit-termination-tenancy', de: 'mietvertraege-freiburg-kaution-kuendigung-mietrecht', fr: 'locations-fribourg-depot-resiliation-bail' },
  'affitti-friburgo-contestazione-canone': { it: 'affitti-friburgo-contestazione-canone', en: 'rentals-friburg-contestation-rent', de: 'miete-freiburg-einspruch-mietzins', fr: 'locations-fribourg-contestation-loyer' },
+ 'patente-guida-friburgo-procedura': { it: 'patente-guida-friburgo-procedura', en: 'driving-license-fribourg-procedure', de: 'fuehrerschein-freiburg-verfahren', fr: 'permis-conduite-fribourg-procedure' },
+ 'vendite-auto-svizzera-agosto-2026': { it: 'vendite-auto-svizzera-agosto-2026', en: 'swiss-car-sales-august-2026', de: 'schweizer-auto-verkaufe-august-2026', fr: 'ventes-auto-suisse-aout-2026' },
+ 'asilo-nido-custodia-bambini-grigioni': { it: 'asilo-nido-custodia-bambini-grigioni', en: 'nursery-childcare-graubunden-costs', de: 'kindergarten-betreuung-graubuenden-kosten', fr: 'garderie-enfants-grisons-tarifs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

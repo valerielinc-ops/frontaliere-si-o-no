@@ -5002,6 +5002,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Location à Fribourg : droit de location',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Guide complet du dépôt de garantie, de la contestation de la redevance et de la résiliation selon le Code fédéral des obligations. Procédure de conciliation et délais.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Immeuble résidentiel suisse surplombant le paysage montagneux',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Permis de conduire à Fribourg : conversion et examens',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procédure de conversion du permis étranger dans le canton de Fribourg : cours obligatoires, examens théoriques et pratiques, documents requis et feuille de route étape par étape.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Voiture sur route de montagne suisse avec panneaux de circulation et paysage alpin ensoleillé',
+    'blog.article.vendite-auto-svizzera-agosto-2026.title': 'Ventes de voitures neuves en baisse en août, près d\'une sur trois est électrique',
+    'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Les ventes de voitures neuves en Suisse ont diminué de 0,6% en août, avec près d\'une voiture électrique sur trois vendue.',
+    'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Vue aérienne de Lugano avec des voitures en mouvement',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Garderie et garde d\'enfants dans le canton des Grisons',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Options de garde, tarifs calculés sur le revenu et allocations cantonales : guide pratique pour les familles dans les Grisons.',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Salle de garderie moderne en Suisse avec enfants et éducateurs en plein jeu',
 };
 
 export default blogMetaChFr;

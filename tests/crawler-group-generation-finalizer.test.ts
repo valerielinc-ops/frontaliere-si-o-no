@@ -35,9 +35,15 @@ function writeReceipt(fixture: ReturnType<typeof fixtureRepository>, receipt: ob
   fs.writeFileSync(path.join(fixture.receiptsDir, 'acme.json'), `${JSON.stringify(receipt)}\n`);
 }
 
-function receiptFor(fixture: ReturnType<typeof fixtureRepository>, paths: string[], outcome = 'pushed', commit?: string) {
+function receiptFor(
+  fixture: ReturnType<typeof fixtureRepository>,
+  paths: string[],
+  outcome = 'pushed',
+  commit?: string,
+  generationToken = '9001-2',
+) {
   return createCrawlerGenerationReceipt({
-    cwd: fixture.work, crawlerId: 'acme', outcome,
+    cwd: fixture.work, generationToken, crawlerId: 'acme', outcome,
     commit: commit ?? git(fixture.work, ['rev-parse', 'HEAD']), remoteBaseCommit: fixture.initial, paths,
   });
 }
@@ -142,6 +148,32 @@ describe('crawler group generation finalizer', () => {
 
     expect(manifest.valid).toBe(false);
     expect(manifest.reasons).toContain('receipt_blob_mismatch');
+  });
+
+  it('rejects a valid receipt copied from a different generation directory', () => {
+    const fixture = fixtureRepository();
+    writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial, '9001-1'));
+
+    const manifest = finalizeCrawlerGroup(baseInput(fixture));
+
+    expect(manifest.valid).toBe(false);
+    expect(manifest.reasons).toEqual(expect.arrayContaining(['receipt_invalid', 'receipt_missing']));
+    expect(manifest.verifiedCrawlers).toBe(0);
+    expect(manifest.receiptEvidence).toEqual([]);
+  });
+
+  it('rejects a legacy receipt with no generation token in the token-bound finalizer', () => {
+    const fixture = fixtureRepository();
+    const current = receiptFor(fixture, [fixture.slice], 'noop', fixture.initial);
+    const { digest: _digest, generationToken: _generationToken, ...legacyPayload } = current;
+    const legacy = { ...legacyPayload, schemaVersion: 1 };
+    writeReceipt(fixture, { ...legacy, digest: digestDocument(legacy) });
+
+    const manifest = finalizeCrawlerGroup(baseInput(fixture));
+
+    expect(manifest.valid).toBe(false);
+    expect(manifest.reasons).toEqual(expect.arrayContaining(['receipt_invalid', 'receipt_missing']));
+    expect(manifest.verifiedCrawlers).toBe(0);
   });
 
   it('records wait and bounded non-interactive fetch failures without changing data', () => {

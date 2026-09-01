@@ -308,10 +308,18 @@ export const JOBLIST_AD_MAX_PER_LIST = 12;
  *  comparison: `scripts/adsense-format-ab-report.mjs` (history in
  *  `data/adsense-format-ab-history.jsonl`).
  *
+ *  A second owner-requested comparison starts with the deployment of the
+ *  2026-09-01 change: `TI` (Ticino) is the TREATMENT and the national
+ *  `/cerca-lavoro-svizzera/` listing is the CONTROL. The national page has no
+ *  canton key, so it deliberately stays on the unchanged cadence while TI is
+ *  suppressed through the same opt-in path as LU. Monitoring and the exact
+ *  URL-vs-channel distinction are documented in
+ *  `docs/ADSENSE-INFEED-AB-TEST.md`.
+ *
  *  Only `shouldPlaceInfeedAd` reads this set — extend it here (never branch
  *  ad hoc in a caller) if the test result motivates expanding treatment to
  *  more cantons. */
-export const INFEED_AD_AB_TEST_SUPPRESSED_CANTONS: ReadonlySet<string> = new Set(['LU']);
+export const INFEED_AD_AB_TEST_SUPPRESSED_CANTONS: ReadonlySet<string> = new Set(['LU', 'TI']);
 
 /** True when an in-feed ad should be placed immediately after the card at this
  *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`), up

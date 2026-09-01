@@ -506,9 +506,12 @@ export async function cleanupCrawlerGenerationDispatchRef({ request, generationT
 
 function parseGenerationRef(value) {
   const match = new RegExp(
-    `^refs/heads/${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}([1-9][0-9]*)-([1-9][0-9]*)$`,
+    `^refs/heads/${CRAWLER_GENERATION_DISPATCH_REF_PREFIX}(.+)$`,
   ).exec(value ?? '');
-  return match ? { generationToken: `${match[1]}-${match[2]}`, runId: match[1], runAttempt: Number(match[2]) } : null;
+  const generationToken = match?.[1] ?? null;
+  if (!isCrawlerGenerationToken(generationToken)) return null;
+  const [runId, runAttempt] = generationToken.split('-');
+  return { generationToken, runId, runAttempt: Number(runAttempt) };
 }
 
 function exactOrchestratorOwner(run, candidate, now) {

@@ -5002,6 +5002,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Affitti in Friburgo: diritto di locazione',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Guida completa al deposito cauzionale, contestazione canone e disdetta secondo Codice Obbligazioni federale. Procedura conciliazione e scadenze.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Edificio residenziale svizzero con vista su paesaggio montano',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Patente di guida in Friburgo: conversione ed esami',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Auto su strada di montagna svizzera con segnaletica stradale e paesaggio alpino soleggiato',
+    'blog.article.vendite-auto-svizzera-agosto-2026.title': 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica.',
+    'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Vista aerea di Lugano con auto in movimento',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Asilo nido e custodia bambini nel Canton Grigioni',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Opzioni di custodia, tariffe calcolate sul reddito e sussidi cantonali: guida pratica per famiglie nel Grigioni.',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Aula di asilo nido moderno in Svizzera con bambini e educatrici intenti a giocare',
 };
 
 export default blogMetaChIt;

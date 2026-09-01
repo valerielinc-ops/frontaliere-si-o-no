@@ -2492,7 +2492,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json

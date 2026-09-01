@@ -13,7 +13,12 @@ import {
 import { tmpdir } from 'node:os';
 import { delimiter, join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { validateCrawlerGenerationReceipt } from '../scripts/lib/crawler-generation-receipt.mjs';
+import { digestDocument } from '../scripts/lib/canonical-json-digest.mjs';
+import {
+  createCrawlerGroupCommitDescriptor,
+  validateCrawlerGenerationReceipt,
+  validateCrawlerGroupCommitDescriptor,
+} from '../scripts/lib/crawler-generation-receipt.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -42,9 +47,10 @@ function runHelper(
   value: ReturnType<typeof fixture>,
   {
     enabled = true,
+    generationToken = '9001-2',
     pushFailure = null,
     relativeReceiptDir = false,
-  }: { enabled?: boolean; pushFailure?: string | null; relativeReceiptDir?: boolean } = {},
+  }: { enabled?: boolean; generationToken?: string; pushFailure?: string | null; relativeReceiptDir?: boolean } = {},
 ) {
   let pathValue = process.env.PATH ?? '';
   if (pushFailure !== null) {
@@ -64,6 +70,7 @@ function runHelper(
       MAX_PUSH_ATTEMPTS: '1',
       JOBS_SLICE_FILE: 'data/jobs/by-crawler/acme.json',
       JOBS_HOUSEKEEPING_SCOPE: 'acme',
+      CRAWLER_GENERATION_TOKEN: generationToken,
       CRAWLER_GENERATION_RECEIPT_DIR: enabled
         ? relativeReceiptDir ? 'crawler-generation/receipts/01' : value.receiptDir
         : '',
@@ -98,6 +105,7 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     const pushed = runHelper(pushedFixture, { relativeReceiptDir: true });
     expect(pushed.status).toBe(0);
     const pushedReceipt = onlyReceipt(pushedFixture.receiptDir, `${pushed.stdout}${pushed.stderr}`);
+    expect(pushedReceipt).toMatchObject({ schemaVersion: 2, generationToken: '9001-2' });
     expect(pushedReceipt.outcome).toBe('pushed');
     expect(pushedReceipt.files).toEqual(expect.arrayContaining([
       expect.objectContaining({ path: 'data/jobs/by-crawler/acme.json', state: 'present', sha256: expect.stringMatching(/^sha256:/) }),
@@ -132,6 +140,15 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     expect(`${result.stdout}${result.stderr}`).not.toContain('generation receipt');
   });
 
+  it('never falls back to an unbound receipt when the generation token is missing', () => {
+    const value = fixture();
+    const result = runHelper(value, { generationToken: '' });
+
+    expect(result.status).toBe(0);
+    expect(existsSync(value.receiptDir)).toBe(false);
+    expect(`${result.stdout}${result.stderr}`).toContain('generation receipt failed');
+  });
+
   it('keeps push success authoritative when receipt output is unsafe or unwritable', () => {
     const value = fixture();
     writeFileSync(join(value.repository, 'data/jobs/by-crawler/acme.json'), '[{"id":"new"}]\n');
@@ -157,5 +174,42 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     expect(result.status).toBe(0);
     expect(`${result.stdout}${result.stderr}`).toContain('generation receipt');
     expect(existsSync(join(value.repository, 'data/jobs/by-crawler', '01', 'acme.json'))).toBe(false);
+  });
+
+  it('keeps legacy v1 compatibility explicit for historical verification', () => {
+    const value = fixture();
+    const result = runHelper(value);
+    expect(result.status).toBe(0);
+    const current = onlyReceipt(value.receiptDir, `${result.stdout}${result.stderr}`);
+    const { digest: _digest, generationToken: _generationToken, ...legacyPayload } = current;
+    const legacy = { ...legacyPayload, schemaVersion: 1 };
+    const legacyReceipt = { ...legacy, digest: digestDocument(legacy) };
+
+    expect(validateCrawlerGenerationReceipt(legacyReceipt)).toEqual({
+      valid: true,
+      errors: [],
+    });
+    expect(validateCrawlerGenerationReceipt(legacyReceipt, { allowLegacyV1: false })).toEqual({
+      valid: false,
+      errors: ['legacy_schema_not_allowed'],
+    });
+    expect(validateCrawlerGenerationReceipt(legacyReceipt, { allowLegacyV1: true })).toEqual({
+      valid: true,
+      errors: [],
+    });
+  });
+
+  it('binds deferred commit descriptors to the same generation token', () => {
+    const value = fixture();
+    const descriptor = createCrawlerGroupCommitDescriptor({
+      cwd: value.repository,
+      generationToken: '9001-2',
+      crawlerId: 'acme',
+      commitMessage: 'test descriptor',
+      paths: ['data/jobs/by-crawler/acme.json'],
+    });
+
+    expect(descriptor).toMatchObject({ schemaVersion: 3, generationToken: '9001-2' });
+    expect(validateCrawlerGroupCommitDescriptor(descriptor)).toEqual({ valid: true, errors: [] });
   });
 });

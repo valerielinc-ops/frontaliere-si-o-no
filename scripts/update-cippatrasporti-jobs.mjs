@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
+  assertCompleteCippatrasportiSnapshot,
   fetchAllCippatrasportiJobs,
   isCippatrasportiJob,
   isTrustedDomain,
@@ -27,6 +28,10 @@ runStandardCrawlerPipeline({
   isCompanyJob: isCippatrasportiJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  preserveExistingSlugs: true,
+  validateAuthoritativeSnapshot: assertCompleteCippatrasportiSnapshot,
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Cippà Trasporti SA crawler failed: ${err?.message || err}`);
   process.exit(1);

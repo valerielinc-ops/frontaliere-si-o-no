@@ -64916,6 +64916,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-friburgo-procedura': {
+    title: 'Patente di guida in Friburgo: conversione ed esami',
+    description: 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, friburgo, conversione, esami',
+    ogTitle: 'Patente di guida in Friburgo: conversione ed esami',
+    ogDescription: 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
+    canonicalPath: '/articoli-svizzera/patente-guida-friburgo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida in Friburgo: conversione ed esami",
+      "description": "Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-friburgo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto su strada di montagna svizzera con segnaletica stradale e paesaggio alpino soleggiato"
+      },
+      "datePublished": "2026-09-01T20:58:54+00:00",
+      "dateModified": "2026-09-01T20:58:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-friburgo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vendite-auto-svizzera-agosto-2026': {
+    title: 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    description: 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendite, auto, nuove, calo',
+    ogTitle: 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    ogDescription: 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Le auto ibride rappresentano il 37% delle vendite.',
+    canonicalPath: '/articoli-svizzera/vendite-auto-svizzera-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vendite auto nuove in calo in agosto, quasi una su tre è elettrica",
+      "description": "Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vendite-auto-svizzera-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con auto in movimento"
+      },
+      "datePublished": "2026-09-01T21:20:56+00:00",
+      "dateModified": "2026-09-01T21:20:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vendite-auto-svizzera-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-custodia-bambini-grigioni': {
+    title: 'Asilo nido e custodia bambini nel Canton Grigioni',
+    description: 'Guida completa alla custodia dei bambini nel Grigioni: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini nel Canton Grigioni',
+    ogDescription: 'Scopri le opzioni di custodia nel Cantone Grigioni: asili nido, famiglie diurne, doposcuola. Impara come vengono calcolate le tariffe sulla base del reddito e quali sussidi pubblici puoi ricevere. Guida pratica per famiglie con figli.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-bambini-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini nel Canton Grigioni",
+      "description": "Guida completa alla custodia dei bambini nel Grigioni: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-bambini-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula di asilo nido moderno in Svizzera con bambini e educatrici intenti a giocare"
+      },
+      "datePublished": "2026-09-01T21:51:40+00:00",
+      "dateModified": "2026-09-01T21:51:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-bambini-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -32,9 +32,24 @@ import {
   compareSourceDetail,
   checkSourceDetailsBatch,
   applySourceDetailResults,
+  sourceDetailSeverity,
+  finalizeSourceDetailEvidence,
+  runSourceDetailChecks,
   finishAudit,
   filledLocaleCount,
+  getSourceDetailImplementationVersions,
+  SOURCE_DETAIL_EXTRACTOR_VERSION_FILES,
+  SOURCE_DETAIL_NORMALIZER_VERSION_FILES,
 } from '../../scripts/audit-parser-quality.mjs';
+import {
+  SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+  createSourceDetailEvidence,
+  createSourceDetailEvidenceBundle,
+  replaySourceDetailEvidence,
+  replaySourceDetailEvidenceBatch,
+  replaySourceDetailEvidenceBundle,
+  replaySourceDetailEvidenceBundleAsResults,
+} from '../../scripts/lib/parser-quality-source-detail-replay.mjs';
 import {
   crawlerJobActivity,
   partitionCrawlerJobsForActiveMetrics,
@@ -455,6 +470,398 @@ describe('source-detail fidelity checks', () => {
     );
     expect(result.locationMismatch).toBe(false);
     expect(result.descriptionMismatch).toBe(false);
+  });
+
+  it('captures one privacy-safe immutable observation from the existing fetch and replays it', async () => {
+    const body = [
+      '<script type="application/ld+json">',
+      '{"@type":"JobPosting","title":"Role","jobLocation":{"address":{"addressLocality":"Zürich"}},',
+      '"description":"Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen."}',
+      '</script>',
+    ].join('');
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: '2026-09-01T15:59:18Z' },
+    };
+    const versions = getSourceDetailImplementationVersions();
+    let fetches = 0;
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'helsana',
+      url: 'https://example.test/job?signed=private-value',
+      job: { location: 'Lugano', description: 'Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen.' },
+    }], 1, {
+      fetchPage: async (url: string) => {
+        fetches++;
+        return { ok: true, status: 200, url, body, host: 'example.test' };
+      },
+      evidenceContext: { provenance, versions },
+    });
+
+    expect(fetches).toBe(1);
+    expect(versions.extractor).toMatch(/^[a-f0-9]{64}$/);
+    expect(versions.normalizer).toMatch(/^[a-f0-9]{64}$/);
+    expect(result.sourceDetailEvidence).toMatchObject({
+      crawlerKey: 'helsana',
+      provenance: { repoHeadSha: provenance.repoHeadSha, datasetCommitSha: provenance.datasetLastCommit.sha },
+      versions,
+    });
+    const serialized = JSON.stringify(result.sourceDetailEvidence);
+    expect(serialized).not.toContain(body);
+    expect(serialized).not.toContain('signed=private-value');
+    expect(serialized).not.toContain('Ausführliche Stellenbeschreibung');
+    expect(replaySourceDetailEvidence(result.sourceDetailEvidence, { provenance, versions })).toMatchObject({
+      crawlerKey: 'helsana',
+      replayed: true,
+      locationMismatch: true,
+      evidenceProvenance: { repoHeadSha: provenance.repoHeadSha, datasetCommitSha: provenance.datasetLastCommit.sha },
+    });
+
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-evidence-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const evidenceContext = {
+        provenance,
+        versions,
+        requestedCount: 1,
+        requestedSamples: [{ crawlerKey: 'helsana', url: 'https://example.test/job?signed=private-value' }],
+      };
+      const evidenceBundle = createSourceDetailEvidenceBundle([result], evidenceContext);
+      const report = { helsana: { total: 1, issues: [], severity: 'OK' } };
+      const sourceDetailSummary = applySourceDetailResults(report, [result], 1);
+      report.helsana.severity = sourceDetailSeverity(report.helsana) || report.helsana.severity;
+      finishAudit(report, {
+        outPath,
+        provenance,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary,
+        sourceDetailEvidence: evidenceBundle,
+      });
+      const persisted = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      expect(persisted.sourceDetailEvidence).toEqual(evidenceBundle);
+      expect(JSON.stringify(persisted)).not.toContain('signed=private-value');
+      expect(persisted.crawlers.helsana.severity).toBe('CRITICAL');
+      expect(replaySourceDetailEvidenceBundle(evidenceBundle, evidenceContext)).toHaveLength(1);
+    } finally {
+      consoleSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('binds the bundle to the complete ordered request set and rejects omissions, additions and duplicates', () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-v1', normalizer: 'normalizer-v1' };
+    const requestedSamples = [
+      { crawlerKey: 'one', url: 'https://example.test/one' },
+      { crawlerKey: 'two', url: 'https://example.test/two' },
+    ];
+    const context = { provenance, versions, requestedCount: 2, requestedSamples };
+    const results = requestedSamples.map((sample) => ({ ...sample, fetchFailed: true, status: 429 }));
+    const bundle = createSourceDetailEvidenceBundle(results, context);
+
+    expect(bundle).toMatchObject({ requestedCount: 2, replayableCount: 0 });
+    expect(replaySourceDetailEvidenceBundle(bundle, context)).toEqual([
+      expect.objectContaining({ crawlerKey: 'one', fetchFailed: true, status: 429 }),
+      expect.objectContaining({ crawlerKey: 'two', fetchFailed: true, status: 429 }),
+    ]);
+    expect(() => createSourceDetailEvidenceBundle([], context)).toThrow(/results are required/);
+    expect(() => createSourceDetailEvidenceBundle(results.slice(0, 1), context)).toThrow(/count/);
+    expect(() => createSourceDetailEvidenceBundle([...results, results[0]], context)).toThrow(/count/);
+    expect(() => createSourceDetailEvidenceBundle([results[0], results[0]], context)).toThrow(/duplicate/);
+    expect(() => createSourceDetailEvidenceBundle([
+      { ...results[0], processingFailed: true },
+      results[1],
+    ], context)).toThrow(/exactly one outcome/);
+    expect(() => createSourceDetailEvidenceBundle([
+      results[0],
+      { ...results[1], url: 'https://example.test/replacement' },
+    ], context)).toThrow(/identity/);
+    expect(() => createSourceDetailEvidenceBundle(results, {
+      ...context,
+      requestedSamples: [requestedSamples[0], requestedSamples[0]],
+    })).toThrow(/duplicate/);
+  });
+
+  it('orchestrates an enabled empty source-detail audit into a serialized CRITICAL failure', async () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-v1', normalizer: 'normalizer-v1' };
+    const checkBatch = vi.fn(async () => []);
+    const report: Record<string, Entry> = {};
+    const { sourceDetailSummary, sourceDetailEvidence } = await runSourceDetailChecks(
+      report,
+      [],
+      { provenance, versions, checkBatch },
+    );
+
+    expect(checkBatch).toHaveBeenCalledWith([], 3, {
+      evidenceContext: {
+        provenance,
+        versions,
+        requestedCount: 0,
+        requestedSamples: [],
+      },
+    });
+    expect(sourceDetailSummary).toMatchObject({
+      requested: 0,
+      fetched: 0,
+      fetchFailed: 0,
+      processingFailed: 0,
+    });
+    expect(sourceDetailEvidence).toMatchObject({
+      format: SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+      status: 'invalid',
+      requestedCount: 0,
+      errorCode: 'missing-evidence',
+    });
+    expect(report['source-detail-evidence']).toMatchObject({ severity: 'CRITICAL' });
+
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-empty-source-detail-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(finishAudit(report, {
+        strict: true,
+        outPath,
+        provenance,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary,
+        sourceDetailEvidence,
+      })).toBe(1);
+      expect(JSON.parse(fs.readFileSync(outPath, 'utf8'))).toMatchObject({
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: { requested: 0 },
+        sourceDetailEvidence: { status: 'invalid', errorCode: 'missing-evidence' },
+        crawlers: { 'source-detail-evidence': { severity: 'CRITICAL' } },
+        summary: { critical: 1 },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes each implementation fingerprint when any real closure input changes', () => {
+    const readFixture = (changedPath = '') => (absolutePath: string) => {
+      const relativePath = path.relative(process.cwd(), absolutePath);
+      return Buffer.from(`${relativePath}:${relativePath === changedPath ? 'changed' : 'base'}`);
+    };
+    const baseline = getSourceDetailImplementationVersions({ readFile: readFixture() });
+
+    expect(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES).toEqual([
+      'scripts/lib/prospector/extract.mjs',
+      'scripts/lib/prospector/registrable.mjs',
+      'scripts/lib/prospector/entities.mjs',
+      'scripts/lib/decode-html-entities.mjs',
+      'scripts/lib/html-attr.mjs',
+      'scripts/lib/prospector/location-evidence.mjs',
+      'scripts/lib/target-swiss-locations.mjs',
+      'scripts/lib/crawler-location-config.mjs',
+      'scripts/lib/prospector/country-inventory.mjs',
+      'scripts/lib/prospector/subdivision-inventory.mjs',
+      'data/canton-municipalities.json',
+    ]);
+    expect(SOURCE_DETAIL_NORMALIZER_VERSION_FILES).toEqual([
+      'scripts/audit-parser-quality.mjs',
+      'scripts/lib/parser-quality-source-detail-replay.mjs',
+      'scripts/lib/stable-stringify.mjs',
+    ]);
+    for (const input of SOURCE_DETAIL_EXTRACTOR_VERSION_FILES) {
+      const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });
+      expect(changed.extractor, input).not.toBe(baseline.extractor);
+      expect(changed.normalizer, input).toBe(baseline.normalizer);
+    }
+    for (const input of SOURCE_DETAIL_NORMALIZER_VERSION_FILES) {
+      const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });
+      expect(changed.normalizer, input).not.toBe(baseline.normalizer);
+      expect(changed.extractor, input).toBe(baseline.extractor);
+    }
+  });
+
+  it('fails closed for missing, tampered, provenance-mismatched or version-mismatched evidence', () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-fixture-v1', normalizer: 'normalizer-fixture-v1' };
+    const comparison = compareSourceDetail(
+      { location: 'Lugano', description: 'Descrizione completa '.repeat(20) },
+      { location: 'Zürich', description: 'Descrizione completa '.repeat(20) },
+      { locationEvidence: 'jsonld' },
+    );
+    const valid = createSourceDetailEvidence({
+      crawlerKey: 'ardian',
+      sourceUrl: 'https://example.test/ardian',
+      body: '<main>source detail fixture</main>',
+      observation: comparison.replayObservation,
+      provenance,
+      versions,
+    });
+    const tampered = { ...valid, bodySha256: '0'.repeat(64) };
+    const wrongProvenance = {
+      provenance: { ...provenance, datasetLastCommit: { ...provenance.datasetLastCommit, sha: 'c'.repeat(40) } },
+      versions,
+    };
+    const wrongVersion = { provenance, versions: { ...versions, normalizer: 'normalizer-fixture-v2' } };
+    const bundleContext = {
+      provenance,
+      versions,
+      requestedCount: 1,
+      requestedSamples: [{ crawlerKey: 'ardian', url: 'https://example.test/ardian' }],
+    };
+    const validResult = {
+      crawlerKey: 'ardian',
+      url: 'https://example.test/ardian',
+      sourceDetailEvidence: valid,
+    };
+    const bundle = createSourceDetailEvidenceBundle([validResult], bundleContext);
+    const missingMember = { ...bundle, samples: [] };
+    const tamperedBundle = { ...bundle, samplesSha256: '0'.repeat(64) };
+
+    expect(() => replaySourceDetailEvidence(null, { provenance, versions })).toThrow(/evidence is required/);
+    expect(() => replaySourceDetailEvidence(tampered, { provenance, versions })).toThrow(/digest does not match/);
+    expect(() => replaySourceDetailEvidence(valid, wrongProvenance)).toThrow(/commit or dataset/);
+    expect(() => replaySourceDetailEvidence(valid, wrongVersion)).toThrow(/version/);
+    expect(() => replaySourceDetailEvidenceBundle(null, bundleContext)).toThrow(/bundle is required/);
+    expect(() => replaySourceDetailEvidenceBundle(missingMember, bundleContext)).toThrow(/sample count/);
+    expect(() => replaySourceDetailEvidenceBundle(tamperedBundle, bundleContext)).toThrow(/digest/);
+
+    const rejected = [
+      ...replaySourceDetailEvidenceBatch([null, tampered], { provenance, versions }),
+      ...replaySourceDetailEvidenceBatch([valid], wrongProvenance),
+      ...replaySourceDetailEvidenceBatch([valid], wrongVersion),
+      ...replaySourceDetailEvidenceBundleAsResults(null, bundleContext),
+      ...replaySourceDetailEvidenceBundleAsResults(missingMember, bundleContext),
+      ...replaySourceDetailEvidenceBundleAsResults(tamperedBundle, bundleContext),
+    ];
+    const report: Record<string, Entry> = {};
+    for (const result of rejected) {
+      if (!report[result.crawlerKey]) report[result.crawlerKey] = { total: 1, issues: [], severity: 'OK' };
+    }
+    applySourceDetailResults(report, rejected, rejected.length);
+    expect(rejected.every((result) => result.processingFailed)).toBe(true);
+    expect(Object.values(report).every((entry) => entry.severity === 'CRITICAL')).toBe(true);
+    expect(JSON.stringify(rejected)).not.toMatch(/private-value|source detail fixture/);
+  });
+
+  it('finalizes tampered or version-mismatched live evidence as an invalid CRITICAL artifact', () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-v1', normalizer: 'normalizer-v1' };
+    const requestedSamples = [{ crawlerKey: 'medbase', url: 'https://example.test/medbase' }];
+    const comparison = compareSourceDetail(
+      { location: 'Lugano', description: 'Descrizione completa '.repeat(20) },
+      { location: 'Zürich', description: 'Descrizione completa '.repeat(20) },
+      { locationEvidence: 'jsonld' },
+    );
+    const valid = createSourceDetailEvidence({
+      crawlerKey: 'medbase',
+      sourceUrl: requestedSamples[0].url,
+      body: '<main>source detail fixture</main>',
+      observation: comparison.replayObservation,
+      provenance,
+      versions,
+    });
+    const cases = [
+      {
+        result: { ...requestedSamples[0], sourceDetailEvidence: { ...valid, bodySha256: '0'.repeat(64) } },
+        context: { provenance, versions, requestedCount: 1, requestedSamples },
+        errorCode: 'tampered-evidence',
+      },
+      {
+        result: { ...requestedSamples[0], sourceDetailEvidence: valid },
+        context: {
+          provenance,
+          versions: { ...versions, normalizer: 'normalizer-v2' },
+          requestedCount: 1,
+          requestedSamples,
+        },
+        errorCode: 'version-mismatch',
+      },
+    ];
+
+    for (const testCase of cases) {
+      const report: Record<string, Entry> = {
+        medbase: { total: 1, issues: [], severity: 'OK' },
+      };
+      const evidenceBundle = finalizeSourceDetailEvidence(report, [testCase.result], testCase.context);
+      expect(evidenceBundle).toMatchObject({
+        format: SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+        status: 'invalid',
+        requestedCount: 1,
+        errorCode: testCase.errorCode,
+      });
+      expect(report.medbase).toMatchObject({ severity: 'CRITICAL' });
+      expect(replaySourceDetailEvidenceBundleAsResults(evidenceBundle, testCase.context)[0])
+        .toMatchObject({ processingFailed: true });
+    }
+  });
+
+  it('serializes missing live provenance as a fail-closed report instead of aborting before the writer', async () => {
+    const evidenceContext = {
+      provenance: { repoHeadSha: null, datasetLastCommit: { sha: null, committedAt: null } },
+      versions: { extractor: 'extractor-v1', normalizer: 'normalizer-v1' },
+      requestedCount: 1,
+      requestedSamples: [{ crawlerKey: 'swiss-life', url: 'https://example.test/job' }],
+    };
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'swiss-life',
+      url: 'https://example.test/job',
+      job: { location: 'Sion', description: 'Descrizione completa '.repeat(20) },
+    }], 1, {
+      fetchPage: async (url: string) => ({
+        ok: true,
+        status: 200,
+        url,
+        body: '<div class="job-detail-location">Zürich</div>',
+        host: 'example.test',
+      }),
+      evidenceContext,
+    });
+
+    expect(result).toMatchObject({ crawlerKey: 'swiss-life', processingFailed: true });
+    expect(result.sourceDetailEvidence).toBeUndefined();
+
+    const report = { 'swiss-life': { total: 1, issues: [], severity: 'OK' as const } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    const evidenceBundle = finalizeSourceDetailEvidence(report, [result], evidenceContext);
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-missing-provenance-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(evidenceBundle).toMatchObject({
+        format: SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+        status: 'invalid',
+        requestedCount: 1,
+        errorCode: 'invalid-provenance',
+      });
+      expect(finishAudit(report, {
+        strict: true,
+        outPath,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: summary,
+        sourceDetailEvidence: evidenceBundle,
+      })).toBe(1);
+      const persisted = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      expect(persisted.sourceDetailEvidence).toEqual(evidenceBundle);
+      expect(persisted.crawlers['swiss-life']).toMatchObject({ severity: 'CRITICAL' });
+      expect(replaySourceDetailEvidenceBundleAsResults(evidenceBundle, evidenceContext)[0])
+        .toMatchObject({ processingFailed: true });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   });
 
   it('accounts for worker exceptions separately from network failures and makes strict fail', async () => {

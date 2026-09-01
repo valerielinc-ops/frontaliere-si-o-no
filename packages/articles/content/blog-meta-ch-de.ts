@@ -5002,6 +5002,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Mieten in Freiburg: Mietrecht',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Vollständiger Leitfaden zur Kaution, Gebührenbeanstandung und Kündigung gemäss Bundesobligationenrecht. Schlichtungsverfahren und Fristen.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Schweizer Wohngebäude mit Blick auf Berglandschaft',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Führerschein in Freiburg: Umschulung und Prüfungen',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Umwandlungsverfahren des ausländischen Führerscheins im Kanton Freiburg: Pflichtkurse, theoretische und praktische Prüfungen, erforderliche Unterlagen und Schritt-für-Schritt-Roadmaps.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Auto auf Schweizer Bergstrasse mit Verkehrsschildern und sonniger Alpenlandschaft',
+    'blog.article.vendite-auto-svizzera-agosto-2026.title': 'Neuwagenverkäufe im August rückläufig, fast jedes dritte Auto ist elektrisch',
+    'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Die Neuwagenverkäufe in der Schweiz gingen im August um 0,6% zurück, wobei fast jedes dritte Elektroauto verkauft wurde.',
+    'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Luftaufnahme von Lugano mit fahrenden Autos',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Graubünden',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Betreuungsmöglichkeiten, einkommensberechnete Tarife und Kantonsbeiträge: Praktischer Leitfaden für Familien in Graubünden.',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Modernes Kindergartenklassenzimmer in der Schweiz mit Kindern und Erziehern beim Spielen',
 };
 
 export default blogMetaChDe;

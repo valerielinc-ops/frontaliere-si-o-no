@@ -11055,6 +11055,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'EOC-Krankenhäuser im Tessin: ANQ-Suche erkennt Licht und Schatten',
     'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'Die nationale ANQ-Umfrage belohnt die Tessiner Spitäler (75% zufriedene Patienten), weist aber auf Verbesserungspotenziale in der erwarteten Kommunikation hin.',
     'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Krankenhausstation des Kantonalen Spitals Tessin mit Pflegepersonal im Gespräch mit Patient',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Wohnen in Cocquio-Trevisago als Tessiner Grenzgänger: Guide 2024',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Umzug nach Cocquio-Trevisago, um im Tessin zu arbeiten: die Neue Grenzgängervereinbarung 2024, Quellensteuer, Befreiungen von €7500- € 10000 und Schritt-für-Schritt-Verfahren.',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Panoramablick auf Luganos Seeufer mit Wohn- und Bürogebäuden unter dem Monte San Salvatore.',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.title': 'Leben in Cambiasca, Arbeiten im Tessin: Grenzgängerführer',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.excerpt': 'Steuern, Bewilligung G, Kosten und konkrete Verfahren für Grenzgänger, die in Cambiasca leben und im Kanton Tessin arbeiten. Was Sie wissen müssen.',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme des Luganer Sees, Schweizer-italienische Grenzlandschaft für Tessiner Grenzgänger.',
 };
 
 export default blogMetaDe;
