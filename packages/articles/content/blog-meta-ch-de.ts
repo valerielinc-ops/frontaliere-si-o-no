@@ -4993,6 +4993,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Kindertagesstätte Freiburg: Kinderbetreuung, Kosten',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Kinderbetreuung im Kanton Freiburg: Tarife, verfügbare Zuschüsse und Verfahren für die Beantragung von kantonalen Familienbeiträgen.',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Schweizer Kindertagesstätte mit spielenden Kindern und Erziehern',
+    'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Landung in der Tasche in Hell-Dunkel für die Fast Fashion von Shein',
+    'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'Börsengang von Shein in Hongkong am 1. September mit 1,75 Milliarden USD, aber einem Rückgang von 10%. Frankreich führt „Malus“ bis zu 19,50 € für Einwegmode ein. Die Schweiz hält sich an weniger strenge Regeln.',
+    'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Schweizer Einzelhandelstraße mit Schaufenstern und gestapelten Lieferpaketen auf dem Gehweg, Symbol des Gegensatzes zwischen traditionellem Handel und Online-Mode.',
 };
 
 export default blogMetaChDe;

@@ -64799,6 +64799,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-shein-ipo-hong-kong-malus-francese': {
+    title: 'Sbarco in Borsa in chiaroscuro per la fast fashion di Shein',
+    description: 'IPO di Shein a Hong Kong il 1° settembre 2026 raccoglie 1,75 miliardi USD con calo del 10%. Francia introduce «malus» fino a 19,50 € sulla moda usa e getta',
+    keywords: 'frontalieri, ticino, svizzera, italia, sbarco, borsa, chiaroscuro, fast',
+    ogTitle: 'Sbarco in Borsa in chiaroscuro per la fast fashion di Shein',
+    ogDescription: 'IPO di Shein a Hong Kong 1° settembre 2026: raccolta 1,75 miliardi USD ma calo 10%. Francia introduce «malus» fino 19,50 € per capo. Svizzera mantiene regole meno stringenti, prezzi ancora competitivi online per consumatori svizzeri.',
+    canonicalPath: '/articoli-svizzera/shein-ipo-hong-kong-malus-francese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sbarco in Borsa in chiaroscuro per la fast fashion di Shein",
+      "description": "IPO di Shein a Hong Kong il 1° settembre 2026 raccoglie 1,75 miliardi USD con calo del 10%. Francia introduce «malus» fino a 19,50 € sulla moda usa e getta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/shein-ipo-hong-kong-malus-francese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via commerciale svizzera con vetrine e pacchi di spedizione online impilati sul marciapiede, simbolo del contrasto tra vendita tradizionale e e-commerce di moda fast fashion."
+      },
+      "datePublished": "2026-09-01T19:56:56+00:00",
+      "dateModified": "2026-09-01T19:56:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/shein-ipo-hong-kong-malus-francese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1690,6 +1690,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-professionale-canton-friburgo': { it: 'apprendistato-formazione-professionale-canton-friburgo', en: 'apprenticeship-professional-training-canton-fribourg', de: 'lehre-berufsbildung-kanton-freiburg', fr: 'apprentissage-formation-professionnelle-canton-fribourg' },
  'apprendistato-formazione-friburgo': { it: 'apprendistato-formazione-friburgo', en: 'apprenticeship-vocational-fribourg', de: 'lehre-berufsbildung-freiburg', fr: 'apprentissage-formation-fribourg' },
  'custodia-bambini-friburgo-costi-sussidi': { it: 'custodia-bambini-friburgo-costi-sussidi', en: 'childcare-friburgo-costs-subsidies', de: 'kinderbetreuung-freiburg-kosten-subventionen', fr: 'garde-enfants-fribourg-couts-subventions' },
+ 'shein-ipo-hong-kong-malus-francese': { it: 'shein-ipo-hong-kong-malus-francese', en: 'shein-hong-kong-ipo-french-tax-fast-fashion', de: 'shein-hongkong-boersendebut-franzoesische-steuer', fr: 'shein-hongkong-ipo-malus-francais-mode-rapide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

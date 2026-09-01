@@ -14977,6 +14977,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'shein-ipo-hong-kong-malus-francese',
+    category: 'novita',
+    date: '2026-09-01T19:56:56.025Z',
+    image: '/images/blog/shein-ipo-hong-kong-malus-francese.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
