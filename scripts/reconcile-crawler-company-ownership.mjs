@@ -35,6 +35,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+const EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 
 export const RETIREMENTS = [
   { retired: 'solothurner-spitaeler', canonical: 'soh-solothurner-spitaeler', cause: 'alias-storico' },
@@ -78,22 +79,117 @@ function withJobs(payload, jobs) {
   return Array.isArray(payload) ? jobs : { ...payload, jobs };
 }
 
-function readSlice(key) {
-  const file = path.join(SLICES_DIR, `${key}.json`);
+function readSliceFrom(dir, key) {
+  const file = path.join(dir, `${key}.json`);
   if (!fs.existsSync(file)) return null;
   const payload = JSON.parse(fs.readFileSync(file, 'utf8'));
   return { file, payload, jobs: jobsOf(payload) };
+}
+
+function readSlice(key) {
+  return readSliceFrom(SLICES_DIR, key);
+}
+
+function readExpiredSlice(key) {
+  return readSliceFrom(EXPIRED_SLICES_DIR, key);
 }
 
 function writeSlice(slice) {
   writeJsonAtomic(slice.file, withJobs(slice.payload, slice.jobs));
 }
 
-function deleteSliceIfPresent(key) {
-  const file = path.join(SLICES_DIR, `${key}.json`);
+function deleteSliceIfPresent(dir, key) {
+  const file = path.join(dir, `${key}.json`);
   if (!fs.existsSync(file)) return false;
   fs.rmSync(file);
   return true;
+}
+
+/** Every locale-qualified URL token served by an active or expired record. */
+export function localeRouteKeys(job = {}) {
+  const routes = new Set();
+  for (const locale of LOCALES) {
+    const current = job.slugByLocale?.[locale] || (locale === 'it' ? job.slug : '');
+    if (current) routes.add(`${locale}:${current}`);
+    if (locale === 'it' && job.slug) routes.add(`${locale}:${job.slug}`);
+    for (const slug of getPreviousSlugsForLocale(job, locale)) {
+      if (slug) routes.add(`${locale}:${slug}`);
+    }
+  }
+  return routes;
+}
+
+function assertRoutesPreserved(requiredJobs, actualJobs, label) {
+  const required = new Set(requiredJobs.flatMap((job) => [...localeRouteKeys(job)]));
+  const actual = new Set(actualJobs.flatMap((job) => [...localeRouteKeys(job)]));
+  const missing = [...required].filter((route) => !actual.has(route));
+  if (missing.length > 0) {
+    throw new Error(`${label}: ${missing.length} locale routes lost (${missing.slice(0, 5).join(', ')})`);
+  }
+  return required.size;
+}
+
+/**
+ * Merge a retired expired archive into the canonical archive by locale-aware
+ * route identity. Expired records intentionally lack live URL/ID fields, so a
+ * same-locale current/history route is their strongest safe identity.
+ */
+export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonicalKey) {
+  let out = [];
+  let routeOwners = new Map();
+  let collapsed = 0;
+  let canonicalCollapsed = 0;
+  let rehomed = 0;
+  let slugsTransferred = 0;
+
+  const rebuildRouteOwners = () => {
+    routeOwners = new Map();
+    for (const job of out) {
+      for (const route of localeRouteKeys(job)) routeOwners.set(route, job);
+    }
+  };
+
+  for (const { job, retired } of [
+    ...canonicalJobs.map((job) => ({ job, retired: false })),
+    ...retiredJobs.map((job) => ({ job, retired: true })),
+  ]) {
+    const normalized = {
+      ...structuredClone(job),
+      company: retired ? (canonicalJobs[0]?.company || job.company) : job.company,
+      companyKey: canonicalKey,
+    };
+    const owners = new Set(
+      [...localeRouteKeys(normalized)].map((route) => routeOwners.get(route)).filter(Boolean),
+    );
+    if (owners.size === 0) {
+      out.push(normalized);
+      if (retired) rehomed += 1;
+      rebuildRouteOwners();
+      continue;
+    }
+
+    // A record can bridge multiple previously separate entries through
+    // different locale/history routes. Collapse the whole connected component
+    // onto the most recently expired payload, then rebuild the route index.
+    const component = [...owners, normalized];
+    component.sort((a, b) => String(b.expiredAt || '').localeCompare(String(a.expiredAt || '')));
+    const survivor = component[0];
+    out = out.filter((entry) => !owners.has(entry));
+    for (const removed of component.slice(1)) {
+      slugsTransferred += transferSlugHistory(survivor, removed);
+    }
+    out.push(survivor);
+    collapsed += retired ? 1 : 0;
+    canonicalCollapsed += owners.size - (retired ? 1 : 0);
+    rebuildRouteOwners();
+  }
+
+  const routesBefore = assertRoutesPreserved(
+    [...canonicalJobs, ...retiredJobs],
+    out,
+    `${canonicalKey} archive merge`,
+  );
+  return { jobs: out, collapsed, canonicalCollapsed, rehomed, slugsTransferred, routesBefore };
 }
 
 function ownershipIdentity(job = {}) {
@@ -307,31 +403,72 @@ function run({ apply = false } = {}) {
   for (const item of RETIREMENTS) {
     const canonical = readSlice(item.canonical);
     const retired = readSlice(item.retired);
-    if (!retired) {
-      report.push({ ...item, skipped: 'retired slice already absent' });
-      continue;
+    let activeResult = { skipped: 'retired active slice already absent' };
+    if (retired) {
+      if (!canonical) {
+        throw new Error(`${item.retired}->${item.canonical}: canonical slice absent; refusing to delete retired jobs`);
+      }
+      const result = mergeRetiredCrawlerJobs(canonical.jobs, retired.jobs, item.canonical);
+      canonical.jobs = result.jobs;
+      activeResult = { ...result, jobs: undefined, retiredSlice: apply ? 'deleted' : 'would-delete' };
+      if (apply) {
+        // Write the survivor first. A crash before the unlink leaves a duplicate
+        // that the next idempotent run can retry; unlinking first could lose the
+        // only copy of an alias-only job and its indexed routes.
+        writeSlice(canonical);
+        if (!deleteSliceIfPresent(SLICES_DIR, item.retired)) {
+          throw new Error(`${item.retired}->${item.canonical}: retired slice was not deleted after merge`);
+        }
+      }
     }
-    if (!canonical) {
-      throw new Error(`${item.retired}->${item.canonical}: canonical slice absent; refusing to delete retired jobs`);
+
+    const canonicalExpired = readExpiredSlice(item.canonical);
+    const retiredExpired = readExpiredSlice(item.retired);
+    let archiveResult = { skipped: 'retired expired slice already absent; canonical archive already deduplicated' };
+    if (retiredExpired && !canonicalExpired) {
+      throw new Error(`${item.retired}->${item.canonical}: canonical expired slice absent; refusing to delete retired archive`);
     }
-    const result = mergeRetiredCrawlerJobs(canonical.jobs, retired.jobs, item.canonical);
-    canonical.jobs = result.jobs;
-    let deletedRetiredSlice = false;
-    if (apply) {
-      // Write the survivor first. A crash before the unlink leaves a duplicate
-      // that the next idempotent run can retry; unlinking first could lose the
-      // only copy of an alias-only job and its indexed routes.
-      writeSlice(canonical);
-      deletedRetiredSlice = deleteSliceIfPresent(item.retired);
-      if (!deletedRetiredSlice) {
-        throw new Error(`${item.retired}->${item.canonical}: retired slice was not deleted after merge`);
+    if (canonicalExpired) {
+      const result = mergeRetiredCrawlerArchive(
+        canonicalExpired.jobs,
+        retiredExpired?.jobs || [],
+        item.canonical,
+      );
+      canonicalExpired.jobs = result.jobs;
+      const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0;
+      if (needsWrite) {
+        archiveResult = {
+          ...result,
+          jobs: undefined,
+          retiredSlice: retiredExpired ? (apply ? 'deleted' : 'would-delete') : 'already-absent',
+        };
+      }
+      if (apply && needsWrite) {
+        // Archive soft landings are route state. Persist and re-read the
+        // canonical target before unlinking the alias so a partial write can
+        // only leave duplicates, never erase history.
+        writeSlice(canonicalExpired);
+        const persisted = readExpiredSlice(item.canonical);
+        if (!persisted) {
+          throw new Error(`${item.retired}->${item.canonical}: canonical expired slice missing after write`);
+        }
+        assertRoutesPreserved(
+          [...canonicalExpired.jobs, ...(retiredExpired?.jobs || [])],
+          persisted.jobs,
+          `${item.retired}->${item.canonical} persisted archive`,
+        );
+        if (persisted.jobs.some((job) => job.companyKey !== item.canonical)) {
+          throw new Error(`${item.retired}->${item.canonical}: non-canonical companyKey remained after archive write`);
+        }
+        if (retiredExpired && !deleteSliceIfPresent(EXPIRED_SLICES_DIR, item.retired)) {
+          throw new Error(`${item.retired}->${item.canonical}: retired expired slice was not deleted after merge`);
+        }
       }
     }
     report.push({
       ...item,
-      ...result,
-      jobs: undefined,
-      retiredSlice: apply ? 'deleted' : 'would-delete',
+      active: activeResult,
+      archive: archiveResult,
     });
   }
 

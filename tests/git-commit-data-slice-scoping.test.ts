@@ -210,6 +210,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
       writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
       writeFileSync(join(repoDir, 'data/translation-cache/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/translation-cache/retired.json'), '{}\n');
       execFileSync('git', ['add', '.'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
@@ -220,12 +221,14 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: concurrentDir });
       execFileSync('git', ['config', 'user.name', 'Test'], { cwd: concurrentDir });
       execFileSync('git', ['rm', '-q', 'data/jobs/by-crawler/retired.json'], { cwd: concurrentDir });
+      execFileSync('git', ['rm', '-q', 'data/translation-cache/retired.json'], { cwd: concurrentDir });
       execFileSync('git', ['commit', '-q', '-m', 'retire slice'], { cwd: concurrentDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: concurrentDir });
 
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/active.json'), '[{"id":"active-1"}]\n');
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/retired.json'), '[{"id":"stale-1"}]\n');
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/fresh.json'), '[{"id":"fresh-1"}]\n');
+      writeFileSync(join(repoDir, 'data/translation-cache/retired.json'), '{"stale":true}\n');
 
       execFileSync(
         BASH_BIN,
@@ -263,6 +266,14 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         ['cat-file', '-e', 'origin/main:data/jobs/by-crawler/retired.json'],
         { cwd: repoDir, stdio: 'pipe' },
       )).toThrow();
+      // The retirement guard is deliberately limited to active/expired job
+      // slices. Non-slice consumers retain their pre-existing merge behavior
+      // instead of inheriting an unreviewed global delete-wins policy.
+      expect(execFileSync(
+        'git',
+        ['show', 'origin/main:data/translation-cache/retired.json'],
+        { cwd: repoDir, encoding: 'utf8' },
+      )).toContain('stale');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });

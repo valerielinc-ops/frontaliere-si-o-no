@@ -212,7 +212,6 @@ export const COMPANY_HQ = {
   // ── Cathedral Phase 3 hospital crawlers ──
   'usz':                          { city: 'Zürich',             canton: 'ZH', postalCode: '8091', addressRegion: 'ZH' },
   'unispital-basel':              { city: 'Basel',              canton: 'BS', postalCode: '4031', addressRegion: 'BS' },
-  'kssg':                         { city: 'St. Gallen',         canton: 'SG', postalCode: '9007', addressRegion: 'SG' },
   'stadtspital-zuerich':          { city: 'Zürich',             canton: 'ZH', postalCode: '8063', addressRegion: 'ZH' },
   'luks':                         { city: 'Luzern',             canton: 'LU', postalCode: '6000', addressRegion: 'LU' },
   // ── Cathedral Phase 5 hospital crawlers (wave 2) ──
@@ -288,7 +287,6 @@ export const COMPANY_HQ = {
   'privatklinik-meiringen':       { city: 'Meiringen',          canton: 'BE', postalCode: '3860', addressRegion: 'BE' },
   'michel-gruppe':                { city: 'Meiringen',          canton: 'BE', postalCode: '3860', addressRegion: 'BE' },
   'svar-spitalverbund-ar':        { city: 'Heiden',             canton: 'AR', postalCode: '9410', addressRegion: 'AR' },
-  'spz':                          { city: 'Nottwil',            canton: 'LU', postalCode: '6207', addressRegion: 'LU' },
   'kispi-zurich':                 { city: 'Zürich',             canton: 'ZH', postalCode: '8032', addressRegion: 'ZH' },
   'upd':                          { city: 'Bern',               canton: 'BE', postalCode: '3000', addressRegion: 'BE' },
   'hoch-health':                  { city: 'St. Gallen',         canton: 'SG', postalCode: '9007', addressRegion: 'SG' },
@@ -297,14 +295,12 @@ export const COMPANY_HQ = {
   'caritas-schweiz':              { city: 'Luzern',             canton: 'LU', postalCode: '6002', addressRegion: 'LU' },
   'privatklinik-hohenegg':        { city: 'Meilen',             canton: 'ZH', postalCode: '8706', addressRegion: 'ZH' },
   // ── Batch 9 (STGAG custom subdomain + Clienia + Vitrea/onlyfy) ──
-  'stgag':                        { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
   'clienia-ag':                   { city: 'Pfäffikon',          canton: 'ZH', postalCode: '8330', addressRegion: 'ZH' },
   'vitrea-gesundheit':            { city: 'Seewis im Prättigau', canton: 'GR', postalCode: '7212', addressRegion: 'GR' },
   // ── Batch 10 (more EMS + KSB Baden Workday) ──
   'ksb':                          { city: 'Baden',              canton: 'AG', postalCode: '5404', addressRegion: 'AG' },
   'solina':                       { city: 'Spiez',              canton: 'BE', postalCode: '3700', addressRegion: 'BE' },
   'sonnweid':                     { city: 'Wetzikon',           canton: 'ZH', postalCode: '8620', addressRegion: 'ZH' },
-  'diakoniewerk-neumuenster':     { city: 'Zollikerberg',       canton: 'ZH', postalCode: '8125', addressRegion: 'ZH' },
   'spitex-basel':                 { city: 'Basel',              canton: 'BS', postalCode: '4051', addressRegion: 'BS' },
   // ── Batch 11 (FMI + disability foundations) ──
   'fmi':                          { city: 'Unterseen',          canton: 'BE', postalCode: '3800', addressRegion: 'BE' },
@@ -403,7 +399,6 @@ export const COMPANY_HQ = {
   'ksa':                          { city: 'Aarau',              canton: 'AG', postalCode: '5001', addressRegion: 'AG' },
   'ksw':                          { city: 'Winterthur',         canton: 'ZH', postalCode: '8400', addressRegion: 'ZH' },
   'spital-thurgau':               { city: 'Münsterlingen',      canton: 'TG', postalCode: '8596', addressRegion: 'TG' },
-  'solothurner-spitaeler':        { city: 'Solothurn',          canton: 'SO', postalCode: '4500', addressRegion: 'SO' },
   // ── Cathedral Phase 6 T6.5 wave 1 — tier-3 marquee (banking/luxury/shipping/industrial/insurance) ──
   'lombard-odier':                { city: 'Geneva',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
   'edmond-de-rothschild':         { city: 'Genève',             canton: 'GE', postalCode: '1204', addressRegion: 'GE' },
