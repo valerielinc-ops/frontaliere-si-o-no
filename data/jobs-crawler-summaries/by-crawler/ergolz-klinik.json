@@ -1,7 +1,7 @@
 {
   "key": "ergolz-klinik",
   "label": "Ergolz Klinik",
-  "generatedAt": "2026-09-01T00:32:27.609Z",
+  "generatedAt": "2026-09-01T07:31:21.226Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4508,
-  "avgDurationMs": 4508,
+  "durationMs": 5931,
+  "avgDurationMs": 5931,
   "durationHistory": [
-    4508
+    5931
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/07/Inserat-Dipl.-Pflege-HF-50-100_10.07.2026-1.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:32:25.421Z",
+      "crawledAt": "2026-09-01T07:31:19.072Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -45,10 +45,10 @@
       "postedDate": "2026-07-17",
       "applyUrl": "https://ergolz.cardiance.com/karriere/",
       "firstSeenAt": "2026-07-17T10:56:48.617Z",
-      "_qualityScore": 85,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 25,
         "completeness": 17
       }
@@ -66,7 +66,7 @@
       "url": "https://ergolz.cardiance.com/wp-content/uploads/sites/4/2026/04/Inserat-Anasthesie-Pflege-60-80.pdf",
       "source": "Ergolz Klinik Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:32:24.634Z",
+      "crawledAt": "2026-09-01T07:31:18.511Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -82,10 +82,10 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://ergolz.cardiance.com/karriere/",
       "firstSeenAt": "2026-05-21T11:51:38.840Z",
-      "_qualityScore": 83,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 20,
         "translation": 23,
         "completeness": 17
       }
