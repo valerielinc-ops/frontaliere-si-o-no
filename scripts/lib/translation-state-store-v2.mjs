@@ -6,7 +6,17 @@ import { promisify } from 'node:util';
 import {
   createEmptyTranslationMemoryV2,
   serializeTranslationMemoryV2,
+  validateTranslationMemoryV2,
 } from './content-addressed-translation-memory-v2.mjs';
+import {
+  createEmptyTranslationSchedulerCursorV2,
+  serializeTranslationScheduleV2,
+  serializeTranslationSettlementV2,
+  settleTranslationScheduleV2,
+  validateTranslationScheduleV2,
+  validateTranslationSchedulerCursorV2,
+  validateTranslationSettlementV2,
+} from './translation-completion-scheduler-v2.mjs';
 import {
   createTranslationJournalEventV2,
   getTranslationJournalStateV2,
@@ -22,6 +32,7 @@ import {
   canonicalTranslationJsonV2,
   deepFreezeTranslationV2,
   digestTranslationDocumentV2,
+  validateTranslationUnitIdentityV2,
 } from './translation-unit-identity-v2.mjs';
 
 const execFile = promisify(execFileCallback);
@@ -34,6 +45,7 @@ export const MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2 = 64;
 export const MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2 = 1024;
 export const TRANSLATION_STATE_GIT_TIMEOUT_MS_V2 = 30_000;
 export const TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2 = 'TRANSLATION_STATE_QUEUE_CONFLICT_V2';
+export const TRANSLATION_STATE_SCHEDULER_CONFLICT_CODE_V2 = 'TRANSLATION_STATE_SCHEDULER_CONFLICT_V2';
 
 const MAX_TRANSLATION_STATE_PATH_BYTES_V2 = 1024;
 const MAX_TRANSLATION_STATE_STDERR_BYTES_V2 = 64 * 1024;
@@ -82,6 +94,12 @@ const ACK_KEYS = [
 function queueConflict(message) {
   return Object.assign(new TypeError(message), {
     code: TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2,
+  });
+}
+
+function schedulerConflict(message) {
+  return Object.assign(new TypeError(message), {
+    code: TRANSLATION_STATE_SCHEDULER_CONFLICT_CODE_V2,
   });
 }
 
@@ -136,9 +154,37 @@ function patchPath(patch) {
   return `v2/patches/${patch.patchHash.slice(0, 2)}/${patch.patchHash}.json`;
 }
 
+function memoryPrefix(identity) {
+  return `v2/memory/${identity.identityHash.slice(0, 2)}/${identity.identityHash}`;
+}
+
+function memoryCandidatePath(identity, candidate) {
+  return `${memoryPrefix(identity)}/${digestKey(candidate.candidateId)}.json`;
+}
+
 function memoryPath(patch) {
-  const digest = digestKey(patch.candidate.candidateId);
-  return `v2/memory/${patch.identity.identityHash.slice(0, 2)}/${patch.identity.identityHash}/${digest}.json`;
+  return memoryCandidatePath(patch.identity, patch.candidate);
+}
+
+function schedulerScopeDigest(scopeKey) {
+  return digestTranslationDocumentV2({ scopeKey });
+}
+
+function schedulerScopePrefix(scopeKey) {
+  const digest = schedulerScopeDigest(scopeKey);
+  return `v2/scheduler/${digest.slice(0, 2)}/${digest}`;
+}
+
+function schedulerCursorPath(scopeKey) {
+  return `${schedulerScopePrefix(scopeKey)}/cursor.json`;
+}
+
+function schedulerPlanPath(scopeKey, planHash) {
+  return `${schedulerScopePrefix(scopeKey)}/plans/${digestKey(planHash)}.json`;
+}
+
+function schedulerSettlementPath(scopeKey, planHash) {
+  return `${schedulerScopePrefix(scopeKey)}/settlements/${digestKey(planHash)}.json`;
 }
 
 function queuePath(patch) {
@@ -203,11 +249,62 @@ function canonicalArtifact(value) {
   return boundedArtifact(`${canonicalTranslationJsonV2(value)}\n`);
 }
 
-function candidateMemory(patch) {
+function candidateMemoryRecord(identity, candidate) {
   return boundedArtifact(serializeTranslationMemoryV2({
     schemaVersion: createEmptyTranslationMemoryV2().schemaVersion,
-    records: [{ identity: patch.identity, candidates: [patch.candidate] }],
+    records: [{ identity, candidates: [candidate] }],
   }));
+}
+
+function candidateMemory(patch) {
+  return candidateMemoryRecord(patch.identity, patch.candidate);
+}
+
+function validateSchedulerScopeKey(value) {
+  return createEmptyTranslationSchedulerCursorV2({ scopeKey: value }).scopeKey;
+}
+
+function validateSchedulerPlanHash(value) {
+  if (typeof value !== 'string' || !/^translation-schedule:v2:[a-f0-9]{64}$/.test(value)) {
+    throw new TypeError('translation scheduler planHash is invalid');
+  }
+  return value;
+}
+
+function validateSchedulerReservation(cursorInput, planInput) {
+  const cursor = validateTranslationSchedulerCursorV2(cursorInput);
+  const plan = validateTranslationScheduleV2(planInput);
+  settleTranslationScheduleV2({
+    cursor,
+    plan,
+    outcomes: plan.selectedJobs.map((job) => ({
+      schedulingKey: job.schedulingKey,
+      units: job.units.map((unit) => ({
+        attemptKey: unit.attemptKey,
+        status: 'generation_failed',
+      })),
+    })),
+  });
+  return deepFreezeTranslationV2({ cursor, plan });
+}
+
+function validateRejectedCheckpoint(value) {
+  assertTranslationPlainObjectV2(value, 'translation rejected candidate checkpoint');
+  assertTranslationExactKeysV2(
+    value,
+    ['candidate', 'identity'],
+    'translation rejected candidate checkpoint',
+  );
+  const memory = validateTranslationMemoryV2({
+    schemaVersion: createEmptyTranslationMemoryV2().schemaVersion,
+    records: [{ identity: value.identity, candidates: [value.candidate] }],
+  });
+  const record = memory.records[0];
+  const candidate = record.candidates[0];
+  if (candidate.status !== 'rejected' || candidate.applicability !== 'applicable') {
+    throw new TypeError('translation rejected checkpoint requires one applicable rejected candidate');
+  }
+  return deepFreezeTranslationV2({ identity: record.identity, candidate });
 }
 
 function queueRecord(patch, slicePath) {
@@ -592,19 +689,23 @@ function assertAcknowledgmentLifecycleProof(journal, receipt) {
   return receipt;
 }
 
-function nextEvent(journal, patch, toState) {
-  const current = getTranslationJournalStateV2(journal, patch.candidate.attemptKey);
-  const sequence = journal.events.filter((event) => event.attemptKey === patch.candidate.attemptKey).length + 1;
+function nextCandidateEvent(journal, candidate, toState) {
+  const current = getTranslationJournalStateV2(journal, candidate.attemptKey);
+  const sequence = journal.events.filter((event) => event.attemptKey === candidate.attemptKey).length + 1;
   if (sequence > MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2) {
     throw new TypeError('translation state journal exceeds the bounded event count');
   }
   return createTranslationJournalEventV2({
-    attemptKey: patch.candidate.attemptKey,
-    candidateId: toState === 'missing' ? null : patch.candidate.candidateId,
+    attemptKey: candidate.attemptKey,
+    candidateId: toState === 'missing' ? null : candidate.candidateId,
     fromState: current.state,
     sequence,
     toState,
   });
+}
+
+function nextEvent(journal, patch, toState) {
+  return nextCandidateEvent(journal, patch.candidate, toState);
 }
 
 async function writeCommit(git, tip, changes, message, { deterministicRoot = false } = {}) {
@@ -804,6 +905,241 @@ export function createTranslationStateStoreV2(options) {
         content: canonicalArtifact({ schemaVersion: 2, layout: 'translation-state-v2' }),
       }];
     });
+  }
+
+  async function readSchedulerScopeAtTip(tip, scopeKey) {
+    const rawCursor = await parsePath(git, tip, schedulerCursorPath(scopeKey));
+    const cursor = rawCursor === null
+      ? createEmptyTranslationSchedulerCursorV2({ scopeKey })
+      : validateTranslationSchedulerCursorV2(rawCursor);
+    if (cursor.scopeKey !== scopeKey) {
+      throw new TypeError('translation scheduler cursor is stored under the wrong scope');
+    }
+    let activePlan = null;
+    if (cursor.activePlanHash !== null) {
+      const rawPlan = await parsePath(
+        git,
+        tip,
+        schedulerPlanPath(scopeKey, cursor.activePlanHash),
+      );
+      if (rawPlan === null) {
+        throw new TypeError('translation scheduler active cursor has no immutable plan');
+      }
+      activePlan = validateTranslationScheduleV2(rawPlan);
+      if (activePlan.scopeKey !== scopeKey || activePlan.planHash !== cursor.activePlanHash) {
+        throw new TypeError('translation scheduler active plan is stored under the wrong scope');
+      }
+      validateSchedulerReservation(cursor, activePlan);
+    }
+    return deepFreezeTranslationV2({ cursor, activePlan });
+  }
+
+  async function readSchedulerScope(input) {
+    assertTranslationPlainObjectV2(input, 'translation scheduler scope read');
+    assertTranslationExactKeysV2(input, ['scopeKey'], 'translation scheduler scope read');
+    const scopeKey = validateSchedulerScopeKey(input.scopeKey);
+    const tip = await snapshotTip();
+    const scope = await readSchedulerScopeAtTip(tip, scopeKey);
+    return deepFreezeTranslationV2({ commit: tip, ...scope });
+  }
+
+  async function readTranslationMemories(input) {
+    assertTranslationPlainObjectV2(input, 'translation memory read');
+    assertTranslationExactKeysV2(input, ['identities'], 'translation memory read');
+    assertBatch(input.identities, 'translation memory identity batch');
+    const identities = input.identities.map((identity) => validateTranslationUnitIdentityV2(identity));
+    if (new Set(identities.map((identity) => identity.key)).size !== identities.length) {
+      throw new TypeError('translation memory identity batch contains duplicates');
+    }
+    const tip = await snapshotTip();
+    const memories = [];
+    let candidateCount = 0;
+    for (const identity of identities) {
+      const paths = await listPaths(pathLister, tip, memoryPrefix(identity), {
+        limit: MAX_TRANSLATION_STATE_BATCH_V2 - candidateCount,
+        mode: 'strict',
+        label: 'translation memory candidates',
+      });
+      candidateCount += paths.length;
+      const candidates = [];
+      for (const path of paths) {
+        const stored = validateTranslationMemoryV2(await parsePath(git, tip, path));
+        if (stored.records.length !== 1
+            || stored.records[0].identity.key !== identity.key
+            || stored.records[0].candidates.length !== 1) {
+          throw new TypeError('translation memory candidate shard has an invalid record boundary');
+        }
+        const candidate = stored.records[0].candidates[0];
+        if (path !== memoryCandidatePath(identity, candidate)) {
+          throw new TypeError('translation memory candidate is stored under the wrong path');
+        }
+        candidates.push(candidate);
+      }
+      const memory = candidates.length === 0
+        ? createEmptyTranslationMemoryV2()
+        : validateTranslationMemoryV2({
+          schemaVersion: createEmptyTranslationMemoryV2().schemaVersion,
+          records: [{ identity, candidates }],
+        });
+      memories.push(memory);
+    }
+    return deepFreezeTranslationV2({ commit: tip, memories });
+  }
+
+  async function reserveSchedulerPlan(input) {
+    assertTranslationPlainObjectV2(input, 'translation scheduler reservation');
+    assertTranslationExactKeysV2(
+      input,
+      ['cursor', 'expectedCursorHash', 'plan', 'scopeKey'],
+      'translation scheduler reservation',
+    );
+    const scopeKey = validateSchedulerScopeKey(input.scopeKey);
+    if (typeof input.expectedCursorHash !== 'string'
+        || !/^[a-f0-9]{64}$/.test(input.expectedCursorHash)) {
+      throw new TypeError('translation scheduler expectedCursorHash is invalid');
+    }
+    const reservation = validateSchedulerReservation(input.cursor, input.plan);
+    if (reservation.cursor.scopeKey !== scopeKey || reservation.plan.scopeKey !== scopeKey) {
+      throw new TypeError('translation scheduler reservation scope does not match');
+    }
+    const planContent = boundedArtifact(serializeTranslationScheduleV2(reservation.plan));
+    const cursorContent = canonicalArtifact(reservation.cursor);
+    const transaction = await transact('translation-state-v2: reserve scheduler plan', async (tip) => {
+      if (tip === null) throw new TypeError('translation state ref must be initialized before scheduling');
+      const current = await readSchedulerScopeAtTip(tip, scopeKey);
+      if (current.cursor.activePlanHash !== null) {
+        if (current.cursor.activePlanHash !== reservation.plan.planHash
+            || current.cursor.cursorHash !== reservation.cursor.cursorHash
+            || canonicalTranslationJsonV2(current.activePlan)
+              !== canonicalTranslationJsonV2(reservation.plan)) {
+          throw schedulerConflict('translation scheduler scope already has a different active plan');
+        }
+        return [];
+      }
+      if (current.cursor.cursorHash !== input.expectedCursorHash
+          || reservation.plan.cursorBeforeHash !== current.cursor.cursorHash) {
+        throw schedulerConflict('translation scheduler cursor changed before plan reservation');
+      }
+      const changes = [];
+      await putImmutable(
+        git,
+        tip,
+        changes,
+        schedulerPlanPath(scopeKey, reservation.plan.planHash),
+        planContent,
+      );
+      changes.push({ path: schedulerCursorPath(scopeKey), content: cursorContent });
+      return changes;
+    });
+    return deepFreezeTranslationV2({ ...transaction, ...reservation });
+  }
+
+  async function settleSchedulerPlan(input) {
+    assertTranslationPlainObjectV2(input, 'translation scheduler persisted settlement');
+    assertTranslationExactKeysV2(
+      input,
+      ['outcomes', 'planHash', 'scopeKey'],
+      'translation scheduler persisted settlement',
+    );
+    const scopeKey = validateSchedulerScopeKey(input.scopeKey);
+    const planHash = validateSchedulerPlanHash(input.planHash);
+    let committedSettlement = null;
+    const transaction = await transact('translation-state-v2: settle scheduler plan', async (tip) => {
+      if (tip === null) throw new TypeError('translation state ref must be initialized before scheduling');
+      const current = await readSchedulerScopeAtTip(tip, scopeKey);
+      const rawPlan = await parsePath(git, tip, schedulerPlanPath(scopeKey, planHash));
+      if (rawPlan === null) throw schedulerConflict('translation scheduler plan was not reserved');
+      const plan = validateTranslationScheduleV2(rawPlan);
+      if (plan.scopeKey !== scopeKey || plan.planHash !== planHash) {
+        throw new TypeError('translation scheduler persisted plan binding is invalid');
+      }
+      const rawSettlement = await parsePath(
+        git,
+        tip,
+        schedulerSettlementPath(scopeKey, planHash),
+      );
+      if (rawSettlement !== null) {
+        const storedSettlement = validateTranslationSettlementV2(rawSettlement, plan);
+        validateTranslationSettlementV2({ ...storedSettlement, outcomes: input.outcomes }, plan);
+        const currentBaseHash = current.activePlan === null
+          ? current.cursor.cursorHash
+          : current.activePlan.cursorBeforeHash;
+        if (current.cursor.generation < storedSettlement.cursor.generation
+            || (current.cursor.generation === storedSettlement.cursor.generation
+              && currentBaseHash !== storedSettlement.cursor.cursorHash)) {
+          throw new TypeError('translation scheduler settlement would regress the persisted cursor');
+        }
+        committedSettlement = storedSettlement;
+        return [];
+      }
+      if (current.cursor.activePlanHash === null) {
+        throw schedulerConflict('translation scheduler plan is no longer active');
+      }
+      if (current.cursor.activePlanHash !== planHash) {
+        throw schedulerConflict('translation scheduler settlement does not match the active plan');
+      }
+      const settlement = settleTranslationScheduleV2({
+        cursor: current.cursor,
+        plan,
+        outcomes: input.outcomes,
+      });
+      const changes = [];
+      await putImmutable(
+        git,
+        tip,
+        changes,
+        schedulerSettlementPath(scopeKey, planHash),
+        boundedArtifact(serializeTranslationSettlementV2(settlement, plan)),
+      );
+      changes.push({ path: schedulerCursorPath(scopeKey), content: canonicalArtifact(settlement.cursor) });
+      committedSettlement = settlement;
+      return changes;
+    });
+    return deepFreezeTranslationV2({ ...transaction, settlement: committedSettlement });
+  }
+
+  async function checkpointRejectedCandidatesBatch(rawCheckpoints) {
+    assertBatch(rawCheckpoints, 'translation rejected candidate checkpoint batch');
+    const checkpoints = rawCheckpoints.map(validateRejectedCheckpoint);
+    if (new Set(checkpoints.map(({ candidate }) => candidate.attemptKey)).size !== checkpoints.length
+        || new Set(checkpoints.map(({ candidate }) => candidate.candidateId)).size !== checkpoints.length) {
+      throw new TypeError('translation rejected candidate checkpoint batch contains duplicates');
+    }
+    const transaction = await transact(
+      'translation-state-v2: checkpoint rejected candidates',
+      async (tip) => {
+        if (tip === null) {
+          throw new TypeError('translation state ref must be initialized before candidate checkpoint');
+        }
+        const changes = [];
+        for (const { identity, candidate } of checkpoints) {
+          const candidatePath = memoryCandidatePath(identity, candidate);
+          const candidateContent = candidateMemoryRecord(identity, candidate);
+          const existingCandidate = await readPath(git, tip, candidatePath);
+          let journal = await readAttemptJournal(git, pathLister, tip, candidate.attemptKey);
+          const current = getTranslationJournalStateV2(journal, candidate.attemptKey);
+          if (existingCandidate !== null) {
+            if (existingCandidate !== candidateContent
+                || current.state !== 'rejected'
+                || current.candidateId !== candidate.candidateId) {
+              throw new TypeError('translation rejected candidate memory and journal disagree');
+            }
+            continue;
+          }
+          if (current.state !== null) {
+            throw new TypeError('translation rejected candidate memory and journal disagree');
+          }
+          await putImmutable(git, tip, changes, candidatePath, candidateContent);
+          for (const target of ['missing', 'generated', 'rejected']) {
+            const event = nextCandidateEvent(journal, candidate, target);
+            await putImmutable(git, tip, changes, journalEventPath(event), canonicalArtifact(event));
+            journal = replayTranslationJournalV2([...journal.events, event]);
+          }
+        }
+        return changes;
+      },
+    );
+    return deepFreezeTranslationV2({ ...transaction, checkpoints });
   }
 
   async function checkpointBatch({ slicePath, patches: rawPatches, requeue = false }) {
@@ -1261,6 +1597,11 @@ export function createTranslationStateStoreV2(options) {
   return Object.freeze({
     ref,
     initialize,
+    readSchedulerScope,
+    readTranslationMemories,
+    reserveSchedulerPlan,
+    settleSchedulerPlan,
+    checkpointRejectedCandidatesBatch,
     checkpointBatch,
     listPending,
     recordIntent,

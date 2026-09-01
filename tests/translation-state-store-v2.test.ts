@@ -2,11 +2,17 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   createEmptyTranslationMemoryV2,
+  lookupTranslationMemoryV2,
   recordTranslationCandidateV2,
 } from '../scripts/lib/content-addressed-translation-memory-v2.mjs';
+import {
+  createEmptyTranslationSchedulerCursorV2,
+  planTranslationScheduleV2,
+} from '../scripts/lib/translation-completion-scheduler-v2.mjs';
 import {
   createJobTranslationUnitIdentityV2,
   createTranslationDerivedPatchV2,
@@ -20,6 +26,7 @@ import { digestTranslationDocumentV2 } from '../scripts/lib/translation-unit-ide
 
 const roots: string[] = [];
 const SLICE_PATH = 'data/jobs/by-crawler/example-crawler.json';
+const SCHEDULER_SCOPE = 'translation-shadow-v2';
 const JOB = {
   url: 'https://jobs.example.test/positions/123456/',
   slug: 'senior-entwicklerin',
@@ -80,6 +87,74 @@ function patchFor(job = JOB, outputText = 'Sviluppatrice senior') {
     targetLocale: 'it',
     candidate: memory.records[0].candidates[0],
   });
+}
+
+function schedulerReservation(
+  scopeKey = SCHEDULER_SCOPE,
+  cursor = createEmptyTranslationSchedulerCursorV2({ scopeKey }),
+  token = 'default',
+  jobCount = 1,
+) {
+  const jobs = Array.from({ length: jobCount }, (_, index) => {
+    const job = {
+      ...JOB,
+      url: `https://jobs.example.test/positions/${token}-${index}/`,
+      slug: `${token}-${index}`,
+      title: `Engineer ${token} ${index}`,
+      titleByLocale: { de: `Engineer ${token} ${index}`, it: '' },
+    };
+    return {
+      target: {
+        crawlerKey: 'example-crawler',
+        slicePath: SLICE_PATH,
+        jobKey: `${token}-${index}`,
+        url: job.url,
+      },
+      queuedAtMs: 1_000 + index,
+      units: [{
+        identity: createJobTranslationUnitIdentityV2(job, {
+          fieldPath: 'title',
+          targetLocale: 'it',
+        }),
+        memory: createEmptyTranslationMemoryV2(),
+      }],
+    };
+  });
+  return planTranslationScheduleV2({
+    scopeKey,
+    baselineMainSha: 'a'.repeat(40),
+    scanDigest: `sha256:${digestTranslationDocumentV2({ token })}`,
+    engineVersion: 'engine-2',
+    gateVersion: 'gate-3',
+    cursor,
+    activePlan: null,
+    limits: { maxJobs: 250, maxUnits: 250, fairnessNumerator: 1, fairnessDenominator: 5 },
+    jobs,
+  });
+}
+
+function schedulerOutcomes(plan: ReturnType<typeof schedulerReservation>['plan'], status = 'generation_failed') {
+  return plan.selectedJobs.map((job) => ({
+    schedulingKey: job.schedulingKey,
+    units: job.units.map((unit) => ({ attemptKey: unit.attemptKey, status })),
+  }));
+}
+
+function rejectedCheckpoint(
+  identity: ReturnType<typeof createJobTranslationUnitIdentityV2>,
+  engineVersion = 'engine-2',
+  gateVersion = 'gate-3',
+  outputText = 'Candidate rejected by the deterministic gate',
+) {
+  const memory = recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), {
+    identity,
+    engineVersion,
+    gateVersion,
+    outputText,
+    status: 'rejected',
+    evidence: [],
+  });
+  return { identity, candidate: memory.records[0].candidates[0] };
 }
 
 afterEach(() => {
@@ -640,6 +715,343 @@ describe('translation state store v2', () => {
     expect(pending.pending.map((entry) => entry.patch.patchHash).sort())
       .toEqual([firstPatch.patchHash, secondPatch.patchHash].sort());
   });
+
+  it('reserves one immutable plan, requires initialization and recovers it in a fresh process', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const empty = await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    const reservation = schedulerReservation();
+    expect(empty).toMatchObject({ commit: null, cursor: { activePlanHash: null, generation: 0 }, activePlan: null });
+    await expect(store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: empty.cursor.cursorHash,
+      ...reservation,
+    })).rejects.toThrow(/initialized/);
+
+    await store.initialize();
+    const reserved = await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: empty.cursor.cursorHash,
+      ...reservation,
+    });
+    expect(reserved).toMatchObject({
+      changed: true,
+      cursor: { activePlanHash: reservation.plan.planHash, generation: 0 },
+      plan: { planHash: reservation.plan.planHash },
+    });
+    expect(Object.isFrozen(reserved)).toBe(true);
+    expect(Object.isFrozen(reserved.cursor)).toBe(true);
+    expect(Object.isFrozen(reserved.plan.selectedJobs)).toBe(true);
+    expect(reserved.cursor).not.toBe(reservation.cursor);
+    expect(reserved.plan).not.toBe(reservation.plan);
+    const recovered = await createTranslationStateStoreV2({ repository: one })
+      .readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    expect(recovered.commit).toBe(reserved.commit);
+    expect(recovered.cursor).toEqual(reservation.cursor);
+    expect(recovered.activePlan).toEqual(reservation.plan);
+
+    const replay = await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: empty.cursor.cursorHash,
+      ...reservation,
+    });
+    expect(replay).toMatchObject({ commit: reserved.commit, changed: false });
+  });
+
+  it('settles all and only active scheduling keys with outcomes and cursor in one CAS commit', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    await store.initialize();
+    const before = await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    const reservation = schedulerReservation(SCHEDULER_SCOPE, before.cursor, 'settlement', 2);
+    const reserved = await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: before.cursor.cursorHash,
+      ...reservation,
+    });
+    const outcomes = schedulerOutcomes(reservation.plan);
+
+    await expect(store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes: outcomes.slice(0, 1),
+    })).rejects.toThrow(/cover selected jobs/);
+    await expect(store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes: [...outcomes, { ...outcomes[0], schedulingKey: `translation-scheduling:v2:${'f'.repeat(64)}` }],
+    })).rejects.toThrow(/cover selected jobs/);
+    expect((await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE })).cursor)
+      .toEqual(reservation.cursor);
+
+    const settled = await store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes,
+    });
+    expect(settled.settlement).toMatchObject({
+      planHash: reservation.plan.planHash,
+      cursor: reservation.plan.cursorAfter,
+    });
+    expect(Object.isFrozen(settled.settlement)).toBe(true);
+    expect(Object.isFrozen(settled.settlement.outcomes)).toBe(true);
+    expect(settled.settlement.outcomes).not.toBe(outcomes);
+    expect(settled.settlement.outcomes.map((outcome) => outcome.schedulingKey).sort())
+      .toEqual(outcomes.map((outcome) => outcome.schedulingKey).sort());
+    const changedPaths = git(one, 'diff-tree', '--no-commit-id', '--name-status', '-r', reserved.commit, settled.commit)
+      .split('\n');
+    expect(changedPaths).toHaveLength(2);
+    expect(changedPaths.some((line) => line.startsWith('M\t') && line.endsWith('/cursor.json'))).toBe(true);
+    expect(changedPaths.some((line) => line.startsWith('A\t') && line.includes('/settlements/'))).toBe(true);
+    const after = await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    expect(after).toMatchObject({
+      commit: settled.commit,
+      cursor: { activePlanHash: null, generation: 1 },
+      activePlan: null,
+    });
+
+    const replay = await store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes: [...outcomes].reverse(),
+    });
+    expect(replay).toMatchObject({ commit: settled.commit, changed: false });
+    const conflicting = structuredClone(outcomes);
+    conflicting[0].units[0].status = 'rejected';
+    await expect(store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes: conflicting,
+    })).rejects.toThrow(/hash|outcomes/);
+
+    const nextReservation = schedulerReservation(SCHEDULER_SCOPE, after.cursor, 'next-generation');
+    const nextReserved = await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: after.cursor.cursorHash,
+      ...nextReservation,
+    });
+    const lateReplay = await store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes,
+    });
+    expect(lateReplay).toMatchObject({ commit: nextReserved.commit, changed: false });
+    await expect(store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation.plan.planHash,
+      outcomes: conflicting,
+    })).rejects.toThrow(/hash|outcomes/);
+    expect(await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE })).toMatchObject({
+      cursor: { activePlanHash: nextReservation.plan.planHash, generation: 1 },
+      activePlan: { planHash: nextReservation.plan.planHash },
+    });
+  });
+
+  it('rebuilds concurrent identical plan reservations and rejects a different active plan', async () => {
+    const { one, two } = createRepositories();
+    await createTranslationStateStoreV2({ repository: one }).initialize();
+    let arrivals = 0;
+    let releaseBarrier!: () => void;
+    const barrier = new Promise<void>((resolve) => { releaseBarrier = resolve; });
+    const onStage = async (stage: string, details: { message?: string }) => {
+      if (stage !== 'beforeStatePush' || details.message !== 'translation-state-v2: reserve scheduler plan') return;
+      arrivals += 1;
+      if (arrivals === 2) releaseBarrier();
+      await barrier;
+    };
+    const first = createTranslationStateStoreV2({ repository: one, onStage });
+    const second = createTranslationStateStoreV2({ repository: two, onStage });
+    const empty = createEmptyTranslationSchedulerCursorV2({ scopeKey: SCHEDULER_SCOPE });
+    const reservation = schedulerReservation(SCHEDULER_SCOPE, empty, 'concurrent');
+    const results = await Promise.all([
+      first.reserveSchedulerPlan({
+        scopeKey: SCHEDULER_SCOPE,
+        expectedCursorHash: empty.cursorHash,
+        ...reservation,
+      }),
+      second.reserveSchedulerPlan({
+        scopeKey: SCHEDULER_SCOPE,
+        expectedCursorHash: empty.cursorHash,
+        ...reservation,
+      }),
+    ]);
+    expect(results.some((result) => result.retries > 0)).toBe(true);
+    expect(results.map((result) => result.commit).every((commit) => commit === results[0].commit)).toBe(true);
+    const different = schedulerReservation(SCHEDULER_SCOPE, empty, 'different');
+    await expect(first.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: empty.cursorHash,
+      ...different,
+    })).rejects.toMatchObject({ code: 'TRANSLATION_STATE_SCHEDULER_CONFLICT_V2' });
+  });
+
+  it('persists exact rejected candidates without queueing and preserves every bounded memory candidate', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    await store.initialize();
+    const originalIdentity = createJobTranslationUnitIdentityV2(JOB, {
+      fieldPath: 'title',
+      targetLocale: 'it',
+    });
+    const rotatedIdentity = createJobTranslationUnitIdentityV2({
+      ...JOB,
+      url: 'https://jobs.example.test/positions/re-added/',
+      slug: 're-added',
+    }, {
+      fieldPath: 'title',
+      targetLocale: 'it',
+    });
+    expect(rotatedIdentity.key).toBe(originalIdentity.key);
+    const first = rejectedCheckpoint(originalIdentity);
+    const second = rejectedCheckpoint(originalIdentity, 'engine-3', 'gate-4', 'Second exact rejection');
+    const checkpoint = await store.checkpointRejectedCandidatesBatch([first, second]);
+    const replay = await store.checkpointRejectedCandidatesBatch([second, first]);
+    expect(replay).toMatchObject({ commit: checkpoint.commit, changed: false });
+
+    const read = await store.readTranslationMemories({ identities: [rotatedIdentity] });
+    expect(read.memories[0].records[0].candidates).toHaveLength(2);
+    expect(Object.isFrozen(read.memories[0].records[0].candidates)).toBe(true);
+    expect(read.memories[0].records[0].candidates[0]).not.toBe(first.candidate);
+    expect(lookupTranslationMemoryV2(read.memories[0], {
+      identity: rotatedIdentity,
+      engineVersion: 'engine-2',
+      gateVersion: 'gate-3',
+    }).status).toBe('negative_cache');
+    expect(lookupTranslationMemoryV2(read.memories[0], {
+      identity: rotatedIdentity,
+      engineVersion: 'engine-4',
+      gateVersion: 'gate-4',
+    }).status).toBe('missing');
+    const paths = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit).split('\n');
+    expect(paths.filter((path) => path.startsWith('v2/memory/'))).toHaveLength(2);
+    expect(paths.filter((path) => path.startsWith('v2/journal/'))).toHaveLength(6);
+    expect(paths.some((path) => path.startsWith('v2/queue/'))).toBe(false);
+    await expect(store.checkpointRejectedCandidatesBatch(Array.from({ length: 251 }, () => first)))
+      .rejects.toThrow(/between 1 and 250/);
+    await expect(store.checkpointRejectedCandidatesBatch([first, first]))
+      .rejects.toThrow(/duplicates/);
+    const oversized = rejectedCheckpoint(
+      originalIdentity,
+      'engine-oversized',
+      'gate-oversized',
+      `Rejected ${'x'.repeat(MAX_TRANSLATION_STATE_ARTIFACT_BYTES_V2)}`,
+    );
+    await expect(store.checkpointRejectedCandidatesBatch([oversized]))
+      .rejects.toThrow(/bounded size/);
+    expect(await store.isCurrentCommit(checkpoint.commit)).toBe(true);
+    expect((await store.readTranslationMemories({ identities: [originalIdentity] }))
+      .memories[0].records[0].candidates).toHaveLength(2);
+    await expect(store.readTranslationMemories({ identities: Array.from({ length: 251 }, () => originalIdentity) }))
+      .rejects.toThrow(/between 1 and 250/);
+  });
+
+  it('fails closed when rejected candidate memory and journal become asymmetric', async () => {
+    for (const removedKind of ['memory', 'journal']) {
+      const { one } = createRepositories();
+      const store = createTranslationStateStoreV2({ repository: one });
+      await store.initialize();
+      const identity = createJobTranslationUnitIdentityV2(JOB, {
+        fieldPath: 'title',
+        targetLocale: 'it',
+      });
+      const rejected = rejectedCheckpoint(identity);
+      const checkpoint = await store.checkpointRejectedCandidatesBatch([rejected]);
+      const prefix = removedKind === 'memory' ? 'v2/memory/' : 'v2/journal/';
+      const removedPaths = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit)
+        .split('\n')
+        .filter((path) => path.startsWith(prefix));
+      expect(removedPaths).toHaveLength(removedKind === 'memory' ? 1 : 3);
+      git(one, 'checkout', '-q', '-B', `tampered-rejected-${removedKind}`, checkpoint.commit);
+      git(one, 'rm', '-q', ...removedPaths);
+      git(one, 'commit', '-q', '-m', `delete rejected ${removedKind}`);
+      const tamperedTip = git(one, 'rev-parse', 'HEAD');
+      git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+      const replay = createTranslationStateStoreV2({ repository: one });
+      await expect(replay.checkpointRejectedCandidatesBatch([rejected]))
+        .rejects.toThrow(/memory and journal disagree/);
+      expect(await replay.isCurrentCommit(tamperedTip)).toBe(true);
+    }
+  });
+
+  it('returns all 250 memory candidates and fails closed at the 251st artifact', async () => {
+    const { one } = createRepositories();
+    const initialized = await createTranslationStateStoreV2({ repository: one }).initialize();
+    const identity = createJobTranslationUnitIdentityV2(JOB, {
+      fieldPath: 'title',
+      targetLocale: 'it',
+    });
+    const directory = join(
+      one,
+      'v2',
+      'memory',
+      identity.identityHash.slice(0, 2),
+      identity.identityHash,
+    );
+    git(one, 'checkout', '-q', '-B', 'state-memory-cap', initialized.commit);
+    mkdirSync(directory, { recursive: true });
+    const candidates = Array.from({ length: 251 }, (_, index) => rejectedCheckpoint(
+      identity,
+      'engine-cap',
+      'gate-cap',
+      `Rejected candidate ${String(index).padStart(3, '0')}`,
+    ).candidate);
+    for (const candidate of candidates.slice(0, 250)) {
+      const digest = candidate.candidateId.split(':').at(-1)!;
+      writeFileSync(
+        join(directory, `${digest}.json`),
+        `${JSON.stringify({ schemaVersion: 2, records: [{ identity, candidates: [candidate] }] })}\n`,
+      );
+    }
+    git(one, 'add', 'v2/memory');
+    git(one, 'commit', '-q', '-m', 'add bounded memory candidates');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const store = createTranslationStateStoreV2({ repository: one });
+    const bounded = await store.readTranslationMemories({ identities: [identity] });
+    expect(bounded.memories[0].records[0].candidates).toHaveLength(250);
+    expect(lookupTranslationMemoryV2(bounded.memories[0], {
+      identity,
+      engineVersion: 'engine-cap',
+      gateVersion: 'gate-cap',
+    }).status).toBe('conflicting_candidates');
+
+    const overflow = candidates[250];
+    const overflowDigest = overflow.candidateId.split(':').at(-1)!;
+    writeFileSync(
+      join(directory, `${overflowDigest}.json`),
+      `${JSON.stringify({ schemaVersion: 2, records: [{ identity, candidates: [overflow] }] })}\n`,
+    );
+    git(one, 'add', 'v2/memory');
+    git(one, 'commit', '-q', '-m', 'overflow memory candidates');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+    await expect(createTranslationStateStoreV2({ repository: one })
+      .readTranslationMemories({ identities: [identity] }))
+      .rejects.toThrow(/exceeds the bounded count/);
+  }, 60_000);
+
+  it('keeps reserve CAS p95 below two seconds across at least twenty samples', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    await store.initialize();
+    const samples = [];
+    for (let index = 0; index < 20; index += 1) {
+      const scopeKey = `translation-benchmark-${index}`;
+      const cursor = createEmptyTranslationSchedulerCursorV2({ scopeKey });
+      const reservation = schedulerReservation(scopeKey, cursor, `benchmark-${index}`);
+      const started = performance.now();
+      await store.reserveSchedulerPlan({
+        scopeKey,
+        expectedCursorHash: cursor.cursorHash,
+        ...reservation,
+      });
+      samples.push(performance.now() - started);
+    }
+    samples.sort((left, right) => left - right);
+    const p95 = samples[Math.ceil(samples.length * 0.95) - 1];
+    expect(samples).toHaveLength(20);
+    expect(p95).toBeLessThan(2_000);
+  }, 60_000);
 
   it('is idempotent and rejects duplicate, oversized and over-limit checkpoint batches', async () => {
     const { one } = createRepositories();
