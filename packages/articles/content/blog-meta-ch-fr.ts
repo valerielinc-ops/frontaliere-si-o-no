@@ -5008,6 +5008,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.vendite-auto-svizzera-agosto-2026.title': 'Ventes de voitures neuves en baisse en août, près d\'une sur trois est électrique',
     'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Les ventes de voitures neuves en Suisse ont diminué de 0,6% en août, avec près d\'une voiture électrique sur trois vendue.',
     'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Vue aérienne de Lugano avec des voitures en mouvement',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Garderie et garde d\'enfants dans le canton des Grisons',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Options de garde, tarifs calculés sur le revenu et allocations cantonales : guide pratique pour les familles dans les Grisons.',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Salle de garderie moderne en Suisse avec enfants et éducateurs en plein jeu',
 };
 
 export default blogMetaChFr;

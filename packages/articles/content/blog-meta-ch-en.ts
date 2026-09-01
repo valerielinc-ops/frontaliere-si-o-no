@@ -5008,6 +5008,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vendite-auto-svizzera-agosto-2026.title': 'New car sales down in August, almost one in three is electric',
     'blog.article.vendite-auto-svizzera-agosto-2026.excerpt': 'Sales of new cars in Switzerland fell by 0.6% in August, with almost one in three cars sold electric.',
     'blog.article.vendite-auto-svizzera-agosto-2026.imageAlt': 'Aerial view of Lugano with cars in motion',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Nursery and childcare in the Canton of Graubünden',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Custody options, income-based fees and cantonal subsidies: a practical guide for families in Graubünden.',
+    'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Modern kindergarten classroom in Switzerland with children and educators engaged in play',
 };
 
 export default blogMetaChEn;
