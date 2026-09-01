@@ -16,6 +16,7 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const HQ = getCompanyDefaults('citta-di-bellinzona');
 
@@ -77,9 +78,9 @@ export function slugify(value = '', suffix = '') {
     // Reserve room for the suffix so the combined slug fits MAX_LEN.
     const reserved = suffix.length + 1; // +1 for joining '-'
     const headroom = Math.max(1, MAX_LEN - reserved);
-    s = `${s.slice(0, headroom).replace(/-+$/, '')}-${suffix}`.replace(/--+/g, '-');
+    s = `${truncateSlugAtWordBoundary(s, headroom)}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, MAX_LEN);
+  return truncateSlugAtWordBoundary(s, MAX_LEN);
 }
 
 /**

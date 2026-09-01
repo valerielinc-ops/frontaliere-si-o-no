@@ -36,6 +36,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { exitCrawlerOnError, slugify } from './lib/crawler-template.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -797,7 +798,7 @@ function appendStableSlugSuffix(slug, job) {
   const cleanSlug = String(slug || '').replace(/-+$/, '');
   if (cleanSlug.endsWith(`-${suffix}`)) return cleanSlug;
   const baseBudget = Math.max(1, FUST_SLUG_MAX_LENGTH - suffix.length - 1);
-  const boundedBase = cleanSlug.slice(0, baseBudget).replace(/-+$/, '') || 'job';
+  const boundedBase = truncateSlugAtWordBoundary(cleanSlug, baseBudget) || 'job';
   return `${boundedBase}-${suffix}`;
 }
 

@@ -13,6 +13,7 @@
 
 import { isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 export const MIKRON_CAREERS_URL = 'https://www.mikron.com/en/group/our-people/join-us/jobs';
 export const MIKRON_HOST = 'www.mikron.com';
@@ -63,7 +64,7 @@ export function slugify(value = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /**

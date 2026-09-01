@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * PKB Private Bank — Arca24 ATS parser
  *
@@ -91,14 +92,13 @@ export function normalizeSpace(value = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 function parseArca24Date(raw = '') {

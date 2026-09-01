@@ -32,6 +32,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -130,15 +131,15 @@ async function fetchAllKsgrJobs() {
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  const slug = String(value || '')
     .trim()
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 140);
+    .replace(/-{2,}/g, '-');
+  return truncateSlugAtWordBoundary(slug, 140);
 }
 
 function buildJobFromApiData(apiJob, existingByUrl) {

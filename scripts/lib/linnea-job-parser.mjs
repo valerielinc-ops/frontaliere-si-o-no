@@ -25,6 +25,7 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 /** Minimum description length to accept (in characters, plain text). */
 export const MIN_DESC_LENGTH = 350;
@@ -83,7 +84,7 @@ export function slugify(text = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 export function detectCategory(title = '') {
