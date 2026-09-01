@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-09-01T14:19:30.848Z",
+  "assembledAt": "2026-09-01T15:54:26.832Z",
   "jobs": [
     {
       "title": "Pittore",
@@ -44,7 +44,6 @@
         "fr": "peintre-pemsa-bellinzona"
       },
       "id": "pemsa-5cc52c0ee7b0",
-      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 77000,
       "currency": "CHF",
@@ -87,7 +86,7 @@
       "titleByLocale": {
         "it": "Giardiniere",
         "en": "Gardens",
-        "de": "Gärten",
+        "de": "Giardiniere",
         "fr": "Jardins"
       },
       "descriptionByLocale": {
@@ -99,11 +98,10 @@
       "slugByLocale": {
         "it": "giardiniere-pemsa-bellinzona",
         "en": "gardens-pemsa-bellinzona",
-        "de": "garten-pemsa-bellinzona",
+        "de": "giardiniere-pemsa-bellinzona",
         "fr": "jardins-pemsa-bellinzona"
       },
       "id": "pemsa-1996845c8c2d",
-      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 77000,
       "currency": "CHF",
@@ -118,7 +116,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T08:46:37.970Z"
+      "firstSeenAt": "2026-09-01T08:46:37.970Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "garten-pemsa-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "garten-pemsa-bellinzona"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Copritetto",
@@ -162,7 +169,6 @@
         "fr": "couverture-pemsa-bellinzona"
       },
       "id": "pemsa-4dab489a6c75",
-      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 77000,
       "currency": "CHF",
@@ -244,7 +250,6 @@
         "fr": "manovale-edile-pemsa-bellinzona"
       },
       "id": "pemsa-ec668f6780af",
-      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 77000,
       "currency": "CHF",
@@ -259,7 +264,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T08:46:37.970Z"
+      "firstSeenAt": "2026-09-01T08:46:37.970Z",
+      "needsRetranslation": true
     },
     {
       "title": "Installatore Idraulico",
@@ -1207,7 +1213,6 @@
         "fr": "installation-electrique-afc-h-f-d-pemsa-martigny"
       },
       "id": "pemsa-dad3a779a558",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -1956,7 +1961,7 @@
       "titleByLocale": {
         "it": "Carpentiere edile",
         "en": "Construction carpenters",
-        "de": "Bautischler",
+        "de": "Carpentiere edile",
         "fr": "Charpentiers de construction"
       },
       "descriptionByLocale": {
@@ -1968,11 +1973,10 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-chiasso",
         "en": "construction-carpenters-pemsa-chiasso",
-        "de": "bautischler-pemsa-chiasso",
+        "de": "carpentiere-edile-pemsa-chiasso",
         "fr": "charpentiers-de-construction-pemsa-chiasso"
       },
       "id": "pemsa-255cc93c0472",
-      "needsRetranslation": true,
       "salaryMin": 61000,
       "salaryMax": 77000,
       "currency": "CHF",
@@ -1987,7 +1991,16 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-31T17:09:18.558Z"
+      "firstSeenAt": "2026-08-31T17:09:18.558Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "bautischler-pemsa-chiasso"
+        ]
+      },
+      "previousSlugs": [
+        "bautischler-pemsa-chiasso"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Paesaggista",
