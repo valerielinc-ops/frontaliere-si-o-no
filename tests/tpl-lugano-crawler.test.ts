@@ -1,9 +1,10 @@
 /**
  * TPL (Trasporti Pubblici Luganesi) crawler parser tests
  *
- * Tests parseTplListingPage() and isTplJob().
+ * Tests the source-specific listing/detail gates and adapter parity contract.
  * Fixtures recalced from the live tplsa.ch markup (2026-07):
  *   - listing: https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html
+ *   - detail:  https://www.tplsa.ch/2/50/candidati/?idhr=748
  * The CMS emits spaces around attribute `=` (href = "...") and links each
  * position to /2/50/candidati/?idhr=NNN; idhr=0 is the spontaneous form.
  */
@@ -11,9 +12,16 @@ import { describe, it, expect } from 'vitest';
 
 import {
   parseTplListingPage,
+  parseTplListingState,
+  parseTplDetailPage,
   isTplJob,
   inferEmploymentType,
 } from '@/scripts/lib/tpl-lugano-job-parser.mjs';
+import {
+  applyTplAuthoritativeDetails,
+  buildTplAdapterSeedFields,
+  fetchTplSourceSnapshot,
+} from '@/scripts/update-tpl-lugano-jobs.mjs';
 
 // ─── Fixture: Listing page with one open position (live markup) ───
 const LISTING_WITH_JOBS_HTML = `
@@ -70,10 +78,49 @@ const LISTING_NO_JOBS_HTML = `
     <div class = "col-lg-3 mb-2"><b>Data scadenza</b></div>
     <div class = "col-lg-6 mb-2"><b>Posizione</b></div>
 </div>
+        <h2>Non ci sono risultati nell'area selezionata.</h2>
+        <p>Vi consigliamo di riprovare prossimamente.</p>
         <br/><br/><br/><a href = "/2/50/candidati/?idhr=0">Unicamente per candidature spontanee, preghiamo di utilizzare il seguente formulario <i class="fas fa-arrow-right"></i></a>
     </section>
 </body>
 </html>`;
+
+const DETAIL_HTML = `
+<html>
+<body>
+  <section>
+    <div class="container mt-5 mb-5">
+      <div class="col-md-12">
+        <h1>Specialista Risorse Umane </h1>
+        <a class="btn btn-candidati" href = "/repository/pdf/863388487-BandoSpecialistaRisorseUmane.pdf">Guarda il Capitolato <i class="fas fa-file"></i></a>
+      </div>
+      <div class="col-md-12">
+        <hr>
+        Le candidature per le posizioni vacanti, complete dei documenti richiesti, dovranno pervenire esclusivamente in formato elettronico all'indirizzo candidature@tplsa.ch.
+      </div>
+      <div class="Menu2 mt-5" id="accordion">
+        <p>La Trasporti Pubblici Luganesi SA serve la città di Lugano e i comuni limitrofi.</p>
+      </div>
+    </div>
+  </section>
+</body>
+</html>`;
+
+// Live 2026-09-01: a retired idhr remains HTTP 200 but has no vacancy title
+// or capitolato. Only the generic application sentence survives.
+const GHOST_DETAIL_HTML = `
+<section>
+  <div class="container mt-5 mb-5">
+    <div class="col-md-12"><h1> </h1></div>
+    <div class="col-md-12"><hr>Le candidature per le posizioni vacanti dovranno pervenire esclusivamente in formato elettronico all'indirizzo candidature@tplsa.ch.</div>
+    <div class="Menu2 mt-5" id="accordion"><p>Chi siamo</p></div>
+  </div>
+</section>`;
+
+const sourceResponse = (html: string, status = 200) => new Response(html, {
+  status,
+  headers: { 'Content-Type': 'text/html; charset=utf-8' },
+});
 
 // ═══════════════════════════════════════════════════════════════
 // parseTplListingPage
@@ -120,6 +167,133 @@ describe('parseTplListingPage', () => {
   it('returns empty array for empty input', () => {
     expect(parseTplListingPage('')).toEqual([]);
     expect(parseTplListingPage(null)).toEqual([]);
+  });
+
+  it('rejects an absolute off-domain detail href', () => {
+    const poisoned = LISTING_WITH_JOBS_HTML.replace(
+      '/2/50/candidati/?idhr=748',
+      'https://attacker.example/2/50/candidati/?idhr=748',
+    );
+    expect(parseTplListingPage(poisoned)).toEqual([]);
+  });
+});
+
+describe('parseTplListingState', () => {
+  it('distinguishes source-proven zero from parser drift', () => {
+    expect(parseTplListingState(LISTING_NO_JOBS_HTML)).toEqual({ state: 'empty', jobs: [] });
+    expect(parseTplListingState('<h1>Lavora con noi</h1>')).toEqual({ state: 'invalid', jobs: [] });
+  });
+
+  it('prefers concrete rows over unrelated empty copy', () => {
+    const result = parseTplListingState(`${LISTING_WITH_JOBS_HTML}<p>Non ci sono risultati nell'area selezionata. Vi consigliamo di riprovare prossimamente.</p>`);
+    expect(result.state).toBe('jobs');
+    expect(result.jobs).toHaveLength(1);
+  });
+});
+
+describe('parseTplDetailPage', () => {
+  it('extracts only the role-owned block before the generic accordion', () => {
+    const result = parseTplDetailPage(DETAIL_HTML, 'Specialista Risorse Umane');
+    expect(result).toEqual(expect.objectContaining({
+      title: 'Specialista Risorse Umane',
+      location: 'Lugano',
+    }));
+    expect(result?.body).toContain('Guarda il Capitolato');
+    expect(result?.body).toContain('candidature@tplsa.ch');
+    expect(result?.body).not.toContain('serve la città di Lugano');
+  });
+
+  it('fails closed on the live HTTP-200 ghost, thin blocks, and title mismatch', () => {
+    expect(parseTplDetailPage(GHOST_DETAIL_HTML, 'Specialista Risorse Umane')).toBeNull();
+    expect(parseTplDetailPage('<h1>Specialista Risorse Umane</h1><div class="Menu2">menu</div>')).toBeNull();
+    expect(parseTplDetailPage(DETAIL_HTML, 'Autista Autobus')).toBeNull();
+  });
+});
+
+describe('TPL source snapshot and adapter boundary', () => {
+  it('validates every listed detail and declares the exact URLs as seedDetailUrls', async () => {
+    const calls: string[] = [];
+    const fetchImpl = (async (input: string | URL | Request) => {
+      const url = String(input);
+      calls.push(url);
+      return sourceResponse(url.includes('tpl-lavora-con-noi') ? LISTING_WITH_JOBS_HTML : DETAIL_HTML);
+    }) as typeof fetch;
+
+    const snapshot = await fetchTplSourceSnapshot({ fetchImpl, timeoutMs: 100 });
+    expect(snapshot.state).toBe('jobs');
+    expect(snapshot.jobs).toHaveLength(1);
+    expect(calls).toEqual([
+      'https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html',
+      'https://www.tplsa.ch/2/50/candidati/?idhr=748',
+    ]);
+
+    const seeds = buildTplAdapterSeedFields(snapshot.jobs);
+    expect(seeds.seedDetailUrls).toEqual(['https://www.tplsa.ch/2/50/candidati/?idhr=748']);
+    expect(seeds.seedUrls).toEqual(seeds.seedDetailUrls);
+    expect(seeds.seedMetaByUrl[seeds.seedDetailUrls[0]]).toEqual(expect.objectContaining({
+      location: 'Lugano',
+      canton: 'TI',
+    }));
+  });
+
+  it('accepts only the explicit source zero and never fetches a stale detail', async () => {
+    let calls = 0;
+    const fetchImpl = (async () => {
+      calls++;
+      return sourceResponse(LISTING_NO_JOBS_HTML);
+    }) as typeof fetch;
+    await expect(fetchTplSourceSnapshot({ fetchImpl, timeoutMs: 100 })).resolves.toEqual({
+      state: 'empty',
+      jobs: [],
+    });
+    expect(calls).toBe(1);
+    expect(buildTplAdapterSeedFields([])).toEqual({ seedUrls: [], seedDetailUrls: [], seedMetaByUrl: {} });
+  });
+
+  it('throws on unrecognised empty listings and HTTP-200 ghost details', async () => {
+    const invalidListingFetch = (async () => sourceResponse('<h1>Lavora con noi</h1>')) as typeof fetch;
+    await expect(fetchTplSourceSnapshot({ fetchImpl: invalidListingFetch, timeoutMs: 100 }))
+      .rejects.toThrow(/neither vacancy rows nor the authoritative empty marker/);
+
+    const ghostFetch = (async (input: string | URL | Request) => sourceResponse(
+      String(input).includes('tpl-lavora-con-noi') ? LISTING_WITH_JOBS_HTML : GHOST_DETAIL_HTML,
+    )) as typeof fetch;
+    await expect(fetchTplSourceSnapshot({ fetchImpl: ghostFetch, timeoutMs: 100 }))
+      .rejects.toThrow(/authoritative content gate/);
+  });
+
+  it('overlays content without changing identity and enforces one-to-one parity', () => {
+    const source = [{
+      url: 'https://www.tplsa.ch/2/50/candidati/?idhr=748',
+      title: 'Specialista Risorse Umane',
+      body: 'Descrizione autorevole della posizione e delle modalità di candidatura.',
+      location: 'Lugano',
+    }];
+    const stable = {
+      id: 'tpl-lugano-stable',
+      slug: 'specialista-risorse-umane-tpl-lugano-stable',
+      previousSlugs: ['specialista-risorse-umane-old'],
+      companyKey: 'tpl-lugano',
+      url: source[0].url,
+      title: 'Generic title',
+      description: 'Generic navigation',
+    };
+    const result = applyTplAuthoritativeDetails([
+      stable,
+      { ...stable, id: 'stale', url: 'https://www.tplsa.ch/2/50/candidati/?idhr=700' },
+    ], source);
+    expect(result).toEqual(expect.objectContaining({ matched: 1, removed: 1 }));
+    expect(result.jobs[0]).toEqual(expect.objectContaining({
+      id: stable.id,
+      slug: stable.slug,
+      previousSlugs: stable.previousSlugs,
+      title: source[0].title,
+      description: source[0].body,
+    }));
+    expect(applyTplAuthoritativeDetails(result.jobs, source).jobs).toEqual(result.jobs);
+
+    expect(() => applyTplAuthoritativeDetails([], source)).toThrow(/lost 1 validated detail URL/);
+    expect(() => applyTplAuthoritativeDetails([stable, { ...stable }], source)).toThrow(/duplicate URL/);
   });
 });
 
