@@ -11067,6 +11067,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Vivre à Inverigo, travailler au Tessin : guide frontalier',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distance, fiscalité, permis G, LAMal et coûts : tout ce dont vous avez besoin avant de déménager à Inverigo en travaillant au Tessin en tant que frontalier.',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'Vue de la vallée Mendrisio-Como à la frontière Tessin-Lombardie, avec architecture alpine suisse et constructions italiennes, forêts et lac au loin.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo : vivre et travailler au Tessin',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Frontière de Lambrugo : guide pratique sur les passages, la fiscalité, l\'AVS et la LAMal. Comment commencer, coûts et avantages de la navette Côme-Tessin.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Frontalier se rendant au poste frontalier avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;

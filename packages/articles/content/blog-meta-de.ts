@@ -11064,6 +11064,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Wohnen in Inverigo, Arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distanz, Besteuerung, G-Genehmigung, KVG und Kosten: Alles, was Sie brauchen, bevor Sie als Grenzgänger im Tessin nach Inverigo ziehen.',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'Blick auf das Mendrisio-Como-Tal an der Grenze zwischen Tessin und der Lombardei, mit Schweizer Alpenarchitektur und italienischen Bauten, Wäldern und See.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo: Leben und Arbeiten im Tessin',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger aus Lambrugo: Praktischer Leitfaden zu Grenzübergängen, Steuern, AHV und KVG. Wie man anfängt, Kosten und Vorteile des Pendelns Como–Ticino.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger beim Grenzübergang mit dem Luganer See im Hintergrund',
 };
 
 export default blogMetaDe;
