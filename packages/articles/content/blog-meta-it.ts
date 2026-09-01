@@ -11066,6 +11066,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Vivere a Inverigo, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distanza, tassazione, permesso G, LAMal e costi: tutto ciò che serve prima di trasferirsi a Inverigo lavorando in Ticino da frontaliere.',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'Vista della valle Mendrisio-Como al confine Ticino-Lombardia, con architetture alpine svizzere e italiane, foreste e lago sullo sfondo.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo: vivere e lavorare in Ticino',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Frontaliere da Lambrugo: guida pratica su valichi, fiscalità, AVS e LAMal. Come iniziare, costi e vantaggi del pendolarismo Como–Ticino.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Frontaliere in auto al valico di confine con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
