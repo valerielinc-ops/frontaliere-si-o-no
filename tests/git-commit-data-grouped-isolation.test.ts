@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { chmodSync, existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { delimiter, join, resolve } from 'node:path';
+import { delimiter, dirname, join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -307,25 +307,30 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
     }
   });
 
-  it('aborts instead of resurrecting a slice deleted remotely after defer', () => {
+  it.each<[string, string, string[]]>([
+    ['active slice', 'data/jobs/by-crawler/a.json', []],
+    ['crawler summary', 'data/jobs-crawler-summaries/by-crawler/a.json', []],
+    ['translation cache', 'data/translation-cache/a.json', []],
+    ['explicit adapter', 'data/jobs-crawler-adapters/adapters/a.json', ['data/jobs-crawler-adapters/adapters/a.json']],
+  ])('aborts instead of resurrecting a remotely deleted %s after defer', (_kind, targetPath, extraPaths) => {
     const { originDir, repoDir } = initClonePair();
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
     try {
-      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
-      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"old"}]\n');
+      mkdirSync(dirname(join(repoDir, targetPath)), { recursive: true });
+      writeFileSync(join(repoDir, targetPath), '{"state":"old"}\n');
       execFileSync('git', ['add', '.'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
 
-      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"deferred"}]\n');
-      expect(deferGroupCommit(repoDir, runnerTemp, 'a').status).toBe(0);
+      writeFileSync(join(repoDir, targetPath), '{"state":"deferred"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', extraPaths).status).toBe(0);
 
       const remoteDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-remote-'));
       try {
         execFileSync('git', ['clone', '-q', originDir, remoteDir]);
         execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: remoteDir });
         execFileSync('git', ['config', 'user.name', 'Test'], { cwd: remoteDir });
-        rmSync(join(remoteDir, 'data/jobs/by-crawler/a.json'));
+        rmSync(join(remoteDir, targetPath));
         execFileSync('git', ['add', '.'], { cwd: remoteDir });
         execFileSync('git', ['commit', '-q', '-m', 'retire slice'], { cwd: remoteDir });
         execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: remoteDir });
@@ -337,7 +342,7 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
         const batch = commitGroup(repoDir, runnerTemp);
         expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(1);
         expect(`${batch.stdout}${batch.stderr}`).toContain(
-          'snapshot conflicts with a newer remote deletion for data/jobs/by-crawler/a.json',
+          `snapshot conflicts with a newer remote deletion for ${targetPath}`,
         );
         expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
           cwd: repoDir,
@@ -346,6 +351,64 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
       } finally {
         rmSync(remoteDir, { recursive: true, force: true });
       }
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps create, unchanged and explicit delete semantics distinct for non-job descriptor paths', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    const root = 'data/jobs-crawler-adapters/adapters';
+    const createPath = `${root}/create.json`;
+    const unchangedPath = `${root}/unchanged.json`;
+    const deletePath = `${root}/delete.json`;
+    try {
+      mkdirSync(join(repoDir, root), { recursive: true });
+      writeFileSync(join(repoDir, unchangedPath), '{"state":"same"}\n');
+      writeFileSync(join(repoDir, deletePath), '{"state":"delete-me"}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, createPath), '{"state":"created"}\n');
+      rmSync(join(repoDir, deletePath));
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', [createPath, unchangedPath, deletePath]).status).toBe(0);
+
+      const remoteDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-remote-'));
+      try {
+        execFileSync('git', ['clone', '-q', originDir, remoteDir]);
+        execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: remoteDir });
+        execFileSync('git', ['config', 'user.name', 'Test'], { cwd: remoteDir });
+        rmSync(join(remoteDir, unchangedPath));
+        execFileSync('git', ['add', '.'], { cwd: remoteDir });
+        execFileSync('git', ['commit', '-q', '-m', 'delete unchanged path remotely'], { cwd: remoteDir });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: remoteDir });
+      } finally {
+        rmSync(remoteDir, { recursive: true, force: true });
+      }
+
+      writeFileSync(join(repoDir, deletePath), '{"state":"recreated-too-late"}\n');
+      const firstBatch = commitGroup(repoDir, runnerTemp);
+      expect(firstBatch.status, `${firstBatch.stdout}${firstBatch.stderr}`).toBe(0);
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      expect(execFileSync('git', ['show', `origin/main:${createPath}`], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      })).toBe('{"state":"created"}\n');
+      for (const absentPath of [unchangedPath, deletePath]) {
+        expect(spawnSync('git', ['cat-file', '-e', `origin/main:${absentPath}`], { cwd: repoDir }).status).not.toBe(0);
+      }
+
+      const pushed = execFileSync('git', ['rev-parse', 'origin/main'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      const secondBatch = commitGroup(repoDir, runnerTemp);
+      expect(secondBatch.status, `${secondBatch.stdout}${secondBatch.stderr}`).toBe(0);
+      expect(execFileSync('git', ['ls-remote', 'origin', 'refs/heads/main'], {
+        cwd: repoDir,
+        encoding: 'utf8',
+      }).split(/\s+/)[0]).toBe(pushed);
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
