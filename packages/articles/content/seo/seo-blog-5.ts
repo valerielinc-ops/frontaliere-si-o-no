@@ -81347,6 +81347,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-potenziamento-a2-misure': {
+    title: 'Chiasso e A2: potenziamento e sfide finanziarie',
+    description: 'Chiasso affronta proiezioni complicate per il potenziamento A2 Lugano-Mendrisio. Ustra chiede misure accompagnatorie all\'Esecutivo ticinese. Cosa significa',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, potenziamento, sfide, finanziarie',
+    ogTitle: 'Chiasso: potenziamento A2 e sfide finanziarie',
+    ogDescription: 'Il Municipio di Chiasso affronta proiezioni finanziarie complicate in vista del potenziamento dell\'A2 fra Lugano e Mendrisio. Ustra chiede misure accompagnatorie all\'Esecutivo cantonale. Quale impatto per il frontaliere? Scopri come la viabilità',
+    canonicalPath: '/articoli-frontaliere/chiasso-potenziamento-a2-misure',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso e A2: potenziamento e sfide finanziarie",
+      "description": "Chiasso affronta proiezioni complicate per il potenziamento A2 Lugano-Mendrisio. Ustra chiede misure accompagnatorie all'Esecutivo ticinese. Cosa significa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/chiasso-potenziamento-a2-misure.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Chiasso con valico svizzero-italiano e traffico sulla A2 al crepuscolo"
+      },
+      "datePublished": "2026-09-01T05:24:55+00:00",
+      "dateModified": "2026-09-01T05:24:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-potenziamento-a2-misure/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

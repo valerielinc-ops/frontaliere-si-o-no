@@ -11016,6 +11016,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Frontaliere licenziato 2026: preavviso, indennità e figli',
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'Nuovo Accordo 2024, preavviso CO, indennità INPS e tutele per famiglie con figli: cosa cambia per il lavoratore frontalier',
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Valico di frontiera in Ticino all\'alba con automobile in coda per il pendolarismo',
+    'blog.article.chiasso-potenziamento-a2-misure.title': 'Chiasso e A2: potenziamento e sfide finanziarie',
+    'blog.article.chiasso-potenziamento-a2-misure.excerpt': 'Chiasso affronta proiezioni complicate per il potenziamento A2 Lugano-Mendrisio. Ustra chiede misure accompagnatorie all\'Esecutivo ticinese. Cosa significa per i frontalieri.',
+    'blog.article.chiasso-potenziamento-a2-misure.imageAlt': 'Veduta aerea di Chiasso con valico svizzero-italiano e traffico sulla A2 al crepuscolo',
 };
 
 export default blogMetaIt;

@@ -32925,6 +32925,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'chiasso-potenziamento-a2-misure',
+ category: 'pratico',
+ date: '2026-09-01T05:24:55.038Z',
+ image: '/images/blog/chiasso-potenziamento-a2-misure.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

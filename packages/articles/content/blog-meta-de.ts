@@ -11014,6 +11014,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Entlassener Grenzgänger 2026: Kündigungsfrist, Zulagen und Kinder',
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'Neue Vereinbarung 2024, Kündigungsfrist OR, INPS-Zulage und Schutz für Familien mit Kindern: Was ändert sich für den Grenzgänger?',
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Grenzübergang im Tessin bei Sonnenaufgang mit Pendlerauto am Zoll',
+    'blog.article.chiasso-potenziamento-a2-misure.title': 'Chiasso und A2: Stärkung und finanzielle Herausforderungen',
+    'blog.article.chiasso-potenziamento-a2-misure.excerpt': 'Chiasso sieht sich mit komplizierten Projektionen für den Ausbau A2 Lugano-Mendrisio konfrontiert. Ustra bittet die Tessiner Exekutive um Begleitmassnahmen. Was das für Grenzgänger bedeutet.',
+    'blog.article.chiasso-potenziamento-a2-misure.imageAlt': 'Luftaufnahme von Chiasso mit Schweizer-italienischer Grenzübergang und A2-Verkehr in der Dämmerung',
 };
 
 export default blogMetaDe;

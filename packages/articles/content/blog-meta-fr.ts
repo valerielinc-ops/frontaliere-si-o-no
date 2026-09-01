@@ -11017,6 +11017,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.title': 'Frontalier licencié 2026 : préavis, indemnités et enfants',
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.excerpt': 'Nouvel accord 2024, préavis CO, indemnités INPS et protections pour les familles avec enfants : ce qui change pour le travailleur frontalier',
     'blog.article.frontaliere-licenziamento-famiglia-figli-2026.imageAlt': 'Poste-frontière tessinois à l\'aube avec une voiture de pendulaire au douane',
+    'blog.article.chiasso-potenziamento-a2-misure.title': 'Chiasso et A2 : renforcement et défis financiers',
+    'blog.article.chiasso-potenziamento-a2-misure.excerpt': 'Chiasso fait face à des projections complexes pour la modernisation A2 Lugano-Mendrisio. La FEDRO demande à l’exécutif du Tessin des mesures complémentaires. Ce que cela signifie pour les navetteurs transfrontaliers.',
+    'blog.article.chiasso-potenziamento-a2-misure.imageAlt': 'Vue aérienne de Chiasso avec passage frontalier suisse-italien et trafic sur l\'A2 au crépuscule',
 };
 
 export default blogMetaFr;
