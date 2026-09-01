@@ -53,6 +53,7 @@ const MAX_LISTED = 15;
 /** Stable family keys also shared by the historical count-bearing titles. */
 export const DUPLICATE_ISSUE_KEY = '[duplicate-crawler]';
 export const COVERAGE_GAP_ISSUE_KEY = '[crawler-coverage-gap]';
+export const STALE_SNAPSHOT_ISSUE_KEY = '[crawler-snapshot-stale]';
 
 /**
  * @param {string[]} urls
@@ -80,6 +81,14 @@ const SAME_SOURCE_CONTAINMENT = 0.5;
  * conservative comparability window; missing/legacy timestamps stay eligible.
  */
 const MAX_COMPARABLE_SNAPSHOT_SKEW_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * A skewed witness is temporarily non-comparable, but after two missed daily
+ * cycles that same evidence means the crawler itself is stale. Keep this cap
+ * independent from the skew window so suppressing a false coverage gap never
+ * suppresses the stopped-crawler signal as well.
+ */
+const MAX_CRAWLER_SNAPSHOT_AGE_MS = 48 * 60 * 60 * 1000;
 
 /**
  * Pairs where one side deliberately owns a subset of a shared group feed.
@@ -133,6 +142,7 @@ const NON_COVERAGE_GAP_PAIRS = new Set([
  * @property {number|null} [activeTotalB]
  * @property {number|null} [snapshotSkewMs]
  * @property {string|null} [olderSnapshotKey]
+ * @property {number|null} [olderSnapshotAtMs]
  */
 
 /**
@@ -148,15 +158,22 @@ const NON_COVERAGE_GAP_PAIRS = new Set([
  * live vacancies the surviving crawler's snapshot had never contained.
  *
  * @param {AuditOverlapPair[]} pairs
+ * @param {{ nowMs?: number }} [opts]
  * @returns {{ duplicates: AuditOverlapPair[], gaps: { key: string, twin: string, missing: string[] }[],
- *   ignored: { key: string, twin: string, missing: string[], reason: string }[] }}
+ *   ignored: { key: string, twin: string, missing: string[], reason: string }[],
+ *   staleSnapshots: { key: string, twin: string, assembledAtMs: number, ageMs: number,
+ *     maskedMissing: string[] }[] }}
  */
-export function classifyFindings(pairs) {
+export function classifyFindings(pairs, opts = {}) {
+  const nowMs = Number.isFinite(opts.nowMs) ? opts.nowMs : Date.now();
   const duplicates = pairs.filter((p) => p.shared.length > 0);
   /** @type {{ key: string, twin: string, missing: string[] }[]} */
   const gaps = [];
   /** @type {{ key: string, twin: string, missing: string[], reason: string }[]} */
   const ignored = [];
+  /** @type {{ key: string, twin: string, assembledAtMs: number, ageMs: number,
+   *   maskedMissing: string[] }[]} */
+  const staleSnapshots = [];
   for (const p of duplicates) {
     const hasActiveCardinality = Number.isFinite(p.activeTotalA)
       && Number.isFinite(p.activeTotalB)
@@ -193,6 +210,18 @@ export function classifyFindings(pairs) {
       && p.olderSnapshotKey === witness
     ) {
       ignored.push({ key: keeper, twin: witness, missing, reason: 'snapshot-skew' });
+      if (
+        Number.isFinite(p.olderSnapshotAtMs)
+        && nowMs - p.olderSnapshotAtMs > MAX_CRAWLER_SNAPSHOT_AGE_MS
+      ) {
+        staleSnapshots.push({
+          key: witness,
+          twin: keeper,
+          assembledAtMs: p.olderSnapshotAtMs,
+          ageMs: nowMs - p.olderSnapshotAtMs,
+          maskedMissing: missing,
+        });
+      }
       continue;
     }
     if (NON_COVERAGE_GAP_PAIRS.has(unorderedCrawlerPair(keeper, witness))) {
@@ -203,7 +232,8 @@ export function classifyFindings(pairs) {
   }
   gaps.sort((x, y) => y.missing.length - x.missing.length || x.key.localeCompare(y.key));
   ignored.sort((x, y) => y.missing.length - x.missing.length || x.key.localeCompare(y.key));
-  return { duplicates, gaps, ignored };
+  staleSnapshots.sort((x, y) => y.ageMs - x.ageMs || x.key.localeCompare(y.key));
+  return { duplicates, gaps, ignored, staleSnapshots };
 }
 
 /**
@@ -260,6 +290,32 @@ export function gapIssue(gaps) {
   return { title, description: body, dedupKey: COVERAGE_GAP_ISSUE_KEY };
 }
 
+/**
+ * @param {ReturnType<typeof classifyFindings>['staleSnapshots']} staleSnapshots
+ * @returns {{ title: string, description: string, dedupKey: string }}
+ */
+export function staleSnapshotIssue(staleSnapshots) {
+  const title = `${STALE_SNAPSHOT_ISSUE_KEY} crawler witness senza snapshot aggiornato oltre due cicli`;
+  const body = [
+    'Rilevato da `scripts/audit-duplicate-crawler-companies.mjs` (audit deterministico, zero Claude).',
+    '',
+    `Totale corrente: **${staleSnapshots.length} witness stale**.`,
+    '',
+    'Questi witness sono troppo vecchi per provare un coverage gap: le vacancy esclusive restano',
+    'correttamente escluse dal finding di copertura, ma lo skew non nasconde piu\' che il crawler',
+    'non produce uno snapshot da oltre 48 ore. Ripristinare il crawler e rieseguire l\'audit prima',
+    'di allargare il keeper sulla base di URL potenzialmente scadute.',
+    '',
+    ...staleSnapshots.map((finding) => {
+      const hours = Math.floor(finding.ageMs / (60 * 60 * 1000));
+      return `- **${finding.key}** (gemello \`${finding.twin}\`) — snapshot fermo da ${hours}h, `
+        + `${finding.maskedMissing.length} vacancy non comparabili; ultimo assembly `
+        + `\`${new Date(finding.assembledAtMs).toISOString()}\``;
+    }),
+  ].join('\n');
+  return { title, description: body, dedupKey: STALE_SNAPSHOT_ISSUE_KEY };
+}
+
 async function main() {
   const withIssues = process.argv.includes('--issues');
 
@@ -271,13 +327,14 @@ async function main() {
   }
 
   const pairs = findOverlappingCrawlers(ownership);
-  const { duplicates, gaps, ignored } = classifyFindings(pairs);
+  const { duplicates, gaps, ignored, staleSnapshots } = classifyFindings(pairs);
 
   console.log(`slice letti: ${ownership.slices.length}`);
   console.log(`host distinti: ${ownership.byHost.size} (dedicati ${ownership.dedicatedHosts.size}, condivisi ${ownership.sharedHosts.size})`);
   console.log(`coppie che condividono almeno una vacancy: ${duplicates.length}`);
   console.log(`buchi di copertura: ${gaps.length} crawler, ${gaps.reduce((n, g) => n + g.missing.length, 0)} vacancy\n`);
   console.log(`differenze non-gap motivate: ${ignored.length} coppie, ${ignored.reduce((n, g) => n + g.missing.length, 0)} vacancy`);
+  console.log(`witness stale oltre 48h: ${staleSnapshots.length}`);
 
   for (const p of duplicates) {
     console.log(`  DUP  ${p.keys[0]} + ${p.keys[1]} — ${p.shared.length} in comune, ${p.onlyA.length}/${p.onlyB.length} esclusive`);
@@ -288,12 +345,16 @@ async function main() {
   for (const g of ignored.slice(0, 20)) {
     console.log(`  OK   ${g.key} ← ${g.twin} — ${g.missing.length} (${g.reason})`);
   }
+  for (const finding of staleSnapshots.slice(0, 20)) {
+    console.log(`  STALE ${finding.key} — ${Math.floor(finding.ageMs / (60 * 60 * 1000))}h, `
+      + `${finding.maskedMissing.length} vacancy non comparabili (gemello ${finding.twin})`);
+  }
 
   if (!withIssues) {
     console.log('\n(report-only: passa --issues per aprire/aggiornare le issue di backlog)');
     return;
   }
-  if (!duplicates.length && !gaps.length) {
+  if (!duplicates.length && !gaps.length && !staleSnapshots.length) {
     console.log('\nnessun finding — nessuna issue da aprire.');
     return;
   }
@@ -308,6 +369,11 @@ async function main() {
     const { title, description, dedupKey } = gapIssue(gaps);
     await createGithubIssue({ title, description, dedupKey, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
     console.log(`→ issue coverage-gap: ${title}`);
+  }
+  if (staleSnapshots.length) {
+    const { title, description, dedupKey } = staleSnapshotIssue(staleSnapshots);
+    await createGithubIssue({ title, description, dedupKey, priority: 2, labels: ['crawler'], workflow: 'audit-duplicate-crawlers' });
+    console.log(`→ issue snapshot-stale: ${title}`);
   }
 }
 
