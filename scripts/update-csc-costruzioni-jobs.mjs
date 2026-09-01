@@ -43,6 +43,7 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -253,6 +254,28 @@ function semanticJobPostingHash(node, articleText) {
 }
 
 /**
+ * Locate the first `<article>` in `source` and its full, depth-balanced
+ * content via the shared `extractBalancedTagBlock` walker (already relied
+ * on by the SuccessFactors/hospital parsers for the same nested-tag class of
+ * bug): a naive non-greedy `[\s\S]*?</article>` regex stops at the FIRST
+ * closing tag, which belongs to a nested same-named descendant (e.g. a
+ * related-vacancy widget rendered as its own <article>), silently
+ * truncating the outer primary article's content.
+ */
+function extractPrimaryArticle(source) {
+  const openMatch = /<article\b([^>]*)>/i.exec(source);
+  if (!openMatch) return null;
+  const rest = source.slice(openMatch.index + openMatch[0].length);
+  const content = extractBalancedTagBlock(rest, 'article', 50000);
+  // extractBalancedTagBlock is a best-effort walker (falls back to the full
+  // scan window when no matching close is found) — fine for its existing
+  // description-scraping callers, not for this fail-closed trust boundary.
+  // Require a genuine closing tag right after the extracted content.
+  if (!/^\s*<\/article\s*>/i.test(rest.slice(content.length))) return null;
+  return { attrs: openMatch[1], content };
+}
+
+/**
  * Accept only the primary Drupal article inside <main>. A related-job widget
  * elsewhere in the page cannot promote a generic shell to a trusted detail.
  */
@@ -261,19 +284,19 @@ export function parseCscPrimaryJobDetail(html) {
   if (!/<\/html>\s*$/i.test(source.trim())) return null;
 
   const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
-  const article = main.match(/<article\b([^>]*)>([\s\S]*?)<\/article>/i);
+  const article = extractPrimaryArticle(main);
   if (!article) return null;
 
-  const articleClass = readQuotedHtmlAttr(article[1], 'class');
+  const articleClass = readQuotedHtmlAttr(article.attrs, 'class');
   if (!/(?:^|\s)node--type-work-position(?:\s|$)/i.test(articleClass)) return null;
 
-  const nodeId = readQuotedHtmlAttr(article[1], 'data-history-node-id');
+  const nodeId = readQuotedHtmlAttr(article.attrs, 'data-history-node-id');
   const jobPostings = extractCscJobPostingNodes(source);
   if (jobPostings.length > 1) {
     throw new Error(`CSC detail invariant failed: primary work-position page exposes ${jobPostings.length} JobPosting nodes.`);
   }
 
-  const articleText = cscPlainText(article[2]);
+  const articleText = cscPlainText(article.content);
   if (jobPostings.length === 0 && articleText.length < 80) return null;
 
   const jobPosting = jobPostings[0] || null;
