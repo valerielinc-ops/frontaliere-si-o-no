@@ -1,4 +1,8 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
+import { buildCoopAdapterConfig } from '../scripts/update-coop-jobs.mjs';
+import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   extractJsonLd,
   coopDescHtmlToMarkdown,
@@ -7,6 +11,59 @@ import {
   applyCoopJsonLdToJob,
   buildCoopTranslationCacheEntry,
 } from '../scripts/lib/coop-job-parser.mjs';
+
+const frenchDetailFixture = JSON.parse(
+  fs.readFileSync(path.resolve(import.meta.dirname, 'fixtures', 'coop-french-detail.json'), 'utf8'),
+);
+
+describe('Coop authoritative detail routing', () => {
+  it('publishes the feed allowlist only through explicit detail seeds', () => {
+    const seedDetailUrls = [
+      frenchDetailFixture.url,
+      'https://jobs.coopjobs.ch/offene-stellen/verkaeuferin-verkaeufer/11111111-1111-4111-8111-111111111111',
+      'https://jobs.coopjobs.ch/posti-vacanti/venditrice-venditore/22222222-2222-4222-8222-222222222222',
+    ];
+    const seedMetaByUrl = Object.fromEntries(seedDetailUrls.map((url) => [url, { canton: 'VD' }]));
+    const updatedAt = 'fixed-for-test';
+    const adapter = buildCoopAdapterConfig(
+      { companyKey: 'coop-ticino', seedUrls: ['https://jobs.coopjobs.ch/stellenangebote'] },
+      seedDetailUrls,
+      seedMetaByUrl,
+      updatedAt,
+    );
+
+    expect(adapter.seedUrls).toBeUndefined();
+    expect(adapter.seedDetailUrls).toEqual(seedDetailUrls);
+    expect(adapter.seedMetaByUrl).toEqual(seedMetaByUrl);
+    expect(new Set(adapter.seedDetailUrls).size).toBe(seedDetailUrls.length);
+    expect(buildCoopAdapterConfig(adapter, seedDetailUrls, seedMetaByUrl, updatedAt)).toEqual(adapter);
+  });
+
+  it('routes the representative French detail only when the feed declares it', () => {
+    const seedMeta = { location: 'Chavornay', canton: 'VD', company: 'Coop Genossenschaft' };
+    expect(sharedCrawlerTestables.toJobFromJsonLd(
+      frenchDetailFixture.jsonLd,
+      'Coop',
+      frenchDetailFixture.url,
+      { seedMeta },
+    )).toMatchObject({ job: null, reason: 'jsonld_not_detail_url' });
+
+    expect(sharedCrawlerTestables.toJobFromJsonLd(
+      frenchDetailFixture.jsonLd,
+      'Coop',
+      frenchDetailFixture.url,
+      { seedMeta, isSeedDetail: true },
+    )).toMatchObject({
+      reason: null,
+      job: {
+        url: frenchDetailFixture.url,
+        company: 'Coop Genossenschaft',
+        location: 'Chavornay, Vaud',
+        canton: 'VD',
+      },
+    });
+  });
+});
 
 // ──────────────────────────────────────────────────────────────
 // Real HTML fixtures from Coop detail pages

@@ -17,7 +17,7 @@
  *      no canton facet, so all 26 cantons are covered in one pass), to
  *      discover every Coop (not-subsidiary) job detail URL, paginating
  *      through the full result set (API returns up to `limit` jobs per page).
- *   2. Sets those SSR detail URLs as adapter seed URLs.
+ *   2. Sets those SSR detail URLs as explicit adapter detail seeds.
  *   3. Runs the base crawler which fetches each detail page and parses
  *      the JSON-LD JobPosting structured data embedded in it.
  *
@@ -413,7 +413,29 @@ async function fetchCoopJobDetailUrls() {
 // ──────────────────────────────────────────────────────────────
 
 /**
- * Ensure the Coop adapter JSON has the correct seed URLs
+ * Build the Coop adapter from the authoritative Prospective detail allowlist.
+ * Generic seeds are deliberately removed: the feed already proves that each
+ * canonical UUID is a vacancy detail, including localized URL families that
+ * the shared listing heuristic must continue to reject by default.
+ */
+export function buildCoopAdapterConfig(
+  baseAdapter,
+  seedDetailUrls,
+  seedMetaByUrl = {},
+  updatedAt = new Date().toISOString(),
+) {
+  const adapter = {
+    ...(baseAdapter || {}),
+    seedDetailUrls,
+    seedMetaByUrl,
+    updatedAt,
+  };
+  delete adapter.seedUrls;
+  return adapter;
+}
+
+/**
+ * Ensure the Coop adapter JSON has the correct detail seed URLs
  * (detail page URLs discovered from the API).
  */
 function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
@@ -421,27 +443,26 @@ function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
 
   if (!fs.existsSync(adapterPath)) {
     console.log(`⚠️ Adapter ${COOP_KEY}.json not found — creating it.`);
-    const adapter = {
+    const adapter = buildCoopAdapterConfig({
       companyKey: COOP_KEY,
       companyName: 'Coop Ticino',
       companyHost: 'coopjobs.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      seedMetaByUrl,
       notes: 'Prospective.ch JobBooster platform — detail URLs from JSON API covering Offerte di lavoro + Posti di apprendistato + Tirocini di prova. Each page has JSON-LD JobPosting.',
-      updatedAt: new Date().toISOString(),
-    };
+    }, seedUrls, seedMetaByUrl);
     fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
     fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
     return;
   }
 
   try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
+    const adapter = buildCoopAdapterConfig(
+      JSON.parse(fs.readFileSync(adapterPath, 'utf-8')),
+      seedUrls,
+      seedMetaByUrl,
+    );
     adapter.companyHost = 'coopjobs.ch';
     if (!adapter.crawlerModes?.includes('generic_ats')) {
       adapter.crawlerModes = adapter.crawlerModes || [];
@@ -449,9 +470,8 @@ function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
     }
     adapter.priority = Math.max(adapter.priority || 0, 10);
     adapter.notes = 'Prospective.ch JobBooster platform — detail URLs from JSON API covering Offerte di lavoro + Posti di apprendistato + Tirocini di prova. Each page has JSON-LD JobPosting.';
-    adapter.updatedAt = new Date().toISOString();
     fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${COOP_KEY} updated with ${seedUrls.length} seed URLs.`);
+    console.log(`📝 Adapter ${COOP_KEY} updated with ${seedUrls.length} detail seed URLs.`);
   } catch (err) {
     console.warn(`⚠️ Could not update adapter: ${err.message}`);
   }
@@ -870,7 +890,7 @@ async function main() {
     return;
   }
 
-  // Step 2: Update the adapter with the discovered detail URLs as seed URLs
+  // Step 2: Update the adapter with the discovered URLs as explicit detail seeds
   ensureAdapterSeedUrls(detailUrls, discovery.seedMetaByUrl);
 
   // Step 2b: Inject cached translations into jobs.json BEFORE the crawler runs.
