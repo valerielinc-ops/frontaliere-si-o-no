@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-09-01T02:20:10.136Z",
+  "updatedAt": "2026-09-01T04:04:51.430Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -32,15 +32,21 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-13"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036735/sales-agent-oftringen-perry-center-60-100": {
-      "location": "Oftringen",
-      "canton": "AG",
+    "https://careers.sunrise.ch/it/it/job/REQ_30036821/sales-agent-bachenbulach-60-100": {
+      "location": "Bachenbülach",
+      "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
-      "location": "Luzern",
-      "canton": "LU",
+    "https://careers.sunrise.ch/it/it/job/REQ_30036610/sales-agent-pfaffikon-sz-seedamm-center-60-100": {
+      "location": "Pfäffikon SZ",
+      "canton": "SZ",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036735/sales-agent-oftringen-perry-center-60-100": {
+      "location": "Oftringen",
+      "canton": "AG",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
@@ -62,15 +68,9 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036821/sales-agent-bachenbulach-60-100": {
-      "location": "Bachenbülach",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036610/sales-agent-pfaffikon-sz-seedamm-center-60-100": {
-      "location": "Pfäffikon SZ",
-      "canton": "SZ",
+    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
+      "location": "Luzern",
+      "canton": "LU",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
@@ -134,9 +134,9 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-31"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036880/detailhandelsfachmann-frau-efz-basel-st-jakobspark": {
-      "location": "Basel St.Jakobspark",
-      "canton": "BS",
+    "https://careers.sunrise.ch/it/it/job/REQ_30036612/social-media-storyteller-60-80": {
+      "location": "Zurich",
+      "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-31"
     },
@@ -176,12 +176,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-31"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036612/social-media-storyteller-60-80": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-31"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
       "location": "Zurich",
       "canton": "ZH",
@@ -194,15 +188,15 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-31"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036894/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano": {
-      "location": "Lugano",
-      "canton": "TI",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-31"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036892/apprenti-e-gestionnaire-du-commerce-de-detail-cfc-monthey": {
       "location": "Monthey",
       "canton": "VS",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036894/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano": {
+      "location": "Lugano",
+      "canton": "TI",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-31"
     }
