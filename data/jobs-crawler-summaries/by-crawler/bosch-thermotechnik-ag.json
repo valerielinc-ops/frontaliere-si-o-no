@@ -1,18 +1,49 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-01T00:31:05.060Z",
+  "generatedAt": "2026-09-01T07:50:03.527Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 8,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 7,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 19801,
-  "avgDurationMs": 19801,
+  "durationMs": 16550,
+  "avgDurationMs": 16550,
   "durationHistory": [
-    19801
+    16550
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Sachbearbeiter Disposition (w/m/div.) REF292710R",
+      "slug": "sachbearbeiter-disposition-w-m-div-ref292710r-bosch-steinhausen",
+      "url": "https://jobs.bosch.com/en/job/REF292710R-sachbearbeiter-disposition-w-m-div-ref292710r",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000139995449-sachbearbeiter-disposition-w-m-div-ref292710r?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Steinhausen",
+      "addressLocality": "Steinhausen",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-27",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Praktikum im Einkauf (w/m/d) REF295276U",
@@ -48,43 +79,6 @@
         "cleanliness": 25,
         "richness": 22,
         "translation": 18,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Head of the Regional Governance Unit for Information Security and Data Protection - Bosch Switzerland 100% (f/m/div.) REF290730T",
-      "slug": "head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF290730T-head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000143829539-head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-17",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-90e383618e35",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-17T21:41:34.659Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
         "completeness": 19
       }
     },
@@ -189,7 +183,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T10:20:16.772Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -226,7 +219,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-11T10:10:53.064Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -308,6 +300,44 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Head of the Regional Governance Unit for Information Security and Data Protection - Bosch Switzerland 100% (f/m/div.) REF290730T",
+      "slug": "404-bosch-thermotechnik-ag-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF290730T-head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000143829539-head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Solothurn/Zuchwil",
+      "addressLocality": "Solothurn/Zuchwil",
+      "addressRegion": "SO",
+      "addressCountry": "CH",
+      "canton": "SO",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "other",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-17",
+      "validThrough": "",
+      "id": "bosch-thermotechnik-ag-90e383618e35",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "firstSeenAt": "2026-08-17T21:41:34.659Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": []
 }
