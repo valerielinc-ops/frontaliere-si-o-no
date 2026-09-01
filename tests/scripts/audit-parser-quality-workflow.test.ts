@@ -9,6 +9,10 @@ const workflow = fs.readFileSync(
 );
 
 describe('Audit Parser Quality workflow observability', () => {
+  it('installs declared dependencies before the strict audit imports them', () => {
+    expect(workflow).toMatch(/name: Setup Node[\s\S]*?name: Install audit dependencies[\s\S]*?run: npm ci[\s\S]*?name: Run parser quality audit \(strict\)/);
+  });
+
   it('uploads the complete JSON report even when the strict audit fails', () => {
     expect(workflow).toContain('uses: actions/upload-artifact@v7');
     expect(workflow).toMatch(/name: Run parser quality audit \(strict\)[\s\S]*?rm -f data\/parser-quality-report\.json[\s\S]*?node scripts\/audit-parser-quality\.mjs --strict --check-source-details/);
