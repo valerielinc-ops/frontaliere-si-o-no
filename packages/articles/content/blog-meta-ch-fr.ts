@@ -4921,6 +4921,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Association des locataires : « réduction du loyer »',
     'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Le taux hypothécaire de référence a baissé deux fois en 2025, mais la plupart des locataires n’ont pas bénéficié de réduction de loyer.',
     'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Vue de la ville de Lugano avec des bâtiments résidentiels',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Augmentation du commerce de détail et des ventes en juillet',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Les ventes dans le commerce de détail suisse ont augmenté de 0,2 % en juillet, en hausse de 1,7 % en termes réels.',
+    'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Vue aérienne du centre-ville de Lugano avec des magasins et des zones commerciales, Suisse',
 };
 
 export default blogMetaChFr;
