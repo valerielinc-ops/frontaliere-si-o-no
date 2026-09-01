@@ -1656,6 +1656,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'trasporti-pubblici-violenza-sev': { it: 'trasporti-pubblici-violenza-sev', en: 'public-transport-violence-sev', de: 'oeffentlicher-nahverkehr-gewalt-sev', fr: 'transport-public-violence-sev' },
  'premi-lamal-friburgo-sussidi': { it: 'premi-lamal-friburgo-sussidi', en: 'health-insurance-premiums-fribourg-subsidies', de: 'praemien-krankenversicherung-freiburg-subventionen', fr: 'primes-assurance-maladie-fribourg-subventions' },
  'sanzioni-onu-2026-aggiornamento': { it: 'sanzioni-onu-2026-aggiornamento', en: 'un-sanctions-2026-update', de: 'un-sanktionen-2026-aktualisierung', fr: 'sanctions-onu-2026-mise-a-jour' },
+ 'swiss-life-taglio-posti-lavoro-2028': { it: 'swiss-life-taglio-posti-lavoro-2028', en: 'swiss-life-job-cuts-2028', de: 'swiss-life-stellenabbau-2028', fr: 'swiss-life-suppression-postes-2028' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
