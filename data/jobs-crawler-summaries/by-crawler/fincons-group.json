@@ -1,18 +1,56 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-09-01T08:50:12.993Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-09-01T10:25:33.083Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2621,
-  "avgDurationMs": 2621,
+  "durationMs": 2491,
+  "avgDurationMs": 2491,
   "durationHistory": [
-    2621
+    2491
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Senior Cloud Engineer",
+      "slug": "senior-cloud-engineer-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/hVXCAD4anv/Senior-Cloud-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/hVXCAD4anv/Senior-Cloud-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-01",
+      "validThrough": "2026-11-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260901091645_YDCYF5YXO0AAW9Z6",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "_qualityScore": 68,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Accounts Payable & Accounting Specialist",
