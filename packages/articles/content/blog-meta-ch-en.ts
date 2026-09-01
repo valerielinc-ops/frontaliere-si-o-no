@@ -4912,6 +4912,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-riduzione-tasso-riferimento.title': 'Rents: rate down but the reduction is not automatic',
     'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'In 2025, the reference mortgage interest rate fell twice. Only 12% of tenants requested the reduction. The ASI reminds that it pays to actively request the reduction.',
     'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Evening view of Lugano city with residential buildings and lake scenery',
+    'blog.article.dogane-strumenti-digitali-merci.title': 'Customs, new digital tools for goods and purchases',
+    'blog.article.dogane-strumenti-digitali-merci.excerpt': 'DaziT concludes at the end of 2026 with Passar and QuickZoll. Simplification of cross-border traffic, modernized border controls.',
+    'blog.article.dogane-strumenti-digitali-merci.imageAlt': 'Modern digital customs control with Passar and QuickZoll apps displayed on screens at Swiss border checkpoint',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Reference mortgage rate remains at 1.25%: what changes for rents',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'FOAB confirms the parameter at 1.25% for the third quarter: historic low, average mortgage rate at 1.31%, SNB stuck at 0.0%. What happens now for tenants and landlords.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Facade of a Swiss residential apartment building with rental flats',
 };
 
 export default blogMetaChEn;

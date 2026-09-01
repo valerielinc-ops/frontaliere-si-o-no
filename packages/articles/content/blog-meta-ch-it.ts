@@ -4912,6 +4912,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-riduzione-tasso-riferimento.title': 'Affitti: tasso sceso ma la riduzione non è automatica',
     'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'Nel 2025 il tasso ipotecario di riferimento è sceso due volte. Il 12% soltanto dei locatari ha richiesto la riduzione. L\'ASI ricorda che conviene chiedere attivamente il ribasso.',
     'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Veduta della città di Lugano al tramonto con edifici residenziali e lago sullo sfondo',
+    'blog.article.dogane-strumenti-digitali-merci.title': 'Dogane, nuovi strumenti digitali per merci e acquisti',
+    'blog.article.dogane-strumenti-digitali-merci.excerpt': 'DaziT conclude fine 2026 con Passar e QuickZoll. Semplificazione traffico transfrontaliero, controlli frontalieri modernizzati.',
+    'blog.article.dogane-strumenti-digitali-merci.imageAlt': 'Controllo doganale digitale con app Passar e QuickZoll su schermi moderni in una dogana svizzera',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Tasso ipotecario di riferimento resta all\'1,25%: cosa cambia per gli affitti',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'UFAB conferma il parametro all\'1,25% per il terzo trimestre: minimo storico, tasso medio ipoteche all\'1,31%, BNS ferma allo 0,0%. Cosa succede ora per inquilini e locatori.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Facciata di un palazzo residenziale svizzero con appartamenti in affitto',
 };
 
 export default blogMetaChIt;

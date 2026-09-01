@@ -63746,6 +63746,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dogane-strumenti-digitali-merci': {
+    title: 'Dogane, nuovi strumenti digitali per merci e acquisti',
+    description: 'Programma DaziT conclude fine 2026 con Passar (traffico commerciale) e QuickZoll (sdoganamento privato). Modernizzazione UDSC, controlli frontalieri, tassa',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogane, nuovi, strumenti, digitali',
+    ogTitle: 'Dogane: nuove app per traffico e acquisti',
+    ogDescription: 'Il programma DaziT introduce Passar (traffico commerciale transfrontaliero) e QuickZoll (sdoganamento privato). Controlli frontalieri modernizzati e tassa sul traffico pesante aggiornata entro fine 2026.',
+    canonicalPath: '/articoli-svizzera/dogane-strumenti-digitali-merci/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Dogane, nuovi strumenti digitali per merci e acquisti",
+      "description": "Programma DaziT conclude fine 2026 con Passar (traffico commerciale) e QuickZoll (sdoganamento privato). Modernizzazione UDSC, controlli frontalieri, tassa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dogane-strumenti-digitali-merci.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Controllo doganale digitale con app Passar e QuickZoll su schermi moderni in una dogana svizzera"
+      },
+      "datePublished": "2026-09-01T10:43:34+00:00",
+      "dateModified": "2026-09-01T10:43:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dogane-strumenti-digitali-merci/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tasso-ipotecario-riferimento-1-25-stabile': {
+    title: 'Tasso ipotecario di riferimento resta all\'1,25%: cosa cambia per gli affitti',
+    description: 'UFAB conferma il tasso ipotecario di riferimento all\'1,25%, minimo storico. Tasso medio ipoteche 1,31%, BNS allo 0,0%. Cosa cambia per inquilini e locatori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasso, ipotecario, riferimento, resta',
+    ogTitle: 'Tasso ipotecario di riferimento resta all\'1,25%: effetti sugli affitti',
+    ogDescription: 'L\'Ufficio federale delle abitazioni conferma il parametro all\'1,25%, valore più basso dalla sua introduzione. Tasso medio ipoteche fermo all\'1,31% e BNS sempre allo 0,0%. Per gli inquilini che pagano un canone basato sull\'1,5% o più resta aperta',
+    canonicalPath: '/articoli-svizzera/tasso-ipotecario-riferimento-1-25-stabile/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tasso ipotecario di riferimento resta all'1,25%: cosa cambia per gli affitti",
+      "description": "UFAB conferma il tasso ipotecario di riferimento all'1,25%, minimo storico. Tasso medio ipoteche 1,31%, BNS allo 0,0%. Cosa cambia per inquilini e locatori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasso-ipotecario-riferimento-1-25-stabile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un palazzo residenziale svizzero con appartamenti in affitto"
+      },
+      "datePublished": "2026-09-01T10:53:04+00:00",
+      "dateModified": "2026-09-01T10:53:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tasso-ipotecario-riferimento-1-25-stabile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
