@@ -1517,7 +1517,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1563,7 +1563,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1575,7 +1576,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
@@ -2086,7 +2088,7 @@
       "title": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
       "titleByLocale": {
         "it": "Corso di laurea Dipl. Expert / Expert Anesthesia Care NDS HF",
-        "en": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
+        "en": "Postgraduate degree program Dipl. Expert / Expert Anesthesia Care NDS HF",
         "de": "Nachdiplomstudiengang Dipl. Expertin / Experte Anästhesiepflege NDS HF",
         "fr": "Programme d'études supérieures Dipl. Expert / Expert Anesthésie Soins NDS HF"
       },
@@ -2136,7 +2138,6 @@
           "nachdiplomstudiengang-dipl-expertin-experte-anasthesiepflege-nds-hf-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T22:32:44.725Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -5002,7 +5003,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -5050,7 +5051,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5066,7 +5068,8 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
@@ -6286,7 +6289,7 @@
       "title": "Pflegeexpertin / Pflegeexperte",
       "titleByLocale": {
         "it": "Esperto di cura / esperto di cura",
-        "en": "Pflegeexpertin / Pflegeexperte",
+        "en": "Care expert / care expert",
         "de": "Pflegeexpertin / Pflegeexperte",
         "fr": "Expert en soins / expert en soins"
       },
@@ -6340,7 +6343,6 @@
         "pflegeexpertin-plegeexperte-kantonsspital-aarau-ksa-aarau",
         "pflegeexpertin-pflegeexperte-ksa-ch"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T21:58:54.338Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7086,16 +7088,16 @@
       "title": "Dipl. Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
         "de": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "en": "Dipl. Pflegefachfrau / Pflegefachmann",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann"
+        "it": "Dipl. Infermieristica professionale / infermieristica",
+        "en": "Dipl. Nursing professional / nursing professional",
+        "fr": "Dipl. Professionnels des soins infirmiers / professionnels des soins infirmiers"
       },
       "description": "Aufgaben:\n• Die Betreuung und Pflege der Patientinnen und Patienten aus verschiedenen chirurgischen Fachgebieten gehören zu Ihrem Aufgabenbereich.\n\n• Sie pflegen unsere Patientinnen und Patienten selbstständig, fachgerecht und kompetent.\n\n• Eine konstruktive und interprofessionelle Zusammenarbeit ist wesentlicher Bestandteil Ihres Alltages.\n\n• Sie unterstützen Studierende und Auszubildende im praktischen Alltag.\n\nAnforderungen:\n• Sie haben eine AKP-, DN 2-, HF- oder FH-Ausbildung erfolgreich abgeschlossen und verfügen über mindestens 2 Jahre Berufserfahrung im Bereich Chirurgie.\n\n• Es bereitet Ihnen Freude Patientinnen und Patienten aus verschiedenen chirurgischen Fachdisziplinen in hoher Selbstständigkeit und Eigenverantwortung zu betreuen.\n\n• Sie sind bereit, sich fachlich weiterzuentwickeln und Veränderungsprozesse aktiv mitzugestalten.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Aufgaben:\n• Die Betreuung und Pflege der Patientinnen und Patienten aus verschiedenen chirurgischen Fachgebieten gehören zu Ihrem Aufgabenbereich.\n\n• Sie pflegen unsere Patientinnen und Patienten selbstständig, fachgerecht und kompetent.\n\n• Eine konstruktive und interprofessionelle Zusammenarbeit ist wesentlicher Bestandteil Ihres Alltages.\n\n• Sie unterstützen Studierende und Auszubildende im praktischen Alltag.\n\nAnforderungen:\n• Sie haben eine AKP-, DN 2-, HF- oder FH-Ausbildung erfolgreich abgeschlossen und verfügen über mindestens 2 Jahre Berufserfahrung im Bereich Chirurgie.\n\n• Es bereitet Ihnen Freude Patientinnen und Patienten aus verschiedenen chirurgischen Fachdisziplinen in hoher Selbstständigkeit und Eigenverantwortung zu betreuen.\n\n• Sie sind bereit, sich fachlich weiterzuentwickeln und Veränderungsprozesse aktiv mitzugestalten.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Aufgaben:\n• Die Betreuung und Pflege der Patientinnen und Patienten aus verschiedenen chirurgischen Fachgebieten gehören zu Ihrem Aufgabenbereich.\n\n• Sie pflegen unsere Patientinnen und Patienten selbstständig, fachgerecht und kompetent.\n\n• Eine konstruktive und interprofessionelle Zusammenarbeit ist wesentlicher Bestandteil Ihres Alltages.\n\n• Sie unterstützen Studierende und Auszubildende im praktischen Alltag.\n\nAnforderungen:\n• Sie haben eine AKP-, DN 2-, HF- oder FH-Ausbildung erfolgreich abgeschlossen und verfügen über mindestens 2 Jahre Berufserfahrung im Bereich Chirurgie.\n\n• Es bereitet Ihnen Freude Patientinnen und Patienten aus verschiedenen chirurgischen Fachdisziplinen in hoher Selbstständigkeit und Eigenverantwortung zu betreuen.\n\n• Sie sind bereit, sich fachlich weiterzuentwickeln und Veränderungsprozesse aktiv mitzugestalten.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Die Betreuung und Pflege der Patientinnen und Patienten aus verschiedenen chirurgischen Fachgebieten gehören zu Ihrem Aufgabenbereich.\n\n• Sie pflegen unsere Patientinnen und Patienten selbstständig, fachgerecht und kompetent.\n\n• Eine konstruktive und interprofessionelle Zusammenarbeit ist wesentlicher Bestandteil Ihres Alltages.\n\n• Sie unterstützen Studierende und Auszubildende im praktischen Alltag.\n\nAnforderungen:\n• Sie haben eine AKP-, DN 2-, HF- oder FH-Ausbildung erfolgreich abgeschlossen und verfügen über mindestens 2 Jahre Berufserfahrung im Bereich Chirurgie.\n\n• Es bereitet Ihnen Freude Patientinnen und Patienten aus verschiedenen chirurgischen Fachdisziplinen in hoher Selbstständigkeit und Eigenverantwortung zu betreuen.\n\n• Sie sind bereit, sich fachlich weiterzuentwickeln und Veränderungsprozesse aktiv mitzugestalten.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Die Betreuung und Pflege der Patientinnen und Patienten aus verschiedenen chirurgischen Fachgebieten gehören zu Ihrem Aufgabenbereich.\n\n• Sie pflegen unsere Patientinnen und Patienten selbstständig, fachgerecht und kompetent.\n\n• Eine konstruktive und interprofessionelle Zusammenarbeit ist wesentlicher Bestandteil Ihres Alltages.\n\n• Sie unterstützen Studierende und Auszubildende im praktischen Alltag.\n\nAnforderungen:\n• Sie haben eine AKP-, DN 2-, HF- oder FH-Ausbildung erfolgreich abgeschlossen und verfügen über mindestens 2 Jahre Berufserfahrung im Bereich Chirurgie.\n\n• Es bereitet Ihnen Freude Patientinnen und Patienten aus verschiedenen chirurgischen Fachdisziplinen in hoher Selbstständigkeit und Eigenverantwortung zu betreuen.\n\n• Sie sind bereit, sich fachlich weiterzuentwickeln und Veränderungsprozesse aktiv mitzugestalten.\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Compiti:\n• La cura e la cura di pazienti provenienti da varie aree specialistiche chirurgiche fanno parte del vostro compito.\n\n• Si preoccupano per i nostri pazienti in modo indipendente, professionale e competente.\n\n• La cooperazione costruttiva e interprofessionale è una parte essenziale della vostra vita quotidiana.\n\n• Supportano studenti e tirocinanti nella pratica vita quotidiana.\n\nRequisiti\n• Hai completato con successo la formazione ACP, DN 2, RF o FH e hai almeno 2 anni di esperienza professionale in chirurgia.\n\n• Ti dà piacere badare a pazienti di varie discipline chirurgiche in un alto grado di indipendenza e responsabilità personale.\n\n• Sono pronti a sviluppare processi di cambiamento professionale e attivamente forma.\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• The care and care of patients from various surgical specialist areas are part of your task.\n\n• They care for our patients independently, professionally and competently.\n\n• Constructive and interprofessional cooperation is an essential part of your everyday life.\n\n• They support students and trainees in practical everyday life.\n\nRequirements\n• You have successfully completed ACP, DN 2, RF or FH training and have at least 2 years of professional experience in surgery.\n\n• It gives you pleasure to look after patients from various surgical disciplines in a high degree of independence and personal responsibility.\n\n• They are ready to develop professionally and actively shape change processes.\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Tâches :\n• Les soins et les soins de patients provenant de différents domaines spécialisés en chirurgie font partie de votre tâche.\n\n• Ils s'occupent de nos patients de façon indépendante, professionnelle et compétente.\n\n• La coopération constructive et interprofessionnelle est un élément essentiel de votre vie quotidienne.\n\n• Ils soutiennent les étudiants et les stagiaires dans la vie quotidienne pratique.\n\nExigences\n• Vous avez suivi avec succès la formation ACP, DN 2, RF ou FH et avez au moins 2 ans d'expérience professionnelle en chirurgie.\n\n• Il vous donne le plaisir de prendre soin des patients de diverses disciplines chirurgicales dans un degré élevé d'indépendance et de responsabilité personnelle.\n\n• Ils sont prêts à développer professionnellement et activement des processus de changement.\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7124,13 +7126,29 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+          "servizio-notturno-continuo-dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
+          "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
+          "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+          "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "fr": [
+          "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "servizio-notturno-continuo-dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
+        "continuous-night-service-dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
+        "dauernachtdienst-dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "service-continu-de-nuit-dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
       ],
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7160,17 +7178,17 @@
       "companyDomain": "ksa.ch",
       "title": "Fachexpertin / Fachexperte Pflege",
       "titleByLocale": {
-        "it": "Fachexpertin / Fachexperte Pflege",
-        "en": "Fachexpertin / Fachexperte Pflege",
+        "it": "Expert / Expert Care",
+        "en": "Expert / Expert Care",
         "de": "Fachexpertin / Fachexperte Pflege",
-        "fr": "Fachexpertin / Fachexperte Pflege"
+        "fr": "Expert / Expert Care"
       },
       "description": "Aufgaben:\n• Mitverantwortung für die fachliche Führung der Abteilung\n\n• Arbeit in der direkten klinischen Pflege und Steuerung des pflegediagnostischen Prozesses\n\n• Kontinuierliche Befähigung der Mitarbeitenden durch persönliches Coaching, Schulungen und Fallbesprechungen\n\n• Gewährleistung und Weiterentwicklung der Pflegequalität und Patientensicherheit auf der Abteilung\n\n• Erarbeitung, Anpassung und Evaluierung von fachspezifischen Richtlinien und Weisungen in Zusammenarbeit mit anderen Fachexpertinnen/Fachexperten, Pflegeexpertinnen/Pflegeexperten, und anderen Berufsgruppen\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Pflegefachperson FH oder\n\n• Abgeschlossene Berufsausbildung als Pflegefachperson HF mit Bachelor of Science in Nursing oder Bereitschaft diesen zu absolvieren\n\n• Mindestens 2 Jahre Berufserfahrung im Akutbereich, Chirurgie von Vorteil\n\n• Professionelles Auftreten und Freude an der Weiterentwicklung der Fachgebiete in einem interprofessionellen Team\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
-        "it": "Aufgaben:\n• Mitverantwortung für die fachliche Führung der Abteilung\n\n• Arbeit in der direkten klinischen Pflege und Steuerung des pflegediagnostischen Prozesses\n\n• Kontinuierliche Befähigung der Mitarbeitenden durch persönliches Coaching, Schulungen und Fallbesprechungen\n\n• Gewährleistung und Weiterentwicklung der Pflegequalität und Patientensicherheit auf der Abteilung\n\n• Erarbeitung, Anpassung und Evaluierung von fachspezifischen Richtlinien und Weisungen in Zusammenarbeit mit anderen Fachexpertinnen/Fachexperten, Pflegeexpertinnen/Pflegeexperten, und anderen Berufsgruppen\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Pflegefachperson FH oder\n\n• Abgeschlossene Berufsausbildung als Pflegefachperson HF mit Bachelor of Science in Nursing oder Bereitschaft diesen zu absolvieren\n\n• Mindestens 2 Jahre Berufserfahrung im Akutbereich, Chirurgie von Vorteil\n\n• Professionelles Auftreten und Freude an der Weiterentwicklung der Fachgebiete in einem interprofessionellen Team\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Aufgaben:\n• Mitverantwortung für die fachliche Führung der Abteilung\n\n• Arbeit in der direkten klinischen Pflege und Steuerung des pflegediagnostischen Prozesses\n\n• Kontinuierliche Befähigung der Mitarbeitenden durch persönliches Coaching, Schulungen und Fallbesprechungen\n\n• Gewährleistung und Weiterentwicklung der Pflegequalität und Patientensicherheit auf der Abteilung\n\n• Erarbeitung, Anpassung und Evaluierung von fachspezifischen Richtlinien und Weisungen in Zusammenarbeit mit anderen Fachexpertinnen/Fachexperten, Pflegeexpertinnen/Pflegeexperten, und anderen Berufsgruppen\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Pflegefachperson FH oder\n\n• Abgeschlossene Berufsausbildung als Pflegefachperson HF mit Bachelor of Science in Nursing oder Bereitschaft diesen zu absolvieren\n\n• Mindestens 2 Jahre Berufserfahrung im Akutbereich, Chirurgie von Vorteil\n\n• Professionelles Auftreten und Freude an der Weiterentwicklung der Fachgebiete in einem interprofessionellen Team\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
+        "it": "Compiti:\n• Co-responsabilità per la gestione tecnica del dipartimento\n\n• Lavoro nella cura clinica diretta e controllo del processo diagnostico di allattamento\n\n• Empowerment del personale continuo attraverso personal coaching, formazione e discussioni sui casi\n\n• Garantire e sviluppare ulteriormente la qualità della cura e della sicurezza dei pazienti nel dipartimento\n\n• Sviluppo, adattamento e valutazione delle linee guida e delle istruzioni tecniche in collaborazione con altri esperti specializzati, esperti di cura e altri gruppi professionali\n\nRequisiti\n• Formazione professionale completa come infermiera FH o\n\n• Formazione professionale completa come infermiera HF con Bachelor of Science in Infermieristica o disponibilità a completarlo\n\n• Almeno 2 anni di esperienza professionale nel campo acuto, chirurgia benefica\n\n• Aspetto professionale e piacere nell'ulteriore sviluppo delle aree specializzate in un team interprofessionale\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Tasks:\n• Co-responsibility for the technical management of the department\n\n• Work in direct clinical care and control of the nursing diagnostic process\n\n• Continuous staff empowerment through personal coaching, training and case discussions\n\n• Ensuring and further developing the quality of care and patient safety in the department\n\n• Development, adaptation and evaluation of technical guidelines and instructions in cooperation with other specialist experts, nursing experts and other professional groups\n\nRequirements\n• Completed vocational training as nurse FH or\n\n• Completed vocational training as a nurse HF with Bachelor of Science in Nursing or willingness to complete it\n\n• At least 2 years of professional experience in the acute field, surgery beneficial\n\n• Professional appearance and pleasure in the further development of the specialist areas in an interprofessional team\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
         "de": "Aufgaben:\n• Mitverantwortung für die fachliche Führung der Abteilung\n\n• Arbeit in der direkten klinischen Pflege und Steuerung des pflegediagnostischen Prozesses\n\n• Kontinuierliche Befähigung der Mitarbeitenden durch persönliches Coaching, Schulungen und Fallbesprechungen\n\n• Gewährleistung und Weiterentwicklung der Pflegequalität und Patientensicherheit auf der Abteilung\n\n• Erarbeitung, Anpassung und Evaluierung von fachspezifischen Richtlinien und Weisungen in Zusammenarbeit mit anderen Fachexpertinnen/Fachexperten, Pflegeexpertinnen/Pflegeexperten, und anderen Berufsgruppen\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Pflegefachperson FH oder\n\n• Abgeschlossene Berufsausbildung als Pflegefachperson HF mit Bachelor of Science in Nursing oder Bereitschaft diesen zu absolvieren\n\n• Mindestens 2 Jahre Berufserfahrung im Akutbereich, Chirurgie von Vorteil\n\n• Professionelles Auftreten und Freude an der Weiterentwicklung der Fachgebiete in einem interprofessionellen Team\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Aufgaben:\n• Mitverantwortung für die fachliche Führung der Abteilung\n\n• Arbeit in der direkten klinischen Pflege und Steuerung des pflegediagnostischen Prozesses\n\n• Kontinuierliche Befähigung der Mitarbeitenden durch persönliches Coaching, Schulungen und Fallbesprechungen\n\n• Gewährleistung und Weiterentwicklung der Pflegequalität und Patientensicherheit auf der Abteilung\n\n• Erarbeitung, Anpassung und Evaluierung von fachspezifischen Richtlinien und Weisungen in Zusammenarbeit mit anderen Fachexpertinnen/Fachexperten, Pflegeexpertinnen/Pflegeexperten, und anderen Berufsgruppen\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Pflegefachperson FH oder\n\n• Abgeschlossene Berufsausbildung als Pflegefachperson HF mit Bachelor of Science in Nursing oder Bereitschaft diesen zu absolvieren\n\n• Mindestens 2 Jahre Berufserfahrung im Akutbereich, Chirurgie von Vorteil\n\n• Professionelles Auftreten und Freude an der Weiterentwicklung der Fachgebiete in einem interprofessionellen Team\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "fr": "Tâches :\n• Coresponsabilité pour la gestion technique du département\n\n• Travail en soins cliniques directs et contrôle du processus de diagnostic des infirmières\n\n• Autonomisation continue du personnel grâce à un encadrement personnel, une formation et des discussions de cas\n\n• Assurer et améliorer la qualité des soins et la sécurité des patients dans le département\n\n• Élaboration, adaptation et évaluation de directives et d ' instructions techniques en coopération avec d ' autres experts spécialisés, experts en soins infirmiers et d ' autres groupes professionnels\n\nExigences\n• Formation professionnelle terminée en tant qu'infirmière FH ou\n\n• Formation professionnelle terminée en tant qu'infirmière HF titulaire d'un baccalauréat en sciences infirmières ou volonté de l'achever\n\n• Au moins 2 ans d'expérience professionnelle dans le domaine aigu, chirurgie bénéfique\n\n• Aspect professionnel et plaisir dans le développement des domaines spécialisés dans une équipe interprofessionnelle\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -7199,21 +7217,36 @@
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau",
+        "fachexpertin-fachexperte-pflege-ksa-ch-2",
+        "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+        "expert-care-kantonsspital-aarau-ksa-aarau",
+        "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
+        "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachexpertin-fachexperte-pflege-ksa-ch",
-          "expert-expert-care-kantonsspital-aarau-ksa-aarau"
+          "expert-expert-care-kantonsspital-aarau-ksa-aarau",
+          "fachexpertin-fachexperte-pflege-ksa-ch-2",
+          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau",
+          "expert-care-kantonsspital-aarau-ksa-aarau",
+          "fachexpertin-fachexperte-pflege-ksa-ch-2-9ztjpb",
+          "specialist-care-expert-kantonsspital-aarau-ksa-aarau-bebb8b",
+          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-bebb8b",
+          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau-59e039"
         ],
         "en": [
-          "specialist-care-expert-kantonsspital-aarau-ksa-aarau"
+          "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
+          "specialist-specialist-care-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau",
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T08:42:53.119Z",
       "salaryMin": 88000,
       "salaryMax": 123000,

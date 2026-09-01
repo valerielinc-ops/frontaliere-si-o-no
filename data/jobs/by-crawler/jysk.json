@@ -387,7 +387,8 @@
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "salaryMin": 52000,
-      "salaryMax": 78500
+      "salaryMax": 78500,
+      "needsRetranslation": true
     },
     {
       "id": "company-e3juej",
@@ -518,7 +519,8 @@
       "addressRegion": "GR",
       "salarySource": "estimated",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "needsRetranslation": true
     },
     {
       "id": "company-9yhx5d",
@@ -982,7 +984,7 @@
       },
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Region Netstal",
-        "en": "Store Manager Trainee (a) 80-100% für die Region Netstal",
+        "en": "Store Manager Trainee (a) 80-100% for the Netstal region",
         "de": "Store Manager Auszubildender (a) 80-100% für die Region Netstal",
         "fr": "Store Manager Apprenti (a) 80-100% für die Region Netstal"
       },
@@ -1334,7 +1336,7 @@
       "firstSeenAt": "2026-08-14T21:39:43.868Z",
       "titleByLocale": {
         "it": "Store Manager Apprendista (a) 80-100% per la Filiale St. Gallen",
-        "en": "Store Manager Trainee (a) 80-100% für die Filiale St. Gallen",
+        "en": "Store Manager Trainee (a) 80-100% for the St. Gallen branch",
         "de": "Store Manager Auszubildender (a) 80-100% für die Filiale St. Gallen",
         "fr": "Store Manager Apprenti (a) 80-100% für die Filiale St. Gallen"
       },
@@ -5308,7 +5310,7 @@
       "crawledAt": "2026-07-06T22:30:32.370Z",
       "firstSeenAt": "2026-07-06T22:30:32.370Z",
       "titleByLocale": {
-        "en": "Store Manager Trainee (a) 100% für die Region Basel",
+        "en": "Store Manager Trainee (a) 100% for the Basel region",
         "it": "Store Manager Apprendista (a) 100% per la Region Basel",
         "de": "Store Manager Auszubildender (a) 100% für die Region Basel",
         "fr": "Store Manager Apprenti (a) 100% für die Region Basel"
