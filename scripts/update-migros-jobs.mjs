@@ -229,7 +229,13 @@ export async function fetchMigrosJobDetailUrls() {
       }
 
       await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
-      await nextBtn.click();
+      try {
+        await nextBtn.click();
+      } catch (err) {
+        throw new Error(
+          `Migros discovery incomplete at page ${pageIdx}: next control click failed (${err?.message || err}).`,
+        );
+      }
       pageIdx += 1;
 
       // Re-poll the DOM until the clicked page actually renders new anchors.
