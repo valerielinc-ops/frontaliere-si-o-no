@@ -47,7 +47,7 @@ function generation(previousState: any, jobs: unknown[], options: Record<string,
 function report(observation: any, beforeJobs: unknown[] = [], finalJobs: unknown[] = []) {
   return finalizeTranslationObservabilityReport(buildTranslationObservabilityReport({
     before: snapshot(beforeJobs),
-    final: snapshot(finalJobs),
+    final: snapshot(finalJobs, { measureLanguageQuality: true }),
     runId: '7',
     startedAt: '2026-08-31T00:00:00Z',
     finishedAt: '2026-08-31T00:01:00Z',
@@ -329,6 +329,9 @@ describe('translation observability', () => {
     const history = rollupTranslationObservability(null, one);
     expect(rollupTranslationObservability(history, one)).toEqual(history);
     expect(() => rollupTranslationObservability(history, { ...one, outcome: 'failure' })).toThrow(/digest mismatch/);
+    expect(history.weeks[0].latest.languageQuality).toEqual(one.languageQuality);
+    expect(history.months[0].latest.languageQuality).toEqual(one.languageQuality);
+    expect(history.baselineReports[0].languageQuality).toEqual(one.languageQuality);
 
     let cappedHistory: any = null;
     for (let index = 0; index < 110; index++) {
