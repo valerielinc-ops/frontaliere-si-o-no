@@ -11070,6 +11070,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo : vivre et travailler au Tessin',
     'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Frontière de Lambrugo : guide pratique sur les passages, la fiscalité, l\'AVS et la LAMal. Comment commencer, coûts et avantages de la navette Côme-Tessin.',
     'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Frontalier se rendant au poste frontalier avec le lac de Lugano en arrière-plan',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.title': 'Vivre à Turate et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert de Turate au Tessin.',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;
