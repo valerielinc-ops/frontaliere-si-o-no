@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedBy": "frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs",
-  "generatorSha256": "a58522b03f14072a5f9ba071ebad986bd50eb1edb2189ac9d14e53e41d55b62e",
+  "generatorSha256": "8235fdde17dcfef30c438cfc944a1a91f636efef5d4ff40de3a9f512f7756798",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "groupCount": 23,
   "artifactCount": 24,
@@ -1362,7 +1362,7 @@
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
       "sourceSha256": "25399bdadfab0b46d4cb1f05c48311a76df0d06ab9a74ef6df706e2e3b3cae0e",
-      "artifactSha256": "cf10141ec9f9e99c9acd25a8978288d219016b09cfd1f113ddb445466259c6a1",
+      "artifactSha256": "fd81f8f22d85ba850d0cf058c70b2e8d282342f9318aad9929b0a6e8da99909d",
       "members": []
     }
   ]

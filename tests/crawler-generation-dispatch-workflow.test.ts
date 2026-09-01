@@ -17,14 +17,44 @@ function translateStep(document: string) {
 }
 
 describe('crawler generation PR B workflow wiring', () => {
-  it('keeps the legacy translate step byte-semantically unchanged', () => {
+  it('keeps the legacy dispatch unchanged while queuing only portable translation runs', () => {
     const base = execFileSync('git', ['show', `origin/main:${orchestratorPath}`], { encoding: 'utf8' });
     const current = fs.readFileSync(orchestratorPath, 'utf8');
     expect(translateStep(current)).toEqual(translateStep(base));
     const portableTranslate = '.github/corpus-workflows/translate-pending.yml';
-    expect(fs.readFileSync(portableTranslate, 'utf8')).toBe(
-      execFileSync('git', ['show', `origin/main:${portableTranslate}`], { encoding: 'utf8' }),
-    );
+    const portableCurrent = YAML.parse(fs.readFileSync(portableTranslate, 'utf8'));
+    const portableBase = YAML.parse(execFileSync(
+      'git', ['show', `origin/main:${portableTranslate}`], { encoding: 'utf8' },
+    ));
+    expect(portableCurrent.concurrency).toEqual({
+      group: 'jobs-data-pipeline',
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
+    const { concurrency: _currentConcurrency, ...portableCurrentWithoutConcurrency } = portableCurrent;
+    const { concurrency: _baseConcurrency, ...portableBaseWithoutConcurrency } = portableBase;
+    expect(portableCurrentWithoutConcurrency).toEqual(portableBaseWithoutConcurrency);
+    const sourceTranslate = YAML.parse(fs.readFileSync(
+      '.github/workflows/translate-pending-logic.yml',
+      'utf8',
+    ));
+    const currentTriggerDeploy = portableCurrent.jobs.translate.steps
+      .find((step: any) => step.name === 'Trigger deploy');
+    const sourceTriggerDeploy = sourceTranslate.jobs.translate.steps
+      .find((step: any) => step.name === 'Trigger deploy');
+    expect(currentTriggerDeploy).toBeDefined();
+    expect(sourceTriggerDeploy).toBeDefined();
+    expect(currentTriggerDeploy).toEqual(sourceTriggerDeploy);
+    for (const group of GROUP_IDS) {
+      const crawler = YAML.parse(fs.readFileSync(
+        `.github/corpus-workflows/crawler-group-${group}.yml`,
+        'utf8',
+      ));
+      expect(crawler.concurrency).toEqual({
+        group: `jobs-crawler-group-${group}`,
+        'cancel-in-progress': false,
+      });
+    }
     expect(JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'))
       .crawlerGeneration.dispatchesTranslation).toBe(false);
   });
