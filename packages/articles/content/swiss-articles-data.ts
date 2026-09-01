@@ -14680,6 +14680,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'drg-fatture-trasparenza',
+    category: 'pratico',
+    date: '2026-09-01T05:43:39.095Z',
+    image: '/images/blog/drg-fatture-trasparenza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

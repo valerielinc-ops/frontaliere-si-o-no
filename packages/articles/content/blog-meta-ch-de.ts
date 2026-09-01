@@ -4894,6 +4894,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swiss-life-taglio-posti-lavoro-2028.title': 'Swiss Life wird bis Ende 2028 600 Arbeitsplätze abbauen',
     'blog.article.swiss-life-taglio-posti-lavoro-2028.excerpt': 'Der Lebensversicherungsversicherer kündigte einen Restrukturierungsplan zur Verbesserung der operativen Effizienz an.',
     'blog.article.swiss-life-taglio-posti-lavoro-2028.imageAlt': 'Luftaufnahme des Stadtbildes von Lugano mit dem Hauptsitz von Swiss Life.',
+    'blog.article.drg-fatture-trasparenza.title': 'Krankenhausrechnungen: Warum sie nicht alles erklären',
+    'blog.article.drg-fatture-trasparenza.excerpt': 'Seit 2012 versteckt DRG Diagnosen in der erhaltenen Rechnung. Wie kann man das Krankenhaus um Klärung bitten und mit der Krankenversicherung streiten?',
+    'blog.article.drg-fatture-trasparenza.imageAlt': 'Patient überprüft eine Spitalrechnung am Schreibtisch mit medizinischen Dokumenten',
 };
 
 export default blogMetaChDe;

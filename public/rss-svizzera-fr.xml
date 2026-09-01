@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 01 Sep 2026 05:35:30 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 05:43:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -16,6 +16,102 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Factures d’hôpital : pourquoi ils n’expliquent pas tout</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/drg-factures-hopitales-transparence/</link>
+      <description><![CDATA[Système DRG depuis 2012 cache les diagnostics dans la facture reçue. Comment demander des éclaircissements à l'hôpital et contester auprès de l'assureur-maladie.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Les factures d’hôpital ne montrent pas les diagnostics ni les visites guidées
+- Système de financement DRG depuis 2012 : l’hôpital ne facture pas les services individuels
+- Diagnostics transformés en codes de classification dans le catalogue SwissDRG
+- Le patient doit demander un rapport de codage pour comprendre les détails cliniques
+
+## Faits clés
+- **Quoi** : Factures hospitalières qui omettent des détails cliniques sur les diagnostics et procédures
+- Quand : À partir de 2012 (introduction du système de financement)
+- Où : Hôpitaux suisses (tous admissions aiguës)
+- Qui : Hôpitaux, hôpitaux, SwissDRG, Swiss Patient Organisation
+- Outil : catalogue DRG (Diagnostic-Related Groups) ; classification en catégories prédéfinies
+
+Que peut-on vraiment comprendre d’une facture d’hôpital reçue en Suisse ? En théorie, le principe est simple : après une hospitalisation, le patient reçoit une copie du document et peut vérifier combien il a été facturé, vérifier toute erreur et comprendre la composition de la dépense. Un mécanisme conçu pour garantir la transparence.
+
+En pratique, cependant, la situation est bien plus complexe. Pour ceux qui ne connaissent pas le fonctionnement du système de santé suisse, il peut être presque impossible de reconstituer l’origine des chiffres figurant sur la facture. La principale raison : le système de financement introduit en 2012.
+
+Pour les hospitalisations aiguës, les hôpitaux ne facturent pas simplement pour chaque service effectué. Au lieu de cela, le patient est classé dans une catégorie basée sur le diagnostic et les procédures effectuées. Cette catégorie correspond à un montant prédéterminé.
+
+### Comment fonctionne le système DRG
+
+Après la sortie, les informations cliniques sont converties en codes. Celles-ci permettent de classer l’hospitalisation avec d’autres cas considérés médicalement similaires. Chaque groupe correspond à un certain coût, qui est ensuite lié au tarif de base de l’hôpital.
+
+C’est là qu’une autre variable importante entre en jeu : le tarif de base n’est pas nécessairement le même dans tous les hôpitaux suisses. Il est renégocié chaque année et peut varier d’un établissement à l’autre. Le montant final de la facture représente donc un élément important des coûts de santé pour le patient. Selon Simon Hölzer, PDG de SwissDRG, « des coûts différents peuvent survenir pour un même cas clinique selon l’établissement. »
+
+### Le vide d’information sur la facture
+
+La facture reçue par le patient peut être formellement corrigée et vérifiable via le catalogue SwissDRG. Mais elle ne donne pas l’ensemble du parcours qui a conduit à ce chiffre. En fait, le document ne rapporte pas les diagnostics ni les procédures détaillées utilisées pour déterminer le code attribué à l’hospitalisation.
+
+Pour mieux comprendre le processus, il est donc nécessaire de demander à l’hôpital des documents supplémentaires, tels que le rapport de codage ou le rapport de sortie. La décision de ne pas inclure tous les détails dans la facture est également en partie liée à la protection des données. Comme le souligne Hölzer, « une facture est un document administratif souvent traité par des personnes non médicales. » Inclure des diagnostics sensibles dans un document géré par plusieurs personnes comporterait des risques de violations de la vie privée.
+
+Il n’est pas surprenant que les factures hospitalières soient une source fréquente de questions pour l’Organisation suisse des patients. En cas de doute, le premier contact est le service de facturation de l’hôpital.
+### Le rôle de l’assureur santé
+
+Si vous ne pouvez pas clarifier directement avec l’hôpital, vous pouvez également contacter votre assureur [malattia](nav:health). Selon l’association d’assurance santé Prio Swiss, les assurés ont le droit de demander la révision de la facture. Toute correction est effectuée, mais « souvent discrètement et pas toujours visible pour l’assuré ».
+
+Cet aspect révèle une limitation structurelle du système : le contrôle des factures hospitalières ne se fait pas nécessairement de manière transparente envers le patient. La révision par l’assureur se fait en coulisses, sans que le patient soit toujours informé du résultat ou des changements apportés. C’est une situation qui n’aide pas à la compréhension du patient, même si formellement le droit de contester est garanti.
+
+### Transparence vs. protection des données
+
+Il existe un conflit non résolu entre deux besoins fondamentaux : la transparence envers le patient et la protection des données personnelles. Si la facture incluait des diagnostics détaillés et des procédures spécifiques, le document deviendrait plus compréhensible mais circulerait auprès de plus de personnes (personnel administratif, personnel administratif, intermédiaires potentiels), augmentant ainsi le risque de fuite d’informations sensibles.
+
+Les hôpitaux et les prestataires de soins de santé ont opté pour un compromis : garder les détails cliniques hors de la facture imprimée, obligeant le patient à demander activement des documents supplémentaires s’il souhaite comprendre la classification. C’est un compromis qui privilégie la sécurité des données personnelles au détriment de la commodité immédiate de la compréhension.
+
+### La confiance comme base du système
+
+Ce choix opérationnel signifie que le système suisse de facturation hospitalière repose fondamentalement sur la confiance. Le patient reçoit un document indiquant « vous avez reçu des services, voici le montant », mais il n’a pas les moyens immédiats de vérifier de manière indépendante la justesse de la catégorisation et du tarif appliqué.
+
+L’Organisation suisse des patients a clairement souligné le problème : le système n’est pas transparent. Un professeur de droit cité dans la source admet également la même chose. La reconnaissance officielle que le mécanisme ne fonctionne pas parfaitement en termes de communication avec le patient est une première étape vers d’éventuelles améliorations.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+### Première étape : le bureau de facturation de l’hôpital
+
+Si vous recevez une facture d’hôpital et que vous ne comprenez pas comment elle a été calculée, la première étape consiste à contacter le bureau de facturation de l’établissement où vous avez été admis. Demandez-leur d’expliquer la raison de la catégorisation et les frais de base appliqués. Ils ont l’obligation de répondre et de vous fournir l’accès aux documents ayant conduit à la facture (rapport de codage, rapport de sortie).
+
+### Deuxième étape : demander la documentation clinique
+
+Si vous n’êtes pas satisfait des explications de l’hôpital, vous pouvez officiellement demander :
+- Le rapport de codage : le document qui explique quels diagnostics et procédures ont été enregistrés dans votre cas
+- Le rapport de sortie : la documentation clinique complète de votre séjour
+
+Ces documents contiennent des détails qui n’apparaissent pas sur la facture et vous permettent de vérifier si la classification DRG est correcte. Ils vous appartiennent de droit et l’hôpital ne peut pas refuser l’accès.
+
+### Troisième étape : escalade vers l’assureur
+
+Si vous pensez que la facture est incorrecte ou que le tarif a été mal calculé, vous pouvez demander à votre assureur santé de procéder à un examen. L’assureur dispose des outils et de l’expertise pour vérifier si le montant facturé est conforme au catalogue SwissDRG et au tarif de base de l’hôpital.
+
+Selon Prio Swiss, l’association d’assurance, les assurés ont explicitement le droit de demander un examen. Il est important de savoir que ce droit existe et que vous pouvez l’exercer gratuitement. Soumettez votre demande par écrit, en joignant des documents à l’appui de votre litige.
+
+### Quatrième étape : une escalade supplémentaire
+
+Si l’assureur ne résout pas non plus le problème à votre satisfaction, vous pouvez contacter l’Organisation suisse des patients, qui offre des conseils et des orientations sur les questions de facturation hospitalière et les droits des patients dans le secteur de la santé suisse.
+
+### Liste de contrôle pratique
+
+✓ Demander des clarifications au bureau de facturation de l’hôpital
+✓ Demandez une copie du rapport de codage et du rapport de sortie
+✓ Comparer les codes utilisés avec le catalogue SwissDRG (public)
+✓ Si vous trouvez des incohérences, veuillez contacter votre assureur santé
+✓ Demander un examen formel de la facture par écrit
+
+La transparence dans le système de santé suisse n’est pas automatique : il faut l’activer. Connaître ces étapes et vos droits est la première étape pour vraiment comprendre ce que vous payez lorsque vous recevez une facture d’hôpital.
+
+Vous pouvez en savoir plus sur le fonctionnement des primes et de la couverture santé en Suisse dans notre guide de l’assurance santé.
+
+*Source: [tio.ch](https://www.tio.ch/svizzera/attualita/1946769/fattura-sistema-puo-paziente-documento-fatture-ospedali)*]]></content:encoded>
+      <pubDate>Tue, 01 Sep 2026 05:43:39 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/drg-fatture-trasparenza</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/drg-fatture-trasparenza.webp" medium="image"/>
+    </item>
     <item>
       <title>Swiss Life supprimera 600 emplois d’ici la fin 2028</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/swiss-life-suppression-postes-2028/</link>
@@ -3338,79 +3434,6 @@ Premier jour en tant que frontalier? Notre [guide pratique](nav:first-day) vous 
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/comprare-casa-nidvaldo-mutuo-guida</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/comprare-casa-nidvaldo-mutuo-guida.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Acheter une maison à Nidwald : prix, hypothèque et fonds propres</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/acheter-maison-nidwald-hypotheque/</link>
-      <description><![CDATA[Guide pratique pour l'achat d'une maison dans le canton de Nidwald : marché de niche, règles sur les fonds propres et frais de déménagement.]]></description>
-      <content:encoded><![CDATA[## En bref
-- Acheter une maison dans le canton de Nidwald : marché de niche, prix inférieurs à la moyenne nationale
-- Fonds propres requis : au moins 20 % du prix d'achat pour le prêt hypothécaire
-- 10 % des fonds doivent être « effectivement disponibles », et non de prévoyance
-- Frais accessoires : taxe de passage, frais de notaire et inscription au registre foncier
-
-## Faits clés
-- **Quoi** : Guide pratique pour l'achat d'une maison dans le canton de Nidwald
-- Quand : Scénario de référence actuel pour 2026
-- Où : Canton de Nidwald (Obwald et Suisse centrale)
-- Qui : Acheteurs privés résidant en Suisse
-- Montant : Fonds propres minimaux non encore spécifiés à la source
-- Référence : Prêt hypothécaire régi par la législation fédérale et cantonale
-- Postes de coûts : Taxe de passage, frais de notaire, frais de registre foncier
-- Documents : Contrat préliminaire, inscription au Registre foncier, acte notarié
-
-### Prix moyens et marché immobilier à Nidwald
-
-Le canton de Nidwald compte parmi les plus petits cantons de la Confédération et son marché immobilier reflète cette dimension. Les prix moyens des logements de propriété (maisons unifamiliales et propriétés par étages) ont tendance à se situer en dessous de la moyenne nationale suisse, même si l'écart s'est réduit ces dernières années. La demande provient en grande partie des résidents du canton lui-même et des acheteurs des cantons limitrophes de Suisse centrale.
-
-Pour ceux qui évaluent l'achat,
-### Analyse : combien il est abordable d'acheter une maison à Nidwald
-
-Nidwald présente un profil intéressant pour ceux qui recherchent un équilibre entre coût d'achat et qualité de vie. Le prix d'entrée d'un logement est généralement inférieur à celui des cantons de Zurich, Genève ou Bâle-Ville, mais la différence s'est comprimée. La viabilité de l'hypothèque dépend de trois leviers : revenu hypothécaire, fonds propres et taux d'intérêt hypothécaire.
-
-La règle des 35 % est le paramètre prudentiel utilisé par les établissements de crédit : les frais de logement (intérêts hypothécaires, amortissement et entretien) ne doivent pas dépasser environ un tiers du revenu brut. Ce critère, non codifié en loi fédérale mais appliqué par les banques, définit en pratique le plafond du prêt admissible.
-
-### Comparaison hypothétique : trois scénarios de financement
-
-Scénario A — Achat avec des fonds propres importants : un ménage avec 35-40% de fonds propres disponibles accède à un prêt Ltv à 60-65%, avec des taux plus favorables et des charges mensuelles réduites.
-
-Scénario B — Achat avec des fonds propres minimaux : ceux qui ne disposent que des 20 % requis doivent optimiser la partie obligatoire non liée (10 %) en puisant dans des économies liquides, tandis que les 10 % restants peuvent provenir d'une avance LPP ou d'un prélèvement 3a.
-
-Scénario C — Achat sous-dimensionné : ceux qui n'atteignent pas 20 % de fonds propres n'obtiennent pas de financement bancaire. La LPP et le 3a ne peuvent combler l'écart que jusqu'à 10% du prix
-
-## Outils utiles pour la planification
-Pour estimer votre stratégie retraite, utilisez le [planificateur retraite](nav:pension) et le [simulateur 3e pilier](nav:pillar3).
-### Procédure concrète : acheter une maison à Nidwald
-
-L'achat d'un logement en Suisse suit une séquence d'étapes standardisées au niveau fédéral (droit des obligations, CO), avec des éléments cantonaux spécifiques à Nidwald. Voici les étapes opérationnelles.
-
-### Étape 1 : Vérification financière et fonds propres
-
-Avant la recherche, l'acheteur potentiel rassemble les documents nécessaires à la vérification bancaire : trois derniers bulletins de salaire, extrait de la caisse de pension, extrait du pilier 3a, certificat de fortune et tableau des dettes en cours. La banque calcule le revenu hypothécable et le plafond du prêt hypothécaire accordable en appliquant la règle des 35 % sur les coûts du logement. Pour les salariés avec contrat à durée indéterminée, le revenu hypothécable est généralement basé sur le salaire brut.
-
-### Étape 2 : Recherche, offre et contrat préliminaire
-
-La recherche du bien immobilier se fait via des portails immobiliers suisses et des agences locales. Après l'acceptation de l'offre, on signe un contrat préliminaire (Reservierungsvertrag ou Kaufvertrag) avec versement d'un acompte confirmatoire. Le notaire est impliqué à ce stade pour la rédaction de l'acte authentique.
-
-### Étape 3 : Acte notarié et inscription au Registre foncier
-
-L'acte authentique de vente est rédigé par un notaire habilité à Nidwald. Les frais de notaire suivent les tarifs propres au canton de Nidwald. L'inscription au Registre foncier (Grundbuch) est obligatoire pour le transfert de propriété : sans inscription, l'acheteur ne devient pas propriétaire à part entière.
-
-### Étape 4 : Paiement du prix et impôts
-
-Le paiement du prix s'effectue via un compte bloqué ou un dépôt fiduciaire. L'impôt sur les transferts immobiliers est dû sur l'acte de vente et suit le taux et les exonérations prévus par la législation cantonale de Nidwald. À Nidwald, des exonérations spécifiques sont prévues pour certains transferts, par exemple entre époux ou en cas de succession.
-
-### Étape 5 : Coûts récurrents post-achat
-
-Après l'achat, le logement génère des coûts récurrents : impôts sur la fortune (IFD fédéral, impôts cantonaux et communaux), prime LAMal pour le foyer fiscal, primes SUVA si l'on est travailleur indépendant, taxe d'élimination des déchets communale. Le multiplicateur communal à Nidwald s'applique à l'impôt cantonal et varie selon la commune.
-
-### Outils utiles sur le site
-
-Pour planifier le budget post-achat, utilisez le [calculateur de salaire](nav:calculator) pour simuler l'impact des cotisations sociales et de l'IFD sur le revenu net. Pour la comparaison du pouvoir d'achat avec la frontière, le [comparateur de change](nav:exchange) CHF/EUR est mis à jour quotidiennement. Pour estimer la charge annuelle de la LAMal, consultez le [guide caisse-maladie](nav:health) avec les primes moyennes par canton.]]></content:encoded>
-      <pubDate>Sun, 30 Aug 2026 12:25:42 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/casa-nidvaldo-mutuo-fondi-propri</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/casa-nidvaldo-mutuo-fondi-propri.webp" medium="image"/>
     </item>
   </channel>
 </rss>
