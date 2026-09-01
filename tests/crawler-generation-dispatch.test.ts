@@ -145,6 +145,38 @@ describe('crawler generation dispatch protocol', () => {
     }
   });
 
+  it('derives the dispatch ref from the validated generationToken field, not a runName regex', () => {
+    const binding = {
+      ...crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit),
+      runName: 'renamed-run-name-format-that-no-regex-would-parse',
+    };
+    const run = {
+      id: 7001,
+      repository: { full_name: repository },
+      name: binding.workflowName,
+      display_title: binding.runName,
+      path: `.github/workflows/${binding.workflowFile}`,
+      event: 'workflow_dispatch',
+      head_branch: dispatchRef,
+      head_sha: corpusCodeCommit,
+      run_attempt: 1,
+      status: 'queued',
+      conclusion: null,
+    };
+    const result = validateCrawlerGenerationWorkflowRun(run, binding);
+    expect(result.errors).not.toContain('head_branch_mismatch');
+    expect(result.errors).not.toContain('workflow_path_mismatch');
+  });
+
+  it('fails closed when the binding carries an invalid or missing generationToken', () => {
+    const binding = { ...crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit), generationToken: null };
+    const run = boundRun('01', 7001, corpusCodeCommit);
+    const result = validateCrawlerGenerationWorkflowRun(run, binding);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('workflow_path_mismatch');
+    expect(result.errors).toContain('head_branch_mismatch');
+  });
+
   it('rejects translate or a group/workflow mismatch before any POST', async () => {
     const request = vi.fn();
     await expect(dispatchWorkflowOnce({

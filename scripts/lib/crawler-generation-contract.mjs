@@ -125,6 +125,7 @@ export function crawlerGenerationWorkflowIdentity(group, generationToken, runId,
     workflowName: crawlerGenerationWorkflowName(group),
     runId: boundRunId,
     runName: crawlerGenerationRunName(group, generationToken),
+    generationToken: isCrawlerGenerationToken(generationToken) ? generationToken : null,
     artifactName: boundRunId === null ? null : `crawler-group-${group}-terminal-${boundRunId}`,
     corpusCodeCommit: COMMIT_RE.test(corpusCodeCommit ?? '') ? corpusCodeCommit : null,
   };
@@ -143,6 +144,7 @@ export function crawlerGenerationSentinelWorkflowIdentity(generationToken, runId
     workflowName: 'Crawler Generation Observer (shadow)',
     runId: validRunId(String(runId ?? '')) ? String(runId) : null,
     runName: `crawler-generation-sentinel-${generationToken}`,
+    generationToken: isCrawlerGenerationToken(generationToken) ? generationToken : null,
     artifactName: validRunId(String(runId ?? ''))
       ? `crawler-generation-sentinel-${generationToken}`
       : null,
@@ -162,11 +164,9 @@ export function crawlerGenerationDispatchRef(generationToken) {
 
 function dispatchRefForBinding(binding) {
   if (!binding?.corpusCodeCommit) return 'main';
-  const runName = binding?.runName ?? '';
-  const groupMatch = /^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(?:0[1-9]|1[0-9]|2[0-3])$/.exec(runName);
-  const sentinelMatch = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(runName);
-  const generationToken = groupMatch?.[1] ?? sentinelMatch?.[1] ?? null;
-  return generationToken ? crawlerGenerationDispatchRef(generationToken) : null;
+  return isCrawlerGenerationToken(binding?.generationToken)
+    ? crawlerGenerationDispatchRef(binding.generationToken)
+    : null;
 }
 
 /**
@@ -624,7 +624,7 @@ export function validateCrawlerGenerationSentinel(sentinel) {
     const runIds = [];
     for (const group of GROUP_IDS) {
       const entry = sentinel.groups[group];
-      if (!exactKeys(entry, ['workflowFile', 'workflowName', 'runId', 'runName', 'artifactName', 'corpusCodeCommit'])) {
+      if (!exactKeys(entry, ['workflowFile', 'workflowName', 'runId', 'runName', 'generationToken', 'artifactName', 'corpusCodeCommit'])) {
         errors.push('invalid_group_binding_schema');
         continue;
       }

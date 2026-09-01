@@ -60,6 +60,7 @@ describe('crawler generation sentinel contract', () => {
         workflowName: `Crawler Group ${group} (sparse cross-repo execution)`,
         runId: runIds()[group],
         runName: `crawler-generation-9001-2-group-${group}`,
+        generationToken: '9001-2',
         artifactName: `crawler-group-${group}-terminal-${runIds()[group]}`,
         corpusCodeCommit: CORPUS_CODE_COMMIT,
       });
