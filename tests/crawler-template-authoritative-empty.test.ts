@@ -12,6 +12,9 @@ const mocks = vi.hoisted(() => ({
     companyKey: 'authoritative-empty-test',
   }]),
   runDedicatedBaseCrawler: vi.fn(async () => undefined),
+  mergePreserveLocaleData: vi.fn((existing: object[], fresh: object[], opts: { retainMissingJobs?: boolean } = {}) => (
+    opts.retainMissingJobs === false ? fresh : [...fresh, ...existing]
+  )),
   validateDedicatedLocaleCoverage: vi.fn(() => undefined),
   writeJobsCrawlerSliceVerified: vi.fn(async () => ({ written: true, shrinkAccepted: false })),
   writeSummaryCrawlerSlice: vi.fn(() => undefined),
@@ -48,7 +51,7 @@ vi.mock('../scripts/assemble-jobs-dataset.mjs', () => ({
 vi.mock('../scripts/lib/dedicated-crawler-common.mjs', () => ({
   runDedicatedBaseCrawler: mocks.runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage: mocks.validateDedicatedLocaleCoverage,
-  mergePreserveLocaleData: (_existing: object[], fresh: object[]) => fresh,
+  mergePreserveLocaleData: mocks.mergePreserveLocaleData,
   detectLang: vi.fn(() => 'it'),
   deriveLocalizedSlug: vi.fn(() => 'slug'),
 }));
@@ -171,5 +174,50 @@ describe('standard crawler authoritative-empty policy', () => {
       allowAuthoritativeEmptySnapshot: true,
       companyLabel: 'Test',
     }).authoritativeEmptySnapshot).toBe(false);
+  });
+
+  it('keeps miss grace for non-empty partial batches when authority is empty-only', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-partial-root-'));
+    const validator = vi.fn(() => true);
+    const freshJob = {
+      id: 'test-fresh-1',
+      slug: 'fresh-job',
+      companyKey: COMPANY_KEY,
+      title: 'Fresh job',
+      description: 'A sufficiently detailed fresh job description for the fixture.',
+      location: 'Lugano',
+      canton: 'TI',
+      url: 'https://example.com/jobs/fresh',
+    };
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Authoritative Partial Test',
+        root,
+        fetchJobs: async () => [freshJob],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: validator,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.mergePreserveLocaleData).toHaveBeenCalledWith(
+      expect.any(Array),
+      [freshJob],
+      {},
+    );
+    expect(validator).not.toHaveBeenCalled();
+    expect(mocks.archiveRemovedJobsToSlice).not.toHaveBeenCalled();
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      expect.arrayContaining([
+        expect.objectContaining({ id: 'test-fresh-1' }),
+        expect.objectContaining({ id: 'test-old-1' }),
+      ]),
+      expect.any(Object),
+    );
   });
 });

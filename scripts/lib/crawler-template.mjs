@@ -793,6 +793,7 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
  * @property {(jobs: object[]|undefined|null) => boolean} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
  * @property {boolean}  [allowAuthoritativeEmptySnapshot] — Publish a source-proven zero instead of keeping stale rows
+ * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  */
 
@@ -805,6 +806,7 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @param {{
  *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean,
  *   allowAuthoritativeEmptySnapshot?: boolean,
+ *   authoritativeSnapshotScope?: 'all'|'empty-only',
  *   companyLabel?: string,
  * }} [options]
  * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean }}
@@ -813,10 +815,16 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
   const {
     validateAuthoritativeSnapshot,
     allowAuthoritativeEmptySnapshot = false,
+    authoritativeSnapshotScope = 'all',
     companyLabel = 'Crawler',
   } = options;
+  if (!['all', 'empty-only'].includes(authoritativeSnapshotScope)) {
+    throw new Error(`${companyLabel}: invalid authoritative snapshot scope`);
+  }
   let authoritativeSnapshotVerified = false;
-  if (validateAuthoritativeSnapshot) {
+  const snapshotIsWithinAuthorityScope = authoritativeSnapshotScope === 'all'
+    || (Array.isArray(parsedJobs) && parsedJobs.length === 0);
+  if (validateAuthoritativeSnapshot && snapshotIsWithinAuthorityScope) {
     if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
       throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
     }
@@ -927,6 +935,7 @@ export async function runStandardCrawlerPipeline(config) {
     preserveExistingSlugs = false,
     validateAuthoritativeSnapshot,
     allowAuthoritativeEmptySnapshot = false,
+    authoritativeSnapshotScope = 'all',
     baseCrawlerOpts = {},
   } = config;
 
@@ -1009,7 +1018,12 @@ export async function runStandardCrawlerPipeline(config) {
   // degraded crawl fails closed with the existing slice untouched.
   const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(
     parsedJobs,
-    { validateAuthoritativeSnapshot, allowAuthoritativeEmptySnapshot, companyLabel },
+    {
+      validateAuthoritativeSnapshot,
+      allowAuthoritativeEmptySnapshot,
+      authoritativeSnapshotScope,
+      companyLabel,
+    },
   );
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
