@@ -4957,6 +4957,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-requisiti-patrimoniali.title': 'UBS conteste la proposition cet-S sur les exigences de fonds propres',
     'blog.article.ubs-requisiti-patrimoniali.excerpt': 'La grande banque apprécie le travail de la Commission mais critique les nouvelles exigences en capitaux, qui coûteraient au total 30 milliards de dollars.',
     'blog.article.ubs-requisiti-patrimoniali.imageAlt': 'Bureau bancaire suisse avec documents de capital et graphiques financiers affichés.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.title': 'Employés de la banque : l’ASIB accepte la réglementation UBS',
+    'blog.article.sindacato-banca-ubs-regolamentazione.excerpt': 'L’ASIB soutient la proposition du CET-S de réguler UBS et appelle à des plans sociaux obligatoires alors que le secteur bancaire fait face à une crise d’emploi sans précédent.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.imageAlt': 'Enseigne bancaire suisse symbolisant le débat sur la réglementation et l\'emploi du secteur financier helvétique',
 };
 
 export default blogMetaChFr;

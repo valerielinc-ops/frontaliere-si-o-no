@@ -64331,6 +64331,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacato-banca-ubs-regolamentazione': {
+    title: 'Impiegati banca: ASIB accoglie normativa UBS | Frontaliere Ticino',
+    description: 'L\'ASIB sostiene la proposta della CET-S per regolamentare UBS e chiede piani sociali obbligatori mentre il settore bancario affronta una crisi occupazionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, impiegati, banca, asib, accoglie',
+    ogTitle: 'Impiegati banca: ASIB accoglie normativa UBS',
+    ogDescription: 'Il sindacato ASIB sostiene la normativa CET-S per UBS e chiede piani sociali obbligatori mentre il settore bancario affronta una crisi occupazionale con licenziamenti annunciati da Raiffeisen e Swiss Life.',
+    canonicalPath: '/articoli-svizzera/sindacato-banca-ubs-regolamentazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Impiegati banca: ASIB accoglie normativa UBS",
+      "description": "L'ASIB sostiene la proposta della CET-S per regolamentare UBS e chiede piani sociali obbligatori mentre il settore bancario affronta una crisi occupazionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sindacato-banca-ubs-regolamentazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede di una banca svizzera con insegna luminosa, simbolo del dibattito su normativa e occupazione nel settore finanziario elvetico"
+      },
+      "datePublished": "2026-09-01T15:27:16+00:00",
+      "dateModified": "2026-09-01T15:27:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sindacato-banca-ubs-regolamentazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

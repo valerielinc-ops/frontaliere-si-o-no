@@ -1678,6 +1678,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tasso-ipotecario-riferimento-1-25-2026': { it: 'tasso-ipotecario-riferimento-1-25-2026', en: 'reference-mortgage-rate-1-25-2026', de: 'referenz-hypothekarzinssatz-1-25-2026', fr: 'taux-hippocaire-de-reference-1-25-2026' },
  'asib-normativa-ubs-sostegno': { it: 'asib-normativa-ubs-sostegno', en: 'asib-ubs-regulation-support', de: 'asib-ubs-regulierung-unterstuetzung', fr: 'asib-reglementation-ubs-soutien' },
  'ubs-requisiti-patrimoniali': { it: 'ubs-requisiti-patrimoniali', en: 'ubs-capital-requirements', de: 'ubs-kapitalanforderungen', fr: 'ubs-exigences-capitales' },
+ 'sindacato-banca-ubs-regolamentazione': { it: 'sindacato-banca-ubs-regolamentazione', en: 'bank-employees-asib-supports-ubs-regulation', de: 'bankangestellte-asib-ubs-verordnung', fr: 'employes-banque-asib-norme-ubs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
