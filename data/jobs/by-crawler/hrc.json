@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeute-h-f-a-100-hrc-rennaz",
-        "fisioterapia-100-m-f-hopital-riviera-chablais-hrc-rennaz"
+        "physiotherapeute-h-f-a-100-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-h-f-a-100-hrc-rennaz",
-          "fisioterapia-100-m-f-hopital-riviera-chablais-hrc-rennaz"
+          "physiotherapeute-h-f-a-100-hrc-rennaz"
         ],
         "en": [
           "physiotherapeute-h-f-a-100-hrc-rennaz"
@@ -131,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeute-h-f-a-60-80-hrc-rennaz",
-        "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
+        "physiotherapeute-h-f-a-60-80-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-h-f-a-60-80-hrc-rennaz",
-          "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
+          "physiotherapeute-h-f-a-60-80-hrc-rennaz"
         ]
       },
       "firstSeenAt": "2026-08-31T17:22:56.035Z",
@@ -157,11 +153,11 @@
     },
     {
       "id": "hrc-cf4070c01107",
-      "slug": "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz",
+      "slug": "specialista-in-fitness-adattato-m-f-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz",
-        "en": "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz",
-        "de": "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz",
+        "it": "specialista-in-fitness-adattato-m-f-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "specialist-in-fitness-adapted-m-f-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "spezialist-fur-fitness-angepasst-m-w-100-hopital-riviera-chablais-hrc-rennaz",
         "fr": "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -216,7 +212,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
+        ],
+        "en": [
+          "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
+        ],
+        "de": [
+          "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-ccda912e1af3",

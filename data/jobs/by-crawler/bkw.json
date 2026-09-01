@@ -6821,12 +6821,12 @@
     },
     {
       "id": "bkw-30a8a60e9339",
-      "slug": "netzelektriker-in-alle-bkw-ch",
+      "slug": "griglia-elettricista-in-tutti-bkw-wangen-an-der-aare",
       "slugByLocale": {
-        "it": "netzelektriker-in-alle-bkw-ch",
-        "en": "netzelektriker-in-alle-bkw-ch",
+        "it": "griglia-elettricista-in-tutti-bkw-wangen-an-der-aare",
+        "en": "grid-electrician-in-all-bkw-wangen-an-der-aare",
         "de": "netzelektriker-in-alle-bkw-ch",
-        "fr": "netzelektriker-in-alle-bkw-ch"
+        "fr": "electricien-du-reseau-en-tous-bkw-wangen-an-der-aare"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -6882,7 +6882,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "netzelektriker-in-alle-bkw-ch"
+        ],
+        "en": [
+          "netzelektriker-in-alle-bkw-ch"
+        ],
+        "fr": [
+          "netzelektriker-in-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "netzelektriker-in-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-5c616aacf94c",
@@ -23734,7 +23748,6 @@
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
           "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy",
           "apprenticeship-electrical-installer-in-efz-all-bkw-zuchwil",
           "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zuchwil",
@@ -23747,18 +23760,15 @@
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-10"
         ],
         "en": [
-          "apprenticeship-electrical-installer-in-efz-all-bkw-zuchwil",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
         ],
         "fr": [
-          "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zuchwil",
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3"
         ]
       },
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-3",
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil",
         "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-zuchwil-hzaevy",
         "apprenticeship-electrical-installer-in-efz-all-bkw-zuchwil",
         "installateur-electrique-d-apprentissage-dans-efz-tous-bkw-zuchwil",
@@ -24178,8 +24188,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5",
-          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-          "apprendistato-montage-elektriker-in-cfc-alle-bkw-oensingen"
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
         ],
         "en": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5"
@@ -24190,8 +24199,7 @@
       },
       "previousSlugs": [
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-5",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "apprendistato-montage-elektriker-in-cfc-alle-bkw-oensingen"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -24261,16 +24269,14 @@
       "firstSeenAt": "2026-09-01T07:37:26.940Z",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-group-topics-bkw-ch",
-          "responsabile-group-topics-bkw-bern"
+          "head-of-group-topics-bkw-ch"
         ],
         "fr": [
           "head-of-group-topics-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "head-of-group-topics-bkw-ch",
-        "responsabile-group-topics-bkw-bern"
+        "head-of-group-topics-bkw-ch"
       ],
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -24339,8 +24345,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6",
-          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-oensingen"
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6"
@@ -24351,8 +24356,7 @@
       },
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-6",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-oensingen"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -24435,16 +24439,14 @@
       "firstSeenAt": "2026-09-01T07:37:26.936Z",
       "previousSlugsByLocale": {
         "it": [
-          "security-engineer-bkw-ch",
-          "security-ingegnere-bkw-bern"
+          "security-engineer-bkw-ch"
         ],
         "fr": [
           "security-engineer-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "security-engineer-bkw-ch",
-        "security-ingegnere-bkw-bern"
+        "security-engineer-bkw-ch"
       ]
     },
     {
@@ -24500,8 +24502,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6",
-          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-          "apprendistato-montage-elektriker-in-cfc-alle-bkw-kestenholz"
+          "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
         ],
         "en": [
           "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6"
@@ -24512,8 +24513,7 @@
       },
       "previousSlugs": [
         "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch-6",
-        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch",
-        "apprendistato-montage-elektriker-in-cfc-alle-bkw-kestenholz"
+        "lehrstelle-montage-elektriker-in-efz-alle-bkw-ch"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -24596,16 +24596,14 @@
       "firstSeenAt": "2026-09-01T07:37:26.934Z",
       "previousSlugsByLocale": {
         "it": [
-          "security-architect-bkw-ch",
-          "security-architetto-bkw-bern"
+          "security-architect-bkw-ch"
         ],
         "fr": [
           "security-architect-bkw-ch"
         ]
       },
       "previousSlugs": [
-        "security-architect-bkw-ch",
-        "security-architetto-bkw-bern"
+        "security-architect-bkw-ch"
       ]
     },
     {
@@ -24661,8 +24659,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-7",
-          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-kestenholz"
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-7"
@@ -24673,8 +24670,7 @@
       },
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-7",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-kestenholz"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -24744,8 +24740,7 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8",
-          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-          "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-matzendorf"
+          "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
         ],
         "en": [
           "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8"
@@ -24756,8 +24751,7 @@
       },
       "previousSlugs": [
         "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch-8",
-        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch",
-        "apprendistato-installatore-trice-elettrico-a-in-cfc-alle-bkw-matzendorf"
+        "lehrstelle-elektroinstallateur-in-efz-alle-bkw-ch"
       ],
       "salaryMin": 53000,
       "salaryMax": 80500,
@@ -24780,8 +24774,8 @@
       "slugByLocale": {
         "de": "fachspezialist-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "fachspezialist-in-elektro-installatore-trice-elettrico-a-in-cfc-alle-bkw-schwarzenburg",
-        "en": "fachspezialist-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "fachspezialist-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "specialist-in-electrical-electrical-installer-in-efz-all-bkw-schwarzenburg",
+        "fr": "specialiste-dans-l-installation-electrique-electrique-dans-l-efz-tous-bkw-schwarzenburg"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24829,6 +24823,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "fachspezialist-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-elektro-elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -24855,8 +24855,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-gstaad",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch"
+        "en": "electrical-installer-in-efz-all-bkw-gstaad",
+        "fr": "installateur-electrique-dans-efz-tous-bkw-gstaad"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24904,6 +24904,12 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-alle-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -24930,8 +24936,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-gwatt-thun",
-        "en": "bauleiter-in-elektro-alle-bkw-ch-2",
-        "fr": "bauleiter-in-elektro-alle-bkw-ch-2"
+        "en": "construction-manager-in-electric-all-bkw-gwatt-thun",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-gwatt-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -24980,6 +24986,12 @@
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch-2",
           "bauleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleiter-in-elektro-alle-bkw-ch-2"
+        ],
+        "fr": [
+          "bauleiter-in-elektro-alle-bkw-ch-2"
         ]
       },
       "previousSlugs": [
@@ -25007,8 +25019,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-ostermundigen",
-        "en": "bauleiter-in-elektro-alle-bkw-ch-3",
-        "fr": "bauleiter-in-elektro-alle-bkw-ch-3"
+        "en": "construction-manager-in-electric-all-bkw-ostermundigen",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25057,6 +25069,12 @@
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch-3",
           "bauleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleiter-in-elektro-alle-bkw-ch-3"
+        ],
+        "fr": [
+          "bauleiter-in-elektro-alle-bkw-ch-3"
         ]
       },
       "previousSlugs": [
@@ -25084,8 +25102,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-nidau",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch-2",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch-2"
+        "en": "electrical-installer-in-efz-all-bkw-nidau",
+        "fr": "installateur-electrique-dans-efz-tous-bkw-nidau"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25134,6 +25152,12 @@
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch-2",
           "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-2"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-2"
         ]
       },
       "previousSlugs": [
@@ -25161,8 +25185,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-lengnau",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch-3",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        "en": "electrical-installer-in-efz-all-bkw-lengnau",
+        "fr": "installateur-electrique-dans-efz-tous-bkw-lengnau"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25211,6 +25235,12 @@
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch-3",
           "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-3"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-3"
         ]
       },
       "previousSlugs": [
@@ -25238,8 +25268,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-utzenstorf",
-        "en": "bauleiter-in-elektro-alle-bkw-ch-4",
-        "fr": "bauleiter-in-elektro-alle-bkw-ch-4"
+        "en": "construction-manager-in-electric-all-bkw-utzenstorf",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-utzenstorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25288,6 +25318,12 @@
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch-4",
           "bauleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleiter-in-elektro-alle-bkw-ch-4"
+        ],
+        "fr": [
+          "bauleiter-in-elektro-alle-bkw-ch-4"
         ]
       },
       "previousSlugs": [
@@ -25315,8 +25351,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-efz-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-alle-bkw-gwatt-thun",
-        "en": "elektroinstallateur-in-efz-alle-bkw-ch-4",
-        "fr": "elektroinstallateur-in-efz-alle-bkw-ch-4"
+        "en": "electrical-installer-in-efz-all-bkw-gwatt-thun",
+        "fr": "installateur-electrique-dans-efz-tous-bkw-gwatt-thun"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25365,6 +25401,12 @@
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch-4",
           "elektroinstallateur-in-efz-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-4"
+        ],
+        "fr": [
+          "elektroinstallateur-in-efz-alle-bkw-ch-4"
         ]
       },
       "previousSlugs": [
@@ -25392,8 +25434,8 @@
       "slugByLocale": {
         "de": "bauleiter-in-elektro-alle-bkw-ch",
         "it": "direttore-trice-lavori-elektro-alle-bkw-nidau",
-        "en": "bauleiter-in-elektro-alle-bkw-ch-5",
-        "fr": "bauleiter-in-elektro-alle-bkw-ch-5"
+        "en": "construction-manager-in-electric-all-bkw-nidau",
+        "fr": "directeur-de-construction-en-electric-tous-bkw-nidau"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25442,6 +25484,12 @@
         "it": [
           "bauleiter-in-elektro-alle-bkw-ch-5",
           "bauleiter-in-elektro-alle-bkw-ch"
+        ],
+        "en": [
+          "bauleiter-in-elektro-alle-bkw-ch-5"
+        ],
+        "fr": [
+          "bauleiter-in-elektro-alle-bkw-ch-5"
         ]
       },
       "previousSlugs": [
@@ -25469,8 +25517,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-alle-bkw-ch",
         "it": "installatore-trice-elettrico-a-in-alle-bkw-utzenstorf",
-        "en": "elektroinstallateur-in-alle-bkw-utzenstorf",
-        "fr": "elektroinstallateur-in-alle-bkw-utzenstorf"
+        "en": "electrical-installer-in-all-bkw-utzenstorf",
+        "fr": "installateur-electrique-en-tous-bkw-utzenstorf"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -25518,10 +25566,17 @@
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-alle-bkw-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-alle-bkw-utzenstorf"
+        ],
+        "fr": [
+          "elektroinstallateur-in-alle-bkw-utzenstorf"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-in-alle-bkw-ch"
+        "elektroinstallateur-in-alle-bkw-ch",
+        "elektroinstallateur-in-alle-bkw-utzenstorf"
       ],
       "salaryMin": 77000,
       "salaryMax": 116500,

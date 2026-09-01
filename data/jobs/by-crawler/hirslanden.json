@@ -16371,7 +16371,7 @@
       "slugByLocale": {
         "de": "assistant-e-administratif-ve-aux-admissions-et-receptions-a-20-flexible-hirslanden",
         "fr": "assistant-e-administratif-ve-aux-admissions-et-receptions-a-20-flexible-hirslanden",
-        "it": "assistant-e-administratif-ve-aux-admissions-et-receptions-a-20-flexible-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "it": "assistente-amministrativo-per-il-20-ammissioni-e-ricevimenti-flessibili-hirslanden-klinik-lausanne",
         "en": "assistente-amministrativo-per-il-20-ammissioni-e-ricevimenti-flessibili-hirslanden-klinik-lausanne"
       },
       "company": "Hirslanden Klinik",
@@ -16429,7 +16429,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T10:21:21.925Z"
+      "firstSeenAt": "2026-09-01T10:21:21.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-aux-admissions-et-receptions-a-20-flexible-hirslanden-klinik-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-aux-admissions-et-receptions-a-20-flexible-hirslanden-klinik-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-477a4479c8d3",
@@ -27052,8 +27060,8 @@
       "slug": "pharmacien-ne-adjoint-e-a-70-hirslanden-klinik-lausanne",
       "slugByLocale": {
         "it": "pharmacien-ne-adjoint-e-a-70-hirslanden-klinik-lausanne",
-        "en": "pharmacien-ne-adjoint-e-a-70-hirslanden-lausanne",
-        "de": "pharmacien-ne-adjoint-e-a-70-hirslanden-lausanne",
+        "en": "associate-pharmacist-at-70-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "de": "associate-apotheker-bei-70-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "pharmacien-ne-adjoint-e-a-70-hirslanden-lausanne"
       },
       "company": "Hirslanden Klinik",
@@ -27097,6 +27105,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "pharmacien-ne-adjoint-e-a-70-hirslanden-lausanne"
+        ],
+        "en": [
+          "pharmacien-ne-adjoint-e-a-70-hirslanden-lausanne"
+        ],
+        "de": [
           "pharmacien-ne-adjoint-e-a-70-hirslanden-lausanne"
         ]
       },

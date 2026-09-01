@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
-        "staff-frontend-ingegnere-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich"
+        "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace",
-          "staff-frontend-ingegnere-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group-zurich"
+          "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace"
         ],
         "de": [
           "staff-frontend-engineer-f-m-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace"
@@ -84,12 +82,12 @@
     },
     {
       "id": "smg-swiss-marketplace-group-9e48ffa9ebc0",
-      "slug": "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
+      "slug": "studente-in-valutazione-immobiliare-m-f-d-40-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace-group-zurich",
       "slugByLocale": {
-        "it": "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
+        "it": "studente-in-valutazione-immobiliare-m-f-d-40-modello-di-lavoro-ibrido-zurigo-smg-swiss-marketplace-group-zurich",
         "en": "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
         "de": "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss",
-        "fr": "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss"
+        "fr": "apprentissage-etudiant-in-evaluation-immobiliere-h-f-d-smg-swiss-marketplace-group-zurich"
       },
       "company": "SMG Swiss Marketplace Group",
       "companyKey": "smg-swiss-marketplace-group",
@@ -144,7 +142,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss"
+        ],
+        "fr": [
+          "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss"
+        ]
+      },
+      "previousSlugs": [
+        "werkstudent-in-real-estate-valuation-f-m-d-40-hybrid-working-model-zurich-smg-swiss"
+      ]
     },
     {
       "id": "smg-swiss-marketplace-group-58e0665457d5",
@@ -194,13 +203,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg",
-        "key-account-manager-banks-financial-institutions-m-f-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group"
+        "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg",
-          "key-account-manager-banks-financial-institutions-m-f-d-80-100-hybrid-working-model-zurich-smg-swiss-marketplace-group"
+          "key-account-manager-banken-finanzinstitute-f-m-d-80-100-hybrid-working-model-zurich-smg"
         ]
       },
       "firstSeenAt": "2026-08-27T19:53:53.311Z",

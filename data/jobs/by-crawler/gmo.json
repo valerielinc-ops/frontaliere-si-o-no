@@ -256,11 +256,11 @@
     },
     {
       "id": "gmo-ac7868278538",
-      "slug": "psychologue-psychotherapeute-fsp-gmo-ch",
+      "slug": "psicologia-psicoterapeuta-fsp-gmo-lugano",
       "slugByLocale": {
-        "it": "psychologue-psychotherapeute-fsp-gmo-ch",
-        "en": "psychologue-psychotherapeute-fsp-gmo-ch",
-        "de": "psychologue-psychotherapeute-fsp-gmo-ch",
+        "it": "psicologia-psicoterapeuta-fsp-gmo-lugano",
+        "en": "psychologist-psychotherapist-fsp-gmo-lugano",
+        "de": "psychologe-psychotherapeut-fsp-gmo-lugano",
         "fr": "psychologue-psychotherapeute-fsp-gmo-ch"
       },
       "company": "gmo",
@@ -314,7 +314,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-fsp-gmo-ch"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-fsp-gmo-ch"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-fsp-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-fsp-gmo-ch"
+      ]
     },
     {
       "id": "gmo-576ebe7aaad6",
@@ -635,12 +649,12 @@
     },
     {
       "id": "gmo-45ad69cc39fe",
-      "slug": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
+      "slug": "un-infermiera-d-emergenza-gmo-lugano",
       "slugByLocale": {
         "fr": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
-        "it": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
-        "en": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch",
-        "de": "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+        "it": "un-infermiera-d-emergenza-gmo-lugano",
+        "en": "an-emergency-nurse-gmo-lugano",
+        "de": "eine-notfallkrankenschwester-gmo-lugano"
       },
       "company": "gmo",
       "companyKey": "gmo",
@@ -696,7 +710,21 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-28T05:19:26.557Z",
       "crawlerMissStreak": 1,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+        ],
+        "en": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+        ],
+        "de": [
+          "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-infirmier-iere-responsable-du-service-d-urgences-gmo-ch"
+      ]
     }
   ]
 }

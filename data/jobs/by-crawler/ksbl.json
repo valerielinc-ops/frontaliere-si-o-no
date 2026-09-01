@@ -166,7 +166,6 @@
       "previousSlugs": [
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
       ],
@@ -174,7 +173,6 @@
         "it": [
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
           "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
         ],
@@ -455,10 +453,10 @@
       "id": "ksbl-1f87f6de291d",
       "slug": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
+        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "fr": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
+        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -501,21 +499,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "en": [
-          "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "fr": [
-          "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-09-01T08:51:40.852Z",
@@ -2263,13 +2251,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-sanitar-a-ksbl-liestal",
-        "addetto-a-tecnica-degli-edifici-hlkks-kantonsspital-baselland-ksbl-liestal"
+        "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-sanitar-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-sanitar-a-ksbl-liestal",
-          "addetto-a-tecnica-degli-edifici-hlkks-kantonsspital-baselland-ksbl-liestal"
+          "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-sanitar-a-ksbl-liestal"
         ],
         "de": [
           "mitarbeiterin-mitarbeiter-gebaudetechnik-hlkks-fokus-sanitar-a-ksbl-liestal"
@@ -7160,7 +7146,6 @@
         "mitarbeiterin-mitarbeiter-room-service-a-ksbl-liestal",
         "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb"
       ],
       "previousSlugsByLocale": {
@@ -7183,7 +7168,6 @@
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-lie-rzfgnb",
           "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
-          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb"
         ],
         "en": [
@@ -7344,13 +7328,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-ambulatorium-universitare-innere-medizin-a-ksbl-liestal",
-        "mpa-ambulatorium-universitarian-medicina-interna-a-kantonsspital-baselland-ksbl-liestal"
+        "mpa-ambulatorium-universitare-innere-medizin-a-ksbl-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-ambulatorium-universitare-innere-medizin-a-ksbl-liestal",
-          "mpa-ambulatorium-universitarian-medicina-interna-a-kantonsspital-baselland-ksbl-liestal"
+          "mpa-ambulatorium-universitare-innere-medizin-a-ksbl-liestal"
         ]
       },
       "firstSeenAt": "2026-09-01T08:50:14.463Z",

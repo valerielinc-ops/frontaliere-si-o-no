@@ -155,12 +155,12 @@
     },
     {
       "id": "company-pz5d7i",
-      "slug": "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i",
+      "slug": "danni-speciali-mf-foreign-m-f-d-80-100-zurich-insurance-sede-ticino-zurich",
       "slugByLocale": {
-        "it": "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i",
-        "en": "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i",
+        "it": "danni-speciali-mf-foreign-m-f-d-80-100-zurich-insurance-sede-ticino-zurich",
+        "en": "damage-specialist-mf-foreign-damage-m-f-d-80-100-zurich-insurance-sede-ticino-zurich",
         "de": "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i",
-        "fr": "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i"
+        "fr": "specialiste-des-dommages-mf-dommages-etrangers-h-f-d-80-100-zurich-insurance-sede-ticino-zurich"
       },
       "company": "Zurich Insurance (sede Ticino)",
       "companyKey": "zurich-insurance-sede-ticino",
@@ -203,11 +203,19 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+        "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+        "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+          "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+          "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i"
+        ],
+        "en": [
+          "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i"
+        ],
+        "fr": [
+          "schadenspezialist-mf-auslandschaden-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-pz5d7i"
         ]
       },
       "firstSeenAt": "2026-08-31T17:34:52.224Z",
