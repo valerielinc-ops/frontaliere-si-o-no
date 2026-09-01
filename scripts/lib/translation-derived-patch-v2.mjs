@@ -23,6 +23,7 @@ const TARGET_KEYS = ['crawlerKey', 'jobKey', 'url'];
 const DESTINATION_KEYS = ['fieldPath', 'localeFieldPath', 'targetLocale'];
 const IDENTITY_OPTIONS_KEYS = ['fieldPath', 'targetLocale'];
 const ALLOWED_FIELDS = new Set(['description', 'title']);
+const ALLOWED_TARGET_LOCALES = new Set(['de', 'en', 'fr', 'it']);
 const CRAWLER_KEY_PATTERN = /^[a-z0-9][a-z0-9._-]{0,127}$/;
 
 function canonicalContextValue(value, label) {
@@ -53,6 +54,13 @@ function validateFieldPath(fieldPath) {
     throw new TypeError('translation derived patch fieldPath must be title or description');
   }
   return fieldPath;
+}
+
+function validateTargetLocale(targetLocale) {
+  if (!ALLOWED_TARGET_LOCALES.has(targetLocale)) {
+    throw new TypeError('translation derived patch targetLocale must be it, en, de or fr');
+  }
+  return targetLocale;
 }
 
 function own(job, key) {
@@ -107,7 +115,7 @@ export function createJobTranslationUnitIdentityV2(job, options) {
     kind: 'job',
     fieldPath: checkedFieldPath,
     sourceLocale: own(job, 'sourceLang'),
-    targetLocale: options.targetLocale,
+    targetLocale: validateTargetLocale(options.targetLocale),
     sourceText: own(job, checkedFieldPath),
     context: canonicalJobTranslationContextV2(job),
   });
@@ -169,11 +177,12 @@ export function validateTranslationDerivedPatchV2(patch) {
     'translation derived patch destination',
   );
   const fieldPath = validateFieldPath(patch.destination.fieldPath);
+  const targetLocale = validateTargetLocale(patch.destination.targetLocale);
   const identity = validateTranslationUnitIdentityV2(patch.identity);
   if (
     identity.kind !== 'job'
     || identity.fieldPath !== fieldPath
-    || patch.destination.targetLocale !== identity.targetLocale
+    || targetLocale !== identity.targetLocale
     || patch.destination.localeFieldPath !== `${fieldPath}ByLocale.${identity.targetLocale}`
   ) {
     throw new TypeError('translation derived patch destination does not match its identity');
@@ -181,7 +190,7 @@ export function validateTranslationDerivedPatchV2(patch) {
   const destination = Object.freeze({
     fieldPath,
     localeFieldPath: patch.destination.localeFieldPath,
-    targetLocale: identity.targetLocale,
+    targetLocale,
   });
   const candidate = validateCandidateForIdentity(patch.candidate, identity);
   const payload = patchPayload({ candidate, destination, identity, target });
