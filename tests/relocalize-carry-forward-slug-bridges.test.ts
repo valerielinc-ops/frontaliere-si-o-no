@@ -9,18 +9,14 @@
  * "Dipl. Pflegefachfrau/Pflegefachmann" family already involved in the
  * cross-job identity bug fixed in tests/relocalize-sync-job-identity.test.ts):
  *
- * Many KSA/Coop postings share an identical title+company+location, so
- * hardenJobLocaleFields's per-locale "stale slug" repair independently derives
- * the SAME location-qualified slug for several distinct jobs. When the
- * assembler's applyPerLocaleSlugCollisionGuard later notices two jobs
- * claiming the same locale slug, it picks a rightful owner, demotes the
- * losers' locale slug, and correctly captures the displaced value into the
- * ASSEMBLED job's previousSlugsByLocale. But syncTranslationsToCrawlerFile —
- * the function that writes assembled-dataset changes back onto the committed
- * per-crawler slice — only ever unioned the flat legacy `previousSlugs` array
- * here, never `previousSlugsByLocale`. So the captured bridge never reached
- * the committed slice: the active slug changed, but its history did not,
- * producing a silent loss with no redirect bridge for the old URL.
+ * An assembler-side legitimate rename (for example trackSlugHistoryDrift)
+ * can capture a displaced value into the ASSEMBLED job's
+ * previousSlugsByLocale. But syncTranslationsToCrawlerFile — the function
+ * that writes assembled-dataset changes back onto the committed per-crawler
+ * slice — only ever unioned the flat legacy `previousSlugs` array here, never
+ * `previousSlugsByLocale`. So the captured bridge never reached the committed
+ * slice: the active slug changed, but its history did not, producing a silent
+ * loss with no redirect bridge for the old URL.
  *
  * The fix reuses scatter-jobs-to-slices.mjs's own (already tested, cap- and
  * headroom-aware) collectMissingAssembledBridges helper via the new
@@ -31,11 +27,9 @@ import { describe, expect, it } from 'vitest';
 import { carryForwardMissingSlugBridges } from '../scripts/relocalize-pending-jobs.mjs';
 
 describe('carryForwardMissingSlugBridges (relocalize sibling of the scatter carry-forward fix)', () => {
-  it('carries forward a per-locale bridge the collision guard captured on the assembled side but the slice never had', () => {
-    // Shape mirrors the real KSA incident: the DE (source-locale) slug was
-    // demoted by applyPerLocaleSlugCollisionGuard and the assembled job's
-    // previousSlugsByLocale.de already holds the displaced value — but the
-    // slice's own crawlerJob has no record of it yet.
+  it('carries forward a legitimate per-locale bridge captured on the assembled side but missing from the slice', () => {
+    // Shape mirrors a source rename: the assembled job already knows the old
+    // DE route, but the slice's own crawlerJob has no record of it yet.
     const crawlerJob = {
       id: 'ksa-efaa616bf2a8',
       slug: 'dipl-pflegefachfrau-pflegefachmann-ksa-ch-5',

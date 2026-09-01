@@ -66,7 +66,7 @@ const AUTHORIZED_MODULES = new Set([
  * the line here.
  */
 const DIRECT_WRITE_BASELINE: Record<string, number> = {
-  'assemble-jobs-dataset.mjs': 3,
+  'assemble-jobs-dataset.mjs': 2,
   'audit-jobs-source-match.mjs': 1,
   'backfill-orphan-slugs-from-registry.mjs': 4,
   'backfill-prev-slugs-from-loss-events.mjs': 5,
@@ -81,6 +81,7 @@ const DIRECT_WRITE_BASELINE: Record<string, number> = {
   'lib/canton-ticino-osc-job-parser.mjs': 1,
   'lib/clinica-hildebrand-job-parser.mjs': 1,
   'lib/clinica-varini-job-parser.mjs': 1,
+  'lib/crawler-template.mjs': 6,
   'lib/oscam-castelrotto-job-parser.mjs': 1,
   'lib/reha-andeer-job-parser.mjs': 1,
   'lib/shared-jobs-crawler.mjs': 5,
