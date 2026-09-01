@@ -1,20 +1,21 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-08-31T17:16:23.787Z",
+  "generatedAt": "2026-09-01T00:54:46.204Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4538,
-  "avgDurationMs": 4538,
+  "durationMs": 3756,
+  "avgDurationMs": 3756,
   "durationHistory": [
-    4538
+    3756
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cham-swiss-properties-6a1c2fdbbe1c",
       "slug": "fachspezialist-in-vertragsmanagement-80-100-cham-swiss-properties-cham",
@@ -28,7 +29,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:16:20.555Z",
+      "crawledAt": "2026-09-01T00:54:43.549Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -45,16 +46,15 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "hiringOrganizationName": "Cham Swiss Properties AG",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-08-31T17:16:20.555Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "cham-swiss-properties-0038cd3ee45f",
       "slug": "sachbearbeiter-in-bauprojektadministration-80-100-cham-swiss-properties-cham",
@@ -68,7 +68,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/157f7d95-d715-4a8f-a480-6f8601ffec1d/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:16:20.076Z",
+      "crawledAt": "2026-09-01T00:54:43.041Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
