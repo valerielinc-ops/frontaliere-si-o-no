@@ -63,7 +63,8 @@
       "firstSeenAt": "2026-08-31T17:18:54.604Z",
       "previousSlugsByLocale": {
         "it": [
-          "test-specialist-avaloq-bioggio"
+          "test-specialist-avaloq-bioggio",
+          "senior-test-specialista-avaloq-bioggio"
         ],
         "de": [
           "test-specialist-avaloq-bioggio"
@@ -73,7 +74,8 @@
         ]
       },
       "previousSlugs": [
-        "test-specialist-avaloq-bioggio"
+        "test-specialist-avaloq-bioggio",
+        "senior-test-specialista-avaloq-bioggio"
       ]
     },
     {
@@ -198,14 +200,18 @@
       "firstSeenAt": "2026-08-31T17:18:54.604Z",
       "previousSlugsByLocale": {
         "it": [
-          "cloud-security-architect-avaloq-bioggio"
+          "cloud-security-architect-avaloq-bioggio",
+          "cloud-architecte-avaloq-bioggio",
+          "cloud-architetto-avaloq-bioggio"
         ],
         "fr": [
           "cloud-security-architect-avaloq-bioggio"
         ]
       },
       "previousSlugs": [
-        "cloud-security-architect-avaloq-bioggio"
+        "cloud-security-architect-avaloq-bioggio",
+        "cloud-architecte-avaloq-bioggio",
+        "cloud-architetto-avaloq-bioggio"
       ],
       "needsRetranslation": true
     },
@@ -592,8 +598,7 @@
       },
       "streetAddress": "Via Industria 1",
       "firstSeenAt": "2026-08-20T10:27:38.455Z",
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "title": "Senior Project Manager, PaaS & Cloud Automation",

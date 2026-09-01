@@ -2082,17 +2082,27 @@
           "ciclo-e-sport-meccanici-tecnici-h-f-cdi-50-welcome-decathlon-biel",
           "ciclo-e-sport-meccanici-tecnici-h-f-cdi-100-welcome-decathlon-biel",
           "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-100-welcome-decathlon-biel",
-          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch"
+          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch",
+          "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-20-40-decathlon-granges-paccot",
+          "mechanic-technician-cycle-and-sports-h-f-cdi-20-40-decathlon-granges-paccot",
+          "mechaniker-techniker-rad-und-sport-h-f-cdi-20-40-decathlon-granges-paccot",
+          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-20-40-decathlon-ch",
+          "ciclo-e-sport-meccanici-tecnici-h-f-cdi-20-40-decathlon-granges-paccot"
         ],
         "en": [
           "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-50-bienne-decathlon-ch",
           "mechanic-technician-cycle-and-sports-h-f-cdi-50-welcome-decathlon-biel",
-          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch"
+          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch",
+          "mechanic-technician-cycle-and-sports-h-f-cdi-20-40-decathlon-granges-paccot"
         ],
         "de": [
           "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-50-bienne-decathlon-ch",
           "mechaniker-techniker-rad-und-sport-h-f-cdi-50-willkommen-decathlon-biel",
-          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch"
+          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch",
+          "mechaniker-techniker-rad-und-sport-h-f-cdi-20-40-decathlon-granges-paccot"
+        ],
+        "fr": [
+          "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-20-40-decathlon-ch"
         ]
       },
       "previousSlugs": [
@@ -2102,10 +2112,14 @@
         "mechaniker-techniker-rad-und-sport-h-f-cdi-50-willkommen-decathlon-biel",
         "ciclo-e-sport-meccanici-tecnici-h-f-cdi-100-welcome-decathlon-biel",
         "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-100-welcome-decathlon-biel",
-        "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch"
+        "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-100-bienne-decathlon-ch",
+        "ciclo-meccanico-tecnico-e-sportivo-m-f-cdi-20-40-decathlon-granges-paccot",
+        "mechanic-technician-cycle-and-sports-h-f-cdi-20-40-decathlon-granges-paccot",
+        "mechaniker-techniker-rad-und-sport-h-f-cdi-20-40-decathlon-granges-paccot",
+        "mecanicien-ne-technicien-ne-cycle-et-sports-h-f-cdi-20-40-decathlon-ch",
+        "ciclo-e-sport-meccanici-tecnici-h-f-cdi-20-40-decathlon-granges-paccot"
       ],
       "firstSeenAt": "2026-07-28T22:22:09.660Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2118,7 +2132,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-a84a488d48b4",
@@ -2977,23 +2992,35 @@
       "previousSlugs": [
         "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch",
         "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-bern",
-        "sport-leader-sales-advisor-m-f-d-temporary-20-40-bern-westside-decathlon-bern"
+        "sport-leader-sales-advisor-m-f-d-temporary-20-40-bern-westside-decathlon-bern",
+        "sport-leader-sales-advisor-m-f-d-temporary-80-100-bern-westside-decathlon-bern",
+        "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-ch",
+        "leader-sportif-conseiller-commercial-h-f-d-temporaire-80-100-bern-westside-decathlon-bern",
+        "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch",
           "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-bern",
-          "sport-leader-sales-advisor-m-f-d-temporary-20-40-bern-westside-decathlon-bern"
+          "sport-leader-sales-advisor-m-f-d-temporary-20-40-bern-westside-decathlon-bern",
+          "sport-leader-sales-advisor-m-f-d-temporary-80-100-bern-westside-decathlon-bern",
+          "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-ch",
+          "leader-sportif-conseiller-commercial-h-f-d-temporaire-80-100-bern-westside-decathlon-bern",
+          "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-bern"
         ],
         "en": [
-          "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch",
+          "sport-leader-sales-advisor-m-f-d-temporary-80-100-bern-westside-decathlon-bern"
         ],
         "fr": [
-          "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch"
+          "sport-leader-verkaufsberater-m-w-d-befristet-20-40-bern-westside-decathlon-ch",
+          "leader-sportif-conseiller-commercial-h-f-d-temporaire-80-100-bern-westside-decathlon-bern"
+        ],
+        "de": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-80-100-bern-westside-decathlon-ch"
         ]
       },
       "firstSeenAt": "2026-08-11T21:56:10.919Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47400,
       "salarySource": "estimated",
@@ -3006,7 +3033,8 @@
           "maxValue": 47400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "decathlon-25428eb484e5",

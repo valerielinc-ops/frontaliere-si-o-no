@@ -345,7 +345,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "postalCode": "6926"
+      "postalCode": "6926",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-research-officer-ibsa-institut-biochimique-montagnola"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-research-officer-ibsa-institut-biochimique-montagnola"
+      ]
     },
     {
       "id": "company-toyw1a",
@@ -401,11 +409,18 @@
           "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
         ],
         "fr": [
-          "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
+          "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a",
+          "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area"
+        ],
+        "it": [
+          "accounting-officer-maternity-leave-replacement-ibsa-institut-biochimique-6926-working-area-toyw1a",
+          "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area"
         ]
       },
       "previousSlugs": [
-        "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a"
+        "accounting-officer-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "accounting-officer-maternity-leave-replacement-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 85500,
       "salaryMax": 150000,
@@ -458,7 +473,7 @@
       "crawledAt": "2026-09-01T00:51:55.850Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "titleByLocale": {
-        "en": "Jr Clinical &amp; Safety Compliance Specialist",
+        "en": "Jr Clinical & Safety Compliance Specialist",
         "it": "Jr Clinical & Safety Compliance Specialista",
         "de": "Jr Clinical & Safety Compliance Spezialist",
         "fr": "Jr Clinical & Safety Compliance Spécialiste"
@@ -682,7 +697,9 @@
       "previousSlugsByLocale": {
         "it": [
           "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d",
-          "jr-medical-writing-specialist-ibsa-institut-biochimique-6926-working-area"
+          "jr-medical-writing-specialist-ibsa-institut-biochimique-6926-working-area",
+          "jr-medical-writing-specialist-ibsa-institut-biochimique-alle",
+          "jr-medical-writing-specialista-ibsa-institut-biochimique-alle"
         ],
         "en": [
           "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi"
@@ -699,7 +716,9 @@
         "jr-medical-writing-specialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
         "jr-medical-writing-spezialist-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
         "jr-medical-writing-specialiste-ibsa-institut-biochimique-all-area-all-clear-apply-now-jr-medical-writing-specialist-location-collina-d-tngyfi",
-        "jr-medical-writing-specialist-ibsa-institut-biochimique-6926-working-area"
+        "jr-medical-writing-specialist-ibsa-institut-biochimique-6926-working-area",
+        "jr-medical-writing-specialist-ibsa-institut-biochimique-alle",
+        "jr-medical-writing-specialista-ibsa-institut-biochimique-alle"
       ],
       "salaryMin": 63000,
       "salaryMax": 87500,

@@ -5814,18 +5814,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch",
-        "dipl-pflegefachfrau-mann-dialyse-80-100-kantonsspital-baden-ksb-baden"
+        "dipl-pflegefachfrau-mann-dialyse-80-100-kantonsspital-baden-ksb-baden",
+        "dipl-pflegefachfrau-mann-imc-70-100-kantonsspital-baden-ksb-baden",
+        "dipl-care-specialist-imc-70-100-kantonsspital-baden-ksb-baden",
+        "dipl-pflegefachfrau-mann-imc-70-100-ksb-ch",
+        "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch",
-          "dipl-pflegefachfrau-mann-dialyse-80-100-kantonsspital-baden-ksb-baden"
+          "dipl-pflegefachfrau-mann-dialyse-80-100-kantonsspital-baden-ksb-baden",
+          "dipl-pflegefachfrau-mann-imc-70-100-kantonsspital-baden-ksb-baden",
+          "dipl-care-specialist-imc-70-100-kantonsspital-baden-ksb-baden",
+          "dipl-pflegefachfrau-mann-imc-70-100-ksb-ch",
+          "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden"
         ],
         "en": [
-          "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch"
+          "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch",
+          "dipl-care-specialist-imc-70-100-kantonsspital-baden-ksb-baden"
         ],
         "fr": [
-          "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch"
+          "dipl-pflegefachfrau-mann-dialyse-80-100-ksb-ch",
+          "dipl-specialiste-des-soins-imc-70-100-kantonsspital-baden-ksb-baden"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-imc-70-100-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-08-10T21:43:38.416Z",
@@ -6309,14 +6322,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch"
+        "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch",
+        "dipl-esperto-in-anestesia-nds-hf-80-100-kantonsspital-baden-ksb-baden",
+        "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch"
+          "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch",
+          "dipl-esperto-in-anestesia-nds-hf-80-100-kantonsspital-baden-ksb-baden",
+          "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch"
         ],
         "fr": [
-          "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch"
+          "dipl-expert-in-notfallpflege-nds-hf-50-100-ksb-ch",
+          "dipl-expert-in-anasthesie-nds-hf-80-100-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-05-28T13:13:43.225Z",
