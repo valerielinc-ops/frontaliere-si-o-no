@@ -34,6 +34,8 @@ const MAX_RESPONSE_BYTES = 1024 * 1024;
 const MAX_RECONCILIATION_PAGES = 10;
 const MAX_RECONCILIATION_ATTEMPTS = 6;
 const RECONCILIATION_DELAY_MS = 3_000;
+export const DIRECT_RUN_HYDRATION_BACKOFF_MS = Object.freeze([250, 500, 1_000, 2_000, 3_000]);
+export const DIRECT_RUN_HYDRATION_TIMEOUT_MS = 10_000;
 const PREFLIGHT_READ_ATTEMPTS = 3;
 const PREFLIGHT_READ_CONCURRENCY = 4;
 const PREFLIGHT_READ_DELAY_MS = 250;
@@ -114,9 +116,18 @@ export function createGitHubActionsRequester({ apiUrl, token, fetchImpl = fetch 
     throw new TypeError('Missing GitHub dispatch API configuration');
   }
   const base = apiUrl.replace(/\/$/, '');
-  return async ({ method, path: pathname, body, apiVersion = GITHUB_API_VERSION }) => {
+  return async ({
+    method,
+    path: pathname,
+    body,
+    apiVersion = GITHUB_API_VERSION,
+    timeoutMs = 30_000,
+  }) => {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 30_000);
+    const boundedTimeoutMs = Number.isFinite(timeoutMs) && timeoutMs > 0
+      ? Math.min(30_000, Math.ceil(timeoutMs))
+      : 30_000;
+    const timer = setTimeout(() => controller.abort(), boundedTimeoutMs);
     try {
       const response = await fetchImpl(`${base}${pathname}`, {
         method,
@@ -170,6 +181,76 @@ async function getAndValidateRun({
       if (attempt === attempts) return { status: 'binding_mismatch', observation: null };
     }
     if (attempt < attempts) await sleep(attempt * 250);
+  }
+  return { status: 'unavailable', observation: null };
+}
+
+function missingHydrationValue(value) {
+  return value === undefined || value === null || value === '';
+}
+
+/**
+ * GitHub can return the authoritative workflow_run_id before the exact run
+ * snapshot has hydrated its run-name/path/ref fields. Retry only absent or
+ * documented transitional values; a contradictory populated value is an
+ * immutable binding mismatch and fails immediately.
+ */
+function isPartialRunHydration(run, binding, errors) {
+  if (!Array.isArray(errors) || errors.length === 0) return false;
+  return errors.every((error) => {
+    switch (error) {
+      case 'run_id_mismatch': return missingHydrationValue(run?.id);
+      case 'repository_mismatch': return missingHydrationValue(run?.repository?.full_name);
+      case 'workflow_name_mismatch': return missingHydrationValue(run?.name);
+      case 'run_name_mismatch':
+        return missingHydrationValue(run?.display_title) || run?.display_title === binding?.workflowName;
+      case 'workflow_path_mismatch': return missingHydrationValue(run?.path);
+      case 'event_mismatch': return missingHydrationValue(run?.event);
+      case 'head_branch_mismatch': return missingHydrationValue(run?.head_branch);
+      case 'head_sha_mismatch': return missingHydrationValue(run?.head_sha);
+      case 'run_attempt_invalid': return missingHydrationValue(run?.run_attempt) || run?.run_attempt === 0;
+      case 'run_status_invalid': return missingHydrationValue(run?.status);
+      case 'run_conclusion_invalid': return missingHydrationValue(run?.conclusion);
+      default: return false;
+    }
+  });
+}
+
+async function getAndValidateAuthoritativeRun({
+  request,
+  repository,
+  runId,
+  identityForRunId,
+  sleep,
+  now,
+}) {
+  const binding = identityForRunId(runId);
+  const deadline = now() + DIRECT_RUN_HYDRATION_TIMEOUT_MS;
+  for (let attempt = 0; attempt <= DIRECT_RUN_HYDRATION_BACKOFF_MS.length; attempt += 1) {
+    const requestBudgetMs = deadline - now();
+    if (requestBudgetMs <= 0) break;
+    let response;
+    try {
+      response = await request({
+        method: 'GET',
+        path: `/repos/${repository}/actions/runs/${runId}`,
+        apiVersion: GITHUB_API_VERSION,
+        timeoutMs: requestBudgetMs,
+      });
+    } catch {
+      response = null;
+    }
+    if (response?.status === 200) {
+      const validation = validateCrawlerGenerationWorkflowRun(response.body, binding, repository);
+      if (validation.valid) return { status: 'matched', observation: validation.observation };
+      if (!isPartialRunHydration(response.body, binding, validation.errors)) {
+        return { status: 'binding_mismatch', observation: null };
+      }
+    }
+
+    const remainingMs = deadline - now();
+    if (attempt === DIRECT_RUN_HYDRATION_BACKOFF_MS.length || remainingMs <= 0) break;
+    await sleep(Math.min(DIRECT_RUN_HYDRATION_BACKOFF_MS[attempt], remainingMs));
   }
   return { status: 'unavailable', observation: null };
 }
@@ -233,6 +314,7 @@ export async function dispatchWorkflowOnce({
   request,
   allowReconciliation = true,
   sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
+  now = () => Date.now(),
   identityForRunId = (runId) => (
     group === null
       ? crawlerGenerationSentinelWorkflowIdentity(generationToken, runId, corpusCodeCommit)
@@ -268,8 +350,8 @@ export async function dispatchWorkflowOnce({
   if (!transportFailed && response.status === 200) {
     const runId = dispatchResponseRunId(response.body, repository);
     if (runId === null) return { status: 'invalid_200_response', runId: null };
-    const validation = await getAndValidateRun({
-      request, repository, runId, identityForRunId, sleep,
+    const validation = await getAndValidateAuthoritativeRun({
+      request, repository, runId, identityForRunId, sleep, now,
     });
     if (validation.status === 'matched') return { status: 'direct', runId };
     return {
