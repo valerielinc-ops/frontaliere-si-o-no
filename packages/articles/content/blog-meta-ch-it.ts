@@ -4930,6 +4930,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.formazione-azienda-prioritario.title': 'Formazione in azienda: nuova priorità federale fino al 2028',
     'blog.article.formazione-azienda-prioritario.excerpt': 'La SEFRI stanzia 3 milioni di franchi per rafforzare la qualità della formazione professionale duale nel periodo 2026-2028.',
     'blog.article.formazione-azienda-prioritario.imageAlt': 'Apprendista in una bottega artigianale svizzera durante una lezione pratica di formazione.',
+    'blog.article.dazit-termine-2026.title': 'Il programma DaziT volge al termine, la trasformazione digitale continua',
+    'blog.article.dazit-termine-2026.excerpt': 'Il programma DaziT dell\'UDSC terminerà il 31 dicembre 2026, digitalizzando i processi doganali e di sicurezza ai confini.',
+    'blog.article.dazit-termine-2026.imageAlt': 'Vista aerea di Bellinzona, Svizzera, con infrastrutture digitali moderne e sistemi di controllo dei confini.',
 };
 
 export default blogMetaChIt;
