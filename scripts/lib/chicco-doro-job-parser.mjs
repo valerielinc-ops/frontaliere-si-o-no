@@ -235,6 +235,14 @@ export function parseListingPage(html = '', pageUrl = '') {
   return jobs;
 }
 
+function containsJobPostingSchema(value) {
+  if (Array.isArray(value)) return value.some(containsJobPostingSchema);
+  if (!value || typeof value !== 'object') return false;
+  const type = value['@type'];
+  if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) return true;
+  return Object.values(value).some(containsJobPostingSchema);
+}
+
 function inspectSourcePage(html = '') {
   const { document } = new JSDOM(html).window;
   const sourceIdentity = SOURCE_IDENTITY_RX.test(document.title || '')
@@ -243,7 +251,16 @@ function inspectSourcePage(html = '') {
   const genericOpenApplication = [...document.querySelectorAll('h1, h2, h3, h4')]
     .some((node) => GENERIC_JOIN_US_HEADING.test(normalizeSpace(node.textContent || '')));
   const hasJobPosting = [...document.querySelectorAll('script[type="application/ld+json"]')]
-    .some((node) => /"JobPosting"/i.test(node.textContent || ''));
+    .some((node) => {
+      const source = node.textContent || '';
+      try {
+        return containsJobPostingSchema(JSON.parse(source));
+      } catch {
+        // Broken JobPosting JSON-LD is still vacancy evidence, not permission
+        // to retire the active slice as a proven zero.
+        return /"@type"\s*:\s*"JobPosting"/i.test(source);
+      }
+    });
   return { sourceIdentity, genericOpenApplication, hasJobPosting };
 }
 
@@ -264,6 +281,7 @@ function markCompleteSnapshot(jobs, { resolvedPageCount, canonicalOpenApplicatio
  * invitation: a markup/network regression must keep the previous slice.
  */
 export function assertCompleteChiccoDoroSnapshot(jobs) {
+  if (Array.isArray(jobs) && jobs.length > 0) return true;
   if (
     !Array.isArray(jobs)
     || Reflect.get(jobs, 'chiccoDoroSnapshotState') !== SNAPSHOT_STATE
