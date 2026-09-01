@@ -12,6 +12,20 @@ const CAREERS_URL = 'https://www.cedes.com/en/career/jobs/';
 const CAREERS_BASE = 'https://www.cedes.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+export function normalizeCedesJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/(?:[a-z]{2}\/)?career\/jobs\/[^/]+\/?$/i.test(url.pathname)
+      || /^\/en\/openings\/[^/]+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
@@ -64,7 +78,8 @@ export function parseCedesListingHtml(html) {
     if (!/\/career\/jobs\//i.test(rawUrl)) continue;
     // Skip the listing page itself
     if (/\/career\/jobs\/?$/.test(rawUrl)) continue;
-    const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+    const url = normalizeCedesJobUrl(rawUrl);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -92,8 +107,8 @@ export function parseCedesListingHtml(html) {
     while ((gm = genericPattern.exec(html)) !== null) {
       if (!/job/i.test(readAttr(gm[1], 'class'))) continue;
       const rawUrl = readAttr(gm[1], 'href').trim();
-      if (!rawUrl) continue;
-      const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+      const url = normalizeCedesJobUrl(rawUrl);
+      if (!url) continue;
       if (seen.has(url)) continue;
       seen.add(url);
       const title = stripHtml(gm[2]).trim();
@@ -149,11 +164,12 @@ export async function fetchCedesJobUrls() {
 }
 
 export async function fetchCedesDetailPage(url) {
-  if (!url) return null;
+  const safeUrl = normalizeCedesJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 20_000);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });

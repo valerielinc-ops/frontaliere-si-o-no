@@ -1,7 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchCedesDetailPage,
   parseCedesListingHtml,
   parseCedesDetailHtml,
+  normalizeCedesJobUrl,
   slugify,
   stripHtml,
   inferEmploymentType,
@@ -38,6 +40,29 @@ const SAMPLE_DETAIL_HTML = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('CEDES job parser', () => {
+  describe('normalizeCedesJobUrl', () => {
+    it('allows only relative or same-origin HTTPS CEDES job routes', () => {
+      expect(normalizeCedesJobUrl('/en/career/jobs/embedded-engineer/'))
+        .toBe('https://www.cedes.com/en/career/jobs/embedded-engineer/');
+      expect(normalizeCedesJobUrl('https://www.cedes.com/en/openings/123'))
+        .toBe('https://www.cedes.com/en/openings/123');
+      expect(normalizeCedesJobUrl('https://attacker.example/en/career/jobs/embedded-engineer/')).toBeNull();
+      expect(normalizeCedesJobUrl('http://www.cedes.com/en/career/jobs/embedded-engineer/')).toBeNull();
+      expect(normalizeCedesJobUrl('https://www.cedes.com/en/news/embedded-engineer/')).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchCedesDetailPage('https://attacker.example/en/career/jobs/embedded-engineer/'))
+          .resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('parseCedesListingHtml', () => {
     it('extracts job links from HTML', () => {
       const jobs = parseCedesListingHtml(SAMPLE_LISTING_HTML);
