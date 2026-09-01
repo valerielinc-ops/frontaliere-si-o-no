@@ -1,18 +1,18 @@
 {
   "key": "ardian",
   "label": "Ardian",
-  "generatedAt": "2026-08-31T23:20:15.902Z",
-  "total": 3,
+  "generatedAt": "2026-09-01T01:01:29.986Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4571,
-  "avgDurationMs": 4571,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4091,
+  "avgDurationMs": 4091,
   "durationHistory": [
-    4571
+    4091
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Secondaries---Primaries-Intern---January-2027-I-Zurich_JR1002220",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:12.657Z",
+      "crawledAt": "2026-09-01T01:01:27.158Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://ardian.wd103.myworkdayjobs.com/en-US/ArdianCareers/job/Zurich/Investor-Relations-Intern---January-2027-I-Zurich_JR1002219",
       "source": "Ardian Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:13.327Z",
+      "crawledAt": "2026-09-01T01:01:27.817Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,8 +89,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ardian-0bcff807da42",
       "slug": "customized-solutions-tirocinante-september-2026-january-2027-zurich-ardian-zurich",
@@ -131,5 +130,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
