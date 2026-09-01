@@ -4987,6 +4987,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.title': 'Lehre und Berufsausbildung im Kanton Freiburg',
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.excerpt': 'Erfahren Sie, wie Sie im Kanton Freiburg eine Lehrstelle finden, die Vertragsdetails und die Lehrlingsvergütung.',
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.imageAlt': 'Ein Lehrling arbeitet im Kanton Freiburg',
+    'blog.article.apprendistato-formazione-friburgo.title': 'Lehre im Kanton Freiburg: Praxisleitfaden',
+    'blog.article.apprendistato-formazione-friburgo.excerpt': 'Wie finde ich eine Lehrstelle, unterschreibe den Vertrag, lerne Rechte und Vergütung kennen. Der umfassende Leitfaden zum schweizerischen Berufsbildungssystem im Kanton Freiburg.',
+    'blog.article.apprendistato-formazione-friburgo.imageAlt': 'Lehrlinge während einer praktischen Schulung in einer Schweizer Berufsschule',
 };
 
 export default blogMetaChDe;

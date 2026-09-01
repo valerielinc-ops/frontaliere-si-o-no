@@ -4987,6 +4987,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.title': 'Apprendistato e formazione professionale nel Cantone di Friburgo',
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.excerpt': 'Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Cantone di Friburgo.',
     'blog.article.apprendistato-formazione-professionale-canton-friburgo.imageAlt': 'Un apprendista al lavoro nel Cantone di Friburgo',
+    'blog.article.apprendistato-formazione-friburgo.title': 'Apprendistato nel Canton Friburgo: guida pratica',
+    'blog.article.apprendistato-formazione-friburgo.excerpt': 'Come trovare un posto di tirocinio, sottoscrivere il contratto, conoscere diritti e retribuzione. La guida completa al sistema di formazione professionale svizzera nel Canton Friburgo.',
+    'blog.article.apprendistato-formazione-friburgo.imageAlt': 'Apprendisti durante una lezione pratica in un laboratorio di formazione professionale svizzero',
 };
 
 export default blogMetaChIt;
