@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apleona-schweiz-ag",
-  "assembledAt": "2026-09-01T14:25:56.055Z",
+  "assembledAt": "2026-09-01T23:20:55.073Z",
   "jobs": [
     {
       "id": "apleona-schweiz-ag-a73063427430",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2542/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:53.317Z",
+      "crawledAt": "2026-09-01T23:20:52.729Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -96,7 +96,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2505/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:53.016Z",
+      "crawledAt": "2026-09-01T23:20:52.428Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -112,21 +112,12 @@
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2505/Description/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T08:40:51.339Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
+      "previousSlugs": [
+        "collaboratore-trice-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-lugano",
+        "employee-laboratory-services-pharma-life-science-m-f-d-apleona-schweiz-ag-lugano",
+        "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-ch",
+        "services-aux-employes-laboratoires-pharma-sciences-de-la-vie-h-f-d-apleona-schweiz-ag-lugano"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-lugano",
@@ -144,12 +135,21 @@
           "services-aux-employes-laboratoires-pharma-sciences-de-la-vie-h-f-d-apleona-schweiz-ag-lugano"
         ]
       },
-      "previousSlugs": [
-        "collaboratore-trice-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-lugano",
-        "employee-laboratory-services-pharma-life-science-m-f-d-apleona-schweiz-ag-lugano",
-        "mitarbeiter-in-labordienstleistungen-pharma-life-science-m-w-d-apleona-schweiz-ag-ch",
-        "services-aux-employes-laboratoires-pharma-sciences-de-la-vie-h-f-d-apleona-schweiz-ag-lugano"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T08:40:51.339Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "apleona-schweiz-ag-8220b35f575d",
@@ -182,7 +182,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2546/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:52.715Z",
+      "crawledAt": "2026-09-01T23:20:52.126Z",
       "addressLocality": "Schaffhausen / Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2530/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:52.413Z",
+      "crawledAt": "2026-09-01T23:20:51.825Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2550/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:52.112Z",
+      "crawledAt": "2026-09-01T23:20:51.523Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -418,7 +418,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2551/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:51.809Z",
+      "crawledAt": "2026-09-01T23:20:51.220Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -495,7 +495,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2481/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:51.506Z",
+      "crawledAt": "2026-09-01T23:20:50.917Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -572,7 +572,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2547/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:51.205Z",
+      "crawledAt": "2026-09-01T23:20:50.615Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -616,11 +616,11 @@
       "company": "Apleona Schweiz AG",
       "companyKey": "apleona-schweiz-ag",
       "companyDomain": "recruitingapp-2765.umantis.com",
-      "title": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d)",
+      "title": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d) 50 - 100%",
       "titleByLocale": {
         "it": "Responsabile della proprietà (m/f/d)",
         "en": "Property Manager (m/f/d)",
-        "de": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d)",
+        "de": "Sachbearbeiter Immobilienbewirtschaftung (m/w/d) 50 - 100%",
         "fr": "Gestionnaire de propriétés (h/f/d)"
       },
       "description": "Deine Aufgaben\nDu willst nicht nur Wohnungen verwalten, sondern Lebensräume mitgestalten? Dann ist diese Position per 01.12.2026 in Köniz-Liebefeld BE deine Chance, fachlich und persönlich durchzustarten.\n• Vielfältige administrative Arbeiten der kaufmännischen und technischen Bewirtschaftung\n• Mitarbeit bei der Wiedervermietung (Leerstandsmanagement) inkl. Besichtigungen von Wohnungen und Nebenobjekten mit Interessenten\n• Erstellen von Mietverträgen für Wohnungen und Nebenobjekte sowie zugehörige Anhänge und Nachträge\n• Unterstützung bei der Abnahme und Übergabe von Wohnungen und Nebenobjekten (teilweise selbständig)\n• Erstellen von Mieter-Schlussabrechnungen\n• Mitarbeit beim Debitoren- und Kreditorenmanagement\n• Schriftl. und mündl. Kontakt mit Mietern, Handwerkern, Lieferanten, Ämtern und Hauswarten\n\nDeine Anforderungen\n• Abgeschlossene kaufmännische Lehre oder gleichwertige Ausbildung im Bereich Immobilien\n• Branchenkenntnisse im Immobilienbereich, die du idealerweise bereits mitbringst\n• Deutsche Muttersprache, stilsicher in Wort und Schrift\n• Gute IT-Anwendungskenntnisse (MS-Office-Programme, GREM/REM)\n• Organisationstalent und gute Umgangsformen\n• Gültiger Führerausweis und eigener PW erforderlich (kostenfreier Parkplatz Bern)",
@@ -635,7 +635,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2552/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:50.891Z",
+      "crawledAt": "2026-09-01T23:20:50.300Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -713,7 +713,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2553/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:25:50.588Z",
+      "crawledAt": "2026-09-01T23:20:49.998Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
