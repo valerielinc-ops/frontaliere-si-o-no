@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etavis",
-  "assembledAt": "2026-09-01T08:43:37.473Z",
+  "assembledAt": "2026-09-01T10:27:25.789Z",
   "jobs": [
     {
       "id": "etavis-d28659a5dc68",
@@ -33,7 +33,7 @@
       "url": "https://etavis.softgarden.io/job/65753281/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=280641768&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:33.866Z",
+      "crawledAt": "2026-09-01T10:27:22.700Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -114,7 +114,7 @@
       "url": "https://etavis.softgarden.io/job/64622908/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=281244708&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:33.572Z",
+      "crawledAt": "2026-09-01T10:27:22.412Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -187,8 +187,8 @@
           "installation-electrique-du-responsable-de-la-construction-w-m-d-80-100-etavis-ag-kloten"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:45.313Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:45.313Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -234,7 +234,7 @@
       "url": "https://etavis.softgarden.io/job/64573228/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=281244723&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:33.298Z",
+      "crawledAt": "2026-09-01T10:27:22.125Z",
       "addressLocality": "Liebefeld",
       "postalCode": "3097",
       "streetAddress": "Waldeggstrasse 47",
@@ -271,8 +271,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-liebefeld"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:49.320Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:49.320Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -318,7 +318,7 @@
       "url": "https://etavis.softgarden.io/job/64573328/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=281244743&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:33.002Z",
+      "crawledAt": "2026-09-01T10:27:21.837Z",
       "addressLocality": "Liebefeld",
       "postalCode": "3097",
       "streetAddress": "Waldeggstrasse 47",
@@ -353,8 +353,8 @@
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-liebefeld"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:49.005Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:49.005Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -365,87 +365,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "etavis-687f26295391",
-      "slug": "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld",
-      "slugByLocale": {
-        "it": "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld",
-        "en": "service-fitter-w-m-d-80-100-etavis-arnold-liebefeld",
-        "de": "servicemonteur-w-m-d-80-100-etavis-liebefeld",
-        "fr": "monteur-de-service-m-j-80-100-etavis-arnold-liebefeld"
-      },
-      "company": "ETAVIS Arnold",
-      "companyKey": "etavis",
-      "companyDomain": "etavis.ch",
-      "title": "Servicemonteur (w/m/d) 80–100%",
-      "titleByLocale": {
-        "it": "Tecnico di assistenza (f/m/d) 80–100%",
-        "en": "Service fitter (w/m/d) 80–100 %",
-        "de": "Servicemonteur (w/m/d) 80–100%",
-        "fr": "Monteur de service (m/j) 80–100 %"
-      },
-      "description": "Sei Teil der Energiewende! Die ETAVIS Bern-Mittelland AG ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation. Das bewirkst du\n• Du bist verantwortlich für eine optimale und korrekte Abwicklung der Serviceaufträge und Kleininstallationen.\n• Diese beinhaltet die Betreuung der Kundschaft von A – Z: Selbständige Terminvereinbarung; Materialbewirtschaftung und Materialbestellungen für die eigenen Aufträge; Saubere, korrekte und termingerechte Erledigung der Montage- oder Reparaturaufträge. Das erleichtert dir den Einstieg\n• Nach Abschluss deiner Ausbildung als Elektroinstallateur:in oder Montage-Elektriker:in EFZ hast du einige Jahre Berufserfahrung gesammelt.\n• Du verfügst über einen Führerausweis der Kategorie B. Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern. Noch Fragen? Dein Vorgesetzter Stephan Zaugg, Geschäftsleiter, hat die Antworten (+41 79 273 90 26). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
-      "descriptionByLocale": {
-        "it": "Fate parte della transizione energetica! ETAVIS Bern-Mittelland AG è una delle aziende leader nel mercato svizzero dell'installazione elettrica e delle telecomunicazioni. Forniamo tutti i servizi per la consulenza, la pianificazione del progetto, l'esecuzione, il supporto e la manutenzione per la tecnologia elettrica e di costruzione, la telematica, l'infrastruttura delle telecomunicazioni e l'automazione. E' quello che fai.\n• Sei responsabile della gestione ottimale e corretta degli ordini di servizio e delle piccole installazioni.\n• Questo include il supporto dei clienti di A – Z: contratto di nomina autonomo; gestione dei materiali e ordini materiali per i propri contratti; Pulito, corretto e tempestivo completamento degli ordini di montaggio o riparazione. Questo renderà più facile per voi per iniziare.\n• Dopo aver completato la tua formazione come installatore elettrico: in o montaggio elettricista: in EFZ hai guadagnato diversi anni di esperienza professionale.\n• Hai una patente di categoria B.\n• Sei importante per noi - ti offriamo un ambiente aperto, apprezzativo e familiare.\n• Abbiamo successo - con noi avete una prospettiva a lungo termine e sicura.\n• Contribuiremo al nostro successo – con quote e bonus dei dipendenti.\n• I responsabili competenti assicurano progetti interessanti e flussi di lavoro funzionanti.\n• Con noi avete una vasta gamma di opportunità di formazione – siamo lieti di supportarvi. Ancora domande? Il tuo manager Stephan Zaugg ha le risposte (+41 79 273 90 26). Applicare con noi, siamo in uno spirito di ottimismo e alla ricerca di te! ETAVIS ha la giusta competenza per tutti gli argomenti nel campo dell'ingegneria elettrica. Se impianti elettrici, automazione degli edifici, servizio eventi, energie rinnovabili, ecc. - siamo il partner ideale per tutti questi servizi in Svizzera. Nell'ambito del Gruppo internazionale VINCI Energies, abbiamo il potere per l'innovazione di rimanere il miglior fornitore di soluzioni in futuro. Siamo fortemente ancorati a livello locale e conosciamo le persone, le culture e il mercato in tutte le regioni della Svizzera e del Liechtenstein. Siamo orgogliosi di essere in grado di formare diverse centinaia di studenti a 57 uffici e di lavorare con circa 2.300 dipendenti ogni giorno in un mondo più sostenibile e meglio connesso.",
-        "en": "Be part of the energy transition! ETAVIS Bern-Mittelland AG is one of the leading companies in the Swiss electrical installation and telecommunications market. We provide all services for consulting, project planning, execution, support and maintenance for electrical and building technology, telematics, telecom infrastructure and automation. That's what you do.\n• You are responsible for optimal and correct handling of service orders and small installations.\n• This includes the support of the customers of A – Z: self-employed appointment agreement; material management and material orders for own contracts; Clean, correct and timely completion of assembly or repair orders. This will make it easier for you to get started.\n• After completing your training as an electrical installer:in or assembly electrician:in EFZ you have gained several years of professional experience.\n• You have a category B driver’s license.\n• You are important to us - we offer you an open, appreciative and family environment.\n• We are successful - with us you have a long-term and secure perspective.\n• We will contribute to our success – with employee shares and bonuses.\n• Competent managers ensure exciting projects and functioning workflows.\n• With us you have a wide range of training opportunities – we are happy to support you. Still questions? Your manager Stephan Zaugg has the answers (+41 79 273 90 26). Apply with us, we are in a spirit of optimism and looking for you! ETAVIS has the right expertise for all topics in the field of electrical engineering. Whether electrical installations, building automation, event service, renewable energies, etc. - we are the ideal partner for all these services in Switzerland. As part of the international VINCI Energies Group, we have power for innovation to remain the best solution provider in the future. We are strongly anchored locally and know the people, cultures and the market in all regions of Switzerland and Liechtenstein. We are proud to be able to train several hundred learners at 57 offices and to work with around 2,300 employees every day on a more sustainable and better connected world.",
-        "de": "Sei Teil der Energiewende! Die ETAVIS Bern-Mittelland AG ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation. Das bewirkst du\n• Du bist verantwortlich für eine optimale und korrekte Abwicklung der Serviceaufträge und Kleininstallationen.\n• Diese beinhaltet die Betreuung der Kundschaft von A – Z: Selbständige Terminvereinbarung; Materialbewirtschaftung und Materialbestellungen für die eigenen Aufträge; Saubere, korrekte und termingerechte Erledigung der Montage- oder Reparaturaufträge. Das erleichtert dir den Einstieg\n• Nach Abschluss deiner Ausbildung als Elektroinstallateur:in oder Montage-Elektriker:in EFZ hast du einige Jahre Berufserfahrung gesammelt.\n• Du verfügst über einen Führerausweis der Kategorie B. Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern. Noch Fragen? Dein Vorgesetzter Stephan Zaugg, Geschäftsleiter, hat die Antworten (+41 79 273 90 26). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
-        "fr": "Faites partie de la transition énergétique ! ETAVIS Bern-Mittelland AG est l'une des principales entreprises du marché suisse de l'installation électrique et des télécommunications. Nous fournissons tous les services de conseil, de planification de projets, d'exécution, de soutien et d'entretien pour les technologies électriques et de construction, la télématique, l'infrastructure de télécommunications et l'automatisation. C'est ce que tu fais.\n• Vous êtes responsable de la gestion optimale et correcte des commandes de service et des petites installations.\n• Cela comprend le soutien des clients de A – Z: contrat de nomination d'indépendants; gestion matérielle et commandes matérielles pour les propres contrats; Nettoyer, corriger et exécuter en temps opportun les commandes de montage ou de réparation. Cela vous facilitera le démarrage.\n• Après avoir terminé votre formation en tant qu'installateur électrique: électricien dans ou en montage:dans EFZ vous avez acquis plusieurs années d'expérience professionnelle.\n• Vous avez un permis de conduire de catégorie B.\n• Vous êtes important pour nous - nous vous offrons un environnement ouvert, reconnaissant et familial.\n• Nous réussissons - avec nous vous avez une perspective à long terme et sécurisée.\n• Nous contribuerons à notre succès – avec des actions et des bonus d'employés.\n• Des gestionnaires compétents assurent des projets passionnants et des workflows opérationnels.\n• Avec nous, vous avez un large éventail de possibilités de formation – nous sommes heureux de vous soutenir. Toujours des questions ? Votre manager Stephan Zaugg a les réponses (+41 79 273 90 26). Postulez avec nous, nous sommes dans un esprit d'optimisme et de recherche de vous! ETAVIS possède la bonne expertise pour tous les sujets dans le domaine de l'ingénierie électrique. Que ce soit les installations électriques, l'automatisation du bâtiment, le service événementiel, les énergies renouvelables, etc., nous sommes le partenaire idéal pour tous ces services en Suisse. Dans le cadre du groupe international VINCI Energies, nous avons le pouvoir d'innover pour rester le meilleur fournisseur de solutions à l'avenir. Nous sommes fortement ancrés localement et connaissons la population, les cultures et le marché dans toutes les régions de la Suisse et du Liechtenstein. Nous sommes fiers de pouvoir former plusieurs centaines d'apprenants dans 57 bureaux et travailler avec environ 2300 employés chaque jour sur un monde plus durable et mieux connecté."
-      },
-      "location": "Liebefeld",
-      "canton": "BE",
-      "url": "https://etavis.softgarden.io/job/56777058/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=281244748&l=de",
-      "source": "ETAVIS Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:32.729Z",
-      "addressLocality": "Liebefeld",
-      "postalCode": "3097",
-      "streetAddress": "Waldeggstrasse 47",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-06",
-      "applyUrl": "https://etavis.softgarden.io/job/56777058/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=281244748&l=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Ingenieure und technische Berufe",
-      "previousSlugs": [
-        "servicemonteur-w-m-d-80-100-etavis-liebefeld",
-        "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "servicemonteur-w-m-d-80-100-etavis-liebefeld",
-          "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld"
-        ],
-        "en": [
-          "servicemonteur-w-m-d-80-100-etavis-liebefeld"
-        ],
-        "fr": [
-          "servicemonteur-w-m-d-80-100-etavis-liebefeld"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:51:48.701Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
           "unitText": "YEAR"
         }
       }
@@ -481,7 +400,7 @@
       "url": "https://etavis.softgarden.io/job/54714937/Bauleitender-Monteur-Industrie-und-Pharma-w-m-d-80-100-?jobDbPVId=281244758&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:32.452Z",
+      "crawledAt": "2026-09-01T10:27:21.548Z",
       "addressLocality": "Liebefeld",
       "postalCode": "3097",
       "streetAddress": "Waldeggstrasse 47",
@@ -561,7 +480,7 @@
       "url": "https://etavis.softgarden.io/job/64588908/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=281244773&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:32.177Z",
+      "crawledAt": "2026-09-01T10:27:21.257Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -596,8 +515,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-uetendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:48.093Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:48.093Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -643,7 +562,7 @@
       "url": "https://etavis.softgarden.io/job/52143564/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=281244778&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:31.901Z",
+      "crawledAt": "2026-09-01T10:27:20.969Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "-",
@@ -724,7 +643,7 @@
       "url": "https://etavis.softgarden.io/job/52142914/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=281244783&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:31.629Z",
+      "crawledAt": "2026-09-01T10:27:20.683Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "-",
@@ -787,8 +706,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-uetendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:47.468Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:47.468Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -834,7 +753,7 @@
       "url": "https://etavis.softgarden.io/job/64588878/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=281244803&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:31.360Z",
+      "crawledAt": "2026-09-01T10:27:20.395Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -869,8 +788,8 @@
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-uetendorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:47.167Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:47.167Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -916,7 +835,7 @@
       "url": "https://etavis.softgarden.io/job/56465142/Servicetechniker-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=281244813&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:31.090Z",
+      "crawledAt": "2026-09-01T10:27:20.102Z",
       "addressLocality": "Balzers",
       "postalCode": "9496",
       "streetAddress": "Kanalstrasse 3",
@@ -994,8 +913,8 @@
           "installation-electrique-pour-technicien-de-service-f-m-d-80-100-etavis-elcom-ag-balzers"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:46.859Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.859Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1041,7 +960,7 @@
       "url": "https://etavis.softgarden.io/job/51169703/Lernende-Montage-Elektriker-EFZ-w-m-d-2026?jobDbPVId=281244818&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:30.795Z",
+      "crawledAt": "2026-09-01T10:27:19.785Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -1076,8 +995,8 @@
           "lernende-montage-elektriker-efz-w-m-d-2026-etavis-biel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:46.529Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.529Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1123,7 +1042,7 @@
       "url": "https://etavis.softgarden.io/job/51169698/Lernende-Elektroinstallateure-EFZ-w-m-d-2026?jobDbPVId=281244823&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:30.523Z",
+      "crawledAt": "2026-09-01T10:27:19.495Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -1158,8 +1077,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-2026-etavis-biel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:46.225Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:46.225Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1205,7 +1124,7 @@
       "url": "https://etavis.softgarden.io/job/58904663/Service-Techniker-w-m-d-80%E2%80%93100-am-Standort-Liestal?jobDbPVId=281244838&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:30.252Z",
+      "crawledAt": "2026-09-01T10:27:19.199Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -1286,7 +1205,7 @@
       "url": "https://etavis.softgarden.io/job/31803186/Projektleiter-Schaltanlagenbau-w-m-d-80%E2%80%93100-?jobDbPVId=281244868&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:29.978Z",
+      "crawledAt": "2026-09-01T10:27:18.907Z",
       "addressLocality": "Basel",
       "postalCode": "-",
       "streetAddress": "-",
@@ -1323,8 +1242,8 @@
           "projektleiter-schaltanlagenbau-w-m-d-80-100-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:45.615Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:45.615Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -1370,7 +1289,7 @@
       "url": "https://etavis.softgarden.io/job/64623718/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=281244878&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:29.706Z",
+      "crawledAt": "2026-09-01T10:27:18.620Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3032",
       "streetAddress": "Kappelenring 69",
@@ -1405,8 +1324,8 @@
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:45.011Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:45.011Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1452,7 +1371,7 @@
       "url": "https://etavis.softgarden.io/job/64623753/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=281244898&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:29.417Z",
+      "crawledAt": "2026-09-01T10:27:18.329Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3032",
       "streetAddress": "Kappelenring 69",
@@ -1483,8 +1402,8 @@
           "apprendista-elektroinstallateure-cfc-w-m-d-2027-gfeller-elektro-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:44.706Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:44.706Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1530,7 +1449,7 @@
       "url": "https://etavis.softgarden.io/job/65160773/Projektleiter-Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=281324008&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:29.149Z",
+      "crawledAt": "2026-09-01T10:27:18.034Z",
       "addressLocality": "Winterthur",
       "postalCode": "8405",
       "streetAddress": "Im Hölderli 26",
@@ -1600,8 +1519,8 @@
           "projektleiter-junior-projektleiter-elektroinstallation-w-m-d-80-100-etavis-winterthur"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:44.401Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:44.401Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1647,7 +1566,7 @@
       "url": "https://etavis.softgarden.io/job/64633753/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=281324033&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:28.873Z",
+      "crawledAt": "2026-09-01T10:27:17.743Z",
       "addressLocality": "Uetendorf",
       "postalCode": "3661",
       "streetAddress": "Gewerbestrasse 2",
@@ -1741,7 +1660,7 @@
       "url": "https://etavis.softgarden.io/job/65939244/Application-Manager-Zeit-und-Leistungserfassung-w-m-d-80-100-?jobDbPVId=281415603&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:28.600Z",
+      "crawledAt": "2026-09-01T10:27:17.455Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -1812,8 +1731,8 @@
           "gestionnaire-d-applications-enregistrement-du-temps-et-du-rendement-f-m-d-80-100-vinci-energies-schweiz-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:07:43.628Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:07:43.628Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1859,7 +1778,7 @@
       "url": "https://etavis.softgarden.io/job/64672289/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=281618388&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:28.321Z",
+      "crawledAt": "2026-09-01T10:27:17.167Z",
       "addressLocality": "Kloten",
       "postalCode": "8302",
       "streetAddress": "Frachtstrasse",
@@ -1896,8 +1815,8 @@
           "projektleiter-elektroinstallation-w-m-d-80-100-etavis-kloten"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:43.796Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:43.796Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1943,7 +1862,7 @@
       "url": "https://etavis.softgarden.io/job/51182698/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=281710643&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:28.047Z",
+      "crawledAt": "2026-09-01T10:27:16.878Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -1978,8 +1897,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-etavis-muttenz"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:46.482Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:46.482Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2025,7 +1944,7 @@
       "url": "https://etavis.softgarden.io/job/51571593/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=281710648&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:27.769Z",
+      "crawledAt": "2026-09-01T10:27:16.587Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -2060,8 +1979,8 @@
           "lernende-montage-elektriker-efz-w-m-d-etavis-liestal"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:44.761Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:44.761Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2107,7 +2026,7 @@
       "url": "https://etavis.softgarden.io/job/51193313/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=281710653&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:27.496Z",
+      "crawledAt": "2026-09-01T10:27:16.299Z",
       "addressLocality": "Muttenz",
       "postalCode": "4132",
       "streetAddress": "Sankt Jakob-Strasse 40",
@@ -2142,8 +2061,8 @@
           "lernende-montage-elektriker-efz-w-m-d-etavis-muttenz"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:45.448Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:45.448Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2189,7 +2108,7 @@
       "url": "https://etavis.softgarden.io/job/51183473/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=281710678&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:27.215Z",
+      "crawledAt": "2026-09-01T10:27:16.013Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -2224,8 +2143,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-etavis-liestal"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:46.819Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:46.819Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2271,7 +2190,7 @@
       "url": "https://etavis.softgarden.io/job/51190623/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=281710688&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:26.946Z",
+      "crawledAt": "2026-09-01T10:27:15.726Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -2306,8 +2225,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:47.156Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:47.156Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2353,7 +2272,7 @@
       "url": "https://etavis.softgarden.io/job/51190918/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=281710698&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:26.678Z",
+      "crawledAt": "2026-09-01T10:27:15.437Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -2388,8 +2307,8 @@
           "lernende-montage-elektriker-efz-w-m-d-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:45.812Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:45.812Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2435,7 +2354,7 @@
       "url": "https://etavis.softgarden.io/job/51191343/Lernende-Automatiker-EFZ-w-m-d-?jobDbPVId=281710703&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:26.407Z",
+      "crawledAt": "2026-09-01T10:27:15.149Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -2470,8 +2389,8 @@
           "lernende-automatiker-efz-w-m-d-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:45.116Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:45.116Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2517,7 +2436,7 @@
       "url": "https://etavis.softgarden.io/job/51190973/Lernende-Automatikmonteure-EFZ-w-m-d-?jobDbPVId=281710708&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:26.133Z",
+      "crawledAt": "2026-09-01T10:27:14.853Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -2552,8 +2471,8 @@
           "lernende-automatikmonteure-efz-w-m-d-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-13T13:02:46.149Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-13T13:02:46.149Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2599,7 +2518,7 @@
       "url": "https://etavis.softgarden.io/job/64698524/Bauleitender-Monteur-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=281871245&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:25.861Z",
+      "crawledAt": "2026-09-01T10:27:14.562Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2671,8 +2590,8 @@
           "installation-electrique-du-responsable-de-la-construction-w-m-d-80-100-etavis-ag-neuhausen-am-rheinfall"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:43.491Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:43.491Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -2718,7 +2637,7 @@
       "url": "https://etavis.softgarden.io/job/64698834/Teamleiter-Gruppenleiter-w-m-d-80%E2%80%93100-?jobDbPVId=281871260&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:25.584Z",
+      "crawledAt": "2026-09-01T10:27:14.269Z",
       "addressLocality": "Neuhausen am Rheinfall",
       "postalCode": "8212",
       "streetAddress": "Schaffhauserstrasse 15",
@@ -2753,8 +2672,8 @@
           "teamleiter-gruppenleiter-w-m-d-80-100-etavis-neuhausen-am-rheinfall"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:43.188Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:43.188Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2800,7 +2719,7 @@
       "url": "https://etavis.softgarden.io/job/64692079/Projektleiter-Elektroinstallation-w-m-d-80-100-?jobDbPVId=281871285&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:25.308Z",
+      "crawledAt": "2026-09-01T10:27:13.980Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -2837,8 +2756,8 @@
           "projektleiter-elektroinstallation-w-m-d-80-100-etavis-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:42.880Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:42.880Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2884,7 +2803,7 @@
       "url": "https://etavis.softgarden.io/job/64677789/Servicemonteur-Elektroinstallateur-EFZ-w-m-d-80%E2%80%93100-?jobDbPVId=281871295&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:25.036Z",
+      "crawledAt": "2026-09-01T10:27:13.689Z",
       "addressLocality": "Uster",
       "postalCode": "8610",
       "streetAddress": "Winterthurerstrasse 35",
@@ -2951,8 +2870,8 @@
           "installateur-installateur-electrique-efz-w-m-d-80-100-etavis-ag-uster"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:42.575Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:42.575Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2998,7 +2917,7 @@
       "url": "https://etavis.softgarden.io/job/64691379/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=281871310&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:24.765Z",
+      "crawledAt": "2026-09-01T10:27:13.402Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -3070,8 +2989,8 @@
           "installation-electrique-du-responsable-de-la-construction-f-m-d-80-100-etavis-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:42.267Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:42.267Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -3117,7 +3036,7 @@
       "url": "https://etavis.softgarden.io/job/64690859/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=281871355&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:24.496Z",
+      "crawledAt": "2026-09-01T10:27:13.114Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -3180,8 +3099,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:39.499Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:39.499Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -3227,7 +3146,7 @@
       "url": "https://etavis.softgarden.io/job/64691444/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=281871375&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:24.219Z",
+      "crawledAt": "2026-09-01T10:27:12.826Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -3288,8 +3207,8 @@
           "installation-electrique-du-responsable-de-la-construction-f-m-d-80-100-etavis-ag-baden"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:41.650Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:41.650Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -3335,7 +3254,7 @@
       "url": "https://etavis.softgarden.io/job/64692864/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=281871390&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:23.942Z",
+      "crawledAt": "2026-09-01T10:27:12.539Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3406,8 +3325,8 @@
           "installation-electrique-du-responsable-de-la-construction-f-m-d-80-100-etavis-ag-oftringen"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:41.341Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:41.341Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -3453,7 +3372,7 @@
       "url": "https://etavis.softgarden.io/job/64690814/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=281871405&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:23.673Z",
+      "crawledAt": "2026-09-01T10:27:12.245Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61B",
@@ -3504,8 +3423,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-baden"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:41.034Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:41.034Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -3551,7 +3470,7 @@
       "url": "https://etavis.softgarden.io/job/64692879/Servicemonteur-w-m-d-80-100-?jobDbPVId=281871425&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:23.406Z",
+      "crawledAt": "2026-09-01T10:27:11.957Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3632,7 +3551,7 @@
       "url": "https://etavis.softgarden.io/job/64690639/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=281871455&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:23.142Z",
+      "crawledAt": "2026-09-01T10:27:11.667Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -3687,8 +3606,8 @@
           "installateur-electrique-m-j-80-100-etavis-ag-oftringen"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:40.113Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:40.113Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -3734,7 +3653,7 @@
       "url": "https://etavis.softgarden.io/job/64735746/Capo-progetto-per-reti-di-distribuzione-f-m-d-80-100-?jobDbPVId=281871465&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T08:43:22.868Z",
+      "crawledAt": "2026-09-01T10:27:11.381Z",
       "addressLocality": "Lugano",
       "postalCode": "6963",
       "streetAddress": "Via Giovanni Maraini 19",
@@ -3799,7 +3718,7 @@
       "url": "https://etavis.softgarden.io/job/64735966/Elettricista-per-reti-di-distribuzione-f-m-d-80-100-?jobDbPVId=281871485&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T08:43:22.591Z",
+      "crawledAt": "2026-09-01T10:27:11.020Z",
       "addressLocality": "Lugano",
       "postalCode": "6963",
       "streetAddress": "Via Giovanni Maraini 19",
@@ -3864,7 +3783,7 @@
       "url": "https://etavis.softgarden.io/job/64736116/Montatrice-tore-di-servizio-f-m-d-80-100-?jobDbPVId=281871500&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T08:43:22.315Z",
+      "crawledAt": "2026-09-01T10:27:10.726Z",
       "addressLocality": "Bellinzona",
       "postalCode": "6500",
       "streetAddress": "Viale Portone 12",
@@ -3929,7 +3848,7 @@
       "url": "https://etavis.softgarden.io/job/66095773/Systemtechniker-ICT-Servicetechniker-w-m-d-80-100-?jobDbPVId=281871515&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:22.036Z",
+      "crawledAt": "2026-09-01T10:27:10.432Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Oststrasse 25",
@@ -4012,7 +3931,7 @@
       "url": "https://etavis.softgarden.io/job/65309486/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=281871525&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:21.764Z",
+      "crawledAt": "2026-09-01T10:27:10.143Z",
       "addressLocality": "Liestal",
       "postalCode": "4410",
       "streetAddress": "Rheinstrasse 16",
@@ -4049,8 +3968,8 @@
           "projektleiter-elektroinstallation-w-m-d-80-100-etavis-liestal"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:38.258Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:38.258Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -4096,7 +4015,7 @@
       "url": "https://etavis.softgarden.io/job/59896845/Kalkulator-Schaltanlagenbau-w-m-d-80-100-?jobDbPVId=281871545&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:21.500Z",
+      "crawledAt": "2026-09-01T10:27:09.857Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -4147,89 +4066,6 @@
       }
     },
     {
-      "id": "etavis-992c85c003fd",
-      "slug": "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern",
-      "slugByLocale": {
-        "it": "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern",
-        "en": "electrical-project-manager-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern",
-        "de": "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern",
-        "fr": "gestionnaire-de-projet-electrique-m-j-80-100-gfeller-elektro-wohlen-bei-bern"
-      },
-      "company": "Gfeller Elektro",
-      "companyKey": "etavis",
-      "companyDomain": "etavis.ch",
-      "title": "Elektro-Projektleiter(w/m/d) 80–100%",
-      "titleByLocale": {
-        "it": "Responsabile Progetto Elettrico (f/m/d) 80–100%",
-        "en": "Electrical Project Manager (w/m/d) 80–100 %",
-        "de": "Elektro-Projektleiter(w/m/d) 80–100%",
-        "fr": "Gestionnaire de projet électrique (m/j) 80–100 %"
-      },
-      "description": "Sei Teil der Energiewende! gfeller elektro, ein Unternehmen der ETAVIS Bern-Mittelland, ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation . Das bewirkst du\n• Kundenwünsche im direkten Kontakt erfassen, spezifische Stark- und Schwachstrom-Lösungen entwickeln sowie bedürfnisgerechte Angebote erarbeiten\n• Projektausführungen leiten sowie den optimalen Mitarbeitereinsatz planen\n• Folge- oder Zusatzaufträge akquirieren sowie den Kundenstamm ausbauen Das erleichtert dir den Einstieg\n• Abgeschlossene Grundausbildung als Elektroinstallateur:in EFZ und Weiterbildung zur:m Elektro-Projektleiter:in mit eidg. FA oder zur:m eidg. dipl. Elektroinstallateur:in oder fachkundig nach NIV\n• mehrjährige Berufserfahrung als Projektleiter im Elektroinstallations-Umfeld\n• Sehr gute Deutschkenntnisse (mündlich & schriftlich)\n• Führerschein der Kategorie B Das erwartet dich\n• Du bist uns wichtig – wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich – bei uns kannst du viel bewegen.\n• Wir fördern deine berufliche Entwicklung und Weiterbildung – wir unterstützen dich gern.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Wir kombinieren die Möglichkeiten eines globalen Grossunternehmens mit den Vorteilen eines KMU’s. Noch Fragen? Dein Vorgesetzter André Lüthi, Geschäftsleiter, hat die Antworten (+41 79 948 91 57 / +41 31 998 55 66). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
-      "descriptionByLocale": {
-        "it": "Fate parte della transizione energetica! gfeller elektro, società di ETAVIS Bern-Mittelland, è una delle aziende leader nel mercato svizzero dell'installazione elettrica e delle telecomunicazioni. Forniamo tutti i servizi per la consulenza, la pianificazione del progetto, l'esecuzione, il supporto e la manutenzione per la tecnologia elettrica e di costruzione, la telematica, l'infrastruttura delle telecomunicazioni e l'automazione. E' quello che fai.\n• Registrare le richieste dei clienti in contatto diretto, sviluppare soluzioni specifiche ad alta e bassa corrente e sviluppare offerte basate sulle esigenze\n• Gestione delle esecuzioni dei progetti e pianificazione della distribuzione ottimale della forza lavoro\n• Acquisire ulteriori ordini o ulteriori ordini ed espandere la base del cliente Questo renderà più facile per voi per iniziare.\n• Formazione di base completata come installatore elettrico: in EFZ e formazione ulteriore a:m Direttore del progetto elettrico:in con FA federale o a:m Federal Dipl. Installatore elettrico: in o qualificato in NIV\n• Diversi anni di esperienza professionale come project manager nell'ambiente di installazione elettrica\n• Ottima conoscenza del tedesco (verbale e scrittura)\n• Categoria B patente di guida vi aspetta\n• Sei importante per noi – ti offriamo un ambiente aperto, apprezzato e familiare.\n• Abbiamo successo – con noi si può spostare molto.\n• Promuoviamo il vostro sviluppo professionale e l'ulteriore formazione – siamo felici di sostenervi.\n• Contribuiremo al nostro successo – con quote e bonus dei dipendenti.\n• Uniamo le possibilità di una grande azienda globale con i vantaggi di una PMI. Ancora domande? Il tuo manager, André Lüthi, ha le risposte (+41 79 948 91 57 / +41 31 998 55 66). Applicare con noi, siamo in uno spirito di ottimismo e alla ricerca di te! ETAVIS ha la giusta competenza per tutti gli argomenti nel campo dell'ingegneria elettrica. Se impianti elettrici, automazione degli edifici, servizio eventi, energie rinnovabili, ecc. - siamo il partner ideale per tutti questi servizi in Svizzera. Nell'ambito del Gruppo internazionale VINCI Energies, abbiamo il potere per l'innovazione di rimanere il miglior fornitore di soluzioni in futuro. Siamo fortemente ancorati a livello locale e conosciamo le persone, le culture e il mercato in tutte le regioni della Svizzera e del Liechtenstein. Siamo orgogliosi di essere in grado di formare diverse centinaia di studenti a 57 uffici e di lavorare con circa 2.300 dipendenti ogni giorno in un mondo più sostenibile e meglio connesso.",
-        "en": "Be part of the energy transition! gfeller elektro, a company of ETAVIS Bern-Mittelland, is one of the leading companies in the Swiss electrical installation and telecommunications market. We provide all services for consulting, project planning, execution, support and maintenance for electrical and building technology, telematics, telecom infrastructure and automation. That's what you do.\n• Record customer requests in direct contact, develop specific high and low current solutions and develop needs-based offers\n• Managing project executions and planning the optimal workforce deployment\n• Acquire follow-up or additional orders and expand the customer base This will make it easier for you to get started.\n• Completed basic training as an electrical installer:in EFZ and further training to:m Electrical Project Manager:in with Federal FA or to:m Federal Dipl. Electrical installer: in or skilled in NIV\n• Several years of professional experience as project manager in the electrical installation environment\n• Very good knowledge of German (verbal & writing)\n• Category B driving license awaits you\n• You are important to us – we offer you an open, appreciative and family environment.\n• We are successful – with us you can move a lot.\n• We promote your professional development and further education – we are happy to support you.\n• We will contribute to our success – with employee shares and bonuses.\n• We combine the possibilities of a large global company with the advantages of an SME. Still questions? Your manager, André Lüthi, has the answers (+41 79 948 91 57 / +41 31 998 55 66). Apply with us, we are in a spirit of optimism and looking for you! ETAVIS has the right expertise for all topics in the field of electrical engineering. Whether electrical installations, building automation, event service, renewable energies, etc. - we are the ideal partner for all these services in Switzerland. As part of the international VINCI Energies Group, we have power for innovation to remain the best solution provider in the future. We are strongly anchored locally and know the people, cultures and the market in all regions of Switzerland and Liechtenstein. We are proud to be able to train several hundred learners at 57 offices and to work with around 2,300 employees every day on a more sustainable and better connected world.",
-        "de": "Sei Teil der Energiewende! gfeller elektro, ein Unternehmen der ETAVIS Bern-Mittelland, ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation . Das bewirkst du\n• Kundenwünsche im direkten Kontakt erfassen, spezifische Stark- und Schwachstrom-Lösungen entwickeln sowie bedürfnisgerechte Angebote erarbeiten\n• Projektausführungen leiten sowie den optimalen Mitarbeitereinsatz planen\n• Folge- oder Zusatzaufträge akquirieren sowie den Kundenstamm ausbauen Das erleichtert dir den Einstieg\n• Abgeschlossene Grundausbildung als Elektroinstallateur:in EFZ und Weiterbildung zur:m Elektro-Projektleiter:in mit eidg. FA oder zur:m eidg. dipl. Elektroinstallateur:in oder fachkundig nach NIV\n• mehrjährige Berufserfahrung als Projektleiter im Elektroinstallations-Umfeld\n• Sehr gute Deutschkenntnisse (mündlich & schriftlich)\n• Führerschein der Kategorie B Das erwartet dich\n• Du bist uns wichtig – wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich – bei uns kannst du viel bewegen.\n• Wir fördern deine berufliche Entwicklung und Weiterbildung – wir unterstützen dich gern.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Wir kombinieren die Möglichkeiten eines globalen Grossunternehmens mit den Vorteilen eines KMU’s. Noch Fragen? Dein Vorgesetzter André Lüthi, Geschäftsleiter, hat die Antworten (+41 79 948 91 57 / +41 31 998 55 66). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
-        "fr": "Faites partie de la transition énergétique ! gfeller elektro, société d'ETAVIS Bern-Mittelland, est l'une des principales entreprises du marché suisse de l'installation électrique et des télécommunications. Nous fournissons tous les services de conseil, de planification de projets, d'exécution, de soutien et d'entretien pour les technologies électriques et de construction, la télématique, l'infrastructure de télécommunications et l'automatisation. C'est ce que tu fais.\n• Enregistrez les demandes des clients en contact direct, développez des solutions spécifiques à haut et à bas courant et développez des offres basées sur les besoins\n• Gestion des exécutions de projets et planification du déploiement optimal des effectifs\n• Acquérir un suivi ou des commandes supplémentaires et élargir la clientèle Cela vous facilitera le démarrage.\n• Achevé la formation de base en tant qu'installateur électrique:dans EFZ et la formation continue pour:m Directeur de projet électrique:dans avec la FA fédérale ou pour:m Dipl. fédéral. Installateur électrique: dans ou qualifié en NIV\n• Plusieurs années d'expérience professionnelle en tant que chef de projet dans l'environnement d'installation électrique\n• Très bonne connaissance de l'allemand (verbal et écriture)\n• Le permis de conduire de catégorie B vous attend\n• Vous êtes important pour nous – nous vous offrons un environnement ouvert, agréable et familial.\n• Nous réussissons – avec nous vous pouvez bouger beaucoup.\n• Nous promouvons votre développement professionnel et votre formation continue – nous sommes heureux de vous soutenir.\n• Nous contribuerons à notre succès – avec des actions et des bonus d'employés.\n• Nous combinons les possibilités d'une grande entreprise mondiale avec les avantages d'une PME. Toujours des questions ? Votre manager, André Lüthi, a les réponses (+41 79 948 91 57 / +41 31 998 55 66). Postulez avec nous, nous sommes dans un esprit d'optimisme et de recherche de vous! ETAVIS possède la bonne expertise pour tous les sujets dans le domaine de l'ingénierie électrique. Que ce soit les installations électriques, l'automatisation du bâtiment, le service événementiel, les énergies renouvelables, etc., nous sommes le partenaire idéal pour tous ces services en Suisse. Dans le cadre du groupe international VINCI Energies, nous avons le pouvoir d'innover pour rester le meilleur fournisseur de solutions à l'avenir. Nous sommes fortement ancrés localement et connaissons la population, les cultures et le marché dans toutes les régions de la Suisse et du Liechtenstein. Nous sommes fiers de pouvoir former plusieurs centaines d'apprenants dans 57 bureaux et travailler avec environ 2300 employés chaque jour sur un monde plus durable et mieux connecté."
-      },
-      "location": "Wohlen bei Bern",
-      "canton": "BE",
-      "url": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=281871560&l=de",
-      "source": "ETAVIS Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:21.221Z",
-      "addressLocality": "Wohlen bei Bern",
-      "postalCode": "3032",
-      "streetAddress": "Kappelenring 69",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-17",
-      "applyUrl": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=281871560&l=de",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobCategory": "Ingenieure und technische Berufe",
-      "previousSlugs": [
-        "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern",
-        "elektro-projektleiter-m-w-d-80-100-gfeller-elektro-wohlen-bei-bern",
-        "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern",
-          "elektro-projektleiter-m-w-d-80-100-gfeller-elektro-wohlen-bei-bern",
-          "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
-        ],
-        "en": [
-          "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern"
-        ],
-        "fr": [
-          "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T10:51:37.642Z",
-      "salaryMin": 105500,
-      "salaryMax": 160000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "etavis-349b30c6e9aa",
       "slug": "apprendista-montage-elektriker-cfc-w-m-d-etavis-ag-zurich",
       "slugByLocale": {
@@ -4260,7 +4096,7 @@
       "url": "https://etavis.softgarden.io/job/51187003/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=281932745&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:20.949Z",
+      "crawledAt": "2026-09-01T10:27:09.566Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -4289,8 +4125,8 @@
           "apprendista-montage-elektriker-cfc-w-m-d-etavis-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-17T10:26:17.472Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:17.472Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4336,7 +4172,7 @@
       "url": "https://etavis.softgarden.io/job/51183648/Lernende-Montage-Elektriker-EFZ-w-m-d-?jobDbPVId=281933255&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:20.670Z",
+      "crawledAt": "2026-09-01T10:27:09.277Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -4365,8 +4201,8 @@
           "apprendista-montage-elektriker-cfc-w-m-d-etavis-ag-baden"
         ]
       },
-      "firstSeenAt": "2026-08-17T10:26:16.929Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.929Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -4412,7 +4248,7 @@
       "url": "https://etavis.softgarden.io/job/51183483/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=281933495&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:20.393Z",
+      "crawledAt": "2026-09-01T10:27:08.986Z",
       "addressLocality": "Baden",
       "postalCode": "5400",
       "streetAddress": "Kehlstrasse 61b",
@@ -4447,8 +4283,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-etavis-baden"
         ]
       },
-      "firstSeenAt": "2026-08-17T10:26:16.546Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.546Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -4494,7 +4330,7 @@
       "url": "https://etavis.softgarden.io/job/51186998/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=281933530&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:20.096Z",
+      "crawledAt": "2026-09-01T10:27:08.696Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -4529,8 +4365,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-etavis-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-17T10:26:16.283Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.283Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4576,7 +4412,7 @@
       "url": "https://etavis.softgarden.io/job/51184078/Lernende-Elektroinstallateure-EFZ-w-m-d-?jobDbPVId=281933535&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:19.815Z",
+      "crawledAt": "2026-09-01T10:27:08.402Z",
       "addressLocality": "Oftringen",
       "postalCode": "4665",
       "streetAddress": "Gärtnereiweg 4b",
@@ -4611,8 +4447,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-etavis-oftringen"
         ]
       },
-      "firstSeenAt": "2026-08-17T10:26:16.009Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:26:16.009Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -4658,7 +4494,7 @@
       "url": "https://etavis.softgarden.io/job/66798975/Senior-Modern-Workplace-Engineer-w-m-d-80-100-?jobDbPVId=282069775&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:19.532Z",
+      "crawledAt": "2026-09-01T10:27:08.113Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -4707,8 +4543,8 @@
           "senior-modern-workplace-ingenieur-w-m-d-80-100-vinci-energies-schweiz-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-18T10:22:03.621Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-18T10:22:03.621Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -4754,7 +4590,7 @@
       "url": "https://etavis.softgarden.io/job/66883765/Planificateur-%C3%A9lectricien?jobDbPVId=282447935&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:43:19.255Z",
+      "crawledAt": "2026-09-01T10:27:07.820Z",
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue du Caudray 6",
@@ -4789,8 +4625,8 @@
           "planificateur-electricien-etavis-renens"
         ]
       },
-      "firstSeenAt": "2026-08-21T09:59:08.104Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:59:08.104Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -4836,7 +4672,7 @@
       "url": "https://etavis.softgarden.io/job/56797623/Bauleitender-Monteur-w-m-d-80-100-?jobDbPVId=282512700&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:18.987Z",
+      "crawledAt": "2026-09-01T10:27:07.529Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -4917,7 +4753,7 @@
       "url": "https://etavis.softgarden.io/job/56797408/Elektroinstallateur-Industrie-Umgebung-Biel-sowie-Solothurn-w-m-d-80-100-?jobDbPVId=282512710&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:18.711Z",
+      "crawledAt": "2026-09-01T10:27:07.240Z",
       "addressLocality": "Biel",
       "postalCode": "-",
       "streetAddress": "-",
@@ -5032,7 +4868,7 @@
       "url": "https://etavis.softgarden.io/job/40351407/Elektroplaner-w-m-d-80%E2%80%93100-?jobDbPVId=282512720&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:18.430Z",
+      "crawledAt": "2026-09-01T10:27:06.948Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -5067,8 +4903,8 @@
           "elektroplaner-w-m-d-80-100-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:36.417Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:36.417Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -5114,7 +4950,7 @@
       "url": "https://etavis.softgarden.io/job/31805316/Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=282512725&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:18.153Z",
+      "crawledAt": "2026-09-01T10:27:06.661Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -5151,8 +4987,8 @@
           "projektleiter-elektroinstallation-w-m-d-80-100-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:36.110Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:36.110Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -5198,7 +5034,7 @@
       "url": "https://etavis.softgarden.io/job/62056279/ICT-Systemtechniker-IPTV-Multimedia-HF-Netzwerk-w-m-d-80-100-?jobDbPVId=282512740&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:17.870Z",
+      "crawledAt": "2026-09-01T10:27:06.374Z",
       "addressLocality": "Basel",
       "postalCode": "-",
       "streetAddress": "-",
@@ -5279,7 +5115,7 @@
       "url": "https://etavis.softgarden.io/job/60769212/ICT-Systemtechniker-Voice-UCC-w-m-d-80-100-?jobDbPVId=282512745&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:17.591Z",
+      "crawledAt": "2026-09-01T10:27:06.076Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3032",
       "streetAddress": "Kappelenring 69",
@@ -5360,7 +5196,7 @@
       "url": "https://etavis.softgarden.io/job/56776563/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=282512770&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:17.317Z",
+      "crawledAt": "2026-09-01T10:27:05.781Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3032",
       "streetAddress": "Kappelenring 69",
@@ -5424,8 +5260,8 @@
           "elektroinstallateur-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:34.887Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:34.887Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -5471,7 +5307,7 @@
       "url": "https://etavis.softgarden.io/job/64851897/KNX-Systemintegrator-w-m-d-80%E2%80%93100-?jobDbPVId=282586455&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:17.036Z",
+      "crawledAt": "2026-09-01T10:27:05.487Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Technoparkstrasse 1",
@@ -5545,8 +5381,8 @@
           "integration-du-systeme-knx-w-m-d-80-a-100-etavis-ag-zurich"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:34.581Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:34.581Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -5592,7 +5428,7 @@
       "url": "https://etavis.softgarden.io/job/65478126/Servicetechniker-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=282706685&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:16.763Z",
+      "crawledAt": "2026-09-01T10:27:05.193Z",
       "addressLocality": "Balzers",
       "postalCode": "9496",
       "streetAddress": "Kanalstrasse 3",
@@ -5680,8 +5516,8 @@
           "technicien-de-service-installation-electrique-w-m-d-80-100-etavis-elcom-ag-balzers"
         ]
       },
-      "firstSeenAt": "2026-07-04T21:50:33.462Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T21:50:33.462Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -5727,7 +5563,7 @@
       "url": "https://etavis.softgarden.io/job/65478101/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=282706700&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:16.452Z",
+      "crawledAt": "2026-09-01T10:27:04.879Z",
       "addressLocality": "Balzers",
       "postalCode": "9496",
       "streetAddress": "Kanalstrasse 3",
@@ -5766,8 +5602,8 @@
           "installateur-electrique-w-m-d-80-100-etavis-elcom-ag-balzers"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:28.171Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:28.171Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -5813,7 +5649,7 @@
       "url": "https://etavis.softgarden.io/job/65477636/Montage-Elektriker-w-m-d-80-100-?jobDbPVId=282706740&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:16.138Z",
+      "crawledAt": "2026-09-01T10:27:04.567Z",
       "addressLocality": "Arbon",
       "postalCode": "9320",
       "streetAddress": "Berglistrasse 2",
@@ -5894,7 +5730,7 @@
       "url": "https://etavis.softgarden.io/job/65477966/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282706750&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:15.860Z",
+      "crawledAt": "2026-09-01T10:27:04.275Z",
       "addressLocality": "Wil",
       "postalCode": "9500",
       "streetAddress": "Toggenburgerstrasse 120",
@@ -5958,8 +5794,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-wil"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:28.788Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:28.788Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6005,7 +5841,7 @@
       "url": "https://etavis.softgarden.io/job/65476836/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282706795&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:15.586Z",
+      "crawledAt": "2026-09-01T10:27:03.983Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "streetAddress": "Fabrikstrasse 19",
@@ -6070,8 +5906,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-buchs"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:31.534Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:31.534Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6117,7 +5953,7 @@
       "url": "https://etavis.softgarden.io/job/65477616/Montage-Elektriker-w-m-d-80-100-?jobDbPVId=282706820&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:15.308Z",
+      "crawledAt": "2026-09-01T10:27:03.692Z",
       "addressLocality": "Herisau",
       "postalCode": "9100",
       "streetAddress": "Alte Bahnhofstrasse 3",
@@ -6198,7 +6034,7 @@
       "url": "https://etavis.softgarden.io/job/65476946/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282706845&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:15.024Z",
+      "crawledAt": "2026-09-01T10:27:03.404Z",
       "addressLocality": "Widnau",
       "postalCode": "9443",
       "streetAddress": "Diepoldsauerstrasse 11",
@@ -6259,8 +6095,8 @@
           "installateur-electrique-m-j-80-100-etavis-grossenbacher-ag-widnau"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:30.924Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:30.924Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6306,7 +6142,7 @@
       "url": "https://etavis.softgarden.io/job/65476831/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=282706875&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:14.741Z",
+      "crawledAt": "2026-09-01T10:27:03.111Z",
       "addressLocality": "Widnau",
       "postalCode": "9443",
       "streetAddress": "Diepoldsauerstrasse 11",
@@ -6376,8 +6212,8 @@
           "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-widnau"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:31.839Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:31.839Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6423,7 +6259,7 @@
       "url": "https://etavis.softgarden.io/job/65476676/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282706900&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:14.458Z",
+      "crawledAt": "2026-09-01T10:27:02.815Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -6488,8 +6324,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-chur"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:33.359Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:33.359Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6535,7 +6371,7 @@
       "url": "https://etavis.softgarden.io/job/65476641/Systemtechniker-ICT-w-m-d-80-100-?jobDbPVId=282706920&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:14.178Z",
+      "crawledAt": "2026-09-01T10:27:02.522Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "Oststrasse 25",
@@ -6616,7 +6452,7 @@
       "url": "https://etavis.softgarden.io/job/65476941/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282706950&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:13.901Z",
+      "crawledAt": "2026-09-01T10:27:02.228Z",
       "addressLocality": "Mels",
       "postalCode": "8887",
       "streetAddress": "Bahnhofstrasse 18",
@@ -6681,8 +6517,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-mels"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:31.228Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:31.228Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6728,7 +6564,7 @@
       "url": "https://etavis.softgarden.io/job/65478096/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282706970&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:13.630Z",
+      "crawledAt": "2026-09-01T10:27:01.935Z",
       "addressLocality": "Uzwil",
       "postalCode": "9240",
       "streetAddress": "Bahnhofstrasse 68",
@@ -6795,8 +6631,8 @@
           "elektroinstallateur-w-m-d-80-100-etavis-uzwil"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:28.479Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:28.479Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -6842,7 +6678,7 @@
       "url": "https://etavis.softgarden.io/job/65477826/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=282707015&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:13.351Z",
+      "crawledAt": "2026-09-01T10:27:01.641Z",
       "addressLocality": "Arbon",
       "postalCode": "9320",
       "streetAddress": "Berglistrasse 2",
@@ -6915,8 +6751,8 @@
           "installation-electrique-du-responsable-de-la-construction-f-m-d-80-100-etavis-grossenbacher-ag-arbon"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:29.700Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:29.700Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -6962,7 +6798,7 @@
       "url": "https://etavis.softgarden.io/job/65476671/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=282707055&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:13.077Z",
+      "crawledAt": "2026-09-01T10:27:01.352Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Pulvermühlestrasse 93",
@@ -7003,8 +6839,8 @@
           "bauleitender-monteur-elektroinstallation-w-m-d-80-100-etavis-chur"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:33.662Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:33.662Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7050,7 +6886,7 @@
       "url": "https://etavis.softgarden.io/job/65476821/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=282707090&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:12.794Z",
+      "crawledAt": "2026-09-01T10:27:01.060Z",
       "addressLocality": "Buchs",
       "postalCode": "9470",
       "streetAddress": "Fabrikstrasse 19",
@@ -7124,8 +6960,8 @@
           "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-buchs"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:32.446Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:32.446Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7171,7 +7007,7 @@
       "url": "https://etavis.softgarden.io/job/65477956/Servicetechniker-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=282707115&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:12.520Z",
+      "crawledAt": "2026-09-01T10:27:00.770Z",
       "addressLocality": "Arbon",
       "postalCode": "9320",
       "streetAddress": "Berglistrasse 2",
@@ -7214,8 +7050,8 @@
           "servicetechniker-elektroinstallation-w-m-d-80-100-etavis-arbon"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:29.089Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:29.089Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7261,7 +7097,7 @@
       "url": "https://etavis.softgarden.io/job/65476826/Servicetechniker-Elektroinstallation-w-m-d-80-100-?jobDbPVId=282707120&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:12.244Z",
+      "crawledAt": "2026-09-01T10:27:00.476Z",
       "addressLocality": "Mels",
       "postalCode": "8887",
       "streetAddress": "Bahnhofstrasse 18",
@@ -7337,8 +7173,8 @@
           "installation-electrique-pour-technicien-de-service-f-m-d-80-100-etavis-grossenbacher-ag-mels"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:32.142Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:32.142Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7384,7 +7220,7 @@
       "url": "https://etavis.softgarden.io/job/65477601/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282707145&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:11.969Z",
+      "crawledAt": "2026-09-01T10:27:00.183Z",
       "addressLocality": "Herisau",
       "postalCode": "9100",
       "streetAddress": "Alte Bahnhofstrasse 3",
@@ -7423,8 +7259,8 @@
           "installateur-electrique-m-j-80-100-etavis-grossenbacher-ag-herisau"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:30.618Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:30.618Z",
       "salaryMin": 73000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -7470,7 +7306,7 @@
       "url": "https://etavis.softgarden.io/job/65476766/Bauleitender-Monteur-Elektroinstallation-w-m-d-80-100-?jobDbPVId=282707175&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:11.688Z",
+      "crawledAt": "2026-09-01T10:26:59.888Z",
       "addressLocality": "Vaz/Obervaz",
       "postalCode": "7077",
       "streetAddress": "Voa Tgapalotta 11",
@@ -7544,8 +7380,8 @@
           "installation-electrique-du-responsable-de-la-construction-f-m-d-80-100-etavis-grossenbacher-ag-vaz-obervaz"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:32.748Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:32.748Z",
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -7591,7 +7427,7 @@
       "url": "https://etavis.softgarden.io/job/65476761/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282707185&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:11.415Z",
+      "crawledAt": "2026-09-01T10:26:59.600Z",
       "addressLocality": "Vaz/Obervaz",
       "postalCode": "7077",
       "streetAddress": "Voa Tgapalotta 11",
@@ -7652,8 +7488,8 @@
           "installateur-electrique-m-j-80-100-etavis-grossenbacher-ag-vaz-obervaz"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:33.053Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:33.053Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7699,7 +7535,7 @@
       "url": "https://etavis.softgarden.io/job/65477841/Elektroinstallateur-w-m-d-80-100-?jobDbPVId=282707205&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:11.148Z",
+      "crawledAt": "2026-09-01T10:26:59.311Z",
       "addressLocality": "Arbon",
       "postalCode": "9320",
       "streetAddress": "Berglistrasse 2",
@@ -7760,8 +7596,8 @@
           "installateur-electrique-m-j-80-100-etavis-grossenbacher-ag-arbon"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:29.394Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:29.394Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -7807,7 +7643,7 @@
       "url": "https://etavis.softgarden.io/job/66939405/Recruiting-Employer-Branding-Specialist-m-w-d-60-?jobDbPVId=282767620&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:10.862Z",
+      "crawledAt": "2026-09-01T10:26:59.022Z",
       "addressLocality": "Zürich",
       "postalCode": "8005",
       "streetAddress": "Pfingstweidstrasse 106",
@@ -7843,8 +7679,8 @@
         ]
       },
       "jobCategory": "Personal",
-      "firstSeenAt": "2026-08-25T10:07:27.955Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-25T10:07:27.955Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -7890,7 +7726,7 @@
       "url": "https://etavis.softgarden.io/job/65550956/Elektroinstallateur-w-m-d-80%E2%80%93100-?jobDbPVId=282834145&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:10.576Z",
+      "crawledAt": "2026-09-01T10:26:58.727Z",
       "addressLocality": "Frick",
       "postalCode": "5070",
       "streetAddress": "Bahnhofplatz 1",
@@ -7942,8 +7778,8 @@
           "installateur-electrique-w-m-d-80-100-etavis-kriegel-schaffner-ag-frick"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:27.178Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:27.178Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -7989,7 +7825,7 @@
       "url": "https://etavis.softgarden.io/job/63115909/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=283181830&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:10.304Z",
+      "crawledAt": "2026-09-01T10:26:58.433Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -8024,8 +7860,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-burgdorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:24.732Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:24.732Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8071,7 +7907,7 @@
       "url": "https://etavis.softgarden.io/job/63115649/Lernende-Elektroinstallateure-EFZ-w-m-d-2027?jobDbPVId=283181850&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:10.031Z",
+      "crawledAt": "2026-09-01T10:26:58.142Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3415",
       "streetAddress": "Rüegsaustrasse 2",
@@ -8106,8 +7942,8 @@
           "lernende-elektroinstallateure-efz-w-m-d-2027-etavis-ruegsau"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:24.426Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:24.426Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8153,7 +7989,7 @@
       "url": "https://etavis.softgarden.io/job/63115729/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=283181875&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:09.757Z",
+      "crawledAt": "2026-09-01T10:26:57.846Z",
       "addressLocality": "Burgdorf",
       "postalCode": "3400",
       "streetAddress": "Buchmattstrasse 5",
@@ -8188,8 +8024,8 @@
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-burgdorf"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:24.118Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:24.118Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8235,7 +8071,7 @@
       "url": "https://etavis.softgarden.io/job/63115294/Lernende-Montage-Elektriker-EFZ-w-m-d-2027?jobDbPVId=283181900&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:09.463Z",
+      "crawledAt": "2026-09-01T10:26:57.550Z",
       "addressLocality": "Rüegsau",
       "postalCode": "3415",
       "streetAddress": "Rüegsaustrasse 2",
@@ -8270,8 +8106,8 @@
           "lernende-montage-elektriker-efz-w-m-d-2027-etavis-ruegsau"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:23.813Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:23.813Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8317,7 +8153,7 @@
       "url": "https://etavis.softgarden.io/job/63648764/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=283181935&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:09.184Z",
+      "crawledAt": "2026-09-01T10:26:57.257Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "streetAddress": "Mohnweg 5",
@@ -8398,7 +8234,7 @@
       "url": "https://etavis.softgarden.io/job/62954924/Projektleiter-in-Elektroplanung-w-m-d-80%E2%80%93100-?jobDbPVId=283181965&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:08.909Z",
+      "crawledAt": "2026-09-01T10:26:56.956Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -8435,8 +8271,8 @@
           "projektleiter-in-elektroplanung-w-m-d-80-100-etavis-basel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:25.958Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:25.958Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -8482,7 +8318,7 @@
       "url": "https://etavis.softgarden.io/job/56292322/Junior-Projektleiter-Elektroinstallation-w-m-d-80%E2%80%93100-?jobDbPVId=283181975&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:08.634Z",
+      "crawledAt": "2026-09-01T10:26:56.664Z",
       "addressLocality": "Basel",
       "postalCode": "4053",
       "streetAddress": "Wien-Strasse 2",
@@ -8550,8 +8386,8 @@
           "junior-project-manager-installation-electrique-f-m-d-80-100-etavis-kriegel-schaffner-ag-basel"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:25.651Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:25.651Z",
       "salaryMin": 50000,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -8597,7 +8433,7 @@
       "url": "https://etavis.softgarden.io/job/64303288/Chef-de-projet?jobDbPVId=283181985&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:43:08.353Z",
+      "crawledAt": "2026-09-01T10:26:56.360Z",
       "addressLocality": "Fribourg",
       "postalCode": "-",
       "streetAddress": "-",
@@ -8668,8 +8504,8 @@
           "projektmanager-etavis-romandie-sa-fribourg"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:25.344Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:25.344Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -8715,7 +8551,7 @@
       "url": "https://etavis.softgarden.io/job/66391848/Projektleiter-Telematik-ICT-w-m-d-80-100-?jobDbPVId=283260915&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:08.083Z",
+      "crawledAt": "2026-09-01T10:26:56.060Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3032",
       "streetAddress": "Kappelenring 69",
@@ -8782,8 +8618,8 @@
           "projektleiter-telematik-ict-w-m-d-80-100-etavis-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-29T11:55:25.847Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-29T11:55:25.847Z",
       "salaryMin": 105500,
       "salaryMax": 160000,
       "salarySource": "estimated",
@@ -8829,7 +8665,7 @@
       "url": "https://etavis.softgarden.io/job/64998038/Elektroinstallateur-Service-und-Kleininstallationen-w-m-d-80%E2%80%93100-?jobDbPVId=283349015&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:07.805Z",
+      "crawledAt": "2026-09-01T10:26:55.772Z",
       "addressLocality": "Wohlen bei Bern",
       "postalCode": "3032",
       "streetAddress": "Kappelenring 69",
@@ -8896,8 +8732,8 @@
           "elektroinstallateur-service-und-kleininstallationen-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
         ]
       },
-      "firstSeenAt": "2026-07-04T10:51:23.504Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T10:51:23.504Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -8916,9 +8752,9 @@
       "id": "etavis-83b733a1567c",
       "slug": "projektleiter-elektroplanung-m-w-d-80-100-etavis-grossenbacher-ag-st-gallen",
       "slugByLocale": {
-        "de": "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen",
         "it": "projektleiter-elektroplanung-m-w-d-80-100-etavis-grossenbacher-ag-st-gallen",
         "en": "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen",
+        "de": "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen",
         "fr": "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
       },
       "company": "ETAVIS Grossenbacher AG",
@@ -8926,16 +8762,16 @@
       "companyDomain": "etavis.ch",
       "title": "Projektleiter Elektroplanung (w/m/d) 80-100%",
       "titleByLocale": {
-        "de": "Projektleiter Elektroplanung (w/m/d) 80-100%",
         "it": "Projektleiter Elektroplanung (w/m/d) 80-100%",
         "en": "Projektleiter Elektroplanung (w/m/d) 80-100%",
+        "de": "Projektleiter Elektroplanung (w/m/d) 80-100%",
         "fr": "Projektleiter Elektroplanung (w/m/d) 80-100%"
       },
       "description": "Mit Power in die Zukunft - deine Chance bei ETAVIS Grossenbacher AG Du hast das Know-how in der Elektroplanung - wir haben die spannenden Projekte. Du möchtest Verantwortung übernehmen und dein Fachwissen in einer zukunftsorientierten Umgebung einbringen ? Dann freuen wir uns auf dich! Dein Wirkungsfeld - hier setzt du Zeichen\n• Leitung der Abteilung Elektroplanung - Du übernimmst die Verantwortung für spannende Projekte im Bereich der Elektroplanung - von der Offerte bis zur Übergabe\n• Fachliche und personelle Führung der zugewiesenen Mitarbeitenden - Du führst dein Projektteam, planst Ressourcen, behältst Kosten und Termine im Blick\n• Erstellen von Plänen und Schemas - Du unterstützt unsere Projektleiter:innen Elektroinstallation\n• Technische und administrative Leitung spannender Klein- und Grossprojekte in der ganzen Ostschweiz - Du arbeitest selbständig, übernimmst Verantwortung und bleibst auch in hektischen Phasen fokussiert.\n• Selbständige Bearbeitung aller SIA-Phasen - von der Planung über die Ausschreibung bis zur Umsetzung\n• Austausch und Zusammenarbeit mit anderen Business Units und externen Partnern - Du pflegst den Kontakt zu Kunden und koordinierst mit internen Schnittstellen Das bringst du mit - dein Profil mit Energie\n• Berufslehre als Elektroplaner:in EFZ oder Elektroinstallateur:in EFZ mit Weiterbildung zum Projektleiter oder in Ausbildung dazu\n• Erfahrung in der Projektleitung, idealerweise im Industrie- oder Umbausegment\n• Du willst gestalten, Verantwortung übernehmen und dein Fachgebiet weiterentwickeln\n• CAD-Kenntnisse, NPK-Erfahrung und eine generelle IT-Affinität\n• Freude an technisch komplexen Aufgaben und eine selbständige, kommunikative Arbeitsweise\n• Teamgeist, Offenheit und Engagement sind für dich selbstverständlich Darauf kannst du dich freuen - unser Angebot für dich\n• Ein kleines, starkes Team, das zusammenhält und dich unterstützt\n• Förderung deiner fachlichen und persönlichen Entwicklung mit individuellen Weiterbildungen\n• Moderner Arbeitsplatz im Herzen von St. Gallen\n• Geschäftsfahrzeug und Smartphone auch zur privaten Nutzung\n• Mitarbeiterbeteiligung durch Aktien und Boni - wir lassen dich am Erfolg teilhaben\n• Familiäre Kultur mit flachen Hierarchien und wertschätzendem Umgang Bereit, mit uns durchzustarten ? Dann freuen wir uns auf deine Bewerbung - unkompliziert und direkt. Werde Teil eines erfolgreichen Unternehmens, das auf Qualität, Menschlichkeit und Innovation setzt. Dein zukünftiger Vorgesetzter Daniel Schär, Leiter Business Unit 15314, hat die Antworten auf deine Fragen - persönlich, offen und kompetent. Er ist erreichbar unter +41 71 243 66 20 oder unter daniel.schaer@etavis.ch Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
       "descriptionByLocale": {
-        "de": "Mit Power in die Zukunft - deine Chance bei ETAVIS Grossenbacher AG Du hast das Know-how in der Elektroplanung - wir haben die spannenden Projekte. Du möchtest Verantwortung übernehmen und dein Fachwissen in einer zukunftsorientierten Umgebung einbringen ? Dann freuen wir uns auf dich! Dein Wirkungsfeld - hier setzt du Zeichen\n• Leitung der Abteilung Elektroplanung - Du übernimmst die Verantwortung für spannende Projekte im Bereich der Elektroplanung - von der Offerte bis zur Übergabe\n• Fachliche und personelle Führung der zugewiesenen Mitarbeitenden - Du führst dein Projektteam, planst Ressourcen, behältst Kosten und Termine im Blick\n• Erstellen von Plänen und Schemas - Du unterstützt unsere Projektleiter:innen Elektroinstallation\n• Technische und administrative Leitung spannender Klein- und Grossprojekte in der ganzen Ostschweiz - Du arbeitest selbständig, übernimmst Verantwortung und bleibst auch in hektischen Phasen fokussiert.\n• Selbständige Bearbeitung aller SIA-Phasen - von der Planung über die Ausschreibung bis zur Umsetzung\n• Austausch und Zusammenarbeit mit anderen Business Units und externen Partnern - Du pflegst den Kontakt zu Kunden und koordinierst mit internen Schnittstellen Das bringst du mit - dein Profil mit Energie\n• Berufslehre als Elektroplaner:in EFZ oder Elektroinstallateur:in EFZ mit Weiterbildung zum Projektleiter oder in Ausbildung dazu\n• Erfahrung in der Projektleitung, idealerweise im Industrie- oder Umbausegment\n• Du willst gestalten, Verantwortung übernehmen und dein Fachgebiet weiterentwickeln\n• CAD-Kenntnisse, NPK-Erfahrung und eine generelle IT-Affinität\n• Freude an technisch komplexen Aufgaben und eine selbständige, kommunikative Arbeitsweise\n• Teamgeist, Offenheit und Engagement sind für dich selbstverständlich Darauf kannst du dich freuen - unser Angebot für dich\n• Ein kleines, starkes Team, das zusammenhält und dich unterstützt\n• Förderung deiner fachlichen und persönlichen Entwicklung mit individuellen Weiterbildungen\n• Moderner Arbeitsplatz im Herzen von St. Gallen\n• Geschäftsfahrzeug und Smartphone auch zur privaten Nutzung\n• Mitarbeiterbeteiligung durch Aktien und Boni - wir lassen dich am Erfolg teilhaben\n• Familiäre Kultur mit flachen Hierarchien und wertschätzendem Umgang Bereit, mit uns durchzustarten ? Dann freuen wir uns auf deine Bewerbung - unkompliziert und direkt. Werde Teil eines erfolgreichen Unternehmens, das auf Qualität, Menschlichkeit und Innovation setzt. Dein zukünftiger Vorgesetzter Daniel Schär, Leiter Business Unit 15314, hat die Antworten auf deine Fragen - persönlich, offen und kompetent. Er ist erreichbar unter +41 71 243 66 20 oder unter daniel.schaer@etavis.ch Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
         "it": "Mit Power in die Zukunft - deine Chance bei ETAVIS Grossenbacher AG Du hast das Know-how in der Elektroplanung - wir haben die spannenden Projekte. Du möchtest Verantwortung übernehmen und dein Fachwissen in einer zukunftsorientierten Umgebung einbringen ? Dann freuen wir uns auf dich! Dein Wirkungsfeld - hier setzt du Zeichen\n• Leitung der Abteilung Elektroplanung - Du übernimmst die Verantwortung für spannende Projekte im Bereich der Elektroplanung - von der Offerte bis zur Übergabe\n• Fachliche und personelle Führung der zugewiesenen Mitarbeitenden - Du führst dein Projektteam, planst Ressourcen, behältst Kosten und Termine im Blick\n• Erstellen von Plänen und Schemas - Du unterstützt unsere Projektleiter:innen Elektroinstallation\n• Technische und administrative Leitung spannender Klein- und Grossprojekte in der ganzen Ostschweiz - Du arbeitest selbständig, übernimmst Verantwortung und bleibst auch in hektischen Phasen fokussiert.\n• Selbständige Bearbeitung aller SIA-Phasen - von der Planung über die Ausschreibung bis zur Umsetzung\n• Austausch und Zusammenarbeit mit anderen Business Units und externen Partnern - Du pflegst den Kontakt zu Kunden und koordinierst mit internen Schnittstellen Das bringst du mit - dein Profil mit Energie\n• Berufslehre als Elektroplaner:in EFZ oder Elektroinstallateur:in EFZ mit Weiterbildung zum Projektleiter oder in Ausbildung dazu\n• Erfahrung in der Projektleitung, idealerweise im Industrie- oder Umbausegment\n• Du willst gestalten, Verantwortung übernehmen und dein Fachgebiet weiterentwickeln\n• CAD-Kenntnisse, NPK-Erfahrung und eine generelle IT-Affinität\n• Freude an technisch komplexen Aufgaben und eine selbständige, kommunikative Arbeitsweise\n• Teamgeist, Offenheit und Engagement sind für dich selbstverständlich Darauf kannst du dich freuen - unser Angebot für dich\n• Ein kleines, starkes Team, das zusammenhält und dich unterstützt\n• Förderung deiner fachlichen und persönlichen Entwicklung mit individuellen Weiterbildungen\n• Moderner Arbeitsplatz im Herzen von St. Gallen\n• Geschäftsfahrzeug und Smartphone auch zur privaten Nutzung\n• Mitarbeiterbeteiligung durch Aktien und Boni - wir lassen dich am Erfolg teilhaben\n• Familiäre Kultur mit flachen Hierarchien und wertschätzendem Umgang Bereit, mit uns durchzustarten ? Dann freuen wir uns auf deine Bewerbung - unkompliziert und direkt. Werde Teil eines erfolgreichen Unternehmens, das auf Qualität, Menschlichkeit und Innovation setzt. Dein zukünftiger Vorgesetzter Daniel Schär, Leiter Business Unit 15314, hat die Antworten auf deine Fragen - persönlich, offen und kompetent. Er ist erreichbar unter +41 71 243 66 20 oder unter daniel.schaer@etavis.ch Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
         "en": "Mit Power in die Zukunft - deine Chance bei ETAVIS Grossenbacher AG Du hast das Know-how in der Elektroplanung - wir haben die spannenden Projekte. Du möchtest Verantwortung übernehmen und dein Fachwissen in einer zukunftsorientierten Umgebung einbringen ? Dann freuen wir uns auf dich! Dein Wirkungsfeld - hier setzt du Zeichen\n• Leitung der Abteilung Elektroplanung - Du übernimmst die Verantwortung für spannende Projekte im Bereich der Elektroplanung - von der Offerte bis zur Übergabe\n• Fachliche und personelle Führung der zugewiesenen Mitarbeitenden - Du führst dein Projektteam, planst Ressourcen, behältst Kosten und Termine im Blick\n• Erstellen von Plänen und Schemas - Du unterstützt unsere Projektleiter:innen Elektroinstallation\n• Technische und administrative Leitung spannender Klein- und Grossprojekte in der ganzen Ostschweiz - Du arbeitest selbständig, übernimmst Verantwortung und bleibst auch in hektischen Phasen fokussiert.\n• Selbständige Bearbeitung aller SIA-Phasen - von der Planung über die Ausschreibung bis zur Umsetzung\n• Austausch und Zusammenarbeit mit anderen Business Units und externen Partnern - Du pflegst den Kontakt zu Kunden und koordinierst mit internen Schnittstellen Das bringst du mit - dein Profil mit Energie\n• Berufslehre als Elektroplaner:in EFZ oder Elektroinstallateur:in EFZ mit Weiterbildung zum Projektleiter oder in Ausbildung dazu\n• Erfahrung in der Projektleitung, idealerweise im Industrie- oder Umbausegment\n• Du willst gestalten, Verantwortung übernehmen und dein Fachgebiet weiterentwickeln\n• CAD-Kenntnisse, NPK-Erfahrung und eine generelle IT-Affinität\n• Freude an technisch komplexen Aufgaben und eine selbständige, kommunikative Arbeitsweise\n• Teamgeist, Offenheit und Engagement sind für dich selbstverständlich Darauf kannst du dich freuen - unser Angebot für dich\n• Ein kleines, starkes Team, das zusammenhält und dich unterstützt\n• Förderung deiner fachlichen und persönlichen Entwicklung mit individuellen Weiterbildungen\n• Moderner Arbeitsplatz im Herzen von St. Gallen\n• Geschäftsfahrzeug und Smartphone auch zur privaten Nutzung\n• Mitarbeiterbeteiligung durch Aktien und Boni - wir lassen dich am Erfolg teilhaben\n• Familiäre Kultur mit flachen Hierarchien und wertschätzendem Umgang Bereit, mit uns durchzustarten ? Dann freuen wir uns auf deine Bewerbung - unkompliziert und direkt. Werde Teil eines erfolgreichen Unternehmens, das auf Qualität, Menschlichkeit und Innovation setzt. Dein zukünftiger Vorgesetzter Daniel Schär, Leiter Business Unit 15314, hat die Antworten auf deine Fragen - persönlich, offen und kompetent. Er ist erreichbar unter +41 71 243 66 20 oder unter daniel.schaer@etavis.ch Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
+        "de": "Mit Power in die Zukunft - deine Chance bei ETAVIS Grossenbacher AG Du hast das Know-how in der Elektroplanung - wir haben die spannenden Projekte. Du möchtest Verantwortung übernehmen und dein Fachwissen in einer zukunftsorientierten Umgebung einbringen ? Dann freuen wir uns auf dich! Dein Wirkungsfeld - hier setzt du Zeichen\n• Leitung der Abteilung Elektroplanung - Du übernimmst die Verantwortung für spannende Projekte im Bereich der Elektroplanung - von der Offerte bis zur Übergabe\n• Fachliche und personelle Führung der zugewiesenen Mitarbeitenden - Du führst dein Projektteam, planst Ressourcen, behältst Kosten und Termine im Blick\n• Erstellen von Plänen und Schemas - Du unterstützt unsere Projektleiter:innen Elektroinstallation\n• Technische und administrative Leitung spannender Klein- und Grossprojekte in der ganzen Ostschweiz - Du arbeitest selbständig, übernimmst Verantwortung und bleibst auch in hektischen Phasen fokussiert.\n• Selbständige Bearbeitung aller SIA-Phasen - von der Planung über die Ausschreibung bis zur Umsetzung\n• Austausch und Zusammenarbeit mit anderen Business Units und externen Partnern - Du pflegst den Kontakt zu Kunden und koordinierst mit internen Schnittstellen Das bringst du mit - dein Profil mit Energie\n• Berufslehre als Elektroplaner:in EFZ oder Elektroinstallateur:in EFZ mit Weiterbildung zum Projektleiter oder in Ausbildung dazu\n• Erfahrung in der Projektleitung, idealerweise im Industrie- oder Umbausegment\n• Du willst gestalten, Verantwortung übernehmen und dein Fachgebiet weiterentwickeln\n• CAD-Kenntnisse, NPK-Erfahrung und eine generelle IT-Affinität\n• Freude an technisch komplexen Aufgaben und eine selbständige, kommunikative Arbeitsweise\n• Teamgeist, Offenheit und Engagement sind für dich selbstverständlich Darauf kannst du dich freuen - unser Angebot für dich\n• Ein kleines, starkes Team, das zusammenhält und dich unterstützt\n• Förderung deiner fachlichen und persönlichen Entwicklung mit individuellen Weiterbildungen\n• Moderner Arbeitsplatz im Herzen von St. Gallen\n• Geschäftsfahrzeug und Smartphone auch zur privaten Nutzung\n• Mitarbeiterbeteiligung durch Aktien und Boni - wir lassen dich am Erfolg teilhaben\n• Familiäre Kultur mit flachen Hierarchien und wertschätzendem Umgang Bereit, mit uns durchzustarten ? Dann freuen wir uns auf deine Bewerbung - unkompliziert und direkt. Werde Teil eines erfolgreichen Unternehmens, das auf Qualität, Menschlichkeit und Innovation setzt. Dein zukünftiger Vorgesetzter Daniel Schär, Leiter Business Unit 15314, hat die Antworten auf deine Fragen - persönlich, offen und kompetent. Er ist erreichbar unter +41 71 243 66 20 oder unter daniel.schaer@etavis.ch Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»",
         "fr": "Mit Power in die Zukunft - deine Chance bei ETAVIS Grossenbacher AG Du hast das Know-how in der Elektroplanung - wir haben die spannenden Projekte. Du möchtest Verantwortung übernehmen und dein Fachwissen in einer zukunftsorientierten Umgebung einbringen ? Dann freuen wir uns auf dich! Dein Wirkungsfeld - hier setzt du Zeichen\n• Leitung der Abteilung Elektroplanung - Du übernimmst die Verantwortung für spannende Projekte im Bereich der Elektroplanung - von der Offerte bis zur Übergabe\n• Fachliche und personelle Führung der zugewiesenen Mitarbeitenden - Du führst dein Projektteam, planst Ressourcen, behältst Kosten und Termine im Blick\n• Erstellen von Plänen und Schemas - Du unterstützt unsere Projektleiter:innen Elektroinstallation\n• Technische und administrative Leitung spannender Klein- und Grossprojekte in der ganzen Ostschweiz - Du arbeitest selbständig, übernimmst Verantwortung und bleibst auch in hektischen Phasen fokussiert.\n• Selbständige Bearbeitung aller SIA-Phasen - von der Planung über die Ausschreibung bis zur Umsetzung\n• Austausch und Zusammenarbeit mit anderen Business Units und externen Partnern - Du pflegst den Kontakt zu Kunden und koordinierst mit internen Schnittstellen Das bringst du mit - dein Profil mit Energie\n• Berufslehre als Elektroplaner:in EFZ oder Elektroinstallateur:in EFZ mit Weiterbildung zum Projektleiter oder in Ausbildung dazu\n• Erfahrung in der Projektleitung, idealerweise im Industrie- oder Umbausegment\n• Du willst gestalten, Verantwortung übernehmen und dein Fachgebiet weiterentwickeln\n• CAD-Kenntnisse, NPK-Erfahrung und eine generelle IT-Affinität\n• Freude an technisch komplexen Aufgaben und eine selbständige, kommunikative Arbeitsweise\n• Teamgeist, Offenheit und Engagement sind für dich selbstverständlich Darauf kannst du dich freuen - unser Angebot für dich\n• Ein kleines, starkes Team, das zusammenhält und dich unterstützt\n• Förderung deiner fachlichen und persönlichen Entwicklung mit individuellen Weiterbildungen\n• Moderner Arbeitsplatz im Herzen von St. Gallen\n• Geschäftsfahrzeug und Smartphone auch zur privaten Nutzung\n• Mitarbeiterbeteiligung durch Aktien und Boni - wir lassen dich am Erfolg teilhaben\n• Familiäre Kultur mit flachen Hierarchien und wertschätzendem Umgang Bereit, mit uns durchzustarten ? Dann freuen wir uns auf deine Bewerbung - unkompliziert und direkt. Werde Teil eines erfolgreichen Unternehmens, das auf Qualität, Menschlichkeit und Innovation setzt. Dein zukünftiger Vorgesetzter Daniel Schär, Leiter Business Unit 15314, hat die Antworten auf deine Fragen - persönlich, offen und kompetent. Er ist erreichbar unter +41 71 243 66 20 oder unter daniel.schaer@etavis.ch Ist diese Stelle nicht das Richtige für dich? Weitere aktuelle und spannungsreiche Stellenangebote bei ETAVIS findest du hier . Das sind wir ETAVIS ist der optimale Partner für innovative Elektrotechnik-, Kommunikations- und Automationslösungen in der Schweiz und Liechtenstein. Wir bieten massgeschneiderte, hochwertige Lösungen für Geschäftskunden aller Branchen und Grössen sowie individuell zugeschnittene Dienstleistungen für Privatkunden. Als Teil der VINCI-Gruppe profitieren wir von globaler Innovationskraft und sind gleichzeitig mit unseren rund 60 Geschäftsstellen lokal verankert. Als das grösste Kleinunternehmen ticken wir menschlicher und familiärer – hier zählt jede:r Einzelne. Mit über 2'400 Mitarbeitenden und mehreren hundert Lernenden arbeiten wir täglich an einer nachhaltigeren, besser vernetzten Welt. Werde Teil des ETAVIS-Teams und bewirke Grosses – in der Spitzenliga der Elektrotechnik!»"
       },
       "location": "St. Gallen",
@@ -8943,7 +8779,7 @@
       "url": "https://etavis.softgarden.io/job/67099955/Projektleiter-Elektroplanung-w-m-d-80-100-?jobDbPVId=283463930&l=de",
       "source": "ETAVIS Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:07.530Z",
+      "crawledAt": "2026-09-01T10:26:55.481Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9016",
       "streetAddress": "Harzbüchelstrasse 30A",
@@ -8960,19 +8796,18 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://etavis.softgarden.io/job/67099955/Projektleiter-Elektroplanung-w-m-d-80-100-?jobDbPVId=283463930&l=de",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobCategory": "Ingenieure und technische Berufe",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-elektroplanung-w-m-d-80-100-etavis-st-gallen"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T08:43:07.530Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -8985,8 +8820,171 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "etavis-687f26295391",
+      "slug": "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld",
+      "slugByLocale": {
+        "it": "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld",
+        "en": "service-fitter-w-m-d-80-100-etavis-arnold-liebefeld",
+        "de": "servicemonteur-w-m-d-80-100-etavis-liebefeld",
+        "fr": "monteur-de-service-m-j-80-100-etavis-arnold-liebefeld"
       },
-      "firstSeenAt": "2026-09-01T08:43:07.530Z"
+      "company": "ETAVIS Arnold",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Servicemonteur (w/m/d) 80–100%",
+      "titleByLocale": {
+        "it": "Tecnico di assistenza (f/m/d) 80–100%",
+        "en": "Service fitter (w/m/d) 80–100 %",
+        "de": "Servicemonteur (w/m/d) 80–100%",
+        "fr": "Monteur de service (m/j) 80–100 %"
+      },
+      "description": "Sei Teil der Energiewende! Die ETAVIS Bern-Mittelland AG ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation. Das bewirkst du\n• Du bist verantwortlich für eine optimale und korrekte Abwicklung der Serviceaufträge und Kleininstallationen.\n• Diese beinhaltet die Betreuung der Kundschaft von A – Z: Selbständige Terminvereinbarung; Materialbewirtschaftung und Materialbestellungen für die eigenen Aufträge; Saubere, korrekte und termingerechte Erledigung der Montage- oder Reparaturaufträge. Das erleichtert dir den Einstieg\n• Nach Abschluss deiner Ausbildung als Elektroinstallateur:in oder Montage-Elektriker:in EFZ hast du einige Jahre Berufserfahrung gesammelt.\n• Du verfügst über einen Führerausweis der Kategorie B. Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern. Noch Fragen? Dein Vorgesetzter Stephan Zaugg, Geschäftsleiter, hat die Antworten (+41 79 273 90 26). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
+      "descriptionByLocale": {
+        "it": "Fate parte della transizione energetica! ETAVIS Bern-Mittelland AG è una delle aziende leader nel mercato svizzero dell'installazione elettrica e delle telecomunicazioni. Forniamo tutti i servizi per la consulenza, la pianificazione del progetto, l'esecuzione, il supporto e la manutenzione per la tecnologia elettrica e di costruzione, la telematica, l'infrastruttura delle telecomunicazioni e l'automazione. E' quello che fai.\n• Sei responsabile della gestione ottimale e corretta degli ordini di servizio e delle piccole installazioni.\n• Questo include il supporto dei clienti di A – Z: contratto di nomina autonomo; gestione dei materiali e ordini materiali per i propri contratti; Pulito, corretto e tempestivo completamento degli ordini di montaggio o riparazione. Questo renderà più facile per voi per iniziare.\n• Dopo aver completato la tua formazione come installatore elettrico: in o montaggio elettricista: in EFZ hai guadagnato diversi anni di esperienza professionale.\n• Hai una patente di categoria B.\n• Sei importante per noi - ti offriamo un ambiente aperto, apprezzativo e familiare.\n• Abbiamo successo - con noi avete una prospettiva a lungo termine e sicura.\n• Contribuiremo al nostro successo – con quote e bonus dei dipendenti.\n• I responsabili competenti assicurano progetti interessanti e flussi di lavoro funzionanti.\n• Con noi avete una vasta gamma di opportunità di formazione – siamo lieti di supportarvi. Ancora domande? Il tuo manager Stephan Zaugg ha le risposte (+41 79 273 90 26). Applicare con noi, siamo in uno spirito di ottimismo e alla ricerca di te! ETAVIS ha la giusta competenza per tutti gli argomenti nel campo dell'ingegneria elettrica. Se impianti elettrici, automazione degli edifici, servizio eventi, energie rinnovabili, ecc. - siamo il partner ideale per tutti questi servizi in Svizzera. Nell'ambito del Gruppo internazionale VINCI Energies, abbiamo il potere per l'innovazione di rimanere il miglior fornitore di soluzioni in futuro. Siamo fortemente ancorati a livello locale e conosciamo le persone, le culture e il mercato in tutte le regioni della Svizzera e del Liechtenstein. Siamo orgogliosi di essere in grado di formare diverse centinaia di studenti a 57 uffici e di lavorare con circa 2.300 dipendenti ogni giorno in un mondo più sostenibile e meglio connesso.",
+        "en": "Be part of the energy transition! ETAVIS Bern-Mittelland AG is one of the leading companies in the Swiss electrical installation and telecommunications market. We provide all services for consulting, project planning, execution, support and maintenance for electrical and building technology, telematics, telecom infrastructure and automation. That's what you do.\n• You are responsible for optimal and correct handling of service orders and small installations.\n• This includes the support of the customers of A – Z: self-employed appointment agreement; material management and material orders for own contracts; Clean, correct and timely completion of assembly or repair orders. This will make it easier for you to get started.\n• After completing your training as an electrical installer:in or assembly electrician:in EFZ you have gained several years of professional experience.\n• You have a category B driver’s license.\n• You are important to us - we offer you an open, appreciative and family environment.\n• We are successful - with us you have a long-term and secure perspective.\n• We will contribute to our success – with employee shares and bonuses.\n• Competent managers ensure exciting projects and functioning workflows.\n• With us you have a wide range of training opportunities – we are happy to support you. Still questions? Your manager Stephan Zaugg has the answers (+41 79 273 90 26). Apply with us, we are in a spirit of optimism and looking for you! ETAVIS has the right expertise for all topics in the field of electrical engineering. Whether electrical installations, building automation, event service, renewable energies, etc. - we are the ideal partner for all these services in Switzerland. As part of the international VINCI Energies Group, we have power for innovation to remain the best solution provider in the future. We are strongly anchored locally and know the people, cultures and the market in all regions of Switzerland and Liechtenstein. We are proud to be able to train several hundred learners at 57 offices and to work with around 2,300 employees every day on a more sustainable and better connected world.",
+        "de": "Sei Teil der Energiewende! Die ETAVIS Bern-Mittelland AG ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation. Das bewirkst du\n• Du bist verantwortlich für eine optimale und korrekte Abwicklung der Serviceaufträge und Kleininstallationen.\n• Diese beinhaltet die Betreuung der Kundschaft von A – Z: Selbständige Terminvereinbarung; Materialbewirtschaftung und Materialbestellungen für die eigenen Aufträge; Saubere, korrekte und termingerechte Erledigung der Montage- oder Reparaturaufträge. Das erleichtert dir den Einstieg\n• Nach Abschluss deiner Ausbildung als Elektroinstallateur:in oder Montage-Elektriker:in EFZ hast du einige Jahre Berufserfahrung gesammelt.\n• Du verfügst über einen Führerausweis der Kategorie B. Das erwartet dich\n• Du bist uns wichtig - wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich - bei uns hast du eine langfristige und sichere Perspektive.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Kompetente Führungskräfte sorgen für spannende Projekte und funktionierende Arbeitsabläufe.\n• Bei uns hast du vielfältige Weiterbildungsmöglichkeiten – wir unterstützen dich gern. Noch Fragen? Dein Vorgesetzter Stephan Zaugg, Geschäftsleiter, hat die Antworten (+41 79 273 90 26). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
+        "fr": "Faites partie de la transition énergétique ! ETAVIS Bern-Mittelland AG est l'une des principales entreprises du marché suisse de l'installation électrique et des télécommunications. Nous fournissons tous les services de conseil, de planification de projets, d'exécution, de soutien et d'entretien pour les technologies électriques et de construction, la télématique, l'infrastructure de télécommunications et l'automatisation. C'est ce que tu fais.\n• Vous êtes responsable de la gestion optimale et correcte des commandes de service et des petites installations.\n• Cela comprend le soutien des clients de A – Z: contrat de nomination d'indépendants; gestion matérielle et commandes matérielles pour les propres contrats; Nettoyer, corriger et exécuter en temps opportun les commandes de montage ou de réparation. Cela vous facilitera le démarrage.\n• Après avoir terminé votre formation en tant qu'installateur électrique: électricien dans ou en montage:dans EFZ vous avez acquis plusieurs années d'expérience professionnelle.\n• Vous avez un permis de conduire de catégorie B.\n• Vous êtes important pour nous - nous vous offrons un environnement ouvert, reconnaissant et familial.\n• Nous réussissons - avec nous vous avez une perspective à long terme et sécurisée.\n• Nous contribuerons à notre succès – avec des actions et des bonus d'employés.\n• Des gestionnaires compétents assurent des projets passionnants et des workflows opérationnels.\n• Avec nous, vous avez un large éventail de possibilités de formation – nous sommes heureux de vous soutenir. Toujours des questions ? Votre manager Stephan Zaugg a les réponses (+41 79 273 90 26). Postulez avec nous, nous sommes dans un esprit d'optimisme et de recherche de vous! ETAVIS possède la bonne expertise pour tous les sujets dans le domaine de l'ingénierie électrique. Que ce soit les installations électriques, l'automatisation du bâtiment, le service événementiel, les énergies renouvelables, etc., nous sommes le partenaire idéal pour tous ces services en Suisse. Dans le cadre du groupe international VINCI Energies, nous avons le pouvoir d'innover pour rester le meilleur fournisseur de solutions à l'avenir. Nous sommes fortement ancrés localement et connaissons la population, les cultures et le marché dans toutes les régions de la Suisse et du Liechtenstein. Nous sommes fiers de pouvoir former plusieurs centaines d'apprenants dans 57 bureaux et travailler avec environ 2300 employés chaque jour sur un monde plus durable et mieux connecté."
+      },
+      "location": "Liebefeld",
+      "canton": "BE",
+      "url": "https://etavis.softgarden.io/job/56777058/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=283495440&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T10:26:55.190Z",
+      "addressLocality": "Liebefeld",
+      "postalCode": "3097",
+      "streetAddress": "Waldeggstrasse 47",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-06",
+      "applyUrl": "https://etavis.softgarden.io/job/56777058/Servicemonteur-w-m-d-80%E2%80%93100-?jobDbPVId=283495440&l=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Ingenieure und technische Berufe",
+      "previousSlugs": [
+        "servicemonteur-w-m-d-80-100-etavis-liebefeld",
+        "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "servicemonteur-w-m-d-80-100-etavis-liebefeld",
+          "tecnico-di-assistenza-f-m-d-80-100-etavis-arnold-liebefeld"
+        ],
+        "en": [
+          "servicemonteur-w-m-d-80-100-etavis-liebefeld"
+        ],
+        "fr": [
+          "servicemonteur-w-m-d-80-100-etavis-liebefeld"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:51:48.701Z",
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "etavis-992c85c003fd",
+      "slug": "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern",
+      "slugByLocale": {
+        "it": "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern",
+        "en": "electrical-project-manager-w-m-d-80-100-gfeller-elektro-wohlen-bei-bern",
+        "de": "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern",
+        "fr": "gestionnaire-de-projet-electrique-m-j-80-100-gfeller-elektro-wohlen-bei-bern"
+      },
+      "company": "Gfeller Elektro",
+      "companyKey": "etavis",
+      "companyDomain": "etavis.ch",
+      "title": "Elektro-Projektleiter(w/m/d) 80–100%",
+      "titleByLocale": {
+        "it": "Responsabile Progetto Elettrico (f/m/d) 80–100%",
+        "en": "Electrical Project Manager (w/m/d) 80–100 %",
+        "de": "Elektro-Projektleiter(w/m/d) 80–100%",
+        "fr": "Gestionnaire de projet électrique (m/j) 80–100 %"
+      },
+      "description": "Sei Teil der Energiewende! gfeller elektro, ein Unternehmen der ETAVIS Bern-Mittelland, ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation . Das bewirkst du\n• Kundenwünsche im direkten Kontakt erfassen, spezifische Stark- und Schwachstrom-Lösungen entwickeln sowie bedürfnisgerechte Angebote erarbeiten\n• Projektausführungen leiten sowie den optimalen Mitarbeitereinsatz planen\n• Folge- oder Zusatzaufträge akquirieren sowie den Kundenstamm ausbauen Das erleichtert dir den Einstieg\n• Abgeschlossene Grundausbildung als Elektroinstallateur:in EFZ und Weiterbildung zur:m Elektro-Projektleiter:in mit eidg. FA oder zur:m eidg. dipl. Elektroinstallateur:in oder fachkundig nach NIV\n• mehrjährige Berufserfahrung als Projektleiter im Elektroinstallations-Umfeld\n• Sehr gute Deutschkenntnisse (mündlich & schriftlich)\n• Führerschein der Kategorie B Das erwartet dich\n• Du bist uns wichtig – wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich – bei uns kannst du viel bewegen.\n• Wir fördern deine berufliche Entwicklung und Weiterbildung – wir unterstützen dich gern.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Wir kombinieren die Möglichkeiten eines globalen Grossunternehmens mit den Vorteilen eines KMU’s. Noch Fragen? Dein Vorgesetzter André Lüthi, Geschäftsleiter, hat die Antworten (+41 79 948 91 57 / +41 31 998 55 66). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
+      "descriptionByLocale": {
+        "it": "Fate parte della transizione energetica! gfeller elektro, società di ETAVIS Bern-Mittelland, è una delle aziende leader nel mercato svizzero dell'installazione elettrica e delle telecomunicazioni. Forniamo tutti i servizi per la consulenza, la pianificazione del progetto, l'esecuzione, il supporto e la manutenzione per la tecnologia elettrica e di costruzione, la telematica, l'infrastruttura delle telecomunicazioni e l'automazione. E' quello che fai.\n• Registrare le richieste dei clienti in contatto diretto, sviluppare soluzioni specifiche ad alta e bassa corrente e sviluppare offerte basate sulle esigenze\n• Gestione delle esecuzioni dei progetti e pianificazione della distribuzione ottimale della forza lavoro\n• Acquisire ulteriori ordini o ulteriori ordini ed espandere la base del cliente Questo renderà più facile per voi per iniziare.\n• Formazione di base completata come installatore elettrico: in EFZ e formazione ulteriore a:m Direttore del progetto elettrico:in con FA federale o a:m Federal Dipl. Installatore elettrico: in o qualificato in NIV\n• Diversi anni di esperienza professionale come project manager nell'ambiente di installazione elettrica\n• Ottima conoscenza del tedesco (verbale e scrittura)\n• Categoria B patente di guida vi aspetta\n• Sei importante per noi – ti offriamo un ambiente aperto, apprezzato e familiare.\n• Abbiamo successo – con noi si può spostare molto.\n• Promuoviamo il vostro sviluppo professionale e l'ulteriore formazione – siamo felici di sostenervi.\n• Contribuiremo al nostro successo – con quote e bonus dei dipendenti.\n• Uniamo le possibilità di una grande azienda globale con i vantaggi di una PMI. Ancora domande? Il tuo manager, André Lüthi, ha le risposte (+41 79 948 91 57 / +41 31 998 55 66). Applicare con noi, siamo in uno spirito di ottimismo e alla ricerca di te! ETAVIS ha la giusta competenza per tutti gli argomenti nel campo dell'ingegneria elettrica. Se impianti elettrici, automazione degli edifici, servizio eventi, energie rinnovabili, ecc. - siamo il partner ideale per tutti questi servizi in Svizzera. Nell'ambito del Gruppo internazionale VINCI Energies, abbiamo il potere per l'innovazione di rimanere il miglior fornitore di soluzioni in futuro. Siamo fortemente ancorati a livello locale e conosciamo le persone, le culture e il mercato in tutte le regioni della Svizzera e del Liechtenstein. Siamo orgogliosi di essere in grado di formare diverse centinaia di studenti a 57 uffici e di lavorare con circa 2.300 dipendenti ogni giorno in un mondo più sostenibile e meglio connesso.",
+        "en": "Be part of the energy transition! gfeller elektro, a company of ETAVIS Bern-Mittelland, is one of the leading companies in the Swiss electrical installation and telecommunications market. We provide all services for consulting, project planning, execution, support and maintenance for electrical and building technology, telematics, telecom infrastructure and automation. That's what you do.\n• Record customer requests in direct contact, develop specific high and low current solutions and develop needs-based offers\n• Managing project executions and planning the optimal workforce deployment\n• Acquire follow-up or additional orders and expand the customer base This will make it easier for you to get started.\n• Completed basic training as an electrical installer:in EFZ and further training to:m Electrical Project Manager:in with Federal FA or to:m Federal Dipl. Electrical installer: in or skilled in NIV\n• Several years of professional experience as project manager in the electrical installation environment\n• Very good knowledge of German (verbal & writing)\n• Category B driving license awaits you\n• You are important to us – we offer you an open, appreciative and family environment.\n• We are successful – with us you can move a lot.\n• We promote your professional development and further education – we are happy to support you.\n• We will contribute to our success – with employee shares and bonuses.\n• We combine the possibilities of a large global company with the advantages of an SME. Still questions? Your manager, André Lüthi, has the answers (+41 79 948 91 57 / +41 31 998 55 66). Apply with us, we are in a spirit of optimism and looking for you! ETAVIS has the right expertise for all topics in the field of electrical engineering. Whether electrical installations, building automation, event service, renewable energies, etc. - we are the ideal partner for all these services in Switzerland. As part of the international VINCI Energies Group, we have power for innovation to remain the best solution provider in the future. We are strongly anchored locally and know the people, cultures and the market in all regions of Switzerland and Liechtenstein. We are proud to be able to train several hundred learners at 57 offices and to work with around 2,300 employees every day on a more sustainable and better connected world.",
+        "de": "Sei Teil der Energiewende! gfeller elektro, ein Unternehmen der ETAVIS Bern-Mittelland, ist eines der führenden Unternehmen im Schweizerischen Elektroinstallations- und Telekommunikationsmarkt. Wir erbringen sämtliche Leistungen zur Beratung, Projektierung, Ausführung, Support und Wartung für Elektro- und Gebäudetechnik, Telematik, Telekom-Infrastruktur und Automation . Das bewirkst du\n• Kundenwünsche im direkten Kontakt erfassen, spezifische Stark- und Schwachstrom-Lösungen entwickeln sowie bedürfnisgerechte Angebote erarbeiten\n• Projektausführungen leiten sowie den optimalen Mitarbeitereinsatz planen\n• Folge- oder Zusatzaufträge akquirieren sowie den Kundenstamm ausbauen Das erleichtert dir den Einstieg\n• Abgeschlossene Grundausbildung als Elektroinstallateur:in EFZ und Weiterbildung zur:m Elektro-Projektleiter:in mit eidg. FA oder zur:m eidg. dipl. Elektroinstallateur:in oder fachkundig nach NIV\n• mehrjährige Berufserfahrung als Projektleiter im Elektroinstallations-Umfeld\n• Sehr gute Deutschkenntnisse (mündlich & schriftlich)\n• Führerschein der Kategorie B Das erwartet dich\n• Du bist uns wichtig – wir bieten dir ein offenes, wertschätzendes und familiäres Umfeld.\n• Wir sind erfolgreich – bei uns kannst du viel bewegen.\n• Wir fördern deine berufliche Entwicklung und Weiterbildung – wir unterstützen dich gern.\n• Wir beteiligen dich an unserem Erfolg – mit Mitarbeiteraktien und Boni.\n• Wir kombinieren die Möglichkeiten eines globalen Grossunternehmens mit den Vorteilen eines KMU’s. Noch Fragen? Dein Vorgesetzter André Lüthi, Geschäftsleiter, hat die Antworten (+41 79 948 91 57 / +41 31 998 55 66). Bewirb dich bei uns, wir sind in Aufbruchstimmung und suchen dich! Das sind wir ETAVIS hat für alle Themen im Bereich der Elektrotechnik die richtige Expertise. Ob Elektroinstallationen, Gebäudeautomation, Eventservice, erneuerbare Energien etc. - für all diese Dienstleistungen sind wir in der Schweiz die optimale Partnerin. Als Teil der internationalen VINCI Energies - Gruppe haben wir Power für Innovation, um auch in Zukunft die beste Lösungsanbieterin zu sein. Wir sind lokal stark verankert und kennen die Menschen, Kulturen und den Markt in allen Regionen der Schweiz und im Liechtenstein. Wir sind stolz, an 57 Geschäftsstellen mehrere hundert Lernende ausbilden zu können und mit rund 2'300 Mitarbeitenden täglich an einer nachhaltigeren und besser vernetzten Welt zu arbeiten.",
+        "fr": "Faites partie de la transition énergétique ! gfeller elektro, société d'ETAVIS Bern-Mittelland, est l'une des principales entreprises du marché suisse de l'installation électrique et des télécommunications. Nous fournissons tous les services de conseil, de planification de projets, d'exécution, de soutien et d'entretien pour les technologies électriques et de construction, la télématique, l'infrastructure de télécommunications et l'automatisation. C'est ce que tu fais.\n• Enregistrez les demandes des clients en contact direct, développez des solutions spécifiques à haut et à bas courant et développez des offres basées sur les besoins\n• Gestion des exécutions de projets et planification du déploiement optimal des effectifs\n• Acquérir un suivi ou des commandes supplémentaires et élargir la clientèle Cela vous facilitera le démarrage.\n• Achevé la formation de base en tant qu'installateur électrique:dans EFZ et la formation continue pour:m Directeur de projet électrique:dans avec la FA fédérale ou pour:m Dipl. fédéral. Installateur électrique: dans ou qualifié en NIV\n• Plusieurs années d'expérience professionnelle en tant que chef de projet dans l'environnement d'installation électrique\n• Très bonne connaissance de l'allemand (verbal et écriture)\n• Le permis de conduire de catégorie B vous attend\n• Vous êtes important pour nous – nous vous offrons un environnement ouvert, agréable et familial.\n• Nous réussissons – avec nous vous pouvez bouger beaucoup.\n• Nous promouvons votre développement professionnel et votre formation continue – nous sommes heureux de vous soutenir.\n• Nous contribuerons à notre succès – avec des actions et des bonus d'employés.\n• Nous combinons les possibilités d'une grande entreprise mondiale avec les avantages d'une PME. Toujours des questions ? Votre manager, André Lüthi, a les réponses (+41 79 948 91 57 / +41 31 998 55 66). Postulez avec nous, nous sommes dans un esprit d'optimisme et de recherche de vous! ETAVIS possède la bonne expertise pour tous les sujets dans le domaine de l'ingénierie électrique. Que ce soit les installations électriques, l'automatisation du bâtiment, le service événementiel, les énergies renouvelables, etc., nous sommes le partenaire idéal pour tous ces services en Suisse. Dans le cadre du groupe international VINCI Energies, nous avons le pouvoir d'innover pour rester le meilleur fournisseur de solutions à l'avenir. Nous sommes fortement ancrés localement et connaissons la population, les cultures et le marché dans toutes les régions de la Suisse et du Liechtenstein. Nous sommes fiers de pouvoir former plusieurs centaines d'apprenants dans 57 bureaux et travailler avec environ 2300 employés chaque jour sur un monde plus durable et mieux connecté."
+      },
+      "location": "Wohlen bei Bern",
+      "canton": "BE",
+      "url": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=283498950&l=de",
+      "source": "ETAVIS Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T10:26:54.900Z",
+      "addressLocality": "Wohlen bei Bern",
+      "postalCode": "3032",
+      "streetAddress": "Kappelenring 69",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Impiantistica elettrica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-17",
+      "applyUrl": "https://etavis.softgarden.io/job/64111368/Elektro-Projektleiter-w-m-d-80%E2%80%93100-?jobDbPVId=283498950&l=de",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobCategory": "Ingenieure und technische Berufe",
+      "previousSlugs": [
+        "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern",
+        "elektro-projektleiter-m-w-d-80-100-gfeller-elektro-wohlen-bei-bern",
+        "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern",
+          "elektro-projektleiter-m-w-d-80-100-gfeller-elektro-wohlen-bei-bern",
+          "responsabile-progetto-elettrico-f-m-d-80-100-gfeller-elektro-wohlen-bei-bern"
+        ],
+        "en": [
+          "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern"
+        ],
+        "fr": [
+          "elektro-projektleiter-w-m-d-80-100-etavis-wohlen-bei-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T10:51:37.642Z",
+      "salaryMin": 105500,
+      "salaryMax": 160000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 160000,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
