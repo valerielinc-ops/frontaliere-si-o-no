@@ -1,18 +1,49 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-01T05:04:04.975Z",
-  "total": 133,
-  "newCount": 0,
+  "generatedAt": "2026-09-01T07:22:07.960Z",
+  "total": 134,
+  "newCount": 1,
   "updatedCount": 86,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 2930,
-  "avgDurationMs": 2930,
+  "durationMs": 3369,
+  "avgDurationMs": 3369,
   "durationHistory": [
-    2930
+    3369
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Career Start in Audit – Asset Management – Herbst 2026",
+      "slug": "career-start-in-audit-asset-management-herbst-2026-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit---Asset-Management---Herbst-2026_675730WD-1",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-01",
+      "validThrough": "2036-08-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Regulatory & Audit Specialist Banking",
