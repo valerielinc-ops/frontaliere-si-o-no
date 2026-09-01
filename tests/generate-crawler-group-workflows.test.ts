@@ -934,6 +934,13 @@ describe('#6482 — assignGroupsStable', () => {
     const { groups } = assignGroupsStable(crawlers, [['a', 'b'], ['a']], median);
     expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], []]);
   });
+
+  it('refuses to place a new crawler when every group is reserved for an outlier, instead of silently growing one', () => {
+    const crawlers = [crawler('coop', median * 8), crawler('walmart', median * 8), crawler('new')];
+    expect(() => assignGroupsStable(crawlers, [['coop'], ['walmart']], median)).toThrow(
+      /every group is reserved/,
+    );
+  });
 });
 
 describe('cross-repo crawler execution artifacts', () => {
