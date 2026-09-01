@@ -5020,6 +5020,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-contestazione-canone-affitti.title': 'Lease Law in Switzerland: Fees and Dispute',
     'blog.article.soletta-contestazione-canone-affitti.excerpt': 'In Swiss law, the security deposit is limited to 3 months\' rent and the tenant can dispute the initial rent within 30 days with the cantonal conciliation authority.',
     'blog.article.soletta-contestazione-canone-affitti.imageAlt': 'Facade of a Swiss residential building with modern balconies, quiet street in realistic daylight photography',
+    'blog.article.affitti-soletta-diritti-inquilini.title': 'Soleta Rentals: Medium Rentals and Rental Law',
+    'blog.article.affitti-soletta-diritti-inquilini.excerpt': 'Security deposit, chargeback, cancellation: the federal rules on renting and leasing in Switzerland and cantonal conciliation procedures.',
+    'blog.article.affitti-soletta-diritti-inquilini.imageAlt': 'Swiss residential building facade with balconies in a modern urban neighborhood.',
 };
 
 export default blogMetaChEn;
