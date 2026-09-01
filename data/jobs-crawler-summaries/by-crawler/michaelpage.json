@@ -1,20 +1,21 @@
 {
   "key": "michaelpage",
   "label": "Michael Page",
-  "generatedAt": "2026-08-31T23:20:05.348Z",
+  "generatedAt": "2026-09-01T00:58:13.801Z",
   "total": 39,
   "discovered": null,
   "written": 39,
-  "newCount": 16,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 23,
-  "durationMs": 29059,
-  "avgDurationMs": 29059,
+  "durationMs": 29522,
+  "avgDurationMs": 29522,
   "durationHistory": [
-    29059
+    29522
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "michaelpage-e873f99d30a1",
       "slug": "head-of-legal-amp-compliance-switzerland-michaelpage-ch",
@@ -27,7 +28,7 @@
       "url": "https://www.pageexecutive.com/job-detail/head-legal-compliance-switzerland/ref/jn-072026-7069175",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:57.509Z",
+      "crawledAt": "2026-09-01T00:58:05.620Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -41,11 +42,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/head-legal-compliance-switzerland/ref/jn-072026-7069175",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:19:57.509Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -61,7 +64,7 @@
       "url": "https://www.pageexecutive.com/job-detail/general-manager-luxury-hotel-german-speaking-switzerland/ref/jn-072026-7061253",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:57.811Z",
+      "crawledAt": "2026-09-01T00:58:05.924Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -75,11 +78,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/general-manager-luxury-hotel-german-speaking-switzerland/ref/jn-072026-7061253",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:57.811Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -95,7 +100,7 @@
       "url": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:58.112Z",
+      "crawledAt": "2026-09-01T00:58:06.227Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -109,11 +114,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/senior-private-bankers-swiss-private-bank/ref/jn-082026-7087025",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:58.112Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -129,7 +136,7 @@
       "url": "https://www.pageexecutive.com/job-detail/chief-operating-officer-implantable-medical-devices/ref/jn-082026-7089682",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:58.414Z",
+      "crawledAt": "2026-09-01T00:58:06.529Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Vaud",
       "addressCountry": "CH",
@@ -143,11 +150,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/chief-operating-officer-implantable-medical-devices/ref/jn-082026-7089682",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:58.414Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -163,7 +172,7 @@
       "url": "https://www.pageexecutive.com/job-detail/chief-financial-officer/ref/jn-082026-7087553",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:58.716Z",
+      "crawledAt": "2026-09-01T00:58:06.831Z",
       "addressLocality": "Ticino",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -177,11 +186,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/chief-financial-officer/ref/jn-082026-7087553",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:58.716Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -197,7 +208,7 @@
       "url": "https://www.pageexecutive.com/job-detail/marketing-director/ref/jn-082026-7088394",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:59.018Z",
+      "crawledAt": "2026-09-01T00:58:07.133Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -211,11 +222,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/marketing-director/ref/jn-082026-7088394",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:59.018Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -231,7 +244,7 @@
       "url": "https://www.pageexecutive.com/job-detail/compliance-director/ref/jn-082026-7087874",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:59.319Z",
+      "crawledAt": "2026-09-01T00:58:07.435Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,11 +258,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/compliance-director/ref/jn-082026-7087874",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:59.319Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -265,7 +280,7 @@
       "url": "https://www.pageexecutive.com/job-detail/director-food-beverage-luxury-alpine-resort/ref/jn-052026-7015573",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:59.621Z",
+      "crawledAt": "2026-09-01T00:58:07.737Z",
       "addressLocality": "Valais",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -279,11 +294,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/director-food-beverage-luxury-alpine-resort/ref/jn-052026-7015573",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:19:59.621Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -299,7 +316,7 @@
       "url": "https://www.pageexecutive.com/job-detail/resident-manager-rooms-division-swiss-alps-luxury-resort/ref/jn-052026-7026670",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:19:59.922Z",
+      "crawledAt": "2026-09-01T00:58:08.038Z",
       "addressLocality": "Graubünden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -313,11 +330,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/resident-manager-rooms-division-swiss-alps-luxury-resort/ref/jn-052026-7026670",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:19:59.922Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -333,7 +352,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeur-trice-des-ventes/ref/jn-042026-7004191",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T23:20:00.224Z",
+      "crawledAt": "2026-09-01T00:58:08.340Z",
       "addressLocality": "Lausanne",
       "addressRegion": "Vaud",
       "addressCountry": "CH",
@@ -347,11 +366,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/directeur-trice-des-ventes/ref/jn-042026-7004191",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:20:00.224Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -367,7 +388,7 @@
       "url": "https://www.pageexecutive.com/job-detail/uhnw-private-banker-middle-east-geneva/ref/jn-092025-6829434",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:00.525Z",
+      "crawledAt": "2026-09-01T00:58:08.641Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -381,11 +402,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/uhnw-private-banker-middle-east-geneva/ref/jn-092025-6829434",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:20:00.525Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -401,7 +424,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeurice-administratifve-financiere/ref/jn-072026-7062316",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T23:20:00.827Z",
+      "crawledAt": "2026-09-01T00:58:08.944Z",
       "addressLocality": "Vaud",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -415,11 +438,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/directeurice-administratifve-financiere/ref/jn-072026-7062316",
-      "_qualityScore": 60,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:20:00.827Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -435,7 +460,7 @@
       "url": "https://www.pageexecutive.com/job-detail/director-legal-compliance/ref/jn-062026-7048005",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:01.128Z",
+      "crawledAt": "2026-09-01T00:58:09.245Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -449,11 +474,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/director-legal-compliance/ref/jn-062026-7048005",
-      "_qualityScore": 58,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:20:01.128Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -469,7 +496,7 @@
       "url": "https://www.pageexecutive.com/job-detail/directeurice-comptabilit%C3%A9-reporting-consolidation/ref/jn-052026-7014706",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T23:20:01.430Z",
+      "crawledAt": "2026-09-01T00:58:09.547Z",
       "addressLocality": "Genève",
       "addressRegion": "Geneva",
       "addressCountry": "CH",
@@ -483,11 +510,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/directeurice-comptabilit%C3%A9-reporting-consolidation/ref/jn-052026-7014706",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:20:01.430Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 14
       }
     },
@@ -503,7 +532,7 @@
       "url": "https://www.pageexecutive.com/job-detail/chief-commercial-officer-europe-uhnw-client-acquisition/ref/jn-012026-6921126",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:01.731Z",
+      "crawledAt": "2026-09-01T00:58:09.848Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -517,11 +546,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/chief-commercial-officer-europe-uhnw-client-acquisition/ref/jn-012026-6921126",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T23:20:01.731Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
     },
@@ -537,7 +568,7 @@
       "url": "https://www.pageexecutive.com/job-detail/head-rd/ref/jn-032025-6700193",
       "source": "Michael Page Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T23:20:02.033Z",
+      "crawledAt": "2026-09-01T00:58:10.150Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -551,16 +582,17 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.pageexecutive.com/job-detail/head-rd/ref/jn-032025-6700193",
-      "_qualityScore": 56,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:20:02.033Z",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -594,7 +626,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:36.212Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -605,7 +637,7 @@
     },
     {
       "id": "michaelpage-a5e9a61862e7",
-      "slug": "managing-director-real-estate-corporate-banking-michaelpage-ch",
+      "slug": "managing-direttore-real-estate-corporate-banking-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -634,7 +666,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:35.608Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -674,7 +706,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:35.003Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -714,7 +746,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:34.701Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -754,7 +786,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:34.097Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -765,7 +797,7 @@
     },
     {
       "id": "michaelpage-446211f3bf85",
-      "slug": "senior-equity-finance-counsel-michaelpage-ch",
+      "slug": "senior-equity-finanza-counsel-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -794,7 +826,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:33.794Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -805,7 +837,7 @@
     },
     {
       "id": "michaelpage-0ac8cd742c95",
-      "slug": "executive-director-senior-managing-counsel-michaelpage-ch",
+      "slug": "executive-direttore-senior-managing-counsel-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -834,7 +866,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:33.492Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -874,7 +906,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:33.189Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -885,7 +917,7 @@
     },
     {
       "id": "michaelpage-6fde12d26f37",
-      "slug": "director-managing-counsel-michaelpage-ch",
+      "slug": "direttore-managing-counsel-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -914,7 +946,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:32.886Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -954,7 +986,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:32.584Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -965,7 +997,7 @@
     },
     {
       "id": "michaelpage-8d39e70f9cd6",
-      "slug": "director-structured-products-counsel-michaelpage-ch",
+      "slug": "direttore-structured-products-counsel-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -994,7 +1026,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:32.281Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1005,7 +1037,7 @@
     },
     {
       "id": "michaelpage-ca5a0927bf47",
-      "slug": "senior-manager-commercial-finance-fp-a-norwood-ma-michaelpage-ch",
+      "slug": "senior-manager-commercial-finanza-fp-a-norwood-ma-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1034,7 +1066,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:31.979Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1074,7 +1106,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:31.677Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1114,7 +1146,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:31.375Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1125,7 +1157,7 @@
     },
     {
       "id": "michaelpage-56d53f72756a",
-      "slug": "director-senior-director-business-development-michaelpage-ch",
+      "slug": "direttore-senior-direttore-business-development-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1154,7 +1186,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:30.470Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1194,7 +1226,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:30.167Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1205,7 +1237,7 @@
     },
     {
       "id": "michaelpage-652236dd8c8f",
-      "slug": "business-development-director-industrial-north-america-michaelpage-ch",
+      "slug": "business-development-direttore-industrial-north-america-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1234,7 +1266,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:29.560Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1245,7 +1277,7 @@
     },
     {
       "id": "michaelpage-18a61138576f",
-      "slug": "diretor-de-manutencao-e-operacoes-tecnicas-america-latina-michaelpage-ch",
+      "slug": "diretor-de-manutencao-e-operacoes-tecnicas-america-latina-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1274,7 +1306,7 @@
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:29.258Z",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1285,7 +1317,7 @@
     },
     {
       "id": "michaelpage-152aa4f682be",
-      "slug": "business-unit-vice-president-americas-chemicals-michaelpage-ch",
+      "slug": "business-unit-vice-president-americas-chemicals-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1314,7 +1346,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:28.953Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1325,7 +1357,7 @@
     },
     {
       "id": "michaelpage-fbd3c969e0e1",
-      "slug": "managing-director-south-america-multinacional-michaelpage-ch",
+      "slug": "managing-direttore-south-america-multinacional-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1354,7 +1386,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:28.650Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1365,7 +1397,7 @@
     },
     {
       "id": "michaelpage-19a58e19ec21",
-      "slug": "sales-director-americas-michaelpage-ch",
+      "slug": "sales-direttore-americas-michael-page-lugano",
       "company": "Michael Page",
       "companyKey": "michaelpage",
       "companyDomain": "pageexecutive.com",
@@ -1394,7 +1426,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:28.347Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1434,7 +1466,7 @@
       "salarySource": "estimated",
       "addressRegion": "TI",
       "firstSeenAt": "2026-08-31T17:39:28.032Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 54,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1474,7 +1506,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 59,
       "_qualityBreakdown": {
         "cleanliness": 25,
