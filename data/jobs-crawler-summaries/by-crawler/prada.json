@@ -1,58 +1,22 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-09-01T05:04:50.540Z",
+  "generatedAt": "2026-09-01T07:24:22.731Z",
   "total": 0,
   "discovered": 6,
   "written": 0,
   "sourceProvenEmpty": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1321,
-  "avgDurationMs": 1321,
+  "durationMs": 6683,
+  "avgDurationMs": 6683,
   "durationHistory": [
-    1321
+    6683
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "prada-64995bda5ddc",
-      "slug": "purchasing-intern-prada-group-arezzo-purchasing-intern",
-      "company": "Prada Group",
-      "companyKey": "prada",
-      "companyDomain": "pradagroup.com",
-      "title": "Purchasing intern",
-      "location": "Arezzo Purchasing intern",
-      "canton": "TI",
-      "addressLocality": "Arezzo Purchasing intern",
-      "addressCountry": "CH",
-      "category": "fashion",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "url": "https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/",
-      "source": "Prada Group Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-01T04:08:19.755Z",
-      "needsRetranslation": true,
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "salarySource": "estimated",
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-01T04:08:19.755Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
