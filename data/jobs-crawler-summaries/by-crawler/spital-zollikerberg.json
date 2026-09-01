@@ -1,37 +1,35 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-01T00:29:48.127Z",
-  "total": 8,
+  "generatedAt": "2026-09-01T07:21:44.378Z",
+  "total": 6,
   "discovered": null,
-  "written": 8,
+  "written": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 33407,
-  "avgDurationMs": 33407,
+  "unchangedCount": 0,
+  "durationMs": 41236,
+  "avgDurationMs": 41236,
   "durationHistory": [
-    33407
+    41236
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-53f8b308e15e",
-      "slug": "collaboratore-trice-mitarbeiterin-hotelservice-im-spital-zollikerberg-station-chirurgie-e-gynakologie-gastronomie-spital-zollikerberg",
+      "id": "spital-zollikerberg-d14fef20d8ad",
+      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-fur-die-tagesklinik-montag-bis-freitag-spital",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Mitarbeiter / Mitarbeiterin Hotelservice im Spital Zollikerberg - Station Chirurgie und Gynäkologie Gastronomie",
+      "title": "Dipl. Pflegefachfrau / Dipl. Pflegefachmann für die Tagesklinik Montag bis Freitag",
       "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=852462eb-fda5-416b-affb-5df516d27d3a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=01c45c1a-36b0-4884-9c25-7294c38e63cd,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:14:13.635Z",
+      "crawledAt": "2026-09-01T07:21:42.335Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -45,19 +43,17 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=852462eb-fda5-416b-affb-5df516d27d3a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=01c45c1a-36b0-4884-9c25-7294c38e63cd,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 22
+        "completeness": 17
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
