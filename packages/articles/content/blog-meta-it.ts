@@ -11051,6 +11051,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: credito difficile blocca investimenti PMI Nord',
     'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Rapporto Confapi su 2.000 PMI: 60% in difficoltà per geopolitica e credito. Impatto diretto su occupazione e salari dei frontalieri Varese-Ticino.',
     'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Area industriale di Mendrisio al confine con la provincia di Varese, Ticino',
+    'blog.article.tariffe-ail-2027-stabili.title': 'Tariffe AIL 2027: Nessun Aumento per l’Energia',
+    'blog.article.tariffe-ail-2027-stabili.excerpt': 'Le tariffe di elettricità e gas AIL rimarranno stabili nel 2027, grazie alla strategia di acquisto scaglionato e agli investimenti nelle rinnovabili.',
+    'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Vista aerea di Lugano con edifici industriali e infrastrutture energetiche',
 };
 
 export default blogMetaIt;

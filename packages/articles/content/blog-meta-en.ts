@@ -11050,6 +11050,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: difficult credit blocks investments in SMEs North',
     'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Confapi report on 2,000 SMEs: 60% in difficulty due to geopolitics and credit. Direct impact on employment and wages of Varese-Ticino cross-border workers.',
     'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Industrial area in Mendrisio at the border with Varese province, Ticino',
+    'blog.article.tariffe-ail-2027-stabili.title': 'Ail Tariffs 2027: No Increase for Energy',
+    'blog.article.tariffe-ail-2027-stabili.excerpt': 'Ail electricity and gas rates will remain stable in 2027, thanks to the staggered purchasing strategy and investments in renewables.',
+    'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Aerial view of Lugano with industrial buildings and energy infrastructure',
 };
 
 export default blogMetaEn;

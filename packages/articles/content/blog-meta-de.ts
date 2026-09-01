@@ -11049,6 +11049,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: Schwierige Kredite blockieren Investitionen in KMU im Norden',
     'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Confapi-Bericht über 2.000 KMU: 60 % aufgrund von Geopolitik und Kredit in Schwierigkeiten. Direkte Auswirkungen auf Beschäftigung und Löhne der grenzüberschreitenden Arbeiter in Varese-Tessin.',
     'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Industriegebiet Mendrisio an der Grenze zur Provinz Varese, Tessin',
+    'blog.article.tariffe-ail-2027-stabili.title': 'Tarife Ail 2027: Keine Energieerhöhung',
+    'blog.article.tariffe-ail-2027-stabili.excerpt': 'Die Strom- und Gaspreise von Ail werden 2027 dank der gestaffelten Beschaffungsstrategie und der Investitionen in erneuerbare Energien stabil bleiben.',
+    'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Luftaufnahme von Lugano mit Industriegebäuden und Energieinfrastruktur',
 };
 
 export default blogMetaDe;
