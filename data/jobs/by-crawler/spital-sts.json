@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-08-31T22:33:19.732Z",
+  "assembledAt": "2026-09-01T00:39:20.973Z",
   "jobs": [
     {
       "id": "spital-sts-9027335d8af9",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:17.026Z",
+      "crawledAt": "2026-09-01T00:39:18.314Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:16.499Z",
+      "crawledAt": "2026-09-01T00:39:17.719Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:15.966Z",
+      "crawledAt": "2026-09-01T00:39:17.153Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -301,7 +301,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/93b14957-805a-4228-a89b-28d8f286e304/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:15.484Z",
+      "crawledAt": "2026-09-01T00:39:16.705Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -386,7 +386,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:15.047Z",
+      "crawledAt": "2026-09-01T00:39:16.253Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -466,7 +466,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:14.611Z",
+      "crawledAt": "2026-09-01T00:39:15.682Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -546,7 +546,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:14.188Z",
+      "crawledAt": "2026-09-01T00:39:15.220Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -610,7 +610,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:13.764Z",
+      "crawledAt": "2026-09-01T00:39:14.752Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -674,7 +674,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/af91efba-2736-4d8d-b7ac-59fa72006411/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:13.315Z",
+      "crawledAt": "2026-09-01T00:39:14.296Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -738,7 +738,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd880936-cecc-4a3a-b88c-27be9d0f071e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:33:12.877Z",
+      "crawledAt": "2026-09-01T00:39:13.845Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -769,175 +769,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-0f3dfdb505b4",
-      "slug": "collaboratore-trice-distributionslogistik-spital-sts-thun",
-      "slugByLocale": {
-        "it": "collaboratore-trice-distributionslogistik-spital-sts-thun",
-        "en": "associate-distributionslogistik-spital-sts-thun",
-        "de": "mitarbeiter-in-distributionslogistik-spital-sts-thun",
-        "fr": "collaborateur-trice-distributionslogistik-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Mitarbeiter:in Distributionslogistik",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Distributionslogistik",
-        "en": "Associate Distributionslogistik",
-        "de": "Mitarbeiter:in Distributionslogistik",
-        "fr": "Collaborateur/trice Distributionslogistik"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu nimmst innerhalb der Distributionslogistik, in verschiedenen Diensten, eine vielseitige Allrounder-Funktion ein. Du führst interne Transporte (Laborproben & Sterilgut) aus, kommissionierst und lieferst Patientengetränke auf die jeweiligen Stationen aus. Die Warenannahme sowie die Kontrolle und Verbuchung der Ware im System bis zur Auslieferung an Ort und Stelle gehören auch dazu. Unter anderem gehört die Bewirtschaftung des Wäschesortimentes auf den Stationen zu deinen Aufgaben. Das Einsammeln, Sortieren und Bereitstellen für den Abtransport von Wertstoffen und Sonderabfall rundet den Kreislauf der Warenwirtschaft ab.\nWeiters transportierst du die Speisewagen mit Patientenverpflegung von der Küche sicher auf die Abteilung und wieder retour. Hier bist du bereit als Vertretung auch am Wochenende oder am Abend einen Einsatz zu leisten.\nDu bist mit deiner Arbeit ein wichtiger Teil des Ganzen und gestaltest unseren gemeinsamen Erfolg in der Logistik mit.\nEintritt per 1. September 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Aufgestelltes und unterstützendes Team\n\n• Spannende Herausforderungen im Spitalumfeld\n\n• Gute Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Zulage bei Wochenendarbeit\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine Gewerblich-industrielle Grundausbildung mit und hast vorzugsweise bereits Erfahrung in einer ähnlichen Funktion\n\n• Du verfügts über sehr gute schriftliche und mündliche Deutschkenntnisse\n\n• Du bist im Besitz eines Führerscheins für Deichselstapler\n\n• Du hast eine rasche Auffassungsgabe und bist ein Teamplayer",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche la possibilità di svago flessibile nella regione naturale e lacustre circostante. Hai un aspetto significativo, ma anche giusto? Allora sei qui.\n\nAll'interno della logistica di distribuzione, in vari servizi, si assume una versatile funzione tuttofare. Effettuate trasporti interni (campioni di laboratorio e merci sterili), scegliete e portate le bevande dei pazienti alle rispettive stazioni. L'accettazione delle merci così come il controllo e la prenotazione delle merci nel sistema fino alla consegna in loco sono anche inclusi. Tra le altre cose, la gestione della gamma di lavanderia nelle stazioni è uno dei vostri compiti. La raccolta, la selezione e la fornitura per la rimozione di riciclabili e rifiuti speciali completano il ciclo di gestione delle merci.\nInoltre, si trasporta la macchina da pranzo con cibo paziente dalla cucina in modo sicuro al dipartimento e di nuovo. Qui siete pronti come rappresentante anche il fine settimana o la sera per fare una distribuzione.\nSei una parte importante del tutto con il tuo lavoro e modella il nostro successo congiunto nella logistica.\nIngresso al 1° settembre 2026 o per accordo.\n\nQuesto ti aspetta\n\n• Squadra fondata e solidale\n\n• Sfide emozionanti nell'ambiente ospedaliero\n\n• Buone condizioni di lavoro secondo gli ospedali e le cliniche GAV Bern\n\n• Modello gratuito per le vacanze e i fondi pensione\n\n• Indennità di lavoro di fine settimana\n\nDiventa parte del nostro team\n\n• Si porta una formazione commerciale-industriale di base e preferibilmente già hanno esperienza in una funzione simile\n\n• Hai avuto ottime capacità scritte e orali tedesche\n\n• Hai una patente di guida per i camion del drawbar\n\n• Hai una rapida comprensione e sei un giocatore di squadra",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking meaningful, but also fair? Then you're right here.\n\nWithin distribution logistics, in various services, you take on a versatile all-rounder function. You carry out internal transports (laboratory samples & sterile goods), pick and deliver patient drinks to the respective stations. The acceptance of goods as well as the control and booking of the goods in the system until delivery on site are also included. Among other things, the management of the laundry range on the stations is one of your tasks. The collection, sorting and provision for the removal of recyclables and special waste rounds off the cycle of goods management.\nFurthermore, you transport the dining car with patient food from the kitchen safely to the department and back again. Here you are ready as a representative also on the weekend or in the evening to make a deployment.\nYou are an important part of the whole with your work and shape our joint success in logistics.\nEntry as of 1 September 2026 or by arrangement.\n\nThis is waiting for you\n\n• Established and supportive team\n\n• Exciting challenges in the hospital environment\n\n• Good employment conditions according to GAV Bern hospitals and clinics\n\n• Freely selectable holiday and pension fund model\n\n• Weekend work allowance\n\nBecome part of our team\n\n• You bring a basic commercial-industrial education and preferably already have experience in a similar function\n\n• You had very good written and oral German skills\n\n• You have a driving license for drawbar trucks\n\n• You have a quick understanding and are a team player",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nDu nimmst innerhalb der Distributionslogistik, in verschiedenen Diensten, eine vielseitige Allrounder-Funktion ein. Du führst interne Transporte (Laborproben & Sterilgut) aus, kommissionierst und lieferst Patientengetränke auf die jeweiligen Stationen aus. Die Warenannahme sowie die Kontrolle und Verbuchung der Ware im System bis zur Auslieferung an Ort und Stelle gehören auch dazu. Unter anderem gehört die Bewirtschaftung des Wäschesortimentes auf den Stationen zu deinen Aufgaben. Das Einsammeln, Sortieren und Bereitstellen für den Abtransport von Wertstoffen und Sonderabfall rundet den Kreislauf der Warenwirtschaft ab.\nWeiters transportierst du die Speisewagen mit Patientenverpflegung von der Küche sicher auf die Abteilung und wieder retour. Hier bist du bereit als Vertretung auch am Wochenende oder am Abend einen Einsatz zu leisten.\nDu bist mit deiner Arbeit ein wichtiger Teil des Ganzen und gestaltest unseren gemeinsamen Erfolg in der Logistik mit.\nEintritt per 1. September 2026 oder nach Vereinbarung.\n\nDas wartet auf dich\n\n• Aufgestelltes und unterstützendes Team\n\n• Spannende Herausforderungen im Spitalumfeld\n\n• Gute Anstellungsbedingungen nach GAV Berner Spitäler und Kliniken\n\n• Frei wählbares Ferien- und Pensionskassenmodell\n\n• Zulage bei Wochenendarbeit\n\nSo wirst du Teil unseres Teams\n\n• Du bringst eine Gewerblich-industrielle Grundausbildung mit und hast vorzugsweise bereits Erfahrung in einer ähnlichen Funktion\n\n• Du verfügts über sehr gute schriftliche und mündliche Deutschkenntnisse\n\n• Du bist im Besitz eines Führerscheins für Deichselstapler\n\n• Du hast eine rasche Auffassungsgabe und bist ein Teamplayer",
-        "fr": "Un emploi avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Avez-vous l'air significatif, mais aussi juste? Alors vous êtes là.\n\nDans la logistique de distribution, dans divers services, vous assumez une fonction polyvalente et polyvalente. Vous effectuez des transports internes (échantillons de laboratoire et produits stériles), choisissez et livrez des boissons aux stations respectives. L'acceptation des marchandises ainsi que le contrôle et la réservation des marchandises dans le système jusqu'à la livraison sur place sont également inclus. Entre autres choses, la gestion de la gamme de blanchisserie sur les stations est l'une de vos tâches. La collecte, le tri et l'élimination des matières recyclables et des déchets spéciaux mettent fin au cycle de gestion des biens.\nEn outre, vous transportez la voiture à manger avec de la nourriture patiente de la cuisine en toute sécurité au département et retour. Ici, vous êtes prêt en tant que représentant également le week-end ou le soir pour faire un déploiement.\nVous êtes une partie importante de l'ensemble avec votre travail et façonner notre succès conjoint dans la logistique.\nEntrée au 1er septembre 2026 ou par arrangement.\n\nÇa vous attend.\n\n• Équipe créée et de soutien\n\n• Des défis passionnants dans l'environnement hospitalier\n\n• Bonnes conditions d'emploi selon GAV Bern hôpitaux et cliniques\n\n• Modèle de caisse de vacances et de retraite librement sélectionnable\n\n• Indemnité de fin de semaine\n\nDevenez membre de notre équipe\n\n• Vous apportez une éducation commerciale-industrielle de base et de préférence déjà avoir une expérience dans une fonction similaire\n\n• Vous aviez de très bonnes compétences écrites et orales en allemand\n\n• Vous avez un permis de conduire pour les camions à timon\n\n• Vous avez une compréhension rapide et êtes un joueur d'équipe"
-      },
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/aaa0f523-1dc2-461b-a77d-8328fc4d5e2b/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:22:56.489Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/aaa0f523-1dc2-461b-a77d-8328fc4d5e2b",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-distributionslogistik-spital-sts-thun",
-        "collaboratore-trice-distributionslogistik-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun",
-          "collaboratore-trice-distributionslogistik-spital-sts-thun"
-        ],
-        "en": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
-        ],
-        "fr": [
-          "mitarbeiter-in-distributionslogistik-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T21:34:56.611Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "salarySource": "estimated"
-    },
-    {
-      "id": "spital-sts-8080c5bdb9b1",
-      "slug": "oberarztin-oberarzt-orthopadie-traumatologie-spital-sts-thun",
-      "slugByLocale": {
-        "it": "oberarztin-oberarzt-orthopadie-traumatologie-spital-sts-thun",
-        "en": "senior-physician-senior-physician-orthopaedic-traumatology-spital-sts-thun",
-        "de": "oberarztin-oberarzt-orthopadie-traumatologie-spital-sts-thun",
-        "fr": "medecin-superieur-medecin-superieur-orthopedique-et-traumatologie-spital-sts-thun"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Oberärztin / Oberarzt Orthopädie&Traumatologie",
-      "titleByLocale": {
-        "it": "Oberärztin / Oberarzt Orthopäla&Traumatologie",
-        "en": "Senior physician / senior physician orthopaedic & traumatology",
-        "de": "Oberärztin / Oberarzt Orthopädie&Traumatologie",
-        "fr": "Médecin supérieur/médecin supérieur orthopédique et traumatologie"
-      },
-      "description": "Zur Verstärkung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als Oberärztin / Oberarzt Orthopädie/ Traumatologie & Sportmedizin, die Verantwortung übernimmt und unsere Klinik in Zukunft aktiv mitgestalten möchte.\n\nAm Spital Thun erwartet Sie das gesamte Spektrum der Orthopädie/Traumatologie und Sportmedizin. Ihr Aufgabenbereich umfasst sowohl die operative Versorgung der Patient:innen (bei Bedarf mit Unterstützung durch die Leitenden Ärzt:innen) als auch die Abdeckung der Sprechstunde und der Pikettdienste.\nSie übernehmen eigenverantwortlich und mit eigenständigen Handlungsspielraum die Betreuung von Patient:innen mit Verletzungen und Erkrankungen des gesamten Bewegungsapparates. Sie beteiligen sich aktiv an internen- und externen Weiterbildungsveranstaltungen.\n\nDas wartet auf Sie\n\n• Anerkannte Weiterbildungsstätte für den interdisziplinären Schwerpunkt Orthopädie/Traumatologie und Sportmedizin\n\n• Ein breites operatives und konservatives Behandlungsspektrum mit hoher Eigenverantwortung in einer Klinik der Kategorie B1\n\n• Attraktive Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung – inklusive Unterstützung von Kursen, Kongressen und Fortbildungen\n\n• Regelmässige klinikinterne Fortbildungen\n\n• Sie werden Teil eines motivierten, kollegialen Teams mit wertschätzender Zusammenarbeit\n\n• Kurze Entscheidungswege und eine offene, wertschätzende Teamkultur mit flacher Hierarchie\n\n• Supervision und Weiterbildung unserer Assistenzärztinnen und Assistenzärzte\n\n• Flexible Arbeitsmodelle, attraktive Anstellungsbedingungen mit der Option auf zusätzliche Ferientage\n\n• Schöner Arbeitsplatz im Berner Oberland mit hoher Lebensqualität\n\nIhre Aufgaben\n• Selbstständige Betreuung von ambulanten und stationären Patient:innen\n\n• Operative Tätigkeit im Bereich Orthopädie und Traumatologie entsprechend Ihrer Erfahrung und Spezialisierung\n\n• Mitwirkung im traumatologischen Dienst sowie in der Versorgung von Notfallpatient:innen\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Orthopädische Chirurgie/Traumatologie FMH oder äquivalent (oder kurz vor Abschluss der Ausbildung)\n\n• Eine teamorientierte Persönlichkeit mit ausgeprägter Kommunikations- und Kooperationsfähigkeit für eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Hohe Sozialkompetenz, Belastbarkeit, Eigeninitiative und Verantwortungsbewusstsein mit grossem Interesse an der Traumatologie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\nKlingt das nach Ihrer nächsten Herausforderung?\nDann bringen Sie Ihre Erfahrung und Ihre Persönlichkeit in unser Team ein – wir freuen uns auf Ihre Bewerbung.",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team, stiamo cercando 1. Novembre 2026 o su appuntamento una personalità impegnata come medico senior / senior medico ortopedia / traumatologia & medicina sportiva, che si assume la responsabilità e vuole plasmare attivamente la nostra clinica in futuro.\n\nA Spital Thun, l'intero spettro di ortopedia/traumatologia e medicina sportiva vi aspetta. Le sue responsabilità includono la cura chirurgica dei pazienti:innen (se necessario con il supporto dei principali medici:innen) e la copertura delle ore di consultazione e dei servizi pikett.\nEssi assumono la propria responsabilità e con un ambito di azione indipendente la cura dei pazienti: donne con lesioni e malattie dell'intero sistema muscoloscheletrico. Partecipano attivamente a eventi di formazione interni ed esterni.\n\nTi sta aspettando.\n\n• Istituzione di formazione riconosciuta per l'attenzione interdisciplinare ortopedia/traumatologia e medicina sportiva\n\n• Una vasta gamma di trattamenti chirurgici e conservatori con un alto livello di responsabilità personale in una clinica di categoria B1\n\n• Opportunità interessanti per lo sviluppo professionale e personale – compreso il supporto per corsi, congressi e formazione ulteriore\n\n• Formazione intraclinica regolare\n\n• Diventerai parte di un team motivato e collaborativo con una cooperazione apprezzata\n\n• Brevi percorsi decisionali e una cultura del team aperta e apprezzata con una gerarchia piana\n\n• Supervisione e formazione ulteriore dei nostri medici assistenti\n\n• Modelli di lavoro flessibili, condizioni di lavoro attraenti con la possibilità di vacanze aggiuntive\n\n• Bellissimo posto di lavoro nell'Oberland Bernese con un'alta qualità di vita\n\nI loro compiti\n• Cura indipendente di pazienti ambulatoriali e malati: all'interno\n\n• Attività operativa nel campo dell'ortopedia e traumatologia secondo la vostra esperienza e specializzazione\n\n• Partecipazione al servizio traumatologico e alla cura dei pazienti di emergenza:\n\nDiventa parte del nostro team\n\n• Titolo specialistico Chirurgia ortopedica/Traumatologia FMH o equivalente (o poco prima del completamento della formazione)\n\n• Una personalità orientata al team con forti capacità di comunicazione e cooperazione per una buona cooperazione interdisciplinare e interprofessionale\n\n• Alta capacità sociale, resilienza, iniziativa e un senso di responsabilità con grande interesse per la traumatologia\n\n• Conoscenza molto buona del tedesco in parola e scrittura (almeno livello C1)\n\nSembra la tua prossima sfida?\nAllora portate la vostra esperienza e personalità al nostro team – non vediamo l'ora di presentare la vostra applicazione.",
-        "en": "To strengthen our team, we are looking for 1. November 2026 or by appointment a committed personality as senior physician / senior physician orthopaedics / traumatology & sports medicine, who takes responsibility and wants to actively shape our clinic in the future.\n\nAt Spital Thun, the entire spectrum of orthopaedics/traumatology and sports medicine awaits you. Her responsibilities include the surgical care of the patients:innen (if necessary with the support of the leading doctors:innen) as well as the coverage of the consultation hours and the pikett services.\nThey take on their own responsibility and with independent scope of action the care of patients: women with injuries and diseases of the entire musculoskeletal system. They actively participate in internal and external training events.\n\nThis is waiting for you\n\n• Recognized training institution for the interdisciplinary focus orthopaedics/traumatology and sports medicine\n\n• A broad range of surgical and conservative treatment with a high level of personal responsibility in a category B1 clinic\n\n• Attractive opportunities for professional and personal development – including support for courses, congresses and further education\n\n• Regular intra-clinic training\n\n• You will become part of a motivated, collaborative team with appreciative cooperation\n\n• Short decision paths and an open, appreciative team culture with a flat hierarchy\n\n• Supervision and further training of our assistant doctors\n\n• Flexible working models, attractive employment conditions with the option of additional holidays\n\n• Beautiful workplace in the Bernese Oberland with a high quality of life\n\nTheir tasks\n• Independent care of ambulatory and inpatient patients: inside\n\n• Operational activity in the field of orthopaedics and traumatology according to your experience and specialization\n\n• Participation in the traumatological service and in the care of emergency patients:\n\nBecome part of our team\n\n• Specialist title Orthopaedic Surgery/Traumatology FMH or equivalent (or shortly before completion of training)\n\n• A team-oriented personality with strong communication and cooperation skills for good interdisciplinary and interprofessional cooperation\n\n• High social skills, resilience, initiative and a sense of responsibility with great interest in traumatology\n\n• Very good knowledge of German in word and writing (at least level C1)\n\nDoes that sound like your next challenge?\nThen bring your experience and personality to our team – we look forward to your application.",
-        "de": "Zur Verstärkung unseres Teams suchen wir per 1. November 2026 oder nach Vereinbarung eine engagierte Persönlichkeit als Oberärztin / Oberarzt Orthopädie/ Traumatologie & Sportmedizin, die Verantwortung übernimmt und unsere Klinik in Zukunft aktiv mitgestalten möchte.\n\nAm Spital Thun erwartet Sie das gesamte Spektrum der Orthopädie/Traumatologie und Sportmedizin. Ihr Aufgabenbereich umfasst sowohl die operative Versorgung der Patient:innen (bei Bedarf mit Unterstützung durch die Leitenden Ärzt:innen) als auch die Abdeckung der Sprechstunde und der Pikettdienste.\nSie übernehmen eigenverantwortlich und mit eigenständigen Handlungsspielraum die Betreuung von Patient:innen mit Verletzungen und Erkrankungen des gesamten Bewegungsapparates. Sie beteiligen sich aktiv an internen- und externen Weiterbildungsveranstaltungen.\n\nDas wartet auf Sie\n\n• Anerkannte Weiterbildungsstätte für den interdisziplinären Schwerpunkt Orthopädie/Traumatologie und Sportmedizin\n\n• Ein breites operatives und konservatives Behandlungsspektrum mit hoher Eigenverantwortung in einer Klinik der Kategorie B1\n\n• Attraktive Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung – inklusive Unterstützung von Kursen, Kongressen und Fortbildungen\n\n• Regelmässige klinikinterne Fortbildungen\n\n• Sie werden Teil eines motivierten, kollegialen Teams mit wertschätzender Zusammenarbeit\n\n• Kurze Entscheidungswege und eine offene, wertschätzende Teamkultur mit flacher Hierarchie\n\n• Supervision und Weiterbildung unserer Assistenzärztinnen und Assistenzärzte\n\n• Flexible Arbeitsmodelle, attraktive Anstellungsbedingungen mit der Option auf zusätzliche Ferientage\n\n• Schöner Arbeitsplatz im Berner Oberland mit hoher Lebensqualität\n\nIhre Aufgaben\n• Selbstständige Betreuung von ambulanten und stationären Patient:innen\n\n• Operative Tätigkeit im Bereich Orthopädie und Traumatologie entsprechend Ihrer Erfahrung und Spezialisierung\n\n• Mitwirkung im traumatologischen Dienst sowie in der Versorgung von Notfallpatient:innen\n\nSo werden Sie Teil unseres Teams\n\n• Facharzttitel Orthopädische Chirurgie/Traumatologie FMH oder äquivalent (oder kurz vor Abschluss der Ausbildung)\n\n• Eine teamorientierte Persönlichkeit mit ausgeprägter Kommunikations- und Kooperationsfähigkeit für eine gute interdisziplinäre und interprofessionelle Zusammenarbeit\n\n• Hohe Sozialkompetenz, Belastbarkeit, Eigeninitiative und Verantwortungsbewusstsein mit grossem Interesse an der Traumatologie\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift (mindestens Niveau C1)\n\nKlingt das nach Ihrer nächsten Herausforderung?\nDann bringen Sie Ihre Erfahrung und Ihre Persönlichkeit in unser Team ein – wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Pour renforcer notre équipe, nous cherchons 1. Novembre 2026 ou sur rendez-vous une personnalité engagée en tant que médecin senior / médecin senior orthopédie / traumatologie & médecine sportive, qui prend la responsabilité et veut façonner activement notre clinique à l'avenir.\n\nChez Spital Thun, tout le spectre de l'orthopédie/traumatologie et de la médecine sportive vous attend. Ses responsabilités comprennent les soins chirurgicaux des patients:innen (si nécessaire avec le soutien des médecins principaux:innen) ainsi que la couverture des heures de consultation et les services de pikett.\nIls assument leur propre responsabilité et avec un champ d'action indépendant les soins aux patients: les femmes souffrant de blessures et de maladies de l'ensemble du système musculo-squelettique. Ils participent activement à des activités de formation internes et externes.\n\nÇa vous attend.\n\n• Institution de formation reconnue pour l'orthopédie interdisciplinaire/traumatologie et médecine sportive\n\n• Un large éventail de traitements chirurgicaux et conservateurs avec un haut niveau de responsabilité personnelle dans une clinique de catégorie B1\n\n• Des possibilités de développement professionnel et personnel attrayantes – y compris un soutien aux cours, congrès et formations complémentaires\n\n• Formation intraclinique régulière\n\n• Vous deviendrez membre d'une équipe de collaboration motivée et reconnaissante\n\n• Courts chemins de décision et une culture d'équipe ouverte et appréciée avec une hiérarchie plate\n\n• Supervision et formation continue de nos médecins adjoints\n\n• Modèles de travail flexibles, conditions d'emploi attrayantes avec possibilité de vacances supplémentaires\n\n• Beau lieu de travail dans l'Oberland bernois avec une qualité de vie élevée\n\nLeurs tâches\n• Soins indépendants des patients ambulatoires et hospitalisés: à l'intérieur\n\n• Activité opérationnelle dans le domaine de l'orthopédie et de la traumatologie selon votre expérience et spécialisation\n\n• Participation au service traumatologique et aux soins des patients d'urgence:\n\nDevenez membre de notre équipe\n\n• Titre du spécialiste Chirurgie orthopédique/Traumatologie FMH ou équivalent (ou peu avant la fin de la formation)\n\n• Une personnalité axée sur l'équipe avec de solides compétences en communication et en coopération pour une bonne coopération interdisciplinaire et interprofessionnelle\n\n• Hautes compétences sociales, résilience, initiative et sens des responsabilités avec un grand intérêt pour la traumatologie\n\n• Très bonne connaissance de l'allemand en paroles et en écriture (au moins niveau C1)\n\nÇa ressemble à ton prochain défi ?\nApportez ensuite votre expérience et votre personnalité à notre équipe – nous attendons avec impatience votre candidature."
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/39acf9e7-6acb-45d6-9378-18ec2beb7a69/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-28T05:22:55.961Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-20",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/39acf9e7-6acb-45d6-9378-18ec2beb7a69",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "medico-senior-chirurgia-medico-senior-spital-sts-thun",
-        "senior-physician-senior-physician-surgery-spital-sts-thun",
-        "oberarztin-oberarzt-chirurgie-spital-sts-thun",
-        "medecin-superieur-chirurgie-medicale-senior-spital-sts-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medico-senior-chirurgia-medico-senior-spital-sts-thun",
-          "senior-physician-senior-physician-surgery-spital-sts-thun",
-          "oberarztin-oberarzt-chirurgie-spital-sts-thun",
-          "medecin-superieur-chirurgie-medicale-senior-spital-sts-thun"
-        ],
-        "en": [
-          "senior-physician-senior-physician-surgery-spital-sts-thun"
-        ],
-        "de": [
-          "oberarztin-oberarzt-chirurgie-spital-sts-thun"
-        ],
-        "fr": [
-          "medecin-superieur-chirurgie-medicale-senior-spital-sts-thun"
-        ]
-      },
-      "firstSeenAt": "2026-08-20T09:53:24.841Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 115000,
-          "maxValue": 160000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
     }
   ]
 }
