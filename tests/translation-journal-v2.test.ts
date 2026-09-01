@@ -25,11 +25,31 @@ const attemptKey = createTranslationAttemptKeyV2({
   engineVersion: 'engine-1',
   gateVersion: 'gate-1',
 });
+const secondIdentity = createTranslationUnitIdentityV2({
+  kind: 'job',
+  fieldPath: 'title',
+  sourceLocale: 'de',
+  targetLocale: 'it',
+  sourceText: 'SRC_B',
+  context: { company: 'COMPANY_B', location: 'LOCATION_B' },
+});
+const secondAttemptKey = createTranslationAttemptKeyV2({
+  identity: secondIdentity,
+  engineVersion: 'engine-1',
+  gateVersion: 'gate-1',
+});
 const candidateId = `translation-candidate:v2:${'a'.repeat(64)}`;
+const secondCandidateId = `translation-candidate:v2:${'b'.repeat(64)}`;
 
-function event(sequence: number, fromState: string | null, toState: string, candidate: string | null) {
+function event(
+  sequence: number,
+  fromState: string | null,
+  toState: string,
+  candidate: string | null,
+  key = attemptKey,
+) {
   return createTranslationJournalEventV2({
-    attemptKey,
+    attemptKey: key,
     candidateId: candidate,
     fromState,
     sequence,
@@ -137,5 +157,31 @@ describe('translation journal v2 state machine', () => {
     expect(initial.events).toHaveLength(0);
     expect(serializeTranslationJournalV2(repeated)).toBe(serializeTranslationJournalV2(appended));
     expect(() => replayTranslationJournalV2([{ ...firstEvent, timestamp: 1 }])).toThrow(/schema/);
+  });
+
+  it('canonicalizes an event set before causal replay across attempts', () => {
+    const firstMissing = event(1, null, 'missing', null);
+    const firstGenerated = event(2, 'missing', 'generated', candidateId);
+    const secondMissing = event(1, null, 'missing', null, secondAttemptKey);
+    const secondGenerated = event(2, 'missing', 'generated', secondCandidateId, secondAttemptKey);
+    const permutations = [
+      [firstMissing, firstGenerated, secondMissing, secondGenerated],
+      [secondMissing, secondGenerated, firstMissing, firstGenerated],
+      [firstGenerated, secondMissing, firstMissing, secondGenerated],
+    ];
+    const journals = permutations.map((items) => replayTranslationJournalV2(items));
+    const serializations = journals.map(serializeTranslationJournalV2);
+
+    expect(new Set(serializations).size).toBe(1);
+    for (const journal of journals) {
+      expect(getTranslationJournalStateV2(journal, attemptKey)).toEqual({
+        state: 'generated',
+        candidateId,
+      });
+      expect(getTranslationJournalStateV2(journal, secondAttemptKey)).toEqual({
+        state: 'generated',
+        candidateId: secondCandidateId,
+      });
+    }
   });
 });
