@@ -617,6 +617,14 @@ function loadCompanyAdapters() {
     const seedDetailUrls = Array.isArray(parsed.seedDetailUrls)
       ? parsed.seedDetailUrls.map((u) => normalizeSpace(String(u || ''))).filter(Boolean)
       : [];
+    const authoritativeLifecycleDomains = Array.isArray(parsed.authoritativeLifecycleDomains)
+      ? parsed.authoritativeLifecycleDomains.map((domain) => normalizeHost(String(domain || ''))).filter(Boolean)
+      : [];
+    const authoritativeLifecycleDomainSet = new Set(authoritativeLifecycleDomains);
+    const authoritativeDetailSnapshot = parsed.authoritativeDetailSnapshot === true
+      && seedDetailUrls.length > 0
+      && authoritativeLifecycleDomains.length > 0
+      && seedDetailUrls.every((url) => authoritativeLifecycleDomainSet.has(normalizeHost(hostOf(url))));
     const seedMetaByUrl = {};
     if (parsed.seedMetaByUrl && typeof parsed.seedMetaByUrl === 'object') {
       for (const [rawUrl, rawMeta] of Object.entries(parsed.seedMetaByUrl)) {
@@ -637,6 +645,8 @@ function loadCompanyAdapters() {
       seedUrls,
       seedDetailUrls: seedDetailUrls.length > 0 ? seedDetailUrls : undefined,
       seedMetaByUrl: Object.keys(seedMetaByUrl).length > 0 ? seedMetaByUrl : undefined,
+      authoritativeDetailSnapshot,
+      authoritativeLifecycleDomains: authoritativeDetailSnapshot ? authoritativeLifecycleDomains : undefined,
       priority,
       userAgent: userAgent || undefined,
     });
@@ -4456,12 +4466,27 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 const GRACE_PERIOD_MAX_MISSES = 2;
 
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
-  const activeDomains = new Set(
-    (results || [])
-      .filter((r) => (r?.processedCandidates || 0) > 0 || (r?.scrapedJobPages || 0) > 0 || (r?.discardedCount || 0) > 0)
-      .map((r) => normalizeHost(r?.companyDomain || ''))
-      .filter(Boolean)
-  );
+  const activeResults = (results || [])
+    .filter((r) => (r?.processedCandidates || 0) > 0 || (r?.scrapedJobPages || 0) > 0 || (r?.discardedCount || 0) > 0);
+  const activeDomains = new Set();
+  const authoritativeFingerprintsByScope = new Map();
+  for (const result of activeResults) {
+    const companyDomain = normalizeHost(result?.companyDomain || '');
+    if (companyDomain) activeDomains.add(companyDomain);
+
+    const companyKey = normalizeCompanyKey(result?.companyKey || '');
+    const lifecycleDomains = Array.isArray(result?.authoritativeLifecycleDomains)
+      ? result.authoritativeLifecycleDomains.map((domain) => normalizeHost(domain)).filter(Boolean)
+      : [];
+    const sourceFingerprints = Array.isArray(result?.authoritativeDetailFingerprints)
+      ? result.authoritativeDetailFingerprints.filter(Boolean)
+      : [];
+    if (!companyKey || lifecycleDomains.length === 0 || sourceFingerprints.length === 0) continue;
+    for (const domain of lifecycleDomains) {
+      activeDomains.add(domain);
+      authoritativeFingerprintsByScope.set(`${companyKey}|${domain}`, new Set(sourceFingerprints));
+    }
+  }
   if (activeDomains.size === 0) return { prunedExisting: existingJobs, removed: 0 };
   const scopeCompanyKeys = new Set(
     (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
@@ -4476,17 +4501,22 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   for (const job of existingJobs || []) {
     const domain = normalizeHost(hostOf(job?.url || ''));
     if (job?.source === 'Company Careers Crawler' && domain && activeDomains.has(domain)) {
+      const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
       if (hasScopedCompanyKeys) {
-        const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
         if (!scopeCompanyKeys.has(key)) {
           prunedExisting.push(job);
           continue;
         }
       }
       const fp = fingerprintJob(job);
-      if (fp && !incomingFp.has(fp)) {
-        // Grace period before dropping a job absent from this run's incoming
-        // set — mirrors mergePreserveLocaleData's silent-job-loss guard in
+      const authoritativeFingerprints = authoritativeFingerprintsByScope.get(`${key}|${domain}`);
+      const isPresent = authoritativeFingerprints
+        ? authoritativeFingerprints.has(fp)
+        : incomingFp.has(fp);
+      if (fp && !isPresent) {
+        // Grace period before dropping a job absent from the authoritative
+        // source snapshot (when explicitly declared) or this run's incoming
+        // set. Mirrors mergePreserveLocaleData's silent-job-loss guard in
         // dedicated-crawler-common.mjs: a domain counting as "active" only
         // means SOME page scraped, not that every page did, so one run's
         // partial-page miss shouldn't be a permanent removal.
@@ -4499,7 +4529,8 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
         continue;
       }
       if (fp && job?.crawlerMissStreak) {
-        // Job reappeared this run — clear a streak left by a prior miss so
+        // Job reappeared in the authoritative source or this run — clear a
+        // streak left by a prior miss so
         // the grace period counts CONSECUTIVE misses, not cumulative ones.
         // Without this, mergeAndDeduplicate's `{ ...prev, ...next }` spread
         // downstream would carry the stale count forward forever, since the
@@ -4533,6 +4564,7 @@ function buildKnownJobUrlsSet(preloadedJobs) {
 async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls = new Set()) {
   const result = {
     company: company.name,
+    companyKey: company.key,
     companyDomain: normalizeHost(hostOf(company.website)),
     discoveredCareerPages: 0,
     scrapedJobPages: 0,
@@ -4555,6 +4587,12 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   const adapter = getCompanyAdapter(company);
   if (adapter && adapter.enabled === false) {
     return result;
+  }
+  if (adapter?.authoritativeDetailSnapshot === true) {
+    result.authoritativeLifecycleDomains = adapter.authoritativeLifecycleDomains;
+    result.authoritativeDetailFingerprints = (adapter.seedDetailUrls || [])
+      .map((url) => fingerprintJob({ url }))
+      .filter(Boolean);
   }
   const defaultModes = ['workday', 'greenhouse', 'lever', 'smartrecruiters', 'generic_ats', 'teaser_api', 'jsonld', 'html'];
   const companyModeConfig =
@@ -6117,6 +6155,7 @@ export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
+  pruneStaleCrawlerJobs,
   absoluteLinks,
   absoluteSameHostLinks,
   // Canton mis-tagging guard: the JSON-LD → job mapper and the

@@ -1,7 +1,13 @@
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { describe, it, expect } from 'vitest';
-import { buildCoopAdapterConfig } from '../scripts/update-coop-jobs.mjs';
+import {
+  assertCompleteCoopDiscovery,
+  buildCoopAdapterConfig,
+  ensureAdapterSeedUrls,
+} from '../scripts/update-coop-jobs.mjs';
+import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import {
   extractJsonLd,
@@ -35,8 +41,141 @@ describe('Coop authoritative detail routing', () => {
     expect(adapter.seedUrls).toBeUndefined();
     expect(adapter.seedDetailUrls).toEqual(seedDetailUrls);
     expect(adapter.seedMetaByUrl).toEqual(seedMetaByUrl);
+    expect(adapter.authoritativeDetailSnapshot).toBe(true);
+    expect(adapter.authoritativeLifecycleDomains).toEqual(['jobs.coopjobs.ch']);
     expect(new Set(adapter.seedDetailUrls).size).toBe(seedDetailUrls.length);
     expect(buildCoopAdapterConfig(adapter, seedDetailUrls, seedMetaByUrl, updatedAt)).toEqual(adapter);
+  });
+
+  it('writes the feed allowlist atomically and fails closed on a stale or invalid adapter', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'coop-adapter-'));
+    const adapterPath = path.join(tmpDir, 'coop-ticino.json');
+    const urls = [frenchDetailFixture.url];
+    const meta = { [urls[0]]: { canton: 'VD', location: 'Chavornay' } };
+
+    expect(ensureAdapterSeedUrls(urls, meta, adapterPath)).toMatchObject({
+      seedDetailUrls: urls,
+      seedMetaByUrl: meta,
+      authoritativeDetailSnapshot: true,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+    });
+
+    fs.writeFileSync(adapterPath, '{ invalid json');
+    expect(() => ensureAdapterSeedUrls(urls, meta, adapterPath)).toThrow();
+  });
+
+  it('rejects a partial or internally inconsistent authoritative feed', () => {
+    expect(() => assertCompleteCoopDiscovery({
+      apiTotal: null,
+      fetched: 0,
+      droppedNonCh: 0,
+      urls: [],
+      seedMetaByUrl: {},
+    })).toThrow(/did not expose a non-negative integer total/);
+
+    expect(() => assertCompleteCoopDiscovery({
+      apiTotal: 500,
+      fetched: 499,
+      droppedNonCh: 0,
+      urls: Array.from({ length: 499 }, (_, index) => `https://jobs.coopjobs.ch/job/${index}`),
+      seedMetaByUrl: {},
+    })).toThrow(/fetched 499\/500/);
+
+    expect(() => assertCompleteCoopDiscovery({
+      apiTotal: 2,
+      fetched: 2,
+      droppedNonCh: 0,
+      urls: ['https://jobs.coopjobs.ch/job/one'],
+      seedMetaByUrl: { 'https://jobs.coopjobs.ch/job/one': { canton: 'ZH' } },
+    })).toThrow(/discovery invariant failed/);
+
+    const offHost = 'https://careers.example.com/job/55555555-5555-4555-8555-555555555555';
+    expect(() => assertCompleteCoopDiscovery({
+      apiTotal: 1,
+      fetched: 1,
+      droppedNonCh: 0,
+      urls: [offHost],
+      seedMetaByUrl: { [offHost]: { canton: 'ZH' } },
+    })).toThrow(/trusted-hosts=false/);
+  });
+
+  it('ages only feed-absent Coop identities across the homepage-to-ATS boundary', () => {
+    const presentOldUrl = 'https://jobs.coopjobs.ch/offene-stellen/old-title/11111111-1111-4111-8111-111111111111';
+    const presentFeedUrl = 'https://jobs.coopjobs.ch/postes-vacantes/new-title/11111111-1111-4111-8111-111111111111';
+    const absentUrl = 'https://jobs.coopjobs.ch/offene-stellen/closed/22222222-2222-4222-8222-222222222222';
+    const existing = [
+      {
+        id: 'present',
+        companyKey: 'coop-ticino',
+        source: 'Company Careers Crawler',
+        url: presentOldUrl,
+        crawlerMissStreak: 1,
+        slug: 'present-route',
+        previousSlugs: ['present-legacy-route'],
+      },
+      {
+        id: 'absent',
+        companyKey: 'coop-ticino',
+        source: 'Company Careers Crawler',
+        url: absentUrl,
+        slug: 'absent-route',
+        previousSlugs: ['absent-legacy-route'],
+        previousSlugsByLocale: { fr: ['ancienne-route'] },
+      },
+      {
+        id: 'sibling',
+        companyKey: 'fust',
+        source: 'Company Careers Crawler',
+        url: 'https://jobs.coopjobs.ch/offene-stellen/fust/33333333-3333-4333-8333-333333333333',
+      },
+    ];
+    const result = {
+      companyKey: 'coop-ticino',
+      companyDomain: 'coop.ch',
+      processedCandidates: 1,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+      authoritativeDetailFingerprints: [fingerprintJob({ url: presentFeedUrl })],
+    };
+
+    const first = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    });
+    expect(first.removed).toBe(0);
+    expect(first.prunedExisting).toEqual([
+      expect.objectContaining({ id: 'present', slug: 'present-route', previousSlugs: ['present-legacy-route'] }),
+      expect.objectContaining({
+        id: 'absent',
+        crawlerMissStreak: 1,
+        slug: 'absent-route',
+        previousSlugs: ['absent-legacy-route'],
+        previousSlugsByLocale: { fr: ['ancienne-route'] },
+      }),
+      existing[2],
+    ]);
+    expect(first.prunedExisting[0]).not.toHaveProperty('crawlerMissStreak');
+
+    const second = sharedCrawlerTestables.pruneStaleCrawlerJobs(first.prunedExisting, [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    });
+    expect(second.prunedExisting.find((job) => job.id === 'absent')?.crawlerMissStreak).toBe(2);
+    const third = sharedCrawlerTestables.pruneStaleCrawlerJobs(second.prunedExisting, [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    });
+    expect(third.removed).toBe(1);
+    expect(third.prunedExisting.map((job) => job.id)).toEqual(['present', 'sibling']);
+  });
+
+  it('does not apply cross-domain lifecycle to a non-authoritative feed', () => {
+    const existing = [{
+      id: 'kept',
+      companyKey: 'coop-ticino',
+      source: 'Company Careers Crawler',
+      url: 'https://jobs.coopjobs.ch/offene-stellen/kept/44444444-4444-4444-8444-444444444444',
+    }];
+    const result = { companyKey: 'coop-ticino', companyDomain: 'coop.ch', processedCandidates: 1 };
+    expect(sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
+      scopeCompanyKeys: ['coop-ticino'],
+    })).toEqual({ prunedExisting: existing, removed: 0 });
   });
 
   it('routes the representative French detail only when the feed declares it', () => {
