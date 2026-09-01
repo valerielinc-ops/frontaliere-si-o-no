@@ -13,9 +13,14 @@ export const TRANSLATION_JOURNAL_STATES_V2 = Object.freeze([
   'validated',
   'queued',
   'applied',
+  'already_valid',
   'rejected',
   'stale_source',
+  'stale_target',
   'target_absent',
+  'ambiguous_target',
+  'rejected_candidate',
+  'malformed_target',
 ]);
 
 const JOURNAL_KEYS = ['events', 'schemaVersion'];
@@ -36,11 +41,25 @@ const TRANSITIONS = Object.freeze({
   missing: Object.freeze(['generated', 'target_absent']),
   generated: Object.freeze(['validated', 'rejected', 'stale_source', 'target_absent']),
   validated: Object.freeze(['queued', 'stale_source', 'target_absent']),
-  queued: Object.freeze(['applied', 'stale_source', 'target_absent']),
-  applied: Object.freeze(['stale_source', 'target_absent']),
+  queued: Object.freeze([
+    'applied',
+    'already_valid',
+    'stale_source',
+    'stale_target',
+    'target_absent',
+    'ambiguous_target',
+    'rejected_candidate',
+    'malformed_target',
+  ]),
+  applied: Object.freeze(['queued', 'stale_source', 'target_absent']),
+  already_valid: Object.freeze(['queued', 'stale_source', 'target_absent']),
   rejected: Object.freeze([]),
   stale_source: Object.freeze([]),
+  stale_target: Object.freeze(['queued']),
   target_absent: Object.freeze(['missing']),
+  ambiguous_target: Object.freeze(['queued']),
+  rejected_candidate: Object.freeze([]),
+  malformed_target: Object.freeze(['queued']),
 });
 
 function validateState(value, { nullable = false } = {}) {
@@ -102,7 +121,17 @@ function applyEvent(stateByAttempt, event) {
   if (event.toState === 'generated' && event.candidateId === null) {
     throw new TypeError('generated translation journal v2 state requires a candidate');
   }
-  if (['validated', 'queued', 'applied', 'rejected'].includes(event.toState)
+  if ([
+    'validated',
+    'queued',
+    'applied',
+    'already_valid',
+    'rejected',
+    'stale_target',
+    'ambiguous_target',
+    'rejected_candidate',
+    'malformed_target',
+  ].includes(event.toState)
     && (event.candidateId === null || event.candidateId !== current.candidateId)) {
     throw new TypeError('translation journal v2 candidate changed within an attempt');
   }
