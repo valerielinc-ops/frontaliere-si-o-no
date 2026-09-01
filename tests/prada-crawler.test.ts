@@ -5,8 +5,10 @@
  * slugify(), stripHtml(), inferEmploymentType()
  * using HTML fixtures matching the real SAP SuccessFactors portal.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchPradaDetailPage,
+  normalizePradaJobUrl,
   parsePradaListingHtml,
   parsePradaDetailHtml,
   slugify,
@@ -95,6 +97,37 @@ const EMPTY_SEARCH_HTML = `
 `;
 
 // ── Tests ────────────────────────────────────────────────────────
+
+describe('Prada Group crawler — URL boundary', () => {
+  it('allows only relative or same-origin HTTPS Prada job routes', () => {
+    const path = '/job/Mendrisio-Client-Advisor/1377980233/';
+    expect(normalizePradaJobUrl(path)).toBe(`https://jobs.pradagroup.com${path}`);
+    expect(normalizePradaJobUrl(`https://jobs.pradagroup.com${path}`))
+      .toBe(`https://jobs.pradagroup.com${path}`);
+    expect(normalizePradaJobUrl(`https://attacker.example${path}`)).toBeNull();
+    expect(normalizePradaJobUrl(`http://jobs.pradagroup.com${path}`)).toBeNull();
+    expect(normalizePradaJobUrl('https://jobs.pradagroup.com/search/1377980233/')).toBeNull();
+  });
+
+  it('fails closed before fetch for an unsafe detail URL', async () => {
+    const fetchSpy = vi.spyOn(globalThis, 'fetch');
+    try {
+      await expect(fetchPradaDetailPage('https://attacker.example/job/Mendrisio-Client-Advisor/1377980233/'))
+        .resolves.toBeNull();
+      expect(fetchSpy).not.toHaveBeenCalled();
+    } finally {
+      fetchSpy.mockRestore();
+    }
+  });
+
+  it('rejects off-domain listing links without reserving their job ID', () => {
+    const html = `
+      <a class="jobTitle-link" href="https://attacker.example/job/Fake/1377980233/">Fake job</a>
+      <a class="jobTitle-link" href="/job/Mendrisio-Client-Advisor/1377980233/">Client Advisor</a>`;
+    expect(parsePradaListingHtml(html).map((job) => job.url))
+      .toEqual(['https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/']);
+  });
+});
 
 describe('Prada Group crawler — SuccessFactors listing parsing', () => {
   it('extracts jobs from SuccessFactors search results', () => {
