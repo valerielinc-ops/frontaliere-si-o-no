@@ -259,7 +259,7 @@ function isDegenerateDescription(tokens) {
   // A short periodic decoy can otherwise claim a period before a dominant
   // region with that same period is seen. There is at most one candidate per
   // token index, keeping this O(n) in memory; LCP checks are O(log n).
-  const candidates = [];
+  const candidatePeriods = new Map();
   const occurrences = new Map();
   for (let index = 0; index < values.length; index += 1) {
     const previous = occurrences.get(values[index]);
@@ -269,10 +269,26 @@ function isDegenerateDescription(tokens) {
     }
     const gap = index - previous.last;
     const run = gap === previous.gap ? previous.run + 1 : 1;
-    if (run >= 3) candidates.push([gap, index]);
+    if (run >= 3) {
+      // The fourth occurrence proves three comparison anchors. Retain each
+      // anchor once (with a deterministic smallest period) so an altered
+      // first repetition cannot hide its matching prefix from the interval
+      // union built below.
+      for (let offset = 0; offset < 3; offset += 1) {
+        const anchor = index - offset * gap;
+        const knownPeriod = candidatePeriods.get(anchor);
+        if (knownPeriod === undefined || gap < knownPeriod) candidatePeriods.set(anchor, gap);
+      }
+    }
     occurrences.set(values[index], { last: index, gap, run });
   }
+  const candidates = [...candidatePeriods]
+    .sort(([leftAnchor, leftPeriod], [rightAnchor, rightPeriod]) => (
+      leftAnchor - rightAnchor || leftPeriod - rightPeriod
+    ))
+    .map(([anchor, period]) => [period, anchor]);
   const exactRegions = new Set();
+  const comparisonIntervals = new Map();
   for (const [period, anchor] of candidates) {
     if (period < 1 || period * 4 > tokens.length) continue;
     const right = equalPrefixLength(anchor - period, anchor, tokens.length - anchor, forward);
@@ -285,6 +301,12 @@ function isDegenerateDescription(tokens) {
     const start = anchor - left - period;
     const end = anchor + right;
     const regionLength = end - start;
+    const comparisonStart = Math.max(start + period, period);
+    if (comparisonStart < end) {
+      const intervals = comparisonIntervals.get(period) ?? [];
+      intervals.push([comparisonStart, end]);
+      comparisonIntervals.set(period, intervals);
+    }
     if (regionLength < MIN_DOMINANT_PERIODIC_TOKENS || regionLength * 10 < tokens.length * 9) continue;
     const regionKey = `${start}:${end}:${period}`;
     if (exactRegions.has(regionKey)) continue;
@@ -298,20 +320,46 @@ function isDegenerateDescription(tokens) {
     }
     if (exact) return true;
   }
-  // Preserve the prior short-prefix/one-substitution closure without turning
-  // every period candidate into another full pass. The fourth occurrence gives
-  // exactly three period comparisons; this fixed local verification is O(p),
-  // and its total work is bounded by the candidate construction pass.
-  for (const [period, anchor] of candidates) {
-    const comparisonStart = anchor - period * 2;
-    const comparisonEnd = anchor + period;
-    if (comparisonStart - period > 16 || comparisonStart < period
-        || comparisonEnd > tokens.length || period * 4 < MIN_DOMINANT_PERIODIC_TOKENS) continue;
-    let mismatches = 0;
-    for (let index = comparisonStart; index < comparisonEnd; index += 1) {
-      if (tokens[index] !== tokens[index - period]) mismatches += 1;
+
+  // Merge LCP-shortlisted comparison positions per period. This remains
+  // O(n log n): there is one interval per anchor and at most one anchor per
+  // token index. A global direct pass, rather than the former prefix-limited
+  // check, is the authority for a near-periodic decision.
+  const requiredMatches = Math.ceil(tokens.length * 0.9);
+  const promisingPeriods = [];
+  for (const [period, intervals] of comparisonIntervals) {
+    intervals.sort(([leftStart, leftEnd], [rightStart, rightEnd]) => (
+      leftStart - rightStart || leftEnd - rightEnd
+    ));
+    let covered = 0;
+    let mergedStart = -1;
+    let mergedEnd = -1;
+    for (const [start, end] of intervals) {
+      if (mergedStart < 0) {
+        mergedStart = start;
+        mergedEnd = end;
+      } else if (start <= mergedEnd) {
+        mergedEnd = Math.max(mergedEnd, end);
+      } else {
+        covered += mergedEnd - mergedStart;
+        mergedStart = start;
+        mergedEnd = end;
+      }
     }
-    if (mismatches * 10 <= comparisonEnd - comparisonStart) return true;
+    if (mergedStart >= 0) covered += mergedEnd - mergedStart;
+    if (covered + period + 2 >= requiredMatches) promisingPeriods.push(period);
+  }
+  promisingPeriods.sort((left, right) => left - right);
+  // A nondegenerate candidate does not reach the 90% interval threshold and
+  // therefore incurs no O(n) direct scan. A qualifying interval set is made
+  // only of same-period comparison positions; the first exact confirmation
+  // returns immediately, so a real periodic input performs one direct pass.
+  for (const period of promisingPeriods) {
+    let directMatches = 0;
+    for (let index = period; index < tokens.length; index += 1) {
+      if (tokens[index] === tokens[index - period]) directMatches += 1;
+    }
+    if (directMatches + period + 2 >= requiredMatches) return true;
   }
   return false;
 }

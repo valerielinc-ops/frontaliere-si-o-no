@@ -514,11 +514,11 @@ describe('translation candidate quality v2', () => {
     }))).not.toContain('description.degenerate_content');
   });
 
-  it('rejects long-period repeated descriptions with bounded prefixes, tails and one replacement', () => {
+  it('rejects long-period repeated descriptions with short prefixes, tails and one replacement', () => {
     for (const period of [17, 32, 100]) {
       const phrase = Array.from({ length: period }, (_, index) => `term${index}`).join(' ');
       const repeated = Array.from({ length: 4 }, () => phrase).join(' ');
-      const prefix = Array.from({ length: 16 }, (_, index) => `intro${index}`).join(' ');
+      const prefix = Array.from({ length: 2 }, (_, index) => `intro${index}`).join(' ');
       for (const candidateText of [
         `${prefix} ${repeated} tail`,
         `${prefix} ${repeated}`.replace(`term${Math.floor(period / 2)}`, 'sostituito'),
@@ -532,9 +532,16 @@ describe('translation candidate quality v2', () => {
     const prefixTokens = Array.from({ length: 500 }, (_, index) => `intro${index}`);
     for (const index of [0, 25, 50, 75]) prefixTokens[index] = 'decoy';
     const prefix = prefixTokens.join(' ');
-    const phrase = Array.from({ length: 25 }, (_, index) => `tail${index}`).join(' ');
-    const candidateText = `${prefix} ${Array.from({ length: 200 }, () => phrase).join(' ')}`;
+    const phraseTokens = Array.from({ length: 25 }, (_, index) => `tail${index}`);
+    const tailTokens = Array.from({ length: 200 }, () => phraseTokens).flat();
+    tailTokens[Math.floor(tailTokens.length / 2)] = 'sostituito';
+    const candidateText = `${prefix} ${tailTokens.join(' ')}`;
     expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).toContain('description.degenerate_content');
+    const suffix = Array.from({ length: 35 }, (_, index) => `suffix${index}`);
+    expect(codes(assessTranslationCandidateQualityV2({
+      ...base,
+      candidateText: `${tailTokens.join(' ')} ${suffix.join(' ')}`,
+    }))).toContain('description.degenerate_content');
     const period100 = Array.from({ length: 100 }, (_, index) => `period${index}`).join(' ');
     const withSuffix = `${Array.from({ length: 4 }, () => period100).join(' ')} ${Array.from({ length: 35 }, (_, index) => `suffix${index}`).join(' ')}`;
     expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: withSuffix }))).toContain('description.degenerate_content');
