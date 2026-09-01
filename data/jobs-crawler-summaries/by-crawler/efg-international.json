@@ -1,19 +1,76 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-01T00:30:32.619Z",
+  "generatedAt": "2026-09-01T07:22:05.720Z",
   "total": 30,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 30,
-  "durationMs": 18068,
-  "avgDurationMs": 18068,
+  "unchangedCount": 29,
+  "durationMs": 19900,
+  "avgDurationMs": 19900,
   "durationHistory": [
-    18068
+    19900
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "efg-5984",
+      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-25T09:44:22.596Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -99,7 +156,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.434Z",
+      "crawledAt": "2026-09-01T07:22:01.517Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -108,8 +165,8 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-14T21:27:59.827Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -152,7 +209,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.430Z",
+      "crawledAt": "2026-09-01T07:22:01.514Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -161,7 +218,6 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-13T21:53:02.806Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -169,116 +225,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 19
-      }
-    },
-    {
-      "id": "efg-6385",
-      "slug": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Business Risk Manager - PB COO - BRM",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6385",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
-            ],
-            "responsibilities": [
-              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-              "Preparation of the CRO RSC and Quarterly Control report",
-              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
-              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
-              "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
-              "Report on the internal control environment and potentially arising risks or issues.",
-              "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews"
-            ],
-            "requirements": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "Languages required: English, German, French and Italian",
-              "Pro-active and clear communicator with strong organizational skills",
-              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
-              "Willing to go the extra mile, efficient and resourceful<br>"
-            ],
-            "benefits": [
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results",
-              "Passionate: Being committed and striving for excellence",
-              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
-              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
-            ],
-            "process": [],
-            "highlights": [
-              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-              "Preparation of the CRO RSC and Quarterly Control report",
-              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
-              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "keywords": [
-              "Economics Bachelor’s degree or equivalent experience in the related field",
-              "Experience in the Financial & Audit Industry",
-              "Excellent data analysis and Program Languages (Python",
-              "Languages required",
-              "Pro-active and clear communicator with strong organizational skills",
-              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
-              "Preparation of the CRO RSC and Quarterly Control report",
-              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
-              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews."
-            ],
-            "sections": [
-              {
-                "id": "company",
-                "heading": "Our Company",
-                "paragraphs": [
-                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>",
-                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
-                  "<br><strong>Our Purpose and Mission</strong>",
-                  "Empowering entrepreneurial minds to create value – today and for the future.",
-                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-09-01T00:30:29.427Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-08-04",
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-08-04T22:14:55.681Z",
-      "needsRetranslation": true,
-      "salarySource": "estimated",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
@@ -381,7 +327,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.423Z",
+      "crawledAt": "2026-09-01T07:22:01.509Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -391,8 +337,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "firstSeenAt": "2026-07-20T22:01:00.554Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -546,7 +492,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.421Z",
+      "crawledAt": "2026-09-01T07:22:01.507Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -557,8 +503,8 @@
       "postalCode": "1204",
       "country": "CH",
       "firstSeenAt": "2026-06-25T22:13:58.906Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -669,7 +615,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.417Z",
+      "crawledAt": "2026-09-01T07:22:01.504Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -679,8 +625,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "firstSeenAt": "2026-07-21T11:19:19.247Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -777,7 +723,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.415Z",
+      "crawledAt": "2026-09-01T07:22:01.496Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -787,8 +733,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "firstSeenAt": "2026-07-23T11:24:34.310Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -831,7 +777,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.412Z",
+      "crawledAt": "2026-09-01T07:22:01.493Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-20",
@@ -843,8 +789,8 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-20T22:46:49.521Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -887,7 +833,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.409Z",
+      "crawledAt": "2026-09-01T07:22:01.490Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -898,8 +844,8 @@
       "postalCode": "1204",
       "country": "CH",
       "firstSeenAt": "2026-06-03T13:26:59.347Z",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1017,7 +963,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.406Z",
+      "crawledAt": "2026-09-01T07:22:01.488Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1029,8 +975,8 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1119,7 +1065,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.403Z",
+      "crawledAt": "2026-09-01T07:22:01.484Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1175,7 +1121,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.394Z",
+      "crawledAt": "2026-09-01T07:22:01.471Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1300,7 +1246,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.392Z",
+      "crawledAt": "2026-09-01T07:22:01.468Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1312,8 +1258,8 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.895Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1356,7 +1302,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.389Z",
+      "crawledAt": "2026-09-01T07:22:01.463Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1368,7 +1314,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1485,7 +1430,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.371Z",
+      "crawledAt": "2026-09-01T07:22:01.434Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1498,8 +1443,8 @@
       "datePosted": "2025-11-26",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1542,7 +1487,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T00:30:29.368Z",
+      "crawledAt": "2026-09-01T07:22:01.427Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-24",
@@ -1560,6 +1505,116 @@
         "richness": 22,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "efg-6385",
+      "slug": "responsabile-rischio-aziendale-pb-coo-brm-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Business Risk Manager - PB COO - BRM",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6385",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "Motivated, passionate, hard worker and positive individual who continuously aims to make outstanding contributions and effect a difference from day 1."
+            ],
+            "responsibilities": [
+              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+              "Preparation of the CRO RSC and Quarterly Control report",
+              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
+              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews.",
+              "Work with the Regional and Global PB BRM to achieve a robust First Line of Defence in the Area",
+              "Report on the internal control environment and potentially arising risks or issues.",
+              "Collaborate with local Compliance teams, Ops Risk and auditors for any ad-hoc reviews"
+            ],
+            "requirements": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "Languages required: English, German, French and Italian",
+              "Pro-active and clear communicator with strong organizational skills",
+              "Detailed oriented, precise and ability to work under pressure and tight deadlines",
+              "Willing to go the extra mile, efficient and resourceful<br>"
+            ],
+            "benefits": [
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results",
+              "Passionate: Being committed and striving for excellence",
+              "Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset",
+              "Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.<br>"
+            ],
+            "process": [],
+            "highlights": [
+              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+              "Preparation of the CRO RSC and Quarterly Control report",
+              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry, Risk Control domain, Compliance and Risk Management functions",
+              "Excellent data analysis and Program Languages (Python, SQL, R), Bloomberg Terminal",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "keywords": [
+              "Economics Bachelor’s degree or equivalent experience in the related field",
+              "Experience in the Financial & Audit Industry",
+              "Excellent data analysis and Program Languages (Python",
+              "Languages required",
+              "Pro-active and clear communicator with strong organizational skills",
+              "Execute all BRM controls on Private Banking area on a monthly respectively quarterly basis and ensures precise and proper documentation of results",
+              "Preparation of the CRO RSC and Quarterly Control report",
+              "Ensure that the identified control non in compliance and related risk mitigating actions are timely remediated",
+              "Contribution on preparation of the annual risk and control self-assessment (RSCA) as well as other ad hoc assessment & reviews."
+            ],
+            "sections": [
+              {
+                "id": "company",
+                "heading": "Our Company",
+                "paragraphs": [
+                  "EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. <br>",
+                  "EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.",
+                  "<br><strong>Our Purpose and Mission</strong>",
+                  "Empowering entrepreneurial minds to create value – today and for the future.",
+                  "We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.<br>"
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-09-01T00:30:29.427Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-08-04",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-08-04T22:14:55.681Z",
+      "needsRetranslation": true,
+      "salarySource": "estimated",
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -1702,70 +1757,14 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "id": "efg-5984",
-      "slug": "switchboard-operator-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-08-25T09:44:22.596Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "needsRetranslation": true,
-      "salarySource": "estimated",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
       }
     },
     {
@@ -1814,7 +1813,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.892Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -1935,8 +1933,8 @@
       "postalCode": "1204",
       "country": "CH",
       "firstSeenAt": "2026-07-02T11:04:59.203Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2229,7 +2227,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2397,7 +2394,6 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-05-10T21:30:00.890Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 96,
       "_qualityBreakdown": {
@@ -2514,8 +2510,8 @@
       "postalCode": "1204",
       "country": "CH",
       "firstSeenAt": "2026-06-23T22:12:49.483Z",
-      "needsRetranslation": true,
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2696,7 +2692,6 @@
       "firstSeenAt": "2026-05-10T21:30:00.879Z",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2751,8 +2746,8 @@
       "datePosted": "2026-03-27",
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
