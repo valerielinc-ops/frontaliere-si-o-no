@@ -45,6 +45,31 @@ export function normalizePradaJobUrl(rawUrl = '') {
   }
 }
 
+/**
+ * Resolve a Prada listing to the only location owned by this Ticino crawler.
+ * The upstream `locationsearch` parameters are currently ignored by the
+ * SuccessFactors tenant, so the listing location plus the canonical route are
+ * the source of truth. When the listing location is absent, the route alone
+ * may prove Mendrisio; unknown and conflicting evidence fails closed.
+ *
+ * @param {{location?: string, url?: string}} job
+ * @returns {string|null}
+ */
+export function resolvePradaTicinoLocation(job = {}) {
+  const location = normalizeSpace(job?.location || '');
+  const safeUrl = normalizePradaJobUrl(job?.url || '');
+  if (!safeUrl) return null;
+  try {
+    const path = decodeURIComponent(new URL(safeUrl).pathname);
+    const routeIsMendrisio = /^\/job\/Mendrisio(?:-|\/)/i.test(path);
+    if (!routeIsMendrisio) return null;
+    if (!location) return 'Mendrisio';
+    return /^mendrisio(?:\b|\s*[,(/-])/i.test(location) ? location : null;
+  } catch {
+    return null;
+  }
+}
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -160,7 +185,7 @@ export function parsePradaListingHtml(html) {
       id: `prada-${jobId}`,
       title: rawTitle,
       url: fullUrl,
-      location: resolvedLocation || 'Mendrisio',
+      location: resolvedLocation,
       canton: HQ.canton,
       department,
       jobId,
@@ -188,7 +213,10 @@ export function parsePradaListingHtml(html) {
         id: `prada-${jobId}`,
         title: rawTitle,
         url: fullUrl,
-        location: 'Mendrisio',
+        // Do not invent the Ticino HQ for a row whose source exposes no
+        // location. resolvePradaTicinoLocation may still prove Mendrisio from
+        // the canonical route, while every other unknown fails closed.
+        location: '',
         canton: HQ.canton,
         department: '',
         jobId,
@@ -331,11 +359,20 @@ export async function fetchPradaJobUrls(timeoutMs = 15000) {
       const res = await fetch(searchUrl, {
         signal: controller.signal,
         headers: { Accept: 'text/html', 'User-Agent': UA },
-        redirect: 'follow',
+        redirect: 'error',
       });
-      if (!res.ok) continue;
+      if (!res.ok) throw new Error(`Prada search returned HTTP ${res.status}`);
+      if (res.url) {
+        const effectiveUrl = new URL(res.url);
+        if (effectiveUrl.protocol !== 'https:' || effectiveUrl.origin !== CAREERS_BASE) {
+          throw new Error('Prada search resolved outside jobs.pradagroup.com');
+        }
+      }
       const html = await res.text();
       const jobs = parsePradaListingHtml(html);
+      if (!/class=["'][^"']*searchResults\b/i.test(html)) {
+        throw new Error('Prada search response did not contain the authoritative results table');
+      }
       for (const job of jobs) {
         if (!seenIds.has(job.jobId)) {
           seenIds.add(job.jobId);
