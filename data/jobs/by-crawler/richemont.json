@@ -3550,13 +3550,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stage-assistant-e-architecture-institutionnelle-richemont-geneva",
-        "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
+        "stage-assistant-e-architecture-institutionnelle-richemont-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-assistant-e-architecture-institutionnelle-richemont-geneva",
-          "stage-assistant-e-architecture-institutionnelle-van-cleef-arpels-geneva"
+          "stage-assistant-e-architecture-institutionnelle-richemont-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -5886,17 +5884,9 @@
       "jobReqId": "jr130893",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mecanicien-regleur-f-h-richemont-le-brassus",
-        "mechanic-adjuster-f-h-vacheron-constantin-le-brassus",
-        "mechanischer-versteller-f-h-vacheron-constantin-le-brassus",
-        "aggiustatore-meccanico-f-h-vacheron-constantin-le-brassus",
-        "mecanicien-regleur-m-w-d-vacheron-constantin-le-brassus"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "mecanicien-regleur-f-h-richemont-le-brassus",
-          "aggiustatore-meccanico-f-h-vacheron-constantin-le-brassus"
+          "mecanicien-regleur-f-h-richemont-le-brassus"
         ],
         "en": [
           "mechanic-adjuster-f-h-vacheron-constantin-le-brassus",
@@ -5907,8 +5897,11 @@
           "mecanicien-regleur-m-w-d-vacheron-constantin-le-brassus"
         ]
       },
+      "previousSlugs": [
+        "mecanicien-regleur-f-h-richemont-le-brassus",
+        "mecanicien-regleur-m-w-d-vacheron-constantin-le-brassus"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:15:49.631Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5921,7 +5914,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T17:15:49.631Z"
     },
     {
       "id": "richemont-5e26e2557f96",
@@ -9544,7 +9538,6 @@
       "jobReqId": "jr131565",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "referent-programmation-richemont-les-breuleux",
         "reference-programming-donze-baume-les-breuleux",
@@ -9562,8 +9555,7 @@
           "pianificatore-donze-baume-les-breuleux",
           "planner-donze-baume-les-breuleux",
           "planer-donze-baume-les-breuleux",
-          "planificateur-richemont-les-breuleux",
-          "programmazione-di-riferimento-donze-baume-les-breuleux"
+          "planificateur-richemont-les-breuleux"
         ],
         "en": [
           "reference-programming-donze-baume-les-breuleux",
@@ -9582,7 +9574,6 @@
       "firstSeenAt": "2026-07-16T22:17:40.466Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -9592,7 +9583,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "richemont-6171d0fd1333",
@@ -11211,19 +11204,18 @@
           "apprenticeship-as-watchmaker-efz-industrial-methods-august-2027-100-iwc-schaffhausen",
           "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-iwc-schaffhausen",
           "apprentissage-comme-horloger-efz-methodes-industrielles-aout-2027-100-iwc-schaffhausen",
-          "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-richemont",
-          "apprendistato-come-logistiker-in-cfc-august-2027-100-iwc-schaffhausen"
+          "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-richemont"
         ],
         "en": [
           "lehrstelle-als-logistiker-in-efz-august-2027-100-richemont-schaffhausen",
           "apprenticeship-as-watchmaker-efz-industrial-methods-august-2027-100-iwc-schaffhausen"
         ],
-        "de": [
-          "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-iwc-schaffhausen"
-        ],
         "fr": [
           "lehrstelle-als-logistiker-in-efz-august-2027-100-richemont-schaffhausen",
           "apprentissage-comme-horloger-efz-methodes-industrielles-aout-2027-100-iwc-schaffhausen"
+        ],
+        "de": [
+          "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-iwc-schaffhausen"
         ]
       },
       "previousSlugs": [
@@ -11232,14 +11224,12 @@
         "apprenticeship-as-watchmaker-efz-industrial-methods-august-2027-100-iwc-schaffhausen",
         "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-iwc-schaffhausen",
         "apprentissage-comme-horloger-efz-methodes-industrielles-aout-2027-100-iwc-schaffhausen",
-        "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-richemont",
-        "apprendistato-come-logistiker-in-cfc-august-2027-100-iwc-schaffhausen"
+        "lehrstelle-als-uhrmacher-in-efz-industrielle-methoden-august-2027-100-richemont"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:16:16.746Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -11249,7 +11239,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "richemont-7cb47006284e",

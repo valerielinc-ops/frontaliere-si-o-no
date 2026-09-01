@@ -150,9 +150,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
+      "slug": "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
+        "it": "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
         "de": "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
         "fr": "teamleiter-centre-d-operations-teamleiterin-h-f-d-galenica-ag-galenica-bern"
@@ -185,7 +185,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
+      ]
     },
     {
       "title": "Data Engineer (w/m/d)",
@@ -341,7 +349,7 @@
         "it": "collaboratore-trice-mitarbeiterin-koordination-e-administration-aussendienst-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
         "de": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
-        "fr": "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
+        "fr": "collaborateur-collaboratrice-coordination-et-administration-services-externes-m-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Servizio sul campo di coordinamento e amministrazione dei dipendenti (m/f/d)",
@@ -354,6 +362,9 @@
         "it": [
           "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
           "galenica-galenica-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -404,12 +415,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+      "slug": "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "it": "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        "fr": "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Apoteker / Apotekerin (m/f/d)",
@@ -439,7 +450,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -598,9 +620,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+      "slug": "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
+        "it": "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "fr": "pharma-assistant-pharma-assistant-im-kundenservicecenter-h-f-d-galenica-ag-galenica-bern"
@@ -633,7 +655,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)",
@@ -661,7 +691,7 @@
         "it": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern"
+        "fr": "pharmacien-pharmacienne-pour-la-formation-continue-fph-m-f-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista per la formazione continua FPH (m/f)",
@@ -675,6 +705,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern"
         ]
       },
@@ -786,12 +819,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+      "slug": "farmacista-m-f-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "it": "farmacista-m-f-galenica-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
+        "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista (m/f)",
@@ -801,14 +834,19 @@
       },
       "id": "galenica-50ee8fb74dfa",
       "previousSlugs": [
-        "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+          "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern"
+        ],
+        "fr": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ]
       },
       "needsRetranslation": true,
@@ -855,9 +893,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
+      "slug": "crm-applicazione-proprietario-m-f-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
+        "it": "crm-applicazione-proprietario-m-f-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
         "de": "galenica-galenica-ag-crm-application-owner-w-m-d-bern",
         "fr": "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
@@ -888,7 +926,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-crm-application-owner-w-m-d-bern"
+      ]
     },
     {
       "title": "Drogistin / Drogist (w/m/d)",
@@ -1184,7 +1230,7 @@
         "it": "apotheker-apothekerin-come-springer-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
+        "fr": "pharmacien-pharmacienne-remplacant-e-m-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista Sostituto/a (m/f/d)",
@@ -1198,6 +1244,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
         ]
       },
@@ -1250,7 +1299,7 @@
         "it": "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
+        "fr": "apothicaire-pour-la-gestion-des-finances-publiques-apothicaire-pour-la-gestion-des-finances-publiques-h-f-d-galenica-ag"
       },
       "titleByLocale": {
         "it": "Farmacista come Amministratore Delegato nel (m/f/d)",
@@ -1273,6 +1322,9 @@
           "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5r6u",
           "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5qh6",
           "pharmacien-directeur-pharmacienne-directrice-w-m-d-galenica-ag-galenica-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
         ]
       },
       "previousSlugs": [
@@ -1336,7 +1388,7 @@
         "it": "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
         "de": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
-        "fr": "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
+        "fr": "pharmacien-pharmacienne-pour-formation-continue-fph-w-m-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista per Formazione Continua FPH (w/m/d)",
@@ -1357,7 +1409,8 @@
           "pharmacien-pharmacienne-pour-formation-fph-m-f-d-galenica-galenica-bern"
         ],
         "fr": [
-          "pharmacien-pharmacienne-pour-formation-fph-m-f-d-galenica-galenica-bern"
+          "pharmacien-pharmacienne-pour-formation-fph-m-f-d-galenica-galenica-bern",
+          "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1404,11 +1457,11 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
+      "slug": "automatico-elettricista-di-manutenzione-industriale-f-m-d-galenica-ag-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
+        "it": "automatico-elettricista-di-manutenzione-industriale-f-m-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
-        "de": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
+        "de": "automatiker-industrieelektriker-f-m-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
       },
       "titleByLocale": {
@@ -1439,7 +1492,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+      ]
     },
     {
       "title": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
@@ -1467,7 +1531,7 @@
         "it": "apotheker-come-stellvertretung-apothekerin-come-stellvertretung-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern",
         "de": "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern",
-        "fr": "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
+        "fr": "pharmacien-remplacant-pharmacienne-remplacante-w-m-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista come Sostituto/Sostituta (w/m/d)",
@@ -1481,6 +1545,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
         ]
       },
@@ -1797,9 +1864,9 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-apotheker-w-m-d-bern",
+      "slug": "farmacista-m-f-n-galenica-galenica-bern",
       "slugByLocale": {
-        "it": "galenica-galenica-apotheker-w-m-d-bern",
+        "it": "farmacista-m-f-n-galenica-galenica-bern",
         "en": "galenica-galenica-apotheker-w-m-d-bern",
         "de": "apotheker-w-m-d-galenica-galenica-bern",
         "fr": "apotheker-h-f-d-galenica-galenica-bern"
@@ -1832,7 +1899,15 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-apotheker-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-apotheker-w-m-d-bern"
+      ]
     },
     {
       "title": "Senior Agile & Product Coach (f/h/d)",
@@ -1859,7 +1934,7 @@
       "slugByLocale": {
         "it": "galenica-galenica-ag-senior-agile-product-coach-f-h-d-bern",
         "en": "galenica-galenica-ag-senior-agile-product-coach-f-h-d-bern",
-        "de": "galenica-galenica-ag-senior-agile-product-coach-f-h-d-bern",
+        "de": "senior-agile-und-produktcoach-m-w-d-galenica-ag-galenica-bern",
         "fr": "galenica-galenica-ag-senior-agile-product-coach-f-h-d-bern"
       },
       "titleByLocale": {
@@ -1918,7 +1993,7 @@
         "it": "apotheker-apothekerin-m-w-d-per-fph-weiterbildung-galenica-bern",
         "en": "galenica-galenica-apotheker-apothekerin-w-m-d-fur-fph-weiterbildung-bern",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-fur-fph-weiterbildung-bern",
-        "fr": "galenica-galenica-apotheker-apothekerin-w-m-d-fur-fph-weiterbildung-bern"
+        "fr": "pharmacien-pharmacienne-m-f-pour-la-formation-specialisee-fph-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista (m/f) per la formazione specialistica FPH",
@@ -1932,6 +2007,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-apotheker-apothekerin-w-m-d-fur-fph-weiterbildung-bern"
+        ],
+        "fr": [
           "galenica-galenica-apotheker-apothekerin-w-m-d-fur-fph-weiterbildung-bern"
         ]
       },
@@ -1983,7 +2061,7 @@
       "slugByLocale": {
         "it": "la-spezial-payroll-m-f-d-galenica-galenica-bern",
         "en": "galenica-galenica-spezialist-payroll-m-w-d-bern",
-        "de": "galenica-galenica-spezialist-payroll-m-w-d-bern",
+        "de": "lohn-und-gehaltsabrechnungsspezialist-m-w-d-galenica-galenica-bern",
         "fr": "tableau-de-paye-de-spezialist-m-m-j-galenica-galenica-bern"
       },
       "titleByLocale": {
@@ -1999,6 +2077,9 @@
         ],
         "fr": [
           "specialiste-paie-m-w-d-galenica-bern"
+        ],
+        "de": [
+          "galenica-galenica-spezialist-payroll-m-w-d-bern"
         ]
       },
       "previousSlugs": [
@@ -2111,7 +2192,7 @@
         "it": "kundenberater-kundenberaterin-frontoffice-befristet-m-w-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern",
         "de": "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern",
-        "fr": "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
+        "fr": "conseiller-client-front-office-temporaire-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Consulente Clienti Front Office Temporaneo (m/f/d)",
@@ -2123,6 +2204,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
         ]
       },
@@ -2177,7 +2261,7 @@
         "it": "contenuti-di-commercio-digitale-newsletter-manager-m-f-d-galenica-ag-galenica-bern",
         "en": "galenica-galenica-ag-digital-commerce-content-newsletter-manager-w-m-d-bern",
         "de": "galenica-galenica-ag-digital-commerce-content-newsletter-manager-w-m-d-bern",
-        "fr": "galenica-galenica-ag-digital-commerce-content-newsletter-manager-w-m-d-bern"
+        "fr": "responsable-contenu-digital-commerce-et-newsletter-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Responsabile Contenuti Digital Commerce e Newsletter (w/m/d)",
@@ -2188,6 +2272,9 @@
       "id": "galenica-68ebd2feca8a",
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-digital-commerce-content-newsletter-manager-w-m-d-bern"
+        ],
+        "fr": [
           "galenica-galenica-ag-digital-commerce-content-newsletter-manager-w-m-d-bern"
         ]
       },
@@ -2236,12 +2323,12 @@
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
+      "slug": "farmacista-m-f-galenica-galenica-bern-65dfc4",
       "slugByLocale": {
-        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
+        "it": "farmacista-m-f-galenica-galenica-bern-65dfc4",
         "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
-        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern"
+        "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern-65dfc4"
       },
       "titleByLocale": {
         "it": "Farmacista (m/f)",
@@ -2271,7 +2358,18 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2757,7 +2855,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-geneve",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve",
+        "de": "pharmaassistentin-afc-amavita-galenica-geneve",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
       },
       "titleByLocale": {
@@ -2789,10 +2887,14 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a"
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-geneve"
       ],
       "retranslationAttempts": 1
     },
@@ -5400,7 +5502,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-thun",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun",
+        "de": "apotheken-assistent-in-efz-amavita-galenica-thun",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-thun"
       },
       "titleByLocale": {
@@ -5439,13 +5541,15 @@
           "afc-pharmacy-assistant-amavita-galenica-thun"
         ],
         "de": [
-          "apothekenassistent-afc-amavita-galenica-thun"
+          "apothekenassistent-afc-amavita-galenica-thun",
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-thun-1nc0gr",
         "afc-pharmacy-assistant-amavita-galenica-thun",
-        "apothekenassistent-afc-amavita-galenica-thun"
+        "apothekenassistent-afc-amavita-galenica-thun",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun"
       ],
       "retranslationAttempts": 1
     },
@@ -9511,7 +9615,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-biel-bienne",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biel-bienne",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biel-bienne",
+        "de": "apotheken-assistent-in-afc-amavita-galenica-biel-bienne",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-biel-bienne"
       },
       "titleByLocale": {
@@ -9543,10 +9647,14 @@
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh"
+        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-biel-bienne"
       ],
       "retranslationAttempts": 1
     },
@@ -9840,7 +9948,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-fribourg",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg",
+        "de": "pharmaassistent-in-afc-amavita-galenica-fribourg",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-fribourg"
       },
       "titleByLocale": {
@@ -9873,11 +9981,15 @@
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
           "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
-        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
       ],
       "retranslationAttempts": 1
     },
@@ -10426,7 +10538,7 @@
       "slugByLocale": {
         "it": "galenica-amavita-assistente-di-farmacia-afc-neuchatel",
         "en": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel",
-        "de": "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel",
+        "de": "apothekenassistent-in-afc-amavita-galenica-neuchatel",
         "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-neuchatel"
       },
       "titleByLocale": {
@@ -10459,11 +10571,15 @@
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
           "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
       ],
       "retranslationAttempts": 1
     },
@@ -12289,7 +12405,7 @@
       "slugByLocale": {
         "it": "assistente-di-farmacia-afc-sun-store-apotheke-galenica-locarno",
         "en": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-locarno",
-        "de": "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-locarno",
+        "de": "apothekenassistent-afc-sun-store-apotheke-galenica-locarno",
         "fr": "assistant-e-en-pharmacie-cfc-sun-store-apotheke-galenica-locarno"
       },
       "titleByLocale": {
@@ -12303,7 +12419,7 @@
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-locarno",
         "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-locarno",
         "pharmacy-assistant-afc-sun-store-apotheke-galenica-locarno",
-        "apothekenassistent-afc-sun-store-apotheke-galenica-locarno"
+        "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12313,7 +12429,7 @@
           "pharmacy-assistant-afc-sun-store-apotheke-galenica-locarno"
         ],
         "de": [
-          "apothekenassistent-afc-sun-store-apotheke-galenica-locarno"
+          "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-locarno"
         ],
         "fr": [
           "galenica-sun-store-apotheke-assistant-e-en-pharmacie-cfc-locarno"

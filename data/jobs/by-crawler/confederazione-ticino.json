@@ -6189,7 +6189,6 @@
         ]
       },
       "previousSlugs": [
-        "stagiaire-de-l-universite-personnel-des-departements-confederazione-svizzera-bern",
         "hochschulpraktikant-in-ressort-stab-confederazione-bern",
         "hochschulpraktikant-in-ressort-stab-confederazione-svizzera-bern"
       ],
@@ -7066,7 +7065,6 @@
         ]
       },
       "previousSlugs": [
-        "pratique-universitaire-dans-les-projets-confederazione-svizzera-bern",
         "hochschulpraktikant-in-projekte-confederazione-bern",
         "hochschulpraktikant-in-projekte-confederazione-svizzera-bern"
       ],
@@ -7142,7 +7140,6 @@
         ]
       },
       "previousSlugs": [
-        "cook-chef-confederazione-svizzera-wangen-an-der-aare",
         "koch-kochin-confederazione-wangen-an-der-aare",
         "koch-kochin-confederazione-svizzera-wangen-an-der-aare"
       ],
@@ -9095,7 +9092,6 @@
       "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
-          "attrezzature-di-guida-specialistiche-in-servizio-confederazione-svizzera-kandersteg",
           "spezialist-in-betrieb-fuhrungsanlagen-confederazione-kandersteg"
         ],
         "en": [
@@ -9106,7 +9102,6 @@
         ]
       },
       "previousSlugs": [
-        "attrezzature-di-guida-specialistiche-in-servizio-confederazione-svizzera-kandersteg",
         "spezialist-in-betrieb-fuhrungsanlagen-confederazione-kandersteg"
       ],
       "salarySource": "estimated"
@@ -9171,8 +9166,6 @@
       },
       "previousSlugs": [
         "logistiker-in-confederazione-svizzera-uttigen",
-        "logistician-in-confederazione-svizzera-uttigen",
-        "logisticien-in-confederazione-svizzera-uttigen",
         "logistiker-in-confederazione-uttigen",
         "clerical-staff-confederazione-svizzera-uttigen",
         "personnel-des-services-de-bureau-confederazione-svizzera-uttigen"
@@ -11187,9 +11180,9 @@
       },
       "slugByLocale": {
         "it": "fachspezialist-in-direktion-per-volkerrecht-confederazione-svizzera-bern",
-        "en": "fachspezialist-in-direktion-fur-volkerrecht-confederazione-svizzera-bern",
+        "en": "specialist-directorate-for-international-law-confederazione-svizzera-bern",
         "de": "fachspezialist-in-direktion-fur-volkerrecht-confederazione-bern",
-        "fr": "fachspezialist-in-direktion-fur-volkerrecht-confederazione-svizzera-bern"
+        "fr": "specialiste-direction-du-droit-international-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-eecf33cccf01",
       "salaryMin": 78500,
@@ -11210,10 +11203,17 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-direktion-fur-volkerrecht-confederazione-bern"
+        ],
+        "en": [
+          "fachspezialist-in-direktion-fur-volkerrecht-confederazione-svizzera-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-direktion-fur-volkerrecht-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-direktion-fur-volkerrecht-confederazione-bern"
+        "fachspezialist-in-direktion-fur-volkerrecht-confederazione-bern",
+        "fachspezialist-in-direktion-fur-volkerrecht-confederazione-svizzera-bern"
       ],
       "needsRetranslation": true
     },
@@ -18631,8 +18631,6 @@
         ]
       },
       "previousSlugs": [
-        "it-portfolio-manager-confederazione-svizzera-bern",
-        "responsable-de-portefeuille-it-confederazione-svizzera-bern",
         "portfoliomanager-in-it-confederazione-bern"
       ],
       "salarySource": "estimated"
@@ -20244,7 +20242,6 @@
       "previousSlugsByLocale": {
         "it": [
           "gebaudebetreiber-in-confederazione-svizzera-bern",
-          "tecnico-r-gestione-oggetti-in-confederazione-svizzera-bern",
           "gebaudebetreiber-in-confederazione-bern"
         ],
         "en": [
@@ -20259,9 +20256,6 @@
       },
       "previousSlugs": [
         "gebaudebetreiber-in-confederazione-svizzera-bern",
-        "tecnico-r-gestione-oggetti-in-confederazione-svizzera-bern",
-        "technical-r-object-manager-in-confederazione-svizzera-bern",
-        "gestionnaire-d-objets-confederazione-svizzera-bern",
         "gebaudebetreiber-in-confederazione-bern",
         "building-operator-in-confederazione-svizzera-bern",
         "operateur-du-batiment-in-confederazione-svizzera-bern"
@@ -20532,7 +20526,6 @@
         ]
       },
       "previousSlugs": [
-        "gestionnaire-des-incidents-et-des-problemes-confederazione-svizzera-zollikofen",
         "incident-und-problem-manager-in-confederazione-zollikofen",
         "incident-und-problem-manager-in-confederazione-svizzera-zollikofen"
       ],
@@ -21271,9 +21264,9 @@
       },
       "slugByLocale": {
         "de": "safety-officer-confederazione-bern",
-        "it": "safety-officer-confederazione-svizzera-bern",
+        "it": "responsabile-della-sicurezza-confederazione-svizzera-bern",
         "en": "safety-officer-confederazione-bern",
-        "fr": "safety-officer-confederazione-svizzera-bern"
+        "fr": "responsable-de-la-securite-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-df3b45b80bbc",
       "needsRetranslation": true,

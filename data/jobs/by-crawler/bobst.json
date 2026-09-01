@@ -50,13 +50,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch",
-        "tecnico-di-assistenza-sul-campo-wf-flexo-g-c-l-chennai-bobst-india-pune"
+        "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch",
-          "tecnico-di-assistenza-sul-campo-wf-flexo-g-c-l-chennai-bobst-india-pune"
+          "field-service-technician-wf-flexo-g-c-l-chennai-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:17.619Z",
@@ -145,13 +143,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "customer-care-specialist-bobst-ch",
-        "kundenservice-spezialist-bobst-thailand-bangkok",
-        "customer-care-specialista-bobst-thailand-bangkok"
+        "kundenservice-spezialist-bobst-thailand-bangkok"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-specialist-bobst-ch",
-          "customer-care-specialista-bobst-thailand-bangkok"
+          "customer-care-specialist-bobst-ch"
         ],
         "de": [
           "kundenservice-spezialist-bobst-thailand-bangkok"
@@ -180,7 +176,7 @@
         "it": "field-service-technician-m-w-d-bobst-germany-bielefeld",
         "en": "field-service-technician-m-w-d-bobst-ch",
         "de": "field-service-technician-m-w-d-bobst-ch",
-        "fr": "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld"
+        "fr": "field-service-technician-m-f-d-bobst-germany-bielefeld"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -254,7 +250,8 @@
       "previousSlugs": [
         "field-service-technician-m-w-d-bobst-ch",
         "feldservicetechniker-m-w-d-bobst-germany-bielefeld",
-        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld"
+        "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld",
+        "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -263,6 +260,9 @@
         ],
         "de": [
           "feldservicetechniker-m-w-d-bobst-germany-bielefeld"
+        ],
+        "fr": [
+          "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:06.831Z",
@@ -392,9 +392,9 @@
       "slug": "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch",
       "slugByLocale": {
         "it": "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch",
-        "en": "electrician-electronics-technician-m-f-d-germany-wide-travel-activity-bobst-germany-meerbusch",
+        "en": "electrician-electronics-technician-m-f-d-travelling-across-germany-bobst-germany-meerbusch",
         "de": "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
-        "fr": "electricien-technicien-en-electronique-h-f-d-activites-de-voyage-en-allemagne-bobst-germany-meerbusch"
+        "fr": "electricien-electronicien-h-f-d-deplacements-dans-toute-l-allemagne-bobst-germany-meerbusch"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -467,12 +467,18 @@
       "department": "Customer Service",
       "previousSlugs": [
         "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
-        "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch"
+        "electrician-electronics-technician-m-f-d-germany-wide-travel-activity-bobst-germany-meerbusch",
+        "electricien-technicien-en-electronique-h-f-d-activites-de-voyage-en-allemagne-bobst-germany-meerbusch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch",
-          "elettricista-elettromeccanico-m-f-d-attivita-di-viaggio-in-tutta-la-germania-bobst-germany-meerbusch"
+          "elektriker-elektroniker-m-w-d-reisetatigkeit-deutschlandweit-bobst-ch"
+        ],
+        "en": [
+          "electrician-electronics-technician-m-f-d-germany-wide-travel-activity-bobst-germany-meerbusch"
+        ],
+        "fr": [
+          "electricien-technicien-en-electronique-h-f-d-activites-de-voyage-en-allemagne-bobst-germany-meerbusch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:05.389Z",
@@ -497,7 +503,7 @@
       "slugByLocale": {
         "it": "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz",
         "en": "field-service-technician-mechanic-bobst-ch",
-        "de": "servicetechniker-mechaniker-bobst-poland-lodz",
+        "de": "au-endiensttechniker-mechaniker-bobst-poland-lodz",
         "fr": "technicien-de-service-sur-le-terrain-mecanicien-bobst-poland-lodz"
       },
       "company": "Bobst",
@@ -571,12 +577,14 @@
       "department": "Customer Service",
       "previousSlugs": [
         "field-service-technician-mechanic-bobst-ch",
-        "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz"
+        "servicetechniker-mechaniker-bobst-poland-lodz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-service-technician-mechanic-bobst-ch",
-          "tecnico-di-assistenza-sul-campo-meccanico-bobst-poland-lodz"
+          "field-service-technician-mechanic-bobst-ch"
+        ],
+        "de": [
+          "servicetechniker-mechaniker-bobst-poland-lodz"
         ]
       },
       "firstSeenAt": "2026-05-19T18:35:03.971Z",
@@ -674,13 +682,11 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch",
-        "tecnico-di-servizio-meccanico-meccatronico-m-f-d-bobst-germany-meerbusch"
+        "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch",
-          "tecnico-di-servizio-meccanico-meccatronico-m-f-d-bobst-germany-meerbusch"
+          "servicetechniker-mechaniker-mechatroniker-m-w-d-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:55.202Z",
@@ -777,14 +783,12 @@
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
         "technischer-support-spezialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
         "technical-support-specialist-100-maschinen-anlagenbau-bobst-switzerland-grenchen",
-        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
-        "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
+        "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
-          "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen",
-          "specialista-di-supporto-tecnico-100-macchinari-impianti-bobst-switzerland-grenchen"
+          "technical-support-specialist-100-maschinen-anlagenbau-bobst-grenchen"
         ],
         "en": [
           "technical-support-specialist-100-maschinen-anlagenbau-bobst-ch",
@@ -812,12 +816,12 @@
     },
     {
       "id": "bobst-f254d67b8a12",
-      "slug": "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
+      "slug": "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen",
       "slugByLocale": {
-        "it": "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
+        "it": "field-application-engineer-100-processi-e-impianti-di-laminazione-bobst-switzerland-grenchen",
         "en": "field-application-engineer-100-laminating-processes-facilities-bobst-switzerland-grenchen",
         "de": "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
-        "fr": "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen"
+        "fr": "field-application-engineer-100-processus-et-installations-de-contrecollage-bobst-switzerland-grenchen"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -891,7 +895,8 @@
       "previousSlugs": [
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
         "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen",
-        "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen"
+        "ingegnere-di-applicazione-sul-campo-100-processi-e-impianti-di-incartamento-bobst-switzerland-grenchen",
+        "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -901,6 +906,9 @@
         "en": [
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-ch",
           "field-application-engineer-100-kaschierprozesse-anlagen-bobst-switzerland-grenchen"
+        ],
+        "fr": [
+          "ingenieur-d-application-sur-le-terrain-100-processus-et-equipements-d-emballage-bobst-switzerland-grenchen"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:56.627Z",
@@ -999,13 +1007,11 @@
       "department": "Customer Service",
       "previousSlugs": [
         "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch",
-        "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen",
-        "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen"
+        "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch",
-          "tecnico-di-servizio-in-campo-field-service-technician-100-meccanico-bobst-switzerland-grenchen"
+          "servicetechniker-im-aussendienst-field-service-technician-100-mechanisch-bobst-ch"
         ],
         "de": [
           "servicetechniker-im-au-endienst-field-service-technician-100-mechanisch-bobst-switzerland-grenchen"
@@ -1033,7 +1039,7 @@
       "slugByLocale": {
         "it": "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex",
         "en": "senior-writing-systems-engineer-bobst-ch",
-        "de": "senior-schreibsystem-ingenieur-bobst-switzerland-mex",
+        "de": "leitender-ingenieur-fur-schreibsysteme-bobst-switzerland-mex",
         "fr": "ingenieur-en-systemes-d-ecriture-senior-bobst-switzerland-mex"
       },
       "company": "Bobst",
@@ -1106,12 +1112,14 @@
       "department": "Research & Development (R&D)",
       "previousSlugs": [
         "senior-writing-systems-engineer-bobst-ch",
-        "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex"
+        "senior-schreibsystem-ingenieur-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-writing-systems-engineer-bobst-ch",
-          "ingegnere-senior-dei-sistemi-di-scrittura-bobst-switzerland-mex"
+          "senior-writing-systems-engineer-bobst-ch"
+        ],
+        "de": [
+          "senior-schreibsystem-ingenieur-bobst-switzerland-mex"
         ]
       },
       "firstSeenAt": "2026-05-19T18:34:46.909Z",
@@ -1179,13 +1187,11 @@
       "requirementsByLocale": {},
       "department": "General Services",
       "previousSlugs": [
-        "pmo-chef-de-projet-facility-management-bobst-ch",
-        "pmo-project-manager-facility-management-bobst-switzerland-mex"
+        "pmo-chef-de-projet-facility-management-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pmo-chef-de-projet-facility-management-bobst-ch",
-          "pmo-project-manager-facility-management-bobst-switzerland-mex"
+          "pmo-chef-de-projet-facility-management-bobst-ch"
         ],
         "en": [
           "pmo-chef-de-projet-facility-management-bobst-ch"
@@ -1212,9 +1218,9 @@
     },
     {
       "id": "bobst-8310954fed26",
-      "slug": "tecnico-di-servizio-in-servizio-esterno-field-service-technician-elettrico-100-bobst-switzerland-grenchen",
+      "slug": "tecnico-di-assistenza-sul-campo-elettrico-100-bobst-switzerland-grenchen",
       "slugByLocale": {
-        "it": "tecnico-di-servizio-in-servizio-esterno-field-service-technician-elettrico-100-bobst-switzerland-grenchen",
+        "it": "tecnico-di-assistenza-sul-campo-elettrico-100-bobst-switzerland-grenchen",
         "en": "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch",
         "de": "servicetechniker-im-aussendienst-field-service-technician-electrical-100-bobst-ch",
         "fr": "technicien-de-service-sur-site-electrique-100-bobst-switzerland-grenchen"
@@ -1342,13 +1348,11 @@
       "requirementsByLocale": {},
       "department": "Health & Safety",
       "previousSlugs": [
-        "ingenieur-specialiste-ehs-bobst-ch",
-        "specialista-ingegnere-ehs-bobst-switzerland-mex"
+        "ingenieur-specialiste-ehs-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-specialiste-ehs-bobst-ch",
-          "specialista-ingegnere-ehs-bobst-switzerland-mex"
+          "ingenieur-specialiste-ehs-bobst-ch"
         ],
         "en": [
           "ingenieur-specialiste-ehs-bobst-ch"
@@ -1422,13 +1426,11 @@
       "requirementsByLocale": {},
       "department": "Information Technology (IT)",
       "previousSlugs": [
-        "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-        "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune"
+        "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-ux-services-operations-continuous-improvement-manager-bobst-ch",
-          "responsabile-delle-operazioni-e-del-miglioramento-continuo-dei-servizi-it-ux-bobst-india-pune"
+          "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
         ],
         "de": [
           "it-ux-services-operations-continuous-improvement-manager-bobst-ch"
@@ -1459,7 +1461,7 @@
       "slugByLocale": {
         "it": "iot-technology-direttore-bobst-switzerland-mex",
         "en": "iot-technology-director-bobst-ch",
-        "de": "iot-technology-direktor-bobst-switzerland-mex",
+        "de": "iot-technologiedirektor-bobst-switzerland-mex",
         "fr": "directeur-de-la-technologie-iot-bobst-switzerland-mex"
       },
       "company": "Bobst",
@@ -1524,15 +1526,15 @@
       "previousSlugs": [
         "iot-technology-director-bobst-ch",
         "iot-technology-director-bobst-switzerland-mex",
-        "iot-technology-direttore-bobst-switzerland-mex"
+        "iot-technology-direktor-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-technology-director-bobst-ch",
-          "iot-technology-direttore-bobst-switzerland-mex"
+          "iot-technology-director-bobst-ch"
         ],
         "de": [
-          "iot-technology-director-bobst-ch"
+          "iot-technology-director-bobst-ch",
+          "iot-technology-direktor-bobst-switzerland-mex"
         ],
         "fr": [
           "iot-technology-director-bobst-switzerland-mex"
@@ -1678,16 +1680,14 @@
         "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
         "field-service-technician-external-mount-engineer-h-f-bobst-switzerland-mex",
         "field-service-techniker-monteur-externe-ingenieur-h-f-bobst-switzerland-mex",
-        "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-        "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+        "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-engineer-monteur-externe-ingenieur-h-f-bobst-ch",
           "field-service-technician-ingegnere-di-montaggio-esterno-h-f-bobst-switzerland-mex",
-          "field-service-commissioning-engineer-automation-motion-control-bobst-ch",
-          "field-service-commissioning-ingegnere-automation-motion-control-bobst-switzerland-mex"
+          "field-service-commissioning-engineer-automation-motion-control-bobst-ch"
         ],
         "en": [
           "field-service-technician-monteur-externe-ingenieur-h-f-bobst-ch",
@@ -1768,13 +1768,11 @@
       "requirementsByLocale": {},
       "department": "Communication",
       "previousSlugs": [
-        "digital-workplace-communications-platforms-product-owner-bobst-ch",
-        "proprietario-di-prodotto-per-piattaforme-di-ambiente-di-lavoro-e-comunicazione-digitale-bobst-switzerland-mex"
+        "digital-workplace-communications-platforms-product-owner-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "digital-workplace-communications-platforms-product-owner-bobst-ch",
-          "proprietario-di-prodotto-per-piattaforme-di-ambiente-di-lavoro-e-comunicazione-digitale-bobst-switzerland-mex"
+          "digital-workplace-communications-platforms-product-owner-bobst-ch"
         ]
       },
       "firstSeenAt": "2026-07-21T23:17:42.852Z",
@@ -1842,13 +1840,11 @@
       "requirementsByLocale": {},
       "department": "Human Resources (HR)",
       "previousSlugs": [
-        "talent-acquisition-specialist-bobst-ch",
-        "talent-acquisition-specialista-bobst-switzerland-mex"
+        "talent-acquisition-specialist-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-bobst-ch",
-          "talent-acquisition-specialista-bobst-switzerland-mex"
+          "talent-acquisition-specialist-bobst-ch"
         ],
         "de": [
           "talent-acquisition-specialist-bobst-ch"
@@ -1922,13 +1918,11 @@
       "requirementsByLocale": {},
       "department": "Customer Service",
       "previousSlugs": [
-        "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch",
-        "coordinatore-documentazione-e-sicurezza-di-conformita-alternance-1-2-anni-bobst-france-bron"
+        "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch",
-          "coordinatore-documentazione-e-sicurezza-di-conformita-alternance-1-2-anni-bobst-france-bron"
+          "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch"
         ],
         "en": [
           "coordinateur-trice-documentation-et-conformite-securite-alternance-1-a-2-ans-bobst-ch"
@@ -1955,9 +1949,9 @@
     },
     {
       "id": "bobst-50839470eb27",
-      "slug": "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch",
+      "slug": "account-manager-cartone-ondulato-bobst-germany-meerbusch",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-scheda-ondulata-f-m-d-bobst-germany-meerbusch",
+        "it": "account-manager-cartone-ondulato-bobst-germany-meerbusch",
         "en": "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
         "de": "account-manager-m-w-d-corrugated-board-w-m-d-bobst-ch",
         "fr": "account-manager-carton-ondule-bobst-germany-meerbusch"
@@ -2107,13 +2101,11 @@
       "requirementsByLocale": {},
       "department": "General Services",
       "previousSlugs": [
-        "dessinateur-batiment-et-technique-bobst-ch",
-        "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+        "dessinateur-batiment-et-technique-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dessinateur-batiment-et-technique-bobst-ch",
-          "edilizia-e-progettista-tecnico-bobst-switzerland-mex"
+          "dessinateur-batiment-et-technique-bobst-ch"
         ],
         "en": [
           "dessinateur-batiment-et-technique-bobst-ch"
@@ -2205,13 +2197,11 @@
       },
       "department": "Customer Service",
       "previousSlugs": [
-        "customer-care-specialist-m-w-d-bobst-ch",
-        "customer-care-specialista-m-w-d-bobst-germany-meerbusch"
+        "customer-care-specialist-m-w-d-bobst-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "customer-care-specialist-m-w-d-bobst-ch",
-          "customer-care-specialista-m-w-d-bobst-germany-meerbusch"
+          "customer-care-specialist-m-w-d-bobst-ch"
         ],
         "fr": [
           "customer-care-specialist-m-w-d-bobst-ch"
@@ -3203,7 +3193,7 @@
       "slugByLocale": {
         "it": "machines-safety-specialist-bobst-ch",
         "en": "machines-safety-specialist-bobst-ch",
-        "de": "machines-safety-spezialist-bobst-italy-san-giorgio-monferrato",
+        "de": "spezialist-fur-maschinensicherheit-bobst-italy-san-giorgio-monferrato",
         "fr": "machines-safety-specialiste-bobst-italy-san-giorgio-monferrato"
       },
       "company": "Bobst",
@@ -3288,7 +3278,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "de": [
+          "machines-safety-spezialist-bobst-italy-san-giorgio-monferrato"
+        ]
+      },
+      "previousSlugs": [
+        "machines-safety-spezialist-bobst-italy-san-giorgio-monferrato"
+      ]
     }
   ]
 }

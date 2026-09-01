@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "logistiker-efz-m-w-d-planzer-seewen",
-        "logistiker-cfc-m-w-d-planzer-seewen"
+        "logistiker-efz-m-w-d-planzer-seewen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-efz-m-w-d-planzer-seewen",
-          "logistiker-cfc-m-w-d-planzer-seewen"
+          "logistiker-efz-m-w-d-planzer-seewen"
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:03.742Z",
@@ -562,12 +560,12 @@
     },
     {
       "id": "planzer-e2af9e68956e",
-      "slug": "cobol-developer-m-w-d-planzer-dietikon",
+      "slug": "cobol-sviluppatore-m-w-d-planzer-dietikon",
       "slugByLocale": {
         "de": "cobol-developer-m-w-d-planzer-dietikon",
-        "it": "cobol-developer-m-w-d-planzer-dietikon",
+        "it": "cobol-sviluppatore-m-w-d-planzer-dietikon",
         "en": "cobol-developer-m-w-d-planzer-dietikon",
-        "fr": "cobol-developer-m-w-d-planzer-dietikon"
+        "fr": "cobol-developpeur-m-w-d-planzer-dietikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -625,7 +623,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T00:33:39.160Z"
+      "firstSeenAt": "2026-09-01T00:33:39.160Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cobol-developer-m-w-d-planzer-dietikon"
+        ],
+        "fr": [
+          "cobol-developer-m-w-d-planzer-dietikon"
+        ]
+      },
+      "previousSlugs": [
+        "cobol-developer-m-w-d-planzer-dietikon"
+      ]
     },
     {
       "id": "planzer-0bd1414658f1",
@@ -1037,13 +1046,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-lager-m-w-d-planzer-zurich",
-        "collaboratore-trice-magazzino-m-w-d-planzer-zurich"
+        "mitarbeiter-lager-m-w-d-planzer-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-lager-m-w-d-planzer-zurich",
-          "collaboratore-trice-magazzino-m-w-d-planzer-zurich"
+          "mitarbeiter-lager-m-w-d-planzer-zurich"
         ]
       },
       "firstSeenAt": "2026-08-25T09:48:15.289Z",
@@ -1114,13 +1121,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-        "trasporto-medico-del-pil-m-f-d-planzer-kallnach"
+        "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach",
-          "trasporto-medico-del-pil-m-f-d-planzer-kallnach"
+          "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
         ],
         "en": [
           "disponent-gdp-medikamententransport-m-w-d-planzer-kallnach"
@@ -1264,13 +1269,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen",
-        "collaboratore-trice-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
+        "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen",
-          "collaboratore-trice-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
+          "mitarbeiter-kommissionierung-mo-di-tag-m-w-d-planzer-villmergen"
         ]
       },
       "firstSeenAt": "2026-08-26T09:54:40.695Z",

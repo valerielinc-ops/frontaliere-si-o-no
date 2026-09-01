@@ -49,16 +49,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ocean-freight-operations-specialista-fcl-project-cargo-cippa-trasporti-sa-lugano",
-        "ocean-freight-operations-specialist-fcl-project-cargo-cippatrasporti-ch"
+        "ocean-freight-operations-specialista-fcl-project-cargo-cippa-trasporti-sa-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ocean-freight-operations-specialista-fcl-project-cargo-cippa-trasporti-sa-lugano",
-          "ocean-freight-operations-specialist-fcl-project-cargo-cippatrasporti-ch"
-        ],
-        "de": [
-          "ocean-freight-operations-specialist-fcl-project-cargo-cippatrasporti-ch"
+          "ocean-freight-operations-specialista-fcl-project-cargo-cippa-trasporti-sa-lugano"
         ]
       },
       "needsRetranslation": true,
@@ -85,7 +80,7 @@
         "it": "servizio-clienti-transport-specialista-cippa-trasporti-sa-lugano",
         "en": "customer-service-transport-specialist-cippa-trasporti-sa-lugano",
         "de": "kundendienst-transport-spezialist-cippa-trasporti-sa-lugano",
-        "fr": "customer-service-transport-specialist-cippatrasporti-ch"
+        "fr": "service-client-transport-specialiste-cippa-trasporti-sa-chiasso"
       },
       "company": "Cippà Trasporti SA",
       "companyKey": "cippatrasporti",
@@ -129,6 +124,9 @@
           "customer-service-transport-specialist-cippatrasporti-ch"
         ],
         "de": [
+          "customer-service-transport-specialist-cippatrasporti-ch"
+        ],
+        "fr": [
           "customer-service-transport-specialist-cippatrasporti-ch"
         ]
       },
