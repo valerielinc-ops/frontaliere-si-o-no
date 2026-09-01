@@ -1,6 +1,6 @@
 {
   "crawlerKey": "afry",
-  "assembledAt": "2026-09-01T04:10:21.502Z",
+  "assembledAt": "2026-09-01T05:07:00.296Z",
   "jobs": [
     {
       "title": "Stagiaire en génie civil orientation structure 80-100% (f/h/d) - Lausanne",
@@ -4420,7 +4420,7 @@
       },
       "slugByLocale": {
         "it": "candidatura-spontanea-svizzera-afry-zurich",
-        "en": "spontaneous-application-switzerland-afry-zurich",
+        "en": "candidatura-spontanea-svizzera-afry-zurich",
         "de": "spontane-anwendung-schweiz-afry-zurich",
         "fr": "demande-spontanee-suisse-afry-zurich"
       },
@@ -4441,6 +4441,14 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "en": [
+          "spontaneous-application-switzerland-afry-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spontaneous-application-switzerland-afry-zurich"
+      ],
       "needsRetranslation": true
     },
     {
