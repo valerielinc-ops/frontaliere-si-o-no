@@ -40,19 +40,43 @@ function append(series, key, entry, cap) {
   series.sort((a, b) => a.period.localeCompare(b.period));
   if (series.length > cap) series.splice(0, series.length - cap);
 }
+function baselineEligible(report) {
+  return report?.outcome === 'success'
+    && report?.stateTransition?.advanced === true
+    && Number.isSafeInteger(report.stateTransition.generation)
+    && report.stateTransition.generation > 0
+    && report?.languageQuality?.trueFinal?.measured === true;
+}
+function updateBaseline(output, entry) {
+  output.baselineReports = (output.baselineReports || []).filter(baselineEligible);
+  if (baselineEligible(entry)) output.baselineReports.push(entry);
+  output.baselineReports.sort((left, right) => left.finishedAt.localeCompare(right.finishedAt) || left.digest.localeCompare(right.digest));
+  // After the stable sort, retain the earliest report for each generation.
+  const generations = new Set();
+  output.baselineReports = output.baselineReports.filter((report) => {
+    const { generation } = report.stateTransition;
+    if (generations.has(generation)) return false;
+    generations.add(generation);
+    return true;
+  });
+  if (output.baselineReports.length > BASELINE_CAP) output.baselineReports.splice(BASELINE_CAP);
+  output.baselineStatus = {
+    requiredGenerations: BASELINE_CAP,
+    collectedGenerations: output.baselineReports.length,
+    ready: output.baselineReports.length === BASELINE_CAP,
+  };
+}
 export function rollupTranslationObservability(history, report) {
   const output = history?.schemaVersion === 1 ? structuredClone(history) : { schemaVersion: 1, weeks: [], months: [], baselineReports: [], seenReports: [] };
   output.seenReports ||= [];
+  updateBaseline(output);
   if (!validDigest(report)) throw new TypeError('Translation observability report digest mismatch');
   const dedupKey = `${report?.runId || ''}:${report?.digest || ''}`;
   if (output.seenReports.includes(dedupKey)) return output;
   const entry = compactReport(report);
   append(output.weeks, period(report.finishedAt), entry, WEEK_CAP);
   append(output.months, period(report.finishedAt, true), entry, MONTH_CAP);
-  if (output.baselineReports.length < BASELINE_CAP) {
-    output.baselineReports.push(entry);
-    output.baselineReports.sort((left, right) => left.finishedAt.localeCompare(right.finishedAt) || left.digest.localeCompare(right.digest));
-  }
+  updateBaseline(output, entry);
   output.seenReports.push(dedupKey);
   if (output.seenReports.length > SEEN_CAP) output.seenReports.splice(0, output.seenReports.length - SEEN_CAP);
   return output;
