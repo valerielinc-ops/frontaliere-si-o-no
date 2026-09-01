@@ -715,8 +715,8 @@ export function matchAssembledJob(crawlerJob, assembledByKey) {
 
 /**
  * Carry forward SEO bridge slugs the assembled dataset already knows about
- * (e.g. captured by assemble-jobs-dataset's applyPerLocaleSlugCollisionGuard
- * or trackSlugHistoryDrift) but this per-crawler file (the committed source of
+ * (e.g. captured by assemble-jobs-dataset's trackSlugHistoryDrift) but this
+ * per-crawler file (the committed source of
  * truth the build plugin reads to emit redirect/bridge pages) is still
  * missing. Mutates `crawlerJob` in place; returns whether anything was added.
  *

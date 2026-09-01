@@ -447,10 +447,16 @@ function assemblerIdentity(job = {}) {
  * The IT base slug (`job.slug`) is the natural owner of its (canton, slug)
  * tuple across all locales. When another job's translated locale slug
  * (`slugByLocale.en/de/fr`) coincides with someone else's IT base in the
- * same canton, the translation is suspected hallucinated — drop the slug
- * and the matching `titleByLocale` entry (so build's localizedSlug() falls
- * back to job.slug) and set `needsRetranslation` so a future crawler run
- * regenerates a fresh slug.
+ * same canton, that route already belongs to the base-slug owner. Resolve the
+ * collision immediately with this job's stable suffix. The colliding route
+ * must NEVER be recorded in `previousSlugs`: a bridge would claim another
+ * live job's canonical route and is cross-job history contamination (#6784).
+ *
+ * A slug collision is not reliable evidence that the translated title is
+ * wrong. Common retail/clinical titles routinely collide across independent
+ * postings, and deterministic translation regenerates the same value. Stable
+ * disambiguation preserves the useful title while making the route unique on
+ * the first pass, without a delete/retranslate/bridge cycle.
  *
  * Pure: mutates the passed jobs in-place AND returns a report. Exported so
  * the gate has a unit-testable surface independent of the assembler IO.
@@ -480,41 +486,11 @@ export function applyPerLocaleSlugCollisionGuard(jobs) {
       const owner = baseSlugOwners.get(`${canton}|${slug}`);
       if (!owner || owner === myId) continue;
 
-      // Recurrence guard: this exact slug string was already dropped by this
-      // guard in a prior assemble run (tracked in previousSlugs). Deterministic
-      // MT engines (Argos/CTranslate2) regenerate byte-identical output for the
-      // same source text, so re-flagging needsRetranslation here just
-      // recreates the identical collision on every future run — permanently
-      // destroying an otherwise-correct translation instead of fixing anything
-      // (confirmed incident: Fisiocare Sagl / EOC — Ente Ospedaliero Cantonale
-      // physiotherapist postings stuck needsRetranslation for 12-36 days with
-      // fully correct per-crawler titleByLocale/descriptionByLocale). Once a
-      // collision recurs, the fix isn't a new translation — it's a unique
-      // slug — so disambiguate and stop looping instead of deleting again.
-      const recurring = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(slug);
-      if (recurring) {
-        const disambiguator = stableSlugHash(job) || String(job.id || '').slice(-6) || 'dup';
-        job.slugByLocale[locale] = appendSlugDisambiguator(slug, disambiguator);
-        count++;
-        if (details.length < 10) {
-          details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner} (disambiguated, repeat collision)`);
-        }
-        continue;
-      }
-
-      addPreviousSlugForLocale(job, locale, slug, DEFAULT_PREV_SLUG_CAP, 'assemble-jobs-dataset.collision-guard');
-      delete job.slugByLocale[locale];
-      if (job.titleByLocale && typeof job.titleByLocale === 'object') {
-        delete job.titleByLocale[locale];
-      }
-      job.needsRetranslation = true;
-      // We just invalidated a hallucinated title → the job genuinely needs work
-      // again, so lift any prior give-up suppression.
-      delete job.localeMismatchSuppressed;
-      delete job.localeMismatchSuppressedLen;
+      const disambiguator = stableSlugHash(job) || String(job.id || '').slice(-6) || 'dup';
+      job.slugByLocale[locale] = appendSlugDisambiguator(slug, disambiguator);
       count++;
       if (details.length < 10) {
-        details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner}`);
+        details.push(`${canton}/${locale}/${slug}: ${myId} → owned by ${owner} (disambiguated)`);
       }
     }
   }

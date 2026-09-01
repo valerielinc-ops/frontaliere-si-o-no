@@ -394,14 +394,16 @@
         "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy",
         "venditore-nel-salario-orario-migros-ticino-nebikon",
         "vendeur-a-salaire-horaire-migros-ticino-nebikon",
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "verkaufer-in-im-stundenlohn-denner-dgsjiy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-2",
           "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy",
           "venditore-nel-salario-orario-migros-ticino-nebikon",
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "verkaufer-in-im-stundenlohn-denner-dgsjiy"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-migros-ticino-nebikon-dgsjiy"
@@ -1546,7 +1548,8 @@
           "verkaufer-in-denner-ag-oftringen-2",
           "verkaufer-in-denner-ag-oftringen-bd8i9d",
           "verkaufer-in-im-stundenlohn-denner",
-          "venditore-nel-salario-orario-denner-oftringen"
+          "venditore-nel-salario-orario-denner-oftringen",
+          "verkaufer-in-im-stundenlohn-denner-ieg13f"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-oftringen-ieg13f",
@@ -1570,7 +1573,8 @@
         "verkaufer-in-denner-ag-oftringen-2",
         "verkaufer-in-denner-ag-oftringen-bd8i9d",
         "verkaufer-in-im-stundenlohn-denner",
-        "venditore-nel-salario-orario-denner-oftringen"
+        "venditore-nel-salario-orario-denner-oftringen",
+        "verkaufer-in-im-stundenlohn-denner-ieg13f"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2429,16 +2433,13 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner-ag-zurich",
         "stv-branch-manager-in-denner-ag-frauenfeld",
-        "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
         "directeur-de-succursale-stv-denner-ag-frauenfeld",
         "stv-filialleiter-in-denner-ag-frauenfeld",
         "directeur-de-succursale-stv-in-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-z8lf10",
         "stv-branch-manager-in-denner-ag-zurich-z8lf10",
-        "stv-filialleiter-in-denner-ag-zurich-geicje",
         "deputy-branch-manager-denner-ag-zurich",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich",
-        "stv-branch-manager-in-denner-ag-zurich-geicje",
         "vice-direttore-di-negozio-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
         "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
@@ -2454,10 +2455,8 @@
         "it": [
           "stv-filialleiter-in-denner-ag-zurich-z8lf10",
           "stv-branch-manager-in-denner-ag-zurich-z8lf10",
-          "stv-filialleiter-in-denner-ag-zurich-geicje",
           "deputy-branch-manager-denner-ag-zurich",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich",
-          "stv-branch-manager-in-denner-ag-zurich-geicje",
           "vice-direttore-di-negozio-denner-ag-zurich",
           "stv-filialleiter-in-denner-ag-zurich-gdn8qz",
           "stv-branch-manager-in-denner-ag-zurich-gdn8qz",
@@ -2467,7 +2466,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-walenstadt",
           "stv-filialleiter-in-denner-ag-walenstadt",
           "stv-branch-manager-in-denner-ag-frauenfeld",
-          "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
           "stv-branch-manager-in-denner-ag-zurich",
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-ag-frauenfeld"
@@ -2478,9 +2476,7 @@
           "deputy-branch-manager-denner-ag-walenstadt"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
           "stv-filialleiter-in-denner-ag-zurich-z8lf10",
-          "stv-filialleiter-in-denner-ag-zurich-geicje",
           "stv-filialleiter-in-denner-ag-walenstadt-d7e201"
         ],
         "fr": [
@@ -2693,7 +2689,6 @@
         "verkaufer-in-denner-ag-frauenfeld",
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
-        "venditore-denner-ag-frauenfeld-7kk8ni",
         "venditore-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-wilderswil",
         "verkaufer-in-denner-ag-chur-2",
@@ -2735,7 +2730,6 @@
         "venditore-denner-ag-gossau-sg",
         "verkaufer-in-denner-ag-gossau-sg",
         "venditore-denner-ag-ruti-zh",
-        "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
         "verkaufer-in-denner-ag-zurich",
         "venditore-denner-ag-zurich-e89fe9",
         "seller-denner-ag-zurich",
@@ -3120,7 +3114,6 @@
         "venditore-denner-ag-schluein",
         "seller-denner-ag-schluein",
         "vendeur-denner-ag-schluein",
-        "verkaufer-in-denner-ag-schluein-kketoa",
         "verkaufer-in-denner"
       ],
       "previousSlugsByLocale": {
@@ -3130,7 +3123,6 @@
           "venditore-denner-ag-schluein",
           "seller-denner-ag-schluein",
           "vendeur-denner-ag-schluein",
-          "verkaufer-in-denner-ag-schluein-kketoa",
           "verkaufer-in-denner"
         ],
         "en": [
@@ -3472,11 +3464,9 @@
         "stv-filialleiter-in-denner-ag-zurich",
         "vice-direttore-di-filiale-denner-ag-zurich",
         "stv-branch-manager-in-denner-ag-zurich",
-        "stv-filialleiter-in-denner-ag-zurich-geicje",
         "vice-direttore-di-negozio-denner-ag-zurich",
         "deputy-branch-manager-denner-ag-zurich",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich",
-        "stv-branch-manager-in-denner-ag-zurich-geicje",
         "stv-filialleiter-in-denner"
       ],
       "previousSlugsByLocale": {
@@ -3488,20 +3478,16 @@
           "stv-filialleiter-in-denner-ag-zurich",
           "vice-direttore-di-filiale-denner-ag-zurich",
           "stv-branch-manager-in-denner-ag-zurich",
-          "stv-filialleiter-in-denner-ag-zurich-geicje",
           "vice-direttore-di-negozio-denner-ag-zurich",
           "deputy-branch-manager-denner-ag-zurich",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich",
-          "stv-branch-manager-in-denner-ag-zurich-geicje",
           "stv-filialleiter-in-denner"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-basel-0fjqw6",
           "deputy-branch-manager-denner-ag-zurich-6527ca"
         ],
-        "de": [
-          "stv-filialleiter-in-denner-ag-zurich-geicje"
-        ],
+        "de": [],
         "fr": [
           "stv-filialleiter-in-denner-ag-basel-0fjqw6",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
@@ -3847,7 +3833,6 @@
         "vendeur-denner-ag-wetzikon-8e6f7a",
         "venditore-denner-ag-wetzikon-8q0wha",
         "venditore-denner-ag-wetzikon",
-        "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
         "vendeur-denner-ag-wattwil",
         "venditore-denner-ag-wattwil-8129f7",
         "venditore-denner-ag-wattwil",
@@ -3859,7 +3844,6 @@
         "venditore-denner-ag-gossau-sg",
         "venditore-denner-ag-frauenfeld-008421",
         "verkaufer-in-denner-ag-gossau-sg",
-        "venditore-denner-ag-frauenfeld-7kk8ni",
         "seller-denner-ag-zurich-1d38ef",
         "verkaufer-in-denner-ag-stein-ag-ach2e5",
         "venditore-denner-ag-frauenfeld",
@@ -3877,7 +3861,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "venditore-denner-ag-frauenfeld-7kk8ni",
           "seller-denner-ag-zurich-1d38ef",
           "verkaufer-in-denner-ag-stein-ag-ach2e5",
           "venditore-denner-ag-frauenfeld",
@@ -8507,11 +8490,14 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-im-stundenlohn-denner"
+          "verkaufer-in-im-stundenlohn-denner",
+          "venditore-denner-ag-frauenfeld-7kk8ni"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner"
+        "verkaufer-in-im-stundenlohn-denner",
+        "venditore-denner-ag-frauenfeld-7kk8ni",
+        "verkaufer-in-denner-ag-frauenfeld-7kk8ni"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9253,7 +9239,6 @@
           "directeur-de-succursale-stv-in-denner-ag-fislisbach",
           "stv-filialleiter-in-denner-ag-fislisbach",
           "stv-branch-manager-in-denner-ag-davos",
-          "stv-filialleiter-in-denner-ag-davos-qgw97z",
           "directeur-de-succursale-stv-denner-ag-davos",
           "stv-filialleiter-in-denner-ag-davos",
           "stv-filialleiter-in-denner"
@@ -9265,8 +9250,7 @@
           "stv-branch-manager-in-denner-ag-davos"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
-          "stv-filialleiter-in-denner-ag-davos-qgw97z"
+          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
         ],
         "fr": [
           "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
@@ -9283,7 +9267,6 @@
         "directeur-de-succursale-stv-in-denner-ag-fislisbach",
         "stv-filialleiter-in-denner-ag-fislisbach",
         "stv-branch-manager-in-denner-ag-davos",
-        "stv-filialleiter-in-denner-ag-davos-qgw97z",
         "directeur-de-succursale-stv-denner-ag-davos",
         "stv-filialleiter-in-denner-ag-davos",
         "stv-filialleiter-in-denner"
@@ -11810,10 +11793,13 @@
           "stv-filialleiter-in-denner-ag-zurich",
           "gestore-ramo-denner-ag-zurich",
           "stv-filialleiter-in-denner",
-          "directeur-adjoint-de-la-succursale-denner-ag-zurich-3e601b"
+          "directeur-adjoint-de-la-succursale-denner-ag-zurich-3e601b",
+          "stv-filialleiter-in-denner-ag-zurich-geicje",
+          "stv-branch-manager-in-denner-ag-zurich-geicje"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-zurich-z8lf10"
+          "stv-filialleiter-in-denner-ag-zurich-z8lf10",
+          "stv-filialleiter-in-denner-ag-zurich-geicje"
         ],
         "fr": [
           "directeur-de-succursale-stv-in-denner-ag-zurich",
@@ -11828,7 +11814,9 @@
         "stv-filialleiter-in-denner-ag-zurich",
         "gestore-ramo-denner-ag-zurich",
         "stv-filialleiter-in-denner",
-        "directeur-adjoint-de-la-succursale-denner-ag-zurich-3e601b"
+        "directeur-adjoint-de-la-succursale-denner-ag-zurich-3e601b",
+        "stv-filialleiter-in-denner-ag-zurich-geicje",
+        "stv-branch-manager-in-denner-ag-zurich-geicje"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -12159,8 +12147,6 @@
         "vendeur-denner-ag-zurich-e89fe9",
         "verkaufer-in-denner-ag-rubigen-1remei",
         "verkaufer-in-denner-ag-rubigen",
-        "venditore-denner-ag-frauenfeld-7kk8ni",
-        "verkaufer-in-denner-ag-frauenfeld-7kk8ni",
         "vendeur-denner-ag-langenthal-634638",
         "venditore-denner-ag-frauenfeld",
         "verkaufer-in-denner-ag-zurich",
@@ -14357,11 +14343,18 @@
       "crawledAt": "2026-09-01T00:36:35.286Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
+          "stv-filialleiter-in-denner-ag-zurich-vcsi9t"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-ag-zurich-vcsi9t"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
+        "stv-filialleiter-in-denner-ag-zurich-vcsi9t"
       ],
       "needsRetranslation": true,
       "salaryMin": 83000,
@@ -15200,6 +15193,9 @@
         "en": [
           "stv-filialleiter-in-denner-ag-frauenfeld-e09r57",
           "deputy-branch-manager-denner-ag-frauenfeld-e09r57"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-ag-frauenfeld-e09r57"
         ]
       },
       "needsRetranslation": true,
@@ -16595,12 +16591,9 @@
         "verkaufer-in-im-stundenlohn-denner-7",
         "verkaufer-in-im-stundenlohn-denner-8",
         "verkaufer-in-im-stundenlohn-denner-9",
-        "verkaufer-in-im-stundenlohn-denner-c24dro",
-        "verkaufer-in-im-stundenlohn-denner-dgsjiy",
         "verkaufer-in-im-stundenlohn-denner-frutigen",
         "verkaufer-in-im-stundenlohn-denner-glis",
         "verkaufer-in-im-stundenlohn-denner-hunzenschwil",
-        "verkaufer-in-im-stundenlohn-denner-ieg13f",
         "verkaufer-in-im-stundenlohn-denner-schaffhausen",
         "verkaufer-in-im-stundenlohn-denner-sissach",
         "verkaufer-in-im-stundenlohn-denner-therwil"
@@ -16618,12 +16611,9 @@
           "verkaufer-in-im-stundenlohn-denner-7",
           "verkaufer-in-im-stundenlohn-denner-8",
           "verkaufer-in-im-stundenlohn-denner-9",
-          "verkaufer-in-im-stundenlohn-denner-c24dro",
-          "verkaufer-in-im-stundenlohn-denner-dgsjiy",
           "verkaufer-in-im-stundenlohn-denner-frutigen",
           "verkaufer-in-im-stundenlohn-denner-glis",
           "verkaufer-in-im-stundenlohn-denner-hunzenschwil",
-          "verkaufer-in-im-stundenlohn-denner-ieg13f",
           "verkaufer-in-im-stundenlohn-denner-schaffhausen",
           "verkaufer-in-im-stundenlohn-denner-sissach",
           "verkaufer-in-im-stundenlohn-denner-therwil"
@@ -16809,12 +16799,14 @@
       "crawledAt": "2026-09-01T00:36:31.029Z",
       "previousSlugs": [
         "verkaufer-in-denner",
-        "verkaufer-in-denner-ag-schluein"
+        "verkaufer-in-denner-ag-schluein",
+        "verkaufer-in-denner-ag-schluein-kketoa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "verkaufer-in-denner-ag-schluein"
+          "verkaufer-in-denner-ag-schluein",
+          "verkaufer-in-denner-ag-schluein-kketoa"
         ],
         "en": [
           "verkaufer-in-denner-ag-schluein"
@@ -16912,6 +16904,9 @@
           "stv-filialleiter-in-denner-ag-davos-qgw97z"
         ],
         "en": [
+          "stv-filialleiter-in-denner-ag-davos-qgw97z"
+        ],
+        "de": [
           "stv-filialleiter-in-denner-ag-davos-qgw97z"
         ]
       },
@@ -21590,7 +21585,8 @@
         "it": [
           "verkaufer-in-im-stundenlohn-denner",
           "verkaufer-in-im-stundenlohn-denner-ag-freienbach",
-          "verkaufer-in-im-stundenlohn-denner-ag-freienbach-c24dro"
+          "verkaufer-in-im-stundenlohn-denner-ag-freienbach-c24dro",
+          "verkaufer-in-im-stundenlohn-denner-c24dro"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-freienbach-c24dro"
@@ -21602,7 +21598,8 @@
       "previousSlugs": [
         "verkaufer-in-im-stundenlohn-denner",
         "verkaufer-in-im-stundenlohn-denner-ag-freienbach",
-        "verkaufer-in-im-stundenlohn-denner-ag-freienbach-c24dro"
+        "verkaufer-in-im-stundenlohn-denner-ag-freienbach-c24dro",
+        "verkaufer-in-im-stundenlohn-denner-c24dro"
       ],
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -22780,7 +22777,6 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-ag-zurich-geicje",
           "vice-direttore-di-negozio-denner-ag-zurich",
           "deputy-branch-manager-denner-ag-zurich",
           "directeur-adjoint-de-la-succursale-denner-ag-zurich",
@@ -22789,8 +22785,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca",
           "stv-filialleiter-in-denner-ag-zurich-2zbait",
           "stv-branch-manager-in-denner-ag-zurich-3e601b",
-          "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
-          "stv-filialleiter-in-denner-ag-zurich-vcsi9t",
           "directeur-de-succursale-stv-in-denner-ag-zurich",
           "stv-filialleiter-in-denner-ag-zurich-2",
           "stv-branch-manager-in-denner-ag-zurich",
@@ -22804,8 +22798,6 @@
           "assistant-store-manager-denner-ag-monchaltorf"
         ],
         "de": [
-          "stv-filialleiter-in-denner-ag-zurich-geicje",
-          "stv-filialleiter-in-denner-ag-zurich-vcsi9t",
           "stv-filialleiter-in-denner-ag-zurich-z8lf10"
         ],
         "fr": [
@@ -22815,7 +22807,6 @@
       "previousSlugs": [
         "stv-filialleiter-in-denner",
         "assistant-store-manager-denner-ag-zurich",
-        "stv-filialleiter-in-denner-ag-zurich-geicje",
         "vice-direttore-di-negozio-denner-ag-zurich",
         "deputy-branch-manager-denner-ag-zurich",
         "directeur-adjoint-de-la-succursale-denner-ag-zurich",
@@ -22825,8 +22816,6 @@
         "stv-filialleiter-in-denner-ag-zurich-2zbait",
         "stv-filialleiter-in-denner-ag-zurich",
         "stv-branch-manager-in-denner-ag-zurich-3e601b",
-        "stv-branch-manager-in-denner-ag-zurich-vcsi9t",
-        "stv-filialleiter-in-denner-ag-zurich-vcsi9t",
         "directeur-de-succursale-stv-in-denner-ag-zurich",
         "stv-filialleiter-in-denner-ag-zurich-2",
         "stv-branch-manager-in-denner-ag-zurich",
@@ -23877,7 +23866,6 @@
         "verkaufer-in-denner-ag-frauenfeld",
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
-        "venditore-denner-ag-frauenfeld-7kk8ni",
         "venditore-denner-ag-frauenfeld",
         "venditore-denner-huttwil"
       ],
