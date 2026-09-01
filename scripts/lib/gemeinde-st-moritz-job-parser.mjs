@@ -20,7 +20,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
-import { readAttr } from './html-attr.mjs';
+import { readAttr, scanHtmlTags } from './html-attr.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -36,6 +36,35 @@ const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontali
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+/**
+ * Return the inner HTML of the first balanced element carrying `classToken`.
+ * TYPO3 nests several `<div>` elements inside the vacancy article, so a
+ * non-greedy `.*?</div>` would stop at the first child and lose job content.
+ */
+function extractBalancedClassContent(html = '', tagName = '', classToken = '') {
+  const source = String(html || '');
+  const targetTag = String(tagName || '').toLowerCase();
+  const targetClass = String(classToken || '').toLowerCase();
+  const tags = scanHtmlTags(source);
+  const startIndex = tags.findIndex((tag) => {
+    if (tag.closing || tag.name !== targetTag) return false;
+    const classes = readAttr(tag.raw, 'class').toLowerCase().split(/\s+/).filter(Boolean);
+    return classes.includes(targetClass);
+  });
+  if (startIndex < 0) return '';
+
+  const start = tags[startIndex];
+  let depth = 0;
+  for (let i = startIndex; i < tags.length; i += 1) {
+    const tag = tags[i];
+    if (tag.name !== targetTag) continue;
+    if (!tag.closing && !tag.selfClosing) depth += 1;
+    if (tag.closing) depth -= 1;
+    if (depth === 0) return source.slice(start.end, tag.index);
+  }
+  return '';
 }
 
 
@@ -217,20 +246,27 @@ export function parseDetailHtml(html) {
 
   const result = {};
 
-  // Extract title from <h1>
-  const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const cleanedHtml = stripScriptsAndStyles(html);
+  // The live TYPO3 shell contains two unrelated "Wichtige Kontakte" H1s
+  // before the vacancy. Scope extraction to the balanced news article first.
+  const newsContent = extractBalancedClassContent(cleanedHtml, 'div', 'news-single');
+  const articleContent = extractBalancedClassContent(newsContent || cleanedHtml, 'div', 'article');
+  const detailHtml = articleContent || newsContent || cleanedHtml;
+
+  // Extract the vacancy H1, never a header/sidebar H1 outside the news article.
+  const h1Match = detailHtml.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i);
   if (h1Match) {
     result.title = normalizeSpace(stripHtml(h1Match[1]));
   }
 
   // Extract date from page content (e.g. "7. April 2026")
-  const dateMatch = html.match(/(\d{1,2}\.\s*(?:Januar|Februar|März|Maerz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+\d{4})/i);
+  const dateMatch = detailHtml.match(/(\d{1,2}\.\s*(?:Januar|Februar|März|Maerz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+\d{4})/i);
   if (dateMatch) {
     result.date = parseGermanDate(dateMatch[1]);
   }
 
   // Extract PDF link for the Stelleninserat
-  const pdfLink = [...html.matchAll(/<a\b[^>]*>/gi)]
+  const pdfLink = [...detailHtml.matchAll(/<a\b[^>]*>/gi)]
     .map((match) => readAttr(match[0], 'href'))
     .find((href) => /\/fileadmin\/.*\.pdf(?:[?#]|$)/i.test(href));
   if (pdfLink) {
@@ -243,25 +279,45 @@ export function parseDetailHtml(html) {
   let description = '';
 
   // Strategy 1: ce-bodytext (common TYPO3 content element)
-  const bodyTextMatch = html.match(/<div[^>]*class="[^"]*ce-bodytext[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  const bodyTextMatch = detailHtml.match(/<div[^>]*class="[^"]*ce-bodytext[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
   if (bodyTextMatch) {
     description = stripHtml(bodyTextMatch[1]);
   }
 
-  // Strategy 2: all <p> tags within <main> or <article>
+  // Strategy 2: live TYPO3 news article — teaser plus body paragraphs.
+  // The enclosing article scope excludes site navigation and footer content.
   if (!description || description.length < 30) {
-    const contentMatch = html.match(/<(?:main|article)[^>]*>([\s\S]*?)<\/(?:main|article)>/i);
+    const parts = [];
+    const teaser = normalizeDescriptionSpace(stripHtml(
+      extractBalancedClassContent(detailHtml, 'div', 'teaser-text')
+    ));
+    if (teaser.length > 20) parts.push(teaser);
+
+    const pRegex = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
+    let pMatch;
+    while ((pMatch = pRegex.exec(detailHtml)) !== null) {
+      const text = normalizeDescriptionSpace(stripHtml(pMatch[1]));
+      if (text.length <= 20) continue;
+      if (/^(Zurück zur Liste|Stelleninserat herunterladen)$/i.test(text)) continue;
+      if (!parts.includes(text)) parts.push(text);
+    }
+    if (parts.length > 0) description = parts.join('\n\n');
+  }
+
+  // Strategy 3: all content within <main> or semantic <article> for legacy fixtures.
+  if (!description || description.length < 30) {
+    const contentMatch = detailHtml.match(/<(?:main|article)\b[^>]*>([\s\S]*?)<\/(?:main|article)>/i);
     if (contentMatch) {
       description = stripHtml(contentMatch[1]);
     }
   }
 
-  // Strategy 3: collect all <p> tags that look like description content
+  // Strategy 4: collect all <p> tags that look like description content
   if (!description || description.length < 30) {
     const paragraphs = [];
     const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/gi;
     let pMatch;
-    while ((pMatch = pRegex.exec(html)) !== null) {
+    while ((pMatch = pRegex.exec(detailHtml)) !== null) {
       const text = normalizeDescriptionSpace(stripHtml(pMatch[1]));
       // Skip navigation, headers, footers, short fragments
       if (text.length > 20 && !/^(Home|Kontakt|Impressum|Datenschutz|Navigation|Menü)/i.test(text)) {
