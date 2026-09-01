@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-09-01T14:19:42.968Z",
+  "assembledAt": "2026-09-01T14:56:53.801Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-26220aaafb72",
@@ -180,104 +180,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:26:57.886Z",
-      "salaryMin": 34500,
-      "salaryMax": 52200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 34500,
-          "maxValue": 52200,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "gemeinde-st-moritz-dcd856c9907a",
-      "slug": "archivista-archivista-50-60-gemeinde-st-moritz-st-moritz",
-      "slugByLocale": {
-        "it": "archivista-archivista-50-60-gemeinde-st-moritz-st-moritz",
-        "en": "archivist-archivist-50-60-gemeinde-st-moritz-st-moritz",
-        "de": "archivarin-archivar-50-60-gemeinde-st-moritz-ch",
-        "fr": "archiviste-archiviste-50-60-gemeinde-st-moritz-st-moritz"
-      },
-      "company": "Gemeinde St. Moritz",
-      "companyKey": "gemeinde-st-moritz",
-      "companyDomain": "gemeinde-stmoritz.ch",
-      "title": "Archivarin / Archivar 50 – 60%",
-      "titleByLocale": {
-        "de": "Archivarin / Archivar 50 – 60%",
-        "en": "Archivist / Archivist 50 – 60 %",
-        "it": "Archivista / Archivista 50 – 60 %",
-        "fr": "Archiviste / Archiviste 50 – 60 %"
-      },
-      "description": "Die Dokumentationsbibliothek St. Moritz sucht per 1. September 2026 zur Unterstützung ihres Teams eine engagierte und zuverlässige Persönlichkeit als Archivarin / Archivar 50 – 60%.\n\nDie Dokumentationsbibliothek St. Moritz dokumentiert und archiviert das historische Wissen über die Geschichte und die Entwicklung von St. Moritz und der Region. Die Sammlung umfasst Fotografien, Bilddaten, audiovisuelle Medien, Druckerzeugnisse, Plakate, Forschungsarbeiten und Studien aus und über St. Moritz.",
-      "descriptionByLocale": {
-        "de": "Die Dokumentationsbibliothek St. Moritz sucht per 1. September 2026 zur Unterstützung ihres Teams eine engagierte und zuverlässige Persönlichkeit als Archivarin / Archivar 50 – 60%.\n\nDie Dokumentationsbibliothek St. Moritz dokumentiert und archiviert das historische Wissen über die Geschichte und die Entwicklung von St. Moritz und der Region. Die Sammlung umfasst Fotografien, Bilddaten, audiovisuelle Medien, Druckerzeugnisse, Plakate, Forschungsarbeiten und Studien aus und über St. Moritz.",
-        "it": "La biblioteca di documentazione St. Moritz sta cercando 1. Settembre 2026 per supportare il suo team una personalità dedicata e affidabile come archivista 50 – 60%.\n\nLa Biblioteca di documentazione di St. Moritz documenta e archivia le conoscenze storiche sulla storia e lo sviluppo di St. Moritz e della regione. La collezione comprende fotografie, immagini, supporti audiovisivi, prodotti stampati, manifesti, ricerche e studi di St. Moritz.",
-        "en": "The documentation library St. Moritz is looking for 1. September 2026 to support her team a dedicated and reliable personality as an archivist 50 – 60%.\n\nThe Documentation Library of St. Moritz documents and archives the historical knowledge about the history and development of St. Moritz and the region. The collection includes photographs, image data, audiovisual media, printed products, posters, research and studies from and about St. Moritz.",
-        "fr": "La bibliothèque de documentation St. Moritz recherche 1. Septembre 2026 pour soutenir son équipe une personnalité dévouée et fiable en tant qu'archiviste 50 – 60%.\n\nLa Bibliothèque de documentation de St. Moritz documente et archives les connaissances historiques sur l'histoire et le développement de St. Moritz et de la région. La collection comprend des photographies, des images, des médias audiovisuels, des produits imprimés, des affiches, des recherches et des études de St. Moritz et de ses environs."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/archivarin-archivar-50-60",
-      "source": "Gemeinde St. Moritz Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:19:36.578Z",
-      "addressLocality": "St. Moritz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7500",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/archivarin-archivar-50-60",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "wichtige-kontakte-gemeinde-st-moritz-ch",
-        "wichtige-kontakte-gemeinde-st-moritz-ch-2",
-        "contacts-importants-gemeinde-st-moritz",
-        "important-contacts-gemeinde-st-moritz",
-        "archivarin-archivar-50-60-gemeinde-st-moritz-ch",
-        "contatti-importanti-gemeinde-st-moritz-st-moritz-22f6b2",
-        "important-contacts-gemeinde-st-moritz-st-moritz",
-        "contacts-importants-gemeinde-st-moritz-st-moritz",
-        "archivarin-archivar-50-60-gemeinde-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "de": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch"
-        ],
-        "it": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch",
-          "wichtige-kontakte-gemeinde-st-moritz-ch-2",
-          "contacts-importants-gemeinde-st-moritz",
-          "important-contacts-gemeinde-st-moritz",
-          "archivarin-archivar-50-60-gemeinde-st-moritz-ch",
-          "contatti-importanti-gemeinde-st-moritz-st-moritz-22f6b2",
-          "archivarin-archivar-50-60-gemeinde-st-moritz"
-        ],
-        "en": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch-2",
-          "important-contacts-gemeinde-st-moritz-st-moritz",
-          "archivarin-archivar-50-60-gemeinde-st-moritz"
-        ],
-        "fr": [
-          "wichtige-kontakte-gemeinde-st-moritz-ch-2",
-          "contacts-importants-gemeinde-st-moritz-st-moritz",
-          "archivarin-archivar-50-60-gemeinde-st-moritz"
-        ]
-      },
-      "firstSeenAt": "2026-07-15T22:55:11.621Z",
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",

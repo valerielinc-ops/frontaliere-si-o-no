@@ -140,6 +140,26 @@ describe('Läderach job parser', () => {
       expect(parseLaderachNextDataJobs([])).toEqual([]);
       expect(parseLaderachNextDataJobs('not an array')).toEqual([]);
     });
+
+    it('falls back to a rebuilt same-origin URL when item.link is malformed', () => {
+      const jobs = parseLaderachNextDataJobs([
+        {
+          jobPostingId: 71234567,
+          title: 'Confiseur/Confiseuse (w/m/d)',
+          link: 'not a url at all',
+          location: 'Bilten',
+        },
+      ]);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].url).toBe('https://laderach.career.softgarden.de/jobs/71234567/confiseur-confiseuse-w-m-d/');
+    });
+
+    it('still drops the job when jobPostingId is missing and link is malformed', () => {
+      const jobs = parseLaderachNextDataJobs([
+        { jobPostingId: '', title: 'Bad Job', link: 'https://attacker.example/jobs/1/x/', location: 'Bilten' },
+      ]);
+      expect(jobs).toHaveLength(0);
+    });
   });
 
   describe('parseLaderachListingHtml', () => {

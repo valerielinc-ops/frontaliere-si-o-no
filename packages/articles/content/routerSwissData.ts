@@ -1679,6 +1679,20 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asib-normativa-ubs-sostegno': { it: 'asib-normativa-ubs-sostegno', en: 'asib-ubs-regulation-support', de: 'asib-ubs-regulierung-unterstuetzung', fr: 'asib-reglementation-ubs-soutien' },
  'ubs-requisiti-patrimoniali': { it: 'ubs-requisiti-patrimoniali', en: 'ubs-capital-requirements', de: 'ubs-kapitalanforderungen', fr: 'ubs-exigences-capitales' },
  'sindacato-banca-ubs-regolamentazione': { it: 'sindacato-banca-ubs-regolamentazione', en: 'bank-employees-asib-supports-ubs-regulation', de: 'bankangestellte-asib-ubs-verordnung', fr: 'employes-banque-asib-norme-ubs' },
+ 'comcom-esclude-nuovi-operatori-mobile': { it: 'comcom-esclude-nuovi-operatori-mobile', en: 'comcom-blocks-new-operators-telecom', de: 'comcom-schliesst-neue-betreiber-mobile', fr: 'comcom-exclut-nouveaux-operateurs-mobile' },
+ 'audizione-concezione-energia-eolica': { it: 'audizione-concezione-energia-eolica', en: 'hearing-wind-energy-concept-framework', de: 'anhorung-windenergie-konzept-schweiz', fr: 'consultation-conception-energie-eolienne' },
+ 'lucerna-taxi-cari-mondo': { it: 'lucerna-taxi-cari-mondo', en: 'lucerne-most-expensive-taxis-world', de: 'luzern-teuerste-taxis-welt', fr: 'lucerne-taxis-plus-chers-monde' },
+ 'permesso-l-friburgo-durata-rinnovo': { it: 'permesso-l-friburgo-durata-rinnovo', en: 'l-permit-fribourg-duration-renewal', de: 'l-bewilligung-freiburg-gueltigkeitsdauer-verlaengerung', fr: 'permis-l-fribourg-duree-renouvellement' },
+ 'processo-ndrangheta-svizzera': { it: 'processo-ndrangheta-svizzera', en: 'ndrangheta-trial-switzerland', de: 'ndrangheta-prozess-schweiz', fr: 'proces-ndrangheta-suisse' },
+ 'legumi-texture-carne-ricerca-eth': { it: 'legumi-texture-carne-ricerca-eth', en: 'legumes-meat-texture-eth-research', de: 'huelsenfruechte-fleischstruktur-eth-forschung', fr: 'legumes-texture-viande-recherche-eth' },
+ 'settore-servizi-aumento-fatturato-giugno': { it: 'settore-servizi-aumento-fatturato-giugno', en: 'services-sector-revenue-increase-june', de: 'dienstleistungssektor-umsatzsteigerung-juni', fr: 'secteur-des-services-augmentation-du-chiffre-d-affaires-juin' },
+ 'friburgo-permesso-l-rinnovo': { it: 'friburgo-permesso-l-rinnovo', en: 'fribourg-l-permit-renewal', de: 'freiburg-l-permit-verlaengerung', fr: 'fribourg-permis-l-renouvellement' },
+ 'apprendistato-formazione-professionale-canton-friburgo': { it: 'apprendistato-formazione-professionale-canton-friburgo', en: 'apprenticeship-professional-training-canton-fribourg', de: 'lehre-berufsbildung-kanton-freiburg', fr: 'apprentissage-formation-professionnelle-canton-fribourg' },
+ 'apprendistato-formazione-friburgo': { it: 'apprendistato-formazione-friburgo', en: 'apprenticeship-vocational-fribourg', de: 'lehre-berufsbildung-freiburg', fr: 'apprentissage-formation-fribourg' },
+ 'custodia-bambini-friburgo-costi-sussidi': { it: 'custodia-bambini-friburgo-costi-sussidi', en: 'childcare-friburgo-costs-subsidies', de: 'kinderbetreuung-freiburg-kosten-subventionen', fr: 'garde-enfants-fribourg-couts-subventions' },
+ 'shein-ipo-hong-kong-malus-francese': { it: 'shein-ipo-hong-kong-malus-francese', en: 'shein-hong-kong-ipo-french-tax-fast-fashion', de: 'shein-hongkong-boersendebut-franzoesische-steuer', fr: 'shein-hongkong-ipo-malus-francais-mode-rapide' },
+ 'affitti-friburgo-deposito-disdetta-locazione': { it: 'affitti-friburgo-deposito-disdetta-locazione', en: 'rentals-fribourg-deposit-termination-tenancy', de: 'mietvertraege-freiburg-kaution-kuendigung-mietrecht', fr: 'locations-fribourg-depot-resiliation-bail' },
+ 'affitti-friburgo-contestazione-canone': { it: 'affitti-friburgo-contestazione-canone', en: 'rentals-friburg-contestation-rent', de: 'miete-freiburg-einspruch-mietzins', fr: 'locations-fribourg-contestation-loyer' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

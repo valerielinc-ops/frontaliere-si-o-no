@@ -11047,6 +11047,15 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.origgio-tragedia-cantiere-2026.title': 'Tragedy on the construction site in Origgio: a 55-year-old man died',
     'blog.article.origgio-tragedia-cantiere-2026.excerpt': 'A 55-year-old man lost his life in an accident at work in Origgio. Davide Bellotto of Fillea Cgil Varese: "We don\'t know the details yet"',
     'blog.article.origgio-tragedia-cantiere-2026.imageAlt': 'Scene of a construction site in Origgio after a workplace tragedy',
+    'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: difficult credit blocks investments in SMEs North',
+    'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Confapi report on 2,000 SMEs: 60% in difficulty due to geopolitics and credit. Direct impact on employment and wages of Varese-Ticino cross-border workers.',
+    'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Industrial area in Mendrisio at the border with Varese province, Ticino',
+    'blog.article.tariffe-ail-2027-stabili.title': 'Ail Tariffs 2027: No Increase for Energy',
+    'blog.article.tariffe-ail-2027-stabili.excerpt': 'Ail electricity and gas rates will remain stable in 2027, thanks to the staggered purchasing strategy and investments in renewables.',
+    'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Aerial view of Lugano with industrial buildings and energy infrastructure',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'EoC hospitals in Ticino: ANQ research detects lights and shadows',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'The national ANQ survey rewards Ticino hospitals (75% satisfied patients), but indicates margins for improvement in communication during waits.',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'EOC hospital ward in Ticino with medical staff communicating with a patient during admission',
 };
 
 export default blogMetaEn;

@@ -51,6 +51,11 @@ describe('CEDES job parser', () => {
       expect(normalizeCedesJobUrl('https://www.cedes.com/en/news/embedded-engineer/')).toBeNull();
     });
 
+    it('allows hyphenated regional locale prefixes like the site actually serves', () => {
+      expect(normalizeCedesJobUrl('/zh-hans/career/jobs/embedded-engineer/'))
+        .toBe('https://www.cedes.com/zh-hans/career/jobs/embedded-engineer/');
+    });
+
     it('fails closed before fetch for an unsafe detail URL', async () => {
       const fetchSpy = vi.spyOn(globalThis, 'fetch');
       try {

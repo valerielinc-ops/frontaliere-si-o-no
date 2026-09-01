@@ -47,7 +47,12 @@ function makeJob(crawlerKey: string, index: number, fresh = false) {
 function markDiscovered<T extends object[]>(
   jobs: T,
   discoveredCount: number,
-  { expectedSeedCount = 1, loadedSeedCount = expectedSeedCount } = {},
+  {
+    expectedSeedCount = 1,
+    loadedSeedCount = expectedSeedCount,
+    resolvedDetailCount = discoveredCount,
+    parsedDetailCount = discoveredCount,
+  } = {},
 ): T {
   Object.defineProperty(jobs, 'discoveredCount', { value: discoveredCount, enumerable: false });
   Object.defineProperty(jobs, 'expectedSeedCount', {
@@ -55,6 +60,14 @@ function markDiscovered<T extends object[]>(
     enumerable: false,
   });
   Object.defineProperty(jobs, 'loadedSeedCount', { value: loadedSeedCount, enumerable: false });
+  Object.defineProperty(jobs, 'resolvedDetailCount', {
+    value: resolvedDetailCount,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'parsedDetailCount', {
+    value: parsedDetailCount,
+    enumerable: false,
+  });
   return jobs;
 }
 
@@ -135,6 +148,17 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
       15,
     );
     expect(() => assertCompleteIpersonalSnapshot(partial)).toThrow(/parsed 14\/15/);
+  });
+
+  it('fails closed when resolved and parsed observers do not cover one atomic attempt set', () => {
+    const partialObserver = markDiscovered(
+      Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+      { resolvedDetailCount: 14, parsedDetailCount: 15 },
+    );
+    expect(() => assertCompleteIpersonalSnapshot(partialObserver)).toThrow(
+      /resolved 14\/15, parsed 15\/15 details/,
+    );
   });
 
   it('does not fail closed when the gap is fully explained by legitimate quality drops', () => {

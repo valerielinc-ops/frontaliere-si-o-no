@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-09-01T11:05:11.728Z",
-  "total": 250,
+  "generatedAt": "2026-09-01T18:04:21.397Z",
+  "total": 251,
   "newCount": 1,
-  "updatedCount": 214,
+  "updatedCount": 215,
   "removedCount": 0,
   "unchangedCount": 35,
-  "durationMs": 542231,
-  "avgDurationMs": 542231,
+  "durationMs": 532693,
+  "avgDurationMs": 532693,
   "durationHistory": [
-    542231
+    532693
   ],
   "newJobs": [
     {
@@ -34,7 +34,7 @@
       "postedDate": "2026-07-17",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.084Z",
+      "crawledAt": "2026-09-01T18:04:19.727Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -49,6 +49,46 @@
     }
   ],
   "updatedJobs": [
+    {
+      "title": "Projektleiter/in Schaltanlagen (80 - 100%)",
+      "slug": "projektleiter-in-schaltanlagen-80-100-bieri-elektrotechnik-ag-uetendorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-schaltanlagen-1737",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-schaltanlagen-1737",
+      "company": "Bieri Elektrotechnik AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Uetendorf",
+      "addressLocality": "Uetendorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-09-01T18:04:19.712Z",
+      "coordinates": [
+        46.7795846,
+        7.5920483
+      ],
+      "id": "burkhalter-group-3e041d9bbe8a",
+      "salaryMin": 105500,
+      "salaryMax": 160000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T14:23:29.443Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 19
+      }
+    },
     {
       "title": "Servicetechniker/in KNX (80 - 100%)",
       "slug": "servicetechniker-in-knx-80-100-burkhalter-technics-ag-zurich",
@@ -70,7 +110,7 @@
       "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.074Z",
+      "crawledAt": "2026-09-01T18:04:19.717Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -111,7 +151,7 @@
       "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.077Z",
+      "crawledAt": "2026-09-01T18:04:19.720Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -152,7 +192,7 @@
       "postedDate": "2026-08-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.077Z",
+      "crawledAt": "2026-09-01T18:04:19.721Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -193,7 +233,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.079Z",
+      "crawledAt": "2026-09-01T18:04:19.722Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -234,7 +274,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.080Z",
+      "crawledAt": "2026-09-01T18:04:19.722Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -274,7 +314,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.080Z",
+      "crawledAt": "2026-09-01T18:04:19.723Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -315,7 +355,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.081Z",
+      "crawledAt": "2026-09-01T18:04:19.724Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -358,7 +398,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.081Z",
+      "crawledAt": "2026-09-01T18:04:19.724Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -401,7 +441,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.082Z",
+      "crawledAt": "2026-09-01T18:04:19.724Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -442,7 +482,7 @@
       "postedDate": "2026-08-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.082Z",
+      "crawledAt": "2026-09-01T18:04:19.725Z",
       "coordinates": [
         47.384113312947456,
         8.495415236239056
@@ -482,7 +522,7 @@
       "postedDate": "2026-08-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.083Z",
+      "crawledAt": "2026-09-01T18:04:19.725Z",
       "coordinates": [
         46.950444,
         7.3939439
@@ -523,7 +563,7 @@
       "postedDate": "2026-08-11",
       "employmentType": "part-time",
       "contractType": "part-time",
-      "crawledAt": "2026-09-01T11:05:10.083Z",
+      "crawledAt": "2026-09-01T18:04:19.726Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -563,7 +603,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.083Z",
+      "crawledAt": "2026-09-01T18:04:19.726Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -603,7 +643,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.084Z",
+      "crawledAt": "2026-09-01T18:04:19.726Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -639,11 +679,11 @@
       "category": "Ingegneria & Tecnica",
       "sector": "Impiantistica & Tecnologia Edilizia",
       "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
+      "sourceLang": "de",
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.084Z",
+      "crawledAt": "2026-09-01T18:04:19.728Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -656,10 +696,10 @@
       "id": "burkhalter-group-430e814f321b",
       "firstSeenAt": "2026-04-13T21:18:02.670Z",
       "salarySource": "reported",
-      "_qualityScore": 85,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
+        "cleanliness": 25,
+        "richness": 0,
         "translation": 25,
         "completeness": 22
       }
@@ -685,7 +725,7 @@
       "postedDate": "2026-07-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.085Z",
+      "crawledAt": "2026-09-01T18:04:19.729Z",
       "coordinates": [
         47.0656402,
         8.2903717
@@ -725,7 +765,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.086Z",
+      "crawledAt": "2026-09-01T18:04:19.729Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -765,7 +805,7 @@
       "postedDate": "2026-07-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.086Z",
+      "crawledAt": "2026-09-01T18:04:19.729Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -806,7 +846,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.087Z",
+      "crawledAt": "2026-09-01T18:04:19.729Z",
       "coordinates": [
         46.7204645,
         9.5593501
@@ -848,7 +888,7 @@
       "postedDate": "2026-06-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.108Z",
+      "crawledAt": "2026-09-01T18:04:19.752Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -889,7 +929,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.128Z",
+      "crawledAt": "2026-09-01T18:04:19.772Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -930,7 +970,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.128Z",
+      "crawledAt": "2026-09-01T18:04:19.772Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -972,7 +1012,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.129Z",
+      "crawledAt": "2026-09-01T18:04:19.772Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -1012,7 +1052,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.129Z",
+      "crawledAt": "2026-09-01T18:04:19.772Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1055,7 +1095,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.129Z",
+      "crawledAt": "2026-09-01T18:04:19.772Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1097,7 +1137,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.129Z",
+      "crawledAt": "2026-09-01T18:04:19.772Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1140,7 +1180,7 @@
       "postedDate": "2026-05-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.131Z",
+      "crawledAt": "2026-09-01T18:04:19.774Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1183,7 +1223,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.132Z",
+      "crawledAt": "2026-09-01T18:04:19.774Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -1225,7 +1265,7 @@
       "postedDate": "2026-05-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.132Z",
+      "crawledAt": "2026-09-01T18:04:19.775Z",
       "coordinates": [
         46.7838193,
         6.6264028
@@ -1244,48 +1284,6 @@
         "richness": 3,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Chef de chantier / Cheffe de chantier – Installations électriques (100%)",
-      "slug": "chef-de-chantier-cheffe-de-chantier-installations-electriques-100-sedelec-saignelegier-succursale-de-sedelec-sa-lausanne",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1661",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1661",
-      "company": "Sedelec Saignelégier, succursale de Sedelec SA Lausanne",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Saignelégier",
-      "addressLocality": "Saignelégier",
-      "addressRegion": "JU",
-      "addressCountry": "CH",
-      "canton": "JU",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-05-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.132Z",
-      "coordinates": [
-        47.2541809,
-        7.002328
-      ],
-      "id": "burkhalter-group-2e240c5e9989",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "streetAddress": "",
-      "postalCode": "",
-      "firstSeenAt": "2026-05-11T21:39:47.299Z",
-      "salarySource": "reported",
-      "_qualityScore": 72,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 19
       }
     }
   ],
@@ -1312,7 +1310,7 @@
       "postedDate": "2026-08-27",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.078Z",
+      "crawledAt": "2026-09-01T18:04:19.721Z",
       "coordinates": [
         47.384113312947456,
         8.495415236239056
@@ -1353,7 +1351,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.131Z",
+      "crawledAt": "2026-09-01T18:04:19.774Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -1396,7 +1394,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.131Z",
+      "crawledAt": "2026-09-01T18:04:19.774Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -1439,7 +1437,7 @@
       "postedDate": "2026-04-22",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.133Z",
+      "crawledAt": "2026-09-01T18:04:19.775Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -1482,7 +1480,7 @@
       "postedDate": "2026-02-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.138Z",
+      "crawledAt": "2026-09-01T18:04:19.780Z",
       "coordinates": [
         46.2496614,
         10.1292791
@@ -1524,7 +1522,7 @@
       "postedDate": "2026-01-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.139Z",
+      "crawledAt": "2026-09-01T18:04:19.781Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -1567,7 +1565,7 @@
       "postedDate": "2025-11-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.141Z",
+      "crawledAt": "2026-09-01T18:04:19.783Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -1610,7 +1608,7 @@
       "postedDate": "2025-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.142Z",
+      "crawledAt": "2026-09-01T18:04:19.784Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -1653,7 +1651,7 @@
       "postedDate": "2025-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.144Z",
+      "crawledAt": "2026-09-01T18:04:19.787Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -1696,7 +1694,7 @@
       "postedDate": "2025-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.147Z",
+      "crawledAt": "2026-09-01T18:04:19.790Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1739,7 +1737,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.148Z",
+      "crawledAt": "2026-09-01T18:04:19.791Z",
       "coordinates": [
         46.4615857,
         6.842294
@@ -1781,7 +1779,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.148Z",
+      "crawledAt": "2026-09-01T18:04:19.791Z",
       "coordinates": [
         46.5432538,
         6.6239502
@@ -1823,7 +1821,7 @@
       "postedDate": "2025-05-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.148Z",
+      "crawledAt": "2026-09-01T18:04:19.791Z",
       "coordinates": [
         46.5084544,
         6.8486817
@@ -1865,7 +1863,7 @@
       "postedDate": "2024-10-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.150Z",
+      "crawledAt": "2026-09-01T18:04:19.793Z",
       "coordinates": [
         46.4681047,
         7.2859582
@@ -1907,7 +1905,7 @@
       "postedDate": "2024-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.153Z",
+      "crawledAt": "2026-09-01T18:04:19.796Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -1950,7 +1948,7 @@
       "postedDate": "2023-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.154Z",
+      "crawledAt": "2026-09-01T18:04:19.798Z",
       "coordinates": [
         46.7635608,
         9.7937703
@@ -1992,7 +1990,7 @@
       "postedDate": "2023-05-11",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.155Z",
+      "crawledAt": "2026-09-01T18:04:19.799Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -2035,7 +2033,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.156Z",
+      "crawledAt": "2026-09-01T18:04:19.800Z",
       "coordinates": [
         47.2975064,
         7.955018
@@ -2077,7 +2075,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.156Z",
+      "crawledAt": "2026-09-01T18:04:19.800Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -2119,7 +2117,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.156Z",
+      "crawledAt": "2026-09-01T18:04:19.801Z",
       "coordinates": [
         47.4169105,
         8.5625234
@@ -2162,7 +2160,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.157Z",
+      "crawledAt": "2026-09-01T18:04:19.801Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -2205,7 +2203,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.157Z",
+      "crawledAt": "2026-09-01T18:04:19.801Z",
       "coordinates": [
         47.3807652,
         7.9483668
@@ -2248,7 +2246,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.157Z",
+      "crawledAt": "2026-09-01T18:04:19.801Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -2291,7 +2289,7 @@
       "postedDate": "2023-03-14",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.157Z",
+      "crawledAt": "2026-09-01T18:04:19.801Z",
       "coordinates": [
         47.0490246,
         8.2699265
@@ -2333,7 +2331,7 @@
       "postedDate": "2023-03-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.157Z",
+      "crawledAt": "2026-09-01T18:04:19.801Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -2374,7 +2372,7 @@
       "postedDate": "2023-02-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.158Z",
+      "crawledAt": "2026-09-01T18:04:19.802Z",
       "coordinates": [
         46.6339999,
         8.5919979
@@ -2416,7 +2414,7 @@
       "postedDate": "2023-02-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.158Z",
+      "crawledAt": "2026-09-01T18:04:19.802Z",
       "coordinates": [
         47.4475084,
         8.2958604
@@ -2459,7 +2457,7 @@
       "postedDate": "2023-02-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.158Z",
+      "crawledAt": "2026-09-01T18:04:19.802Z",
       "coordinates": [
         46.856205,
         8.6389353
@@ -2501,7 +2499,7 @@
       "postedDate": "2022-11-09",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.159Z",
+      "crawledAt": "2026-09-01T18:04:19.803Z",
       "coordinates": [
         46.6052123,
         6.233473
@@ -2543,7 +2541,7 @@
       "postedDate": "2022-02-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-09-01T11:05:10.160Z",
+      "crawledAt": "2026-09-01T18:04:19.804Z",
       "coordinates": [
         47.2578784,
         8.6005977

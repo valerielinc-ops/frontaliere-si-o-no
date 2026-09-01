@@ -1,49 +1,18 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-01T14:09:40.658Z",
+  "generatedAt": "2026-09-01T18:05:39.002Z",
   "total": 9,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3099,
-  "avgDurationMs": 3099,
+  "unchangedCount": 3,
+  "durationMs": 3304,
+  "avgDurationMs": 3304,
   "durationHistory": [
-    3099
+    3304
   ],
-  "newJobs": [
-    {
-      "title": "Futtermittelinspektor/in",
-      "slug": "futtermittelinspektor-in-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/futtermittelinspektor-in/91dbc73e-9ddd-4e45-afbb-43828163217f",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20093",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux, Schweiz",
-      "addressLocality": "Posieux",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-26",
-      "validThrough": "2026-09-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
@@ -73,7 +42,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T00:35:38.161Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -336,6 +304,43 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "title": "Futtermittelinspektor/in",
+      "slug": "futtermittelinspektor-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/futtermittelinspektor-in/91dbc73e-9ddd-4e45-afbb-43828163217f",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20093",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux, Schweiz",
+      "addressLocality": "Posieux",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-26",
+      "validThrough": "2026-09-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-1172f22c489c",
+      "needsRetranslation": true,
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T14:09:40.655Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
         "completeness": 19
       }
     }

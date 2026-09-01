@@ -11049,6 +11049,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.origgio-tragedia-cantiere-2026.title': 'Tragédie sur le chantier d’Origgio : un homme de 55 ans est décédé',
     'blog.article.origgio-tragedia-cantiere-2026.excerpt': 'Un homme de 55 ans a perdu la vie dans un accident de travail à Origgio. Davide Bellotto de Fillea Cgil Varese : « Nous ne connaissons pas encore les détails »',
     'blog.article.origgio-tragedia-cantiere-2026.imageAlt': 'Scène d\'un chantier à Origgio après une tragédie sur le lieu de travail',
+    'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: crédit difficile bloque investissements PMI Nord',
+    'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Rapport Confapi sur 2 000 PME : 60 % en difficulté en raison de la géopolitique et du crédit. Impact direct sur l’emploi et les salaires des travailleurs transfrontaliers de Varèse-Tessin.',
+    'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Zone industrielle de Mendrisio à la frontière avec la province de Varèse, Tessin',
+    'blog.article.tariffe-ail-2027-stabili.title': 'Tarifs ail 2027 : Pas d\'augmentation pour l’énergie',
+    'blog.article.tariffe-ail-2027-stabili.excerpt': 'Les tarifs de l\'électricité et du gaz ail resteront stables en 2027, grâce à la stratégie d\'achat échelonné et aux investissements dans les énergies renouvelables.',
+    'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Vue aérienne de Lugano avec des bâtiments industriels et des infrastructures énergétiques',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'Hôpitaux EOC au Tessin : recherche ANQ détecte les lumières et les ombres',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'L\'enquête nationale ANQ récompense les hôpitaux tessinois (75 % de patients satisfaits), mais signale des marges d\'amélioration de la communication pendant les attentes.',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Service d\'hospitalisation de l\'EOC au Tessin avec personnel médical communiquant avec un patient',
 };
 
 export default blogMetaFr;

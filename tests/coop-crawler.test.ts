@@ -5,9 +5,12 @@ import { describe, it, expect } from 'vitest';
 import {
   assertCoopAdapterParity,
   assertCompleteCoopDiscovery,
+  assertCoopSingleCompanyKeyScope,
   buildCoopAdapterConfig,
   ensureAdapterSeedUrls,
   fetchCoopJobDetailUrls,
+  findUnrecognizedCoopDivisions,
+  isCoopJob,
 } from '../scripts/update-coop-jobs.mjs';
 import { fingerprintJob } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
@@ -852,5 +855,59 @@ describe('buildCoopTranslationCacheEntry — redirect-history preservation (#296
     const b = buildCoopTranslationCacheEntry(jobWithHistory);
     expect(a).toEqual(b);
     expect(a).not.toHaveProperty('cachedAt');
+  });
+});
+
+describe('findUnrecognizedCoopDivisions (#6945 item 1)', () => {
+  it('flags a Coop-scoped job whose company text is not in the allowlist', () => {
+    const jobs = [
+      { companyKey: 'coop-ticino', company: 'Coop' },
+      { companyKey: 'coop-ticino', company: 'Some New Coop Division AG' },
+    ];
+    expect(isCoopJob(jobs[0])).toBe(true);
+    expect(isCoopJob(jobs[1])).toBe(false);
+    expect(findUnrecognizedCoopDivisions(jobs)).toEqual(['Some New Coop Division AG']);
+  });
+
+  it('ignores jobs scoped to a different crawler', () => {
+    const jobs = [
+      { companyKey: 'fust', company: 'Fust' },
+      { companyKey: 'jumbo', company: 'Jumbo' },
+    ];
+    expect(findUnrecognizedCoopDivisions(jobs)).toEqual([]);
+  });
+
+  it('returns no entries when every Coop-scoped job matches the allowlist', () => {
+    const jobs = [
+      { companyKey: 'coop-ticino', company: 'Coop City' },
+      { companyKey: 'coop-ticino', company: 'coop.ch' },
+    ];
+    expect(findUnrecognizedCoopDivisions(jobs)).toEqual([]);
+  });
+
+  it('dedupes repeated unrecognized company names', () => {
+    const jobs = [
+      { companyKey: 'coop-ticino', company: 'Mystery Coop Brand' },
+      { companyKey: 'coop-ticino', company: 'Mystery Coop Brand' },
+    ];
+    expect(findUnrecognizedCoopDivisions(jobs)).toEqual(['Mystery Coop Brand']);
+  });
+});
+
+describe('assertCoopSingleCompanyKeyScope (#6945 item 2)', () => {
+  it('passes when no company key scope is pre-set in env', () => {
+    expect(() => assertCoopSingleCompanyKeyScope({})).not.toThrow();
+  });
+
+  it('passes when the pre-set scope is only coop-ticino itself', () => {
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEYS: 'coop-ticino' })).not.toThrow();
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEY: 'Coop-Ticino' })).not.toThrow();
+  });
+
+  it('fails closed when an extraneous company key has leaked into the scope', () => {
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEYS: 'coop-ticino,fust' }))
+      .toThrow(/sole company-key scope/);
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEY: 'jumbo' }))
+      .toThrow(/sole company-key scope/);
   });
 });

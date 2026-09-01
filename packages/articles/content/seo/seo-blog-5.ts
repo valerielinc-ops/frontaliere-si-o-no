@@ -81737,6 +81737,123 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confapi-pmi-varese-credito-2026': {
+    title: 'Confapi: credito difficile blocca investimenti PMI Nord',
+    description: 'Rapporto Confapi su 2.000 PMI: 60% in difficoltà per geopolitica e credito. Impatto diretto su occupazione e salari dei frontalieri Varese-Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, confapi, credito, difficile, blocca',
+    ogTitle: 'Confapi: credito difficile blocca investimenti PMI Nord',
+    ogDescription: 'Il rapporto Confapi su 2.000 PMI italiane mostra produzione in calo per il 60%, ordini in contrazione per il 64,18%. Tensioni geopolitiche e credito difficile frenano assunzioni nei settori Varese. Impatto diretto sui salari e occupazione',
+    canonicalPath: '/articoli-frontaliere/confapi-pmi-varese-credito-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confapi: credito difficile blocca investimenti PMI Nord",
+      "description": "Rapporto Confapi su 2.000 PMI: 60% in difficoltà per geopolitica e credito. Impatto diretto su occupazione e salari dei frontalieri Varese-Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confapi-pmi-varese-credito-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area industriale di Mendrisio al confine con la provincia di Varese, Ticino"
+      },
+      "datePublished": "2026-09-01T15:51:24+00:00",
+      "dateModified": "2026-09-01T15:51:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confapi-pmi-varese-credito-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tariffe-ail-2027-stabili': {
+    title: 'Tariffe AIL 2027: Nessun Aumento per l’Energia',
+    description: 'Le tariffe di elettricità e gas AIL rimarranno stabili nel 2027, nonostante le tensioni geopolitiche e l\'instabilità nel mercato del gas. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tariffe, nessun, aumento, energia',
+    ogTitle: 'Tariffe AIL 2027: Nessun Aumento per l’Energia',
+    ogDescription: 'Le tariffe di elettricità e gas AIL rimarranno stabili nel 2027, grazie alla strategia di acquisto scaglionato e agli investimenti nelle rinnovabili.',
+    canonicalPath: '/articoli-frontaliere/tariffe-ail-2027-stabili',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tariffe AIL 2027: Nessun Aumento per l’Energia",
+      "description": "Le tariffe di elettricità e gas AIL rimarranno stabili nel 2027, nonostante le tensioni geopolitiche e l'instabilità nel mercato del gas. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tariffe-ail-2027-stabili.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con edifici industriali e infrastrutture energetiche"
+      },
+      "datePublished": "2026-09-01T19:27:51+00:00",
+      "dateModified": "2026-09-01T19:27:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tariffe-ail-2027-stabili/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-eoc-ospedali-comunicazione-pazienti': {
+    title: 'Ospedali EOC in Ticino: ricerca ANQ rileva luci e ombre',
+    description: 'La ricerca ANQ 2025 premia gli ospedali ticinesi (75% pazienti soddisfatti), ma segnala criticità nella comunicazione durante le attese. Lugano e Bellinzona più',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedali, ricerca, rileva, luci',
+    ogTitle: 'Ospedali EOC: 75% pazienti soddisfatti, serve comunicazione',
+    ogDescription: 'L\'indagine ANQ 2025 sull\'Ente ospedaliero cantonale ticinese rivela risultati positivi complessivi (75% pazienti), ma evidenzia margini di miglioramento nella comunicazione durante le attese in ammissione. Gli ospedali più grandi registrano più',
+    canonicalPath: '/articoli-frontaliere/eoc-ospedali-comunicazione-pazienti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedali EOC in Ticino: ricerca ANQ rileva luci e ombre",
+      "description": "La ricerca ANQ 2025 premia gli ospedali ticinesi (75% pazienti soddisfatti), ma segnala criticità nella comunicazione durante le attese. Lugano e Bellinzona più",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eoc-ospedali-comunicazione-pazienti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Reparto di ricovero ospedaliero dell'EOC in Ticino con personale medico che comunica con un paziente"
+      },
+      "datePublished": "2026-09-01T20:22:04+00:00",
+      "dateModified": "2026-09-01T20:22:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eoc-ospedali-comunicazione-pazienti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

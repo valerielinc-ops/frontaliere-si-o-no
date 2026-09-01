@@ -1,18 +1,49 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-09-01T10:56:56.123Z",
-  "total": 7,
-  "newCount": 0,
+  "generatedAt": "2026-09-01T17:55:44.461Z",
+  "total": 8,
+  "newCount": 1,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6636,
-  "avgDurationMs": 6636,
+  "durationMs": 5629,
+  "avgDurationMs": 5629,
   "durationHistory": [
-    6636
+    5629
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Marketing Manager",
+      "slug": "marketing-manager-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Marketing-Manager/1366255755/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1366255755/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-01",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Consolidation & Reporting Specialist",

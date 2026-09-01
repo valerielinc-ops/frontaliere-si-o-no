@@ -1,11 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import {
   assertNoOverlappingJobs,
   ISSUE_6759_COVERAGE,
   ISSUE_6797_SHARED_BOARD_TRANSFERS,
+  localeRouteKeys,
   mergeRetiredCrawlerJobs,
+  mergeRetiredCrawlerArchive,
   RETIREMENTS,
   SHARED_BOARD_TRANSFERS,
   transferSlugHistory,
@@ -13,6 +15,7 @@ import {
   transferOverlappingJobs,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { resolveBrandCanonical } from '../build-plugins/shared/brandCanonicalMap.mjs';
 
 interface FixtureJob {
@@ -67,6 +70,76 @@ describe('issue #6759 reconciliation', () => {
     for (const { retired } of RETIREMENTS) {
       expect(trackedSummaries.has(`data/jobs-crawler-summaries/by-crawler/${retired}.json`)).toBe(false);
     }
+  });
+
+  it('does not leave retired active slices available to stale data writers', () => {
+    for (const { retired } of RETIREMENTS) {
+      expect(existsSync(`data/jobs/by-crawler/${retired}.json`)).toBe(false);
+    }
+  });
+
+  it('does not register retired aliases as runnable writers or HQ identities', () => {
+    const roster = JSON.parse(readFileSync('scripts/ci/crawler-generation-roster.json', 'utf8'));
+    const groupedCrawlerIds = new Set(Object.values(roster.groups).flat());
+    const workflowFiles = execFileSync(
+      'git',
+      ['ls-files', '.github/workflows/crawler-group-*-logic.yml'],
+      { encoding: 'utf8' },
+    ).trim().split('\n').filter(Boolean);
+    const workflowSource = workflowFiles.map((file) => readFileSync(file, 'utf8')).join('\n');
+    for (const { retired } of RETIREMENTS) {
+      expect(groupedCrawlerIds.has(retired)).toBe(false);
+      expect(Object.hasOwn(roster.primarySlices, retired)).toBe(false);
+      expect(existsSync(`scripts/update-${retired}-jobs.mjs`)).toBe(false);
+      expect(existsSync(`scripts/lib/${retired}-job-parser.mjs`)).toBe(false);
+      expect(Object.hasOwn(COMPANY_HQ, retired)).toBe(false);
+      expect(workflowSource).not.toMatch(
+        new RegExp(`data/jobs/by-crawler/${retired}\\.json(?:\\s|$)`),
+      );
+    }
+  });
+
+  it('keeps retired expired archives absent and canonical archives route-unique', () => {
+    for (const { retired, canonical } of RETIREMENTS) {
+      expect(existsSync(`data/jobs/expired/by-crawler/${retired}.json`)).toBe(false);
+      const canonicalJobs = JSON.parse(
+        readFileSync(`data/jobs/expired/by-crawler/${canonical}.json`, 'utf8'),
+      );
+      const routeOwners = new Map<string, number>();
+      canonicalJobs.forEach((entry: FixtureJob, index: number) => {
+        expect(entry.companyKey).toBe(canonical);
+        for (const route of localeRouteKeys(entry)) {
+          expect(routeOwners.has(route)).toBe(false);
+          routeOwners.set(route, index);
+        }
+      });
+    }
+  });
+
+  it('merges expired aliases by locale route without losing soft landings', () => {
+    const canonical = job('canonical', '1', 'canonical-current');
+    canonical.previousSlugs = [];
+    canonical.previousSlugsByLocale = { de: ['shared-route'] };
+    const retiredDuplicate = job('retired', '9', 'retired-current');
+    retiredDuplicate.previousSlugs = [];
+    retiredDuplicate.previousSlugsByLocale = { de: ['shared-route'], fr: ['retired-fr-history'] };
+    const retiredUnique = job('retired', '10', 'retired-unique');
+    const beforeRoutes = new Set([
+      ...localeRouteKeys(canonical),
+      ...localeRouteKeys(retiredDuplicate),
+      ...localeRouteKeys(retiredUnique),
+    ]);
+
+    const result = mergeRetiredCrawlerArchive(
+      [canonical],
+      [retiredDuplicate, retiredUnique],
+      'canonical',
+    );
+    const afterRoutes = new Set(result.jobs.flatMap((entry) => [...localeRouteKeys(entry)]));
+
+    expect(result).toMatchObject({ collapsed: 1, rehomed: 1 });
+    expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
+    expect(result.jobs.every((entry) => entry.companyKey === 'canonical')).toBe(true);
   });
 
   it('collapses matching aliases while preserving active and historical routes', () => {

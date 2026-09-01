@@ -118,7 +118,12 @@ export function parseLaderachNextDataJobs(jobs) {
   for (const item of jobs) {
     if (!item || !item.title) continue;
     const jobId = String(item.jobPostingId || '');
-    const url = normalizeLaderachJobUrl(item.link);
+    // A malformed/relocated item.link would previously still be accepted as-is
+    // (pre-source-origin-restriction); now that normalizeLaderachJobUrl gates
+    // strictly, fall back to a URL rebuilt from the known-safe jobId+slug
+    // pattern instead of dropping the job outright.
+    const url = normalizeLaderachJobUrl(item.link)
+      || (/^\d+$/.test(jobId) ? normalizeLaderachJobUrl(`/jobs/${jobId}/${slugify(item.title)}/`) : null);
     if (!url || seen.has(url)) continue;
     seen.add(url);
 

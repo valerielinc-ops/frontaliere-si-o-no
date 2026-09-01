@@ -10,6 +10,10 @@ import {
   serializeTranslationDerivedPatchV2,
   validateTranslationDerivedPatchV2,
 } from '../scripts/lib/translation-derived-patch-v2.mjs';
+import {
+  createTranslationUnitIdentityV2,
+  digestTranslationDocumentV2,
+} from '../scripts/lib/translation-unit-identity-v2.mjs';
 
 const JOB = {
   url: 'https://jobs.example.test/positions/123456/',
@@ -146,5 +150,70 @@ describe('translation derived patch v2', () => {
       candidate: descriptionCandidate,
     });
     expect(descriptionPatch.destination.localeFieldPath).toBe('descriptionByLocale.fr');
+  });
+
+  it('allows exactly the four canonical job target locales without narrowing source locales', () => {
+    for (const targetLocale of ['it', 'en', 'de', 'fr']) {
+      const job = { ...JOB, sourceLang: targetLocale === 'de' ? 'it-CH' : 'de-CH' };
+      const patch = createTranslationDerivedPatchV2({
+        crawlerKey: 'example-crawler',
+        job,
+        fieldPath: 'title',
+        targetLocale,
+        candidate: candidateFor(job, 'title', targetLocale),
+      });
+
+      expect(patch.destination.targetLocale).toBe(targetLocale);
+      expect(patch.identity.sourceLocale).toBe(job.sourceLang.toLowerCase());
+    }
+  });
+
+  it.each(['IT', 'it-CH', 'es', ' it'])(
+    'rejects unsupported or non-canonical target locale %s on create',
+    (targetLocale) => {
+      expect(() => createTranslationDerivedPatchV2({
+        crawlerKey: 'example-crawler',
+        job: JOB,
+        fieldPath: 'title',
+        targetLocale,
+        candidate: candidateFor(JOB),
+      })).toThrow(/targetLocale must be it, en, de or fr/);
+    },
+  );
+
+  it('rejects a coherent persisted patch whose target locale is outside the job allowlist', () => {
+    const targetLocale = 'it-CH';
+    const identity = createTranslationUnitIdentityV2({
+      kind: 'job',
+      fieldPath: 'title',
+      sourceLocale: JOB.sourceLang,
+      targetLocale,
+      sourceText: JOB.title,
+      context: canonicalJobTranslationContextV2(JOB),
+    });
+    const memory = recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), {
+      identity,
+      engineVersion: 'engine-2',
+      gateVersion: 'gate-3',
+      outputText: 'Sviluppatrice senior',
+      status: 'validated',
+      evidence: [],
+    });
+    const basePatch = patchFor();
+    const payload = {
+      candidate: memory.records[0].candidates[0],
+      destination: {
+        fieldPath: 'title',
+        localeFieldPath: `titleByLocale.${targetLocale}`,
+        targetLocale,
+      },
+      identity,
+      schemaVersion: basePatch.schemaVersion,
+      target: basePatch.target,
+    };
+    const persisted = { ...payload, patchHash: digestTranslationDocumentV2(payload) };
+
+    expect(() => validateTranslationDerivedPatchV2(persisted))
+      .toThrow(/targetLocale must be it, en, de or fr/);
   });
 });
