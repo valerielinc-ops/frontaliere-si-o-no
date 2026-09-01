@@ -1,7 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchDavosKlostersBergbahnenDetailPage,
   parseDavosKlostersBergbahnenListingHtml,
   parseDavosKlostersBergbahnenDetailHtml,
+  normalizeDavosKlostersBergbahnenJobUrl,
   slugify,
   stripHtml,
   inferEmploymentType,
@@ -104,6 +106,31 @@ const SAMPLE_DETAIL_HTML = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Davos Klosters Bergbahnen job parser', () => {
+  describe('normalizeDavosKlostersBergbahnenJobUrl', () => {
+    it('allows only relative or same-origin HTTPS Davos job routes', () => {
+      const path = '/de/mountains/stellenangebote/Betriebselektriker-in_j_1234';
+      expect(normalizeDavosKlostersBergbahnenJobUrl(path))
+        .toBe(`https://www.davosklostersmountains.ch${path}`);
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`https://www.davosklostersmountains.ch${path}`))
+        .toBe(`https://www.davosklostersmountains.ch${path}`);
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`https://attacker.example${path}`)).toBeNull();
+      expect(normalizeDavosKlostersBergbahnenJobUrl(`http://www.davosklostersmountains.ch${path}`)).toBeNull();
+      expect(normalizeDavosKlostersBergbahnenJobUrl('https://www.davosklostersmountains.ch/de/mountains/events/1234')).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchDavosKlostersBergbahnenDetailPage(
+          'https://attacker.example/de/mountains/stellenangebote/Betriebselektriker-in_j_1234',
+        )).resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('parseDavosKlostersBergbahnenListingHtml', () => {
     it('extracts job cards from real HTML structure', () => {
       const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
