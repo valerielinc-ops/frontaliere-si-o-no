@@ -236,6 +236,37 @@ export function findUnrecognizedCoopDivisions(allJobs) {
 }
 
 /**
+ * Fail-closed guard for #6945 item 2: pruneStaleCrawlerJobs's legacy-alias
+ * fallback (shared-jobs-crawler.mjs) only resolves a bare company-name match
+ * to this crawler's companyKey when it is scoped to exactly ONE company key
+ * (`scopeCompanyKeys.size === 1`). That invariant held only by construction —
+ * update-coop-jobs.mjs always passed the literal `COOP_KEY` — never
+ * verified. If any pre-existing `JOBS_CRAWLER_COMPANY_KEYS`/
+ * `JOBS_CRAWLER_COMPANY_KEY` env value ever leaked into this process before
+ * runDedicatedBaseCrawler merges it with COOP_KEY (env pollution from a
+ * misconfigured caller, a future refactor, or a shared-shell CI step), the
+ * scope would silently widen past one key, the alias fallback would go
+ * silently inert, and legitimate Coop jobs with only a legacy `company` text
+ * match would fail-closed out of the lifecycle with no signal — precisely
+ * the failure mode this crawler is supposed to fail LOUDLY against instead.
+ */
+export function assertCoopSingleCompanyKeyScope(env = process.env) {
+  const preExisting = String(env.JOBS_CRAWLER_COMPANY_KEYS || env.JOBS_CRAWLER_COMPANY_KEY || '')
+    .split(',')
+    .map((key) => normalizeKey(key))
+    .filter(Boolean);
+  const scope = new Set([...preExisting, COOP_KEY]);
+  if (scope.size !== 1) {
+    throw new Error(
+      `Coop crawler invariant failed: expected sole company-key scope ['${COOP_KEY}'], got [${[...scope].join(', ')}] — `
+      + 'JOBS_CRAWLER_COMPANY_KEYS/JOBS_CRAWLER_COMPANY_KEY already held extraneous key(s) before this crawler ran. '
+      + "The legacy-alias fallback in pruneStaleCrawlerJobs assumes a single scoped company key; a wider scope would "
+      + 'silently disable it and could fail-closed-drop legitimate Coop jobs.'
+    );
+  }
+}
+
+/**
  * Check whether a URL belongs to one of Coop's trusted domains.
  */
 function isTrustedCoopDomain(rawUrl = '') {
@@ -678,6 +709,7 @@ function saveCoopTranslationsCache() {
 }
 
 function runBaseCrawler() {
+  assertCoopSingleCompanyKeyScope();
   return runDedicatedBaseCrawler({
     root: ROOT,
     companyKeys: COOP_KEY,
