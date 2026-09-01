@@ -1,6 +1,6 @@
 {
   "crawlerKey": "grace-la-margna",
-  "assembledAt": "2026-09-01T00:49:14.965Z",
+  "assembledAt": "2026-09-01T07:36:21.280Z",
   "jobs": [
     {
       "title": "Assistant Outlet Manager - be the spark of great hospitality",
@@ -38,13 +38,13 @@
         "fr": "QUI avons-nous BESOIN Nous recherchons des talents ambitieux qui deviendront les créateurs du nouvel hôtel légendaire renaissant dans l'une des stations alpines les plus prestigieuses du monde. Vous attendez plus qu'un emploi ? Alors, faisons la GRÂCE ensemble ! QUE FEREZ-VOUS ? Soutenir le responsable du point de vente dans la supervision des opérations quotidiennes et assurer un service fluide et efficace. Superviser, motiver et encadrer l'équipe pour maintenir des normes élevées de service et de professionnalisme. Assurer une qualité constante de la nourriture, des boissons, de la présentation et de l'expérience globale des voyageurs. Aider à la planification du personnel, aux briefings quotidiens, à la répartition des tâches et à la coordination opérationnelle. Surveillez la satisfaction des clients et gérez les commentaires, les demandes et les plaintes de manière professionnelle. Soutenir le contrôle des stocks, la gestion des stocks, la commande et la bonne manipulation des produits de restauration. Assurer le respect de l'hygiène, de la sécurité alimentaire, de la santé et des normes et procédures de l'entreprise. Agir en tant que responsable du point de vente en son absence et assurer la continuité des opérations et des normes de service. VOS +côtés Votre sourire est contagieux et vous traitez les gens comme s'ils étaient vos meilleurs amis Vous faites un effort supplémentaire pour faire la meilleure première et dernière impression Vous êtes un joueur d'équipe et aimez aider les autres Vous avez un fort intérêt pour l'hospitalité et vous êtes impatient d'apprendre Vous pouvez multi-tâches et travailler dans un environnement au rythme rapide Vous menez avec exemple et fierté Vous aimez essayer de nouvelles choses et emprunter un chemin différent Vous aimez pousser votre zone de confort à la limite Les voyageurs viennent toujours"
       },
       "slugByLocale": {
-        "en": "assistant-outlet-manager-be-the-spark-of-great-hospitality",
         "it": "assistant-outlet-manager-essere-la-scintilla-di-una-grande-ospitalita-grace-la-margna-st-moritz-st-moritz",
+        "en": "assistant-outlet-manager-be-the-spark-of-great-hospitality",
         "de": "assistent-outlet-manager-be-the-spark-of-great-hospitality-grace-la-margna-st-moritz-st-moritz",
         "fr": "assistant-outlet-manager-soyez-l-etincelle-d-une-grande-hospitalite-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:13.990Z",
+      "crawledAt": "2026-09-01T07:35:41.542Z",
       "id": "grace-la-margna-675ec72d2b14",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -63,6 +63,7 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:42.182Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistant-outlet-manager-be-the-spark-of-great-hospitality"
@@ -120,7 +121,7 @@
         "fr": "greffier-de-l-arriere-de-la-chambre-etre-l-epine-dorsale-des-operations-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:18.818Z",
+      "crawledAt": "2026-09-01T07:35:46.047Z",
       "id": "grace-la-margna-8c67600e0104",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -138,6 +139,8 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-28T05:37:26.527Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "back-of-house-clerk-be-the-backbone-of-the-operations"
@@ -151,8 +154,7 @@
       },
       "previousSlugs": [
         "back-of-house-clerk-be-the-backbone-of-the-operations"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Event Manager- be the spark behind every celebration",
@@ -196,7 +198,7 @@
         "fr": "gestionnaire-d-evenements-soyez-l-etincelle-derriere-chaque-celebration-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:23.424Z",
+      "crawledAt": "2026-09-01T07:35:52.504Z",
       "id": "grace-la-margna-d29647cbfed5",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -214,6 +216,8 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-25T22:00:27.623Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "event-manager-be-the-spark-behind-every-celebration"
@@ -227,8 +231,7 @@
       },
       "previousSlugs": [
         "event-manager-be-the-spark-behind-every-celebration"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "F&B Manager - be the heart of hospitality",
@@ -260,19 +263,19 @@
         "fr": "Responsable F&B - soyez le cœur de l'hospitalité"
       },
       "descriptionByLocale": {
-        "it": "CHI CI SERVE \n• Cerchiamo talenti ambiziosi che diventino i modellatori del nuovo e rinato leggendario hotel in uno dei resort alpini più prestigiosi al mondo. Ti aspetti qualcosa di più di un lavoro? Allora GRACE insieme! COSA FARAI? Supervisionare le operazioni quotidiane di tutti i punti vendita Food & Beverage, garantendo un servizio fluido ed efficiente. Guidare, supervisionare e motivare i team di restaurazione per offrire un servizio eccellente agli ospiti. Reclutare, formare, allenare e sviluppare i membri del team mantenendo alti standard di prestazioni. Garantire standard costantemente elevati di qualità del cibo, delle bevande, della presentazione e del servizio agli ospiti. Monitorare la soddisfazione degli ospiti e gestire con professionalità feedback, reclami e recupero del servizio. Gestire personale, programmazione e requisiti operativi quotidiani per garantire prestazioni ottimali del team. Controlla i costi di cibo, bevande, manodopera e operativi massimizzando ricavi e redditività Supervisiona acquisti, inventario, controllo delle scorte e relazioni con i fornitori per mantenere qualità ed efficienza dei costi Garantire la piena conformità agli standard di sicurezza alimentare, igiene, salute e sicurezza sul lavoro Pianificare ed eseguire eventi e funzioni speciali in collaborazione con i dipartimenti competenti Monitorare le prestazioni operative, preparare report e implementare iniziative per migliorare continuamente efficienza, qualità del servizio ed esperienza degli ospiti I tuoi +lati Il tuo sorriso è contagioso e tratti le persone come se fossero i tuoi migliori amici Fai di più per fare la migliore prima e ultima impressione Sei un giocatore di squadra e ti piace aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi fare più cose contemporaneamente e lavorare in un ambiente frenetico Guida con esempio e orgoglio Ami provare cose nuove e seguire una strada diversa Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima di te Lingue, tedesco, inglese e italiano sono una delle tue esperienze COSA C'È DA FARE A GRACE? Diventa un pioniere per la prima apertura di hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso dove le persone vengono messe al primo posto Grace House per i talenti Opportunità di apprendimento pratico e formazione Sconti per cibo e attività sportive gratuite Uniforme cool di un marchio internazionale di abbigliamento di lusso Se necessario, alloggi all'avanguardia E molto, molto altro... UN'ALTRA COSA 43,5 ore lavorative settimanali secondo L-GAV 35 giorni di ferie secondo L-GAV 13 stipendi mensili secondo L-GAV Salario sopra il minimo L-GAV",
+        "it": "CHI CI SERVE\n• Cerchiamo talenti ambiziosi che diventino i modellatori del nuovo e rinato leggendario hotel in uno dei resort alpini più prestigiosi al mondo. Ti aspetti qualcosa di più di un lavoro? Allora GRACE insieme! COSA FARAI? Supervisionare le operazioni quotidiane di tutti i punti vendita Food & Beverage, garantendo un servizio fluido ed efficiente. Guidare, supervisionare e motivare i team di restaurazione per offrire un servizio eccellente agli ospiti. Reclutare, formare, allenare e sviluppare i membri del team mantenendo alti standard di prestazioni. Garantire standard costantemente elevati di qualità del cibo, delle bevande, della presentazione e del servizio agli ospiti. Monitorare la soddisfazione degli ospiti e gestire con professionalità feedback, reclami e recupero del servizio. Gestire personale, programmazione e requisiti operativi quotidiani per garantire prestazioni ottimali del team. Controlla i costi di cibo, bevande, manodopera e operativi massimizzando ricavi e redditività Supervisiona acquisti, inventario, controllo delle scorte e relazioni con i fornitori per mantenere qualità ed efficienza dei costi Garantire la piena conformità agli standard di sicurezza alimentare, igiene, salute e sicurezza sul lavoro Pianificare ed eseguire eventi e funzioni speciali in collaborazione con i dipartimenti competenti Monitorare le prestazioni operative, preparare report e implementare iniziative per migliorare continuamente efficienza, qualità del servizio ed esperienza degli ospiti I tuoi +lati Il tuo sorriso è contagioso e tratti le persone come se fossero i tuoi migliori amici Fai di più per fare la migliore prima e ultima impressione Sei un giocatore di squadra e ti piace aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi fare più cose contemporaneamente e lavorare in un ambiente frenetico Guida con esempio e orgoglio Ami provare cose nuove e seguire una strada diversa Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima di te Lingue, tedesco, inglese e italiano sono una delle tue esperienze COSA C'È DA FARE A GRACE? Diventa un pioniere per la prima apertura di hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso dove le persone vengono messe al primo posto Grace House per i talenti Opportunità di apprendimento pratico e formazione Sconti per cibo e attività sportive gratuite Uniforme cool di un marchio internazionale di abbigliamento di lusso Se necessario, alloggi all'avanguardia E molto, molto altro... UN'ALTRA COSA 43,5 ore lavorative settimanali secondo L-GAV 35 giorni di ferie secondo L-GAV 13 stipendi mensili secondo L-GAV Salario sopra il minimo L-GAV",
         "en": "WHO WE NEED We are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world. Are you expecting more than a job? Then let’s GRACE together! WHAT WILL YOU DO? Oversee the daily operations of all Food & Beverage outlets, ensuring smooth and efficient service Lead, supervise, and motivate F&B teams to deliver excellent guest service Recruit, train, coach, and develop team members while maintaining high performance standards Ensure consistently high standards of food quality, beverage quality, presentation, and guest service Monitor guest satisfaction and handle feedback, complaints, and service recovery professionally Manage staffing, scheduling, and daily operational requirements to ensure optimal team performance. Control food, beverage, labor, and operating costs while maximizing revenue and profitability Oversee purchasing, inventory, stock control, and supplier relationships to maintain quality and cost efficiency Ensure full compliance with food safety, hygiene, health, and workplace safety standards Plan and execute events and special functions in collaboration with relevant departments Monitor operational performance, prepare reports, and implement initiatives to continuously improve efficiency, service quality, and guest experience YOUR +sides Your smile is infectious and you treat people as if they were your best friends You go the extra mile to make the best first and last impression You are a team player and enjoy helping others You have a strong interest in hospitality and you are eager to learn You can multi-task and work in a fast-paced environment You lead with example and pride You love to try new things and go a different path You like to push your comfort zone to the edge Guests always come first to you Languages German, English and Italian are one of your stenght WHAT’S IN FOR YOU AT GRACE? Become a pioneer for the first hotel opening to happen in 100 years in St. Moritz in this segment Fun, collaborative and caring environment where people are put first Grace House for talents Hands-on learning and training opportunities F&B discounts & sporting activities free of charge Cool uniform from an international luxury clothing brand If needed state-of-the-art accommodation And much, much more… ONE MORE THING 43.5 hours working week according to L-GAV 35 days of holiday according to L-GAV 13 monthly salaries according to L-GAV Wage above L-GAV minimum",
         "de": "WEN wir BRAUCHEN Wir suchen ambitionierte Talente, die zu Gestaltern des neugeborenen legendären Hotels in einem der renommiertesten Alpenresorts der Welt werden. Erwarten Sie mehr als einen Job? Dann lasst uns gemeinsam ANMUTIG sein! WAS WERDEN SIE TUN? Überwachen Sie den täglichen Betrieb aller Food & Beverage-Filialen und sorgen Sie für einen reibungslosen und effizienten Service Führen, überwachen und motivieren Sie F&B-Teams, um einen exzellenten Gästeservice zu bieten Rekrutieren, schulen, coachen und entwickeln Sie Teammitglieder unter Einhaltung hoher Leistungsstandards Gewährleisten Sie gleichbleibend hohe Standards für Lebensmittelqualität, Getränkequalität, Präsentation und Gästeservice Überwachen Sie die Gästezufriedenheit und bearbeiten Sie Feedback, Beschwerden und Service-Rückgewinnung professionell Verwalten Sie Personal-, Terminplanungs- und tägliche Betriebsanforderungen, um eine optimale Teamleistung zu gewährleisten. Kontrolle der Lebensmittel-, Getränke-, Arbeits- und Betriebskosten bei gleichzeitiger Maximierung von Umsatz und Rentabilität Überwachung von Einkauf, Lagerhaltung, Bestandskontrolle und Lieferantenbeziehungen zur Aufrechterhaltung von Qualität und Kosteneffizienz Gewährleistung der vollständigen Einhaltung der Standards für Lebensmittelsicherheit, Hygiene, Gesundheit und Arbeitssicherheit Planen und Ausführen von Veranstaltungen und Sonderfunktionen in Zusammenarbeit mit den zuständigen Abteilungen Überwachung der Betriebsleistung, Erstellung von Berichten und Umsetzung von Initiativen zur kontinuierlichen Verbesserung der Effizienz, Servicequalität und des Gästeerlebnisses IHRE +Seiten Ihr Lächeln ist ansteckend und Sie behandeln die Menschen so, als wären sie Ihre besten Freunde Sie gehen die extra Meile, um das Beste zuerst und zuletzt zu machen",
         "fr": "QUI avons-nous BESOIN Nous recherchons des talents ambitieux qui deviendront les créateurs du nouvel hôtel légendaire renaissant dans l'une des stations alpines les plus prestigieuses du monde. Vous attendez plus qu'un emploi ? Alors, faisons la GRÂCE ensemble ! QUE FEREZ-VOUS ? Superviser les opérations quotidiennes de tous les points de vente de produits alimentaires et de boissons, en veillant à ce que le service soit fluide et efficace. Diriger, superviser et motiver les équipes de restauration pour fournir un excellent service à la clientèle. Recruter, former, encadrer et développer les membres de l'équipe tout en maintenant des normes de performance élevées. Assurer des normes constamment élevées en matière de qualité des aliments, de qualité des boissons, de présentation et de service à la clientèle. Surveiller la satisfaction des clients et gérer les commentaires, les plaintes et le rétablissement du service de manière professionnelle. Gérer la dotation, la planification et les exigences opérationnelles quotidiennes pour assurer une performance optimale de l'équipe. Contrôler les coûts des aliments, des boissons, de la main-d' œuvre et de l'exploitation tout en maximisant les revenus et la rentabilité Superviser les achats, les stocks, le contrôle des stocks et les relations avec les fournisseurs pour maintenir la qualité et l'efficacité des coûts Assurer le plein respect des normes de sécurité alimentaire, d'hygiène, de santé et de sécurité au travail Planifier et exécuter des événements et des fonctions spéciales en collaboration avec les départements concernés Surveiller les performances opérationnelles, préparer des rapports et mettre en œuvre des initiatives pour améliorer continuellement l'efficacité, la qualité du service et l'expérience des clients Votre sourire est contagieux et vous traitez les gens comme s'ils étaient vos meilleurs amis Vous faites un effort supplémentaire pour faire le meilleur en premier et en dernier"
       },
       "slugByLocale": {
-        "en": "f-b-manager-be-the-heart-of-hospitality-grace-la-margna-st-moritz-st-moritz",
         "it": "f-b-manager-essere-il-cuore-dell-ospitalita-grace-la-margna-st-moritz-st-moritz",
+        "en": "f-b-manager-be-the-heart-of-hospitality-grace-la-margna-st-moritz-st-moritz",
         "de": "f-b-manager-sei-das-herz-der-gastfreundschaft-grace-la-margna-st-moritz-st-moritz",
         "fr": "responsable-f-b-soyez-le-c-ur-de-l-hospitalite-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:35.191Z",
+      "crawledAt": "2026-09-01T07:35:57.244Z",
       "id": "grace-la-margna-904ca01fa2ea",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -291,6 +294,7 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:54.488Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "f-b-manager-be-the-heart-of-hospitality"
@@ -336,7 +340,7 @@
         "fr": "Stagiaire en restauration - lance votre carrière chez nous"
       },
       "descriptionByLocale": {
-        "it": "CHI CI SERVE \n• Cerchiamo talenti ambiziosi che diventino i modellatori del nuovo e rinato leggendario hotel in una delle località alpine più prestigiose al mondo. Ti aspetti qualcosa di più di un lavoro? Allora REGALIAMOCI insieme dall'autunno 2026! COSA FARAI? Consegnare cibo e bevande con precisione, cura e attenzione ai dettagli Fornire un servizio personalizzato e attento su misura per ogni ospite Fornire un servizio personalizzato e attento su misura per ogni ospite Creare esperienze culinarie memorabili, durature e individualizzate Creare esperienze culinarie memorabili, durature e individualizzate Assumersi la responsabilità di tutti gli aspetti del processo operativo e supportare il fluido funzionamento del ristorante Assumersi la responsabilità di tutti gli aspetti del processo operativo e supportare le operazioni fluide del ristorante Assistere nella preparazione e nell'esecuzione impeccabile degli eventi Assistere nella preparazione e nell'esecuzione impeccabile degli eventi Mantenere i più alti standard di servizio, presentazione e ambiente al ristorante Mantenere i più alti standard di servizio, presentazione e ambiente al ristorante Anticipare i bisogni degli ospiti e risolvere le sfide in modo indipendente, garantire completa soddisfazione Anticipare i bisogni degli ospiti e risolvere la loro risoluzione sfide autonome, assicurando completa soddisfazione Dimostrando positività, affidabilità e professionalità in ogni compito Dimostrando positività, affidabilità e professionalità in ogni compito Migliorare la reputazione dell'istituto attraverso un'assistenza eccezionale agli ospiti Migliorare la reputazione dell'istituto attraverso un'assistenza eccezionale I tuoi +lati Il tuo sorriso è contagioso e tratti le persone come se fossero i tuoi migliori amici Fai di tutto per fare la migliore prima e ultima impressione Sei un giocatore di squadra e ti piace aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi fare più cose contemporaneamente e lavorare in un ambiente frenetico Guida con esempio e orgoglio Ami provare cose nuove e seguire una strada diversa Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima di tutto Attualmente sei iscritto a una scuola di ospitalità svizzera COSA C'È DA GRACE? Diventa un pioniere per la prima apertura di hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso dove le persone vengono messe al primo posto Grace House per i talenti Opportunità di apprendimento pratico e formazione Sconti per cibo e attività sportive gratuite Uniforme cool di un marchio internazionale di abbigliamento di lusso Se necessario, alloggi all'avanguardia E molto, molto altro... UN'ALTRA COSA 43,5 ore lavorative settimanali secondo L-GAV 35 giorni di ferie secondo L-GAV 13 stipendi mensili secondo L-GAV Salario sopra il minimo L-GAV",
+        "it": "CHI CI SERVE\n• Cerchiamo talenti ambiziosi che diventino i modellatori del nuovo e rinato leggendario hotel in una delle località alpine più prestigiose al mondo. Ti aspetti qualcosa di più di un lavoro? Allora REGALIAMOCI insieme dall'autunno 2026! COSA FARAI? Consegnare cibo e bevande con precisione, cura e attenzione ai dettagli Fornire un servizio personalizzato e attento su misura per ogni ospite Fornire un servizio personalizzato e attento su misura per ogni ospite Creare esperienze culinarie memorabili, durature e individualizzate Creare esperienze culinarie memorabili, durature e individualizzate Assumersi la responsabilità di tutti gli aspetti del processo operativo e supportare il fluido funzionamento del ristorante Assumersi la responsabilità di tutti gli aspetti del processo operativo e supportare le operazioni fluide del ristorante Assistere nella preparazione e nell'esecuzione impeccabile degli eventi Assistere nella preparazione e nell'esecuzione impeccabile degli eventi Mantenere i più alti standard di servizio, presentazione e ambiente al ristorante Mantenere i più alti standard di servizio, presentazione e ambiente al ristorante Anticipare i bisogni degli ospiti e risolvere le sfide in modo indipendente, garantire completa soddisfazione Anticipare i bisogni degli ospiti e risolvere la loro risoluzione sfide autonome, assicurando completa soddisfazione Dimostrando positività, affidabilità e professionalità in ogni compito Dimostrando positività, affidabilità e professionalità in ogni compito Migliorare la reputazione dell'istituto attraverso un'assistenza eccezionale agli ospiti Migliorare la reputazione dell'istituto attraverso un'assistenza eccezionale I tuoi +lati Il tuo sorriso è contagioso e tratti le persone come se fossero i tuoi migliori amici Fai di tutto per fare la migliore prima e ultima impressione Sei un giocatore di squadra e ti piace aiutare gli altri Hai un forte interesse per l'ospitalità e sei desideroso di imparare Puoi fare più cose contemporaneamente e lavorare in un ambiente frenetico Guida con esempio e orgoglio Ami provare cose nuove e seguire una strada diversa Ti piace spingere la tua zona di comfort al limite Gli ospiti vengono sempre prima di tutto Attualmente sei iscritto a una scuola di ospitalità svizzera COSA C'È DA GRACE? Diventa un pioniere per la prima apertura di hotel in 100 anni a St. Moritz in questo segmento Ambiente divertente, collaborativo e premuroso dove le persone vengono messe al primo posto Grace House per i talenti Opportunità di apprendimento pratico e formazione Sconti per cibo e attività sportive gratuite Uniforme cool di un marchio internazionale di abbigliamento di lusso Se necessario, alloggi all'avanguardia E molto, molto altro... UN'ALTRA COSA 43,5 ore lavorative settimanali secondo L-GAV 35 giorni di ferie secondo L-GAV 13 stipendi mensili secondo L-GAV Salario sopra il minimo L-GAV",
         "en": "WHO WE NEED We are looking for ambitious talents who will become the shapers of the new reborn legendary hotel in one of the most prestigious alpine resorts in the world. Are you expecting more than a job? Then let’s GRACE together from autumn 2026! WHAT WILL YOU DO? Delivering food and beverages with precision, care, and attention to detail Providing personalized and attentive service tailored to each guest Providing personalized and attentive service tailored to each guest Creating memorable, lasting, and individualized dining experiences Creating memorable, lasting, and individualized dining experiences Taking responsibility for all aspects of the operational process and supporting smooth restaurant operations Taking responsibility for all aspects of the operational process and supporting smooth restaurant operations Assisting in the preparation and flawless execution of events Assisting in the preparation and flawless execution of events Maintaining the highest standards of service, presentation, and restaurant environment Maintaining the highest standards of service, presentation, and restaurant environment Anticipating guest needs and resolving challenges independently, ensuring complete satisfaction Anticipating guest needs and resolving challenges independently, ensuring complete satisfaction Demonstrating positivity, reliability, and professionalism in every task Demonstrating positivity, reliability, and professionalism in every task Enhancing the reputation of the establishment through exceptional guest care Enhancing the reputation of the establishment through exceptional guest care YOUR +sides Your smile is infectious and you treat people as if they were your best friends You go the extra mile to make the best first and last impression You are a team player and enjoy helping others You have a strong interest in hospitality and you are eager to learn You can multi-task and work in a fast-paced environment You lead with example and pride You love to try new things and go a different path You like to push your comfort zone to the edge Guests always come first to you You are currently enrolled at a Swiss hospitality school WHAT’S IN FOR YOU AT GRACE? Become a pioneer for the first hotel opening to happen in 100 years in St. Moritz in this segment Fun, collaborative and caring environment where people are put first Grace House for talents Hands-on learning and training opportunities F&B discounts & sporting activities free of charge Cool uniform from an international luxury clothing brand If needed state-of-the-art accommodation And much, much more… ONE MORE THING 43.5 hours working week according to L-GAV 35 days of holiday according to L-GAV 13 monthly salaries according to L-GAV Wage above L-GAV minimum",
         "de": "WEN WIR BRAUCHEN Wir suchen ehrgeizige Talente, die die Gestalter des neu wiedergeborenen legendären Hotels in einem der renommiertesten Alpenresorts der Welt werden. Erwarten Sie mehr als nur einen Job? Dann lasst uns ab Herbst 2026 gemeinsam GRACE machen! WAS WIRST DU TUN? Lebensmittel und Getränke mit Präzision, Sorgfalt und Liebe zum Detail liefern Personalisierten und aufmerksamen Service, der auf jeden Gast zugeschnitten ist, personalisierten und aufmerksamen Service bieten, der auf jeden Gast zugeschnitten ist, unvergessliche und individuelle kulinarische Erlebnisse schaffen, unvergessliche und individuelle kulinarische Erlebnisse schaffen, Verantwortung für alle Aspekte des Betriebsprozesses übernehmen und reibungslose Restaurantabläufe unterstützen, Verantwortung für alle Aspekte des Betriebsprozesses übernehmen und reibungslose Restaurantabläufe unterstützen, Unterstützung bei der Vorbereitung und fehlerfreien Durchführung von Veranstaltungen, Unterstützung bei der Vorbereitung und makellosen Durchführung von Veranstaltungen, Aufrechterhaltung der höchsten Standards in Service, Präsentation und Restaurantumgebung gewährleisten Die höchsten Standards an Service, Präsentation und Restaurantumgebung wahrnehmen, die Bedürfnisse der Gäste antizipieren und Herausforderungen eigenständig lösen, vollständige Zufriedenheit sicherstellen, die Bedürfnisse der Gäste antizipieren und Lösungen lösen Herausforderungen, um vollständige Zufriedenheit zu gewährleisten Positivität, Zuverlässigkeit und Professionalität in jeder Aufgabe zu zeigen Positivität, Zuverlässigkeit und Professionalität in jeder Aufgabe zu zeigen Den Ruf des Lokals durch außergewöhnliche Gästebetreuung zu stärken den Ruf des Lokals durch außergewöhnliche Gästebetreuung zu stärken DEINE +Seiten Dein Lächeln ist ansteckend und du behandelst Menschen wie deine besten Freunde Du gehst die Extrameile, um den besten ersten und letzten Eindruck zu hinterlassen Du bist ein Teamplayer und hilfst gerne anderen Du hast großes Interesse an Gastgewerbe und bist lernbegierig Du kannst multitasken und in einer schnelllebigen Umgebung arbeiten Du führst mit Vorbild und Stolz Du liebst es, Neues auszuprobieren und einen anderen Weg zu gehen Du möchtest deine Komfortzone an die Grenze treiben Gäste immer an erster Stelle Du bist derzeit an einer Schweizer Gastfreundschaftsschule WAS STEHT DIR BEI GRACE AN? Werde ein Pionier für die erste Hoteleröffnung seit 100 Jahren in St. Moritz in diesem Segment. Spaßige, kollaborative und fürsorgliche Umgebung, in der Menschen an erste Stelle gesetzt werden. Grace House für Talente. Praktische Lern- und Trainingsmöglichkeiten, F&B-Rabatte und sportliche Aktivitäten kostenlos. Coole Uniformen von einer internationalen Luxusmarke, falls nötig, hochmoderne Unterkünfte und vieles, vieles mehr... NOCH ETWAS: 43,5 Stunden Arbeitswoche laut L-GAV, 35 Urlaubstage laut L-GAV, 13 Monatsgehälter laut L-GAV, Lohn über dem L-GAV Mindestlohn.",
         "fr": "QUI NOUS FAUT Nous recherchons des talents ambitieux qui deviendront les façonneurs du nouvel hôtel légendaire renaissant dans l’une des stations alpines les plus prestigieuses du monde. Vous attendez plus qu’un emploi ? Alors PRÉPARONS-nous ensemble à partir de l’automne 2026 ! QUE FEREZ-VOUS ? Livrer la nourriture et les boissons avec précision, soin et souci du détail Fournir un service personnalisé et attentif adapté à chaque client Offrir un service personnalisé et attentif adapté à chaque client Créer des expériences culinaires mémorables, durables et individualisées Créer des expériences culinaires mémorables, durables et individualisées Prendre la responsabilité de tous les aspects du processus opérationnel et soutenir le bon fonctionnement du restaurant Assumer la responsabilité de tous les aspects du processus opérationnel et soutenir le bon fonctionnement du restaurant Assister à la préparation et l’exécution parfaite des événements Assister à la préparation et l’exécution parfaite des événements Maintenir les plus hauts standards de service, de présentation et d’environnement restaurant Maintenir les plus hauts standards de service, de présentation et d’environnement restaurant Anticiper les besoins des clients et résoudre les défis de manière autonome, garantir une satisfaction complète Anticiper les besoins des clients et résoudre la résolution des besoins des clients défie de manière autonome, garantir une satisfaction complète Faire preuve de positivité, de fiabilité et de professionnalisme dans chaque tâche Démontrer positivité, fiabilité et professionnalisme dans chaque tâche Renforcer la réputation de l’établissement grâce à un service client exceptionnel Renfortissant la réputation de l’établissement grâce à un service exceptionnel VOS +côtés Votre sourire est contagieux et vous traitez les gens comme s’ils étaient vos meilleurs amis Vous faites un effort supplémentaire pour faire la meilleure première et dernière impression Vous êtes un joueur d’équipe et aimez aider les autres Vous avez un vif intérêt pour l’hôtellerie et vous êtes désireux d’apprendre Vous pouvez faire plusieurs choses à la fois et travailler dans un environnement dynamique Vous dirigez avec l’exemple et la fierté Vous aimez essayer de nouvelles choses et emprunter une voie différente Vous aimez pousser votre zone de confort à la limite Les clients passent toujours avant vous Vous êtes actuellement inscrit dans une école hôtelière suisse QU’EST-CE QUI VOUS FAIT CHEZ GRACE ? Devenez un pionnier pour l’ouverture d’un hôtel en 100 ans à St. Moritz dans ce segment : Un environnement convivial, collaboratif et bienveillant où les gens sont mis en premier Grace House pour les talents Apprentissage pratique et opportunités de formation Réductions sur restauration et activités sportives gratuitement Uniforme cool d’une marque internationale de vêtements de luxe Si besoin Hébergement ultramoderne Et bien plus encore... UNE CHOSE DE PLUS : 43,5 heures de travail par semaine selon L-GAV 35 jours de congé selon L-GAV 13 salaires mensuels selon L-GAV Salaire supérieur au minimum L-GAV"
@@ -348,7 +352,7 @@
         "fr": "stagiaire-en-restauration-lance-votre-carriere-chez-nous-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:39.496Z",
+      "crawledAt": "2026-09-01T07:36:01.681Z",
       "id": "grace-la-margna-37be54b5c05d",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -367,22 +371,22 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-28T05:37:35.526Z",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
+          "f-b-auszubildender-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz",
           "f-b-trainee-kickstart-your-career-with-us"
         ],
-        "de": [
-          "f-b-trainee-kickstart-your-career-with-us",
-          "f-b-auszubildender-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
-        ],
         "fr": [
-          "f-b-trainee-kickstart-your-career-with-us",
-          "f-b-apprenti-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
+          "f-b-apprenti-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz",
+          "f-b-trainee-kickstart-your-career-with-us"
+        ],
+        "it": [
+          "f-b-trainee-kickstart-your-career-with-us"
         ]
       },
       "previousSlugs": [
-        "f-b-trainee-kickstart-your-career-with-us",
         "f-b-auszubildender-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz",
-        "f-b-apprenti-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
+        "f-b-apprenti-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz",
+        "f-b-trainee-kickstart-your-career-with-us"
       ],
       "salarySource": "estimated"
     },
@@ -428,7 +432,7 @@
         "fr": "front-office-apprenti-m-w-kickstart-your-career-with-us-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:50.985Z",
+      "crawledAt": "2026-09-01T07:36:06.323Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -504,7 +508,7 @@
         "fr": "portier-housekeeping-h-f-soyez-la-star-de-la-course-a-pied-dans-la-maison-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:48:55.323Z",
+      "crawledAt": "2026-09-01T07:36:11.307Z",
       "id": "grace-la-margna-b4f6437e14a4",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -580,7 +584,7 @@
         "fr": "reservation-superviseur-be-the-master-in-filling-the-house-at-the-best-price-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:49:06.798Z",
+      "crawledAt": "2026-09-01T07:36:15.688Z",
       "id": "grace-la-margna-ba221949eef3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -673,7 +677,7 @@
         "fr": "prepose-aux-chambres-h-f-soyez-la-fee-du-nettoyage-de-la-maison-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T00:49:11.126Z",
+      "crawledAt": "2026-09-01T07:36:20.059Z",
       "id": "grace-la-margna-e4f2b02066fe",
       "salaryMin": 57500,
       "salaryMax": 87000,
