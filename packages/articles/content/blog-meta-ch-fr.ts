@@ -4996,6 +4996,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Débarquement en sac en clair-obscur pour la mode rapide de Shein',
     'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'IPO de Shein à Hong Kong le 1er septembre avec une collecte de 1,75 milliard USD mais en baisse de 10%. La France introduit des « malus » jusqu\'à 19,50 € sur la mode jetable. La Suisse maintient des règles moins strictes.',
     'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Rue commerçante suisse avec vitrines et colis de livraison empilés sur le trottoir, représentant le contraste entre le commerce traditionnel et la mode rapide en ligne.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Droit de la location dans le canton de Fribourg : guide pratique',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'Dans le canton de Fribourg, le dépôt de garantie est plafonné à 3 mois de loyer. Guide de contestation de la redevance initiale, résiliation sur formulaire cantonal et recours à l\'autorité de conciliation selon le CO art. 253.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Rue résidentielle du Canton de Fribourg avec des immeubles de location typiques suisses.',
 };
 
 export default blogMetaChFr;
