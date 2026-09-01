@@ -24,9 +24,13 @@ const RELIABLE_LANGUAGE_CONFIDENCE = 0.6;
 const MAX_EVIDENCE = 8;
 
 const URL_RE = /https?:\/\/[^\s<>"']+/giu;
-const EMAIL_TOKEN_RE = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/iu;
+const EMAIL_RE = /(?<![\p{L}\p{N}_%+\-])([\p{L}\p{N}][\p{L}\p{N}._%+\-]*@[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?(?:\.[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?)+)(?![\p{L}\p{N}_%+\-])/gu;
 const VERSION_RE = /\bv\d+(?:\.\d+)*\b/giu;
-const NUMERIC_RE = /(?<![\p{L}\p{N}_.])\d[\d .,'’\u00a0\u202f]*/gu;
+const DATE_RE = /(?<![\p{L}\p{N}])\d{4}([./-])\d{1,2}\1\d{1,2}(?![\p{L}\p{N}])/gu;
+const NUMBER_ATOM = String.raw`(?:\d+(?:[ '\u2019\u00a0\u202f,.]\d+)*|[.,]\d+)`;
+const RANGE_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(${NUMBER_ATOM})\s*(?:-|\u2010|\u2011|\u2012|\u2013|\u2014|\u2212)\s*(${NUMBER_ATOM})(?:\s*%)?(?![\p{L}\p{N}_.])`, 'gu');
+const NUMBER_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(CHF|EUR|USD|GBP|€|\$|£)?(${NUMBER_ATOM})(?![\p{L}\p{N}_]|[.,]\d)`, 'giu');
+const MAX_NUMERIC_AFFIX_WHITESPACE = 256;
 
 function compareText(left, right) {
   if (left === right) return 0;
@@ -62,10 +66,10 @@ function validateInput(input) {
     assertTranslationExactKeysV2(token, PROTECTED_TOKEN_KEYS, 'protected token');
     if (!TOKEN_CATEGORIES.has(token.category)) throw new TypeError('protected token category is invalid');
     assertBoundedText(token.value, 'protected token value', MAX_PROTECTED_TOKEN_LENGTH);
-    if (!visibleTokens(token.value).length) throw new TypeError('protected token value must contain visible tokens');
+    if (!canonicalProtectedParts(token.value).length) throw new TypeError('protected token value must contain visible tokens');
     return Object.freeze({ category: token.category, value: token.value });
   });
-  const protectedTokenKeys = protectedTokens.map((token) => `${token.category}:${visibleTokens(token.value).join('\u0000')}`);
+  const protectedTokenKeys = protectedTokens.map((token) => `${token.category}:${canonicalProtectedParts(token.value).join('\u0000')}`);
   if (new Set(protectedTokenKeys).size !== protectedTokenKeys.length) {
     throw new TypeError('protectedTokens must not contain canonical duplicates');
   }
@@ -87,6 +91,16 @@ function visibleTokens(value) {
     .match(/[\p{L}\p{N}]+/gu) ?? [];
 }
 
+function canonicalProtectedParts(value) {
+  return value
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('und')
+    // `C++` and `AT&T` are names, not decoration. Keep symbol runs which can
+    // change an identifier while deliberately ignoring ordinary separators.
+    .match(/[\p{L}\p{N}]+|[+&]+/gu) ?? [];
+}
+
 function sameSequence(left, right) {
   return left.length === right.length && left.every((value, index) => value === right[index]);
 }
@@ -100,17 +114,35 @@ function containsTokenSequence(textTokens, valueTokens) {
 }
 
 function isDegenerateDescription(tokens) {
-  return tokens.length === 0 || new Set(tokens).size < 2;
+  if (tokens.length === 0 || new Set(tokens).size < 2) return true;
+  const prefix = new Array(tokens.length).fill(0);
+  for (let index = 1; index < tokens.length; index += 1) {
+    let length = prefix[index - 1];
+    while (length > 0 && tokens[index] !== tokens[length]) length = prefix[length - 1];
+    if (tokens[index] === tokens[length]) length += 1;
+    prefix[index] = length;
+  }
+  const period = tokens.length - prefix.at(-1);
+  return period < tokens.length && tokens.length % period === 0;
 }
 
-function isIncompleteTitle(sourceTokens, candidateTokens) {
+function isIncompleteTitle(sourceTokens, candidateTokens, candidateText) {
   const candidateVisibleLength = candidateTokens.join('').length;
-  if (candidateTokens.length === 0 || candidateVisibleLength < 3) return true;
+  if (candidateTokens.length === 0) return true;
+  if (isSourceInitialism(sourceTokens, candidateText)) return false;
+  if (candidateVisibleLength < 3) return true;
   // Corpus measure (tests/fixtures/title-locale-corpus.json): among 119
   // non-source-copy title pairs, a valid 2->1 translation has a 10-char
   // target token. Do not invent a ratio threshold: only reject the structurally
   // degenerate multi-token -> one token of <=3 visible characters case.
   return sourceTokens.length >= 2 && candidateTokens.length === 1 && candidateVisibleLength <= 3;
+}
+
+function isSourceInitialism(sourceTokens, candidateText) {
+  const candidate = candidateText.trim();
+  if (sourceTokens.length < 2 || !/^[A-Z]{2,10}$/.test(candidate)) return false;
+  const initials = sourceTokens.map((token) => token[0]?.toUpperCase()).join('');
+  return candidate === initials;
 }
 
 function sortedMultiset(values) {
@@ -128,15 +160,24 @@ function sameMultiset(left, right) {
 
 function extractUrls(text) {
   if (!text.includes('://')) return [];
-  return sortedMultiset((text.match(URL_RE) ?? []).map((url) => url.replace(/[.,;:!?]+$/u, '')));
+  return sortedMultiset([...text.matchAll(URL_RE)].map((match) => {
+    const start = match.index ?? 0;
+    const url = match[0];
+    // Only an immediate, balanced parenthesis wrapper with no URL parenthesis
+    // is unambiguously external. Every other terminal character is preserved.
+    if (text[start - 1] === '(' && url.endsWith(')') && !/[()]/u.test(url.slice(0, -1))) {
+      return url.slice(0, -1);
+    }
+    return url;
+  }));
 }
 
 function extractEmails(text) {
   if (!text.includes('@')) return [];
-  const withoutUrls = text.includes('://') ? text.replace(URL_RE, ' ') : text;
-  return sortedMultiset((withoutUrls.match(/\S+/gu) ?? [])
-    .map((token) => token.replace(/[.,;:!?]+$/u, ''))
-    .filter((token) => EMAIL_TOKEN_RE.test(token)));
+  const urlRanges = [...text.matchAll(URL_RE)].map((match) => [match.index ?? 0, (match.index ?? 0) + match[0].length]);
+  return sortedMultiset([...text.matchAll(EMAIL_RE)]
+    .filter((match) => !urlRanges.some(([start, end]) => (match.index ?? 0) >= start && (match.index ?? 0) < end))
+    .map((match) => match[1]));
 }
 
 function numericCore(raw, locale) {
@@ -175,30 +216,57 @@ function currencyCode(raw) {
   return 'GBP';
 }
 
+function overlaps(ranges, start, end) {
+  return ranges.some(([rangeStart, rangeEnd]) => start < rangeEnd && rangeStart < end);
+}
+
+function numericAffix(text, start, end) {
+  const prefix = text.slice(Math.max(0, start - MAX_NUMERIC_AFFIX_WHITESPACE - 16), start);
+  const suffix = text.slice(end, Math.min(text.length, end + MAX_NUMERIC_AFFIX_WHITESPACE + 16));
+  const space = String.raw`\s{0,${MAX_NUMERIC_AFFIX_WHITESPACE}}`;
+  const signThenCurrency = new RegExp(String.raw`([+\-−])?${space}(CHF|EUR|USD|GBP|€|\$|£)${space}$`, 'iu').exec(prefix);
+  const currencyThenSign = new RegExp(String.raw`(CHF|EUR|USD|GBP|€|\$|£)${space}([+\-−])?${space}$`, 'iu').exec(prefix);
+  const currencyAfter = new RegExp(String.raw`^${space}(CHF|EUR|USD|GBP|€|\$|£)`, 'iu').exec(suffix);
+  const directSign = new RegExp(String.raw`([+\-−])${space}$`, 'u').exec(prefix)?.[1] ?? '';
+  const currency = signThenCurrency?.[2] ?? currencyThenSign?.[1] ?? currencyAfter?.[1] ?? '';
+  const currencySign = signThenCurrency?.[1] ?? currencyThenSign?.[2] ?? '';
+  const sign = (currencySign || directSign).replace('−', '-') || 'none';
+  const hasPercent = new RegExp(String.raw`^${space}%`, 'u').test(suffix);
+  return { currency, hasPercent, sign };
+}
+
 function extractNumericSignatures(text, locale) {
-  const versions = text.match(VERSION_RE) ?? [];
-  const withoutVersions = text.replace(VERSION_RE, ' ');
-  const numeric = [];
-  const normalizedCores = new Map();
-  for (const match of withoutVersions.matchAll(NUMERIC_RE)) {
-    const number = match[0].trim();
-    const index = match.index ?? 0;
-    const prefix = withoutVersions.slice(Math.max(0, index - 12), index);
-    const suffix = withoutVersions.slice(index + match[0].length, index + match[0].length + 12);
-    const signThenCurrency = prefix.match(/([+\-−])?\s*(CHF|EUR|USD|GBP|€|\$|£)\s*$/iu);
-    const currencyThenSign = prefix.match(/(CHF|EUR|USD|GBP|€|\$|£)\s*([+\-−])?\s*$/iu);
-    const currencyAfter = suffix.match(/^\s*(CHF|EUR|USD|GBP|€|\$|£)/iu);
-    const directSign = prefix.match(/([+\-−])\s*$/u)?.[1] ?? '';
-    const currency = signThenCurrency?.[2] ?? currencyThenSign?.[1] ?? currencyAfter?.[1] ?? '';
-    const currencySign = signThenCurrency?.[1] ?? currencyThenSign?.[2] ?? '';
-    const sign = (currencySign || directSign).replace('−', '-') || 'none';
-    const hasPercent = /^\s*%/u.test(suffix);
-    const prefixLabel = currency ? `currency:${currencyCode(currency)}:` : hasPercent ? 'percent:' : 'number:';
-    const core = normalizedCores.get(number) ?? numericCore(number, locale);
-    normalizedCores.set(number, core);
-    numeric.push(`${prefixLabel}${sign}:${core}`);
+  const ranges = [];
+  const signatures = [];
+  for (const match of text.matchAll(VERSION_RE)) {
+    const start = match.index ?? 0;
+    ranges.push([start, start + match[0].length]);
+    signatures.push(`version:${match[0].toLowerCase()}`);
   }
-  return sortedMultiset([...versions.map((version) => `version:${version.toLowerCase()}`), ...numeric]);
+  for (const match of text.matchAll(DATE_RE)) {
+    const start = match.index ?? 0;
+    ranges.push([start, start + match[0].length]);
+    const [year, month, day] = match[0].split(match[1]);
+    signatures.push(`date:${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
+  }
+  for (const match of text.matchAll(RANGE_RE)) {
+    const start = match.index ?? 0;
+    const end = start + match[0].length;
+    if (overlaps(ranges, start, end)) continue;
+    ranges.push([start, end]);
+    const percent = /%\s*$/u.test(match[0]) ? 'percent' : 'number';
+    signatures.push(`range:${percent}:${numericCore(match[1], locale)}:${numericCore(match[2], locale)}`);
+  }
+  for (const match of text.matchAll(NUMBER_RE)) {
+    const start = match.index ?? 0;
+    const end = start + match[0].length;
+    if (overlaps(ranges, start, end)) continue;
+    const affix = numericAffix(text, start, end);
+    const currency = match[1] ?? affix.currency;
+    const label = currency ? `currency:${currencyCode(currency)}` : affix.hasPercent ? 'percent' : 'number';
+    signatures.push(`${label}:${affix.sign}:${numericCore(match[2], locale)}`);
+  }
+  return sortedMultiset(signatures);
 }
 
 function evidence(code) {
@@ -244,10 +312,12 @@ export function assessTranslationCandidateQualityV2(input) {
   const candidate = value.candidateText.trim();
   const sourceTokens = visibleTokens(source);
   const candidateTokens = visibleTokens(candidate);
+  const sourceProtectedParts = canonicalProtectedParts(source);
+  const candidateProtectedParts = canonicalProtectedParts(candidate);
 
   appliedGates += 1;
-  if (!source) blocking.push('source.empty');
-  if (!candidate) blocking.push('candidate.empty');
+  if (!source || sourceTokens.length === 0) blocking.push('source.empty');
+  if (!candidate || candidateTokens.length === 0) blocking.push('candidate.empty');
 
   if (source && candidate) {
     appliedGates += 1;
@@ -268,10 +338,10 @@ export function assessTranslationCandidateQualityV2(input) {
     )) blocking.push('numeric.multiset_mismatch');
 
     for (const token of value.protectedTokens) {
-      const tokenTokens = visibleTokens(token.value);
-      if (!containsTokenSequence(sourceTokens, tokenTokens)) continue;
+      const tokenParts = canonicalProtectedParts(token.value);
+      if (!containsTokenSequence(sourceProtectedParts, tokenParts)) continue;
       appliedGates += 1;
-      if (!containsTokenSequence(candidateTokens, tokenTokens)) blocking.push('protected_token.missing');
+      if (!containsTokenSequence(candidateProtectedParts, tokenParts)) blocking.push('protected_token.missing');
     }
 
     if (value.field === 'description') {
@@ -282,7 +352,7 @@ export function assessTranslationCandidateQualityV2(input) {
       if (!structureFlattened && !isAcceptableTranslation(source, candidate)) blocking.push('description.unacceptable');
     } else {
       appliedGates += 1;
-      if (isIncompleteTitle(sourceTokens, candidateTokens)) blocking.push('title.incomplete_content');
+      if (isIncompleteTitle(sourceTokens, candidateTokens, candidate)) blocking.push('title.incomplete_content');
       if (titleLooksUntranslated({
         title: candidate,
         sourceTitle: source,

@@ -84,13 +84,24 @@ describe('translation candidate quality v2', () => {
       candidateText: candidate.replace('lang=en', 'lang=it').replace('hr@example.test.', 'jobs@example.test.'),
     });
     expect(codes(changed)).toEqual(expect.arrayContaining(['email.multiset_mismatch', 'url.multiset_mismatch']));
-    const sentencePunctuation = assessTranslationCandidateQualityV2({
+    const terminalUrl = assessTranslationCandidateQualityV2({
       ...base,
-      sourceText: long('Read https://example.test/jobs. and write hr@example.test.'),
-      candidateText: long('Leggi https://example.test/jobs! e scrivi hr@example.test!'),
+      sourceText: long('Read https://example.test/jobs/?a=1#fragment!'),
+      candidateText: long('Leggi https://example.test/jobs/?a=1#fragment/'),
     });
-    expect(codes(sentencePunctuation)).not.toContain('email.multiset_mismatch');
-    expect(codes(sentencePunctuation)).not.toContain('url.multiset_mismatch');
+    expect(codes(terminalUrl)).toContain('url.multiset_mismatch');
+    const wrappedUrl = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('Read (https://example.test/jobs/?a=1#fragment)'),
+      candidateText: long('Leggi https://example.test/jobs/?a=1#fragment'),
+    });
+    expect(codes(wrappedUrl)).not.toContain('url.multiset_mismatch');
+    const wrappedUnicodeEmail = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('Write (üñîçøðé@example.test) and <hr@example.test>.'),
+      candidateText: long('Scrivi üñîçøðé@example.test e <jobs@example.test>.'),
+    });
+    expect(codes(wrappedUnicodeEmail)).toContain('email.multiset_mismatch');
   });
 
   it('normalizes Swiss, German, French and Italian number separators conservatively', () => {
@@ -136,6 +147,30 @@ describe('translation candidate quality v2', () => {
       candidateText: long('Il compenso è - CHF 10 e il bonus è +2%.'),
     });
     expect(codes(unicodeMinus)).not.toContain('numeric.multiset_mismatch');
+    const orderedDate = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The start date is 2024-10-01 and the rate is .5%.'),
+      candidateText: long('La data di inizio è 2024-01-10 e il tasso è .6%.'),
+    });
+    expect(codes(orderedDate)).toContain('numeric.multiset_mismatch');
+    const rangeDash = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The employment level is 80-100% and salary is CHF10.'),
+      candidateText: long('Il grado di impiego è 80–100% e lo stipendio è CHF10.'),
+    });
+    expect(codes(rangeDash)).not.toContain('numeric.multiset_mismatch');
+    const spacedAffixes = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long(`The adjustment is +\n\n\n CHF\n\n10 and the bonus is .5 %.`),
+      candidateText: long(`L'adeguamento è +\n\n\n CHF\n\n10 e il bonus è .5 %.`),
+    });
+    expect(codes(spacedAffixes)).not.toContain('numeric.multiset_mismatch');
+    const changedCurrency = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The salary is CHF10.'),
+      candidateText: long('Lo stipendio è EUR10.'),
+    });
+    expect(codes(changedCurrency)).toContain('numeric.multiset_mismatch');
   });
 
   it('blocks source echoes, flattened bullets, title residue and concatenated words', () => {
@@ -188,10 +223,21 @@ describe('translation candidate quality v2', () => {
       protectedTokens: [{ category: 'company', value: 'ACME' }],
     });
     expect(codes(boundary)).toContain('protected_token.missing');
+    const symbols = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('C++ works with AT&T.'),
+      candidateText: long('C works with AT T.'),
+      protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'company', value: 'AT&T' }],
+    });
+    expect(codes(symbols)).toContain('protected_token.missing');
+    expect(() => assessTranslationCandidateQualityV2({
+      ...base,
+      protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'structured', value: 'c++' }],
+    })).toThrow(TypeError);
   });
 
   it('rejects degenerate visible content and records it only as rejected', () => {
-    const degenerateDescriptions = ['A', 'X', 'OK', 'Dev', '...', '!'.repeat(160), '\u200b'.repeat(160), 'ciao '.repeat(40), '🚀'.repeat(80)];
+    const degenerateDescriptions = ['A', 'X', 'OK', 'Dev', '...', '!'.repeat(160), '\u200b'.repeat(160), 'ciao '.repeat(40), 'ciao mondo '.repeat(40), '🚀'.repeat(80)];
     const identity = createTranslationUnitIdentityV2({
       kind: 'job', fieldPath: 'description', sourceLocale: 'en', targetLocale: 'it', sourceText: base.sourceText,
       context: { company: null, location: null },
@@ -237,6 +283,17 @@ describe('translation candidate quality v2', () => {
     expect(codes(assessTranslationCandidateQualityV2({
       ...base, field: 'title', sourceText: 'Techniker*in', candidateText: 'Technicien', sourceLang: 'de', targetLang: 'fr',
     }))).not.toContain('title.incomplete_content');
+    for (const [sourceText, candidateText] of [
+      ['Chief Executive Officer', 'CEO'],
+      ['Human Resources', 'HR'],
+      ['Quality Assurance', 'QA'],
+      ['Information Technology', 'IT'],
+      ['Ressources Humaines', 'RH'],
+    ]) {
+      const outcome = assessTranslationCandidateQualityV2({ ...base, field: 'title', sourceText, candidateText });
+      expect(codes(outcome)).not.toContain('title.incomplete_content');
+      expect(outcome.status).toBe('validated');
+    }
   });
 
   it('makes only documented high-confidence language mismatch blocking', () => {
