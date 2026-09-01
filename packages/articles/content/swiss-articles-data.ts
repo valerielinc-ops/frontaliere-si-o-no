@@ -14707,6 +14707,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tasso-riferimento-ipotecario-1-25',
+    category: 'fiscale',
+    date: '2026-09-01T06:41:37.740Z',
+    image: '/images/blog/tasso-riferimento-ipotecario-1-25.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

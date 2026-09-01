@@ -4903,6 +4903,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.swiss-life-600-tagli-2028.title': 'Swiss Life kürzt bis 2028 600 Beiträge',
     'blog.article.swiss-life-600-tagli-2028.excerpt': 'Schweizer Versicherungsgesellschaft reduziert die Personalstärke durch natürliche Erneuerung. 200 Abbauten haben bereits begonnen, weitere 100 bis Ende 2026. Auswirkungen auf den Arbeitsmarkt.',
     'blog.article.swiss-life-600-tagli-2028.imageAlt': 'Modernes Schweizer Büro mit digitalen Anzeigen und Finanzdiagrammen, die den Stellenabbau darstellen.',
+    'blog.article.tasso-riferimento-ipotecario-1-25.title': 'Der Leitzins für Hypotheken bleibt mit 1,25 Prozent auf einem Rekordtief',
+    'blog.article.tasso-riferimento-ipotecario-1-25.excerpt': 'Der Hypothekenreferenzzins bleibt bei 1,25 Prozent, sodass die Mieten in der Schweiz unverändert bleiben.',
+    'blog.article.tasso-riferimento-ipotecario-1-25.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit der Stadtlandschaft und dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaChDe;

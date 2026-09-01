@@ -4903,6 +4903,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.swiss-life-600-tagli-2028.title': 'Swiss Life supprime 600 publications d’ici 2028',
     'blog.article.swiss-life-600-tagli-2028.excerpt': 'La compagnie d’assurance suisse réduit les effectifs par remplacement naturel. 200 réductions ont déjà commencé, 100 autres d’ici fin 2026. Impact sur le marché du travail.',
     'blog.article.swiss-life-600-tagli-2028.imageAlt': 'Bureau moderne suisse avec écrans numériques et graphiques financiers représentant la restructuration organisationnelle.',
+    'blog.article.tasso-riferimento-ipotecario-1-25.title': 'Le taux de référence hypothécaire reste à un niveau historiquement bas de 1,25 %',
+    'blog.article.tasso-riferimento-ipotecario-1-25.excerpt': 'Le taux de référence hypothécaire reste à 1,25 %, maintenant les loyers en Suisse inchangés.',
+    'blog.article.tasso-riferimento-ipotecario-1-25.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le panorama de la ville et le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaChFr;
