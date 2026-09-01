@@ -4948,6 +4948,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti warnt: Risiken für die Schweizer Wirtschaft',
     'blog.article.ubs-ermotti-capital-requirements.excerpt': 'Die UBS kritisiert den CET-S-Vorschlag zu den Kapitalanforderungen und warnt, dass Maßnahmen über internationale Standards hinaus die Kosten für die gesamte Schweizer Wirtschaft erhöhen würden.',
     'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Finanzbezirk mit modernen Bürogebäuden und Bankensitzen, Symbol des Schweizer Finanzplatzes.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'Der Referenzhypothekenzins bei Mietverträgen bleibt bei 1,25 %',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'Das Federal Office for Housing (FOH) hat bekannt gegeben, dass der Referenzzinssatz für die Hypothek bis zum 2. September 2026 bei 1,25 % bleiben wird.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund, die den Finanzdistrikt zeigt.',
 };
 
 export default blogMetaChDe;

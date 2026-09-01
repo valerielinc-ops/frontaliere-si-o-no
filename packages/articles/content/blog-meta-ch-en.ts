@@ -4948,6 +4948,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti warns: risks for the Swiss economy',
     'blog.article.ubs-ermotti-capital-requirements.excerpt': 'UBS criticizes the CET-S proposal on capital requirements, warning that measures beyond international standards would increase costs for the entire Swiss economy.',
     'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Financial district with office buildings and banking headquarters in Switzerland, symbol of the nation\'s financial center.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'The reference mortgage rate in leases remains at 1.25%',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'The Federal Office for Housing (FOH) has announced that the reference mortgage interest rate will remain at 1.25% as of 2 September 2026.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background, showcasing the financial district.',
 };
 
 export default blogMetaChEn;

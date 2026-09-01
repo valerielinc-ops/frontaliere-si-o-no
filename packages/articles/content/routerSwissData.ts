@@ -1675,6 +1675,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'novartis-studio-clinico-sospeso': { it: 'novartis-studio-clinico-sospeso', en: 'novartis-clinical-trial-suspended', de: 'novartis-klinische-studie-unterbrochen', fr: 'novartis-essai-clinique-suspendu' },
  'sanzioni-disordini-rimborso-mendrisio': { it: 'sanzioni-disordini-rimborso-mendrisio', en: 'fines-unlawful-gatherings-mendrisio', de: 'strafen-stoerungen-mendrisio', fr: 'amendes-troubles-mendrisio' },
  'ubs-ermotti-capital-requirements': { it: 'ubs-ermotti-capital-requirements', en: 'ermotti-warns-swiss-economy-risks', de: 'ermotti-warnt-schweizer-wirtschaft-risiken', fr: 'ermotti-avertit-risques-economie-suisse' },
+ 'tasso-ipotecario-riferimento-1-25-2026': { it: 'tasso-ipotecario-riferimento-1-25-2026', en: 'reference-mortgage-rate-1-25-2026', de: 'referenz-hypothekarzinssatz-1-25-2026', fr: 'taux-hippocaire-de-reference-1-25-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
