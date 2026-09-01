@@ -63590,6 +63590,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-swiss-life-600-tagli-2028': {
+    title: 'Swiss Life taglia 600 posti entro il 2028 | Frontaliere Ticino',
+    description: 'Compagnia assicurativa svizzera riduce organico tramite ricambio naturale. 200 riduzioni già avviate, altre 100 entro fine 2026. Impatto su mercato del lavoro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, swiss, life, taglia, posti',
+    ogTitle: 'Swiss Life taglia 600 posti entro il 2028',
+    ogDescription: 'Compagnia assicurativa svizzera riduce organico tramite ricambio naturale. 200 riduzioni già avviate, altre 100 entro fine 2026. Impatto su mercato del lavoro.',
+    canonicalPath: '/articoli-svizzera/swiss-life-600-tagli-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Swiss Life taglia 600 posti entro il 2028",
+      "description": "Compagnia assicurativa svizzera riduce organico tramite ricambio naturale. 200 riduzioni già avviate, altre 100 entro fine 2026. Impatto su mercato del lavoro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/swiss-life-600-tagli-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno svizzero con grafici finanziari e strumenti digitali che rappresentano il ridimensionamento di Swiss Life."
+      },
+      "datePublished": "2026-09-01T06:17:05+00:00",
+      "dateModified": "2026-09-01T06:17:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/swiss-life-600-tagli-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

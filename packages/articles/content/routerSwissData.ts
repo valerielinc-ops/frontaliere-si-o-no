@@ -1659,6 +1659,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'swiss-life-taglio-posti-lavoro-2028': { it: 'swiss-life-taglio-posti-lavoro-2028', en: 'swiss-life-job-cuts-2028', de: 'swiss-life-stellenabbau-2028', fr: 'swiss-life-suppression-postes-2028' },
  'drg-fatture-trasparenza': { it: 'drg-fatture-trasparenza', en: 'drg-hospital-bills-transparency', de: 'drg-spitalrechnungen-transparenz', fr: 'drg-factures-hopitales-transparence' },
  'breve-durata-friburgo-proroga': { it: 'breve-durata-friburgo-proroga', en: 'short-term-fribourg-renewal', de: 'kurzzeitaufenthalt-freiburg-verlangerung', fr: 'courte-duree-fribourg-renouvellement' },
+ 'swiss-life-600-tagli-2028': { it: 'swiss-life-600-tagli-2028', en: 'swiss-life-600-job-cuts-2028', de: 'swiss-life-600-stellenabbau-2028', fr: 'swiss-life-600-suppressions-2028' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

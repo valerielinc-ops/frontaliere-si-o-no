@@ -4900,6 +4900,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.breve-durata-friburgo-proroga.title': 'Permis de L Fribourg : validité, prolongation et exigences',
     'blog.article.breve-durata-friburgo-proroga.excerpt': 'Le permis L à court terme dans le canton de Fribourg est valable pour un maximum d’un an et peut être renouvelé sous certaines conditions. Renseignez-vous sur la durée, la prolongation et les contraintes.',
     'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Bureau administratif suisse avec documents et ordinateur pour les procédures de permis cantonaux',
+    'blog.article.swiss-life-600-tagli-2028.title': 'Swiss Life supprime 600 publications d’ici 2028',
+    'blog.article.swiss-life-600-tagli-2028.excerpt': 'La compagnie d’assurance suisse réduit les effectifs par remplacement naturel. 200 réductions ont déjà commencé, 100 autres d’ici fin 2026. Impact sur le marché du travail.',
+    'blog.article.swiss-life-600-tagli-2028.imageAlt': 'Bureau moderne suisse avec écrans numériques et graphiques financiers représentant la restructuration organisationnelle.',
 };
 
 export default blogMetaChFr;

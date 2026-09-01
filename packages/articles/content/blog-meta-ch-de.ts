@@ -4900,6 +4900,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.breve-durata-friburgo-proroga.title': 'L-Fribourg-Genehmigung: Gültigkeit, Verlängerung und Anforderungen',
     'blog.article.breve-durata-friburgo-proroga.excerpt': 'Die kurzfristige L-Erlaubnis im Kanton Freiburg ist maximal ein Jahr gültig und kann unter bestimmten Bedingungen verlängert werden. Informieren Sie sich über Dauer, Verlängerung und Einschränkungen.',
     'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Schweizer Verwaltungsbüro mit Dokumenten und Computer für kantonale Genehmigungsverfahren',
+    'blog.article.swiss-life-600-tagli-2028.title': 'Swiss Life kürzt bis 2028 600 Beiträge',
+    'blog.article.swiss-life-600-tagli-2028.excerpt': 'Schweizer Versicherungsgesellschaft reduziert die Personalstärke durch natürliche Erneuerung. 200 Abbauten haben bereits begonnen, weitere 100 bis Ende 2026. Auswirkungen auf den Arbeitsmarkt.',
+    'blog.article.swiss-life-600-tagli-2028.imageAlt': 'Modernes Schweizer Büro mit digitalen Anzeigen und Finanzdiagrammen, die den Stellenabbau darstellen.',
 };
 
 export default blogMetaChDe;

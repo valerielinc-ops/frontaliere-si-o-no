@@ -4900,6 +4900,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.breve-durata-friburgo-proroga.title': 'Permesso L Friburgo: validità, proroga e requisiti',
     'blog.article.breve-durata-friburgo-proroga.excerpt': 'Il permesso L di breve durata nel Cantone Friburgo ha validità massima di un anno ed è rinnovabile con specifiche condizioni. Scopri durata, proroga e vincoli.',
     'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Ufficio amministrativo svizzero con documenti e computer per procedure di richiesta permessi cantonali',
+    'blog.article.swiss-life-600-tagli-2028.title': 'Swiss Life taglia 600 posti entro il 2028',
+    'blog.article.swiss-life-600-tagli-2028.excerpt': 'Compagnia assicurativa svizzera riduce organico tramite ricambio naturale. 200 riduzioni già avviate, altre 100 entro fine 2026. Impatto su mercato del lavoro.',
+    'blog.article.swiss-life-600-tagli-2028.imageAlt': 'Ufficio moderno svizzero con grafici finanziari e strumenti digitali che rappresentano il ridimensionamento di Swiss Life.',
 };
 
 export default blogMetaChIt;

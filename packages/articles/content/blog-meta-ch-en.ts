@@ -4900,6 +4900,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.breve-durata-friburgo-proroga.title': 'L Fribourg permit: validity, extension and requirements',
     'blog.article.breve-durata-friburgo-proroga.excerpt': 'The short-term L permit in the Canton of Fribourg is valid for a maximum of one year and can be renewed under specific conditions. Find out about duration, extension and constraints.',
     'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Swiss administrative office with documents and computer representing cantonal permit procedures',
+    'blog.article.swiss-life-600-tagli-2028.title': 'Swiss Life cuts 600 posts by 2028',
+    'blog.article.swiss-life-600-tagli-2028.excerpt': 'Swiss insurance company reduces headcount through natural replacement. 200 reductions already started, another 100 by the end of 2026. Impact on the labor market.',
+    'blog.article.swiss-life-600-tagli-2028.imageAlt': 'Swiss modern office with digital displays and financial charts representing corporate restructuring.',
 };
 
 export default blogMetaChEn;
