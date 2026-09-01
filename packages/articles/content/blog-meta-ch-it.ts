@@ -4960,6 +4960,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sindacato-banca-ubs-regolamentazione.title': 'Impiegati banca: ASIB accoglie normativa UBS',
     'blog.article.sindacato-banca-ubs-regolamentazione.excerpt': 'L\'ASIB sostiene la proposta della CET-S per regolamentare UBS e chiede piani sociali obbligatori mentre il settore bancario affronta una crisi occupazionale senza precedenti.',
     'blog.article.sindacato-banca-ubs-regolamentazione.imageAlt': 'Sede di una banca svizzera con insegna luminosa, simbolo del dibattito su normativa e occupazione nel settore finanziario elvetico',
+    'blog.article.comcom-esclude-nuovi-operatori-mobile.title': 'Telefonia mobile svizzera: la Comcom esclude nuovi operatori',
+    'blog.article.comcom-esclude-nuovi-operatori-mobile.excerpt': 'La Commissione federale delle comunicazioni svizzera dichiara: le barriere economiche e normative rendono praticamente impossibile l\'ingresso di nuovi competitor nel mercato della telefonia mobile.',
+    'blog.article.comcom-esclude-nuovi-operatori-mobile.imageAlt': 'Vista panoramica di Lugano, centro economico della Svizzera meridionale, simbolo del mercato telco svizzero',
 };
 
 export default blogMetaChIt;

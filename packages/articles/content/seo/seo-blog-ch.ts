@@ -64370,6 +64370,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comcom-esclude-nuovi-operatori-mobile': {
+    title: 'Telefonia mobile svizzera: la Comcom esclude nuovi operatori',
+    description: 'La Comcom dichiara impossibile l\'ingresso di nuovi competitor nel mercato della telefonia mobile. Barriere economiche e normative insuperabili: 500 milioni CHF',
+    keywords: 'frontalieri, ticino, svizzera, italia, telefonia, mobile, comcom, esclude',
+    ogTitle: 'Telefonia mobile svizzera: la Comcom esclude nuovi operatori',
+    ogDescription: 'La Commissione federale delle comunicazioni svizzera dichiara impossibile l\'ingresso di nuovi competitor nel mercato della telefonia mobile. Gli ostacoli economici e normativi sono praticamente insuperabili: costruire una rete propria costerebbe',
+    canonicalPath: '/articoli-svizzera/comcom-esclude-nuovi-operatori-mobile/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Telefonia mobile svizzera: la Comcom esclude nuovi operatori",
+      "description": "La Comcom dichiara impossibile l'ingresso di nuovi competitor nel mercato della telefonia mobile. Barriere economiche e normative insuperabili: 500 milioni CHF",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comcom-esclude-nuovi-operatori-mobile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano, centro economico della Svizzera meridionale, simbolo del mercato telco svizzero"
+      },
+      "datePublished": "2026-09-01T15:34:48+00:00",
+      "dateModified": "2026-09-01T15:34:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comcom-esclude-nuovi-operatori-mobile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

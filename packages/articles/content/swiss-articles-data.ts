@@ -14878,6 +14878,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comcom-esclude-nuovi-operatori-mobile',
+    category: 'novita',
+    date: '2026-09-01T15:34:48.013Z',
+    image: '/images/blog/comcom-esclude-nuovi-operatori-mobile.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

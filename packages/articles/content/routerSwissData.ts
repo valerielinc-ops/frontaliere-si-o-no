@@ -1679,6 +1679,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asib-normativa-ubs-sostegno': { it: 'asib-normativa-ubs-sostegno', en: 'asib-ubs-regulation-support', de: 'asib-ubs-regulierung-unterstuetzung', fr: 'asib-reglementation-ubs-soutien' },
  'ubs-requisiti-patrimoniali': { it: 'ubs-requisiti-patrimoniali', en: 'ubs-capital-requirements', de: 'ubs-kapitalanforderungen', fr: 'ubs-exigences-capitales' },
  'sindacato-banca-ubs-regolamentazione': { it: 'sindacato-banca-ubs-regolamentazione', en: 'bank-employees-asib-supports-ubs-regulation', de: 'bankangestellte-asib-ubs-verordnung', fr: 'employes-banque-asib-norme-ubs' },
+ 'comcom-esclude-nuovi-operatori-mobile': { it: 'comcom-esclude-nuovi-operatori-mobile', en: 'comcom-blocks-new-operators-telecom', de: 'comcom-schliesst-neue-betreiber-mobile', fr: 'comcom-exclut-nouveaux-operateurs-mobile' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
