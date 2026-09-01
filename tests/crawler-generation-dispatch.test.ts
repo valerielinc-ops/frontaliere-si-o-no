@@ -15,6 +15,7 @@ import {
   createGitHubActionsRequester,
   dispatchWorkflowOnce,
   ensureCrawlerGenerationDispatchRef,
+  DISPATCH_REF_CONFLICT_BACKOFF_MS,
   evaluateCrawlerGenerationPreflight,
   reapStaleCrawlerGenerationDispatchRefs,
   runPreflight,
@@ -381,6 +382,94 @@ describe('crawler generation dispatch protocol', () => {
     await expect(ensureCrawlerGenerationDispatchRef({ request, generationToken, corpusCodeCommit }))
       .resolves.toBe(dispatchRef);
     expect(request.mock.calls.map(([input]) => input.method)).toEqual(['GET', 'POST', 'GET']);
+  });
+
+  it('hydrates the exact ref after multiple transient 404s without repeating the POST', async () => {
+    let reads = 0;
+    let posts = 0;
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        posts += 1;
+        return { status: 422, body: { message: 'Reference already exists' } };
+      }
+      reads += 1;
+      if (reads <= 4) return { status: 404, body: null };
+      return {
+        status: 200,
+        body: { ref: `refs/heads/${dispatchRef}`, object: { type: 'commit', sha: corpusCodeCommit } },
+      };
+    });
+
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request,
+      generationToken,
+      corpusCodeCommit,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toBe(dispatchRef);
+    expect(posts).toBe(1);
+    expect(reads).toBe(5);
+    expect(sleeps).toEqual(DISPATCH_REF_CONFLICT_BACKOFF_MS.slice(0, 3));
+    expect(request.mock.calls.every(([input]) => !input.path.includes('/matching-refs/'))).toBe(true);
+  });
+
+  it('fails closed after the bounded exact-ref reread budget without repeating the POST', async () => {
+    let posts = 0;
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        posts += 1;
+        return { status: 422, body: { message: 'Reference already exists' } };
+      }
+      return { status: 404, body: null };
+    });
+
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request,
+      generationToken,
+      corpusCodeCommit,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).rejects.toThrow('crawler_generation_ref_pin_failed');
+    expect(posts).toBe(1);
+    expect(request.mock.calls.filter(([input]) => input.method === 'GET')).toHaveLength(
+      DISPATCH_REF_CONFLICT_BACKOFF_MS.length + 2,
+    );
+    expect(sleeps).toEqual(DISPATCH_REF_CONFLICT_BACKOFF_MS);
+  });
+
+  it('treats a populated commit mismatch and a non-compatible 422 as terminal', async () => {
+    const mismatchSleeps: number[] = [];
+    const mismatch = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        return { status: 422, body: { message: 'Reference already exists' } };
+      }
+      if (mismatch.mock.calls.length === 1) return { status: 404, body: null };
+      return {
+        status: 200,
+        body: { ref: `refs/heads/${dispatchRef}`, object: { type: 'commit', sha: '9'.repeat(40) } },
+      };
+    });
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request: mismatch,
+      generationToken,
+      corpusCodeCommit,
+      sleep: async (milliseconds) => { mismatchSleeps.push(milliseconds); },
+    })).rejects.toThrow('crawler_generation_ref_pin_failed');
+    expect(mismatch.mock.calls.map(([input]) => input.method)).toEqual(['GET', 'POST', 'GET']);
+    expect(mismatchSleeps).toEqual([]);
+
+    const generic422 = vi.fn(async (input: any) => (
+      input.method === 'GET'
+        ? { status: 404, body: null }
+        : { status: 422, body: { message: 'Validation failed' } }
+    ));
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request: generic422,
+      generationToken,
+      corpusCodeCommit,
+      sleep: async () => {},
+    })).rejects.toThrow('crawler_generation_ref_pin_failed');
+    expect(generic422.mock.calls.map(([input]) => input.method)).toEqual(['GET', 'POST']);
   });
 
   it('fails closed without mutating a generation ref that already binds another commit', async () => {
