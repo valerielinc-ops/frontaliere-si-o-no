@@ -1,49 +1,18 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-01T07:22:07.960Z",
+  "generatedAt": "2026-09-01T08:38:05.001Z",
   "total": 134,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 86,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 3369,
-  "avgDurationMs": 3369,
+  "unchangedCount": 12,
+  "durationMs": 3371,
+  "avgDurationMs": 3371,
   "durationHistory": [
-    3369
+    3371
   ],
-  "newJobs": [
-    {
-      "title": "Career Start in Audit – Asset Management – Herbst 2026",
-      "slug": "career-start-in-audit-asset-management-herbst-2026-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit---Asset-Management---Herbst-2026_675730WD-1",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
-      "validThrough": "2036-08-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Regulatory & Audit Specialist Banking",
@@ -73,6 +42,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:26:25.590Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -723,7 +693,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -796,7 +765,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1128,6 +1096,43 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Career Start in Audit – Asset Management – Herbst 2026",
+      "slug": "career-start-in-audit-asset-management-herbst-2026-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit---Asset-Management---Herbst-2026_675730WD-1",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-01",
+      "validThrough": "2036-08-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-b09b70183d6d",
+      "needsRetranslation": true,
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T07:22:07.919Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 19
+      }
+    },
     {
       "title": "Associate/Senior Assosciate - Interne Beratung: Risikomanagement, Qualität & Compliance 80–100%",
       "slug": "associate-senior-assosciate-interne-beratung-risikomanagement-qualitat-compliance-80-100-pwc-zurich",
