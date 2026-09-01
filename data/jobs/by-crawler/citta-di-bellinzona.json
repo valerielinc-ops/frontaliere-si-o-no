@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-bellinzona",
-  "assembledAt": "2026-09-01T14:09:35.958Z",
+  "assembledAt": "2026-09-01T16:11:57.884Z",
   "jobs": [
     {
       "id": "citta-di-bellinzona-responsabile-del-servizio-risorse-umane-presso-l-azienda-multiservizi-bellinzon-bellinzona",
@@ -48,7 +48,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:09:33.027Z",
+      "crawledAt": "2026-09-01T16:11:55.458Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -110,8 +110,9 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:09:33.026Z",
+      "crawledAt": "2026-09-01T16:11:55.456Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",

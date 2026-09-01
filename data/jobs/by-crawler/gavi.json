@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gavi",
-  "assembledAt": "2026-09-01T14:09:20.624Z",
+  "assembledAt": "2026-09-01T16:11:40.694Z",
   "jobs": [
     {
       "id": "gavi-b02c416d7edd",
@@ -33,7 +33,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2524&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:09:17.579Z",
+      "crawledAt": "2026-09-01T16:11:38.825Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -52,6 +52,10 @@
       "jobReqId": "VN2524",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "senior-manager-market-shaping-gavi-le-grand-saconnex",
+        "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-manager-market-shaping-gavi-le-grand-saconnex",
@@ -61,10 +65,6 @@
           "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
         ]
       },
-      "previousSlugs": [
-        "senior-manager-market-shaping-gavi-le-grand-saconnex",
-        "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T21:31:21.445Z",
       "salaryMin": 92000,
