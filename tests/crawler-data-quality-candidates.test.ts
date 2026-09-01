@@ -4,6 +4,8 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildCrawlerDataQualityReport,
+  executeIssuePacket,
+  GH_ACTION_TIMEOUT_MS,
   materializeIssuePacket,
   planIssueActions,
 } from '../scripts/ci/crawler-data-quality-candidates.mjs';
@@ -114,7 +116,12 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     const packet = materializeIssuePacket(report, [], { outputPath, bodyDir: root });
 
     expect(packet.actions).toEqual([]);
-    expect(packet.scheduling).toEqual({ totalFindings: 0, actionCursor: 0, deferredFindings: 0 });
+    expect(packet.scheduling).toEqual({
+      totalFindings: 0,
+      actionCursor: 0,
+      alreadyHandledThisCycle: 0,
+      deferredFindings: 0,
+    });
     expect(fs.readdirSync(root).sort()).toEqual(['packet.json']);
   });
 
@@ -140,6 +147,106 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     expect(new Set(weeklyActions.flat().map((action) => action.key))).toEqual(
       new Set(findings.map((finding) => finding.key)),
     );
+  });
+
+  it('makes same-week create/comment retries idempotent after partial failure', () => {
+    const report = worstCaseReport();
+    const first = report.findings[0];
+    const marker = `<!-- crawler-data-quality:${first.key} -->`;
+    const cycle = `<!-- crawler-data-quality-cycle:${Math.floor(Date.parse(report.generatedAt) / (7 * 24 * 60 * 60 * 1000))} -->`;
+
+    const createdInThisRun = planIssueActions(report, [{
+      number: 101,
+      title: first.title,
+      body: `${marker}\n${cycle}\nRun: ${report.runUrl}`,
+      comments: [],
+    }]);
+    const commentedInThisRun = planIssueActions(report, [{
+      number: 101,
+      title: first.title,
+      body: marker,
+      comments: [{ body: `${marker}\n${cycle}\n🔁 Run: ${report.runUrl}` }],
+    }]);
+
+    expect(createdInThisRun.map((action) => action.key)).not.toContain(first.key);
+    expect(commentedInThisRun.map((action) => action.key)).not.toContain(first.key);
+    expect(createdInThisRun).toHaveLength(4);
+    expect(commentedInThisRun).toHaveLength(4);
+
+    const nextWeek = planIssueActions({
+      ...report,
+      generatedAt: new Date(Date.parse(report.generatedAt) + (7 * 24 * 60 * 60 * 1000)).toISOString(),
+    }, [{ number: 101, title: first.title, body: `${marker}\n${cycle}`, comments: [] }]);
+    expect(nextWeek.find((action) => action.key === first.key)?.kind).toBe('comment');
+  });
+
+  it('executes serially and stops before later gh mutations after the first failure', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-executor-'));
+    const report = worstCaseReport();
+    const packet = materializeIssuePacket(report, [], {
+      outputPath: path.join(root, 'packet.json'),
+      bodyDir: root,
+    });
+    const calls: string[][] = [];
+    const runner = (_command: string, args: string[]) => {
+      calls.push(args);
+      return calls.length === 2
+        ? { status: 1, stderr: 'simulated gh failure', stdout: '' }
+        : { status: 0, stderr: '', stdout: 'ok' };
+    };
+
+    expect(() => executeIssuePacket(packet, runner)).toThrow(/gh action 2 failed/);
+    expect(calls).toHaveLength(2);
+    expect(calls[0].slice(0, 2)).toEqual(['issue', 'create']);
+  });
+
+  it('executes an empty packet without invoking gh', () => {
+    let calls = 0;
+    const result = executeIssuePacket({ actions: [] }, () => {
+      calls += 1;
+      return { status: 0, stderr: '', stdout: '' };
+    });
+
+    expect(result).toEqual({ attempted: 0, created: 0, commented: 0 });
+    expect(calls).toBe(0);
+  });
+
+  it('treats a timed-out killed gh process as terminal and redacts its output', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-timeout-'));
+    const packet = materializeIssuePacket(worstCaseReport(), [], {
+      outputPath: path.join(root, 'packet.json'),
+      bodyDir: root,
+    });
+    let calls = 0;
+    let message = '';
+    try {
+      executeIssuePacket(packet, () => {
+        calls += 1;
+        const fakeCredential = ['ghp', 'do_not_leak_this_token'].join('_');
+        return {
+          status: null,
+          signal: 'SIGTERM',
+          error: new Error(`ETIMEDOUT ${fakeCredential}`),
+          stderr: 'Bearer do-not-leak',
+          stdout: '',
+        };
+      });
+    } catch (error) {
+      message = error instanceof Error ? error.message : String(error);
+    }
+
+    expect(GH_ACTION_TIMEOUT_MS).toBe(120_000);
+    const executorSource = fs.readFileSync(
+      path.resolve(process.cwd(), 'scripts/ci/crawler-data-quality-candidates.mjs'),
+      'utf8',
+    );
+    expect(executorSource).toContain('timeout: GH_ACTION_TIMEOUT_MS');
+    expect(executorSource).toContain("killSignal: 'SIGTERM'");
+    expect(calls).toBe(1);
+    expect(message).toContain('status=null, signal=SIGTERM');
+    expect(message).toContain('[redacted-token]');
+    expect(message).not.toContain('do_not_leak_this_token');
+    expect(message).not.toContain('do-not-leak');
   });
 
   it('does not flag normal translation drift below max(25, 5% baseline)', () => {
