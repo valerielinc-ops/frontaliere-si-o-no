@@ -40,6 +40,8 @@ const PREFLIGHT_READ_ATTEMPTS = 3;
 const PREFLIGHT_READ_CONCURRENCY = 4;
 const PREFLIGHT_READ_DELAY_MS = 250;
 const MAX_PREFLIGHT_READ_DELAY_MS = 5_000;
+const LEGACY_DISPATCH_POST_ATTEMPTS = 3;
+const LEGACY_DISPATCH_RETRY_DELAY_MS = 2_000;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const ACCEPTED_STATUSES = new Set(['direct', 'reconciled_transport_error']);
 const DISPATCH_STATUS_SET = new Set(CRAWLER_GENERATION_DISPATCH_STATUSES);
@@ -320,8 +322,13 @@ async function reconcileExactRun({ request, repository, runName, identityForRunI
 }
 
 /**
- * Dispatch exactly once. Ambiguous transport failures are observed by exact
- * generation run-name and are never followed by another POST.
+ * Dispatch exactly once when reconciliation is available: ambiguous transport
+ * failures are observed by exact generation run-name and are never followed
+ * by another POST. When reconciliation is unavailable (legacy mode, weaker
+ * run-name uniqueness without a generation token), the POST itself is retried
+ * a bounded number of times instead — mirroring the old inline bash's
+ * dispatch-and-verify-with-poll so a single transient 5xx/timeout does not
+ * permanently drop the group (#6935).
  */
 export async function dispatchWorkflowOnce({
   repository,
@@ -349,22 +356,29 @@ export async function dispatchWorkflowOnce({
     throw new TypeError('Workflow file is outside the crawler generation dispatch domain');
   }
   const runName = identityForRunId('1').runName;
+  const postAttempts = allowReconciliation ? 1 : LEGACY_DISPATCH_POST_ATTEMPTS;
   let response;
   let transportFailed = false;
-  try {
-    response = await request({
-      method: 'POST',
-      path: `/repos/${repository}/actions/workflows/${encodeURIComponent(workflowFile)}/dispatches`,
-      apiVersion: GITHUB_API_VERSION,
-      body: {
-        ref: corpusCodeCommit === null ? 'main' : crawlerGenerationDispatchRef(generationToken),
-        inputs,
-      },
-    });
-  } catch {
-    transportFailed = true;
+  for (let attempt = 1; attempt <= postAttempts; attempt += 1) {
+    transportFailed = false;
+    try {
+      response = await request({
+        method: 'POST',
+        path: `/repos/${repository}/actions/workflows/${encodeURIComponent(workflowFile)}/dispatches`,
+        apiVersion: GITHUB_API_VERSION,
+        body: {
+          ref: corpusCodeCommit === null ? 'main' : crawlerGenerationDispatchRef(generationToken),
+          inputs,
+        },
+      });
+    } catch {
+      transportFailed = true;
+    }
+    if (!Number.isInteger(response?.status)) transportFailed = true;
+    const retryablePostFailure = transportFailed || response?.status >= 500 || response?.status === 204;
+    if (!retryablePostFailure || attempt === postAttempts) break;
+    await sleep(attempt * LEGACY_DISPATCH_RETRY_DELAY_MS);
   }
-  if (!Number.isInteger(response?.status)) transportFailed = true;
 
   if (!transportFailed && response.status === 200) {
     const runId = dispatchResponseRunId(response.body, repository);
