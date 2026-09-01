@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cs-bregaglia",
-  "assembledAt": "2026-09-01T10:55:44.424Z",
+  "assembledAt": "2026-09-01T14:14:19.782Z",
   "jobs": [
     {
       "id": "cs-bregaglia-98393ca40498",
@@ -34,7 +34,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:55:42.210Z",
+      "crawledAt": "2026-09-01T14:14:16.642Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -65,6 +65,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "cs-bregaglia-39b430c315cf",
+      "slug": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+      "slugByLocale": {
+        "it": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+        "en": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+        "de": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+        "fr": "aiuto-cucina-al-50-cs-bregaglia-promontogno"
+      },
+      "company": "Centro Sanitario Bregaglia",
+      "companyKey": "cs-bregaglia",
+      "companyDomain": "csbregaglia.ch",
+      "title": "aiuto cucina al 50%",
+      "titleByLocale": {
+        "it": "aiuto cucina al 50%",
+        "en": "aiuto cucina al 50%",
+        "de": "aiuto cucina al 50%",
+        "fr": "aiuto cucina al 50%"
+      },
+      "description": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+      "descriptionByLocale": {
+        "it": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+        "en": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+        "de": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+        "fr": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%."
+      },
+      "needsRetranslation": true,
+      "location": "Promontogno",
+      "canton": "GR",
+      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/467-offerta-di-lavoro-aiuto-cucina-al-51",
+      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-01T14:14:16.640Z",
+      "addressLocality": "Promontogno",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7606",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/467-offerta-di-lavoro-aiuto-cucina-al-51",
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": []
+      },
+      "salaryMin": 40800,
+      "salaryMax": 57000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 40800,
+          "maxValue": 57000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T14:14:16.640Z"
     }
   ]
 }
