@@ -107,6 +107,46 @@ describe('translation state store v2', () => {
     expect(remote).toContain('remote.git');
   });
 
+  it('checks state tip currency with one ls-remote and no history materialization', async () => {
+    const { one, two } = createRepositories();
+    const first = createTranslationStateStoreV2({ repository: one });
+    await first.initialize();
+    const original = await first.checkpointBatch({ slicePath: SLICE_PATH, patches: [patchFor()] });
+    const trace: string[][] = [];
+    const tracedGit = async (args: string[]) => {
+      trace.push([...args]);
+      try {
+        return { code: 0, stdout: execFileSync('git', args, { cwd: one, encoding: 'utf8' }), stderr: '' };
+      } catch (error: any) {
+        return {
+          code: typeof error?.status === 'number' ? error.status : 1,
+          stdout: error?.stdout ?? '',
+          stderr: error?.stderr ?? String(error),
+        };
+      }
+    };
+    const checker = createTranslationStateStoreV2({ repository: one, git: tracedGit });
+    const secondJob = {
+      ...JOB,
+      url: 'https://jobs.example.test/positions/222222/',
+      slug: 'zweite-stelle',
+      title: 'Zweite Stelle',
+      titleByLocale: { de: 'Zweite Stelle', it: '' },
+    };
+    const moved = await createTranslationStateStoreV2({ repository: two }).checkpointBatch({
+      slicePath: SLICE_PATH,
+      patches: [patchFor(secondJob, 'Seconda posizione')],
+    });
+
+    trace.length = 0;
+    expect(await checker.isCurrentCommit(original.commit)).toBe(false);
+    expect(trace).toEqual([['ls-remote', '--refs', 'origin', first.ref]]);
+    trace.length = 0;
+    expect(await checker.isCurrentCommit(moved.commit)).toBe(true);
+    expect(trace).toEqual([['ls-remote', '--refs', 'origin', first.ref]]);
+    await expect(checker.isCurrentCommit('not-a-sha')).rejects.toThrow(/expected commit/);
+  });
+
   it('rejects an intermediate merge even when the state tip has one parent', async () => {
     const { one } = createRepositories();
     const initialized = await createTranslationStateStoreV2({ repository: one }).initialize();
@@ -155,7 +195,7 @@ describe('translation state store v2', () => {
     const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
     const pending = await store.listPending({ crawlerKey: 'example-crawler' });
     const queuedState = await store.readAcknowledgments([patch.patchHash]);
-    const queuedCommit = await store.readCommit();
+    const queuedCommitIsCurrent = await store.isCurrentCommit(checkpoint.commit);
 
     expect(pending.pending).toHaveLength(1);
     expect(pending.pending[0].patch).toEqual(patch);
@@ -164,8 +204,7 @@ describe('translation state store v2', () => {
       acknowledgments: [null],
       queued: [true],
     });
-    expect(queuedCommit).toEqual({ commit: checkpoint.commit });
-    expect(Object.isFrozen(queuedCommit)).toBe(true);
+    expect(queuedCommitIsCurrent).toBe(true);
     const paths = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit).split('\n');
     expect(paths.some((path) => path.startsWith(`v2/patches/${patch.patchHash.slice(0, 2)}/`))).toBe(true);
     expect(paths.some((path) => path.startsWith('v2/memory/'))).toBe(true);
@@ -243,6 +282,10 @@ describe('translation state store v2', () => {
       receipt.publishedCommit = mainCommit;
       receipt.intentHash = null;
     }, /both be present or absent/],
+    ['acknowledgment with a missing publish intent', (receipt: any, mainCommit: string) => {
+      receipt.publishedCommit = mainCommit;
+      receipt.intentHash = 'f'.repeat(64);
+    }, /publish intent pointer/],
   ])('fails closed on a tampered %s', async (_label, mutate, expectedError) => {
     const { one } = createRepositories();
     const store = createTranslationStateStoreV2({ repository: one });
@@ -277,6 +320,57 @@ describe('translation state store v2', () => {
 
     const fresh = createTranslationStateStoreV2({ repository: one });
     await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(expectedError);
+  });
+
+  it('validates acknowledgment provenance against the indexed intent on the same state tip', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const mainCommit = git(one, 'rev-parse', 'origin/main');
+    const recorded = await store.recordIntent({
+      patches: [patch],
+      slicePath: SLICE_PATH,
+      outcomes: ['applied'],
+      expectedMain: mainCommit,
+      proposedCommit: mainCommit,
+      expectedSliceBlob: '1'.repeat(40),
+    });
+    const acknowledged = await store.acknowledgeBatch([{
+      patch,
+      slicePath: SLICE_PATH,
+      outcome: 'applied',
+      mainCommit,
+      publishedCommit: mainCommit,
+      intentHash: recorded.intent.intentHash,
+    }]);
+    const valid = await store.readAcknowledgment(patch.patchHash);
+    expect(valid.acknowledgment).toMatchObject({
+      publishedCommit: mainCommit,
+      intentHash: recorded.intent.intentHash,
+    });
+
+    const ackPath = git(one, 'ls-tree', '-r', '--name-only', acknowledged.commit)
+      .split('\n')
+      .find((path) => path.startsWith(`v2/acks/${patch.patchHash.slice(0, 2)}/${patch.patchHash}/`));
+    expect(ackPath).toBeDefined();
+    const receipt = JSON.parse(git(one, 'show', `${acknowledged.commit}:${ackPath}`));
+    receipt.publishedCommit = '2'.repeat(40);
+    const { ackHash: priorHash, ...payload } = receipt;
+    receipt.ackHash = digestTranslationDocumentV2(payload);
+    const replacementPath = `${ackPath!.slice(0, ackPath!.lastIndexOf('/') + 1)}${receipt.ackHash}.json`;
+
+    git(one, 'checkout', '-q', '-B', 'tampered-intent-ack-state', acknowledged.commit);
+    git(one, 'rm', '-q', ackPath!);
+    mkdirSync(dirname(join(one, replacementPath)), { recursive: true });
+    writeFileSync(join(one, replacementPath), `${JSON.stringify(receipt)}\n`);
+    git(one, 'add', replacementPath);
+    git(one, 'commit', '-q', '-m', `tamper acknowledgment intent ${priorHash}`);
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const fresh = createTranslationStateStoreV2({ repository: one });
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/does not match its publish intent/);
   });
 
   it('rebuilds a losing CAS transaction from the winning state without dropping either patch', async () => {

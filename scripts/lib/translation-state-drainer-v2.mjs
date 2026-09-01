@@ -394,8 +394,7 @@ export function createTranslationStateDrainerV2(options) {
         retries += 1;
         return null;
       }
-      const confirmedState = await stateStore.readCommit();
-      if (confirmedState.commit !== snapshot.commit) {
+      if (!await stateStore.isCurrentCommit(snapshot.commit)) {
         consumeAttemptBudget();
         retries += 1;
         return null;

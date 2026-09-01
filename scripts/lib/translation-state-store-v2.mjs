@@ -776,6 +776,29 @@ export function createTranslationStateStoreV2(options) {
     return deepFreezeTranslationV2({ commit: tip, intents });
   }
 
+  async function assertAcknowledgmentIntentAtTip(tip, acknowledgment) {
+    if (acknowledgment.intentHash === null) return;
+    const pointer = validateIntentPointer(
+      await parsePath(git, tip, intentIndexPath(acknowledgment.patchHash, acknowledgment.intentHash)),
+      acknowledgment.patchHash,
+    );
+    if (pointer.intentHash !== acknowledgment.intentHash) {
+      throw new TypeError('translation acknowledgment intent pointer does not match');
+    }
+    const intent = validateIntent(
+      await parsePath(git, tip, intentObjectPath(acknowledgment.intentHash)),
+      acknowledgment.patchHash,
+    );
+    if (
+      intent.intentHash !== acknowledgment.intentHash
+      || intent.crawlerKey !== acknowledgment.crawlerKey
+      || intent.slicePath !== acknowledgment.slicePath
+      || intent.proposedCommit !== acknowledgment.publishedCommit
+    ) {
+      throw new TypeError('translation acknowledgment does not match its publish intent');
+    }
+  }
+
   async function acknowledgeBatch(rawAcks) {
     assertBatch(rawAcks, 'translation acknowledgment batch');
     const acknowledgments = rawAcks.map((ack) => {
@@ -839,20 +862,7 @@ export function createTranslationStateStoreV2(options) {
           continue;
         }
         assertQueueMatches(queued, patch, payload.slicePath);
-        if (payload.intentHash !== null) {
-          const intent = validateIntent(
-            await parsePath(git, tip, intentObjectPath(payload.intentHash)),
-            patch.patchHash,
-          );
-          if (
-            intent.intentHash !== payload.intentHash
-            || intent.crawlerKey !== payload.crawlerKey
-            || intent.slicePath !== payload.slicePath
-            || intent.proposedCommit !== payload.publishedCommit
-          ) {
-            throw new TypeError('translation acknowledgment does not match its publish intent');
-          }
-        }
+        await assertAcknowledgmentIntentAtTip(tip, payload);
         const journal = await readAttemptJournal(git, tip, patch.candidate.attemptKey);
         if (getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state !== 'queued') {
           throw new TypeError('translation acknowledgment requires queued lifecycle state');
@@ -898,6 +908,7 @@ export function createTranslationStateStoreV2(options) {
       if (!path.endsWith(`/${receipt.ackHash}.json`)) {
         throw new TypeError('translation acknowledgment path does not match its hash');
       }
+      await assertAcknowledgmentIntentAtTip(tip, receipt);
       receipts.push(receipt);
     }
     let journal = null;
@@ -952,8 +963,9 @@ export function createTranslationStateStoreV2(options) {
     return deepFreezeTranslationV2({ commit: tip, acknowledgments, queued });
   }
 
-  async function readCommit() {
-    return deepFreezeTranslationV2({ commit: await snapshotTip() });
+  async function isCurrentCommit(expectedCommit) {
+    const expected = validateSha(expectedCommit, 'translation state expected commit', { nullable: true });
+    return await remoteTip(git, remote, ref) === expected;
   }
 
   async function readAcknowledgment(patchHash) {
@@ -973,7 +985,7 @@ export function createTranslationStateStoreV2(options) {
     recordIntent,
     listIntents,
     acknowledgeBatch,
-    readCommit,
+    isCurrentCommit,
     readAcknowledgments,
     readAcknowledgment,
   });
