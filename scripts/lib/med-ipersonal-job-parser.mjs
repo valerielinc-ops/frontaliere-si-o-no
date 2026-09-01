@@ -141,7 +141,14 @@ export async function fetchAllMedIpersonalJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    // Pass the full listing, not just `listing.location`: the row already
+    // carries the addressLocality/addressRegion/addressCountry evidence that
+    // runIpersonalSpecInProduction's upstream resolveDetailOrListingSwissGeography
+    // used to accept it (e.g. an ambiguous municipality disambiguated only by a
+    // structured canton). Re-checking with the bare string alone drops rows
+    // upstream already verified, silently reproducing the "snapshot incomplete"
+    // fail-closed this quality gate exists to distinguish from.
+    const geography = resolveSourceBackedSwissGeography(listing);
     if (!geography) continue;
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
