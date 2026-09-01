@@ -489,18 +489,15 @@
         "it": [
           "hr-admin-general-services-80-100-rapelli-stabio",
           "hr-operations-general-services-80-100-rapelli-orior-food-ag-stabio",
-          "hr-admin-general-services-80-100-m-f-d-rapelli-stabio",
-          "hr-operations-general-services-80-100-rapelli-stabio"
+          "hr-admin-general-services-80-100-m-f-d-rapelli-stabio"
         ]
       },
       "previousSlugs": [
         "hr-admin-general-services-80-100-rapelli-stabio",
         "hr-operations-general-services-80-100-rapelli-orior-food-ag-stabio",
-        "hr-admin-general-services-80-100-m-f-d-rapelli-stabio",
-        "hr-operations-general-services-80-100-rapelli-stabio"
+        "hr-admin-general-services-80-100-m-f-d-rapelli-stabio"
       ],
       "firstSeenAt": "2026-07-07T12:05:14.994Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -514,7 +511,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "rapelli-0edefae7157d",
@@ -523,7 +521,7 @@
         "it": "hr-payroll-assistant-m-f-d-50-70-rapelli-stabio",
         "en": "hr-payroll-assistant-m-f-d-50-70-rapelli-stabio",
         "de": "personalwesen-payroll-assistent-m-f-d-50-70-rapelli-orior-food-ag-stabio",
-        "fr": "hr-payroll-assistant-m-f-d-50-70-rapelli-stabio"
+        "fr": "assistant-de-paye-des-rh-h-f-d-50-70-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",

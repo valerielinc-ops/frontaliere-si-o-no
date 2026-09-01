@@ -17417,7 +17417,7 @@
       "slugByLocale": {
         "it": "sr-meccanica-macchine-sulzer-orange",
         "en": "sr-machinery-mechanic-sulzer-ch",
-        "de": "sr-machinery-mechanic-sulzer-orange",
+        "de": "sr-maschinenmechanik-sulzer-orange",
         "fr": "mecanicien-des-machines-sulzer-orange"
       },
       "company": "Sulzer",
@@ -17460,7 +17460,8 @@
       "previousSlugs": [
         "sr-machinery-mechanic-sulzer-ch",
         "sr-maschinenmechanik-sulzer-orange",
-        "sr-meccanica-macchine-sulzer-orange"
+        "sr-meccanica-macchine-sulzer-orange",
+        "sr-machinery-mechanic-sulzer-orange"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17468,7 +17469,7 @@
           "sr-meccanica-macchine-sulzer-orange"
         ],
         "de": [
-          "sr-maschinenmechanik-sulzer-orange"
+          "sr-machinery-mechanic-sulzer-orange"
         ],
         "fr": [
           "sr-machinery-mechanic-sulzer-ch"
@@ -23244,13 +23245,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "indirect-tax-specialist-sulzer-ch",
-        "indirect-tax-specialista-sulzer-polanco"
+        "indirect-tax-specialist-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "indirect-tax-specialist-sulzer-ch",
-          "indirect-tax-specialista-sulzer-polanco"
+          "indirect-tax-specialist-sulzer-ch"
         ],
         "de": [
           "indirect-tax-specialist-sulzer-ch"
@@ -24463,23 +24462,6 @@
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en/SulzerJobs/job/Johannesburg/EMS-Specialist_JR104424",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ems-specialist-sulzer-ch",
-        "ems-specialista-sulzer-johannesburg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ems-specialist-sulzer-ch",
-          "ems-specialista-sulzer-johannesburg"
-        ],
-        "de": [
-          "ems-specialist-sulzer-ch"
-        ],
-        "fr": [
-          "ems-specialist-sulzer-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T07:23:11.644Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -24493,7 +24475,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-01T07:23:11.644Z",
+      "previousSlugs": [
+        "ems-specialist-sulzer-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ems-specialist-sulzer-ch"
+        ],
+        "de": [
+          "ems-specialist-sulzer-ch"
+        ],
+        "fr": [
+          "ems-specialist-sulzer-ch"
+        ]
+      }
     },
     {
       "id": "sulzer-1c79f52d0e75",

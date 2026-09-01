@@ -371,7 +371,7 @@
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "en": "manager-per-cookie-einwilligungen-schindler-st-gallen",
-        "fr": "lehrstelle-als-kaufmann-frau-efz-fur-2027-schindler-st-gallen",
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
         "it": "manager-per-cookie-einwilligungen-schindler-st-gallen"
       },
       "company": "Schindler",
@@ -424,7 +424,7 @@
           "lehrstelle-als-kaufmann-frau-efz-fur-2027-schindler-st-gallen"
         ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
+          "lehrstelle-als-kaufmann-frau-efz-fur-2027-schindler-st-gallen"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-st-gallen-nrkv7s"
@@ -582,7 +582,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt"
         ]
       },
@@ -591,8 +590,6 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt"
       ],
       "needsRetranslation": true,
@@ -1777,15 +1774,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "projektmanager-bussigny-m-w-d-80-100-schindler-bussigny"
-        ]
-      },
-      "previousSlugs": [
-        "projektmanager-bussigny-m-w-d-80-100-schindler-bussigny"
-      ]
+      }
     },
     {
       "id": "schindler-744fe8caab95",
@@ -2687,8 +2676,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027",
-          "manager-fur-cookie-einwilligungen-schindler-bern"
+          "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027"
         ],
         "it": [
           "schnupperlehre-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-lehrstart-2027",
@@ -2837,7 +2825,6 @@
       "previousSlugs": [
         "projektingenieur-dans-la-region-der-zurich-m-p-j-80-100-schindler-zurich",
         "reparaturtechniker-in-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-        "projektleiter-m-w-d-schindler-zurich",
         "project-manager-m-f-d-80-100-schindler-zurich",
         "projektleiter-in-m-w-d-80-100-schindler-zurich",
         "gestionnaire-de-projet-m-f-d-80-100-schindler-zurich"
@@ -2845,7 +2832,6 @@
       "previousSlugsByLocale": {
         "it": [
           "reparaturtechniker-in-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "projektleiter-m-w-d-schindler-zurich",
           "project-manager-m-f-d-80-100-schindler-zurich",
           "projektleiter-in-m-w-d-80-100-schindler-zurich",
           "gestionnaire-de-projet-m-f-d-80-100-schindler-zurich"
@@ -3264,9 +3250,9 @@
       "slug": "gestore-consenso-ai-cookie-schindler-locarno",
       "slugByLocale": {
         "it": "gestore-consenso-ai-cookie-schindler-locarno",
-        "en": "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-        "de": "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-        "fr": "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno"
+        "en": "manager-consent-to-cookies-schindler-locarno",
+        "de": "zustimmung-des-managers-zu-cookies-schindler-locarno",
+        "fr": "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3315,13 +3301,13 @@
           "gestore-consenso-ai-cookie-schindler-locarno-ks40qe"
         ],
         "en": [
-          "manager-consent-to-cookies-schindler-locarno"
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno"
         ],
         "de": [
-          "zustimmung-des-managers-zu-cookies-schindler-locarno"
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno"
         ],
         "fr": [
-          "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+          "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno"
         ]
       },
       "previousSlugs": [
@@ -3353,7 +3339,7 @@
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
-        "fr": "lehrstelle-als-fachmann-frau-kundendialog-efz-fur-2027-schindler-ebikon"
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3396,8 +3382,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-fachmann-frau-kundendialog-efz-fur-2027-schindler-ebikon",
-          "manager-fur-cookie-einwilligungen-schindler-ebikon"
+          "lehrstelle-als-fachmann-frau-kundendialog-efz-fur-2027-schindler-ebikon"
         ],
         "it": [
           "lehrstelle-als-fachmann-frau-kundendialog-efz-fur-2027-schindler-ebikon",
@@ -3406,7 +3391,7 @@
           "manager-fur-cookie-einwilligungen-schindler-ebikon-12"
         ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
+          "lehrstelle-als-fachmann-frau-kundendialog-efz-fur-2027-schindler-ebikon"
         ]
       },
       "previousSlugs": [
@@ -4084,7 +4069,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-fahrtreppen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-        "tecnico-di-servizio-in-scala-mobile-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
         "tecnico-di-riparazione-nella-regione-di-scala-mobile-di-zurigo-m-f-d-80-100-schindler-zurich",
         "repair-technician-in-the-escalator-region-of-zurich-m-f-d-80-100-schindler-zurich",
         "reparaturtechniker-in-im-bereich-fahrtreppen-region-zurich-m-w-d-80-100-schindler-zurich",
@@ -4093,7 +4077,6 @@
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-fahrtreppen-in-der-region-zurich-m-w-d-80-100-schindler-zurich",
-          "tecnico-di-servizio-in-scala-mobile-nella-regione-di-zurigo-m-f-d-80-100-schindler-zurich",
           "tecnico-di-riparazione-nella-regione-di-scala-mobile-di-zurigo-m-f-d-80-100-schindler-zurich",
           "repair-technician-in-the-escalator-region-of-zurich-m-f-d-80-100-schindler-zurich",
           "reparaturtechniker-in-im-bereich-fahrtreppen-region-zurich-m-w-d-80-100-schindler-zurich",
@@ -5232,7 +5215,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "cookie-consent-manager-schindler-bussigny",
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny"
         ],
         "en": [
@@ -5243,7 +5225,6 @@
         ]
       },
       "previousSlugs": [
-        "cookie-consent-manager-schindler-bussigny",
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
         "swc-trade-employee-learning-for-2027-schindler-bussigny",
         "swc-trade-employee-learning-fur-2027-schindler-bussigny"
@@ -6153,7 +6134,6 @@
       "previousSlugsByLocale": {
         "it": [
           "polymechanical-cfc-elevator-mounter-learning-per-2027-schindler-sion",
-          "cookie-consent-manager-schindler-sion",
           "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion"
         ],
         "en": [
@@ -6169,7 +6149,6 @@
         "polymechanical-cfc-elevator-mounter-learning-per-2027-schindler-sion",
         "polymechanical-cfc-elevator-mounter-learning-for-2027-schindler-sion",
         "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion",
         "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion",
         "polymechanic-cfc-elevator-mounter-for-2027-schindler-sion",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion"

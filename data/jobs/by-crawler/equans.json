@@ -5139,12 +5139,12 @@
     },
     {
       "id": "equans-c6e87bda37a5",
-      "slug": "servicekoordinator-in-equans-sankt-moritz",
+      "slug": "coordinatore-del-servizio-in-equans-switzerland-sankt-moritz",
       "slugByLocale": {
-        "it": "servicekoordinator-in-equans-sankt-moritz",
-        "en": "servicekoordinator-in-equans-sankt-moritz",
+        "it": "coordinatore-del-servizio-in-equans-switzerland-sankt-moritz",
+        "en": "service-coordinator-in-equans-switzerland-sankt-moritz",
         "de": "servicekoordinator-in-equans-sankt-moritz",
-        "fr": "servicekoordinator-in-equans-sankt-moritz"
+        "fr": "coordonnateur-des-services-equans-switzerland-sankt-moritz"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5200,7 +5200,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "servicekoordinator-in-equans-sankt-moritz"
+        ],
+        "en": [
+          "servicekoordinator-in-equans-sankt-moritz"
+        ],
+        "fr": [
+          "servicekoordinator-in-equans-sankt-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "servicekoordinator-in-equans-sankt-moritz"
+      ]
     },
     {
       "id": "equans-6e228e72f4e6",
