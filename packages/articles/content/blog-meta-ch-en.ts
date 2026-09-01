@@ -4966,6 +4966,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.audizione-concezione-energia-eolica.title': 'Wind energy: Federal hearing for new plants',
     'blog.article.audizione-concezione-energia-eolica.excerpt': 'On 1 September, the ARE is launching the consultation of the cantons and the public on adapting the wind energy concept and strengthening planning security.',
     'blog.article.audizione-concezione-energia-eolica.imageAlt': 'Swiss alpine ridge with wind turbines, representing federal energy planning and territorial development',
+    'blog.article.lucerna-taxi-cari-mondo.title': 'Switzerland\'s taxis: world\'s most expensive',
+    'blog.article.lucerna-taxi-cari-mondo.excerpt': 'A 10km ride in Lucerne costs 58.89 francs, making the Swiss city the most expensive in the world for taxis.',
+    'blog.article.lucerna-taxi-cari-mondo.imageAlt': 'Aerial view of Lucerne, Switzerland, with Lake Lucerne and the Chapel Bridge in the foreground.',
 };
 
 export default blogMetaChEn;

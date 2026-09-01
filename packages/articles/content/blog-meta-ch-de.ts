@@ -4966,6 +4966,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.audizione-concezione-energia-eolica.title': 'Windenergie: Bundesanhörung für neue Anlagen',
     'blog.article.audizione-concezione-energia-eolica.excerpt': 'Am 1. September startet die ARE die Konsultation der Kantone und der Öffentlichkeit zur Anpassung des Windenergiekonzepts und zur Stärkung der Planungssicherheit.',
     'blog.article.audizione-concezione-energia-eolica.imageAlt': 'Alpiner Bergkamm in der Schweiz mit Windkraftanlagen, Symbol der Bundesenergiplanung und Gebietsentwicklung',
+    'blog.article.lucerna-taxi-cari-mondo.title': 'Luzern führt: Die Schweiz ist das Land mit den teuersten Taxis der Welt',
+    'blog.article.lucerna-taxi-cari-mondo.excerpt': 'Eine 10 km lange Fahrt in Luzern kostet 58,89 Francs, womit die Schweizer Stadt die teuerste der Welt für Taxis ist.',
+    'blog.article.lucerna-taxi-cari-mondo.imageAlt': 'Luftaufnahme von Luzern, Schweiz, mit dem Vierwaldstättersee und der Kapellbrücke im Vordergrund.',
 };
 
 export default blogMetaChDe;

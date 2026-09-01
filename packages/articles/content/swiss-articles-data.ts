@@ -14896,6 +14896,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'lucerna-taxi-cari-mondo',
+    category: 'fiscale',
+    date: '2026-09-01T17:00:15.637Z',
+    image: '/images/blog/lucerna-taxi-cari-mondo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -4966,6 +4966,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.audizione-concezione-energia-eolica.title': 'Énergie éolienne : audience fédérale pour les nouvelles centrales',
     'blog.article.audizione-concezione-energia-eolica.excerpt': 'Le 1er septembre, l’ARE lance la consultation des cantons et du public sur l’adaptation du concept d’énergie éolienne et le renforcement de la sécurité de la planification.',
     'blog.article.audizione-concezione-energia-eolica.imageAlt': 'Crête alpine suisse avec turbines éoliennes, symbole de la planification énergétique fédérale et du développement territorial',
+    'blog.article.lucerna-taxi-cari-mondo.title': 'Lucerne en tête : la Suisse est le pays avec les taxis les plus chers au monde',
+    'blog.article.lucerna-taxi-cari-mondo.excerpt': 'Une course de 10 km à Lucerne coûte 58,89 francs, faisant de la ville suisse la plus chère au monde pour les taxis.',
+    'blog.article.lucerna-taxi-cari-mondo.imageAlt': 'Vue aérienne de Lucerne, Suisse, avec le lac des Quatre-Cantons et le pont de la Chapelle en premier plan.',
 };
 
 export default blogMetaChFr;
