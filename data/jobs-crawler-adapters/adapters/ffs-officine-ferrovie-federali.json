@@ -10,13 +10,15 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.sbb.ch/v2/offene-stellen/spezialist-in-fm-prozesse-und-dokumentenmanagement/d3fa504a-58d2-4cd2-94bd-4cc658970bb0",
+    "https://jobs.sbb.ch/v2/offene-stellen/gestionnaire-operationnel-des-installations-d-alerte/844d6a54-b71f-4eb1-9c4b-c1bedce4446a",
+    "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/4fa797e9-59b0-4ffb-9d4a-0d2f83b12256",
     "https://jobs.sbb.ch/v2/offene-stellen/anlagenmanager-in-produktionsstandorte/548be227-5b97-432a-b763-214afdbc4600",
     "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baueinkauf/4ee6c32c-fb9f-4dcb-82d7-f209391f3e0c",
     "https://jobs.sbb.ch/v2/offene-stellen/gestionnaire-d-installations-des-sites-de-production-h-f-d/c70cfb7d-9bb3-4997-bba7-c490fc2dabe2",
     "https://jobs.sbb.ch/v2/offene-stellen/cheffe-d-equipe-achats-construction/a7246c0b-4dcc-40fb-b655-b71c888f91d3",
     "https://jobs.sbb.ch/v2/offene-stellen/capo-acquisti-costruzioni-m-f-d/396f0491-325a-4652-9036-99c4fc41d2e3",
     "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-oder-elektroinstallateur-in-bahnstrom/eb4ddb7d-9b9b-4136-922a-0158910eb9e1",
-    "https://jobs.sbb.ch/v2/offene-stellen/disponent-in-lasten-gueterverkehr/2f680ba0-b6f3-44af-a328-f9a4330c9779",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinsteiger-in-kundenbegleiter-in/042f9e39-7f28-4f92-a693-e36636da4dd1",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-fuer-frequenzerfassung/93b0aee8-2094-4a8c-bc27-6b819c420837",
     "https://jobs.sbb.ch/v2/offene-stellen/assistante-clientele-en-charge-du-releve-des-frequences-reconversion-professionnelle/aa43a06e-c384-4980-abaa-b7367bc9eba6",
@@ -89,8 +91,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/leiter-in-planung-und-disposition-gleisbaumaschinen/1f1a82f2-6f94-4f91-9f46-a078770772f5",
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-planification-et-disposition-des-machines-de-chantiers-ferroviaires-h-f-d/c4db5e4d-02ee-488a-9b4d-1cf130327f94",
     "https://jobs.sbb.ch/v2/offene-stellen/responsabile-pianificazione-e-disposizione-macchine-per-la-posa-del-binario-m-f-d/b62cc731-5901-45eb-bd3d-f224f507bc09",
-    "https://jobs.sbb.ch/v2/offene-stellen/finance-business-partner-ausbauprogramme-m-w-d/3125862a-2162-4dc9-a36c-dd5f8a76c94e",
-    "https://jobs.sbb.ch/v2/offene-stellen/finance-business-partner-programmes-d-extension-h-f-d/7756eddb-07f8-4755-8081-2c4b066ae1e4",
     "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-fuer-elektro-und-telekommunikationsanlagen/1aa15280-2f71-4962-9449-b94d1e591976",
     "https://jobs.sbb.ch/v2/offene-stellen/anlagenverantwortliche-r-ingenieurbau/832551bc-5e98-481d-b9f1-38ca7c89e64a",
     "https://jobs.sbb.ch/v2/offene-stellen/automobilmechatroniker-in-fuer-die-zugdiagnostik/ad0f31a5-2eb9-48c9-b1d8-408589667010",
@@ -128,7 +128,6 @@
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-rangierspezialist-in/d781a513-ee0b-4749-a032-7f601128d8e7",
     "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr/52cb6107-1a9a-4f9e-aa50-ed406bfe2895",
     "https://jobs.sbb.ch/v2/offene-stellen/lackierer-in-schienenfahrzeuge-80/1d308a41-0d10-41f8-b7d5-0d2ab2a77589",
-    "https://jobs.sbb.ch/v2/offene-stellen/triebfahrzeugfuehrer-in-kat-a-fahrleitungszugmaschine-fzm/47d01f3d-a232-4ffb-951c-920d5a94f8da",
     "https://jobs.sbb.ch/v2/offene-stellen/chefmonteur-in-fahrleitungszugmaschine-fzm/d33b6b90-7077-4ea2-812a-258e619e0852",
     "https://jobs.sbb.ch/v2/offene-stellen/recyclist-in/b1637ff3-f75d-4e5f-b787-e68963c2f343",
     "https://jobs.sbb.ch/v2/offene-stellen/techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in/615a1b67-f79b-4e0a-98de-7ffffd309378",
@@ -176,5 +175,5 @@
     "https://jobs.sbb.ch/v2/offene-stellen/responsable-des-cie-pour-les-agentes-de-transport-ferroviaire-cfc/9afa011e-3030-492b-a1d5-6fa693f6d017"
   ],
   "notes": "SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).",
-  "updatedAt": "2026-09-01T00:42:51.306Z"
+  "updatedAt": "2026-09-01T07:20:54.556Z"
 }
