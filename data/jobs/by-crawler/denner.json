@@ -8523,6 +8523,7 @@
         "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
         "deputy-branch-manager-denner-ag-rorschach-cmf05t",
         "stv-branch-manager-in-denner-ag-fislisbach",
+        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
         "directeur-de-succursale-stv-in-denner-ag-fislisbach",
         "stv-filialleiter-in-denner-ag-fislisbach",
         "stv-branch-manager-in-denner-ag-davos",
@@ -8536,6 +8537,7 @@
           "stv-filialleiter-in-denner-ag-rorschach",
           "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
           "stv-branch-manager-in-denner-ag-fislisbach",
+          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
           "directeur-de-succursale-stv-in-denner-ag-fislisbach",
           "stv-filialleiter-in-denner-ag-fislisbach",
           "stv-branch-manager-in-denner-ag-davos",
@@ -8549,6 +8551,9 @@
           "deputy-branch-manager-denner-ag-rorschach-cmf05t",
           "stv-branch-manager-in-denner-ag-fislisbach",
           "stv-branch-manager-in-denner-ag-davos"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
         ],
         "fr": [
           "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
@@ -22250,6 +22255,7 @@
         "verkaufer-in-denner-ag-oftringen",
         "vendeur-denner-ag-oftringen-79429a",
         "verkaufer-in-denner-ag-oftringen-2",
+        "verkaufer-in-denner-ag-oftringen-bd8i9d",
         "verkaufer-in-im-stundenlohn-denner",
         "venditore-nel-salario-orario-denner-oftringen",
         "verkaufer-in-im-stundenlohn-denner-ieg13f",
@@ -22264,6 +22270,7 @@
           "verkaufer-in-denner-ag-oftringen",
           "vendeur-denner-ag-oftringen-79429a",
           "verkaufer-in-denner-ag-oftringen-2",
+          "verkaufer-in-denner-ag-oftringen-bd8i9d",
           "verkaufer-in-im-stundenlohn-denner",
           "venditore-nel-salario-orario-denner-oftringen",
           "verkaufer-in-im-stundenlohn-denner-ieg13f",
@@ -23361,6 +23368,7 @@
         "venditore-denner-ag-herzogenbuchsee",
         "seller-denner-ag-herzogenbuchsee",
         "vendeur-denner-ag-herzogenbuchsee",
+        "verkaufer-in-denner-ag-herzogenbuchsee-fllnor",
         "verkaufer-in-denner",
         "venditore-denner-herzogenbuchsee",
         "venditore-denner-ag-herzogenbuchsee-e869da"
@@ -23372,6 +23380,7 @@
           "venditore-denner-ag-herzogenbuchsee",
           "seller-denner-ag-herzogenbuchsee",
           "vendeur-denner-ag-herzogenbuchsee",
+          "verkaufer-in-denner-ag-herzogenbuchsee-fllnor",
           "verkaufer-in-denner",
           "venditore-denner-herzogenbuchsee",
           "venditore-denner-ag-herzogenbuchsee-e869da"
@@ -24333,17 +24342,12 @@
       "crawledAt": "2026-09-01T08:51:27.257Z",
       "previousSlugs": [
         "stv-filialleiter-in-denner",
-        "stv-branch-manager-in-denner-ag-fislisbach",
-        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
+        "stv-branch-manager-in-denner-ag-fislisbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-filialleiter-in-denner",
-          "stv-branch-manager-in-denner-ag-fislisbach",
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
-        ],
-        "de": [
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
+          "stv-branch-manager-in-denner-ag-fislisbach"
         ]
       },
       "needsRetranslation": true,
@@ -24429,8 +24433,7 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-ag-oftringen-bd8i9d"
+          "verkaufer-in-denner"
         ],
         "en": [
           "seller-denner-ag-oftringen-79429a"
@@ -24442,8 +24445,7 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-oftringen-79429a",
-        "vendeur-denner-ag-oftringen-79429a",
-        "verkaufer-in-denner-ag-oftringen-bd8i9d"
+        "vendeur-denner-ag-oftringen-79429a"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -24622,8 +24624,7 @@
       "crawledAt": "2026-09-01T08:51:26.149Z",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-denner",
-          "verkaufer-in-denner-ag-herzogenbuchsee-fllnor"
+          "verkaufer-in-denner"
         ],
         "en": [
           "seller-denner-ag-herzogenbuchsee"
@@ -24635,8 +24636,7 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "seller-denner-ag-herzogenbuchsee",
-        "vendeur-denner-ag-herzogenbuchsee",
-        "verkaufer-in-denner-ag-herzogenbuchsee-fllnor"
+        "vendeur-denner-ag-herzogenbuchsee"
       ],
       "needsRetranslation": true,
       "salaryMin": 77500,

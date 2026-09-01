@@ -1605,7 +1605,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1616,7 +1615,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"agie-charmilles","primarySlice":"data/jobs/by-crawler/agie-charmilles.json"},{"crawlerId":"artificialy","primarySlice":"data/jobs/by-crawler/artificialy.json"},{"crawlerId":"balgrist","primarySlice":"data/jobs/by-crawler/balgrist.json"},{"crawlerId":"brack-alltron","primarySlice":"data/jobs/by-crawler/brack-alltron.json"},{"crawlerId":"canton-ticino-osc","primarySlice":"data/jobs/by-crawler/canton-ticino-osc.json"},{"crawlerId":"cippatrasporti","primarySlice":"data/jobs/by-crawler/cippatrasporti.json"},{"crawlerId":"clinica-hildebrand","primarySlice":"data/jobs/by-crawler/clinica-hildebrand.json"},{"crawlerId":"clinique-generale-ste-anne","primarySlice":"data/jobs/by-crawler/clinique-generale-ste-anne.json"},{"crawlerId":"coopers","primarySlice":"data/jobs/by-crawler/coopers.json"},{"crawlerId":"epfl","primarySlice":"data/jobs/by-crawler/epfl.json"},{"crawlerId":"giorgio-armani","primarySlice":"data/jobs/by-crawler/giorgio-armani.json"},{"crawlerId":"imad","primarySlice":"data/jobs/by-crawler/imad.json"},{"crawlerId":"kanton-st-gallen","primarySlice":"data/jobs/by-crawler/kanton-st-gallen.json"},{"crawlerId":"klinik-gut","primarySlice":"data/jobs/by-crawler/klinik-gut.json"},{"crawlerId":"klinik-sgm","primarySlice":"data/jobs/by-crawler/klinik-sgm.json"},{"crawlerId":"kuehne-nagel","primarySlice":"data/jobs/by-crawler/kuehne-nagel.json"},{"crawlerId":"la-fonte","primarySlice":"data/jobs/by-crawler/la-fonte.json"},{"crawlerId":"manor","primarySlice":"data/jobs/by-crawler/manor.json"},{"crawlerId":"nvidia-zurich","primarySlice":"data/jobs/by-crawler/nvidia-zurich.json"},{"crawlerId":"postfinance","primarySlice":"data/jobs/by-crawler/postfinance.json"},{"crawlerId":"privatklinik-obach","primarySlice":"data/jobs/by-crawler/privatklinik-obach.json"},{"crawlerId":"raiffeisen","primarySlice":"data/jobs/by-crawler/raiffeisen.json"},{"crawlerId":"sanatorium-kilchberg","primarySlice":"data/jobs/by-crawler/sanatorium-kilchberg.json"},{"crawlerId":"sika","primarySlice":"data/jobs/by-crawler/sika.json"},{"crawlerId":"suchthilfe-region-basel","primarySlice":"data/jobs/by-crawler/suchthilfe-region-basel.json"},{"crawlerId":"swiss-life","primarySlice":"data/jobs/by-crawler/swiss-life.json"},{"crawlerId":"tally-weijl","primarySlice":"data/jobs/by-crawler/tally-weijl.json"},{"crawlerId":"upd","primarySlice":"data/jobs/by-crawler/upd.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-12-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs
