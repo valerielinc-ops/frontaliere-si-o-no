@@ -121,6 +121,18 @@ describe('CSC authoritative Drupal discovery', () => {
     })).rejects.toThrow(/did not return a canonical work-position page/);
   });
 
+  it('does not truncate articleText when the primary article nests another <article>', () => {
+    const trailingText = 'Ricerchiamo un operaio edile qualificato per cantieri in Ticino, esperienza minima tre anni richiesta.';
+    const nestedShell = `<!doctype html><html><body><main><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><aside><article class="node node--type-related">Contenuto correlato non pertinente.</article></aside><p>${trailingText}</p></article></main></body></html>`;
+    const detail = parseCscPrimaryJobDetail(nestedShell);
+    expect(detail).toEqual({ identity: 'drupal-node:401', nodeId: '401', hasJobPosting: false });
+  });
+
+  it('fails closed when the primary article never closes', () => {
+    const unclosedShell = '<!doctype html><html><body><main><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><p>Testo senza chiusura del tag article primario.</p></main></body></html>';
+    expect(parseCscPrimaryJobDetail(unclosedShell)).toBeNull();
+  });
+
   it('fails closed when two Drupal routes expose the same semantic vacancy', async () => {
     const [first, alias] = fixture.details;
     const identitylessHtml = first.html.replace(/ data-history-node-id="301"/, '');
