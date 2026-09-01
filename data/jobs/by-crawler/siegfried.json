@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-09-01T01:08:41.074Z",
+  "assembledAt": "2026-09-01T07:48:13.520Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:38.264Z",
+      "crawledAt": "2026-09-01T07:48:09.555Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -112,7 +112,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:37.585Z",
+      "crawledAt": "2026-09-01T07:48:08.858Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -170,6 +170,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -216,7 +217,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:36.863Z",
+      "crawledAt": "2026-09-01T07:48:08.155Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -247,6 +248,7 @@
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
+      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -293,7 +295,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:36.148Z",
+      "crawledAt": "2026-09-01T07:48:07.534Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -321,6 +323,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -367,7 +370,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:35.474Z",
+      "crawledAt": "2026-09-01T07:48:06.916Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -405,6 +408,7 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -451,7 +455,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:34.763Z",
+      "crawledAt": "2026-09-01T07:48:06.211Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -487,6 +491,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -533,7 +538,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:34.093Z",
+      "crawledAt": "2026-09-01T07:48:05.466Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -570,6 +575,7 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -616,7 +622,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:08:33.343Z",
+      "crawledAt": "2026-09-01T07:48:04.839Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -650,6 +656,7 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -696,7 +703,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:32.686Z",
+      "crawledAt": "2026-09-01T07:48:04.226Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -755,7 +762,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Business electrician*",
+        "en": "Betriebselektriker*in",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -771,7 +778,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:32.017Z",
+      "crawledAt": "2026-09-01T07:48:03.594Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -808,6 +815,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:19:28.317Z",
+      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -854,7 +862,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:31.334Z",
+      "crawledAt": "2026-09-01T07:48:02.820Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -896,6 +904,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -942,7 +951,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:30.620Z",
+      "crawledAt": "2026-09-01T07:48:02.084Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -994,6 +1003,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:49.045Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1040,7 +1050,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:29.942Z",
+      "crawledAt": "2026-09-01T07:48:01.462Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1120,7 +1130,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T01:08:29.184Z",
+      "crawledAt": "2026-09-01T07:48:00.750Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1200,7 +1210,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Payroll-Expert_R26_664",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:28.482Z",
+      "crawledAt": "2026-09-01T07:48:00.029Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1278,7 +1288,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Rohrschlosser-in_R26_675",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:27.800Z",
+      "crawledAt": "2026-09-01T07:47:59.350Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1345,7 +1355,7 @@
         "it": "Costruzione CAD (m/f/d)",
         "en": "CAD constructor (m/f/d)",
         "de": "CAD Konstrukteur/in (m/w/d)",
-        "fr": "Constructeur CAO/en (h/f/d)"
+        "fr": "CAD Konstrukteur/in (m/w/d)"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
@@ -1359,7 +1369,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:27.187Z",
+      "crawledAt": "2026-09-01T07:47:58.575Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1392,6 +1402,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.003Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1438,7 +1449,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Expert-Lab-Technician-Drug-Product-R-D_R26_716",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T01:08:26.499Z",
+      "crawledAt": "2026-09-01T07:47:57.821Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1503,7 +1514,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-Treasury_R26_700",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:08:25.801Z",
+      "crawledAt": "2026-09-01T07:47:57.184Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1536,157 +1547,6 @@
         }
       },
       "addressRegion": "AG"
-    },
-    {
-      "id": "siegfried-b3129e52364a",
-      "slug": "produzione-di-process-manager-m-f-d-siegfried-zofingen",
-      "slugByLocale": {
-        "it": "produzione-di-process-manager-m-f-d-siegfried-zofingen",
-        "en": "process-manager-production-m-f-d-siegfried-ch",
-        "de": "prozessmanager-produktion-m-w-d-siegfried-zofingen",
-        "fr": "gestionnaire-de-processus-production-m-f-d-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Process Manager Production (m/f/d)",
-      "titleByLocale": {
-        "it": "Produzione di Process Manager (m/f/d)",
-        "en": "Process Manager Production (m/f/d)",
-        "de": "Prozessmanager Produktion (m/w/d)",
-        "fr": "Gestionnaire de processus Production (m/f/d)"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried are looking for a Process Manager Production (m/f/d) for our Process Management Production department, based in Zofingen, starting immediately or by agreement.\n\nIn this exciting and varied role, you will be responsible for and optimize the chemical and physical processes of the assigned overall product portfolio involving multi-step syntheses.\n\nAs a member of the Product Leadership Team (PLT), you will be responsible for the seamless introduction of development projects or customer processes into commercial production operations.\n\nFor commercialized products, you will lead the PLT and actively drive continuous process improvement. In doing so, you will serve as the communication interface to our customers for all operational matters.\n\nWe are looking for passionate product chemists who are team players and demonstrate a high degree of independence, solution orientation, reliability, and a strong sense of quality and responsibility. You are characterized by strong analytical skills, technical interest, and entrepreneurial thinking and acting.\n Your Profile:\n\nMain Responsibilities:\n\n• Implement, support, and optimize existing and new production processes with regard to cycle time, yield, and costs while complying with cGMP guidelines.\n\n• Assess new processes and technologies for feasibility and suitability in chemical manufacturing facilities.\n\n• Support, monitor, and evaluate product campaigns, including defining improvement and process optimization measures.\n\n• Own process and procedure documentation, material balances, and SAP manufacturing recipes.\n\n• Act as process lead / process owner in investment projects.\n\n• Share responsibility for planning, implementing, and ensuring compliance with regulatory requirements relating to cGMP, SHE, authorities, etc. for your products.\n\nRequirements:\n\n• Completed university degree (University of Applied Sciences, ETH, or university) in Chemistry, with a focus on Chemical Engineering, Industrial Chemistry, or Organic Chemistry.\n\n• Professional experience in chemical or pharmaceutical production or in a pilot plant; experience in a cGMP environment is an advantage.\n\n• 3+ years of experience in a similar function.\n\n• Business-fluent German and English, both written and spoken.\n\nYour Benefits:\n\nWhat do we offer?\n\n• Pension Plan: Our company-sponsored pension plan is attractive and offers flexible contribution options\n\n• Our stock purchase plan is generous and can be tailored to individual needs\n\n• Child Allowance: Siegfried AG increases the child allowance by 10% above the cantonal statutory rate\n\n• Reka-Geld: Siegfried AG offers employees a 20% discount\n\n• Staff restaurant / cafeteria: Meals at preferential rates\n\n• You can park at a discounted rate\n\n• Centrally located: Close to the train station with excellent public transportation connections.\n\nIf you’re excited by the idea of joining our group , we’d love to hear from you.\n Apply today and be part of building something extraordinary!\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nA Siegfried sono alla ricerca di un Process Manager Production (m/f/d) per il nostro reparto Process Management Production, con sede a Zofingen, a partire da subito o con accordo.\n\nIn questo ruolo emozionante e variegato, sarete responsabili e ottimizzare i processi chimici e fisici del portafoglio di prodotti assegnato che coinvolge sintetizzazioni multi-step.\n\nCome membro del Product Leadership Team (PLT), sarete responsabili dell'introduzione senza soluzione di continuità di progetti di sviluppo o processi dei clienti nelle operazioni di produzione commerciale.\n\nPer i prodotti commercializzati, guiderai il PLT e guiderai attivamente il miglioramento del processo continuo. In questo modo, servirai come interfaccia di comunicazione ai nostri clienti per tutte le questioni operative.\n\nSiamo alla ricerca di appassionati chimici di prodotto che sono giocatori di squadra e dimostrano un alto grado di indipendenza, orientamento della soluzione, affidabilità, e un forte senso di qualità e responsabilità. Sei caratterizzato da forti capacità analitiche, interesse tecnico, e pensiero imprenditoriale e agire.\nIl tuo profilo:\n\nPrincipali responsabilità:\n\n• Implementare, supportare e ottimizzare i processi di produzione esistenti e nuovi per quanto riguarda il tempo di ciclo, la resa e i costi nel rispetto delle linee guida cGMP.\n\n• Valutare nuovi processi e tecnologie per la fattibilità e l'idoneità negli impianti di produzione chimica.\n\n• Supporto, monitoraggio e valutazione delle campagne di prodotto, tra cui la definizione di misure di miglioramento e ottimizzazione dei processi.\n\n• Documentazione di processo e procedura, bilancia dei materiali e ricette di produzione SAP.\n\n• Agire come processo lead / processo proprietario in progetti di investimento.\n\n• Condividi la responsabilità per la pianificazione, l'attuazione e la conformità ai requisiti normativi relativi a cGMP, SHE, autorità, ecc. per i tuoi prodotti.\n\nRequisiti:\n\n• Laurea completa (Università di Scienze Applicate, ETH, o Università) in Chimica, con un focus su Ingegneria Chimica, Chimica Industriale, o Chimica Organica.\n\n• Esperienza professionale nella produzione chimica o farmaceutica o in un impianto pilota; l'esperienza in un ambiente cGMP è un vantaggio.\n\n• 3+ anni di esperienza in una funzione simile.\n\n• Tedesco e inglese influenzato dal business, sia scritto che parlato.\n\nI tuoi vantaggi:\n\nCosa offriamo?\n\n• Pensione Piano: Il nostro piano pensionistico sponsorizzato dall'azienda è attraente e offre opzioni di contributo flessibili\n\n• Il nostro piano di acquisto azionario è generoso e può essere adattato alle esigenze individuali\n\n• Consentimento del bambino: Siegfried AG aumenta l'assegno del bambino del 10% sopra il tasso di legge cantonale\n\n• Reka-Geld: Siegfried AG offre ai dipendenti uno sconto del 20%\n\n• Staff ristorante / caffetteria: pasti a tariffe preferenziali\n\n• È possibile parcheggiare a un prezzo scontato\n\n• Posizione centrale: Vicino alla stazione ferroviaria con ottimi collegamenti con i mezzi pubblici.\n\nSe siete entusiasti dell'idea di unire il nostro gruppo, ci piacerebbe sentire da voi.\nApplicare oggi e far parte di costruire qualcosa di straordinario!\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried are looking for a Process Manager Production (m/f/d) for our Process Management Production department, based in Zofingen, starting immediately or by agreement.\n\nIn this exciting and varied role, you will be responsible for and optimize the chemical and physical processes of the assigned overall product portfolio involving multi-step syntheses.\n\nAs a member of the Product Leadership Team (PLT), you will be responsible for the seamless introduction of development projects or customer processes into commercial production operations.\n\nFor commercialized products, you will lead the PLT and actively drive continuous process improvement. In doing so, you will serve as the communication interface to our customers for all operational matters.\n\nWe are looking for passionate product chemists who are team players and demonstrate a high degree of independence, solution orientation, reliability, and a strong sense of quality and responsibility. You are characterized by strong analytical skills, technical interest, and entrepreneurial thinking and acting.\nYour Profile:\n\nMain Responsibilities:\n\n• Implement, support, and optimize existing and new production processes with regard to cycle time, yield, and costs while complying with cGMP guidelines.\n\n• Assess new processes and technologies for feasibility and suitability in chemical manufacturing facilities.\n\n• Support, monitor, and evaluate product campaigns, including defining improvement and process optimization measures.\n\n• Own process and procedure documentation, material balances, and SAP manufacturing recipes.\n\n• Act as process lead / process owner in investment projects.\n\n• Share responsibility for planning, implementing, and ensuring compliance with regulatory requirements relating to cGMP, SHE, authorities, etc. for your products.\n\nRequirements:\n\n• Completed university degree (University of Applied Sciences, ETH, or university) in Chemistry, with a focus on Chemical Engineering, Industrial Chemistry, or Organic Chemistry.\n\n• Professional experience in chemical or pharmaceutical production or in a pilot plant; experience in a cGMP environment is an advantage.\n\n• 3+ years of experience in a similar function.\n\n• Business-fluent German and English, both written and spoken.\n\nYour Benefits:\n\nWhat do we offer?\n\n• Pension Plan: Our company-sponsored pension plan is attractive and offers flexible contribution options\n\n• Our stock purchase plan is generous and can be tailored to individual needs\n\n• Child Allowance: Siegfried AG increases the child allowance by 10% above the cantonal statutory rate\n\n• Reka-Geld: Siegfried AG offers employees a 20% discount\n\n• Staff restaurant / cafeteria: Meals at preferential rates\n\n• You can park at a discounted rate\n\n• Centrally located: Close to the train station with excellent public transportation connections.\n\nIf you’re excited by the idea of joining our group , we’d love to hear from you.\nApply today and be part of building something extraordinary!\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nBei Siegfried suchen Sie einen Process Manager Production (m/w/d) für unsere Process Management Production mit Sitz in Zofingen, ab sofort oder nach Vereinbarung.\n\nIn dieser spannenden und abwechslungsreichen Rolle verantworten und optimieren Sie die chemischen und physikalischen Prozesse des zugeordneten Gesamtproduktportfolios mit mehrstufigen Synthesen.\n\nAls Mitglied des Product Leadership Teams (PLT) sind Sie für die nahtlose Einführung von Entwicklungsprojekten oder Kundenprozessen in den kommerziellen Produktionsbetrieb verantwortlich.\n\nBei kommerzialisierten Produkten leiten Sie das PLT und treiben die kontinuierliche Prozessverbesserung aktiv voran. Dabei dienen Sie als Kommunikationsschnittstelle zu unseren Kunden für alle operativen Angelegenheiten.\n\nWir suchen leidenschaftliche Produktchemiker, die Teamplayer sind und ein hohes Maß an Unabhängigkeit, Lösungsorientierung, Zuverlässigkeit und ein hohes Maß an Qualität und Verantwortung zeigen. Sie zeichnen sich durch starke analytische Fähigkeiten, technisches Interesse und unternehmerisches Denken und Handeln aus.\nIhr Profil:\n\nHauptzuständigkeiten:\n\n• Implementieren, unterstützen und optimieren Sie bestehende und neue Produktionsprozesse hinsichtlich Zykluszeit, Ertrag und Kosten unter Einhaltung der cGMP-Richtlinien.\n\n• Bewerten Sie neue Prozesse und Technologien auf Machbarkeit und Eignung in chemischen Produktionsanlagen.\n\n• Unterstützung, Überwachung und Bewertung von Produktkampagnen, einschließlich der Definition von Verbesserungs- und Prozessoptimierungsmaßnahmen.\n\n• Eigene Prozess- und Verfahrensdokumentation, Materialbilanzen und SAP-Herstellungsrezepte.\n\n• Handeln Sie als Process Lead / Process Owner in Investitionsprojekten.\n\n• Teilen Sie die Verantwortung für die Planung, Umsetzung und Sicherstellung der Einhaltung der regulatorischen Anforderungen in Bezug auf cGMP, SHE, Behörden usw. für Ihre Produkte.\n\nAnforderungen:\n\n• Abgeschlossener Universitätsabschluss (Fachhochschule, ETH oder Universität) in Chemie mit Schwerpunkt Chemieingenieurwesen, Industriechemie oder Organische Chemie.\n\n• Berufserfahrung in der chemischen oder pharmazeutischen Produktion oder in einer Pilotanlage; Erfahrung in einer cGMP-Umgebung ist von Vorteil.\n\n• 3+ Jahre Erfahrung in einer ähnlichen Funktion.\n\n• Business fließendes Deutsch und Englisch, geschrieben und gesprochen.\n\nIhre Vorteile:\n\nWas bieten wir an?\n\n• Pension Plan: Unsere firmengeförderte Pension ist attraktiv und bietet flexible Beitragsoptionen\n\n• Unser Aktienkaufplan ist großzügig und kann auf individuelle Bedürfnisse zugeschnitten werden\n\n• Kindergeld: Siegfried AG erhöht Kindergeld um 10% über dem kantonalen gesetzlichen Satz\n\n• Reka-Geld: Siegfried AG bietet Mitarbeitern 20% Rabatt\n\n• Personalrestaurant / Cafeteria: Mahlzeiten zu Vorzugspreisen\n\n• Sie können zu einem ermäßigten Preis parken\n\n• Zentral gelegen: In der Nähe des Bahnhofs mit hervorragender Anbindung an die öffentlichen Verkehrsmittel.\n\nWenn Sie von der Idee begeistert sind, unserer Gruppe beizutreten, würden wir gerne von Ihnen hören.\nBewerben Sie sich noch heute und seien Sie Teil davon, etwas Außergewöhnliches zu bauen!\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nChez Siegfried sont à la recherche d'un Process Manager Production (m/f/d) pour notre département Process Management Production, basé à Zofingen, en commençant immédiatement ou par accord.\n\nDans ce rôle passionnant et varié, vous serez responsable et optimiserez les processus chimiques et physiques du portefeuille de produits assignés comprenant des synthèses en plusieurs étapes.\n\nEn tant que membre de l'équipe de leadership des produits, vous serez responsable de l'introduction transparente de projets de développement ou de processus clients dans les opérations de production commerciale.\n\nPour les produits commercialisés, vous dirigerez le PLT et stimulerez activement l'amélioration continue du processus. Ce faisant, vous servirez d'interface de communication à nos clients pour toutes les questions opérationnelles.\n\nNous recherchons des chimistes de produits passionnés qui sont des joueurs d'équipe et qui démontrent un haut degré d'indépendance, d'orientation de la solution, de fiabilité et un fort sens de la qualité et de la responsabilité. Vous êtes caractérisé par de solides compétences analytiques, l'intérêt technique, et la pensée et l'action entrepreneuriales.\nVotre profil:\n\nPrincipales responsabilités :\n\n• Mettre en oeuvre, soutenir et optimiser les processus de production existants et nouveaux en ce qui concerne le temps de cycle, le rendement et les coûts tout en respectant les lignes directrices sur les BPFc.\n\n• Évaluer les nouveaux procédés et les nouvelles technologies pour en déterminer la faisabilité et la pertinence dans les installations de fabrication de produits chimiques.\n\n• Soutenir, surveiller et évaluer les campagnes de produits, y compris la définition de mesures d'amélioration et d'optimisation des processus.\n\n• Documentation sur les processus et les procédures, bilans matériels et recettes de fabrication SAP.\n\n• Agir comme responsable de processus/propriétaire de processus dans les projets d'investissement.\n\n• Partager la responsabilité de la planification, de la mise en oeuvre et de la conformité aux exigences réglementaires relatives au PSGc, au PSGc, aux autorités, etc. pour vos produits.\n\nExigences:\n\n• Diplôme universitaire (Université des sciences appliquées, ETH ou université) en chimie, en mettant l'accent sur le génie chimique, la chimie industrielle ou la chimie organique.\n\n• Expérience professionnelle dans la production chimique ou pharmaceutique ou dans une usine pilote; l'expérience dans un environnement cGMP est un avantage.\n\n• 3+ ans d'expérience dans une fonction similaire.\n\n• L'allemand et l'anglais d'affaires, écrits et parlés.\n\nVos avantages :\n\nQu'est-ce qu'on offre ?\n\n• Régime de retraite : Notre régime de retraite parrainé par l'entreprise est attrayant et offre des options de cotisation flexibles\n\n• Notre plan d'achat d'actions est généreux et peut être adapté aux besoins individuels\n\n• Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10 % par rapport au taux légal cantonal\n\n• Reka-Geld: Siegfried AG offre aux salariés une réduction de 20%\n\n• Restaurant du personnel / cafétéria: Repas à des tarifs préférentiels\n\n• Vous pouvez vous garer à un tarif réduit\n\n• Idéalement situé : à proximité de la gare avec d'excellentes liaisons de transport en commun.\n\nSi vous êtes excités par l'idée de rejoindre notre groupe, nous aimerions avoir des nouvelles de vous.\nAppliquer aujourd'hui et faire partie de la construction quelque chose d'extraordinaire!\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production--m-f-d-_R26_651",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:59:45.197Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Process-Manager-Production--m-f-d-_R26_651",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "jobReqId": "R26_651",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugs": [
-        "process-manager-production-m-f-d-siegfried-ch",
-        "produzione-di-process-manager-m-f-d-siegfried-zofingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "process-manager-production-m-f-d-siegfried-ch",
-          "produzione-di-process-manager-m-f-d-siegfried-zofingen"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T11:15:20.686Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG",
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
-    },
-    {
-      "id": "siegfried-192ea0c18db3",
-      "slug": "global-categoria-manager-capex-siegfried-zofingen",
-      "slugByLocale": {
-        "en": "global-category-manager-capex-siegfried-ch",
-        "it": "global-categoria-manager-capex-siegfried-zofingen",
-        "fr": "gestionnaire-de-categorie-globale-capex-siegfried-zofingen",
-        "de": "global-categoria-manager-capex-siegfried-zofingen"
-      },
-      "company": "Siegfried",
-      "companyKey": "siegfried",
-      "companyDomain": "siegfried.ch",
-      "title": "Global Category Manager CapEx",
-      "titleByLocale": {
-        "en": "Global Category Manager CapEx",
-        "it": "Global Categoria Manager CapEx",
-        "de": "Global Category Manager CapEx",
-        "fr": "Gestionnaire de catégorie globale CapEx"
-      },
-      "description": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried we are currently looking for a Global Category Manager CapEx to join our indirect procurement team in our site based Zofingen.\n\nReporting to the Head of Global Indirect Procurement, your main responsibilities will be:\n\n• Identify and execute global optimization projects for capital expenses (CapEx), following indirect procurement categories are mainly in scope Production Equipment, Construction, Facility Management and Laboratory.\n• Responsible for the complete commercial procurement process for respective categories.\n• Development and implementation of group-wide category strategies for our international sites.\n• Develops a CapEx procurement community with regular exchange and best practice sharing.\n• Drives the adoption of the sourcing tool in Coupa across the entire procurement community.\n• Build productive relationships with key internal stakeholders to understand business needs and implement a multi-year plan to ensure optimal tendering of Siegfried’s spend.\n Your Profile:\n\nWhat are we looking for?\n\n• Language Skills : Fluent in English (written and spoken)\n\n• Professional Experience : Minimum 5 years of relevant procurement experience\n\n• Procurement Tools : Experience with e-auctions\n\n• Communication Skills : Strong communication and presentation skills\n\n• Educational Background : Business Administration with strong technical acumen is preferred. (Engineering)\n\n• Project Management: Strong project management skills\n\n• Business Acumen: Demonstrated strength in critical thinking and experience in business case development\n\nYour Benefits:\n\n​ What do we offer?\n\n• Pension Plan: Our company-sponsored pension plan is attractive and offers flexible contribution options.\n\n• Our stock purchase plan is generous and can be tailored to individual needs.\n\n• Child Allowance: Siegfried AG increases the child allowance by 10% above the cantonal statutory rate.\n\n• Reka-Geld: Siegfried AG offers employees a 20% discount.\n\n• Staff restaurant / cafeteria: Meals at preferential rates.\n\n• You can park at a discounted rate.\n\n• Centrally located: Close to the train station with excellent public transportation connections.\n\nIf you’re excited by the idea of joining our group , we’d love to hear from you.\n Apply today and be part of building something extraordinary!\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-      "descriptionByLocale": {
-        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and ample opportunities to showcase your talents. As a trusted and respected partner to the pharmaceutical industry, we uphold the highest standards in safety, quality and sustainability, while fostering a culture that empowers you to thrive. Join a rapidly expanding global company, where diverse perspectives and experiences come together in a collaborative environment. Here, you'll find a workplace that values both collective success and your individual contributions—offering long-term opportunities to grow and make an impact.\n\nYour Role:\nAt Siegfried we are currently looking for a Global Category Manager CapEx to join our indirect procurement team in our site based Zofingen.\n\nReporting to the Head of Global Indirect Procurement, your main responsibilities will be:\n\n• Identify and execute global optimization projects for capital expenses (CapEx), following indirect procurement categories are mainly in scope Production Equipment, Construction, Facility Management and Laboratory.\n• Responsible for the complete commercial procurement process for respective categories.\n• Development and implementation of group-wide category strategies for our international sites.\n• Develops a CapEx procurement community with regular exchange and best practice sharing.\n• Drives the adoption of the sourcing tool in Coupa across the entire procurement community.\n• Build productive relationships with key internal stakeholders to understand business needs and implement a multi-year plan to ensure optimal tendering of Siegfried’s spend.\n Your Profile:\n\nWhat are we looking for?\n\n• Language Skills : Fluent in English (written and spoken)\n\n• Professional Experience : Minimum 5 years of relevant procurement experience\n\n• Procurement Tools : Experience with e-auctions\n\n• Communication Skills : Strong communication and presentation skills\n\n• Educational Background : Business Administration with strong technical acumen is preferred. (Engineering)\n\n• Project Management: Strong project management skills\n\n• Business Acumen: Demonstrated strength in critical thinking and experience in business case development\n\nYour Benefits:\n\n​ What do we offer?\n\n• Pension Plan: Our company-sponsored pension plan is attractive and offers flexible contribution options.\n\n• Our stock purchase plan is generous and can be tailored to individual needs.\n\n• Child Allowance: Siegfried AG increases the child allowance by 10% above the cantonal statutory rate.\n\n• Reka-Geld: Siegfried AG offers employees a 20% discount.\n\n• Staff restaurant / cafeteria: Meals at preferential rates.\n\n• You can park at a discounted rate.\n\n• Centrally located: Close to the train station with excellent public transportation connections.\n\nIf you’re excited by the idea of joining our group , we’d love to hear from you.\n Apply today and be part of building something extraordinary!\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network of 16 sites across three continents. With a team of more than 4,200 highly skilled professionals, we take the innovations of our pharmaceutical customers to industrial scale and manufacture safe drugs for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few organizations today that can carry out the development and manufacturing of APIs and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e ampie opportunità per mostrare i vostri talenti. In qualità di partner affidabile e rispettato per l'industria farmaceutica, sosteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo al contempo una cultura che ti consente di prosperare. Unisciti a una società globale in rapida espansione, dove prospettive e esperienze diverse si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali, offrendo opportunità a lungo termine per crescere e fare un impatto.\n\nIl tuo ruolo:\nA Siegfried stiamo attualmente cercando un Global Categoria Manager CapEx per unire il nostro team di approvvigionamento indiretto nel nostro sito basato Zofingen.\n\nSegnalando al Capo del Global Indirect Procurement, le vostre principali responsabilità saranno:\n\n• Identificare ed eseguire progetti di ottimizzazione globale per le spese di capitale (CapEx), le seguenti categorie di approvvigionamento indiretto sono principalmente nel campo Produzione attrezzature, costruzione, gestione delle strutture e laboratorio.\n• Responsabile del processo di approvvigionamento commerciale completo per le rispettive categorie.\n• Sviluppo e implementazione di strategie di categoria di gruppo per i nostri siti internazionali.\n• Sviluppa una comunità di approvvigionamento CapEx con scambio regolare e migliore condivisione delle pratiche.\n• Guida l'adozione dello strumento di approvvigionamento in Coupa in tutta la comunità di approvvigionamento.\n• Costruire relazioni produttive con le principali parti interessate interne per comprendere le esigenze aziendali e implementare un piano pluriennale per garantire un’offerta ottimale della spesa di Siegfried.\n Il tuo profilo:\n\nCosa stiamo cercando?\n\n• Competenze linguistiche: fluente in inglese (scritto e parlato)\n\n• Esperienza professionale: minimo 5 anni di esperienza di approvvigionamento rilevante\n\n• Strumenti di approvvigionamento: Experience with e-auctions\n\n• Competenze di comunicazione: Forte capacità di comunicazione e presentazione\n\n• Sfondo educativo: Business Administration con forte acume tecnico è preferito. (Engineering)\n\n• Project Management: Forte capacità di gestione dei progetti\n\n• Business Acumen: forza dimostrata nel pensiero critico e nell'esperienza nello sviluppo dei casi aziendali\n\nI tuoi vantaggi:\n\nCosa offriamo?\n\n• Pension Plan: Il nostro piano pensionistico sponsorizzato dalla società è attraente e offre opzioni di contributo flessibili.\n\n• Il nostro piano di acquisto azionario è generoso e può essere adattato alle esigenze individuali.\n\n• Consentimento del bambino: Siegfried AG aumenta l'assegno del bambino del 10% rispetto al tasso di legge cantonale.\n\n• Reka-Geld: Siegfried AG offre ai dipendenti uno sconto del 20%.\n\n• Staff ristorante / caffetteria: pasti a tariffe preferenziali.\n\n• È possibile parcheggiare a un prezzo scontato.\n\n• Posizione centrale: Vicino alla stazione ferroviaria con ottimi collegamenti con i mezzi pubblici.\n\nSe siete entusiasti dell'idea di unire il nostro gruppo, ci piacerebbe sentire da voi.\n Applicare oggi e far parte di costruire qualcosa di straordinario!\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale di 16 siti in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a scala industriale e produciamo farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni oggi in grado di effettuare lo sviluppo e la produzione di API e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
-        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und reichlich Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner der Pharmaindustrie halten wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit ein und fördern gleichzeitig eine Kultur, die es Ihnen ermöglicht, erfolgreich zu sein. Treten Sie einem schnell wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl den kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt und langfristige Wachstumsmöglichkeiten bietet.\n\nIhre Rolle:\nBei Siegfried suchen wir derzeit einen Global Category Manager CapEx, der sich unserem indirekten Beschaffungsteam in unserem Standort Zofingen anschließt.\n\nBerichterstattung an den Head of Global Indirect Procurement, Ihre Hauptaufgaben werden sein:\n\n• Identifizieren und durchführen Sie globale Optimierungsprojekte für Investitionsausgaben (CapEx), die folgenden indirekten Beschaffungskategorien sind hauptsächlich in den Bereichen Produktionsausrüstung, Bau, Facility Management und Labor.\n• Verantwortlich für den gesamten kommerziellen Beschaffungsprozess für die jeweiligen Kategorien.\n• Entwicklung und Umsetzung konzernweiter Kategorienstrategien für unsere internationalen Standorte.\n• Entwickelt eine CapEx-Beschaffungs-Community mit regelmäßigem Austausch und Best Practice-Sharing.\n• Treibt die Einführung des Sourcing-Tools in Coupa in der gesamten Beschaffungsgemeinschaft voran.\n• Aufbau produktiver Beziehungen zu wichtigen internen Stakeholdern, um die Geschäftsanforderungen zu verstehen und einen Mehrjahresplan umzusetzen, um eine optimale Ausschreibung der Ausgaben von Siegfried sicherzustellen.\n Ihr Profil:\n\nWorauf warten wir?\n\n• Sprachkenntnisse: fließend in Englisch (geschrieben und gesprochen)\n\n• Berufserfahrung: Mindestens 5 Jahre einschlägige Beschaffungserfahrung\n\n• Procurement Tools: Erfahrung mit E-Auktionen\n\n• Kommunikationsfähigkeiten: Starke Kommunikations- und Präsentationsfähigkeiten\n\n• Pädagogischer Hintergrund: Business Administration mit starkem technischen Scharfsinn wird bevorzugt. (Engineering)\n\n• Projektmanagement: Starke Projektmanagementfähigkeiten\n\n• Business Acumen: Nachgewiesene Stärke im kritischen Denken und Erfahrung in der Business Case Entwicklung\n\nIhre Vorteile:\n\nWas bieten wir an?\n\n• Pension Plan: Unsere firmengeförderte Pension ist attraktiv und bietet flexible Beitragsoptionen.\n\n• Unser Aktienkaufplan ist großzügig und kann auf individuelle Bedürfnisse zugeschnitten werden.\n\n• Kindergeld: Die Siegfried AG erhöht das Kindergeld um 10% über dem kantonalen gesetzlichen Satz.\n\n• Reka-Geld: Siegfried AG bietet Mitarbeitern 20% Rabatt.\n\n• Personalrestaurant / Cafeteria: Mahlzeiten zu Vorzugspreisen.\n\n• Sie können zu einem ermäßigten Preis parken.\n\n• Zentral gelegen: In der Nähe des Bahnhofs mit hervorragender Anbindung an die öffentlichen Verkehrsmittel.\n\nWenn Sie von der Idee begeistert sind, unserer Gruppe beizutreten, würden wir gerne von Ihnen hören.\n Bewerben Sie sich noch heute und seien Sie Teil davon, etwas Außergewöhnliches zu bauen!\n\n1873 in Zofingen, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer Pharmakunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten weltweit her. Als voll integriertes CDMO ist Siegfried heute eine der wenigen Organisationen, die die Entwicklung und Herstellung von APIs und fertigen Darreichungsformen unter einem Dach durchführen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich).",
-        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried, nous offrons des défis passionnants et de nombreuses occasions de mettre en valeur vos talents. En tant que partenaire fiable et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de prospérer. Rejoignez une entreprise mondiale en expansion rapide, où des perspectives et des expériences diversifiées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles, offrant des occasions à long terme de croître et d'avoir un impact.\n\nVotre rôle :\nChez Siegfried, nous cherchons actuellement un Global Category Manager CapEx pour rejoindre notre équipe d'approvisionnement indirect dans notre site Zofingen.\n\nSous l'autorité du responsable des achats indirects mondiaux, vos principales responsabilités seront les suivantes :\n\n• Identifier et exécuter des projets globaux d'optimisation des dépenses d'immobilisations (CapEx), en fonction des catégories d'achats indirects, sont principalement dans le domaine du matériel de production, de la construction, de la gestion des installations et du laboratoire.\n• Responsable du processus d'approvisionnement commercial complet pour chaque catégorie.\n• Élaboration et mise en oeuvre de stratégies de catégorie à l'échelle du groupe pour nos sites internationaux.\n• Développer une communauté d'approvisionnement CapEx avec des échanges réguliers et le partage des meilleures pratiques.\n• Conduit l'adoption de l'outil d'approvisionnement à Coupa dans toute la communauté des approvisionnements.\n• Établir des relations productives avec les principaux intervenants internes pour comprendre les besoins des entreprises et mettre en oeuvre un plan pluriannuel pour assurer une soumission optimale des dépenses de Siegfried.\n Votre profil:\n\nQu'est-ce qu'on cherche ?\n\n• Compétences linguistiques : Anglais (écrit et parlé)\n\n• Expérience professionnelle : Au moins 5 ans d'expérience en matière d'approvisionnement\n\n• Outils d'approvisionnement : Expérience des achats électroniques\n\n• Compétences en communication : Fortes compétences en communication et en présentation\n\n• Contexte éducatif : L'administration des affaires avec une forte acuité technique est préférée. (Ingénierie)\n\n• Gestion de projet : Fortes compétences en gestion de projet\n\n• Œuvre d'affaires: force démontrée dans la pensée critique et l'expérience dans le développement d'analyses de rentabilisation\n\nVos avantages :\n\nQu'est-ce qu'on offre ?\n\n• Régime de retraite : Notre régime de retraite parrainé par l'entreprise est attrayant et offre des options de cotisations flexibles.\n\n• Notre plan d'achat d'actions est généreux et peut être adapté aux besoins individuels.\n\n• Allocation pour enfant: Siegfried AG augmente l'allocation pour enfant de 10 % par rapport au taux légal cantonal.\n\n• Reka-Geld: Siegfried AG offre aux employés une réduction de 20%.\n\n• Restaurant du personnel / cafétéria: Repas à des tarifs préférentiels.\n\n• Vous pouvez vous garer à un tarif réduit.\n\n• Idéalement situé : à proximité de la gare avec d'excellentes liaisons de transport en commun.\n\nSi vous êtes excités par l'idée de rejoindre notre groupe, nous aimerions avoir des nouvelles de vous.\n Appliquer aujourd'hui et faire partie de la construction quelque chose d'extraordinaire!\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à l'échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégré, Siegfried est l'une des rares organisations aujourd'hui à pouvoir réaliser le développement et la fabrication d'API et de formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
-      },
-      "location": "Zofingen",
-      "canton": "AG",
-      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Category-Manager-CapEx_R26_537",
-      "source": "Siegfried Dedicated Parser (Workday)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:59:39.512Z",
-      "addressLocality": "Zofingen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Category-Manager-CapEx_R26_537",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "jobReqId": "R26_537",
-      "hiringOrganization": "Siegfried AG",
-      "previousSlugsByLocale": {
-        "it": [
-          "global-category-manager-capex-siegfried-ch"
-        ]
-      },
-      "previousSlugs": [
-        "global-category-manager-capex-siegfried-ch"
-      ],
-      "needsRetranslation": true,
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-08-27T00:59:39.512Z",
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
     }
   ]
 }
