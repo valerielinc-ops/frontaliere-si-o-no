@@ -237,6 +237,7 @@ jobs:
             --since "$SCAN_SINCE" \
             --out /tmp/prev-slug-recovery/recoverable.json \
             --events-out /tmp/prev-slug-recovery/events.jsonl \
+            --safe-events-out /tmp/prev-slug-recovery/safe-cross-job-events.jsonl \
             | tee /tmp/prev-slug-recovery/scan-report.txt
           # Extract counts for downstream steps. sed already isolates the bare
           # number from the "totalLost": N, line — piping that through
@@ -244,9 +245,11 @@ jobs:
           # number and silently falls back to total_lost=0 via the `||`,
           # which permanently disabled the tripwire below.
           total_lost=$(grep -E '^\s*"totalLost"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//') || total_lost=0
+          safe_cross_job=$(grep -E '^\s*"safeCrossJobDecontaminations"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//') || safe_cross_job=0
           recoverable_jobs=$(jq 'length' /tmp/prev-slug-recovery/recoverable.json)
           recoverable_slugs=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable.json)
           echo "total_lost=${total_lost}" >> "$GITHUB_OUTPUT"
+          echo "safe_cross_job=${safe_cross_job}" >> "$GITHUB_OUTPUT"
           echo "recoverable_jobs=${recoverable_jobs}" >> "$GITHUB_OUTPUT"
           echo "recoverable_slugs=${recoverable_slugs}" >> "$GITHUB_OUTPUT"
           {
@@ -254,6 +257,7 @@ jobs:
             echo ""
             echo "Window: \`${SCAN_SINCE}\`"
             echo "- total lost (in window): **${total_lost}**"
+            echo "- proven safe cross-job decontaminations: **${safe_cross_job}**"
             echo "- recoverable jobs: **${recoverable_jobs}**"
             echo "- recoverable slugs: **${recoverable_slugs}**"
           } >> "$GITHUB_STEP_SUMMARY"
@@ -334,6 +338,7 @@ jobs:
             --since "$SCAN_SINCE" \
             --out /tmp/prev-slug-recovery/recoverable-post.json \
             --events-out /tmp/prev-slug-recovery/events-post.jsonl \
+            --safe-events-out /tmp/prev-slug-recovery/safe-cross-job-events-post.jsonl \
             | tee /tmp/prev-slug-recovery/rescan-report.txt
           still_lost=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable-post.json)
           echo "still_lost=${still_lost}" >> "$GITHUB_OUTPUT"

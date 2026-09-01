@@ -31,12 +31,14 @@ type Step = { name?: string; id?: string; if?: string; env?: Record<string, stri
 let steps: Step[];
 let tripwire: Step;
 let rescan: Step;
+let scan: Step;
 
 beforeAll(() => {
   const doc = parse(readFileSync(WORKFLOW, 'utf8'));
   steps = doc.jobs.recover.steps as Step[];
   tripwire = steps.find((s) => s.name === 'Trip the writer-regression wire')!;
   rescan = steps.find((s) => s.id === 'rescan')!;
+  scan = steps.find((s) => s.id === 'scan')!;
 });
 
 /**
@@ -183,6 +185,19 @@ describe('tripwire — una regressione VERA continua a scattare', () => {
 });
 
 describe('recover-prev-slugs.yml — wiring del ri-scan', () => {
+  it('separa le decontaminazioni cross-job provate da recovery e tripwire', () => {
+    expect(scan.run).toContain('--safe-events-out /tmp/prev-slug-recovery/safe-cross-job-events.jsonl');
+    expect(scan.run).toContain('safe_cross_job=');
+    expect(scan.run).toContain('|| safe_cross_job=0');
+    const backfill = steps.find((s) => s.name === 'Backfill recoverable slugs')!;
+    expect(backfill.if).toContain('recoverable_slugs');
+    expect(backfill.if).not.toContain('safe_cross_job');
+    expect(backfill.run).toContain('--input /tmp/prev-slug-recovery/recoverable.json');
+    expect(backfill.run).not.toContain('safe-cross-job');
+    expect(tripwire.if).toContain('recoverable_slugs');
+    expect(tripwire.if).not.toContain('safe_cross_job');
+  });
+
   it('STILL_LOST non è più cablato all output dello step `scan`', () => {
     const env = tripwire.env || {};
     expect(JSON.stringify(env)).not.toContain('steps.scan.outputs.recoverable_slugs}}');

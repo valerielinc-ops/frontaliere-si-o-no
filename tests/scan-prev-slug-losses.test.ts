@@ -15,7 +15,13 @@
  * of colliding.
  */
 import { describe, it, expect } from 'vitest';
-import { diffJobSlices } from '../scripts/scan-prev-slug-losses.mjs';
+import {
+  classifyCrossJobDecontamination,
+  classifyJobSliceRemovals,
+  diffJobSlices,
+  formatJsonLines,
+} from '../scripts/scan-prev-slug-losses.mjs';
+import { stableSlugHash } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('diffJobSlices', () => {
   it('detects a lost slug for a normal job with .id present', () => {
@@ -200,5 +206,136 @@ describe('diffJobSlices cap-trim awareness', () => {
     const result = diffJobSlices(prev, cur);
     expect(result).toHaveLength(1);
     expect(result[0].lost).toEqual(['job-a']);
+  });
+});
+
+describe('safe cross-job decontamination classification (#5348)', () => {
+  const ownerUrl = 'https://owner.example/jobs/11111111-1111-1111-1111-111111111111';
+  const ownerHash = stableSlugHash({ url: ownerUrl });
+  const slug = `senior-engineer-real-owner-zurich-${ownerHash}`;
+  const claimantBefore = {
+    id: 'claimant',
+    url: 'https://claimant.example/jobs/22222222-2222-2222-2222-222222222222',
+    slug: 'claimant-current',
+    previousSlugs: [slug],
+  };
+  const claimantAfter = { ...claimantBefore, previousSlugs: [] };
+  const owner = { id: 'stable-owner', url: ownerUrl, slug };
+
+  function removal() {
+    return classifyJobSliceRemovals([claimantBefore], [claimantAfter])[0];
+  }
+
+  it('excludes only a historical claimant alias already and still owned by one stable job', () => {
+    const result = classifyCrossJobDecontamination(
+      removal(),
+      [claimantBefore, owner],
+      [claimantAfter, owner],
+    );
+    expect(result.lost).toEqual([]);
+    expect(result.safeCrossJobDecontaminations).toEqual([
+      { slug, ownerJobId: 'stable-owner' },
+    ]);
+  });
+
+  it('keeps a real same-job loss recoverable and never treats an active-route drop as cleanup', () => {
+    expect(classifyCrossJobDecontamination(
+      removal(),
+      [claimantBefore],
+      [claimantAfter],
+    )).toEqual({ lost: [slug], safeCrossJobDecontaminations: [] });
+
+    const activeBefore = { id: 'claimant', slug };
+    const activeAfter = { id: 'claimant', slug: 'claimant-new' };
+    const activeRemoval = classifyJobSliceRemovals([activeBefore], [activeAfter])[0];
+    expect(classifyCrossJobDecontamination(
+      activeRemoval,
+      [activeBefore, owner],
+      [activeAfter, owner],
+    )).toEqual({ lost: [slug], safeCrossJobDecontaminations: [] });
+  });
+
+  it.each([
+    {
+      name: 'collisione preesistente',
+      before: [claimantBefore, owner, { id: 'second-owner', url: ownerUrl, previousSlugs: [slug] }],
+      after: [claimantAfter, owner, { id: 'second-owner', url: ownerUrl, previousSlugs: [slug] }],
+    },
+    {
+      name: 'owner swap',
+      before: [claimantBefore, owner],
+      after: [claimantAfter, { id: 'replacement-owner', url: ownerUrl, slug }],
+    },
+    {
+      name: 'route non più raggiungibile',
+      before: [claimantBefore, owner],
+      after: [claimantAfter],
+    },
+    {
+      name: 'stringa presente altrove senza claimant nel parent',
+      before: [owner],
+      after: [owner],
+    },
+  ])('fails closed on $name', ({ before, after }) => {
+    expect(classifyCrossJobDecontamination(removal(), before, after)).toEqual({
+      lost: [slug],
+      safeCrossJobDecontaminations: [],
+    });
+  });
+
+  it('uses the active+expired owner union and is idempotent', () => {
+    const activeBefore = [claimantBefore];
+    const activeAfter = [claimantAfter];
+    const expiredBefore = [{ id: 'stable-owner', url: ownerUrl, previousSlugsByLocale: { de: [slug] } }];
+    const expiredAfter = [{ id: 'stable-owner', url: ownerUrl, previousSlugsByLocale: { de: [slug] } }];
+    const inputBefore = [...activeBefore, ...expiredBefore];
+    const inputAfter = [...activeAfter, ...expiredAfter];
+    const event = removal();
+    const snapshot = JSON.stringify({ event, inputBefore, inputAfter });
+
+    const first = classifyCrossJobDecontamination(event, inputBefore, inputAfter);
+    const second = classifyCrossJobDecontamination(event, inputBefore, inputAfter);
+    expect(second).toEqual(first);
+    expect(JSON.stringify({ event, inputBefore, inputAfter })).toBe(snapshot);
+    expect(classifyJobSliceRemovals(activeAfter, activeAfter)).toEqual([]);
+  });
+
+  it('has explicit zero/absent-input outputs instead of manufacturing an event', () => {
+    expect(classifyCrossJobDecontamination(
+      { jobKey: 'claimant', lost: [], historicalLost: [] },
+      undefined as unknown as object[],
+      undefined as unknown as object[],
+    )).toEqual({ lost: [], safeCrossJobDecontaminations: [] });
+    expect(formatJsonLines([])).toBe('');
+    expect(formatJsonLines(undefined as unknown as object[])).toBe('');
+  });
+
+  it('classifies the 121-event #6909 shape as safe, split across active and expired owners', () => {
+    const owners = Array.from({ length: 121 }, (_, i) => {
+      const url = `https://owner.example/jobs/stable-posting-identifier-${String(i).padStart(6, '0')}`;
+      return { id: `owner-${i}`, url, slug: `cross-job-alias-${i}-${stableSlugHash({ url })}` };
+    });
+    expect(new Set(owners.map((job) => stableSlugHash(job))).size).toBe(121);
+    const claimantsBefore = owners.map((ownerJob, i) => ({
+      id: `claimant-${i}`,
+      url: `https://claimant.example/jobs/stable-posting-identifier-${String(i).padStart(6, '0')}`,
+      slug: `claimant-current-${i}`,
+      previousSlugs: [ownerJob.slug],
+    }));
+    const claimantsAfter = claimantsBefore.map(({ previousSlugs: _removed, ...job }) => job);
+    const activeOwners = owners.slice(0, 61);
+    const expiredOwners = owners.slice(61).map(({ slug: route, ...job }) => ({
+      ...job,
+      previousSlugs: [route],
+    }));
+    const beforeUniverse = [...claimantsBefore, ...activeOwners, ...expiredOwners];
+    const afterUniverse = [...claimantsAfter, ...activeOwners, ...expiredOwners];
+    const removals = classifyJobSliceRemovals(claimantsBefore, claimantsAfter);
+
+    const classified = removals.map((event) => (
+      classifyCrossJobDecontamination(event, beforeUniverse, afterUniverse)
+    ));
+    expect(classified.flatMap((event) => event.lost)).toEqual([]);
+    expect(classified.flatMap((event) => event.safeCrossJobDecontaminations)).toHaveLength(121);
   });
 });
