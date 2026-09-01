@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-basel",
-  "assembledAt": "2026-08-31T16:24:56.366Z",
+  "assembledAt": "2026-09-01T07:42:56.968Z",
   "jobs": [
     {
       "id": "spitex-basel-193d7dcfb99d",
@@ -34,7 +34,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a/dacb6e79-c064-4368-8020-394535a0da45",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.195Z",
+      "crawledAt": "2026-09-01T07:42:53.172Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -54,7 +54,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
-        "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel",
         "infermiera-hf-fh-a-spitex-basel-basel-30d053",
         "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel-30d053",
         "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
@@ -62,12 +61,12 @@
         "infermiera-hf-fh-a-spitex-basel-basel",
         "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel",
         "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel",
-        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel-elwqd2"
+        "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel-elwqd2",
+        "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
-          "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel",
           "infermiera-hf-fh-a-spitex-basel-basel-30d053",
           "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel-30d053",
           "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel",
@@ -75,24 +74,26 @@
           "infermiera-hf-fh-a-spitex-basel-basel",
           "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel",
           "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel",
-          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel-elwqd2"
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel-elwqd2",
+          "caso-responsabile-caso-psichiatria-responsabile-dipl-infermiera-hf-fh-a-spitex-basel-basel"
         ],
         "en": [
           "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
           "case-responsible-case-responsible-care-dipl-nurse-hf-fh-a-spitex-basel-basel-30d053"
         ],
+        "de": [
+          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
+        ],
         "fr": [
           "fallverantwortliche-fallverantwortlicher-psychiatrie-dipl-pflegefachperson-hf-fh-a-spitex",
           "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel-30d053",
           "infirmiere-responsable-infirmiere-responsable-a-spitex-basel-basel"
-        ],
-        "de": [
-          "fallverantwortliche-fallverantwortlicher-pflege-dipl-pflegefachperson-hf-fh-a-spitex-basel"
         ]
       },
       "firstSeenAt": "2026-08-05T11:43:14.429Z",
       "salaryMin": 119000,
       "salaryMax": 166000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -102,8 +103,7 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      },
-      "salarySource": "estimated"
+      }
     },
     {
       "id": "spitex-basel-ae065e294ccb",
@@ -137,7 +137,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/dipl-pflegefachperson-hf-fh-mit-fallverantwortung-palliative-care-onkologie-oder-nach-absprache-a/92eaa9d5-9720-4fb6-89f3-a075bbb7e864",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.184Z",
+      "crawledAt": "2026-09-01T07:42:53.168Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -216,7 +216,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-fuer-pflegerische-notfalleinsaetze-a/3a022997-9d75-4a4b-8119-c0d88be8f384",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.177Z",
+      "crawledAt": "2026-09-01T07:42:53.163Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -306,12 +306,13 @@
         "de": "Aufgaben:\n• Psychiatrisches Pflegen und Betreuen von Kindern und Jugendlichen\n\n• Mitverantwortlich für den Pflegeprozess\n\n• Selbstständiges Sicherstellen der differenzierten und spezialisierten Pflege\n\n• Durchführen von Evaluationen und Anpassen der elektronischen Dokumentation\n\n• Enge Zusammenarbeit mit dem Umfeld (Eltern, Angehörige, Fachpersonen)\n\n• Mitwirken bei der Qualitätsverbesserung und Weiterentwickeln der Pflegeprozesse\n\nAnforderungen:\n• Grundausbildung Pflegefachperson HF/FH mit Weiterbildung im Bereich Psychiatrie oder Berufserfahrung im Bereich der Kinder- und Jugendpsychiatrie\n\n• Selbstständiges Einschätzen von pflegerischen Situationen\n\n• Wertschätzende Kommunikation\n\n• Sehr gute IT Anwenderkenntnisse\n\n• Bereitschaft mit dem Velo unterwegs zu sein\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
         "fr": "Tâches :\n• Soins psychiatriques aux enfants et aux adolescents\n\n• Partager la responsabilité du processus de soins\n\n• Assurance indépendante des soins différenciés et spécialisés\n\n• Effectuer des évaluations et adapter la documentation électronique\n\n• Coopération étroite avec l'environnement (parents, parents, professionnels)\n\n• Participation à l'amélioration de la qualité et au développement des processus de soins\n\nExigences\n• Infirmière de formation de base HF/FH avec formation continue en psychiatrie ou expérience professionnelle en psychiatrie des enfants et des adolescents\n\n• Évaluation indépendante des situations de soins infirmiers\n\n• Communication reconnaissante\n\n• Très bonne connaissance de l'utilisateur informatique\n\n• Prêt à voyager avec le Velo\n\nNous offrons:\nActivité significative dans un environnement de travail multiculturel, hiérarchies plates\n\nSPITEX BASEL est une fondation à but non lucratif dotée d'un mandat de service du canton de Bâle-Stadt.\n\nEn tant que principal organisme Spitex ayant un mandat de service public, SPITEX BASEL offre des services complets dans les domaines des soins ambulatoires ainsi que du ménage et des soins. Les enfants, les adolescents et les adultes sont soutenus à tous les stades de la vie."
       },
+      "needsRetranslation": true,
       "location": "Basel",
       "canton": "BS",
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie/92742be2-a70c-4f19-b21a-4939b9a90e31",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.173Z",
+      "crawledAt": "2026-09-01T07:42:53.159Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -405,7 +406,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-teil-und-vollzeit-a/9089cb42-59b5-42c8-9ab8-1068657e532c",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.172Z",
+      "crawledAt": "2026-09-01T07:42:53.158Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -484,7 +485,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/diplomierte-pflegefachperson-hf-fh-kinder-spitex-paediatrie/c18d163c-6270-4354-9c26-81018d872282",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.111Z",
+      "crawledAt": "2026-09-01T07:42:53.077Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -521,9 +522,9 @@
       "id": "spitex-basel-731713c37e5c",
       "slug": "planerin-planer-spitex-basel-basel",
       "slugByLocale": {
-        "de": "planerin-planer-spitex-basel-basel",
         "it": "planerin-planer-spitex-basel-basel",
         "en": "planerin-planer-spitex-basel-basel",
+        "de": "planerin-planer-spitex-basel-basel",
         "fr": "planerin-planer-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
@@ -531,16 +532,16 @@
       "companyDomain": "spitexbasel.ch",
       "title": "Planerin/Planer",
       "titleByLocale": {
-        "de": "Planerin/Planer",
         "it": "Planerin/Planer",
         "en": "Planerin/Planer",
+        "de": "Planerin/Planer",
         "fr": "Planerin/Planer"
       },
       "description": "Aufgaben:\n• Erstellung der Einsatzplanung unter Berücksichtigung der Kundenbedürfnisse und Vorgaben\n\n• Gewährleistung der Triage und Bearbeitung der Anliegen der Kunden und Mitarbeitenden in allen planungsrelevanten Fragen\n\n• Unterstützung der Sicherstellung der Telefonpräsenz\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als MPA, Arztsekretärin oder FaGe\n\n• Organisationsstark und ausgeprägte Dienstleistungsorientierung\n\n• Flexible, zuverlässige und selbstständige Persönlichkeit mit einer schnellen Auffassungsgabe\n\n• Sehr gute IT Anwenderkenntnisse\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Erstellung der Einsatzplanung unter Berücksichtigung der Kundenbedürfnisse und Vorgaben\n\n• Gewährleistung der Triage und Bearbeitung der Anliegen der Kunden und Mitarbeitenden in allen planungsrelevanten Fragen\n\n• Unterstützung der Sicherstellung der Telefonpräsenz\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als MPA, Arztsekretärin oder FaGe\n\n• Organisationsstark und ausgeprägte Dienstleistungsorientierung\n\n• Flexible, zuverlässige und selbstständige Persönlichkeit mit einer schnellen Auffassungsgabe\n\n• Sehr gute IT Anwenderkenntnisse\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
         "it": "Aufgaben:\n• Erstellung der Einsatzplanung unter Berücksichtigung der Kundenbedürfnisse und Vorgaben\n\n• Gewährleistung der Triage und Bearbeitung der Anliegen der Kunden und Mitarbeitenden in allen planungsrelevanten Fragen\n\n• Unterstützung der Sicherstellung der Telefonpräsenz\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als MPA, Arztsekretärin oder FaGe\n\n• Organisationsstark und ausgeprägte Dienstleistungsorientierung\n\n• Flexible, zuverlässige und selbstständige Persönlichkeit mit einer schnellen Auffassungsgabe\n\n• Sehr gute IT Anwenderkenntnisse\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
         "en": "Aufgaben:\n• Erstellung der Einsatzplanung unter Berücksichtigung der Kundenbedürfnisse und Vorgaben\n\n• Gewährleistung der Triage und Bearbeitung der Anliegen der Kunden und Mitarbeitenden in allen planungsrelevanten Fragen\n\n• Unterstützung der Sicherstellung der Telefonpräsenz\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als MPA, Arztsekretärin oder FaGe\n\n• Organisationsstark und ausgeprägte Dienstleistungsorientierung\n\n• Flexible, zuverlässige und selbstständige Persönlichkeit mit einer schnellen Auffassungsgabe\n\n• Sehr gute IT Anwenderkenntnisse\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
+        "de": "Aufgaben:\n• Erstellung der Einsatzplanung unter Berücksichtigung der Kundenbedürfnisse und Vorgaben\n\n• Gewährleistung der Triage und Bearbeitung der Anliegen der Kunden und Mitarbeitenden in allen planungsrelevanten Fragen\n\n• Unterstützung der Sicherstellung der Telefonpräsenz\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als MPA, Arztsekretärin oder FaGe\n\n• Organisationsstark und ausgeprägte Dienstleistungsorientierung\n\n• Flexible, zuverlässige und selbstständige Persönlichkeit mit einer schnellen Auffassungsgabe\n\n• Sehr gute IT Anwenderkenntnisse\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase.",
         "fr": "Aufgaben:\n• Erstellung der Einsatzplanung unter Berücksichtigung der Kundenbedürfnisse und Vorgaben\n\n• Gewährleistung der Triage und Bearbeitung der Anliegen der Kunden und Mitarbeitenden in allen planungsrelevanten Fragen\n\n• Unterstützung der Sicherstellung der Telefonpräsenz\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als MPA, Arztsekretärin oder FaGe\n\n• Organisationsstark und ausgeprägte Dienstleistungsorientierung\n\n• Flexible, zuverlässige und selbstständige Persönlichkeit mit einer schnellen Auffassungsgabe\n\n• Sehr gute IT Anwenderkenntnisse\n\nWir bieten:\nSinnstiftende Tätigkeit in einem multikulturellen Arbeitsumfeld, flache Hierarchien\n\nSPITEX BASEL ist eine gemeinnützige, nicht gewinnorientierte Stiftung mit Leistungsauftrag des Kantons Basel-Stadt.\n\nAls führende Spitex-Organisation mit öffentlichem Leistungsauftrag bietet SPITEX BASEL umfassende Dienstleistungen in den Bereichen ambulante Pflege sowie Hauswirtschaft und Betreuung an. Unterstützt werden Kinder, Jugendliche und Erwachsene in jeder Lebensphase."
       },
       "needsRetranslation": true,
@@ -549,7 +550,7 @@
       "url": "https://jobs.spitexbasel.ch/offene-stellen/planerin-planer/94b73a51-288f-4df9-a730-2fbbf4c3e80b",
       "source": "SPITEX BASEL Dedicated Parser (Prospective medium 1008423)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:27:01.015Z",
+      "crawledAt": "2026-09-01T07:42:52.963Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -566,9 +567,8 @@
       "postedDate": "2026-08-28",
       "applyUrl": "https://jobs.spitexbasel.ch/offene-stellen/planerin-planer/94b73a51-288f-4df9-a730-2fbbf4c3e80b",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-08-31T17:27:01.015Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -581,8 +581,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-31T17:27:01.015Z"
+      }
     }
   ]
 }
