@@ -4918,6 +4918,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Tasso ipotecario di riferimento resta all\'1,25%: cosa cambia per gli affitti',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'UFAB conferma il parametro all\'1,25% per il terzo trimestre: minimo storico, tasso medio ipoteche all\'1,31%, BNS ferma allo 0,0%. Cosa succede ora per inquilini e locatori.',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Facciata di un palazzo residenziale svizzero con appartamenti in affitto',
+    'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Associazione inquilini: «occorre chiedere riduzione dell\'affitto»',
+    'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Il tasso ipotecario di riferimento è sceso due volte nel 2025, ma la maggior parte degli inquilini non ha ottenuto una riduzione dell\'affitto.',
+    'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Vista della città di Lugano con edifici residenziali',
 };
 
 export default blogMetaChIt;

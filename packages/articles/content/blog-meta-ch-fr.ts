@@ -4918,6 +4918,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Taux hypothécaire à 1,25 % : impact sur les loyers',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'FOAB confirme ce paramètre à 1,25 % pour le troisième trimestre : historiquement bas, taux hypothécaire moyen à 1,31 %, SNB bloquée à 0,0 %. Que se passe-t-il maintenant pour les locataires et les propriétaires.',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Façade d\'un immeuble résidentiel suisse avec appartements en location',
+    'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Association des locataires : « réduction du loyer »',
+    'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Le taux hypothécaire de référence a baissé deux fois en 2025, mais la plupart des locataires n’ont pas bénéficié de réduction de loyer.',
+    'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Vue de la ville de Lugano avec des bâtiments résidentiels',
 };
 
 export default blogMetaChFr;

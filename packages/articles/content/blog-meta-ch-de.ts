@@ -4918,6 +4918,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Der Referenzhypothekenzins bleibt bei 1,25 %: Was ändert sich bei den Mieten',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'FOAB bestätigt den Parameter für das dritte Quartal bei 1,25 %: historisch niedrig, durchschnittlicher Hypothekenzins 1,31 %, SNB bleibt bei 0,0 %. Was passiert jetzt mit Mietern und Vermietern?',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Fassade eines Schweizer Wohnhauses mit Mietwohnungen',
+    'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Mietervereinigung: "Es ist notwendig, eine Mietminderung zu beantragen"',
+    'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'Der Leitzins für die Hypothek fiel 2025 zweimal, aber die meisten Mieter erhielten keine Mietreduzierung.',
+    'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'Ansicht der Stadt Lugano mit Wohngebäuden',
 };
 
 export default blogMetaChDe;
