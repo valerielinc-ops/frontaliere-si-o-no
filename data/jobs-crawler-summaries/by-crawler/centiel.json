@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-08-31T17:11:23.881Z",
+  "generatedAt": "2026-09-01T01:14:01.367Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3500,
-  "avgDurationMs": 3500,
+  "durationMs": 4062,
+  "avgDurationMs": 4062,
   "durationHistory": [
-    3500
+    4062
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,6 +43,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -69,7 +70,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -80,11 +81,12 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
-      "_qualityScore": 82,
+      "salarySource": "estimated",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -106,7 +108,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -117,11 +119,12 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
-      "_qualityScore": 82,
+      "salarySource": "estimated",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -143,7 +146,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -154,11 +157,12 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
-      "_qualityScore": 82,
+      "salarySource": "estimated",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -180,7 +184,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -191,6 +195,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-06-19T12:14:25.157Z",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -217,7 +222,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -228,6 +233,7 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -254,7 +260,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -265,6 +271,8 @@
       "streetAddress": "",
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -291,7 +299,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
@@ -302,6 +310,7 @@
       "postalCode": "6900",
       "id": "centiel-ced8dc312c7e",
       "firstSeenAt": "2026-04-13T21:21:09.576Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -328,7 +337,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-31",
+      "postedDate": "2026-09-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -339,6 +348,7 @@
       "postalCode": "6900",
       "id": "centiel-31fb67bd3d47",
       "firstSeenAt": "2026-04-13T21:21:09.576Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
