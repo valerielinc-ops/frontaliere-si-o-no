@@ -1,6 +1,6 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-08-31T17:17:19.118Z",
+  "assembledAt": "2026-09-01T00:41:31.555Z",
   "jobs": [
     {
       "title": "Booking & Revenue Specialist – Luxury Hospitality",
@@ -58,6 +58,7 @@
         }
       },
       "firstSeenAt": "2026-08-28T05:26:25.994Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
@@ -72,7 +73,6 @@
       "previousSlugs": [
         "booking-revenue-specialist-luxury-hospitality-a-plus-plus-group-massagno"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -102,7 +102,7 @@
       "description": "Hospitality Manager – Luxury Hospitality",
       "titleByLocale": {
         "it": "Hospitality Manager – Luxury Hospitality",
-        "en": "Hospitalit Manager",
+        "en": "Hospitality Manager – Luxury Hospitality",
         "de": "Hospitality Manager – Luxus-Hospitality",
         "fr": "Responsable de l'accueil – Luxury Hospitality"
       },
@@ -111,12 +111,11 @@
       },
       "slugByLocale": {
         "it": "hospitality-manager-luxury-hospitality-a-plus-plus-group-massagno",
-        "en": "hospitalit-manager-a-group-massagno",
+        "en": "hospitality-manager-luxury-hospitality-a-group-massagno",
         "de": "hospitality-manager-luxus-hospitality-a-group-massagno",
         "fr": "responsable-de-l-accueil-luxury-hospitality-a-group-massagno"
       },
       "id": "a-group-555f4c55dbc7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -131,7 +130,16 @@
         }
       },
       "firstSeenAt": "2026-08-28T05:26:25.994Z",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "en": [
+          "hospitalit-manager-a-group-massagno"
+        ]
+      },
+      "previousSlugs": [
+        "hospitalit-manager-a-group-massagno"
+      ],
+      "needsRetranslation": true
     }
   ]
 }
