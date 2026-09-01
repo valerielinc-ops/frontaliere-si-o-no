@@ -7,7 +7,8 @@
  *
  * This script:
  *   1. Scrapes the careers page to discover all job detail URLs.
- *   2. Writes discovered URLs as seed URLs in the adapter config.
+ *   2. Verifies every discovered response and writes the exact allowlist as
+ *      explicit detail seeds in the adapter config.
  *   3. Runs the shared base crawler which fetches each detail page and
  *      parses JSON-LD JobPosting structured data.
  *   4. The shared infrastructure filters for Ticino/GR locations automatically.
@@ -83,104 +84,192 @@ function isCscJob(job) {
 }
 
 /* ── Discovery ─────────────────────────────────────────────── */
-/**
- * Scrape the CSC careers page to discover job detail URLs.
- * The site is a Drupal CMS. Job links are expected as hrefs under the
- * careers path or as node links on the page.
- */
-async function fetchCscJobUrls() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
-  console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
+function decodeHref(value) {
+  return String(value || '')
+    .replace(/&amp;/gi, '&')
+    .replace(/&#x2f;/gi, '/')
+    .replace(/&#47;/g, '/');
+}
 
+/**
+ * CSC emits three Drupal detail route families. Keep this allowlist local to
+ * the adapter: broadening the shared classifier would make unrelated Drupal
+ * nodes look like vacancies for every crawler.
+ */
+export function canonicalCscDetailUrl(value) {
+  let url;
+  try {
+    url = new URL(decodeHref(value), CSC_CAREERS_URL);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== CSC_HOST
+    || url.port
+    || url.username
+    || url.password
+    || url.search
+    || url.hash
+  ) return null;
+
+  let pathname;
+  try {
+    pathname = decodeURIComponent(url.pathname);
+  } catch {
+    return null;
+  }
+  if (pathname.includes('\\') || pathname.includes('//')) return null;
+
+  const isCareersChild = /^\/lavoro-carriera-edilizia\/[^/]+\/?$/i.test(pathname);
+  const isDrupalNode = /^\/node\/[1-9]\d*\/?$/i.test(pathname) && !/^\/node\/24\/?$/i.test(pathname);
+  const hasOfferSegment = pathname
+    .split('/')
+    .filter(Boolean)
+    .some((segment) => /^offert[a-z0-9-]*$/i.test(segment));
+  if (!isCareersChild && !isDrupalNode && !hasOfferSegment) return null;
+
+  url.pathname = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  return url.href;
+}
+
+function cscPlainText(html) {
+  return String(html || '')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;|&#160;/gi, ' ')
+    .replace(/&#39;|&apos;/gi, "'")
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Parse only the Drupal work-position view. A 200 WAF/error shell, truncated
+ * HTML or an unrecognised empty state is not an authoritative snapshot.
+ */
+export function parseCscCareersPage(html) {
+  const source = String(html || '');
+  const viewStart = source.search(/id=["']block-views-block-work-positions-work-positions-list["']/i);
+  const viewEnd = source.indexOf('<!-- Modal Work Position -->', Math.max(0, viewStart));
+  if (viewStart < 0 || viewEnd < 0 || !/<\/html>\s*$/i.test(source.trim())) {
+    throw new Error('CSC discovery degraded: complete Drupal work-position view not found.');
+  }
+
+  const workPositionsHtml = source.slice(viewStart, viewEnd);
+  const urls = new Set();
+  const cscHrefPattern = /\bhref\s*=\s*(["'])(.*?)\1/gi;
+  let match;
+  while ((match = cscHrefPattern.exec(workPositionsHtml)) !== null) {
+    const canonical = canonicalCscDetailUrl(match[2]);
+    if (canonical) urls.add(canonical);
+  }
+
+  const empty = /\bview-empty\b/i.test(workPositionsHtml)
+    && /al momento non sono disponibili offerte di lavoro/i.test(cscPlainText(workPositionsHtml));
+  if (empty && urls.size > 0) {
+    throw new Error('CSC discovery degraded: empty marker conflicts with discovered detail URLs.');
+  }
+  if (!empty && urls.size === 0) {
+    throw new Error('CSC discovery degraded: no detail URLs and no authoritative empty marker.');
+  }
+
+  return { urls: [...urls], authoritativeEmpty: empty };
+}
+
+export function isCscJobDetailHtml(html) {
+  const source = String(html || '');
+  return /\bnode--type-work-position\b/i.test(source)
+    || /["']@type["']\s*:\s*(?:\[\s*)?["']JobPosting["']/i.test(source);
+}
+
+async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
-
   try {
-    const res = await fetch(CSC_CAREERS_URL, {
+    const res = await fetchImpl(url, {
       signal: controller.signal,
-      headers: {
-        Accept: 'text/html',
-        'User-Agent': UA,
-      },
+      headers: { Accept: 'text/html', 'User-Agent': UA },
     });
-
-    if (!res.ok) {
-      console.warn(`⚠️ CSC careers page returned ${res.status}`);
-      return [];
+    if (!res?.ok) throw new Error(`${url} returned HTTP ${res?.status ?? 'unknown'}`);
+    const contentType = res.headers?.get?.('content-type');
+    if (contentType && !/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(contentType)) {
+      throw new Error(`${url} returned unexpected content-type ${contentType}`);
     }
-
-    const html = await res.text();
-
-    // Look for job detail links on the page.
-    // Drupal sites typically use /node/N or /lavoro-carriera-edilizia/slug patterns.
-    // Also check for any links under the careers section that are NOT the page itself.
-    const urls = new Set();
-
-    // Pattern 1: links under the careers path
-    const careersPattern = /href="(\/lavoro-carriera-edilizia\/[^"]+)"/g;
-    let match;
-    while ((match = careersPattern.exec(html)) !== null) {
-      urls.add(`https://${CSC_HOST}${match[1]}`);
-    }
-
-    // Pattern 2: links to node pages that might be job detail pages
-    // (only if they appear within the main content area)
-    const nodePattern = /href="(\/node\/\d+)"/g;
-    while ((match = nodePattern.exec(html)) !== null) {
-      // Skip node/24 which is the careers page itself
-      if (match[1] === '/node/24') continue;
-      urls.add(`https://${CSC_HOST}${match[1]}`);
-    }
-
-    // Pattern 3: links containing "offert" (offerte di lavoro)
-    const offertPattern = /href="(\/[^"]*offert[^"]*)"(?![^>]*class="language-link)/g;
-    while ((match = offertPattern.exec(html)) !== null) {
-      const href = match[1];
-      if (href === '/lavoro-carriera-edilizia') continue;
-      urls.add(`https://${CSC_HOST}${href}`);
-    }
-
-    console.log(`✅ Discovered ${urls.size} CSC job detail URLs`);
-    return [...urls];
-  } catch (err) {
-    console.warn(`⚠️ Failed to fetch CSC careers page: ${err.message}`);
-    return [];
+    return { html: await res.text(), responseUrl: res.url || url };
   } finally {
     clearTimeout(timer);
   }
 }
 
+export async function verifyCscDetailUrls(urls, options = {}) {
+  const fetchImpl = options.fetchImpl || fetch;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const candidates = [...new Set((urls || []).map(canonicalCscDetailUrl).filter(Boolean))];
+  if (candidates.length !== (urls || []).length) {
+    throw new Error(`CSC detail invariant failed: ${candidates.length}/${(urls || []).length} canonical candidate URLs.`);
+  }
+
+  const verified = [];
+  for (const candidate of candidates) {
+    const { html, responseUrl } = await fetchCscHtml(candidate, { fetchImpl, timeoutMs });
+    const canonicalResponseUrl = canonicalCscDetailUrl(responseUrl);
+    if (!canonicalResponseUrl || !isCscJobDetailHtml(html)) {
+      throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
+    }
+    verified.push(canonicalResponseUrl);
+  }
+
+  if (new Set(verified).size !== candidates.length) {
+    throw new Error(`CSC detail invariant failed: ${verified.length} responses collapsed to ${new Set(verified).size} canonical URLs.`);
+  }
+  return verified;
+}
+
+export async function fetchCscJobUrls(options = {}) {
+  const fetchImpl = options.fetchImpl || fetch;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  console.log(`🔍 Fetching CSC careers page: ${CSC_CAREERS_URL}`);
+
+  const { html, responseUrl } = await fetchCscHtml(CSC_CAREERS_URL, { fetchImpl, timeoutMs });
+  if (responseUrl !== CSC_CAREERS_URL) {
+    throw new Error(`CSC discovery degraded: careers page redirected to ${responseUrl}.`);
+  }
+  const discovery = parseCscCareersPage(html);
+  if (discovery.authoritativeEmpty) {
+    console.log('ℹ️ CSC careers page explicitly reports zero open positions.');
+    return discovery;
+  }
+
+  const urls = await verifyCscDetailUrls(discovery.urls, { fetchImpl, timeoutMs });
+  console.log(`✅ Discovered and verified ${urls.length}/${discovery.urls.length} CSC job detail URLs`);
+  return { urls, authoritativeEmpty: false };
+}
+
 /* ── Adapter ───────────────────────────────────────────────── */
+export function buildCscAdapterConfig(existingAdapter, seedDetailUrls, updatedAt = new Date().toISOString()) {
+  const adapter = { ...(existingAdapter || {}), seedDetailUrls, updatedAt };
+  delete adapter.seedUrls;
+  return adapter;
+}
+
 function ensureAdapterSeedUrls(seedUrls) {
   const adapterPath = path.join(ADAPTERS_DIR, `${CSC_KEY}.json`);
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${CSC_KEY}.json not found — creating it.`);
-    const adapter = {
+  const existingAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: CSC_KEY,
       companyName: CSC_COMPANY_NAME,
       companyHost: CSC_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['jsonld', 'html', 'generic_ats'],
-      seedUrls,
       notes: 'CSC Costruzioni SA — Lugano-based construction company (Drupal CMS). Seed URLs auto-discovered from /lavoro-carriera-edilizia.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${CSC_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildCscAdapterConfig(existingAdapter, seedUrls);
+  writeJsonAtomic(adapterPath, adapter);
+  console.log(`📝 Adapter ${CSC_KEY} updated with ${seedUrls.length} explicit detail seed URLs.`);
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
@@ -249,12 +338,17 @@ async function main() {
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
 
   // Step 1: Discover job detail URLs from the careers page
-  const detailUrls = await fetchCscJobUrls();
-  if (detailUrls.length === 0) {
-    console.log('ℹ️ No CSC Costruzioni job URLs discovered. Exiting OK.');
+  const discovery = await fetchCscJobUrls();
+  if (discovery.authoritativeEmpty) {
+    // The listing was fetched and its explicit empty marker validated. Persist
+    // an empty detail allowlist (never the listing URL) but do not run the base
+    // crawler or touch the published/expired job slices.
+    ensureAdapterSeedUrls([]);
+    console.log('ℹ️ CSC authoritative source is empty; published identities remain untouched.');
     printCrawlChangeSummary({ newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'CSC Costruzioni');
     return;
   }
+  const detailUrls = discovery.urls;
 
   // Step 2: Update the adapter with discovered seed URLs
   ensureAdapterSeedUrls(detailUrls);
@@ -324,4 +418,15 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'CSC Costruzioni'));
+// Only run main() when invoked as a script, not when imported by tests.
+const isCscInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isCscInvokedDirectly) {
+  main().catch((err) => exitCrawlerOnError(err, 'CSC Costruzioni'));
+}
