@@ -14671,6 +14671,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'swiss-life-taglio-posti-lavoro-2028',
+    category: 'fiscale',
+    date: '2026-09-01T05:35:30.096Z',
+    image: '/images/blog/swiss-life-taglio-posti-lavoro-2028.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

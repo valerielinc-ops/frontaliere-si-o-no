@@ -4891,6 +4891,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sanzioni-onu-2026-aggiornamento.title': 'UN sanctions update: implications for Swiss companies',
     'blog.article.sanzioni-onu-2026-aggiornamento.excerpt': 'The UN Sanctions Committee has updated the list of individuals, companies and organizations subject to sanctions.',
     'blog.article.sanzioni-onu-2026-aggiornamento.imageAlt': 'Aerial view of Lake Lugano with mountains in the background, Switzerland.',
+    'blog.article.swiss-life-taglio-posti-lavoro-2028.title': 'Swiss Life to cut 600 jobs by the end of 2028',
+    'blog.article.swiss-life-taglio-posti-lavoro-2028.excerpt': 'The life insurer announced a restructuring plan to improve operational efficiency.',
+    'blog.article.swiss-life-taglio-posti-lavoro-2028.imageAlt': 'Aerial view of Lugano cityscape with Swiss Life headquarters.',
 };
 
 export default blogMetaChEn;
