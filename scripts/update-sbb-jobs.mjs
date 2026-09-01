@@ -6,9 +6,14 @@
  * backed by SAP SuccessFactors. The listing page is a JavaScript SPA that
  * cannot be crawled directly. Instead, this script:
  *
- *   1. Fetches the company.sbb.ch JSON API to discover SBB/FFS roles in Ticino/Grigioni.
- *   2. Fetches login.org apprenticeship pages (partner=SBB CFF FFS, canton=Ticino)
- *      to include apprenticeship positions not exposed by the company.sbb.ch API.
+ *   1. Fetches the company.sbb.ch JSON API (PRIMARY source) to discover SBB/FFS
+ *      roles in Ticino/Grigioni.
+ *   2. Fetches login.org apprenticeship pages (SECONDARY/optional source,
+ *      partner=SBB CFF FFS, canton=Ticino) to include apprenticeship positions
+ *      not exposed by the company.sbb.ch API. login.org has been observed
+ *      returning HTTP 451 persistently from CI runners (#6961) — that outage
+ *      degrades this step (zero new seeds, existing apprenticeship jobs kept
+ *      via merge grace period) instead of failing the whole crawl.
  *   3. Merges and de-duplicates detail URLs from both sources as adapter seeds.
  *   4. Runs the base crawler which fetches each detail page and parses content.
  *
@@ -255,7 +260,27 @@ export async function fetchLoginSbbDetailUrls(options = {}) {
 
     const html = await fetchPageImpl(pageUrl, timeoutMs, 'text/html,application/xhtml+xml');
     if (!html) {
-      throw new Error(`SBB login.org discovery failed: listing page unavailable (${pageUrl}).`);
+      // login.org is a SECONDARY source (apprenticeship listings only — the
+      // company.sbb.ch AEM feed above is primary and covers every SBB role).
+      // Observed contract (#6961): the site returns HTTP 451 (legally/
+      // geographically unavailable) persistently from CI runners, with zero
+      // redirect. Throwing here used to take down the ENTIRE SBB crawl —
+      // including the unrelated, healthy AEM discovery — for an outage on a
+      // source that is not authoritative for the union. Degrade in place
+      // instead: report zero NEW seeds from this source WITHOUT claiming it
+      // is verified-empty (`sourceZero: false`), so the caller keeps
+      // publishing AEM jobs and mergePreserveLocaleData()'s grace-period
+      // retention (default retainMissingJobs) keeps any already-persisted
+      // login.org apprenticeship jobs — ID/URL/slug/previousSlugs — instead
+      // of retiring them on an unproven "source is empty" read.
+      console.warn(`⚠️ SBB login.org listing unavailable — degrading (secondary source, existing apprenticeship jobs retained): ${pageUrl}`);
+      return {
+        urls: [...detailUrls].sort((a, b) => a.localeCompare(b)),
+        sourceZero: false,
+        degraded: true,
+        pagesFetched: visited.size,
+        duplicateIdentity,
+      };
     }
     if (!/(?:login\.org|panoramica-dei-posti-di-tirocinio|panoramica dei posti di tirocinio|\/it\/\d+-)/i.test(html)) {
       throw new Error(`SBB login.org discovery failed: listing identity marker missing (${pageUrl}).`);
@@ -1188,6 +1213,9 @@ async function main() {
   // Step 2: Fetch login.org SBB apprenticeship URLs
   const loginDiscovery = await fetchLoginSbbDetailUrls();
   const loginDetailUrls = loginDiscovery.urls;
+  if (loginDiscovery.degraded) {
+    console.log('⚠️ login.org degraded this run — continuing with AEM-only discovery; existing apprenticeship jobs are retained via the merge grace period, not retired.');
+  }
   const mergedDetailUrls = [...new Set([...apiUrls, ...loginDetailUrls])].sort((a, b) => a.localeCompare(b));
   console.log(`✅ Total merged SBB detail URLs (API + login.org): ${mergedDetailUrls.length}`);
 
