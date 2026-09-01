@@ -433,6 +433,8 @@ export async function fetchAllGkbJobs(runtime = {}) {
 
   // Umantis exposes two listing routes with partially different catalogues.
   // Union both by vacancy id: /Jobs/All alone missed 15 live listings.
+  // Sequential (no Promise.all) by design: mergeGkbListing relies on `existing`
+  // being the first-seen view, and this loop is what guarantees that order.
   const listingsById = new Map();
   for (const listingUrl of LISTING_URLS) {
     const listingHtml = await fetchPage(listingUrl, runtime, (html) => {
