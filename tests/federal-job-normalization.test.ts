@@ -21,6 +21,16 @@ describe('federal job normalization', () => {
     expect(normalized.canton).toBe('TI');
   });
 
+  it('accepts one PLZ-city hyphen without collapsing separator-only values', () => {
+    expect(normalizeFederalJobLocation('6593-Claro (TI)')).toEqual({
+      location: '6593-Claro (TI)',
+      addressLocality: 'Claro',
+      canton: 'TI',
+    });
+    expect(normalizeFederalJobLocation('6593-- (TI)').addressLocality).toBe('6593--');
+    expect(normalizeFederalJobLocation('6593--Claro (TI)').addressLocality).toBe('6593--Claro');
+  });
+
   it('collapses federal department placeholders to the crawler company brand', () => {
     expect(
       normalizeFederalDepartmentCompany(
