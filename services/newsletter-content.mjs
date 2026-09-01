@@ -9,7 +9,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getVariantStyleDirective } from './newsletter-subject-variants.mjs';
-import { locTokenHit } from './locToken.mjs';
+import { locTokenHit, normalizeLocToken } from './locToken.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_RX } from '../scripts/lib/jobBoardSections.mjs';
 import { nlNormLocale } from './newsletter-template.mjs';
@@ -631,16 +631,104 @@ export function companyHubUrlIfEmitted(company, locale = 'it', emittedSlugs) {
   return companyPageUrl(slug, locale);
 }
 
-export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it', recentlyFeaturedSlugs = []) {
-  if (!jobs || jobs.length === 0) return [];
+const PREPARED_JOB_CONTEXTS = new WeakSet();
+const MATCH_QUERY_CACHE_LIMIT = 64;
 
+/**
+ * Precompute the job-only half of newsletter matching once per run. Subscriber
+ * signals still decide the final ranking, while quality pools, slug/company
+ * allow-sets, normalized fields and age-decayed popularity are built once.
+ *
+ * Location/sector indexes are filled lazily per distinct normalized query:
+ * preferences are arbitrary strings, so an eager index of every possible
+ * query cannot exist. Repeated cities/sectors then become Set lookups.
+ */
+export function prepareNewsletterJobContext(jobs, recentlyFeaturedSlugs = []) {
+  const list = Array.isArray(jobs) ? jobs : [];
   const popularity = loadPopularity();
   const hasPopularity = popularity.size > 0;
+  const recentSlugs = new Set(recentlyFeaturedSlugs || []);
+  const now = Date.now();
+  const entries = list.map((job) => {
+    const slugs = [job?.slug, ...Object.values(job?.slugByLocale || {})].filter(Boolean);
+    return {
+      job,
+      slugs,
+      recentlyFeatured: slugs.some((slug) => recentSlugs.has(slug)),
+      locationSearch: normalizeLocToken(
+        `${String(job?.location || '')} ${String(job?.addressLocality || '')} ${String(job?.addressRegion || '')} ${String(job?.canton || '')}`,
+      ),
+      sectorSearch: [job?.title, job?.category, job?.sector]
+        .map((value) => String(value || '').toLowerCase()),
+      companyKey: (job?.companyKey || job?.company || '').toLowerCase(),
+      date: toDateValue(job),
+      decayedViews: hasPopularity ? decayedPopularity(job, popularity, now) : 0,
+    };
+  });
+  const context = {
+    jobs: list,
+    entries,
+    qualityEntries: entries.filter((entry) => passesQualityGate(entry.job)),
+    basicEntries: entries.filter((entry) => entry.job?.title && entry.job?.slug && entry.job?.company),
+    hasPopularity,
+    emittedCompanyHubs: buildCompanyHubSlugSet(list),
+    validSlugs: buildSlugSet(list),
+    resolvers: loadCantonResolvers(),
+    locationMatchesByQuery: new Map(),
+    sectorMatchesByQuery: new Map(),
+  };
+  PREPARED_JOB_CONTEXTS.add(context);
+  return context;
+}
 
-  // Quality filter for popularity ranking; fallback pool keeps all valid jobs
-  const qualityPool = jobs.filter(passesQualityGate);
-  const basicPool = jobs.filter((j) => j?.title && j?.slug && j?.company);
-  const fullPool = hasPopularity && qualityPool.length >= limit ? qualityPool : basicPool;
+function preparedContext(value, recentlyFeaturedSlugs) {
+  return value && typeof value === 'object' && PREPARED_JOB_CONTEXTS.has(value)
+    ? value
+    : prepareNewsletterJobContext(value, recentlyFeaturedSlugs);
+}
+
+function memoizedMatchSet(cache, query, build) {
+  const cached = cache.get(query);
+  if (cached) return cached;
+  const matches = build();
+  // Preferences can be arbitrary free text. Keep the useful repeated-query
+  // speedup without allowing one Set per subscriber to grow memory unbounded.
+  if (cache.size < MATCH_QUERY_CACHE_LIMIT) cache.set(query, matches);
+  return matches;
+}
+
+function locationMatches(context, rawLocation) {
+  const query = normalizeLocToken(rawLocation);
+  if (!query) return null;
+  return memoizedMatchSet(context.locationMatchesByQuery, query, () => {
+    const needle = ` ${query} `;
+    return new Set(
+      context.entries
+        .filter((entry) => ` ${entry.locationSearch} `.includes(needle))
+        .map((entry) => entry.job),
+    );
+  });
+}
+
+function sectorMatches(context, rawSector) {
+  const query = String(rawSector || '').toLowerCase().trim();
+  if (!query) return null;
+  return memoizedMatchSet(context.sectorMatchesByQuery, query, () => (
+    new Set(
+      context.entries
+        .filter((entry) => entry.sectorSearch.some((field) => field.includes(query)))
+        .map((entry) => entry.job),
+    )
+  ));
+}
+
+export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it', recentlyFeaturedSlugs = []) {
+  const context = preparedContext(jobs, recentlyFeaturedSlugs);
+  if (context.entries.length === 0) return [];
+
+  const fullEntries = context.hasPopularity && context.qualityEntries.length >= limit
+    ? context.qualityEntries
+    : context.basicEntries;
   const sourceJob = subscriber?.sourceJob || subscriber?._sourceJob || null;
   const jobSlug = subscriber?.job_slug || sourceJob?.slug || '';
   const sourceSlugSet = new Set([
@@ -648,41 +736,28 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     sourceJob?.slug,
     ...Object.values(sourceJob?.slugByLocale || {}),
   ].filter(Boolean));
+  const entryIsSource = (entry) =>
+    sourceSlugSet.size > 0 && entry.slugs.some((slug) => sourceSlugSet.has(slug));
 
-  // ── Exclude recently featured jobs (rotation, same logic as article rotation) ──
-  const recentSet = new Set(recentlyFeaturedSlugs);
-  const jobIsSource = (j) =>
-    sourceSlugSet.size > 0 && (
-      (j.slug && sourceSlugSet.has(j.slug)) ||
-      Object.values(j.slugByLocale || {}).some((s) => s && sourceSlugSet.has(s))
-    );
-  const jobIsRecent = (j) =>
-    recentSet.size > 0 && (
-      (j.slug && recentSet.has(j.slug)) ||
-      Object.values(j.slugByLocale || {}).some((s) => s && recentSet.has(s))
-    );
-  // Prefer fresh jobs always; only mix in recent-featured ones at the END to
-  // backfill missing slots. This guarantees a popular evergreen job in the
-  // exclude list cannot displace fresh candidates just because the fresh pool
-  // is below {limit}.
-  const freshPool = fullPool.filter((j) => !jobIsRecent(j) && !jobIsSource(j));
-  const recentPool = fullPool.filter((j) => jobIsRecent(j) || jobIsSource(j));
-  const pool = freshPool.length >= limit ? freshPool : [...freshPool, ...recentPool];
+  // Prefer fresh jobs always; only mix in recent/source jobs at the end.
+  const freshEntries = [];
+  const recentEntries = [];
+  for (const entry of fullEntries) {
+    (entry.recentlyFeatured || entryIsSource(entry) ? recentEntries : freshEntries).push(entry);
+  }
+  const poolEntries = freshEntries.length >= limit
+    ? freshEntries
+    : [...freshEntries, ...recentEntries];
 
-  // ── Build subscriber interest profile from available signals ──
   const jobCompany = subscriber?.job_company || sourceJob?.company || '';
   const jobCategory = subscriber?.job_category || sourceJob?.category || sourceJob?.sector || '';
   const jobSearchQuery = subscriber?.job_search_query || '';
   const sourceField = subscriber?.source || '';
-
-  // Collect keywords from multiple sources
   const slugKeywords = extractKeywords(jobSlug);
   const categoryKeywords = extractKeywords(jobCategory);
   const searchKeywords = extractKeywords(jobSearchQuery);
   // Slug recovered retroactively by scripts/backfill-newsletter-job-context.mjs
-  // for subscribers who signed up before job context was captured (or from a
-  // job page whose source slug since expired). It carries the same job
-  // signal as job_slug, so feed it into the keyword profile too.
+  // carries the same job signal as job_slug.
   const backfillSlugKeywords = extractKeywords(subscriber?.job_context_backfill_slug || '');
   const sourceJobTitleKeywords = sourceJob?.title ? extractKeywords(sourceJob.title) : new Set();
   const sourceJobCategoryKeywords = sourceJob?.category || sourceJob?.sector
@@ -690,8 +765,7 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     : new Set();
   const parsedSource = parseSourceField(sourceField);
   const sourceTitleKeywords = parsedSource?.title ? extractKeywords(parsedSource.title) : new Set();
-
-  // Merge all keyword sources (slug is primary, source title is secondary)
+  // Merge all keyword sources (slug is primary, source title is secondary).
   const subscriberKeywords = new Set([
     ...slugKeywords,
     ...categoryKeywords,
@@ -701,140 +775,107 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3, locale = 'it
     ...sourceJobCategoryKeywords,
     ...sourceTitleKeywords,
   ]);
-
-  // Company from explicit field or parsed source
+  // Company from the explicit field or the parsed legacy source string.
   const subscriberCompany = jobCompany || parsedSource?.company || '';
-
   const hasInterestProfile = subscriberKeywords.size > 0 || subscriberCompany;
 
-  // ── Score and sort jobs ──
   const savedJobLocation = subscriber?.job_location || sourceJob?.location || sourceJob?.addressLocality || '';
   const location = String(subscriber?.locationInterest || savedJobLocation || '').toLowerCase().trim();
   const sector = String(subscriber?.sectorInterest || jobCategory || '').toLowerCase().trim();
   const usableSector = sector && sector !== 'other';
 
-  // Pre-filter by location if specified (applied before scoring for performance)
-  let candidates = pool;
+  let candidateEntries = poolEntries;
   if (location) {
-    const locationFiltered = pool.filter((j) => {
-      const jobLoc = `${String(j.location || '')} ${String(j.addressLocality || '')} ${String(j.addressRegion || '')} ${String(j.canton || '')}`.toLowerCase();
-      return locTokenHit(jobLoc, location);
-    });
-    if (locationFiltered.length >= limit) candidates = locationFiltered;
+    const matches = locationMatches(context, location);
+    const filtered = matches ? poolEntries.filter((entry) => matches.has(entry.job)) : [];
+    if (filtered.length >= limit) candidateEntries = filtered;
   }
-
-  // Further filter by sector only if it's not the generic "other"
-  // Only apply if enough results remain to fill the requested limit
   if (usableSector) {
-    const sectorFiltered = candidates.filter((j) =>
-      String(j.title || '').toLowerCase().includes(sector) ||
-      String(j.category || '').toLowerCase().includes(sector) ||
-      String(j.sector || '').toLowerCase().includes(sector)
-    );
-    if (sectorFiltered.length >= limit) candidates = sectorFiltered;
+    const matches = sectorMatches(context, sector);
+    const filtered = matches ? candidateEntries.filter((entry) => matches.has(entry.job)) : [];
+    if (filtered.length >= limit) candidateEntries = filtered;
   }
 
-  // Score each candidate: keyword/company/location relevance, age-decayed
-  // popularity (anti-evergreen-freeze), and recency.
-  const now = Date.now();
-  const scored = candidates.map((job) => ({
-    job,
+  // Score: subscriber relevance, age-decayed popularity, then recency.
+  const scored = candidateEntries.map((entry) => ({
+    job: entry.job,
     relevance: hasInterestProfile
-      ? keywordRelevanceScore(job, subscriberKeywords, subscriberCompany, location)
+      ? keywordRelevanceScore(entry.job, subscriberKeywords, subscriberCompany, location)
       : 0,
-    decayedViews: hasPopularity ? decayedPopularity(job, popularity, now) : 0,
-    date: toDateValue(job),
+    decayedViews: entry.decayedViews,
+    date: entry.date,
   }));
-
-  const companyKey = (j) => (j.companyKey || j.company || '').toLowerCase();
+  const companyKey = (job) => (job.companyKey || job.company || '').toLowerCase();
 
   let ordered;
   if (hasInterestProfile) {
-    // Relevance-first: keyword/company/location match, then age-decayed
-    // popularity, then recency.
     ordered = [...scored]
       .sort((a, b) =>
         (b.relevance - a.relevance) ||
         (b.decayedViews - a.decayedViews) ||
         (b.date - a.date))
-      .map((s) => s.job);
+      .map((entry) => entry.job);
   } else {
-    // No interest profile (the common case): reserve the first
-    // NO_PROFILE_POPULAR_SLOTS slots for age-decayed popularity leaders, then
-    // fill the rest with the freshest listings — company-diverse, no repeats.
-    // This stops the section collapsing onto the all-time most-viewed jobs and
-    // guarantees visible week-over-week rotation.
+    // Without an interest profile, mix popularity leaders with fresh listings
+    // and keep one card per company so evergreen jobs cannot freeze the block.
     const byPopular = [...scored].sort((a, b) => (b.decayedViews - a.decayedViews) || (b.date - a.date));
     const byFresh = [...scored].sort((a, b) => (b.date - a.date) || (b.decayedViews - a.decayedViews));
     const picked = [];
     const usedCompanies = new Set();
     const usedSlugs = new Set();
     const take = (list, max) => {
-      for (const s of list) {
+      for (const entry of list) {
         if (picked.length >= max) break;
-        const ck = companyKey(s.job);
-        if (s.job.slug && usedSlugs.has(s.job.slug)) continue;
-        if (ck && usedCompanies.has(ck)) continue;
-        picked.push(s.job);
-        if (s.job.slug) usedSlugs.add(s.job.slug);
-        if (ck) usedCompanies.add(ck);
+        const key = companyKey(entry.job);
+        if (entry.job.slug && usedSlugs.has(entry.job.slug)) continue;
+        if (key && usedCompanies.has(key)) continue;
+        picked.push(entry.job);
+        if (entry.job.slug) usedSlugs.add(entry.job.slug);
+        if (key) usedCompanies.add(key);
       }
     };
-    take(byPopular, Math.min(NO_PROFILE_POPULAR_SLOTS, limit)); // popular leaders
-    take(byFresh, limit);                                       // fill with fresh
-    take(byPopular, limit);                                     // backfill leftovers
+    take(byPopular, Math.min(NO_PROFILE_POPULAR_SLOTS, limit));
+    take(byFresh, limit);
+    take(byPopular, limit);
     ordered = picked;
   }
 
-  // Company diversity: max 1 job per company (defensive — the no-profile blend
-  // already dedupes by company, but the relevance-first path does not).
+  // Defensive company diversity for the relevance-first path too.
   const companyDiverse = dedupeBy(ordered, companyKey);
-
-  // Backfill: if location/sector filtering left too few diverse companies,
-  // fill remaining slots from the full pool (excluding already-selected companies)
+  // Backfill after a selective location/sector filter left too few companies.
   let finalJobs = companyDiverse;
-  if (companyDiverse.length < limit && candidates !== pool) {
+  if (companyDiverse.length < limit && candidateEntries !== poolEntries) {
     const usedCompanies = new Set(companyDiverse.map(companyKey));
-    const backfillScored = pool
-      .filter((j) => !usedCompanies.has(companyKey(j)))
-      .map((job) => ({ job, decayedViews: hasPopularity ? decayedPopularity(job, popularity, now) : 0, date: toDateValue(job) }))
+    const backfillScored = poolEntries
+      .filter((entry) => !usedCompanies.has(entry.companyKey))
+      .map((entry) => ({ job: entry.job, decayedViews: entry.decayedViews, date: entry.date }))
       .sort((a, b) => b.decayedViews - a.decayedViews || b.date - a.date);
-    const backfill = dedupeBy(backfillScored.map((s) => s.job), companyKey);
+    const backfill = dedupeBy(backfillScored.map((entry) => entry.job), companyKey);
     finalJobs = [...companyDiverse, ...backfill];
   }
 
-  // Company hubs are emitted only for companies present in the ACTIVE dataset.
-  // A matched job sourced from an expired posting can carry a company-name
-  // variant absent from active data → its hub is never emitted → 404 (#2530).
-  // Gate companyUrl on the emitted-hub allow-set built from `jobs`.
-  const emittedCompanyHubs = buildCompanyHubSlugSet(jobs);
-  // Per-job board path — every canton has its own job-board section (see
-  // loadCantonResolvers above); falls back to the flat JOB_BOARD_PATH (TI
-  // legacy) only if the resolver data failed to load.
-  const resolvers = loadCantonResolvers();
+  // Company hubs and canton paths must resolve only against emitted dataset
+  // state, otherwise a card can link to a route that was never built.
   const fallbackBoardPath = JOB_BOARD_PATH[locale] || JOB_BOARD_PATH.it;
-
-  return finalJobs
-    .slice(0, limit)
-    .map((job) => {
-      const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
-      const boardPath = resolvers
-        ? resolvers.resolveCantonSection(locale, resolvers.resolveJobCanton(job))
-        : fallbackBoardPath;
-      return {
-        title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
-        url: `/${boardPath}/${slug}/`,
-        slug: job.slug || slug,
-        company: job.company,
-        companyKey: job.companyKey || '',
-        location: normalizeLocation(job.location),
-        contract: normalizeContract(job.contract, locale),
-        sector: job.sector || job.category || '',
-        rawContract: job.contract || '',
-        logoUrl: resolveLogoUrl(job),
-        companyUrl: companyHubUrlIfEmitted(job.company, locale, emittedCompanyHubs),
-      };
-    });
+  return finalJobs.slice(0, limit).map((job) => {
+    const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug;
+    const boardPath = context.resolvers
+      ? context.resolvers.resolveCantonSection(locale, context.resolvers.resolveJobCanton(job))
+      : fallbackBoardPath;
+    return {
+      title: job.titleByLocale?.[locale] || job.titleByLocale?.it || job.title,
+      url: `/${boardPath}/${slug}/`,
+      slug: job.slug || slug,
+      company: job.company,
+      companyKey: job.companyKey || '',
+      location: normalizeLocation(job.location),
+      contract: normalizeContract(job.contract, locale),
+      sector: job.sector || job.category || '',
+      rawContract: job.contract || '',
+      logoUrl: resolveLogoUrl(job),
+      companyUrl: companyHubUrlIfEmitted(job.company, locale, context.emittedCompanyHubs),
+    };
+  });
 }
 
 /**
@@ -862,13 +903,15 @@ function buildSlugSet(jobs) {
  * so that matched jobs are never silently dropped.
  *
  * @param {object[]} matchedJobs — Output of matchJobsForSubscriber
- * @param {object[]} allJobs — Full jobs array from data/jobs.json
+ * @param {object[]|object} allJobs — Full jobs array or prepared context
  * @returns {object[]} — Only jobs with valid, resolvable URLs
  */
 export function validateJobUrls(matchedJobs, allJobs) {
   if (!matchedJobs || matchedJobs.length === 0) return [];
 
-  let validSlugs = buildSlugSet(allJobs || []);
+  const validSlugs = allJobs && typeof allJobs === 'object' && PREPARED_JOB_CONTEXTS.has(allJobs)
+    ? allJobs.validSlugs
+    : buildSlugSet(allJobs || []);
 
   // Resilience: if slug set is empty, skip validation — never silently drop all jobs
   if (validSlugs.size === 0) {
