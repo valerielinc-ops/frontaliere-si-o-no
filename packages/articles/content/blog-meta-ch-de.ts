@@ -5002,6 +5002,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Mieten in Freiburg: Mietrecht',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Vollständiger Leitfaden zur Kaution, Gebührenbeanstandung und Kündigung gemäss Bundesobligationenrecht. Schlichtungsverfahren und Fristen.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Schweizer Wohngebäude mit Blick auf Berglandschaft',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Führerschein in Freiburg: Umschulung und Prüfungen',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Umwandlungsverfahren des ausländischen Führerscheins im Kanton Freiburg: Pflichtkurse, theoretische und praktische Prüfungen, erforderliche Unterlagen und Schritt-für-Schritt-Roadmaps.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Auto auf Schweizer Bergstrasse mit Verkehrsschildern und sonniger Alpenlandschaft',
 };
 
 export default blogMetaChDe;

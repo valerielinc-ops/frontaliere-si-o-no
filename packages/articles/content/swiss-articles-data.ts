@@ -15004,6 +15004,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-guida-friburgo-procedura',
+    category: 'pratico',
+    date: '2026-09-01T20:58:54.961Z',
+    image: '/images/blog/patente-guida-friburgo-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
