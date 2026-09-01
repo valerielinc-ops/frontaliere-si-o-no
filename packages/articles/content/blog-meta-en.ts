@@ -11024,6 +11024,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.valutare-simulazione-ritorno-formazione.title': 'Evaluating the Return of Training: 2026 How-To Guide',
     'blog.article.valutare-simulazione-ritorno-formazione.excerpt': 'How to assess whether training is worthwhile: practical checklist, simulation scenarios and decision-making criteria for cross-border commuters in 2026.',
     'blog.article.valutare-simulazione-ritorno-formazione.imageAlt': 'Professional studying training documents at desk with Lake Lugano view',
+    'blog.article.vivere-villette-frontaliere.title': 'Living in Villette and working in Ticino as a border worker',
+    'blog.article.vivere-villette-frontaliere.excerpt': 'Living in Villette as a cross-border commuter and working in Ticino: transport, costs and tax advantages. Guide to crossings, AHV regulations, G Permit and administrative deadlines.',
+    'blog.article.vivere-villette-frontaliere.imageAlt': 'Residential street in a small Como province town at the Ticino border',
 };
 
 export default blogMetaEn;

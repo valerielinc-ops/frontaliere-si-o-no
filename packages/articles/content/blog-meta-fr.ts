@@ -11026,6 +11026,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.valutare-simulazione-ritorno-formazione.title': 'Évaluer le retour de la formation : Guide pratique 2026',
     'blog.article.valutare-simulazione-ritorno-formazione.excerpt': 'Comment évaluer si la formation en vaut la peine : liste de contrôle pratique, scénarios de simulation et critères de prise de décision pour les navetteurs transfrontaliers en 2026.',
     'blog.article.valutare-simulazione-ritorno-formazione.imageAlt': 'Professionnel étudiant des documents de formation au bureau avec vue sur le Lac de Lugano',
+    'blog.article.vivere-villette-frontaliere.title': 'Vivre à Villette et travailler au Tessin en tant que navetteur transfrontalier',
+    'blog.article.vivere-villette-frontaliere.excerpt': 'Vivre à Villette en tant que navetteur transfrontalier et travailler au Tessin : transport, coûts et avantages fiscaux. Guide des passages, réglementations AHV, permis G et délais administratifs.',
+    'blog.article.vivere-villette-frontaliere.imageAlt': 'Rue résidentielle dans une petite ville de la province de Côme à la frontière du Tessin',
 };
 
 export default blogMetaFr;
