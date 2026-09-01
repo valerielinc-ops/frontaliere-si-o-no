@@ -1669,6 +1669,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'commercio-dettaglio-vendite-luglio-2025': { it: 'commercio-dettaglio-vendite-luglio-2025', en: 'retail-sales-increase-july-2025', de: 'einzelhandelsumsatz-steigt-im-juli-2025', fr: 'ventes-au-detail-augmentent-en-juillet-2025' },
  'tasso-ipotecario-riferimento-stabile': { it: 'tasso-ipotecario-riferimento-stabile', en: 'mortgage-reference-rate-stable', de: 'referenzzinssatz-fuer-hypotheken-unverandert', fr: 'taux-de-reference-pour-les-hypotheques-stable' },
  'formazione-azienda-prioritario': { it: 'formazione-azienda-prioritario', en: 'company-training-priority', de: 'betriebliche-ausbildung-prioritaet', fr: 'formation-entreprise-prioritaire' },
+ 'dazit-termine-2026': { it: 'dazit-termine-2026', en: 'dazit-end-2026', de: 'dazit-ende-2026', fr: 'dazit-fin-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

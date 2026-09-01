@@ -63980,6 +63980,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazit-termine-2026': {
+    title: 'Il programma DaziT volge al termine, la trasformazione digitale continua',
+    description: 'Il programma DaziT dell\'UDSC terminerà il 31 dicembre 2026, digitalizzando i processi doganali e di sicurezza ai confini. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, programma, dazit, volge, termine',
+    ogTitle: 'Il programma DaziT volge al termine, la trasformazione digitale continua',
+    ogDescription: 'Il programma DaziT dell\'UDSC terminerà il 31 dicembre 2026, digitalizzando i processi doganali e di sicurezza ai confini. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/dazit-termine-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il programma DaziT volge al termine, la trasformazione digitale continua",
+      "description": "Il programma DaziT dell'UDSC terminerà il 31 dicembre 2026, digitalizzando i processi doganali e di sicurezza ai confini. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazit-termine-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona, Svizzera, con infrastrutture digitali moderne e sistemi di controllo dei confini."
+      },
+      "datePublished": "2026-09-01T12:39:20+00:00",
+      "dateModified": "2026-09-01T12:39:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazit-termine-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

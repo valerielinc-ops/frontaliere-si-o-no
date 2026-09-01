@@ -4930,6 +4930,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.formazione-azienda-prioritario.title': 'In-company training: new federal priority until 2028',
     'blog.article.formazione-azienda-prioritario.excerpt': 'SERI is allocating CHF 3 million to strengthen the quality of dual vocational education and training in the period 2026-2028.',
     'blog.article.formazione-azienda-prioritario.imageAlt': 'Swiss apprentice during hands-on training session in a professional workshop setting.',
+    'blog.article.dazit-termine-2026.title': 'The DaziT program comes to an end, the digital transformation continues',
+    'blog.article.dazit-termine-2026.excerpt': 'The UDSC\'s DaziT program will end on December 31, 2026, digitizing customs and border security processes.',
+    'blog.article.dazit-termine-2026.imageAlt': 'Aerial view of Bellinzona, Switzerland, with modern digital infrastructure and border control systems.',
 };
 
 export default blogMetaChEn;

@@ -4930,6 +4930,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.formazione-azienda-prioritario.title': 'Formation en entreprise : nouvelle priorité fédérale jusqu’en 2028',
     'blog.article.formazione-azienda-prioritario.excerpt': 'La SERI alloue 3 millions de CHF pour renforcer la qualité de l’enseignement et de la formation vocationnelles doubles pour la période 2026-2028.',
     'blog.article.formazione-azienda-prioritario.imageAlt': 'Apprenti suisse en formation pratique dans un atelier professionnel moderne.',
+    'blog.article.dazit-termine-2026.title': 'Le programme DaziT prend fin, la transformation numérique se poursuit',
+    'blog.article.dazit-termine-2026.excerpt': 'Le programme DaziT de la FOCBS prendra fin le 31 décembre 2026, numérisant les processus douaniers et de sécurité aux frontières.',
+    'blog.article.dazit-termine-2026.imageAlt': 'Vue aérienne de Bellinzona, Suisse, avec des infrastructures numériques modernes et des systèmes de contrôle des frontières.',
 };
 
 export default blogMetaChFr;

@@ -4930,6 +4930,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.formazione-azienda-prioritario.title': 'Interne Schulungen: neue bundesweite Priorität bis 2028',
     'blog.article.formazione-azienda-prioritario.excerpt': 'SERI stellt 3 Millionen CHF bereit, um die Qualität der dualen beruflichen Ausbildung und Ausbildung im Zeitraum 2026–2028 zu stärken.',
     'blog.article.formazione-azienda-prioritario.imageAlt': 'Schweizer Lehrling während praktischer Ausbildung in einer modernen Werkstatt.',
+    'blog.article.dazit-termine-2026.title': 'Das DaziT-Programm geht zu Ende, die digitale Transformation setzt sich fort',
+    'blog.article.dazit-termine-2026.excerpt': 'Das DaziT-Programm der FOCBS endet am 31. Dezember 2026 und digitalisiert Zoll- und Grenzsicherungsprozesse.',
+    'blog.article.dazit-termine-2026.imageAlt': 'Luftaufnahme von Bellinzona, Schweiz, mit moderner digitaler Infrastruktur und Grenzkontrollsystemen.',
 };
 
 export default blogMetaChDe;
