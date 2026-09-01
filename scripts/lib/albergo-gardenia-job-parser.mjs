@@ -19,10 +19,17 @@ export const ALBERGO_GARDENIA_COMPANY_DOMAIN = 'albergo-gardenia.ch';
 export const ALBERGO_GARDENIA_HOME_URL = 'https://www.albergo-gardenia.ch/';
 export const ALBERGO_GARDENIA_SITEMAP_URL = 'https://www.albergo-gardenia.ch/sitemap.xml';
 
+export const ALBERGO_GARDENIA_FETCH_BUDGET = Object.freeze({
+  sitemap: Object.freeze({ timeoutMs: 20_000, retries: 4, retryBaseMs: 1_500 }),
+  content: Object.freeze({ timeoutMs: 15_000, retries: 2, retryBaseMs: 750 }),
+});
+
 const MIN_SITEMAP_URLS = 50;
 const MIN_CONTENT_URLS = 40;
 const CONTENT_PATH_RX = /^\/(?:index|story)\.php$/i;
 const EXPECTED_BRAND_RX = /(?:albergo|villa|garni)\s+gardenia/i;
+const GARDENIA_APEX_HOST = ALBERGO_GARDENIA_COMPANY_DOMAIN;
+const GARDENIA_WWW_HOST = `www.${ALBERGO_GARDENIA_COMPANY_DOMAIN}`;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -52,6 +59,83 @@ export function isTrustedDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+function isSameGardeniaResource(leftUrl, rightUrl) {
+  try {
+    const left = new URL(leftUrl);
+    const right = new URL(rightUrl);
+    return isTrustedDomain(left.href)
+      && isTrustedDomain(right.href)
+      && left.pathname === right.pathname
+      && left.search === right.search;
+  } catch {
+    return false;
+  }
+}
+
+function gardeniaTransportCandidates(rawUrl) {
+  const primary = new URL(rawUrl);
+  const alternate = new URL(primary);
+  alternate.hostname = primary.hostname === GARDENIA_WWW_HOST
+    ? GARDENIA_APEX_HOST
+    : GARDENIA_WWW_HOST;
+  return alternate.href === primary.href ? [primary.href] : [primary.href, alternate.href];
+}
+
+function gardeniaFetchError(resource, response, sourceUrl = '') {
+  const status = Number(response?.status || 0);
+  /** @type {Error & { status?: number, code?: string }} */
+  const error = new Error(
+    `Albergo Gardenia ${resource} fetch failed${sourceUrl ? ` for ${sourceUrl}` : ''} (${status})`,
+  );
+  // crawler-template may preserve data on connection-level failures. Tag every
+  // response/policy outcome (including deterministic status 0 denials) so only
+  // a genuine no-response exhaustion can enter that soft-exit branch.
+  if (status > 0 || response?.blockedByRobots || response?.policyBlocked) {
+    error.status = status;
+  }
+  if (response?.policyBlocked) error.code = 'ERR_PUBLIC_FETCH_POLICY';
+  return error;
+}
+
+/**
+ * Fetch one bounded Gardenia source resource. The live host is served through
+ * a two-hop CNAME chain and has intermittently timed out from GitHub Actions.
+ * Give the slow origin an explicit per-attempt budget and, only after a pure
+ * connection-level exhaustion (status 0), retry the byte-identical apex/www
+ * host alias. HTTP responses, robots denials and URL-policy failures never
+ * cross the alias boundary: those are authoritative failures, not transport
+ * noise. The caller still validates resource identity and source content.
+ *
+ * @param {string} rawUrl
+ * @param {{ kind?: 'sitemap'|'content', fetchPage?: typeof politeFetch }} [runtime]
+ */
+export async function fetchAlbergoGardeniaSourcePage(
+  rawUrl,
+  { kind = 'content', fetchPage = politeFetch } = {},
+) {
+  const budget = ALBERGO_GARDENIA_FETCH_BUDGET[kind];
+  if (!budget) throw new TypeError(`Unknown Albergo Gardenia fetch budget: ${kind}`);
+
+  let last = null;
+  for (const [index, candidateUrl] of gardeniaTransportCandidates(rawUrl).entries()) {
+    const response = await fetchPage(candidateUrl, {
+      ...budget,
+      ...(kind === 'sitemap' ? { accept: 'application/xml,text/xml,*/*' } : {}),
+    });
+    last = response;
+    if (response?.ok) return response;
+
+    const connectionFailure = Number(response?.status || 0) === 0
+      && !response?.blockedByRobots
+      && !response?.policyBlocked;
+    if (!connectionFailure) return response;
+    if (index === 0) {
+      console.warn(`  ⚠️ Gardenia origin connection exhausted for ${candidateUrl}; trying the canonical host alias.`);
+    }
+  }
+  return last;
 }
 
 function decodeSitemapLocation(value = '') {
@@ -177,21 +261,25 @@ export async function fetchAllAlbergoGardeniaJobs({ fetchPage = politeFetch } = 
   console.log('🔍 Fetching Albergo Gardenia authoritative site inventory');
   console.log(`   Sitemap: ${ALBERGO_GARDENIA_SITEMAP_URL}\n`);
 
-  const sitemap = await fetchPage(ALBERGO_GARDENIA_SITEMAP_URL, {
-    accept: 'application/xml,text/xml,*/*',
+  const sitemap = await fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
+    kind: 'sitemap',
+    fetchPage,
   });
-  if (!sitemap?.ok || !isTrustedDomain(sitemap.url || ALBERGO_GARDENIA_SITEMAP_URL)) {
-    throw new Error(`Albergo Gardenia sitemap fetch failed (${sitemap?.status || 0})`);
+  if (!sitemap?.ok || !isSameGardeniaResource(
+    sitemap.url || ALBERGO_GARDENIA_SITEMAP_URL,
+    ALBERGO_GARDENIA_SITEMAP_URL,
+  )) {
+    throw gardeniaFetchError('sitemap', sitemap);
   }
   const { allUrls, contentUrls } = parseAlbergoGardeniaSitemap(sitemap.body);
 
   for (const sourceUrl of contentUrls) {
-    const page = await fetchPage(sourceUrl);
+    const page = await fetchAlbergoGardeniaSourcePage(sourceUrl, { kind: 'content', fetchPage });
     if (!page?.ok || !isTrustedDomain(page.url || '')) {
-      throw new Error(`Albergo Gardenia content fetch failed for ${sourceUrl} (${page?.status || 0})`);
+      const error = gardeniaFetchError('content', page, sourceUrl);
+      throw error;
     }
-    const expectedIdentity = new URL(sourceUrl).href;
-    if (new URL(page.url).href !== expectedIdentity) {
+    if (!isSameGardeniaResource(page.url, sourceUrl)) {
       throw new Error(`Albergo Gardenia content redirected outside its inventory: ${sourceUrl} -> ${page.url}`);
     }
     assertNoGardeniaCareerSurface(page.body, page.url);
