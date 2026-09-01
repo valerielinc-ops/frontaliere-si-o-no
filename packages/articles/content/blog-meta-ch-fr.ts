@@ -5014,6 +5014,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Acheter une maison dans le canton des Grisons : hypothèque, coûts et procédures',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Guide pratique de l\'achat immobilier dans les Grisons : procédures d\'achat et de vente, fonds propres requis, viabilité du prêt hypothécaire, taxes de passage et frais de notaire.',
     'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Propriété résidentielle moderne dans le style alpin suisse traditionnel avec architecture en bois.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Marché locations Soleure : loyers et droit de location',
+    'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Guide complet du droit locatif dans le canton de Soleure : règles fédérales sur le dépôt de garantie, la résiliation, la contestation des loyers et l\'autorité de conciliation.',
+    'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Immeuble résidentiel suisse avec fenêtres et balcons dans un quartier urbain',
 };
 
 export default blogMetaChFr;
