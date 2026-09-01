@@ -32,6 +32,7 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { stableSlugHash } from './lib/dedicated-crawler-common.mjs';
+import { pruneEmptyPreviousSlugLocaleBuckets } from './lib/dedicated-crawler-common.mjs';
 import { resolveRecoveryTarget } from './backfill-prev-slugs-from-loss-events.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { withGuardOff } from './lib/slug-preservation-guard.mjs';
@@ -109,28 +110,36 @@ export function processFile(filePath) {
     }
   }
 
-  if (moved === 0) return null;
+  let emptyLocaleBucketsPruned = 0;
+  for (const job of slice.jobs) {
+    emptyLocaleBucketsPruned += pruneEmptyPreviousSlugLocaleBuckets(job);
+  }
+
+  if (moved === 0 && emptyLocaleBucketsPruned === 0) return null;
   // This script's whole purpose is to DROP contaminated entries from the
   // wrong job — writeJsonAtomic's slug-preservation guard (#5157) otherwise
   // sees that drop as an accidental loss and re-injects the exact
   // contamination this pass is removing (documented escape hatch in
   // scripts/lib/slug-preservation-guard.mjs). Scoped to this write only.
   if (APPLY) withGuardOff(() => writeJsonAtomic(filePath, slice));
-  return { moved };
+  return { moved, emptyLocaleBucketsPruned };
 }
 
 function main() {
   let totalMoved = 0;
+  let totalEmptyLocaleBucketsPruned = 0;
   let filesChanged = 0;
   for (const name of listSliceFileNames(BY_CRAWLER_DIR)) {
     const res = processFile(path.join(BY_CRAWLER_DIR, name));
     if (res) {
       filesChanged++;
       totalMoved += res.moved;
-      console.log(`${name}: ${res.moved} moved`);
+      totalEmptyLocaleBucketsPruned += res.emptyLocaleBucketsPruned;
+      console.log(`${name}: ${res.moved} moved, ${res.emptyLocaleBucketsPruned} empty locale bucket(s) pruned`);
     }
   }
   console.log(`\n${APPLY ? 'APPLIED' : 'DRY-RUN'}: ${filesChanged} file(s), ${totalMoved} slug(s) redirected to their correct current owner.`);
+  console.log(`${totalEmptyLocaleBucketsPruned} empty locale bucket(s) pruned.`);
   if (!APPLY && filesChanged > 0) console.log('Re-run with --apply to write.');
 }
 

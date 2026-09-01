@@ -45,4 +45,44 @@ describe('decontaminate-prev-slugs: flat previousSlugs redirect', () => {
       fs.rmSync(tmpFile, { force: true });
     }
   });
+
+  it('prunes empty locale buckets while preserving route ownership and is idempotent', async () => {
+    process.argv.push('--apply');
+    const { processFile } = await import('../scripts/decontaminate-prev-slugs.mjs');
+
+    const claimant = {
+      id: 'company-claimant',
+      url: 'https://jobs.example.com/posting/claimant',
+      previousSlugsByLocale: { en: [] as string[], de: [] as string[], fr: ['route-fr-storica'] },
+      previousSlugs: [] as string[],
+    };
+    const owner = {
+      id: 'company-owner',
+      url: 'https://jobs.example.com/posting/owner',
+      previousSlugsByLocale: { it: [] as string[] },
+      previousSlugs: [] as string[],
+    };
+    const ownerSlug = `owner-route-storica-${stableSlugHash(owner)}`;
+    claimant.previousSlugsByLocale.en.push(ownerSlug);
+    claimant.previousSlugs.push(ownerSlug);
+
+    const tmpFile = path.join(os.tmpdir(), `decontaminate-idempotent-test-${Date.now()}.json`);
+    fs.writeFileSync(tmpFile, JSON.stringify({ jobs: [claimant, owner] }));
+
+    try {
+      expect(processFile(tmpFile)).toEqual({ moved: 2, emptyLocaleBucketsPruned: 3 });
+
+      const written = JSON.parse(fs.readFileSync(tmpFile, 'utf8'));
+      const writtenClaimant = written.jobs.find((job: { id: string }) => job.id === claimant.id);
+      const writtenOwner = written.jobs.find((job: { id: string }) => job.id === owner.id);
+
+      expect(writtenClaimant.previousSlugsByLocale).toEqual({ fr: ['route-fr-storica'] });
+      expect(writtenClaimant.previousSlugs).not.toContain(ownerSlug);
+      expect(writtenOwner.previousSlugsByLocale).toEqual({ en: [ownerSlug] });
+      expect(writtenOwner.previousSlugs).toEqual([ownerSlug]);
+      expect(processFile(tmpFile)).toBeNull();
+    } finally {
+      fs.rmSync(tmpFile, { force: true });
+    }
+  });
 });

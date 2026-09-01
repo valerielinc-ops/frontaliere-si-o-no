@@ -9344,7 +9344,6 @@
         "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
         "deputy-branch-manager-denner-ag-rorschach-cmf05t",
         "stv-branch-manager-in-denner-ag-fislisbach",
-        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
         "directeur-de-succursale-stv-in-denner-ag-fislisbach",
         "stv-filialleiter-in-denner-ag-fislisbach",
         "stv-branch-manager-in-denner-ag-davos",
@@ -9358,7 +9357,6 @@
           "stv-filialleiter-in-denner-ag-rorschach",
           "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
           "stv-branch-manager-in-denner-ag-fislisbach",
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
           "directeur-de-succursale-stv-in-denner-ag-fislisbach",
           "stv-filialleiter-in-denner-ag-fislisbach",
           "stv-branch-manager-in-denner-ag-davos",
@@ -9372,9 +9370,6 @@
           "deputy-branch-manager-denner-ag-rorschach-cmf05t",
           "stv-branch-manager-in-denner-ag-fislisbach",
           "stv-branch-manager-in-denner-ag-davos"
-        ],
-        "de": [
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
         ],
         "fr": [
           "stv-filialleiter-in-denner-ag-rorschach-cmf05t",
@@ -24323,11 +24318,16 @@
       "crawledAt": "2026-09-01T07:23:26.690Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-denner"
+          "stv-filialleiter-in-denner",
+          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
+        ],
+        "de": [
+          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-in-denner"
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt"
       ],
       "needsRetranslation": true,
       "salaryMin": 74000,
