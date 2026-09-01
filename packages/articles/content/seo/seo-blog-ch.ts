@@ -64409,6 +64409,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-audizione-concezione-energia-eolica': {
+    title: 'Energia eolica: audizione federale per nuovi impianti',
+    description: 'Il 1° settembre l\'ARE avvia la consultazione dei Cantoni e del pubblico per adeguare la Concezione energia eolica della Svizzera con nuove disposizioni legali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, energia, eolica, audizione, federale',
+    ogTitle: 'Audizione energia eolica: consultazione federale 1° settembre',
+    ogDescription: 'L\'ARE ha avviato il 1° settembre 2026 l\'audizione dei Cantoni e la partecipazione pubblica per adeguare la Concezione energia eolica della Svizzera. L\'obiettivo è rafforzare la sicurezza della pianificazione e aumentare le probabilità',
+    canonicalPath: '/articoli-svizzera/audizione-concezione-energia-eolica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Energia eolica: audizione federale per nuovi impianti",
+      "description": "Il 1° settembre l'ARE avvia la consultazione dei Cantoni e del pubblico per adeguare la Concezione energia eolica della Svizzera con nuove disposizioni legali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/audizione-concezione-energia-eolica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cresta alpina svizzera con turbine eoliche, simbolo della pianificazione energetica federale e sviluppo territoriale"
+      },
+      "datePublished": "2026-09-01T15:42:13+00:00",
+      "dateModified": "2026-09-01T15:42:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/audizione-concezione-energia-eolica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

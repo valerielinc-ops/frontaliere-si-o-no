@@ -4963,6 +4963,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comcom-esclude-nuovi-operatori-mobile.title': 'Swiss mobile telephony: Comcom excludes new providers',
     'blog.article.comcom-esclude-nuovi-operatori-mobile.excerpt': 'The Swiss Federal Communications Commission states: Economic and regulatory barriers make it virtually impossible for new competitors to enter the mobile phone market.',
     'blog.article.comcom-esclude-nuovi-operatori-mobile.imageAlt': 'Panoramic view of Lugano, economic hub of southern Switzerland, representing Swiss telecom market',
+    'blog.article.audizione-concezione-energia-eolica.title': 'Wind energy: Federal hearing for new plants',
+    'blog.article.audizione-concezione-energia-eolica.excerpt': 'On 1 September, the ARE is launching the consultation of the cantons and the public on adapting the wind energy concept and strengthening planning security.',
+    'blog.article.audizione-concezione-energia-eolica.imageAlt': 'Swiss alpine ridge with wind turbines, representing federal energy planning and territorial development',
 };
 
 export default blogMetaChEn;

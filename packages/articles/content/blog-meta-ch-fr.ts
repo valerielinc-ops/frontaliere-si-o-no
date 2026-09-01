@@ -4963,6 +4963,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comcom-esclude-nuovi-operatori-mobile.title': 'Téléphonie mobile suisse : la Comcom exclut de nouveaux opérateurs',
     'blog.article.comcom-esclude-nuovi-operatori-mobile.excerpt': 'La Commission fédérale des communications déclare : Les barrières économiques et réglementaires rendent pratiquement impossible l’entrée de nouveaux concurrents sur le marché du téléphone mobile.',
     'blog.article.comcom-esclude-nuovi-operatori-mobile.imageAlt': 'Vue panoramique de Lugano, centre économique de la Suisse romande méridionale, symbole du marché télécom suisse',
+    'blog.article.audizione-concezione-energia-eolica.title': 'Énergie éolienne : audience fédérale pour les nouvelles centrales',
+    'blog.article.audizione-concezione-energia-eolica.excerpt': 'Le 1er septembre, l’ARE lance la consultation des cantons et du public sur l’adaptation du concept d’énergie éolienne et le renforcement de la sécurité de la planification.',
+    'blog.article.audizione-concezione-energia-eolica.imageAlt': 'Crête alpine suisse avec turbines éoliennes, symbole de la planification énergétique fédérale et du développement territorial',
 };
 
 export default blogMetaChFr;
