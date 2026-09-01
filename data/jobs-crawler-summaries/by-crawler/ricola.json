@@ -1,18 +1,18 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-01T10:32:34.199Z",
+  "generatedAt": "2026-09-01T14:25:15.967Z",
   "total": 3,
   "discovered": null,
   "written": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6607,
-  "avgDurationMs": 6607,
+  "unchangedCount": 1,
+  "durationMs": 5683,
+  "avgDurationMs": 5683,
   "durationHistory": [
-    6607
+    5683
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://career.ricola.com/Vacancies/1063/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:32:31.184Z",
+      "crawledAt": "2026-09-01T14:25:12.995Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -67,7 +67,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:32:31.635Z",
+      "crawledAt": "2026-09-01T14:25:13.421Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -91,10 +91,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "ricola-2c30adc9413a",
-      "slug": "accounting-specialist-ricola-ch",
+      "slug": "accounting-specialista-ricola-laufen",
       "company": "Ricola",
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
@@ -122,15 +125,17 @@
       "postedDate": "2026-07-04",
       "applyUrl": "https://career.ricola.com/Vacancies/1048/Description/2",
       "firstSeenAt": "2026-07-04T12:16:40.503Z",
-      "_qualityScore": 88,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
