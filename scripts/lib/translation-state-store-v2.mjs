@@ -142,8 +142,24 @@ function memoryPath(patch) {
 }
 
 function queuePath(patch) {
-  const crawlerHash = crawlerDigest(patch.target.crawlerKey);
-  return `v2/queue/${crawlerHash.slice(0, 2)}/${crawlerHash}/${patch.patchHash.slice(0, 2)}/${patch.patchHash}.json`;
+  return queuePathForHash(patch.patchHash);
+}
+
+function queuePathForHash(patchHash) {
+  return `v2/queue/by-patch/${patchHash.slice(0, 2)}/${patchHash}.json`;
+}
+
+function queueIndexPrefix(crawlerKey) {
+  const crawlerHash = crawlerDigest(crawlerKey);
+  return `v2/queue/by-crawler/${crawlerHash.slice(0, 2)}/${crawlerHash}`;
+}
+
+function queueIndexPath(patch) {
+  return queueIndexPathFor(patch.target.crawlerKey, patch.patchHash);
+}
+
+function queueIndexPathFor(crawlerKey, patchHash) {
+  return `${queueIndexPrefix(crawlerKey)}/${patchHash.slice(0, 2)}/${patchHash}.json`;
 }
 
 function ackPrefix(patchHash) {
@@ -205,6 +221,16 @@ function queueRecord(patch, slicePath) {
   });
 }
 
+function queueIndexRecord(patch) {
+  return deepFreezeTranslationV2({
+    schemaVersion: 2,
+    crawlerKey: patch.target.crawlerKey,
+    patchHash: patch.patchHash,
+    attemptKey: patch.candidate.attemptKey,
+    candidateId: patch.candidate.candidateId,
+  });
+}
+
 function validateQueueRecord(value) {
   const expected = ['attemptKey', 'candidateId', 'crawlerKey', 'patchHash', 'schemaVersion', 'slicePath'];
   if (value === null || typeof value !== 'object' || Array.isArray(value)) throw new TypeError('invalid queue record');
@@ -220,6 +246,26 @@ function validateQueueRecord(value) {
   return deepFreezeTranslationV2({ ...value });
 }
 
+function validateQueueIndexRecord(value, expectedCrawlerKey) {
+  assertTranslationPlainObjectV2(value, 'translation queue index');
+  assertTranslationExactKeysV2(
+    value,
+    ['attemptKey', 'candidateId', 'crawlerKey', 'patchHash', 'schemaVersion'],
+    'translation queue index',
+  );
+  if (
+    value.schemaVersion !== 2
+    || value.crawlerKey !== expectedCrawlerKey
+    || typeof value.patchHash !== 'string'
+    || !/^[a-f0-9]{64}$/.test(value.patchHash)
+    || !/^translation-attempt:v2:[a-f0-9]{64}$/.test(value.attemptKey)
+    || !/^translation-candidate:v2:[a-f0-9]{64}$/.test(value.candidateId)
+  ) {
+    throw new TypeError('translation queue index is invalid');
+  }
+  return deepFreezeTranslationV2({ ...value });
+}
+
 function assertQueueMatches(queue, patch, slicePath) {
   const validated = validateQueueRecord(queue);
   if (
@@ -230,6 +276,20 @@ function assertQueueMatches(queue, patch, slicePath) {
     || validated.candidateId !== patch.candidate.candidateId
   ) {
     throw new TypeError('translation queue record does not match its patch and slice');
+  }
+  return validated;
+}
+
+function assertQueueIndexMatches(index, patch) {
+  const validated = validateQueueIndexRecord(index, patch.target.crawlerKey);
+  if (validated.patchHash !== patch.patchHash) {
+    throw new TypeError('translation queue index does not match its patch');
+  }
+  if (
+    validated.attemptKey !== patch.candidate.attemptKey
+    || validated.candidateId !== patch.candidate.candidateId
+  ) {
+    throw new TypeError('translation queue index does not match its candidate');
   }
   return validated;
 }
@@ -367,7 +427,7 @@ function createGitRunner(repository) {
 }
 
 function createGitPathLister(repository) {
-  return ({ tip, prefix, limit, mode, pathSuffix = null, recursive = true }) => new Promise((resolve, reject) => {
+  return ({ tip, prefix, limit, mode, recursive = true }) => new Promise((resolve, reject) => {
     const targetCount = mode === 'strict' ? limit + 1 : limit;
     const args = ['ls-tree'];
     if (recursive) args.push('-r');
@@ -421,7 +481,6 @@ function createGitPathLister(repository) {
           stop();
           return;
         }
-        if (pathSuffix !== null && !path.endsWith(pathSuffix)) continue;
         paths.push(path);
         if (paths.length === targetCount) stop();
       }
@@ -482,9 +541,9 @@ async function readPath(git, tip, path) {
   return result.stdout;
 }
 
-async function listPaths(pathLister, tip, prefix, { limit, mode, label, pathSuffix = null }) {
+async function listPaths(pathLister, tip, prefix, { limit, mode, label }) {
   if (tip === null) return [];
-  const result = await pathLister({ tip, prefix, limit, mode, pathSuffix });
+  const result = await pathLister({ tip, prefix, limit, mode });
   if (
     result === null
     || typeof result !== 'object'
@@ -679,7 +738,6 @@ export function createTranslationStateStoreV2(options) {
       prefix: scan.prefix,
       limit: scan.limit,
       mode: scan.mode,
-      pathSuffix: scan.pathSuffix ?? null,
       recursive: scan.recursive ?? true,
       count: result.paths.length,
       stopped: result.stopped,
@@ -805,12 +863,28 @@ export function createTranslationStateStoreV2(options) {
         if (current !== 'queued') {
           throw new TypeError(`translation attempt cannot be queued from lifecycle state ${current}`);
         }
+        const existingQueue = await parsePath(git, tip, queuePath(patch));
+        const existingQueueIndex = await parsePath(git, tip, queueIndexPath(patch));
+        if ((existingQueue === null) !== (existingQueueIndex === null)) {
+          throw new TypeError('translation canonical queue and crawler index disagree');
+        }
+        if (existingQueue !== null) {
+          assertQueueMatches(existingQueue, patch, checkedSlicePath);
+          assertQueueIndexMatches(existingQueueIndex, patch);
+        }
         await putImmutable(
           git,
           tip,
           changes,
           queuePath(patch),
           canonicalArtifact(queueRecord(patch, checkedSlicePath)),
+        );
+        await putImmutable(
+          git,
+          tip,
+          changes,
+          queueIndexPath(patch),
+          canonicalArtifact(queueIndexRecord(patch)),
         );
       }
       return changes;
@@ -824,20 +898,23 @@ export function createTranslationStateStoreV2(options) {
       throw new TypeError('translation pending limit must be between 1 and 250');
     }
     const tip = await snapshotTip();
-    const crawlerHash = crawlerDigest(crawlerKey);
     const paths = await listPaths(
       pathLister,
       tip,
-      `v2/queue/${crawlerHash.slice(0, 2)}/${crawlerHash}`,
+      queueIndexPrefix(crawlerKey),
       { limit, mode: 'truncate', label: 'translation pending queue' },
     );
     const pending = [];
     for (const path of paths) {
-      const queue = validateQueueRecord(await parsePath(git, tip, path));
-      if (queue.crawlerKey !== crawlerKey) throw new TypeError('translation queue crawler hash collision');
+      const index = validateQueueIndexRecord(await parsePath(git, tip, path), crawlerKey);
+      const queue = validateQueueRecord(await parsePath(git, tip, queuePathForHash(index.patchHash)));
+      if (queue.patchHash !== index.patchHash || queue.crawlerKey !== crawlerKey) {
+        throw new TypeError('translation queue index does not match its canonical queue');
+      }
       const patch = validateTranslationDerivedPatchV2(await parsePath(git, tip, patchPath(queue)));
       assertQueueMatches(queue, patch, queue.slicePath);
-      if (path !== queuePath(patch)) throw new TypeError('translation queue record is stored under the wrong path');
+      assertQueueIndexMatches(index, patch);
+      if (path !== queueIndexPath(patch)) throw new TypeError('translation queue index is stored under the wrong path');
       pending.push(deepFreezeTranslationV2({ patch, queue }));
     }
     return deepFreezeTranslationV2({ commit: tip, pending });
@@ -879,8 +956,13 @@ export function createTranslationStateStoreV2(options) {
       const changes = [];
       for (const patch of patches) {
         const queue = await parsePath(git, tip, queuePath(patch));
+        const queueIndex = await parsePath(git, tip, queueIndexPath(patch));
+        if ((queue === null) !== (queueIndex === null)) {
+          throw new TypeError('translation canonical queue and crawler index disagree');
+        }
         if (queue === null) throw queueConflict('translation publish intent requires queued patches');
         assertQueueMatches(queue, patch, slicePath);
+        assertQueueIndexMatches(queueIndex, patch);
         const existingIntents = await listPaths(pathLister, tip, intentIndexPrefix(patch.patchHash), {
           limit: MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2,
           mode: 'strict',
@@ -998,6 +1080,10 @@ export function createTranslationStateStoreV2(options) {
       const receipts = [];
       for (const { patch, payload } of acknowledgments) {
         const queued = await parsePath(git, tip, queuePath(patch));
+        const queueIndex = await parsePath(git, tip, queueIndexPath(patch));
+        if ((queued === null) !== (queueIndex === null)) {
+          throw new TypeError('translation canonical queue and crawler index disagree');
+        }
         if (queued === null) {
           const paths = await listPaths(pathLister, tip, ackPrefix(patch.patchHash), {
             limit: MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2,
@@ -1018,6 +1104,7 @@ export function createTranslationStateStoreV2(options) {
           continue;
         }
         assertQueueMatches(queued, patch, payload.slicePath);
+        assertQueueIndexMatches(queueIndex, patch);
         await assertAcknowledgmentIntentAtTip(tip, payload);
         const journal = await readAttemptJournal(git, pathLister, tip, patch.candidate.attemptKey);
         if (getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state !== 'queued') {
@@ -1042,6 +1129,7 @@ export function createTranslationStateStoreV2(options) {
           canonicalArtifact(receipt),
         );
         changes.push({ path: queuePath(patch), content: null });
+        changes.push({ path: queueIndexPath(patch), content: null });
         receipts.push(receipt);
       }
       committedReceipts = receipts;
@@ -1080,18 +1168,30 @@ export function createTranslationStateStoreV2(options) {
     }
     const storedPatch = await parsePath(git, tip, `v2/patches/${patchHash.slice(0, 2)}/${patchHash}.json`);
     if (storedPatch === null) {
-      const queuePaths = await listPaths(
-        pathLister,
-        tip,
-        'v2/queue',
-        {
-          limit: 1,
-          mode: 'truncate',
-          label: 'translation patch queue lookup',
-          pathSuffix: `/${patchHash}.json`,
-        },
-      );
-      if (receipts.length > 0 || queuePaths.length > 0) {
+      const rawQueue = await parsePath(git, tip, queuePathForHash(patchHash));
+      let queueIndex = null;
+      if (rawQueue !== null) {
+        const queue = validateQueueRecord(rawQueue);
+        queueIndex = await parsePath(git, tip, queueIndexPathFor(queue.crawlerKey, patchHash));
+        if (queueIndex === null) {
+          throw new TypeError('translation canonical queue and crawler index disagree');
+        }
+        const index = validateQueueIndexRecord(queueIndex, queue.crawlerKey);
+        if (
+          index.patchHash !== queue.patchHash
+          || index.attemptKey !== queue.attemptKey
+          || index.candidateId !== queue.candidateId
+        ) {
+          throw new TypeError('translation queue index does not match its canonical queue');
+        }
+      } else if (receipts.length > 0) {
+        const crawlerKey = receipts[0].crawlerKey;
+        if (receipts.some((receipt) => receipt.crawlerKey !== crawlerKey)) {
+          throw new TypeError('translation acknowledgments for one patch span multiple crawlers');
+        }
+        queueIndex = await parsePath(git, tip, queueIndexPathFor(crawlerKey, patchHash));
+      }
+      if (receipts.length > 0 || rawQueue !== null || queueIndex !== null) {
         throw new TypeError('translation acknowledgment or queue requires its stored patch');
       }
     }
@@ -1104,11 +1204,18 @@ export function createTranslationStateStoreV2(options) {
       for (const receipt of receipts) assertAcknowledgmentMatchesPatch(receipt, patch);
       journal ??= await readAttemptJournal(git, pathLister, tip, patch.candidate.attemptKey);
       const queue = await parsePath(git, tip, queuePath(patch));
+      const queueIndex = await parsePath(git, tip, queueIndexPath(patch));
+      if ((queue === null) !== (queueIndex === null)) {
+        throw new TypeError('translation canonical queue and crawler index disagree');
+      }
       queued = getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state === 'queued';
       if (queued !== (queue !== null)) {
         throw new TypeError('translation queue and lifecycle state disagree');
       }
-      if (queue !== null) assertQueueMatches(queue, patch, queue.slicePath);
+      if (queue !== null) {
+        assertQueueMatches(queue, patch, queue.slicePath);
+        assertQueueIndexMatches(queueIndex, patch);
+      }
     }
     receipts.sort((left, right) => left.lifecycleSequence - right.lifecycleSequence);
     return deepFreezeTranslationV2({

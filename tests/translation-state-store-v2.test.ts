@@ -235,13 +235,13 @@ describe('translation state store v2', () => {
     expect(witnesses[1].stdoutBytes).toBe(0);
   });
 
-  it('physically truncates deterministic pending scans at the requested limit', async () => {
+  it('physically truncates deterministic pending scans with more than 250 indexed entries', async () => {
     const { one } = createRepositories();
     const scans: any[] = [];
     const store = createTranslationStateStoreV2({
       repository: one,
       onStage: async (stage: string, details: any) => {
-        if (stage === 'afterStatePathScan' && details.prefix?.startsWith('v2/queue/')) scans.push(details);
+        if (stage === 'afterStatePathScan' && details.prefix?.startsWith('v2/queue/by-crawler/')) scans.push(details);
       },
     });
     const otherJob = {
@@ -253,7 +253,21 @@ describe('translation state store v2', () => {
     };
     const patches = [patchFor(), patchFor(otherJob, 'Terza posizione')];
     await store.initialize();
-    await store.checkpointBatch({ slicePath: SLICE_PATH, patches });
+    const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches });
+    const firstIndexPath = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit)
+      .split('\n')
+      .find((path) => path.startsWith('v2/queue/by-crawler/'));
+    expect(firstIndexPath).toBeDefined();
+    const crawlerPrefix = firstIndexPath!.split('/').slice(0, 5).join('/');
+    git(one, 'checkout', '-q', '-B', 'large-indexed-queue-state', checkpoint.commit);
+    for (let index = 0; index < 251; index += 1) {
+      const path = join(one, crawlerPrefix, 'zz', `${String(index).padStart(3, '0')}.json`);
+      mkdirSync(dirname(path), { recursive: true });
+      writeFileSync(path, '{}\n');
+    }
+    git(one, 'add', join(one, crawlerPrefix, 'zz'));
+    git(one, 'commit', '-q', '-m', 'add later malformed queue index entries');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
     scans.length = 0;
     const pending = await store.listPending({ crawlerKey: 'example-crawler', limit: 1 });
 
@@ -290,6 +304,7 @@ describe('translation state store v2', () => {
     expect(paths.some((path) => path.startsWith('v2/memory/'))).toBe(true);
     expect(paths.filter((path) => path.startsWith('v2/journal/'))).toHaveLength(4);
     expect(paths.some((path) => path.startsWith('v2/queue/'))).toBe(true);
+    expect(paths.some((path) => path.startsWith('v2/queue/by-crawler/'))).toBe(true);
 
     const ack = await store.acknowledgeBatch([{
       patch,
@@ -309,6 +324,7 @@ describe('translation state store v2', () => {
     expect(changed).toMatch(/^A\s+v2\/acks\//m);
     expect(changed).toMatch(/^A\s+v2\/journal\//m);
     expect(changed).toMatch(/^D\s+v2\/queue\//m);
+    expect(changed).toMatch(/^D\s+v2\/queue\/by-crawler\//m);
 
     const firstReceipt = (await store.readAcknowledgment(patch.patchHash)).acknowledgment;
     const requeue = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch], requeue: true });
@@ -332,7 +348,10 @@ describe('translation state store v2', () => {
       .split('\n')).toHaveLength(2);
   });
 
-  it('fails closed when queue presence disagrees with the journal state', async () => {
+  it.each([
+    ['canonical queue', 'v2/queue/by-patch/'],
+    ['crawler index', 'v2/queue/by-crawler/'],
+  ])('fails closed when the %s is orphaned', async (_label, prefix) => {
     const { one } = createRepositories();
     const store = createTranslationStateStoreV2({ repository: one });
     const patch = patchFor();
@@ -340,7 +359,7 @@ describe('translation state store v2', () => {
     const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
     const queuePath = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit)
       .split('\n')
-      .find((path) => path.startsWith('v2/queue/'));
+      .find((path) => path.startsWith(prefix));
     expect(queuePath).toBeDefined();
 
     git(one, 'checkout', '-q', '-B', 'tampered-state', checkpoint.commit);
@@ -349,7 +368,7 @@ describe('translation state store v2', () => {
     git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
 
     const fresh = createTranslationStateStoreV2({ repository: one });
-    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/queue and lifecycle state disagree/);
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/canonical queue and crawler index disagree/);
   });
 
   it.each([
@@ -491,6 +510,25 @@ describe('translation state store v2', () => {
 
     const fresh = createTranslationStateStoreV2({ repository: one });
     await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/queue requires its stored patch/);
+  });
+
+  it('checks an absent arbitrary patch without scanning the queue index', async () => {
+    const { one } = createRepositories();
+    const scans: any[] = [];
+    const store = createTranslationStateStoreV2({
+      repository: one,
+      onStage: async (stage: string, details: any) => {
+        if (stage === 'afterStatePathScan') scans.push(details);
+      },
+    });
+    await store.initialize();
+    await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patchFor()] });
+    scans.length = 0;
+    const missing = await store.readAcknowledgment('f'.repeat(64));
+
+    expect(missing).toMatchObject({ acknowledgment: null, queued: false });
+    expect(scans.some((scan) => scan.prefix?.startsWith('v2/queue'))).toBe(false);
+    expect(scans).toEqual([expect.objectContaining({ prefix: `v2/acks/${'f'.repeat(2)}/${'f'.repeat(64)}` })]);
   });
 
   it('fails closed when an acknowledgment identity disagrees with its stored patch', async () => {
