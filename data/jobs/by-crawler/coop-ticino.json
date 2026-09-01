@@ -391,7 +391,7 @@
     },
     {
       "id": "company-50u05m",
-      "slug": "verkaufer-in-food-coop-city-thun-bern-50u05m",
+      "slug": "addetto-a-alle-vendite-food-coop-genossenschaft-thun-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Thun, Bern",
@@ -437,10 +437,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-city-thun-bern-50u05m",
-        "en": "verkaufer-in-food-coop-city-thun-bern-50u05m",
+        "it": "addetto-a-alle-vendite-food-coop-genossenschaft-thun-bern",
+        "en": "food-sales-associate-coop-genossenschaft-thun-bern",
         "de": "verkaufer-in-food-coop-city-thun-bern-50u05m",
-        "fr": "verkaufer-in-food-coop-city-thun-bern-50u05m"
+        "fr": "vendeur-vendeuse-produits-alimentaires-coop-genossenschaft-thun-bern"
       },
       "addressLocality": "Thun",
       "sourceLang": "de",
@@ -459,17 +459,25 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "previousSlugs": [
-        "verkaufer-in-food-coop-city-thun-bern"
+        "verkaufer-in-food-coop-city-thun-bern",
+        "verkaufer-in-food-coop-city-thun-bern-50u05m"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-city-thun-bern"
+          "verkaufer-in-food-coop-city-thun-bern",
+          "verkaufer-in-food-coop-city-thun-bern-50u05m"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-city-thun-bern-50u05m"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-city-thun-bern-50u05m"
         ]
       }
     },
     {
       "id": "company-v9u8ms",
-      "slug": "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms",
+      "slug": "addetto-a-alla-vendita-reparti-alimentari-coop-genossenschaft-winterthur-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Winterthur, Zürich",
@@ -515,10 +523,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms",
-        "en": "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms",
+        "it": "addetto-a-alla-vendita-reparti-alimentari-coop-genossenschaft-winterthur-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-winterthur-zurich",
         "de": "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms",
-        "fr": "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms"
+        "fr": "vendeur-vendeuse-rayon-alimentation-coop-genossenschaft-winterthur-zurich"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -537,11 +545,19 @@
       "salaryMin": 73500,
       "salaryMax": 111500,
       "previousSlugs": [
-        "verkaufer-in-food-coop-city-winterthur-zurich"
+        "verkaufer-in-food-coop-city-winterthur-zurich",
+        "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-city-winterthur-zurich"
+          "verkaufer-in-food-coop-city-winterthur-zurich",
+          "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-city-winterthur-zurich-v9u8ms"
         ]
       }
     },
@@ -1024,9 +1040,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-food-e-kasse-abendschicht-coop-zurich-aoezqw",
-        "en": "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-aoezqw",
+        "en": "sales-associate-food-and-cashier-evening-shift-coop-genossenschaft-zurich",
         "de": "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-aoezqw",
-        "fr": "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-aoezqw"
+        "fr": "vendeur-vendeuse-food-et-caisse-quart-de-soiree-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -1051,7 +1067,8 @@
         "food-and-checkout-sales-assistant-evening-shift-coop-genossenschaft-zurich",
         "verkaufer-in-food-e-kasse-abendschicht-coop-zurich-dp9i5l",
         "verkaufer-in-food-e-kasse-abendschicht-coop-genossenschaft-zurich",
-        "verkaufer-in-food-und-kasse-abendschicht-coop-genossenschaft-zurich"
+        "verkaufer-in-food-und-kasse-abendschicht-coop-genossenschaft-zurich",
+        "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-aoezqw"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1064,13 +1081,15 @@
           "verkaufer-in-food-und-kasse-abendschicht-coop-genossenschaft-zurich"
         ],
         "en": [
-          "food-and-checkout-sales-assistant-evening-shift-coop-genossenschaft-zurich"
+          "food-and-checkout-sales-assistant-evening-shift-coop-genossenschaft-zurich",
+          "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-aoezqw"
         ],
         "de": [
           "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-dp9i5l"
         ],
         "fr": [
-          "assistante-commerciale-de-restauration-et-de-caisse-en-service-du-soir-coop-genossenschaft-zurich"
+          "assistante-commerciale-de-restauration-et-de-caisse-en-service-du-soir-coop-genossenschaft-zurich",
+          "verkaufer-in-food-und-kasse-abendschicht-coop-zurich-aoezqw"
         ]
       }
     },
@@ -1449,7 +1468,7 @@
     },
     {
       "id": "company-nc0qfu",
-      "slug": "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu",
+      "slug": "venditore-trice-fiori-edicola-coop-genossenschaft-riehen-basel-stadt",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Blumen/Kiosk",
       "location": "Riehen, Basel-Stadt",
@@ -1495,10 +1514,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu",
-        "en": "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu",
+        "it": "venditore-trice-fiori-edicola-coop-genossenschaft-riehen-basel-stadt",
+        "en": "flower-kiosk-seller-coop-genossenschaft-riehen-basel-stadt",
         "de": "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu",
-        "fr": "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu"
+        "fr": "vendeur-vendeuse-fleurs-kiosque-coop-genossenschaft-riehen-basel-stadt"
       },
       "addressLocality": "Riehen",
       "sourceLang": "de",
@@ -1517,11 +1536,19 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "previousSlugs": [
-        "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt"
+        "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt",
+        "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt"
+          "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt",
+          "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu"
+        ],
+        "en": [
+          "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu"
+        ],
+        "fr": [
+          "verkaufer-in-blumen-kiosk-coop-riehen-basel-stadt-nc0qfu"
         ]
       }
     },
@@ -2094,22 +2121,12 @@
       },
       "previousSlugs": [
         "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen",
-        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen",
-        "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1"
+        "verkaufer-in-kassen-services-coop-gossau-sankt-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen",
           "verkaufer-in-kassen-services-coop-gossau-sankt-gallen"
-        ],
-        "en": [
-          "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1"
-        ],
-        "de": [
-          "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1"
-        ],
-        "fr": [
-          "verkaufer-in-blumen-kiosk-coop-gossau-sankt-gallen-59hjh1"
         ]
       },
       "salaryMin": 57500,
@@ -2650,7 +2667,7 @@
     },
     {
       "id": "company-q8q5ba",
-      "slug": "verkaufer-in-food-non-food-coop-kerns-obwalden",
+      "slug": "venditore-venditrice-alimentari-non-alimentari-coop-genossenschaft-kerns-obwalden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food / Non Food",
       "location": "Kerns, Obwalden",
@@ -2696,10 +2713,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba",
-        "en": "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba",
+        "it": "venditore-venditrice-alimentari-non-alimentari-coop-genossenschaft-kerns-obwalden",
+        "en": "sales-associate-food-non-food-coop-genossenschaft-kerns-obwalden",
         "de": "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba",
-        "fr": "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba"
+        "fr": "vendeur-vendeuse-produits-alimentaires-non-alimentaires-coop-genossenschaft-kerns-obwalden"
       },
       "addressLocality": "Kerns",
       "sourceLang": "de",
@@ -2722,23 +2739,29 @@
           "venditore-in-food-coop-genossenschaft-kerns",
           "verkaufer-in-food-coop-kerns-obwalden-qc6gbd",
           "seller-in-food-coop-genossenschaft-kerns",
-          "verkaufer-dans-les-aliments-coop-genossenschaft-kerns-qc6gbd"
+          "verkaufer-dans-les-aliments-coop-genossenschaft-kerns-qc6gbd",
+          "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba",
+          "verkaufer-in-food-non-food-coop-kerns-obwalden"
         ],
         "en": [
-          "seller-in-food-coop-genossenschaft-kerns"
+          "seller-in-food-coop-genossenschaft-kerns",
+          "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba"
         ],
         "de": [
           "verkaufer-in-food-coop-kerns-obwalden-qc6gbd"
         ],
         "fr": [
-          "verkaufer-dans-les-aliments-coop-genossenschaft-kerns-qc6gbd"
+          "verkaufer-dans-les-aliments-coop-genossenschaft-kerns-qc6gbd",
+          "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba"
         ]
       },
       "previousSlugs": [
         "venditore-in-food-coop-genossenschaft-kerns",
         "verkaufer-in-food-coop-kerns-obwalden-qc6gbd",
         "seller-in-food-coop-genossenschaft-kerns",
-        "verkaufer-dans-les-aliments-coop-genossenschaft-kerns-qc6gbd"
+        "verkaufer-dans-les-aliments-coop-genossenschaft-kerns-qc6gbd",
+        "verkaufer-in-food-non-food-coop-kerns-obwalden-q8q5ba",
+        "verkaufer-in-food-non-food-coop-kerns-obwalden"
       ]
     },
     {
@@ -2946,7 +2969,7 @@
     },
     {
       "id": "company-s8440z",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden",
+      "slug": "macellaio-a-coop-genossenschaft-klosters-serneus-graubunden",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Klosters-Serneus, Graubünden",
@@ -2983,10 +3006,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z",
+        "it": "macellaio-a-coop-genossenschaft-klosters-serneus-graubunden",
+        "en": "butcher-coop-genossenschaft-klosters-serneus-graubunden",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z"
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-klosters-serneus-graubunden"
       },
       "addressLocality": "Klosters-Serneus",
       "sourceLang": "de",
@@ -3003,7 +3026,23 @@
         }
       },
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden-s8440z",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-klosters-serneus-graubunden"
+      ]
     },
     {
       "id": "company-5tx3oh",
@@ -3237,7 +3276,7 @@
     },
     {
       "id": "company-f1ri4z",
-      "slug": "rayonleiter-in-frischprodukte-coop-davos-platz",
+      "slug": "responsabile-reparto-prodotti-freschi-coop-genossenschaft-davos-platz",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Frischprodukte",
       "location": "Davos, Platz",
@@ -3283,10 +3322,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z",
-        "en": "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z",
+        "it": "responsabile-reparto-prodotti-freschi-coop-genossenschaft-davos-platz",
+        "en": "fresh-products-department-manager-coop-genossenschaft-davos-platz",
         "de": "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z",
-        "fr": "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z"
+        "fr": "responsable-du-rayon-produits-frais-coop-genossenschaft-davos-platz"
       },
       "addressLocality": "Davos",
       "sourceLang": "de",
@@ -3303,7 +3342,23 @@
         }
       },
       "salaryMin": 99000,
-      "salaryMax": 174000
+      "salaryMax": 174000,
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z",
+          "rayonleiter-in-frischprodukte-coop-davos-platz"
+        ],
+        "en": [
+          "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z"
+        ],
+        "fr": [
+          "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-frischprodukte-coop-davos-platz-f1ri4z",
+        "rayonleiter-in-frischprodukte-coop-davos-platz"
+      ]
     },
     {
       "id": "company-z5bp0w",
@@ -3404,7 +3459,7 @@
     },
     {
       "id": "company-ju71c1",
-      "slug": "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern",
+      "slug": "responsabile-reparto-latteria-pane-coop-genossenschaft-munchenbuchsee-bern",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Molkerei / Brot",
       "location": "Münchenbuchsee, Bern",
@@ -3450,10 +3505,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1",
-        "en": "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1",
+        "it": "responsabile-reparto-latteria-pane-coop-genossenschaft-munchenbuchsee-bern",
+        "en": "department-manager-dairy-bread-coop-genossenschaft-munchenbuchsee-bern",
         "de": "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1",
-        "fr": "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1"
+        "fr": "responsable-rayon-laiterie-pain-coop-genossenschaft-munchenbuchsee-bern"
       },
       "addressLocality": "Münchenbuchsee",
       "sourceLang": "de",
@@ -3477,16 +3532,20 @@
           "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee",
           "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern-1oebpr",
           "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee",
-          "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern"
+          "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern",
+          "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1",
+          "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern"
         ],
         "en": [
-          "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee"
+          "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee",
+          "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1"
         ],
         "de": [
           "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern-1oebpr"
         ],
         "fr": [
-          "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee"
+          "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee",
+          "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1"
         ]
       },
       "previousSlugs": [
@@ -3494,7 +3553,9 @@
         "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee",
         "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern-1oebpr",
         "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee",
-        "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern"
+        "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern",
+        "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern-ju71c1",
+        "rayonleiter-in-molkerei-brot-coop-munchenbuchsee-bern"
       ]
     },
     {
@@ -3980,7 +4041,7 @@
     },
     {
       "id": "company-bpnwqb",
-      "slug": "verkaufer-in-food-coop-adelboden-bern-2",
+      "slug": "addetto-a-vendite-alimentari-coop-genossenschaft-adelboden-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Adelboden, Bern",
@@ -4026,10 +4087,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-adelboden-bern-bpnwqb",
-        "en": "verkaufer-in-food-coop-adelboden-bern-bpnwqb",
+        "it": "addetto-a-vendite-alimentari-coop-genossenschaft-adelboden-bern",
+        "en": "food-sales-associate-coop-genossenschaft-adelboden-bern",
         "de": "verkaufer-in-food-coop-adelboden-bern-bpnwqb",
-        "fr": "verkaufer-in-food-coop-adelboden-bern-bpnwqb"
+        "fr": "vendeur-euse-alimentation-coop-genossenschaft-adelboden-bern"
       },
       "addressLocality": "Adelboden",
       "sourceLang": "de",
@@ -4046,7 +4107,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-adelboden-bern-bpnwqb",
+          "verkaufer-in-food-coop-adelboden-bern-2"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-adelboden-bern-bpnwqb"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-adelboden-bern-bpnwqb"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-adelboden-bern-bpnwqb",
+        "verkaufer-in-food-coop-adelboden-bern-2"
+      ]
     },
     {
       "id": "company-cc0e85",
@@ -4174,9 +4251,9 @@
       },
       "slugByLocale": {
         "it": "stv-rayonleiter-in-brot-e-backwaren-coop-langenthal-bern-4vdzmg",
-        "en": "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-4vdzmg",
+        "en": "assistant-section-manager-bread-and-bakery-products-coop-genossenschaft-langenthal-bern",
         "de": "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-4vdzmg",
-        "fr": "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-4vdzmg"
+        "fr": "responsable-adjoint-de-rayon-pains-et-produits-de-boulangerie-coop-genossenschaft-langenthal-bern"
       },
       "addressLocality": "Langenthal",
       "sourceLang": "de",
@@ -4198,16 +4275,23 @@
         "it": [
           "stv-rayonleiter-in-brot-und-backwaren-coop-genossenschaft-langenthal",
           "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern"
+        ],
+        "en": [
+          "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-4vdzmg"
+        ],
+        "fr": [
+          "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-4vdzmg"
         ]
       },
       "previousSlugs": [
         "stv-rayonleiter-in-brot-und-backwaren-coop-genossenschaft-langenthal",
-        "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern"
+        "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern",
+        "stv-rayonleiter-in-brot-und-backwaren-coop-langenthal-bern-4vdzmg"
       ]
     },
     {
       "id": "company-445agm",
-      "slug": "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern",
+      "slug": "responsabile-reparto-frutta-verdura-coop-genossenschaft-langnau-im-emmental-bern",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Früchte / Gemüse",
       "location": "Langnau im Emmental, Bern",
@@ -4253,10 +4337,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm",
-        "en": "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm",
+        "it": "responsabile-reparto-frutta-verdura-coop-genossenschaft-langnau-im-emmental-bern",
+        "en": "fruit-vegetable-section-manager-coop-genossenschaft-langnau-im-emmental-bern",
         "de": "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm",
-        "fr": "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm"
+        "fr": "responsable-du-rayon-fruits-legumes-coop-genossenschaft-langnau-im-emmental-bern"
       },
       "addressLocality": "Langnau im Emmental",
       "sourceLang": "de",
@@ -4273,7 +4357,23 @@
           "maxValue": 185000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm",
+          "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern"
+        ],
+        "en": [
+          "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm"
+        ],
+        "fr": [
+          "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern-445agm",
+        "rayonleiter-in-fruchte-gemuse-coop-langnau-im-emmental-bern"
+      ]
     },
     {
       "id": "company-n2643c",
@@ -21376,9 +21476,6 @@
           "verkaufsberater-in-textil-coop-genossenschaft-olten-nj1rmz",
           "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn",
           "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k"
-        ],
-        "de": [
-          "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k"
         ]
       },
       "previousSlugs": [
@@ -23856,15 +23953,11 @@
         }
       },
       "previousSlugs": [
-        "product-owner-sap-sd-order-to-cash-m-w-d-80-100-coop-basel-stadt",
-        "produktbesitzer-sap-sd-order-to-cash-m-w-d-80-100-coop-basel-stadt-1bgrxu"
+        "product-owner-sap-sd-order-to-cash-m-w-d-80-100-coop-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-owner-sap-sd-order-to-cash-m-w-d-80-100-coop-basel-stadt"
-        ],
-        "de": [
-          "produktbesitzer-sap-sd-order-to-cash-m-w-d-80-100-coop-basel-stadt-1bgrxu"
         ]
       },
       "salarySource": "reported",
@@ -47464,16 +47557,12 @@
       },
       "previousSlugs": [
         "polydesigner-in-3d-coop-genossenschaft-zug",
-        "polydesigner-in-3d-coop-city-zug",
-        "polydesigner-in-3d-coop-city-zug-fzneri"
+        "polydesigner-in-3d-coop-city-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polydesigner-in-3d-coop-genossenschaft-zug",
           "polydesigner-in-3d-coop-city-zug"
-        ],
-        "de": [
-          "polydesigner-in-3d-coop-city-zug-fzneri"
         ]
       },
       "salarySource": "estimated",
@@ -84511,8 +84600,7 @@
           "poly-3d-designer-w-m-d-coop-genossenschaft-schaffhausen",
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-d9t3yx",
           "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
-          "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-          "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304"
+          "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
         ],
         "fr": [
           "polydesigner-3d-w-m-d-coop-genossenschaft-schaffhausen"
@@ -84528,8 +84616,7 @@
         "polydesigner-3d-m-w-d-coop-city-schaffhausen",
         "disegnatore-di-poli-3d-w-m-d-coop-genossenschaft-schaffhausen",
         "polydesigner-3d-m-w-d-coop-city-schaffhausen-sk8304",
-        "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304",
-        "poly-3d-designer-m-w-d-coop-city-schaffhausen-sk8304"
+        "poly-3d-designer-m-w-d-coop-genossenschaft-schaffhausen-sk8304"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -88401,16 +88488,12 @@
       },
       "previousSlugs": [
         "polydesigner-in-3d-coop-genossenschaft-zurich",
-        "polydesigner-in-3d-coop-city-zurich",
-        "polydesigner-in-3d-coop-city-zurich-qqky5j"
+        "polydesigner-in-3d-coop-city-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polydesigner-in-3d-coop-genossenschaft-zurich",
           "polydesigner-in-3d-coop-city-zurich"
-        ],
-        "de": [
-          "polydesigner-in-3d-coop-city-zurich-qqky5j"
         ]
       },
       "needsRetranslation": true,

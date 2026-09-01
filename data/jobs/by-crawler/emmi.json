@@ -7557,8 +7557,7 @@
           "betriebsmechaniker-in-emmi-ch-2",
           "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
           "business-mechanic-in-emmi-bischofszell-thurgau",
-          "meccanica-aziendale-in-emmi-bischofszell-thurgau",
-          "betriebsmechaniker-in-emmi-bischofszell"
+          "meccanica-aziendale-in-emmi-bischofszell-thurgau"
         ],
         "de": [
           "betriebsmechaniker-in-emmi-ch"
@@ -7581,8 +7580,7 @@
         "betriebsmechaniker-in-emmi-ch-2",
         "mecanicien-d-entreprise-in-emmi-bischofszell-thurgau",
         "business-mechanic-in-emmi-bischofszell-thurgau",
-        "meccanica-aziendale-in-emmi-bischofszell-thurgau",
-        "betriebsmechaniker-in-emmi-bischofszell"
+        "meccanica-aziendale-in-emmi-bischofszell-thurgau"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7668,8 +7666,7 @@
           "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z",
           "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
           "machine-operator-filling-emmi-bischofszell",
-          "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
-          "maschinenfuhrer-in-abfullung-emmi-bischofszell"
+          "operatore-macchina-in-imbottigliamento-emmi-bischofszell"
         ],
         "de": [
           "maschinenfuhrer-in-abfullung-emmi-ch"
@@ -7686,8 +7683,7 @@
         "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z",
         "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
         "machine-operator-filling-emmi-bischofszell",
-        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
-        "maschinenfuhrer-in-abfullung-emmi-bischofszell"
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7710,8 +7706,8 @@
       "slugByLocale": {
         "de": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch",
         "it": "chauffeuse-o-chauffeur-kategorie-c-e-emmi-bischofszell",
-        "en": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch",
-        "fr": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
+        "en": "chauffeur-or-chauffeur-category-c-e-emmi-bischofszell-thurgau",
+        "fr": "categorie-de-chauffeur-c-e-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7776,14 +7772,15 @@
           "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-4",
           "chauffeur-categorie-c-e-emmi-bischofszell",
           "driver-category-c-e-emmi-bischofszell",
-          "autista-categoria-c-e-emmi-bischofszell",
-          "chauffeuse-o-chauffeur-kategorie-c-e-emmi-bischofszell"
+          "autista-categoria-c-e-emmi-bischofszell"
         ],
         "en": [
-          "driver-category-c-e-emmi-bischofszell"
+          "driver-category-c-e-emmi-bischofszell",
+          "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
         ],
         "fr": [
-          "chauffeur-categorie-c-e-emmi-bischofszell"
+          "chauffeur-categorie-c-e-emmi-bischofszell",
+          "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch"
         ]
       },
       "previousSlugs": [
@@ -7793,8 +7790,7 @@
         "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-4",
         "chauffeur-categorie-c-e-emmi-bischofszell",
         "driver-category-c-e-emmi-bischofszell",
-        "autista-categoria-c-e-emmi-bischofszell",
-        "chauffeuse-o-chauffeur-kategorie-c-e-emmi-bischofszell"
+        "autista-categoria-c-e-emmi-bischofszell"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7879,8 +7875,7 @@
           "schichtkoordinator-in-emmi-ch",
           "coordinateur-de-poste-emmi-suhr-aargau",
           "shift-coordinator-in-emmi-suhr-aargau",
-          "coordinatore-del-turno-in-emmi-suhr-aargau",
-          "schichtkoordinator-in-emmi-suhr"
+          "coordinatore-del-turno-in-emmi-suhr-aargau"
         ],
         "de": [
           "schichtkoordinator-in-emmi-ch"
@@ -7896,8 +7891,7 @@
         "schichtkoordinator-in-emmi-ch",
         "coordinateur-de-poste-emmi-suhr-aargau",
         "shift-coordinator-in-emmi-suhr-aargau",
-        "coordinatore-del-turno-in-emmi-suhr-aargau",
-        "schichtkoordinator-in-emmi-suhr"
+        "coordinatore-del-turno-in-emmi-suhr-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7916,12 +7910,12 @@
     },
     {
       "id": "emmi-87571d900aac",
-      "slug": "schichtleiter-in-100-emmi-bischofszell",
+      "slug": "capo-turno-100-emmi-bischofszell-thurgau",
       "slugByLocale": {
         "de": "schichtleiter-in-100-emmi-bischofszell",
-        "it": "schichtleiter-in-100-emmi-bischofszell",
-        "en": "schichtleiter-in-100-emmi-bischofszell",
-        "fr": "schichtleiter-in-100-emmi-bischofszell"
+        "it": "capo-turno-100-emmi-bischofszell-thurgau",
+        "en": "shift-leader-100-emmi-bischofszell-thurgau",
+        "fr": "chef-d-equipe-100-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7997,10 +7991,12 @@
           "schichtleiter-in-emmi-ch"
         ],
         "en": [
-          "shift-leader-emmi-bischofszell-thurgau"
+          "shift-leader-emmi-bischofszell-thurgau",
+          "schichtleiter-in-100-emmi-bischofszell"
         ],
         "fr": [
-          "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau"
+          "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau",
+          "schichtleiter-in-100-emmi-bischofszell"
         ]
       },
       "previousSlugs": [
@@ -8034,8 +8030,8 @@
       "slugByLocale": {
         "de": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch",
         "it": "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr",
-        "en": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-2",
-        "fr": "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-2"
+        "en": "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau",
+        "fr": "categorie-de-chauffeur-c-e-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8106,10 +8102,10 @@
           "chauffeuse-o-chauffeur-kategorie-c-e-emmi-suhr-kmkb5u"
         ],
         "en": [
-          "chauffeur-or-chauffeur-category-c-e-emmi-suhr-aargau"
+          "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-2"
         ],
         "fr": [
-          "categorie-de-chauffeur-c-e-emmi-suhr-aargau"
+          "chauffeuse-oder-chauffeur-kategorie-c-e-emmi-ch-2"
         ]
       },
       "previousSlugs": [
@@ -8232,9 +8228,6 @@
         ],
         "fr": [
           "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau"
-        ],
-        "de": [
-          "anlagenfuhrer-in-mischerei-emmi-ch"
         ]
       },
       "previousSlugs": [
@@ -8244,8 +8237,7 @@
         "conduttore-dell-impianto-in-miscelazione-emmi-suhr",
         "gestionnaire-de-la-plante-dans-la-plante-de-melange-emmi-suhr-aargau",
         "plant-manager-in-mixing-plant-emmi-suhr-aargau",
-        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau",
-        "anlagenfuhrer-in-mischerei-emmi-ch"
+        "direttore-dell-impianto-in-impianto-di-miscelazione-emmi-suhr-aargau"
       ]
     },
     {
@@ -8319,8 +8311,7 @@
           "meccanico-di-impianti-emmi-suhr",
           "mecanicien-d-entreprise-in-emmi-suhr-aargau",
           "business-mechanic-in-emmi-suhr-aargau",
-          "meccanica-aziendale-in-emmi-suhr-aargau",
-          "betriebsmechaniker-in-emmi-suhr"
+          "meccanica-aziendale-in-emmi-suhr-aargau"
         ],
         "de": [
           "betriebsmechaniker-in-emmi-ch"
@@ -8341,8 +8332,7 @@
         "meccanico-di-impianti-emmi-suhr",
         "mecanicien-d-entreprise-in-emmi-suhr-aargau",
         "business-mechanic-in-emmi-suhr-aargau",
-        "meccanica-aziendale-in-emmi-suhr-aargau",
-        "betriebsmechaniker-in-emmi-suhr"
+        "meccanica-aziendale-in-emmi-suhr-aargau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8550,8 +8540,7 @@
           "responsable-d-installation-de-remplissage-emmi-suhr"
         ],
         "de": [
-          "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb",
-          "anlagenfuhrer-in-abfullung-emmi-ch"
+          "anlagenfuhrer-in-abfullung-emmi-ch-cbcifb"
         ]
       },
       "previousSlugs": [
@@ -8564,8 +8553,7 @@
         "gestore-dell-impianto-in-pet-emmi-suhr",
         "responsable-d-installation-de-remplissage-emmi-suhr",
         "filling-plant-operator-emmi-suhr",
-        "responsabile-impianti-di-riempimento-emmi-suhr",
-        "anlagenfuhrer-in-abfullung-emmi-ch"
+        "responsabile-impianti-di-riempimento-emmi-suhr"
       ]
     },
     {

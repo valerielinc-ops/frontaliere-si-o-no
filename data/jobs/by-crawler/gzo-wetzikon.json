@@ -858,7 +858,6 @@
         "senior-physician-internal-medicine-50-100-jobsharing-possible-gzo-spital-wetzikon-wetzikon",
         "medecin-interniste-senior-medecin-interniste-senior-50-100-jobsharing-possible-gzo-spital-wetzikon-wetzikon",
         "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo",
-        "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-con-uns-la-medizin-von-morgen-gzo-spital-wetzikon-wetzikon",
         "oberarztin-oberarzt-medizinische-onkologie-80-100-gestalten-sie-con-uns-la-onkologie-von-morgen-gzo-spital-wetzikon",
         "medical-oncology-80-100-design-the-oncology-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon",
         "oberarztin-oberarzt-medizinische-onkologie-80-100-gestalten-sie-mit-uns-die-onkologie-von",
@@ -869,7 +868,6 @@
           "oberarztin-oberarzt-innere-medizin-50-100-wir-unterstutzen-aktiv-teilzeit-und",
           "medico-internista-senior-medico-internista-senior-50-100-jobsharing-possibile-gzo-spital-wetzikon-wetzikon",
           "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-mit-uns-die-medizin-von-morgen-gzo",
-          "oberarztin-oberarzt-innere-medizin-50-100-gestalten-sie-con-uns-la-medizin-von-morgen-gzo-spital-wetzikon-wetzikon",
           "oberarztin-oberarzt-medizinische-onkologie-80-100-gestalten-sie-con-uns-la-onkologie-von-morgen-gzo-spital-wetzikon",
           "medical-oncology-80-100-design-the-oncology-of-tomorrow-with-us-gzo-spital-wetzikon-wetzikon",
           "oberarztin-oberarzt-medizinische-onkologie-80-100-gestalten-sie-mit-uns-die-onkologie-von",
@@ -1345,13 +1343,11 @@
       "pensumMax": 100,
       "pensum": "70 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-fur-die-interdisziplinare-privatabteilung-70-100-gzo",
-        "dipl-pflegefachfrau-mann-hf-fh-per-la-interdisziplinare-privatabteilung-70-100-gzo-spital-wetzikon"
+        "dipl-pflegefachfrau-mann-hf-fh-fur-die-interdisziplinare-privatabteilung-70-100-gzo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-hf-fh-fur-die-interdisziplinare-privatabteilung-70-100-gzo",
-          "dipl-pflegefachfrau-mann-hf-fh-per-la-interdisziplinare-privatabteilung-70-100-gzo-spital-wetzikon"
+          "dipl-pflegefachfrau-mann-hf-fh-fur-die-interdisziplinare-privatabteilung-70-100-gzo"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:13.883Z",
@@ -1422,11 +1418,9 @@
         "it": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-gzo-wetzikon-ch",
           "apprenticeship-as-a-specialist-in-health-gzo-spital-wetzikon-wetzikon",
-          "apprentissage-en-tant-que-specialiste-de-la-sante-gzo-spital-wetzikon-wetzikon",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-gzo-spital-wetzikon"
+          "apprentissage-en-tant-que-specialiste-de-la-sante-gzo-spital-wetzikon-wetzikon"
         ],
         "en": [
-          "apprenticeship-as-a-specialist-in-health-gzo-spital-wetzikon-wetzikon",
           "lehrstelle-als-fachfrau-fachmann-gesundheit-gzo-wetzikon-ch"
         ],
         "fr": [
@@ -1437,8 +1431,7 @@
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-gesundheit-gzo-wetzikon-ch",
         "apprenticeship-as-a-specialist-in-health-gzo-spital-wetzikon-wetzikon",
-        "apprentissage-en-tant-que-specialiste-de-la-sante-gzo-spital-wetzikon-wetzikon",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-gzo-spital-wetzikon"
+        "apprentissage-en-tant-que-specialiste-de-la-sante-gzo-spital-wetzikon-wetzikon"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -1458,12 +1451,12 @@
     },
     {
       "id": "gzo-wetzikon-7e70a9096ef2",
-      "slug": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
+      "slug": "assistente-medico-pratico-in-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-        "it": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-        "en": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch",
-        "fr": "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+        "it": "assistente-medico-pratico-in-mpa-pratica-di-emergenza-10-20-gzo-spital-wetzikon-wetzikon",
+        "en": "medical-practice-assistant-in-mpa-emergency-practice-10-20-gzo-spital-wetzikon-wetzikon",
+        "fr": "assistant-medical-de-pratique-en-mpa-pratique-d-urgence-10-20-gzo-spital-wetzikon-wetzikon"
       },
       "company": "GZO Spital Wetzikon",
       "companyKey": "gzo-wetzikon",
@@ -1523,7 +1516,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-01T14:18:35.271Z"
+      "firstSeenAt": "2026-09-01T14:18:35.271Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-mpa-notfallpraxis-10-20-gzo-wetzikon-ch"
+      ]
     },
     {
       "id": "gzo-wetzikon-7ec0f0f8bfbd",
