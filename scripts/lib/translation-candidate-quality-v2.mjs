@@ -99,7 +99,7 @@ function visibleTokens(value) {
 function canonicalProtectedText(value) {
   return value
     .normalize('NFKD')
-    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[\p{M}\u200B-\u200D\u2060\uFEFF]/gu, '')
     .toLocaleLowerCase('und');
 }
 
@@ -294,7 +294,13 @@ function extractNumericSignatures(text, locale) {
     const first = rangeEndpointSignature(match[1], locale);
     const second = rangeEndpointSignature(match[2], locale);
     const percent = match[0].includes('%') ? 'percent' : 'number';
-    signatures.push(`range:currency:${rangeCurrencySignature(match[0])}:${percent}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
+    const firstCurrency = rangeCurrencySignature(match[1]);
+    const secondCurrency = rangeCurrencySignature(match[2]);
+    const unitCurrency = rangeCurrencySignature(match[0]);
+    const currency = unitCurrency.startsWith('mixed:')
+      ? `bound:${firstCurrency}:${secondCurrency}`
+      : `global:${unitCurrency}`;
+    signatures.push(`range:currency:${currency}:${percent}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
   }
   for (const match of text.matchAll(NUMBER_RE)) {
     const start = match.index ?? 0;

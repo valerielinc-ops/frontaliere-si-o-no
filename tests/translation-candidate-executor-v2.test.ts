@@ -264,4 +264,31 @@ describe('translation candidate executor v2', () => {
     await expect(executeTranslationCandidateV2(executorInput(input({ provider: accessorProvider })))).rejects.toThrow(TypeError);
     expect(getterCalls).toBe(0);
   });
+
+  it('uses the frozen exact provider snapshot as the callable receiver', async () => {
+    let receiver: unknown;
+    const result = await executeTranslationCandidateV2(executorInput(input({
+      provider: {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1',
+        async translate(this: unknown) {
+          receiver = this;
+          return candidateText;
+        },
+      },
+    })));
+    expect(result.status).toBe('validated');
+    expect(receiver).toEqual(expect.objectContaining({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1' }));
+    expect(Object.keys(receiver as object).sort()).toEqual(['costClass', 'engineVersion', 'schemaVersion', 'translate']);
+    expect(Object.isFrozen(receiver)).toBe(true);
+
+    for (const provider of [
+      Object.defineProperty({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', translate: async () => candidateText }, 'hidden', { value: true }),
+      Object.assign({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', translate: async () => candidateText }, { [Symbol('extra')]: true }),
+    ]) {
+      const value = input({ provider });
+      await expect(executeTranslationCandidateV2(executorInput(value))).rejects.toThrow(TypeError);
+    }
+    const stableProxy = new Proxy({ schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', translate: async () => candidateText }, {});
+    await expect(executeTranslationCandidateV2(executorInput(input({ provider: stableProxy })))).resolves.toMatchObject({ status: 'validated' });
+  });
 });

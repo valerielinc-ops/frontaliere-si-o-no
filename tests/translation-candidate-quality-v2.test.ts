@@ -211,6 +211,12 @@ describe('translation candidate quality v2', () => {
       targetLang: 'it',
     });
     expect(codes(groupingEquivalent)).not.toContain('numeric.multiset_mismatch');
+    const mixedCurrency = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The range is CHF 80-EUR 100.'),
+      candidateText: long('La fascia è EUR 80-CHF 100.'),
+    });
+    expect(codes(mixedCurrency)).toContain('numeric.multiset_mismatch');
     let seed = 0x5eed;
     for (let index = 0; index < 32; index += 1) {
       seed = (seed * 1_103_515_245 + 12_345) >>> 0;
@@ -304,6 +310,15 @@ describe('translation candidate quality v2', () => {
         sourceText: long('C++ works with C# and AT&T.'),
         candidateText: long(candidateText),
         protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'structured', value: 'C#' }, { category: 'company', value: 'AT&T' }],
+      }))).toContain('protected_token.missing');
+    }
+    for (const candidateText of ['ACME\u1ab0X lavora.', 'ACME\u200dX lavora.', 'C++\u1ab0X lavora.']) {
+      const token = candidateText.startsWith('C++') ? 'C++' : 'ACME';
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`${token} lavora.`),
+        candidateText: long(candidateText),
+        protectedTokens: [{ category: 'company', value: token }],
       }))).toContain('protected_token.missing');
     }
     expect(() => assessTranslationCandidateQualityV2({
