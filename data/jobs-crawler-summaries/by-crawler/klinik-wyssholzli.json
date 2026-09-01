@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-08-31T23:39:03.854Z",
-  "total": 8,
+  "generatedAt": "2026-09-01T00:28:58.585Z",
+  "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3883,
-  "avgDurationMs": 3883,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3767,
+  "avgDurationMs": 3767,
   "durationHistory": [
-    3883
+    3767
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -274,8 +274,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Leitung Kueche 80–100% 07/2026",
       "slug": "kueche-80-100-07-2026-klinik-wyssholzli-herzogenbuchsee",
@@ -309,7 +308,6 @@
       "currency": "CHF",
       "crawlerMissStreak": 2,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -318,5 +316,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
