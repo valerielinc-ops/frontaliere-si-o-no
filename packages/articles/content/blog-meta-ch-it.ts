@@ -4957,6 +4957,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-requisiti-patrimoniali.title': 'UBS contesta proposta CET-S su requisiti patrimoniali',
     'blog.article.ubs-requisiti-patrimoniali.excerpt': 'La grande banca apprezza il lavoro della Commissione ma critica i nuovi requisiti patrimoniali, che costerebbero 30 miliardi di dollari complessivi.',
     'blog.article.ubs-requisiti-patrimoniali.imageAlt': 'Ufficio bancario svizzero con documenti sui requisiti patrimoniali e grafici finanziari visibili.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.title': 'Impiegati banca: ASIB accoglie normativa UBS',
+    'blog.article.sindacato-banca-ubs-regolamentazione.excerpt': 'L\'ASIB sostiene la proposta della CET-S per regolamentare UBS e chiede piani sociali obbligatori mentre il settore bancario affronta una crisi occupazionale senza precedenti.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.imageAlt': 'Sede di una banca svizzera con insegna luminosa, simbolo del dibattito su normativa e occupazione nel settore finanziario elvetico',
 };
 
 export default blogMetaChIt;

@@ -4957,6 +4957,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-requisiti-patrimoniali.title': 'UBS stellt den CET-S-Vorschlag zu den Kapitalanforderungen in Frage',
     'blog.article.ubs-requisiti-patrimoniali.excerpt': 'Die Großbank schätzt die Arbeit der Kommission, kritisiert jedoch die neuen Kapitalanforderungen, die insgesamt 30 Milliarden Dollar kosten würden.',
     'blog.article.ubs-requisiti-patrimoniali.imageAlt': 'Schweizer Bankbüro mit Kapitalanforderungsdokumenten und Finanzdiagrammen.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.title': 'Bankmitarbeiter: ASIB akzeptiert UBS-Vorschriften',
+    'blog.article.sindacato-banca-ubs-regolamentazione.excerpt': 'Die ASIB unterstützt den Vorschlag der CET-S zur Regulierung der UBS und fordert verbindliche Sozialpläne, da der Bankensektor vor einer beispiellosen Beschäftigungskrise steht.',
+    'blog.article.sindacato-banca-ubs-regolamentazione.imageAlt': 'Schweizer Bank-Schild, Symbol der Debatte über Regulierung und Beschäftigung im Schweizer Finanzsektor',
 };
 
 export default blogMetaChDe;

@@ -14869,6 +14869,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sindacato-banca-ubs-regolamentazione',
+    category: 'novita',
+    date: '2026-09-01T15:27:16.232Z',
+    image: '/images/blog/sindacato-banca-ubs-regolamentazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
