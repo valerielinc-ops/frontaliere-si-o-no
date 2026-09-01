@@ -1,5 +1,7 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchHilconaDetailPage,
+  normalizeHilconaJobUrl,
   parseHilconaSitemapXml,
   parseHilconaDetailHtml,
   slugify,
@@ -138,6 +140,29 @@ const MINIMAL_DETAIL_HTML = `<html><body>
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Hilcona job parser', () => {
+  describe('normalizeHilconaJobUrl', () => {
+    it('allows only relative or same-origin HTTPS Hilcona job routes', () => {
+      const path = '/de/stelle/produktionsmitarbeiter-m-w-d-2180';
+      expect(normalizeHilconaJobUrl(path)).toBe(`https://career.bellfoodgroup.com${path}`);
+      expect(normalizeHilconaJobUrl(`https://career.bellfoodgroup.com${path}`))
+        .toBe(`https://career.bellfoodgroup.com${path}`);
+      expect(normalizeHilconaJobUrl(`https://attacker.example${path}`)).toBeNull();
+      expect(normalizeHilconaJobUrl(`http://career.bellfoodgroup.com${path}`)).toBeNull();
+      expect(normalizeHilconaJobUrl('https://career.bellfoodgroup.com/de/unternehmen/2180')).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchHilconaDetailPage('https://attacker.example/de/stelle/test-job-100'))
+          .resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('parseHilconaSitemapXml', () => {
     it('extracts only German /de/stelle/ URLs', () => {
       const jobs = parseHilconaSitemapXml(SAMPLE_SITEMAP_XML);
@@ -177,6 +202,15 @@ describe('Hilcona job parser', () => {
       </urlset>`;
       const jobs = parseHilconaSitemapXml(dupeXml);
       expect(jobs.length).toBe(1);
+    });
+
+    it('rejects an off-domain sitemap entry without suppressing a valid job', () => {
+      const xml = `<urlset>
+        <url><loc>https://attacker.example/de/stelle/test-job-100</loc></url>
+        <url><loc>https://career.bellfoodgroup.com/de/stelle/test-job-100</loc></url>
+      </urlset>`;
+      expect(parseHilconaSitemapXml(xml).map((job) => job.url))
+        .toEqual(['https://career.bellfoodgroup.com/de/stelle/test-job-100']);
     });
 
     it('returns empty for null/empty input', () => {

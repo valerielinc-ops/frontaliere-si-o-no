@@ -32,6 +32,19 @@ const TICINO_SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch
 const CAREERS_BASE = 'https://jobs.pradagroup.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+export function normalizePradaJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/job\/[^/]+\/\d+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
@@ -101,14 +114,14 @@ export function parsePradaListingHtml(html) {
     const relUrl = match[1];
     const jobId = match[3];
     const rawTitle = normalizeSpace(stripHtml(match[4]));
-    if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+    if (!rawTitle || rawTitle.length < 3) continue;
     // Anchor text that IS the j2w page chrome (cookie-consent widget,
     // keyword-search box, job-alert box) is not a posting — discard the row
     // rather than clean it, which would leave an annuncio without a name.
     if (isSuccessFactorsWidgetText(rawTitle)) continue;
+    const fullUrl = normalizePradaJobUrl(relUrl);
+    if (!fullUrl || seen.has(jobId)) continue;
     seen.add(jobId);
-
-    const fullUrl = relUrl.startsWith('http') ? relUrl : `${CAREERS_BASE}${relUrl}`;
 
     // Extract location from the next colLocation cell
     const afterMatch = html.slice(match.index, match.index + 1000);
@@ -162,17 +175,19 @@ export function parsePradaListingHtml(html) {
       const relUrl = fMatch[1];
       const jobId = fMatch[2];
       const rawTitle = normalizeSpace(stripHtml(fMatch[3]));
-      if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+      if (!rawTitle || rawTitle.length < 3) continue;
       // Same guard as pattern 1 above — this fallback anchor is even more
       // generic (any /job/.../{id}/ link), so it's just as exposed to
       // picking up widget chrome instead of a job tile.
       if (isSuccessFactorsWidgetText(rawTitle)) continue;
+      const fullUrl = normalizePradaJobUrl(relUrl);
+      if (!fullUrl || seen.has(jobId)) continue;
       seen.add(jobId);
 
       jobs.push({
         id: `prada-${jobId}`,
         title: rawTitle,
-        url: `${CAREERS_BASE}${relUrl}`,
+        url: fullUrl,
         location: 'Mendrisio',
         canton: HQ.canton,
         department: '',
@@ -343,10 +358,12 @@ export async function fetchPradaJobUrls(timeoutMs = 15000) {
  * Fetch and parse a single Prada Group detail page.
  */
 export async function fetchPradaDetailPage(url, timeoutMs = 15000) {
+  const safeUrl = normalizePradaJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       signal: controller.signal,
       headers: { Accept: 'text/html', 'User-Agent': UA },
       redirect: 'follow',
