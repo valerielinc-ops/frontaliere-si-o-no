@@ -4996,6 +4996,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Landung in der Tasche in Hell-Dunkel für die Fast Fashion von Shein',
     'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'Börsengang von Shein in Hongkong am 1. September mit 1,75 Milliarden USD, aber einem Rückgang von 10%. Frankreich führt „Malus“ bis zu 19,50 € für Einwegmode ein. Die Schweiz hält sich an weniger strenge Regeln.',
     'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Schweizer Einzelhandelstraße mit Schaufenstern und gestapelten Lieferpaketen auf dem Gehweg, Symbol des Gegensatzes zwischen traditionellem Handel und Online-Mode.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Mietrecht im Kanton Freiburg: Praxisleitfaden',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'Im Kanton Freiburg die maximale Mietkaution von 3 Monaten. Leitfaden zur Anfechtung der anfänglichen Gebühr, Kündigung auf kantonalem Formular und Beschwerde bei der Schlichtungsbehörde nach OR Art. 253.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Wohnstraße im Kanton Freiburg mit typischen Schweizer Mietshäusern.',
 };
 
 export default blogMetaChDe;

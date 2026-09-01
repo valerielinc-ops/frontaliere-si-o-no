@@ -4996,6 +4996,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Bag landing in chiaroscuro for Shein\'s fast fashion',
     'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'Shein\'s IPO in Hong Kong on September 1 raised $1.75 billion but fell 10%. France introduces "malus" up to €19.50 on disposable fashion. Switzerland maintains less stringent rules.',
     'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Swiss shopping street with store windows and stacked delivery boxes on sidewalk, representing the contrast between traditional retail and online fast fashion.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Right of lease in the Canton of Fribourg: practical guide',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'In the Canton of Freiburg, the maximum security deposit is 3 months\' rent. Guide to dispute initial fee, cancellation on cantonal form and recourse to the conciliation authority according to CO art. 253.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Residential street in Canton Fribourg with typical Swiss rental apartment buildings.',
 };
 
 export default blogMetaChEn;

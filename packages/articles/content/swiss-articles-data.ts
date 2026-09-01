@@ -14986,6 +14986,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-friburgo-deposito-disdetta-locazione',
+    category: 'pratico',
+    date: '2026-09-01T20:14:11.757Z',
+    image: '/images/blog/affitti-friburgo-deposito-disdetta-locazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

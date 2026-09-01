@@ -4996,6 +4996,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Sbarco in Borsa in chiaroscuro per la fast fashion di Shein',
     'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'IPO di Shein a Hong Kong il 1° settembre con raccolta di 1,75 miliardi USD ma calo del 10%. La Francia introduce «malus» fino a 19,50 € sulla moda usa e getta. Svizzera mantiene regole meno stringenti.',
     'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Via commerciale svizzera con vetrine e pacchi di spedizione online impilati sul marciapiede, simbolo del contrasto tra vendita tradizionale e e-commerce di moda fast fashion.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.title': 'Diritto di locazione nel Cantone Friburgo: guida pratica',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.excerpt': 'Nel Cantone di Friburgo il deposito cauzionale max 3 mesi pigione. Guida a contestazione canone iniziale, disdetta su modulo cantonale e ricorso all\'autorità di conciliazione secondo il CO art. 253.',
+    'blog.article.affitti-friburgo-deposito-disdetta-locazione.imageAlt': 'Via residenziale nel Cantone di Friburgo con tipici edifici di appartamenti in affitto svizzeri.',
 };
 
 export default blogMetaChIt;
