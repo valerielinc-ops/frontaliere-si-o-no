@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   assertCoopAdapterParity,
   assertCompleteCoopDiscovery,
@@ -267,6 +267,64 @@ describe('Coop authoritative detail routing', () => {
     expect(prunedExisting).toEqual([expect.objectContaining({ id: 'legacy', previousSlugs: ['legacy-route'] })]);
     expect(prunedExisting[0]).not.toHaveProperty('crawlerMissStreak');
     expect(prunedExisting[0].previousSlugs).toEqual(['legacy-route']);
+  });
+
+  it('never reassigns a legacy record without companyKey when scopeCompanyKeys is empty (unscoped run)', () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/legacy/55555555-5555-4555-8555-555555555555';
+    const existing = [{
+      id: 'legacy',
+      company: 'Coop Genossenschaft',
+      source: 'Company Careers Crawler',
+      url,
+      previousSlugs: ['legacy-route'],
+    }];
+    const result = {
+      companyKey: 'coop-ticino',
+      companyDomain: 'coop.ch',
+      processedCandidates: 1,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+      authoritativeLegacyCompanyAliases: ['coop genossenschaft'],
+      authoritativeDetailFingerprintsByDomain: {
+        'jobs.coopjobs.ch': [fingerprintJob({ url })],
+      },
+    };
+    const { prunedExisting, removed } = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
+      scopeCompanyKeys: [],
+    });
+    expect(removed).toBe(0);
+    expect(prunedExisting).toHaveLength(1);
+    expect(prunedExisting[0]).not.toHaveProperty('companyKey');
+    expect(prunedExisting[0].previousSlugs).toEqual(['legacy-route']);
+  });
+
+  it('never reassigns a legacy record without companyKey when scopeCompanyKeys has multiple entries', () => {
+    const url = 'https://jobs.coopjobs.ch/offene-stellen/legacy/55555555-5555-4555-8555-555555555555';
+    const existing = [{
+      id: 'legacy',
+      company: 'Coop Genossenschaft',
+      source: 'Company Careers Crawler',
+      url,
+      previousSlugs: ['legacy-route'],
+    }];
+    const result = {
+      companyKey: 'coop-ticino',
+      companyDomain: 'coop.ch',
+      processedCandidates: 1,
+      authoritativeLifecycleDomains: ['jobs.coopjobs.ch'],
+      authoritativeLegacyCompanyAliases: ['coop genossenschaft'],
+      authoritativeDetailFingerprintsByDomain: {
+        'jobs.coopjobs.ch': [fingerprintJob({ url })],
+      },
+    };
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const { prunedExisting, removed } = sharedCrawlerTestables.pruneStaleCrawlerJobs(existing, [], [result], {
+      scopeCompanyKeys: ['coop-ticino', 'fust'],
+    });
+    expect(removed).toBe(0);
+    expect(prunedExisting).toEqual([existing[0]]);
+    expect(prunedExisting[0]).not.toHaveProperty('companyKey');
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('legacy alias fallback'));
+    warnSpy.mockRestore();
   });
 
   it('does not scope a legacy sibling without companyKey to Coop', () => {
