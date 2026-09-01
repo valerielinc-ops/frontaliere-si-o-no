@@ -351,4 +351,27 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
 
     expect(report.findings).toEqual([]);
   });
+
+  it('degrades gracefully when no baseline commit is found (shallow checkout), instead of throwing', () => {
+    const report = buildCrawlerDataQualityReport({
+      generatedAt: '2026-09-01T00:00:00.000Z',
+      windowDays: 15,
+      runUrl: 'https://github.com/acme/site/actions/runs/12345',
+      fileCount: 5,
+      jobCount: 10,
+      commitCount: 7,
+      contamination: { moved: 2, affected: [{ file: 'a.json', moved: 2 }] },
+      duplicates: [],
+      translation: null,
+      housekeeping: { emptyLocaleBuckets: [], staleActive: [] },
+    });
+
+    expect(report.findings.map((finding) => finding.key)).toEqual([
+      'previous-slug-cross-job-contamination',
+    ]);
+    expect(report.metrics.needsRetranslationBaseline).toBeNull();
+    expect(report.metrics.needsRetranslationCurrent).toBeNull();
+    expect(report.metrics.needsRetranslationDelta).toBeNull();
+    expect(report.metrics.needsRetranslationBaselineUnavailable).toBe(true);
+  });
 });

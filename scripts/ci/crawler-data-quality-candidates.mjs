@@ -98,9 +98,21 @@ function runGit(args) {
   return result.stdout.trim();
 }
 
+/**
+ * Locate the commit that anchors the translation-backlog baseline. The
+ * workflow's "Deepen history" step widens the checkout past `windowDays`
+ * before this runs, but that widening is a separate CI step outside this
+ * script's control (network hiccup, git version quirk, or workflow drift
+ * could leave it shallower than expected). A missing baseline commit is
+ * therefore an *unmeasurable metric*, not a fatal condition: throwing here
+ * used to abort the whole packet build, so an unexpectedly shallow checkout
+ * turned into a red step with no data-quality signal at all — the other four
+ * fleet-wide scanners never ran. Returns `null` instead so the caller can
+ * skip only the translation-queue finding and keep the rest of the audit.
+ */
 function baselineRetranslation(windowDays, relativeDataDir) {
   const commit = runGit(['rev-list', '-1', `--before=${windowDays} days ago`, 'HEAD']);
-  if (!commit) throw new Error(`No baseline commit found ${windowDays} days before HEAD`);
+  if (!commit) return null;
   const result = spawnSync('git', [
     'grep', '-h', '-E', '"needsRetranslation"[[:space:]]*:[[:space:]]*true',
     commit, '--', relativeDataDir,
@@ -246,8 +258,10 @@ export function buildCrawlerDataQualityReport({
     }));
   }
 
-  const translationThreshold = Math.max(25, Math.ceil(translation.baselineCount * 0.05));
-  if (translation.delta >= translationThreshold) {
+  const translationThreshold = translation
+    ? Math.max(25, Math.ceil(translation.baselineCount * 0.05))
+    : null;
+  if (translation && translation.delta >= translationThreshold) {
     findings.push(finding({
       key: 'needs-retranslation-backlog-growth',
       title: '[data-quality] traduzioni: backlog needsRetranslation in crescita',
@@ -301,9 +315,10 @@ export function buildCrawlerDataQualityReport({
       commitCount,
       contaminationMoved: contamination.moved,
       duplicateStableIdGroups: duplicates.length,
-      needsRetranslationCurrent: translation.currentCount,
-      needsRetranslationBaseline: translation.baselineCount,
-      needsRetranslationDelta: translation.delta,
+      needsRetranslationCurrent: translation ? translation.currentCount : null,
+      needsRetranslationBaseline: translation ? translation.baselineCount : null,
+      needsRetranslationDelta: translation ? translation.delta : null,
+      needsRetranslationBaselineUnavailable: !translation,
       emptyLocaleBuckets: housekeeping.emptyLocaleBuckets.length,
       staleActiveRecords: housekeeping.staleActive.length,
     },
@@ -568,6 +583,13 @@ function main() {
   if (slices.length === 0) throw new Error(`No crawler slices found in ${dataDir}`);
   const relativeDataDir = path.relative(ROOT, dataDir).split(path.sep).join('/');
   const baseline = baselineRetranslation(windowDays, relativeDataDir);
+  if (!baseline) {
+    process.stderr.write(
+      `[crawler-data-quality] WARNING: no commit found ${windowDays} days before HEAD`
+        + ' (checkout likely shallower than the lookback window) — skipping the'
+        + ' translation-queue finding for this run, other scanners unaffected\n',
+    );
+  }
   const currentTranslation = countCurrentRetranslation(slices);
   const contamination = scanContamination(slices);
   const duplicates = stableIdDuplicates(slices);
@@ -584,12 +606,12 @@ function main() {
     commitCount,
     contamination,
     duplicates,
-    translation: {
+    translation: baseline ? {
       baselineCommit: baseline.commit,
       baselineCount: baseline.count,
       currentCount: currentTranslation,
       delta: currentTranslation - baseline.count,
-    },
+    } : null,
     housekeeping,
   });
   const packet = materializeIssuePacket(report, loadOpenIssues(args['open-issues'], openIssuesLimit), {
