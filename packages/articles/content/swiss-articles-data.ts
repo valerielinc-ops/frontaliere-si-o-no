@@ -14626,6 +14626,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'dichiarazioni-cdf-partiti-2025',
+    category: 'novita',
+    date: '2026-09-01T00:09:59.018Z',
+    image: '/images/blog/dichiarazioni-cdf-partiti-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

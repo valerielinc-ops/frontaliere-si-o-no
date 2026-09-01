@@ -4876,6 +4876,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-lamal-friburgo-2026.title': 'Primes caisse-maladie Fribourg : réduction et allocations',
     'blog.article.premi-lamal-friburgo-2026.excerpt': 'Guide des primes de l\'assurance maladie obligatoire dans le canton de Fribourg : franchises, modèles alternatifs et procédure pour obtenir la réduction des primes',
     'blog.article.premi-lamal-friburgo-2026.imageAlt': 'Formulaire d\'assurance maladie suisse avec documents médicaux et calculatrice sur bureau',
+    'blog.article.dichiarazioni-cdf-partiti-2025.title': 'Partis 2025 : 24,6 millions, -1 million par rapport à 2024',
+    'blog.article.dichiarazioni-cdf-partiti-2025.excerpt': 'En 2025, les parties suisses déclarent un chiffre d’affaires de 24,6 millions de francs, soit une baisse d’environ un million par rapport à 2024. Le SP mène avec 7,9 millions de francs.',
+    'blog.article.dichiarazioni-cdf-partiti-2025.imageAlt': 'Chambre du Parlement fédéral suisse lors d\'une séance plénière',
 };
 
 export default blogMetaChFr;

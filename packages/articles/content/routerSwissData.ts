@@ -1651,6 +1651,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cooperazione-polizia-confini': { it: 'cooperazione-polizia-confini', en: 'border-police-cooperation', de: 'grenzpolizei-kooperation', fr: 'cooperation-police-frontieres' },
  'aprire-attivita-zugo-registro-commercio': { it: 'aprire-attivita-zugo-registro-commercio', en: 'open-business-zug-commercial-register', de: 'geschaeft-eroeffnen-zug-handelsregister', fr: 'ouvrir-activite-zoug-registre-commerce' },
  'premi-lamal-friburgo-2026': { it: 'premi-lamal-friburgo-2026', en: 'fribourg-health-insurance-premiums-2026', de: 'praemien-krankenversicherung-freiburg-2026', fr: 'primes-assurance-maladie-fribourg-2026' },
+ 'dichiarazioni-cdf-partiti-2025': { it: 'dichiarazioni-cdf-partiti-2025', en: 'political-funding-declarations-2025', de: 'parteifinanzierung-cdf-2025', fr: 'declarations-financement-partis-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
