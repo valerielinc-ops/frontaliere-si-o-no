@@ -1,6 +1,6 @@
 {
   "crawlerKey": "marriott",
-  "assembledAt": "2026-09-01T07:35:31.583Z",
+  "assembledAt": "2026-09-01T08:50:03.806Z",
   "jobs": [
     {
       "id": "marriott-b6da655d02d1",
@@ -33,7 +33,7 @@
       "url": "https://careers.marriott.com/waiter-tress-morning-winter-26-27-w-verbier/job/B6E914F28A18CC7B48C4729D73A6A896",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.153Z",
+      "crawledAt": "2026-09-01T08:49:58.073Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -78,8 +78,8 @@
         "morning-waiter-waitress-winter-26-27-w-verbier-marriott-international-verbier",
         "cameriere-maestra-mattina-inverno-26-27-w-verbier-marriott-international-verbier"
       ],
-      "firstSeenAt": "2026-07-23T22:27:08.332Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:27:08.332Z",
       "salaryMin": 65500,
       "salaryMax": 82500,
       "salarySource": "estimated",
@@ -126,7 +126,7 @@
       "url": "https://careers.marriott.com/waiter-tress-brasserie-u-yama-winter-26-27-w-verbier/job/C052454AD38407D9CFAEF4C3FAA13254",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.151Z",
+      "crawledAt": "2026-09-01T08:49:58.072Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -175,8 +175,8 @@
           "waiter-tress-brasserie-u-yama-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
-      "firstSeenAt": "2026-07-28T22:36:11.370Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T22:36:11.370Z",
       "salaryMin": 65500,
       "salaryMax": 82500,
       "salarySource": "estimated",
@@ -223,7 +223,7 @@
       "url": "https://careers.marriott.com/w-verbier-le-spa-intern-6-months-w-verbier/job/229185A49A7BA262D7C845EC24E37546",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.150Z",
+      "crawledAt": "2026-09-01T08:49:58.070Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -265,8 +265,8 @@
           "w-verbier-le-spa-intern-6-months-w-verbier-marriott-verbier"
         ]
       },
-      "firstSeenAt": "2026-07-23T12:18:41.634Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T12:18:41.634Z",
       "salaryMin": 52500,
       "salaryMax": 66000,
       "salarySource": "estimated",
@@ -313,7 +313,7 @@
       "url": "https://careers.marriott.com/university-intern-europe/job/1E4FD36D17B06C69384293E3A86B938E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.149Z",
+      "crawledAt": "2026-09-01T08:49:58.069Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -404,7 +404,7 @@
       "url": "https://careers.marriott.com/style-agent-room-attendant-winter-26-27-w-verbier/job/CBCF560B0E9421284AFA5686DB3C8EDE",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.148Z",
+      "crawledAt": "2026-09-01T08:49:58.068Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -443,11 +443,11 @@
           "style-agent-room-attendant-winter-26-27-w-verbier-marriott-verbier"
         ]
       },
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2433,
       "retranslationAttempts": 13,
       "firstSeenAt": "2026-07-23T22:27:08.327Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 82500,
       "salarySource": "estimated",
@@ -458,6 +458,104 @@
           "@type": "QuantitativeValue",
           "minValue": 65500,
           "maxValue": 82500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VS"
+    },
+    {
+      "id": "marriott-19b814287eb2",
+      "slug": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
+      "slugByLocale": {
+        "it": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
+        "en": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+        "de": "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
+        "fr": "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier"
+      },
+      "company": "Marriott International",
+      "companyKey": "marriott",
+      "companyDomain": "marriott.com",
+      "title": "Spa attendant 50% (winter 26/27) - W VERBIER",
+      "titleByLocale": {
+        "it": "Spa hostess 50% (inverno 26/27) - W VERBIER",
+        "en": "Spa attendant 50% (winter 26/27) - W VERBIER",
+        "de": "Spa attendant 50% (winter 26/27) - W VERBIER",
+        "fr": "Porteur de spa 50% (hiver 26/27) - W VERBIER"
+      },
+      "description": "JOB DESCRIPTION\n Visit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nAs a Spa attendant 50% you will Style our Guests' W Verbier Le Spa Experience. You will work only 4 hours per day and mainly during afternoons\n\nClean spa area in accordance with established quality and performance standards to allow a sufficient clean and relaxing spa experience for the guests.\n\nOrganize and stock spa amenities.\n\nHandle and replenish towels, bathrobes and slippers.\n\nClean and reset spa bathroom areas according to established standards.\n\nPROFILE\n\nPrevious experience as a Spa attendant\n\nPrevious hospitality experience required\n\nFluent in French and English\n\nYou are highly motivated\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n Due to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+      "descriptionByLocale": {
+        "it": "DESCRIZIONE DELLA JOB\nVisita in diretta qui: W VERBIER Home\n\nDiventa un talento W e incarna l'arte W di vivere!\nCome ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione.\nUNA OPPORTUNITÀ ESEPIZIONALE PER IL TEAM VERBIER W!\n\nIn qualità di attore Spa 50% si Stile nostro Ospiti W Verbier Le Spa Experience. Si lavorerà solo 4 ore al giorno e soprattutto durante i pomeriggi\n\nZona termale pulita in conformità con standard di qualità e prestazioni stabiliti per consentire un'esperienza termale sufficiente pulita e rilassante per gli ospiti.\n\nOrganizzare e stock spa servizi.\n\nAsciugamani, accappatoi e pantofole.\n\nPulire e resettare le aree del bagno termale secondo gli standard stabiliti.\n\nPROFESSIONALE\n\nEsperienza precedente come accompagnatore di Spa\n\nEsperienza di ospitalità precedente necessaria\n\nFluente in francese e inglese\n\nSei molto motivato.\n• Essere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n• Interesse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n\nPosizione da riempire per la stagione invernale: da dicembre 2026 a marzo 2027\nA causa delle restrizioni del visto, saranno considerate solo le domande della Svizzera e dell'Unione Europea.\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
+        "en": "JOB DESCRIPTION\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nAs a Spa attendant 50% you will Style our Guests' W Verbier Le Spa Experience. You will work only 4 hours per day and mainly during afternoons\n\nClean spa area in accordance with established quality and performance standards to allow a sufficient clean and relaxing spa experience for the guests.\n\nOrganize and stock spa amenities.\n\nHandle and replenish towels, bathrobes and slippers.\n\nClean and reset spa bathroom areas according to established standards.\n\nPROFILE\n\nPrevious experience as a Spa attendant\n\nPrevious hospitality experience required\n\nFluent in French and English\n\nYou are highly motivated\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\nDue to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
+        "de": "BESCHREIBUNG\nBesuchen Sie hier live : W VERBIER Home\n\nWerde ein W Talent und verkörpere die W Art of Living!\nAls „Talent sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Du bist einzigartig, leidenschaftlich und deine Persönlichkeit scheint in jeder Interaktion durch.\nEINE AUSSERGEWÖHNLICHE Gelegenheit, am W VERBIER-TEAM teilzunehmen!\n\nAls Spa-Begleiter 50% werden Sie Style unserer Gäste W Verbier Le Spa Experience. Sie arbeiten nur 4 Stunden pro Tag und hauptsächlich am Nachmittag\n\nSauberer Spa-Bereich in Übereinstimmung mit festgelegten Qualitäts- und Leistungsstandards, um den Gästen ein ausreichend sauberes und entspannendes Spa-Erlebnis zu ermöglichen.\n\nOrganisieren und Lager Spa Annehmlichkeiten.\n\nHandtücher, Bademäntel und Hausschuhe behandeln und auffüllen.\n\nReinigen und Reset Spa Badezimmerbereiche nach etablierten Standards.\n\nPROFIL\n\nFrühere Erfahrungen als Spa-Begleiter\n\nFrühere Gastfreundschaftserfahrung erforderlich\n\nFließend in Französisch und Englisch\n\nDu bist hoch motiviert\n• Seien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n\nPosition für die Wintersaison: Dezember 2026 bis März 2027\nAufgrund von Visabeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt.\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything-geist ist in unserem kern und hat uns dafür bekannt gemacht, die normen des luxus auf der ganzen welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, willkommen in W Hotels. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
+        "fr": "DESCRIPTION DE L'EMPLOI\nVisite en direct ici : W VERBIER Accueil\n\nDevenez un W Talent et imaginez l'art de vivre!\nEn tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction.\nUNE POSSIBILITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIER !\n\nEn tant qu'accompagnateur de Spa 50%, vous aimerez nos invités W Verbier Le Spa Experience. Vous ne travaillerez que 4 heures par jour et principalement pendant l'après-midi.\n\nEspace spa propre conformément aux normes de qualité et de performance établies pour permettre une expérience de spa propre et relaxante suffisante pour les clients.\n\nOrganisez et stockez les équipements de spa.\n\nPoignée et réapprovisionner les serviettes, peignoirs et chaussons.\n\nNettoyer et réinitialiser les salles de bains du spa selon les normes établies.\n\nPROFIL\n\nExpérience antérieure comme accompagnateur de spa\n\nExpérience requise en matière de représentation\n\nFluent en français et anglais\n\nVous êtes très motivé\n• Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n\nPoste à pourvoir pour la saison d'hiver : décembre 2026 à mars 2027\nEn raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront prises en considération.\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
+      },
+      "location": "Verbier",
+      "canton": "VS",
+      "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/DB31F33B87DABA5BF1AFD72F058E0693",
+      "source": "Marriott International Dedicated Parser (Paradox API)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-01T08:49:58.067Z",
+      "addressLocality": "Verbier",
+      "streetAddress": "Rue de Medran 70",
+      "postalCode": "1936",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "hospitality-spa",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Hôtellerie / Hospitality",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-23",
+      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26091575/apply/email",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_marriottMeta": {
+        "requisitionID": "26091575",
+        "uniqueID": "DB31F33B87DABA5BF1AFD72F058E0693",
+        "brandName": "W Hotels",
+        "locationName": "W Verbier",
+        "jobField": "Spa/Salon",
+        "accountName": "Non-Management",
+        "publishEndDate": "2026-09-06T09:31:00.000Z"
+      },
+      "previousSlugs": [
+        "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
+        "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
+        "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
+        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
+          "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
+          "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
+          "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier"
+        ],
+        "de": [
+          "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        ],
+        "fr": [
+          "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
+          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-23T22:27:08.326Z",
+      "salaryMin": 32800,
+      "salaryMax": 41300,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 32800,
+          "maxValue": 41300,
           "unitText": "YEAR"
         }
       },
@@ -494,7 +592,7 @@
       "url": "https://careers.marriott.com/spa-supervisor-head-therapist-long-term-w-verbier/job/D1D63B5A2F6FE54592ECAAA07E6368AD",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.146Z",
+      "crawledAt": "2026-09-01T08:49:58.066Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -556,104 +654,6 @@
       "addressRegion": "VS"
     },
     {
-      "id": "marriott-19b814287eb2",
-      "slug": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
-      "slugByLocale": {
-        "it": "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier",
-        "en": "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
-        "de": "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
-        "fr": "porteur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier"
-      },
-      "company": "Marriott International",
-      "companyKey": "marriott",
-      "companyDomain": "marriott.com",
-      "title": "Spa attendant 50% (winter 26/27) - W VERBIER",
-      "titleByLocale": {
-        "it": "Spa hostess 50% (inverno 26/27) - W VERBIER",
-        "en": "Spa attendant 50% (winter 26/27) - W VERBIER",
-        "de": "Spa attendant 50% (winter 26/27) - W VERBIER",
-        "fr": "Porteur de spa 50% (hiver 26/27) - W VERBIER"
-      },
-      "description": "JOB DESCRIPTION\n Visit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\n As a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\n AN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nAs a Spa attendant 50% you will Style our Guests' W Verbier Le Spa Experience. You will work only 4 hours per day and mainly during afternoons\n\nClean spa area in accordance with established quality and performance standards to allow a sufficient clean and relaxing spa experience for the guests.\n\nOrganize and stock spa amenities.\n\nHandle and replenish towels, bathrobes and slippers.\n\nClean and reset spa bathroom areas according to established standards.\n\nPROFILE\n\nPrevious experience as a Spa attendant\n\nPrevious hospitality experience required\n\nFluent in French and English\n\nYou are highly motivated\n • Be detail oriented and have a passion for giving guests an exceptional experience.\n • Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\n Due to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-      "descriptionByLocale": {
-        "it": "DESCRIZIONE DELLA JOB\nVisita in diretta qui: W VERBIER Home\n\nDiventa un talento W e incarna l'arte W di vivere!\nCome ‘Talent’, siete l’essenza di W per i nostri ospiti. Porti un tocco giocoso, caldo e accogliente che fa la differenza nei nostri hotel W. Siete unici, appassionati e la vostra personalità brilla in ogni interazione.\nUNA OPPORTUNITÀ ESEPIZIONALE PER IL TEAM VERBIER W!\n\nIn qualità di attore Spa 50% si Stile nostro Ospiti W Verbier Le Spa Experience. Si lavorerà solo 4 ore al giorno e soprattutto durante i pomeriggi\n\nZona termale pulita in conformità con standard di qualità e prestazioni stabiliti per consentire un'esperienza termale sufficiente pulita e rilassante per gli ospiti.\n\nOrganizzare e stock spa servizi.\n\nAsciugamani, accappatoi e pantofole.\n\nPulire e resettare le aree del bagno termale secondo gli standard stabiliti.\n\nPROFESSIONALE\n\nEsperienza precedente come accompagnatore di Spa\n\nEsperienza di ospitalità precedente necessaria\n\nFluente in francese e inglese\n\nSei molto motivato.\n• Essere orientati al dettaglio e avere una passione per dare agli ospiti un'esperienza eccezionale.\n• Interesse reale nei mondi del gusto, del suono, del corpo, della scena e della posizione\n\nPosizione da riempire per la stagione invernale: da dicembre 2026 a marzo 2027\nA causa delle restrizioni del visto, saranno considerate solo le domande della Svizzera e dell'Unione Europea.\n\nA Marriott International, siamo dedicati ad essere un datore di lavoro pari opportunità, accogliendo tutti e fornendo l'accesso alle opportunità. Promuoviamo attivamente un ambiente in cui gli sfondi unici dei nostri associati sono apprezzati e celebrati. La nostra più grande forza risiede nella ricca miscela di cultura, talento ed esperienze dei nostri associati. Ci impegniamo a non discriminazione su base protetta, tra cui disabilità, status di veterano, o altre basi protette dalla legge applicabile.\n\nLa missione degli hotel è quella di accendere la curiosità, i mondi esplosi. Siamo un posto dove vivere la vita. Siamo qui per aprire porte e menti aperte. Siamo costantemente ispirati a nuovi volti e nuove esperienze. Uno spirito sintonizzato, up-for-anything è al nostro centro e ci ha resi noti per reinventare le norme del lusso in tutto il mondo. Qualunque sia la nostra cultura e la nostra filosofia di servizio che anima le passioni dei nostri ospiti. Se siete originali, innovativi e sempre alla ricerca del futuro di ciò che è possibile, benvenuti a W Hotels. Nell'unione di W Hotels, unisciti a un portafoglio di marchi con Marriott International. Essere dove si può fare il vostro lavoro migliore, iniziare il vostro scopo, appartengono a un team globale incredibile, e diventare la migliore versione di voi.",
-        "en": "JOB DESCRIPTION\nVisit in live here : W VERBIER Home\n\nBecome a W Talent and Embody the W Art of Living!\nAs a ‘Talent’, you are the essence of W for our guests. You bring a playful, warm and welcoming touch that makes all the difference in our W hotels. You are unique, passionate, and your personality shines through in every interaction.\nAN EXCEPTIONAL OPPORTUNITY TO JOIN THE W VERBIER TEAM!\n\nAs a Spa attendant 50% you will Style our Guests' W Verbier Le Spa Experience. You will work only 4 hours per day and mainly during afternoons\n\nClean spa area in accordance with established quality and performance standards to allow a sufficient clean and relaxing spa experience for the guests.\n\nOrganize and stock spa amenities.\n\nHandle and replenish towels, bathrobes and slippers.\n\nClean and reset spa bathroom areas according to established standards.\n\nPROFILE\n\nPrevious experience as a Spa attendant\n\nPrevious hospitality experience required\n\nFluent in French and English\n\nYou are highly motivated\n• Be detail oriented and have a passion for giving guests an exceptional experience.\n• Real interest in the worlds of taste, sound, body, scene and stance\n\nPosition to be filled for the Winter season : December 2026 to March 2027\nDue to visa restrictions, only applications from Switzerland and the European Union will be considered.\n\nAt Marriott International, we are dedicated to being an equal opportunity employer, welcoming all and providing access to opportunity. We actively foster an environment where the unique backgrounds of our associates are valued and celebrated. Our greatest strength lies in the rich blend of culture, talent, and experiences of our associates. We are committed to non-discrimination on any protected basis, including disability, veteran status, or other basis protected by applicable law.\n\nW Hotels’ mission is to Ignite Curiosity, Expand Worlds. We are a place to experience life. We’re here to open doors and open minds. We are constantly inspired by new faces and new experiences. A tuned-in, up-for-anything spirit is at our core and has made us renowned for reinventing the norms of luxury around the globe. Whatever/Whenever is our culture and service philosophy that brings our guests’ passions to life. If you are original, innovative, and always looking towards the future of what’s possible, welcome to W Hotels. In joining W Hotels, you join a portfolio of brands with Marriott International. Be where you can do your best work,​ begin your purpose, belong to an amazing global​ team, and become the best version of you.",
-        "de": "BESCHREIBUNG\nBesuchen Sie hier live : W VERBIER Home\n\nWerde ein W Talent und verkörpere die W Art of Living!\nAls „Talent sind Sie die Essenz von W für unsere Gäste. Sie bringen eine spielerische, warme und einladende Note, die den Unterschied in unseren W Hotels macht. Du bist einzigartig, leidenschaftlich und deine Persönlichkeit scheint in jeder Interaktion durch.\nEINE AUSSERGEWÖHNLICHE Gelegenheit, am W VERBIER-TEAM teilzunehmen!\n\nAls Spa-Begleiter 50% werden Sie Style unserer Gäste W Verbier Le Spa Experience. Sie arbeiten nur 4 Stunden pro Tag und hauptsächlich am Nachmittag\n\nSauberer Spa-Bereich in Übereinstimmung mit festgelegten Qualitäts- und Leistungsstandards, um den Gästen ein ausreichend sauberes und entspannendes Spa-Erlebnis zu ermöglichen.\n\nOrganisieren und Lager Spa Annehmlichkeiten.\n\nHandtücher, Bademäntel und Hausschuhe behandeln und auffüllen.\n\nReinigen und Reset Spa Badezimmerbereiche nach etablierten Standards.\n\nPROFIL\n\nFrühere Erfahrungen als Spa-Begleiter\n\nFrühere Gastfreundschaftserfahrung erforderlich\n\nFließend in Französisch und Englisch\n\nDu bist hoch motiviert\n• Seien Sie detailorientiert und haben Sie eine Leidenschaft dafür, Ihren Gästen ein außergewöhnliches Erlebnis zu bieten.\n• Echtes Interesse an den Welten von Geschmack, Klang, Körper, Szene und Haltung\n\nPosition für die Wintersaison: Dezember 2026 bis März 2027\nAufgrund von Visabeschränkungen werden nur Anträge aus der Schweiz und der Europäischen Union berücksichtigt.\n\nBei Marriott International sind wir bestrebt, ein Arbeitgeber für Chancengleichheit zu sein, alle willkommen zu heißen und Zugang zu Chancen zu bieten. Wir fördern aktiv ein Umfeld, in dem die einzigartigen Hintergründe unserer Mitarbeiter geschätzt und gefeiert werden. Unsere größte Stärke liegt in der reichen Mischung aus Kultur, Talent und Erfahrungen unserer Mitarbeiter. Wir verpflichten uns zur Nichtdiskriminierung auf jeder geschützten Grundlage, einschließlich Behinderung, Veteranenstatus oder einer anderen durch geltendes Recht geschützten Grundlage.\n\nDie Mission von W Hotels ist es, Curiosity zu entzünden, Welten zu erweitern. Wir sind ein Ort, um das Leben zu erleben. Wir sind hier, um Türen und offene Köpfe zu öffnen. Wir werden ständig von neuen Gesichtern und neuen Erfahrungen inspiriert. Ein abgestimmter, up-for-anything-geist ist in unserem kern und hat uns dafür bekannt gemacht, die normen des luxus auf der ganzen welt neu zu erfinden. Was auch immer unsere Kultur und Servicephilosophie ist, die die Leidenschaften unserer Gäste zum Leben erweckt. Wenn Sie originell, innovativ und immer auf die Zukunft des Möglichen ausgerichtet sind, willkommen in W Hotels. Wenn Sie W Hotels beitreten, schließen Sie sich einem Markenportfolio mit Marriott International an. Seien Sie dort, wo Sie Ihre beste Arbeit leisten, Ihren Zweck beginnen, zu einem erstaunlichen globalen Team gehören und die beste Version von Ihnen werden können.",
-        "fr": "DESCRIPTION DE L'EMPLOI\nVisite en direct ici : W VERBIER Accueil\n\nDevenez un W Talent et imaginez l'art de vivre!\nEn tant que « Talent », vous êtes l'essence de W pour nos invités. Vous apportez une touche ludique, chaleureuse et accueillante qui fait toute la différence dans nos hôtels W. Vous êtes unique, passionné, et votre personnalité brille à travers chaque interaction.\nUNE POSSIBILITÉ EXCEPTIONNELLE DE S'INSCRIRE DANS L'ÉQUIPE W VERBIER !\n\nEn tant qu'accompagnateur de Spa 50%, vous aimerez nos invités W Verbier Le Spa Experience. Vous ne travaillerez que 4 heures par jour et principalement pendant l'après-midi.\n\nEspace spa propre conformément aux normes de qualité et de performance établies pour permettre une expérience de spa propre et relaxante suffisante pour les clients.\n\nOrganisez et stockez les équipements de spa.\n\nPoignée et réapprovisionner les serviettes, peignoirs et chaussons.\n\nNettoyer et réinitialiser les salles de bains du spa selon les normes établies.\n\nPROFIL\n\nExpérience antérieure comme accompagnateur de spa\n\nExpérience requise en matière de représentation\n\nFluent en français et anglais\n\nVous êtes très motivé\n• Être orienté vers le détail et avoir une passion pour donner aux invités une expérience exceptionnelle.\n• Un véritable intérêt pour les mondes du goût, du son, du corps, de la scène et de la position\n\nPoste à pourvoir pour la saison d'hiver : décembre 2026 à mars 2027\nEn raison des restrictions de visa, seules les demandes de la Suisse et de l'Union européenne seront prises en considération.\n\nChez Marriott International, nous nous engageons à être un employeur à égalité des chances, accueillant tous et offrant l'accès aux possibilités. Nous favorisons activement un environnement où les origines uniques de nos associés sont appréciées et célébrées. Notre plus grande force réside dans le riche mélange de culture, de talent et d'expériences de nos associés. Nous sommes attachés à la non-discrimination sur toute base protégée, y compris le handicap, le statut d'ancien combattant ou toute autre base protégée par la loi applicable.\n\nW Hotels est la mission d'Ignite Curiosity, Expand Worlds. Nous sommes un endroit où vivre. Nous sommes ici pour ouvrir les portes et ouvrir les esprits. Nous sommes constamment inspirés par de nouveaux visages et de nouvelles expériences. Un esprit à la hauteur de tout est à notre cœur et nous a rendus réputés pour avoir réinventé les normes du luxe à travers le monde. Quoi qu'il en soit, notre philosophie de la culture et du service apporte à nos hôtes des passions. Si vous êtes original, innovant et toujours regardant vers l'avenir de ce qui est possible, bienvenue à W Hotels. En rejoignant W Hotels, vous rejoignez un portefeuille de marques avec Marriott International. Soyez là où vous pouvez faire votre meilleur travail, commencer votre objectif, appartenir à une équipe mondiale incroyable, et devenir la meilleure version de vous."
-      },
-      "location": "Verbier",
-      "canton": "VS",
-      "url": "https://careers.marriott.com/spa-attendant-50-winter-26-27-w-verbier/job/DB31F33B87DABA5BF1AFD72F058E0693",
-      "source": "Marriott International Dedicated Parser (Paradox API)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.146Z",
-      "addressLocality": "Verbier",
-      "streetAddress": "Rue de Medran 70",
-      "postalCode": "1936",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "hospitality-spa",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Hôtellerie / Hospitality",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-23",
-      "applyUrl": "https://ejwl.fa.us2.oraclecloud.com:443/hcmUI/CandidateExperience/en/sites/MI_CS_1/job/26091575/apply/email",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_marriottMeta": {
-        "requisitionID": "26091575",
-        "uniqueID": "DB31F33B87DABA5BF1AFD72F058E0693",
-        "brandName": "W Hotels",
-        "locationName": "W Verbier",
-        "jobField": "Spa/Salon",
-        "accountName": "Non-Management",
-        "publishEndDate": "2026-09-06T09:31:00.000Z"
-      },
-      "previousSlugs": [
-        "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
-        "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
-        "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
-        "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
-        "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
-          "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
-          "kurbegleiter-50-winter-26-27-w-verbier-marriott-international-verbier",
-          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier",
-          "spa-hostess-50-inverno-26-27-w-verbier-marriott-international-verbier"
-        ],
-        "de": [
-          "kurbesucher-50-winter-26-27-w-verbier-marriott-international-verbier",
-          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
-        ],
-        "fr": [
-          "accompagneur-de-spa-50-hiver-26-27-w-verbier-marriott-international-verbier",
-          "spa-attendant-50-winter-26-27-w-verbier-marriott-verbier"
-        ]
-      },
-      "firstSeenAt": "2026-07-23T22:27:08.326Z",
-      "needsRetranslation": true,
-      "salaryMin": 32800,
-      "salaryMax": 41300,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 32800,
-          "maxValue": 41300,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS"
-    },
-    {
       "id": "marriott-40ad44c61f21",
       "slug": "spa-direttore-long-term-w-verbier-marriott-international-verbier",
       "slugByLocale": {
@@ -684,7 +684,7 @@
       "url": "https://careers.marriott.com/spa-director-long-term-w-verbier/job/F6F0CF4382BDA65787BB967BF130D631",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.145Z",
+      "crawledAt": "2026-09-01T08:49:58.065Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -723,8 +723,8 @@
           "spa-director-long-term-w-verbier-marriott-verbier"
         ]
       },
-      "firstSeenAt": "2026-07-21T22:51:52.293Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-21T22:51:52.293Z",
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -771,7 +771,7 @@
       "url": "https://careers.marriott.com/revenue-manager/job/90B8C5A925E4FF06689F0FC7BF6A01F7",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.142Z",
+      "crawledAt": "2026-09-01T08:49:58.064Z",
       "addressLocality": "Zurich",
       "streetAddress": "Turbinenstrasse 20",
       "postalCode": "8005",
@@ -860,7 +860,7 @@
       "url": "https://careers.marriott.com/reservations-and-revenue-coordinator-long-term-w-verbier/job/E21E2AC79C481444847FA8154B78E07E",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.140Z",
+      "crawledAt": "2026-09-01T08:49:58.060Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -951,7 +951,7 @@
       "url": "https://careers.marriott.com/reservations-agent-long-term-w-verbier/job/7ED57351900E09C86F45B317F7654BF3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.137Z",
+      "crawledAt": "2026-09-01T08:49:58.056Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1020,6 +1020,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T22:02:55.118Z",
+      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -1066,7 +1067,7 @@
       "url": "https://careers.marriott.com/polyvalent-equipier-winter-26-27-w-verbier/job/D525744F937689D3E7437FC821EBF7B6",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.136Z",
+      "crawledAt": "2026-09-01T08:49:58.055Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1109,8 +1110,8 @@
           "allrounder-winter-26-27-w-verbier-marriott-international-verbier"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:48:30.756Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:48:30.756Z",
       "salaryMin": 65500,
       "salaryMax": 82500,
       "salarySource": "estimated",
@@ -1157,7 +1158,7 @@
       "url": "https://careers.marriott.com/maintenance-agent-long-term-w-verbier/job/733C0CE581FD950F869F9F4D69898022",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.135Z",
+      "crawledAt": "2026-09-01T08:49:58.053Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1260,7 +1261,7 @@
       "url": "https://careers.marriott.com/lenox-bar-shiftleader/job/5691728F680BFEE1D3CC5CCD770BF06D",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.133Z",
+      "crawledAt": "2026-09-01T08:49:58.052Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1299,6 +1300,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:48:30.753Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 122500,
       "salarySource": "estimated",
@@ -1345,7 +1347,7 @@
       "url": "https://careers.marriott.com/hotel-cleanliness-supervisor/job/0DBB805ECD142AE133CCAAED81A9438D",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.131Z",
+      "crawledAt": "2026-09-01T08:49:58.050Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1434,7 +1436,7 @@
       "url": "https://careers.marriott.com/hotel-cleanliness-expert-casual-work-on-demand/job/481D2030E60DA9B37992BB6F5DA29DA8",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.130Z",
+      "crawledAt": "2026-09-01T08:49:58.048Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1508,7 +1510,7 @@
       "url": "https://careers.marriott.com/f-b-service-expert/job/45214FB03CFA7F41A04564570634859F",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.128Z",
+      "crawledAt": "2026-09-01T08:49:58.046Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1617,7 +1619,7 @@
       "url": "https://careers.marriott.com/event-service-shiftleader/job/BFBD92656F2154B7B1928794C8BE6ED5",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.126Z",
+      "crawledAt": "2026-09-01T08:49:58.044Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1704,7 +1706,7 @@
       "url": "https://careers.marriott.com/event-manager/job/6113FC1F970900B0BA13527F50509351",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.124Z",
+      "crawledAt": "2026-09-01T08:49:58.042Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1793,7 +1795,7 @@
       "url": "https://careers.marriott.com/demi-chef-de-partie-winter-26-27-w-verbier/job/ED5438B95DC8FA50D602C06807877131",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.123Z",
+      "crawledAt": "2026-09-01T08:49:58.040Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -1880,7 +1882,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-a-la-carte-echo/job/70BB3B1CCEF6F0D2B1B75A13E21DB302",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.121Z",
+      "crawledAt": "2026-09-01T08:49:58.038Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -1964,7 +1966,7 @@
       "url": "https://careers.marriott.com/commis-de-cuisine-banquets/job/C19D2287B0DFA1911FDDE2C938072232",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.119Z",
+      "crawledAt": "2026-09-01T08:49:58.036Z",
       "addressLocality": "Zurich",
       "streetAddress": "Neumuehlequai 42",
       "postalCode": "8006",
@@ -2038,7 +2040,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-brasserie-1519-winter-26-27-w-verbier/job/CB864D6EC4EA909A8676BDA04A2E2DC3",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.117Z",
+      "crawledAt": "2026-09-01T08:49:58.034Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2112,7 +2114,7 @@
       "url": "https://careers.marriott.com/chef-de-rang-sommelier-long-term-w-verbier/job/3D3F373925180FCAE9315E38A40C3111",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.115Z",
+      "crawledAt": "2026-09-01T08:49:58.028Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
@@ -2186,7 +2188,7 @@
       "url": "https://careers.marriott.com/b-f-intern-service-6-months-w-verbier/job/63736DD59DCB0805E1E2E77BE0B25B21",
       "source": "Marriott International Dedicated Parser (Paradox API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:35:26.112Z",
+      "crawledAt": "2026-09-01T08:49:58.024Z",
       "addressLocality": "Verbier",
       "streetAddress": "Rue de Medran 70",
       "postalCode": "1936",
