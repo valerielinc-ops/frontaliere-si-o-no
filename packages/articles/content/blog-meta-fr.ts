@@ -11058,6 +11058,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'Hôpitaux EOC au Tessin : recherche ANQ détecte les lumières et les ombres',
     'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'L\'enquête nationale ANQ récompense les hôpitaux tessinois (75 % de patients satisfaits), mais signale des marges d\'amélioration de la communication pendant les attentes.',
     'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Service d\'hospitalisation de l\'EOC au Tessin avec personnel médical communiquant avec un patient',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Vivre à Cocquio-Trevisago en frontalier tessinois : guide 2024',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Déménager de Cocquio-Trevisago pour travailler au Tessin : le nouvel accord frontalier 2024, impôt à la source, exonérations 7500- 10000 € et procédure étape par étape.',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Vue panoramique du lac de Lugano avec immeubles résidentiels et de bureaux au pied du Monte San Salvatore.',
 };
 
 export default blogMetaFr;

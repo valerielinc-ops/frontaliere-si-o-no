@@ -11056,6 +11056,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'EoC hospitals in Ticino: ANQ research detects lights and shadows',
     'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'The national ANQ survey rewards Ticino hospitals (75% satisfied patients), but indicates margins for improvement in communication during waits.',
     'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'EOC hospital ward in Ticino with medical staff communicating with a patient during admission',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Living in Cocquio-Trevisago as a Ticino border worker: guide 2024',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Moving from Cocquio-Trevisago to work in Ticino: the New Frontier Agreement 2024, tax at source, exemptions €7500–€10000 and step-by-step procedure.',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Panoramic view of Lugano lakefront with residential and office buildings under Monte San Salvatore.',
 };
 
 export default blogMetaEn;

@@ -11057,6 +11057,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'Ospedali EOC in Ticino: ricerca ANQ rileva luci e ombre',
     'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'L\'indagine nazionale ANQ premia gli ospedali ticinesi (75% pazienti soddisfatti), ma segnala margini di miglioramento nella comunicazione durante le attese.',
     'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Reparto di ricovero ospedaliero dell\'EOC in Ticino con personale medico che comunica con un paziente',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Vivere a Cocquio-Trevisago da frontaliere ticinese: guida 2024',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Trasferirsi da Cocquio-Trevisago per lavorare in Ticino: il Nuovo Accordo Frontalieri 2024, imposta alla fonte, esenzioni €7500–€10000 e procedura step-by-step.',
+    'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Vista panoramica di Lugano al mattino: lago, edifici residenziali e uffici sotto il Monte San Salvatore.',
 };
 
 export default blogMetaIt;
