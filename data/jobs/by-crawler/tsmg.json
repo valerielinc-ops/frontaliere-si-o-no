@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tsmg",
-  "assembledAt": "2026-08-31T17:12:25.951Z",
+  "assembledAt": "2026-09-01T00:39:04.902Z",
   "jobs": [
     {
       "title": "Tester conversazioni vocali AI (French native speaker - Switzerland regional variant)",
@@ -62,6 +62,7 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "tester-conversazioni-vocali-ai-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa"
@@ -69,8 +70,7 @@
       },
       "previousSlugs": [
         "tester-conversazioni-vocali-ai-french-native-speaker-switzerland-regional-variant-tsmg-lausanne-dcde88fa"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Tester conversazioni vocali AI (German native speaker - Switzerland regional variant)",
@@ -132,6 +132,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91"
@@ -139,8 +140,7 @@
       },
       "previousSlugs": [
         "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-zurich-2e277a91"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Tester conversazioni vocali AI (German native speaker - Switzerland regional variant)",
@@ -202,6 +202,7 @@
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
       "retranslationAttempts": 0,
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4"
@@ -209,8 +210,7 @@
       },
       "previousSlugs": [
         "tester-conversazioni-vocali-ai-german-native-speaker-switzerland-regional-variant-tsmg-basel-929ed5b4"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
@@ -484,6 +484,7 @@
       "streetAddress": "",
       "postalCode": "1003",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "ai-tester-with-french-tsmg-lausanne-937b4478"
@@ -494,8 +495,7 @@
       },
       "previousSlugs": [
         "ai-tester-with-french-tsmg-lausanne-937b4478"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Audio Recording Specialist with German (Switzerland regional variant)",
@@ -560,6 +560,7 @@
         "audio-recording-specialista-with-german-switzerland-regional-variant-tsmg-geneva-f120cfcb",
         "audio-recording-specialist-with-german-switzerland-regional-variant-tsmg-geneva-f120cfcb"
       ],
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "audio-recording-specialist-with-german-switzerland-regional-variant-tsmg-geneva-f120cfcb"
@@ -570,8 +571,7 @@
         "de": [
           "audio-recording-specialist-with-german-switzerland-regional-variant-tsmg-geneva-f120cfcb"
         ]
-      },
-      "salarySource": "reported"
+      }
     },
     {
       "title": "Autonomous Vehicle Driver (Bertha Certified)",
@@ -632,6 +632,7 @@
       "streetAddress": "",
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
@@ -643,7 +644,6 @@
       "previousSlugs": [
         "autonomous-vehicle-driver-bertha-certified-tsmg-geneva-7972e86b"
       ],
-      "salarySource": "reported",
       "needsRetranslation": true
     },
     {
@@ -705,6 +705,7 @@
       "streetAddress": "",
       "postalCode": "1204",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-driver-t1-certified-tsmg-geneva-267ef700"
@@ -718,8 +719,7 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-driver-t1-certified-tsmg-geneva-267ef700"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Autonomous Vehicle Operations Lead",
@@ -779,6 +779,7 @@
       },
       "postalCode": "3001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-tsmg-bern-2b755752"
@@ -792,8 +793,7 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-tsmg-bern-2b755752"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Autonomous Vehicle Operations Lead",
@@ -853,6 +853,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-tsmg-st-gallen-4ecf6fa4"
@@ -866,8 +867,7 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-tsmg-st-gallen-4ecf6fa4"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Autonomous Vehicle Operations Lead",
@@ -927,6 +927,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-tsmg-zurich-700215b5"
@@ -940,8 +941,7 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-tsmg-zurich-700215b5"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Autonomous Vehicle Operations Lead",
@@ -1001,6 +1001,7 @@
       },
       "postalCode": "1204",
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-tsmg-geneva-ad008286"
@@ -1014,8 +1015,7 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-tsmg-geneva-ad008286"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Autonomous Vehicle Operations Lead (AVOS) / Operations Lead autonome Fahrzeuge",
@@ -1074,6 +1074,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9"
@@ -1085,7 +1086,6 @@
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-zurich-0a75e5f9"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -1145,6 +1145,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
@@ -1156,7 +1157,6 @@
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-bern-b751ffc4"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -1216,6 +1216,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
@@ -1227,7 +1228,6 @@
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-st-gallen-dbf2a6d0"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -1287,6 +1287,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba"
@@ -1298,7 +1299,6 @@
       "previousSlugs": [
         "autonomous-vehicle-operations-lead-avos-operations-lead-autonome-fahrzeuge-tsmg-geneva-f52679ba"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -1361,14 +1361,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-bern-1af674c1",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern-1af674c1",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-bern"
       ],
       "salarySource": "estimated",
@@ -1434,14 +1434,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-zurich-b01b92ce",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich-b01b92ce",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-zurich"
       ],
       "salarySource": "estimated",
@@ -1507,14 +1507,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-st-gallen-d850f303",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen-d850f303",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-st-gallen"
       ],
       "salarySource": "estimated",
@@ -1580,14 +1580,14 @@
       "firstSeenAt": "2026-07-06T22:18:11.220Z",
       "previousSlugsByLocale": {
         "it": [
-          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
           "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
+          "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
           "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
         ]
       },
       "previousSlugs": [
-        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
         "autonomo-operatore-di-sicurezza-del-veicolo-autista-di-sicurezza-tsmg-geneva-ecf0515c",
+        "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva-ecf0515c",
         "autonomous-vehicle-safety-operator-safety-driver-tsmg-geneva"
       ],
       "salarySource": "estimated",
@@ -1652,6 +1652,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "autonomous-vehicle-test-operator-tsmg-bern-791b8903"
@@ -1659,8 +1660,7 @@
       },
       "previousSlugs": [
         "autonomous-vehicle-test-operator-tsmg-bern-791b8903"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Depot Specialist (Robotaxi Fleet Operations)",
@@ -3570,6 +3570,7 @@
       "streetAddress": "",
       "postalCode": "4001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "field-data-collection-specialist-surveyor-tsmg-basel-5fe60d08"
@@ -3580,8 +3581,7 @@
       },
       "previousSlugs": [
         "field-data-collection-specialist-surveyor-tsmg-basel-5fe60d08"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -3646,6 +3646,7 @@
         "field-data-collection-specialista-surveyor-tsmg-geneva-708fba54",
         "field-data-collection-specialist-surveyor-tsmg-geneva-708fba54"
       ],
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "field-data-collection-specialist-surveyor-tsmg-geneva-708fba54"
@@ -3653,8 +3654,7 @@
         "fr": [
           "field-data-collection-specialist-surveyor-tsmg-geneva-708fba54"
         ]
-      },
-      "salarySource": "reported"
+      }
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -3715,6 +3715,7 @@
       "streetAddress": "",
       "postalCode": "3001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "field-data-collection-specialist-surveyor-tsmg-bern-9d4c7569"
@@ -3725,8 +3726,7 @@
       },
       "previousSlugs": [
         "field-data-collection-specialist-surveyor-tsmg-bern-9d4c7569"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Field Data Collection Specialist\\Surveyor",
@@ -3791,6 +3791,7 @@
         "field-data-collection-specialista-surveyor-tsmg-zurich-d5c14674",
         "field-data-collection-specialist-surveyor-tsmg-zurich-d5c14674"
       ],
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "field-data-collection-specialist-surveyor-tsmg-zurich-d5c14674"
@@ -3798,8 +3799,7 @@
         "fr": [
           "field-data-collection-specialist-surveyor-tsmg-zurich-d5c14674"
         ]
-      },
-      "salarySource": "reported"
+      }
     },
     {
       "title": "Field Surveyor",
@@ -3860,6 +3860,7 @@
       "streetAddress": "",
       "postalCode": "8001",
       "firstSeenAt": "2026-05-10T11:02:15.330Z",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "field-surveyor-tsmg-zurich-b567bd6d"
@@ -3873,8 +3874,7 @@
       },
       "previousSlugs": [
         "field-surveyor-tsmg-zurich-b567bd6d"
-      ],
-      "salarySource": "reported"
+      ]
     },
     {
       "title": "Opérateur de sécurité véhicule autonome (Safety Driver)",
@@ -3933,6 +3933,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-st-gallen-5050e71c"
@@ -3946,8 +3947,7 @@
       },
       "previousSlugs": [
         "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-st-gallen-5050e71c"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Opérateur de sécurité véhicule autonome (Safety Driver)",
@@ -4006,6 +4006,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-bern-64fd0bd9"
@@ -4019,8 +4020,7 @@
       },
       "previousSlugs": [
         "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-bern-64fd0bd9"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Opérateur de sécurité véhicule autonome (Safety Driver)",
@@ -4079,6 +4079,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
@@ -4092,8 +4093,7 @@
       },
       "previousSlugs": [
         "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-geneva-a46cd81a"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Opérateur de sécurité véhicule autonome (Safety Driver)",
@@ -4152,6 +4152,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-zurich-bed6dd08"
@@ -4165,8 +4166,7 @@
       },
       "previousSlugs": [
         "operateur-de-securite-vehicule-autonome-safety-driver-tsmg-zurich-bed6dd08"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Remote Vehicle Supervisor / Teleoperator",
@@ -4286,6 +4286,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-zurich-456e5536"
@@ -4300,7 +4301,6 @@
       "previousSlugs": [
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-zurich-456e5536"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -4360,6 +4360,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-st-gallen-9c2a0eab"
@@ -4374,7 +4375,6 @@
       "previousSlugs": [
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-st-gallen-9c2a0eab"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -4435,11 +4435,11 @@
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "previousSlugsByLocale": {
-        "it": [
-          "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
-        ],
         "en": [
           "head-of-autonomous-vehicle-operations-avos-tsmg-geneva-aed62f25",
+          "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
+        ],
+        "it": [
           "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
         ],
         "de": [
@@ -4447,8 +4447,8 @@
         ]
       },
       "previousSlugs": [
-        "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25",
-        "head-of-autonomous-vehicle-operations-avos-tsmg-geneva-aed62f25"
+        "head-of-autonomous-vehicle-operations-avos-tsmg-geneva-aed62f25",
+        "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-geneva-aed62f25"
       ],
       "salarySource": "estimated",
       "needsRetranslation": true
@@ -4510,6 +4510,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-bern-e56f2196"
@@ -4524,7 +4525,6 @@
       "previousSlugs": [
         "responsable-des-operations-vehicules-autonomes-avos-autonomous-vehicle-operations-lead-tsmg-bern-e56f2196"
       ],
-      "salarySource": "estimated",
       "needsRetranslation": true
     },
     {
@@ -5299,6 +5299,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf"
@@ -5306,8 +5307,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-18f316bf"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician - Robotaxi Fleet Maintenance & Technical Operations",
@@ -5366,6 +5366,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f"
@@ -5373,8 +5374,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-1b700b3f"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician - Robotaxi Fleet Maintenance & Technical Operations",
@@ -5434,6 +5434,7 @@
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "retranslationAttempts": 0,
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1"
@@ -5441,8 +5442,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-475a37c1"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician - Robotaxi Fleet Maintenance & Technical Operations",
@@ -5501,6 +5501,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb"
@@ -5508,8 +5509,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-c20e22cb"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician (Robotaxi Fleet Maintenance & Technical Operations)",
@@ -5569,6 +5569,7 @@
       },
       "postalCode": "1204",
       "firstSeenAt": "2026-07-07T12:07:03.067Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-41a1c0eb"
@@ -5576,8 +5577,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-41a1c0eb"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician (Robotaxi Fleet Maintenance & Technical Operations)",
@@ -5637,6 +5637,7 @@
       },
       "postalCode": "9000",
       "firstSeenAt": "2026-07-07T12:07:03.067Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-8aab9971"
@@ -5644,8 +5645,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-8aab9971"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician (Robotaxi Fleet Maintenance & Technical Operations)",
@@ -5706,6 +5706,7 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-07T12:07:03.067Z",
       "retranslationAttempts": 0,
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-8f4a8af2"
@@ -5713,8 +5714,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-8f4a8af2"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Autonomous Vehicle Technician (Robotaxi Fleet Maintenance & Technical Operations)",
@@ -5775,6 +5775,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-07-07T12:07:03.067Z",
       "retranslationAttempts": 0,
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-dca6f718"
@@ -5782,8 +5783,7 @@
       },
       "previousSlugs": [
         "senior-autonomous-vehicle-technician-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-dca6f718"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Teleoperations Lead",
@@ -5843,6 +5843,7 @@
       },
       "postalCode": "8001",
       "firstSeenAt": "2026-07-04T23:25:40.200Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
@@ -5856,8 +5857,7 @@
       },
       "previousSlugs": [
         "senior-teleoperations-lead-tsmg-zurich-0dea39bb"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Senior Teleoperations Lead",
@@ -5917,6 +5917,7 @@
       },
       "postalCode": "1003",
       "firstSeenAt": "2026-07-04T23:25:40.200Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
@@ -5930,8 +5931,7 @@
       },
       "previousSlugs": [
         "senior-teleoperations-lead-tsmg-lausanne-64fe4432"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Sicherheitsfahrer / Autonomous Vehicle Safety Operator (Safety Driver)",
@@ -6110,7 +6110,6 @@
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "retranslationAttempts": 0
     },
     {
@@ -6230,6 +6229,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "specialiste-depot-robotaxi-fleet-operations-tsmg-bern-2304cec2"
@@ -6243,8 +6243,7 @@
       },
       "previousSlugs": [
         "specialiste-depot-robotaxi-fleet-operations-tsmg-bern-2304cec2"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Spécialiste Dépôt (Robotaxi Fleet Operations)",
@@ -6303,6 +6302,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "specialiste-depot-robotaxi-fleet-operations-tsmg-zurich-30f6ad97"
@@ -6316,8 +6316,7 @@
       },
       "previousSlugs": [
         "specialiste-depot-robotaxi-fleet-operations-tsmg-zurich-30f6ad97"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Spécialiste Dépôt (Robotaxi Fleet Operations)",
@@ -6376,6 +6375,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "specialiste-depot-robotaxi-fleet-operations-tsmg-st-gallen-9e3c432f"
@@ -6389,8 +6389,7 @@
       },
       "previousSlugs": [
         "specialiste-depot-robotaxi-fleet-operations-tsmg-st-gallen-9e3c432f"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Spécialiste Dépôt (Robotaxi Fleet Operations)",
@@ -6449,6 +6448,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "specialiste-depot-robotaxi-fleet-operations-tsmg-geneva-fb58b102"
@@ -6462,8 +6462,7 @@
       },
       "previousSlugs": [
         "specialiste-depot-robotaxi-fleet-operations-tsmg-geneva-fb58b102"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Spécialiste systèmes de conduite autonome (SDS Specialist) - Autonomous Vehicle Diagnostics & Calibration",
@@ -6759,6 +6758,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd"
@@ -6772,8 +6772,7 @@
       },
       "previousSlugs": [
         "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-geneva-4e5d6cdd"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
@@ -6832,6 +6831,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-6fd2e6ce"
@@ -6845,8 +6845,7 @@
       },
       "previousSlugs": [
         "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-zurich-6fd2e6ce"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
@@ -6905,6 +6904,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-f8997ae6"
@@ -6918,8 +6918,7 @@
       },
       "previousSlugs": [
         "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-st-gallen-f8997ae6"
-      ],
-      "salarySource": "estimated"
+      ]
     },
     {
       "title": "Technicien senior véhicules autonomes - Robotaxi Fleet Maintenance & Technical Operations",
@@ -6978,6 +6977,7 @@
         }
       },
       "firstSeenAt": "2026-07-10T22:17:34.950Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-fd57e151"
@@ -6991,8 +6991,7 @@
       },
       "previousSlugs": [
         "technicien-senior-vehicules-autonomes-robotaxi-fleet-maintenance-technical-operations-tsmg-bern-fd57e151"
-      ],
-      "salarySource": "estimated"
+      ]
     }
   ]
 }
