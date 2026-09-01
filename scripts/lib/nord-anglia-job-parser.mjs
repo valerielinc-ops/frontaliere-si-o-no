@@ -60,6 +60,9 @@ const CAREER_URL = 'https://careers.nordangliaeducation.com/services/rss/job/?lo
 const ATS_HOST = 'careers.nordangliaeducation.com';
 const POLITE_UA = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/bot)';
 const DEFAULT_TIMEOUT_MS = 20_000;
+// Exactly 50% is deliberately tolerated: one malformed vendor item must not
+// suppress the one valid job in a two-item boutique feed. More than half
+// indicates feed-wide drift and aborts the refresh so the indexed slice stays.
 const MAX_ITEM_DROP_RATIO = 0.5;
 const RSS_ITEM_STATS = Symbol('nordAngliaRssItemStats');
 
@@ -76,6 +79,7 @@ const SECTOR = 'Istruzione / Scuole internazionali';
 
 /** Marker required in BOTH title and link before a listing is trusted as Aubonne-scoped. */
 const AUBONNE_TITLE_RE = /\(Aubonne,\s*CH\)\s*$/i;
+const AUBONNE_TITLE_HINT_RE = /\baubonne\b/i;
 const AUBONNE_LINK_RE = /\/job\/Aubonne-/i;
 
 /** Evergreen talent-pool / "share your profile" placeholders — not real open roles. */
@@ -397,30 +401,50 @@ export async function fetchAllNordAngliaJobs() {
 
   const jobs = [];
   const seen = new Set();
-  let canonicalCandidates = 0;
-  let canonicalUrlDrops = 0;
+  let aubonneScopeCandidates = 0;
+  let aubonneScopeDrops = 0;
   for (const item of listings) {
     const rawTitle = normalizeSpace(item.title || '');
     const link = normalizeSpace(item.link || '');
+    const title = stripLocationSuffix(rawTitle);
+
+    // Evergreen placeholders are intentionally outside the drop-ratio
+    // denominator: they are valid vendor records, but not open positions.
+    if (isGenericOffer(title)) continue;
+
+    const publicUrl = canonicalizeNordAngliaJobUrl(link);
+    const hasTitleScope = AUBONNE_TITLE_RE.test(rawTitle) && title.length >= 3;
+    // The vendor search is full-text and may legitimately return unrelated
+    // records. Count an item only when either independent signal still hints
+    // at Aubonne; then require both signals before publishing it. This catches
+    // one-sided vendor drift without treating ordinary search noise as drift.
+    const isAubonneCandidate = AUBONNE_TITLE_HINT_RE.test(rawTitle) || Boolean(publicUrl);
+    if (!isAubonneCandidate) continue;
+    aubonneScopeCandidates++;
 
     // The RSS `keywords=` param is full-text search, not a strict location
     // filter. The title identifies an Aubonne candidate; canonicalization
     // below independently requires the trusted host + Aubonne path. Keeping
-    // those checks separate makes a vendor URL-template drift observable.
-    if (!AUBONNE_TITLE_RE.test(rawTitle)) continue;
-
-    const title = stripLocationSuffix(rawTitle);
-    if (!title || title.length < 3) continue;
-    if (isGenericOffer(title)) continue; // evergreen "share your profile" placeholder
-
-    canonicalCandidates++;
-    const publicUrl = canonicalizeNordAngliaJobUrl(link);
+    // those checks separate makes vendor title and URL-template drift
+    // independently observable.
+    let scopeDropped = false;
+    if (!hasTitleScope) {
+      scopeDropped = true;
+      console.warn(
+        `[nord-anglia-title-scope-drop] Skipped "${title || '[missing title]'}" at `
+        + `${jobUrlForDiagnostic(link)} because its `
+        + 'title no longer matches the expected Aubonne scope marker',
+      );
+    }
     if (!publicUrl) {
-      canonicalUrlDrops++;
+      scopeDropped = true;
       console.warn(
         `[nord-anglia-canonical-url-drop] Skipped "${title}"; candidate URL `
         + `${jobUrlForDiagnostic(link)} is not a trusted canonical Aubonne job URL`,
       );
+    }
+    if (scopeDropped) {
+      aubonneScopeDrops++;
       continue;
     }
     if (seen.has(publicUrl)) continue;
@@ -483,9 +507,10 @@ export async function fetchAllNordAngliaJobs() {
     jobs.push(job);
   }
 
-  // One malformed candidate is logged and dropped, but a vendor-wide host or
-  // path change remains a hard failure so the existing slice is kept intact.
-  assertDropRatioWithinLimit('canonical Aubonne URL guard', canonicalCandidates, canonicalUrlDrops);
+  // One malformed candidate is logged and dropped, but combined title/URL
+  // drift over half of the relevant items remains a hard failure so the
+  // indexed slice is kept.
+  assertDropRatioWithinLimit('Aubonne title/URL scope guard', aubonneScopeCandidates, aubonneScopeDrops);
 
   console.log(`\n📋 Total ${NORD_ANGLIA_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
