@@ -1255,6 +1255,7 @@ commit_isolated_from_worktree() {
       emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+      [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$new_commit" >> "$GITHUB_OUTPUT"
       # Deliberately do NOT fast-forward refs/heads/main after the push:
       # base_sha (the job's original checkout, resolved from HEAD at entry)
       # must remain the 3-way merge base for EVERY sibling of this run.
