@@ -585,16 +585,46 @@ export function crawlerGroupCommitSnapshots(descriptors) {
   }))).sort((left, right) => compareCodePoint(left.path, right.path));
 }
 
+// git-commit-data.sh passes the assembled message to `git commit-tree -m`
+// (and `git commit -m`) as a single argv element. Linux caps any one argv
+// string at MAX_ARG_STRLEN (32 pages, 128 KiB on the 4 KiB pages GitHub
+// Actions runners use) regardless of the OS-wide ARG_MAX — exceeding it
+// fails the commit with E2BIG. MAX_COMMIT_MESSAGE_BYTES already bounds a
+// single descriptor's own commitMessage to that limit, but up to MAX_FILES
+// descriptors concatenated here could still add up past it, so the
+// assembled aggregate needs the same ceiling applied to itself.
 export function crawlerGroupCommitMessage(baseMessage, descriptors) {
   if (typeof baseMessage !== 'string' || baseMessage.trim().length === 0) {
     throw new TypeError('Missing crawler group commit message');
   }
-  const attribution = descriptors.map(({ crawlerId, commitMessage }) => (
+  const base = baseMessage.trimEnd();
+  if (descriptors.length === 0) return base;
+  const header = `${base}\n\nPer-crawler attribution:\n\n`;
+  const attributions = descriptors.map(({ crawlerId, commitMessage }) => (
     `--- ${crawlerId} ---\n${commitMessage.trimEnd()}`
   ));
-  return attribution.length === 0
-    ? baseMessage.trimEnd()
-    : `${baseMessage.trimEnd()}\n\nPer-crawler attribution:\n\n${attribution.join('\n\n')}`;
+  const full = `${header}${attributions.join('\n\n')}`;
+  if (Buffer.byteLength(full) <= MAX_COMMIT_MESSAGE_BYTES) return full;
+
+  // Reserve worst-case room for the omitted-crawlers summary up front (every
+  // descriptor could end up in it) so the truncation loop below never has to
+  // re-check itself after appending the summary.
+  const crawlerIds = descriptors.map(({ crawlerId }) => crawlerId);
+  const summaryReserve = Buffer.byteLength(
+    `\n\n… ${crawlerIds.length} more crawler(s) omitted (group commit message size cap): ${crawlerIds.join(', ')}`,
+  );
+  const budget = MAX_COMMIT_MESSAGE_BYTES - Buffer.byteLength(header) - summaryReserve;
+  const kept = [];
+  let used = 0;
+  for (const attribution of attributions) {
+    const size = Buffer.byteLength(attribution) + (kept.length > 0 ? 2 : 0);
+    if (used + size > budget) break;
+    kept.push(attribution);
+    used += size;
+  }
+  const omitted = crawlerIds.slice(kept.length);
+  const summary = `\n\n… ${omitted.length} more crawler(s) omitted (group commit message size cap): ${omitted.join(', ')}`;
+  return `${header}${kept.join('\n\n')}${summary}`;
 }
 
 export function runCrawlerGroupCommitBatchReceiptsCli() {
