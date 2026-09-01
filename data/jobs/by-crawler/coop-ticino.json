@@ -37,9 +37,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "collaboratore-trice-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j",
-        "en": "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j",
+        "en": "warehouse-receiving-employee-80-100-coop-genossenschaft-langenthal-bern",
         "de": "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j",
-        "fr": "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j"
+        "fr": "collaborateur-collaboratrice-reception-de-marchandises-80-100-coop-genossenschaft-langenthal-bern"
       },
       "addressLocality": "Langenthal",
       "sourceLang": "de",
@@ -63,12 +63,19 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern",
-        "mitarbeiter-in-wareneingang-80-100-coop-langenthal-bern"
+        "mitarbeiter-in-wareneingang-80-100-coop-langenthal-bern",
+        "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern",
           "mitarbeiter-in-wareneingang-80-100-coop-langenthal-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j"
+        ],
+        "fr": [
+          "mitarbeiter-in-wareneingang-80-100-coop-genossenschaft-langenthal-bern-wizh2j"
         ]
       },
       "salaryMin": 68500,
@@ -77,7 +84,7 @@
     },
     {
       "id": "company-mtp70g",
-      "slug": "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-bern",
+      "slug": "addetto-a-al-picking-e-imballaggio-e-shop-40-coop-genossenschaft-langenthal-bern",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer: in / Verpacker: in E-Shop, 40%",
       "location": "Langenthal, Bern",
@@ -109,8 +116,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g",
-        "en": "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g",
+        "it": "addetto-a-al-picking-e-imballaggio-e-shop-40-coop-genossenschaft-langenthal-bern",
+        "en": "order-picker-and-packer-e-shop-40-coop-genossenschaft-langenthal-bern",
         "de": "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g",
         "fr": "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g"
       },
@@ -135,11 +142,18 @@
         "canton": "BE"
       },
       "previousSlugs": [
-        "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern"
+        "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern",
+        "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g",
+        "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern"
+          "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern",
+          "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g",
+          "kommissionierer-in-verpacker-in-e-shop-40-coop-langenthal-bern"
+        ],
+        "en": [
+          "kommissionierer-in-verpacker-in-e-shop-40-coop-genossenschaft-langenthal-bern-mtp70g"
         ]
       },
       "salaryMin": 27400,
@@ -148,7 +162,7 @@
     },
     {
       "id": "company-1z5n3q",
-      "slug": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern",
+      "slug": "addetto-a-al-picking-e-confezionamento-e-commerce-20-coop-genossenschaft-langenthal-bern",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer:in / Verpacker:in E-Shop, 20%",
       "location": "Langenthal, Bern",
@@ -185,10 +199,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
-        "en": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
+        "it": "addetto-a-al-picking-e-confezionamento-e-commerce-20-coop-genossenschaft-langenthal-bern",
+        "en": "picker-packer-e-shop-20-coop-genossenschaft-langenthal-bern",
         "de": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
-        "fr": "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q"
+        "fr": "preparateur-trice-de-commandes-et-emballeur-euse-e-commerce-20-coop-genossenschaft-langenthal-bern"
       },
       "addressLocality": "Langenthal",
       "sourceLang": "de",
@@ -205,7 +219,23 @@
         }
       },
       "salaryMin": 13700,
-      "salaryMax": 20800
+      "salaryMax": 20800,
+      "previousSlugsByLocale": {
+        "it": [
+          "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
+          "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern"
+        ],
+        "en": [
+          "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q"
+        ],
+        "fr": [
+          "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q"
+        ]
+      },
+      "previousSlugs": [
+        "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
+        "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern"
+      ]
     },
     {
       "id": "company-o7oj3r",
@@ -247,9 +277,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-cfc-afp-coop-muttenz-o7oj3r",
-        "en": "logistiker-in-efz-eba-coop-muttenz-o7oj3r",
+        "en": "logistics-apprentice-efz-eba-coop-muttenz",
         "de": "logistiker-in-efz-eba-coop-muttenz-o7oj3r",
-        "fr": "logistiker-in-efz-eba-coop-muttenz-o7oj3r"
+        "fr": "logisticien-ne-efz-eba-coop-muttenz"
       },
       "addressLocality": "Muttenz",
       "sourceLang": "de",
@@ -266,11 +296,18 @@
         }
       },
       "previousSlugs": [
-        "logistiker-in-efz-eba-coop-muttenz"
+        "logistiker-in-efz-eba-coop-muttenz",
+        "logistiker-in-efz-eba-coop-muttenz-o7oj3r"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-eba-coop-muttenz"
+        ],
+        "en": [
+          "logistiker-in-efz-eba-coop-muttenz-o7oj3r"
+        ],
+        "fr": [
+          "logistiker-in-efz-eba-coop-muttenz-o7oj3r"
         ]
       },
       "salaryMin": 107000,
@@ -278,7 +315,7 @@
     },
     {
       "id": "company-twv2a1",
-      "slug": "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-bern",
+      "slug": "preparatore-a-imballatore-a-e-shop-60-coop-genossenschaft-langenthal-bern",
       "company": "Coop Genossenschaft",
       "title": "Kommissionierer: in / Verpacker: in E-Shop, 60%",
       "location": "Langenthal, Bern",
@@ -310,8 +347,8 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1",
-        "en": "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1",
+        "it": "preparatore-a-imballatore-a-e-shop-60-coop-genossenschaft-langenthal-bern",
+        "en": "picker-packer-e-shop-60-coop-genossenschaft-langenthal-bern",
         "de": "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1",
         "fr": "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1"
       },
@@ -336,11 +373,18 @@
         "canton": "BE"
       },
       "previousSlugs": [
-        "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern"
+        "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern",
+        "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1",
+        "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern"
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern",
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1",
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-langenthal-bern"
+        ],
+        "en": [
+          "kommissionierer-in-verpacker-in-e-shop-60-coop-genossenschaft-langenthal-bern-twv2a1"
         ]
       },
       "salaryMin": 41100,
@@ -479,7 +523,7 @@
     },
     {
       "id": "company-zehsf3",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-dielsdorf",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Dielsdorf, Zürich",
@@ -516,10 +560,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-dielsdorf",
+        "en": "meat-specialist-coop-genossenschaft-dielsdorf",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3"
+        "fr": "specialiste-de-la-viande-coop-genossenschaft-dielsdorf"
       },
       "addressLocality": "Dielsdorf",
       "sourceLang": "de",
@@ -536,7 +580,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-zehsf3",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich"
+      ]
     },
     {
       "id": "company-8wnki7",
@@ -1201,7 +1261,7 @@
     },
     {
       "id": "company-vhdw4d",
-      "slug": "ict-supporter-in-80-100-coop-basel-stadt",
+      "slug": "addetto-supporto-ict-80-100-coop-genossenschaft-basel",
       "company": "Coop Genossenschaft",
       "title": "ICT-Supporter:in, 80-100%",
       "location": "Basel, Basel-Stadt",
@@ -1238,10 +1298,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d",
-        "en": "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d",
+        "it": "addetto-supporto-ict-80-100-coop-genossenschaft-basel",
+        "en": "ict-support-specialist-80-100-coop-genossenschaft-basel",
         "de": "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d",
-        "fr": "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d"
+        "fr": "technicien-support-ict-80-100-coop-genossenschaft-basel"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -1258,7 +1318,23 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d",
+          "ict-supporter-in-80-100-coop-basel-stadt"
+        ],
+        "en": [
+          "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d"
+        ],
+        "fr": [
+          "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-80-100-coop-basel-stadt-vhdw4d",
+        "ict-supporter-in-80-100-coop-basel-stadt"
+      ]
     },
     {
       "id": "company-nc0qfu",
@@ -1327,7 +1403,7 @@
     },
     {
       "id": "company-h5pt3l",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft",
+      "slug": "macellaio-a-esperto-a-di-carni-coop-genossenschaft-birsfelden",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Birsfelden, Basel-Landschaft",
@@ -1364,10 +1440,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l",
+        "it": "macellaio-a-esperto-a-di-carni-coop-genossenschaft-birsfelden",
+        "en": "butcher-meat-specialist-coop-genossenschaft-birsfelden",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l"
+        "fr": "boucher-bouchere-expert-e-en-viandes-coop-genossenschaft-birsfelden"
       },
       "addressLocality": "Birsfelden",
       "sourceLang": "de",
@@ -1384,11 +1460,27 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft"
+      ]
     },
     {
       "id": "company-euxym6",
-      "slug": "grilleur-in-coop-embrach-zurich",
+      "slug": "griller-coop-genossenschaft-embrach",
       "company": "Coop Genossenschaft",
       "title": "Grilleur:in",
       "location": "Embrach, Zürich",
@@ -1434,7 +1526,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "grilleur-in-coop-embrach-zurich-euxym6",
+        "it": "griller-coop-genossenschaft-embrach",
         "en": "grilleur-in-coop-embrach-zurich-euxym6",
         "de": "grilleur-in-coop-embrach-zurich-euxym6",
         "fr": "grilleur-in-coop-embrach-zurich-euxym6"
@@ -1454,7 +1546,17 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "grilleur-in-coop-embrach-zurich-euxym6",
+          "grilleur-in-coop-embrach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "grilleur-in-coop-embrach-zurich-euxym6",
+        "grilleur-in-coop-embrach-zurich"
+      ]
     },
     {
       "id": "company-qnowj",
@@ -1550,7 +1652,7 @@
     },
     {
       "id": "company-vzogqb",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich",
+      "slug": "macellaio-a-specialista-in-carni-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Winterthur, Zürich",
@@ -1587,10 +1689,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
+        "it": "macellaio-a-specialista-in-carni-coop-genossenschaft-winterthur",
+        "en": "butcher-meat-specialist-coop-genossenschaft-winterthur",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb"
+        "fr": "boucher-bouchere-specialiste-en-viandes-coop-genossenschaft-winterthur"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -1610,11 +1712,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2-2"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2-2",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb"
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2-2"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-2-2",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich"
       ]
     },
     {
@@ -1842,7 +1954,7 @@
     },
     {
       "id": "company-31efiw",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau",
+      "slug": "macellaio-a-specialista-in-carne-coop-genossenschaft-aadorf",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Aadorf, Thurgau",
@@ -1879,10 +1991,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
+        "it": "macellaio-a-specialista-in-carne-coop-genossenschaft-aadorf",
+        "en": "butcher-meat-specialist-coop-genossenschaft-aadorf",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw"
+        "fr": "boucher-bouchere-specialiste-en-viande-coop-genossenschaft-aadorf"
       },
       "addressLocality": "Aadorf",
       "sourceLang": "de",
@@ -1899,7 +2011,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau-31efiw",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-aadorf-thurgau"
+      ]
     },
     {
       "id": "company-i1qnqi",
@@ -3867,22 +3995,12 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-basel-stadt",
-        "verkaufer-in-food-coop-city-basel-stadt",
-        "verkaufer-in-food-coop-genossenschaft-basel-stadt-nc8s7t"
+        "verkaufer-in-food-coop-city-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-basel-stadt",
           "verkaufer-in-food-coop-city-basel-stadt"
-        ],
-        "en": [
-          "verkaufer-in-food-coop-genossenschaft-basel-stadt-nc8s7t"
-        ],
-        "de": [
-          "verkaufer-in-food-coop-genossenschaft-basel-stadt-nc8s7t"
-        ],
-        "fr": [
-          "verkaufer-in-food-coop-genossenschaft-basel-stadt-nc8s7t"
         ]
       },
       "salaryMin": 62000,
@@ -4167,22 +4285,12 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-genossenschaft-luzern",
-        "kochin-koch-m-w-d-coop-ristorante-luzern",
-        "kochin-koch-m-w-d-coop-genossenschaft-luzern-ep2z0i"
+        "kochin-koch-m-w-d-coop-ristorante-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-genossenschaft-luzern",
           "kochin-koch-m-w-d-coop-ristorante-luzern"
-        ],
-        "en": [
-          "kochin-koch-m-w-d-coop-genossenschaft-luzern-ep2z0i"
-        ],
-        "de": [
-          "kochin-koch-m-w-d-coop-genossenschaft-luzern-ep2z0i"
-        ],
-        "fr": [
-          "kochin-koch-m-w-d-coop-genossenschaft-luzern-ep2z0i"
         ]
       },
       "salaryMin": 69500,
@@ -4330,22 +4438,12 @@
       },
       "previousSlugs": [
         "weihnachtsaushilfe-coop-genossenschaft-zurich",
-        "weihnachtsaushilfe-coop-city-zurich",
-        "weihnachtsaushilfe-coop-genossenschaft-zurich-9v5zn7"
+        "weihnachtsaushilfe-coop-city-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-coop-genossenschaft-zurich",
           "weihnachtsaushilfe-coop-city-zurich"
-        ],
-        "en": [
-          "weihnachtsaushilfe-coop-genossenschaft-zurich-9v5zn7"
-        ],
-        "de": [
-          "weihnachtsaushilfe-coop-genossenschaft-zurich-9v5zn7"
-        ],
-        "fr": [
-          "weihnachtsaushilfe-coop-genossenschaft-zurich-9v5zn7"
         ]
       },
       "salaryMin": 73500,
@@ -4415,22 +4513,12 @@
       },
       "previousSlugs": [
         "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-genossenschaft-basel-stadt",
-        "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-city-basel-stadt",
-        "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-genossenschaft-basel-stadt-fe9qfd"
+        "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-city-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-genossenschaft-basel-stadt",
           "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-city-basel-stadt"
-        ],
-        "en": [
-          "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-genossenschaft-basel-stadt-fe9qfd"
-        ],
-        "de": [
-          "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-genossenschaft-basel-stadt-fe9qfd"
-        ],
-        "fr": [
-          "verkaufer-in-kasse-services-damen-herrenkonfektion-coop-genossenschaft-basel-stadt-fe9qfd"
         ]
       },
       "salaryMin": 62000,
@@ -4500,22 +4588,12 @@
       },
       "previousSlugs": [
         "rayonleiter-in-damenwasche-coop-genossenschaft-zurich",
-        "rayonleiter-in-damenwasche-coop-city-zurich",
-        "rayonleiter-in-damenwasche-coop-genossenschaft-zurich-kcezhs"
+        "rayonleiter-in-damenwasche-coop-city-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rayonleiter-in-damenwasche-coop-genossenschaft-zurich",
           "rayonleiter-in-damenwasche-coop-city-zurich"
-        ],
-        "en": [
-          "rayonleiter-in-damenwasche-coop-genossenschaft-zurich-kcezhs"
-        ],
-        "de": [
-          "rayonleiter-in-damenwasche-coop-genossenschaft-zurich-kcezhs"
-        ],
-        "fr": [
-          "rayonleiter-in-damenwasche-coop-genossenschaft-zurich-kcezhs"
         ]
       },
       "salaryMin": 73500,
@@ -5119,13 +5197,14 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 113000,
+      "salaryMax": 198500,
       "previousSlugsByLocale": {
         "it": [
           "rayon-leader-in-nonfood-coop-genossenschaft-zurich",
           "rayon-leader-in-nonfood-coop-zurich",
           "rayonleiter-in-nonfood-coop-zurich-tazn6o",
-          "rayon-leader-dans-non-alimentaire-coop-genossenschaft-zurich",
-          "rayonleiter-in-nonfood-coop-zurich"
+          "rayon-leader-dans-non-alimentaire-coop-genossenschaft-zurich"
         ],
         "en": [
           "rayon-leader-in-nonfood-coop-zurich"
@@ -5141,11 +5220,8 @@
         "rayon-leader-in-nonfood-coop-genossenschaft-zurich",
         "rayon-leader-in-nonfood-coop-zurich",
         "rayonleiter-in-nonfood-coop-zurich-tazn6o",
-        "rayon-leader-dans-non-alimentaire-coop-genossenschaft-zurich",
-        "rayonleiter-in-nonfood-coop-zurich"
-      ],
-      "salaryMin": 113000,
-      "salaryMax": 198500
+        "rayon-leader-dans-non-alimentaire-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-u666n1",
@@ -5209,13 +5285,14 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "previousSlugsByLocale": {
         "it": [
           "venditore-in-food-bevande-coop-genossenschaft-zurich",
           "seller-in-food-drinks-coop-genossenschaft-zurich",
           "verkaufer-in-food-getranke-coop-zurich-vxx3q7",
-          "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-zurich",
-          "verkaufer-in-food-getranke-coop-zurich"
+          "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-zurich"
         ],
         "en": [
           "seller-in-food-drinks-coop-genossenschaft-zurich"
@@ -5231,11 +5308,8 @@
         "venditore-in-food-bevande-coop-genossenschaft-zurich",
         "seller-in-food-drinks-coop-genossenschaft-zurich",
         "verkaufer-in-food-getranke-coop-zurich-vxx3q7",
-        "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-zurich",
-        "verkaufer-in-food-getranke-coop-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-5j5xta",
@@ -5299,6 +5373,8 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "previousSlugsByLocale": {
         "it": [
           "venditore-in-prodotti-freschi-pane-prodotti-da-forno-frutta-verdura-coop-genossenschaft-zurich",
@@ -5311,8 +5387,7 @@
           "salesperson-fresh-products-bread-bakery-fruits-vegetables-coop-genossenschaft-zurich-bkvxru",
           "vendeur-produits-frais-pain-boulangerie-fruits-legumes-coop-genossenschaft-zurich-bkvxru",
           "verkaufer-in-frischprodukte-brot-backwaren-fruchte-gemuse-coop-genossenschaft-zurich",
-          "venditore-prodotti-freschi-pane-e-prodotti-da-forno-frutta-e-verdura-coop-genossenschaft-zurich",
-          "verkaufer-in-frischprodukte-brot-backwaren-fruchte-gemuse-coop-zurich"
+          "venditore-prodotti-freschi-pane-e-prodotti-da-forno-frutta-e-verdura-coop-genossenschaft-zurich"
         ],
         "en": [
           "seller-in-fresh-products-bread-baked-goods-fruit-vegetables-coop-genossenschaft-zurich"
@@ -5335,11 +5410,8 @@
         "salesperson-fresh-products-bread-bakery-fruits-vegetables-coop-genossenschaft-zurich-bkvxru",
         "vendeur-produits-frais-pain-boulangerie-fruits-legumes-coop-genossenschaft-zurich-bkvxru",
         "verkaufer-in-frischprodukte-brot-backwaren-fruchte-gemuse-coop-genossenschaft-zurich",
-        "venditore-prodotti-freschi-pane-e-prodotti-da-forno-frutta-e-verdura-coop-genossenschaft-zurich",
-        "verkaufer-in-frischprodukte-brot-backwaren-fruchte-gemuse-coop-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "venditore-prodotti-freschi-pane-e-prodotti-da-forno-frutta-e-verdura-coop-genossenschaft-zurich"
+      ]
     },
     {
       "id": "company-npivth",
@@ -6080,14 +6152,15 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "previousSlugsByLocale": {
         "it": [
           "venditore-in-cassa-servizi-coop-genossenschaft-buchs-zh",
           "verkaufer-in-kassen-services-coop-buchs-zh-zurich-5rohzg",
           "seller-in-cash-registers-services-coop-genossenschaft-buchs-zh",
           "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-buchs-zh",
-          "verkaufer-in-kassen-services-coop-genossenschaft-buchs-zh",
-          "verkaufer-in-kassen-services-coop-buchs-zh-zurich"
+          "verkaufer-in-kassen-services-coop-genossenschaft-buchs-zh"
         ],
         "en": [
           "seller-in-cash-registers-services-coop-genossenschaft-buchs-zh"
@@ -6104,11 +6177,8 @@
         "verkaufer-in-kassen-services-coop-buchs-zh-zurich-5rohzg",
         "seller-in-cash-registers-services-coop-genossenschaft-buchs-zh",
         "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-buchs-zh",
-        "verkaufer-in-kassen-services-coop-genossenschaft-buchs-zh",
-        "verkaufer-in-kassen-services-coop-buchs-zh-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "verkaufer-in-kassen-services-coop-genossenschaft-buchs-zh"
+      ]
     },
     {
       "id": "company-t7d8y5",
@@ -6663,13 +6733,14 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 107000,
+      "salaryMax": 187500,
       "previousSlugsByLocale": {
         "it": [
           "conduttore-rayon-in-prodotti-freschi-coop-genossenschaft-sins",
           "rayon-conductor-in-fresh-products-coop-genossenschaft-sins",
           "rayonleiter-in-frischprodukte-coop-sins-aargau-in98mo",
-          "conducteur-de-rayon-dans-les-produits-frais-coop-genossenschaft-sins",
-          "rayonleiter-in-frischprodukte-coop-sins-aargau"
+          "conducteur-de-rayon-dans-les-produits-frais-coop-genossenschaft-sins"
         ],
         "en": [
           "rayon-conductor-in-fresh-products-coop-genossenschaft-sins"
@@ -6685,11 +6756,8 @@
         "conduttore-rayon-in-prodotti-freschi-coop-genossenschaft-sins",
         "rayon-conductor-in-fresh-products-coop-genossenschaft-sins",
         "rayonleiter-in-frischprodukte-coop-sins-aargau-in98mo",
-        "conducteur-de-rayon-dans-les-produits-frais-coop-genossenschaft-sins",
-        "rayonleiter-in-frischprodukte-coop-sins-aargau"
-      ],
-      "salaryMin": 107000,
-      "salaryMax": 187500
+        "conducteur-de-rayon-dans-les-produits-frais-coop-genossenschaft-sins"
+      ]
     },
     {
       "id": "company-fm5mey",
@@ -6818,13 +6886,14 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 107000,
+      "salaryMax": 187500,
       "previousSlugsByLocale": {
         "it": [
           "rayon-leader-in-nonfood-coop-genossenschaft-sins",
           "rayon-leader-in-nonfood-coop-genossenschaft-sins-aargau",
           "rayonleiter-in-nonfood-coop-sins-aargau-mvvjfw",
-          "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-sins",
-          "rayonleiter-in-nonfood-coop-sins-aargau"
+          "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-sins"
         ],
         "en": [
           "rayon-leader-in-nonfood-coop-genossenschaft-sins-aargau"
@@ -6840,11 +6909,8 @@
         "rayon-leader-in-nonfood-coop-genossenschaft-sins",
         "rayon-leader-in-nonfood-coop-genossenschaft-sins-aargau",
         "rayonleiter-in-nonfood-coop-sins-aargau-mvvjfw",
-        "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-sins",
-        "rayonleiter-in-nonfood-coop-sins-aargau"
-      ],
-      "salaryMin": 107000,
-      "salaryMax": 187500
+        "chef-de-rayon-dans-non-alimentaire-coop-genossenschaft-sins"
+      ]
     },
     {
       "id": "company-pyrglp",
@@ -7130,13 +7196,14 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 73500,
+      "salaryMax": 111500,
       "previousSlugsByLocale": {
         "it": [
           "venditore-in-prodotti-freschi-prodotti-per-pane-pane-prodotti-lattiero-caseari-frutteti-e-ortaggi-coop-genossenschaft",
           "seller-in-fresh-products-bread-bakery-products-dairy-products-fruits-vegetables-coop-genossenschaft-dielsdorf",
           "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf-zurich-wbbjp2",
-          "vendeur-dans-les-produits-frais-pain-cuisson-produits-laitiers-fruits-et-legumes-coop-genossenschaft-dielsdorf",
-          "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf-zurich"
+          "vendeur-dans-les-produits-frais-pain-cuisson-produits-laitiers-fruits-et-legumes-coop-genossenschaft-dielsdorf"
         ],
         "en": [
           "seller-in-fresh-products-bread-bakery-products-dairy-products-fruits-vegetables-coop-genossenschaft-dielsdorf"
@@ -7152,11 +7219,8 @@
         "venditore-in-prodotti-freschi-prodotti-per-pane-pane-prodotti-lattiero-caseari-frutteti-e-ortaggi-coop-genossenschaft",
         "seller-in-fresh-products-bread-bakery-products-dairy-products-fruits-vegetables-coop-genossenschaft-dielsdorf",
         "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf-zurich-wbbjp2",
-        "vendeur-dans-les-produits-frais-pain-cuisson-produits-laitiers-fruits-et-legumes-coop-genossenschaft-dielsdorf",
-        "verkaufer-in-frischprodukte-brot-backwaren-molkerei-fruchte-gemuse-coop-dielsdorf-zurich"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500
+        "vendeur-dans-les-produits-frais-pain-cuisson-produits-laitiers-fruits-et-legumes-coop-genossenschaft-dielsdorf"
+      ]
     },
     {
       "id": "company-fet5up",
@@ -8461,6 +8525,8 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "previousSlugsByLocale": {
         "it": [
           "vendita-prodotti-freschi-coop-genossenschaft-bubendorf",
@@ -8470,8 +8536,7 @@
           "seller-fresh-products-coop-genossenschaft-bubendorf-mlwyfj",
           "vendeur-de-produits-frais-coop-genossenschaft-bubendorf-mlwyfj",
           "vendeur-produits-frais-coop-genossenschaft-bubendorf-mlwyfj",
-          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-bubendorf",
-          "verkaufer-in-frischprodukte-coop-bubendorf-basel-landschaft"
+          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-bubendorf"
         ],
         "en": [
           "seller-fresh-products-coop-genossenschaft-bubendorf"
@@ -8491,11 +8556,8 @@
         "seller-fresh-products-coop-genossenschaft-bubendorf-mlwyfj",
         "vendeur-de-produits-frais-coop-genossenschaft-bubendorf-mlwyfj",
         "vendeur-produits-frais-coop-genossenschaft-bubendorf-mlwyfj",
-        "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-bubendorf",
-        "verkaufer-in-frischprodukte-coop-bubendorf-basel-landschaft"
-      ],
-      "salaryMin": 62000,
-      "salaryMax": 94000
+        "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-bubendorf"
+      ]
     },
     {
       "id": "company-u0nlp4",
@@ -12975,13 +13037,14 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "previousSlugsByLocale": {
         "it": [
           "vendita-prodotti-freschi-coop-genossenschaft-herzogenbuchsee",
           "seller-fresh-products-coop-genossenschaft-herzogenbuchsee",
           "verkaufer-in-frischprodukte-coop-herzogenbuchsee-bern-0j9jk3",
-          "vendeur-produits-frais-coop-genossenschaft-herzogenbuchsee",
-          "verkaufer-in-frischprodukte-coop-herzogenbuchsee-bern"
+          "vendeur-produits-frais-coop-genossenschaft-herzogenbuchsee"
         ],
         "en": [
           "seller-fresh-products-coop-genossenschaft-herzogenbuchsee"
@@ -12997,11 +13060,8 @@
         "vendita-prodotti-freschi-coop-genossenschaft-herzogenbuchsee",
         "seller-fresh-products-coop-genossenschaft-herzogenbuchsee",
         "verkaufer-in-frischprodukte-coop-herzogenbuchsee-bern-0j9jk3",
-        "vendeur-produits-frais-coop-genossenschaft-herzogenbuchsee",
-        "verkaufer-in-frischprodukte-coop-herzogenbuchsee-bern"
-      ],
-      "salaryMin": 68500,
-      "salaryMax": 104000
+        "vendeur-produits-frais-coop-genossenschaft-herzogenbuchsee"
+      ]
     },
     {
       "id": "company-74eqbe",
@@ -13194,6 +13254,8 @@
           "unitText": "YEAR"
         }
       },
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "previousSlugsByLocale": {
         "it": [
           "vendita-prodotti-freschi-coop-genossenschaft-schotz",
@@ -13206,8 +13268,7 @@
           "vendeur-de-produits-frais-coop-genossenschaft-schotz-3km4x6",
           "fresh-produce-salesperson-coop-genossenschaft-schotz",
           "vendeur-de-produits-frais-coop-genossenschaft-schotz",
-          "verkaufer-in-frischprodukte-coop-genossenschaft-schotz-3km4x6",
-          "verkaufer-in-frischprodukte-coop-schotz-luzern"
+          "verkaufer-in-frischprodukte-coop-genossenschaft-schotz-3km4x6"
         ],
         "en": [
           "seller-fresh-products-coop-genossenschaft-schotz"
@@ -13230,11 +13291,8 @@
         "vendeur-de-produits-frais-coop-genossenschaft-schotz-3km4x6",
         "fresh-produce-salesperson-coop-genossenschaft-schotz",
         "vendeur-de-produits-frais-coop-genossenschaft-schotz",
-        "verkaufer-in-frischprodukte-coop-genossenschaft-schotz-3km4x6",
-        "verkaufer-in-frischprodukte-coop-schotz-luzern"
-      ],
-      "salaryMin": 69500,
-      "salaryMax": 106000
+        "verkaufer-in-frischprodukte-coop-genossenschaft-schotz-3km4x6"
+      ]
     },
     {
       "id": "company-9rn1ef",
@@ -24207,14 +24265,12 @@
         "kochin-koch-m-w-d-coop-ristorante-zurich",
         "kochin-koch-m-w-d-coop-ristorante-zurich-2",
         "kochin-koch-m-w-d-coop-genossenschaft-zurich-c2mclz",
-        "kochin-koch-m-w-d-coop-ristorante-zurich-c2mclz",
         "cuisiniere-m-w-d-coop-ristorante-zurich-c2mclz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-m-w-d-coop-ristorante-zurich-2",
-          "kochin-koch-m-w-d-coop-genossenschaft-zurich-c2mclz",
-          "kochin-koch-m-w-d-coop-ristorante-zurich-c2mclz"
+          "kochin-koch-m-w-d-coop-genossenschaft-zurich-c2mclz"
         ],
         "fr": [
           "cuisiniere-m-w-d-coop-ristorante-zurich-c2mclz"
@@ -24804,14 +24860,12 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-hartwaren-coop-city-baden-aargau",
-        "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o",
-        "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
+        "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-hartwaren-coop-city-baden-aargau",
-          "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o",
-          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
+          "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o"
         ]
       },
       "salarySource": "estimated",
@@ -30363,8 +30417,7 @@
           "verkaufsberater-in-coop-genossenschaft-rapperswil-jona-sankt-gallen-jkxgvc",
           "verkaufsberater-in-import-parfumerie-rapperswil-jona-sankt-gallen",
           "seller-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen-6lz0pc",
-          "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc",
-          "verkaufer-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen-6lz0pc"
+          "seller-in-food-coop-rapperswil-jona-sankt-gallen-6lz0pc"
         ],
         "en": [
           "seller-in-food-coop-genossenschaft-rapperswil-jona-sankt-gallen",

@@ -4004,12 +4004,12 @@
     },
     {
       "id": "etat-de-vaud-5813",
-      "slug": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+      "slug": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey",
       "slugByLocale": {
-        "it": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
-        "en": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
-        "de": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
-        "fr": "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        "fr": "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+        "it": "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "en": "staff-counsellor-etat-de-vaud-administration-cantonale-vaudoise-vevey",
+        "de": "personalberater-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4064,16 +4064,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        ],
+        "en": [
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        ],
+        "de": [
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+      ]
     },
     {
       "id": "etat-de-vaud-5804",
-      "slug": "geomaticien-ne-etat-de-vaud-lausanne",
+      "slug": "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "geomaticien-ne-etat-de-vaud-lausanne",
-        "en": "geomaticien-ne-etat-de-vaud-lausanne",
-        "de": "geomaticien-ne-etat-de-vaud-lausanne",
-        "fr": "geomaticien-ne-etat-de-vaud-lausanne"
+        "fr": "geomaticien-ne-etat-de-vaud-lausanne",
+        "it": "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "geomatician-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "geomatiker-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4128,16 +4142,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geomaticien-ne-etat-de-vaud-lausanne"
+        ],
+        "en": [
+          "geomaticien-ne-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "geomaticien-ne-etat-de-vaud-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "geomaticien-ne-etat-de-vaud-lausanne"
+      ]
     },
     {
       "id": "etat-de-vaud-5723",
-      "slug": "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
+      "slug": "direttore-della-biblioteca-cantonale-e-universitaria-losanna-bcul-etat-de-vaud-administration-cantonale-vaudoise",
       "slugByLocale": {
-        "it": "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
-        "en": "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
-        "de": "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
-        "fr": "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+        "fr": "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
+        "it": "direttore-della-biblioteca-cantonale-e-universitaria-losanna-bcul-etat-de-vaud-administration-cantonale-vaudoise",
+        "en": "director-of-the-cantonal-and-university-library-lausanne-bcul-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "direktorin-der-kantons-und-universitatsbibliothek-lausanne-bcul-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -4192,7 +4220,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-05T11:43:25.866Z"
+      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+        ],
+        "en": [
+          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+        ],
+        "de": [
+          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+      ]
     }
   ]
 }
