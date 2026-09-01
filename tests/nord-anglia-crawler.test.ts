@@ -145,7 +145,9 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     expect(step.run).toContain('node scripts/update-nord-anglia-jobs.mjs');
     expect(step.run).toMatch(/crawler_exit=\$\?/);
     expect(step.run).toMatch(/if \[ "\$crawler_exit" -eq 0 \]; then\s+\(node scripts\/cleanup-jobs\.mjs\)/);
-    expect(step.run).toMatch(/if \[ "\$crawler_exit" -eq 0 \]; then\s+flock .*git-commit-data\.sh/);
+    expect(step.run).toMatch(
+      /if \[ "\$crawler_exit" -eq 0 \]; then\s+CRAWLER_GROUP_DEFER_COMMIT=1\s+flock .*git-commit-data\.sh/,
+    );
     expect(steps.slice(0, index).some((candidate: any) => candidate?.background === true)).toBe(true);
     expect(steps.slice(index + 1).some((candidate: any) => candidate?.background === true)).toBe(true);
     expect(steps.slice(index + 1).some((candidate: any) => candidate?.['wait-all'] === true)).toBe(true);
