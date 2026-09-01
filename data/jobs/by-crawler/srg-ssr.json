@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Praticanta / praticant"
+        "fr": "Pratique / Pratique"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -141,15 +141,6 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "pratique-pratique-srg-ssr-cuira"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 42640,
       "salaryMax": 61000,
@@ -169,7 +160,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -179,7 +170,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Service Operator",
+        "it": "Operatore di servizio",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -259,15 +250,6 @@
         "pensumMin": 80,
         "pensumMax": 80
       },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "operatore-di-servizio-srg-ssr-bern"
-        ]
-      },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
       "salaryMin": 71500,
       "salaryMax": 126500,
@@ -449,13 +431,11 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -548,18 +528,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -644,13 +620,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -855,11 +829,9 @@
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -870,7 +842,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "salarySource": "estimated"
     },
     {
       "id": "srg-ssr-77572fe4d695",
@@ -1315,13 +1288,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1330,7 +1301,6 @@
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1426,7 +1396,6 @@
         "org": "rsi",
         "orgLabel": "RSI"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
       "salaryMin": 51500,
       "salaryMax": 88000,

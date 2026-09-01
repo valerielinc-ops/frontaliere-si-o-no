@@ -17,7 +17,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software-Engineer 80–100 %",
+        "en": "Software Engineer 80-100%",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -34,7 +34,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:35.284Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -72,7 +71,6 @@
       "firstSeenAt": "2026-08-25T20:16:01.039Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -82,7 +80,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-4186cb192b04",
@@ -270,7 +269,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:33.812Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -308,7 +306,6 @@
       "firstSeenAt": "2026-08-18T09:46:24.423Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -318,7 +315,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-ff54e957aa41",
@@ -352,7 +350,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:33.322Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -406,7 +403,6 @@
       "firstSeenAt": "2026-07-22T22:11:01.072Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -416,7 +412,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-77b5af7a4ae0",
@@ -450,7 +447,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:32.831Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -488,7 +484,6 @@
       "firstSeenAt": "2026-08-18T09:46:23.561Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -498,7 +493,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-f3e387a7f60a",
@@ -532,7 +528,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:32.340Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -570,7 +565,6 @@
       "firstSeenAt": "2026-08-18T21:41:19.258Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -580,7 +574,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-1220cfbd005b",
@@ -614,7 +609,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:31.849Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -652,7 +646,6 @@
       "firstSeenAt": "2026-08-18T21:41:18.784Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -662,7 +655,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-bc3e6930a65a",
@@ -879,7 +873,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:30.375Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -915,7 +908,6 @@
       "firstSeenAt": "2026-07-23T22:07:23.364Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -925,7 +917,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-c86315bb4efb",
@@ -942,7 +935,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -997,7 +990,6 @@
       "firstSeenAt": "2026-08-06T11:37:32.667Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1007,7 +999,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-ef84e9748cd1",
@@ -1110,7 +1103,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:28.902Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1135,7 +1127,6 @@
       "firstSeenAt": "2026-07-04T09:59:59.787Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1145,7 +1136,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-0b494c346556",
@@ -1179,7 +1171,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:28.396Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1204,7 +1195,6 @@
       "firstSeenAt": "2026-08-13T21:49:40.729Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1214,7 +1204,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-179cbea5d6dc",
@@ -1471,7 +1462,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in 80-100%",
-        "en": "Applikations-Manager:in 80–100 %",
+        "en": "Application Manager: in 80-100%",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1526,7 +1517,6 @@
       "firstSeenAt": "2026-08-25T10:09:09.773Z",
       "salaryMin": 92000,
       "salaryMax": 156500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1536,7 +1526,8 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-c3450fe11f56",
@@ -1639,7 +1630,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T01:12:25.375Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1680,7 +1670,6 @@
       "firstSeenAt": "2026-07-04T09:59:56.081Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1690,7 +1679,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "abraxas-9abf9398ee81",
@@ -1996,7 +1986,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "crawlerMissStreak": 1
     },
@@ -2144,7 +2133,6 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "crawlerMissStreak": 1
     },
@@ -2163,7 +2151,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },

@@ -497,7 +497,6 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8058",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -631,24 +630,57 @@
         "principal-forward-deployed-engineer-german-speaking-microsoft-zurich",
         "hauptkonto-ausgerichtet-fde-data-scientist-deutsch-sprechend-microsoft-zurich",
         "principal-forward-deployed-engineer-data-scientist-german-speaking-microsoft-zurich",
-        "principal-account-allineato-fde-data-scientist-tedesco-parlare-microsoft-zurich"
+        "principal-account-allineato-fde-data-scientist-tedesco-parlare-microsoft-zurich",
+        "principal-account-aligned-fde-software-engineer-german-speaking-microsoft-zurich",
+        "principal-forward-deployed-engineer-software-engineer-german-speaking-microsoft-zurich",
+        "principal-account-aligned-fde-software-engineer-microsoft-switzerland",
+        "principal-forward-deployed-engineer-software-engineer-microsoft-switzerland",
+        "principal-account-aligned-fde-technical-program-manager-german-speaking-microsoft-zurich",
+        "principal-forward-deployed-engineer-technical-program-manager-german-speaking-microsoft",
+        "hauptkonto-ausgerichtet-fde-technischer-programmmanager-deutsch-sprechend-microsoft-zurich",
+        "compte-principal-aligne-fde-gestionnaire-de-programme-technique-allemand-microsoft-zurich",
+        "principal-account-aligned-fde-responsabile-del-programma-tecnico-microsoft-switzerland",
+        "principal-forward-deployed-engineer-technical-program-manager-microsoft-switzerland",
+        "hauptkonto-ausgerichtet-fde-technischer-programmmanager-microsoft-switzerland",
+        "compte-principal-aligne-fde-gestionnaire-de-programme-technique-microsoft-switzerland",
+        "principal-account-aligned-fde-technical-program-manager-microsoft-switzerland",
+        "principal-forward-deployed-ingegnere-technical-program-manager-german-speaking-microsoft-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "principal-account-aligned-fde-data-scientist-german-speaking-microsoft-zurich",
           "principal-forward-deployed-engineer-german-speaking-microsoft-zurich",
           "principal-forward-deployed-engineer-data-scientist-german-speaking-microsoft-zurich",
-          "principal-account-allineato-fde-data-scientist-tedesco-parlare-microsoft-zurich"
+          "principal-account-allineato-fde-data-scientist-tedesco-parlare-microsoft-zurich",
+          "principal-account-aligned-fde-software-engineer-german-speaking-microsoft-zurich",
+          "principal-forward-deployed-engineer-software-engineer-german-speaking-microsoft-zurich",
+          "principal-account-aligned-fde-software-engineer-microsoft-switzerland",
+          "principal-forward-deployed-engineer-software-engineer-microsoft-switzerland",
+          "principal-account-aligned-fde-technical-program-manager-german-speaking-microsoft-zurich",
+          "principal-forward-deployed-engineer-technical-program-manager-german-speaking-microsoft",
+          "hauptkonto-ausgerichtet-fde-technischer-programmmanager-deutsch-sprechend-microsoft-zurich",
+          "compte-principal-aligne-fde-gestionnaire-de-programme-technique-allemand-microsoft-zurich",
+          "principal-account-aligned-fde-responsabile-del-programma-tecnico-microsoft-switzerland",
+          "principal-forward-deployed-engineer-technical-program-manager-microsoft-switzerland",
+          "hauptkonto-ausgerichtet-fde-technischer-programmmanager-microsoft-switzerland",
+          "compte-principal-aligne-fde-gestionnaire-de-programme-technique-microsoft-switzerland",
+          "principal-account-aligned-fde-technical-program-manager-microsoft-switzerland",
+          "principal-forward-deployed-ingegnere-technical-program-manager-german-speaking-microsoft-zurich"
         ],
         "en": [
-          "principal-account-aligned-fde-data-scientist-german-speaking-microsoft-zurich"
+          "principal-account-aligned-fde-data-scientist-german-speaking-microsoft-zurich",
+          "principal-forward-deployed-engineer-software-engineer-german-speaking-microsoft-zurich",
+          "principal-forward-deployed-engineer-technical-program-manager-german-speaking-microsoft"
         ],
         "de": [
           "principal-account-aligned-fde-data-scientist-german-speaking-microsoft-zurich",
-          "hauptkonto-ausgerichtet-fde-data-scientist-deutsch-sprechend-microsoft-zurich"
+          "hauptkonto-ausgerichtet-fde-data-scientist-deutsch-sprechend-microsoft-zurich",
+          "hauptkonto-ausgerichtet-fde-technischer-programmmanager-deutsch-sprechend-microsoft-zurich"
         ],
         "fr": [
-          "principal-account-aligned-fde-data-scientist-german-speaking-microsoft-zurich"
+          "principal-account-aligned-fde-data-scientist-german-speaking-microsoft-zurich",
+          "principal-account-aligned-fde-software-engineer-german-speaking-microsoft-zurich",
+          "compte-principal-aligne-fde-gestionnaire-de-programme-technique-allemand-microsoft-zurich"
         ]
       },
       "firstSeenAt": "2026-07-17T22:07:55.971Z",
@@ -742,8 +774,7 @@
         }
       },
       "crawlerMissStreak": 2,
-      "salarySource": "reported",
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "id": "microsoft-200043483",
@@ -806,8 +837,7 @@
         }
       },
       "crawlerMissStreak": 2,
-      "salarySource": "reported",
-      "needsRetranslation": true
+      "salarySource": "reported"
     }
   ]
 }

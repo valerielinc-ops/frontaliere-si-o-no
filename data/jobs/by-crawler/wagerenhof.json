@@ -7,9 +7,9 @@
       "slug": "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster",
       "slugByLocale": {
         "it": "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster",
-        "en": "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster",
+        "en": "employee-technical-service-stiftung-wagerenhof-uster",
         "de": "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
-        "fr": "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
+        "fr": "service-technique-employe-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -53,28 +53,20 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-          "mitarbeiter-in-technischer-dienst-wagerenhof-uster"
+          "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster"
         ],
         "it": [
-          "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-          "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster"
+          "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster"
         ],
         "en": [
-          "employee-technical-service-stiftung-wagerenhof-uster",
           "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
         ],
         "fr": [
-          "service-technique-employe-stiftung-wagerenhof-uster",
           "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
         ]
       },
       "previousSlugs": [
         "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-        "employee-technical-service-stiftung-wagerenhof-uster",
-        "service-technique-employe-stiftung-wagerenhof-uster",
-        "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
-        "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster",
         "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
       ],
       "firstSeenAt": "2026-08-26T10:06:21.557Z",
@@ -142,13 +134,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-als-teamleitung-fur-den-standort-steg-im-tosstal-80-100",
-        "educatore-sociale-come-capo-team-per-il-sito-di-steg-nel-tosstal-80-100-stiftung-wagerenhof-bauma"
+        "sozialpadagogin-sozialpadagoge-als-teamleitung-fur-den-standort-steg-im-tosstal-80-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-als-teamleitung-fur-den-standort-steg-im-tosstal-80-100",
-          "educatore-sociale-come-capo-team-per-il-sito-di-steg-nel-tosstal-80-100-stiftung-wagerenhof-bauma"
+          "sozialpadagogin-sozialpadagoge-als-teamleitung-fur-den-standort-steg-im-tosstal-80-100"
         ]
       },
       "firstSeenAt": "2026-08-28T05:26:28.924Z",
@@ -343,20 +333,34 @@
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-544&cHash=b0621d763eca6fa19183259e3a65d94d",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-wascherei-und-naherei-100-wagerenhof-uster",
-        "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-wascherei-und-naherei-100-wagerenhof-uster",
-          "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster"
+          "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster",
+          "collaboratore-trice-in-ateliers-60-stiftung-wagerenhof-uster",
+          "mitarbeiter-in-ateliers-60-wagerenhof-uster",
+          "employees-in-studios-60-stiftung-wagerenhof-uster",
+          "employes-dans-les-studios-60-stiftung-wagerenhof-uster"
         ],
         "de": [
-          "mitarbeiterin-mitarbeiter-wascherei-und-naherei-100-wagerenhof-uster"
+          "mitarbeiterin-mitarbeiter-wascherei-und-naherei-100-wagerenhof-uster",
+          "mitarbeiter-in-ateliers-60-wagerenhof-uster"
+        ],
+        "en": [
+          "employees-in-studios-60-stiftung-wagerenhof-uster"
+        ],
+        "fr": [
+          "employes-dans-les-studios-60-stiftung-wagerenhof-uster"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:12:37.741Z",
+      "previousSlugs": [
+        "mitarbeiterin-mitarbeiter-wascherei-und-naherei-100-wagerenhof-uster",
+        "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster",
+        "collaboratore-trice-in-ateliers-60-stiftung-wagerenhof-uster",
+        "mitarbeiter-in-ateliers-60-wagerenhof-uster",
+        "employees-in-studios-60-stiftung-wagerenhof-uster",
+        "employes-dans-les-studios-60-stiftung-wagerenhof-uster"
+      ],
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -369,7 +373,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T17:12:37.741Z"
     }
   ]
 }

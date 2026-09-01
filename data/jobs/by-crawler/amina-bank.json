@@ -92,11 +92,9 @@
           "payments-strategy-business-development-amina-bank-zug"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:35:16.318Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -107,7 +105,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZG"
+      "addressRegion": "ZG",
+      "salarySource": "estimated"
     },
     {
       "id": "amina-bank-6dc97b03283f",
@@ -156,7 +155,6 @@
       "applyUrl": "https://amina.jobs.personio.com/job/2558847",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "salaryMin": 110500,
       "salaryMax": 169500,

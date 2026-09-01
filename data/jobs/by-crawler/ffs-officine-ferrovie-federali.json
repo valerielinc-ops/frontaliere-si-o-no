@@ -49,15 +49,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/anlagenmanager-in-produktionsstandorte/548be227-5b97-432a-b763-214afdbc4600",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:43:28.840Z",
-      "previousSlugs": [
-        "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:13:20.510Z",
+      "previousSlugs": [
+        "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten"
+      ],
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -72,7 +71,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-31T17:13:20.510Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3953b12ae0f3",
@@ -931,15 +932,18 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/automatiker-in-oder-elektroinstallateur-in-bahnstrom/eb4ddb7d-9b9b-4136-922a-0158910eb9e1",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:43:12.871Z",
-      "previousSlugs": [
-        "automatiker-in-oder-elektroinstallateur-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-oder-elektroinstallateur-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke"
+          "automatiker-in-oder-elektroinstallateur-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke",
+          "automatiker-in-oder-elektroinstallateur-in-als-fachspezialist-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke",
+          "tecnico-o-elettricista-di-automazione-come-specialista-nella-corrente-di-trazione-ffs-officine-ferrovie-federali-emmenbrucke"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:13:22.454Z",
+      "previousSlugs": [
+        "automatiker-in-oder-elektroinstallateur-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke",
+        "automatiker-in-oder-elektroinstallateur-in-als-fachspezialist-in-bahnstrom-ffs-officine-ferrovie-federali-emmenbrucke",
+        "tecnico-o-elettricista-di-automazione-come-specialista-nella-corrente-di-trazione-ffs-officine-ferrovie-federali-emmenbrucke"
+      ],
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -954,7 +958,9 @@
         }
       },
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-31T17:13:22.454Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a8f5575a57d7",
@@ -1017,15 +1023,14 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baueinkauf/4ee6c32c-fb9f-4dcb-82d7-f209391f3e0c",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:43:13.701Z",
-      "previousSlugs": [
-        "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:13:21.899Z",
+      "previousSlugs": [
+        "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1040,7 +1045,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-31T17:13:21.899Z",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -1298,15 +1305,21 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/fahrzeugdiagnostiker-in-schienenfahrzeuge/3864fd3f-e37a-48e4-841d-087ed2bc84b3",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:45:42.716Z",
-      "previousSlugs": [
-        "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne"
+          "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnostico-veicoli-in-veicoli-ferroviari-ffs-officine-ferrovie-federali-biel-bienne",
+          "vehicle-diagnostic-technicianin-rail-vehicles-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "en": [
+          "vehicle-diagnostic-technicianin-rail-vehicles-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:14:18.615Z",
+      "previousSlugs": [
+        "fahrzeugdiagnostiker-in-schienenfahrzeuge-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnostico-veicoli-in-veicoli-ferroviari-ffs-officine-ferrovie-federali-biel-bienne",
+        "vehicle-diagnostic-technicianin-rail-vehicles-ffs-officine-ferrovie-federali-biel-bienne"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1321,7 +1334,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-31T17:14:18.615Z"
     },
     {
       "id": "sbb-36192ad8dd81",
@@ -1383,15 +1397,37 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/diagnosticiene/36a8734e-be07-4755-9de9-ca8745812d9b",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:46:25.988Z",
-      "previousSlugs": [
-        "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne"
+          "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnostica-ffs-officine-ferrovie-federali-biel-bienne",
+          "diagnostiker-in-ffs-officine-ferrovie-federali-biel-bienne",
+          "intervento-del-responsabile-del-sito-ffs-officine-ferrovie-federali-biel-bienne",
+          "site-manager-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+          "standortleiter-in-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+          "intervention-des-chefs-de-site-ffs-officine-ferrovie-federali-biel-bienne",
+          "elettricista-ne-impianti-di-sicurezza-interni-sai-ffs-officine-ferrovie-federali-biel-bienne",
+          "electrician-indoor-security-installations-sai-ffs-officine-ferrovie-federali-biel-bienne",
+          "elektriker-in-innensicherheitsanlagen-nis-ffs-officine-ferrovie-federali-biel-bienne",
+          "electricien-ne-installations-de-securite-interieures-sai-ffs-officine-ferrovie-federali-biel-bienne"
+        ],
+        "de": [
+          "diagnostiker-in-ffs-officine-ferrovie-federali-biel-bienne"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:14:29.157Z",
+      "previousSlugs": [
+        "diagnosticien-e-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnostica-ffs-officine-ferrovie-federali-biel-bienne",
+        "diagnostiker-in-ffs-officine-ferrovie-federali-biel-bienne",
+        "intervento-del-responsabile-del-sito-ffs-officine-ferrovie-federali-biel-bienne",
+        "site-manager-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+        "standortleiter-in-intervention-ffs-officine-ferrovie-federali-biel-bienne",
+        "intervention-des-chefs-de-site-ffs-officine-ferrovie-federali-biel-bienne",
+        "elettricista-ne-impianti-di-sicurezza-interni-sai-ffs-officine-ferrovie-federali-biel-bienne",
+        "electrician-indoor-security-installations-sai-ffs-officine-ferrovie-federali-biel-bienne",
+        "elektriker-in-innensicherheitsanlagen-nis-ffs-officine-ferrovie-federali-biel-bienne",
+        "electricien-ne-installations-de-securite-interieures-sai-ffs-officine-ferrovie-federali-biel-bienne"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1406,7 +1442,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-31T17:14:29.157Z"
     },
     {
       "id": "sbb-9602863d2dd1",
@@ -1671,15 +1708,23 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ingenieure-genie-civil-ouvrages-geotechnique/4f238ae7-8bf8-4953-a003-0a75fc7000ae",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-01T00:46:32.507Z",
-      "previousSlugs": [
-        "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
+          "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
+          "ingegnere-civile-opere-geotecniche-ffs-officine-ferrovie-federali-berne",
+          "geotechnical-civil-engineering-engineer-ffs-officine-ferrovie-federali-berne",
+          "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
+        ],
+        "en": [
+          "geotechnical-civil-engineering-engineer-ffs-officine-ferrovie-federali-berne"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:14:25.550Z",
+      "previousSlugs": [
+        "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne",
+        "ingegnere-civile-opere-geotecniche-ffs-officine-ferrovie-federali-berne",
+        "geotechnical-civil-engineering-engineer-ffs-officine-ferrovie-federali-berne",
+        "tiefbauingenieurwesen-ffs-officine-ferrovie-federali-berne"
+      ],
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -1694,7 +1739,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-08-31T17:14:25.550Z"
     },
     {
       "id": "sbb-dee2748d2c89",
@@ -1870,7 +1916,8 @@
         }
       },
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-b119189d23d9",
@@ -1964,7 +2011,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-03293cfb2864",
@@ -2499,7 +2547,8 @@
         }
       },
       "addressRegion": "TG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9b5ff90b38c1",
@@ -2652,7 +2701,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-39b1a11e9670",
@@ -3381,7 +3431,8 @@
         }
       },
       "addressRegion": "SZ",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-6693efc31ae1",
@@ -3645,7 +3696,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-405c77fd8e51",
@@ -5173,7 +5225,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -6133,7 +6185,9 @@
         }
       },
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-8fce47db82e4",
@@ -6347,7 +6401,6 @@
           "finance-business-partner-programmes-d-extension-h-f-d-ffs-officine-ferrovie-federali-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T21:53:33.183Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -10649,7 +10702,9 @@
         }
       },
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-7ef97f9a4b99",
@@ -10727,7 +10782,9 @@
         }
       },
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-f817db5e03d9",
@@ -11095,7 +11152,9 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-c0dae318f179",
@@ -11270,7 +11329,9 @@
         }
       },
       "addressRegion": "BL",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "id": "sbb-cb132e80c76e",
@@ -11907,9 +11968,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11970,8 +12031,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -11981,12 +12040,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },

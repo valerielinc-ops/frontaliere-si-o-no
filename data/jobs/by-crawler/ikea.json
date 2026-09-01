@@ -205,13 +205,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch",
-        "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030-ikea-ch"
+        "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch",
-          "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2030-ikea-ch"
+          "apprenti-e-polydesigner-3d-cfc-01-08-2027-31-07-2031-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -278,14 +276,12 @@
       "previousSlugs": [
         "apprenticeship-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-focus-on-designing-shopping-experiences-ikea-pratteln-1",
         "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-pratteln-1",
-        "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von",
-        "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-dietlikon"
+        "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-pratteln-1",
-          "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von",
-          "apprendistato-impiegato-a-del-commercio-al-dettaglio-01-08-2027-31-07-2030-schwerpunkt-gestalten-von-einkaufserlebnissen-ikea-dietlikon"
+          "lehrstelle-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-schwerpunkt-gestalten-von"
         ],
         "en": [
           "apprenticeship-detailhandelsfachfrau-mann-01-08-2027-31-07-2030-focus-on-designing-shopping-experiences-ikea-pratteln-1"
@@ -378,15 +374,15 @@
           "polydesigner-en-3d-accent-sur-le-style-ikea-st-gallen-sankt-gallen-switzerland",
           "apprendistato-polydesigner-in-3d-cfc-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-dietlikon"
         ],
+        "fr": [
+          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+          "polydesigner-en-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-spreitenbach-aargau-switzerland"
+        ],
         "en": [
           "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
         ],
         "de": [
           "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch"
-        ],
-        "fr": [
-          "lehrstelle-polydesigner-in-3d-efz-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-          "polydesigner-en-3d-01-08-2027-31-07-2031-se-concentrer-sur-le-style-ikea-spreitenbach-aargau-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -396,7 +392,6 @@
       "firstSeenAt": "2026-08-02T22:16:40.126Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -406,7 +401,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ikea-b6120fc79276",
@@ -515,13 +511,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch",
-        "apprendistato-logistiker-in-cfc-specializzazione-magazzino-ikea-st-gallen"
+        "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch",
-          "apprendistato-logistiker-in-cfc-specializzazione-magazzino-ikea-st-gallen"
+          "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-ikea-ch"
@@ -664,8 +658,7 @@
         "mitabeiter-in-logistica-squadra-di-riempimento-50-ikea-st-gallen-sankt-gallen-switzerland",
         "mitabeiter-in-logistics-filling-team-50-ikea-st-gallen-sankt-gallen-switzerland",
         "mitabeiter-in-logistik-auffullteam-50-ikea-ch",
-        "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland",
-        "mitabeiter-in-logistica-50-ikea-st-gallen-sankt-gallen-switzerland"
+        "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -677,8 +670,7 @@
           "mitabeiter-in-logistica-squadra-di-riempimento-50-ikea-st-gallen-sankt-gallen-switzerland",
           "mitabeiter-in-logistics-filling-team-50-ikea-st-gallen-sankt-gallen-switzerland",
           "mitabeiter-in-logistik-auffullteam-50-ikea-ch",
-          "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland",
-          "mitabeiter-in-logistica-50-ikea-st-gallen-sankt-gallen-switzerland"
+          "mitabeiter-dans-l-equipe-de-remplissage-logistique-50-ikea-st-gallen-sankt-gallen-switzerland"
         ]
       },
       "needsRetranslation": true,
@@ -704,7 +696,7 @@
         "it": "addetto-a-alle-vendite-aufbewahrungs-e-beleuchtungsabteilung-30-60-ikea-spreitenbach",
         "en": "employees-in-sales-storage-and-lighting-department-30-60-ikea-spreitenbach",
         "de": "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-ch",
-        "fr": "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-spreitenbach"
+        "fr": "employes-dans-le-service-de-stockage-et-d-eclairage-des-ventes-30-60-ikea-spreitenbach"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -748,22 +740,18 @@
       "previousSlugs": [
         "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-ch",
         "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach",
-        "employes-dans-le-service-de-stockage-et-d-eclairage-des-ventes-30-60-ikea-spreitenbach",
-        "addetto-a-alle-vendite-aufbewahrungs-e-beleuchtungsabteilung-30-60-ikea-spreitenbach",
         "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-ch",
-          "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach",
-          "addetto-a-alle-vendite-aufbewahrungs-e-beleuchtungsabteilung-30-60-ikea-spreitenbach"
+          "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach"
         ],
         "de": [
           "mitarbeiter-in-verkauf-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-ch"
         ],
         "fr": [
           "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-30-60-ikea-spreitenbach",
-          "employes-dans-le-service-de-stockage-et-d-eclairage-des-ventes-30-60-ikea-spreitenbach",
           "collaborateur-trice-vente-aufbewahrungs-und-beleuchtungsabteilung-40-ikea-spreitenbach"
         ]
       },
@@ -832,13 +820,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch",
-        "collaboratore-trice-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-st-gallen"
+        "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch",
-          "collaboratore-trice-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-st-gallen"
+          "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-ikea-bistro-schwedenshop-20-50-befristet-bis-31-01-2027-ikea-ch"
@@ -912,13 +898,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-80-ikea-ch",
-        "addetto-a-alle-vendite-dekoration-lampen-heimtextilien-80-ikea-pratteln-1"
+        "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-80-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-80-ikea-ch",
-          "addetto-a-alle-vendite-dekoration-lampen-heimtextilien-80-ikea-pratteln-1"
+          "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-80-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-80-ikea-ch"
@@ -927,7 +911,6 @@
           "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-80-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:53:45.044Z",
       "salaryMin": 59200,
       "salaryMax": 90800,
@@ -992,13 +975,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch",
-        "addetto-a-alle-vendite-kuche-e-essplatzabteilung-80-100-ikea-lyssach"
+        "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch",
-          "addetto-a-alle-vendite-kuche-e-essplatzabteilung-80-100-ikea-lyssach"
+          "mitarbeiter-in-verkauf-kuche-und-essplatzabteilung-80-100-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1066,13 +1047,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027",
-        "addetto-a-alle-vendite-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027-ikea-pratteln-1"
+        "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027",
-          "addetto-a-alle-vendite-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027-ikea-pratteln-1"
+          "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027"
         ],
         "en": [
           "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027"
@@ -1081,7 +1060,6 @@
           "mitarbeiter-in-verkauf-dekoration-lampen-heimtextilien-40-befristet-bis-ende-januar-2027"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:53:45.042Z",
       "salaryMin": 29600,
       "salaryMax": 45400,
@@ -1111,10 +1089,10 @@
       "companyDomain": "ikea.ch",
       "title": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
       "titleByLocale": {
-        "it": "Apprendistato Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-        "en": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
         "de": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
-        "fr": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)"
+        "it": "Apprendistato Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling)",
+        "en": "Polydesigner: in 3D (01.08.2027-31.07.2031, focus on styling)",
+        "fr": "Polydesigner: en 3D (01.08.2027-31.07.2031, se concentrer sur le style)"
       },
       "description": "Lehrstelle Polydesigner:in 3D (01.08.2027-31.07.2031, Schwerpunkt Styling) — IKEA",
       "descriptionByLocale": {
@@ -1142,18 +1120,17 @@
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling/24107/98637316016",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
-        "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
           "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
         ]
       },
+      "previousSlugs": [
+        "lehrstelle-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-ch",
+        "apprendistato-polydesigner-in-3d-01-08-2027-31-07-2031-schwerpunkt-styling-ikea-spreitenbach"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T16:59:53.051Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1166,7 +1143,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T16:59:53.051Z"
     },
     {
       "id": "ikea-4d9ce38daba2",
@@ -1217,13 +1195,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-bistro-schwedenshop-80-100-ikea-ch",
-        "collaboratore-trice-ikea-bistro-schwedenshop-80-100-ikea-dietlikon"
+        "mitarbeiter-in-ikea-bistro-schwedenshop-80-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-80-100-ikea-ch",
-          "collaboratore-trice-ikea-bistro-schwedenshop-80-100-ikea-dietlikon"
+          "mitarbeiter-in-ikea-bistro-schwedenshop-80-100-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1295,8 +1271,7 @@
         "collaboratore-trice-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
         "associate-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
         "mitarbeiter-in-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-ch",
-        "collaborateur-trice-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
-        "collaboratore-trice-ikea-restaurant-kuche-40-60-befristet-bis-31-01-2027-ikea-pratteln-1"
+        "collaborateur-trice-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1304,8 +1279,7 @@
           "collaboratore-trice-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
           "associate-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
           "mitarbeiter-in-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-ch",
-          "collaborateur-trice-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
-          "collaboratore-trice-ikea-restaurant-kuche-40-60-befristet-bis-31-01-2027-ikea-pratteln-1"
+          "collaborateur-trice-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1"
         ],
         "en": [
           "associate-ikea-restaurant-kuche-30-80-befristet-bis-31-januar-2027-ikea-pratteln-1",
@@ -1381,13 +1355,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-visual-merchandising-activity-et-interieur-design-100-ikea-ch",
-        "collaboratore-tre-visual-merchandising-attivita-e-interior-design-100-ikea-riddes-valais-switzerland"
+        "collaborateur-trice-visual-merchandising-activity-et-interieur-design-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-visual-merchandising-activity-et-interieur-design-100-ikea-ch",
-          "collaboratore-tre-visual-merchandising-attivita-e-interior-design-100-ikea-riddes-valais-switzerland"
+          "collaborateur-trice-visual-merchandising-activity-et-interieur-design-100-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-visual-merchandising-activity-et-interieur-design-100-ikea-ch"
@@ -1459,13 +1431,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "construction-project-manager-ikea-ch",
-        "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland",
-        "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland"
+        "gestionnaire-de-projet-de-construction-ikea-spreitenbach-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "construction-project-manager-ikea-ch",
-          "responsabile-del-progetto-di-costruzione-ikea-spreitenbach-aargau-switzerland"
+          "construction-project-manager-ikea-ch"
         ],
         "de": [
           "construction-project-manager-ikea-ch"
@@ -1539,13 +1509,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-relations-clients-80-ikea-ch",
-        "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland"
+        "collaborateur-trice-relations-clients-80-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-relations-clients-80-ikea-ch",
-          "collaboratore-customer-relations-80-ikea-riddes-valais-switzerland"
+          "collaborateur-trice-relations-clients-80-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-relations-clients-80-ikea-ch"
@@ -1586,7 +1554,7 @@
         "it": "Risoluzioni Senior Generalist 80-100 %",
         "en": "Senior Resolutions Generalist 80-100 %",
         "de": "Senior Resolutions Generalist 80-100%",
-        "fr": "Senior Resolutions Generalist 80-100%"
+        "fr": "Résolutions seniors Généraliste 80-100 %"
       },
       "description": "Du bist verantwortlich für\n\nDu brennst für exzellenten Kundenservice – besonders dann, wenn etwas nicht wie geplant läuft? In unserem After-Sales Team sorgst du dafür, dass aus Reklamationen wieder zufriedene Kund:innen werden.\n\nDeine Rolle im After-Sales\nIn dieser Schlüsselposition bist du für die Bearbeitung von Reklamationen und Servicefällen nach dem Küchenverkauf verantwortlich. Wenn nach Lieferung, Montage oder Nutzung Fragen oder Probleme auftauchen, kommst du ins Spiel: Du analysierst die Situation, koordinierst die nächsten Schritte und stellst sicher, dass unsere Kund:innen eine faire, transparente und nachhaltige Lösung erhalten.\n\nDeine Aufgaben\n• Du unterstützt unsere Kundinnen und Kunden nach dem Kauf über verschiedene Kanäle wie Telefon, E-Mail und Chat und trägst so zu einem positiven Kundenerlebnis bei.\n• Du bearbeitest komplexe Reklamationen und Serviceanfragen rund um Lieferung, Montage, Qualität, Funktionalität und Serviceleistungen und findest passende, kundenorientierte Lösungen.\n• Du nutzt dein Fachwissen im Bereich Küchen und/oder Bauwesen, um Kundinnen und Kunden kompetent zu beraten und sie bei der Lösungsfindung zu unterstützen.\n• Du koordinierst alle beteiligten Partner wie Stores, Küchenschreiner, interne Fachabteilungen und Servicepartner, um eine effiziente und nachhaltige Fallbearbeitung sicherzustellen.\n• Du begegnest Kundinnen und Kunden mit Empathie, wendest Konfliktmanagement-Techniken an und trägst dazu bei, auch in anspruchsvollen Situationen positive Lösungen zu schaffen.\n• Du dokumentierst Fälle sorgfältig in unseren Systemen und bringst aktiv Ideen zur kontinuierlichen Verbesserung unserer Prozesse und der Kundenzufriedenheit ein.\n\nWer du bist\n\n• Du hast Erfahrung im Kundenservice, Reklamationsmanagement und/oder im Küchenverkauf.\n• Du arbeitest strukturiert, behältst auch in komplexen Situationen den Überblick und triffst fundierte Entscheidungen.\n• Ausgeprägte Kommunikationsstärke, Empathie und ein hohes Verantwortungsbewusstsein.\n• Freude daran, dich in komplexe Themen einzuarbeiten und nachhaltige Lösungen zu entwickeln.\n• Teamgeist sowie die Bereitschaft, Wissen, Erfahrungen und Ideen mit anderen zu teilen.\n• Motivation, die IKEA-Werte jeden Tag mit Leben zu füllen und zu einem positiven Kundenerlebnis beizutragen.\n• Du verfügst überfliessende Sprachkenntnisse in Italienisch oder Französisch und Deutsch. Weitere Sprachkenntnisse sind von Vorteil.\n\nAt IKEA it’s all about our customers, and in Customer Relations we build and retain long-lasting relationships with new and existing customers in a multichannel retail environment. We’re a diverse team that work together to ensure a positive and joyful experience for all IKEA visitors and customers: we set up services, gather feedback and make things right! Our modus operandi is to connect to people by listening to their personal needs and to create genuine interactions. We’re a bunch of people who are truly passionate about people!\n\nDenkst du, das würde passen?\n\nWir möchten, dass es unseren Mitarbeitenden gut geht.\n\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
       "descriptionByLocale": {
@@ -1618,13 +1586,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-resolutions-generalist-80-100-ikea-ch",
-        "risoluzioni-senior-generalist-80-100-ikea-spreitenbach"
+        "senior-resolutions-generalist-80-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-resolutions-generalist-80-100-ikea-ch",
-          "risoluzioni-senior-generalist-80-100-ikea-spreitenbach"
+          "senior-resolutions-generalist-80-100-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1692,13 +1658,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-service-clientele-60-ikea-ch",
-        "collaboratore-trice-servizio-clienti-60-ikea-aubonne"
+        "collaborateur-trice-service-clientele-60-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-service-clientele-60-ikea-ch",
-          "collaboratore-trice-servizio-clienti-60-ikea-aubonne"
+          "collaborateur-trice-service-clientele-60-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-08-20T09:46:17.122Z",
@@ -1766,13 +1730,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch",
-        "collaborateur-trice-vente-20-bis-ende-februar-2027-ikea-pratteln-1",
-        "addetto-a-alle-vendite-20-bis-ende-februar-2027-ikea-pratteln-1"
+        "collaborateur-trice-vente-20-bis-ende-februar-2027-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch",
-          "addetto-a-alle-vendite-20-bis-ende-februar-2027-ikea-pratteln-1"
+          "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-20-bis-ende-februar-2027-ikea-ch"
@@ -1782,7 +1744,6 @@
           "collaborateur-trice-vente-20-bis-ende-februar-2027-ikea-pratteln-1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:36:28.734Z",
       "salaryMin": 14800,
       "salaryMax": 22700,
@@ -1812,7 +1773,7 @@
       "companyDomain": "ikea.ch",
       "title": "Collaborateur*trice de Vente-80%",
       "titleByLocale": {
-        "it": "Collaborateur*trice de Vente-80%",
+        "it": "Cooperazione commerciale-80%",
         "en": "Sales co-operative-80%",
         "de": "Vertriebsgenossenschaft-80%",
         "fr": "Collaborateur*trice de Vente-80%"
@@ -1851,8 +1812,7 @@
         "collaborateur-trice-de-vente-60-ikea-vernier",
         "sales-associate-60-ikea-vernier-geneve-switzerland",
         "collaborateur-trice-de-vente-60-ikea-ch",
-        "vendite-associate-60-ikea-vernier-geneve-switzerland",
-        "cooperazione-commerciale-80-ikea-aubonne-vaud-switzerland"
+        "vendite-associate-60-ikea-vernier-geneve-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1860,8 +1820,7 @@
           "collaborateur-trice-de-vente-60-ikea-vernier",
           "sales-associate-60-ikea-vernier-geneve-switzerland",
           "collaborateur-trice-de-vente-60-ikea-ch",
-          "vendite-associate-60-ikea-vernier-geneve-switzerland",
-          "cooperazione-commerciale-80-ikea-aubonne-vaud-switzerland"
+          "vendite-associate-60-ikea-vernier-geneve-switzerland"
         ],
         "en": [
           "sales-associate-60-ikea-vernier-geneve-switzerland"
@@ -1870,7 +1829,6 @@
           "collaborateur-trice-de-vente-60-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:16:49.620Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -1936,14 +1894,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-trice-logistique-80-ikea-ch",
-        "collaborateur-trice-logistique-cfc-100-ikea-ch",
-        "collaboratore-logistico-80-ikea-aubonne-vaud-switzerland"
+        "collaborateur-trice-logistique-cfc-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-trice-logistique-80-ikea-ch",
-          "collaborateur-trice-logistique-cfc-100-ikea-ch",
-          "collaboratore-logistico-80-ikea-aubonne-vaud-switzerland"
+          "collaborateur-trice-logistique-cfc-100-ikea-ch"
         ],
         "en": [
           "collaborateur-trice-logistique-80-ikea-ch"
@@ -1952,7 +1908,6 @@
           "collaborateur-trice-logistique-80-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T21:50:31.111Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2017,13 +1972,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-mit-potential-im-verkauf-in-der-markthalle-80-100-ikea-ch",
-        "collaboratore-trice-con-potential-im-vendita-in-der-markthalle-80-100-ikea-pratteln-1"
+        "mitarbeiter-in-mit-potential-im-verkauf-in-der-markthalle-80-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-mit-potential-im-verkauf-in-der-markthalle-80-100-ikea-ch",
-          "collaboratore-trice-con-potential-im-vendita-in-der-markthalle-80-100-ikea-pratteln-1"
+          "mitarbeiter-in-mit-potential-im-verkauf-in-der-markthalle-80-100-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-mit-potential-im-verkauf-in-der-markthalle-80-100-ikea-ch"
@@ -2094,13 +2047,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-visual-merchandising-80-100-ikea-ch",
-        "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach"
+        "mitarbeiter-in-visual-merchandising-80-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-visual-merchandising-80-100-ikea-ch",
-          "collaboratore-trice-visual-merchandising-80-100-ikea-lyssach"
+          "mitarbeiter-in-visual-merchandising-80-100-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2168,13 +2119,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch",
-        "addetto-a-alle-vendite-schlafzimmerabteilung-40-ikea-dietlikon"
+        "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch",
-          "addetto-a-alle-vendite-schlafzimmerabteilung-40-ikea-dietlikon"
+          "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-40-ikea-ch"
@@ -2252,8 +2201,7 @@
         "addetto-a-alle-vendite-kuchenplanung-e-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1",
         "associate-sales-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1",
         "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch",
-        "collaborateur-trice-vente-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1",
-        "addetto-a-alle-vendite-teppiche-20-samstags-befristet-bis-28-02-2027-ikea-pratteln-1"
+        "collaborateur-trice-vente-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2261,8 +2209,7 @@
           "addetto-a-alle-vendite-kuchenplanung-e-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1",
           "associate-sales-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1",
           "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch",
-          "collaborateur-trice-vente-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1",
-          "addetto-a-alle-vendite-teppiche-20-samstags-befristet-bis-28-02-2027-ikea-pratteln-1"
+          "collaborateur-trice-vente-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
         ],
         "en": [
           "mitarbeiter-in-verkauf-teppiche-20-samstags-befristet-bis-28-02-2027-ikea-ch",
@@ -2276,7 +2223,6 @@
           "collaborateur-trice-vente-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:32:19.518Z",
       "salaryMin": 14800,
       "salaryMax": 22700,
@@ -2405,13 +2351,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
-        "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach"
+        "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch",
-          "addetto-a-alle-vendite-schlafzimmerabteilung-60-ikea-spreitenbach"
+          "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-60-ikea-ch"
@@ -2546,13 +2490,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
-        "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
+        "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100",
-          "collaboratore-trice-administration-per-haustechnik-e-instandhaltung-schwerpunkt-elektrik-100-ikea-pratteln-1"
+          "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
         ],
         "en": [
           "mitarbeiter-in-administration-fur-haustechnik-und-instandhaltung-schwerpunkt-elektrik-100"
@@ -2581,9 +2523,9 @@
       "id": "ikea-34a6142d79b4",
       "slug": "collaborateur-trice-logistique-40-ikea-riddes",
       "slugByLocale": {
-        "it": "collaborateur-trice-logistique-40-ikea-riddes",
-        "en": "collaborateur-trice-logistique-40-ikea-riddes",
-        "de": "collaborateur-trice-logistique-40-ikea-riddes",
+        "it": "collaboratore-logistico-40-ikea-riddes-valais-switzerland",
+        "en": "logistics-contributor-40-ikea-riddes-valais-switzerland",
+        "de": "logistikbeitrag-40-ikea-riddes-valais-switzerland",
         "fr": "collaborateur-trice-logistique-40-ikea-ch"
       },
       "company": "IKEA",
@@ -2626,21 +2568,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-logistique-40-ikea-ch",
-        "collaboratore-logistico-40-ikea-riddes-valais-switzerland",
-        "logistics-contributor-40-ikea-riddes-valais-switzerland",
-        "logistikbeitrag-40-ikea-riddes-valais-switzerland"
+        "collaborateur-trice-logistique-40-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-logistique-40-ikea-ch",
-          "collaboratore-logistico-40-ikea-riddes-valais-switzerland"
-        ],
-        "en": [
-          "logistics-contributor-40-ikea-riddes-valais-switzerland"
-        ],
-        "de": [
-          "logistikbeitrag-40-ikea-riddes-valais-switzerland"
+          "collaborateur-trice-logistique-40-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -2713,8 +2645,7 @@
         "gestione-servizi-di-checkout-80-100-ikea-st-gallen-sankt-gallen-switzerland",
         "checkout-services-manager-80-100-ikea-ch",
         "checkout-service-manager-80-100-ikea-st-gallen",
-        "gestionnaire-de-services-de-depart-80-100-ikea-st-gallen-sankt-gallen-switzerland",
-        "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland"
+        "gestionnaire-de-services-de-depart-80-100-ikea-st-gallen-sankt-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2722,8 +2653,7 @@
           "gestione-servizi-di-checkout-80-100-ikea-st-gallen-sankt-gallen-switzerland",
           "checkout-services-manager-80-100-ikea-ch",
           "checkout-service-manager-80-100-ikea-st-gallen",
-          "gestionnaire-de-services-de-depart-80-100-ikea-st-gallen-sankt-gallen-switzerland",
-          "gestione-della-struttura-ikea-st-gallen-sankt-gallen-switzerland"
+          "gestionnaire-de-services-de-depart-80-100-ikea-st-gallen-sankt-gallen-switzerland"
         ],
         "en": [
           "checkout-services-manager-80-100-ikea-ch"
@@ -2802,13 +2732,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-support-specialist-80-100-ikea-ch",
-        "technical-support-specialista-80-100-ikea-dietlikon"
+        "technical-support-specialist-80-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-support-specialist-80-100-ikea-ch",
-          "technical-support-specialista-80-100-ikea-dietlikon"
+          "technical-support-specialist-80-100-ikea-ch"
         ],
         "de": [
           "technical-support-specialist-80-100-ikea-ch"
@@ -2882,13 +2810,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-fulfilment-operations-specialist-ikea-ch",
-        "service-fulfilment-operations-specialista-ikea-spreitenbach"
+        "service-fulfilment-operations-specialist-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-fulfilment-operations-specialist-ikea-ch",
-          "service-fulfilment-operations-specialista-ikea-spreitenbach"
+          "service-fulfilment-operations-specialist-ikea-ch"
         ],
         "de": [
           "service-fulfilment-operations-specialist-ikea-ch"
@@ -2962,13 +2888,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch",
-        "collaboratore-trice-visuelle-kommunikation-werbetechnik-60-80-ikea-lyssach"
+        "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch",
-          "collaboratore-trice-visuelle-kommunikation-werbetechnik-60-80-ikea-lyssach"
+          "mitarbeiter-in-visuelle-kommunikation-werbetechnik-60-80-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3037,14 +2961,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch",
-        "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-ikea-ch",
-        "addetto-a-alle-vendite-kuchenplanung-e-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
+        "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-befristet-bis-28-02-2027-ikea-ch",
-          "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-ikea-ch",
-          "addetto-a-alle-vendite-kuchenplanung-e-essplatz-80-befristet-bis-28-02-2027-ikea-pratteln-1"
+          "mitarbeiter-in-verkauf-kuchenplanung-und-essplatz-80-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3112,13 +3034,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch",
-        "addetto-a-alle-vendite-schlafzimmerabteilung-100-ikea-lyssach"
+        "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch",
-          "addetto-a-alle-vendite-schlafzimmerabteilung-100-ikea-lyssach"
+          "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-schlafzimmerabteilung-100-ikea-ch"
@@ -3200,8 +3120,7 @@
         "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
         "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
         "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
-        "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
-        "addetto-a-alle-vendite-schlafzimmerabteilung-80-ikea-dietlikon"
+        "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3213,8 +3132,7 @@
           "addetto-a-alle-vendite-textilabteilung-50-ikea-spreitenbach",
           "associate-sales-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
           "mitarbeiter-in-verkauf-textilabteilung-50-ikea-ch",
-          "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland",
-          "addetto-a-alle-vendite-schlafzimmerabteilung-80-ikea-dietlikon"
+          "collaborateur-trice-vente-textilabteilung-50-ikea-spreitenbach-aargau-switzerland"
         ],
         "en": [
           "associate-sales-in-schlafzimmerabteilung-80-100-ikea-spreitenbach-aargau-switzerland",
@@ -3292,13 +3210,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-zweite-chance-markt-60-80-ikea-ch",
-        "collaboratore-trice-zweite-chance-markt-60-80-ikea-dietlikon"
+        "mitarbeiter-in-zweite-chance-markt-60-80-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-zweite-chance-markt-60-80-ikea-ch",
-          "collaboratore-trice-zweite-chance-markt-60-80-ikea-dietlikon"
+          "mitarbeiter-in-zweite-chance-markt-60-80-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-zweite-chance-markt-60-80-ikea-ch"
@@ -3372,13 +3288,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-30-ikea-ch",
-        "addetto-a-alle-vendite-teppiche-e-dekorationsabteilung-30-ikea-spreitenbach"
+        "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-30-ikea-ch",
-          "addetto-a-alle-vendite-teppiche-e-dekorationsabteilung-30-ikea-spreitenbach"
+          "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-30-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-30-ikea-ch"
@@ -3452,13 +3366,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-80-ikea-ch",
-        "addetto-a-alle-vendite-teppiche-e-dekorationsabteilung-80-ikea-spreitenbach"
+        "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-80-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-80-ikea-ch",
-          "addetto-a-alle-vendite-teppiche-e-dekorationsabteilung-80-ikea-spreitenbach"
+          "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-80-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-teppiche-und-dekorationsabteilung-80-ikea-ch"
@@ -3532,13 +3444,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
-        "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
+        "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch",
-          "addetto-a-alle-vendite-kuchen-e-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-pratteln-1"
+          "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-verkauf-kuchen-und-essplatzabteilung-20-befristet-bis-28-02-2027-ikea-ch"
@@ -3568,9 +3478,9 @@
       "slug": "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
       "slugByLocale": {
         "it": "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
-        "en": "associate-ikea-kuche-60-ikea-spreitenbach",
+        "en": "employee-ikea-restaurant-kitchen-60-ikea-spreitenbach",
         "de": "mitarbeiter-in-ikea-kuche-60-ikea-ch",
-        "fr": "collaborateur-trice-ikea-kuche-60-ikea-spreitenbach"
+        "fr": "employe-ikea-restaurant-cuisine-60-ikea-spreitenbach"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -3613,23 +3523,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-ikea-kuche-60-ikea-ch",
-        "employee-ikea-restaurant-kitchen-60-ikea-spreitenbach",
-        "employe-ikea-restaurant-cuisine-60-ikea-spreitenbach",
-        "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach",
         "associate-ikea-kuche-60-ikea-spreitenbach",
         "collaborateur-trice-ikea-kuche-60-ikea-spreitenbach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-kuche-60-ikea-ch",
-          "dipendente-ikea-ristorante-cucina-60-ikea-spreitenbach"
+          "mitarbeiter-in-ikea-kuche-60-ikea-ch"
         ],
         "en": [
-          "employee-ikea-restaurant-kitchen-60-ikea-spreitenbach",
           "associate-ikea-kuche-60-ikea-spreitenbach"
         ],
         "fr": [
-          "employe-ikea-restaurant-cuisine-60-ikea-spreitenbach",
           "collaborateur-trice-ikea-kuche-60-ikea-spreitenbach"
         ]
       },
@@ -3698,13 +3602,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
-        "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
+        "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
-          "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
+          "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch"
         ]
       },
       "needsRetranslation": true,
@@ -3836,13 +3738,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch",
-        "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach"
+        "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch",
-          "regionale-r-berufsbildungsverantwortliche-r-50-ikea-spreitenbach"
+          "regionale-r-berufsbildungsverantwortliche-r-50-ikea-ch"
         ]
       },
       "firstSeenAt": "2026-08-08T09:49:36.694Z",
@@ -4141,8 +4041,7 @@
         "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
         "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
         "associate-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-        "collaborateur-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-        "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
+        "collaborateur-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4156,8 +4055,7 @@
           "collaboratore-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
           "mitarbeiter-in-ikea-bistro-schwedenshop-samstags-30-ikea-ch",
           "associate-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-          "collaborateur-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1",
-          "dipendente-ikea-bistro-svezia-20-ikea-spreitenbach"
+          "collaborateur-trice-ikea-bistro-schwedenshop-samstags-30-ikea-pratteln-1"
         ],
         "en": [
           "associate-ikea-bistro-schwedenshop-80-100-ikea-dietlikon",
@@ -4240,19 +4138,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-teppiche-60-ikea-ch",
-        "addetto-a-alle-vendite-teppiche-60-80-ikea-dietlikon"
+        "mitarbeiter-in-verkauf-teppiche-60-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-verkauf-teppiche-60-ikea-ch",
-          "addetto-a-alle-vendite-teppiche-60-80-ikea-dietlikon"
+          "mitarbeiter-in-verkauf-teppiche-60-ikea-ch"
         ],
         "de": [
           "mitarbeiter-in-verkauf-teppiche-60-ikea-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:32:32.631Z",
       "salaryMin": 49800,
       "salaryMax": 76500,
@@ -4289,10 +4184,10 @@
       },
       "description": "Wer du bist\n\nWir sind auf der Suche nach Mitarbeitenden für den Bereich Zweite Chance Markt, welcher sich leidenschaftlich für den Verkauf und die Nachhaltigkeit einsetzt und das Ziel verfolgt, dass unsere Produkte, die leicht beschädigt oder in einer Ausstellung verwendet wurden, eine zweite Chance erhalten.\n\n• Du hast Erfahrung im Verkauf oder im Kundenservice und schätzt es sehr die Kundinnen und Kunden während ihrem Einkauf zu beraten.\n• Du arbeitest gut unter Zeitdruck, hast einen ausgeprägten Geschäftssinn und bist ergebnisorientiert.\n• Du trägst aktiv zur Nachhaltigkeit des Einrichtungshauses bei, indem du die besten Lösungen für die Wiederverwendung zurückgegebener oder ausgestellter Möbel ermittelst.\n• Du bist eine kommunikationsstarke, selbstständige Persönlichkeit die auch sehr gerne im Team arbeitet.\n• Du bist zielorientiert und hast viel Energie und Motivation sowie ein ausgeprägtes Kostenbewusstsein.\n• Du bist offen für Veränderungen und verfügst über ein hohes Mass an Flexibilität.\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut verständigen.\n\nDu bist verantwortlich für\n\n• Aktives Ansprechen unserer Kundinnen und Kunden, um ihre Bedürfnisse zu ermitteln und sie über die besten Lösungen zu beraten.\n• Zusammenarbeit mit dem Kundendienst bezüglich Rückgaben, um die beste Möglichkeit zu finden, zurückgegebene Produkte wiederzuverwenden oder ihre nachhaltige Nutzung sicherzustellen.\n• Zusammenbau von Ausstellungsmöbeln und Produktpräsentation mit einem starken kommerziellen Ausdruck, um den Verkauf zu fördern.\n• Minimierung der Kosten, die sich aus der internen Nutzung von IKEA-Produkten und Schäden ergeben.\n• Enge Zusammenarbeit mit anderen Abteilungen im Einrichtungshaus, um den Verkauf zu optimieren.\n• Schaffung eines aussergewöhnlichen IKEA-Einkaufserlebnisses und Gewährleistung der Kundenzufriedenheit.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\n Das waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
       "descriptionByLocale": {
-        "it": "Wer du bist\n\nWir sind auf der Suche nach Mitarbeitenden für den Bereich Zweite Chance Markt, welcher sich leidenschaftlich für den Verkauf und die Nachhaltigkeit einsetzt und das Ziel verfolgt, dass unsere Produkte, die leicht beschädigt oder in einer Ausstellung verwendet wurden, eine zweite Chance erhalten.\n\n• Du hast Erfahrung im Verkauf oder im Kundenservice und schätzt es sehr die Kundinnen und Kunden während ihrem Einkauf zu beraten.\n• Du arbeitest gut unter Zeitdruck, hast einen ausgeprägten Geschäftssinn und bist ergebnisorientiert.\n• Du trägst aktiv zur Nachhaltigkeit des Einrichtungshauses bei, indem du die besten Lösungen für die Wiederverwendung zurückgegebener oder ausgestellter Möbel ermittelst.\n• Du bist eine kommunikationsstarke, selbstständige Persönlichkeit die auch sehr gerne im Team arbeitet.\n• Du bist zielorientiert und hast viel Energie und Motivation sowie ein ausgeprägtes Kostenbewusstsein.\n• Du bist offen für Veränderungen und verfügst über ein hohes Mass an Flexibilität.\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut verständigen.\n\nDu bist verantwortlich für\n\n• Aktives Ansprechen unserer Kundinnen und Kunden, um ihre Bedürfnisse zu ermitteln und sie über die besten Lösungen zu beraten.\n• Zusammenarbeit mit dem Kundendienst bezüglich Rückgaben, um die beste Möglichkeit zu finden, zurückgegebene Produkte wiederzuverwenden oder ihre nachhaltige Nutzung sicherzustellen.\n• Zusammenbau von Ausstellungsmöbeln und Produktpräsentation mit einem starken kommerziellen Ausdruck, um den Verkauf zu fördern.\n• Minimierung der Kosten, die sich aus der internen Nutzung von IKEA-Produkten und Schäden ergeben.\n• Enge Zusammenarbeit mit anderen Abteilungen im Einrichtungshaus, um den Verkauf zu optimieren.\n• Schaffung eines aussergewöhnlichen IKEA-Einkaufserlebnisses und Gewährleistung der Kundenzufriedenheit.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "en": "Wer du bist\n\nWir sind auf der Suche nach Mitarbeitenden für den Bereich Zweite Chance Markt, welcher sich leidenschaftlich für den Verkauf und die Nachhaltigkeit einsetzt und das Ziel verfolgt, dass unsere Produkte, die leicht beschädigt oder in einer Ausstellung verwendet wurden, eine zweite Chance erhalten.\n\n• Du hast Erfahrung im Verkauf oder im Kundenservice und schätzt es sehr die Kundinnen und Kunden während ihrem Einkauf zu beraten.\n• Du arbeitest gut unter Zeitdruck, hast einen ausgeprägten Geschäftssinn und bist ergebnisorientiert.\n• Du trägst aktiv zur Nachhaltigkeit des Einrichtungshauses bei, indem du die besten Lösungen für die Wiederverwendung zurückgegebener oder ausgestellter Möbel ermittelst.\n• Du bist eine kommunikationsstarke, selbstständige Persönlichkeit die auch sehr gerne im Team arbeitet.\n• Du bist zielorientiert und hast viel Energie und Motivation sowie ein ausgeprägtes Kostenbewusstsein.\n• Du bist offen für Veränderungen und verfügst über ein hohes Mass an Flexibilität.\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut verständigen.\n\nDu bist verantwortlich für\n\n• Aktives Ansprechen unserer Kundinnen und Kunden, um ihre Bedürfnisse zu ermitteln und sie über die besten Lösungen zu beraten.\n• Zusammenarbeit mit dem Kundendienst bezüglich Rückgaben, um die beste Möglichkeit zu finden, zurückgegebene Produkte wiederzuverwenden oder ihre nachhaltige Nutzung sicherzustellen.\n• Zusammenbau von Ausstellungsmöbeln und Produktpräsentation mit einem starken kommerziellen Ausdruck, um den Verkauf zu fördern.\n• Minimierung der Kosten, die sich aus der internen Nutzung von IKEA-Produkten und Schäden ergeben.\n• Enge Zusammenarbeit mit anderen Abteilungen im Einrichtungshaus, um den Verkauf zu optimieren.\n• Schaffung eines aussergewöhnlichen IKEA-Einkaufserlebnisses und Gewährleistung der Kundenzufriedenheit.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
         "de": "Wer du bist\n\nWir sind auf der Suche nach Mitarbeitenden für den Bereich Zweite Chance Markt, welcher sich leidenschaftlich für den Verkauf und die Nachhaltigkeit einsetzt und das Ziel verfolgt, dass unsere Produkte, die leicht beschädigt oder in einer Ausstellung verwendet wurden, eine zweite Chance erhalten.\n\n• Du hast Erfahrung im Verkauf oder im Kundenservice und schätzt es sehr die Kundinnen und Kunden während ihrem Einkauf zu beraten.\n• Du arbeitest gut unter Zeitdruck, hast einen ausgeprägten Geschäftssinn und bist ergebnisorientiert.\n• Du trägst aktiv zur Nachhaltigkeit des Einrichtungshauses bei, indem du die besten Lösungen für die Wiederverwendung zurückgegebener oder ausgestellter Möbel ermittelst.\n• Du bist eine kommunikationsstarke, selbstständige Persönlichkeit die auch sehr gerne im Team arbeitet.\n• Du bist zielorientiert und hast viel Energie und Motivation sowie ein ausgeprägtes Kostenbewusstsein.\n• Du bist offen für Veränderungen und verfügst über ein hohes Mass an Flexibilität.\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut verständigen.\n\nDu bist verantwortlich für\n\n• Aktives Ansprechen unserer Kundinnen und Kunden, um ihre Bedürfnisse zu ermitteln und sie über die besten Lösungen zu beraten.\n• Zusammenarbeit mit dem Kundendienst bezüglich Rückgaben, um die beste Möglichkeit zu finden, zurückgegebene Produkte wiederzuverwenden oder ihre nachhaltige Nutzung sicherzustellen.\n• Zusammenbau von Ausstellungsmöbeln und Produktpräsentation mit einem starken kommerziellen Ausdruck, um den Verkauf zu fördern.\n• Minimierung der Kosten, die sich aus der internen Nutzung von IKEA-Produkten und Schäden ergeben.\n• Enge Zusammenarbeit mit anderen Abteilungen im Einrichtungshaus, um den Verkauf zu optimieren.\n• Schaffung eines aussergewöhnlichen IKEA-Einkaufserlebnisses und Gewährleistung der Kundenzufriedenheit.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich.",
-        "fr": "Wer du bist\n\nWir sind auf der Suche nach Mitarbeitenden für den Bereich Zweite Chance Markt, welcher sich leidenschaftlich für den Verkauf und die Nachhaltigkeit einsetzt und das Ziel verfolgt, dass unsere Produkte, die leicht beschädigt oder in einer Ausstellung verwendet wurden, eine zweite Chance erhalten.\n\n• Du hast Erfahrung im Verkauf oder im Kundenservice und schätzt es sehr die Kundinnen und Kunden während ihrem Einkauf zu beraten.\n• Du arbeitest gut unter Zeitdruck, hast einen ausgeprägten Geschäftssinn und bist ergebnisorientiert.\n• Du trägst aktiv zur Nachhaltigkeit des Einrichtungshauses bei, indem du die besten Lösungen für die Wiederverwendung zurückgegebener oder ausgestellter Möbel ermittelst.\n• Du bist eine kommunikationsstarke, selbstständige Persönlichkeit die auch sehr gerne im Team arbeitet.\n• Du bist zielorientiert und hast viel Energie und Motivation sowie ein ausgeprägtes Kostenbewusstsein.\n• Du bist offen für Veränderungen und verfügst über ein hohes Mass an Flexibilität.\n• Du sprichst fliessend Deutsch und kannst dich auch auf Englisch gut verständigen.\n\nDu bist verantwortlich für\n\n• Aktives Ansprechen unserer Kundinnen und Kunden, um ihre Bedürfnisse zu ermitteln und sie über die besten Lösungen zu beraten.\n• Zusammenarbeit mit dem Kundendienst bezüglich Rückgaben, um die beste Möglichkeit zu finden, zurückgegebene Produkte wiederzuverwenden oder ihre nachhaltige Nutzung sicherzustellen.\n• Zusammenbau von Ausstellungsmöbeln und Produktpräsentation mit einem starken kommerziellen Ausdruck, um den Verkauf zu fördern.\n• Minimierung der Kosten, die sich aus der internen Nutzung von IKEA-Produkten und Schäden ergeben.\n• Enge Zusammenarbeit mit anderen Abteilungen im Einrichtungshaus, um den Verkauf zu optimieren.\n• Schaffung eines aussergewöhnlichen IKEA-Einkaufserlebnisses und Gewährleistung der Kundenzufriedenheit.\n\nDenkst du, das würde passen?\n\nWir haben oben geschrieben, dass wir möchten, dass es unseren Mitarbeitenden gut geht.\nDazu gehört auch “danke” zu sagen!\n\nUnser Dankeschön:\n\n· 28 Ferientage (basierend auf einem 100%-Pensum)\n· 20 Wochen bezahlte Elternzeit für Mütter, 8 Wochen bezahlte Elternzeit für Väter.\n· Sehr attraktive Sozialleistungen\n· 15% Personalrabatt auf deinen Einkauf – und das in jedem IKEA Einrichtungshaus\n· Du kommst mit dem ÖV? Wir bezahlen zwischen 85% bis 100% des Jahresabonnements\n· Kostenfreie Parkmöglichkeiten\n· Unlimitierter Zugang zur LinkedIn-Learning-Plattform\n· Günstige und gesunde Mahlzeiten in der Kantine (CHF 4,50 für Fleisch- und CHF 3,50 für Vegi-Gerichte)\n· Bonuszahlungen für alle Mitarbeitenden\n\nBei IKEA gibt es viele unterschiedliche Möglichkeiten sich weiterzuentwickeln. Wir fördern und bestärken unsere Mitarbeitenden darin, verschiedene Aufgaben auszuprobieren, zwischen den Funktionen zu wechseln oder ins Ausland zu gehen. Bitte reiche deine komplette Bewerbung online ein und sei dir bewusst, dass wir Unterlagen per E-Mail oder über die Post nicht berücksichtigen können.\nDas wäre es von uns.\nDas waren jetzt sehr viele Infos. Wir würden uns freuen, mehr über dich zu erfahren. Klicke doch einfach auf «Jetzt bewerben» und los geht’s. Wir prüfen Bewerbungen laufend und stellen den Bewerbungsprozess ein, sobald wir die richtige Person gefunden haben. Bitte bewirb dich also so schnell wie möglich."
+        "it": "Chi sei\n\nSiamo alla ricerca di dipendenti nel Second Chance Market, che è appassionato di vendita e sostenibilità e mira a dare ai nostri prodotti che sono stati leggermente danneggiati o utilizzati in una mostra una seconda possibilità.\n\n• Hai esperienza nelle vendite o nel servizio clienti e apprezzi consigliare i clienti durante il loro acquisto.\n• Si lavora bene sotto pressione del tempo, hanno un forte acume aziendale e sono orientati ai risultati.\n• Contribuisci attivamente alla sostenibilità del negozio identificando le migliori soluzioni per il riutilizzo dei mobili restituiti o visualizzati.\n• Sei una comunicazione forte, personalità indipendente che ama lavorare anche in una squadra.\n• Siete orientati verso l'obiettivo e hanno un sacco di energia e motivazione, così come una marcata consapevolezza dei costi.\n• Sei aperto al cambiamento e hai un alto grado di flessibilità.\n• Si parla fluente tedesco e può anche comunicare bene in inglese.\n\nTu sei responsabile\n\n• Affrontare attivamente i nostri clienti per determinare le loro esigenze e consigliarli sulle migliori soluzioni.\n• Lavorare con il servizio clienti per quanto riguarda i ritorni per trovare il modo migliore per riutilizzare i prodotti restituiti o garantire il loro uso sostenibile.\n• Montaggio di mobili espositive e presentazione di prodotti con una forte espressione commerciale per promuovere le vendite.\n• Ridurre i costi derivanti dall'uso interno dei prodotti IKEA e danni.\n• Lavorare a stretto contatto con altri reparti del negozio per ottimizzare le vendite.\n• Creare un'esperienza di shopping IKEA eccezionale e garantire la soddisfazione del cliente.\n\nPensi che andrebbe bene?\n\nAbbiamo scritto sopra che vogliamo che i nostri dipendenti stiano bene.\nQuesto include dire “grazie”!\n\nIl nostro ringraziamento:\n\n· 28 giorni di vacanza (basato su un'indennità del 100%)\n· 20 settimane di congedo parentale pagato per le madri, 8 settimane di congedo parentale pagato per i padri.\n· Vantaggi sociali molto attraenti\n· 15% di sconto sul vostro acquisto – in ogni negozio IKEA\n· Viene con i mezzi pubblici? Paghiamo tra l'85% al 100% dell'abbonamento annuale\n· Parcheggio gratuito\n· Accesso illimitato alla piattaforma di apprendimento LinkedIn\nPasti economici e salutari nella mensa (CHF 4.50 per la carne e CHF 3.50 per i piatti vegi)\n· Bonus per tutti i dipendenti\n\nA IKEA, ci sono molti modi diversi per sviluppare. Incoraggiamo e incoraggiamo i nostri dipendenti a provare diversi compiti, a passare tra funzioni o andare all'estero. Si prega di inviare la vostra applicazione completa on-line ed essere consapevoli che non possiamo prendere in considerazione documenti via e-mail o posta.\nSiamo noi.\n Sono state molte informazioni. Ci piacerebbe sapere di più su di te. Basta cliccare su “Applica ora” e andare. Rivediamo le applicazioni su base continuativa e arrestiamo il processo di applicazione non appena troviamo la persona giusta. Si prega di applicare il prima possibile.",
+        "en": "Who you are\n\nWe are looking for employees in the Second Chance Market, which is passionate about sales and sustainability and aims to give our products that have been slightly damaged or used in an exhibition a second chance.\n\n• You have experience in sales or customer service and appreciate advising customers during their purchase.\n• You work well under time pressure, have a strong business acumen and are results-oriented.\n• You actively contribute to the sustainability of the store by identifying the best solutions for reusing returned or displayed furniture.\n• You are a strong communication, independent personality who also likes to work in a team.\n• You are goal-oriented and have a lot of energy and motivation as well as a pronounced cost awareness.\n• You are open to change and have a high degree of flexibility.\n• You speak fluent German and can also communicate well in English.\n\nYou are responsible for\n\n• Actively address our customers to determine their needs and advise them on the best solutions.\n• Working with customer service regarding returns to find the best way to reuse returned products or ensure their sustainable use.\n• Assembly of exhibition furniture and product presentation with a strong commercial expression to promote sales.\n• Minimize costs arising from internal use of IKEA products and damages.\n• Working closely with other departments in the store to optimize sales.\n• Creating an exceptional IKEA shopping experience and ensuring customer satisfaction.\n\nDo you think that would fit?\n\nWe wrote above that we want our employees to be well.\nThis includes saying “thank you”!\n\nOur thanks:\n\n· 28 holiday days (based on a 100% allowance)\n· 20 weeks paid parental leave for mothers, 8 weeks paid parental leave for fathers.\n· Very attractive social benefits\n· 15% discount on your purchase – in every IKEA store\n· Are you coming with the public transport? We pay between 85% to 100% of the annual subscription\n· Free parking\n· Unlimited access to the LinkedIn learning platform\nCheap and healthy meals in the canteen (CHF 4.50 for meat and CHF 3.50 for vegi dishes)\n· Bonus payments for all employees\n\nAt IKEA, there are many different ways to develop. We encourage and encourage our employees to try out different tasks, to switch between functions or to go abroad. Please submit your complete application online and be aware that we cannot consider documents by e-mail or post.\nThat would be it of us.\n That was a lot of info. We would love to know more about you. Just click on “Apply now” and go. We review applications on an ongoing basis and stop the application process as soon as we find the right person. Please apply as soon as possible.",
+        "fr": "Qui vous êtes\n\nNous recherchons des employés sur le Second Chance Market, qui est passionné par les ventes et la durabilité et vise à donner à nos produits légèrement endommagés ou utilisés dans une exposition une deuxième chance.\n\n• Vous avez de l'expérience dans les ventes ou le service à la clientèle et appréciez conseiller les clients pendant leur achat.\n• Vous travaillez bien sous la pression du temps, avez un fort sens des affaires et sont axés sur les résultats.\n• Vous contribuez activement à la durabilité du magasin en identifiant les meilleures solutions pour réutiliser les meubles retournés ou affichés.\n• Vous êtes une forte communication, une personnalité indépendante qui aime aussi travailler en équipe.\n• Vous êtes orienté vers l'objectif et avez beaucoup d'énergie et de motivation ainsi qu'une prise de conscience marquée des coûts.\n• Vous êtes ouvert au changement et avez un haut degré de flexibilité.\n• Vous parlez couramment allemand et pouvez également bien communiquer en anglais.\n\nVous êtes responsable\n\n• S'adresser activement à nos clients pour déterminer leurs besoins et les conseiller sur les meilleures solutions.\n• Travailler avec le service client en ce qui concerne les retours pour trouver le meilleur moyen de réutiliser les produits retournés ou assurer leur utilisation durable.\n• Assemblage de meubles d'exposition et présentation de produits avec une forte expression commerciale pour promouvoir les ventes.\n• Minimiser les coûts découlant de l'utilisation interne des produits IKEA et des dommages.\n• Travailler en étroite collaboration avec d'autres départements du magasin pour optimiser les ventes.\n• Créer une expérience d'achat IKEA exceptionnelle et assurer la satisfaction des clients.\n\nTu crois que ça irait ?\n\nNous avons écrit plus haut que nous voulons que nos employés soient bien.\nCela inclut dire merci!\n\nNous remercions :\n\n· 28 jours de congé (sur la base d'une allocation de 100 %)\n· 20 semaines de congé parental payé pour les mères, 8 semaines de congé parental payé pour les pères.\n· Prestations sociales très attractives\n· 15% de réduction sur votre achat – dans chaque magasin IKEA\n· Vous venez avec les transports publics? Nous payons entre 85% et 100% de l'abonnement annuel\n· Parking gratuit\n· Accès illimité à la plateforme d'apprentissage LinkedIn\nRepas pas chers et sains dans la cantine (CHF 4,50 pour la viande et CHF 3,50 pour les plats vegi)\n· Primes versées à tous les employés\n\nÀ IKEA, il existe de nombreuses façons de se développer. Nous encourageons et encourageons nos employés à essayer différentes tâches, à changer de fonction ou à partir à l'étranger. Veuillez soumettre votre candidature en ligne et être conscient que nous ne pouvons pas considérer les documents par courriel ou par la poste.\nCe serait à nous.\n C'était beaucoup d'infos. Nous aimerions en savoir plus sur vous. Il suffit de cliquer sur \"Appliquer maintenant\" et aller. Nous examinons les demandes de façon continue et arrêtons le processus de demande dès que nous trouvons la bonne personne. Veuillez postuler dès que possible."
       },
       "location": "Spreitenbach, Aargau",
       "canton": "AG",
@@ -4316,18 +4211,17 @@
       "applyUrl": "https://jobs.ikea.com/en/job/spreitenbach/mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100/24107/98751879392",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
-        "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
           "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland"
         ]
       },
+      "previousSlugs": [
+        "mitarbeiter-in-verkauf-und-mobelmontage-zweite-chance-markt-100-ikea-ch",
+        "addetto-a-alle-vendite-e-mobelmontage-zweite-chance-markt-100-ikea-spreitenbach-aargau-switzerland"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T16:59:53.011Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -4340,7 +4234,8 @@
           "maxValue": 113500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T16:59:53.011Z"
     },
     {
       "id": "ikea-34b97a34a341",
@@ -4469,13 +4364,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-ch",
-        "collaboratore-trice-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-spreitenbach"
+        "mitarbeiter-in-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-ch",
-          "collaboratore-trice-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-spreitenbach"
+          "mitarbeiter-in-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-ch"
         ],
         "en": [
           "mitarbeiter-in-ikea-restaurant-bistro-80-100-befristet-bis-31-12-2026-ikea-ch"

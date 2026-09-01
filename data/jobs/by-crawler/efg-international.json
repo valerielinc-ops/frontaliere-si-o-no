@@ -157,7 +157,6 @@
       "previousSlugs": [
         "risk-manager-efg-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -248,7 +247,6 @@
       "previousSlugs": [
         "finance-internship-efg-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -570,7 +568,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "firstSeenAt": "2026-07-20T22:01:00.554Z",
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -805,7 +802,6 @@
       "previousSlugs": [
         "governance-risk-oversight-manager-legal-compliance-efg-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -991,7 +987,6 @@
       "previousSlugs": [
         "receptionist-efg-zurich"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -1172,7 +1167,6 @@
         "pb-support-specialiste-americas-geneva-efg-international-ag-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -1268,7 +1262,6 @@
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -1292,7 +1285,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "General Services Employee",
+        "de": "Mitarbeiter für allgemeine Dienstleistungen",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -1324,7 +1317,7 @@
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "general-services-employee-efg-international-ag-geneve",
+        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -1357,17 +1350,14 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
-          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
-        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -1540,7 +1530,6 @@
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -2042,7 +2031,6 @@
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -2133,7 +2121,6 @@
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -2342,7 +2329,6 @@
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -2465,7 +2451,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Group Financial Controller",
+        "fr": "Contrôleur financier du groupe",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2638,7 +2624,6 @@
         "group-financial-controller-efg-geneve"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -2662,7 +2647,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Switchboard operator",
+        "it": "Operatore di commutazione",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -2692,9 +2677,9 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "switchboard-operator-efg-international-ag-lugano",
+        "it": "operatore-di-commutazione-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltstelle-operator-efg-international-ag-lugano",
+        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2720,24 +2705,17 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano",
-          "operatore-di-commutazione-efg-international-ag-lugano",
-          "switchboard-operator-efg-international-ag-lugano"
+          "switchboard-operator-efg-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
-          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
-        "operatore-di-commutazione-efg-international-ag-lugano",
-        "schaltnetzbetreiber-efg-international-ag-lugano",
-        "switchboard-operator-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -2833,7 +2811,6 @@
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -3027,7 +3004,6 @@
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -3535,7 +3511,6 @@
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -3853,7 +3828,6 @@
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
@@ -4023,7 +3997,6 @@
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated"
     },
     {
@@ -4278,8 +4251,7 @@
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported",
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "id": "efg-6203",
@@ -4301,7 +4273,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
+        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -4387,7 +4359,6 @@
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "needsRetranslation": true,
       "salarySource": "reported"
     },
     {
