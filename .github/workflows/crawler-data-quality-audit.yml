@@ -117,14 +117,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WINDOW_DAYS: ${{ inputs.window_days || '15' }}
+          OPEN_ISSUES_LIMIT: '100'
         run: |
           set -euo pipefail
           gh issue list --state open --label crawler-data-quality \
-            --json number,title,body,comments --limit 100 \
+            --json number,title,body,comments --limit "$OPEN_ISSUES_LIMIT" \
             > /tmp/crawler-data-quality-open-issues.json
           node scripts/ci/crawler-data-quality-candidates.mjs \
             --data-dir data/jobs/by-crawler \
             --open-issues /tmp/crawler-data-quality-open-issues.json \
+            --open-issues-limit "$OPEN_ISSUES_LIMIT" \
             --output /tmp/crawler-data-quality-candidates.json \
             --body-dir /tmp \
             --window-days "$WINDOW_DAYS" \

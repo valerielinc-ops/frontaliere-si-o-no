@@ -18,7 +18,9 @@ describe('weekly crawler data-quality audit issue transport (#6787)', () => {
     expect(source).toContain('Build bounded data-quality action packet');
     expect(source).toContain('scripts/ci/crawler-data-quality-candidates.mjs');
     expect(source).toContain('--open-issues /tmp/crawler-data-quality-open-issues.json');
-    expect(source).toContain('--json number,title,body,comments --limit 100');
+    expect(source).toContain("OPEN_ISSUES_LIMIT: '100'");
+    expect(source).toContain('--json number,title,body,comments --limit "$OPEN_ISSUES_LIMIT"');
+    expect(source).toContain('--open-issues-limit "$OPEN_ISSUES_LIMIT"');
     expect(source).toContain('Execute bounded issue actions');
     expect(source).toContain('--execute true');
     expect(source).toContain('--packet /tmp/crawler-data-quality-candidates.json');
