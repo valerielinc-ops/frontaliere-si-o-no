@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   JUMBO_KEY,
@@ -9,6 +11,12 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('JUMBO crawler parser', () => {
+  it('wires strict source-detail enrichment and stable-route preservation', () => {
+    const runner = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts/update-jumbo-jobs.mjs'), 'utf8');
+    expect(runner).toContain('enrichCoopSourceBackedJobs');
+    expect(runner).toContain("allowedHosts: ['jobs.coopjobs.ch']");
+    expect(runner).toContain('preserveExistingSlugs: true');
+  });
   // ── htmlToMarkdown ──
   describe('htmlToMarkdown', () => {
     it('preserves newlines between adjacent list items (regression: a \\s-based per-line trim glued lines together)', () => {
