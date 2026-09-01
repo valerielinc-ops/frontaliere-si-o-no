@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-sgm",
-  "assembledAt": "2026-09-01T10:13:31.450Z",
+  "assembledAt": "2026-09-01T14:15:09.954Z",
   "jobs": [
     {
       "id": "klinik-sgm-9c198ffbd837",
@@ -34,7 +34,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-langenthal/f734ebaf-0edb-42d8-b44c-df246ab82d28",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.574Z",
+      "crawledAt": "2026-09-01T14:15:05.349Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-abteilungsleitung/3630e31a-4f9b-441b-b916-df0ac70480fd",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.574Z",
+      "crawledAt": "2026-09-01T14:15:05.353Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-spiez/90e55a3d-9f88-4507-b26a-37c2df7174bf",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.573Z",
+      "crawledAt": "2026-09-01T14:15:05.348Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -260,7 +260,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "klinik-sgm-9961d84559c3",
@@ -294,7 +295,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-langenthal/5f5bc664-3c4c-42eb-8bfe-7baa2a800cee",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.573Z",
+      "crawledAt": "2026-09-01T14:15:05.348Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,7 +384,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-meggen/7a33b545-181f-4e8f-9520-31de21cd4f9d",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.568Z",
+      "crawledAt": "2026-09-01T14:15:05.337Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -470,7 +471,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/fachaerztin-facharzt-psychiatrie-ambulatorium-bern/03137b23-e561-4cd3-ba05-82342b625437",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.549Z",
+      "crawledAt": "2026-09-01T14:15:05.277Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -557,7 +558,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/oberaerztin-oberarzt-psychiatrie-ambulatorium-bern/d4f9e827-1338-454c-ba7e-f256249524bc",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.549Z",
+      "crawledAt": "2026-09-01T14:15:05.278Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -641,7 +642,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/ergotherapeutin-ergotherapeut-befristet/9ac1a12d-60af-4b8b-a26f-7440180f4f33",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.548Z",
+      "crawledAt": "2026-09-01T14:15:05.276Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -723,7 +724,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/pflegefachfrau-pflegefachmann-hf-fuer-den-nachtdienst/dc234cfe-15af-4801-89eb-54d10ff87613",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.548Z",
+      "crawledAt": "2026-09-01T14:15:05.277Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -785,7 +786,7 @@
       "title": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
       "titleByLocale": {
         "it": "Psicoterapeuta / Psicoterapeuta, Ambulatorium Spiez",
-        "en": "Psychotherapist / Psychotherapist, Ambulatorium Spiez",
+        "en": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
         "de": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
         "fr": "Psychothérapie / Psychothérapie, Ambulatoire Spiez"
       },
@@ -801,7 +802,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/psychotherapeutin-psychotherapeut-ambulatorium-spiez/50be073e-4d10-4c31-a624-159f478c9016",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.547Z",
+      "crawledAt": "2026-09-01T14:15:05.272Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -866,7 +867,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "klinik-sgm-16d1aaa38747",
@@ -883,7 +885,7 @@
       "title": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
       "titleByLocale": {
         "it": "Psicoterapeuta / Psicoterapeuta, Ambulatorium Spiez",
-        "en": "Psychotherapist / Psychotherapist, Ambulatorium Spiez",
+        "en": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
         "de": "Psychotherapeutin / Psychotherapeut, Ambulatorium Spiez",
         "fr": "Psychothérapie / Psychothérapie, Ambulatorium Spiez"
       },
@@ -899,7 +901,7 @@
       "url": "https://jobs.klinik-sgm.ch/offene-stellen/psychotherapeutin-psychotherapeut-ambulatorium-spiez/7bcae5c3-d28b-4242-959f-31281fc7d255",
       "source": "Klinik SGM Langenthal Dedicated Parser (Prospective medium 1002870)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:27.544Z",
+      "crawledAt": "2026-09-01T14:15:05.266Z",
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -948,7 +950,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
