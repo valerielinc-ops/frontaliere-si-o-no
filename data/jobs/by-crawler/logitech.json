@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-09-01T14:25:29.817Z",
+  "assembledAt": "2026-09-01T23:27:15.538Z",
   "jobs": [
     {
       "id": "logitech-318c1af909a7",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:25:27.082Z",
+      "crawledAt": "2026-09-01T23:27:12.280Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -111,7 +111,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:25:26.117Z",
+      "crawledAt": "2026-09-01T23:27:10.465Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -145,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -191,7 +192,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:25:25.121Z",
+      "crawledAt": "2026-09-01T23:27:09.551Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -228,6 +229,7 @@
         ]
       },
       "firstSeenAt": "2026-06-02T13:52:52.987Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -242,6 +244,71 @@
         }
       },
       "addressRegion": "VD"
+    },
+    {
+      "id": "logitech-c190e7c48090",
+      "slug": "audio-machine-learning-data-engineer-logitech-ch",
+      "slugByLocale": {
+        "en": "audio-machine-learning-data-engineer-logitech-ch",
+        "it": "audio-machine-learning-data-engineer-logitech-ch",
+        "de": "audio-machine-learning-data-engineer-logitech-ch",
+        "fr": "audio-machine-learning-data-engineer-logitech-ch"
+      },
+      "company": "Logitech",
+      "companyKey": "logitech",
+      "companyDomain": "logitech.com",
+      "title": "Audio Machine Learning Data Engineer",
+      "titleByLocale": {
+        "en": "Audio Machine Learning Data Engineer",
+        "it": "Audio Machine Learning Data Ingegnere",
+        "de": "Audio Machine Learning Data Ingenieur",
+        "fr": "Audio Machine Learning Data Ingénieur"
+      },
+      "description": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe Role and Team:\nAs an Audio Machine Learning Data Engineer on the Logitech Hardware Audio Machine Learning and DSP Product team, you will work on developing and managing our audio datasets and data pipelines. This work directly influences the innovative audio experiences we deliver to our customers.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\n• Data Pipeline Management: Ensuring the integrity and quality of Audio Machine Learning data pipelines and datasets, which involves robust data augmentation and managing workflows for supervised, unsupervised, and semi-supervised Machine Learning audio applications.\n\n• Model Development and Deployment: Collaborating with the team to develop and deploy Audio Machine Learning models, specifically targeting platforms with strict resource limitations (such as Tensilica DSP, ARM, and RISC-V).\n\n• Design and manage audio data collection, curation, labeling, cleaning and augmentation pipelines\n\n• Evaluate and implement scalable data augmentation techniques.\n\n• Establish and maintain high-quality, well-versioned, and documented datasets essential for training, validation, and benchmarking of audio Machine Learning models.\n\n• Build automated tools for monitoring and ensuring the quality and statistical diversity of audio data.\n\n• Formulate and execute strategies for continuous improvement of existing datasets.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Audio Data Expertise: A minimum of 3 years of direct experience working with extensive audio datasets, including advanced data augmentation and preprocessing techniques audio Machine Learning.\n\n• Python Proficiency: Strong proficiency in Python for both Machine Learning model development and automating data pipelines.\n\n• Data Pipelines and Machine Learning Frameworks: Proven expertise in building scalable data pipelines and expertise in employing Machine Learning frameworks (TensorFlow, Keras) with large-scale, complex datasets\n\nPreferred Qualifications:\n\n• Expert-level skills in audio analysis, including listening and artifact detection, with a proven track record of validating performance across diverse datasets.\n\n• Strong familiarity with designing, executing, and statistically analyzing audio quality measurement protocols, specializing in managing data-driven objective and subjective evaluations.\n\n• A strong data-first mindset, with a demonstrated ability to drive innovation both independently and as part of a team.\n\n• Proficiency in C and SQL, along with experience using code version control systems (Git), is a valuable asset.\n\n• Excellent cross-functional communication, documentation, and leadership skills, emphasizing transparency in data and results.\n\nEducation:\n\n• Bachelor’s or Master’s degree in Electrical Engineering, Computer Science, or a related discipline.\n\n• Equivalent practical experience in professional audio Machine Learning and data engineering considered; advanced/relevant continuing education preferred.\n\n#LI-RD1\nAcross Logitech we empower collaboration and foster play. We help teams collaborate/learn from anywhere, without compromising on productivity or continuity so it should be no surprise that most of our jobs are open to work from home from most locations. Our hybrid work model allows some employees to work remotely while others work on-premises. Within this structure, you may have teams or departments split between working remotely and working in-house.\n\nLogitech is an amazing place to work because it is full of authentic people who are inclusive by nature as well as by design. Being a glo",
+      "descriptionByLocale": {
+        "en": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe Role and Team:\nAs an Audio Machine Learning Data Engineer on the Logitech Hardware Audio Machine Learning and DSP Product team, you will work on developing and managing our audio datasets and data pipelines. This work directly influences the innovative audio experiences we deliver to our customers.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\n• Data Pipeline Management: Ensuring the integrity and quality of Audio Machine Learning data pipelines and datasets, which involves robust data augmentation and managing workflows for supervised, unsupervised, and semi-supervised Machine Learning audio applications.\n\n• Model Development and Deployment: Collaborating with the team to develop and deploy Audio Machine Learning models, specifically targeting platforms with strict resource limitations (such as Tensilica DSP, ARM, and RISC-V).\n\n• Design and manage audio data collection, curation, labeling, cleaning and augmentation pipelines\n\n• Evaluate and implement scalable data augmentation techniques.\n\n• Establish and maintain high-quality, well-versioned, and documented datasets essential for training, validation, and benchmarking of audio Machine Learning models.\n\n• Build automated tools for monitoring and ensuring the quality and statistical diversity of audio data.\n\n• Formulate and execute strategies for continuous improvement of existing datasets.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Audio Data Expertise: A minimum of 3 years of direct experience working with extensive audio datasets, including advanced data augmentation and preprocessing techniques audio Machine Learning.\n\n• Python Proficiency: Strong proficiency in Python for both Machine Learning model development and automating data pipelines.\n\n• Data Pipelines and Machine Learning Frameworks: Proven expertise in building scalable data pipelines and expertise in employing Machine Learning frameworks (TensorFlow, Keras) with large-scale, complex datasets\n\nPreferred Qualifications:\n\n• Expert-level skills in audio analysis, including listening and artifact detection, with a proven track record of validating performance across diverse datasets.\n\n• Strong familiarity with designing, executing, and statistically analyzing audio quality measurement protocols, specializing in managing data-driven objective and subjective evaluations.\n\n• A strong data-first mindset, with a demonstrated ability to drive innovation both independently and as part of a team.\n\n• Proficiency in C and SQL, along with experience using code version control systems (Git), is a valuable asset.\n\n• Excellent cross-functional communication, documentation, and leadership skills, emphasizing transparency in data and results.\n\nEducation:\n\n• Bachelor’s or Master’s degree in Electrical Engineering, Computer Science, or a related discipline.\n\n• Equivalent practical experience in professional audio Machine Learning and data engineering considered; advanced/relevant continuing education preferred.\n\n#LI-RD1\nAcross Logitech we empower collaboration and foster play. We help teams collaborate/learn from anywhere, without compromising on productivity or continuity so it should be no surprise that most of our jobs are open to work from home from most locations. Our hybrid work model allows some employees to work remotely while others work on-premises. Within this structure, you may have teams or departments split between working remotely and working in-house.\n\nLogitech is an amazing place to work because it is full of authentic people who are inclusive by nature as well as by design. Being a glo",
+        "it": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe Role and Team:\nAs an Audio Machine Learning Data Engineer on the Logitech Hardware Audio Machine Learning and DSP Product team, you will work on developing and managing our audio datasets and data pipelines. This work directly influences the innovative audio experiences we deliver to our customers.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\n• Data Pipeline Management: Ensuring the integrity and quality of Audio Machine Learning data pipelines and datasets, which involves robust data augmentation and managing workflows for supervised, unsupervised, and semi-supervised Machine Learning audio applications.\n\n• Model Development and Deployment: Collaborating with the team to develop and deploy Audio Machine Learning models, specifically targeting platforms with strict resource limitations (such as Tensilica DSP, ARM, and RISC-V).\n\n• Design and manage audio data collection, curation, labeling, cleaning and augmentation pipelines\n\n• Evaluate and implement scalable data augmentation techniques.\n\n• Establish and maintain high-quality, well-versioned, and documented datasets essential for training, validation, and benchmarking of audio Machine Learning models.\n\n• Build automated tools for monitoring and ensuring the quality and statistical diversity of audio data.\n\n• Formulate and execute strategies for continuous improvement of existing datasets.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Audio Data Expertise: A minimum of 3 years of direct experience working with extensive audio datasets, including advanced data augmentation and preprocessing techniques audio Machine Learning.\n\n• Python Proficiency: Strong proficiency in Python for both Machine Learning model development and automating data pipelines.\n\n• Data Pipelines and Machine Learning Frameworks: Proven expertise in building scalable data pipelines and expertise in employing Machine Learning frameworks (TensorFlow, Keras) with large-scale, complex datasets\n\nPreferred Qualifications:\n\n• Expert-level skills in audio analysis, including listening and artifact detection, with a proven track record of validating performance across diverse datasets.\n\n• Strong familiarity with designing, executing, and statistically analyzing audio quality measurement protocols, specializing in managing data-driven objective and subjective evaluations.\n\n• A strong data-first mindset, with a demonstrated ability to drive innovation both independently and as part of a team.\n\n• Proficiency in C and SQL, along with experience using code version control systems (Git), is a valuable asset.\n\n• Excellent cross-functional communication, documentation, and leadership skills, emphasizing transparency in data and results.\n\nEducation:\n\n• Bachelor’s or Master’s degree in Electrical Engineering, Computer Science, or a related discipline.\n\n• Equivalent practical experience in professional audio Machine Learning and data engineering considered; advanced/relevant continuing education preferred.\n\n#LI-RD1\nAcross Logitech we empower collaboration and foster play. We help teams collaborate/learn from anywhere, without compromising on productivity or continuity so it should be no surprise that most of our jobs are open to work from home from most locations. Our hybrid work model allows some employees to work remotely while others work on-premises. Within this structure, you may have teams or departments split between working remotely and working in-house.\n\nLogitech is an amazing place to work because it is full of authentic people who are inclusive by nature as well as by design. Being a glo",
+        "de": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe Role and Team:\nAs an Audio Machine Learning Data Engineer on the Logitech Hardware Audio Machine Learning and DSP Product team, you will work on developing and managing our audio datasets and data pipelines. This work directly influences the innovative audio experiences we deliver to our customers.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\n• Data Pipeline Management: Ensuring the integrity and quality of Audio Machine Learning data pipelines and datasets, which involves robust data augmentation and managing workflows for supervised, unsupervised, and semi-supervised Machine Learning audio applications.\n\n• Model Development and Deployment: Collaborating with the team to develop and deploy Audio Machine Learning models, specifically targeting platforms with strict resource limitations (such as Tensilica DSP, ARM, and RISC-V).\n\n• Design and manage audio data collection, curation, labeling, cleaning and augmentation pipelines\n\n• Evaluate and implement scalable data augmentation techniques.\n\n• Establish and maintain high-quality, well-versioned, and documented datasets essential for training, validation, and benchmarking of audio Machine Learning models.\n\n• Build automated tools for monitoring and ensuring the quality and statistical diversity of audio data.\n\n• Formulate and execute strategies for continuous improvement of existing datasets.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Audio Data Expertise: A minimum of 3 years of direct experience working with extensive audio datasets, including advanced data augmentation and preprocessing techniques audio Machine Learning.\n\n• Python Proficiency: Strong proficiency in Python for both Machine Learning model development and automating data pipelines.\n\n• Data Pipelines and Machine Learning Frameworks: Proven expertise in building scalable data pipelines and expertise in employing Machine Learning frameworks (TensorFlow, Keras) with large-scale, complex datasets\n\nPreferred Qualifications:\n\n• Expert-level skills in audio analysis, including listening and artifact detection, with a proven track record of validating performance across diverse datasets.\n\n• Strong familiarity with designing, executing, and statistically analyzing audio quality measurement protocols, specializing in managing data-driven objective and subjective evaluations.\n\n• A strong data-first mindset, with a demonstrated ability to drive innovation both independently and as part of a team.\n\n• Proficiency in C and SQL, along with experience using code version control systems (Git), is a valuable asset.\n\n• Excellent cross-functional communication, documentation, and leadership skills, emphasizing transparency in data and results.\n\nEducation:\n\n• Bachelor’s or Master’s degree in Electrical Engineering, Computer Science, or a related discipline.\n\n• Equivalent practical experience in professional audio Machine Learning and data engineering considered; advanced/relevant continuing education preferred.\n\n#LI-RD1\nAcross Logitech we empower collaboration and foster play. We help teams collaborate/learn from anywhere, without compromising on productivity or continuity so it should be no surprise that most of our jobs are open to work from home from most locations. Our hybrid work model allows some employees to work remotely while others work on-premises. Within this structure, you may have teams or departments split between working remotely and working in-house.\n\nLogitech is an amazing place to work because it is full of authentic people who are inclusive by nature as well as by design. Being a glo",
+        "fr": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nThe Role and Team:\nAs an Audio Machine Learning Data Engineer on the Logitech Hardware Audio Machine Learning and DSP Product team, you will work on developing and managing our audio datasets and data pipelines. This work directly influences the innovative audio experiences we deliver to our customers.\n\nYour Contribution:\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and just Do. Share our passion for Equality and the Environment. These are the behaviors and values you’ll need for success at Logitech. In this role you will:\n\n• Data Pipeline Management: Ensuring the integrity and quality of Audio Machine Learning data pipelines and datasets, which involves robust data augmentation and managing workflows for supervised, unsupervised, and semi-supervised Machine Learning audio applications.\n\n• Model Development and Deployment: Collaborating with the team to develop and deploy Audio Machine Learning models, specifically targeting platforms with strict resource limitations (such as Tensilica DSP, ARM, and RISC-V).\n\n• Design and manage audio data collection, curation, labeling, cleaning and augmentation pipelines\n\n• Evaluate and implement scalable data augmentation techniques.\n\n• Establish and maintain high-quality, well-versioned, and documented datasets essential for training, validation, and benchmarking of audio Machine Learning models.\n\n• Build automated tools for monitoring and ensuring the quality and statistical diversity of audio data.\n\n• Formulate and execute strategies for continuous improvement of existing datasets.\n\nKey Qualifications:\nFor consideration, you must bring the following minimum skills and experiences to our team:\n\n• Audio Data Expertise: A minimum of 3 years of direct experience working with extensive audio datasets, including advanced data augmentation and preprocessing techniques audio Machine Learning.\n\n• Python Proficiency: Strong proficiency in Python for both Machine Learning model development and automating data pipelines.\n\n• Data Pipelines and Machine Learning Frameworks: Proven expertise in building scalable data pipelines and expertise in employing Machine Learning frameworks (TensorFlow, Keras) with large-scale, complex datasets\n\nPreferred Qualifications:\n\n• Expert-level skills in audio analysis, including listening and artifact detection, with a proven track record of validating performance across diverse datasets.\n\n• Strong familiarity with designing, executing, and statistically analyzing audio quality measurement protocols, specializing in managing data-driven objective and subjective evaluations.\n\n• A strong data-first mindset, with a demonstrated ability to drive innovation both independently and as part of a team.\n\n• Proficiency in C and SQL, along with experience using code version control systems (Git), is a valuable asset.\n\n• Excellent cross-functional communication, documentation, and leadership skills, emphasizing transparency in data and results.\n\nEducation:\n\n• Bachelor’s or Master’s degree in Electrical Engineering, Computer Science, or a related discipline.\n\n• Equivalent practical experience in professional audio Machine Learning and data engineering considered; advanced/relevant continuing education preferred.\n\n#LI-RD1\nAcross Logitech we empower collaboration and foster play. We help teams collaborate/learn from anywhere, without compromising on productivity or continuity so it should be no surprise that most of our jobs are open to work from home from most locations. Our hybrid work model allows some employees to work remotely while others work on-premises. Within this structure, you may have teams or departments split between working remotely and working in-house.\n\nLogitech is an amazing place to work because it is full of authentic people who are inclusive by nature as well as by design. Being a glo"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
+      "source": "Logitech Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-01T23:27:08.641Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Hardware Consumer",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-01T23:27:08.641Z"
     }
   ]
 }
