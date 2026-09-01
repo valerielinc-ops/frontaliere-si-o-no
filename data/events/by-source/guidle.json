@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-08-31T12:08:52.139Z",
+  "assembledAt": "2026-09-01T10:52:48.106Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -15288,48 +15288,6 @@
       "imageUrl": "/images/events/guidle-Aj2gf4s.webp"
     },
     {
-      "id": "guidle:AZBWExh",
-      "title": "Summer-Festival: Münchner Philharmoniker",
-      "titleByLocale": {
-        "it": "Summer-Festival: Münchner Philharmoniker",
-        "en": "Summer-Festival: Munich Philharmonic",
-        "de": "Summer-Festival: Münchner Philharmoniker",
-        "fr": "Summer-Festival: Münchner Philharmoniker"
-      },
-      "description": "Münchner Philharmoniker | Lahav Shani | Martha Argerich | Adams | Beethoven | Brahms",
-      "descriptionByLocale": {
-        "it": "Münchner Philharmoniker | Lahav Shani | Martha Argerich | Adams | Beethoven | Brahms",
-        "en": "Munich Philharmonic | Lahav Shani | Martha Argerich | Adams | Beethoven | Brahms",
-        "de": "Münchner Philharmoniker | Lahav Shani | Martha Argerich | Adams | Beethoven | Brahms",
-        "fr": "Münchner Philharmoniker | Lahav Shani | Martha Argerich | Adams | Beethoven | Brahms"
-      },
-      "startDate": "2026-08-31",
-      "endDate": "2026-08-31",
-      "startTime": "19:30",
-      "category": "Musica per piano / organo",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/summer-festival-muenchner-philharmoniker_AZBWExh",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AZBWExh.webp"
-    },
-    {
       "id": "guidle:Aq7DXrC",
       "title": "Summer-Festival: Debut Jonas Müller",
       "titleByLocale": {
@@ -27175,6 +27133,649 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-ANC4v57.webp"
+    },
+    {
+      "id": "guidle:AJSK9wB",
+      "title": "Der Nussknacker - International Ballet Company Italia",
+      "titleByLocale": {
+        "it": "Der Nussknacker - International Ballet Company Italia",
+        "en": "Der Nussknacker - International Ballet Company Italy",
+        "de": "Der Nussknacker – Internationale Ballettkompanie Italia",
+        "fr": "Der Nussknacker - Compagnie internationale de ballet d’Italie"
+      },
+      "description": "Ballett in zwei Akten",
+      "descriptionByLocale": {
+        "it": "Ballett in zwei Akten",
+        "en": "Akten zwei ballet",
+        "de": "Ballettspiele in z.",
+        "fr": "Ballett en zwei Akten"
+      },
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "startTime": "15:00",
+      "category": "Balleto",
+      "venue": "Kursaal Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bern/der-nussknacker-international-ballet-company-italia_AJSK9wB",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Kornhausstrasse 3",
+        "postalCode": "3013"
+      },
+      "geo": {
+        "lat": 46.95343,
+        "lng": 7.4485915
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AJSK9wB.webp"
+    },
+    {
+      "id": "guidle:AxL8deG",
+      "title": "Kirchenkonzert",
+      "titleByLocale": {
+        "it": "Concerto in chiesa",
+        "en": "Church concert",
+        "de": "Kirchenkonzert",
+        "fr": "Concert à l'église"
+      },
+      "description": "Konzert bei Kerzenlicht in der Kirche Lauenen",
+      "descriptionByLocale": {
+        "it": "Concerto a lume di candela nella chiesa di Lauenen",
+        "en": "Candlelight concert in the church of Lauenen",
+        "de": "Kerzenlichtkonzert in der Kirche Lauenen",
+        "fr": "Concert aux chandelles dans l'église de Lauenen"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-04",
+      "startTime": "20:15",
+      "category": "Musica di chiesa",
+      "venue": "Kirche Lauenen",
+      "comune": "Lauenen",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/lauenen-b-gstaad/kirchenkonzert_AxL8deG",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Dorf",
+        "postalCode": "3782"
+      },
+      "geo": {
+        "lat": 46.4248196,
+        "lng": 7.3219683
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AxL8deG.webp"
+    },
+    {
+      "id": "guidle:ANDsWPQ",
+      "title": "Fokusmodul – Meisner-Workout",
+      "titleByLocale": {
+        "it": "Fokusmodul – Meisner-Workout",
+        "en": "Fokusmodul-Meisner -ork",
+        "de": "Fokusmodul-Meisner-Grafforkout",
+        "fr": "Module d'alimentation-Meisner-ork"
+      },
+      "description": "In diesem Workout wird das Herzstück der Meisner-Schauspieltechnik trainiert: die Fähigkeit, im Moment wahrhaftig zu reagieren.",
+      "descriptionByLocale": {
+        "it": "In diesem Workout wird das Herzstück der Meisner-Schauspieltechnik trainiert: die Fähigkeit, im Moment wahrhaftig zu reagieren.",
+        "en": "In this Workout wird das Herzstück der Meisner-Schauspieltechnik trainiert: die Fahigkeit, im Moment wahrhaftig zu reactieren.",
+        "de": "In diesem Workout wird das Herzstück der Meisner-Schauspieltechnik trainiert: die Fahigkeit, im Moment wahrhaftig zu reagieren.",
+        "fr": "In diesem Workout wird das Herzstück der Meisner-Schauspieltechnik trainiert : die Fähigkeit, im Moment wahrhaftig zu reagieren."
+      },
+      "startDate": "2026-10-22",
+      "endDate": "2026-11-12",
+      "startTime": "19:30",
+      "category": "Genere drammativo",
+      "venue": "Switzerland Innovation Park Ost",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/st-gallen/fokusmodul-meisner-workout_ANDsWPQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 2,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Lerchenfeldstrasse 3",
+        "postalCode": "9014"
+      },
+      "geo": {
+        "lat": 47.4118358,
+        "lng": 9.3399382
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-ANDsWPQ.webp"
+    },
+    {
+      "id": "guidle:An285nW",
+      "title": "KLAVIERTRIO Nikita Boriso-Glebsky, Lev Sivkov, Kateryna Tereshchenko",
+      "titleByLocale": {
+        "it": "KLAVIERTRIO Nikita Boriso-Glebsky, Lev Sivkov, Kateryna Tereshchenko",
+        "en": "KLAVIERTRIO Nikita Boriso-Glebsk Lev",
+        "de": "KLAVIERTRIO Nikita Boriso-Glebsk, Lev Sivkov, Katerjeblna Tereshchenko",
+        "fr": "KLAVIERTRIO Nikita Boriso-Lev de Glebsk"
+      },
+      "description": "Das Klaviertrio lädt das Publikum ein zu einer musikalischen Reise von Paris nach Prag und führt durch die vielfältigen Klangfarben Europas.",
+      "descriptionByLocale": {
+        "it": "Das Klaviertrio lädt das Publikum ein zu einer musikalischen Reise von Paris nach Prag und führt durch die vielfältigen Klangfarben Europas.",
+        "en": "The Klaviertrio leads the Publikum to a musical Reise von Paris nach Prag und führt durch die vielfältigen Klangfarben Europas.",
+        "de": "Das Klaviertrio entführt das Publikum auf eine musikalische Reise von Paris nach Prag und führt durch die vielfältigen Klangfarben Europas.",
+        "fr": "Le Klaviertrio mène le Publikum à une Reise musicale de Paris à Prague et führt durch die vielfältigen Klangfarben Europas."
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-17",
+      "startTime": "19:30",
+      "category": "Musica da Camera",
+      "venue": "Schulhaus Cher",
+      "comune": "Sarnen",
+      "canton": "OW",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/sarnen/klaviertrio-nikita-boriso-glebsky-lev-sivkov-kateryna-tereshchenko_An285nW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Brünigstrasse 162",
+        "postalCode": "6060"
+      },
+      "geo": {
+        "lat": 46.8940464,
+        "lng": 8.243704
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-An285nW.webp"
+    },
+    {
+      "id": "guidle:AeE5b3Q",
+      "title": "ABBA SYMPHONIC CELEBRATION",
+      "titleByLocale": {
+        "it": "ABBA SYMPHONIC CELEBRATION",
+        "en": "ABBA SPH",
+        "de": "ABBA-SYMPHONISCHE FEIER",
+        "fr": "CÉLÉBRATION SYMPHONIQUE D’ABBA"
+      },
+      "description": "ABBASymphonic CelebrationA MODERN IMMERSIVE LASER SHOW WITH BAND & SYYMPHONIC ORCHESTRA",
+      "descriptionByLocale": {
+        "it": "ABBASymphonic CelebrationA MODERN IMMERSIVE LASER SHOW WITH BAND & SYYMPHONIC ORCHESTRA",
+        "en": "ABBASymphonic CelebrationA MODERN IMMERSIVE LASER SHOW WITH BAND & symphonic ORCHESTRA",
+        "de": "ABBASymphonische FeierEINE MODERNE, IMMERSIVE LASERSHOW MIT BAND UND SYYMPHONIC ORCHESTRA",
+        "fr": "ABBASymphonic CelebrationUN SPECTACLE LASER IMMERSIF MODERNE AVEC GROUPE ET ORCHESTRE SYYMPHONIQUE"
+      },
+      "startDate": "2026-10-20",
+      "endDate": "2026-10-20",
+      "startTime": "20:30",
+      "category": "Pop generalmente",
+      "venue": "Palais des Congrès / Kongresshaus Biel",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/biel-bienne/abba-symphonic-celebration_AeE5b3Q",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 65,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Zentralstrasse 60",
+        "postalCode": "2502"
+      },
+      "geo": {
+        "lat": 47.1349091,
+        "lng": 7.2479488
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AeE5b3Q.webp"
+    },
+    {
+      "id": "guidle:A9wm765",
+      "title": "Würth Philharmoniker - Hautnah! Vol. 4",
+      "titleByLocale": {
+        "it": "Würth Philharmoniker - Hautnah! Vol. 4",
+        "en": "Rth Philharmoniker - Hautnah! Vol. 4",
+        "de": "Würth Philharmoniker – Hautnah! Band 4",
+        "fr": "Wurth Philharmoniker - Hautnah ! Vol. 4"
+      },
+      "description": "Das besondere Konzerterlebnis.",
+      "descriptionByLocale": {
+        "it": "Das besondere Konzerterlebnis.",
+        "en": "Das besondere Konzerterlebnis.",
+        "de": "Das besonde Konzerterleben.",
+        "fr": "Des besondere Konzerterlebnis."
+      },
+      "startDate": "2026-10-25",
+      "endDate": "2026-10-25",
+      "startTime": "17:00",
+      "category": "Musica sinfonica",
+      "venue": "Würth Haus Rorschach",
+      "comune": "Rorschach",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/wuerth-philharmoniker-hautnah-vol-4_A9wm765",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 18,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Churerstrasse 10",
+        "postalCode": "9400"
+      },
+      "geo": {
+        "lat": 47.4786506,
+        "lng": 9.5064734
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A9wm765.webp"
+    },
+    {
+      "id": "guidle:Aa5geKv",
+      "title": "Wassersinfonie Dernière",
+      "titleByLocale": {
+        "it": "Wassersinfonie Dernière",
+        "en": "Wassersinfonie Dernière",
+        "de": "Wassersinfonie Dernière",
+        "fr": "Wassersinfonie Dernière"
+      },
+      "description": "L'interazione tra acqua e luce è affascinante: se si aggiunge la musica a questi due elementi, il risultato è uno spettacolo meraviglioso, la sinfonia dell'acqua.",
+      "descriptionByLocale": {
+        "it": "L'interazione tra acqua e luce è affascinante: se si aggiunge la musica a questi due elementi, il risultato è uno spettacolo meraviglioso, la sinfonia dell'acqua.",
+        "en": "The interplay of water and light is fascinating - if you add music to the two elements, the result is a wonderful spectacle, the water symphony.",
+        "de": "Das Zusammenspiel von Wasser und Licht fasziniert - fügt man den beiden Elementen noch Musik hinzu, entsteht ein wunderschönes Schauspiel, die Wassersinfonie.",
+        "fr": "L'interaction entre l'eau et la lumière est fascinante - si l'on ajoute de la musique à ces deux éléments, on obtient un spectacle magnifique, la symphonie aquatique."
+      },
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "startTime": "19:00",
+      "category": "L'arte in generale",
+      "venue": "Kurpark Bad Zurzach",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bad-zurzach/wassersinfonie-derniere_Aa5geKv",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Hauptstrasse 50",
+        "postalCode": "5330"
+      },
+      "geo": {
+        "lat": 47.5875208,
+        "lng": 8.2935218
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-Aa5geKv.webp"
+    },
+    {
+      "id": "guidle:AnnXa93",
+      "title": "«Weihnachtsoratorium» von J.S. Bach",
+      "titleByLocale": {
+        "it": "«Weihnachtsoratorium» von J.S. Bach",
+        "en": "«Weihnachtsoratorium» von J.S. Bach",
+        "de": "«Weihnachtsoratorium» von J.S. Bach",
+        "fr": "«Weihnachtsoratorium» von J.S. Bach"
+      },
+      "description": "Das Publikum ist eingeladen, die Choräle mitzusingen – Noten werden am Eingang verteilt. Chorprobe um 16.15 Uhr",
+      "descriptionByLocale": {
+        "it": "Das Publikum ist eingeladen, die Choräle mitzusingen – Noten werden am Eingang verteilt. Chorprobe um 16.15 Uhr",
+        "en": "Das Publikum ist eingeladen, die Choräle mitzusingen – Noten werden am Eingang verteilt. Chorprobe um 16.15 Uhr",
+        "de": "Das Publikum ist eingeladen, die Choräle mitzusingen – Noten werden am Eingang verteilt. Chorprobe um 16.15 Uhr",
+        "fr": "Das Publikum ist eingeladen, die Choräle mitzusingen – Noten werden am Eingang verteilt. Chorprobe um 16.15 Uhr"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTime": "17:00",
+      "category": "Barocco",
+      "venue": "Evang.-ref. Heiliggeistkirche",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bern/weihnachtsoratorium-von-js-bach_AnnXa93",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 32.56,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Spitalgasse 44",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9479919,
+        "lng": 7.4407427
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AnnXa93.webp"
+    },
+    {
+      "id": "guidle:As5rhQQ",
+      "title": "Fräulein Julie - Theaterstück von August Strindberg",
+      "titleByLocale": {
+        "it": "Fräulein Julie - Theaterstück von August Strindberg",
+        "en": "Fräulein Julie - Theaterstück von August Strindberg",
+        "de": "Fräulein Julie - Theaterstück von August Strindberg",
+        "fr": "Fräulein Julie - Theaterstück von August Strindberg"
+      },
+      "description": "«Fräulein Julie» von Strindberg: Intensives Theaterstück über Macht, Verlangen und gesellschaftliche Zwänge, aufgeführt von der Klasse M27 der Schauspielschule Luzern.",
+      "descriptionByLocale": {
+        "it": "«Fräulein Julie» von Strindberg: Intensives Theaterstück über Macht, Verlangen und gesellschaftliche Zwänge, aufgeführt von der Klasse M27 der Schauspielschule Luzern.",
+        "en": "«Fräulein Julie» von Strindberg: Intensives Theaterstück über Macht, Verlangen und gesellschaftliche Zwänge, aufgeführt von der Klasse M27 der Schauspielschule Luzern.",
+        "de": "«Fräulein Julie» von Strindberg: Intensives Theaterstück über Macht, Verlangen und gesellschaftliche Zwänge, aufgeführt von der Klasse M27 der Schauspielschule Luzern.",
+        "fr": "«Fräulein Julie» von Strindberg: Intensives Theaterstück über Macht, Verlangen und gesellschaftliche Zwänge, aufgeführt von der Klasse M27 der Schauspielschule Luzern."
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2026-12-13",
+      "startTime": "20:00",
+      "category": "Genere drammativo",
+      "venue": "GrundacherBühne",
+      "comune": "Sarnen",
+      "canton": "OW",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/sarnen/fraeulein-julie-theaterstueck-von-august-strindberg_As5rhQQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 16,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Grundacherweg 5",
+        "postalCode": "6060"
+      },
+      "geo": {
+        "lat": 46.8948168,
+        "lng": 8.2480316
+      },
+      "recurring": true,
+      "imageUrl": "/images/events/guidle-As5rhQQ.webp"
+    },
+    {
+      "id": "guidle:A7hT1Mk",
+      "title": "Davos Abendmusik - Saxophon & Orgel",
+      "titleByLocale": {
+        "it": "Davos Abendmusik - Saxophon & Orgel",
+        "en": "Davos Abendmusik - Saxophon & Orgel",
+        "de": "Davos Abendmusik - Saxophon & Orgel",
+        "fr": "Davos Abendmusik - Saxophon & Orgel"
+      },
+      "description": "«Saxophon & Orgel»",
+      "descriptionByLocale": {
+        "it": "«Saxophon & Orgel»",
+        "en": "«Saxophon & Orgel»",
+        "de": "«Saxophon & Orgel»",
+        "fr": "«Saxophon & Orgel»"
+      },
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-11",
+      "startTime": "17:00",
+      "category": "Musica classica",
+      "venue": "Evang.-ref. Kirche St. Johann",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/davos-platz/davos-abendmusik-saxophon-und-orgel_A7hT1Mk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Berglistutz 3",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.793232,
+        "lng": 9.8227259
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A7hT1Mk.webp"
+    },
+    {
+      "id": "guidle:AB6Hbyy",
+      "title": "II. Davoser Adventsvesper",
+      "titleByLocale": {
+        "it": "II. Davoser Adventsvesper",
+        "en": "II. Davoser Adventsvesper",
+        "de": "II. Davoser Adventsvesper",
+        "fr": "II. Davoser Adventsvesper"
+      },
+      "description": "«Veni Emmanuel»",
+      "descriptionByLocale": {
+        "it": "«Veni Emmanuel»",
+        "en": "«Veni Emmanuel»",
+        "de": "«Veni Emmanuel»",
+        "fr": "«Veni Emmanuel»"
+      },
+      "startDate": "2026-12-09",
+      "endDate": "2026-12-09",
+      "startTime": "18:15",
+      "category": "Altra offerta religione",
+      "venue": "Evang.-ref. Kirche St. Johann",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/davos-platz/ii-davoser-adventsvesper_AB6Hbyy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Berglistutz 3",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.793232,
+        "lng": 9.8227259
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AB6Hbyy.webp"
+    },
+    {
+      "id": "guidle:ALc1S1Q",
+      "title": "III. Davoser Adventsvesper",
+      "titleByLocale": {
+        "it": "III. Davoser Adventsvesper",
+        "en": "III. Davoser Adventsvesper",
+        "de": "III. Davoser Adventsvesper",
+        "fr": "III. Davoser Adventsvesper"
+      },
+      "description": "«Es werde Licht»",
+      "descriptionByLocale": {
+        "it": "«Es werde Licht»",
+        "en": "«Es werde Licht»",
+        "de": "«Es werde Licht»",
+        "fr": "«Es werde Licht»"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2026-12-16",
+      "startTime": "18:15",
+      "category": "Altra offerta religione",
+      "venue": "Evang.-ref. Kirche St. Johann",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/davos-platz/iii-davoser-adventsvesper_ALc1S1Q",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Berglistutz 3",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.793232,
+        "lng": 9.8227259
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ALc1S1Q.webp"
+    },
+    {
+      "id": "guidle:A1U8FHs",
+      "title": "I. Davoser Adventsvesper",
+      "titleByLocale": {
+        "it": "I. Davoser Adventsvesper",
+        "en": "I. Davoser Adventsvesper",
+        "de": "I. Davoser Adventsvesper",
+        "fr": "I. Davoser Adventsvesper"
+      },
+      "description": "«Magnificat»",
+      "descriptionByLocale": {
+        "it": "«Magnificat»",
+        "en": "«Magnificat»",
+        "de": "«Magnificat»",
+        "fr": "«Magnificat»"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "startTime": "18:15",
+      "category": "Altra offerta religione",
+      "venue": "Evang.-ref. Kirche St. Johann",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/davos-platz/i-davoser-adventsvesper_A1U8FHs",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Berglistutz 3",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.793232,
+        "lng": 9.8227259
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A1U8FHs.webp"
+    },
+    {
+      "id": "guidle:AWZjb5j",
+      "title": "Weihnachtsoratorium | Camille Saint-Saëns",
+      "titleByLocale": {
+        "it": "Weihnachtsoratorium | Camille Saint-Saëns",
+        "en": "Weihnachtsoratorium | Camille Saint-Saëns",
+        "de": "Weihnachtsoratorium | Camille Saint-Saëns",
+        "fr": "Weihnachtsoratorium | Camille Saint-Saëns"
+      },
+      "description": "Das Weihnachtsoratorium von Camille Saint-Saëns gehört zu den stilleren, zugleich aber eindringlichsten Meisterwerken der romantischen Kirchenmusik.",
+      "descriptionByLocale": {
+        "it": "Das Weihnachtsoratorium von Camille Saint-Saëns gehört zu den stilleren, zugleich aber eindringlichsten Meisterwerken der romantischen Kirchenmusik.",
+        "en": "Das Weihnachtsoratorium von Camille Saint-Saëns gehört zu den stilleren, zugleich aber eindringlichsten Meisterwerken der romantischen Kirchenmusik.",
+        "de": "Das Weihnachtsoratorium von Camille Saint-Saëns gehört zu den stilleren, zugleich aber eindringlichsten Meisterwerken der romantischen Kirchenmusik.",
+        "fr": "Das Weihnachtsoratorium von Camille Saint-Saëns gehört zu den stilleren, zugleich aber eindringlichsten Meisterwerken der romantischen Kirchenmusik."
+      },
+      "startDate": "2026-12-26",
+      "endDate": "2026-12-26",
+      "startTime": "13:15",
+      "category": "Musica chorale",
+      "venue": "Röm.-kath. Kirche St. Stefan",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/kreuzlingen/weihnachtsoratorium-camille-saint-saens_AWZjb5j",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Bernrainstrasse 10",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.64688980617848,
+        "lng": 9.160730375393662
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AWZjb5j.webp"
+    },
+    {
+      "id": "guidle:AmmCC2n",
+      "title": "Konzert der Regensburger Domspatzen | einKlang - Geistvolle Chormusik",
+      "titleByLocale": {
+        "it": "Konzert der Regensburger Domspatzen | einKlang - Geistvolle Chormusik",
+        "en": "Konzert der Regensburger Domspatzen | einKlang - Geistvolle Chormusik",
+        "de": "Konzert der Regensburger Domspatzen | einKlang - Geistvolle Chormusik",
+        "fr": "Konzert der Regensburger Domspatzen | einKlang - Geistvolle Chormusik"
+      },
+      "description": "Die Regensburger Domspatzen in St. Stefan Kreuzlingen – ein Abend, der nachklingen wird!",
+      "descriptionByLocale": {
+        "it": "Die Regensburger Domspatzen in St. Stefan Kreuzlingen – ein Abend, der nachklingen wird!",
+        "en": "Die Regensburger Domspatzen in St. Stefan Kreuzlingen – ein Abend, der nachklingen wird!",
+        "de": "Die Regensburger Domspatzen in St. Stefan Kreuzlingen – ein Abend, der nachklingen wird!",
+        "fr": "Die Regensburger Domspatzen in St. Stefan Kreuzlingen – ein Abend, der nachklingen wird!"
+      },
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-27",
+      "startTime": "19:30",
+      "category": "Musica chorale",
+      "venue": "Röm.-kath. Kirche St. Stefan",
+      "comune": "Kreuzlingen",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/kreuzlingen/konzert-der-regensburger-domspatzen_AmmCC2n",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Bernrainstrasse 10",
+        "postalCode": "8280"
+      },
+      "geo": {
+        "lat": 47.64688980617848,
+        "lng": 9.160730375393662
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AmmCC2n.webp"
+    },
+    {
+      "id": "guidle:AuvwdSk",
+      "title": "Tania Giannouli & Nils Petter Molvær",
+      "titleByLocale": {
+        "it": "Tania Giannouli & Nils Petter Molvær",
+        "en": "Tania Giannouli & Nils Petter Molvær",
+        "de": "Tania Giannouli & Nils Petter Molvær",
+        "fr": "Tania Giannouli & Nils Petter Molvær"
+      },
+      "description": "Eine musikalische Reise durch eine raue, zugleich poetische Natur von grosser Tiefe und Schönheit",
+      "descriptionByLocale": {
+        "it": "Eine musikalische Reise durch eine raue, zugleich poetische Natur von grosser Tiefe und Schönheit",
+        "en": "Eine musikalische Reise durch eine raue, zugleich poetische Natur von grosser Tiefe und Schönheit",
+        "de": "Eine musikalische Reise durch eine raue, zugleich poetische Natur von grosser Tiefe und Schönheit",
+        "fr": "Eine musikalische Reise durch eine raue, zugleich poetische Natur von grosser Tiefe und Schönheit"
+      },
+      "startDate": "2026-12-22",
+      "endDate": "2026-12-22",
+      "startTime": "20:30",
+      "category": "Musica moderna / seria",
+      "venue": "Moods im Schiffbau",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/zuerich/tania-giannouli-und-nils-petter-molvaer_AuvwdSk",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 45,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schiffbaustrasse 6",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3888209,
+        "lng": 8.518645
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AuvwdSk.webp"
     }
   ]
 }
