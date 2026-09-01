@@ -4101,10 +4101,15 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   }
   if (!location && seedLocation) location = seedLocation;
   const url = tryUrl(node.url, sourcePageUrl) || sourcePageUrl;
+  const declaredSeedDetail = options?.isSeedDetail === true
+    && canonicalizeJobUrl(url)
+    && canonicalizeJobUrl(url) === canonicalizeJobUrl(sourcePageUrl);
 
   if (!title || title.length < 6) return { job: null, reason: 'jsonld_missing_title' };
   if (isLikelyGenericCareerTitle(title)) return { job: null, reason: 'jsonld_generic_title' };
-  if (!isLikelyJobDetailUrl(url)) return { job: null, reason: 'jsonld_not_detail_url' };
+  if (!declaredSeedDetail && !isLikelyJobDetailUrl(url)) {
+    return { job: null, reason: 'jsonld_not_detail_url' };
+  }
 
   // Include addressRegion in relevance check so that jobs in smaller Ticino towns
   // (e.g., Taverne) are still recognized when addressRegion says "Ticino".
@@ -4661,18 +4666,20 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
 
   let homepageHtml = '';
   const adapterSeeds = getSeedUrlsForCompany(company, crawlerConfig);
+  const adapterDetailUrls = Array.isArray(adapter?.seedDetailUrls) ? adapter.seedDetailUrls : [];
+  const hasAdapterSeeds = adapterSeeds.length > 0 || adapterDetailUrls.length > 0;
   try {
     const res = await fetchWithTimeout(company.website);
     if (!res.ok) {
       // Don't bail if adapter has seed URLs — they may be on a different host (e.g., jobs.migros.ch vs migros.ch)
-      if (!adapterSeeds.length) return result;
-      console.warn(`  ⚠️ Homepage ${company.website} returned ${res.status}, proceeding with ${adapterSeeds.length} adapter seed URLs`);
+      if (!hasAdapterSeeds) return result;
+      console.warn(`  ⚠️ Homepage ${company.website} returned ${res.status}, proceeding with ${adapterSeeds.length + adapterDetailUrls.length} adapter seed URLs`);
     } else {
       homepageHtml = await res.text();
     }
   } catch (e) {
-    if (!adapterSeeds.length) return result;
-    console.warn(`  ⚠️ Homepage ${company.website} unreachable (${e.message}), proceeding with ${adapterSeeds.length} adapter seed URLs`);
+    if (!hasAdapterSeeds) return result;
+    console.warn(`  ⚠️ Homepage ${company.website} unreachable (${e.message}), proceeding with ${adapterSeeds.length + adapterDetailUrls.length} adapter seed URLs`);
   }
 
   const candidateCareerUrls = new Set();
@@ -4745,7 +4752,6 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     routeDiscoveredUrl(seed, 'adapter_seed');
   }
   // Adapter-declared detail URLs bypass isLikelyJobDetailUrl() classification
-  const adapterDetailUrls = Array.isArray(adapter?.seedDetailUrls) ? adapter.seedDetailUrls : [];
   for (const raw of adapterDetailUrls) {
     const link = tryUrl(raw, company.website);
     if (link) {
@@ -4970,7 +4976,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           const detailNodes = extractJobPostingNodes(extractJsonLdBlocks(html));
           let jsonLdAccepted = false;
           for (const node of detailNodes) {
-            const parsed = toJobFromJsonLd(node, company.name, detailUrl, { seedMeta });
+            const parsed = toJobFromJsonLd(node, company.name, detailUrl, {
+              seedMeta,
+              isSeedDetail: seedDetailUrls.has(detailUrl),
+            });
             if (parsed && !parsed.reason && parsed.job) {
               // Migros pages embed JSON-LD with only the brief overview description.
               // The full sections (tasks, skills, benefits) live in the SSR HTML.
@@ -6114,9 +6123,11 @@ export const __testables = {
   // addressCountry-vs-seedCanton precedence predicate it relies on.
   toJobFromJsonLd,
   toJobFromHtmlFallback,
+  processCompany,
   extractHtmlMicrodataAddress,
   isJsonLdCountryExplicitlyForeign,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
+  setCompanyAdaptersForTests(adapters) { companyAdaptersGlobal = adapters; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,
   loadPersistentAiCache,
