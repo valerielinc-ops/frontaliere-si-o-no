@@ -1,18 +1,18 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-09-01T00:55:23.683Z",
-  "total": 10,
+  "generatedAt": "2026-09-01T07:36:01.095Z",
+  "total": 6,
   "discovered": null,
-  "written": 10,
+  "written": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 6382,
-  "avgDurationMs": 6382,
+  "removedCount": 4,
+  "unchangedCount": 0,
+  "durationMs": 6278,
+  "avgDurationMs": 6278,
   "durationHistory": [
-    6382
+    6278
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:55:19.964Z",
+      "crawledAt": "2026-09-01T07:35:56.960Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://apply.refline.ch/126757/2351/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:55:20.406Z",
+      "crawledAt": "2026-09-01T07:35:57.428Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://apply.refline.ch/126757/2350/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:55:20.846Z",
+      "crawledAt": "2026-09-01T07:35:57.899Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "url": "https://apply.refline.ch/126757/2348/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:55:19.030Z",
+      "crawledAt": "2026-09-01T07:35:56.497Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -189,7 +189,7 @@
       "url": "https://apply.refline.ch/126757/2299/pub/6/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:55:18.601Z",
+      "crawledAt": "2026-09-01T07:35:56.031Z",
       "addressLocality": "Zentralschweiz",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -229,7 +229,7 @@
       "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:55:18.143Z",
+      "crawledAt": "2026-09-01T07:35:55.538Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -257,8 +257,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "caritas-schweiz-d1104c038e74",
       "slug": "centro-di-accoglienza-80-in-winterthur-temporaneo-m-f-d-caritas-schweiz-zurich",
@@ -435,5 +434,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
