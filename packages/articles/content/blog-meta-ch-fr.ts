@@ -4939,6 +4939,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.telefonia-asta-frequenze-2029.title': 'Téléphonie mobile, la vente aux enchères commence à 855 millions',
     'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom lance la vente aux enchères pour les fréquences mobiles avec une base de 855 millions. Demandes d’ici le 3 décembre, attribution en 2027, concessions à partir de 2029 pour 15 ans.',
     'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Vue aérienne de Lugano avec infrastructure de télécommunications et symboles de réseau',
+    'blog.article.novartis-studio-clinico-sospeso.title': 'Novartis suspend les essais cliniques, +5 % sur le marché boursier',
+    'blog.article.novartis-studio-clinico-sospeso.excerpt': 'Novartis a arrêté les études sur le rap-cel en raison de trois décès ; en même temps, elle annonce des résultats positifs sur le Remibrutinib. Actions +5 % aujourd’hui, +19 % depuis le début.',
+    'blog.article.novartis-studio-clinico-sospeso.imageAlt': 'Laboratoire pharmaceutique suisse avec chercheurs analysant des données sur écrans dans un environnement de recherche moderne.',
 };
 
 export default blogMetaChFr;
