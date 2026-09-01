@@ -214,32 +214,42 @@ export function parseCareersRss(xml = '') {
   const items = assertRssChannelItems(parsed, { source: CAREERS_KEY });
   return items.map((item, index) => {
     const itemNumber = index + 1;
-    const rawTitle = normalizeSpace(stripHtml(readCareersRssScalar(item, 'title', itemNumber)));
-    const parsedTitleLocation = rawTitle.match(/^(.*?)\s+\(([^,()]+),\s*([A-Z]{2})\)\s*$/u);
-    const title = normalizeSpace(parsedTitleLocation?.[1] || rawTitle);
-    if (isGenericCareersApplication(title)) return null;
+    try {
+      const rawTitle = normalizeSpace(stripHtml(readCareersRssScalar(item, 'title', itemNumber)));
+      const parsedTitleLocation = rawTitle.match(/^(.*?)\s+\(([^,()]+),\s*([A-Z]{2})\)\s*$/u);
+      const title = normalizeSpace(parsedTitleLocation?.[1] || rawTitle);
+      if (isGenericCareersApplication(title)) return null;
 
-    const location = normalizeSpace(parsedTitleLocation?.[2] || '');
-    const locationWithRegion = `${location}, ${parsedTitleLocation?.[3] || ''}`;
-    const canton = inferSwissTargetCanton(locationWithRegion) || '';
-    const url = canonicalizeCareersRssUrl(readCareersRssScalar(item, 'link', itemNumber));
-    const description = stripHtml(readCareersRssScalar(item, 'description', itemNumber));
-    const posted = new Date(normalizeSpace(readCareersRssScalar(item, 'pubDate', itemNumber)));
-    const postedDate = Number.isNaN(posted.getTime()) ? '' : posted.toISOString().slice(0, 10);
+      const location = normalizeSpace(parsedTitleLocation?.[2] || '');
+      const locationWithRegion = `${location}, ${parsedTitleLocation?.[3] || ''}`;
+      const canton = inferSwissTargetCanton(locationWithRegion) || '';
+      const url = canonicalizeCareersRssUrl(readCareersRssScalar(item, 'link', itemNumber));
+      const description = stripHtml(readCareersRssScalar(item, 'description', itemNumber));
+      const posted = new Date(normalizeSpace(readCareersRssScalar(item, 'pubDate', itemNumber)));
+      const postedDate = Number.isNaN(posted.getTime()) ? '' : posted.toISOString().slice(0, 10);
 
-    const missing = [
-      !title && 'title',
-      !url && 'canonical URL',
-      !location && 'location',
-      !canton && 'Swiss canton',
-      !description && 'description',
-      !postedDate && 'publication date',
-    ].filter(Boolean);
-    if (missing.length) {
-      throw new Error(`Le Patron RSS item ${itemNumber} is missing ${missing.join(', ')}`);
+      const missing = [
+        !title && 'title',
+        !url && 'canonical URL',
+        !location && 'location',
+        !canton && 'Swiss canton',
+        !description && 'description',
+        !postedDate && 'publication date',
+      ].filter(Boolean);
+      if (missing.length) {
+        throw new Error(`Le Patron RSS item ${itemNumber} is missing ${missing.join(', ')}`);
+      }
+
+      return { title, url, location, canton, description, postedDate };
+    } catch (err) {
+      // Per-item fail-closed guard (data-quality invariant), NOT a feed-shape
+      // guard: a single degenerate item (e.g. a Spontanbewerbung variant that
+      // drops the `(City, XX)` suffix) must not zero out every other valid
+      // vacancy in the channel. Feed-shape drift (missing envelope, malformed
+      // XML, renamed elements) still throws above, before this map.
+      console.warn(`⚠️ Le Patron RSS item ${itemNumber} skipped: ${err?.message || err}`);
+      return null;
     }
-
-    return { title, url, location, canton, description, postedDate };
   }).filter(Boolean);
 }
 

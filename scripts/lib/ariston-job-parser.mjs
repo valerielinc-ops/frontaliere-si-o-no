@@ -120,18 +120,26 @@ export function parseAristonSitemapFeed(xml = '') {
   return normalizedItems
     .map((item, index) => {
       const itemNumber = index + 1;
-      const namespacedLocation = readOptionalRssScalar(item, 'g:location', itemNumber);
-      const fallbackLocation = readOptionalRssScalar(item, 'location', itemNumber);
-      return {
-        title: normalizeSpace(readOptionalRssScalar(item, 'title', itemNumber)),
-        url: normalizeSpace(readOptionalRssScalar(item, 'link', itemNumber)),
-        location: normalizeSpace(namespacedLocation || fallbackLocation),
-        employer: normalizeSpace(readOptionalRssScalar(item, 'g:employer', itemNumber)),
-        category: normalizeSpace(readOptionalRssScalar(item, 'g:job_function', itemNumber)),
-        validThrough: normalizeSpace(readOptionalRssScalar(item, 'g:expiration_date', itemNumber)),
-      };
+      try {
+        const namespacedLocation = readOptionalRssScalar(item, 'g:location', itemNumber);
+        const fallbackLocation = readOptionalRssScalar(item, 'location', itemNumber);
+        return {
+          title: normalizeSpace(readOptionalRssScalar(item, 'title', itemNumber)),
+          url: normalizeSpace(readOptionalRssScalar(item, 'link', itemNumber)),
+          location: normalizeSpace(namespacedLocation || fallbackLocation),
+          employer: normalizeSpace(readOptionalRssScalar(item, 'g:employer', itemNumber)),
+          category: normalizeSpace(readOptionalRssScalar(item, 'g:job_function', itemNumber)),
+          validThrough: normalizeSpace(readOptionalRssScalar(item, 'g:expiration_date', itemNumber)),
+        };
+      } catch (err) {
+        // Per-item guard: one degenerate leaf (non-scalar/repeated field) must
+        // not zero out the whole ~180-item feed. Feed-shape drift (malformed
+        // XML, missing envelope) still throws above, before this map.
+        console.warn(`⚠️ Ariston RSS item ${itemNumber} skipped: ${err?.message || err}`);
+        return null;
+      }
     })
-    .filter((item) => item.title && item.url && item.location);
+    .filter((item) => item && item.title && item.url && item.location);
 }
 
 function extractDescriptionSections(body) {
