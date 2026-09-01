@@ -11028,6 +11028,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-villette-frontaliere.title': 'Vivere a Villette e lavorare in Ticino da frontaliere',
     'blog.article.vivere-villette-frontaliere.excerpt': 'Vivere a Villette da frontaliere e lavorare in Ticino: trasporti, costi e vantaggi fiscali. Guida ai valichi, norme AVS, Permesso G e scadenze amministrative.',
     'blog.article.vivere-villette-frontaliere.imageAlt': 'Vista residenziale di una piccola cittadina in provincia di Como al confine con il Ticino',
+    'blog.article.bollettino-frontaliere-2026-09-01.title': 'Bollettino del frontaliere – 1 settembre 2026: a Ponte Tresa 33 minuti di coda',
+    'blog.article.bollettino-frontaliere-2026-09-01.excerpt': 'I numeri di oggi, 1 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'I numeri del giorno per i frontalieri – 1 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Bollettino frontalieri del 1 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'I numeri del 1 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

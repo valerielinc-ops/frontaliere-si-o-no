@@ -11027,6 +11027,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-villette-frontaliere.title': 'Living in Villette and working in Ticino as a border worker',
     'blog.article.vivere-villette-frontaliere.excerpt': 'Living in Villette as a cross-border commuter and working in Ticino: transport, costs and tax advantages. Guide to crossings, AHV regulations, G Permit and administrative deadlines.',
     'blog.article.vivere-villette-frontaliere.imageAlt': 'Residential street in a small Como province town at the Ticino border',
+    'blog.article.bollettino-frontaliere-2026-09-01.title': 'Cross-border daily brief – September 1, 2026: 33-minute queue at Ponte Tresa',
+    'blog.article.bollettino-frontaliere-2026-09-01.excerpt': 'Today\'s numbers, September 1, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'The day\'s numbers for cross-border commuters – September 1, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Cross-border brief, September 1, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'The numbers for September 1, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
