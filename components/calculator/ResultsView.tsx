@@ -672,6 +672,18 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  </div>
  </div>
  </div>
+
+ {/* AdSense: compact multiplex immediately after the net-advantage summary.
+     This is the first completed-result moment, before the long comparison and
+     secondary widgets; its fixed reserve keeps the move CLS-safe. */}
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
+ <AdSenseBanner
+ adSlot={AD_SLOTS.CALCULATOR_POST_RESULT.slot}
+ adFormat={AD_SLOTS.CALCULATOR_POST_RESULT.format}
+ fullWidthResponsive={AD_SLOTS.CALCULATOR_POST_RESULT.fullWidthResponsive}
+ className="my-6"
+ />
+ </Suspense>
  
  {/* Comparison Grid: Changed from md:grid-cols-2 to xl:grid-cols-2 to allow full width on iPad/Tablets */}
  <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-8">
@@ -871,16 +883,6 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  <SubscriptionCTA />
  </Suspense>
  )}
-
- {/* AdSense: in-page multiplex after high-intent simulation_complete moment — reserve space to prevent CLS */}
- <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
- <AdSenseBanner
- adSlot={AD_SLOTS.CALCULATOR_POST_RESULT.slot}
- adFormat={AD_SLOTS.CALCULATOR_POST_RESULT.format}
- fullWidthResponsive={AD_SLOTS.CALCULATOR_POST_RESULT.fullWidthResponsive}
- className="my-6"
- />
- </Suspense>
 
  {/* SEO: Internal cross-links to related tools */}
  <Suspense fallback={null}>

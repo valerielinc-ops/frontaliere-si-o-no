@@ -9274,6 +9274,87 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  }
 
+ const postFirstResultsUtilities = (
+ <div className="space-y-3" data-testid="jobboard-post-first-results-utilities">
+ {/* Role/category shortcuts are useful after users have seen real inventory,
+     but no longer push the first result below the mobile fold. */}
+ <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide" role="group" aria-label={t('jobBoard.quickFilters.label')}>
+ {([
+ { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
+ { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
+ { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
+ { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
+ ] as const).map(chip => (
+ <button
+ key={chip.id}
+ type="button"
+ onClick={chip.action}
+ className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
+ chip.active
+ ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
+ : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
+ }`}
+ aria-pressed={chip.active}
+ >
+ <chip.icon className="w-3 h-3" />
+ {chip.label}
+ </button>
+ ))}
+ </div>
+
+ {/* Issue #4298: one-tap alert CTA driven by the board's own active filters */}
+ {boardFilterAlertVisible && userId && userEmail && (
+ <Suspense fallback={null}>
+ <JobBoardFilterAlertCta
+ userId={userId}
+ email={userEmail}
+ locale={locale}
+ onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
+ keywordLabel={boardFilterAlertKeywordLabel}
+ cantonCode={boardFilterAlertCantonCode}
+ onSubscribed={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
+ Analytics.trackJobAlertCreated({
+ keywords: boardFilterAlertKeywordLabel,
+ location: boardFilterAlertCantonCode || '',
+ frequency: 'weekly',
+ surface: 'job_board_filters',
+ });
+ invalidateUserAlertsCache();
+ if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
+ boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
+ boardFilterAlertHideTimerRef.current = null;
+ setBoardFilterAlertEligible(false);
+ }, 2500);
+ }}
+ onErrored={() => {
+ Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
+ }}
+ />
+ </Suspense>
+ )}
+
+ {/* Single search-utility mount remains the 0-results alert scroll target. */}
+ <div id="jobboard-search-utilities">
+ <PopularSearchChips onSelect={applySearchQuery} activeTerm={searchQuery} />
+ </div>
+
+ {enableJobAlerts && (
+ <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
+ <JobAlertForm
+ authUser={authUser}
+ onRequireAuth={onRequireAuth}
+ initialKeyword={searchQuery}
+ initialCantonCode={boardFilterAlertCantonCode}
+ />
+ </Suspense>
+ )}
+ </div>
+ );
+ const utilitiesAfterPosition = Math.min(3, displayJobs.length);
+
  return (
  <JobBoardRailShell isDesktopLg={isDesktopLg}>
  <div className="space-y-6">
@@ -9391,9 +9472,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
 
- {/* Unified quick-filter chips — two scrollable rows */}
- <div className="space-y-2" role="group" aria-label={t('jobBoard.quickFilters.label')}>
- {/* Row 1: Time & Location */}
+ {/* High-intent quick filters stay above results; role/category discovery
+     moves after the first result block below. */}
+ <div role="group" aria-label={t('jobBoard.quickFilters.label')}>
+ {/* Time & Location */}
  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
  {([
  { id: 'today', icon: Clock, label: t('jobBoard.quickFilters.today'), active: selectedDateRange === '24h', action: () => setSelectedDateRange(selectedDateRange === '24h' ? 'all' : '24h') },
@@ -9421,91 +9503,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </button>
  ))}
  </div>
- {/* Row 2: Roles & Categories */}
- <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
- {([
- { id: 'nurse', icon: Briefcase, label: t('jobBoard.quickFilters.nurse'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.nurse').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.nurse').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'engineer', icon: Briefcase, label: t('jobBoard.quickFilters.engineer'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.engineer').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.engineer').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'driver', icon: Briefcase, label: t('jobBoard.quickFilters.driver'), active: searchQuery.toLowerCase() === t('jobBoard.quickFilters.driver').toLowerCase(), action: () => { const term = t('jobBoard.quickFilters.driver').toLowerCase(); applySearchQuery(searchQuery.toLowerCase() === term ? '' : term); } },
- { id: 'health', icon: Tag, label: t('jobBoard.quickFilters.health'), active: selectedCategory === 'health', action: () => setSelectedCategory(selectedCategory === 'health' ? 'all' : 'health') },
- { id: 'parttime', icon: Tag, label: 'Part-time', active: selectedContract === 'part-time', action: () => setSelectedContract(selectedContract === 'part-time' ? 'all' : 'part-time') },
- { id: 'apprentice', icon: Tag, label: t('jobBoard.quickFilters.apprenticeship'), active: selectedContract === 'internship', action: () => setSelectedContract(selectedContract === 'internship' ? 'all' : 'internship') },
- ] as const).map(chip => (
- <button
- key={chip.id}
- type="button"
- onClick={chip.action}
- className={`flex-shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 min-h-11 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
- chip.active
- ? 'bg-accent-strong border-accent text-on-accent shadow-sm shadow-accent/20'
- : 'bg-surface border-edge text-subtle hover:bg-surface-raised hover:border-accent'
- }`}
- aria-pressed={chip.active}
- >
- <chip.icon className="w-3 h-3" />
- {chip.label}
- </button>
- ))}
  </div>
- </div>
-
- {/* Issue #4298: one-tap alert CTA driven by the board's own active filters */}
- {boardFilterAlertVisible && userId && userEmail && (
- <Suspense fallback={null}>
- <JobBoardFilterAlertCta
- userId={userId}
- email={userEmail}
- locale={locale}
- onImpression={() => trackJobAlertCtaShownOnce('job_board_filters', boardFilterAlertKeywordLabel)}
- keywordLabel={boardFilterAlertKeywordLabel}
- cantonCode={boardFilterAlertCantonCode}
- onSubscribed={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'success', boardFilterAlertKeywordLabel);
- Analytics.trackJobAlertCreated({
- keywords: boardFilterAlertKeywordLabel,
- location: boardFilterAlertCantonCode || '',
- frequency: 'weekly',
- surface: 'job_board_filters',
- });
- // Review PR #4338, bug G: keep the shared getUserAlerts cache correct.
- invalidateUserAlertsCache();
- // Bug F: delay hiding the CTA so JobBoardFilterAlertCta's own
- // "Alert attivato ✓" success state (setStatus('success'), same render
- // batch as this callback) has time to actually paint before the parent
- // unmounts it via boardFilterAlertVisible flipping false.
- if (boardFilterAlertHideTimerRef.current !== null) window.clearTimeout(boardFilterAlertHideTimerRef.current);
- boardFilterAlertHideTimerRef.current = window.setTimeout(() => {
- boardFilterAlertHideTimerRef.current = null;
- setBoardFilterAlertEligible(false);
- }, 2500);
- }}
- onErrored={() => {
- Analytics.trackJobAlertCtaClick('job_board_filters', 'error', boardFilterAlertKeywordLabel);
- }}
- />
- </Suspense>
- )}
-
- {/* Popular internal-search chips — real mined terms, issue #4301.
- Self-contained component + single mount point (renders null below its
- own minimum-terms threshold). id is the scroll target for the
- 0-results "get an alert" CTA below (lands next to the always-mounted
- JobAlertForm just under it). */}
- <div id="jobboard-search-utilities">
- <PopularSearchChips onSelect={applySearchQuery} activeTerm={searchQuery} />
- </div>
-
- {/* FRO-332/353: Job Alert form (behind feature flag) */}
- {enableJobAlerts && (
- <Suspense fallback={<div className="h-[100px] rounded-xl bg-surface-raised animate-pulse" />}>
- <JobAlertForm
- authUser={authUser}
- onRequireAuth={onRequireAuth}
- initialKeyword={searchQuery}
- initialCantonCode={boardFilterAlertCantonCode}
- />
- </Suspense>
- )}
 
  {/* Filter toggle bar — wraps so the saved-jobs pill (#4466) never forces
  horizontal overflow on narrow mobile widths. */}
@@ -9974,6 +9972,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <React.Fragment key={job.id || job.slug || idx}>
  {renderJobCard(job)}
  {showAd && renderInfeedAd(`main-${idx}`)}
+ {!resultsResolving && pos === utilitiesAfterPosition && postFirstResultsUtilities}
  </React.Fragment>
  );
  })}
@@ -10024,7 +10023,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
 
  {/* 0-results job-alert CTA: points at the already-mounted JobAlertForm
- above (id="jobboard-search-utilities" anchor), already prefilled via
+ below (id="jobboard-search-utilities" anchor), already prefilled via
  its initialKeyword={searchQuery} prop — no second form instance. */}
  {enableJobAlerts && deferredSearchQuery.trim() && (
  <button
@@ -10037,6 +10036,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  )}
  </div>
  )}
+ {displayJobs.length === 0 && !resultsResolving && postFirstResultsUtilities}
  </div>
 
  {/* Mobile: infinite scroll sentinel. min-h matches the spinner row's real

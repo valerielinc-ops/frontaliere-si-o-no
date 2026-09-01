@@ -314,18 +314,6 @@ export default function CalcolatoreTabContent() {
  <div className="hidden md:block mt-6 w-full min-h-[34px]">
  {result && <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>}
  </div>
- {/* AdSense — homepage mid-content display (reserveSpace prevents CLS when result appears) */}
- <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.HOMEPAGE_MID_DISPLAY.placeholderMinHeight}px` } as React.CSSProperties} className="mt-6 mb-4 min-h-[var(--ad-mh)] [contain:content]" />}>
- <AdSenseBanner
- adSlot={AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot}
- adFormat={AD_SLOTS.HOMEPAGE_MID_DISPLAY.format}
- fullWidthResponsive={AD_SLOTS.HOMEPAGE_MID_DISPLAY.fullWidthResponsive}
- className="mt-6 mb-4"
- enabled={!!result}
- reserveSpace
- />
- </Suspense>
-
  {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
  <details className="mt-6 group">
  <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-accent hover:text-accent transition-colors">
@@ -360,9 +348,8 @@ export default function CalcolatoreTabContent() {
  />
  </div>
  </details>
- {/* Homepage end-of-page multiplex — only shown after a result so we don't
-  * compete with the hero/input on first paint. Backfills the home undermonetization
-  * (only HOMEPAGE_MID_DISPLAY was previously firing here, €0.21/30d). */}
+ {/* Homepage end-of-page multiplex — complements the compact post-result slot
+  * in ResultsView without competing with the hero/input on first paint. */}
  <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.ARTICLE_END_MULTIPLEX.placeholderMinHeight}px` } as React.CSSProperties} className="mt-8 mb-4 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
  <AdSenseBanner
  adSlot={AD_SLOTS.ARTICLE_END_MULTIPLEX.slot}
