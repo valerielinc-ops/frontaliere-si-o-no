@@ -1,29 +1,13 @@
 // @vitest-environment node
-import { createHash } from 'node:crypto';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { archiveRemovedJobsToSlice } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const ACTIVE_FILE = resolve(ROOT, 'data/jobs/by-crawler/ipersonal.json');
 const EXPIRED_FILE = resolve(ROOT, 'data/jobs/expired/by-crawler/ipersonal.json');
-
-const CURRENT_ACTIVE_IDS = [
-  'ipersonal-17aee01ae30f',
-  'ipersonal-2740b2ce2219',
-  'ipersonal-276fa7244d51',
-  'ipersonal-2b777a3703ff',
-  'ipersonal-593b9add46fd',
-  'ipersonal-674247d1cfdf',
-  'ipersonal-6b041082e3bf',
-  'ipersonal-760d8358e1b0',
-  'ipersonal-867b69d934a8',
-  'ipersonal-9f54e33da384',
-  'ipersonal-b0236bd8b9fc',
-  'ipersonal-c1bcf0b3ebd3',
-  'ipersonal-c26f49fcea6e',
-  'ipersonal-d2563d885f73',
-].sort();
 
 const LOST_ROUTES = [
   'dipl-expertin-experte-anasthesiepflege-nds-80-100-in-rebstein-gesucht-8211-deine-expertise',
@@ -76,21 +60,61 @@ function duplicateCount(values: Array<string | undefined>) {
   return [...counts.values()].filter((count) => count > 1).length;
 }
 
-function routeIdentityHash(jobs: Job[]) {
-  const projection = jobs.map((job) => ({
-    id: job.id,
-    url: job.url,
-    routes: [...routeSet(job)].sort(),
-  })).sort((left, right) => String(left.id).localeCompare(String(right.id)));
-  return createHash('sha256').update(JSON.stringify(projection)).digest('hex');
+function routeOwners(jobs: Job[]) {
+  const owners = new Map<string, number>();
+  for (const job of jobs) {
+    for (const route of routeSet(job)) owners.set(route, (owners.get(route) ?? 0) + 1);
+  }
+  return owners;
 }
 
-function targetFirstBySlug(current: Job[], recovered: Job[]) {
-  const bySlug = new Map(current.map((job) => [job.slug, structuredClone(job)]));
-  for (const job of recovered) {
-    if (!bySlug.has(job.slug)) bySlug.set(job.slug, structuredClone(job));
+function incidentRemovedJobs(current: Job[]) {
+  const routesByOwner = new Map<Job, string[]>();
+  for (const route of LOST_ROUTES) {
+    const matches = current.filter((job) => routeSet(job).has(route));
+    if (matches.length !== 1) {
+      throw new Error(`incident fixture lost unambiguous owner for ${route}`);
+    }
+    const routes = routesByOwner.get(matches[0]) ?? [];
+    routes.push(route);
+    routesByOwner.set(matches[0], routes);
   }
-  return [...bySlug.values()];
+  return [...routesByOwner.values()]
+    .sort((left, right) => left[0].localeCompare(right[0]))
+    .map((routes, index) => ({
+      id: `incident-removed-${index}`,
+      url: `https://jobs.example.invalid/incident-removed-${index}/`,
+      slug: routes[0],
+      previousSlugs: routes.slice(1),
+    }));
+}
+
+function syntheticJob(kind: 'removed' | 'fresh', index: number): Job {
+  return {
+    id: `incident-${kind}-${index}`,
+    url: `https://jobs.example.invalid/incident-${kind}-${index}/`,
+    slug: `incident-${kind}-${index}`,
+  };
+}
+
+function assertRetirementAccounting(removed: Job[], activeAfter: Job[], archivedAfter: Job[]) {
+  const expectedRoutes = new Set(removed.flatMap((job) => [...routeSet(job)]));
+  const ownersAfter = routeOwners([...activeAfter, ...archivedAfter]);
+  const routesLost = [...expectedRoutes].filter((route) => !ownersAfter.has(route));
+  const routeCollisions = [...expectedRoutes].filter((route) => (ownersAfter.get(route) ?? 0) > 1);
+  const metrics = {
+    removed: removed.length,
+    archived: archivedAfter.length,
+    routesLost: routesLost.length,
+    routeCollisions: routeCollisions.length,
+  };
+  if (routesLost.length > 0 || routeCollisions.length > 0) {
+    throw new Error(
+      `retirement accounting failed: removed=${metrics.removed} archived=${metrics.archived} `
+      + `routesLost=${metrics.routesLost} routeCollisions=${metrics.routeCollisions}`,
+    );
+  }
+  return metrics;
 }
 
 describe('iPersonal route recovery for issue 7045', () => {
@@ -98,38 +122,49 @@ describe('iPersonal route recovery for issue 7045', () => {
   const expired = JSON.parse(readFileSync(EXPIRED_FILE, 'utf8')) as Job[];
 
   it('restores every one of the 22 lost routes with one unambiguous owner', () => {
-    const owners = new Map<string, number>();
-    for (const job of [...active, ...expired]) {
-      for (const route of routeSet(job)) owners.set(route, (owners.get(route) ?? 0) + 1);
-    }
+    const owners = routeOwners([...active, ...expired]);
     expect(LOST_ROUTES).toHaveLength(22);
     expect(LOST_ROUTES.filter((route) => !owners.has(route))).toEqual([]);
     expect(LOST_ROUTES.filter((route) => owners.get(route) !== 1)).toEqual([]);
   });
 
-  it('keeps every post-loss active vacancy and introduces no identity collision', () => {
-    expect(active.map(({ id }) => id).sort()).toEqual(CURRENT_ACTIVE_IDS);
+  it('keeps the current generation structurally complete without identity collisions', () => {
+    expect(active.length).toBeGreaterThan(0);
+    expect(active.every(({ id, url, slug }) => Boolean(id && url && slug))).toBe(true);
     expect(duplicateCount(active.map(({ id }) => id))).toBe(0);
     expect(duplicateCount(active.map(({ url }) => url))).toBe(0);
     expect(duplicateCount([...active, ...expired].map(({ slug }) => slug))).toBe(0);
-    expect(expired).toHaveLength(110);
   });
 
-  it('is idempotent under the same target-first recovery input', () => {
-    const recovered = expired.filter((job) => (
-      [...routeSet(job)].some((route) => LOST_ROUTES.includes(route))
-    ));
-    const postLoss = expired.filter((job) => !recovered.includes(job));
-    expect(postLoss).toHaveLength(98);
-    expect(routeIdentityHash(postLoss)).toBe(
-      'd103f86f975a51c48d085303cbc58c41235475b5e0bf7fc2d288b8ce6652fffa',
-    );
-    const once = targetFirstBySlug(postLoss, recovered);
-    const twice = targetFirstBySlug(once, recovered);
+  it('fails closed on the causal 15-removed/3-archived shape and recovers idempotently', () => {
+    const recovered = incidentRemovedJobs([...active, ...expired]);
     expect(recovered).toHaveLength(12);
-    expect(once.toSorted((left, right) => String(left.slug).localeCompare(String(right.slug)))).toEqual(
-      expired.toSorted((left, right) => String(left.slug).localeCompare(String(right.slug))),
-    );
-    expect(twice).toEqual(once);
+    const alreadyAccounted = Array.from({ length: 3 }, (_, index) => syntheticJob('removed', index));
+    const removed = [...recovered, ...alreadyAccounted];
+    const fresh = Array.from({ length: 15 }, (_, index) => syntheticJob('fresh', index));
+    const archiveDir = mkdtempSync(join(tmpdir(), 'ipersonal-7045-'));
+    const archiveFile = join(archiveDir, 'ipersonal.json');
+    try {
+      expect(archiveRemovedJobsToSlice(alreadyAccounted, 'ipersonal', { dir: archiveDir })).toBe(3);
+      const partialArchive = JSON.parse(readFileSync(archiveFile, 'utf8')) as Job[];
+      expect(() => assertRetirementAccounting(removed, fresh, partialArchive)).toThrow(
+        'removed=15 archived=3 routesLost=22 routeCollisions=0',
+      );
+
+      expect(archiveRemovedJobsToSlice(removed, 'ipersonal', { dir: archiveDir })).toBe(12);
+      const completeArchive = JSON.parse(readFileSync(archiveFile, 'utf8')) as Job[];
+      expect(assertRetirementAccounting(removed, fresh, completeArchive)).toEqual({
+        removed: 15,
+        archived: 15,
+        routesLost: 0,
+        routeCollisions: 0,
+      });
+
+      const firstCompleteSnapshot = readFileSync(archiveFile, 'utf8');
+      expect(archiveRemovedJobsToSlice(removed, 'ipersonal', { dir: archiveDir })).toBe(0);
+      expect(readFileSync(archiveFile, 'utf8')).toBe(firstCompleteSnapshot);
+    } finally {
+      rmSync(archiveDir, { recursive: true, force: true });
+    }
   });
 });

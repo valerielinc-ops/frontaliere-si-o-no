@@ -7,6 +7,7 @@ import { delimiter, dirname, join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
+const GENERATION_TOKEN = '9001-2';
 
 // The script uses `declare -A` (associative arrays), requiring bash 4+.
 const BASH_BIN = ['/opt/homebrew/bin/bash', '/usr/local/bin/bash'].find(existsSync) ?? 'bash';
@@ -38,11 +39,17 @@ function runScript(repoDir: string, sliceFile: string, githubOutput = '') {
   });
 }
 
-function groupEnv(repoDir: string, runnerTemp: string, crawlerId = '') {
+function groupEnv(
+  repoDir: string,
+  runnerTemp: string,
+  crawlerId = '',
+  generationToken = GENERATION_TOKEN,
+) {
   return {
     ...process.env,
     CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
     CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
+    CRAWLER_GENERATION_TOKEN: generationToken,
     RUNNER_TEMP: runnerTemp,
     ...(crawlerId ? { JOBS_HOUSEKEEPING_SCOPE: crawlerId } : {}),
     SKIP_AI_TRANSLATION: '1',
@@ -55,12 +62,18 @@ function groupEnv(repoDir: string, runnerTemp: string, crawlerId = '') {
   };
 }
 
-function deferGroupCommit(repoDir: string, runnerTemp: string, crawlerId: string, extraPaths: string[] = []) {
+function deferGroupCommit(
+  repoDir: string,
+  runnerTemp: string,
+  crawlerId: string,
+  extraPaths: string[] = [],
+  generationToken = GENERATION_TOKEN,
+) {
   return spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', `update ${crawlerId}`, ...extraPaths], {
     cwd: repoDir,
     encoding: 'utf8',
     env: {
-      ...groupEnv(repoDir, runnerTemp, crawlerId),
+      ...groupEnv(repoDir, runnerTemp, crawlerId, generationToken),
       CRAWLER_GROUP_DEFER_COMMIT: '1',
       JOBS_SLICE_FILE: `data/jobs/by-crawler/${crawlerId}.json`,
     },
@@ -88,6 +101,49 @@ function commitGroup(repoDir: string, runnerTemp: string) {
 // shared worktree/index at all: it builds the commit via a private temp index
 // on top of the freshly fetched origin/main and pushes the sha directly.
 describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', () => {
+  it.each([
+    ['missing', '', /Missing CRAWLER_GENERATION_TOKEN/],
+    ['malformed', 'not-a-generation-token', /Invalid crawler commit descriptor generation token/],
+  ])('fails closed on a %s generation token before persisting a descriptor', (_label, token, error) => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-token-'));
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"old"}]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+      const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim();
+      const remoteHead = execFileSync(
+        'git',
+        ['ls-remote', 'origin', 'refs/heads/main'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ).trim();
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"new"}]\n');
+      const deferred = deferGroupCommit(repoDir, runnerTemp, 'a', [], token);
+      expect(deferred.status).toBe(1);
+      expect(`${deferred.stdout}${deferred.stderr}`).toMatch(error);
+      expect(existsSync(join(
+        runnerTemp,
+        'crawler-generation',
+        'commit-batch',
+        'a.json',
+      ))).toBe(false);
+      expect(execFileSync('git', ['rev-parse', 'HEAD'], { cwd: repoDir, encoding: 'utf8' }).trim())
+        .toBe(head);
+      expect(execFileSync(
+        'git',
+        ['ls-remote', 'origin', 'refs/heads/main'],
+        { cwd: repoDir, encoding: 'utf8' },
+      ).trim()).toBe(remoteHead);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
   it('commits the deferred active+expired snapshots after a sibling rewrites the live paths', () => {
     const { originDir, repoDir } = initClonePair();
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
@@ -111,7 +167,11 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
         join(runnerTemp, 'crawler-generation', 'commit-batch', 'ipersonal.json'),
         'utf8',
       ));
-      expect(descriptor).toMatchObject({ schemaVersion: 2, crawlerId: 'ipersonal' });
+      expect(descriptor).toMatchObject({
+        schemaVersion: 3,
+        generationToken: GENERATION_TOKEN,
+        crawlerId: 'ipersonal',
+      });
       expect(descriptor.files).toEqual(expect.arrayContaining([
         expect.objectContaining({
           path: 'data/jobs/by-crawler/ipersonal.json',
