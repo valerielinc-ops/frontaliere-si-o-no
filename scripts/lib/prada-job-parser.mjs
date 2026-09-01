@@ -46,6 +46,15 @@ export function normalizePradaJobUrl(rawUrl = '') {
   }
 }
 
+// SuccessFactors detail pages sometimes prefix the city with a Swiss postal
+// code ("6850 Mendrisio", "CH-6850 Mendrisio, Ticino") — the same convention
+// already stripped for other crawlers, e.g. `agroscope-job-parser.mjs`. Only
+// the leading digits are stripped for the ownership check; the original
+// string (with postal code) is still what gets returned/persisted.
+function stripLeadingSwissPostalCode(value = '') {
+  return value.replace(/^(?:CH-)?\d{4}\s+/i, '');
+}
+
 /**
  * Resolve a Prada listing to the only location owned by this Ticino crawler.
  * The upstream `locationsearch` parameters are currently ignored by the
@@ -65,7 +74,8 @@ export function resolvePradaTicinoLocation(job = {}) {
     const routeIsMendrisio = /^\/job\/Mendrisio(?:-|\/)/i.test(path);
     if (!routeIsMendrisio) return null;
     if (!location) return 'Mendrisio';
-    return /^mendrisio(?:\b|\s*[,(/-])/i.test(location) ? location : null;
+    const candidate = stripLeadingSwissPostalCode(location);
+    return /^mendrisio(?:\b|\s*[,(/-])/i.test(candidate) ? location : null;
   } catch {
     return null;
   }

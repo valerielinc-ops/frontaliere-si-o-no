@@ -197,6 +197,23 @@ describe('Prada Group crawler — Ticino ownership', () => {
     expect(resolvePradaTicinoLocation({ location, url })).toBeNull();
   });
 
+  it('tolerates real SuccessFactors detail-page location formatting without dropping a valid Mendrisio job', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    // Postal-code-prefixed variants seen on detail pages (same convention
+    // already handled for other crawlers, e.g. agroscope-job-parser.mjs).
+    expect(resolvePradaTicinoLocation({ location: '6850 Mendrisio', url })).toBe('6850 Mendrisio');
+    expect(resolvePradaTicinoLocation({ location: 'CH-6850 Mendrisio, Ticino', url }))
+      .toBe('CH-6850 Mendrisio, Ticino');
+    // Case and stray whitespace already tolerated — kept here as regression guards.
+    expect(resolvePradaTicinoLocation({ location: '  MENDRISIO  ', url })).toBe('MENDRISIO');
+  });
+
+  it('still rejects a bare postal code or a foreign city sharing no Mendrisio prefix', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    expect(resolvePradaTicinoLocation({ location: '6850', url })).toBeNull();
+    expect(resolvePradaTicinoLocation({ location: '6900 Lugano', url })).toBeNull();
+  });
+
   it('does not let a Mendrisio title override an authoritative foreign location', () => {
     expect(resolvePradaTicinoLocation({
       location: 'Arezzo',
