@@ -19,8 +19,16 @@ export const TRANSLATION_JOURNAL_STATES_V2 = Object.freeze([
 ]);
 
 const JOURNAL_KEYS = ['events', 'schemaVersion'];
-const EVENT_KEYS = ['attemptKey', 'candidateId', 'eventId', 'fromState', 'schemaVersion', 'toState'];
-const CREATE_EVENT_KEYS = ['attemptKey', 'candidateId', 'fromState', 'toState'];
+const EVENT_KEYS = [
+  'attemptKey',
+  'candidateId',
+  'eventId',
+  'fromState',
+  'schemaVersion',
+  'sequence',
+  'toState',
+];
+const CREATE_EVENT_KEYS = ['attemptKey', 'candidateId', 'fromState', 'sequence', 'toState'];
 const ATTEMPT_PATTERN = /^translation-attempt:v2:[a-f0-9]{64}$/;
 const CANDIDATE_PATTERN = /^translation-candidate:v2:[a-f0-9]{64}$/;
 const STATE_SET = new Set(TRANSLATION_JOURNAL_STATES_V2);
@@ -54,6 +62,9 @@ function validateEventShape(event) {
   }
   const fromState = validateState(event.fromState, { nullable: true });
   const toState = validateState(event.toState);
+  if (!Number.isSafeInteger(event.sequence) || event.sequence < 1) {
+    throw new TypeError('translation journal v2 sequence must be a positive safe integer');
+  }
   if (event.candidateId !== null
     && (typeof event.candidateId !== 'string' || !CANDIDATE_PATTERN.test(event.candidateId))) {
     throw new TypeError('translation journal v2 candidateId is invalid');
@@ -66,6 +77,7 @@ function validateEventShape(event) {
     candidateId: event.candidateId,
     fromState,
     schemaVersion: event.schemaVersion,
+    sequence: event.sequence,
     toState,
   })}`;
   if (event.eventId !== expectedId) throw new TypeError('translation journal v2 eventId does not match');
@@ -73,7 +85,10 @@ function validateEventShape(event) {
 }
 
 function applyEvent(stateByAttempt, event) {
-  const current = stateByAttempt.get(event.attemptKey) ?? { state: null, candidateId: null };
+  const current = stateByAttempt.get(event.attemptKey) ?? { state: null, candidateId: null, sequence: 0 };
+  if (event.sequence !== current.sequence + 1) {
+    throw new TypeError('translation journal v2 sequence is not contiguous');
+  }
   if (event.fromState !== current.state) {
     throw new TypeError('translation journal v2 event has a stale fromState');
   }
@@ -101,6 +116,7 @@ function applyEvent(stateByAttempt, event) {
   stateByAttempt.set(event.attemptKey, {
     state: event.toState,
     candidateId: event.candidateId,
+    sequence: event.sequence,
   });
 }
 
@@ -112,6 +128,7 @@ export function createTranslationJournalEventV2(input) {
     attemptKey: input.attemptKey,
     candidateId: input.candidateId,
     fromState: input.fromState,
+    sequence: input.sequence,
     toState: input.toState,
   };
   return validateEventShape({
@@ -131,6 +148,7 @@ export function replayTranslationJournalV2(events) {
   if (!Array.isArray(events)) throw new TypeError('translation journal v2 replay input must be an array');
   const stateByAttempt = new Map();
   const eventById = new Map();
+  const eventByOccurrence = new Map();
   const canonicalEvents = [];
   for (const rawEvent of events) {
     const event = validateEventShape(rawEvent);
@@ -141,8 +159,13 @@ export function replayTranslationJournalV2(events) {
       }
       continue;
     }
+    const occurrenceKey = `${event.attemptKey}:${event.sequence}`;
+    if (eventByOccurrence.has(occurrenceKey)) {
+      throw new TypeError('translation journal v2 sequence has conflicting events');
+    }
     applyEvent(stateByAttempt, event);
     eventById.set(event.eventId, event);
+    eventByOccurrence.set(occurrenceKey, event);
     canonicalEvents.push(event);
   }
   return deepFreezeTranslationV2({

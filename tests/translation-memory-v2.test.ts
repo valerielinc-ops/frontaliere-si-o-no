@@ -121,13 +121,55 @@ describe('translation memory v2 contracts', () => {
       engineVersion: 'engine-1',
       gateVersion: 'gate-1',
     }).status).toBe('missing');
-    expect(() => recordTranslationCandidateV2(memory, {
+    expect(createTranslationAttemptKeyV2({ identity, engineVersion: 'engine-1', gateVersion: 'gate-1' }))
+      .not.toBe(createTranslationAttemptKeyV2({ identity, engineVersion: 'engine-2', gateVersion: 'gate-1' }));
+  });
+
+  it('merges distinct validated/rejected outcomes commutatively and reports their conflict', () => {
+    const identity = createTranslationUnitIdentityV2(BASE_UNIT);
+    const validated = { identity, ...OUTCOME };
+    const rejected = {
       identity,
       ...OUTCOME,
       outputText: 'OUT_B',
-    })).toThrow(/negative-cached/);
-    expect(createTranslationAttemptKeyV2({ identity, engineVersion: 'engine-1', gateVersion: 'gate-1' }))
-      .not.toBe(createTranslationAttemptKeyV2({ identity, engineVersion: 'engine-2', gateVersion: 'gate-1' }));
+      status: 'rejected' as const,
+    };
+    const validatedThenRejected = recordTranslationCandidateV2(
+      recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), validated),
+      rejected,
+    );
+    const rejectedThenValidated = recordTranslationCandidateV2(
+      recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), rejected),
+      validated,
+    );
+
+    expect(serializeTranslationMemoryV2(validatedThenRejected))
+      .toBe(serializeTranslationMemoryV2(rejectedThenValidated));
+    for (const memory of [validatedThenRejected, rejectedThenValidated]) {
+      const lookup = lookupTranslationMemoryV2(memory, {
+        identity,
+        engineVersion: OUTCOME.engineVersion,
+        gateVersion: OUTCOME.gateVersion,
+      });
+      expect(lookup.status).toBe('conflicting_candidates');
+      expect(lookup.candidates.map((candidate) => candidate.status).sort())
+        .toEqual(['rejected', 'validated']);
+    }
+  });
+
+  it('rejects contradictory statuses for the same output in either order', () => {
+    const identity = createTranslationUnitIdentityV2(BASE_UNIT);
+    const validated = { identity, ...OUTCOME };
+    const rejected = { ...validated, status: 'rejected' as const };
+
+    expect(() => recordTranslationCandidateV2(
+      recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), validated),
+      rejected,
+    )).toThrow(/different outcome/);
+    expect(() => recordTranslationCandidateV2(
+      recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), rejected),
+      validated,
+    )).toThrow(/different outcome/);
   });
 
   it('preserves invalidated candidates for audit while a new engine can produce another', () => {

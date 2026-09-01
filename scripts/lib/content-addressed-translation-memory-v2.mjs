@@ -187,13 +187,6 @@ export function recordTranslationCandidateV2(memory, input) {
     }
     return validatedMemory;
   }
-  if (record.candidates.some((item) => (
-    item.attemptKey === attemptKey
-    && item.applicability === 'applicable'
-    && item.status === 'rejected'
-  ))) {
-    throw new TypeError('translation candidate v2 attempt is negative-cached');
-  }
   record.candidates.push(candidate);
   return validateTranslationMemoryV2({ schemaVersion: TRANSLATION_MEMORY_V2_SCHEMA_VERSION, records });
 }

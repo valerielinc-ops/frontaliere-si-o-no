@@ -27,11 +27,12 @@ const attemptKey = createTranslationAttemptKeyV2({
 });
 const candidateId = `translation-candidate:v2:${'a'.repeat(64)}`;
 
-function event(fromState: string | null, toState: string, candidate: string | null) {
+function event(sequence: number, fromState: string | null, toState: string, candidate: string | null) {
   return createTranslationJournalEventV2({
     attemptKey,
     candidateId: candidate,
     fromState,
+    sequence,
     toState,
   });
 }
@@ -39,11 +40,11 @@ function event(fromState: string | null, toState: string, candidate: string | nu
 describe('translation journal v2 state machine', () => {
   it('accepts the happy path and replays the same event idempotently', () => {
     const events = [
-      event(null, 'missing', null),
-      event('missing', 'generated', candidateId),
-      event('generated', 'validated', candidateId),
-      event('validated', 'queued', candidateId),
-      event('queued', 'applied', candidateId),
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
+      event(3, 'generated', 'validated', candidateId),
+      event(4, 'validated', 'queued', candidateId),
+      event(5, 'queued', 'applied', candidateId),
     ];
     const replayed = replayTranslationJournalV2([...events, events[2]]);
 
@@ -57,61 +58,78 @@ describe('translation journal v2 state machine', () => {
 
   it('supports rejected, stale_source and target_absent without illegal shortcuts', () => {
     const rejected = replayTranslationJournalV2([
-      event(null, 'missing', null),
-      event('missing', 'generated', candidateId),
-      event('generated', 'rejected', candidateId),
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
+      event(3, 'generated', 'rejected', candidateId),
     ]);
     expect(getTranslationJournalStateV2(rejected, attemptKey).state).toBe('rejected');
 
     const stale = replayTranslationJournalV2([
-      event(null, 'missing', null),
-      event('missing', 'generated', candidateId),
-      event('generated', 'validated', candidateId),
-      event('validated', 'stale_source', candidateId),
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
+      event(3, 'generated', 'validated', candidateId),
+      event(4, 'validated', 'stale_source', candidateId),
     ]);
     expect(getTranslationJournalStateV2(stale, attemptKey).state).toBe('stale_source');
 
-    const absentThenReadded = replayTranslationJournalV2([
-      event(null, 'missing', null),
-      event('missing', 'target_absent', null),
-      event('target_absent', 'missing', null),
+    const deleteReaddDelete = [
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'target_absent', null),
+      event(3, 'target_absent', 'missing', null),
+      event(4, 'missing', 'target_absent', null),
+    ];
+    const replayedWithRetry = replayTranslationJournalV2([
+      ...deleteReaddDelete,
+      deleteReaddDelete[3],
     ]);
-    expect(getTranslationJournalStateV2(absentThenReadded, attemptKey).state).toBe('missing');
+    expect(replayedWithRetry.events).toHaveLength(4);
+    expect(getTranslationJournalStateV2(replayedWithRetry, attemptKey).state).toBe('target_absent');
   });
 
   it('rejects stale fromState, skipped validation and candidate substitution', () => {
     const missing = appendTranslationJournalEventV2(
       createEmptyTranslationJournalV2(),
-      event(null, 'missing', null),
+      event(1, null, 'missing', null),
     );
     expect(() => appendTranslationJournalEventV2(
       missing,
-      event('generated', 'validated', candidateId),
+      event(2, 'generated', 'validated', candidateId),
     )).toThrow(/stale fromState/);
     expect(() => replayTranslationJournalV2([
-      event(null, 'missing', null),
+      event(1, null, 'missing', null),
       createTranslationJournalEventV2({
         attemptKey,
         candidateId,
         fromState: 'missing',
+        sequence: 2,
         toState: 'applied',
       }),
     ])).toThrow(/illegal/);
     expect(() => replayTranslationJournalV2([
-      event(null, 'missing', null),
-      event('missing', 'generated', candidateId),
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
       createTranslationJournalEventV2({
         attemptKey,
         candidateId: `translation-candidate:v2:${'b'.repeat(64)}`,
         fromState: 'generated',
+        sequence: 3,
         toState: 'validated',
       }),
     ])).toThrow(/candidate changed/);
+    expect(() => replayTranslationJournalV2([
+      event(1, null, 'missing', null),
+      event(3, 'missing', 'target_absent', null),
+    ])).toThrow(/not contiguous/);
+    expect(() => replayTranslationJournalV2([
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'target_absent', null),
+      event(2, 'missing', 'generated', candidateId),
+    ])).toThrow(/conflicting events/);
   });
 
   it('serializes canonically, stays immutable and rejects expanded schemas', () => {
     const initial = createEmptyTranslationJournalV2();
-    const firstEvent = event(null, 'missing', null);
+    const firstEvent = event(1, null, 'missing', null);
     const appended = appendTranslationJournalEventV2(initial, firstEvent);
     const repeated = appendTranslationJournalEventV2(appended, firstEvent);
 
