@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-09-01T01:16:29.288Z",
+  "generatedAt": "2026-09-01T02:24:29.886Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3568,
-  "avgDurationMs": 3568,
+  "durationMs": 3546,
+  "avgDurationMs": 3546,
   "durationHistory": [
-    3568
+    3546
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T01:16:26.696Z",
+      "crawledAt": "2026-09-01T02:24:27.399Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -74,8 +74,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T01:16:26.694Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-01T02:24:27.398Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -113,7 +112,7 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T01:16:26.696Z",
+      "crawledAt": "2026-09-01T02:24:27.399Z",
       "firstSeenAt": "2026-08-21T09:48:20.071Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -148,9 +147,9 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=I#position,id=29956b6b-1104-445c-adc5-5f35b4fb4e4a,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T01:16:26.694Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-01T02:24:27.398Z",
       "firstSeenAt": "2026-06-29T21:52:24.302Z",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
