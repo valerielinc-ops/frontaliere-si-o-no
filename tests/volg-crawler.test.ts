@@ -1,3 +1,7 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+
 /**
  * Tests for the Volg/fenaco crawler detail page parser.
  *
@@ -69,6 +73,15 @@ const FIXTURE_HTML = `<!DOCTYPE html>
 <p>Volg ist der Spezialist für Dorfläden und Kleinflächen.</p>
 </body>
 </html>`;
+
+describe('Volg source-detail wiring', () => {
+  it('uses the shared fail-closed Coop-family detail contract', () => {
+    const runner = fs.readFileSync(path.resolve(import.meta.dirname, '../scripts/update-volg-jobs.mjs'), 'utf8');
+    expect(runner).toContain('enrichCoopSourceBackedJobs');
+    expect(runner).toContain("allowedHosts: ['jobs.fenaco.com']");
+    expect(runner).not.toContain('Promise.allSettled');
+  });
+});
 
 /* ── Replicate parseDetailPage logic for testing ── */
 

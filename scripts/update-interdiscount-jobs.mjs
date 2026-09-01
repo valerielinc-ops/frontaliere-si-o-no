@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import {
   fetchAllInterdiscountJobs,
   isInterdiscountJob,
@@ -23,10 +24,13 @@ runStandardCrawlerPipeline({
   companyKey: INTERDISCOUNT_KEY,
   companyLabel: INTERDISCOUNT_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllInterdiscountJobs,
+  fetchJobs: async () => enrichCoopSourceBackedJobs(await fetchAllInterdiscountJobs(), {
+    allowedHosts: ['jobs.coopjobs.ch'],
+  }),
   isCompanyJob: isInterdiscountJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ Interdiscount crawler failed: ${err?.message || err}`);
   process.exit(1);

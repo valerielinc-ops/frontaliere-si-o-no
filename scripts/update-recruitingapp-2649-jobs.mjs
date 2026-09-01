@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllRecruitingapp2649Jobs,
+  assertCompleteRecruitingapp2649Snapshot,
   isRecruitingapp2649Job,
   isTrustedDomain,
   RECRUITINGAPP_2649_KEY,
@@ -27,6 +28,10 @@ runStandardCrawlerPipeline({
   isCompanyJob: isRecruitingapp2649Job,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
+  validateAuthoritativeSnapshot: assertCompleteRecruitingapp2649Snapshot,
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Alexander von Humboldt-Stiftung Stellen crawler failed: ${err?.message || err}`);
   process.exit(1);

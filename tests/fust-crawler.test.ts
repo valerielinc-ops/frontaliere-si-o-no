@@ -99,7 +99,7 @@ describe('Fust authoritative discovery', () => {
     }
   });
 
-  it('parses the representative French detail fixture only through that explicit contract', () => {
+  it('fails closed when a representative detail has only a thin JSON-LD description', () => {
     const detail = fixture.details.find((item) => item.url.includes('/postes-vacants/'))!;
     const jsonLd = detail.html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
     expect(jsonLd).toBeTruthy();
@@ -124,18 +124,10 @@ describe('Fust authoritative discovery', () => {
         canton: detail.canton,
       },
     });
-    const reconciled = reconcileFustJobsWithDiscovery([parsed.job], {
+    expect(() => reconcileFustJobsWithDiscovery([parsed.job], {
       urls: [detail.url],
       seedMetaByUrl: { [detail.url]: seedMeta },
-    });
-    expect(reconciled[0]).toMatchObject({
-      url: detail.url,
-      company: 'Fust',
-      location: detail.workplace,
-      addressLocality: detail.workplace,
-      canton: detail.canton,
-      addressRegion: detail.canton,
-    });
+    })).toThrow(/source-detail invariant failed/);
   });
 
   it('accepts only canonical branded detail URLs with UUID identity', () => {
@@ -304,7 +296,7 @@ describe('Fust post-crawl reconciliation', () => {
     company: index === 2 ? 'Services ménagers suisses SA' : 'Fust | Swiss Household Services AG',
     companyKey: 'fust',
     title: fixture.api.jobs[index].title,
-    description: `payload-${index}`.repeat(30),
+    description: Array.from({ length: 60 }, (_, word) => `payload-${index}-${word}`).join(' '),
     location: 'Oberbüren',
     addressLocality: 'Oberbüren',
     canton: 'SG',
@@ -348,12 +340,12 @@ describe('Fust post-crawl reconciliation', () => {
       slug: 'slug-pubblicato-fust',
       company: 'Fust',
       companyKey: 'fust',
-      location: 'Oberwil',
-      addressLocality: 'Oberwil',
-      canton: 'BL',
-      addressRegion: 'BL',
-      postalCode: '',
-      streetAddress: '',
+      location: 'Oberbüren',
+      addressLocality: 'Oberbüren',
+      canton: 'SG',
+      addressRegion: 'SG',
+      postalCode: '9245',
+      streetAddress: 'Bogenstrasse 7',
     });
     expect(reconciled[0].slugByLocale.it).toBe('slug-italiano-pubblicato');
     expect(reconciled[0].previousSlugs).toEqual([
@@ -364,8 +356,7 @@ describe('Fust post-crawl reconciliation', () => {
       it: ['redirect-italiano-storico', 'redirect-italiano-precedente'],
       de: ['redirect-tedesco-precedente'],
     });
-    expect(reconciled[1].slug).toContain('niederwangen-bei-bern');
-    expect(reconciled[1].slug).not.toContain('oberburen');
+    expect(reconciled[1].slug).toContain('oberburen');
     expect(reconciled[2].company).toBe('Fust');
   });
 

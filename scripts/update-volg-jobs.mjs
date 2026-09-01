@@ -62,6 +62,7 @@ import { getCantonDisplayName } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -428,86 +429,12 @@ export { parseDetailPage };
  * Applies quality guards: body ratio >= 25% and title overlap >= 0.6.
  */
 async function enrichWithDetails(jobs) {
-  const BATCH_SIZE = 4;
-  const DETAIL_TIMEOUT = 20000;
-  const MIN_BODY_RATIO = 0.03; // parsed text must be >= 3% of raw source body
-  const MIN_TITLE_OVERLAP = 0.6;
-  let enriched = 0;
-  let failed = 0;
-  let rejected = 0;
-
-  for (let i = 0; i < jobs.length; i += BATCH_SIZE) {
-    const batch = jobs.slice(i, i + BATCH_SIZE);
-    await Promise.allSettled(
-      batch.map(async (job) => {
-        if (!job.url) return;
-        const detailUrl = job.url.includes('?') ? `${job.url}&lang=de` : `${job.url}?lang=de`;
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), DETAIL_TIMEOUT);
-        try {
-          const res = await fetch(detailUrl, {
-            signal: controller.signal,
-            headers: {
-              Accept: 'text/html',
-              'User-Agent':
-                'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
-            },
-          });
-          if (!res.ok) throw new Error(`HTTP ${res.status}`);
-          const html = await res.text();
-          const result = parseDetailPage(html, resolveCantonLocale(job.canton));
-
-          // ── Quality guard: body ratio ──
-          if (result.hasSections && result.sourceBodyLength > 0) {
-            const ratio = result.text.length / result.sourceBodyLength;
-            if (ratio < MIN_BODY_RATIO) {
-              console.warn(
-                `  ⚠️ Body ratio too low for "${job.title}": ${(ratio * 100).toFixed(1)}% (need ≥${(MIN_BODY_RATIO * 100).toFixed(0)}%)`,
-              );
-              rejected++;
-              return;
-            }
-          }
-
-          // ── Quality guard: title overlap ──
-          if (result.title) {
-            const overlap = titleOverlap(job.title, result.title);
-            if (overlap < MIN_TITLE_OVERLAP) {
-              // Low overlap: keep listing title (more descriptive than hashtag/marketing titles)
-              console.warn(
-                `  ⚠️ Title mismatch for "${job.title}" vs detail "${result.title}": overlap ${(overlap * 100).toFixed(0)}% (need ≥${(MIN_TITLE_OVERLAP * 100).toFixed(0)}%) — keeping listing title`,
-              );
-            }
-          }
-
-          if (result.text && result.text.length > 100) {
-            // If the detail page content is richer than the current description, replace it.
-            // If it's shorter (thin apprenticeship pages etc.), append it to the boilerplate
-            // so we never lose context in exchange for a minimal "Deine Vorteile" blurb.
-            if (result.text.length >= job.description.length * 0.6) {
-              job.description = result.text;
-            } else {
-              job.description = `${result.text}\n\n${job.description}`;
-            }
-            // Mark as enriched so merge clears stale translations
-            job._enrichedFromDetail = true;
-            enriched++;
-          }
-        } catch (err) {
-          failed++;
-          console.warn(`  ⚠️ Detail fetch failed for ${job.title}: ${err.message}`);
-        } finally {
-          clearTimeout(timer);
-        }
-      }),
-    );
-    // Small delay between batches to be polite
-    if (i + BATCH_SIZE < jobs.length) await new Promise((r) => setTimeout(r, 500));
-  }
-
-  console.log(
-    `  📄 Detail pages: ${enriched} enriched, ${rejected} rejected (quality), ${failed} failed`,
-  );
+  const enriched = await enrichCoopSourceBackedJobs(jobs, {
+    allowedHosts: ['jobs.fenaco.com'],
+    concurrency: 4,
+  });
+  jobs.splice(0, jobs.length, ...enriched);
+  console.log(`  📄 Detail pages: ${enriched.length} source-backed`);
 }
 
 /* ── Build Job Objects ─────────────────────────────────────── */

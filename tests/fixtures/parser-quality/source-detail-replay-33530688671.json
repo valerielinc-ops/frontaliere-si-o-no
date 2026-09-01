@@ -1,0 +1,70 @@
+{
+  "artifactRunId": 33530688671,
+  "provenance": {
+    "repoHeadSha": "0c3bd31c9e14b6a7b256238d308797163d159a7d",
+    "datasetLastCommit": {
+      "sha": "bdb6ceb9ae19911dba3855625779c811a5902c08",
+      "committedAt": "2026-09-01T15:59:18Z"
+    }
+  },
+  "versions": {
+    "extractor": "artifact-33530688671-reconstructed-v1",
+    "normalizer": "artifact-33530688671-reconstructed-v1"
+  },
+  "cases": [
+    {
+      "crawlerKey": "ardian",
+      "publishedLocation": "Zurich",
+      "sourceLocation": "CHE - Zurich - Bahnhofstrasse 20",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "georg-fischer",
+      "publishedLocation": "Schaffhausen",
+      "sourceLocation": "Schaffhausen IIFS",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "helsana",
+      "publishedLocation": "Zurigo",
+      "sourceLocation": "Standort: Zürich Homeoffice",
+      "locationEvidence": "strong-markup"
+    },
+    {
+      "crawlerKey": "lonza",
+      "publishedLocation": "CH",
+      "sourceLocation": "CH - Visp",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "medbase",
+      "publishedLocation": "Winterthur",
+      "sourceLocation": "Winterthur Neuwiesen (MC)",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "rituals-cosmetics",
+      "publishedLocation": "Carouge",
+      "sourceLocation": "Carouge La Praille",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "swiss-life",
+      "publishedLocation": "Sion",
+      "sourceLocation": "AG Sion-Valais romand",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "swisscom-sede-ticino",
+      "publishedLocation": "Zurich",
+      "sourceLocation": "Zür-Pfi51",
+      "locationEvidence": "jsonld"
+    },
+    {
+      "crawlerKey": "hfr-hopital-fribourgeois",
+      "publishedLocation": "Fribourg",
+      "sourceLocation": "hôpital fribourgeois / freiburger spital",
+      "locationEvidence": "jsonld"
+    }
+  ]
+}

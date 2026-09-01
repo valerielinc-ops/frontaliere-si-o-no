@@ -23,14 +23,11 @@
  *   6. Re-tags discovered jobs with companyKey "fust".
  *   7. Translates missing locales and validates coverage.
  *
- * Attribute 30 provides the API canton used by the CH-only gate. The final
- * canton is derived from the real detail-page workplace; the API value may
- * only disambiguate a known homonym or act as a telemetered fallback when the
- * shared CH resolver has no candidate at all.
+ * Attribute 30 provides discovery metadata only. The final published canton
+ * and locality remain those parsed from the authoritative detail JobPosting.
  *
- * Detail pages live at jobs.fust.ch and contain JSON-LD JobPosting. Their
- * structured location is the Oberbüren headquarters, so the real workplace
- * is read from the visible/analytics detail-page fields instead.
+ * Detail pages live at jobs.fust.ch and contain the authoritative JSON-LD
+ * JobPosting payload used for description and work location.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -71,6 +68,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { enrichCoopSourceBackedJobs, validateCoopDescription } from './lib/coop-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -746,10 +744,13 @@ export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = []) 
     const job = crawledByKey.get(key);
     const prior = priorByKey.get(key);
     const meta = source.meta || {};
-    const location = String(meta.location || job.location || '').trim();
-    const canton = String(meta.canton || job.canton || '').trim().toUpperCase();
+    const location = String(job.location || '').trim();
+    const canton = String(job.canton || '').trim().toUpperCase();
+    const detailDescription = validateCoopDescription(job.description || '', 0);
+    if (!location || !canton || !detailDescription.ok || String(job.description || '').trim().split(/\s+/).length < 50) {
+      throw new Error(`Fust source-detail invariant failed for ${source.url}`);
+    }
     const title = String(job.title || meta.title || '').trim();
-    const isHeadquarters = normalize(location) === normalize('Oberbüren');
     const previousSlugs = [...new Set([
       ...(Array.isArray(job.previousSlugs) ? job.previousSlugs : []),
       ...(Array.isArray(prior?.previousSlugs) ? prior.previousSlugs : []),
@@ -788,9 +789,8 @@ export function reconcileFustJobsWithDiscovery(jobs, discovery, priorJobs = []) 
       addressLocality: location,
       canton,
       addressRegion: canton,
-      ...(!isHeadquarters ? { postalCode: '', streetAddress: '' } : {}),
       _targetScope: {
-        type: 'adapter_seed_meta',
+        type: 'source_detail',
         location,
         canton,
       },
@@ -883,9 +883,15 @@ function readScratchJobs() {
   return Array.isArray(parsed) ? parsed : [];
 }
 
-function writeReconciledFustScratch(discovery, priorJobs) {
+async function writeReconciledFustScratch(discovery, priorJobs, { refreshSource = true } = {}) {
   const scratchJobs = readScratchJobs();
-  const reconciled = reconcileFustJobsWithDiscovery(scratchJobs, discovery, priorJobs);
+  const sourceBackedJobs = refreshSource && scratchJobs.length > 0
+    ? await enrichCoopSourceBackedJobs(scratchJobs, {
+        allowedHosts: ['jobs.fust.ch'],
+        concurrency: 4,
+      })
+    : scratchJobs;
+  const reconciled = reconcileFustJobsWithDiscovery(sourceBackedJobs, discovery, priorJobs);
   const stable = ensureUniqueFustSlugs(reconciled, priorJobs);
   writeJsonAtomic(DATA_JOBS, stable);
   console.log(`🧭 Fust authoritative reconciliation: ${scratchJobs.length} parsed/retained → ${stable.length} canonical identities, stable slugs enforced.`);
@@ -1134,7 +1140,7 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
     return { confirmed: false, total: priorJobs.length, archived: 0 };
   }
 
-  const emptyJobs = writeScratch(discovery, priorJobs);
+  const emptyJobs = await writeScratch(discovery, priorJobs);
   const emptyPlan = buildFustPublishPlan(emptyJobs, beforeSnapshot, { durationMs, generatedAt });
   const result = await writeFustPublishPlan(emptyPlan, {
     ...publishOptions,
@@ -1206,7 +1212,7 @@ async function main() {
 
   // Step 4: Re-tag any newly crawled Fust jobs
   retagFustJobs();
-  writeReconciledFustScratch(discovery, _priorJobs);
+  await writeReconciledFustScratch(discovery, _priorJobs);
 
   // Step 5: Translate missing locales
   await translateMissingJobLocales({
@@ -1215,7 +1221,7 @@ async function main() {
   });
   // Translation/local-hardening may fill locale slugs. Re-run the deterministic
   // collision pass so housekeeping never has to delete a valid sibling job.
-  writeReconciledFustScratch(discovery, _priorJobs);
+  await writeReconciledFustScratch(discovery, _priorJobs, { refreshSource: false });
 
   // Step 6: Stats + validation
   const _durationMs = getCrawlerElapsedMs();

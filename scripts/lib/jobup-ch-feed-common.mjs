@@ -35,8 +35,13 @@ import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchFollowingValidatedRedirects,
+} from './prospector/public-fetch-policy.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -346,10 +351,26 @@ export async function fetchJobupDetailDescription(detailUrl) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(detailUrl, {
-      headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-      redirect: 'follow',
+    let initialUrl;
+    try {
+      initialUrl = new URL(detailUrl);
+    } catch {
+      return '';
+    }
+    if (
+      initialUrl.protocol !== 'https:'
+      || initialUrl.username
+      || initialUrl.password
+      || !['https://jobup.ch', 'https://www.jobup.ch'].includes(initialUrl.origin.toLowerCase())
+    ) return '';
+    const sourceUrlPolicy = createSpecUrlPolicy({ seedUrls: [initialUrl.href] });
+    const res = await fetchFollowingValidatedRedirects(initialUrl.href, {
+      validateUrl: sourceUrlPolicy,
+      requestOptions: {
+        headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+        dispatcher: sourceUrlPolicy.dispatcher,
+      },
     });
     if (!res.ok) return '';
     const html = await res.text();
@@ -392,8 +413,8 @@ export async function fetchJobupDetailDescription(detailUrl) {
  * @param {string} config.companyDomain      Corporate domain (e.g. 'pspe.ch')
  * @param {string} config.jobupKey           jobup.ch mask key (e.g. 'hpe')
  * @param {string} config.defaultCanton      ISO canton code (e.g. 'VD')
- * @param {string} config.defaultCity        Fallback city
- * @param {string} config.defaultPostalCode  Fallback postal code
+ * @param {string} config.defaultCity        Legacy identity config; never used as a location fallback
+ * @param {string} config.defaultPostalCode  Legacy config; never used as a location fallback
  * @param {string} [config.publicCareerUrl]  Corporate career page URL
  * @param {string} [config.defaultSourceLang='fr']
  */
@@ -404,8 +425,6 @@ export function createJobupChFeedParser(config) {
     companyDomain,
     jobupKey,
     defaultCanton,
-    defaultCity,
-    defaultPostalCode,
     publicCareerUrl,
     defaultSourceLang = 'fr',
   } = config;
@@ -466,25 +485,30 @@ export function createJobupChFeedParser(config) {
       const title = normalizeSpace(decodeEntities(raw?.titre || ''));
       if (!title || title.length < 3) continue;
 
-      const lieu = parseJobupLieu(raw?.lieu || '');
-      const location = lieu.city || defaultCity;
-      const canton = inferSwissTargetCanton(location) || defaultCanton;
-      const postalCode = lieu.postal || defaultPostalCode;
+      const rawLieu = normalizeSpace(raw?.lieu || '');
+      const lieu = parseJobupLieu(rawLieu);
+      const hasUnsupportedPostalPrefix = /^\d+\b/.test(rawLieu) && !lieu.postal;
+      const location = lieu.city;
+      const geography = hasUnsupportedPostalPrefix
+        ? null
+        : resolveSourceBackedSwissGeography(rawLieu);
+      const canton = geography?.canton || '';
+      if (!location || !canton) {
+        console.log(`     ⚠ source location rejected for ${link}: missing, foreign or unresolved lieu`);
+        return [];
+      }
+      const postalCode = lieu.postal;
 
       // Fetch detail page for rich description (JSON-LD JobPosting)
       const detailDescription = await fetchJobupDetailDescription(link);
-      if (detailDescription) detailHits++;
       await new Promise((r) => setTimeout(r, 250));
+      if (!hasPublishableJobupDetail(detailDescription)) {
+        console.log(`     ⚠ detail content rejected for ${link}: missing or thin source description`);
+        return [];
+      }
+      detailHits++;
 
-      const description = detailDescription || normalizeSpace(
-        [
-          decodeEntities(raw?.ref || ''),
-          raw?.contrat ? `Contrat : ${decodeEntities(raw.contrat)}` : '',
-          raw?.occupationmin && raw?.occupationmax
-            ? `Taux : ${String(raw.occupationmin)}-${String(raw.occupationmax).replace(/[^\d]/g, '')}%`
-            : '',
-        ].filter(Boolean).join(' · '),
-      ) || `${title} — ${companyName}`;
+      const description = detailDescription;
 
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);

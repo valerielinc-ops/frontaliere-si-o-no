@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { enrichCoopSourceBackedJobs } from './lib/coop-job-parser.mjs';
 import {
   fetchAllJumboJobs,
   isJumboJob,
@@ -23,10 +24,13 @@ runStandardCrawlerPipeline({
   companyKey: JUMBO_KEY,
   companyLabel: JUMBO_COMPANY_NAME,
   root: ROOT,
-  fetchJobs: fetchAllJumboJobs,
+  fetchJobs: async () => enrichCoopSourceBackedJobs(await fetchAllJumboJobs(), {
+    allowedHosts: ['jobs.coopjobs.ch'],
+  }),
   isCompanyJob: isJumboJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ JUMBO crawler failed: ${err?.message || err}`);
   process.exit(1);
