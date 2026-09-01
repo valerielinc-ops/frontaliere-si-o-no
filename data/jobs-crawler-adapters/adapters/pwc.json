@@ -11,8 +11,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-09-01T05:04:03.959Z",
+  "updatedAt": "2026-09-01T07:22:06.596Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-09-01"
+    },
     "https://jobs.pwc.ch/job-vacancies/associate-senior-assosciate-interne-beratung-risikomanagement-qualitaet-compliance-80/27a4f32b-8d5a-481f-a5d7-386567fe0b18": {
       "location": "Zürich",
       "canton": "ZH",
