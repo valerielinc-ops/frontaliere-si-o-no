@@ -281,7 +281,6 @@ function markCompleteSnapshot(jobs, { resolvedPageCount, canonicalOpenApplicatio
  * invitation: a markup/network regression must keep the previous slice.
  */
 export function assertCompleteChiccoDoroSnapshot(jobs) {
-  if (Array.isArray(jobs) && jobs.length > 0) return true;
   if (
     !Array.isArray(jobs)
     || Reflect.get(jobs, 'chiccoDoroSnapshotState') !== SNAPSHOT_STATE

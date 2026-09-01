@@ -30,6 +30,7 @@ runStandardCrawlerPipeline({
   defaultSourceLang: 'it',
   validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
   allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Chicco d'Oro crawler failed: ${err?.message || err}`);
   process.exit(1);
