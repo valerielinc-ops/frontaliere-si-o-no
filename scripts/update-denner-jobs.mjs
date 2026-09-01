@@ -197,7 +197,13 @@ export async function fetchDennerJobUrls() {
       if (!visible || disabled) break;
 
       await nextButton.scrollIntoViewIfNeeded().catch(() => {});
-      await nextButton.click();
+      try {
+        await nextButton.click();
+      } catch (err) {
+        throw new Error(
+          `Denner discovery incomplete at page ${pageIndex}: next control click failed (${err?.message || err}).`,
+        );
+      }
       pageIndex += 1;
       const before = allUrls.size;
       for (let poll = 0; poll < paginationStallPolls; poll += 1) {
@@ -209,10 +215,9 @@ export async function fetchDennerJobUrls() {
       }
       console.log(`  \ud83d\udce6 page ${pageIndex}: ${allUrls.size} total URL(s)`);
       if (allUrls.size === before) {
-        console.warn(
-          `\u26a0\ufe0f Denner pagination stalled after page ${pageIndex}: next control was clickable but yielded no new URLs after ${paginationStallPolls} poll(s) (${allUrls.size} total).`,
+        throw new Error(
+          `Denner discovery incomplete: page ${pageIndex} stalled while the next control remained enabled after ${paginationStallPolls} poll(s) (${allUrls.size} total URLs).`,
         );
-        break;
       }
     }
   } finally {
@@ -322,7 +327,7 @@ async function fetchAndParseDetailPages(urls) {
 }
 
 /* -- Main -------------------------------------------------------------- */
-async function main() {
+export async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(DENNER_KEY, 'Denner');
   console.log('\ud83c\udfea Running dedicated Denner jobs crawler...');

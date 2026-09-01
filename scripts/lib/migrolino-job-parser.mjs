@@ -336,7 +336,13 @@ export async function fetchMigrolinoListingHrefs() {
       if (!visible || disabled) break;
 
       await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
-      await nextBtn.click().catch(() => {});
+      try {
+        await nextBtn.click();
+      } catch (err) {
+        throw new Error(
+          `migrolino discovery incomplete at page ${pageIdx}: next control click failed (${err?.message || err}).`,
+        );
+      }
       pageIdx += 1;
 
       const before = allUrls.size;
@@ -346,10 +352,9 @@ export async function fetchMigrolinoListingHrefs() {
         if (allUrls.size > before) break;
       }
       if (allUrls.size === before) {
-        console.warn(
-          `\u26a0\ufe0f migrolino pagination stalled after page ${pageIdx}: next control was clickable but yielded no new URLs after ${paginationStallPolls} poll(s) (${allUrls.size} total).`,
+        throw new Error(
+          `migrolino discovery incomplete: page ${pageIdx} stalled while the next control remained enabled after ${paginationStallPolls} poll(s) (${allUrls.size} total URLs).`,
         );
-        break;
       }
     }
 

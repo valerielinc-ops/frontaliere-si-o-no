@@ -1,3 +1,4 @@
+import fs from 'node:fs';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const { launchChromiumMock } = vi.hoisted(() => ({ launchChromiumMock: vi.fn() }));
@@ -5,8 +6,9 @@ vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
   launchChromium: launchChromiumMock,
 }));
 
-import { fetchDennerJobUrls } from '../scripts/update-denner-jobs.mjs';
+import { fetchDennerJobUrls, main as runDennerCrawler } from '../scripts/update-denner-jobs.mjs';
 import { fetchMigrolinoListingHrefs } from '../scripts/lib/migrolino-job-parser.mjs';
+import { crawlerScratchPathFor } from '../scripts/lib/crawler-scratch-path.mjs';
 
 afterEach(() => {
   launchChromiumMock.mockReset();
@@ -17,7 +19,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-function mockStalledBrowser(detailHref: string) {
+function mockStalledBrowser(detailHref: string, clickError?: Error) {
   const consent = {
     isVisible: vi.fn().mockResolvedValue(false),
   };
@@ -25,7 +27,9 @@ function mockStalledBrowser(detailHref: string) {
     isVisible: vi.fn().mockResolvedValue(true),
     isDisabled: vi.fn().mockResolvedValue(false),
     scrollIntoViewIfNeeded: vi.fn().mockResolvedValue(undefined),
-    click: vi.fn().mockResolvedValue(undefined),
+    click: clickError
+      ? vi.fn().mockRejectedValue(clickError)
+      : vi.fn().mockResolvedValue(undefined),
   };
   const page = {
     goto: vi.fn().mockResolvedValue(undefined),
@@ -45,34 +49,68 @@ function mockStalledBrowser(detailHref: string) {
 }
 
 describe('Denner Playwright pagination', () => {
-  it('warns when a clickable next control yields no new job URLs', async () => {
+  it('rejects a non-authoritative snapshot when pagination stalls', async () => {
     process.env.JOBS_DENNER_PAGINATION_TIMEOUT_MS = '1';
     process.env.JOBS_DENNER_PAGINATION_STALL_POLLS = '1';
 
     const detailHref = '/it/le-nostre-imprese/job/denner-sa/vendita/example-id';
-    const nextButton = mockStalledBrowser(detailHref);
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mockStalledBrowser(detailHref);
 
-    await expect(fetchDennerJobUrls()).resolves.toEqual([
-      `https://jobs.migros.ch${detailHref}`,
-    ]);
-    expect(nextButton.click).toHaveBeenCalledOnce();
-    expect(warn).toHaveBeenCalledWith(expect.stringContaining(
-      'Denner pagination stalled after page 2',
-    ));
+    await expect(fetchDennerJobUrls()).rejects.toThrow(
+      'Denner discovery incomplete: page 2 stalled',
+    );
   });
 
-  it('warns for the sibling migrolino portal instead of stopping silently', async () => {
+  it('preserves an existing job route when the stalled crawl aborts', async () => {
+    process.env.JOBS_DENNER_PAGINATION_TIMEOUT_MS = '1';
+    process.env.JOBS_DENNER_PAGINATION_STALL_POLLS = '1';
+    const scratchPath = crawlerScratchPathFor('denner');
+    const previous = fs.existsSync(scratchPath) ? fs.readFileSync(scratchPath, 'utf8') : null;
+    const existing = JSON.stringify([{
+      id: 'denner-existing',
+      slug: 'existing-denner-route',
+      company: 'Denner',
+      companyKey: 'denner',
+      url: 'https://jobs.migros.ch/it/le-nostre-imprese/job/denner-sa/existing/existing-id',
+    }]);
+    fs.writeFileSync(scratchPath, existing);
+    mockStalledBrowser('/it/le-nostre-imprese/job/denner-sa/vendita/new-id');
+
+    try {
+      await expect(runDennerCrawler()).rejects.toThrow('Denner discovery incomplete');
+      expect(fs.readFileSync(scratchPath, 'utf8')).toBe(existing);
+    } finally {
+      if (previous == null) fs.rmSync(scratchPath, { force: true });
+      else fs.writeFileSync(scratchPath, previous);
+    }
+  });
+
+  it('rejects a Denner snapshot when the next-page click fails', async () => {
+    const detailHref = '/it/le-nostre-imprese/job/denner-sa/vendita/example-id';
+    mockStalledBrowser(detailHref, new Error('detached'));
+
+    await expect(fetchDennerJobUrls()).rejects.toThrow(
+      'Denner discovery incomplete at page 1: next control click failed (detached)',
+    );
+  });
+
+  it('rejects the sibling migrolino snapshot instead of stopping silently', async () => {
     process.env.JOBS_MIGROLINO_PAGINATION_TIMEOUT_MS = '1';
     process.env.JOBS_MIGROLINO_PAGINATION_STALL_POLLS = '1';
     const detailHref = '/de/unsere-unternehmen/job/migrolino/verkauf/00000000-0000-4000-8000-000000000001';
-    const nextButton = mockStalledBrowser(detailHref);
-    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mockStalledBrowser(detailHref);
 
-    await expect(fetchMigrolinoListingHrefs()).resolves.toEqual([detailHref]);
-    expect(nextButton.click).toHaveBeenCalledOnce();
-    expect(warn).toHaveBeenCalledWith(expect.stringContaining(
-      'migrolino pagination stalled after page 2',
-    ));
+    await expect(fetchMigrolinoListingHrefs()).rejects.toThrow(
+      'migrolino discovery incomplete: page 2 stalled',
+    );
+  });
+
+  it('rejects a migrolino snapshot when the next-page click fails', async () => {
+    const detailHref = '/de/unsere-unternehmen/job/migrolino/verkauf/00000000-0000-4000-8000-000000000001';
+    mockStalledBrowser(detailHref, new Error('detached'));
+
+    await expect(fetchMigrolinoListingHrefs()).rejects.toThrow(
+      'migrolino discovery incomplete at page 1: next control click failed (detached)',
+    );
   });
 });
