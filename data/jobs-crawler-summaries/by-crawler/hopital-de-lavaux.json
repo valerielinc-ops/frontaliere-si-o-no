@@ -1,7 +1,7 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-08-31T17:06:03.574Z",
+  "generatedAt": "2026-09-01T00:34:54.871Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3275,
-  "avgDurationMs": 3275,
+  "durationMs": 2283,
+  "avgDurationMs": 2283,
   "durationHistory": [
-    3275
+    2283
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,13 +23,13 @@
       "companyKey": "hopital-de-lavaux",
       "companyDomain": "hopitaldelavaux.ch",
       "title": "Physiothérapeute à 80% - 100%",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Bourg-en-Lavaux",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:00.663Z",
+      "crawledAt": "2026-09-01T00:34:52.922Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://app.beehire.com/invite/swtNGdXFJ",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-31T17:06:00.662Z",
+      "crawledAt": "2026-09-01T00:34:52.921Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
