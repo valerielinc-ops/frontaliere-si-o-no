@@ -11,8 +11,32 @@
     "https://jobs.bosch.com/en/?country=ch"
   ],
   "notes": "Dedicated Bosch career crawler for Swiss vacancies, filtered with shared Ticino/Grigioni location matching and parsed from the Bosch job portal HTML.",
-  "updatedAt": "2026-09-01T08:45:38.505Z",
+  "updatedAt": "2026-09-01T10:14:23.675Z",
   "seedMetaByUrl": {
+    "https://jobs.bosch.com/en/job/REF287029N-method-process-engineer-cad-and-digital-engineering-f-m-d-100-ref287029n": {
+      "location": "Solothurn/Zuchwil",
+      "canton": "SO",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-09-01"
+    },
+    "https://jobs.bosch.com/en/job/REF295358S-technischer-instruktor-support-erneuerbare-energien-w-m-div-ref295358s": {
+      "location": "Pratteln",
+      "canton": "BL",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-09-01"
+    },
+    "https://jobs.bosch.com/en/job/REF295356U-4-oder-5-tage-woche-servicetechniker-oel-gas-region-basel-w-m-div-ref295356u": {
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-09-01"
+    },
+    "https://jobs.bosch.com/en/job/REF295355Y-4-oder-5-tage-woche-servicetechniker-oel-gas-region-zuerich-aargau-w-m-div-ref295355y": {
+      "location": "Steinhausen",
+      "canton": "ZG",
+      "company": "Bosch Thermotechnik AG",
+      "postedDate": "2026-09-01"
+    },
     "https://jobs.bosch.com/en/job/REF295276U-praktikum-im-einkauf-w-m-d-ref295276u": {
       "location": "Frauenfeld",
       "canton": "TG",
@@ -36,30 +60,6 @@
       "canton": "TG",
       "company": "Bosch Thermotechnik AG",
       "postedDate": "2026-08-12"
-    },
-    "https://jobs.bosch.com/en/job/REF293856U-4-oder-5-tage-woche-servicetechniker-waermepumpen-region-ostschweiz-w-m-div-ref293856u": {
-      "location": "Steinhausen",
-      "canton": "ZG",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-08-11"
-    },
-    "https://jobs.bosch.com/en/job/REF293787Q-instandhalter-waermebehandlung-100-w-m-div-ref293787q": {
-      "location": "St. Niklaus",
-      "canton": "VS",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-08-10"
-    },
-    "https://jobs.bosch.com/en/job/REF290878S-lehrstelle-kaufmann-frau-efz-m-2027-m-w-div": {
-      "location": "Buttikon",
-      "canton": "AG",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-08-03"
-    },
-    "https://jobs.bosch.com/en/job/REF292710R-sachbearbeiter-disposition-w-m-div-ref292710r": {
-      "location": "Steinhausen",
-      "canton": "ZG",
-      "company": "Bosch Thermotechnik AG",
-      "postedDate": "2026-07-27"
     }
   }
 }
