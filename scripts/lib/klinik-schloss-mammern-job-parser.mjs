@@ -86,8 +86,14 @@ export function parseJobsSitemap(xml = '') {
   const rx = /<loc>\s*<!\[CDATA\[([^\]]+)\]\]>\s*<\/loc>/g;
   let m;
   while ((m = rx.exec(xml))) {
-    const url = normalizeKsmJobUrl(m[1]);
-    if (!url) continue;
+    const rawUrl = m[1].trim();
+    const safeUrl = normalizeKsmJobUrl(rawUrl);
+    if (!safeUrl) continue;
+    // Keep the source spelling for absolute URLs: it is part of the existing
+    // ID/output contract (the SHA-1 below hashes this exact value). The
+    // normalized form is the trust gate and supplies an absolute value only
+    // for relative sitemap entries that had no usable output URL before.
+    const url = /^[a-z][a-z\d+.-]*:/i.test(rawUrl) ? rawUrl : safeUrl;
     if (seen.has(url)) continue;
     const slug = url.replace(/\/$/, '').split('/').pop();
     if (EVERGREEN_SLUGS.has(slug)) continue;
@@ -150,13 +156,9 @@ export function extractKsmDetail(html = '') {
 export async function fetchKsmDetailPage(detailUrl) {
   const safeUrl = normalizeKsmJobUrl(detailUrl);
   if (!safeUrl) return null;
-  // The sitemap emits already-decoded URLs (raw `+`, accented characters);
-  // for fetch we URL-encode the unsafe characters (only `+`, accents, etc.)
-  // *before* the URL constructor has a chance to re-encode them. We work
-  // on the validated string with a targeted encode pass.
-  const fetchUrl = safeUrl
-    .replace(/\+/g, '%2B')
-    .replace(/[ÄÖÜäöüß]/g, (c) => encodeURIComponent(c));
+  // `new URL()` has already encoded raw Unicode. Encode literal `+` as path
+  // data too; otherwise the KSM origin can interpret it differently.
+  const fetchUrl = safeUrl.replace(/\+/g, '%2B');
   const detailHtml = await fetchHtml(fetchUrl);
   return extractKsmDetail(detailHtml);
 }

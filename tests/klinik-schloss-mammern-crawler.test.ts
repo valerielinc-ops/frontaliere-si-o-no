@@ -8,6 +8,7 @@
  * parse step and the detail-fetch sink.
  */
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { createHash } from 'node:crypto';
 
 const { fetchHtml } = vi.hoisted(() => ({
   fetchHtml: vi.fn(),
@@ -22,6 +23,7 @@ import {
   normalizeKsmJobUrl,
   parseJobsSitemap,
   fetchKsmDetailPage,
+  fetchAllKlinikSchlossMammernJobs,
 } from '@/scripts/lib/klinik-schloss-mammern-job-parser.mjs';
 
 afterEach(() => {
@@ -91,6 +93,14 @@ describe('parseJobsSitemap', () => {
     expect(parseJobsSitemap(xml)).toEqual(['https://ksm-jobs.ch/job/pflegefachperson-hf/']);
   });
 
+  it('preserves the raw absolute URL used by the existing identity contract', () => {
+    const rawUrl = 'https://ksm-jobs.ch/job/käse+verkäufer/';
+    const xml = `<urlset><url><loc><![CDATA[${rawUrl}]]></loc></url></urlset>`;
+    expect(normalizeKsmJobUrl(rawUrl))
+      .toBe('https://ksm-jobs.ch/job/k%C3%A4se+verk%C3%A4ufer/');
+    expect(parseJobsSitemap(xml)).toEqual([rawUrl]);
+  });
+
   it('returns empty for null/empty input', () => {
     expect(parseJobsSitemap('')).toEqual([]);
     expect(parseJobsSitemap(undefined as unknown as string)).toEqual([]);
@@ -116,5 +126,25 @@ describe('fetchKsmDetailPage', () => {
     expect(fetchHtml).toHaveBeenCalledWith('https://ksm-jobs.ch/job/pflegefachperson-hf/');
     expect(result?.title).toBe('Pflegefachperson HF');
     expect(result?.description).toContain('Pflege der Patienten');
+  });
+
+  it('keeps raw +/accent URL identity while fetching its safely encoded form', async () => {
+    const rawUrl = 'https://ksm-jobs.ch/job/käse+verkäufer/';
+    fetchHtml
+      .mockResolvedValueOnce(`<urlset><url><loc><![CDATA[${rawUrl}]]></loc></url></urlset>`)
+      .mockResolvedValueOnce(
+        '<h1 class="elementor-heading-title">Käse Verkäufer</h1>'
+        + '<p>Aufgabengebiet: Pflege und Beratung der Kundinnen und Kunden.</p>'
+      );
+
+    const [job] = await fetchAllKlinikSchlossMammernJobs();
+    const rawHash = createHash('sha1').update(rawUrl).digest('hex').slice(0, 12);
+    expect(job.id).toBe(`klinik-schloss-mammern-${rawHash}`);
+    expect(job.url).toBe(rawUrl);
+    expect(job.applyUrl).toBe(rawUrl);
+    expect(fetchHtml).toHaveBeenNthCalledWith(
+      2,
+      'https://ksm-jobs.ch/job/k%C3%A4se%2Bverk%C3%A4ufer/'
+    );
   });
 });
