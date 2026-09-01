@@ -11052,6 +11052,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tariffe-ail-2027-stabili.title': 'Tarife Ail 2027: Keine Energieerhöhung',
     'blog.article.tariffe-ail-2027-stabili.excerpt': 'Die Strom- und Gaspreise von Ail werden 2027 dank der gestaffelten Beschaffungsstrategie und der Investitionen in erneuerbare Energien stabil bleiben.',
     'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Luftaufnahme von Lugano mit Industriegebäuden und Energieinfrastruktur',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'EOC-Krankenhäuser im Tessin: ANQ-Suche erkennt Licht und Schatten',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'Die nationale ANQ-Umfrage belohnt die Tessiner Spitäler (75% zufriedene Patienten), weist aber auf Verbesserungspotenziale in der erwarteten Kommunikation hin.',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Krankenhausstation des Kantonalen Spitals Tessin mit Pflegepersonal im Gespräch mit Patient',
 };
 
 export default blogMetaDe;

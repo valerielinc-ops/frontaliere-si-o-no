@@ -33033,6 +33033,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'eoc-ospedali-comunicazione-pazienti',
+ category: 'novita',
+ date: '2026-09-01T20:22:04.348Z',
+ image: '/images/blog/eoc-ospedali-comunicazione-pazienti.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
