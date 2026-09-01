@@ -14644,6 +14644,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'trasporti-pubblici-violenza-sev',
+    category: 'novita',
+    date: '2026-09-01T00:27:09.297Z',
+    image: '/images/blog/trasporti-pubblici-violenza-sev.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'premi-lamal-friburgo-sussidi',
+    category: 'pratico',
+    date: '2026-09-01T00:44:12.131Z',
+    image: '/images/blog/premi-lamal-friburgo-sussidi.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'sanzioni-onu-2026-aggiornamento',
+    category: 'novita',
+    date: '2026-09-01T05:18:16.458Z',
+    image: '/images/blog/sanzioni-onu-2026-aggiornamento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

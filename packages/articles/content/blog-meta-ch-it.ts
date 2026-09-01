@@ -4882,6 +4882,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.swatch-vince-samsung-quadranti.title': 'Swatch batte Samsung al tribunale: 11,6 milioni di risarcimento',
     'blog.article.swatch-vince-samsung-quadranti.excerpt': 'Swatch vince a Londra contro Samsung: il tribunale condanna il colosso a pagare 11,6 milioni di dollari per contraffazione di quadranti digitali.',
     'blog.article.swatch-vince-samsung-quadranti.imageAlt': 'Orologio di lusso svizzero accanto a documento di sentenza legale, simbolo della vittoria di Swatch contro Samsung',
+    'blog.article.trasporti-pubblici-violenza-sev.title': 'Trasporti pubblici sotto attacco: il SEV alza la voce contro la violenza',
+    'blog.article.trasporti-pubblici-violenza-sev.excerpt': 'Il 3 settembre, il sindacato SEV organizza una giornata d\'azione contro la violenza sui dipendenti dei mezzi pubblici, con eventi in diverse stazioni ferroviarie.',
+    'blog.article.trasporti-pubblici-violenza-sev.imageAlt': 'Protesta contro la violenza ai lavoratori dei trasporti pubblici alla stazione di Locarno',
+    'blog.article.premi-lamal-friburgo-sussidi.title': 'Premi LAMal Friburgo: franchigie e sussidi 2026',
+    'blog.article.premi-lamal-friburgo-sussidi.excerpt': 'Franchigie LAMal nel Canton Friburgo, come scegliere, procedure per accedere alla riduzione di premio e scadenze ufficiali 2026.',
+    'blog.article.premi-lamal-friburgo-sussidi.imageAlt': 'Reception di ufficio cantonale svizzero con operatore che aiuta una persona con documenti assicurativi LAMal',
+    'blog.article.sanzioni-onu-2026-aggiornamento.title': 'Aggiornamento delle sanzioni ONU: implicazioni per le aziende svizzere',
+    'blog.article.sanzioni-onu-2026-aggiornamento.excerpt': 'Il comitato di sanzioni dell\'ONU ha aggiornato la lista delle persone fisiche, imprese e organizzazioni sottoposte a sanzioni.',
+    'blog.article.sanzioni-onu-2026-aggiornamento.imageAlt': 'Vista aerea del Lago di Lugano con le montagne sullo sfondo, Svizzera.',
 };
 
 export default blogMetaChIt;

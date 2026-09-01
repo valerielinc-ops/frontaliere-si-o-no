@@ -63356,6 +63356,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasporti-pubblici-violenza-sev': {
+    title: 'Trasporti pubblici sotto attacco: il SEV alza la voce contro la violenza',
+    description: 'Il 3 settembre, il sindacato SEV organizza una giornata d\'azione contro la violenza sui dipendenti dei mezzi pubblici, con eventi in diverse stazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasporti, pubblici, sotto, attacco',
+    ogTitle: 'Trasporti pubblici sotto attacco: il SEV alza la voce contro la violenza',
+    ogDescription: 'Il 3 settembre, il sindacato SEV organizza una giornata d\'azione contro la violenza sui dipendenti dei mezzi pubblici, con eventi in diverse stazioni ferroviarie. L\'obiettivo è sensibilizzare l\'opinione pubblica e le autorità sulla gravità',
+    canonicalPath: '/articoli-svizzera/trasporti-pubblici-violenza-sev/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporti pubblici sotto attacco: il SEV alza la voce contro la violenza",
+      "description": "Il 3 settembre, il sindacato SEV organizza una giornata d'azione contro la violenza sui dipendenti dei mezzi pubblici, con eventi in diverse stazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasporti-pubblici-violenza-sev.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Protesta contro la violenza ai lavoratori dei trasporti pubblici alla stazione di Locarno"
+      },
+      "datePublished": "2026-09-01T00:27:09+00:00",
+      "dateModified": "2026-09-01T00:27:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/trasporti-pubblici-violenza-sev/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-premi-lamal-friburgo-sussidi': {
+    title: 'Premi LAMal Friburgo: franchigie e sussidi 2026',
+    description: 'Franchigie LAMal nel Canton Friburgo, come scegliere, procedure per accedere alla riduzione di premio e scadenze ufficiali 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, lamal, friburgo, franchigie',
+    ogTitle: 'Premi LAMal Friburgo: guida ai sussidi e franchigie',
+    ogDescription: 'Guida ai premi LAMal nel Canton Friburgo: franchigie disponibili (CHF 300-2500), criteri per il sussidio cantonale, procedura step-by-step e scadenze 2026. Contatti ufficiali e requisiti di eligibilità.',
+    canonicalPath: '/articoli-svizzera/premi-lamal-friburgo-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi LAMal Friburgo: franchigie e sussidi 2026",
+      "description": "Franchigie LAMal nel Canton Friburgo, come scegliere, procedure per accedere alla riduzione di premio e scadenze ufficiali 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-lamal-friburgo-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Reception di ufficio cantonale svizzero con operatore che aiuta una persona con documenti assicurativi LAMal"
+      },
+      "datePublished": "2026-09-01T00:44:12+00:00",
+      "dateModified": "2026-09-01T00:44:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-lamal-friburgo-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sanzioni-onu-2026-aggiornamento': {
+    title: 'Aggiornamento delle sanzioni ONU: implicazioni per le aziende svizzere',
+    description: 'Il comitato di sanzioni dell\'ONU ha aggiornato la lista delle persone fisiche, imprese e organizzazioni sottoposte a sanzioni. Scopri le implicazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, aggiornamento, sanzioni, implicazioni, aziende',
+    ogTitle: 'Aggiornamento delle Sanzioni ONU: Implicazioni per le Aziende Svizzere',
+    ogDescription: 'Il comitato di sanzioni dell\'ONU ha aggiornato la lista delle persone fisiche, imprese e organizzazioni sottoposte a sanzioni. Scopri le implicazioni per le aziende svizzere e le procedure di verifica necessarie per garantire la conformità.',
+    canonicalPath: '/articoli-svizzera/sanzioni-onu-2026-aggiornamento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aggiornamento delle sanzioni ONU: implicazioni per le aziende svizzere",
+      "description": "Il comitato di sanzioni dell'ONU ha aggiornato la lista delle persone fisiche, imprese e organizzazioni sottoposte a sanzioni. Scopri le implicazioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sanzioni-onu-2026-aggiornamento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con le montagne sullo sfondo, Svizzera."
+      },
+      "datePublished": "2026-09-01T05:18:16+00:00",
+      "dateModified": "2026-09-01T05:18:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sanzioni-onu-2026-aggiornamento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
