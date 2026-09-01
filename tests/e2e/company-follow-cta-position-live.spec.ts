@@ -153,14 +153,42 @@ async function settle(page: Page): Promise<void> {
   await page.waitForTimeout(6_000);
 }
 
-async function assertSurface(page: Page, path: string, label: string): Promise<void> {
+// Discovery-loop probe: 'gated job detail' below re-navigates through up to
+// 20 sitemap candidates looking for one that renders both the hub link and
+// the follow CTA. `settle()`'s `networkidle` wait NEVER resolves on this site
+// (ads + long-polling, see file header) — it burns its full 10s timeout on
+// every single call — and its extra 6s exists to let the follow CTA's
+// Suspense fallback finish swapping to real content before the geometric
+// assertions run. Neither cost is needed just to DETECT the CTA: the
+// placeholder (`[data-testid="company-follow-placeholder"]`) that
+// `readFollowCtaLayout` matches on is present as soon as Suspense reserves
+// its slot, before the swap. Paying the full `settle()` tax per candidate
+// made the loop scale past the config's 60s test timeout well before it
+// reached the geometry check (observed: both attempts of #6845 timed out at
+// exactly 60000ms). Probe with a light wait; pay the full `settle()` once,
+// only for the candidate that actually matches.
+async function probeSettle(page: Page): Promise<void> {
+  await page.waitForTimeout(1_000);
+}
+
+// Attached before the FIRST navigation of a test (not per-candidate inside
+// `navigateToSurface`), so it covers the entire navigate → probeSettle →
+// settle → assertSurfaceLayout window, matching the "no uncaught JS error
+// fires while surface renders" guarantee (file header, point 3) even though
+// `navigateToSurface` may run several times against different candidates
+// before the one that gets asserted.
+function collectPageErrors(page: Page): string[] {
   const pageErrors: string[] = [];
   page.on('pageerror', (err) => pageErrors.push(err.message));
+  return pageErrors;
+}
 
+async function navigateToSurface(page: Page, path: string): Promise<void> {
   await page.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
   await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
-  await settle(page);
+}
 
+async function assertSurfaceLayout(page: Page, label: string, pageErrors: string[]): Promise<void> {
   for (const viewport of VIEWPORTS) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.waitForTimeout(300);
@@ -183,15 +211,26 @@ async function assertSurface(page: Page, path: string, label: string): Promise<v
   expect(pageErrors, `${label}: uncaught JS errors: ${JSON.stringify(pageErrors)}`).toHaveLength(0);
 }
 
+async function assertSurface(page: Page, path: string, label: string): Promise<void> {
+  const pageErrors = collectPageErrors(page);
+  await navigateToSurface(page, path);
+  await settle(page);
+  await assertSurfaceLayout(page, label, pageErrors);
+}
+
 test('gated job detail: follow CTA sits above the auth gate, no fixed-widget collisions', async ({ page }) => {
+  // Bounded discovery across up to 20 live candidates (see probeSettle above)
+  // plus the full settle+assertion on the match — above the default 60s.
+  test.setTimeout(120_000);
+  const pageErrors = collectPageErrors(page);
   const candidates = await listActiveJobDetailPaths(page, { limit: 20 });
   for (const path of candidates) {
-    await page.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
-    await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
-    await settle(page);
+    await navigateToSurface(page, path);
+    await probeSettle(page);
     const layout = await readFollowCtaLayout(page);
     if (layout.hasHub && layout.hasFollow) {
-      await assertSurface(page, path, 'gated job detail');
+      await settle(page);
+      await assertSurfaceLayout(page, 'gated job detail', pageErrors);
       return;
     }
   }
