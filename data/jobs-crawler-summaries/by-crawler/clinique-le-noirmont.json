@@ -1,16 +1,16 @@
 {
   "key": "clinique-le-noirmont",
   "label": "Clinique Le Noirmont",
-  "generatedAt": "2026-09-01T14:26:14.572Z",
-  "total": 3,
+  "generatedAt": "2026-09-01T23:28:09.668Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4706,
-  "avgDurationMs": 4706,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4500,
+  "avgDurationMs": 4500,
   "durationHistory": [
-    4706
+    4500
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -89,8 +89,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Agent technique (F/H) 80%-100%",
       "slug": "responsabile-tecnico-f-h-80-100-clinique-le-noirmont-le-noirmont",
@@ -124,7 +123,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -133,5 +131,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
