@@ -1,0 +1,19 @@
+{
+  "listingWithJobs": "<!doctype html><html><body><div id=\"block-views-block-work-positions-work-positions-list\"><div class=\"view view-work-positions\"><div class=\"view-content\"><a href=\"/lavoro-carriera-edilizia/capo-cantiere\">Capo cantiere</a><a href=\"/node/321\">Responsabile tecnico</a><a href=\"/offerte-di-lavoro/ingegnere-civile\">Ingegnere civile</a></div></div></div><!-- Modal Work Position --></body></html>",
+  "authoritativeEmpty": "<!doctype html><html><body><div id=\"block-views-block-work-positions-work-positions-list\"><div class=\"view view-work-positions\"><div class=\"view-empty\"><p>Al momento non sono disponibili offerte di lavoro. Puo' inviare una candidatura spontanea.</p></div></div></div><!-- Modal Work Position --></body></html>",
+  "degradedListing": "<!doctype html><html><body><div id=\"block-views-block-work-positions-work-positions-list\"><div class=\"view view-work-positions\"><div class=\"view-content\"><a href=\"/node/321\">Responsabile tecnico</a></div></div></div>",
+  "details": [
+    {
+      "url": "https://csc-sa.ch/lavoro-carriera-edilizia/capo-cantiere",
+      "html": "<!doctype html><html><body><article class=\"node node--type-work-position\"><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"JobPosting\",\"title\":\"Capo cantiere\",\"description\":\"Coordinamento operativo del cantiere, pianificazione delle squadre e controllo della sicurezza e della qualità delle lavorazioni. Collaborazione con direzione lavori, tecnici e fornitori per rispettare tempi e standard del progetto.\",\"hiringOrganization\":{\"@type\":\"Organization\",\"name\":\"CSC Costruzioni SA\"},\"jobLocation\":{\"@type\":\"Place\",\"address\":{\"@type\":\"PostalAddress\",\"addressCountry\":\"CH\",\"addressLocality\":\"Lugano\",\"addressRegion\":\"TI\"}}}</script></article></body></html>"
+    },
+    {
+      "url": "https://csc-sa.ch/node/321",
+      "html": "<!doctype html><html><body><article class=\"node node--type-work-position\"><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"JobPosting\",\"title\":\"Responsabile tecnico\",\"description\":\"Gestione tecnica delle commesse, verifica della documentazione progettuale e coordinamento con le funzioni operative. Il ruolo garantisce qualità, sicurezza, tracciabilità e rispetto delle scadenze nei cantieri svizzeri.\",\"hiringOrganization\":{\"@type\":\"Organization\",\"name\":\"CSC Costruzioni SA\"},\"jobLocation\":{\"@type\":\"Place\",\"address\":{\"@type\":\"PostalAddress\",\"addressCountry\":\"CH\",\"addressLocality\":\"Lugano\",\"addressRegion\":\"TI\"}}}</script></article></body></html>"
+    },
+    {
+      "url": "https://csc-sa.ch/offerte-di-lavoro/ingegnere-civile",
+      "html": "<!doctype html><html><body><article class=\"node node--type-work-position\"><script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"JobPosting\",\"title\":\"Ingegnere civile\",\"description\":\"Sviluppo e verifica di soluzioni per opere civili complesse, con analisi tecnica, pianificazione e assistenza alle squadre di cantiere. La posizione collabora con progettisti e direzione lavori nel rispetto delle norme svizzere.\",\"hiringOrganization\":{\"@type\":\"Organization\",\"name\":\"CSC Costruzioni SA\"},\"jobLocation\":{\"@type\":\"Place\",\"address\":{\"@type\":\"PostalAddress\",\"addressCountry\":\"CH\",\"addressLocality\":\"Lugano\",\"addressRegion\":\"TI\"}}}</script></article></body></html>"
+    }
+  ]
+}

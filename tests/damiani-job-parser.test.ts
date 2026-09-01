@@ -23,10 +23,36 @@ describe('damiani-job-parser', () => {
         </tr>
       </table>
     `;
-    const rows = parseDamianiSearchPage(html);
+    const { rows, skippedMalformedRows, ignoredNonJobRows } = parseDamianiSearchPage(html);
     expect(rows).toHaveLength(1);
     expect(rows[0].location).toBe('Mendrisio');
     expect(rows[0].title).toBe('Treasury Specialist');
+    expect(skippedMalformedRows).toBe(0);
+    expect(ignoredNonJobRows).toBe(0);
+  });
+
+  it('separates malformed vacancy rows from SuccessFactors page chrome', () => {
+    const html = `
+      <table id="searchresults">
+        <tr class="data-row">
+          <td class="colTitle"><a href="/job/Mendrisio-Treasury-Specialist/1327326955/" class="jobTitle-link">Treasury Specialist</a></td>
+          <td class="colLocation"><span class="jobLocation">Mendrisio</span></td>
+        </tr>
+        <tr class="data-row">
+          <td class="colTitle"><a class="jobTitle-link">Incomplete vacancy</a></td>
+          <td class="colLocation"><span class="jobLocation">Lugano</span></td>
+        </tr>
+        <tr class="data-row">
+          <td class="colTitle"><a href="/search/" class="jobTitle-link">Search by keyword</a></td>
+          <td class="colLocation"><span class="jobLocation"></span></td>
+        </tr>
+      </table>
+    `;
+
+    const result = parseDamianiSearchPage(html);
+    expect(result.rows).toHaveLength(1);
+    expect(result.skippedMalformedRows).toBe(1);
+    expect(result.ignoredNonJobRows).toBe(1);
   });
 
   it('parses detail content and localizes slugs', () => {

@@ -81,18 +81,29 @@ export function parseDamianiSearchPage(html = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const rows = [...document.querySelectorAll('tr.data-row')];
-  return rows.map((row) => {
+  const parsedRows = [];
+  let skippedMalformedRows = 0;
+  let ignoredNonJobRows = 0;
+  for (const row of rows) {
     const link = row.querySelector('a.jobTitle-link');
     const title = normalizeSpace(link?.textContent || '');
     const href = link?.getAttribute('href') || '';
     const location = normalizeSpace(row.querySelector('td.colLocation .jobLocation')?.textContent || '');
     const postedDate = normalizeSpace(row.querySelector('td.colDate .jobDate')?.textContent || '');
-    return { title, href, location, postedDate };
-  }).filter((row) => row.title && row.href && row.location
     // A row whose anchor text is j2w page chrome (cookie-consent widget,
-    // search/alert box) isn't a job at all — discard the row, don't clean it,
-    // or it becomes a posting with no title.
-    && !isSuccessFactorsWidgetText(row.title));
+    // search/alert box) isn't a job at all. Keep this separate from malformed
+    // vacancy rows so page chrome cannot trip the structural-drift threshold.
+    if (isSuccessFactorsWidgetText(title)) {
+      ignoredNonJobRows += 1;
+      continue;
+    }
+    if (!title || !href || !location) {
+      skippedMalformedRows += 1;
+      continue;
+    }
+    parsedRows.push({ title, href, location, postedDate });
+  }
+  return { rows: parsedRows, skippedMalformedRows, ignoredNonJobRows };
 }
 
 function bulletize(section) {
