@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-09-01T09:04:10.032Z",
+  "generatedAt": "2026-09-01T10:24:57.984Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 3343,
-  "avgDurationMs": 3343,
+  "durationMs": 3898,
+  "avgDurationMs": 3898,
   "durationHistory": [
-    3343
+    3898
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,11 +52,11 @@
       "firstSeenAt": "2026-08-07T01:07:25.027Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 94,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 21,
         "completeness": 19
       }
     },
@@ -183,7 +183,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -266,7 +265,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-10T22:17:27.323Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -305,7 +303,6 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -389,7 +386,6 @@
       "postalCode": "1003",
       "firstSeenAt": "2026-05-19T19:56:19.283Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
