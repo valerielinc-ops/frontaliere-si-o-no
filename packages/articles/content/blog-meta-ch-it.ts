@@ -4990,6 +4990,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-friburgo.title': 'Apprendistato nel Canton Friburgo: guida pratica',
     'blog.article.apprendistato-formazione-friburgo.excerpt': 'Come trovare un posto di tirocinio, sottoscrivere il contratto, conoscere diritti e retribuzione. La guida completa al sistema di formazione professionale svizzera nel Canton Friburgo.',
     'blog.article.apprendistato-formazione-friburgo.imageAlt': 'Apprendisti durante una lezione pratica in un laboratorio di formazione professionale svizzero',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Asilo nido Friburgo: custodia bambini, costi',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Custodia bambini nel Canton Friburgo: tariffe, sussidi disponibili e procedure per richiedere i contributi cantonali alle famiglie.',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Asilo nido in Svizzera con bambini che giocano, educatori e arredo colorato',
 };
 
 export default blogMetaChIt;

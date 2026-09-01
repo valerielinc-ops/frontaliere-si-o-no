@@ -4990,6 +4990,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-friburgo.title': 'Apprentissage dans le canton de Fribourg : guide pratique',
     'blog.article.apprendistato-formazione-friburgo.excerpt': 'Comment trouver un poste d\'apprentissage, signer le contrat, connaître les droits et la rémunération. Le guide complet du système de formation professionnelle suisse dans le canton de Fribourg.',
     'blog.article.apprendistato-formazione-friburgo.imageAlt': 'Apprentis lors d\'une formation pratique dans un atelier professionnel suisse',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Garderie Fribourg : garde d\'enfants, frais',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Garde d\'enfants dans le canton de Fribourg : tarifs, subventions disponibles et procédures pour demander les contributions cantonales aux familles.',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Crèche suisse avec enfants jouant et matériel éducatif',
 };
 
 export default blogMetaChFr;
