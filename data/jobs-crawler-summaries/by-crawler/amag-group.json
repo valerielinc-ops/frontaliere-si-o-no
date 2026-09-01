@@ -1,16 +1,16 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-08-31T17:17:17.252Z",
+  "generatedAt": "2026-09-01T00:41:27.046Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4832,
-  "avgDurationMs": 4832,
+  "durationMs": 5216,
+  "avgDurationMs": 5216,
   "durationHistory": [
-    4832
+    5216
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:26:21.517Z",
+      "salarySource": "estimated",
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 20,
