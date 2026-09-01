@@ -1,39 +1,39 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-08-31T23:18:03.396Z",
+  "assembledAt": "2026-09-01T00:54:50.458Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-109ca04ca2ac",
       "slug": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern",
       "slugByLocale": {
-        "fr": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern",
         "it": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern",
         "en": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern",
-        "de": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern"
+        "de": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern",
+        "fr": "praticante-legale-100-dispute-resolution-litigation-kellerhals-carrard-bern"
       },
       "company": "Kellerhals Carrard",
       "companyKey": "kellerhals-carrard",
       "companyDomain": "kellerhals-carrard.ch",
       "title": "Praticante legale (100%) – Dispute Resolution & Litigation",
       "titleByLocale": {
-        "fr": "Praticante legale (100%) – Dispute Resolution & Litigation",
-        "de": "Praticante legale (100%) – Dispute Resolution & Litigation",
         "it": "Praticante legale (100%) – Dispute Resolution & Litigation",
-        "en": "Praticante legale (100%) – Dispute Resolution & Litigation"
+        "en": "Praticante legale (100%) – Dispute Resolution & Litigation",
+        "de": "Praticante legale (100%) – Dispute Resolution & Litigation",
+        "fr": "Praticante legale (100%) – Dispute Resolution & Litigation"
       },
       "description": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
       "descriptionByLocale": {
-        "fr": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-        "de": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
         "it": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-        "en": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf."
+        "en": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "de": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "fr": "Praticante legale (100%) – Dispute Resolution & Litigation — Stelle bei Kellerhals Carrard in Bern (BE), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf."
       },
       "location": "Bern",
       "canton": "BE",
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2774482",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.278Z",
+      "crawledAt": "2026-09-01T00:54:46.517Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -49,10 +49,9 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2774482",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:17:59.278Z",
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -65,8 +64,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-31T23:17:59.278Z"
+      }
     },
     {
       "id": "kellerhals-carrard-030ec90b0677",
@@ -99,7 +97,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.277Z",
+      "crawledAt": "2026-09-01T00:54:46.513Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,7 +161,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.277Z",
+      "crawledAt": "2026-09-01T00:54:46.513Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -243,7 +241,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.276Z",
+      "crawledAt": "2026-09-01T00:54:46.512Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -307,7 +305,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.275Z",
+      "crawledAt": "2026-09-01T00:54:46.511Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -344,9 +342,9 @@
       "id": "kellerhals-carrard-8210e66ea9a0",
       "slug": "rechtsanwaltin-rechtsanwalt-100-im-m-a-team-kellerhals-carrard-zurich",
       "slugByLocale": {
-        "de": "rechtsanwaltin-rechtsanwalt-100-im-m-a-team-kellerhals-carrard-zurich",
         "it": "rechtsanwaltin-rechtsanwalt-100-im-m-a-team-kellerhals-carrard-zurich",
         "en": "rechtsanwaltin-rechtsanwalt-100-im-m-a-team-kellerhals-carrard-zurich",
+        "de": "rechtsanwaltin-rechtsanwalt-100-im-m-a-team-kellerhals-carrard-zurich",
         "fr": "rechtsanwaltin-rechtsanwalt-100-im-m-a-team-kellerhals-carrard-zurich"
       },
       "company": "Kellerhals Carrard",
@@ -354,16 +352,16 @@
       "companyDomain": "kellerhals-carrard.ch",
       "title": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team",
       "titleByLocale": {
-        "de": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team",
-        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team",
         "it": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team",
+        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team",
+        "de": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team",
         "fr": "Rechtsanwältin/ Rechtsanwalt (100%) im M&A-Team"
       },
       "description": "Wenn Sie Ihre Leidenschaft für M&A mit einem persönlichen Arbeitsumfeld verbinden möchten, heissen wir Sie herzlich willkommen! Bei uns finden Sie die perfekte Kombination aus spannender juristischer Arbeit und einem interdisziplinären Team, welches gemeinsam weiter wachsen möchte.\n\nWir bieten Ihnen attraktive berufliche Perspektiven in einem dynamischen, abwechslungsreichen und internationalen Umfeld – bei einer der führenden und grössten Wirtschaftskanzleien der Schweiz. Sie sind in den Bereichen des nationalen sowie internationalen Handels-, Gesellschafts- und Vertragsrechts tätig und betreuen Unternehmen und Privatpersonen aus der Schweiz und dem Ausland. Dadurch ermöglichen Sie es unseren Klienten, erfolgreich durch komplexe M&A-Transaktionen sowie gesellschaftsrechtliche Fragestellungen zu navigieren.\n• Einen sehr guten juristischen Studienabschluss sowie ein Schweizer Anwaltspatent.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse (C2);\nFranzösisch oder weitere Sprachkenntnisse sind ein Plus.\n\n• Sie haben Kenntnisse oder zumindest Interesse an Beratung von Unternehmen und Privatpersonen bei M&A-Transaktionen, Umstrukturierungen und gesellschaftsrechtliche Fragestellungen, haben unternehmerisches und vielleicht auch technisches Flair und sind bereit, sich in neue Rechtsgebiete oder im Rahmen interdisziplinärer Zusammenarbeit teilweise auch in fachfremde Themen einzuarbeiten.\n\n• Sympathische und aufgeschlossene Persönlichkeit.\n\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein angenehmes Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort in Zürich (Bellevue).\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten und transparente Karriereperspektiven.\n\n•\n\nStellenantritt: 1. Oktober 2026 oder nach Vereinbarung.",
       "descriptionByLocale": {
-        "de": "Wenn Sie Ihre Leidenschaft für M&A mit einem persönlichen Arbeitsumfeld verbinden möchten, heissen wir Sie herzlich willkommen! Bei uns finden Sie die perfekte Kombination aus spannender juristischer Arbeit und einem interdisziplinären Team, welches gemeinsam weiter wachsen möchte.\n\nWir bieten Ihnen attraktive berufliche Perspektiven in einem dynamischen, abwechslungsreichen und internationalen Umfeld – bei einer der führenden und grössten Wirtschaftskanzleien der Schweiz. Sie sind in den Bereichen des nationalen sowie internationalen Handels-, Gesellschafts- und Vertragsrechts tätig und betreuen Unternehmen und Privatpersonen aus der Schweiz und dem Ausland. Dadurch ermöglichen Sie es unseren Klienten, erfolgreich durch komplexe M&A-Transaktionen sowie gesellschaftsrechtliche Fragestellungen zu navigieren.\n• Einen sehr guten juristischen Studienabschluss sowie ein Schweizer Anwaltspatent.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse (C2);\nFranzösisch oder weitere Sprachkenntnisse sind ein Plus.\n\n• Sie haben Kenntnisse oder zumindest Interesse an Beratung von Unternehmen und Privatpersonen bei M&A-Transaktionen, Umstrukturierungen und gesellschaftsrechtliche Fragestellungen, haben unternehmerisches und vielleicht auch technisches Flair und sind bereit, sich in neue Rechtsgebiete oder im Rahmen interdisziplinärer Zusammenarbeit teilweise auch in fachfremde Themen einzuarbeiten.\n\n• Sympathische und aufgeschlossene Persönlichkeit.\n\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein angenehmes Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort in Zürich (Bellevue).\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten und transparente Karriereperspektiven.\n\n•\n\nStellenantritt: 1. Oktober 2026 oder nach Vereinbarung.",
         "it": "Wenn Sie Ihre Leidenschaft für M&A mit einem persönlichen Arbeitsumfeld verbinden möchten, heissen wir Sie herzlich willkommen! Bei uns finden Sie die perfekte Kombination aus spannender juristischer Arbeit und einem interdisziplinären Team, welches gemeinsam weiter wachsen möchte.\n\nWir bieten Ihnen attraktive berufliche Perspektiven in einem dynamischen, abwechslungsreichen und internationalen Umfeld – bei einer der führenden und grössten Wirtschaftskanzleien der Schweiz. Sie sind in den Bereichen des nationalen sowie internationalen Handels-, Gesellschafts- und Vertragsrechts tätig und betreuen Unternehmen und Privatpersonen aus der Schweiz und dem Ausland. Dadurch ermöglichen Sie es unseren Klienten, erfolgreich durch komplexe M&A-Transaktionen sowie gesellschaftsrechtliche Fragestellungen zu navigieren.\n• Einen sehr guten juristischen Studienabschluss sowie ein Schweizer Anwaltspatent.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse (C2);\nFranzösisch oder weitere Sprachkenntnisse sind ein Plus.\n\n• Sie haben Kenntnisse oder zumindest Interesse an Beratung von Unternehmen und Privatpersonen bei M&A-Transaktionen, Umstrukturierungen und gesellschaftsrechtliche Fragestellungen, haben unternehmerisches und vielleicht auch technisches Flair und sind bereit, sich in neue Rechtsgebiete oder im Rahmen interdisziplinärer Zusammenarbeit teilweise auch in fachfremde Themen einzuarbeiten.\n\n• Sympathische und aufgeschlossene Persönlichkeit.\n\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein angenehmes Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort in Zürich (Bellevue).\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten und transparente Karriereperspektiven.\n\n•\n\nStellenantritt: 1. Oktober 2026 oder nach Vereinbarung.",
         "en": "Wenn Sie Ihre Leidenschaft für M&A mit einem persönlichen Arbeitsumfeld verbinden möchten, heissen wir Sie herzlich willkommen! Bei uns finden Sie die perfekte Kombination aus spannender juristischer Arbeit und einem interdisziplinären Team, welches gemeinsam weiter wachsen möchte.\n\nWir bieten Ihnen attraktive berufliche Perspektiven in einem dynamischen, abwechslungsreichen und internationalen Umfeld – bei einer der führenden und grössten Wirtschaftskanzleien der Schweiz. Sie sind in den Bereichen des nationalen sowie internationalen Handels-, Gesellschafts- und Vertragsrechts tätig und betreuen Unternehmen und Privatpersonen aus der Schweiz und dem Ausland. Dadurch ermöglichen Sie es unseren Klienten, erfolgreich durch komplexe M&A-Transaktionen sowie gesellschaftsrechtliche Fragestellungen zu navigieren.\n• Einen sehr guten juristischen Studienabschluss sowie ein Schweizer Anwaltspatent.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse (C2);\nFranzösisch oder weitere Sprachkenntnisse sind ein Plus.\n\n• Sie haben Kenntnisse oder zumindest Interesse an Beratung von Unternehmen und Privatpersonen bei M&A-Transaktionen, Umstrukturierungen und gesellschaftsrechtliche Fragestellungen, haben unternehmerisches und vielleicht auch technisches Flair und sind bereit, sich in neue Rechtsgebiete oder im Rahmen interdisziplinärer Zusammenarbeit teilweise auch in fachfremde Themen einzuarbeiten.\n\n• Sympathische und aufgeschlossene Persönlichkeit.\n\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein angenehmes Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort in Zürich (Bellevue).\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten und transparente Karriereperspektiven.\n\n•\n\nStellenantritt: 1. Oktober 2026 oder nach Vereinbarung.",
+        "de": "Wenn Sie Ihre Leidenschaft für M&A mit einem persönlichen Arbeitsumfeld verbinden möchten, heissen wir Sie herzlich willkommen! Bei uns finden Sie die perfekte Kombination aus spannender juristischer Arbeit und einem interdisziplinären Team, welches gemeinsam weiter wachsen möchte.\n\nWir bieten Ihnen attraktive berufliche Perspektiven in einem dynamischen, abwechslungsreichen und internationalen Umfeld – bei einer der führenden und grössten Wirtschaftskanzleien der Schweiz. Sie sind in den Bereichen des nationalen sowie internationalen Handels-, Gesellschafts- und Vertragsrechts tätig und betreuen Unternehmen und Privatpersonen aus der Schweiz und dem Ausland. Dadurch ermöglichen Sie es unseren Klienten, erfolgreich durch komplexe M&A-Transaktionen sowie gesellschaftsrechtliche Fragestellungen zu navigieren.\n• Einen sehr guten juristischen Studienabschluss sowie ein Schweizer Anwaltspatent.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse (C2);\nFranzösisch oder weitere Sprachkenntnisse sind ein Plus.\n\n• Sie haben Kenntnisse oder zumindest Interesse an Beratung von Unternehmen und Privatpersonen bei M&A-Transaktionen, Umstrukturierungen und gesellschaftsrechtliche Fragestellungen, haben unternehmerisches und vielleicht auch technisches Flair und sind bereit, sich in neue Rechtsgebiete oder im Rahmen interdisziplinärer Zusammenarbeit teilweise auch in fachfremde Themen einzuarbeiten.\n\n• Sympathische und aufgeschlossene Persönlichkeit.\n\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein angenehmes Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort in Zürich (Bellevue).\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten und transparente Karriereperspektiven.\n\n•\n\nStellenantritt: 1. Oktober 2026 oder nach Vereinbarung.",
         "fr": "Wenn Sie Ihre Leidenschaft für M&A mit einem persönlichen Arbeitsumfeld verbinden möchten, heissen wir Sie herzlich willkommen! Bei uns finden Sie die perfekte Kombination aus spannender juristischer Arbeit und einem interdisziplinären Team, welches gemeinsam weiter wachsen möchte.\n\nWir bieten Ihnen attraktive berufliche Perspektiven in einem dynamischen, abwechslungsreichen und internationalen Umfeld – bei einer der führenden und grössten Wirtschaftskanzleien der Schweiz. Sie sind in den Bereichen des nationalen sowie internationalen Handels-, Gesellschafts- und Vertragsrechts tätig und betreuen Unternehmen und Privatpersonen aus der Schweiz und dem Ausland. Dadurch ermöglichen Sie es unseren Klienten, erfolgreich durch komplexe M&A-Transaktionen sowie gesellschaftsrechtliche Fragestellungen zu navigieren.\n• Einen sehr guten juristischen Studienabschluss sowie ein Schweizer Anwaltspatent.\n\n• Verhandlungssichere Deutsch- und Englischkenntnisse (C2);\nFranzösisch oder weitere Sprachkenntnisse sind ein Plus.\n\n• Sie haben Kenntnisse oder zumindest Interesse an Beratung von Unternehmen und Privatpersonen bei M&A-Transaktionen, Umstrukturierungen und gesellschaftsrechtliche Fragestellungen, haben unternehmerisches und vielleicht auch technisches Flair und sind bereit, sich in neue Rechtsgebiete oder im Rahmen interdisziplinärer Zusammenarbeit teilweise auch in fachfremde Themen einzuarbeiten.\n\n• Sympathische und aufgeschlossene Persönlichkeit.\n\n• Wir fördern unternehmerisches Denken und eigenverantwortliches Arbeiten.\n\n• Unser einzigartiges Unternehmensmodell schafft ein angenehmes Arbeitsumfeld.\n\n• Attraktive Anstellungsbedingungen und flexible Arbeitszeitmodelle.\n\n• Zentraler Arbeitsstandort in Zürich (Bellevue).\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten und transparente Karriereperspektiven.\n\n•\n\nStellenantritt: 1. Oktober 2026 oder nach Vereinbarung."
       },
       "location": "Zürich",
@@ -371,7 +369,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.273Z",
+      "crawledAt": "2026-09-01T00:54:46.509Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -387,10 +385,9 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T23:17:59.273Z",
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
@@ -401,87 +398,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85000,
           "maxValue": 145000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-31T23:17:59.273Z"
-    },
-    {
-      "id": "kellerhals-carrard-bb382fb87437",
-      "slug": "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel",
-      "slugByLocale": {
-        "it": "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel",
-        "en": "short-internship-at-kellerhals-carrard-basel-kellerhals-carrard-basel",
-        "de": "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-        "fr": "court-stage-chez-kellerhals-carrard-basel-kellerhals-carrard-basel"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Kurzpraktikum bei Kellerhals Carrard Basel",
-      "titleByLocale": {
-        "it": "Breve stage presso Kellerhals Carrard Basel",
-        "en": "Short internship at Kellerhals Carrard Basel",
-        "de": "Kurzpraktikum bei Kellerhals Carrard Basel",
-        "fr": "Court stage chez Kellerhals Carrard Basel"
-      },
-      "description": "Wollen Sie Einblick in die Arbeitswelt einer Wirtschaftskanzlei gewinnen und praktische Erfahrungen sammeln?\nAm Standort Basel bieten wir Studierenden der Rechtswissenschaft an einer Schweizer Universität mit abgeschlossenem Bachelor-Studium die Gelegenheit, praktische Erfahrungen in unserer Kanzlei zu sammeln.\nAls Kurzpraktikantin und Kurzpraktikant unterstützen Sie unsere Partnerinnen und Partner und deren Teams während 6 Wochen. Sie beteiligen sich an der Bearbeitung aktueller Mandate und werden im Team an geeigneten Lösungsansätzen feilen. Ausserdem nehmen Sie an Workshops, Vorträgen und speziell auf Sie zugeschnittenen Veranstaltungen teil. Unsere Anwältinnen und Anwälte beantworten Ihnen alle Fragen, die Sie schon immer interessiert haben, so dass Sie eine genaue Vorstellung davon erhalten, wie es in einer Wirtschaftskanzlei zu und her geht.\n Sie verfügen bei Stellenantritt über einen Bachelorabschluss, in der Regel mit Prädikat ab „magna cum laude\". Zusätzlich überzeugen Sie uns mit einer hohen Einsatz- und Leistungsbereitschaft.\n• Mitarbeit in einer innovativen Schweizer Kanzlei\n\n• Zentraler Standort in Basel am Aeschenplatz\n\n• Ein sehr wertschätzendes Team\n\n• Eine vielseitige und anspruchsvolle Tätigkeit",
-      "descriptionByLocale": {
-        "it": "Vuoi ottenere informazioni sul mondo del lavoro di uno studio legale commerciale e acquisire esperienza pratica? Presso la sede di Basilea, offriamo agli studenti di diritto presso un'università svizzera con un diploma di laurea completato l'opportunità di acquisire esperienza pratica nel nostro studio legale. Come breve tirocinante supporterete i nostri partner e i loro team per 6 settimane. Partecipano al trattamento dei mandati attuali e lavoreranno su soluzioni adeguate nel team. Parteciperete anche a workshop, conferenze ed eventi su misura. I nostri avvocati risponderanno a tutte le domande che ti hanno sempre interessato, in modo da poter ottenere un'idea accurata di come fa uno studio legale aziendale. Hai una laurea quando inizia il tuo lavoro, di solito con un predicato da \"magna cum laude\". Inoltre, ci convinci con un alto impegno e prestazioni.\n• Lavorare in un innovativo studio legale svizzero\n• Posizione centrale a Basilea sulla Aeschenplatz\n• Un team molto apprezzato\n• Un'attività diversificata e impegnativa",
-        "en": "Do you want to gain insight into the working world of a commercial law firm and gain practical experience? At the Basel location, we offer students of law at a Swiss university with a completed bachelor’s degree the opportunity to gain practical experience in our law firm. As a short intern you will support our partners and their teams for 6 weeks. They participate in the processing of current mandates and will work on suitable solutions in the team. You will also participate in workshops, lectures and specially tailored events. Our lawyers will answer all questions that have always interested you, so that you can get an accurate idea of how a business law firm is doing. You have a bachelor's degree when you start your job, usually with a predicate from \"magna cum laude\". In addition, you convince us with a high commitment and performance.\n• Working in an innovative Swiss law firm\n• Central location in Basel on Aeschenplatz\n• A very appreciative team\n• A diverse and demanding activity",
-        "de": "Wollen Sie Einblick in die Arbeitswelt einer Wirtschaftskanzlei gewinnen und praktische Erfahrungen sammeln?\nAm Standort Basel bieten wir Studierenden der Rechtswissenschaft an einer Schweizer Universität mit abgeschlossenem Bachelor-Studium die Gelegenheit, praktische Erfahrungen in unserer Kanzlei zu sammeln.\nAls Kurzpraktikantin und Kurzpraktikant unterstützen Sie unsere Partnerinnen und Partner und deren Teams während 6 Wochen. Sie beteiligen sich an der Bearbeitung aktueller Mandate und werden im Team an geeigneten Lösungsansätzen feilen. Ausserdem nehmen Sie an Workshops, Vorträgen und speziell auf Sie zugeschnittenen Veranstaltungen teil. Unsere Anwältinnen und Anwälte beantworten Ihnen alle Fragen, die Sie schon immer interessiert haben, so dass Sie eine genaue Vorstellung davon erhalten, wie es in einer Wirtschaftskanzlei zu und her geht.\nSie verfügen bei Stellenantritt über einen Bachelorabschluss, in der Regel mit Prädikat ab „magna cum laude\". Zusätzlich überzeugen Sie uns mit einer hohen Einsatz- und Leistungsbereitschaft.\n• Mitarbeit in einer innovativen Schweizer Kanzlei\n\n• Zentraler Standort in Basel am Aeschenplatz\n\n• Ein sehr wertschätzendes Team\n\n• Eine vielseitige und anspruchsvolle Tätigkeit",
-        "fr": "Voulez-vous avoir un aperçu du monde du travail d'un cabinet d'avocats commerciaux et acquérir une expérience pratique? À l'emplacement de Bâle, nous offrons aux étudiants en droit d'une université suisse avec un baccalauréat complet de la possibilité d'acquérir une expérience pratique dans notre cabinet d'avocats. En tant que stagiaire, vous accompagnerez nos partenaires et leurs équipes pendant 6 semaines. Ils participent au traitement des mandats actuels et travailleront à des solutions appropriées au sein de l'équipe. Vous participerez également à des ateliers, des conférences et des événements spécialement adaptés. Nos avocats répondront à toutes les questions qui vous ont toujours intéressé, afin que vous puissiez avoir une idée précise de la façon dont un cabinet d'avocats d'affaires se comporte. Vous avez un baccalauréat quand vous commencez votre travail, généralement avec un prédicat de \"magna cum laude\". En outre, vous nous convainquez avec un engagement et une performance élevés.\n• Travailler dans un cabinet d'avocats suisse innovant\n• Situation centrale à Bâle sur Aeschenplatz\n• Une équipe très reconnaissante\n• Une activité diversifiée et exigeante"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.272Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4051",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-        "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-          "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
-        ],
-        "en": [
-          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
-        ],
-        "fr": [
-          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.184Z",
-      "salaryMin": 56500,
-      "salaryMax": 96500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 56500,
-          "maxValue": 96500,
           "unitText": "YEAR"
         }
       }
@@ -517,7 +433,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.272Z",
+      "crawledAt": "2026-09-01T00:54:46.509Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -567,6 +483,86 @@
       }
     },
     {
+      "id": "kellerhals-carrard-bb382fb87437",
+      "slug": "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel",
+      "slugByLocale": {
+        "it": "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel",
+        "en": "short-internship-at-kellerhals-carrard-basel-kellerhals-carrard-basel",
+        "de": "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+        "fr": "court-stage-chez-kellerhals-carrard-basel-kellerhals-carrard-basel"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Kurzpraktikum bei Kellerhals Carrard Basel",
+      "titleByLocale": {
+        "it": "Breve stage presso Kellerhals Carrard Basel",
+        "en": "Short internship at Kellerhals Carrard Basel",
+        "de": "Kurzpraktikum bei Kellerhals Carrard Basel",
+        "fr": "Court stage chez Kellerhals Carrard Basel"
+      },
+      "description": "Wollen Sie Einblick in die Arbeitswelt einer Wirtschaftskanzlei gewinnen und praktische Erfahrungen sammeln?\nAm Standort Basel bieten wir Studierenden der Rechtswissenschaft an einer Schweizer Universität mit abgeschlossenem Bachelor-Studium die Gelegenheit, praktische Erfahrungen in unserer Kanzlei zu sammeln.\nAls Kurzpraktikantin und Kurzpraktikant unterstützen Sie unsere Partnerinnen und Partner und deren Teams während 6 Wochen. Sie beteiligen sich an der Bearbeitung aktueller Mandate und werden im Team an geeigneten Lösungsansätzen feilen. Ausserdem nehmen Sie an Workshops, Vorträgen und speziell auf Sie zugeschnittenen Veranstaltungen teil. Unsere Anwältinnen und Anwälte beantworten Ihnen alle Fragen, die Sie schon immer interessiert haben, so dass Sie eine genaue Vorstellung davon erhalten, wie es in einer Wirtschaftskanzlei zu und her geht.\n Sie verfügen bei Stellenantritt über einen Bachelorabschluss, in der Regel mit Prädikat ab „magna cum laude\". Zusätzlich überzeugen Sie uns mit einer hohen Einsatz- und Leistungsbereitschaft.\n• Mitarbeit in einer innovativen Schweizer Kanzlei\n\n• Zentraler Standort in Basel am Aeschenplatz\n\n• Ein sehr wertschätzendes Team\n\n• Eine vielseitige und anspruchsvolle Tätigkeit",
+      "descriptionByLocale": {
+        "it": "Vuoi ottenere informazioni sul mondo del lavoro di uno studio legale commerciale e acquisire esperienza pratica? Presso la sede di Basilea, offriamo agli studenti di diritto presso un'università svizzera con un diploma di laurea completato l'opportunità di acquisire esperienza pratica nel nostro studio legale. Come breve tirocinante supporterete i nostri partner e i loro team per 6 settimane. Partecipano al trattamento dei mandati attuali e lavoreranno su soluzioni adeguate nel team. Parteciperete anche a workshop, conferenze ed eventi su misura. I nostri avvocati risponderanno a tutte le domande che ti hanno sempre interessato, in modo da poter ottenere un'idea accurata di come fa uno studio legale aziendale. Hai una laurea quando inizia il tuo lavoro, di solito con un predicato da \"magna cum laude\". Inoltre, ci convinci con un alto impegno e prestazioni.\n• Lavorare in un innovativo studio legale svizzero\n• Posizione centrale a Basilea sulla Aeschenplatz\n• Un team molto apprezzato\n• Un'attività diversificata e impegnativa",
+        "en": "Do you want to gain insight into the working world of a commercial law firm and gain practical experience? At the Basel location, we offer students of law at a Swiss university with a completed bachelor’s degree the opportunity to gain practical experience in our law firm. As a short intern you will support our partners and their teams for 6 weeks. They participate in the processing of current mandates and will work on suitable solutions in the team. You will also participate in workshops, lectures and specially tailored events. Our lawyers will answer all questions that have always interested you, so that you can get an accurate idea of how a business law firm is doing. You have a bachelor's degree when you start your job, usually with a predicate from \"magna cum laude\". In addition, you convince us with a high commitment and performance.\n• Working in an innovative Swiss law firm\n• Central location in Basel on Aeschenplatz\n• A very appreciative team\n• A diverse and demanding activity",
+        "de": "Wollen Sie Einblick in die Arbeitswelt einer Wirtschaftskanzlei gewinnen und praktische Erfahrungen sammeln?\nAm Standort Basel bieten wir Studierenden der Rechtswissenschaft an einer Schweizer Universität mit abgeschlossenem Bachelor-Studium die Gelegenheit, praktische Erfahrungen in unserer Kanzlei zu sammeln.\nAls Kurzpraktikantin und Kurzpraktikant unterstützen Sie unsere Partnerinnen und Partner und deren Teams während 6 Wochen. Sie beteiligen sich an der Bearbeitung aktueller Mandate und werden im Team an geeigneten Lösungsansätzen feilen. Ausserdem nehmen Sie an Workshops, Vorträgen und speziell auf Sie zugeschnittenen Veranstaltungen teil. Unsere Anwältinnen und Anwälte beantworten Ihnen alle Fragen, die Sie schon immer interessiert haben, so dass Sie eine genaue Vorstellung davon erhalten, wie es in einer Wirtschaftskanzlei zu und her geht.\nSie verfügen bei Stellenantritt über einen Bachelorabschluss, in der Regel mit Prädikat ab „magna cum laude\". Zusätzlich überzeugen Sie uns mit einer hohen Einsatz- und Leistungsbereitschaft.\n• Mitarbeit in einer innovativen Schweizer Kanzlei\n\n• Zentraler Standort in Basel am Aeschenplatz\n\n• Ein sehr wertschätzendes Team\n\n• Eine vielseitige und anspruchsvolle Tätigkeit",
+        "fr": "Voulez-vous avoir un aperçu du monde du travail d'un cabinet d'avocats commerciaux et acquérir une expérience pratique? À l'emplacement de Bâle, nous offrons aux étudiants en droit d'une université suisse avec un baccalauréat complet de la possibilité d'acquérir une expérience pratique dans notre cabinet d'avocats. En tant que stagiaire, vous accompagnerez nos partenaires et leurs équipes pendant 6 semaines. Ils participent au traitement des mandats actuels et travailleront à des solutions appropriées au sein de l'équipe. Vous participerez également à des ateliers, des conférences et des événements spécialement adaptés. Nos avocats répondront à toutes les questions qui vous ont toujours intéressé, afin que vous puissiez avoir une idée précise de la façon dont un cabinet d'avocats d'affaires se comporte. Vous avez un baccalauréat quand vous commencez votre travail, généralement avec un prédicat de \"magna cum laude\". En outre, vous nous convainquez avec un engagement et une performance élevés.\n• Travailler dans un cabinet d'avocats suisse innovant\n• Situation centrale à Bâle sur Aeschenplatz\n• Une équipe très reconnaissante\n• Une activité diversifiée et exigeante"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T00:54:46.508Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+        "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+          "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        ],
+        "en": [
+          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        ],
+        "fr": [
+          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:51:03.184Z",
+      "salaryMin": 56500,
+      "salaryMax": 96500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 56500,
+          "maxValue": 96500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "kellerhals-carrard-d1e88c85f866",
       "slug": "applicazione-wildcard-kellerhals-carrard-bern",
       "slugByLocale": {
@@ -597,7 +593,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.267Z",
+      "crawledAt": "2026-09-01T00:54:46.505Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -677,7 +673,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.266Z",
+      "crawledAt": "2026-09-01T00:54:46.504Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -757,7 +753,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.264Z",
+      "crawledAt": "2026-09-01T00:54:46.502Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -837,7 +833,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.263Z",
+      "crawledAt": "2026-09-01T00:54:46.501Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -914,7 +910,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T23:17:59.261Z",
+      "crawledAt": "2026-09-01T00:54:46.499Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
