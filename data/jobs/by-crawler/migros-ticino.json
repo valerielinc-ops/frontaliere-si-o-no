@@ -9828,10 +9828,14 @@
         ],
         "fr": [
           "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg"
+        ],
+        "de": [
+          "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg-465kcx"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg"
+        "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg",
+        "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg-465kcx"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9942,7 +9946,18 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "de": [
+          "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf"
+        ],
+        "it": [
+          "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf"
+      ]
     },
     {
       "id": "company-pzaue8",
@@ -12670,10 +12685,19 @@
         ],
         "fr": [
           "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf"
+        ],
+        "it": [
+          "collaboratore-trice-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
+          "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2"
+        ],
+        "de": [
+          "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf"
+        "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf",
+        "collaboratore-trice-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
+        "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -15465,13 +15489,14 @@
       "previousSlugsByLocale": {
         "it": [
           "venditore-in-contatore-di-carne-genossenschaft-migros-zurich-uitikon-waldegg",
-          "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg"
+          "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg",
+          "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg-okuwg4"
         ],
         "en": [
           "seller-in-meat-counter-genossenschaft-migros-zurich-uitikon-waldegg"
         ],
         "de": [
-          "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg-465kcx"
+          "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg-okuwg4"
         ],
         "fr": [
           "vendeur-dans-le-comptoir-de-viande-genossenschaft-migros-zurich-uitikon-waldegg",
@@ -15482,9 +15507,9 @@
         "venditore-in-contatore-di-carne-genossenschaft-migros-zurich-uitikon-waldegg",
         "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg",
         "seller-in-meat-counter-genossenschaft-migros-zurich-uitikon-waldegg",
-        "verkaufer-in-fleischtheke-genossenschaft-migros-zurich-uitikon-waldegg-465kcx",
         "vendeur-dans-le-comptoir-de-viande-genossenschaft-migros-zurich-uitikon-waldegg",
-        "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg"
+        "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg",
+        "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg-okuwg4"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -21680,11 +21705,18 @@
       "previousSlugsByLocale": {
         "en": [
           "specialist-vendor-in-butchery-genossenschaft-migros-aare-thun"
+        ],
+        "it": [
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s"
+        ],
+        "de": [
+          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun",
-        "specialist-vendor-in-butchery-genossenschaft-migros-aare-thun"
+        "specialist-vendor-in-butchery-genossenschaft-migros-aare-thun",
+        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s"
       ],
       "salarySource": "estimated",
       "salaryMin": 68500,
@@ -52069,9 +52101,7 @@
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-tyfora",
           "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef"
         ],
-        "de": [
-          "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf"
-        ],
+        "de": [],
         "fr": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-tyfora",
           "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef"
@@ -52083,7 +52113,6 @@
         "assistente-alle-vendite-lattiero-caseari-genossenschaft-migros-zurich-zurich-f43bef",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-4",
         "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef",
-        "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf",
         "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef"
       ],
       "baseSalary": {
@@ -59418,7 +59447,6 @@
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-belp-35egkt",
           "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-thun",
           "butcher-s-sales-assistant-genossenschaft-migros-aare-thun",
-          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s",
           "vendeur-chez-le-boucher-genossenschaft-migros-aare-thun",
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun"
         ],
@@ -59426,9 +59454,7 @@
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-belp-35egkt",
           "butcher-s-sales-assistant-genossenschaft-migros-aare-thun"
         ],
-        "de": [
-          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s"
-        ],
+        "de": [],
         "fr": [
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-belp-35egkt",
           "vendeur-chez-le-boucher-genossenschaft-migros-aare-thun"
@@ -59439,7 +59465,6 @@
         "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-belp-35egkt",
         "fornitore-specializzato-in-macelleria-genossenschaft-migros-aare-thun",
         "butcher-s-sales-assistant-genossenschaft-migros-aare-thun",
-        "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s",
         "vendeur-chez-le-boucher-genossenschaft-migros-aare-thun",
         "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun"
       ],
@@ -69896,7 +69921,6 @@
           "verkaufer-in-food-genossenschaft-migros-zurich-affoltern-am-albis",
           "venditore-nel-cibo-genossenschaft-migros-zurich-uitikon-waldegg",
           "seller-in-food-genossenschaft-migros-zurich-uitikon-waldegg",
-          "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg-okuwg4",
           "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-uitikon-waldegg",
           "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg",
           "venditore-nel-cibo-genossenschaft-migros-zurich-uster",
@@ -69923,7 +69947,6 @@
         ],
         "de": [
           "verkaufer-in-food-genossenschaft-migros-zurich-affoltern-am-albis-d7vwf5",
-          "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg-okuwg4",
           "verkaufer-in-food-genossenschaft-migros-zurich-uster-ug7duf"
         ],
         "fr": [
@@ -69959,7 +69982,6 @@
         "verkaufer-in-food-genossenschaft-migros-zurich-affoltern-am-albis",
         "venditore-nel-cibo-genossenschaft-migros-zurich-uitikon-waldegg",
         "seller-in-food-genossenschaft-migros-zurich-uitikon-waldegg",
-        "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg-okuwg4",
         "vendeur-dans-la-nourriture-genossenschaft-migros-zurich-uitikon-waldegg",
         "verkaufer-in-food-genossenschaft-migros-zurich-uitikon-waldegg",
         "venditore-nel-cibo-genossenschaft-migros-zurich-uster",
@@ -79817,7 +79839,6 @@
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-7d63fh",
           "assistente-alle-vendite-lattiero-caseari-genossenschaft-migros-zurich-zurich-f43bef",
           "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef",
-          "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf",
           "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef",
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-4"
         ],
@@ -79825,9 +79846,7 @@
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-7d63fh",
           "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef"
         ],
-        "de": [
-          "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf"
-        ],
+        "de": [],
         "fr": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich-7d63fh",
           "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef"
@@ -79845,7 +79864,6 @@
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-richterswil",
         "assistente-alle-vendite-lattiero-caseari-genossenschaft-migros-zurich-zurich-f43bef",
         "dairy-sales-assistant-genossenschaft-migros-zurich-zurich-f43bef",
-        "verkaufer-in-molkerei-genossenschaft-migros-zurich-0ocarf",
         "assistant-aux-ventes-laitieres-genossenschaft-migros-zurich-zurich-f43bef",
         "verkaufer-in-molkerei-genossenschaft-migros-zurich-4"
       ],
@@ -94867,9 +94885,7 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-logistik-tiefkuhlbereich-nachtschicht-migros-online-regensdorf",
-          "collaboratore-trice-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
           "employee-in-logistics-freezing-area-migros-online-regensdorf",
-          "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
           "employe-en-logistique-zone-de-congelation-migros-online-regensdorf",
           "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf",
           "collaboratore-trice-in-logistik-picking-nachtschicht-migros-online-regensdorf-dlxwa0",
@@ -94884,7 +94900,6 @@
           "employee-in-logistics-picking-night-shift-migros-online-regensdorf"
         ],
         "de": [
-          "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
           "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf",
           "mitarbeiter-in-logistik-picking-nachtschicht-migros-online-regensdorf-dlxwa0",
           "mitarbeiter-in-logistik-picking-nachtschicht-migros-online-regensdorf"
@@ -94898,9 +94913,7 @@
       "previousSlugs": [
         "mitarbeiter-in-logistik-tiefkuhlbereich-nachtschicht-migros-online-regensdorf",
         "mitarbeiter-in-logistik-tiefkuhlbereich-nachtschicht-migros-online-regensdorf-f6kxt4",
-        "collaboratore-trice-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
         "employee-in-logistics-freezing-area-migros-online-regensdorf",
-        "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf-p9l5v2",
         "employe-en-logistique-zone-de-congelation-migros-online-regensdorf",
         "mitarbeiter-in-logistik-tiefkuhlbereich-migros-online-regensdorf",
         "collaboratore-trice-in-logistik-picking-nachtschicht-migros-online-regensdorf-dlxwa0",

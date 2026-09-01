@@ -23,6 +23,7 @@ import {
   applyAssembledToSliceJob,
   collectMissingAssembledBridges,
 } from '../scripts/scatter-jobs-to-slices.mjs';
+import { applyPerLocaleSlugCollisionGuard } from '../scripts/assemble-jobs-dataset.mjs';
 import { LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const baseSlice = () => ({
@@ -37,6 +38,37 @@ const baseSlice = () => ({
 });
 
 describe('scatter carry-forward of assembled previousSlugs bridges', () => {
+  it('does not turn another job canonical into claimant history after collision disambiguation (#6784)', () => {
+    const owner = {
+      id: 'company-owner',
+      url: 'https://example.test/jobs/owner',
+      canton: 'AG',
+      slug: 'shared-role-acme-aarau',
+      slugByLocale: { it: 'shared-role-acme-aarau' },
+    };
+    const assembledClaimant = {
+      id: 'company-claimant',
+      url: 'https://example.test/jobs/claimant',
+      canton: 'AG',
+      slug: 'claimant-role-acme-aarau',
+      slugByLocale: { it: 'claimant-role-acme-aarau', en: owner.slug },
+      titleByLocale: { it: 'Ruolo', en: 'Shared role' },
+      descriptionByLocale: {},
+    };
+    const sliceClaimant = {
+      ...assembledClaimant,
+      slugByLocale: { it: 'claimant-role-acme-aarau' },
+    };
+
+    applyPerLocaleSlugCollisionGuard([owner, assembledClaimant]);
+    const { job, changed } = applyAssembledToSliceJob(sliceClaimant, assembledClaimant);
+
+    expect(changed).toBe(true);
+    expect(job.slugByLocale.en).toMatch(/^shared-role-acme-aarau-[a-z0-9]{6}$/);
+    expect(job.previousSlugs || []).not.toContain(owner.slug);
+    expect(job.previousSlugsByLocale?.en || []).not.toContain(owner.slug);
+  });
+
   it('preserves an assembled bridge slug the slice was missing (the dropped-bridge regression)', () => {
     const sliceJob = baseSlice();
     const assembled = {

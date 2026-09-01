@@ -405,7 +405,6 @@
           "dipl-professionnels-des-soins-infirmiers-40-100-hoch-health-ostschweiz-st-gallen",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen-2-weitere",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
           "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen-9fa340",
@@ -432,7 +431,6 @@
         "dipl-professionnels-des-soins-infirmiers-40-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen-2-weitere",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen-9fa340",
@@ -2921,11 +2919,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach"
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4639,8 +4642,6 @@
         "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-7cc987",
         "dipl-nursing-professional-40-100-hoch-health-ostschweiz-uznach-7cc987",
         "dipl-professionnels-des-soins-infirmiers-40-100-hoch-health-ostschweiz-uznach-7cc987",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-mu6a0o",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
         "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-9ca3ed"
       ],
       "previousSlugsByLocale": {
@@ -4655,8 +4656,6 @@
           "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-7cc987",
           "dipl-nursing-professional-40-100-hoch-health-ostschweiz-uznach-7cc987",
           "dipl-professionnels-des-soins-infirmiers-40-100-hoch-health-ostschweiz-uznach-7cc987",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-mu6a0o",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
           "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-9ca3ed"
         ],
         "en": [
@@ -4939,12 +4938,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach"
+        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
+        "salute-professionale-40-100-hoch-health-ostschweiz-uznach-ky4atz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach",
-          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach"
+          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
+          "salute-professionale-40-100-hoch-health-ostschweiz-uznach-ky4atz"
         ]
       },
       "firstSeenAt": "2026-08-25T21:57:24.270Z",
@@ -5095,18 +5096,18 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
         "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
         "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-        "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-7cc987"
+        "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-7cc987",
+        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-mu6a0o"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
           "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
           "dipl-professionnels-des-soins-infirmiers-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
-          "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-7cc987"
+          "dipl-infermieristica-professionale-40-100-hoch-health-ostschweiz-uznach-7cc987",
+          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-mu6a0o"
         ],
         "en": [
           "dipl-nursing-professional-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-c4004a"
@@ -5199,8 +5200,7 @@
         "annee-de-pratique-structuree-maturite-professionnelle-sante-2026-hoch-health-ostschweiz-st-gallen",
         "salute-professionale-40-100-hoch-health-ostschweiz-uznach-mu6dq5",
         "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-mu6dq5",
-        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
-        "salute-professionale-40-100-hoch-health-ostschweiz-uznach-ky4atz"
+        "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5209,8 +5209,7 @@
           "salute-professionale-40-100-hoch-health-ostschweiz-uznach",
           "salute-professionale-40-100-hoch-health-ostschweiz-uznach-mu6dq5",
           "fachfrau-mann-gesundheit-40-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-mu6dq5",
-          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach",
-          "salute-professionale-40-100-hoch-health-ostschweiz-uznach-ky4atz"
+          "professionista-della-salute-40-100-hoch-health-ostschweiz-uznach"
         ],
         "en": [
           "fachfrau-mann-gesundheit-40-100-hoch-health-uznach-3"
@@ -6145,7 +6144,6 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen-7i39or",
         "dipl-specialist-surgical-technique-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
         "infermiere-a-diplomato-a-40-100-hoch-health-ostschweiz-st-gallen-9fa340",
@@ -7861,7 +7859,6 @@
         "dipl-pflegefachfrau-mann-40-100-hoch-health-st-gallen-2",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-        "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
         "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
         "dipl-pflegefachfrau-mann-40-60-hoch-health-st-gallen",
@@ -7879,7 +7876,6 @@
         ],
         "de": [
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach",
-          "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach-5b1oig",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-ostschweiz-uznach",
           "dipl-pflegefachfrau-mann-40-100-hoch-health-uznach-2",
           "dipl-pflegefachfrau-mann-40-100-kssg-ch"
@@ -11796,7 +11792,6 @@
           "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-grabs",
           "dipl-pflegefachfrau-mann-80-100-kssg-ch",
           "dipl-pflegefachfrau-mann-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-          "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-bofwyl",
           "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-mq3rb4",
           "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-xmqepb",
           "dipl-pflegefachfrau-mann-80-90-kantonsspital-st-gallen-kssg-hoch-festanstellung",
@@ -11821,7 +11816,6 @@
         "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-grabs",
         "dipl-pflegefachfrau-mann-80-100-kssg-ch",
         "dipl-pflegefachfrau-mann-40-60-kantonsspital-st-gallen-kssg-hoch-festanstellung",
-        "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-bofwyl",
         "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-mq3rb4",
         "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-xmqepb",
         "dipl-pflegefachfrau-mann-80-90-kantonsspital-st-gallen-kssg-hoch-festanstellung",
@@ -12752,14 +12746,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o",
         "dipl-pflegefachfrau-mann-80-100-kssg-ch",
         "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-mann-80-100-hoch-health-st-gallen",
-          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o",
           "dipl-pflegefachfrau-mann-80-100-kssg-ch",
           "dipl-pflegefachfrau-mann-40-60-hoch-health-ostschweiz-st-gallen"
         ],
@@ -15327,7 +15319,8 @@
         "dipl-professionnels-des-soins-infirmiers-80-100-hoch-health-ostschweiz-st-gallen",
         "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-oa5w1o",
         "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-        "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13"
+        "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+        "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15350,7 +15343,8 @@
           "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
           "dipl-pflegefachfrau-mann-80-100-kantonsspital-st-gallen-kssg-hoch-festanstellung-oa5w1o",
           "dipl-pflegefachfrau-mann-80-100-kssg-ch",
-          "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13"
+          "dipl-infermieristica-professionale-80-100-hoch-health-ostschweiz-st-gallen-f8ca13",
+          "dipl-pflegefachfrau-mann-80-100-hoch-health-ostschweiz-st-gallen-oa5w1o"
         ],
         "en": [
           "dipl-care-specialist-40-100-hoch-health-ostschweiz-uznach",
@@ -20142,7 +20136,6 @@
         "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen",
         "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen-m8w10n",
         "specialiste-en-sante-60-100-hoch-health-ostschweiz-st-gallen",
-        "salute-professionale-40-100-hoch-health-ostschweiz-uznach-ky4atz",
         "fachfrau-mann-gesundheit-40-100-kssg-ch",
         "specialista-della-salute-40-100-hoch-health-ostschweiz-st-gallen"
       ],
@@ -20156,7 +20149,6 @@
           "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen",
           "specialista-della-salute-60-100-hoch-health-ostschweiz-st-gallen-m8w10n",
           "specialiste-en-sante-60-100-hoch-health-ostschweiz-st-gallen",
-          "salute-professionale-40-100-hoch-health-ostschweiz-uznach-ky4atz",
           "fachfrau-mann-gesundheit-40-100-kssg-ch",
           "specialista-della-salute-40-100-hoch-health-ostschweiz-st-gallen"
         ],

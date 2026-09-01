@@ -60,8 +60,8 @@ export function mergeLocaleMap(sliceMap, assembledMap) {
  * bridge (flat legacy array + per-locale buckets) that is NOT yet present
  * anywhere on the slice job's active-or-history slug set. These are SEO
  * redirect bridges the assembled pipeline captured (via
- * assemble-jobs-dataset's trackSlugHistoryDrift / ensureLocaleFields / the
- * cross-job collision guard) but that the per-crawler slice — the committed
+ * assemble-jobs-dataset's trackSlugHistoryDrift / ensureLocaleFields) but
+ * that the per-crawler slice — the committed
  * source of truth the build plugin reads to emit bridge pages — is missing.
  *
  * Scatter is the assembled→slice writer for every job NOT touched by
@@ -147,7 +147,7 @@ export function collectMissingAssembledBridges(sliceJob, assembled) {
  */
 export function applyAssembledToSliceJob(sliceJob, assembled) {
   // SEO bridge slugs the assembled job captured (trackSlugHistoryDrift /
-  // ensureLocaleFields / collision guard) but the slice is still missing.
+  // ensureLocaleFields) but the slice is still missing.
   // Computed up front (on the PRE-rename sliceJob) purely to decide whether a
   // job whose locale/slug fields are otherwise unchanged still needs a write
   // — otherwise a slug renamed on the assembled side in a prior run (its old
