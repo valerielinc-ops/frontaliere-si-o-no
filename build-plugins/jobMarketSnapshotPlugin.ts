@@ -44,6 +44,7 @@ import np from 'node:path';
 import { peelDanglingClauseTail } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
+  BUILD_DATE_STAMP,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
   DRIVEBY_AD_SNIPPET,
@@ -3220,7 +3221,16 @@ export function jobMarketSnapshotPlugin(rootDir: string): Plugin {
       ]);
       cleanSitemapFiles(distDir, ['sitemap-job-market.xml']);
 
-      const today = new Date();
+      // BUILD_DATE_STAMP (deploy-wide, derived from DEPLOY_BUILD_ID), NOT a
+      // fresh `new Date()` — this "today" gates which past months qualify
+      // for archive pages, and on the matrix deploy the it/en/de/fr shards
+      // are independent processes. A per-shard `new Date()` could cross a
+      // UTC-midnight boundary between shards, so the current month flips to
+      // "past" on one shard but not its siblings: the archive page (and its
+      // sitemap-job-market.xml entry, emitted from the same pass) exists on
+      // one shard but not the others once merged (#6971, same class as #5911
+      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_DATE_STAMP doc.
+      const today = new Date(BUILD_DATE_STAMP);
       const dateStamp = today.toISOString().slice(0, 10);
 
       const historyPath = np.resolve(rootDir, 'data', 'jobs-stats-history.json');
