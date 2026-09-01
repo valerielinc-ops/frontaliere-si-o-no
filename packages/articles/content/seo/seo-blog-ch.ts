@@ -65111,6 +65111,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soletta-contestazione-canone-affitti': {
+    title: 'Diritto di locazione in Svizzera: canoni e contestazione',
+    description: 'Deposito cauzionale, contestazione canone, disdetta e ricorso: tutto sulla locazione abitativa in Svizzera, dal Codice delle Obbligazioni alle procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, canoni, contestazione',
+    ogTitle: 'Diritto di locazione in Svizzera: canoni e contestazione',
+    ogDescription: 'Scopri i tuoi diritti come inquilino in Svizzera: come contestare un canone ingiustificato, limiti del deposito cauzionale, procedure di ricorso presso l\'autorità di conciliazione cantonale.',
+    canonicalPath: '/articoli-svizzera/soletta-contestazione-canone-affitti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto di locazione in Svizzera: canoni e contestazione",
+      "description": "Deposito cauzionale, contestazione canone, disdetta e ricorso: tutto sulla locazione abitativa in Svizzera, dal Codice delle Obbligazioni alle procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-contestazione-canone-affitti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un edificio residenziale svizzero con balconi moderni, strada tranquilla, fotografia realistica"
+      },
+      "datePublished": "2026-09-01T23:23:16+00:00",
+      "dateModified": "2026-09-01T23:23:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-contestazione-canone-affitti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

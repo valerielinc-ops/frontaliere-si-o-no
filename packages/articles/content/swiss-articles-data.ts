@@ -15049,6 +15049,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'soletta-contestazione-canone-affitti',
+    category: 'pratico',
+    date: '2026-09-01T23:23:16.700Z',
+    image: '/images/blog/soletta-contestazione-canone-affitti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
