@@ -335,7 +335,7 @@ describe('translation observability', () => {
 
     let cappedHistory: any = null;
     for (let index = 0; index < 110; index++) {
-      const next = redigest({ ...one, runId: String(index), finishedAt: new Date(Date.UTC(2016 + index, 0, 1)).toISOString() });
+      const next = redigest({ ...one, runId: String(index), finishedAt: new Date(Date.UTC(2016 + index, 0, 1)).toISOString(), stateTransition: { ...one.stateTransition, generation: index + 1 } });
       cappedHistory = rollupTranslationObservability(cappedHistory, next);
     }
     expect(cappedHistory.weeks.length).toBeLessThanOrEqual(104);
@@ -344,5 +344,52 @@ describe('translation observability', () => {
     expect(cappedHistory.seenReports.length).toBeLessThanOrEqual(500);
     expect(cappedHistory.weeks[0].latest.stateTransition).toBeDefined();
     expect(JSON.stringify(cappedHistory)).not.toContain('fingerprints');
+  });
+
+  it('uses only measured advanced true-final generations for the baseline while retaining operational evidence', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const cases = [
+      redigest({ ...eligible, runId: 'failure', outcome: 'failure' }),
+      redigest({ ...eligible, runId: 'unadvanced', stateTransition: { ...eligible.stateTransition, advanced: false } }),
+      redigest({ ...eligible, runId: 'unmeasured', languageQuality: { ...eligible.languageQuality, trueFinal: { ...eligible.languageQuality.trueFinal, measured: false } } }),
+    ];
+    let history = rollupTranslationObservability(null, eligible);
+    for (const next of cases) history = rollupTranslationObservability(history, next);
+
+    expect(history.baselineReports).toHaveLength(1);
+    expect(history.baselineReports[0].digest).toBe(eligible.digest);
+    expect(history.weeks[0].runs).toBe(4);
+    expect(history.months[0].runs).toBe(4);
+    expect(history.seenReports).toHaveLength(4);
+    expect(history.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 1, ready: false });
+    expect(rollupTranslationObservability(history, eligible).baselineStatus).toEqual(history.baselineStatus);
+  });
+
+  it('purges ineligible legacy baselines before adding and capping eligible generations', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const legacy = rollupTranslationObservability(null, eligible);
+    legacy.baselineReports = [
+      { ...legacy.baselineReports[0], outcome: 'failure' },
+      legacy.baselineReports[0],
+    ];
+    const next = redigest({ ...eligible, runId: 'next', finishedAt: '2026-09-01T00:01:00Z', stateTransition: { ...eligible.stateTransition, generation: 2 } });
+    const result = rollupTranslationObservability(legacy, next);
+
+    expect(result.baselineReports).toHaveLength(2);
+    expect(result.baselineReports.every((entry) => entry.outcome === 'success' && entry.stateTransition.advanced && entry.languageQuality.trueFinal.measured)).toBe(true);
+    expect(result.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 2, ready: false });
+  });
+
+  it('counts each eligible generation once while retaining duplicate-generation operational evidence', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const replay = redigest({ ...eligible, runId: 'replay', finishedAt: '2026-08-31T00:02:00Z' });
+    const history = rollupTranslationObservability(rollupTranslationObservability(null, eligible), replay);
+
+    expect(history.baselineReports).toHaveLength(1);
+    expect(history.baselineReports[0].digest).toBe(eligible.digest);
+    expect(history.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 1, ready: false });
+    expect(history.weeks[0].runs).toBe(2);
+    expect(history.months[0].runs).toBe(2);
+    expect(history.seenReports).toHaveLength(2);
   });
 });
