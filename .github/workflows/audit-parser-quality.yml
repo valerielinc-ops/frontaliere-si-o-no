@@ -101,6 +101,12 @@ jobs:
         with:
           node-version: 22
 
+      # The strict audit imports the public-fetch policy, which imports the
+      # declared `undici` dependency. Keep this install before the audit so a
+      # bootstrap failure cannot hide parser findings or suppress its report.
+      - name: Install audit dependencies
+        run: npm ci
+
       - name: Run parser quality audit (strict)
         id: parser-audit
         run: |
