@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-09-01T14:10:26.958Z",
+  "assembledAt": "2026-09-01T15:45:48.331Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:23.145Z",
+      "crawledAt": "2026-09-01T15:45:45.716Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:22.844Z",
+      "crawledAt": "2026-09-01T15:45:45.414Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -143,6 +143,7 @@
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "salaryMin": 99500,
       "salaryMax": 151000,
@@ -156,8 +157,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "jsafrasarasin-cd3c5c2dce34",
@@ -190,7 +190,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:22.543Z",
+      "crawledAt": "2026-09-01T15:45:45.113Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -271,7 +271,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/490/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:22.241Z",
+      "crawledAt": "2026-09-01T15:45:44.812Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -352,7 +352,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:21.941Z",
+      "crawledAt": "2026-09-01T15:45:44.511Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -384,8 +384,8 @@
           "treasury-operations-specialist-jsafrasarasin-ch"
         ]
       },
-      "firstSeenAt": "2026-08-23T09:42:50.759Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-23T09:42:50.759Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -431,7 +431,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:21.639Z",
+      "crawledAt": "2026-09-01T15:45:44.209Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -512,7 +512,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:21.338Z",
+      "crawledAt": "2026-09-01T15:45:43.908Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -592,7 +592,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:21.035Z",
+      "crawledAt": "2026-09-01T15:45:43.603Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -645,7 +645,7 @@
       "slug": "cash-and-securities-reconciliation-specialista-j-safra-sarasin-basel",
       "slugByLocale": {
         "it": "cash-and-securities-reconciliation-specialista-j-safra-sarasin-basel",
-        "en": "cash-and-securities-reconciliation-specialist-j-safra-sarasin-basel",
+        "en": "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch",
         "de": "cash-and-securities-reconciliation-spezialist-j-safra-sarasin-basel",
         "fr": "cash-and-securities-reconciliation-specialiste-j-safra-sarasin-basel"
       },
@@ -671,7 +671,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:10:20.729Z",
+      "crawledAt": "2026-09-01T15:45:43.297Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -687,19 +687,15 @@
       "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "cash-and-securities-reconciliation-specialist-j-safra-sarasin-lugano",
-        "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch",
-        "cash-and-securities-reconciliation-specialista-j-safra-sarasin-basel"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "cash-and-securities-reconciliation-specialist-j-safra-sarasin-lugano",
+          "cash-and-securities-reconciliation-specialist-j-safra-sarasin-basel",
+          "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch"
+        ],
         "it": [
           "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch",
           "cash-and-securities-reconciliation-specialista-j-safra-sarasin-basel"
-        ],
-        "en": [
-          "cash-and-securities-reconciliation-specialist-j-safra-sarasin-lugano",
-          "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch"
         ],
         "de": [
           "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch"
@@ -708,6 +704,12 @@
           "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch"
         ]
       },
+      "previousSlugs": [
+        "cash-and-securities-reconciliation-specialist-j-safra-sarasin-lugano",
+        "cash-and-securities-reconciliation-specialist-jsafrasarasin-ch",
+        "cash-and-securities-reconciliation-specialist-j-safra-sarasin-basel",
+        "cash-and-securities-reconciliation-specialista-j-safra-sarasin-basel"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:02:38.796Z",
       "salaryMin": 62000,
