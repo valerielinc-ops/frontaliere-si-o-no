@@ -658,6 +658,30 @@ describe('Lidl authoritative LiCa discovery', () => {
     });
   });
 
+  it('drops a hit whose city does not resolve to a Swiss canton without failing the run (#7024)', async () => {
+    const fetchImpl = async (input: string | URL | Request) => {
+      const { language } = lidlRequest(input);
+      if (!language) {
+        return new Response(JSON.stringify(licaEnvelope([], {
+          totalCount: 2,
+          filters: languageFilters({ it: 2 }),
+        })), { status: 200 });
+      }
+      const jobs = [
+        licaHit(73800),
+        licaHit(73801, { location: { city: 'Not A Real Swiss Village', country: 'CH' } }),
+      ];
+      return new Response(JSON.stringify(licaEnvelope(jobs, { totalCount: 2 })), { status: 200 });
+    };
+    await expect(fetchLidlJobDetailUrls({ fetchImpl, timeoutMs: 1000 })).resolves.toMatchObject({
+      totalCount: 2,
+      rawFetched: 2,
+      droppedNonCh: 1,
+      droppedMalformed: 0,
+      urls: [expect.stringMatching(/73800$/)],
+    });
+  });
+
   it('fails closed on a short intermediate page and a facet-language mismatch', async () => {
     const shortIntermediate = async (input: string | URL | Request) => {
       const { language } = lidlRequest(input);

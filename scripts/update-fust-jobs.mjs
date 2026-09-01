@@ -532,10 +532,14 @@ export async function fetchFustJobUrls(options = {}) {
   if (fetched < apiTotal) {
     throw new Error(`Fust discovery incomplete: fetched ${fetched}/${apiTotal} API jobs (API_MAX_PAGES=${API_MAX_PAGES}).`);
   }
+  // droppedNonCh is a normal, expected outcome (a job whose label doesn't
+  // resolve to a Swiss canton is dropped, never defaulted to TI) — it must
+  // NOT gate a hard failure the same way droppedMalformedUrl/
+  // droppedDuplicateIdentity do (those indicate real parser/feed drift), so
+  // it's folded into the accounted total instead of compared to zero.
   if (
-    allUrls.size !== apiTotal
+    allUrls.size + droppedNonCh !== apiTotal
     || fustFound !== apiTotal
-    || droppedNonCh > 0
     || droppedMalformedUrl > 0
     || droppedDuplicateIdentity > 0
   ) {
@@ -577,6 +581,7 @@ export async function fetchFustJobUrls(options = {}) {
     urls,
     seedMetaByUrl,
     apiTotal,
+    droppedNonCh,
     droppedMalformedUrl,
     droppedDuplicateIdentity,
     workplaceCount,
