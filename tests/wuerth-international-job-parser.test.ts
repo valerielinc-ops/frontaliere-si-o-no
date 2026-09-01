@@ -209,30 +209,30 @@ describe('Wuerth International crawler constants', () => {
 
 describe('parseListingPage', () => {
   it('extracts all job listings from table', () => {
-    const jobs = parseListingPage(LISTING_HTML);
+    const { jobs } = parseListingPage(LISTING_HTML);
     expect(jobs).toHaveLength(2);
   });
 
   it('extracts job titles', () => {
-    const jobs = parseListingPage(LISTING_HTML);
+    const { jobs } = parseListingPage(LISTING_HTML);
     expect(jobs[0].title).toBe('Berufspraktikum Empfang (a)');
     expect(jobs[1].title).toContain('Steuerexperte');
   });
 
   it('extracts job locations', () => {
-    const jobs = parseListingPage(LISTING_HTML);
+    const { jobs } = parseListingPage(LISTING_HTML);
     expect(jobs[0].location).toBe('Chur');
     expect(jobs[1].location).toBe('Chur');
   });
 
   it('extracts entry level', () => {
-    const jobs = parseListingPage(LISTING_HTML);
+    const { jobs } = parseListingPage(LISTING_HTML);
     expect(jobs[0].entryLevel).toBe('Auszubildende');
     expect(jobs[1].entryLevel).toBe('Berufserfahrene');
   });
 
   it('generates full detail URLs', () => {
-    const jobs = parseListingPage(LISTING_HTML);
+    const { jobs } = parseListingPage(LISTING_HTML);
     expect(jobs[0].url).toContain('Job-details_17088.php');
     expect(jobs[1].url).toContain('Job-details_17216.php');
     for (const job of jobs) {
@@ -253,20 +253,27 @@ describe('parseListingPage', () => {
         </td>
       </tr>
     </tbody>`);
-    const jobs = parseListingPage(duplicateHtml);
+    const { jobs, skippedMalformedRows } = parseListingPage(duplicateHtml);
     expect(jobs).toHaveLength(2);
+    expect(skippedMalformedRows).toBe(0);
   });
 
-  it('returns empty array for empty input', () => {
-    expect(parseListingPage('')).toHaveLength(0);
-    expect(parseListingPage(null as unknown as string)).toHaveLength(0);
+  it('returns an empty observable result for empty input', () => {
+    expect(parseListingPage('')).toEqual({ jobs: [], skippedMalformedRows: 0 });
+    expect(parseListingPage(null as unknown as string)).toEqual({
+      jobs: [],
+      skippedMalformedRows: 0,
+    });
   });
 
   it('returns empty for page without job table', () => {
-    expect(parseListingPage('<html><body><p>No jobs</p></body></html>')).toHaveLength(0);
+    expect(parseListingPage('<html><body><p>No jobs</p></body></html>')).toEqual({
+      jobs: [],
+      skippedMalformedRows: 0,
+    });
   });
 
-  it('skips rows with very short titles', () => {
+  it('counts rows with very short titles instead of dropping them silently', () => {
     const html = `
     <table id="sortableTable9375499">
       <tbody>
@@ -278,7 +285,21 @@ describe('parseListingPage', () => {
         </tr>
       </tbody>
     </table>`;
-    expect(parseListingPage(html)).toHaveLength(0);
+    expect(parseListingPage(html)).toEqual({ jobs: [], skippedMalformedRows: 1 });
+  });
+
+  it('keeps valid siblings while exposing a malformed listing row', () => {
+    const mixedHtml = LISTING_HTML.replace('</tbody>', `
+      <tr>
+        <td class="text-wrap">Incomplete vacancy</td>
+        <td>Chur</td>
+        <td>Berufserfahrene</td>
+      </tr>
+    </tbody>`);
+
+    const result = parseListingPage(mixedHtml);
+    expect(result.jobs).toHaveLength(2);
+    expect(result.skippedMalformedRows).toBe(1);
   });
 });
 

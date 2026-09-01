@@ -36,6 +36,7 @@ import {
   inferSkyguideCanton,
   buildSkyguideLocalizedContent,
 } from './lib/skyguide-job-parser.mjs';
+import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -149,7 +150,25 @@ async function fetchListings() {
     const listingUrl = `${LISTING_BASE}&startrow=${startRow}`;
     // eslint-disable-next-line no-await-in-loop
     const html = await fetchHtml(listingUrl, SKYGUIDE_FETCH_OPTS);
-    const rows = parseSkyguideListings(html);
+    const {
+      rows,
+      skippedMalformedRows,
+      ignoredNonJobRows,
+    } = parseSkyguideListings(html);
+    const diagnostic = classifyMalformedRowDrift(rows.length, skippedMalformedRows);
+    if (skippedMalformedRows > 0) {
+      console.warn(
+        `⚠️ Skyguide listing page ${page + 1}: skipped ` +
+          `${skippedMalformedRows}/${diagnostic.total} malformed row(s)` +
+          (ignoredNonJobRows > 0 ? ` (${ignoredNonJobRows} non-job chrome row(s) ignored separately)` : ''),
+      );
+    }
+    if (diagnostic.severity === 'error') {
+      throw new Error(
+        `Skyguide listing structure drift at startrow=${startRow}: ` +
+          `${skippedMalformedRows}/${diagnostic.total} rows malformed`,
+      );
+    }
     console.log(`📋 Page ${page + 1} (startrow ${startRow}): ${rows.length} rows`);
     if (rows.length === 0) break;
     for (const row of rows) {

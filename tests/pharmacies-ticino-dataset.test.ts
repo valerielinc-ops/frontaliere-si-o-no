@@ -31,4 +31,15 @@ describe('pharmacies-ticino dataset', () => {
     const ids = dataset.pharmacies.map((p) => p.id);
     expect(new Set(ids).size).toBe(ids.length);
   });
+
+  it('keeps the pharmacy-list consumer compatible with observability metadata', () => {
+    const observableEnvelope = {
+      ...dataset,
+      _warnings: ['luganese: skipped 1/20 malformed row(s)'],
+      _skippedMalformedRows: 1,
+    };
+
+    expect(validatePharmacyList(observableEnvelope.pharmacies)).toEqual([]);
+    expect(observableEnvelope.pharmacies).toHaveLength(dataset.pharmacies.length);
+  });
 });

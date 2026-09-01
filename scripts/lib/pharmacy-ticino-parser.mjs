@@ -38,18 +38,25 @@ function textify(html = '') {
 
 /**
  * Extracts raw rows from `#tabella_lista_farmacie`: { name, address,
- * postalCode, city, phone }. Skips the header row. Returns `[]` if the
- * table isn't found (structure drift — caller decides how to react).
+ * postalCode, city, phone }. Skips the header row. Returns
+ * `{ rows: [], skipped: 0 }` if the table isn't found (structure drift —
+ * caller decides how to react).
+ *
+ * `skipped` counts malformed data rows dropped in-place (too few cells, or
+ * missing name/address/postal-code match) so a region that parses *some*
+ * rows successfully doesn't silently lose the rest without a signal (#6800
+ * — before this, only a whole-region zero-match was observable).
  */
 export function parsePharmacyListTable(html) {
-  if (!html) return [];
+  if (!html) return { rows: [], skipped: 0 };
 
   const tableMatch = html.match(
     /id=["']tabella_lista_farmacie["'][^>]*>([\s\S]*?)<\/table>/i,
   );
-  if (!tableMatch) return [];
+  if (!tableMatch) return { rows: [], skipped: 0 };
 
   const rows = [];
+  let skipped = 0;
   const rowRe = /<tr[^>]*>([\s\S]*?)<\/tr>/gi;
   let rowMatch;
   let isHeader = true;
@@ -59,11 +66,17 @@ export function parsePharmacyListTable(html) {
       continue; // first row is the "Farmacia/Indirizzo/Località/Telefono" header
     }
     const cells = [...rowMatch[1].matchAll(/<td[^>]*>([\s\S]*?)<\/td>/gi)].map((m) => textify(m[1]));
-    if (cells.length < 4) continue;
+    if (cells.length < 4) {
+      skipped += 1;
+      continue;
+    }
 
     const [name, address, localita, phone] = cells;
     const localitaMatch = localita.match(/^(\d{4})\s+(.+)$/);
-    if (!name || !address || !localitaMatch) continue;
+    if (!name || !address || !localitaMatch) {
+      skipped += 1;
+      continue;
+    }
 
     rows.push({
       name,
@@ -74,16 +87,18 @@ export function parsePharmacyListTable(html) {
     });
   }
 
-  return rows;
+  return { rows, skipped };
 }
 
 /**
  * Builds `Pharmacy`-shaped records (see `services/pharmacies/types.ts`)
- * from a raw parsed table for one region.
+ * from a raw parsed table for one region. Returns `{ records, skipped }` —
+ * `skipped` is the malformed-row count from `parsePharmacyListTable`,
+ * forwarded so the caller can log/report it per region (#6800).
  */
 export function buildPharmacyRecords(html, region, fetchedAt) {
-  const rows = parsePharmacyListTable(html);
-  return rows.map((row) => {
+  const { rows, skipped } = parsePharmacyListTable(html);
+  const records = rows.map((row) => {
     const slug = slugify(`${row.name} ${row.city}`);
     return {
       id: `ti-${slug}`,
@@ -100,6 +115,7 @@ export function buildPharmacyRecords(html, region, fetchedAt) {
       lastVerifiedAt: fetchedAt,
     };
   });
+  return { records, skipped };
 }
 
 /**
