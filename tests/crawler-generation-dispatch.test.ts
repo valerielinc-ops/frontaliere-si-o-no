@@ -8,6 +8,8 @@ import {
   DIRECT_RUN_HYDRATION_BACKOFF_MS,
   DIRECT_RUN_HYDRATION_TIMEOUT_MS,
   GITHUB_API_VERSION,
+  LEGACY_DISPATCH_POST_ATTEMPTS,
+  LEGACY_DISPATCH_RETRY_DELAY_MS,
   MAX_CRAWLER_GENERATION_REAPER_CANDIDATES,
   cleanupCrawlerGenerationDispatchRef,
   createGitHubActionsRequester,
@@ -634,6 +636,84 @@ describe('crawler generation dispatch protocol', () => {
       sleep: async () => {},
     })).resolves.toEqual({ status: 'reconciled_transport_error', runId: '7001' });
     expect(postCalls).toBe(1);
+  });
+
+  it('retries the POST a bounded number of times in legacy mode after transient transport failures', async () => {
+    let postCalls = 0;
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        if (postCalls < LEGACY_DISPATCH_POST_ATTEMPTS) throw new Error('timeout before server acceptance');
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          },
+        };
+      }
+      return { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1' },
+      request,
+      allowReconciliation: false,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toEqual({ status: 'direct', runId: '7001' });
+    expect(postCalls).toBe(LEGACY_DISPATCH_POST_ATTEMPTS);
+    expect(sleeps).toEqual(
+      Array.from({ length: LEGACY_DISPATCH_POST_ATTEMPTS - 1 }, (_, index) => (index + 1) * LEGACY_DISPATCH_RETRY_DELAY_MS),
+    );
+  });
+
+  it('gives up after the bounded legacy POST retry budget on a persistent transport failure', async () => {
+    let postCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        throw new Error('persistent timeout');
+      }
+      return { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1' },
+      request,
+      allowReconciliation: false,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'missing', runId: null });
+    expect(postCalls).toBe(LEGACY_DISPATCH_POST_ATTEMPTS);
+  });
+
+  it('never exceeds the legacy POST retry budget on a persistent 204 protocol mismatch', async () => {
+    let postCalls = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        return { status: 204, body: null };
+      }
+      return { status: 200, body: boundRun() };
+    });
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1' },
+      request,
+      allowReconciliation: false,
+      sleep: async () => {},
+    })).resolves.toEqual({ status: 'api_protocol_mismatch', runId: null });
+    expect(postCalls).toBe(LEGACY_DISPATCH_POST_ATTEMPTS);
   });
 
   it('polls read-only discovery until an accepted POST becomes visible without retrying POST', async () => {
