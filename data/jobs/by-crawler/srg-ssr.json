@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-01T00:34:20.636Z",
+  "assembledAt": "2026-09-01T07:21:37.734Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:34:06.533Z",
+      "crawledAt": "2026-09-01T07:21:34.976Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T00:34:05.627Z",
+      "crawledAt": "2026-09-01T07:21:34.409Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,6 +142,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -160,7 +169,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -170,7 +179,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -187,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:04.883Z",
+      "crawledAt": "2026-09-01T07:21:33.575Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,6 +260,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -297,7 +315,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/emprendista-commerziala-emprendist-commerzial/c7a3bf5e-4660-4325-baee-e0cc14f79df0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T00:34:04.167Z",
+      "crawledAt": "2026-09-01T07:21:32.884Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -397,7 +415,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:03.123Z",
+      "crawledAt": "2026-09-01T07:21:32.248Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,11 +449,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
+          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -492,7 +512,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:02.325Z",
+      "crawledAt": "2026-09-01T07:21:31.600Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -528,14 +548,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -585,7 +609,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:01.555Z",
+      "crawledAt": "2026-09-01T07:21:30.833Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -620,11 +644,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -678,7 +704,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:34:00.599Z",
+      "crawledAt": "2026-09-01T07:21:30.226Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -777,7 +803,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:33:59.785Z",
+      "crawledAt": "2026-09-01T07:21:29.582Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -830,8 +856,10 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -842,8 +870,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "salarySource": "estimated"
+      "addressRegion": "BE"
     },
     {
       "id": "srg-ssr-77572fe4d695",
@@ -876,7 +903,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:33:58.951Z",
+      "crawledAt": "2026-09-01T07:21:28.986Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -964,7 +991,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:58.138Z",
+      "crawledAt": "2026-09-01T07:21:28.370Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1066,7 +1093,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:57.408Z",
+      "crawledAt": "2026-09-01T07:21:27.688Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -1168,7 +1195,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:56.627Z",
+      "crawledAt": "2026-09-01T07:21:24.731Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1251,7 +1278,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:55.847Z",
+      "crawledAt": "2026-09-01T07:21:16.201Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1288,11 +1315,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1302,6 +1331,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1348,7 +1378,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T00:33:54.988Z",
+      "crawledAt": "2026-09-01T07:21:15.574Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1397,6 +1427,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1443,7 +1474,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:48.357Z",
+      "crawledAt": "2026-09-01T07:21:14.907Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1543,7 +1574,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:42.055Z",
+      "crawledAt": "2026-09-01T07:21:14.272Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1627,7 +1658,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:33:41.270Z",
+      "crawledAt": "2026-09-01T07:21:13.668Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1724,7 +1755,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T00:33:40.406Z",
+      "crawledAt": "2026-09-01T07:21:13.014Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1809,7 +1840,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T00:33:39.147Z",
+      "crawledAt": "2026-09-01T07:21:12.405Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1894,7 +1925,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:33:38.272Z",
+      "crawledAt": "2026-09-01T07:21:11.751Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
