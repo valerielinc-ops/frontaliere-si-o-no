@@ -149,6 +149,33 @@ describe('SBB secondary-source degraded contract (#6970)', () => {
     }
   });
 
+  it('resets a prior real miss during degradation before applying the normal healthy grace period', () => {
+    let jobs = [makeAemJob(), { ...makeLoginJob(), crawlerMissStreak: 1 }];
+
+    jobs = mergeSbbJobsWithDiscoveryState(
+      jobs,
+      [makeAemJob()],
+      { loginDegraded: true },
+    ).sbbJobs;
+    expect(jobs.find((job) => job.url === LOGIN_URL)).not.toHaveProperty('crawlerMissStreak');
+
+    for (const expectedMissStreak of [1, 2]) {
+      jobs = mergeSbbJobsWithDiscoveryState(
+        jobs,
+        [makeAemJob()],
+        { loginDegraded: false },
+      ).sbbJobs;
+      expect(jobs.find((job) => job.url === LOGIN_URL)?.crawlerMissStreak).toBe(expectedMissStreak);
+    }
+
+    jobs = mergeSbbJobsWithDiscoveryState(
+      jobs,
+      [makeAemJob()],
+      { loginDegraded: false },
+    ).sbbJobs;
+    expect(jobs.some((job) => job.url === LOGIN_URL)).toBe(false);
+  });
+
   it('reconciles a recovered 200 without identity churn and still retires a verified removal', () => {
     const existing = [makeAemJob(), makeLoginJob()];
     const recovered = makeLoginJob();
