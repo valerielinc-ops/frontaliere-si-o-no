@@ -603,7 +603,7 @@ async function loadEventSentinel({ client, generationToken, sentinelRunId, repos
   if (exact.length !== 1) throw new ObserverDataError('sentinel_artifact_invalid', 'Sentinel owner artifact is not unique');
   validateSentinelArtifactMetadata(exact[0], generationToken);
   const run = await client.json(`/repos/${CALLER_REPOSITORY}/actions/runs/${sentinelRunId}`);
-  validateBoundSentinelRun(run, generationToken, sentinelRunId);
+  validateBoundSentinelRun(run, generationToken, sentinelRunId, run?.head_sha);
   const sentinel = await downloadJsonArtifact(
     client, exact[0], 'crawler-generation-sentinel.json', MAX_SENTINEL_BYTES, repository, runnerTemp,
   );
