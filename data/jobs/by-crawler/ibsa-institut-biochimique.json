@@ -74,7 +74,19 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "postalCode": "6926"
+      "postalCode": "6926",
+      "previousSlugsByLocale": {
+        "it": [
+          "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co",
+          "industrial-controlling-manager-ibsa-institut-biochimique-montagnola",
+          "industrieller-controlling-manager-ibsa-institut-biochimique-6926-working-area"
+        ]
+      },
+      "previousSlugs": [
+        "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co",
+        "industrial-controlling-manager-ibsa-institut-biochimique-montagnola",
+        "industrieller-controlling-manager-ibsa-institut-biochimique-6926-working-area"
+      ]
     },
     {
       "id": "company-pt8y8b",
@@ -248,7 +260,6 @@
       "addressLocality": "Collina d'Oro",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "postalCode": "6926"
     },
@@ -333,7 +344,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "reported",
       "postalCode": "6926"
     },
@@ -448,7 +458,7 @@
       "crawledAt": "2026-09-01T00:51:55.850Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "titleByLocale": {
-        "en": "Jr Clinical & Safety Compliance Specialist",
+        "en": "Jr Clinical &amp; Safety Compliance Specialist",
         "it": "Jr Clinical & Safety Compliance Specialista",
         "de": "Jr Clinical & Safety Compliance Spezialist",
         "fr": "Jr Clinical & Safety Compliance Spécialiste"
@@ -510,7 +520,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "postalCode": "6926"
     },
@@ -708,7 +717,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "postalCode": "6926"
     }

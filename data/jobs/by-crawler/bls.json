@@ -65,13 +65,11 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-werkstatt-bls-ch",
-        "team-leader-in-officina-bls-ag-bonigen"
+        "teamleiter-in-werkstatt-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-werkstatt-bls-ch",
-          "team-leader-in-officina-bls-ag-bonigen"
+          "teamleiter-in-werkstatt-bls-ch"
         ],
         "en": [
           "teamleiter-in-werkstatt-bls-ch"
@@ -263,13 +261,11 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-thun-bls-ch",
-        "metalworker-in-navigatore-in-thun-bls-ag-bern"
+        "metallbauer-in-nautiker-in-thun-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-thun-bls-ch",
-          "metalworker-in-navigatore-in-thun-bls-ag-bern"
+          "metallbauer-in-nautiker-in-thun-bls-ch"
         ],
         "en": [
           "metallbauer-in-nautiker-in-thun-bls-ch"
@@ -360,13 +356,11 @@
         ]
       },
       "previousSlugs": [
-        "metallbauer-in-nautiker-in-interlaken-bls-ch",
-        "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+        "metallbauer-in-nautiker-in-interlaken-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallbauer-in-nautiker-in-interlaken-bls-ch",
-          "lavoratori-metallici-in-navigatore-in-interlaken-bls-ag-interlaken"
+          "metallbauer-in-nautiker-in-interlaken-bls-ch"
         ],
         "en": [
           "metallbauer-in-nautiker-in-interlaken-bls-ch"
@@ -557,13 +551,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
-        "project-manager-in-project-management-office-pmo-bls-ag-bern"
+        "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch",
-          "project-manager-in-project-management-office-pmo-bls-ag-bern"
+          "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
         ],
         "en": [
           "teilprojektleiter-in-projektmanagement-office-pmo-bls-ch"
@@ -752,13 +744,11 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-montage-bls-ch",
-        "mitarbeiter-in-montage-bls-ag-bonigen",
-        "collaboratore-trice-montage-bls-ag-bonigen"
+        "mitarbeiter-in-montage-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-montage-bls-ch",
-          "collaboratore-trice-montage-bls-ag-bonigen"
+          "mitarbeiter-in-montage-bls-ch"
         ],
         "en": [
           "mitarbeiter-in-montage-bls-ag-bonigen"
@@ -1008,13 +998,11 @@
         ]
       },
       "previousSlugs": [
-        "flottenmanager-in-bahnproduktion-bls-ch",
-        "fleet-manager-nella-produzione-ferroviaria-bls-ag-bern"
+        "flottenmanager-in-bahnproduktion-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "flottenmanager-in-bahnproduktion-bls-ch",
-          "fleet-manager-nella-produzione-ferroviaria-bls-ag-bern"
+          "flottenmanager-in-bahnproduktion-bls-ch"
         ],
         "en": [
           "flottenmanager-in-bahnproduktion-bls-ch"
@@ -1193,13 +1181,11 @@
         ]
       },
       "previousSlugs": [
-        "fahrleitungsmonteur-in-bls-ch",
-        "fahrleitungsmonteur-in-bls-ag-bern"
+        "fahrleitungsmonteur-in-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fahrleitungsmonteur-in-bls-ch",
-          "fahrleitungsmonteur-in-bls-ag-bern"
+          "fahrleitungsmonteur-in-bls-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1282,7 +1268,6 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:29:08.112Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1296,33 +1281,60 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-08-31T17:29:08.112Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
+          "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
+          "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez",
+          "automeccanonica-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-spiez",
+          "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
+          "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2"
+        ],
+        "en": [
+          "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez"
+        ],
+        "fr": [
+          "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez"
+        ]
+      },
+      "previousSlugs": [
+        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
+        "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
+        "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez",
+        "automeccanonica-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-spiez",
+        "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
+        "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2"
+      ]
     },
     {
       "id": "bls-c3cfa561d03b",
-      "slug": "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+      "slug": "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez",
       "slugByLocale": {
-        "it": "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
-        "en": "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
         "de": "instandhalter-in-schienenfahrzeuge-bls-ch",
-        "fr": "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+        "it": "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez",
+        "en": "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
+        "fr": "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
       "companyDomain": "bls.ch",
       "title": "Instandhalter:in Schienenfahrzeuge",
       "titleByLocale": {
-        "it": "Instandhalter:in Schienenfahrzeuge",
-        "en": "Instandhalter:in Schienenfahrzeuge",
         "de": "Instandhalter:in Schienenfahrzeuge",
-        "fr": "Instandhalter:in Schienenfahrzeuge"
+        "it": "Azienda di manutenzione: nei veicoli ferroviari",
+        "en": "Maintenance company: in rail vehicles",
+        "fr": "Société d'entretien: dans les véhicules ferroviaires"
       },
       "description": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Störungsanalysen mit anschliessenden anspruchsvollen Reparaturarbeiten an Fahrzeugen und Komponenten durchführen\n\n• Vielfältige Wartungsarbeiten an der Personenfahrzeugflotte erledigen\n\n• Anspruchsvolle Reparaturen an der Personenfahrzeugflotte und deren Systemen ausführen\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\n• Aussicht auf einen Arbeitsortwechsel in eine neugebaute Werkstatt in Oberburg ab dem Jahr 2030\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Ausbildung als Automobilmechatroniker:in, Lastwagenmechaniker:in, Automatiker:in oder gleichwärtig\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n\n• Leisten von regelmässiger Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
       "descriptionByLocale": {
-        "it": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Störungsanalysen mit anschliessenden anspruchsvollen Reparaturarbeiten an Fahrzeugen und Komponenten durchführen\n\n• Vielfältige Wartungsarbeiten an der Personenfahrzeugflotte erledigen\n\n• Anspruchsvolle Reparaturen an der Personenfahrzeugflotte und deren Systemen ausführen\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\n• Aussicht auf einen Arbeitsortwechsel in eine neugebaute Werkstatt in Oberburg ab dem Jahr 2030\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Ausbildung als Automobilmechatroniker:in, Lastwagenmechaniker:in, Automatiker:in oder gleichwärtig\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n\n• Leisten von regelmässiger Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "en": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Störungsanalysen mit anschliessenden anspruchsvollen Reparaturarbeiten an Fahrzeugen und Komponenten durchführen\n\n• Vielfältige Wartungsarbeiten an der Personenfahrzeugflotte erledigen\n\n• Anspruchsvolle Reparaturen an der Personenfahrzeugflotte und deren Systemen ausführen\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\n• Aussicht auf einen Arbeitsortwechsel in eine neugebaute Werkstatt in Oberburg ab dem Jahr 2030\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Ausbildung als Automobilmechatroniker:in, Lastwagenmechaniker:in, Automatiker:in oder gleichwärtig\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n\n• Leisten von regelmässiger Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
         "de": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Störungsanalysen mit anschliessenden anspruchsvollen Reparaturarbeiten an Fahrzeugen und Komponenten durchführen\n\n• Vielfältige Wartungsarbeiten an der Personenfahrzeugflotte erledigen\n\n• Anspruchsvolle Reparaturen an der Personenfahrzeugflotte und deren Systemen ausführen\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\n• Aussicht auf einen Arbeitsortwechsel in eine neugebaute Werkstatt in Oberburg ab dem Jahr 2030\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Ausbildung als Automobilmechatroniker:in, Lastwagenmechaniker:in, Automatiker:in oder gleichwärtig\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n\n• Leisten von regelmässiger Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-        "fr": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz.\n\nDas wartet auf dich:\n\n• Störungsanalysen mit anschliessenden anspruchsvollen Reparaturarbeiten an Fahrzeugen und Komponenten durchführen\n\n• Vielfältige Wartungsarbeiten an der Personenfahrzeugflotte erledigen\n\n• Anspruchsvolle Reparaturen an der Personenfahrzeugflotte und deren Systemen ausführen\n\n• Unterhalts- und Störungsdaten sauber erfassen\n\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren\n\n• Aussicht auf einen Arbeitsortwechsel in eine neugebaute Werkstatt in Oberburg ab dem Jahr 2030\n\nDas bringst du mit:\n\n• Erfolgreich abgeschlossene Ausbildung als Automobilmechatroniker:in, Lastwagenmechaniker:in, Automatiker:in oder gleichwärtig\n\n• EDV Anwenderkenntnisse\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse\n\n• Leisten von regelmässiger Nacht- und Wochenendarbeit\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs."
+        "it": "La ferrovia è uno dei mezzi di trasporto più sicuri al mondo, dice le statistiche. Ma dietro i numeri ci sono persone – persone come te! 60 milioni di passeggeri all'anno si affidano alla vostra capacità e ambizione di mantenere i veicoli in modo affidabile e garantire così la loro sicurezza. Questo ti rende orgoglioso di essere un professionista.\n\nTi aspetta:\n\n• Eseguire analisi dei guasti con i successivi lavori di riparazione impegnativi su veicoli e componenti\n\n• Completa vari lavori di manutenzione sulla flotta del veicolo passeggeri\n\n• Eseguire riparazioni impegnative alla flotta del veicolo passeggeri e dei suoi sistemi\n\n• Raccogliere i dati di manutenzione e interruzione in modo pulito\n\n• Orari, processo e finalizzazione dei soggiorni del veicolo\n\n• Prospettiva di un cambiamento di posto di lavoro a un laboratorio di nuova costruzione a Oberburg dal 2030\n\nQuesto è ciò che portate con voi:\n\n• Formazione completata con successo come ingegnere meccanico automobilistico:in, meccanico del camion:in, ingegnere automatico:in o allo stesso tempo\n\n• Capacità dell'utente EDP\n\n• Molto buona conoscenza orale e scritta del tedesco\n\n• Esecuzione regolare notte e lavoro di fine settimana\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+        "en": "The railway is one of the safest means of transport in the world, says the statistics. But behind the numbers are people – people like you! 60 million passengers a year rely on your ability and ambition to maintain the vehicles reliably and thus ensure their safety. This makes you proud as a professional.\n\nThis is waiting for you:\n\n• Perform fault analyses with subsequent demanding repair work on vehicles and components\n\n• Complete various maintenance work on the passenger vehicle fleet\n\n• Carry out challenging repairs to the passenger vehicle fleet and its systems\n\n• Collect maintenance and disruption data cleanly\n\n• Schedule, process and finalize vehicle stays\n\n• Prospect of a change of workplace to a newly built workshop in Oberburg from 2030\n\nThis is what you bring with you:\n\n• Successfully completed training as an automotive mechatronic engineer:in, truck mechanic:in, automatic engineer:in or at the same time\n\n• EDP user skills\n\n• Very good oral and written knowledge of German\n\n• Performing regular night and weekend work\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+        "fr": "Selon les statistiques, le chemin de fer est l'un des moyens de transport les plus sûrs au monde. Mais derrière les chiffres sont des gens – des gens comme vous! 60 millions de passagers par an comptent sur votre capacité et votre ambition de maintenir les véhicules de manière fiable et d'assurer ainsi leur sécurité. Cela vous rend fier en tant que professionnel.\n\nCeci vous attend :\n\n• Effectuer des analyses de défauts avec des travaux de réparation plus exigeants sur les véhicules et les composants\n\n• Achever divers travaux d'entretien du parc de véhicules de tourisme\n\n• Effectuer des réparations difficiles au parc de véhicules de tourisme et à ses systèmes\n\n• Collecter les données de maintenance et de perturbation de façon propre\n\n• Planifier, traiter et finaliser les séjours de véhicules\n\n• Prospection d'un changement de lieu de travail pour un atelier nouvellement construit à Oberburg à partir de 2030\n\nC'est ce que vous apportez avec vous :\n\n• Formation réussie en tant qu'ingénieur mécatronique automobile:in, mécanicien de camion:in, ingénieur automatique:in ou en même temps\n\n• Compétences des utilisateurs de PDE\n\n• Très bonne connaissance orale et écrite de l'allemand\n\n• Travail de nuit et de week-end réguliers\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
       },
       "location": "Givisiez",
       "canton": "FR",
@@ -1360,18 +1372,27 @@
           "Leisten von regelmässiger Nacht- und Wochenendarbeit"
         ]
       },
-      "previousSlugs": [
-        "instandhalter-in-schienenfahrzeuge-bls-ch",
-        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "instandhalter-in-schienenfahrzeuge-bls-ch",
+          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+          "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
+          "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+        ],
+        "en": [
+          "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
+        ],
+        "fr": [
           "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:29:07.410Z",
+      "previousSlugs": [
+        "instandhalter-in-schienenfahrzeuge-bls-ch",
+        "instandhalter-in-schienenfahrzeuge-bls-ag-givisiez",
+        "maintenance-company-in-rail-vehicles-bls-ag-givisiez",
+        "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1385,7 +1406,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-08-31T17:29:07.410Z"
     }
   ]
 }

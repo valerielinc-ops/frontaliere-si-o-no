@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "aide-de-cuisine-zfv-unternehmungen-carouge",
-        "kochhilfe-zfv-unternehmungen-carouge",
-        "aiuto-alimentare-zfv-unternehmungen-carouge"
+        "kochhilfe-zfv-unternehmungen-carouge"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-de-cuisine-zfv-unternehmungen-carouge",
-          "aiuto-alimentare-zfv-unternehmungen-carouge"
+          "aide-de-cuisine-zfv-unternehmungen-carouge"
         ],
         "en": [
           "aide-de-cuisine-zfv-unternehmungen-carouge"
@@ -133,13 +131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-manager-in-erp-80-100-zfv-unternehmungen-zurich",
-        "gestione-delle-applicazioni-in-erp-80-100-zfv-unternehmungen-zurich"
+        "application-manager-in-erp-80-100-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-manager-in-erp-80-100-zfv-unternehmungen-zurich",
-          "gestione-delle-applicazioni-in-erp-80-100-zfv-unternehmungen-zurich"
+          "application-manager-in-erp-80-100-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "application-manager-in-erp-80-100-zfv-unternehmungen-zurich"
@@ -192,7 +188,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-01T00:40:44.759Z",
-      "needsRetranslation": true,
       "addressLocality": "Renens",
       "postalCode": "1020",
       "streetAddress": "Rue de la Gare de triage 7",
@@ -211,14 +206,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-2027-cuisiniere-cuisinier-cfc-zfv-unternehmungen-renens",
-        "imparare-2027-cook-cook-cfc-zfv-unternehmungen-renens",
-        "apprendistato-2027-cooker-cfc-cooker-zfv-unternehmungen-renens"
+        "imparare-2027-cook-cook-cfc-zfv-unternehmungen-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-2027-cuisiniere-cuisinier-cfc-zfv-unternehmungen-renens",
-          "imparare-2027-cook-cook-cfc-zfv-unternehmungen-renens",
-          "apprendistato-2027-cooker-cfc-cooker-zfv-unternehmungen-renens"
+          "imparare-2027-cook-cook-cfc-zfv-unternehmungen-renens"
         ],
         "en": [
           "apprentissage-2027-cuisiniere-cuisinier-cfc-zfv-unternehmungen-renens"
@@ -505,8 +498,7 @@
         "betriebstournant-e-80-zfv-unternehmungen-zurich",
         "operating-tour-operator-e-60-zfv-unternehmungen-zurich",
         "tour-operateur-e-60-zfv-unternehmungen-zurich",
-        "voyagiste-e-80-zfv-unternehmungen-zurich",
-        "tour-operator-e-80-zfv-unternehmungen-zurich"
+        "voyagiste-e-80-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -514,8 +506,7 @@
           "cafeteria-collaboratore-trice-50-zfv-unternehmungen-zurich",
           "betriebstournant-e-80-zfv-unternehmungen-zurich",
           "operating-tour-operator-e-60-zfv-unternehmungen-zurich",
-          "tour-operateur-e-60-zfv-unternehmungen-zurich",
-          "tour-operator-e-80-zfv-unternehmungen-zurich"
+          "tour-operateur-e-60-zfv-unternehmungen-zurich"
         ],
         "en": [
           "cafeteria-mitarbeiter-in-50-zfv-unternehmungen-zurich",
@@ -551,9 +542,9 @@
       "id": "zfv-unternehmungen-322ae7107603",
       "slug": "buffet-collaboratore-trice-50-zfv-unternehmungen-adliswil",
       "slugByLocale": {
+        "de": "buffet-mitarbeiter-in-50-zfv-unternehmungen-adliswil",
         "it": "buffet-collaboratore-trice-50-zfv-unternehmungen-adliswil",
         "en": "buffet-associate-50-zfv-unternehmungen-adliswil",
-        "de": "buffet-mitarbeiter-in-50-zfv-unternehmungen-adliswil",
         "fr": "buffet-collaborateur-trice-50-zfv-unternehmungen-adliswil"
       },
       "company": "ZFV-Unternehmungen",
@@ -596,10 +587,6 @@
       "applyUrl": "https://jobs.zfv.ch/Buffet-Mitarbeiterin-50-de-j4687.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "buffet-mitarbeiter-in-50-zfv-unternehmungen-adliswil",
-        "buffet-collaboratore-trice-50-zfv-unternehmungen-adliswil"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "buffet-mitarbeiter-in-50-zfv-unternehmungen-adliswil",
@@ -612,7 +599,10 @@
           "buffet-mitarbeiter-in-50-zfv-unternehmungen-adliswil"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:11:16.339Z",
+      "previousSlugs": [
+        "buffet-mitarbeiter-in-50-zfv-unternehmungen-adliswil",
+        "buffet-collaboratore-trice-50-zfv-unternehmungen-adliswil"
+      ],
       "salaryMin": 36800,
       "salaryMax": 55800,
       "salarySource": "estimated",
@@ -625,7 +615,8 @@
           "maxValue": 55800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T17:11:16.339Z"
     },
     {
       "id": "zfv-unternehmungen-c01291da2239",
@@ -723,7 +714,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:41.319Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8057",
       "streetAddress": "Winterthurerstrasse 190",
@@ -741,13 +731,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich",
-        "catering-collaboratore-trice-60-100-zfv-unternehmungen-zurich"
+        "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich",
-          "catering-collaboratore-trice-60-100-zfv-unternehmungen-zurich"
+          "catering-mitarbeiter-in-60-100-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:16.468Z",
@@ -781,7 +769,7 @@
       "titleByLocale": {
         "it": "Chef",
         "en": "Chef",
-        "de": "Chef-fe de cuisine",
+        "de": "Chef",
         "fr": "Chef-fe de cuisine"
       },
       "description": "La coopérative ZFV-Unternehmungen (ZFV) crée, en collaboration avec ses partenaires, des lieux de rencontre inspirants, qui enthousiasment par leur hospitalité et leurs expériences authentiques. Fondée en 1894 par des bourgeoises zurichoises visionnaires, la ZFV accorde aujourd'hui encore une importance particulière à l'innovation et à la durabilité. Dans plus de 200 établissements en Suisse, les collaborateurs de ZFV répondent aux besoins des clients et des hôtes. Les domaines d'activité comprennent les restaurants, les réfectoires, les restaurants du personnel, les hôtels, les solutions de restauration mobiles, les caterings, les boulangeries et les crèches. La coopérative contribue activement à façonner la société et prend position pour l'environnement, l'égalité des chances et l'inclusion. Elle vit l'hospitalité pour une société dans laquelle nous voulons tous vivre. Les salons de direction de UBS Bel-Air, gérés par ZFV depuis février 2026, regroupent plusieurs salons à la décoration raffinée, offrant une capacité totale d’environ 30 places. Réservés exclusivement aux clients et invités de UBS, ces espaces ne sont pas ouverts au public et sont dédiés à l’organisation de déjeuners d’affaires, repas de direction, cocktails, buffets ou dîners de gala et événements sur mesure. Les salons de direction proposent une prestation gastronomique de haute qualité, alliant excellence culinaire, service discret et sens du détail, afin d’offrir une expérience élégante répondant aux plus hauts standards. Es-tu notre nouveau membre d'équipe en Suisse romande, qui va nous aider en tant que Chef-fe de cuisine ? Du lundi au vendredi, de 6h00 à 15h00. Profil du poste:\n• Il/elle garantit la satisfaction de la clientèle et le respect des standards élevés de la maison\n• Représenter le rôle d’hôte ou d’hôtesse ainsi que celui de chef ou cheffe de cuisine\n• Organiser et réaliser les prestations de banquets, cocktails, buffets ou dîners de gala au sein de la banque\n• Travailler des produits frais, locaux, de saison, souvent nobles, en proposant une cuisine moderne, saine et raffinée\n• Assurer le transport quotidien en liaison froide depuis le centre de production et les salons de direction d’UBS\n• Assurer l'envoi des assiettes en veillant à la perfection du dressage et à la régularité des saveurs.\n• Il/elle travaille en étroite collaboration avec le maître d’hôtel afin de suivre et respecter les ratios des coûts de marchandises, et contribuer à l’atteinte des objectifs de chiffre d’affaires\n• Être responsable des commandes auprès des fournisseurs référencés via Gastroport ainsi que de la gestion des in-ventaires, en réalisant les inventaires mensuels\n• Réaliser les tâches administratives qui lui sont attribuées\n• Appliquer et contrôler les normes de qualité ainsi que les directives d’hygiène et de sécurité\n• Garantir un résultat irréprochable lors des contrôles d'hygiène internes et externes\n• Gestion de la logistique et du transport des denrées alimentaires entre le centre de production et le site d'exploitation\n• Assurer le transport quotidien en liaison froide depuis le centre de production jusqu'au restaurant\n• Lutter activement contre le gaspillage alimentaire Ton atouts:\n• CFC de cuisinier ou formation supérieure en art culinaire jugée équivalente\n• Expérience confirmée comme Chef ou Sous-chef en restauration gastronomique (Gault&Millau/Michelin ou table de direction)\n• Excellente maîtrise de la cuisine gastronomique, contemporaine et de la pâtisserie\n• Créatif, capable de concevoir des menus et prestations sur mesure\n• Autonome, organisé et force de proposition\n• Esprit d’équipe, discrétion et excellent sens du service.\n• Flexible et rigoureux, y compris face aux imprévus et aux demandes spécifiques.\n• Présentation irréprochable et aisance avec une clientèle de haut niveau.\n• Maîtrise des normes HACCP, de la gestion des stocks et de l’optimisation des coûts Tu trouveras chez nous:\n• Un super job\n• Un environnement de travail dynamique\n• De la liberté de mettre en œuvre vos propres idées\n• Un espace pour le développement personnel Contact Si tu souhaites partager ta passion pour la gastronomie avec nous, nous nous réjouissons de recevoir ta candidature complète en ligne. Nous prenons également en compte les candidatures qui nous sont envoyées par courrier. Nous ne les renverrons toutefois pas.",
@@ -797,7 +785,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-01T00:40:40.861Z",
-      "needsRetranslation": true,
       "addressLocality": "Genève",
       "postalCode": "1204",
       "streetAddress": "Inconnu-#319",
@@ -817,8 +804,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "chef-fe-de-cuisine-zfv-unternehmungen-geneve",
-          "sous-chef-zfv-unternehmungen-geneve",
-          "chef-fe-de-cuisine-zfv-unternehmungen-inconnu-319"
+          "sous-chef-zfv-unternehmungen-geneve"
         ],
         "it": [
           "chef-fe-de-cuisine-zfv-unternehmungen-geneve",
@@ -908,13 +894,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-rang-zfv-unternehmungen-zurich",
-        "capo-de-rang-zfv-unternehmungen-zurich"
+        "chef-de-rang-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-zfv-unternehmungen-zurich",
-          "capo-de-rang-zfv-unternehmungen-zurich"
+          "chef-de-rang-zfv-unternehmungen-zurich"
         ],
         "en": [
           "chef-de-rang-zfv-unternehmungen-zurich"
@@ -985,13 +969,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-de-rang-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
-        "chef-de-rang-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+        "chef-de-rang-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
-          "chef-de-rang-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+          "chef-de-rang-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "chef-de-rang-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
@@ -1067,14 +1049,12 @@
       "previousSlugs": [
         "chef-de-service-zfv-unternehmungen-zurich",
         "chef-di-sala-zfv-unternehmungen-zurich",
-        "head-of-service-zfv-unternehmungen-zurich",
-        "capo-de-servizio-zfv-unternehmungen-zurich"
+        "head-of-service-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-service-zfv-unternehmungen-zurich",
-          "chef-di-sala-zfv-unternehmungen-zurich",
-          "capo-de-servizio-zfv-unternehmungen-zurich"
+          "chef-di-sala-zfv-unternehmungen-zurich"
         ],
         "en": [
           "head-of-service-zfv-unternehmungen-zurich"
@@ -1146,14 +1126,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-service-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
-        "chef-de-service-temporaneo-fino-a-febbraio-2027-zfv-unternehmungen-zurich",
-        "chef-de-service-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+        "chef-de-service-temporaneo-fino-a-febbraio-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-service-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
-          "chef-de-service-temporaneo-fino-a-febbraio-2027-zfv-unternehmungen-zurich",
-          "chef-de-service-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+          "chef-de-service-temporaneo-fino-a-febbraio-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "chef-de-service-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
@@ -1209,7 +1187,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:38.311Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Sihlstrasse 9",
@@ -1227,13 +1204,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "etagengouvernant-e-zfv-unternehmungen-zurich",
-        "governatore-del-pavimento-e-zfv-unternehmungen-zurich"
+        "etagengouvernant-e-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "etagengouvernant-e-zfv-unternehmungen-zurich",
-          "governatore-del-pavimento-e-zfv-unternehmungen-zurich"
+          "etagengouvernant-e-zfv-unternehmungen-zurich"
         ],
         "en": [
           "etagengouvernant-e-zfv-unternehmungen-zurich"
@@ -1307,13 +1282,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern",
-        "event-collaboratore-trice-aushilfe-zfv-unternehmungen-luzern"
+        "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern",
-          "event-collaboratore-trice-aushilfe-zfv-unternehmungen-luzern"
+          "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
         ],
         "fr": [
           "event-mitarbeiter-in-aushilfe-zfv-unternehmungen-luzern"
@@ -1430,7 +1403,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:36.883Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -1449,13 +1421,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "f-b-director-zfv-unternehmungen-zurich",
-        "directeur-f-b-zfv-unternehmungen-zurich",
-        "f-b-direttore-zfv-unternehmungen-zurich"
+        "directeur-f-b-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "f-b-director-zfv-unternehmungen-zurich",
-          "f-b-direttore-zfv-unternehmungen-zurich"
+          "f-b-director-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "directeur-f-b-zfv-unternehmungen-zurich"
@@ -1526,13 +1496,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-        "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-          "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
@@ -1610,8 +1578,7 @@
         "ict-fachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
         "ict-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
         "ict-fachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich",
-        "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1619,8 +1586,7 @@
           "ict-fachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich",
           "ict-specialist-efz-apprenticeship-2027-zfv-unternehmungen-zurich",
           "ict-fachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich",
-          "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "specialiste-des-tic-apprentissage-efz-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
@@ -1699,13 +1665,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen",
-        "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-st-gallen"
+        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen",
-          "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-st-gallen"
+          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
         ],
         "en": [
           "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-st-gallen"
@@ -1779,13 +1743,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-        "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+        "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-          "fachfrau-mann-hotellerie-hauswirtschaft-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+          "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-bern"
         ],
         "en": [
           "fachfrau-mann-hotellerie-hauswirtschaft-efz-lehrstelle-2027-zfv-unternehmungen-bern"
@@ -1863,8 +1825,7 @@
         "assistant-front-office-manager-zfv-unternehmungen-zurich",
         "gestionnaire-adjoint-de-la-reception-zfv-unternehmungen-zurich",
         "assistant-front-office-manager-80-100-zfv-unternehmungen-bad-ragaz",
-        "gestionnaire-adjoint-de-la-reception-80-100-zfv-unternehmungen-bad-ragaz",
-        "responsabile-ufficio-anteriore-zfv-unternehmungen-zurich"
+        "gestionnaire-adjoint-de-la-reception-80-100-zfv-unternehmungen-bad-ragaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1872,8 +1833,7 @@
           "assistant-front-office-manager-zfv-unternehmungen-zurich",
           "gestionnaire-adjoint-de-la-reception-zfv-unternehmungen-zurich",
           "assistant-front-office-manager-80-100-zfv-unternehmungen-bad-ragaz",
-          "gestionnaire-adjoint-de-la-reception-80-100-zfv-unternehmungen-bad-ragaz",
-          "responsabile-ufficio-anteriore-zfv-unternehmungen-zurich"
+          "gestionnaire-adjoint-de-la-reception-80-100-zfv-unternehmungen-bad-ragaz"
         ],
         "de": [
           "assistant-front-office-manager-zfv-unternehmungen-zurich"
@@ -1949,13 +1909,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "front-office-praktikant-in-zfv-unternehmungen-rapperswil",
-        "interno-ufficio-anteriore-in-zfv-unternehmungen-rapperswil"
+        "front-office-praktikant-in-zfv-unternehmungen-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "front-office-praktikant-in-zfv-unternehmungen-rapperswil",
-          "interno-ufficio-anteriore-in-zfv-unternehmungen-rapperswil"
+          "front-office-praktikant-in-zfv-unternehmungen-rapperswil"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:12.938Z",
@@ -2023,13 +1981,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "front-office-praktikant-in-zfv-unternehmungen-st-gallen",
-        "interno-ufficio-anteriore-in-zfv-unternehmungen-st-gallen"
+        "front-office-praktikant-in-zfv-unternehmungen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "front-office-praktikant-in-zfv-unternehmungen-st-gallen",
-          "interno-ufficio-anteriore-in-zfv-unternehmungen-st-gallen"
+          "front-office-praktikant-in-zfv-unternehmungen-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:11.113Z",
@@ -2097,13 +2053,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geschaftsfuhrer-in-zfv-unternehmungen-murten",
-        "amministratore-delegato-zfv-unternehmungen-murten"
+        "geschaftsfuhrer-in-zfv-unternehmungen-murten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-zfv-unternehmungen-murten",
-          "amministratore-delegato-zfv-unternehmungen-murten"
+          "geschaftsfuhrer-in-zfv-unternehmungen-murten"
         ],
         "en": [
           "geschaftsfuhrer-in-zfv-unternehmungen-murten"
@@ -2159,7 +2113,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:31.442Z",
-      "needsRetranslation": true,
       "addressLocality": "Rapperswil",
       "postalCode": "8640",
       "streetAddress": "Untere Bahnhofstrasse 5",
@@ -2177,13 +2130,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gouvernante-zfv-unternehmungen-rapperswil",
-        "governatorato-zfv-unternehmungen-rapperswil"
+        "gouvernante-zfv-unternehmungen-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gouvernante-zfv-unternehmungen-rapperswil",
-          "governatorato-zfv-unternehmungen-rapperswil"
+          "gouvernante-zfv-unternehmungen-rapperswil"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:08.679Z",
@@ -2297,7 +2248,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:30.457Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -2315,13 +2265,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hilfskochin-hilfskoch-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
-        "assistente-cuoco-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+        "hilfskochin-hilfskoch-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hilfskochin-hilfskoch-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
-          "assistente-cuoco-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+          "hilfskochin-hilfskoch-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:07.189Z",
@@ -2389,13 +2337,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-        "hotel-kommunikationsfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+        "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-          "hotel-kommunikationsfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+          "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
@@ -2469,13 +2415,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "hotel-kommunikationsfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "hotel-kommunikationsfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
@@ -2549,13 +2493,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-        "hotel-kommunikationsfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+        "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-          "hotel-kommunikationsfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+          "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
         ],
         "en": [
           "hotel-kommunikationsfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
@@ -2629,13 +2571,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kauffrau-mann-d-a-sportschule-2027-zfv-unternehmungen-zurich",
-        "kauffrau-mann-d-a-sports-school-2027-zfv-unternehmungen-zurich"
+        "kauffrau-mann-d-a-sportschule-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-mann-d-a-sportschule-2027-zfv-unternehmungen-zurich",
-          "kauffrau-mann-d-a-sports-school-2027-zfv-unternehmungen-zurich"
+          "kauffrau-mann-d-a-sportschule-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "kauffrau-mann-d-a-sportschule-2027-zfv-unternehmungen-zurich"
@@ -2709,13 +2649,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kauffrau-mann-d-a-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "kauffrau-mann-d-a-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "kauffrau-mann-d-a-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-mann-d-a-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "kauffrau-mann-d-a-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "kauffrau-mann-d-a-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "kauffrau-mann-d-a-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
@@ -2744,7 +2682,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-zurich",
-        "en": "kochin-koch-zfv-unternehmungen-zurich",
+        "en": "cook-cook-zfv-unternehmungen-zurich",
         "de": "kochin-koch-zfv-unternehmungen-zurich",
         "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-zurich"
       },
@@ -2754,7 +2692,7 @@
       "title": "Köchin / Koch:",
       "titleByLocale": {
         "it": "Cucinare / cucinare:",
-        "en": "Köchin / Koch:",
+        "en": "Cook / cook:",
         "de": "Köchin / Koch:",
         "fr": "Cuisinière/cuisinière:"
       },
@@ -2771,7 +2709,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:25.985Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8022",
       "streetAddress": "Grubenstrasse 49",
@@ -2800,9 +2737,7 @@
         "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
         "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
         "betriebstournant-e-50-zfv-unternehmungen-zurich",
-        "tour-operateur-e-50-zfv-unternehmungen-zurich",
-        "cook-cook-zfv-unternehmungen-zurich",
-        "cucinare-cucinare-zfv-unternehmungen-zurich"
+        "tour-operateur-e-50-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2817,12 +2752,10 @@
           "operatore-turistico-operativo-e-50-zfv-unternehmungen-zurich",
           "operating-tour-operator-e-50-zfv-unternehmungen-zurich",
           "betriebstournant-e-50-zfv-unternehmungen-zurich",
-          "tour-operateur-e-50-zfv-unternehmungen-zurich",
-          "cucinare-cucinare-zfv-unternehmungen-zurich"
+          "tour-operateur-e-50-zfv-unternehmungen-zurich"
         ],
         "en": [
           "tour-operator-e-80-zfv-unternehmungen-zurich",
-          "cook-cook-zfv-unternehmungen-zurich",
           "kochin-koch-zfv-unternehmungen-zurich"
         ],
         "fr": [
@@ -2850,7 +2783,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
-        "en": "kochin-koch-zfv-unternehmungen-basel",
+        "en": "cook-cook-zfv-unternehmungen-basel-39bb96",
         "de": "kochin-koch-zfv-unternehmungen-basel",
         "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-basel-39bb96"
       },
@@ -2860,7 +2793,7 @@
       "title": "Köchin / Koch:",
       "titleByLocale": {
         "it": "Cucinare / cucinare:",
-        "en": "Köchin / Koch:",
+        "en": "Cook / cook:",
         "de": "Köchin / Koch:",
         "fr": "Cuisinière/cuisinière:"
       },
@@ -2877,7 +2810,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:25.518Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4056",
       "streetAddress": "Klingelbergstrasse 48",
@@ -2898,19 +2830,15 @@
         "cucinare-cucinare-zfv-unternehmungen-basel",
         "cook-cook-zfv-unternehmungen-basel",
         "cuisiniere-cuisiniere-zfv-unternehmungen-basel",
-        "kochin-koch-zfv-unternehmungen-basel",
-        "cook-cook-zfv-unternehmungen-basel-39bb96",
-        "cucinare-cucinare-zfv-unternehmungen-basel-39bb96"
+        "kochin-koch-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cucinare-cucinare-zfv-unternehmungen-basel",
-          "kochin-koch-zfv-unternehmungen-basel",
-          "cucinare-cucinare-zfv-unternehmungen-basel-39bb96"
+          "kochin-koch-zfv-unternehmungen-basel"
         ],
         "en": [
           "cook-cook-zfv-unternehmungen-basel",
-          "cook-cook-zfv-unternehmungen-basel-39bb96",
           "kochin-koch-zfv-unternehmungen-basel"
         ],
         "fr": [
@@ -2938,7 +2866,7 @@
       "slug": "cucinare-cucinare-60-zfv-unternehmungen-dubendorf",
       "slugByLocale": {
         "it": "cucinare-cucinare-60-zfv-unternehmungen-dubendorf",
-        "en": "kochin-koch-60-zfv-unternehmungen-dubendorf",
+        "en": "cook-cook-60-zfv-unternehmungen-dubendorf",
         "de": "kochin-koch-60-zfv-unternehmungen-dubendorf",
         "fr": "cuisiniere-60-zfv-unternehmungen-dubendorf"
       },
@@ -2948,7 +2876,7 @@
       "title": "Köchin / Koch: (60%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (60%)",
-        "en": "Köchin / Koch: (60%)",
+        "en": "Cook / cook: (60%)",
         "de": "Köchin / Koch: (60%)",
         "fr": "Cuisinière: (60%)"
       },
@@ -2965,7 +2893,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:24.585Z",
-      "needsRetranslation": true,
       "addressLocality": "Dübendorf",
       "postalCode": "8600",
       "streetAddress": "Zürichstrasse 94 / 96",
@@ -2987,9 +2914,7 @@
         "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-dubendorf",
         "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
         "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
-        "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf",
-        "cook-cook-60-zfv-unternehmungen-dubendorf",
-        "cucinare-cucinare-60-zfv-unternehmungen-dubendorf"
+        "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2997,12 +2922,10 @@
           "assistente-cuoco-assistente-cuoco-80-zfv-unternehmungen-dubendorf",
           "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
           "hilfskochin-hilfskoch-80-zfv-unternehmungen-dubendorf",
-          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf",
-          "cucinare-cucinare-60-zfv-unternehmungen-dubendorf"
+          "cuisinier-adjoint-cuisinier-adjoint-80-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "assistant-cook-assistant-cook-80-zfv-unternehmungen-dubendorf",
-          "cook-cook-60-zfv-unternehmungen-dubendorf",
           "kochin-koch-60-zfv-unternehmungen-dubendorf"
         ],
         "de": [
@@ -3033,7 +2956,7 @@
       "slug": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
       "slugByLocale": {
         "it": "cucinare-cucinare-70-80-zfv-unternehmungen-basel",
-        "en": "kochin-koch-70-80-zfv-unternehmungen-basel",
+        "en": "cook-cook-70-80-zfv-unternehmungen-basel",
         "de": "kochin-koch-70-80-zfv-unternehmungen-basel",
         "fr": "cuisiniere-70-80-zfv-unternehmungen-basel"
       },
@@ -3043,7 +2966,7 @@
       "title": "Köchin / Koch: (70-80%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (70-80%)",
-        "en": "Köchin / Koch: (70-80%)",
+        "en": "Cook / cook: (70-80%)",
         "de": "Köchin / Koch: (70-80%)",
         "fr": "Cuisinière: (70-80%)"
       },
@@ -3060,7 +2983,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:24.117Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "postalCode": "4056",
       "streetAddress": "Klingelbergstrasse 48",
@@ -3091,9 +3013,7 @@
         "operating-tournament-e-40-zfv-unternehmungen-basel",
         "betriebstournant-e-40-zfv-unternehmungen-basel",
         "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-        "tour-operateur-e-40-zfv-unternehmungen-basel",
-        "cook-cook-70-80-zfv-unternehmungen-basel",
-        "cucinare-cucinare-70-80-zfv-unternehmungen-basel"
+        "tour-operateur-e-40-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3110,13 +3030,11 @@
           "operating-tournament-e-40-zfv-unternehmungen-basel",
           "betriebstournant-e-40-zfv-unternehmungen-basel",
           "tournoi-operationnel-e-40-zfv-unternehmungen-basel",
-          "tour-operateur-e-40-zfv-unternehmungen-basel",
-          "cucinare-cucinare-70-80-zfv-unternehmungen-basel"
+          "tour-operateur-e-40-zfv-unternehmungen-basel"
         ],
         "en": [
           "assistant-cook-assistant-cook-60-zfv-unternehmungen-basel",
           "operational-assistant-in-zfv-unternehmungen-basel",
-          "cook-cook-70-80-zfv-unternehmungen-basel",
           "kochin-koch-70-80-zfv-unternehmungen-basel"
         ],
         "de": [
@@ -3148,7 +3066,7 @@
       "slug": "cucinare-cucinare-80-zfv-unternehmungen-bern",
       "slugByLocale": {
         "it": "cucinare-cucinare-80-zfv-unternehmungen-bern",
-        "en": "kochin-koch-80-zfv-unternehmungen-bern",
+        "en": "cook-cook-80-zfv-unternehmungen-bern",
         "de": "kochin-koch-80-zfv-unternehmungen-bern",
         "fr": "cuisiniere-80-zfv-unternehmungen-bern"
       },
@@ -3158,7 +3076,7 @@
       "title": "Köchin / Koch: (80%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (80%)",
-        "en": "Köchin / Koch: (80%)",
+        "en": "Cook / cook: (80%)",
         "de": "Köchin / Koch: (80%)",
         "fr": "Cuisinière: (80 %)"
       },
@@ -3175,7 +3093,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:23.650Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3097",
       "streetAddress": "Waldeggstrasse 51",
@@ -3193,17 +3110,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-zfv-unternehmungen-bern",
-        "cook-cook-80-zfv-unternehmungen-bern",
-        "cucinare-cucinare-80-zfv-unternehmungen-bern"
+        "kochin-koch-80-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-80-zfv-unternehmungen-bern",
-          "cucinare-cucinare-80-zfv-unternehmungen-bern"
+          "kochin-koch-80-zfv-unternehmungen-bern"
         ],
         "en": [
-          "cook-cook-80-zfv-unternehmungen-bern",
           "kochin-koch-80-zfv-unternehmungen-bern"
         ],
         "fr": [
@@ -3276,13 +3189,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-80-zfv-unternehmungen-biel-bienne",
-        "cook-cook-80-zfv-unternehmungen-biel-bienne",
-        "cucinare-cucinare-80-zfv-unternehmungen-biel-bienne"
+        "cook-cook-80-zfv-unternehmungen-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-80-zfv-unternehmungen-biel-bienne",
-          "cucinare-cucinare-80-zfv-unternehmungen-biel-bienne"
+          "kochin-koch-80-zfv-unternehmungen-biel-bienne"
         ],
         "en": [
           "cook-cook-80-zfv-unternehmungen-biel-bienne"
@@ -3311,7 +3222,7 @@
       "slug": "cucinare-cucinare-80-zfv-unternehmungen-goldau",
       "slugByLocale": {
         "it": "cucinare-cucinare-80-zfv-unternehmungen-goldau",
-        "en": "kochin-koch-80-zfv-unternehmungen-goldau",
+        "en": "cook-cook-80-zfv-unternehmungen-goldau",
         "de": "kochin-koch-80-zfv-unternehmungen-goldau",
         "fr": "cuire-cuire-80-zfv-unternehmungen-goldau"
       },
@@ -3321,7 +3232,7 @@
       "title": "Köchin / Koch: (80%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (80%)",
-        "en": "Köchin / Koch: (80%)",
+        "en": "Cook / cook: (80%)",
         "de": "Köchin / Koch: (80%)",
         "fr": "Cuire / cuire: (80 %)"
       },
@@ -3338,7 +3249,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:22.692Z",
-      "needsRetranslation": true,
       "addressLocality": "Goldau",
       "postalCode": "6410",
       "streetAddress": "Güterstrasse 6",
@@ -3356,17 +3266,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-80-zfv-unternehmungen-goldau",
-        "cook-cook-80-zfv-unternehmungen-goldau",
-        "cucinare-cucinare-80-zfv-unternehmungen-goldau"
+        "kochin-koch-80-zfv-unternehmungen-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-80-zfv-unternehmungen-goldau",
-          "cucinare-cucinare-80-zfv-unternehmungen-goldau"
+          "kochin-koch-80-zfv-unternehmungen-goldau"
         ],
         "en": [
-          "cook-cook-80-zfv-unternehmungen-goldau",
           "kochin-koch-80-zfv-unternehmungen-goldau"
         ],
         "fr": [
@@ -3393,9 +3299,9 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-adliswil",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-adliswil",
-        "en": "kochin-koch-80-zfv-unternehmungen-adliswil",
+        "en": "cook-cook-zfv-unternehmungen-adliswil",
         "de": "kochin-koch-zfv-unternehmungen-adliswil",
-        "fr": "cuire-80-zfv-unternehmungen-adliswil"
+        "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -3403,7 +3309,7 @@
       "title": "Köchin / Koch: (80%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (80%)",
-        "en": "Köchin / Koch: (80%)",
+        "en": "Cook / cook: (80%)",
         "de": "Köchin / Koch: (80%)",
         "fr": "Cuire / cuire: (80 %)"
       },
@@ -3420,7 +3326,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:22.213Z",
-      "needsRetranslation": true,
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -3443,9 +3348,6 @@
         "cook-cook-40-60-zfv-unternehmungen-adliswil",
         "kochin-koch-40-60-zfv-unternehmungen-adliswil",
         "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-        "cook-cook-zfv-unternehmungen-adliswil",
-        "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
-        "cucinare-cucinare-zfv-unternehmungen-adliswil",
         "cuire-80-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
@@ -3454,12 +3356,10 @@
           "cucinare-cucinare-40-60-zfv-unternehmungen-adliswil",
           "cook-cook-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-40-60-zfv-unternehmungen-adliswil",
-          "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
-          "cucinare-cucinare-zfv-unternehmungen-adliswil"
+          "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil"
         ],
         "en": [
           "cook-cook-40-60-zfv-unternehmungen-adliswil",
-          "cook-cook-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil"
         ],
         "de": [
@@ -3469,7 +3369,6 @@
         "fr": [
           "cuisson-cuisson-40-60-zfv-unternehmungen-adliswil",
           "kochin-koch-80-zfv-unternehmungen-adliswil",
-          "cuisiniere-cuisiniere-zfv-unternehmungen-adliswil",
           "cuire-80-zfv-unternehmungen-adliswil"
         ]
       },
@@ -3584,7 +3483,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:21.266Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6006",
       "streetAddress": "Lidostrasse 5",
@@ -3606,8 +3504,7 @@
         "cucinare-cucinare-aid-zfv-unternehmungen-winterthur",
         "cook-cook-aid-zfv-unternehmungen-winterthur",
         "kochin-koch-aushilfe-zfv-unternehmungen-winterthur",
-        "cuisiniere-aide-zfv-unternehmungen-winterthur",
-        "cucinare-cucinare-assistante-zfv-unternehmungen-luzern"
+        "cuisiniere-aide-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3615,8 +3512,7 @@
           "cucinare-cucinare-aid-zfv-unternehmungen-winterthur",
           "cook-cook-aid-zfv-unternehmungen-winterthur",
           "kochin-koch-aushilfe-zfv-unternehmungen-winterthur",
-          "cuisiniere-aide-zfv-unternehmungen-winterthur",
-          "cucinare-cucinare-assistante-zfv-unternehmungen-luzern"
+          "cuisiniere-aide-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "cook-cook-aid-zfv-unternehmungen-winterthur"
@@ -3693,13 +3589,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
-        "chef-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+        "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
-          "chef-temporaneo-fino-al-febbraio-2027-zfv-unternehmungen-zurich"
+          "kochin-koch-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:44:00.470Z",
@@ -3767,13 +3661,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-befristet-zfv-unternehmungen-schlieren",
-        "cucinare-cucinare-temporaneo-zfv-unternehmungen-schlieren"
+        "kochin-koch-befristet-zfv-unternehmungen-schlieren"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-befristet-zfv-unternehmungen-schlieren",
-          "cucinare-cucinare-temporaneo-zfv-unternehmungen-schlieren"
+          "kochin-koch-befristet-zfv-unternehmungen-schlieren"
         ],
         "en": [
           "kochin-koch-befristet-zfv-unternehmungen-schlieren"
@@ -3829,7 +3721,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:19.852Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Bahnhofstrasse 45",
@@ -3904,7 +3795,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:19.388Z",
-      "needsRetranslation": true,
       "addressLocality": "Luzern",
       "postalCode": "6006",
       "streetAddress": "Lidostrasse 5",
@@ -3922,13 +3812,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
-        "cucina-capo-de-partie-zfv-unternehmungen-luzern"
+        "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern",
-          "cucina-capo-de-partie-zfv-unternehmungen-luzern"
+          "kochin-koch-chef-de-partie-zfv-unternehmungen-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:58.994Z",
@@ -3996,13 +3884,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-luzern",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-luzern"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-luzern",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-luzern"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-luzern"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-luzern"
@@ -4076,13 +3962,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
@@ -4156,13 +4040,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
@@ -4236,13 +4118,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-dubendorf"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-dubendorf"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
@@ -4316,13 +4196,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-basel",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-basel"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-basel",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-basel"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-basel"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-basel"
@@ -4396,13 +4274,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-allschwil",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-allschwil"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-allschwil",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-allschwil"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-allschwil"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-allschwil"
@@ -4476,13 +4352,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-bern"
         ]
       },
       "firstSeenAt": "2026-08-28T05:27:09.766Z",
@@ -4553,16 +4427,14 @@
         "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-olten",
         "chef-cook-efz-apprenticeship-2026-zfv-unternehmungen-olten",
         "chef-cuisinier-efz-apprentissage-2026-zfv-unternehmungen-olten",
-        "kochin-koch-cfc-apprendistato-2026-zfv-unternehmungen-olten",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-olten"
+        "kochin-koch-cfc-apprendistato-2026-zfv-unternehmungen-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-olten",
           "chef-cook-efz-apprenticeship-2026-zfv-unternehmungen-olten",
           "chef-cuisinier-efz-apprentissage-2026-zfv-unternehmungen-olten",
-          "kochin-koch-cfc-apprendistato-2026-zfv-unternehmungen-olten",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-olten"
+          "kochin-koch-cfc-apprendistato-2026-zfv-unternehmungen-olten"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-olten"
@@ -4636,13 +4508,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-rotkreuz"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-rotkreuz"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz"
@@ -4716,13 +4586,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zug",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zug"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zug",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-zug"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zug"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-zug"
@@ -4796,13 +4664,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-horw",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-horw"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-horw",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-horw"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-horw"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-horw"
@@ -4876,13 +4742,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-adliswil",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-adliswil"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-adliswil",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-adliswil"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-adliswil"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-adliswil"
@@ -4956,13 +4820,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-opfikon",
-        "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-opfikon"
+        "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-opfikon",
-          "kochin-koch-cfc-apprendistato-2027-zfv-unternehmungen-opfikon"
+          "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-opfikon"
         ],
         "en": [
           "kochin-koch-efz-lehrstelle-2027-zfv-unternehmungen-opfikon"
@@ -5036,13 +4898,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kuchenangestellte-r-eba-lehrstelle-2027-zfv-unternehmungen-luzern",
-        "kuchenangestellte-r-afp-apprendistato-2027-zfv-unternehmungen-luzern"
+        "kuchenangestellte-r-eba-lehrstelle-2027-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenangestellte-r-eba-lehrstelle-2027-zfv-unternehmungen-luzern",
-          "kuchenangestellte-r-afp-apprendistato-2027-zfv-unternehmungen-luzern"
+          "kuchenangestellte-r-eba-lehrstelle-2027-zfv-unternehmungen-luzern"
         ]
       },
       "firstSeenAt": "2026-08-25T21:41:46.526Z",
@@ -5110,13 +4970,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kuchenchef-in-zfv-unternehmungen-zurich",
-        "chef-in-zfv-unternehmungen-zurich"
+        "kuchenchef-in-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-zfv-unternehmungen-zurich",
-          "chef-in-zfv-unternehmungen-zurich"
+          "kuchenchef-in-zfv-unternehmungen-zurich"
         ],
         "en": [
           "kuchenchef-in-zfv-unternehmungen-zurich"
@@ -5190,13 +5048,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kuchenchef-in-zfv-unternehmungen-opfikon",
-        "chef-in-zfv-unternehmungen-opfikon"
+        "kuchenchef-in-zfv-unternehmungen-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kuchenchef-in-zfv-unternehmungen-opfikon",
-          "chef-in-zfv-unternehmungen-opfikon"
+          "kuchenchef-in-zfv-unternehmungen-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:56.316Z",
@@ -5264,13 +5120,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-gastronomie-zfv-unternehmungen-bern",
-        "responsabile-gastronomie-zfv-unternehmungen-bern"
+        "leiter-in-gastronomie-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-gastronomie-zfv-unternehmungen-bern",
-          "responsabile-gastronomie-zfv-unternehmungen-bern"
+          "leiter-in-gastronomie-zfv-unternehmungen-bern"
         ],
         "en": [
           "leiter-in-gastronomie-zfv-unternehmungen-bern"
@@ -5341,13 +5195,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
-        "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
+        "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil",
-          "collaboratore-trice-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
+          "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
         ],
         "fr": [
           "mitarbeiter-in-hauswirtschaft-aushilfe-zfv-unternehmungen-rapperswil"
@@ -5428,8 +5280,7 @@
         "associate-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
         "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
         "collaborateur-trice-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
-        "mitarbeiter-in-hauswirtschaft-fruhstuckservice-60-zfv-unternehmungen-bern",
-        "collaboratore-trice-hauswirtschaft-40-zfv-unternehmungen-bern"
+        "mitarbeiter-in-hauswirtschaft-fruhstuckservice-60-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5443,8 +5294,7 @@
           "associate-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
           "mitarbeiter-in-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
           "collaborateur-trice-hauswirtschaft-80-zfv-unternehmungen-dubendorf",
-          "mitarbeiter-in-hauswirtschaft-fruhstuckservice-60-zfv-unternehmungen-bern",
-          "collaboratore-trice-hauswirtschaft-40-zfv-unternehmungen-bern"
+          "mitarbeiter-in-hauswirtschaft-fruhstuckservice-60-zfv-unternehmungen-bern"
         ],
         "en": [
           "mitarbeiter-in-hauswirtschaft-40-zfv-unternehmungen-bern",
@@ -5508,7 +5358,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:03.760Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -5568,7 +5417,6 @@
       "firstSeenAt": "2026-08-14T10:17:13.930Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -5578,7 +5426,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "zfv-unternehmungen-7ba168458539",
@@ -5630,13 +5479,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "office-mitarbeiter-in-40-zfv-unternehmungen-dubendorf",
-        "office-collaboratore-trice-40-zfv-unternehmungen-dubendorf"
+        "office-mitarbeiter-in-40-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-mitarbeiter-in-40-zfv-unternehmungen-dubendorf",
-          "office-collaboratore-trice-40-zfv-unternehmungen-dubendorf"
+          "office-mitarbeiter-in-40-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "office-mitarbeiter-in-40-zfv-unternehmungen-dubendorf"
@@ -5692,7 +5539,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:02.816Z",
-      "needsRetranslation": true,
       "addressLocality": "Horw",
       "postalCode": "6048",
       "streetAddress": "Technikumstrasse 21",
@@ -5710,13 +5556,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "office-mitarbeiter-in-50-zfv-unternehmungen-horw",
-        "office-collaboratore-trice-50-zfv-unternehmungen-horw"
+        "office-mitarbeiter-in-50-zfv-unternehmungen-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-mitarbeiter-in-50-zfv-unternehmungen-horw",
-          "office-collaboratore-trice-50-zfv-unternehmungen-horw"
+          "office-mitarbeiter-in-50-zfv-unternehmungen-horw"
         ],
         "en": [
           "office-mitarbeiter-in-50-zfv-unternehmungen-horw"
@@ -5744,9 +5588,9 @@
       "id": "zfv-unternehmungen-c6a61b7e644c",
       "slug": "office-collaboratore-trice-70-80-zfv-unternehmungen-baden",
       "slugByLocale": {
+        "de": "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
         "it": "office-collaboratore-trice-70-80-zfv-unternehmungen-baden",
         "en": "office-associate-70-80-zfv-unternehmungen-baden",
-        "de": "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
         "fr": "office-collaborateur-trice-70-80-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
@@ -5789,23 +5633,41 @@
       "applyUrl": "https://jobs.zfv.ch/Office-Mitarbeiterin-70-80-de-j4689.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
-        "office-collaboratore-trice-70-80-zfv-unternehmungen-baden"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
-          "office-collaboratore-trice-70-80-zfv-unternehmungen-baden"
+          "office-collaboratore-trice-70-80-zfv-unternehmungen-baden",
+          "office-collaboratore-trice-40-zfv-unternehmungen-baden",
+          "personale-dell-ufficio-in-40-zfv-unternehmungen-baden",
+          "office-associate-40-zfv-unternehmungen-baden",
+          "office-mitarbeiter-in-40-zfv-unternehmungen-baden",
+          "office-collaborateur-trice-40-zfv-unternehmungen-baden",
+          "office-staff-in-40-zfv-unternehmungen-baden",
+          "personnel-de-bureau-en-40-zfv-unternehmungen-baden"
         ],
         "en": [
-          "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden"
+          "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
+          "office-associate-40-zfv-unternehmungen-baden"
         ],
         "fr": [
-          "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden"
+          "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
+          "office-collaborateur-trice-40-zfv-unternehmungen-baden"
+        ],
+        "de": [
+          "office-mitarbeiter-in-40-zfv-unternehmungen-baden"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:10:30.640Z",
+      "previousSlugs": [
+        "office-mitarbeiter-in-70-80-zfv-unternehmungen-baden",
+        "office-collaboratore-trice-70-80-zfv-unternehmungen-baden",
+        "office-collaboratore-trice-40-zfv-unternehmungen-baden",
+        "personale-dell-ufficio-in-40-zfv-unternehmungen-baden",
+        "office-associate-40-zfv-unternehmungen-baden",
+        "office-mitarbeiter-in-40-zfv-unternehmungen-baden",
+        "office-collaborateur-trice-40-zfv-unternehmungen-baden",
+        "office-staff-in-40-zfv-unternehmungen-baden",
+        "personnel-de-bureau-en-40-zfv-unternehmungen-baden"
+      ],
       "salaryMin": 49600,
       "salaryMax": 75200,
       "salarySource": "estimated",
@@ -5818,7 +5680,8 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T17:10:30.640Z"
     },
     {
       "id": "zfv-unternehmungen-d22732398ce5",
@@ -5852,7 +5715,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:01.863Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Pionierstrasse 3",
@@ -5870,13 +5732,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "office-mitarbeiter-in-80-zfv-unternehmungen-winterthur",
-        "office-collaboratore-trice-80-zfv-unternehmungen-winterthur"
+        "office-mitarbeiter-in-80-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-mitarbeiter-in-80-zfv-unternehmungen-winterthur",
-          "office-collaboratore-trice-80-zfv-unternehmungen-winterthur"
+          "office-mitarbeiter-in-80-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "office-mitarbeiter-in-80-zfv-unternehmungen-winterthur"
@@ -5932,7 +5792,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:01.375Z",
-      "needsRetranslation": true,
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "streetAddress": "Soodmattenstrasse 2 / 4 / 10",
@@ -5950,13 +5809,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "office-mitarbeiter-in-90-zfv-unternehmungen-adliswil",
-        "office-collaboratore-trice-90-zfv-unternehmungen-adliswil"
+        "office-mitarbeiter-in-90-zfv-unternehmungen-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-mitarbeiter-in-90-zfv-unternehmungen-adliswil",
-          "office-collaboratore-trice-90-zfv-unternehmungen-adliswil"
+          "office-mitarbeiter-in-90-zfv-unternehmungen-adliswil"
         ],
         "en": [
           "office-mitarbeiter-in-90-zfv-unternehmungen-adliswil"
@@ -6012,7 +5869,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:40:00.900Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -6030,13 +5886,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "office-mitarbeiter-in-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
-        "office-collaboratore-trice-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
+        "office-mitarbeiter-in-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "office-mitarbeiter-in-befristet-bis-feb-2027-zfv-unternehmungen-zurich",
-          "office-collaboratore-trice-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
+          "office-mitarbeiter-in-befristet-bis-feb-2027-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:51.011Z",
@@ -6104,13 +5958,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "plongeur-euse-polyvalent-e-30-zfv-unternehmungen-lausanne",
-        "tubo-multiuso-30-zfv-unternehmungen-lausanne"
+        "plongeur-euse-polyvalent-e-30-zfv-unternehmungen-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "plongeur-euse-polyvalent-e-30-zfv-unternehmungen-lausanne",
-          "tubo-multiuso-30-zfv-unternehmungen-lausanne"
+          "plongeur-euse-polyvalent-e-30-zfv-unternehmungen-lausanne"
         ],
         "en": [
           "plongeur-euse-polyvalent-e-30-zfv-unternehmungen-lausanne"
@@ -6184,13 +6036,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
-        "stage-in-persone-cultura-zfv-unternehmungen-zurich"
+        "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich",
-          "stage-in-persone-cultura-zfv-unternehmungen-zurich"
+          "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
         ],
         "en": [
           "praktikant-in-menschen-kultur-zfv-unternehmungen-zurich"
@@ -6264,13 +6114,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-owner-digital-products-data-solutions-zfv-unternehmungen-zurich",
-        "proprietario-del-prodotto-prodotti-digitali-e-soluzioni-dati-zfv-unternehmungen-zurich"
+        "product-owner-digital-products-data-solutions-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-digital-products-data-solutions-zfv-unternehmungen-zurich",
-          "proprietario-del-prodotto-prodotti-digitali-e-soluzioni-dati-zfv-unternehmungen-zurich"
+          "product-owner-digital-products-data-solutions-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-08-13T10:28:39.047Z",
@@ -6292,27 +6140,27 @@
       "id": "zfv-unternehmungen-9dbeb5944079",
       "slug": "receptionist-in-zfv-unternehmungen-zurich",
       "slugByLocale": {
-        "it": "receptionist-in-zfv-unternehmungen-zurich",
-        "en": "receptionist-in-zfv-unternehmungen-zurich",
         "de": "receptionist-in-zfv-unternehmungen-zurich",
-        "fr": "receptionist-in-zfv-unternehmungen-zurich"
+        "it": "ricevitore-in-zfv-unternehmungen-zurich",
+        "fr": "receptionniste-in-zfv-unternehmungen-zurich",
+        "en": "receptionist-in-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
       "companyDomain": "zfv.ch",
       "title": "Réceptionist:in",
       "titleByLocale": {
-        "it": "Réceptionist:in",
-        "en": "Réceptionist:in",
         "de": "Réceptionist:in",
-        "fr": "Réceptionist:in"
+        "it": "Ricevitore:in",
+        "en": "Receptionist:in",
+        "fr": "Réceptionniste:in"
       },
       "description": "Willkommen im Zürcher Quartier mit dem längsten Seeanstoss. Mitten im Seefeld, umrahmt von Stadtleben und begrünten Parks, ist das 4*Superior Boutique-Hotel Seefeld ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende sowie zahlreiche Stammgäste aus aller Welt übernachten hier in den 65 Zimmern, verweilen in der Café Bar FLOR – dem «Wohnzimmer im Seefeld» – und aufder Terrasse oder tagen im Meetingraum. Inspiriert von der Nachbarschaft, begeistert das Hotel mit zahlreichen Geschichten und Besonderheiten. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Réceptionist:in per sofort oder nach Vereinbarung unterstützt? Du arbeitest an 5 Tagen pro Woche zwischen Montag und Sonntag im Früh-, Mittel- oder Spätdienst. Dein Wirkungsbereich:\n• Sicherstellung des Ablaufs an der Réception\n• Empfang, Betreuung und Verabschiedung der Hotelgäste\n• Bearbeitung und Erfüllung der Gästewünsche\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Annahme und Bearbeitung von eingehenden Reservationen\n• Durchführung eines professionellen Reklamationsmanagements\n• Erstellen und Bearbeiten von Tagesabschlüssen\n• Pflegen der Buchungskanäle\n• Erledigung von verschiedenen administrativen Aufgaben\n• Einhaltung und Umsetzung der «Sorell Standards», Hygiene- sowie Arbeitssicherheitsrichtlinien Deine Stärken:\n• Abgeschlossene Berufsausbildung in der Hotelerie EFZ oder abgeschlossene Hotelfachschule\n• Erfahrung an einer Hotel-Réception\n• Gute IT-Kenntnisse in MS-Office (Word, Excel etc.)\n• Sehr gute mündliche sowie schriftliche Deutsch- und Englischkenntnisse\n• Teamfähigkeitkeit\n• Zielorientierung und Lernbereitschaft\n• Begeisterte Verkaufspersönlichkeit\n• Leidenschaftliche:r Gastgeber:in\n• Gewinnende und charmante Ausstrahlung\n• Freude am Genuss Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
-        "it": "Willkommen im Zürcher Quartier mit dem längsten Seeanstoss. Mitten im Seefeld, umrahmt von Stadtleben und begrünten Parks, ist das 4*Superior Boutique-Hotel Seefeld ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende sowie zahlreiche Stammgäste aus aller Welt übernachten hier in den 65 Zimmern, verweilen in der Café Bar FLOR – dem «Wohnzimmer im Seefeld» – und aufder Terrasse oder tagen im Meetingraum. Inspiriert von der Nachbarschaft, begeistert das Hotel mit zahlreichen Geschichten und Besonderheiten. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Réceptionist:in per sofort oder nach Vereinbarung unterstützt? Du arbeitest an 5 Tagen pro Woche zwischen Montag und Sonntag im Früh-, Mittel- oder Spätdienst. Dein Wirkungsbereich:\n• Sicherstellung des Ablaufs an der Réception\n• Empfang, Betreuung und Verabschiedung der Hotelgäste\n• Bearbeitung und Erfüllung der Gästewünsche\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Annahme und Bearbeitung von eingehenden Reservationen\n• Durchführung eines professionellen Reklamationsmanagements\n• Erstellen und Bearbeiten von Tagesabschlüssen\n• Pflegen der Buchungskanäle\n• Erledigung von verschiedenen administrativen Aufgaben\n• Einhaltung und Umsetzung der «Sorell Standards», Hygiene- sowie Arbeitssicherheitsrichtlinien Deine Stärken:\n• Abgeschlossene Berufsausbildung in der Hotelerie EFZ oder abgeschlossene Hotelfachschule\n• Erfahrung an einer Hotel-Réception\n• Gute IT-Kenntnisse in MS-Office (Word, Excel etc.)\n• Sehr gute mündliche sowie schriftliche Deutsch- und Englischkenntnisse\n• Teamfähigkeitkeit\n• Zielorientierung und Lernbereitschaft\n• Begeisterte Verkaufspersönlichkeit\n• Leidenschaftliche:r Gastgeber:in\n• Gewinnende und charmante Ausstrahlung\n• Freude am Genuss Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
-        "en": "Willkommen im Zürcher Quartier mit dem längsten Seeanstoss. Mitten im Seefeld, umrahmt von Stadtleben und begrünten Parks, ist das 4*Superior Boutique-Hotel Seefeld ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende sowie zahlreiche Stammgäste aus aller Welt übernachten hier in den 65 Zimmern, verweilen in der Café Bar FLOR – dem «Wohnzimmer im Seefeld» – und aufder Terrasse oder tagen im Meetingraum. Inspiriert von der Nachbarschaft, begeistert das Hotel mit zahlreichen Geschichten und Besonderheiten. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Réceptionist:in per sofort oder nach Vereinbarung unterstützt? Du arbeitest an 5 Tagen pro Woche zwischen Montag und Sonntag im Früh-, Mittel- oder Spätdienst. Dein Wirkungsbereich:\n• Sicherstellung des Ablaufs an der Réception\n• Empfang, Betreuung und Verabschiedung der Hotelgäste\n• Bearbeitung und Erfüllung der Gästewünsche\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Annahme und Bearbeitung von eingehenden Reservationen\n• Durchführung eines professionellen Reklamationsmanagements\n• Erstellen und Bearbeiten von Tagesabschlüssen\n• Pflegen der Buchungskanäle\n• Erledigung von verschiedenen administrativen Aufgaben\n• Einhaltung und Umsetzung der «Sorell Standards», Hygiene- sowie Arbeitssicherheitsrichtlinien Deine Stärken:\n• Abgeschlossene Berufsausbildung in der Hotelerie EFZ oder abgeschlossene Hotelfachschule\n• Erfahrung an einer Hotel-Réception\n• Gute IT-Kenntnisse in MS-Office (Word, Excel etc.)\n• Sehr gute mündliche sowie schriftliche Deutsch- und Englischkenntnisse\n• Teamfähigkeitkeit\n• Zielorientierung und Lernbereitschaft\n• Begeisterte Verkaufspersönlichkeit\n• Leidenschaftliche:r Gastgeber:in\n• Gewinnende und charmante Ausstrahlung\n• Freude am Genuss Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
         "de": "Willkommen im Zürcher Quartier mit dem längsten Seeanstoss. Mitten im Seefeld, umrahmt von Stadtleben und begrünten Parks, ist das 4*Superior Boutique-Hotel Seefeld ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende sowie zahlreiche Stammgäste aus aller Welt übernachten hier in den 65 Zimmern, verweilen in der Café Bar FLOR – dem «Wohnzimmer im Seefeld» – und aufder Terrasse oder tagen im Meetingraum. Inspiriert von der Nachbarschaft, begeistert das Hotel mit zahlreichen Geschichten und Besonderheiten. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Réceptionist:in per sofort oder nach Vereinbarung unterstützt? Du arbeitest an 5 Tagen pro Woche zwischen Montag und Sonntag im Früh-, Mittel- oder Spätdienst. Dein Wirkungsbereich:\n• Sicherstellung des Ablaufs an der Réception\n• Empfang, Betreuung und Verabschiedung der Hotelgäste\n• Bearbeitung und Erfüllung der Gästewünsche\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Annahme und Bearbeitung von eingehenden Reservationen\n• Durchführung eines professionellen Reklamationsmanagements\n• Erstellen und Bearbeiten von Tagesabschlüssen\n• Pflegen der Buchungskanäle\n• Erledigung von verschiedenen administrativen Aufgaben\n• Einhaltung und Umsetzung der «Sorell Standards», Hygiene- sowie Arbeitssicherheitsrichtlinien Deine Stärken:\n• Abgeschlossene Berufsausbildung in der Hotelerie EFZ oder abgeschlossene Hotelfachschule\n• Erfahrung an einer Hotel-Réception\n• Gute IT-Kenntnisse in MS-Office (Word, Excel etc.)\n• Sehr gute mündliche sowie schriftliche Deutsch- und Englischkenntnisse\n• Teamfähigkeitkeit\n• Zielorientierung und Lernbereitschaft\n• Begeisterte Verkaufspersönlichkeit\n• Leidenschaftliche:r Gastgeber:in\n• Gewinnende und charmante Ausstrahlung\n• Freude am Genuss Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
-        "fr": "Willkommen im Zürcher Quartier mit dem längsten Seeanstoss. Mitten im Seefeld, umrahmt von Stadtleben und begrünten Parks, ist das 4*Superior Boutique-Hotel Seefeld ein zentraler Arbeitsort, der viel Raum für persönliche Entwicklung und eigene Ideen bietet. Privat- und Businessreisende sowie zahlreiche Stammgäste aus aller Welt übernachten hier in den 65 Zimmern, verweilen in der Café Bar FLOR – dem «Wohnzimmer im Seefeld» – und aufder Terrasse oder tagen im Meetingraum. Inspiriert von der Nachbarschaft, begeistert das Hotel mit zahlreichen Geschichten und Besonderheiten. Unser Team kümmert sich um einmalige Erlebnisse und unvergessliche Aufenthalte. Bist du unser neues Teammitglied, welches uns als Réceptionist:in per sofort oder nach Vereinbarung unterstützt? Du arbeitest an 5 Tagen pro Woche zwischen Montag und Sonntag im Früh-, Mittel- oder Spätdienst. Dein Wirkungsbereich:\n• Sicherstellung des Ablaufs an der Réception\n• Empfang, Betreuung und Verabschiedung der Hotelgäste\n• Bearbeitung und Erfüllung der Gästewünsche\n• Check-in und Check-out der Hotelgäste\n• Bedienung der Telefon- und Informationszentrale\n• Annahme und Bearbeitung von eingehenden Reservationen\n• Durchführung eines professionellen Reklamationsmanagements\n• Erstellen und Bearbeiten von Tagesabschlüssen\n• Pflegen der Buchungskanäle\n• Erledigung von verschiedenen administrativen Aufgaben\n• Einhaltung und Umsetzung der «Sorell Standards», Hygiene- sowie Arbeitssicherheitsrichtlinien Deine Stärken:\n• Abgeschlossene Berufsausbildung in der Hotelerie EFZ oder abgeschlossene Hotelfachschule\n• Erfahrung an einer Hotel-Réception\n• Gute IT-Kenntnisse in MS-Office (Word, Excel etc.)\n• Sehr gute mündliche sowie schriftliche Deutsch- und Englischkenntnisse\n• Teamfähigkeitkeit\n• Zielorientierung und Lernbereitschaft\n• Begeisterte Verkaufspersönlichkeit\n• Leidenschaftliche:r Gastgeber:in\n• Gewinnende und charmante Ausstrahlung\n• Freude am Genuss Bei uns findest du:\n• En guete Job\n• Dynamisches Arbeitsumfeld\n• Freiraum für Ideen und Kreativität\n• Entwicklungsspielraum\n• Unternehmenskultur geprägt von Verantwortungsbewusstsein und Vertrauen Wenn du mit uns deine Passion für die Hotellerie und Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung."
+        "it": "Benvenuti nei quartieri di Zurigo con la più lunga corsa al mare. Nel mezzo di Seefeld, circondato dalla vita della città e dai parchi verdi, il 4* Superior Boutique Hotel Seefeld è un luogo centrale di lavoro che offre un sacco di spazio per lo sviluppo personale e le idee. I viaggiatori privati e di affari così come numerosi regolari da tutto il mondo soggiornano qui nelle 65 camere, soggiornano nel Café Bar FLOR – il “soggiorno in Seefeld” – e sulla terrazza o nella sala riunioni. Ispirato dal quartiere, l'hotel delizia con numerose storie e caratteristiche speciali. Il nostro team si occupa di esperienze uniche e soggiorni indimenticabili. Sei il nostro nuovo membro del team che ci sostiene come Réceptionist:in immediato o su appuntamento? Lavorare 5 giorni alla settimana tra lunedì e domenica in anticipo, servizio medio o tardivo. La tua area di attività:\n• Assicurare il processo alla reception\n• Reception, cura e addio agli ospiti dell'hotel\n• Elaborazione e realizzazione dei desideri degli ospiti\n• Check-in e check-out degli ospiti dell'hotel\n• Funzionamento del centro telefono e informazione\n• Accettazione e trattamento delle prenotazioni in arrivo\n• Attuazione della gestione dei reclami professionali\n• Preparazione e redazione del bilancio giornaliero\n• Mantenere i canali di prenotazione\n• Completamento dei vari compiti amministrativi\n• Conformità e implementazione delle \"Sorell Standards\", linee guida per l'igiene e la sicurezza sul lavoro I tuoi punti di forza:\n• Formazione professionale completa nel settore alberghiero EFZ o scuola alberghiera completata\n• Esperienza in una reception dell'hotel\n• Buona conoscenza IT in MS-Office (Word, Excel, ecc.)\n• Molto buono orale e scritto tedesco e inglese competenze\n• Capacità di squadra\n• Obiettivo orientamento e volontà di imparare\n• Venditore entusiasta\n• Appassionato:r Host:in\n• Il carisma vincente e affascinante\n• Godimento con noi troverete:\n• E il lavoro degli ospiti\n• Ambiente di lavoro dinamico\n• Spazio libero per idee e creatività\n• Margine di sviluppo\n• Cultura aziendale caratterizzata da un senso di responsabilità e fiducia Se volete condividere la vostra passione per l'industria dell'ospitalità con noi, non vediamo l'ora di vostra completa applicazione online.",
+        "en": "Welcome to the Zurich quarters with the longest sea rush. In the middle of Seefeld, surrounded by city life and green parks, the 4* Superior Boutique Hotel Seefeld is a central place of work that offers plenty of space for personal development and ideas. Private and business travellers as well as numerous regulars from all over the world stay here in the 65 rooms, stay in the Café Bar FLOR – the “living room in the Seefeld” – and on the terrace or in the meeting room. Inspired by the neighborhood, the hotel delights with numerous stories and special features. Our team takes care of unique experiences and unforgettable stays. Are you our new team member who supports us as Réceptionist:in immediately or by appointment? You work 5 days a week between Monday and Sunday in early, middle or late service. Your area of activity:\n• Ensuring the process at the reception\n• Reception, care and farewell of hotel guests\n• Processing and fulfillment of guest wishes\n• Check-in and check-out of hotel guests\n• Operation of the telephone and information centre\n• Acceptance and processing of incoming reservations\n• Implementation of professional complaint management\n• Preparation and editing of daily financial statements\n• Maintaining booking channels\n• Completion of various administrative tasks\n• Compliance with and implementation of the \"Sorell Standards\", hygiene and occupational safety guidelines Your strengths:\n• Completed vocational training in the hotel industry EFZ or completed hotel school\n• Experience at a hotel reception\n• Good IT knowledge in MS-Office (Word, Excel, etc.)\n• Very good oral and written German and English skills\n• Team skills\n• Target orientation and willingness to learn\n• Enthusiastic salesperson\n• Passionate:r Host:in\n• Winning and charming charisma\n• Enjoyment with us you will find:\n• And Guest Job\n• Dynamic working environment\n• Free space for ideas and creativity\n• Development margin\n• Corporate culture characterized by a sense of responsibility and trust If you want to share your passion for the hospitality industry with us, we look forward to your complete online application.",
+        "fr": "Bienvenue dans les quartiers de Zurich avec la plus longue ruée vers la mer. Au milieu de Seefeld, entouré par la vie urbaine et les parcs verts, le 4* Superior Boutique Hotel Seefeld est un lieu de travail central qui offre beaucoup d'espace pour le développement personnel et les idées. Les voyageurs privés et d'affaires ainsi que de nombreux habitués du monde entier séjournent ici dans les 65 chambres, séjournent dans le Café Bar FLOR – le salon de la Seefeld- et sur la terrasse ou dans la salle de réunion. Inspiré par le quartier, l'hôtel ravit avec de nombreuses histoires et des caractéristiques spéciales. Notre équipe s'occupe d'expériences uniques et de séjours inoubliables. Êtes-vous notre nouveau membre de l'équipe qui nous soutient comme Réceptionniste: dans immédiatement ou sur rendez-vous? Vous travaillez 5 jours par semaine entre le lundi et le dimanche en service tôt, moyen ou tardif. Votre domaine d'activité:\n• Assurer le processus à la réception\n• Réception, soins et adieu des clients de l'hôtel\n• Traitement et réalisation des souhaits des invités\n• Arrivée et départ des clients de l'hôtel\n• Fonctionnement du centre téléphonique et d'information\n• Acceptation et traitement des réserves reçues\n• Mise en œuvre de la gestion professionnelle des plaintes\n• Établissement et édition des états financiers quotidiens\n• Maintien des canaux de réservation\n• Achèvement de diverses tâches administratives\n• Respect et mise en œuvre des \"Normes de Sorell\", directives en matière d'hygiène et de sécurité au travail Vos forces :\n• Formation professionnelle complète dans l'industrie hôtelière EFZ ou école hôtelière complète\n• Expérience à une réception d'hôtel\n• Bonne connaissance de la TI dans le MS-Office (Word, Excel, etc.)\n• Très bonnes compétences orales et écrites en allemand et en anglais\n• Compétences de l'équipe\n• Orientation cible et volonté d'apprendre\n• Ventes enthousiastes\n• Passionné:r Hôte:in\n• Charisme gagnant et charmant\n• Profitez avec nous vous trouverez:\n• Et le travail invité\n• Environnement de travail dynamique\n• Espace libre pour les idées et la créativité\n• Marge de développement\n• Culture d'entreprise caractérisée par un sentiment de responsabilité et de confiance Si vous voulez partager avec nous votre passion pour l'industrie hôtelière, nous attendons avec impatience votre candidature en ligne complète."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -6337,22 +6185,11 @@
       "applyUrl": "https://jobs.zfv.ch/Rceptionistin-de-j4637.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "ricevitore-in-zfv-unternehmungen-zurich",
-        "receptionniste-in-zfv-unternehmungen-zurich"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "ricevitore-in-zfv-unternehmungen-zurich"
-        ],
         "en": [
           "ricevitore-in-zfv-unternehmungen-zurich"
-        ],
-        "fr": [
-          "receptionniste-in-zfv-unternehmungen-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-31T17:10:26.711Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6365,7 +6202,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-31T17:10:26.711Z"
     },
     {
       "id": "zfv-unternehmungen-905ffa09a6b6",
@@ -6481,13 +6319,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-        "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+        "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-          "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+          "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
@@ -6561,13 +6397,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf",
-        "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-dubendorf"
+        "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf",
-          "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-dubendorf"
+          "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
@@ -6641,13 +6475,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "restaurantfachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "restaurantfachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
@@ -6721,13 +6553,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich",
-        "specialista-di-restauro-uomo-circa-50-zfv-unternehmungen-zurich"
+        "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich",
-          "specialista-di-restauro-uomo-circa-50-zfv-unternehmungen-zurich"
+          "restaurationsfachfrau-mann-ca-50-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:43:49.063Z",
@@ -6777,7 +6607,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:55.652Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -6799,14 +6628,12 @@
         "service-collaboratore-trice-zfv-unternehmungen-bern",
         "service-associate-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-zfv-unternehmungen-bern",
-        "service-collaborateur-trice-zfv-unternehmungen-bern",
-        "service-collaboratore-trice-zfv-unternehmungen-zurich"
+        "service-collaborateur-trice-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "service-mitarbeiter-in-zfv-unternehmungen-zurich",
-          "service-collaboratore-trice-zfv-unternehmungen-bern",
-          "service-collaboratore-trice-zfv-unternehmungen-zurich"
+          "service-collaboratore-trice-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-associate-zfv-unternehmungen-bern"
@@ -6837,7 +6664,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -6865,7 +6692,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:55.177Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3008",
       "streetAddress": "Schlösslistrasse 5",
@@ -6888,16 +6714,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
-        "service-collaboratore-trice-20-zfv-unternehmungen-bern"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
-          "service-collaboratore-trice-20-zfv-unternehmungen-bern"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -6957,7 +6779,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:54.227Z",
-      "needsRetranslation": true,
       "addressLocality": "Bern",
       "postalCode": "3001",
       "streetAddress": "Laupenstrasse 15",
@@ -6979,8 +6800,7 @@
         "cafeteria-collaboratore-trice-60-zfv-unternehmungen-bern",
         "cafeteria-associate-60-zfv-unternehmungen-bern",
         "cafeteria-mitarbeiter-in-60-zfv-unternehmungen-bern",
-        "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern",
-        "service-collaboratore-trice-40-zfv-unternehmungen-bern"
+        "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6988,8 +6808,7 @@
           "cafeteria-collaboratore-trice-60-zfv-unternehmungen-bern",
           "cafeteria-associate-60-zfv-unternehmungen-bern",
           "cafeteria-mitarbeiter-in-60-zfv-unternehmungen-bern",
-          "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern",
-          "service-collaboratore-trice-40-zfv-unternehmungen-bern"
+          "cafeteria-collaborateur-trice-60-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-mitarbeiter-in-40-zfv-unternehmungen-bern",
@@ -7050,7 +6869,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:53.756Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8008",
       "streetAddress": "Seefeldstrasse 63",
@@ -7076,8 +6894,7 @@
         "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
         "associate-hauswirtschaft-zfv-unternehmungen-zurich",
         "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
-        "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
-        "service-collaboratore-trice-80-zfv-unternehmungen-zurich"
+        "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7089,8 +6906,7 @@
           "collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich",
           "associate-hauswirtschaft-zfv-unternehmungen-zurich",
           "mitarbeiter-in-hauswirtschaft-zfv-unternehmungen-zurich",
-          "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich",
-          "service-collaboratore-trice-80-zfv-unternehmungen-zurich"
+          "collaborateur-trice-hauswirtschaft-zfv-unternehmungen-zurich"
         ],
         "en": [
           "service-associate-30-zfv-unternehmungen-zurich",
@@ -7178,8 +6994,7 @@
         "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
         "service-collaboratore-trice-aushilfe-zfv-unternehmungen-winterthur",
         "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
-        "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
-        "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich"
+        "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7189,8 +7004,7 @@
           "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
           "service-collaboratore-trice-aushilfe-zfv-unternehmungen-winterthur",
           "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
-          "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
-          "service-collaboratore-trice-aushilfe-zfv-unternehmungen-zurich"
+          "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur"
         ],
         "de": [
           "bar-mitarbeiter-in-studentische-aushilfe-zfv-unternehmungen-zurich",
@@ -7249,7 +7063,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:52.809Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8044",
       "streetAddress": "Orellistrasse 21",
@@ -7267,13 +7080,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
-        "service-collaboratore-trice-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
+        "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich",
-          "service-collaboratore-trice-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
+          "service-mitarbeiter-in-befristet-bis-februar-2027-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-31T22:12:28.905Z",
@@ -7341,13 +7152,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich",
-        "service-collaboratore-trice-vip-aushilfe-zfv-unternehmungen-zurich"
+        "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich",
-          "service-collaboratore-trice-vip-aushilfe-zfv-unternehmungen-zurich"
+          "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich"
@@ -7418,13 +7227,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sous-chef-zfv-unternehmungen-geneve",
-        "capo-zfv-unternehmungen-geneve"
+        "sous-chef-zfv-unternehmungen-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-zfv-unternehmungen-geneve",
-          "capo-zfv-unternehmungen-geneve"
+          "sous-chef-zfv-unternehmungen-geneve"
         ],
         "en": [
           "sous-chef-zfv-unternehmungen-geneve"
@@ -7480,7 +7287,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:51.204Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8052",
       "streetAddress": "Fernsehstrasse 1-4",
@@ -7498,13 +7304,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sous-chef-in-zfv-unternehmungen-zurich",
-        "capo-di-sous-zfv-unternehmungen-zurich"
+        "sous-chef-in-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-in-zfv-unternehmungen-zurich",
-          "capo-di-sous-zfv-unternehmungen-zurich"
+          "sous-chef-in-zfv-unternehmungen-zurich"
         ],
         "en": [
           "sous-chef-in-zfv-unternehmungen-zurich"
@@ -7557,7 +7361,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T00:39:50.728Z",
-      "needsRetranslation": true,
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "streetAddress": "Theaterstrasse 17",
@@ -7575,13 +7378,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sous-chef-in-zfv-unternehmungen-winterthur",
-        "capo-di-sous-zfv-unternehmungen-winterthur"
+        "sous-chef-in-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sous-chef-in-zfv-unternehmungen-winterthur",
-          "capo-di-sous-zfv-unternehmungen-winterthur"
+          "sous-chef-in-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "sous-chef-in-zfv-unternehmungen-winterthur"
@@ -7659,8 +7460,7 @@
         "responsabile-catering-zfv-unternehmungen-zurich",
         "head-in-catering-zfv-unternehmungen-zurich",
         "leiter-in-catering-zfv-unternehmungen-zurich",
-        "tete-dans-la-restauration-zfv-unternehmungen-zurich",
-        "stv-responsabile-catering-zfv-unternehmungen-zurich"
+        "tete-dans-la-restauration-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7669,8 +7469,7 @@
           "responsabile-catering-zfv-unternehmungen-zurich",
           "head-in-catering-zfv-unternehmungen-zurich",
           "leiter-in-catering-zfv-unternehmungen-zurich",
-          "tete-dans-la-restauration-zfv-unternehmungen-zurich",
-          "stv-responsabile-catering-zfv-unternehmungen-zurich"
+          "tete-dans-la-restauration-zfv-unternehmungen-zurich"
         ],
         "en": [
           "head-in-catering-zfv-unternehmungen-zurich"
@@ -7749,13 +7548,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-produktionsleiter-in-zfv-unternehmungen-zurich",
-        "stv-production-manager-in-zfv-unternehmungen-zurich"
+        "stv-produktionsleiter-in-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-produktionsleiter-in-zfv-unternehmungen-zurich",
-          "stv-production-manager-in-zfv-unternehmungen-zurich"
+          "stv-produktionsleiter-in-zfv-unternehmungen-zurich"
         ],
         "en": [
           "stv-produktionsleiter-in-zfv-unternehmungen-zurich"
@@ -7829,13 +7626,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zurich"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zurich"
@@ -7909,13 +7704,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-bern"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-bern"
@@ -7989,13 +7782,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-winterthur"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-winterthur"
@@ -8069,13 +7860,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-dubendorf"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-dubendorf"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-dubendorf"
@@ -8149,13 +7938,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-basel",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-basel"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-basel",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-basel"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-basel"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-basel"
@@ -8229,13 +8016,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-allschwil",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-allschwil"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-allschwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-allschwil",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-allschwil"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-allschwil"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-allschwil"
@@ -8309,13 +8094,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-rotkreuz"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-rotkreuz"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-rotkreuz"
@@ -8389,13 +8172,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zug",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zug"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zug",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-zug"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zug"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-zug"
@@ -8469,13 +8250,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-luzern",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-luzern"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-luzern",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-luzern"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-luzern"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-luzern"
@@ -8549,13 +8328,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-horw",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-horw"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-horw",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-horw"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-horw"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-horw"
@@ -8629,13 +8406,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-opfikon",
-        "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-opfikon"
+        "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-opfikon",
-          "systemgastronomiefachfrau-mann-cfc-apprendistato-2027-zfv-unternehmungen-opfikon"
+          "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-opfikon"
         ],
         "en": [
           "systemgastronomiefachfrau-mann-efz-lehrstelle-2027-zfv-unternehmungen-opfikon"
@@ -8709,13 +8484,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "systemgastronomiepraktiker-in-eba-lehrstelle-2027-zfv-unternehmungen-bern",
-        "systemgastronomiepraktiker-in-afp-apprendistato-2027-zfv-unternehmungen-bern"
+        "systemgastronomiepraktiker-in-eba-lehrstelle-2027-zfv-unternehmungen-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "systemgastronomiepraktiker-in-eba-lehrstelle-2027-zfv-unternehmungen-bern",
-          "systemgastronomiepraktiker-in-afp-apprendistato-2027-zfv-unternehmungen-bern"
+          "systemgastronomiepraktiker-in-eba-lehrstelle-2027-zfv-unternehmungen-bern"
         ],
         "en": [
           "systemgastronomiepraktiker-in-eba-lehrstelle-2027-zfv-unternehmungen-bern"

@@ -441,12 +441,27 @@
       },
       "slugByLocale": {
         "it": "polizeiaspirantinnen-e-polizeiaspiranten-stadt-chur",
-        "en": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur",
+        "en": "police-aspirants-and-police-aspirants-stadt-chur-chur",
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
-        "fr": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
       "crawledAt": "2026-09-01T01:05:18.113Z",
       "id": "stadt-chur-b4ceea7ca5ef",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
+        ],
+        "en": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        ],
+        "fr": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        ]
+      },
+      "previousSlugs": [
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
@@ -461,16 +476,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-31T17:28:30.211Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
-        ]
-      },
-      "previousSlugs": [
-        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
-      ],
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:28:30.211Z"
     }
   ]
 }
