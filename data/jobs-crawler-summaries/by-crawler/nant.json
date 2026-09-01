@@ -1,20 +1,21 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-09-01T08:38:19.683Z",
+  "generatedAt": "2026-09-01T10:12:52.130Z",
   "total": 9,
   "discovered": null,
   "written": 9,
-  "newCount": 4,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4645,
-  "avgDurationMs": 4645,
+  "durationMs": 4151,
+  "avgDurationMs": 4151,
   "durationHistory": [
-    4645
+    4151
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "nant-17639b08efba",
       "slug": "infirmier-ere-clinicien-ne-specialise-e-a-100-sppea-nant-vaud-suisse",
@@ -28,7 +29,7 @@
       "url": "https://app.beehire.com/invite/yKOL6UF3X",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.471Z",
+      "crawledAt": "2026-09-01T10:12:48.523Z",
       "addressLocality": "Vaud, Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -44,11 +45,12 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://app.beehire.com/invite/yKOL6UF3X",
       "careerSiteUrl": "https://nant.ch/carrieres/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T08:38:15.471Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -65,7 +67,7 @@
       "url": "https://app.beehire.com/invite/7MtT679t5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.479Z",
+      "crawledAt": "2026-09-01T10:12:48.524Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -81,11 +83,12 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://app.beehire.com/invite/7MtT679t5",
       "careerSiteUrl": "https://nant.ch/carrieres/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T08:38:15.479Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -102,7 +105,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.483Z",
+      "crawledAt": "2026-09-01T10:12:48.528Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -118,11 +121,12 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://app.beehire.com/invite/bIZr6lj9a",
       "careerSiteUrl": "https://nant.ch/carrieres/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T08:38:15.483Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -139,7 +143,7 @@
       "url": "https://app.beehire.com/invite/4RPhgQTMf",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.485Z",
+      "crawledAt": "2026-09-01T10:12:48.532Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -155,16 +159,15 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://app.beehire.com/invite/4RPhgQTMf",
       "careerSiteUrl": "https://nant.ch/carrieres/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T08:38:15.485Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "nant-fecd12c97f57",
       "slug": "infirmier-ere-cdm-90-morabia-nant-corsier-sur-vevey",
@@ -178,7 +181,7 @@
       "url": "https://app.beehire.com/invite/fOJGPwwF3",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.490Z",
+      "crawledAt": "2026-09-01T10:12:48.533Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -216,7 +219,7 @@
       "url": "https://app.beehire.com/invite/0IEYXiSqR",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.491Z",
+      "crawledAt": "2026-09-01T10:12:48.534Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -254,7 +257,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.514Z",
+      "crawledAt": "2026-09-01T10:12:48.537Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -292,7 +295,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.516Z",
+      "crawledAt": "2026-09-01T10:12:48.539Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -330,7 +333,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:15.515Z",
+      "crawledAt": "2026-09-01T10:12:48.538Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
