@@ -4990,6 +4990,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-friburgo.title': 'Lehre im Kanton Freiburg: Praxisleitfaden',
     'blog.article.apprendistato-formazione-friburgo.excerpt': 'Wie finde ich eine Lehrstelle, unterschreibe den Vertrag, lerne Rechte und Vergütung kennen. Der umfassende Leitfaden zum schweizerischen Berufsbildungssystem im Kanton Freiburg.',
     'blog.article.apprendistato-formazione-friburgo.imageAlt': 'Lehrlinge während einer praktischen Schulung in einer Schweizer Berufsschule',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Kindertagesstätte Freiburg: Kinderbetreuung, Kosten',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Kinderbetreuung im Kanton Freiburg: Tarife, verfügbare Zuschüsse und Verfahren für die Beantragung von kantonalen Familienbeiträgen.',
+    'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Schweizer Kindertagesstätte mit spielenden Kindern und Erziehern',
 };
 
 export default blogMetaChDe;
