@@ -5017,6 +5017,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soletta-locazione-affitti-guida-pratica.title': 'Soletta rental market: fees and rental rights',
     'blog.article.soletta-locazione-affitti-guida-pratica.excerpt': 'Complete Guide to the Right of Tenancy in the Canton of Solothurn: Federal Rules on Security Deposit, Cancellation, Rent Dispute and Conciliation Authority.',
     'blog.article.soletta-locazione-affitti-guida-pratica.imageAlt': 'Swiss residential apartment building with windows and balconies in urban neighborhood',
+    'blog.article.soletta-contestazione-canone-affitti.title': 'Lease Law in Switzerland: Fees and Dispute',
+    'blog.article.soletta-contestazione-canone-affitti.excerpt': 'In Swiss law, the security deposit is limited to 3 months\' rent and the tenant can dispute the initial rent within 30 days with the cantonal conciliation authority.',
+    'blog.article.soletta-contestazione-canone-affitti.imageAlt': 'Facade of a Swiss residential building with modern balconies, quiet street in realistic daylight photography',
 };
 
 export default blogMetaChEn;
