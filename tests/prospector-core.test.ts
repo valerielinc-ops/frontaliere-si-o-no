@@ -16,7 +16,7 @@ import {
   sharedHostPlatforms, listingPathHints,
 } from '../scripts/lib/prospector/platform-registry.mjs';
 import { pathTemplate, extractByTemplate, extractJsonLd, extractDetailFields, extractMicrodata, scoreVacancyPage, textOf, isVacancyPath } from '../scripts/lib/prospector/extract.mjs';
-import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks } from '../scripts/lib/prospector/careers-trail.mjs';
+import { cleanAnchorText, extractLinks, isCareerLink, externalAtsLinks, isDistinctCareerSurface } from '../scripts/lib/prospector/careers-trail.mjs';
 import { tenantSlugCandidates, tenantIdsAreNameLike, employerNameFromPage } from '../scripts/lib/prospector/tenant-enum.mjs';
 import { normalizeCompanyName, isCovered } from '../scripts/lib/prospector/coverage.mjs';
 import { isTransportLogistics } from '../scripts/lib/prospector/sector-signal.mjs';
@@ -660,6 +660,25 @@ describe('careers trail', () => {
     const links = [{ url: 'https://acme.ats.example/', text: '', host: 'acme.ats.example' }];
     expect(externalAtsLinks(links, 'acme.ch')).toEqual([]);
     expect(externalAtsLinks(links, 'acme.ch', { relaxed: true })).toHaveLength(1);
+  });
+
+  it('rejects semantic homepage aliases and global-chrome-only career signals', () => {
+    const home = '<html><title>Hotel</title><body><nav><a href="/jobs">Jobs</a></nav><main>Benvenuti</main></body></html>';
+    const alias = '<html data-path="/lavora-con-noi"><title>Hotel</title><body><nav><a href="/jobs">Jobs</a></nav><main>Benvenuti</main></body></html>';
+    const generic = '<html><title>Hotel - contatti</title><body><nav><a href="/jobs">Jobs</a></nav><main>Contatti e orari</main></body></html>';
+    expect(isDistinctCareerSurface(home, alias, 'https://hotel.example/lavora-con-noi')).toBe(false);
+    expect(isDistinctCareerSurface(home, generic, 'https://hotel.example/lavora-con-noi')).toBe(false);
+  });
+
+  it('keeps a distinct careers page and its legitimate external ATS', () => {
+    const home = '<html><title>Hotel</title><body><a href="https://partner.example/">Partner</a><main>Benvenuti</main></body></html>';
+    const careers = '<html><title>Hotel careers</title><body><h1>Lavora con noi</h1><a href="https://partner.example/">Partner</a><a href="https://tenant.real-ats.example/openings"></a></body></html>';
+    expect(isDistinctCareerSurface(home, careers, 'https://hotel.example/jobs')).toBe(true);
+
+    const homeLinks = extractLinks(home, 'https://hotel.example/');
+    const pageLinks = extractLinks(careers, 'https://hotel.example/jobs');
+    expect(externalAtsLinks(pageLinks, 'hotel.example', { relaxed: true, globalLinks: homeLinks }))
+      .toEqual([{ host: 'tenant.real-ats.example', url: 'https://tenant.real-ats.example/openings', text: '' }]);
   });
 });
 

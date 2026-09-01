@@ -21,7 +21,7 @@ import { CAREER_TOKEN_RX, CAREER_PATH_HINTS } from './config.mjs';
 import { normalizeHost, registrableDomain, sameOrg, safeDecodePath } from './registrable.mjs';
 import { isPlatformEligible } from './platform-registry.mjs';
 import { decodeEntities } from './entities.mjs';
-import { scoreVacancyPage } from './extract.mjs';
+import { scoreVacancyPage, textOf } from './extract.mjs';
 import { looksLikeAggregator } from './tenant-enum.mjs';
 import { readAttr } from '../html-attr.mjs';
 
@@ -193,20 +193,85 @@ export async function careersFromSitemap(origin) {
  *
  * @param {{ url: string, text: string, host: string }[]} links
  * @param {string} employerDomain
- * @param {{ relaxed?: boolean }} [opts]
+ * @param {{ relaxed?: boolean, globalLinks?: { url: string, text: string, host: string }[] }} [opts]
  * @returns {{ host: string, url: string, text: string }[]}
  */
 export function externalAtsLinks(links, employerDomain, opts = {}) {
   const out = new Map();
+  const globalLinks = Array.isArray(opts.globalLinks) ? opts.globalLinks : [];
   for (const l of links) {
     const reg = registrableDomain(l.host);
     if (!reg || sameOrg(reg, employerDomain)) continue;
     if (!isPlatformEligible(l.host)) continue;
     const hostLooksJobish = /(job|karriere|career|stellen|recruit|lavoro|emploi|hr|talent|apply|bewerb|candidat|vacan)/i.test(l.host);
     if (!opts.relaxed && !isCareerLink(l) && !hostLooksJobish) continue;
+    if (opts.relaxed && !isCareerLink(l) && !hostLooksJobish) {
+      // An unlabelled external logo is useful evidence only when it is
+      // specific to the career surface. If the exact same link is already in
+      // the homepage chrome it proves partnership, not vacancy ownership.
+      const repeatedGlobalLink = globalLinks.some((globalLink) => {
+        if (globalLink.host !== l.host) return false;
+        try {
+          const globalUrl = new URL(globalLink.url);
+          const localUrl = new URL(l.url);
+          globalUrl.hash = '';
+          localUrl.hash = '';
+          return globalUrl.href === localUrl.href;
+        } catch {
+          return globalLink.url === l.url;
+        }
+      });
+      if (repeatedGlobalLink) continue;
+    }
     if (!out.has(l.host)) out.set(l.host, { host: l.host, url: l.url, text: l.text });
   }
   return [...out.values()];
+}
+
+function normalizedSemanticText(html = '') {
+  return textOf(html).replace(/\s+/g, ' ').trim().toLowerCase();
+}
+
+function careerSurfaceEvidence(html = '', pageUrl = '') {
+  const evidence = new Set();
+  if (/"@type"\s*:\s*"JobPosting"/i.test(html)) evidence.add('structured:jobposting');
+
+  const headingRx = /<(?:title|h[1-3])\b[^>]*>([\s\S]*?)<\/(?:title|h[1-3])>/gi;
+  for (const match of String(html).matchAll(headingRx)) {
+    const value = textOf(match[1]).replace(/\s+/g, ' ').trim().toLowerCase();
+    if (value && CAREER_TOKEN_RX.test(value)) evidence.add(`heading:${value}`);
+  }
+  for (const link of extractLinks(html, pageUrl)) {
+    if (!isCareerLink(link)) continue;
+    try {
+      const url = new URL(link.url);
+      url.hash = '';
+      evidence.add(`link:${url.href}:${link.text.toLowerCase()}`);
+    } catch {
+      // extractLinks has already validated URLs. This branch is defensive.
+    }
+  }
+  if (/\b(?:no|nessun[ao]?|keine|aucun(?:e)?|pas de)\s+(?:open\s+)?(?:positions?|posizioni|stellen|emplois?|vacanc)/i.test(textOf(html))) {
+    evidence.add('state:explicit-empty');
+  }
+  return evidence;
+}
+
+/**
+ * A direct path probe is a career surface only when it differs semantically
+ * from the homepage and carries page-specific vacancy/career evidence. This
+ * rejects legacy servers that return their homepage with HTTP 200 for every
+ * unknown path, as well as pages whose only job-ish link lives in global
+ * navigation/footer chrome.
+ */
+export function isDistinctCareerSurface(homeHtml = '', pageHtml = '', pageUrl = '') {
+  const homeText = normalizedSemanticText(homeHtml);
+  const pageText = normalizedSemanticText(pageHtml);
+  if (!pageText || pageText === homeText) return false;
+
+  const homeEvidence = careerSurfaceEvidence(homeHtml, pageUrl);
+  const pageEvidence = careerSurfaceEvidence(pageHtml, pageUrl);
+  return [...pageEvidence].some((signal) => !homeEvidence.has(signal));
 }
 
 /**
@@ -220,7 +285,7 @@ export function externalAtsLinks(links, employerDomain, opts = {}) {
  *
  * @param {{ host: string, url: string, text: string }} candidate
  * @param {number} [minScore]
- * @returns {Promise<{ host: string, url: string, text: string, score: number, signals: string[], vacancyCount: number, verified: boolean }>}
+ * @returns {Promise<{ host: string, url: string, text: string, score: number, signals: string[], vacancyCount: number, aggregator?: boolean, distinctCompanies?: number, verified: boolean }>}
  */
 export async function verifyAtsHost(candidate, minScore = 3) {
   const res = await politeFetch(candidate.url);
@@ -316,7 +381,15 @@ export async function traceCareers(domain, opts = {}) {
   if (!candidates.length) {
     for (const hint of CAREER_PATH_HINTS) {
       const probe = await politeFetch(`${origin}${hint}`);
-      if (probe.ok && probe.body.length > 500) { candidates.push(probe.url); result.via.push('path-probe'); break; }
+      if (
+        probe.ok
+        && probe.body.length > 500
+        && isDistinctCareerSurface(home.body, probe.body, probe.url)
+      ) {
+        candidates.push(probe.url);
+        result.via.push('path-probe');
+        break;
+      }
     }
   }
 
@@ -327,9 +400,10 @@ export async function traceCareers(domain, opts = {}) {
     seen.add(key);
     const page = await politeFetch(url);
     if (!page.ok) continue;
+    if (!isDistinctCareerSurface(home.body, page.body, page.url)) continue;
     result.careersUrls.push(page.url);
     const links = extractLinks(page.body, page.url);
-    for (const ext of externalAtsLinks(links, domain, { relaxed: true })) {
+    for (const ext of externalAtsLinks(links, domain, { relaxed: true, globalLinks: homeLinks })) {
       if (!result.externalHosts.some((e) => e.host === ext.host)) result.externalHosts.push(ext);
     }
   }
