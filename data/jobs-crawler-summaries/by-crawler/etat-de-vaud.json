@@ -1,7 +1,7 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-01T07:22:39.297Z",
+  "generatedAt": "2026-09-01T08:39:19.086Z",
   "total": 49,
   "discovered": null,
   "written": 49,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 30384,
-  "avgDurationMs": 30384,
+  "durationMs": 26045,
+  "avgDurationMs": 26045,
   "durationHistory": [
-    30384
+    26045
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:22:34.870Z",
+      "crawledAt": "2026-09-01T08:39:15.414Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
