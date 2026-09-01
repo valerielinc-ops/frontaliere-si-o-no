@@ -14,6 +14,19 @@ const SITEMAP_URL = 'https://career.bellfoodgroup.com/sitemap.job.xml';
 const CAREERS_BASE = 'https://career.bellfoodgroup.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+export function normalizeHilconaJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/de\/stelle\/[^/]+-\d+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
@@ -62,9 +75,8 @@ export function parseHilconaSitemapXml(xml) {
   const locPattern = /<loc>([^<]+)<\/loc>/gi;
   let m;
   while ((m = locPattern.exec(xml)) !== null) {
-    const url = m[1].trim();
-    // Only keep German (/de/stelle/) URLs to get one entry per job
-    if (!url.includes('/de/stelle/')) continue;
+    const url = normalizeHilconaJobUrl(m[1]);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -216,11 +228,12 @@ export async function fetchHilconaJobUrls(timeoutMs = 15000) {
  * Fetch and parse a single Bell Food Group job detail page.
  */
 export async function fetchHilconaDetailPage(url, timeoutMs = 15000) {
-  if (!url) return null;
+  const safeUrl = normalizeHilconaJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA, Accept: 'text/html' },
       signal: controller.signal,
     });
