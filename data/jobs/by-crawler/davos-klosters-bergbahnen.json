@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "operatore-della-cabina-in-jakobshorn-davos-klosters-bergbahnen-ag-davos",
         "en": "cabin-operator-in-jakobshorn-davos-klosters-bergbahnen-ag-davos",
-        "de": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
+        "de": "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos-17xp4g",
         "fr": "operateur-de-cabine-a-jakobshorn-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
@@ -52,6 +52,9 @@
         "it": [
           "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos",
           "operatore-della-cabina-in-jakobshorn-davos-klosters-bergbahnen-ag-davos"
+        ],
+        "de": [
+          "kabinenfuhrer-in-jakobshorn-davos-klosters-bergbahnen-davos"
         ]
       },
       "needsRetranslation": true,
@@ -428,7 +431,6 @@
           "aushilfe-kasse-im-stundenlohn-davos-klosters-bergbahnen-davos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:32:17.296Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -529,7 +531,7 @@
       "title": "Allrounder:in Restaurant Bolgen Plaza",
       "titleByLocale": {
         "it": "Tuttofare: nel ristorante Bolgen Plaza",
-        "en": "Allrounder:in Restaurant Bolgen Plaza",
+        "en": "All-rounder: in restaurant Bolgen Plaza",
         "de": "Allrounder:in Restaurant Bolgen Plaza",
         "fr": "All-rounder: au restaurant Bolgen Plaza"
       },
