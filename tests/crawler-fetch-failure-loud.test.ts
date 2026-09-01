@@ -34,13 +34,17 @@ describe('crawler listing fetch failures stay distinct from valid empty response
 
   it.each([
     ['Mabetex', fetchAllMabetexJobs],
-    ['Faulhaber', fetchAllFaulhaberJobs],
     ['Franklin University', fetchAllFranklinUniversityJobs],
     ['Moncucco', fetchAllMoncuccoJobs],
     ['Novelis', fetchAllNovelisJobs],
   ])('%s preserves a reachable empty page as a genuine empty result', async (_name, fetchJobs) => {
     fetchHtml.mockResolvedValueOnce(EMPTY_PAGE);
     await expect(fetchJobs()).resolves.toEqual([]);
+  });
+
+  it('Faulhaber rejects a reachable response that is not its authoritative listing-data envelope', async () => {
+    fetchHtml.mockResolvedValueOnce(EMPTY_PAGE);
+    await expect(fetchAllFaulhaberJobs()).rejects.toThrow(/listing-data response is not valid JSON/i);
   });
 
   it("Chicco d'Oro propagates failure when every alternative page is unreachable", async () => {
