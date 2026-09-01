@@ -1,18 +1,59 @@
 {
   "key": "city-pop",
   "label": "City Pop",
-  "generatedAt": "2026-09-01T10:21:42.682Z",
-  "total": 0,
+  "generatedAt": "2026-09-01T14:18:01.616Z",
+  "total": 1,
   "discovered": null,
-  "written": 0,
-  "newCount": 0,
+  "written": 1,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 4366,
+  "avgDurationMs": 4366,
+  "durationHistory": [
+    4366
+  ],
+  "newJobs": [
+    {
+      "id": "city-pop-6c976dbd152e",
+      "slug": "housekeeping-executive-100-city-pop-zurich",
+      "company": "City Pop",
+      "companyKey": "city-pop",
+      "companyDomain": "citypop.com",
+      "title": "HOUSEKEEPING EXECUTIVE (100%)",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.jobs.ch/en/vacancies/detail/2b348b1e-a516-4a1f-87f6-748275ef32cf/",
+      "source": "City Pop Dedicated Parser (jobs.ch)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-01T14:17:57.850Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Bernerstrasse Süd 169",
+      "postalCode": "8048",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Immobiliare / Micro-living / Ospitalità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/2b348b1e-a516-4a1f-87f6-748275ef32cf/",
+      "hiringOrganizationName": "City Pop AG",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
