@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-08-31T17:06:12.793Z",
+  "generatedAt": "2026-09-01T00:35:04.557Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1916,
-  "avgDurationMs": 1916,
+  "durationMs": 2102,
+  "avgDurationMs": 2102,
   "durationHistory": [
-    1916
+    2102
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,6 +48,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-29T22:16:51.668Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,6 +92,7 @@
       "currency": "CHF",
       "streetAddress": "",
       "firstSeenAt": "2026-06-17T22:36:03.816Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -133,6 +135,7 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-06T11:39:42.712Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -175,6 +178,7 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-27T12:39:40.224Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -217,6 +221,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T10:15:30.690Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
