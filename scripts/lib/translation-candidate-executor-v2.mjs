@@ -60,6 +60,30 @@ function validateQuality(input, identity) {
   return quality;
 }
 
+function snapshotProvider(input, engineVersion) {
+  assertTranslationPlainObjectV2(input, 'translation candidate executor v2 provider');
+  assertTranslationExactKeysV2(input, PROVIDER_KEYS, 'translation candidate executor v2 provider');
+  const descriptors = Object.getOwnPropertyDescriptors(input);
+  for (const key of PROVIDER_KEYS) {
+    if (!Object.hasOwn(descriptors, key) || descriptors[key].get || descriptors[key].set) {
+      throw new TypeError('translation candidate executor v2 provider must use data properties');
+    }
+  }
+  const provider = Object.freeze({
+    costClass: descriptors.costClass.value,
+    engineVersion: descriptors.engineVersion.value,
+    schemaVersion: descriptors.schemaVersion.value,
+  });
+  const translate = descriptors.translate.value;
+  if (provider.schemaVersion !== TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION
+      || provider.costClass !== 'zero'
+      || normalizeTranslationVersionV2(provider.engineVersion, 'provider engineVersion') !== engineVersion
+      || typeof translate !== 'function') {
+    throw new TypeError('translation candidate executor v2 provider is invalid');
+  }
+  return Object.freeze({ provider, translate });
+}
+
 function validateInput(input) {
   assertTranslationPlainObjectV2(input, 'translation candidate executor v2 input');
   assertTranslationExactKeysV2(input, INPUT_KEYS, 'translation candidate executor v2 input');
@@ -73,14 +97,7 @@ function validateInput(input) {
   if (!Number.isSafeInteger(input.providerTimeoutMs) || input.providerTimeoutMs < 1 || input.providerTimeoutMs > MAX_PROVIDER_TIMEOUT_MS) {
     throw new TypeError('translation candidate executor v2 providerTimeoutMs is invalid');
   }
-  assertTranslationPlainObjectV2(input.provider, 'translation candidate executor v2 provider');
-  assertTranslationExactKeysV2(input.provider, PROVIDER_KEYS, 'translation candidate executor v2 provider');
-  if (input.provider.schemaVersion !== TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION
-      || input.provider.costClass !== 'zero'
-      || normalizeTranslationVersionV2(input.provider.engineVersion, 'provider engineVersion') !== engineVersion
-      || typeof input.provider.translate !== 'function') {
-    throw new TypeError('translation candidate executor v2 provider is invalid');
-  }
+  const providerSnapshot = snapshotProvider(input.provider, engineVersion);
   const quality = validateQuality(input.quality, identity);
   return Object.freeze({
     currentScanDigest: input.currentScanDigest,
@@ -88,10 +105,11 @@ function validateInput(input) {
     gateVersion,
     identity,
     memory,
-    provider: input.provider,
+    provider: providerSnapshot.provider,
     providerTimeoutMs: input.providerTimeoutMs,
     quality,
     scanDigest: input.scanDigest,
+    translate: providerSnapshot.translate,
   });
 }
 
@@ -151,7 +169,7 @@ export async function executeTranslationCandidateV2(input) {
     // The request is a deep-frozen quality snapshot; the only second argument
     // is an AbortSignal, so provider code cannot mutate caller-owned data.
     candidateText = await Promise.race([
-      Promise.resolve().then(() => value.provider.translate(value.quality, { signal: controller.signal })),
+      Promise.resolve().then(() => value.translate(value.quality, Object.freeze({ signal: controller.signal }))),
       timeout,
     ]);
     if (candidateText === timedOut) candidateText = null;

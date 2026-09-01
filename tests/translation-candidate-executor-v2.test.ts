@@ -227,4 +227,41 @@ describe('translation candidate executor v2', () => {
       vi.useRealTimers();
     }
   });
+
+  it('captures own provider data once and never invokes a later callable', async () => {
+    let validatedCalls = 0;
+    let changedCalls = 0;
+    const mutableProvider = {
+      schemaVersion: 2,
+      costClass: 'zero',
+      engineVersion: 'stub-v1',
+      async translate() {
+        validatedCalls += 1;
+        return candidateText;
+      },
+    };
+    const value = input({ provider: mutableProvider });
+    const pending = executeTranslationCandidateV2(executorInput(value));
+    mutableProvider.engineVersion = 'changed-v2';
+    mutableProvider.translate = async () => {
+      changedCalls += 1;
+      return sourceText;
+    };
+    await expect(pending).resolves.toMatchObject({ status: 'validated', metrics: { providerCalls: 1 } });
+    expect(validatedCalls).toBe(1);
+    expect(changedCalls).toBe(0);
+
+    let getterCalls = 0;
+    const accessorProvider = {
+      schemaVersion: 2,
+      costClass: 'zero',
+      engineVersion: 'stub-v1',
+      get translate() {
+        getterCalls += 1;
+        return async () => candidateText;
+      },
+    };
+    await expect(executeTranslationCandidateV2(executorInput(input({ provider: accessorProvider })))).rejects.toThrow(TypeError);
+    expect(getterCalls).toBe(0);
+  });
 });

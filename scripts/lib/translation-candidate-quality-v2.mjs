@@ -31,8 +31,9 @@ const NUMBER_ATOM = String.raw`(?:\d+(?:[ '\u2019\u00a0\u202f,.]\d+)*|[.,]\d+)`;
 const CURRENCY = String.raw`(?:CHF|EUR|USD|GBP|€|\$|£)`;
 const RANGE_SPACE = String.raw`\s{0,256}`;
 const RANGE_PREFIX = String.raw`(?:(?:[+\-−]${RANGE_SPACE}${CURRENCY}|${CURRENCY}${RANGE_SPACE}[+\-−]?|[+\-−])${RANGE_SPACE})?`;
-const RANGE_ENDPOINT = String.raw`(${RANGE_PREFIX}${NUMBER_ATOM}(?:${RANGE_SPACE}${CURRENCY})?)`;
-const RANGE_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])${RANGE_ENDPOINT}${RANGE_SPACE}(?:-|\u2010|\u2011|\u2012|\u2013|\u2014|\u2212)${RANGE_SPACE}${RANGE_ENDPOINT}(?:${RANGE_SPACE}%)?(?![\p{L}\p{N}_.])`, 'giu');
+const RANGE_SUFFIX = String.raw`(?:(?:${RANGE_SPACE}${CURRENCY})|(?:${RANGE_SPACE}%))*`;
+const RANGE_ENDPOINT = String.raw`(${RANGE_PREFIX}${NUMBER_ATOM}${RANGE_SUFFIX})`;
+const RANGE_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])${RANGE_ENDPOINT}${RANGE_SPACE}(?:-|\u2010|\u2011|\u2012|\u2013|\u2014|\u2212)${RANGE_SPACE}${RANGE_ENDPOINT}${RANGE_SUFFIX}(?![\p{L}\p{N}_]|[.,]\d)`, 'giu');
 const NUMBER_RE = new RegExp(String.raw`(?<![\p{L}\p{N}_.])(CHF|EUR|USD|GBP|€|\$|£)?(${NUMBER_ATOM})(?![\p{L}\p{N}_]|[.,]\d)`, 'giu');
 const MAX_NUMERIC_AFFIX_WHITESPACE = 256;
 
@@ -115,6 +116,14 @@ function sameSequence(left, right) {
 
 function containsProtectedToken(text, value) {
   const canonicalText = canonicalProtectedText(text);
+  const canonicalValue = canonicalProtectedText(value);
+  if (/[+&#]/u.test(canonicalValue)) {
+    const exactPattern = canonicalValue
+      .split(/\s+/u)
+      .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      .join(String.raw`\s+`);
+    return new RegExp(String.raw`(?<![\p{L}\p{N}])${exactPattern}(?![\p{L}\p{N}])`, 'u').test(canonicalText);
+  }
   const textParts = [...canonicalText.matchAll(/[\p{L}\p{N}]+|[+&#]+/gu)];
   const valueParts = canonicalProtectedParts(value);
   if (valueParts.length > textParts.length) return false;
@@ -254,8 +263,13 @@ function rangeEndpointSignature(raw, locale) {
   if (!numberMatch || numberMatch.index === undefined) return 'invalid';
   const start = numberMatch.index;
   const affix = numericAffix(raw, start, start + numberMatch[0].length);
-  const label = affix.currency ? `currency:${currencyCode(affix.currency)}` : 'number';
-  return `${label}:${affix.sign}:${numericCore(numberMatch[0], locale)}`;
+  return { core: numericCore(numberMatch[0], locale), sign: affix.sign };
+}
+
+function rangeCurrencySignature(raw) {
+  const currencies = [...raw.matchAll(new RegExp(CURRENCY, 'giu'))].map((match) => currencyCode(match[0]));
+  const unique = [...new Set(currencies)].sort(compareText);
+  return unique.length === 0 ? 'none' : unique.length === 1 ? unique[0] : `mixed:${unique.join('+')}`;
 }
 
 function extractNumericSignatures(text, locale) {
@@ -277,8 +291,10 @@ function extractNumericSignatures(text, locale) {
     const end = start + match[0].length;
     if (overlaps(ranges, start, end)) continue;
     ranges.push([start, end]);
-    const percent = /%\s*$/u.test(match[0]) ? 'percent' : 'number';
-    signatures.push(`range:${percent}:${rangeEndpointSignature(match[1], locale)}:${rangeEndpointSignature(match[2], locale)}`);
+    const first = rangeEndpointSignature(match[1], locale);
+    const second = rangeEndpointSignature(match[2], locale);
+    const percent = match[0].includes('%') ? 'percent' : 'number';
+    signatures.push(`range:currency:${rangeCurrencySignature(match[0])}:${percent}:${first.sign}:${first.core}:${second.sign}:${second.core}`);
   }
   for (const match of text.matchAll(NUMBER_RE)) {
     const start = match.index ?? 0;

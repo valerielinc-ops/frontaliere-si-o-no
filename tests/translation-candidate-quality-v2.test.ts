@@ -179,7 +179,7 @@ describe('translation candidate quality v2', () => {
     expect(codes(completeRange)).not.toContain('numeric.multiset_mismatch');
     for (const candidateText of [
       'La fascia salariale è - EUR 80 – + EUR 100%.',
-      'La fascia salariale è - 80 – + CHF 100%.',
+      'La fascia salariale è - 80 – + 100%.',
       'La fascia salariale è + CHF 80 – + CHF 100%.',
       'La fascia salariale è - CHF 80 – - CHF 100%.',
     ]) {
@@ -195,6 +195,35 @@ describe('translation candidate quality v2', () => {
       candidateText: long('La fascia salariale è 80 EUR – 100 EUR.'),
     });
     expect(codes(postfixedRange)).toContain('numeric.multiset_mismatch');
+    const rangeEquivalents = ['CHF 80-100', '80-100 CHF', '80 CHF - 100 CHF', '80%-100%', '80-100%'];
+    for (const candidateText of rangeEquivalents) {
+      const sourceRange = candidateText.includes('%') ? '80-100%' : 'CHF 80-100';
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`The range is ${sourceRange}.`),
+        candidateText: long(`La fascia è ${candidateText}.`),
+      }))).not.toContain('numeric.multiset_mismatch');
+    }
+    const groupingEquivalent = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('The range is EUR 1,000-2,000.'),
+      candidateText: long('La fascia è 1.000-2.000 €.'),
+      targetLang: 'it',
+    });
+    expect(codes(groupingEquivalent)).not.toContain('numeric.multiset_mismatch');
+    let seed = 0x5eed;
+    for (let index = 0; index < 32; index += 1) {
+      seed = (seed * 1_103_515_245 + 12_345) >>> 0;
+      const first = 1 + (seed % 900);
+      const second = first + 1 + ((seed >>> 8) % 99);
+      const sourceRange = `CHF ${first}-${second}`;
+      const candidateRange = index % 2 === 0 ? `${first}-${second} CHF` : `${first} CHF – ${second} CHF`;
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`The range is ${sourceRange}.`),
+        candidateText: long(`La fascia è ${candidateRange}.`),
+      }))).not.toContain('numeric.multiset_mismatch');
+    }
   });
 
   it('blocks source echoes, flattened bullets, title residue and concatenated words', () => {
@@ -254,7 +283,22 @@ describe('translation candidate quality v2', () => {
       protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'company', value: 'AT&T' }],
     });
     expect(codes(symbols)).toContain('protected_token.missing');
+    const preservedSymbols = assessTranslationCandidateQualityV2({
+      ...base,
+      sourceText: long('C++ works with C# and AT&T.'),
+      candidateText: long('C++ lavora con C# e AT&T.'),
+      protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'structured', value: 'C#' }, { category: 'company', value: 'AT&T' }],
+    });
+    expect(codes(preservedSymbols)).not.toContain('protected_token.missing');
     for (const candidateText of ['C++X works with AT&T.', 'XC++ works with AT&T.', 'C++ works with AT&TX.', 'C++ works with XAT&T.']) {
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long('C++ works with C# and AT&T.'),
+        candidateText: long(candidateText),
+        protectedTokens: [{ category: 'structured', value: 'C++' }, { category: 'structured', value: 'C#' }, { category: 'company', value: 'AT&T' }],
+      }))).toContain('protected_token.missing');
+    }
+    for (const candidateText of ['C ++ works with C# and AT&T.', 'C++ works with C-# and AT&T.', 'C++ works with AT-&-T.']) {
       expect(codes(assessTranslationCandidateQualityV2({
         ...base,
         sourceText: long('C++ works with C# and AT&T.'),
