@@ -14,6 +14,7 @@ import {
   isTrustedDomain,
   FACHKRAFT_KEY,
   FACHKRAFT_COMPANY_NAME,
+  validateFachkraftAuthoritativeSnapshot,
 } from './lib/fachkraft-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -27,6 +28,8 @@ runStandardCrawlerPipeline({
   isCompanyJob: isFachkraftJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  validateAuthoritativeSnapshot: validateFachkraftAuthoritativeSnapshot,
+  allowAuthoritativeEmptySnapshot: true,
 }).catch((err) => {
   console.error(`❌ fachkraft.ch GmbH crawler failed: ${err?.message || err}`);
   process.exit(1);
