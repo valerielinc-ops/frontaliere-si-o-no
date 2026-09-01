@@ -17,8 +17,8 @@
  *      facets independently. Each facet is strict-count paginated and their
  *      totals must equal the national total exactly.
  *   2. Extracts unique job detail URLs from API hits.
- *   3. Infers each job's canton from the clean city signal via inferAnyCanton
- *      and drops jobs whose canton does not resolve to a Swiss canton.
+ *   3. Infers each job's canton from source-backed city/postal signals and
+ *      fails closed when a source-declared Swiss location is unresolved.
  *   4. Updates the Lidl adapter seed URLs + seedMetaByUrl.
  *   5. Runs base crawler for detail parsing/localization.
  *   6. Post-processes and deduplicates Lidl jobs for canonical consistency.
@@ -114,6 +114,27 @@ const LIDL_EXPLICIT_CITY_CANTONS = (() => {
   }
   return candidatesByCity;
 })();
+
+// Lidl's LiCa feed uses delivery-locality names that are absent from the BFS
+// municipality snapshot because they belong to a parent municipality (for
+// example Emmenbrücke -> Emmen and Bevaix -> La Grande Béroche). Keep this
+// fallback source-scoped and require the exact city + postal-code pair exposed
+// by LiCa. Every pair below was verified against the official geo.admin.ch
+// address SearchServer; a new Swiss locality remains a hard failure until it
+// is source-verified instead of being guessed or silently dropped.
+const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
+  ['staad|9422', 'SG'],
+  ['rudolfstetten|8964', 'AG'],
+  ['gattikon|8136', 'ZH'],
+  ['jona|8645', 'SG'],
+  ['siebnen|8854', 'SZ'],
+  ['samstagern|8833', 'ZH'],
+  ['butzberg|4922', 'BE'],
+  ['kussnacht-a-r|6403', 'SZ'],
+  ['perlen|6035', 'LU'],
+  ['emmenbrucke|6020', 'LU'],
+  ['bevaix|2022', 'NE'],
+]);
 
 function isLidlJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
@@ -213,15 +234,17 @@ function languageScore(lang = '') {
 }
 
 /**
- * Resolve a job's canton CH-wide from the cleanest single signal — the bare
- * `location.city` string — via the central inferAnyCanton helper (26 cantons).
+ * Resolve a job's canton CH-wide from the source-backed location fields. The
+ * bare `location.city` is tried first via inferAnyCanton (26 cantons).
  * The city string MUST be passed alone: a combined "city + region" string makes
  * inferAnyCanton return the wrong canton because of TARGET_CANTONS array order.
- * Returns a 2-letter Swiss canton code, or '' when the location does not
- * resolve to any Swiss canton (caller drops such jobs — never default to TI).
+ * Delivery localities absent from BFS require an exact, verified city + postal
+ * pair. Returns '' when the location is foreign or unresolved; the discovery
+ * caller distinguishes those cases and fails closed for unresolved CH jobs.
  */
 export function inferLidlCanton(fields) {
   const city = String(fields?.city || '').trim();
+  const postalCode = String(fields?.zipCode || '').trim();
   const country = String(fields?.country || '').trim().toUpperCase();
   if (!city || country !== 'CH') return '';
 
@@ -237,7 +260,7 @@ export function inferLidlCanton(fields) {
   if (exactCandidates) {
     return exactCandidates.size === 1 ? [...exactCandidates][0] : '';
   }
-  return '';
+  return LIDL_VERIFIED_LOCALITY_CANTONS.get(`${normalizeKey(city)}|${postalCode}`) || '';
 }
 
 function normalizeLidlContract(raw = '') {
@@ -274,8 +297,8 @@ function buildJobFromApiFields(fields, detailUrl) {
   if (!body || body.length < 50) return null;
 
   const meta = buildSeedMetaFromFields(fields);
-  // Drop jobs whose location does not resolve to a Swiss canton (non-CH /
-  // unresolved). Never default to TI.
+  // Reject jobs whose location does not resolve to a Swiss canton. Discovery
+  // has already distinguished source-declared foreign hits from unresolved CH.
   if (!meta.canton) return null;
   const lang = inferFieldsLanguage(fields, detailUrl);
   const slug = normalizeKey(`${title}-${LIDL_KEY}-${meta.location}`);
@@ -394,10 +417,11 @@ export async function fetchLidlJobDetailUrls(options = {}) {
   // count, preserving CH-wide coverage without weakening completeness.
   console.log('🔍 Fetching Lidl jobs CH-wide from count-bound language partitions...');
 
-  let droppedNonCh = 0;
+  let droppedForeign = 0;
   let droppedMalformed = 0;
   let duplicateIdentity = 0;
   let rawFetched = 0;
+  const unresolvedSwiss = [];
   const nationalPayload = await fetchLidlSearchPage(1, { userAgent, timeoutMs, fetchImpl });
   const nationalHits = assertJsonListShape(nationalPayload, {
     key: LIDL_SEARCH_JOBS_KEY,
@@ -496,11 +520,23 @@ export async function fetchLidlJobDetailUrls(options = {}) {
           continue;
         }
 
-        // Drop jobs whose location does not resolve to a Swiss canton
-        // (non-CH / unresolved). Never default to TI.
+        const country = String(fields.country || '').trim().toUpperCase();
+        if (country && country !== 'CH') {
+          droppedForeign += 1;
+          continue;
+        }
+
+        // A source-declared Swiss job must never disappear because a delivery
+        // locality is missing from the municipality snapshot. Collect every
+        // unresolved pair so the run fails closed after fully draining the
+        // source, with one actionable diagnostic for the complete gap class.
         const canton = inferLidlCanton(fields);
         if (!canton) {
-          droppedNonCh += 1;
+          unresolvedSwiss.push({
+            city: String(fields.city || '').trim(),
+            postalCode: String(fields.zipCode || '').trim(),
+            country: country || '?',
+          });
           continue;
         }
 
@@ -527,6 +563,15 @@ export async function fetchLidlJobDetailUrls(options = {}) {
     throw new Error(`Lidl discovery incomplete: fetched ${rawFetched}/${totalCount} API hits.`);
   }
 
+  if (unresolvedSwiss.length > 0) {
+    const locations = [...new Set(unresolvedSwiss.map(
+      ({ city, postalCode, country }) => `${city || '?'}|${postalCode || '?'}|${country}`,
+    ))].sort();
+    throw new Error(
+      `Lidl discovery unresolved Swiss locations: ${unresolvedSwiss.length} hit(s) across ${locations.length} exact city/postal pair(s): ${locations.join(', ')}.`,
+    );
+  }
+
   const detailUrls = [];
   const jobsFromApi = [];
   for (const item of selectedByKey.values()) {
@@ -541,22 +586,19 @@ export async function fetchLidlJobDetailUrls(options = {}) {
   }
 
   detailUrls.sort((a, b) => a.localeCompare(b));
-  // droppedNonCh is a normal, expected outcome (a hit whose city doesn't
-  // resolve to a Swiss canton — e.g. a locality absent from the BFS
-  // municipality dataset — is dropped, never defaulted to TI) and is already
-  // folded into `accounted` below; it must NOT gate a hard failure the way
-  // droppedMalformed does (a real parser/URL-format drift).
-  const accounted = detailUrls.length + duplicateIdentity + droppedNonCh + droppedMalformed;
+  // Source-declared foreign hits are valid drops and stay visible separately;
+  // unresolved CH geography has already failed closed above.
+  const accounted = detailUrls.length + duplicateIdentity + droppedForeign + droppedMalformed;
   if (accounted !== rawFetched
       || droppedMalformed !== 0
       || jobsFromApi.length !== detailUrls.length
       || Object.keys(seedMetaByUrl).length !== detailUrls.length) {
     throw new Error(
-      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, non-CH=${droppedNonCh}, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
+      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, foreign=${droppedForeign}, unresolved-CH=0, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
     );
   }
-  if (droppedNonCh > 0) {
-    console.log(`  🚫 Dropped ${droppedNonCh} Lidl hit(s) not resolving to a Swiss canton.`);
+  if (droppedForeign > 0) {
+    console.log(`  🌍 Dropped ${droppedForeign} source-declared foreign Lidl hit(s).`);
   }
   console.log(`✅ Total unique Lidl detail URLs discovered: ${detailUrls.length}`);
   console.log(`✅ Jobs built from API data: ${jobsFromApi.length}`);
@@ -567,7 +609,8 @@ export async function fetchLidlJobDetailUrls(options = {}) {
     totalCount,
     rawFetched,
     duplicateIdentity,
-    droppedNonCh,
+    droppedForeign,
+    unresolvedSwiss: 0,
     droppedMalformed,
     sourceZero: totalCount === 0,
   };
@@ -575,7 +618,7 @@ export async function fetchLidlJobDetailUrls(options = {}) {
 
 export function buildLidlAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl = {}, updatedAt = new Date().toISOString()) {
   const notes =
-    'Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from the city signal.';
+    'Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.';
   return {
     ...(baseAdapter || {}),
     companyName: LIDL_COMPANY_NAME,
