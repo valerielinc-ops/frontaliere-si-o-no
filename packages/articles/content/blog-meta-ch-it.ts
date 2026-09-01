@@ -4993,6 +4993,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Asilo nido Friburgo: custodia bambini, costi',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Custodia bambini nel Canton Friburgo: tariffe, sussidi disponibili e procedure per richiedere i contributi cantonali alle famiglie.',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Asilo nido in Svizzera con bambini che giocano, educatori e arredo colorato',
+    'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Sbarco in Borsa in chiaroscuro per la fast fashion di Shein',
+    'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'IPO di Shein a Hong Kong il 1° settembre con raccolta di 1,75 miliardi USD ma calo del 10%. La Francia introduce «malus» fino a 19,50 € sulla moda usa e getta. Svizzera mantiene regole meno stringenti.',
+    'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Via commerciale svizzera con vetrine e pacchi di spedizione online impilati sul marciapiede, simbolo del contrasto tra vendita tradizionale e e-commerce di moda fast fashion.',
 };
 
 export default blogMetaChIt;

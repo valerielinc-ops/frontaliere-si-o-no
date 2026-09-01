@@ -4993,6 +4993,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Garderie Fribourg : garde d\'enfants, frais',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Garde d\'enfants dans le canton de Fribourg : tarifs, subventions disponibles et procédures pour demander les contributions cantonales aux familles.',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Crèche suisse avec enfants jouant et matériel éducatif',
+    'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Débarquement en sac en clair-obscur pour la mode rapide de Shein',
+    'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'IPO de Shein à Hong Kong le 1er septembre avec une collecte de 1,75 milliard USD mais en baisse de 10%. La France introduit des « malus » jusqu\'à 19,50 € sur la mode jetable. La Suisse maintient des règles moins strictes.',
+    'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Rue commerçante suisse avec vitrines et colis de livraison empilés sur le trottoir, représentant le contraste entre le commerce traditionnel et la mode rapide en ligne.',
 };
 
 export default blogMetaChFr;

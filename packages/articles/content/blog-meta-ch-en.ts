@@ -4993,6 +4993,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.custodia-bambini-friburgo-costi-sussidi.title': 'Kindergarten Freiburg: childcare, costs',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.excerpt': 'Child custody in the canton of Fribourg: rates, subsidies available and procedures for applying for cantonal contributions to families.',
     'blog.article.custodia-bambini-friburgo-costi-sussidi.imageAlt': 'Swiss daycare facility with children playing and educational materials',
+    'blog.article.shein-ipo-hong-kong-malus-francese.title': 'Bag landing in chiaroscuro for Shein\'s fast fashion',
+    'blog.article.shein-ipo-hong-kong-malus-francese.excerpt': 'Shein\'s IPO in Hong Kong on September 1 raised $1.75 billion but fell 10%. France introduces "malus" up to €19.50 on disposable fashion. Switzerland maintains less stringent rules.',
+    'blog.article.shein-ipo-hong-kong-malus-francese.imageAlt': 'Swiss shopping street with store windows and stacked delivery boxes on sidewalk, representing the contrast between traditional retail and online fast fashion.',
 };
 
 export default blogMetaChEn;
