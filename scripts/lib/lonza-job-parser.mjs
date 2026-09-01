@@ -11,6 +11,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -41,7 +42,7 @@ export function slugify(text = '', suffix = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 function stripHtml(html = '') {

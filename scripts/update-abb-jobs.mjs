@@ -48,6 +48,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { inferSwissTargetCanton, inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -178,12 +179,11 @@ function deriveAbbDetailSlug(job) {
     }
   }
 
-  return String(job?.title || '')
+  return truncateSlugAtWordBoundary(String(job?.title || '')
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-zA-Z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 140);
+    .replace(/^-+|-+$/g, ''), 140);
 }
 
 function buildAbbDetailUrl(job) {

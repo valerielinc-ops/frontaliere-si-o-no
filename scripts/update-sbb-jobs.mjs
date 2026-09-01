@@ -59,6 +59,7 @@ import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -577,14 +578,14 @@ function toIsoDate(raw = '') {
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  const slug = String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/&/g, ' e ')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 180);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(slug, 180);
 }
 
 function decodeHtmlEntities(input = '') {

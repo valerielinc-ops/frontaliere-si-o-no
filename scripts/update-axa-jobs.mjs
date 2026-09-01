@@ -57,6 +57,7 @@ import {
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { inferAnyCanton, rescueSwissCityFromText } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -92,14 +93,14 @@ function normalize(value = '') {
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  const slug = String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-');
+  return truncateSlugAtWordBoundary(slug, 180);
 }
 
 function sleep(ms) {
@@ -309,9 +310,9 @@ export function buildAxaRegeneratedSlug(job, location) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (!baseSlug) return '';
-  if (!suffix) return baseSlug.slice(0, 200);
+  if (!suffix) return truncateSlugAtWordBoundary(baseSlug, 200);
   const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
-  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
   return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
 }
 
