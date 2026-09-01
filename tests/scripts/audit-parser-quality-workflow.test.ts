@@ -24,4 +24,8 @@ describe('Audit Parser Quality workflow observability', () => {
     expect(workflow).toMatch(/path: data\/parser-quality-report\.json/);
     expect(workflow).toMatch(/if-no-files-found: error/);
   });
+
+  it('reports a timeout cancellation instead of silently skipping the failure reporter', () => {
+    expect(workflow).toMatch(/name: Report failure to GitHub Issues[\s\S]*?if: failure\(\) \|\| cancelled\(\)/);
+  });
 });
