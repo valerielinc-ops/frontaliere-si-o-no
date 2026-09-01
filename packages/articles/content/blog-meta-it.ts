@@ -11039,6 +11039,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.title': 'Chiusure notturne tra A8 e Diramazione Gallarate-Gattico il 4 settembre',
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.excerpt': 'Autostrade per l\'Italia annuncia chiusure notturne tra A8 e Diramazione Gallarate-Gattico per lavori di pavimentazione e barriere antirumore.',
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.imageAlt': 'Chiusure notturne tra A8 e Diramazione Gallarate-Gattico',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'Con il primo settembre aumentano biglietti e abbonamenti Trenord',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'Dal 1° settembre 2026, i biglietti e abbonamenti Trenord subiscono aumenti significativi, con impatti su tratte come Gallarate-Milano.',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Aumento dei biglietti Trenord dal 1° settembre 2026',
 };
 
 export default blogMetaIt;

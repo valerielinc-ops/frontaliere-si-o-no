@@ -11037,6 +11037,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.title': 'Nächtliche Sperrungen A8 und Gallarate-Gattico am 4. September',
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.excerpt': 'Autostrade per l\'Italia kündigt nächtliche Sperrungen zwischen der A8 und dem Gallarate-Gattico-Zweig wegen Pflasterarbeiten und Lärmschutzwänden an.',
     'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.imageAlt': 'Nächtliche Sperrungen zwischen A8 und Diramazione Gallarate-Gattico',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'Mit dem ersten September steigen die Tickets und Karten für Trenord',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'Ab dem 1. September 2026 werden Trenord-Tickets und -Pässe deutlich erhöht, mit Auswirkungen auf Strecken wie Gallarate-Mailand.',
+    'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Erhöhung der Trenord-Tickets ab dem 1. September 2026',
 };
 
 export default blogMetaDe;
