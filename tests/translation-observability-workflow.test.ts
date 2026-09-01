@@ -4,9 +4,23 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const workflow = fs.readFileSync(path.resolve('.github/workflows/translate-pending-logic.yml'), 'utf8');
+const portableWorkflow = fs.readFileSync(path.resolve('.github/corpus-workflows/translate-pending.yml'), 'utf8');
 const titleFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-titles.mjs'), 'utf8');
 
 describe('translation observability workflow', () => {
+  it('advances true-final state only on successful non-dry source and portable runs', () => {
+    for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
+      const steps: any[] = YAML.parse(document).jobs.translate.steps;
+      const final = steps.find((step) => step.name === 'Capture final translation observability (shadow)');
+      expect(final, `${label}: final observability step missing`).toMatchObject({
+        if: "always() && steps.translation_observability_before.outputs.ready == 'true'",
+      });
+      expect(final.run).toContain('--state data/translation-observability-state.json');
+      expect(final.run).toContain('--state-output data/translation-observability-state.json');
+      expect(final.run).toContain('--advance-state "${{ job.status == \'success\' && inputs.dry_run != true }}"');
+    }
+  });
+
   it('captures baseline after markers and final only after the Phase 2c persistence barrier', () => {
     const before = workflow.indexOf('Capture translation observability baseline');
     const marker = workflow.indexOf('Flag wrong-language job titles');

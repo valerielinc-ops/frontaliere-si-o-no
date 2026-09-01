@@ -297,6 +297,9 @@ jobs:
           node scripts/collect-translation-observability.mjs \
             --mode finish --jobs data/jobs.json \
             --before "$RUNNER_TEMP/translation-observability-before.json" \
+            --state data/translation-observability-state.json \
+            --state-output data/translation-observability-state.json \
+            --advance-state "${{ job.status == 'success' && inputs.dry_run != true }}" \
             --output "$RUNNER_TEMP/translation-observability.json" \
             --run-id "${{ github.run_id }}" \
             --started-at "${{ steps.translation_observability_before.outputs.started_at }}" \
@@ -313,7 +316,12 @@ jobs:
         run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
       - name: Commit translation observability history
         if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "📊 Roll up translation observability" data/translation-observability-history.json
+        run: |
+          telemetry_paths=(data/translation-observability-history.json)
+          if [ -f data/translation-observability-state.json ]; then
+            telemetry_paths+=(data/translation-observability-state.json)
+          fi
+          bash scripts/lib/git-commit-data.sh --slice-only "📊 Roll up translation observability" "${telemetry_paths[@]}"
       - name: Upload translation observability report
         if: always() && steps.translation_observability_before.outputs.ready == 'true'
         uses: actions/upload-artifact@v7
