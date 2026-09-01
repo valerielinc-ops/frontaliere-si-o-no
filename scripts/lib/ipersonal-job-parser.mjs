@@ -143,8 +143,8 @@ export async function fetchAllIpersonalJobs() {
 
     // Pass the full listing, not just `listing.location`: the row already
     // carries the addressLocality/addressRegion/addressCountry evidence that
-    // runIpersonalSpecInProduction's upstream resolveDetailOrListingSwissGeography
-    // used to accept it (e.g. an ambiguous municipality disambiguated only by a
+    // runIpersonalSpecInProduction's upstream geography resolver used to
+    // accept it (e.g. an ambiguous municipality disambiguated only by a
     // structured canton). Re-checking with the bare string alone drops rows
     // upstream already verified, silently reproducing the "snapshot incomplete"
     // fail-closed this quality gate exists to distinguish from.
