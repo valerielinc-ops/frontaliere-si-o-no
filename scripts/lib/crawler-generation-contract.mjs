@@ -1,8 +1,9 @@
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
 import { validateCrawlerGenerationReceipt } from './crawler-generation-receipt.mjs';
+import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
 import { GITHUB_WORKFLOW_DISPATCH_API_VERSION } from '../../functions/src/githubApiHeaders.js';
 
-export { canonicalJson, digestDocument };
+export { canonicalJson, digestDocument, isCrawlerGenerationToken };
 
 export const GROUP_IDS = Object.freeze(Array.from({ length: 23 }, (_, index) => String(index + 1).padStart(2, '0')));
 export const GROUP_MANIFEST_REASON_CODES = Object.freeze([
@@ -71,7 +72,6 @@ const OBJECT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const SLICE_RE = /^data\/jobs\/by-crawler\/[a-z0-9][a-z0-9._-]*\.json$/;
 const REPOSITORY_RE = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
 const CRAWLER_ID_RE = /^[a-z0-9][a-z0-9._-]{0,127}$/;
-const GENERATION_TOKEN_RE = /^[1-9][0-9]*-[1-9][0-9]*$/;
 const RECEIPT_OUTCOME_SET = new Set(['noop', 'pushed', 'push_contention', 'failed']);
 const ACCEPTED_RECEIPT_OUTCOMES = new Set(['noop', 'pushed']);
 const MAX_RECEIPT_FILES = 128;
@@ -104,17 +104,13 @@ export function crawlerGenerationWorkflowName(group) {
   return `Crawler Group ${group} (sparse cross-repo execution)`;
 }
 
-export function isCrawlerGenerationToken(value) {
-  return typeof value === 'string' && GENERATION_TOKEN_RE.test(value);
-}
-
 export function crawlerGenerationRunName(group, generationToken) {
   return `crawler-generation-${generationToken}-group-${group}`;
 }
 
 export function parseCrawlerGenerationRunName(value) {
-  const match = /^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(\d{2})$/.exec(value ?? '');
-  if (!match || !GROUP_ID_SET.has(match[2])) return null;
+  const match = /^crawler-generation-(.+)-group-(\d{2})$/.exec(value ?? '');
+  if (!match || !isCrawlerGenerationToken(match[1]) || !GROUP_ID_SET.has(match[2])) return null;
   return Object.freeze({ generationToken: match[1], group: match[2] });
 }
 
@@ -174,10 +170,10 @@ function dispatchRefForBinding(binding) {
   // generation cycle dispatched pre-deploy and observed post-deploy must
   // keep resolving instead of failing every group closed on the schema edge.
   const runName = binding?.runName ?? '';
-  const groupMatch = /^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(?:0[1-9]|1[0-9]|2[0-3])$/.exec(runName);
-  const sentinelMatch = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(runName);
+  const groupMatch = /^crawler-generation-(.+)-group-(?:0[1-9]|1[0-9]|2[0-3])$/.exec(runName);
+  const sentinelMatch = /^crawler-generation-sentinel-(.+)$/.exec(runName);
   const generationToken = groupMatch?.[1] ?? sentinelMatch?.[1] ?? null;
-  return generationToken ? crawlerGenerationDispatchRef(generationToken) : null;
+  return isCrawlerGenerationToken(generationToken) ? crawlerGenerationDispatchRef(generationToken) : null;
 }
 
 /**
@@ -362,7 +358,7 @@ export function createGroupTerminalManifest(input) {
   const payload = {
     schemaVersion: 1,
     group: input.group,
-    generationToken: typeof input.generationToken === 'string' && GENERATION_TOKEN_RE.test(input.generationToken)
+    generationToken: isCrawlerGenerationToken(input.generationToken)
       ? input.generationToken
       : null,
     callerRepository: input.callerRepository,
@@ -402,7 +398,7 @@ export function validateGroupTerminalManifest(manifest) {
   const errors = [];
   if (manifest.schemaVersion !== 1) errors.push('unsupported_schema_version');
   if (!GROUP_ID_SET.has(manifest.group)) errors.push('invalid_group');
-  if (manifest.generationToken !== null && !GENERATION_TOKEN_RE.test(manifest.generationToken ?? '')) errors.push('invalid_generation_token');
+  if (manifest.generationToken !== null && !isCrawlerGenerationToken(manifest.generationToken)) errors.push('invalid_generation_token');
   if (!REPOSITORY_RE.test(manifest.callerRepository ?? '')) errors.push('invalid_caller_repository');
   if (!validRunId(manifest.callerRunId)) errors.push('invalid_caller_run_id');
   if (!Number.isInteger(manifest.callerRunAttempt) || manifest.callerRunAttempt < 1) errors.push('invalid_caller_run_attempt');
@@ -553,7 +549,7 @@ export function validateCrawlerGenerationRoster(roster) {
  * deliberately absent; it is derived later from their terminal manifests.
  */
 export function createCrawlerGenerationSentinel(input) {
-  if (!GENERATION_TOKEN_RE.test(input.generationToken ?? '')) throw new TypeError('Invalid generation token');
+  if (!isCrawlerGenerationToken(input.generationToken)) throw new TypeError('Invalid generation token');
   if (!COMMIT_RE.test(input.siteCodeCommit ?? '')) throw new TypeError('Invalid site code commit');
   if (!COMMIT_RE.test(input.corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
   if (!input.groupRunIds || typeof input.groupRunIds !== 'object' || Array.isArray(input.groupRunIds)
@@ -623,7 +619,7 @@ export function validateCrawlerGenerationSentinel(sentinel) {
     'schemaVersion', 'generationToken', 'siteCodeCommit', 'corpusCodeCommit', 'callerRepository', 'groups', 'dispatchDiagnostics', 'digest',
   ])) return { valid: false, errors: ['unsupported_schema'] };
   if (sentinel.schemaVersion !== 1) errors.push('unsupported_schema_version');
-  if (!GENERATION_TOKEN_RE.test(sentinel.generationToken ?? '')) errors.push('invalid_generation_token');
+  if (!isCrawlerGenerationToken(sentinel.generationToken)) errors.push('invalid_generation_token');
   if (!COMMIT_RE.test(sentinel.siteCodeCommit ?? '')) errors.push('invalid_site_code_commit');
   if (!COMMIT_RE.test(sentinel.corpusCodeCommit ?? '')) errors.push('invalid_corpus_code_commit');
   if (sentinel.callerRepository !== CALLER_REPOSITORY) errors.push('invalid_caller_repository');
@@ -806,7 +802,7 @@ export function evaluateCrawlerGenerationBarrier(input) {
     && registry.groups && typeof registry.groups === 'object' && !Array.isArray(registry.groups);
   const generationTokenValid = registryShapeValid
     && typeof registry.generationToken === 'string'
-    && GENERATION_TOKEN_RE.test(registry.generationToken)
+    && isCrawlerGenerationToken(registry.generationToken)
     && registry.generationToken === registry.cycleId;
   const registryGroupKeysValid = registryShapeValid && sameStringArrays(Object.keys(registry.groups), GROUP_IDS);
   const registryRunIds = registryGroupKeysValid

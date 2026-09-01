@@ -111,6 +111,7 @@ jobs:
             /scripts/lib/crawler-generation-contract.mjs
             /scripts/lib/crawler-generation-observer-report.mjs
             /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/crawler-generation-token.mjs
             /scripts/lib/github-actions-read-client.mjs
             /scripts/lib/job-match-key.mjs
             /scripts/lib/job-url-key.mjs
@@ -394,6 +395,7 @@ jobs:
             /scripts/lib/crawler-generation-contract.mjs
             /scripts/lib/crawler-generation-observer-report.mjs
             /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/crawler-generation-token.mjs
             /scripts/lib/github-actions-read-client.mjs
             /scripts/lib/job-match-key.mjs
             /scripts/lib/job-url-key.mjs
@@ -449,6 +451,7 @@ jobs:
             /scripts/ci/crawler-generation-observer-selector.mjs
             /scripts/ci/lib/canonical-json-digest.mjs
             /scripts/ci/lib/crawler-generation-observer-report.mjs
+            /scripts/ci/lib/crawler-generation-token.mjs
             /scripts/ci/lib/github-actions-read-client.mjs
 
       - name: Select at most two bounded reconciliation candidates
@@ -502,6 +505,7 @@ jobs:
             /scripts/lib/crawler-generation-contract.mjs
             /scripts/lib/crawler-generation-observer-report.mjs
             /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/crawler-generation-token.mjs
             /scripts/lib/github-actions-read-client.mjs
             /scripts/lib/job-match-key.mjs
             /scripts/lib/job-url-key.mjs

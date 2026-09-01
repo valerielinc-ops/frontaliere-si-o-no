@@ -102,6 +102,7 @@ const CORPUS_OBSERVER_SITE_SOURCES = new Map([
   ['observers/scripts/crawler-generation-observer-selector.mjs', 'scripts/crawler-generation-observer-selector.mjs'],
   ['observers/scripts/lib/canonical-json-digest.mjs', 'scripts/lib/canonical-json-digest.mjs'],
   ['observers/scripts/lib/crawler-generation-observer-report.mjs', 'scripts/lib/crawler-generation-observer-report.mjs'],
+  ['observers/scripts/lib/crawler-generation-token.mjs', 'scripts/lib/crawler-generation-token.mjs'],
   ['observers/scripts/lib/github-actions-read-client.mjs', 'scripts/lib/github-actions-read-client.mjs'],
 ]);
 const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
@@ -113,6 +114,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/canonical-json-digest.mjs',
   'scripts/lib/crawler-generation-contract.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
+  'scripts/lib/crawler-generation-token.mjs',
   'scripts/lib/job-match-key.mjs',
   'scripts/lib/job-url-key.mjs',
   'scripts/lib/slug-history-journal.mjs',
@@ -973,8 +975,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
         'timeout-minutes': JOB_TIMEOUT_MINUTES,
         env: {
           // Job-level env is inherited by every background shell and avoids
-          // hundreds of identical step overrides. The CLI resolves this relative
-          // path strictly underneath the runner-provided RUNNER_TEMP.
+          // hundreds of identical step overrides. The receipt CLIs resolve the
+          // two relative directories strictly underneath runner-provided RUNNER_TEMP.
+          CRAWLER_GENERATION_TOKEN: '${{ inputs.generation_token }}',
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
         },

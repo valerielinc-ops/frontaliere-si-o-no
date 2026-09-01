@@ -90,7 +90,7 @@ test('il contratto censisce 23 gruppi + translate-pending e tutti i crawler unic
   assert.equal(CONTRACT.schemaVersion, 1);
   assert.equal(CONTRACT.groupCount, 23);
   assert.equal(CONTRACT.artifactCount, 24);
-  assert.equal(CONTRACT.observerCount, 6);
+  assert.equal(CONTRACT.observerCount, 7);
   assert.equal(CONTRACT.artifacts.length, 24);
 
   const groups = CONTRACT.artifacts.filter((artifact) => /^crawler-group-\d{2}\.yml$/.test(artifact.file));

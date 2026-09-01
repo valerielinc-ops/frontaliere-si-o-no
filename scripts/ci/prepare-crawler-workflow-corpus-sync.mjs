@@ -39,6 +39,10 @@ export const CORPUS_OBSERVER_FILES = [
     target: 'scripts/ci/lib/crawler-generation-observer-report.mjs',
   },
   {
+    source: 'observers/scripts/lib/crawler-generation-token.mjs',
+    target: 'scripts/ci/lib/crawler-generation-token.mjs',
+  },
+  {
     source: 'observers/scripts/lib/github-actions-read-client.mjs',
     target: 'scripts/ci/lib/github-actions-read-client.mjs',
   },
@@ -89,7 +93,7 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
     : payloads.get(path.basename(sitePath));
 }
 
-/** Consente rispetto a main soltanto la baseline delle 31 entry owned. */
+/** Consente rispetto a main soltanto le baseline crawler owned censite sopra. */
 export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {}) {
   if (!baseManifest || !currentManifest) throw new Error('baseManifest and currentManifest are required');
   const expected = structuredClone(baseManifest);
@@ -109,7 +113,7 @@ export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {
     else expected.files.push(structuredClone(current));
   }
   if (JSON.stringify(currentManifest) !== JSON.stringify(expected)) {
-    throw new Error('crawler transport changed loop-sync manifest outside the 31 owned baselines');
+    throw new Error('crawler transport changed loop-sync manifest outside its owned baselines');
   }
 }
 
@@ -217,7 +221,7 @@ if (isMain) {
     const baseManifest = JSON.parse(fs.readFileSync(0, 'utf8'));
     const currentManifest = JSON.parse(readRequired(corpusRoot).toString('utf8'));
     assertCrawlerManifestDelta({ baseManifest, currentManifest });
-    console.log('Crawler loop-sync manifest delta is confined to 31 owned baselines.');
+    console.log('Crawler loop-sync manifest delta is confined to its owned baselines.');
     process.exit(0);
   }
   const result = prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot });

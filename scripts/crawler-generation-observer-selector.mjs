@@ -4,6 +4,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { canonicalJson, digestDocument } from './lib/canonical-json-digest.mjs';
+import { isCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 import {
   classifyCrawlerGenerationObserverReport,
   createSentinelSetBinding,
@@ -20,7 +21,6 @@ const OBSERVER_WORKFLOW = 'crawler-generation-observer-shadow.yml';
 const OBSERVER_PATH = `.github/workflows/${OBSERVER_WORKFLOW}`;
 const OBSERVER_WORKFLOW_NAME = 'Crawler Generation Observer (shadow)';
 const GENERATION_DISPATCH_REF_PREFIX = 'crawler-generation-shadow-';
-const TOKEN_RE = /^[1-9][0-9]*-[1-9][0-9]*$/;
 const RUN_ID_RE = /^[1-9][0-9]*$/;
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
@@ -96,7 +96,7 @@ function exactRunBase(run, runId, headBranch = 'main') {
 export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCodeCommit }) {
   const runName = `crawler-generation-sentinel-${generationToken}`;
   return RUN_ID_RE.test(String(runId ?? ''))
-    && TOKEN_RE.test(generationToken ?? '')
+    && isCrawlerGenerationToken(generationToken)
     && COMMIT_RE.test(corpusCodeCommit ?? '')
     && exactRunBase(run, runId, generationDispatchRef(generationToken))
     && (run.name === OBSERVER_WORKFLOW_NAME || run.name === runName)
@@ -106,7 +106,7 @@ export function validateSentinelOwnerRun(run, { runId, generationToken, corpusCo
 }
 
 export function validateObserverReportOwnerRun(run, runId, generationToken = null) {
-  const headBranch = run?.event === 'workflow_dispatch' && TOKEN_RE.test(generationToken ?? '')
+  const headBranch = run?.event === 'workflow_dispatch' && isCrawlerGenerationToken(generationToken)
     ? generationDispatchRef(generationToken)
     : 'main';
   if (!RUN_ID_RE.test(String(runId ?? '')) || !exactRunBase(run, runId, headBranch)) return false;
@@ -116,7 +116,7 @@ export function validateObserverReportOwnerRun(run, runId, generationToken = nul
     expectedName = /^crawler-generation-observer-event-[1-9][0-9]*$/.test(run.display_title ?? '')
       ? run.display_title
       : null;
-  } else if (run.event === 'workflow_dispatch' && TOKEN_RE.test(generationToken ?? '')) {
+  } else if (run.event === 'workflow_dispatch' && isCrawlerGenerationToken(generationToken)) {
     expectedName = `crawler-generation-sentinel-${generationToken}`;
   } else return false;
   return expectedName !== null
@@ -130,7 +130,7 @@ export function selectLatestCrawlerGenerationObserverReport({
   expected = null,
   records,
 }) {
-  if (!TOKEN_RE.test(generationToken ?? '') || !Array.isArray(records)) {
+  if (!isCrawlerGenerationToken(generationToken) || !Array.isArray(records)) {
     throw new TypeError('invalid_observer_report_records');
   }
   const valid = records.filter(({ ownerRun, report }) => (
@@ -168,7 +168,7 @@ export function selectCrawlerGenerationReconciliations({ now, candidates }) {
   if (!Number.isFinite(now) || !Array.isArray(candidates)) throw new TypeError('invalid_selector_input');
   const byToken = new Map();
   for (const candidate of candidates) {
-    if (!TOKEN_RE.test(candidate?.generationToken ?? '')) throw new TypeError('invalid_selector_candidate');
+    if (!isCrawlerGenerationToken(candidate?.generationToken)) throw new TypeError('invalid_selector_candidate');
     const prior = byToken.get(candidate.generationToken);
     if (prior && canonicalJson(prior) !== canonicalJson(candidate)) {
       throw new TypeError('duplicate_generation_token_conflict');
@@ -219,7 +219,7 @@ export function selectCrawlerGenerationReconciliations({ now, candidates }) {
 
 function validateSentinelDocument(sentinel) {
   if (!sentinel || sentinel.schemaVersion !== 1
-      || !TOKEN_RE.test(sentinel.generationToken ?? '')
+      || !isCrawlerGenerationToken(sentinel.generationToken)
       || !COMMIT_RE.test(sentinel.siteCodeCommit ?? '')
       || !COMMIT_RE.test(sentinel.corpusCodeCommit ?? '')
       || sentinel.callerRepository !== CALLER_REPOSITORY
@@ -302,8 +302,11 @@ async function downloadArtifactJson({ client, artifact, expectedName, maxBytes, 
 }
 
 function parseSentinelToken(run) {
-  const match = /^crawler-generation-sentinel-([1-9][0-9]*-[1-9][0-9]*)$/.exec(run?.display_title ?? '');
-  return match && (run.name === OBSERVER_WORKFLOW_NAME || run.name === run.display_title) ? match[1] : null;
+  const match = /^crawler-generation-sentinel-(.+)$/.exec(run?.display_title ?? '');
+  return match && isCrawlerGenerationToken(match[1])
+    && (run.name === OBSERVER_WORKFLOW_NAME || run.name === run.display_title)
+    ? match[1]
+    : null;
 }
 
 function assertList(response, key, cap) {

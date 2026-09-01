@@ -541,7 +541,10 @@ describe('crawler generation dispatch protocol', () => {
 
   it('reaps exact stale cancelled/timed-out owners with one documented list request', async () => {
     const now = Date.parse('2026-09-01T12:00:00.000Z');
-    const tokens = ['8001-1', '8002-2', generationToken, 'invalid-token'];
+    const tokens = [
+      '8001-1', '8002-2', generationToken, 'invalid-token',
+      '08003-1', '8004-01', '8005-0', '8006-1-extra',
+    ];
     const refs = tokens.map((token, index) => ({
       ref: `refs/heads/crawler-generation-shadow-${token}`,
       object: { type: 'commit', sha: String(index + 1).repeat(40) },
@@ -583,7 +586,9 @@ describe('crawler generation dispatch protocol', () => {
 
     await expect(reapStaleCrawlerGenerationDispatchRefs({
       request, currentGenerationToken: generationToken, now,
-    })).resolves.toEqual({ status: 'ok', listed: 4, reaped: 2, preserved: 2, truncated: false });
+    })).resolves.toEqual({
+      status: 'ok', listed: tokens.length, reaped: 2, preserved: tokens.length - 2, truncated: false,
+    });
     expect(deleted).toEqual([
       `/repos/${repository}/git/refs/heads/crawler-generation-shadow-8001-1`,
       `/repos/${repository}/git/refs/heads/crawler-generation-shadow-8002-2`,

@@ -4,7 +4,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
-import { CORPUS_OBSERVER_FILES } from '../../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
+import {
+  CRAWLER_WORKFLOW_FILES,
+  CORPUS_OBSERVER_FILES,
+} from '../../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const workflowPath = path.join(ROOT, '.github/workflows/sync-crawler-workflows-to-corpus.yml');
@@ -54,6 +57,7 @@ describe('crawler workflow corpus transport', () => {
     expect(script).toContain('crawler-generation-observer-shadow\\.yml');
     expect(script).toContain('generator/data/crawler-cross-repo-contract\\.json');
     expect(script).toContain('generator/tests/crawler-cross-repo-artifacts\\.test\\.mjs');
+    expect(script).toContain('scripts/ci/lib/crawler-generation-token');
     expect(script).toContain('scripts/ci/loop-sync-manifest\\.json');
     expect(script).toContain('--assert-manifest-delta');
     expect(script).toContain('git diff --cached --diff-filter=D --name-only');
@@ -175,7 +179,7 @@ fi
       ], { encoding: 'utf8' }));
       const ownedMappings = transportedLoopManifest.files.filter((entry: any) =>
         entry.sitePath?.startsWith('.github/corpus-workflows/'));
-      expect(ownedMappings).toHaveLength(31);
+      expect(ownedMappings).toHaveLength(CRAWLER_WORKFLOW_FILES.length + CORPUS_OBSERVER_FILES.length + 1);
       expect(ownedMappings).toEqual(expect.arrayContaining(CORPUS_OBSERVER_FILES.map(({ source, target }) => ({
         path: target,
         sitePath: `.github/corpus-workflows/${source}`,
