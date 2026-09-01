@@ -1,18 +1,18 @@
 {
   "key": "apleona-schweiz-ag",
   "label": "Apleona Schweiz AG",
-  "generatedAt": "2026-09-01T10:26:42.457Z",
-  "total": 12,
+  "generatedAt": "2026-09-01T14:25:56.057Z",
+  "total": 10,
   "discovered": null,
-  "written": 12,
+  "written": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 17714,
-  "avgDurationMs": 17714,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 17905,
+  "avgDurationMs": 17905,
   "durationHistory": [
-    17714
+    17905
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2505/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:40.025Z",
+      "crawledAt": "2026-09-01T14:25:53.016Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2542/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:40.326Z",
+      "crawledAt": "2026-09-01T14:25:53.317Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2553/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:37.602Z",
+      "crawledAt": "2026-09-01T14:25:50.588Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -136,7 +136,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2552/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:37.905Z",
+      "crawledAt": "2026-09-01T14:25:50.891Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2550/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:39.122Z",
+      "crawledAt": "2026-09-01T14:25:52.112Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2547/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:38.214Z",
+      "crawledAt": "2026-09-01T14:25:51.205Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2481/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:38.515Z",
+      "crawledAt": "2026-09-01T14:25:51.506Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -279,7 +279,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2551/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:38.818Z",
+      "crawledAt": "2026-09-01T14:25:51.809Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -315,7 +315,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2530/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:39.423Z",
+      "crawledAt": "2026-09-01T14:25:52.413Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -351,7 +351,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2546/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:26:39.724Z",
+      "crawledAt": "2026-09-01T14:25:52.715Z",
       "addressLocality": "Schaffhausen / Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -375,8 +375,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "apleona-schweiz-ag-c79a2a42a614",
       "slug": "responsabile-immobiliare-m-f-d-apleona-schweiz-ag-lugano",
@@ -456,5 +455,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
