@@ -335,7 +335,7 @@ describe('translation observability', () => {
 
     let cappedHistory: any = null;
     for (let index = 0; index < 110; index++) {
-      const next = redigest({ ...one, runId: String(index), finishedAt: new Date(Date.UTC(2016 + index, 0, 1)).toISOString() });
+      const next = redigest({ ...one, runId: String(index), finishedAt: new Date(Date.UTC(2016 + index, 0, 1)).toISOString(), stateTransition: { ...one.stateTransition, generation: index + 1 } });
       cappedHistory = rollupTranslationObservability(cappedHistory, next);
     }
     expect(cappedHistory.weeks.length).toBeLessThanOrEqual(104);
@@ -372,11 +372,24 @@ describe('translation observability', () => {
       { ...legacy.baselineReports[0], outcome: 'failure' },
       legacy.baselineReports[0],
     ];
-    const next = redigest({ ...eligible, runId: 'next', finishedAt: '2026-09-01T00:01:00Z' });
+    const next = redigest({ ...eligible, runId: 'next', finishedAt: '2026-09-01T00:01:00Z', stateTransition: { ...eligible.stateTransition, generation: 2 } });
     const result = rollupTranslationObservability(legacy, next);
 
     expect(result.baselineReports).toHaveLength(2);
     expect(result.baselineReports.every((entry) => entry.outcome === 'success' && entry.stateTransition.advanced && entry.languageQuality.trueFinal.measured)).toBe(true);
     expect(result.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 2, ready: false });
+  });
+
+  it('counts each eligible generation once while retaining duplicate-generation operational evidence', () => {
+    const eligible = report(generation(null, [job()]), [], [job()]);
+    const replay = redigest({ ...eligible, runId: 'replay', finishedAt: '2026-08-31T00:02:00Z' });
+    const history = rollupTranslationObservability(rollupTranslationObservability(null, eligible), replay);
+
+    expect(history.baselineReports).toHaveLength(1);
+    expect(history.baselineReports[0].digest).toBe(eligible.digest);
+    expect(history.baselineStatus).toEqual({ requiredGenerations: 14, collectedGenerations: 1, ready: false });
+    expect(history.weeks[0].runs).toBe(2);
+    expect(history.months[0].runs).toBe(2);
+    expect(history.seenReports).toHaveLength(2);
   });
 });

@@ -51,6 +51,14 @@ function updateBaseline(output, entry) {
   output.baselineReports = (output.baselineReports || []).filter(baselineEligible);
   if (baselineEligible(entry)) output.baselineReports.push(entry);
   output.baselineReports.sort((left, right) => left.finishedAt.localeCompare(right.finishedAt) || left.digest.localeCompare(right.digest));
+  // After the stable sort, retain the earliest report for each generation.
+  const generations = new Set();
+  output.baselineReports = output.baselineReports.filter((report) => {
+    const { generation } = report.stateTransition;
+    if (generations.has(generation)) return false;
+    generations.add(generation);
+    return true;
+  });
   if (output.baselineReports.length > BASELINE_CAP) output.baselineReports.splice(BASELINE_CAP);
   output.baselineStatus = {
     requiredGenerations: BASELINE_CAP,
