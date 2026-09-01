@@ -1699,7 +1699,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1710,7 +1709,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"amina-bank","primarySlice":"data/jobs/by-crawler/amina-bank.json"},{"crawlerId":"apleona-schweiz-ag","primarySlice":"data/jobs/by-crawler/apleona-schweiz-ag.json"},{"crawlerId":"bally","primarySlice":"data/jobs/by-crawler/bally.json"},{"crawlerId":"baloise","primarySlice":"data/jobs/by-crawler/baloise.json"},{"crawlerId":"bobst","primarySlice":"data/jobs/by-crawler/bobst.json"},{"crawlerId":"canton-valais","primarySlice":"data/jobs/by-crawler/canton-valais.json"},{"crawlerId":"constellium","primarySlice":"data/jobs/by-crawler/constellium.json"},{"crawlerId":"empa","primarySlice":"data/jobs/by-crawler/empa.json"},{"crawlerId":"etat-de-fribourg","primarySlice":"data/jobs/by-crawler/etat-de-fribourg.json"},{"crawlerId":"etat-de-vaud","primarySlice":"data/jobs/by-crawler/etat-de-vaud.json"},{"crawlerId":"etavis","primarySlice":"data/jobs/by-crawler/etavis.json"},{"crawlerId":"hofweissbad","primarySlice":"data/jobs/by-crawler/hofweissbad.json"},{"crawlerId":"huber-suhner","primarySlice":"data/jobs/by-crawler/huber-suhner.json"},{"crawlerId":"kanton-zuerich","primarySlice":"data/jobs/by-crawler/kanton-zuerich.json"},{"crawlerId":"kantonsspital-uri","primarySlice":"data/jobs/by-crawler/kantonsspital-uri.json"},{"crawlerId":"klinik-schloss-mammern","primarySlice":"data/jobs/by-crawler/klinik-schloss-mammern.json"},{"crawlerId":"ksml","primarySlice":"data/jobs/by-crawler/ksml.json"},{"crawlerId":"pkb-private-bank","primarySlice":"data/jobs/by-crawler/pkb-private-bank.json"},{"crawlerId":"rheinmetall-air-defence","primarySlice":"data/jobs/by-crawler/rheinmetall-air-defence.json"},{"crawlerId":"sfs-group","primarySlice":"data/jobs/by-crawler/sfs-group.json"},{"crawlerId":"sicpa","primarySlice":"data/jobs/by-crawler/sicpa.json"},{"crawlerId":"spital-lachen","primarySlice":"data/jobs/by-crawler/spital-lachen.json"},{"crawlerId":"tertianum","primarySlice":"data/jobs/by-crawler/tertianum.json"},{"crawlerId":"tinext","primarySlice":"data/jobs/by-crawler/tinext.json"},{"crawlerId":"trumpf-schweiz","primarySlice":"data/jobs/by-crawler/trumpf-schweiz.json"},{"crawlerId":"usi-universita-della-svizzera-italiana","primarySlice":"data/jobs/by-crawler/usi-universita-della-svizzera-italiana.json"},{"crawlerId":"zermatt-bergbahnen","primarySlice":"data/jobs/by-crawler/zermatt-bergbahnen.json"},{"crawlerId":"zuger-kantonsspital","primarySlice":"data/jobs/by-crawler/zuger-kantonsspital.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-18-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

@@ -1560,7 +1560,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1571,7 +1570,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"air-zermatt","primarySlice":"data/jobs/by-crawler/air-zermatt.json"},{"crawlerId":"apple-retail-switzerland","primarySlice":"data/jobs/by-crawler/apple-retail-switzerland.json"},{"crawlerId":"bcv","primarySlice":"data/jobs/by-crawler/bcv.json"},{"crawlerId":"bethesda-spital","primarySlice":"data/jobs/by-crawler/bethesda-spital.json"},{"crawlerId":"colin-cie","primarySlice":"data/jobs/by-crawler/colin-cie.json"},{"crawlerId":"concara","primarySlice":"data/jobs/by-crawler/concara.json"},{"crawlerId":"concordia","primarySlice":"data/jobs/by-crawler/concordia.json"},{"crawlerId":"csc-costruzioni","primarySlice":"data/jobs/by-crawler/csc-costruzioni.json"},{"crawlerId":"engadin-tourismus","primarySlice":"data/jobs/by-crawler/engadin-tourismus.json"},{"crawlerId":"ermenegildo-zegna-logistica","primarySlice":"data/jobs/by-crawler/ermenegildo-zegna-logistica.json"},{"crawlerId":"ete","primarySlice":"data/jobs/by-crawler/ete.json"},{"crawlerId":"fielmann","primarySlice":"data/jobs/by-crawler/fielmann.json"},{"crawlerId":"fusalp","primarySlice":"data/jobs/by-crawler/fusalp.json"},{"crawlerId":"hirslanden","primarySlice":"data/jobs/by-crawler/hirslanden.json"},{"crawlerId":"klinik-barmelweid","primarySlice":"data/jobs/by-crawler/klinik-barmelweid.json"},{"crawlerId":"localsearch","primarySlice":"data/jobs/by-crawler/localsearch.json"},{"crawlerId":"lwphr","primarySlice":"data/jobs/by-crawler/lwphr.json"},{"crawlerId":"oetiker","primarySlice":"data/jobs/by-crawler/oetiker.json"},{"crawlerId":"paraplegie","primarySlice":"data/jobs/by-crawler/paraplegie.json"},{"crawlerId":"solina","primarySlice":"data/jobs/by-crawler/solina.json"},{"crawlerId":"spital-muri","primarySlice":"data/jobs/by-crawler/spital-muri.json"},{"crawlerId":"spital-oberengadin","primarySlice":"data/jobs/by-crawler/spital-oberengadin.json"},{"crawlerId":"spital-sts","primarySlice":"data/jobs/by-crawler/spital-sts.json"},{"crawlerId":"sunrise-sede-ticino","primarySlice":"data/jobs/by-crawler/sunrise-sede-ticino.json"},{"crawlerId":"suva","primarySlice":"data/jobs/by-crawler/suva.json"},{"crawlerId":"the-living-circle","primarySlice":"data/jobs/by-crawler/the-living-circle.json"},{"crawlerId":"weisse-arena","primarySlice":"data/jobs/by-crawler/weisse-arena.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-09-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

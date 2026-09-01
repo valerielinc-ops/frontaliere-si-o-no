@@ -1586,7 +1586,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1597,7 +1596,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"adullam","primarySlice":"data/jobs/by-crawler/adullam.json"},{"crawlerId":"amministrazione-cantonale-ti","primarySlice":"data/jobs/by-crawler/amministrazione-cantonale-ti.json"},{"crawlerId":"benteler","primarySlice":"data/jobs/by-crawler/benteler.json"},{"crawlerId":"claraspital","primarySlice":"data/jobs/by-crawler/claraspital.json"},{"crawlerId":"csvm-mustair","primarySlice":"data/jobs/by-crawler/csvm-mustair.json"},{"crawlerId":"davos-klosters-bergbahnen","primarySlice":"data/jobs/by-crawler/davos-klosters-bergbahnen.json"},{"crawlerId":"decathlon","primarySlice":"data/jobs/by-crawler/decathlon.json"},{"crawlerId":"entero","primarySlice":"data/jobs/by-crawler/entero.json"},{"crawlerId":"eoc-ente-ospedaliero-cantonale","primarySlice":"data/jobs/by-crawler/eoc-ente-ospedaliero-cantonale.json"},{"crawlerId":"everest-re","primarySlice":"data/jobs/by-crawler/everest-re.json"},{"crawlerId":"fhgr","primarySlice":"data/jobs/by-crawler/fhgr.json"},{"crawlerId":"franklin-university","primarySlice":"data/jobs/by-crawler/franklin-university.json"},{"crawlerId":"gemeinde-st-moritz","primarySlice":"data/jobs/by-crawler/gemeinde-st-moritz.json"},{"crawlerId":"ghol","primarySlice":"data/jobs/by-crawler/ghol.json"},{"crawlerId":"hopital-la-tour","primarySlice":"data/jobs/by-crawler/hopital-la-tour.json"},{"crawlerId":"kantonsspital-graubuenden-ksgr","primarySlice":"data/jobs/by-crawler/kantonsspital-graubuenden-ksgr.json"},{"crawlerId":"kispi-sg","primarySlice":"data/jobs/by-crawler/kispi-sg.json"},{"crawlerId":"lastminute-com","primarySlice":"data/jobs/by-crawler/lastminute-com.json"},{"crawlerId":"postauto","primarySlice":"data/jobs/by-crawler/postauto.json"},{"crawlerId":"recruitingapp-1154","primarySlice":"data/jobs/by-crawler/recruitingapp-1154.json"},{"crawlerId":"rehaklinik-hasliberg","primarySlice":"data/jobs/by-crawler/rehaklinik-hasliberg.json"},{"crawlerId":"senevita","primarySlice":"data/jobs/by-crawler/senevita.json"},{"crawlerId":"spital-nidwalden","primarySlice":"data/jobs/by-crawler/spital-nidwalden.json"},{"crawlerId":"spitex-zuerich","primarySlice":"data/jobs/by-crawler/spitex-zuerich.json"},{"crawlerId":"swica","primarySlice":"data/jobs/by-crawler/swica.json"},{"crawlerId":"swisscom-sede-ticino","primarySlice":"data/jobs/by-crawler/swisscom-sede-ticino.json"},{"crawlerId":"vir-biotechnology","primarySlice":"data/jobs/by-crawler/vir-biotechnology.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-16-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

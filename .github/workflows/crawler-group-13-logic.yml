@@ -1550,7 +1550,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1561,7 +1560,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"afry","primarySlice":"data/jobs/by-crawler/afry.json"},{"crawlerId":"answerconsulting","primarySlice":"data/jobs/by-crawler/answerconsulting.json"},{"crawlerId":"banca-sempione","primarySlice":"data/jobs/by-crawler/banca-sempione.json"},{"crawlerId":"buehler","primarySlice":"data/jobs/by-crawler/buehler.json"},{"crawlerId":"careers","primarySlice":"data/jobs/by-crawler/careers.json"},{"crawlerId":"cern","primarySlice":"data/jobs/by-crawler/cern.json"},{"crawlerId":"csvp-poschiavo","primarySlice":"data/jobs/by-crawler/csvp-poschiavo.json"},{"crawlerId":"edmond-de-rothschild","primarySlice":"data/jobs/by-crawler/edmond-de-rothschild.json"},{"crawlerId":"groupe-e","primarySlice":"data/jobs/by-crawler/groupe-e.json"},{"crawlerId":"helsana","primarySlice":"data/jobs/by-crawler/helsana.json"},{"crawlerId":"idorsia","primarySlice":"data/jobs/by-crawler/idorsia.json"},{"crawlerId":"kuhn-rikon","primarySlice":"data/jobs/by-crawler/kuhn-rikon.json"},{"crawlerId":"lombardi-group","primarySlice":"data/jobs/by-crawler/lombardi-group.json"},{"crawlerId":"novartis","primarySlice":"data/jobs/by-crawler/novartis.json"},{"crawlerId":"nsn-medical","primarySlice":"data/jobs/by-crawler/nsn-medical.json"},{"crawlerId":"on-running","primarySlice":"data/jobs/by-crawler/on-running.json"},{"crawlerId":"pbl","primarySlice":"data/jobs/by-crawler/pbl.json"},{"crawlerId":"prada","primarySlice":"data/jobs/by-crawler/prada.json"},{"crawlerId":"pwc","primarySlice":"data/jobs/by-crawler/pwc.json"},{"crawlerId":"reboot-monkey","primarySlice":"data/jobs/by-crawler/reboot-monkey.json"},{"crawlerId":"recruitingapp-2677","primarySlice":"data/jobs/by-crawler/recruitingapp-2677.json"},{"crawlerId":"riri","primarySlice":"data/jobs/by-crawler/riri.json"},{"crawlerId":"sophia-genetics","primarySlice":"data/jobs/by-crawler/sophia-genetics.json"},{"crawlerId":"staubli","primarySlice":"data/jobs/by-crawler/staubli.json"},{"crawlerId":"ubp","primarySlice":"data/jobs/by-crawler/ubp.json"},{"crawlerId":"uroviva","primarySlice":"data/jobs/by-crawler/uroviva.json"},{"crawlerId":"zfv-unternehmungen","primarySlice":"data/jobs/by-crawler/zfv-unternehmungen.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-13-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs

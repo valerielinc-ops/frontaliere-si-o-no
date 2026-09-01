@@ -1554,7 +1554,6 @@ jobs:
           fi
           exit 0
       - name: Wait for all crawlers in this group
-        id: crawler-generation-wait
         wait-all: true
       - name: Finalize crawler generation manifest (shadow)
         if: always()
@@ -1565,7 +1564,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_REPOSITORY: ${{ github.repository }}
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
-          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler-generation-wait.outcome }}
+          CRAWLER_GENERATION_WAIT_OUTCOME: ${{ job.status }}
           CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"agroscope","primarySlice":"data/jobs/by-crawler/agroscope.json"},{"crawlerId":"amstein-walthert","primarySlice":"data/jobs/by-crawler/amstein-walthert.json"},{"crawlerId":"berner-klinik-montana","primarySlice":"data/jobs/by-crawler/berner-klinik-montana.json"},{"crawlerId":"bms-building","primarySlice":"data/jobs/by-crawler/bms-building.json"},{"crawlerId":"bracco","primarySlice":"data/jobs/by-crawler/bracco.json"},{"crawlerId":"caseificio-gottardo","primarySlice":"data/jobs/by-crawler/caseificio-gottardo.json"},{"crawlerId":"cedes","primarySlice":"data/jobs/by-crawler/cedes.json"},{"crawlerId":"citta-di-bellinzona","primarySlice":"data/jobs/by-crawler/citta-di-bellinzona.json"},{"crawlerId":"citta-di-mendrisio","primarySlice":"data/jobs/by-crawler/citta-di-mendrisio.json"},{"crawlerId":"clinique-la-source","primarySlice":"data/jobs/by-crawler/clinique-la-source.json"},{"crawlerId":"csd-engineers","primarySlice":"data/jobs/by-crawler/csd-engineers.json"},{"crawlerId":"epi-geneve","primarySlice":"data/jobs/by-crawler/epi-geneve.json"},{"crawlerId":"eraneos","primarySlice":"data/jobs/by-crawler/eraneos.json"},{"crawlerId":"faulhaber","primarySlice":"data/jobs/by-crawler/faulhaber.json"},{"crawlerId":"gavi","primarySlice":"data/jobs/by-crawler/gavi.json"},{"crawlerId":"grand-hotel-des-bains-kempinski","primarySlice":"data/jobs/by-crawler/grand-hotel-des-bains-kempinski.json"},{"crawlerId":"h-ju-hopital-du-jura","primarySlice":"data/jobs/by-crawler/h-ju-hopital-du-jura.json"},{"crawlerId":"hugo-boss","primarySlice":"data/jobs/by-crawler/hugo-boss.json"},{"crawlerId":"ipersonal","primarySlice":"data/jobs/by-crawler/ipersonal.json"},{"crawlerId":"klinik-schuetzen","primarySlice":"data/jobs/by-crawler/klinik-schuetzen.json"},{"crawlerId":"schulthess-klinik","primarySlice":"data/jobs/by-crawler/schulthess-klinik.json"},{"crawlerId":"straumann","primarySlice":"data/jobs/by-crawler/straumann.json"},{"crawlerId":"talan","primarySlice":"data/jobs/by-crawler/talan.json"},{"crawlerId":"tether","primarySlice":"data/jobs/by-crawler/tether.json"},{"crawlerId":"valora","primarySlice":"data/jobs/by-crawler/valora.json"},{"crawlerId":"vaxcyte","primarySlice":"data/jobs/by-crawler/vaxcyte.json"},{"crawlerId":"vitrea-gesundheit","primarySlice":"data/jobs/by-crawler/vitrea-gesundheit.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-05-terminal.json
         run: node scripts/crawler-group-generation-finalizer.mjs
