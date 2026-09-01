@@ -505,6 +505,27 @@ function defaultIssueRunner(command, args) {
 }
 
 /**
+ * The dedup snapshot (`gh issue list`) is taken in the packet-build step, a
+ * separate CI step from this executor: an issue can close/reopen in that gap.
+ * Re-check state immediately before commenting, right where the mutation
+ * happens, so the window is as small as the runner round-trip instead of the
+ * whole packet-build-to-execute step boundary.
+ * @param {number} issueNumber
+ * @param {(command: string, args: string[]) => { status: number | null, stdout: string, stderr: string, signal?: NodeJS.Signals | null, error?: Error }} runner
+ * @returns {boolean}
+ */
+function issueIsOpen(issueNumber, runner) {
+  const result = runner('gh', ['issue', 'view', String(issueNumber), '--json', 'state', '-q', '.state']);
+  if (!result || result.status !== 0) {
+    const failure = result?.error?.message || result?.stderr || result?.stdout || 'unknown error';
+    throw new Error(
+      `gh state check for issue #${issueNumber} failed (status=${result?.status ?? 'null'}, signal=${result?.signal ?? 'none'}): ${sanitizeIssueError(failure)}`,
+    );
+  }
+  return String(result.stdout || '').trim() === 'OPEN';
+}
+
+/**
  * Execute a validated packet serially; the first failed mutation stops the run.
  * @param {any} packet
  * @param {(command: string, args: string[]) => { status: number | null, stdout: string, stderr: string, signal?: NodeJS.Signals | null, error?: Error }} runner
@@ -517,6 +538,7 @@ export function executeIssuePacket(packet, runner = defaultIssueRunner) {
 
   let created = 0;
   let commented = 0;
+  let skipped = 0;
   for (const [offset, action] of packet.actions.entries()) {
     if (!action || action.index !== offset + 1) throw new Error(`Invalid action index at offset ${offset}`);
     const bodyFile = assertTemporaryPath(action.bodyFile, `action ${action.index} bodyFile`);
@@ -533,6 +555,14 @@ export function executeIssuePacket(packet, runner = defaultIssueRunner) {
       if (!Number.isSafeInteger(action.issueNumber) || action.issueNumber < 1) {
         throw new Error(`Invalid issue number for action ${action.index}`);
       }
+      if (!issueIsOpen(action.issueNumber, runner)) {
+        process.stderr.write(
+          `[crawler-data-quality] skipping comment for issue #${action.issueNumber} (action ${action.index}):`
+            + ' no longer open — dedup snapshot went stale between packet build and execution\n',
+        );
+        skipped += 1;
+        continue;
+      }
       args = ['issue', 'comment', String(action.issueNumber), '--body-file', bodyFile];
     } else {
       throw new Error(`Unsupported action kind at ${action.index}: ${action.kind}`);
@@ -548,7 +578,7 @@ export function executeIssuePacket(packet, runner = defaultIssueRunner) {
     if (action.kind === 'create') created += 1;
     else commented += 1;
   }
-  return { attempted: packet.actions.length, created, commented };
+  return { attempted: packet.actions.length, created, commented, skipped };
 }
 
 function main() {
