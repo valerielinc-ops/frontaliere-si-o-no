@@ -4927,6 +4927,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-stabile.title': 'Der Referenzhypothekenzins bleibt stabil',
     'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'Der Referenzhypothekenzins in der Schweiz bleibt bei 1,25 %. Das Bundesbüro für Wohnungswesen (FOH) bestätigt den unveränderten Wert vom 2. September 2025.',
     'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Luftaufnahme von Lugano und seinem See, Schweiz',
+    'blog.article.formazione-azienda-prioritario.title': 'Interne Schulungen: neue bundesweite Priorität bis 2028',
+    'blog.article.formazione-azienda-prioritario.excerpt': 'SERI stellt 3 Millionen CHF bereit, um die Qualität der dualen beruflichen Ausbildung und Ausbildung im Zeitraum 2026–2028 zu stärken.',
+    'blog.article.formazione-azienda-prioritario.imageAlt': 'Schweizer Lehrling während praktischer Ausbildung in einer modernen Werkstatt.',
 };
 
 export default blogMetaChDe;

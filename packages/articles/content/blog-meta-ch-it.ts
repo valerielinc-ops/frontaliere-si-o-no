@@ -4927,6 +4927,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-stabile.title': 'Il tasso ipotecario di riferimento rimane stabile',
     'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'Il tasso ipotecario di riferimento in Svizzera rimane all\'1,25%. L\'Ufficio federale delle abitazioni (UFAB) conferma il valore invariato dal 2 settembre 2025.',
     'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Vista aerea di Lugano e del suo lago, Svizzera',
+    'blog.article.formazione-azienda-prioritario.title': 'Formazione in azienda: nuova priorità federale fino al 2028',
+    'blog.article.formazione-azienda-prioritario.excerpt': 'La SEFRI stanzia 3 milioni di franchi per rafforzare la qualità della formazione professionale duale nel periodo 2026-2028.',
+    'blog.article.formazione-azienda-prioritario.imageAlt': 'Apprendista in una bottega artigianale svizzera durante una lezione pratica di formazione.',
 };
 
 export default blogMetaChIt;

@@ -14779,6 +14779,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'formazione-azienda-prioritario',
+    category: 'novita',
+    date: '2026-09-01T12:20:18.218Z',
+    image: '/images/blog/formazione-azienda-prioritario.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

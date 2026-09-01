@@ -4927,6 +4927,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-stabile.title': 'Le taux hypothécaire de référence reste stable',
     'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'Le taux hypothécaire de référence en Suisse reste à 1,25 %. L’Office fédéral du logement (FOH) confirme la valeur inchangée du 2 septembre 2025.',
     'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Vue aérienne de la ville et du lac de Lugano, Suisse',
+    'blog.article.formazione-azienda-prioritario.title': 'Formation en entreprise : nouvelle priorité fédérale jusqu’en 2028',
+    'blog.article.formazione-azienda-prioritario.excerpt': 'La SERI alloue 3 millions de CHF pour renforcer la qualité de l’enseignement et de la formation vocationnelles doubles pour la période 2026-2028.',
+    'blog.article.formazione-azienda-prioritario.imageAlt': 'Apprenti suisse en formation pratique dans un atelier professionnel moderne.',
 };
 
 export default blogMetaChFr;
