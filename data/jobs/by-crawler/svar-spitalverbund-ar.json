@@ -1,6 +1,6 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-09-01T10:14:32.663Z",
+  "assembledAt": "2026-09-01T14:10:28.033Z",
   "jobs": [
     {
       "id": "svar-spitalverbund-ar-cea5f9d82096",
@@ -100,7 +100,8 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "svar-spitalverbund-ar-1dd9680d57b7",
@@ -134,7 +135,7 @@
       "url": "https://live.solique.ch/svar/job/details/4056188",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:27.296Z",
+      "crawledAt": "2026-09-01T14:10:21.605Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -215,7 +216,7 @@
       "url": "https://live.solique.ch/svar/job/details/4056152",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:26.397Z",
+      "crawledAt": "2026-09-01T14:10:20.930Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -300,7 +301,7 @@
       "url": "https://live.solique.ch/svar/job/details/4056199",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:25.735Z",
+      "crawledAt": "2026-09-01T14:10:20.256Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -377,7 +378,7 @@
       "url": "https://live.solique.ch/svar/job/details/4059251",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:25.071Z",
+      "crawledAt": "2026-09-01T14:10:19.491Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -473,7 +474,7 @@
       "url": "https://live.solique.ch/svar/job/details/4047061",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:24.308Z",
+      "crawledAt": "2026-09-01T14:10:18.812Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -571,7 +572,7 @@
       "url": "https://live.solique.ch/svar/job/details/4061274",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:23.521Z",
+      "crawledAt": "2026-09-01T14:10:18.117Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -636,7 +637,7 @@
       "url": "https://live.solique.ch/svar/job/details/4050519",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:22.750Z",
+      "crawledAt": "2026-09-01T14:10:17.439Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -709,7 +710,7 @@
       "url": "https://live.solique.ch/svar/job/details/4062793",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:21.582Z",
+      "crawledAt": "2026-09-01T14:10:16.765Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -782,7 +783,7 @@
       "url": "https://live.solique.ch/svar/job/details/4062789",
       "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:20.710Z",
+      "crawledAt": "2026-09-01T14:10:15.167Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -822,6 +823,73 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "svar-spitalverbund-ar-746141d2ce70",
+      "slug": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+      "slugByLocale": {
+        "de": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "en": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "klinikmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Klinikmanager/in (m/w/d)",
+      "titleByLocale": {
+        "de": "Klinikmanager/in (m/w/d)",
+        "it": "Klinikmanager/in (m/w/d)",
+        "en": "Klinikmanager/in (m/w/d)",
+        "fr": "Klinikmanager/in (m/w/d)"
+      },
+      "description": "Ihre Aufgaben\n• Ressourcen- und Kapazitätsplanung: Verantwortung für die Personaleinsatzplanung (Dienstpläne, Ferien, Rotationen) des ärztlichen Dienstes unter Einhaltung der Arbeitsgesetze\n• Prozessoptimierung: Analyse und Verbesserung der Patientenpfade (z.B. OP-Planung, Sprechstundenorganisation im Ambulatorium, Bettenmanagement)\n• Operative Budgetverantwortung: Bewirtschaftung des Klinikbudgets im Alltag (Kostenkontrolle bei Materialbestellungen, Freigabe von Fortbildungen etc.) in Absprache mit dem Chefarzt.\n• HR- und Schnittstellenmanagement: Begleitung von Rekrutierungsprozessen (Assistenz- und Oberärzte), Onboarding neuer Mitarbeitenden und fungieren als primärer Ansprechpartner für Supportbereiche (HR, IT, Facility Management)\n• Projektmanagement: Leitung von klinikinternen Projekten (z.B. Umzug einer Station, Einführung eines neuen KIS-Moduls\n\nIhr Profil\n• Abgeschlossenes Studium in Gesundheitsökonomie, Betriebswirtschaft oder einem vergleichbaren Fachgebiet oder mehrjährige Berufserfahrung im Spital- bzw. Klinikmanagement\n• Fundiertes Verständnis der klinischen Kernprozesse sowie der operativen Abläufe im Spital\n• Erfahrung in Prozessmanagement, Organisationsentwicklung und Projektleitung\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz, Kommunikationsstärke und Freude an der interdisziplinären Zusammenarbeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. August 2026",
+      "descriptionByLocale": {
+        "de": "Ihre Aufgaben\n• Ressourcen- und Kapazitätsplanung: Verantwortung für die Personaleinsatzplanung (Dienstpläne, Ferien, Rotationen) des ärztlichen Dienstes unter Einhaltung der Arbeitsgesetze\n• Prozessoptimierung: Analyse und Verbesserung der Patientenpfade (z.B. OP-Planung, Sprechstundenorganisation im Ambulatorium, Bettenmanagement)\n• Operative Budgetverantwortung: Bewirtschaftung des Klinikbudgets im Alltag (Kostenkontrolle bei Materialbestellungen, Freigabe von Fortbildungen etc.) in Absprache mit dem Chefarzt.\n• HR- und Schnittstellenmanagement: Begleitung von Rekrutierungsprozessen (Assistenz- und Oberärzte), Onboarding neuer Mitarbeitenden und fungieren als primärer Ansprechpartner für Supportbereiche (HR, IT, Facility Management)\n• Projektmanagement: Leitung von klinikinternen Projekten (z.B. Umzug einer Station, Einführung eines neuen KIS-Moduls\n\nIhr Profil\n• Abgeschlossenes Studium in Gesundheitsökonomie, Betriebswirtschaft oder einem vergleichbaren Fachgebiet oder mehrjährige Berufserfahrung im Spital- bzw. Klinikmanagement\n• Fundiertes Verständnis der klinischen Kernprozesse sowie der operativen Abläufe im Spital\n• Erfahrung in Prozessmanagement, Organisationsentwicklung und Projektleitung\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz, Kommunikationsstärke und Freude an der interdisziplinären Zusammenarbeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. August 2026",
+        "it": "Ihre Aufgaben\n• Ressourcen- und Kapazitätsplanung: Verantwortung für die Personaleinsatzplanung (Dienstpläne, Ferien, Rotationen) des ärztlichen Dienstes unter Einhaltung der Arbeitsgesetze\n• Prozessoptimierung: Analyse und Verbesserung der Patientenpfade (z.B. OP-Planung, Sprechstundenorganisation im Ambulatorium, Bettenmanagement)\n• Operative Budgetverantwortung: Bewirtschaftung des Klinikbudgets im Alltag (Kostenkontrolle bei Materialbestellungen, Freigabe von Fortbildungen etc.) in Absprache mit dem Chefarzt.\n• HR- und Schnittstellenmanagement: Begleitung von Rekrutierungsprozessen (Assistenz- und Oberärzte), Onboarding neuer Mitarbeitenden und fungieren als primärer Ansprechpartner für Supportbereiche (HR, IT, Facility Management)\n• Projektmanagement: Leitung von klinikinternen Projekten (z.B. Umzug einer Station, Einführung eines neuen KIS-Moduls\n\nIhr Profil\n• Abgeschlossenes Studium in Gesundheitsökonomie, Betriebswirtschaft oder einem vergleichbaren Fachgebiet oder mehrjährige Berufserfahrung im Spital- bzw. Klinikmanagement\n• Fundiertes Verständnis der klinischen Kernprozesse sowie der operativen Abläufe im Spital\n• Erfahrung in Prozessmanagement, Organisationsentwicklung und Projektleitung\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz, Kommunikationsstärke und Freude an der interdisziplinären Zusammenarbeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. August 2026",
+        "en": "Ihre Aufgaben\n• Ressourcen- und Kapazitätsplanung: Verantwortung für die Personaleinsatzplanung (Dienstpläne, Ferien, Rotationen) des ärztlichen Dienstes unter Einhaltung der Arbeitsgesetze\n• Prozessoptimierung: Analyse und Verbesserung der Patientenpfade (z.B. OP-Planung, Sprechstundenorganisation im Ambulatorium, Bettenmanagement)\n• Operative Budgetverantwortung: Bewirtschaftung des Klinikbudgets im Alltag (Kostenkontrolle bei Materialbestellungen, Freigabe von Fortbildungen etc.) in Absprache mit dem Chefarzt.\n• HR- und Schnittstellenmanagement: Begleitung von Rekrutierungsprozessen (Assistenz- und Oberärzte), Onboarding neuer Mitarbeitenden und fungieren als primärer Ansprechpartner für Supportbereiche (HR, IT, Facility Management)\n• Projektmanagement: Leitung von klinikinternen Projekten (z.B. Umzug einer Station, Einführung eines neuen KIS-Moduls\n\nIhr Profil\n• Abgeschlossenes Studium in Gesundheitsökonomie, Betriebswirtschaft oder einem vergleichbaren Fachgebiet oder mehrjährige Berufserfahrung im Spital- bzw. Klinikmanagement\n• Fundiertes Verständnis der klinischen Kernprozesse sowie der operativen Abläufe im Spital\n• Erfahrung in Prozessmanagement, Organisationsentwicklung und Projektleitung\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz, Kommunikationsstärke und Freude an der interdisziplinären Zusammenarbeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. August 2026",
+        "fr": "Ihre Aufgaben\n• Ressourcen- und Kapazitätsplanung: Verantwortung für die Personaleinsatzplanung (Dienstpläne, Ferien, Rotationen) des ärztlichen Dienstes unter Einhaltung der Arbeitsgesetze\n• Prozessoptimierung: Analyse und Verbesserung der Patientenpfade (z.B. OP-Planung, Sprechstundenorganisation im Ambulatorium, Bettenmanagement)\n• Operative Budgetverantwortung: Bewirtschaftung des Klinikbudgets im Alltag (Kostenkontrolle bei Materialbestellungen, Freigabe von Fortbildungen etc.) in Absprache mit dem Chefarzt.\n• HR- und Schnittstellenmanagement: Begleitung von Rekrutierungsprozessen (Assistenz- und Oberärzte), Onboarding neuer Mitarbeitenden und fungieren als primärer Ansprechpartner für Supportbereiche (HR, IT, Facility Management)\n• Projektmanagement: Leitung von klinikinternen Projekten (z.B. Umzug einer Station, Einführung eines neuen KIS-Moduls\n\nIhr Profil\n• Abgeschlossenes Studium in Gesundheitsökonomie, Betriebswirtschaft oder einem vergleichbaren Fachgebiet oder mehrjährige Berufserfahrung im Spital- bzw. Klinikmanagement\n• Fundiertes Verständnis der klinischen Kernprozesse sowie der operativen Abläufe im Spital\n• Erfahrung in Prozessmanagement, Organisationsentwicklung und Projektleitung\n• Ausgeprägte organisatorische Fähigkeiten sowie eine strukturierte und lösungsorientierte Arbeitsweise\n• Hohe Sozialkompetenz, Kommunikationsstärke und Freude an der interdisziplinären Zusammenarbeit\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. August 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4063281",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:10:16.089Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4063281",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4063281",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T14:10:16.089Z"
     }
   ]
 }
