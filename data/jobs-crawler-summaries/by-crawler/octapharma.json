@@ -1,7 +1,7 @@
 {
   "key": "octapharma",
   "label": "Octapharma",
-  "generatedAt": "2026-09-01T10:12:24.904Z",
+  "generatedAt": "2026-09-01T14:18:12.019Z",
   "total": 4,
   "discovered": null,
   "written": 4,
@@ -9,10 +9,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8070,
-  "avgDurationMs": 8070,
+  "durationMs": 8569,
+  "avgDurationMs": 8569,
   "durationHistory": [
-    8070
+    8569
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Expert-Clinical-Trial-Documentation-Clinical-Trial-Associate-%28CTA%29/1425186833/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:12:18.376Z",
+      "crawledAt": "2026-09-01T14:18:05.234Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://careers.octapharma.com/job/Lachen-Group-Senior-Manager-Quality-Applications/1410853533/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:12:18.945Z",
+      "crawledAt": "2026-09-01T14:18:05.919Z",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://careers.octapharma.com/job/Wien-SAP-Solution-Architect-%28mfd%29-WMMM/1374416233/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:12:19.493Z",
+      "crawledAt": "2026-09-01T14:18:06.537Z",
       "addressLocality": "Wien",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -119,11 +119,11 @@
       "postedDate": "2026-05-14",
       "applyUrl": "https://careers.octapharma.com/talentcommunity/apply/1374416233/?locale=en_GB",
       "firstSeenAt": "2026-05-19T19:53:25.936Z",
-      "_qualityScore": 81,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
-        "cleanliness": 25,
+        "cleanliness": 20,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -140,7 +140,7 @@
       "url": "https://careers.octapharma.com/job/Wien-Supply-Chain-Planning-Solution-Architect-%28mfd%29/1389327133/",
       "source": "Octapharma Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:12:20.044Z",
+      "crawledAt": "2026-09-01T14:18:07.188Z",
       "addressLocality": "Wien",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -156,11 +156,11 @@
       "postedDate": "2026-04-30",
       "applyUrl": "https://careers.octapharma.com/talentcommunity/apply/1389327133/?locale=en_GB",
       "firstSeenAt": "2026-05-19T19:53:25.348Z",
-      "_qualityScore": 81,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     }
