@@ -97,13 +97,15 @@ function measureWrongLanguageQuality(jobs) {
     measured: true,
     titles: {
       populationSlots: titles.slots,
-      wrongLanguageCount: titles.flagged,
-      wrongLanguageRate: wrongLanguageRate(titles.flagged, titles.slots),
+      suspectedUntranslatedCount: titles.flagged,
+      suspectedUntranslatedRate: wrongLanguageRate(titles.flagged, titles.slots),
     },
     descriptions: {
       populationSlots: descriptions.slots,
-      wrongLanguageCount: descriptions.mismatches.length,
-      wrongLanguageRate: wrongLanguageRate(descriptions.mismatches.length, descriptions.slots),
+      servedPopulationSlots: descriptions.servedSlots,
+      servedShare: wrongLanguageRate(descriptions.servedSlots, descriptions.slots),
+      detectedWrongLanguageCount: descriptions.mismatches.length,
+      detectedWrongLanguageRate: wrongLanguageRate(descriptions.mismatches.length, descriptions.slots),
     },
   };
 }
