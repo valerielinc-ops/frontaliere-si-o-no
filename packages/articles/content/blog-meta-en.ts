@@ -11018,6 +11018,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-potenziamento-a2-misure.title': 'Chiasso and A2: strengthening and financial challenges',
     'blog.article.chiasso-potenziamento-a2-misure.excerpt': 'Chiasso faces complicated projections for the A2 Lugano-Mendrisio upgrade. FEDRO asks the Ticino Executive for accompanying measures. What it means for cross-border commuters.',
     'blog.article.chiasso-potenziamento-a2-misure.imageAlt': 'Aerial view of Chiasso with Swiss-Italian border crossing and A2 highway traffic at dusk',
+    'blog.article.riqualifica-frontaliere-genitore-2026.title': 'Cross-border retraining 2026: focus on the family',
+    'blog.article.riqualifica-frontaliere-genitore-2026.excerpt': 'New Cross-Border Commuter Agreement from 2024: requalification in 2026 net increase and BVG for cross-border commuters with children. Tax analysis and operational checklist.',
+    'blog.article.riqualifica-frontaliere-genitore-2026.imageAlt': 'Frontier worker woman at laptop during professional training course with Lake Lugano view in background',
 };
 
 export default blogMetaEn;
