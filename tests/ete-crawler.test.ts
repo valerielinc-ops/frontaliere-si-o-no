@@ -1,13 +1,57 @@
-import { describe, it, expect } from 'vitest';
+import { createHash } from 'node:crypto';
+import fs from 'node:fs';
+import { beforeEach, describe, it, expect, vi } from 'vitest';
 import {
   ETE_KEY,
   ETE_COMPANY_NAME,
+  extractEteDetailFields,
+  fetchAllEteJobs,
   isEteJob,
   isTrustedDomain,
 } from '../scripts/lib/ete-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
+
+const SEED_URL = 'https://www.ete.ch/unternehmen/jobs/';
+const BASSERSDORF_URL = 'https://www.ete.ch/jobs/maschinenumzuege/';
+const AVENCHES_URL = 'https://www.ete.ch/jobs/transports-speciaux/';
+const DEGRADED_URL = 'https://www.ete.ch/jobs/degraded/';
+
+function richDetail({
+  title = 'Mitarbeiter/in Maschinenumzüge',
+  location = 'Bassersdorf',
+  locationLabel = 'Standort',
+  body = 'Du führst schweizweite Transporte aus und bewegst industrielle Anlagen. Du arbeitest selbstständig, betreust Kunden vor Ort und sorgst für sichere Abläufe. Wir bieten moderne Arbeitsmittel, abwechslungsreiche Einsätze und ein kollegiales Team mit langfristiger Perspektive.',
+} = {}) {
+  return `<!doctype html><html><body>
+    <main>
+      <h1>${title}</h1>
+      <section class="data-sheet"><dl>
+        <div><dt>${locationLabel}</dt><dd>${location}<!-- <span>m</span> --></dd></div>
+      </dl></section>
+      <section class="job_description section text"><div class="inside rich-text">
+        <h2>Jobbeschreibung</h2><p>${body}</p>
+      </div></section>
+      <article class="wpgb-card"><a href="/jobs/unrelated/">Unrelated vacancy</a>
+        <span class="value">Las Vegas</span></article>
+    </main>
+  </body></html>`;
+}
+
+function response(url: string, body: string) {
+  return {
+    ok: true,
+    status: 200,
+    url,
+    headers: { get: () => null },
+    body: { cancel: vi.fn() },
+    text: async () => body,
+  } as any;
+}
 
 describe('Emil Egger AG crawler parser', () => {
+  beforeEach(() => clearPoliteFetchStateForTests());
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(ETE_KEY).toBe('ete');
@@ -56,6 +100,118 @@ describe('Emil Egger AG crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  describe('ETE detail boundary', () => {
+    it('keeps the generic authoritative body and the exact job datasheet location', () => {
+      const detail = extractEteDetailFields(richDetail(), BASSERSDORF_URL);
+
+      expect(detail.locationCandidates).toEqual([{
+        location: 'Bassersdorf',
+        addressLocality: 'Bassersdorf',
+        addressCountry: '',
+      }]);
+      expect(detail.description).toContain('schweizweite Transporte');
+      expect(detail.description).toContain('langfristiger Perspektive');
+      expect(detail.description).not.toContain('Unrelated vacancy');
+      expect(detail.location).not.toContain('Las Vegas');
+    });
+
+    it('accepts the observed French datasheet label without reading surrounding locations', () => {
+      const detail = extractEteDetailFields(richDetail({
+        title: 'Chauffeur transports spéciaux',
+        location: 'Avenches',
+        locationLabel: 'Site',
+      }), AVENCHES_URL);
+
+      expect(detail.location).toBe('Avenches');
+      expect(detail.locationCandidates).toEqual([expect.objectContaining({
+        location: 'Avenches',
+      })]);
+    });
+
+    it('fails closed when the vacancy body or exact datasheet location is missing', () => {
+      const missingLocation = richDetail().replace('<dt>Standort</dt><dd>Bassersdorf<!-- <span>m</span> --></dd>', '');
+      const missingBody = richDetail().replace('job_description section text', 'company_description section text');
+
+      expect(extractEteDetailFields(missingLocation).locationCandidates).toEqual([]);
+      expect(extractEteDetailFields(missingBody).description).toBe('');
+    });
+
+    it('publishes rich Swiss details, quarantines degraded rows and preserves URL-derived identity', async () => {
+      const listing = `
+        <a href="${BASSERSDORF_URL}">Disponent/in Industrieumzüge 100%</a>
+        <a href="${AVENCHES_URL}">Disponent/in Industrieumzüge 100%</a>
+        <a href="${DEGRADED_URL}">Degraded vacancy</a>`;
+      const degraded = richDetail({ title: 'Degraded vacancy' })
+        .replace('<dt>Standort</dt><dd>Bassersdorf<!-- <span>m</span> --></dd>', '');
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (url === 'https://www.ete.ch/robots.txt') return response(url, 'User-agent: *\nAllow: /');
+        if (url === SEED_URL) return response(url, listing);
+        if (url === BASSERSDORF_URL) return response(url, richDetail({
+          title: 'Disponent/in Industrieumzüge 100%',
+        }));
+        if (url === AVENCHES_URL) return response(url, richDetail({
+          title: 'Disponent/in Industrieumzüge 100%',
+          location: 'Avenches',
+          locationLabel: 'Site',
+        }));
+        if (url === DEGRADED_URL) return response(url, degraded);
+        throw new Error(`unexpected URL ${url}`);
+      });
+
+      const jobs = await fetchAllEteJobs({
+        fetchImpl,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        retries: 0,
+      });
+
+      expect(jobs).toHaveLength(2);
+      expect(jobs.map((job) => job.url)).toEqual([BASSERSDORF_URL, AVENCHES_URL]);
+      expect(jobs.map((job) => job.location)).toEqual(['Bassersdorf', 'Avenches']);
+      expect(jobs.map((job) => job.canton)).toEqual(['ZH', 'VD']);
+      for (const job of jobs) {
+        const urlHash = createHash('sha1').update(job.url).digest('hex').slice(0, 12);
+        expect(job.id).toBe(`ete-${urlHash}`);
+        expect(job.slug).toBe(slugify(`${job.title} ete ch ${job.location}`));
+        expect(job.description.length).toBeGreaterThan(120);
+      }
+      expect(new Set(jobs.map((job) => job.slug)).size).toBe(2);
+
+      const repeated = await fetchAllEteJobs({
+        fetchImpl,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        retries: 0,
+      });
+      const identity = (job: { id: string; url: string; slug: string; location: string }) => ({
+        id: job.id,
+        url: job.url,
+        slug: job.slug,
+        location: job.location,
+      });
+      expect(repeated.map(identity)).toEqual(jobs.map(identity));
+
+      expect(fetchImpl).toHaveBeenCalledWith(
+        DEGRADED_URL,
+        expect.objectContaining({ redirect: 'manual' }),
+      );
+      expect(fetchImpl).toHaveBeenCalledWith(
+        SEED_URL,
+        expect.objectContaining({
+          headers: expect.objectContaining({ 'Accept-Encoding': 'identity' }),
+        }),
+      );
+    });
+
+    it('pins already-published slugs while location corrections update source fields', () => {
+      const updater = fs.readFileSync(
+        new URL('../scripts/update-ete-jobs.mjs', import.meta.url),
+        'utf8',
+      );
+      expect(updater).toContain('preserveExistingSlugs: true');
     });
   });
 
