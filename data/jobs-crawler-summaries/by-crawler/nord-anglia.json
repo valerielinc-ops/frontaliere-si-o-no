@@ -1,20 +1,21 @@
 {
   "key": "nord-anglia",
   "label": "La Côte International School (Nord Anglia Education)",
-  "generatedAt": "2026-09-01T08:38:51.287Z",
+  "generatedAt": "2026-09-01T10:13:52.493Z",
   "total": 6,
   "discovered": null,
   "written": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6286,
-  "avgDurationMs": 6286,
+  "durationMs": 7257,
+  "avgDurationMs": 7257,
   "durationHistory": [
-    6286
+    7257
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "nord-anglia-1f5c78691369",
       "slug": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
@@ -27,7 +28,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Primary-Teacher-%28maternity-replacement%29/1432262533/",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T08:38:46.159Z",
+      "crawledAt": "2026-09-01T10:13:46.407Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -44,16 +45,16 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Primary-Teacher-%28maternity-replacement%29/1432262533/",
       "jobReqId": "1432262533",
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-01T08:38:46.159Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "nord-anglia-c2786d183886",
       "slug": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
@@ -66,7 +67,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Assistant-e-socio-%C3%A9ducatif-ve-%28ASE%29/1429682533/",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:46.164Z",
+      "crawledAt": "2026-09-01T10:13:46.409Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -105,7 +106,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-HR-Manager-%28Maternity-remplacement%29/1428209833/",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T08:38:46.165Z",
+      "crawledAt": "2026-09-01T10:13:46.410Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -122,6 +123,7 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-HR-Manager-%28Maternity-remplacement%29/1428209833/",
       "jobReqId": "1428209833",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-20T09:51:50.354Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -143,7 +145,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-PE-teacher-%28Maternity-replacement%29/1428165033/",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T08:38:46.166Z",
+      "crawledAt": "2026-09-01T10:13:46.416Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -160,6 +162,7 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-PE-teacher-%28Maternity-replacement%29/1428165033/",
       "jobReqId": "1428165033",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-20T09:51:50.356Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -181,7 +184,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T08:38:46.174Z",
+      "crawledAt": "2026-09-01T10:13:46.418Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
@@ -198,6 +201,7 @@
       "postedDate": "2026-07-09",
       "applyUrl": "https://careers.nordangliaeducation.com/job/Aubonne-Learning-Support-Assistants/1079699301/",
       "jobReqId": "1079699301",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-09T12:16:46.426Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -219,7 +223,7 @@
       "url": "https://careers.nordangliaeducation.com/job/Aubonne-Chauffeur-de-transport-scolaire-Concierge/1088889301/",
       "source": "La Côte International School Aubonne Dedicated Parser (Nord Anglia jobs2web RSS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:38:46.167Z",
+      "crawledAt": "2026-09-01T10:13:46.417Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "Chemin de Clamogne 8",
