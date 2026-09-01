@@ -187,6 +187,86 @@ describe('translation state store v2', () => {
     await expect(store.initialize()).rejects.toThrow(/history contains paths outside v2/);
   });
 
+  it('audits a long fresh-process lineage with bounded witness output', async () => {
+    const { one } = createRepositories();
+    const initialized = await createTranslationStateStoreV2({ repository: one }).initialize();
+    git(one, 'checkout', '-q', '-B', 'long-state-history', initialized.commit);
+    for (let index = 0; index < 80; index += 1) {
+      const path = join(one, 'v2', 'linear', `${String(index).padStart(3, '0')}.json`);
+      mkdirSync(dirname(path), { recursive: true });
+      writeFileSync(path, `${JSON.stringify({ index })}\n`);
+      git(one, 'add', path);
+      git(one, 'commit', '-q', '-m', `linear state ${index}`);
+    }
+    const tip = git(one, 'rev-parse', 'HEAD');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+    const trace: Array<{ args: string[]; stdoutBytes: number }> = [];
+    const tracedGit = async (args: string[], options: any = {}) => {
+      try {
+        const stdout = execFileSync('git', args, {
+          cwd: one,
+          encoding: 'utf8',
+          env: options.env ? { ...process.env, ...options.env } : process.env,
+        });
+        trace.push({ args: [...args], stdoutBytes: Buffer.byteLength(stdout) });
+        return { code: 0, stdout, stderr: '' };
+      } catch (error: any) {
+        const stdout = error?.stdout ?? '';
+        trace.push({ args: [...args], stdoutBytes: Buffer.byteLength(stdout) });
+        return {
+          code: typeof error?.status === 'number' ? error.status : 1,
+          stdout,
+          stderr: error?.stderr ?? String(error),
+        };
+      }
+    };
+
+    await createTranslationStateStoreV2({ repository: one, git: tracedGit }).initialize();
+    const witnesses = trace.filter(({ args }) => args[0] === 'rev-list' || args[0] === 'log');
+    expect(witnesses).toHaveLength(2);
+    expect(witnesses[0]).toEqual({
+      args: ['rev-list', '--min-parents=2', '--max-count=1', '--parents', `${initialized.commit}..${tip}`],
+      stdoutBytes: 0,
+    });
+    expect(witnesses[1].args).toEqual([
+      'log', '-1', '--format=', '--name-only', '-z', '--no-renames', `${initialized.commit}..${tip}`,
+      '--', '.', ':(exclude)v2/**',
+    ]);
+    expect(witnesses[1].stdoutBytes).toBe(0);
+  });
+
+  it('physically truncates deterministic pending scans at the requested limit', async () => {
+    const { one } = createRepositories();
+    const scans: any[] = [];
+    const store = createTranslationStateStoreV2({
+      repository: one,
+      onStage: async (stage: string, details: any) => {
+        if (stage === 'afterStatePathScan' && details.prefix?.startsWith('v2/queue/')) scans.push(details);
+      },
+    });
+    const otherJob = {
+      ...JOB,
+      url: 'https://jobs.example.test/positions/333333/',
+      slug: 'dritte-stelle',
+      title: 'Dritte Stelle',
+      titleByLocale: { de: 'Dritte Stelle', it: '' },
+    };
+    const patches = [patchFor(), patchFor(otherJob, 'Terza posizione')];
+    await store.initialize();
+    await store.checkpointBatch({ slicePath: SLICE_PATH, patches });
+    scans.length = 0;
+    const pending = await store.listPending({ crawlerKey: 'example-crawler', limit: 1 });
+
+    expect(pending.pending.map((entry) => entry.patch.patchHash))
+      .toEqual(patches.map((patch) => patch.patchHash).sort().slice(0, 1));
+    expect(scans).toEqual([expect.objectContaining({
+      limit: 1,
+      mode: 'truncate',
+      count: 1,
+      stopped: true,
+    })]);
+  });
+
   it('checkpoints immutable sharded artifacts and atomically acks lifecycle plus queue removal', async () => {
     const { one } = createRepositories();
     const store = createTranslationStateStoreV2({ repository: one });
@@ -371,6 +451,121 @@ describe('translation state store v2', () => {
 
     const fresh = createTranslationStateStoreV2({ repository: one });
     await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/does not match its publish intent/);
+  });
+
+  it('fails closed when a descendant state commit deletes an acknowledged patch', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const acknowledged = await store.acknowledgeBatch([{
+      patch,
+      slicePath: SLICE_PATH,
+      outcome: 'already_valid',
+      mainCommit: git(one, 'rev-parse', 'origin/main'),
+      publishedCommit: null,
+      intentHash: null,
+    }]);
+    const storedPatchPath = `v2/patches/${patch.patchHash.slice(0, 2)}/${patch.patchHash}.json`;
+    git(one, 'checkout', '-q', '-B', 'deleted-ack-patch-state', acknowledged.commit);
+    git(one, 'rm', '-q', storedPatchPath);
+    git(one, 'commit', '-q', '-m', 'delete acknowledged patch');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const fresh = createTranslationStateStoreV2({ repository: one });
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/requires its stored patch/);
+  });
+
+  it('fails closed when a descendant state commit leaves a queue without its patch', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const storedPatchPath = `v2/patches/${patch.patchHash.slice(0, 2)}/${patch.patchHash}.json`;
+    git(one, 'checkout', '-q', '-B', 'deleted-queued-patch-state', checkpoint.commit);
+    git(one, 'rm', '-q', storedPatchPath);
+    git(one, 'commit', '-q', '-m', 'delete queued patch');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const fresh = createTranslationStateStoreV2({ repository: one });
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/queue requires its stored patch/);
+  });
+
+  it('fails closed when an acknowledgment identity disagrees with its stored patch', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const acknowledged = await store.acknowledgeBatch([{
+      patch,
+      slicePath: SLICE_PATH,
+      outcome: 'already_valid',
+      mainCommit: git(one, 'rev-parse', 'origin/main'),
+      publishedCommit: null,
+      intentHash: null,
+    }]);
+    const ackPath = git(one, 'ls-tree', '-r', '--name-only', acknowledged.commit)
+      .split('\n')
+      .find((path) => path.startsWith(`v2/acks/${patch.patchHash.slice(0, 2)}/${patch.patchHash}/`));
+    expect(ackPath).toBeDefined();
+    const receipt = JSON.parse(git(one, 'show', `${acknowledged.commit}:${ackPath}`));
+    receipt.crawlerKey = 'tampered-crawler';
+    const { ackHash: priorHash, ...payload } = receipt;
+    receipt.ackHash = digestTranslationDocumentV2(payload);
+    const replacementPath = `${ackPath!.slice(0, ackPath!.lastIndexOf('/') + 1)}${receipt.ackHash}.json`;
+    git(one, 'checkout', '-q', '-B', 'mismatched-ack-patch-state', acknowledged.commit);
+    git(one, 'rm', '-q', ackPath!);
+    mkdirSync(dirname(join(one, replacementPath)), { recursive: true });
+    writeFileSync(join(one, replacementPath), `${JSON.stringify(receipt)}\n`);
+    git(one, 'add', replacementPath);
+    git(one, 'commit', '-q', '-m', `mismatch acknowledgment patch ${priorHash}`);
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const fresh = createTranslationStateStoreV2({ repository: one });
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/does not match its stored patch/);
+  });
+
+  it('stops strict acknowledgment scans at one over the lifecycle budget', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const acknowledged = await store.acknowledgeBatch([{
+      patch,
+      slicePath: SLICE_PATH,
+      outcome: 'already_valid',
+      mainCommit: git(one, 'rev-parse', 'origin/main'),
+      publishedCommit: null,
+      intentHash: null,
+    }]);
+    const directory = join(one, 'v2', 'acks', patch.patchHash.slice(0, 2), patch.patchHash);
+    git(one, 'checkout', '-q', '-B', 'overflow-ack-state', acknowledged.commit);
+    mkdirSync(directory, { recursive: true });
+    for (let index = 0; index < 64; index += 1) {
+      writeFileSync(join(directory, `${index.toString(16).padStart(64, '0')}.json`), '{}\n');
+    }
+    git(one, 'add', directory);
+    git(one, 'commit', '-q', '-m', 'overflow acknowledgment directory');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+    const scans: any[] = [];
+    const fresh = createTranslationStateStoreV2({
+      repository: one,
+      onStage: async (stage: string, details: any) => {
+        if (stage === 'afterStatePathScan' && details.prefix?.startsWith('v2/acks/')) scans.push(details);
+      },
+    });
+
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/exceeds the bounded count/);
+    expect(scans).toEqual([expect.objectContaining({
+      limit: 64,
+      mode: 'strict',
+      count: 65,
+      stopped: true,
+    })]);
   });
 
   it('rebuilds a losing CAS transaction from the winning state without dropping either patch', async () => {

@@ -1,4 +1,4 @@
-import { execFile as execFileCallback } from 'node:child_process';
+import { execFile as execFileCallback, spawn } from 'node:child_process';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -34,6 +34,9 @@ export const MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2 = 64;
 export const MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2 = 1024;
 export const TRANSLATION_STATE_GIT_TIMEOUT_MS_V2 = 30_000;
 export const TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2 = 'TRANSLATION_STATE_QUEUE_CONFLICT_V2';
+
+const MAX_TRANSLATION_STATE_PATH_BYTES_V2 = 1024;
+const MAX_TRANSLATION_STATE_STDERR_BYTES_V2 = 64 * 1024;
 
 const SHA_PATTERN = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const REF_PATTERN = /^refs\/heads\/[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$/;
@@ -231,6 +234,18 @@ function assertQueueMatches(queue, patch, slicePath) {
   return validated;
 }
 
+function assertAcknowledgmentMatchesPatch(acknowledgment, patch) {
+  if (
+    acknowledgment.patchHash !== patch.patchHash
+    || acknowledgment.crawlerKey !== patch.target.crawlerKey
+    || acknowledgment.attemptKey !== patch.candidate.attemptKey
+    || acknowledgment.candidateId !== patch.candidate.candidateId
+  ) {
+    throw new TypeError('translation acknowledgment does not match its stored patch');
+  }
+  return acknowledgment;
+}
+
 function validateIntent(value, expectedPatchHash = null) {
   assertTranslationPlainObjectV2(value, 'translation publish intent');
   assertTranslationExactKeysV2(value, INTENT_KEYS, 'translation publish intent');
@@ -351,6 +366,89 @@ function createGitRunner(repository) {
   };
 }
 
+function createGitPathLister(repository) {
+  return ({ tip, prefix, limit, mode, pathSuffix = null, recursive = true }) => new Promise((resolve, reject) => {
+    const targetCount = mode === 'strict' ? limit + 1 : limit;
+    const args = ['ls-tree'];
+    if (recursive) args.push('-r');
+    args.push('-z', '--name-only', tip);
+    if (prefix !== null) args.push('--', prefix);
+    const child = spawn('git', args, {
+      cwd: repository,
+      env: process.env,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    const paths = [];
+    let carry = Buffer.alloc(0);
+    let stderr = Buffer.alloc(0);
+    let stopped = false;
+    let timedOut = false;
+    let parseError = null;
+    const timer = setTimeout(() => {
+      timedOut = true;
+      child.kill('SIGKILL');
+    }, TRANSLATION_STATE_GIT_TIMEOUT_MS_V2);
+
+    function stop() {
+      if (stopped) return;
+      stopped = true;
+      child.stdout.destroy();
+      child.kill('SIGTERM');
+    }
+
+    child.stdout.on('data', (chunk) => {
+      if (parseError !== null || stopped) return;
+      carry = Buffer.concat([carry, chunk]);
+      while (paths.length < targetCount) {
+        const separator = carry.indexOf(0);
+        if (separator < 0) {
+          if (carry.length > MAX_TRANSLATION_STATE_PATH_BYTES_V2) {
+            parseError = new TypeError('translation state path exceeds the bounded size');
+            stop();
+          }
+          return;
+        }
+        const encodedPath = carry.subarray(0, separator);
+        carry = carry.subarray(separator + 1);
+        if (encodedPath.length === 0 || encodedPath.length > MAX_TRANSLATION_STATE_PATH_BYTES_V2) {
+          parseError = new TypeError('translation state path exceeds the bounded size');
+          stop();
+          return;
+        }
+        const path = encodedPath.toString('utf8');
+        if (Buffer.from(path, 'utf8').compare(encodedPath) !== 0) {
+          parseError = new TypeError('translation state path is not valid UTF-8');
+          stop();
+          return;
+        }
+        if (pathSuffix !== null && !path.endsWith(pathSuffix)) continue;
+        paths.push(path);
+        if (paths.length === targetCount) stop();
+      }
+    });
+    child.stderr.on('data', (chunk) => {
+      if (stderr.length >= MAX_TRANSLATION_STATE_STDERR_BYTES_V2) return;
+      stderr = Buffer.concat([stderr, chunk]).subarray(0, MAX_TRANSLATION_STATE_STDERR_BYTES_V2);
+    });
+    child.on('error', (error) => {
+      clearTimeout(timer);
+      reject(error);
+    });
+    child.on('close', (code, signal) => {
+      clearTimeout(timer);
+      if (parseError !== null) return reject(parseError);
+      if (timedOut) return reject(new Error('git ls-tree timed out'));
+      if (!stopped && code !== 0) {
+        return reject(new Error(`git ls-tree failed: ${stderr.toString('utf8').trim()}`));
+      }
+      if (stopped && signal !== 'SIGTERM' && signal !== null) {
+        return reject(new Error(`git ls-tree stopped unexpectedly with ${signal}`));
+      }
+      return resolve({ paths: paths.sort(), stopped });
+    });
+  });
+}
+
 async function checked(git, args, options) {
   const result = await git(args, options);
   if (result.code !== 0) {
@@ -384,11 +482,21 @@ async function readPath(git, tip, path) {
   return result.stdout;
 }
 
-async function listPaths(git, tip, prefix, limit = Number.POSITIVE_INFINITY) {
+async function listPaths(pathLister, tip, prefix, { limit, mode, label, pathSuffix = null }) {
   if (tip === null) return [];
-  const result = await git(['ls-tree', '-r', '--name-only', tip, '--', prefix]);
-  if (result.code !== 0) throw new Error(`git ls-tree failed: ${result.stderr.trim()}`);
-  return result.stdout.split('\n').filter(Boolean).sort().slice(0, limit);
+  const result = await pathLister({ tip, prefix, limit, mode, pathSuffix });
+  if (
+    result === null
+    || typeof result !== 'object'
+    || !Array.isArray(result.paths)
+    || typeof result.stopped !== 'boolean'
+  ) {
+    throw new TypeError('translation state path scan returned an invalid result');
+  }
+  if (mode === 'strict' && result.paths.length > limit) {
+    throw new TypeError(`${label} exceeds the bounded count`);
+  }
+  return result.paths.slice(0, limit);
 }
 
 async function parsePath(git, tip, path) {
@@ -401,11 +509,12 @@ async function parsePath(git, tip, path) {
   }
 }
 
-async function readAttemptJournal(git, tip, attemptKey) {
-  const paths = await listPaths(git, tip, journalPrefix(attemptKey));
-  if (paths.length > MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2) {
-    throw new TypeError('translation state journal exceeds the bounded event count');
-  }
+async function readAttemptJournal(git, pathLister, tip, attemptKey) {
+  const paths = await listPaths(pathLister, tip, journalPrefix(attemptKey), {
+    limit: MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2,
+    mode: 'strict',
+    label: 'translation state journal',
+  });
   const events = [];
   for (const path of paths) events.push(await parsePath(git, tip, path));
   return replayTranslationJournalV2(events);
@@ -499,8 +608,14 @@ function validateStateSchema(value) {
   }
 }
 
-async function assertStateOnlyLineage(git, tip, expectedRoot) {
-  const topLevel = (await checked(git, ['ls-tree', '--name-only', tip])).split('\n').filter(Boolean);
+async function assertStateOnlyLineage(git, pathLister, tip, expectedRoot) {
+  const topLevel = (await pathLister({
+    tip,
+    prefix: null,
+    limit: 2,
+    mode: 'truncate',
+    recursive: false,
+  })).paths;
   if (topLevel.length !== 1 || topLevel[0] !== 'v2') {
     throw new TypeError('translation state ref contains paths outside v2/');
   }
@@ -509,21 +624,29 @@ async function assertStateOnlyLineage(git, tip, expectedRoot) {
   if (ancestry.code !== 0) {
     throw new TypeError('translation state ref does not descend from the state-only root');
   }
-  const lineage = (await checked(git, ['rev-list', '--parents', `${expectedRoot}..${tip}`]))
-    .split('\n')
-    .filter(Boolean);
-  if (lineage.some((line) => line.split(/\s+/u).length !== 2)) {
+  const mergeWitness = (await checked(git, [
+    'rev-list',
+    '--min-parents=2',
+    '--max-count=1',
+    '--parents',
+    `${expectedRoot}..${tip}`,
+  ])).trim();
+  if (mergeWitness !== '') {
     throw new TypeError('translation state ref must use single-parent CAS commits');
   }
-  const changedPaths = (await checked(git, [
+  const outsideV2Witness = (await checked(git, [
     'log',
+    '-1',
     '--format=',
     '--name-only',
     '-z',
     '--no-renames',
     `${expectedRoot}..${tip}`,
-  ])).split('\0').filter(Boolean);
-  if (changedPaths.some((path) => !path.startsWith('v2/'))) {
+    '--',
+    '.',
+    ':(exclude)v2/**',
+  ]));
+  if (outsideV2Witness !== '') {
     throw new TypeError('translation state ref history contains paths outside v2/');
   }
 }
@@ -548,6 +671,21 @@ export function createTranslationStateStoreV2(options) {
   const git = options.git ?? createGitRunner(repository);
   const onStage = options.onStage ?? (async () => {});
   if (typeof onStage !== 'function') throw new TypeError('translation state onStage must be a function');
+  const rawPathLister = options.pathLister ?? createGitPathLister(repository);
+  if (typeof rawPathLister !== 'function') throw new TypeError('translation state pathLister must be a function');
+  const pathLister = async (scan) => {
+    const result = await rawPathLister(scan);
+    await onStage('afterStatePathScan', {
+      prefix: scan.prefix,
+      limit: scan.limit,
+      mode: scan.mode,
+      pathSuffix: scan.pathSuffix ?? null,
+      recursive: scan.recursive ?? true,
+      count: result.paths.length,
+      stopped: result.stopped,
+    });
+    return result;
+  };
   const validatedStateTips = new Set();
   let expectedStateRoot = null;
 
@@ -572,7 +710,7 @@ export function createTranslationStateStoreV2(options) {
       const tip = await remoteTip(git, remote, ref);
       await ensureCommit(git, remote, ref, tip);
       if (tip !== null && !validatedStateTips.has(tip)) {
-        await assertStateOnlyLineage(git, tip, await getExpectedStateRoot());
+        await assertStateOnlyLineage(git, pathLister, tip, await getExpectedStateRoot());
         validatedStateTips.add(tip);
       }
       const changes = await buildChanges(tip);
@@ -594,7 +732,7 @@ export function createTranslationStateStoreV2(options) {
     const tip = await remoteTip(git, remote, ref);
     await ensureCommit(git, remote, ref, tip);
     if (tip !== null && !validatedStateTips.has(tip)) {
-      await assertStateOnlyLineage(git, tip, await getExpectedStateRoot());
+      await assertStateOnlyLineage(git, pathLister, tip, await getExpectedStateRoot());
       validatedStateTips.add(tip);
     }
     return tip;
@@ -632,7 +770,11 @@ export function createTranslationStateStoreV2(options) {
     const transaction = await transact('translation-state-v2: checkpoint batch', async (tip) => {
       const changes = [];
       for (const patch of patches) {
-        const existingAcks = await listPaths(git, tip, ackPrefix(patch.patchHash), 1);
+        const existingAcks = await listPaths(pathLister, tip, ackPrefix(patch.patchHash), {
+          limit: MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2,
+          mode: 'strict',
+          label: 'translation acknowledgments',
+        });
         if (existingAcks.length > 0 && !requeue) continue;
         await putImmutable(
           git,
@@ -643,7 +785,7 @@ export function createTranslationStateStoreV2(options) {
         );
         await putImmutable(git, tip, changes, memoryPath(patch), candidateMemory(patch));
 
-        let journal = await readAttemptJournal(git, tip, patch.candidate.attemptKey);
+        let journal = await readAttemptJournal(git, pathLister, tip, patch.candidate.attemptKey);
         let current = getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state;
         const targets = current === null
           ? ['missing', 'generated', 'validated', 'queued']
@@ -683,7 +825,12 @@ export function createTranslationStateStoreV2(options) {
     }
     const tip = await snapshotTip();
     const crawlerHash = crawlerDigest(crawlerKey);
-    const paths = await listPaths(git, tip, `v2/queue/${crawlerHash.slice(0, 2)}/${crawlerHash}`, limit);
+    const paths = await listPaths(
+      pathLister,
+      tip,
+      `v2/queue/${crawlerHash.slice(0, 2)}/${crawlerHash}`,
+      { limit, mode: 'truncate', label: 'translation pending queue' },
+    );
     const pending = [];
     for (const path of paths) {
       const queue = validateQueueRecord(await parsePath(git, tip, path));
@@ -734,7 +881,11 @@ export function createTranslationStateStoreV2(options) {
         const queue = await parsePath(git, tip, queuePath(patch));
         if (queue === null) throw queueConflict('translation publish intent requires queued patches');
         assertQueueMatches(queue, patch, slicePath);
-        const existingIntents = await listPaths(git, tip, intentIndexPrefix(patch.patchHash));
+        const existingIntents = await listPaths(pathLister, tip, intentIndexPrefix(patch.patchHash), {
+          limit: MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2,
+          mode: 'strict',
+          label: 'translation state publish intents',
+        });
         const targetPath = intentIndexPath(patch.patchHash, intent.intentHash);
         if (existingIntents.length >= MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2
           && !existingIntents.includes(targetPath)) {
@@ -759,10 +910,11 @@ export function createTranslationStateStoreV2(options) {
       throw new TypeError('translation intent patchHash is invalid');
     }
     const tip = await snapshotTip();
-    const paths = await listPaths(git, tip, intentIndexPrefix(patchHash));
-    if (paths.length > MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2) {
-      throw new TypeError('translation state publish intents exceed the bounded count');
-    }
+    const paths = await listPaths(pathLister, tip, intentIndexPrefix(patchHash), {
+      limit: MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2,
+      mode: 'strict',
+      label: 'translation state publish intents',
+    });
     const intents = [];
     for (const path of paths) {
       const pointer = validateIntentPointer(await parsePath(git, tip, path), patchHash);
@@ -847,8 +999,12 @@ export function createTranslationStateStoreV2(options) {
       for (const { patch, payload } of acknowledgments) {
         const queued = await parsePath(git, tip, queuePath(patch));
         if (queued === null) {
-          const paths = await listPaths(git, tip, ackPrefix(patch.patchHash));
-          const journal = await readAttemptJournal(git, tip, patch.candidate.attemptKey);
+          const paths = await listPaths(pathLister, tip, ackPrefix(patch.patchHash), {
+            limit: MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2,
+            mode: 'strict',
+            label: 'translation acknowledgments',
+          });
+          const journal = await readAttemptJournal(git, pathLister, tip, patch.candidate.attemptKey);
           const existing = [];
           for (const path of paths) {
             const receipt = validateAcknowledgment(await parsePath(git, tip, path), patch.patchHash);
@@ -863,7 +1019,7 @@ export function createTranslationStateStoreV2(options) {
         }
         assertQueueMatches(queued, patch, payload.slicePath);
         await assertAcknowledgmentIntentAtTip(tip, payload);
-        const journal = await readAttemptJournal(git, tip, patch.candidate.attemptKey);
+        const journal = await readAttemptJournal(git, pathLister, tip, patch.candidate.attemptKey);
         if (getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state !== 'queued') {
           throw new TypeError('translation acknowledgment requires queued lifecycle state');
         }
@@ -898,10 +1054,11 @@ export function createTranslationStateStoreV2(options) {
   }
 
   async function readAcknowledgmentAtTip(tip, patchHash) {
-    const paths = await listPaths(git, tip, ackPrefix(patchHash));
-    if (paths.length > MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2) {
-      throw new TypeError('translation acknowledgments exceed the bounded lifecycle count');
-    }
+    const paths = await listPaths(pathLister, tip, ackPrefix(patchHash), {
+      limit: MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2,
+      mode: 'strict',
+      label: 'translation acknowledgments',
+    });
     const receipts = [];
     for (const path of paths) {
       const receipt = validateAcknowledgment(await parsePath(git, tip, path), patchHash);
@@ -913,7 +1070,7 @@ export function createTranslationStateStoreV2(options) {
     }
     let journal = null;
     if (receipts.length > 0) {
-      journal = await readAttemptJournal(git, tip, receipts[0].attemptKey);
+      journal = await readAttemptJournal(git, pathLister, tip, receipts[0].attemptKey);
       for (const receipt of receipts) {
         if (receipt.attemptKey !== receipts[0].attemptKey) {
           throw new TypeError('translation acknowledgments for one patch span multiple attempts');
@@ -922,13 +1079,30 @@ export function createTranslationStateStoreV2(options) {
       }
     }
     const storedPatch = await parsePath(git, tip, `v2/patches/${patchHash.slice(0, 2)}/${patchHash}.json`);
+    if (storedPatch === null) {
+      const queuePaths = await listPaths(
+        pathLister,
+        tip,
+        'v2/queue',
+        {
+          limit: 1,
+          mode: 'truncate',
+          label: 'translation patch queue lookup',
+          pathSuffix: `/${patchHash}.json`,
+        },
+      );
+      if (receipts.length > 0 || queuePaths.length > 0) {
+        throw new TypeError('translation acknowledgment or queue requires its stored patch');
+      }
+    }
     let queued = false;
     if (storedPatch !== null) {
       const patch = validateTranslationDerivedPatchV2(storedPatch);
       if (patch.patchHash !== patchHash) {
         throw new TypeError('translation state patch path does not match its hash');
       }
-      journal ??= await readAttemptJournal(git, tip, patch.candidate.attemptKey);
+      for (const receipt of receipts) assertAcknowledgmentMatchesPatch(receipt, patch);
+      journal ??= await readAttemptJournal(git, pathLister, tip, patch.candidate.attemptKey);
       const queue = await parsePath(git, tip, queuePath(patch));
       queued = getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state === 'queued';
       if (queued !== (queue !== null)) {
