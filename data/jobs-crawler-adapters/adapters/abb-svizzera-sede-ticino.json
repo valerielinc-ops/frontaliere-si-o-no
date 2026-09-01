@@ -48,11 +48,44 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044401EXTERNALENGLOBAL/HR-Operations-Specialist--80-100----limited-until-May-2027",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044644EXTERNALENGLOBAL/XMLNAME--Senior--Scientist--80---100----f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044734EXTERNALENGLOBAL/Marketing---Communication-Specialist--80-100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00044940EXTERNALENGLOBAL/Workshop---Repairs-Technician--f-m-d--80-100"
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00044940EXTERNALENGLOBAL/Workshop---Repairs-Technician--f-m-d--80-100",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00045388EXTERNALENGLOBAL/Production-Engineering-Specialist--80-100----f-m-d"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-09-01T09:15:20.928Z",
+  "updatedAt": "2026-09-01T10:43:14.601Z",
   "seedMetaByUrl": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00041259EXTERNALENGLOBAL/Head-of-Innovation": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00041256EXTERNALENGLOBAL/Head-of-Portfolio-Management": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043670EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00043668EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00042991EXTERNALENGLOBAL/XMLNAME--80---100---R-D-Senior-Engineer": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -135,14 +168,6 @@
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00044940EXTERNALENGLOBAL/Workshop---Repairs-Technician--f-m-d--80-100": {
       "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043670EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -237,22 +262,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041259EXTERNALENGLOBAL/Head-of-Innovation": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00043668EXTERNALENGLOBAL/Direct-Current-Datacenter-System-Architect": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043136EXTERNALENGLOBAL/R-D-Engineer-Firmware--80--100": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
@@ -333,14 +342,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00041256EXTERNALENGLOBAL/Head-of-Portfolio-Management": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043789EXTERNALENGLOBAL/Digital-Technology-Manager_JR00043789-1": {
       "location": "Dalmine, Bergamo, Italy",
       "canton": "AG",
@@ -358,6 +359,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00043018EXTERNALENGLOBAL/XMLNAME--80---100---Software-Developer--NET-Desktop-Applications": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00045388EXTERNALENGLOBAL/Production-Engineering-Specialist--80-100----f-m-d": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
