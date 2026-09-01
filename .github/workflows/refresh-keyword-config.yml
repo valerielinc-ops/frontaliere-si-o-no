@@ -116,6 +116,10 @@ jobs:
         # deploy.yml's `push` event (GitHub anti-recursion) — same class of
         # gap fixed for sync-gsc-orphans.yml (#2861 item 1).
         if: steps.commit.outputs.has_changes == 'true'
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
         run: bash scripts/lib/trigger-deploy.sh
         env:
           # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override

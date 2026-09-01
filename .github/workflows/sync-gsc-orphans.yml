@@ -179,6 +179,11 @@ jobs:
 
           if [ "$CRAWLER_CHANGES" -gt 0 ] || [ "$TRACKING_CHANGES" -gt 0 ]; then
             echo "🚀 Job data changed (crawler: $CRAWLER_CHANGES, tracking: $TRACKING_CHANGES) — triggering deploy"
+            # Hard-fail by design (no `|| true`, #6936): a failed dispatch
+            # here fails the job, caught by "Report failure to GitHub Issues"
+            # below — that GitHub issue IS this caller's recovery net
+            # (auto-triage picks it up), so silencing it would just hide a
+            # real deploy gap.
             bash scripts/lib/trigger-deploy.sh
           elif [ "$ORPHAN_CHANGES" -gt 0 ]; then
             echo "📝 Only orphan enrichment metadata changed — deploy not strictly needed"

@@ -194,6 +194,11 @@ jobs:
           COMPAT_CHANGED=$(git diff HEAD~1 --name-only -- data/seo-404-compat | wc -l)
           if [ "$COMPAT_CHANGED" -gt 0 ]; then
             echo "🚀 Compat file updated — triggering deploy"
+            # Hard-fail by design (no `|| true`, #6936): a failed dispatch
+            # here fails the job, caught by "Report failure to GitHub Issues"
+            # below — that GitHub issue IS this caller's recovery net
+            # (auto-triage picks it up), so silencing it would just hide a
+            # real deploy gap.
             bash scripts/lib/trigger-deploy.sh
           else
             echo "📝 Only state file changed — no deploy needed"

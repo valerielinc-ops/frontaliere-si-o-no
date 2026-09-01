@@ -771,6 +771,10 @@ jobs:
           DEPLOY_ARTICLE_OG_DESCRIPTION: ${{ steps.generate.outputs.og_description }}
           DEPLOY_ARTICLE_OG_IMAGE: ${{ steps.generate.outputs.og_image }}
           DEPLOY_ARTICLE_CATEGORY: ${{ steps.generate.outputs.category }}
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
         run: |
           EXPECTED_SHA="$(git rev-parse HEAD)" \
           bash scripts/lib/trigger-deploy.sh
