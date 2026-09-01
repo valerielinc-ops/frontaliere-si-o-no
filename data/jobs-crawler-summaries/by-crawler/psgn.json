@@ -1,20 +1,21 @@
 {
   "key": "psgn",
   "label": "Psychiatrie St.Gallen",
-  "generatedAt": "2026-08-31T17:05:04.306Z",
+  "generatedAt": "2026-09-01T00:33:47.184Z",
   "total": 20,
   "discovered": null,
   "written": 20,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 11960,
-  "avgDurationMs": 11960,
+  "durationMs": 11977,
+  "avgDurationMs": 11977,
   "durationHistory": [
-    11960
+    11977
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "psgn-9755c6bb334f",
       "slug": "betriebswirtschaftliches-praktikum-psgn-wil-sg",
@@ -28,7 +29,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/betriebswirtschaftliches-praktikum/e1943748-c092-4fbf-a7d2-678dc4a0be2c",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:54.210Z",
+      "crawledAt": "2026-09-01T00:33:36.583Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -43,11 +44,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/betriebswirtschaftliches-praktikum/e1943748-c092-4fbf-a7d2-678dc4a0be2c",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:54.210Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -64,7 +66,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-bau-und-technik-pfaefers/3dfd97fa-9f78-4afb-b754-48f783b77c82",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:54.788Z",
+      "crawledAt": "2026-09-01T00:33:37.106Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -79,11 +81,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-bau-und-technik-pfaefers/3dfd97fa-9f78-4afb-b754-48f783b77c82",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:54.788Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -94,13 +97,13 @@
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Ergotherapeutin / Ergotherapeut",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/264e14d5-1a0d-4908-9b60-bdc98a2b65f0",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:55.376Z",
+      "crawledAt": "2026-09-01T00:33:37.665Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -115,11 +118,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/264e14d5-1a0d-4908-9b60-bdc98a2b65f0",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:55.376Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -136,7 +140,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachdienst/4efe61e8-ce6b-4f5e-b87a-3cc31e701e23",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:55.960Z",
+      "crawledAt": "2026-09-01T00:33:38.198Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -151,11 +155,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachdienst/4efe61e8-ce6b-4f5e-b87a-3cc31e701e23",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:55.960Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -172,7 +177,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/e79239ed-694b-45c2-8f2a-860dab254080",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:56.548Z",
+      "crawledAt": "2026-09-01T00:33:38.751Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -187,17 +192,18 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/e79239ed-694b-45c2-8f2a-860dab254080",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:56.548Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
     {
       "id": "psgn-06dab0a818a7",
-      "slug": "oberarztin-oberarzt-psgn-wil-sg",
+      "slug": "oberarztin-oberarzt-psgn-wil-sg-2",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -208,7 +214,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/ff8a2cff-13d5-4885-ae5c-813d589eba08",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:57.128Z",
+      "crawledAt": "2026-09-01T00:33:39.284Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -223,11 +229,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/ff8a2cff-13d5-4885-ae5c-813d589eba08",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:57.128Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -244,7 +251,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/2f378a5e-1b15-43ee-8c40-1e0b56358a36",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:57.711Z",
+      "crawledAt": "2026-09-01T00:33:39.840Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -259,17 +266,18 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/2f378a5e-1b15-43ee-8c40-1e0b56358a36",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:57.711Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
     {
       "id": "psgn-b1e86f1ccde5",
-      "slug": "oberarztin-oberarzt-mbf-psgn-wil-sg",
+      "slug": "oberarztin-oberarzt-mbf-psgn-wil-sg-2",
       "company": "Psychiatrie St.Gallen",
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
@@ -280,7 +288,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/32585b2f-7964-445c-9039-75623f0c63ae",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:58.298Z",
+      "crawledAt": "2026-09-01T00:33:40.386Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -295,11 +303,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/32585b2f-7964-445c-9039-75623f0c63ae",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:58.298Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -316,7 +325,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/58a32f55-832c-42b9-9b43-fdc8a3a655ab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:58.884Z",
+      "crawledAt": "2026-09-01T00:33:40.916Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -331,11 +340,12 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/58a32f55-832c-42b9-9b43-fdc8a3a655ab",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:58.884Z",
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 18,
         "completeness": 17
       }
     },
@@ -346,13 +356,13 @@
       "companyKey": "psgn",
       "companyDomain": "psychiatrie-sg.ch",
       "title": "Allgemeinmedizinerin / Allgemeinmediziner",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Wil SG",
       "canton": "SG",
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/allgemeinmedizinerin-allgemeinmediziner/a85f9afd-3851-46df-a70e-3547eb522f75",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:04:59.457Z",
+      "crawledAt": "2026-09-01T00:33:41.461Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -367,16 +377,16 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/allgemeinmedizinerin-allgemeinmediziner/a85f9afd-3851-46df-a70e-3547eb522f75",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-08-31T17:04:59.457Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -410,7 +420,8 @@
       "firstSeenAt": "2026-08-27T19:53:46.873Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -449,7 +460,9 @@
       "firstSeenAt": "2026-08-26T09:55:58.728Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -488,7 +501,9 @@
       "firstSeenAt": "2026-08-25T09:50:15.511Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -527,7 +542,9 @@
       "firstSeenAt": "2026-08-24T10:02:27.360Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -567,7 +584,8 @@
       "firstSeenAt": "2026-08-24T10:02:23.232Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -606,7 +624,9 @@
       "firstSeenAt": "2026-08-24T10:02:26.578Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -646,7 +666,8 @@
       "firstSeenAt": "2026-08-20T09:45:59.022Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -685,7 +706,9 @@
       "firstSeenAt": "2026-08-15T21:24:48.617Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -724,7 +747,9 @@
       "firstSeenAt": "2026-08-15T09:34:16.483Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -763,7 +788,9 @@
       "firstSeenAt": "2026-08-14T21:28:31.359Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
