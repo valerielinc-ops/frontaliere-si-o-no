@@ -338,12 +338,33 @@ describe('jobCardHtml — renderJobCardListHtml in-feed ads', () => {
     expect(html).not.toContain('ft-infeed-ad');
   });
 
+  it.each([1, 2])('keeps a short %i-card sector result block ad-free', (count) => {
+    const html = renderJobCardListHtml(items.slice(0, count), { locale: 'it' });
+    expect(html).not.toContain('ft-infeed-ad');
+  });
+
   it('can be disabled via interleaveInfeedAds:false', () => {
     const html = renderJobCardListHtml(items, {
       locale: 'it',
       interleaveInfeedAds: false,
     });
     expect(html).not.toContain('ft-infeed-ad');
+  });
+
+  it('preserves absolute ad cadence when a list is split into result blocks', () => {
+    const lead = renderJobCardListHtml(items.slice(0, 3), {
+      locale: 'it',
+      hasFollowingItems: true,
+    });
+    const tail = renderJobCardListHtml(items.slice(3), {
+      locale: 'it',
+      positionOffset: 3,
+    });
+
+    // The first block still owns the position-3 ad because more results follow;
+    // the second block continues at absolute positions 4..7 and owns position 6.
+    expect((lead.match(/<li class="ft-infeed-ad/g) || []).length).toBe(1);
+    expect((tail.match(/<li class="ft-infeed-ad/g) || []).length).toBe(1);
   });
 
   it('caps in-feed ads per list to avoid ad-density violations on long lists', () => {

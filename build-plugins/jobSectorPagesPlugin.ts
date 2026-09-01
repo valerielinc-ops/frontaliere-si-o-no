@@ -37,7 +37,6 @@ import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
   LEDE_STYLE,
-  BODY_STYLE,
   LINK_ACCENT_STYLE,
   CTA_PRIMARY_CLASS,
   renderStatGrid,
@@ -321,7 +320,29 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     fr: "Aucune offre pour l'instant. Revenez bientôt — la liste est mise à jour plusieurs fois par jour.",
   }[locale];
   const emptyStateHtml = `<p class="s-_Ig0vF">${esc(noResultsLabel)}</p>`;
-  const jobsHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml });
+  const firstResultBlock = cardItems.slice(0, 3);
+  const remainingResults = cardItems.slice(3);
+  const categorySummaryLabel: Record<JobBoardLocale, string> = {
+    it: 'Requisiti e contesto della professione',
+    en: 'Role requirements and context',
+    de: 'Anforderungen und Berufskontext',
+    fr: 'Exigences et contexte du métier',
+  };
+  const categorySummaryHtml = `<details class="s-card" data-sector-summary>
+    <summary class="s-HBR0NM">${esc(categorySummaryLabel[locale])}</summary>
+    <p class="s-bOIp6r">${esc(seo.intro)}</p>
+  </details>`;
+  const jobsHtml = [
+    renderJobCardListHtml(firstResultBlock, {
+      locale,
+      emptyStateHtml,
+      hasFollowingItems: remainingResults.length > 0,
+    }),
+    categorySummaryHtml,
+    remainingResults.length > 0
+      ? renderJobCardListHtml(remainingResults, { locale, positionOffset: firstResultBlock.length })
+      : '',
+  ].join('');
 
   const faqHtml = seo.faq.length > 0
     ? `<section class="s-m_ILbB">
@@ -527,7 +548,6 @@ ${alternates}
           <p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
           <h1 style="${H1_STYLE}">${esc(seo.h1)}</h1>
           <p style="${LEDE_STYLE}">${esc(seo.desc)}</p>
-          <p style="${BODY_STYLE}">${esc(seo.intro)}</p>
         </header>
         ${statGridHtml}
         ${ctaHtml}
