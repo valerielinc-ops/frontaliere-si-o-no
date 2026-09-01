@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonarsource",
-  "assembledAt": "2026-09-01T00:55:25.288Z",
+  "assembledAt": "2026-09-01T07:43:04.385Z",
   "jobs": [
     {
       "id": "sonarsource-ac3e5b1dc0bc",
@@ -33,7 +33,7 @@
       "url": "https://jobs.lever.co/sonarsource/1f5fb7b2-30b9-402d-9820-ef81993e2924",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:21.179Z",
+      "crawledAt": "2026-09-01T07:42:59.887Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -109,7 +109,7 @@
       "url": "https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:20.878Z",
+      "crawledAt": "2026-09-01T07:42:59.585Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,6 +154,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:45.224Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -200,7 +201,7 @@
       "url": "https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:20.576Z",
+      "crawledAt": "2026-09-01T07:42:59.283Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -237,7 +238,7 @@
       "slug": "support-ingegnere-sonarsource-sonar-geneva",
       "slugByLocale": {
         "it": "support-ingegnere-sonarsource-sonar-geneva",
-        "en": "support-engineer-sonarsource-ch",
+        "en": "support-engineer-sonarsource-sonar-geneva",
         "de": "support-ingenieur-sonarsource-sonar-geneva",
         "fr": "support-ingenieur-sonarsource-sonar-geneva"
       },
@@ -263,7 +264,7 @@
       "url": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:20.274Z",
+      "crawledAt": "2026-09-01T07:42:58.981Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -278,14 +279,19 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "support-engineer-sonarsource-ch",
+        "support-ingegnere-sonarsource-sonar-geneva",
+        "support-engineer-sonarsource-sonar-geneva"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "support-engineer-sonarsource-sonar-geneva",
-          "support-engineer-sonarsource-ch"
-        ],
         "it": [
           "support-engineer-sonarsource-ch",
           "support-ingegnere-sonarsource-sonar-geneva"
+        ],
+        "en": [
+          "support-engineer-sonarsource-ch",
+          "support-engineer-sonarsource-sonar-geneva"
         ],
         "de": [
           "support-engineer-sonarsource-ch"
@@ -294,11 +300,6 @@
           "support-engineer-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "support-engineer-sonarsource-ch",
-        "support-engineer-sonarsource-sonar-geneva",
-        "support-ingegnere-sonarsource-sonar-geneva"
-      ],
       "firstSeenAt": "2026-08-10T22:07:26.640Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -346,7 +347,7 @@
       "url": "https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:19.973Z",
+      "crawledAt": "2026-09-01T07:42:58.679Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -440,7 +441,7 @@
       "url": "https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:19.671Z",
+      "crawledAt": "2026-09-01T07:42:58.377Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -455,11 +456,14 @@
       "applyUrl": "https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:27:07.338Z",
+      "previousSlugs": [
+        "staff-data-engineer-sonarsource-ch",
+        "staff-data-ingegnere-sonarsource-sonar-geneva"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "staff-data-engineer-sonarsource-ch"
+          "staff-data-engineer-sonarsource-ch",
+          "staff-data-ingegnere-sonarsource-sonar-geneva"
         ],
         "de": [
           "staff-data-engineer-sonarsource-ch"
@@ -468,9 +472,8 @@
           "staff-data-engineer-sonarsource-ch"
         ]
       },
-      "previousSlugs": [
-        "staff-data-engineer-sonarsource-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:27:07.338Z",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -517,7 +520,7 @@
       "url": "https://jobs.lever.co/sonarsource/95e9c626-66c6-421c-bba3-f4cf8d5de380",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:19.368Z",
+      "crawledAt": "2026-09-01T07:42:58.073Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -593,7 +596,7 @@
       "url": "https://jobs.lever.co/sonarsource/5ec02e8c-02d4-4a82-9e9c-2b81c7229d9e",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:19.066Z",
+      "crawledAt": "2026-09-01T07:42:57.771Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -638,7 +641,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-d76dc6fd6c34",
@@ -671,7 +675,7 @@
       "url": "https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:18.764Z",
+      "crawledAt": "2026-09-01T07:42:57.469Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -749,7 +753,7 @@
       "url": "https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:18.463Z",
+      "crawledAt": "2026-09-01T07:42:57.168Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -840,7 +844,7 @@
       "url": "https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:18.162Z",
+      "crawledAt": "2026-09-01T07:42:56.867Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -918,7 +922,7 @@
       "url": "https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:17.859Z",
+      "crawledAt": "2026-09-01T07:42:56.563Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -963,6 +967,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:42.206Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1009,7 +1014,7 @@
       "url": "https://jobs.lever.co/sonarsource/15928ee3-c19d-4349-98c0-6128c4abf48a",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:17.557Z",
+      "crawledAt": "2026-09-01T07:42:56.260Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1070,7 +1075,7 @@
       "companyDomain": "sonarsource.com",
       "title": "NetSuite & Payroll Systems Administrator",
       "titleByLocale": {
-        "it": "NetSuite & Payroll Systems Amministratore",
+        "it": "NetSuite & Payroll Systems Administrator",
         "en": "NetSuite & Payroll Systems Administrator",
         "de": "NetSuite & Payroll Systems Administrator",
         "fr": "Administrateur des systèmes NetSuite & Payroll"
@@ -1087,7 +1092,7 @@
       "url": "https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:17.255Z",
+      "crawledAt": "2026-09-01T07:42:55.957Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1124,7 +1129,7 @@
       "slug": "marketing-ai-ingegnere-sonarsource-sonar-geneva",
       "slugByLocale": {
         "it": "marketing-ai-ingegnere-sonarsource-sonar-geneva",
-        "en": "marketing-ai-engineer-sonarsource-ch",
+        "en": "marketing-ai-engineer-sonarsource-sonar-geneva",
         "de": "marketing-ai-ingenieur-sonarsource-sonar-geneva",
         "fr": "marketing-ai-ingenieur-sonarsource-sonar-geneva"
       },
@@ -1150,7 +1155,7 @@
       "url": "https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:16.952Z",
+      "crawledAt": "2026-09-01T07:42:55.653Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1167,17 +1172,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "marketing-ai-engineer-sonarsource-ch",
-        "marketing-ai-engineer-sonarsource-sonar-geneva",
-        "marketing-ai-ingegnere-sonarsource-sonar-geneva"
+        "marketing-ai-ingegnere-sonarsource-sonar-geneva",
+        "marketing-ai-engineer-sonarsource-sonar-geneva"
       ],
       "previousSlugsByLocale": {
-        "en": [
-          "marketing-ai-engineer-sonarsource-sonar-geneva",
-          "marketing-ai-engineer-sonarsource-ch"
-        ],
         "it": [
           "marketing-ai-engineer-sonarsource-ch",
           "marketing-ai-ingegnere-sonarsource-sonar-geneva"
+        ],
+        "en": [
+          "marketing-ai-engineer-sonarsource-ch",
+          "marketing-ai-engineer-sonarsource-sonar-geneva"
         ],
         "de": [
           "marketing-ai-engineer-sonarsource-ch"
@@ -1187,6 +1192,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:43:27.325Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1233,7 +1239,7 @@
       "url": "https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:16.651Z",
+      "crawledAt": "2026-09-01T07:42:55.351Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1262,6 +1268,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:56.975Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1308,7 +1315,7 @@
       "url": "https://jobs.lever.co/sonarsource/ca93fe35-2db3-4f5a-8b62-f190ff4e6bf2",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:16.348Z",
+      "crawledAt": "2026-09-01T07:42:55.048Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1381,7 +1388,7 @@
       "url": "https://jobs.lever.co/sonarsource/5a3bd23a-24c0-49af-8839-eba24776268c",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:16.047Z",
+      "crawledAt": "2026-09-01T07:42:54.746Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1443,7 +1450,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "needsRetranslation": true
     },
     {
       "id": "sonarsource-22b5b2bdc483",
@@ -1476,7 +1484,7 @@
       "url": "https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:15.745Z",
+      "crawledAt": "2026-09-01T07:42:54.444Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1539,7 +1547,7 @@
       "url": "https://jobs.lever.co/sonarsource/bc3d70b3-4c46-4bdb-ac61-d067f00bcda5",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:15.442Z",
+      "crawledAt": "2026-09-01T07:42:54.140Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1573,6 +1581,7 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:17:39.488Z",
+      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -1619,7 +1628,7 @@
       "url": "https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:15.138Z",
+      "crawledAt": "2026-09-01T07:42:53.831Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1694,7 +1703,7 @@
       "url": "https://jobs.lever.co/sonarsource/a0535931-bce3-4159-b43d-15ca3eb4d17f",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:14.832Z",
+      "crawledAt": "2026-09-01T07:42:53.528Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1766,7 +1775,7 @@
       "url": "https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
       "source": "SonarSource (Sonar) Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:55:14.516Z",
+      "crawledAt": "2026-09-01T07:42:53.217Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -1797,85 +1806,6 @@
         }
       },
       "addressRegion": "GE"
-    },
-    {
-      "id": "sonarsource-0076c674f842",
-      "slug": "graduate-software-ingegnere-sonarsource-sonar-geneva",
-      "slugByLocale": {
-        "it": "graduate-software-ingegnere-sonarsource-sonar-geneva",
-        "en": "graduate-software-engineer-sonarsource-ch",
-        "de": "graduate-software-ingenieur-sonarsource-sonar-geneva",
-        "fr": "graduate-software-ingenieur-sonarsource-sonar-geneva"
-      },
-      "company": "SonarSource (Sonar)",
-      "companyKey": "sonarsource",
-      "companyDomain": "sonarsource.com",
-      "title": "Graduate Software Engineer",
-      "titleByLocale": {
-        "it": "Graduate Software Ingegnere",
-        "en": "Graduate Software Engineer",
-        "de": "Graduate Software Ingenieur",
-        "fr": "Graduate Software Ingénieur"
-      },
-      "description": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code review and verification, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company.count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n•\n SonarQube: The world’s leading AI code review and verification platform.\n\n•\n SonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n•\n SonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n•\n Committed to our customers and community.\n\n•\n Obsessed with quality.\n\n•\n Deliberate in our decisions.\n\n•\n Effective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n\nWe are entering a transformative era: the shift toward an Agentic SDLC, where AI agents and humans collaborate seamlessly to build better software. As a Software Engineer on this squad, you will help keep our high-scale integration infrastructure reliable and evolving, while beginning to explore how these same connective systems will serve the next generation of AI-driven workflows.\n\nWhat you will do\n\n•\n Deliver Features on the Integration Core. You will implement well-scoped backend features that keep our DevOps Platform integrations reliable and extensible — repository importing, binding, authentication, and webhook processing.\n\n•\n Own Your Code from Local to Cloud. You will write clean, testable Java code and own your work from local development to production. You are responsible for the full lifecycle of the features you build. You will deploy to AWS, monitor service health through metrics and logs, and troubleshoot production issues to maintain high availability for our users.\n\n•\n Enable Other Squads. You will contribute to the libraries and APIs that other engineering teams use to interact with DevOps platforms. Small improvements here have a multiplying effect across the organization.\n\n•\n Contribute to Agentic Workflow Features. As the squad expands its integration surface to serve AI agents, you will contribute to these new capabilities — helping build and test the connectors and APIs that allow agents to consume Sonar context and act within DevOps platforms, building practical experience with emerging patterns like MCP.\n\n•\n AI-Native Engineering. Use AI assistants pragmatically to speed up low-level tasks (boilerplate, refactorings, test scaffolding) while keeping full responsibility for architecture and quality.\n\n•\n Collaborate & Grow. You will review PRs, write documentation, and participate in design discussions. You will learn from staff engineers on the squad and contribute your own perspective as you build expertise in your domain.\n\nExperience and qualifications\n\n•\n Strong CS Fundamentals. You have a Bachelor’s or Master’s degree in Computer Science (or related field). You have a solid grasp of Algorithms, Data Structures, and Complexity Analysis.\n\n•\n Polyglot Potential (Java & Python & Typescript). You are proficient in at least one major language (Java or Python is a plus) and are eager to work in a hybrid environment. You care about code style, modularity, and writing clean, testable logic.\n\n•\n Curiosity for Systems. You understand the basics of how computers talk to each other (HTTP, API basics, Linux environment). You might not be an AWS expert yet, but you are eager to learn how to build distributed systems in the cloud.\n\n•\n Interest in AI/LLMs. You have a genuine interest in the AI space. You may have taken university courses on ML, experimented with OpenAI APIs in hackathons, or written a thesis involving NLP. You are excited to apply this to real-world engineering problems.\n\n•\n Analytical Mindset. You are not satisfied with \"it works on my machine.\" You want to understand how things work under the hood and enjoy digging into data to understand why a system behaves the way it does.\n\nOur Technical Stack\n\n•\n Languages: Java (Primary), Python (AWS CDK), TypeScript and React (integrations, frontend)\n\n•\n Infrastructure: AWS (Lambda, ECS, API Gateway, SQS, RDS etc), Docker\n\n•\n Integrations: GitHub, GitLab, Bitbucket, Azure DevOps, Jira, Slack\n\n•\n Principles: Pragmatic code, SOLID, TDD, distributed systems\n\nAdditional comments\n This role is based in Geneva, Switzerland . We are unable to consider candidates unwilling to be in Geneva , but we are willing to relocate the right candidate.\n\nBenefits\n\n• We encourage usage of our robust time-off allocations with 27 PTO days for our employees based out of the Geneva region, plus additional days based on seniority and circumstances.\n\n• We contribute 60% of the total cost for your pension; 13.5% to 15.5% of your base salary for savings; 2% for risk.\n\n• Generous discretionary Company Growth Bonus, paid annually.\n\n• Commuting:Sustainable mobility options, including carpooling and the refund of 60% of the annual transportation subscription.\n\n• Global workforce with employees in 20+ countries representing 35+ unique nationalities.\n\n• We have an annual kick-off somewhere in the world where we meet to build relationships and goals for the company.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
-      "descriptionByLocale": {
-        "it": "Chi è Sonar? Sonar sta guidando il futuro dello sviluppo software agente-centrico. Come leader nella revisione e nella verifica del codice AI, risolviamo un problema critico: garantire che il software generato da sviluppatori assistiti da AI o agenti autonomi sia affidabile, sicuro e manutenbile. Integrando senza soluzione di continuità con Claude Code, Codex, Cursor, GitHub Copilot, Gemini e Devin, aiutiamo oltre il 75% del software Fortune 100 costruire affidabile, affidabile, conforme. I clienti che utilizzano Sonar sono il 44% meno probabilità di segnalare un outage a causa del codice generato dall'IA. Crediamo che la verifica del codice sia il collegamento mancante fondamentale nel Ciclo di Sviluppo Agent-Centric (AC/DC). giganti del settore come Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca e Ford Motor Company. contare su di noi per fornire una revisione indipendente, spiegabile, coerente e la governance del loro codice generato dall'IA tramite prodotti come:\n• SonarQube: la piattaforma leader mondiale per la revisione e la verifica del codice AI.\n• SonarQube Foundation Agent: Attualmente il lancio delle classifiche per la riparazione di software agentic.\n• SonarSweep & Sonar Context Augmentation: Fornire il contesto di livello enterprise e gli agenti vincoli devono essere veramente efficaci. Il nostro team opera in tutto il mondo a Austin, Bochum, Dubai, Ginevra, Londra, Singapore, Tokyo e Washington D.C. Ci muoviamo con una mentalità che chiamiamo CODE:\n• Impegnati ai nostri clienti e comunità.\n• Obsessed con qualità.\n• Deliberate nelle nostre decisioni.\n• Efficace come una squadra. Con oltre 400 milioni di dollari di ricavi e crescita redditizia e rapida, stiamo costruendo la spina dorsale della rivoluzione software AI. Se hai fame di avere un impatto, vuoi costruire ad un ritmo veloce, e pronto a lavorare in prima linea di AI, vogliamo sentire da te. Descrizione della posizione Stiamo entrando in un'era trasformativa: lo spostamento verso un SDLC Agentic, in cui agenti e esseri umani AI collaborano senza soluzione di continuità per costruire un software migliore. Come Ingegnere di software su questa squadra, vi aiuterà a mantenere la nostra infrastruttura di integrazione su larga scala affidabile e in evoluzione, mentre inizia a esplorare come questi stessi sistemi connettivi servirà la prossima generazione di flussi di lavoro basati su AI. Cosa farai\n• Fornire funzionalità sul nucleo di integrazione. Potrai implementare funzionalità backend ben visualizzate che mantengono le nostre integrazioni DevOps Platform affidabili ed estensibili — importazione di repository, binding, autenticazione e elaborazione webhook.\n• Own Your Code da Locale a Cloud. Scriverai codice Java pulito e testabile e possiederai il tuo lavoro dallo sviluppo locale alla produzione. Sei responsabile del ciclo di vita completo delle caratteristiche che si costruisce. Si distribuirà a AWS, monitorare la salute dei servizi attraverso metriche e registri, e risolvere problemi di produzione per mantenere alta disponibilità per i nostri utenti.\n• Attivare altre squadre. Contribuirai alle librerie e alle API che altri team di ingegneria utilizzano per interagire con le piattaforme DevOps. Piccoli miglioramenti qui hanno un effetto moltiplicatore in tutta l'organizzazione.\n• Contribuisci alle funzionalità del flusso di lavoro agente. Poiché la squadra espande la sua superficie di integrazione per servire agenti AI, contribuirà a queste nuove funzionalità - aiutando a costruire e testare i connettori e le API che permettono agli agenti di consumare il contesto Sonar e agire all'interno di piattaforme DevOps, costruendo esperienza pratica con modelli emergenti come MCP.\n• AI-Native Engineering. Utilizzare assistenti AI pragmaticamente per accelerare i compiti di basso livello (boilerplate, refactoring, test ponteggio) mantenendo la piena responsabilità per l'architettura e la qualità.\n• Collaborare e crescere. Potrai rivedere PR, scrivere documentazione e partecipare a discussioni di progettazione. Imparerai dagli ingegneri del personale della squadra e contribuirai alla tua prospettiva mentre costruirai competenze nel tuo dominio. Esperienza e qualifiche\n• Forti Fondamenti CS. Hai una laurea o master in Informatica (o campo relativo). Hai una solida conoscenza di Algoritmi, Strutture Dati e Analisi Complessità.\n• Potenziale poliglotta (Java & Python & Typescript). Sei abile in almeno una lingua importante (Java o Python è un plus) e sono desiderosi di lavorare in un ambiente ibrido. Ti interessa lo stile del codice, la modularità e la scrittura di logica pulita e testabile.\n• Curiosità per i Sistemi. Capisci le basi di come i computer si parlano a vicenda (HTTP, basi API, ambiente Linux). Potresti non essere ancora un esperto AWS, ma sei ansioso di imparare a costruire sistemi distribuiti nel cloud.\n• Interessi in AI/LLMs. Hai un vero interesse per lo spazio AI. Si può aver preso corsi universitari su ML, sperimentato con OpenAI API in hackathons, o scritto una tesi che coinvolge NLP. Sei entusiasta di applicare questo a problemi di ingegneria del mondo reale.\n• Mindset analitico. Non sei soddisfatto di \"lavora sulla mia macchina\". Si desidera capire come le cose funzionano sotto il cofano e godere di scavare nei dati per capire perché un sistema si comporta come fa. Il nostro Stack Tecnico\n• Lingue: Java (Primary), Python (AWS CDK), TypeScript e React (integrazione, frontend)\n• Infrastrutture: AWS (Lambda, ECS, API Gateway, SQS, RDS ecc), Docker\n• Integrazioni: GitHub, GitLab, Bitbucket, Azure DevOps, Jira, Slack\n• Principi: Codice Pragmatico, SOLID, TDD, sistemi distribuiti Ulteriori commenti Questo ruolo ha sede a Ginevra, in Svizzera . Non siamo in grado di considerare i candidati che non vogliono essere a Ginevra, ma siamo disposti a trasferire il candidato giusto. Vantaggi\n• Incoraggiamo l'utilizzo delle nostre robuste assegnazioni time-off con 27 giorni PTO per i nostri dipendenti con sede nella regione di Ginevra, oltre a giorni aggiuntivi basati su anzianità e circostanze.\n• Contribuiamo il 60% del costo totale per la vostra pensione; il 13,5% al 15,5% del vostro stipendio base per il risparmio; il 2% per il rischio.\n• Generoso discrezionale Company Growth Bonus, pagato annualmente.\n• Commutazione: opzioni di mobilità sostenibile, tra cui carpooling e il rimborso del 60% dell'abbonamento annuale di trasporto.\n• La forza lavoro globale con i dipendenti in 20+ paesi che rappresentano 35+ nazionalità uniche.\n• Abbiamo un kick-off annuale da qualche parte nel mondo in cui ci incontriamo per costruire relazioni e obiettivi per l'azienda. Valoriamo la diversità, l'equità e l'inclusione A Sonar, crediamo che la nostra diversità sia la nostra forza. Siamo una società globale che valorizza e rispetta diversi sfondi, prospettive e culture. Ci impegniamo a promuovere un ambiente di lavoro diversificato e inclusivo in cui tutti si sentono valorizzati e potenziati per contribuire al meglio. Siamo orgogliosi di essere un datore di lavoro pari opportunità e di accogliere tutti i candidati qualificati, indipendentemente da razza, colore, religione, sesso, identità di genere o espressione, orientamento sessuale, origine nazionale, genetica, disabilità, età, o stato veterano. Se avete bisogno di un alloggio, contattateci all'indirizzo hiring@sonarsource.com . Tutte le offerte di lavoro a Sonar sono contingenti sui risultati di un controllo completo di sfondo e verifica di riferimento effettuato prima della data di inizio. Le domande che vengono presentate tramite agenzie o reclutatori di terze parti non saranno considerate.",
-        "en": "Who is Sonar?\n\nSonar is driving the future of agent-centric software development. As the leader in AI code review and verification, we solve a critical problem: ensuring that software generated by AI-assisted developers or autonomous agents is reliable, secure, and maintainable.\n\nIntegrating seamlessly with Claude Code, Codex, Cursor, GitHub Copilot, Gemini, and Devin, we help over 75% of the Fortune 100 build trusted, reliable, compliant software. Customers who use Sonar are 44% less likely to report an outage due to AI-generated code.\n\nWe believe code verification is the critical missing link in the Agent-Centric Development Cycle (AC/DC). Industry giants like Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca, and Ford Motor Company.count on us to provide independent, explainable, consistent review and governance of their AI-generated code via products like:\n\n•\nSonarQube: The world’s leading AI code review and verification platform.\n\n•\nSonarQube Foundation Agent: Currently topping the leaderboards for agentic software repair.\n\n•\nSonarSweep & Sonar Context Augmentation: Providing the enterprise-grade context and constraints agents need to be truly effective.\n\nOur team operates across global hubs in Austin, Bochum, Dubai, Geneva, London, Singapore, Tokyo, and Washington D.C. We move with a mindset we call CODE:\n\n•\nCommitted to our customers and community.\n\n•\nObsessed with quality.\n\n•\nDeliberate in our decisions.\n\n•\nEffective as one team.\n\nWith over $400M in revenue and profitable, fast-paced growth, we are building the backbone of the AI software revolution. If you’re hungry to have an impact, want to build at a fast pace, and ready to work at the forefront of AI, we want to hear from you.\n\nPosition description\n\nWe are entering a transformative era: the shift toward an Agentic SDLC, where AI agents and humans collaborate seamlessly to build better software. As a Software Engineer on this squad, you will help keep our high-scale integration infrastructure reliable and evolving, while beginning to explore how these same connective systems will serve the next generation of AI-driven workflows.\n\nWhat you will do\n\n•\nDeliver Features on the Integration Core. You will implement well-scoped backend features that keep our DevOps Platform integrations reliable and extensible — repository importing, binding, authentication, and webhook processing.\n\n•\nOwn Your Code from Local to Cloud. You will write clean, testable Java code and own your work from local development to production. You are responsible for the full lifecycle of the features you build. You will deploy to AWS, monitor service health through metrics and logs, and troubleshoot production issues to maintain high availability for our users.\n\n•\nEnable Other Squads. You will contribute to the libraries and APIs that other engineering teams use to interact with DevOps platforms. Small improvements here have a multiplying effect across the organization.\n\n•\nContribute to Agentic Workflow Features. As the squad expands its integration surface to serve AI agents, you will contribute to these new capabilities — helping build and test the connectors and APIs that allow agents to consume Sonar context and act within DevOps platforms, building practical experience with emerging patterns like MCP.\n\n•\nAI-Native Engineering. Use AI assistants pragmatically to speed up low-level tasks (boilerplate, refactorings, test scaffolding) while keeping full responsibility for architecture and quality.\n\n•\nCollaborate & Grow. You will review PRs, write documentation, and participate in design discussions. You will learn from staff engineers on the squad and contribute your own perspective as you build expertise in your domain.\n\nExperience and qualifications\n\n•\nStrong CS Fundamentals. You have a Bachelor’s or Master’s degree in Computer Science (or related field). You have a solid grasp of Algorithms, Data Structures, and Complexity Analysis.\n\n•\nPolyglot Potential (Java & Python & Typescript). You are proficient in at least one major language (Java or Python is a plus) and are eager to work in a hybrid environment. You care about code style, modularity, and writing clean, testable logic.\n\n•\nCuriosity for Systems. You understand the basics of how computers talk to each other (HTTP, API basics, Linux environment). You might not be an AWS expert yet, but you are eager to learn how to build distributed systems in the cloud.\n\n•\nInterest in AI/LLMs. You have a genuine interest in the AI space. You may have taken university courses on ML, experimented with OpenAI APIs in hackathons, or written a thesis involving NLP. You are excited to apply this to real-world engineering problems.\n\n•\nAnalytical Mindset. You are not satisfied with \"it works on my machine.\" You want to understand how things work under the hood and enjoy digging into data to understand why a system behaves the way it does.\n\nOur Technical Stack\n\n•\nLanguages: Java (Primary), Python (AWS CDK), TypeScript and React (integrations, frontend)\n\n•\nInfrastructure: AWS (Lambda, ECS, API Gateway, SQS, RDS etc), Docker\n\n•\nIntegrations: GitHub, GitLab, Bitbucket, Azure DevOps, Jira, Slack\n\n•\nPrinciples: Pragmatic code, SOLID, TDD, distributed systems\n\nAdditional comments\nThis role is based in Geneva, Switzerland . We are unable to consider candidates unwilling to be in Geneva , but we are willing to relocate the right candidate.\n\nBenefits\n\n• We encourage usage of our robust time-off allocations with 27 PTO days for our employees based out of the Geneva region, plus additional days based on seniority and circumstances.\n\n• We contribute 60% of the total cost for your pension; 13.5% to 15.5% of your base salary for savings; 2% for risk.\n\n• Generous discretionary Company Growth Bonus, paid annually.\n\n• Commuting:Sustainable mobility options, including carpooling and the refund of 60% of the annual transportation subscription.\n\n• Global workforce with employees in 20+ countries representing 35+ unique nationalities.\n\n• We have an annual kick-off somewhere in the world where we meet to build relationships and goals for the company.\n\nWe value diversity, equity, and inclusion\n\nAt Sonar, we believe that our diversity is our strength. We are a global company that values and respects different backgrounds, perspectives, and cultures. We are committed to fostering a diverse and inclusive work environment where everyone feels valued and empowered to contribute their best. We are proud to be an equal opportunity employer and welcome all qualified applicants, regardless of race, color, religion, gender, gender identity or expression, sexual orientation, national origin, genetics, disability, age, or veteran status.\n\nIf you need any accommodation, please reach out to us at hiring@sonarsource.com .\n\nAll offers of employment at Sonar are contingent upon the results of a comprehensive background check and reference verification conducted before the start date.\n\nApplications that are submitted through agencies or third party recruiters will not be considered.",
-        "de": "Wer ist Sonar? Sonar treibt die Zukunft der agentenzentrierten Softwareentwicklung voran. Als führendes Unternehmen im Bereich der Überprüfung und Verifizierung von KI-Codes lösen wir ein entscheidendes Problem: sicherzustellen, dass Software, die von KI-unterstützten Entwicklern oder autonomen Agenten erstellt wird, zuverlässig, sicher und wartbar ist. Durch die nahtlose Integration mit Claude Code, Codex, Cursor, GitHub Copilot, Gemini und Devin helfen wir über 75% der Fortune 100 dabei, vertrauenswürdige, zuverlässige und konforme Software zu erstellen. Kunden, die Sonar verwenden, haben eine um 44% geringere Wahrscheinlichkeit, einen Ausfall aufgrund von AI-generiertem Code zu melden. Wir glauben, dass die Codeverifizierung das kritische fehlende Glied im Agent-Centric Development Cycle (AC/DC) ist. Branchenriesen wie Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca und Ford Motor Company. zählen darauf, dass wir eine unabhängige, erklärbare, konsistente Überprüfung und Governance ihres KI-generierten Codes über Produkte wie:\n• SonarQube: Die weltweit führende Plattform für die Überprüfung und Verifizierung von KI-Codes.\n• SonarQube Foundation Agent: Derzeit Spitzenreiter bei der Reparatur von Agentic-Software.\n• SonarSweep & Sonar Context Augmentation: Die Bereitstellung von Kontexten und Einschränkungen für Unternehmen muss wirklich effektiv sein. Unser Team ist in globalen Hubs in Austin, Bochum, Dubai, Genf, London, Singapur, Tokio und Washington D.C. tätig. Wir bewegen uns mit einer Denkweise, die wir CODE nennen:\n• Unseren Kunden und der Community verpflichtet.\n• Besessen von Qualität.\n• Absichtlich in unseren Entscheidungen.\n• Effektiv als ein Team. Mit über 400 Millionen US-Dollar Umsatz und profitablem, schnellem Wachstum bauen wir das Rückgrat der KI-Software-Revolution auf. Wenn Sie hungrig sind, etwas zu bewirken, schnell bauen und bereit sind, an der Spitze der KI zu arbeiten, möchten wir von Ihnen hören. Positionsbeschreibung Wir treten in eine transformative Ära ein: Der Wandel hin zu einem Agentic SDLC, bei dem KI-Agenten und Menschen nahtlos zusammenarbeiten, um bessere Software zu entwickeln. Als Software-Ingenieur in diesem Team werden Sie dazu beitragen, unsere hochskalige Integrationsinfrastruktur zuverlässig zu halten und sich zu entwickeln, während Sie beginnen zu erforschen, wie dieselben verbindenden Systeme die nächste Generation von KI-gesteuerten Workflows bedienen werden. Was du tun wirst\n• Funktionen auf dem Integrationskern bereitstellen. Sie werden umfassende Backend-Funktionen implementieren, die unsere DevOps-Plattform-Integrationen zuverlässig und erweiterbar halten - Repository-Import, Bindung, Authentifizierung und Webhook-Verarbeitung.\n• Besitzen Sie Ihren Code von Local bis Cloud. Sie schreiben sauberen, testbaren Java-Code und besitzen Ihre Arbeit von der lokalen Entwicklung bis zur Produktion. Sie sind für den gesamten Lebenszyklus der von Ihnen erstellten Funktionen verantwortlich. Sie stellen AWS bereit, überwachen den Servicezustand durch Metriken und Protokolle und beheben Produktionsprobleme, um die hohe Verfügbarkeit für unsere Benutzer aufrechtzuerhalten.\n• Ermögliche andere Squads. Sie werden zu den Bibliotheken und APIs beitragen, die andere Engineering-Teams zur Interaktion mit DevOps-Plattformen verwenden. Kleine Verbesserungen haben hier einen Multiplikationseffekt in der gesamten Organisation.\n• Tragen Sie zu Agentic Workflow Features bei. Während das Team seine Integrationsoberfläche erweitert, um KI-Agenten zu bedienen, werden Sie zu diesen neuen Funktionen beitragen – Sie werden dabei helfen, die Konnektoren und APIs zu erstellen und zu testen, die es Agenten ermöglichen, Sonar-Kontext zu konsumieren und innerhalb von DevOps-Plattformen zu agieren und praktische Erfahrungen mit neuen Mustern wie MCP zu sammeln.\n• AI-Native Engineering. Verwenden Sie KI-Assistenten pragmatisch, um Aufgaben auf niedriger Ebene (Boilerplate, Refactorings, Testgerüste) zu beschleunigen und gleichzeitig die volle Verantwortung für Architektur und Qualität zu behalten.\n• Collaborate & Grow. Sie werden PRs überprüfen, Dokumentation schreiben und an Designdiskussionen teilnehmen. Sie werden von den Ingenieuren des Kaders lernen und Ihre eigene Perspektive einbringen, während Sie Fachwissen in Ihrer Domäne aufbauen. Erfahrung und Qualifikationen\n• Starke CS-Grundlagen. Sie haben einen Bachelor- oder Master-Abschluss in Informatik (oder verwandten Bereich). Sie haben ein solides Verständnis von Algorithmen, Datenstrukturen und Komplexitätsanalyse.\n• Polyglottes Potential (Java & Python & Typescript). Sie beherrschen mindestens eine Hauptsprache (Java oder Python ist ein Plus) und sind bestrebt, in einer hybriden Umgebung zu arbeiten. Sie interessieren sich für Codestil, Modularität und das Schreiben sauberer, testbarer Logik.\n• Neugier für Systeme. Sie verstehen die Grundlagen, wie Computer miteinander sprechen (HTTP, API-Grundlagen, Linux-Umgebung). Sie sind vielleicht noch kein AWS-Experte, aber Sie möchten unbedingt lernen, wie Sie verteilte Systeme in der Cloud erstellen.\n• Interesse an AI / LLMs. Sie haben ein echtes Interesse am KI-Raum. Möglicherweise haben Sie Universitätskurse zu ML belegt, in Hackathons mit OpenAI-APIs experimentiert oder eine Abschlussarbeit mit NLP geschrieben. Sie freuen sich, dies auf reale Engineering-Probleme anzuwenden.\n• Analytisches Mindset. Sie sind nicht zufrieden mit \"es funktioniert auf meiner Maschine.\" Sie möchten verstehen, wie die Dinge unter der Haube funktionieren, und sich gerne in Daten vertiefen, um zu verstehen, warum sich ein System so verhält, wie es es tut. Unser technischer Stack\n• Sprachen: Java (Primary), Python (AWS CDK), TypeScript und React (Integrationen, Frontend)\n• Infrastruktur: AWS (Lambda, ECS, API Gateway, SQS, RDS etc.), Docker\n• Integrationen: GitHub, GitLab, Bitbucket, Azure DevOps, Jira, Slack\n• Grundsätze: Pragmatischer Code, SOLID, TDD, verteilte Systeme Zusätzliche Bemerkungen Diese Rolle hat ihren Sitz in Genf, Schweiz. Wir sind nicht in der Lage, Kandidaten zu betrachten, die nicht in Genf sein wollen, aber wir sind bereit, den richtigen Kandidaten umzusiedeln. Vorteile\n• Wir empfehlen die Nutzung unserer robusten Freizeitzuweisungen mit 27 PTO-Tagen für unsere Mitarbeiter aus der Region Genf sowie zusätzliche Tage je nach Dienstalter und Umständen.\n• Wir tragen 60% der Gesamtkosten für Ihre Rente bei; 13,5 % bis 15,5 % Ihres Grundgehalts für Einsparungen; 2 % für das Risiko.\n• Großzügiger diskretionärer Unternehmenswachstumsbonus, jährlich gezahlt.\n• Pendeln: Nachhaltige Mobilitätsoptionen, einschließlich Fahrgemeinschaften und die Rückerstattung von 60% des jährlichen Transportabonnements.\n• Weltweite Belegschaft mit Mitarbeitern in 20+ Ländern, die 35+ einzigartige Nationalitäten repräsentieren.\n• Wir haben einen jährlichen Kick-Off irgendwo auf der Welt, wo wir uns treffen, um Beziehungen und Ziele für das Unternehmen aufzubauen. Wir legen Wert auf Vielfalt, Gerechtigkeit und Inklusion Bei Sonar glauben wir, dass unsere Vielfalt unsere Stärke ist. Wir sind ein globales Unternehmen, das unterschiedliche Hintergründe, Perspektiven und Kulturen schätzt und respektiert. Wir setzen uns für ein vielfältiges und integratives Arbeitsumfeld ein, in dem sich jeder geschätzt und befähigt fühlt, sein Bestes zu geben. Wir sind stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein und begrüßen alle qualifizierten Bewerber, unabhängig von Rasse, Hautfarbe, Religion, Geschlecht, Geschlechtsidentität oder -ausdruck, sexueller Orientierung, nationaler Herkunft, Genetik, Behinderung, Alter oder Veteranenstatus. Wenn Sie eine Unterkunft benötigen, kontaktieren Sie uns bitte unter hiring@sonarsource.com. Alle Beschäftigungsangebote bei Sonar hängen von den Ergebnissen einer umfassenden Hintergrundprüfung und Referenzüberprüfung ab, die vor dem Startdatum durchgeführt wurden. Bewerbungen, die über Agenturen oder Drittanbieter eingereicht werden, werden nicht berücksichtigt.",
-        "fr": "Qui est Sonar ? Sonar dirige l'avenir du développement de logiciels centrés sur les agents. En tant que leader de l'examen et de la vérification des codes d'IA, nous résolvons un problème critique : veiller à ce que les logiciels générés par les développeurs assistés par AI ou les agents autonomes soient fiables, sécurisés et durables. En s'intégrant parfaitement avec Claude Code, Codex, Cursor, GitHub Copilot, Gemini et Devin, nous aidons plus de 75% des logiciels de construction Fortune 100 fiables, conformes. Les clients qui utilisent Sonar sont 44 % moins susceptibles de signaler une panne en raison du code généré par l'IA. Nous croyons que la vérification du code est le lien manquant essentiel dans le cycle de développement Agent-Centric (AC/DC). Des géants de l'industrie comme Nvidia, ServiceNow, Booking.com, Goldman Sachs, AstraZeneca et Ford Motor Company. compte sur nous pour fournir un examen indépendant, explicable, cohérent et la gouvernance de leur code généré par l'IA via des produits comme:\n• SonarQube: Le monde est la principale plate-forme de révision et de vérification de code AI.\n• SonarQube Foundation Agent: En ce moment, les classements pour la réparation de logiciels mandataires.\n• SonarSweep & Sonar Contexte Augmentation : fournir le contexte de qualité entreprise et les agents de contraintes doivent être vraiment efficaces. Notre équipe opère à travers des centres mondiaux à Austin, Bochum, Dubaï, Genève, Londres, Singapour, Tokyo et Washington D.C. Nous bougeons avec un état d'esprit que nous appelons CODE:\n• Engagement envers nos clients et notre communauté.\n• Obsédé par la qualité.\n• Délibérer dans nos décisions.\n• Efficace comme une seule équipe. Avec plus de 400 M$ de revenus et une croissance rentable et rapide, nous construisons l'épine dorsale de la révolution logicielle de l'IA. Si vous avez faim d'avoir un impact, voulez construire à un rythme rapide, et prêt à travailler à l'avant-garde de l'IA, nous voulons entendre de vous. Description de la position Nous entrons dans une ère de transformation : le passage à un SDLC Agentique, où les agents de l'IA et les humains collaborent de manière transparente pour construire de meilleurs logiciels. En tant qu'ingénieur logiciel de cette équipe, vous aiderez à maintenir notre infrastructure d'intégration à grande échelle fiable et en évolution, tout en commençant à explorer comment ces mêmes systèmes conjonctifs serviront la prochaine génération de workflows pilotés par l'IA. Ce que vous ferez\n• Fournir des fonctionnalités sur le noyau d'intégration. Vous allez implémenter des fonctionnalités de backend bien-scoped qui maintiennent nos intégrations DevOps Platform fiables et extensibles — importation de dépôt, liaison, authentification et traitement webhook.\n• Posséder votre code de Local à Cloud. Vous écrirez du code Java propre et testable et posséderez votre travail du développement local à la production. Vous êtes responsable du cycle de vie complet des fonctionnalités que vous construisez. Vous allez vous déployer sur AWS, surveiller la santé de service à travers les métriques et les journaux, et résoudre les problèmes de production pour maintenir une grande disponibilité pour nos utilisateurs.\n• Activer d'autres équipes. Vous contribuerez aux bibliothèques et API que les autres équipes d'ingénierie utilisent pour interagir avec les plateformes DevOps. Les petites améliorations apportées ici ont un effet multiplicateur dans l'ensemble de l'organisation.\n• Contribuer aux fonctions de flux de travail agentique. Au fur et à mesure que l'équipe étendra sa surface d'intégration pour servir les agents d'IA, vous contribuerez à ces nouvelles capacités, aidant à construire et tester les connecteurs et les API qui permettent aux agents de consommer le contexte Sonar et d'agir au sein des plateformes DevOps, en construisant une expérience pratique avec des modèles émergents comme MCP.\n• Ingénierie AI-Native. Utilisez les assistants AI de façon pragmatique pour accélérer les tâches de bas niveau (plaques, refacturations, échafaudage) tout en gardant l'entière responsabilité de l'architecture et de la qualité.\n• Collaborer et grandir. Vous examinerez les PR, rédigerez la documentation et participerez aux discussions sur la conception. Vous apprendrez des ingénieurs de l'équipe et vous apporterez votre propre point de vue en développant votre expertise dans votre domaine. Expérience et qualifications\n• Forts principes fondamentaux de la CS. Vous avez un baccalauréat ou une maîtrise en informatique (ou domaine connexe). Vous avez une bonne compréhension des algorithmes, des structures de données et de l'analyse de complexité.\n• Potentiel de polyglotte (Java & Python & Typescript). Vous maîtrisez au moins une langue majeure (Java ou Python est un plus) et êtes impatient de travailler dans un environnement hybride. Vous vous souciez du style de code, de la modularité, et de l'écriture propre, logique testable.\n• Curiosité pour les systèmes. Vous comprenez les bases de la façon dont les ordinateurs se parlent (HTTP, bases API, environnement Linux). Vous n'êtes peut-être pas encore expert AWS, mais vous êtes impatient d'apprendre à construire des systèmes distribués dans le cloud.\n• Intérêt pour l'IA/LLM. Vous avez un véritable intérêt pour l'espace AI. Vous avez peut-être suivi des cours universitaires sur ML, expérimenté des API OpenAI en hackathons ou écrit une thèse impliquant NLP. Vous êtes heureux d'appliquer cela aux problèmes d'ingénierie réels.\n• Un esprit analytique. Vous n'êtes pas satisfait de \"ça marche sur ma machine\". Vous voulez comprendre comment les choses fonctionnent sous le capot et profiter de creuser dans les données pour comprendre pourquoi un système se comporte comme il le fait. Notre pile technique\n• Langues: Java (primaire), Python (ADS CDK), TypeScript et Réaction (intégrations, frontend)\n• Infrastructure: AWS (Lambda, ECS, API Gateway, SQS, RDS, etc.), Docker\n• Intégrations: GitHub, GitLab, Bitbucket, Azure DevOps, Jira, Slack\n• Principes: Code pragmatique, SOLID, TDD, systèmes distribués Commentaires supplémentaires Ce rôle est basé à Genève, Suisse. Nous ne pouvons pas considérer les candidats qui ne veulent pas être à Genève, mais nous sommes prêts à déplacer le bon candidat. Avantages\n• Nous encourageons l'utilisation de nos allocations de congés robustes avec 27 jours de PTO pour nos employés basés à Genève, ainsi que des jours supplémentaires en fonction de l'ancienneté et des circonstances.\n• Nous cotisons 60 % du coût total de votre pension; 13,5 % à 15,5 % de votre salaire de base pour l'épargne; 2 % pour le risque.\n• Généreux bonus de croissance discrétionnaire de l'entreprise, payé annuellement.\n• Déplacement: options de mobilité durable, y compris le covoiturage et le remboursement de 60% de l'abonnement annuel au transport.\n• Main-d'œuvre mondiale avec des employés dans plus de 20 pays représentant plus de 35 nationalités uniques.\n• Nous avons un lancement annuel quelque part dans le monde où nous nous rencontrons pour établir des relations et des objectifs pour l'entreprise. Nous apprécions la diversité, l'équité et l'inclusion Chez Sonar, nous croyons que notre diversité est notre force. Nous sommes une entreprise mondiale qui valorise et respecte différents horizons, perspectives et cultures. Nous sommes déterminés à favoriser un environnement de travail diversifié et inclusif où chacun se sent valorisé et habilité à contribuer le mieux possible. Nous sommes fiers d'être un employeur sur un pied d'égalité et d'accueillir tous les candidats qualifiés, peu importe la race, la couleur, la religion, le sexe, l'identité ou l'expression de genre, l'orientation sexuelle, l'origine nationale, la génétique, le handicap, l'âge ou le statut de vétéran. Si vous avez besoin d'un logement, veuillez communiquer avec nous à l'adresse embauche@sonarsource.com . Toutes les offres d'emploi chez Sonar dépendent des résultats d'une vérification complète des antécédents et des références effectuée avant la date de début. Les demandes présentées par des organismes ou des tiers recruteurs ne seront pas prises en considération."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.lever.co/sonarsource/dfb8492a-8d96-4033-9c7b-e87dfe1b07b0",
-      "source": "SonarSource (Sonar) Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-27T00:57:07.068Z",
-      "addressLocality": "Geneva",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Software / Dev Tools",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://jobs.lever.co/sonarsource/dfb8492a-8d96-4033-9c7b-e87dfe1b07b0",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "graduate-software-engineer-sonarsource-ch",
-        "graduate-software-ingegnere-sonarsource-sonar-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "graduate-software-engineer-sonarsource-ch",
-          "graduate-software-ingegnere-sonarsource-sonar-geneva"
-        ],
-        "de": [
-          "graduate-software-engineer-sonarsource-ch"
-        ],
-        "fr": [
-          "graduate-software-engineer-sonarsource-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T14:50:23.488Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GE",
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated"
     }
   ]
 }
