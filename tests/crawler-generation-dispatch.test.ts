@@ -22,6 +22,7 @@ import {
   crawlerGenerationSentinelWorkflowIdentity,
   crawlerGenerationLegacyWorkflowIdentity,
   crawlerGenerationWorkflowIdentity,
+  isCrawlerGenerationToken,
   validateCrawlerGenerationWorkflowRun,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 
@@ -168,13 +169,33 @@ describe('crawler generation dispatch protocol', () => {
     expect(result.errors).not.toContain('workflow_path_mismatch');
   });
 
-  it('fails closed when the binding carries an invalid or missing generationToken', () => {
-    const binding = { ...crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit), generationToken: null };
+  it('keeps token validation equivalent to the legacy canonical grammar', () => {
+    const legacyToken = /^[1-9][0-9]*-[1-9][0-9]*$/;
+    for (const token of ['1-1', '9001-2', '999999999999-42', '0-1', '01-1', '1-0', '1-01', '1', '1-1-extra', '']) {
+      expect(isCrawlerGenerationToken(token)).toBe(legacyToken.test(token));
+    }
+  });
+
+  it('accepts only the canonical run-name fallback for a legacy binding without generationToken', () => {
+    const modern = crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit);
+    const { generationToken: _generationToken, ...legacy } = modern;
     const run = boundRun('01', 7001, corpusCodeCommit);
-    const result = validateCrawlerGenerationWorkflowRun(run, binding);
-    expect(result.valid).toBe(false);
-    expect(result.errors).toContain('workflow_path_mismatch');
-    expect(result.errors).toContain('head_branch_mismatch');
+    expect(validateCrawlerGenerationWorkflowRun(run, legacy)).toMatchObject({ valid: true, errors: [] });
+
+    const renamed = { ...legacy, runName: 'renamed-legacy-binding' };
+    expect(validateCrawlerGenerationWorkflowRun({ ...run, display_title: renamed.runName }, renamed)).toMatchObject({
+      valid: false,
+      errors: expect.arrayContaining(['head_branch_mismatch', 'workflow_path_mismatch']),
+    });
+  });
+
+  it('fails closed when an explicit generationToken is invalid', () => {
+    const binding = { ...crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit), generationToken: null };
+    const result = validateCrawlerGenerationWorkflowRun(boundRun('01', 7001, corpusCodeCommit), binding);
+    expect(result).toMatchObject({
+      valid: false,
+      errors: expect.arrayContaining(['head_branch_mismatch', 'workflow_path_mismatch']),
+    });
   });
 
   it('rejects translate or a group/workflow mismatch before any POST', async () => {
