@@ -37,6 +37,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { OFCT_REGIONS, buildPharmacyRecords, dedupePharmaciesById } from './lib/pharmacy-ticino-parser.mjs';
+import { classifyMalformedRowDrift } from './lib/malformed-row-observability.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -96,6 +97,7 @@ async function main() {
   const fetchedAt = new Date().toISOString();
   const pharmacies = [];
   const errors = [];
+  const warnings = [];
   let skippedMalformedRows = 0;
 
   for (let i = 0; i < OFCT_REGIONS.length; i += 1) {
@@ -112,8 +114,13 @@ async function main() {
     const { records, skipped } = buildPharmacyRecords(html, region, fetchedAt);
     if (skipped > 0) {
       skippedMalformedRows += skipped;
-      console.warn(`[import-pharmacies-ticino] ${region.key}: skipped ${skipped} malformed row(s)`);
-      errors.push(`${region.key}: skipped ${skipped} malformed row(s)`);
+      const diagnostic = classifyMalformedRowDrift(records.length, skipped);
+      const warning = `${region.key}: skipped ${skipped}/${diagnostic.total} malformed row(s)`;
+      console.warn(`[import-pharmacies-ticino] ${warning}`);
+      warnings.push(warning);
+      if (records.length > 0 && diagnostic.severity === 'error') {
+        errors.push(`${region.key}: malformed-row drift ${skipped}/${diagnostic.total}`);
+      }
     }
     if (records.length === 0) {
       console.warn(`[import-pharmacies-ticino] ${region.key}: no pharmacies found, structure may have changed`);
@@ -148,6 +155,7 @@ async function main() {
     _userAgent: USER_AGENT,
     _pharmacyCount: deduped.length,
     _errors: errors,
+    _warnings: warnings,
     _dedupCollisions: dedupCollisions,
     _skippedMalformedRows: skippedMalformedRows,
     pharmacies: deduped,
