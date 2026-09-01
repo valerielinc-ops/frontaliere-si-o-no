@@ -13,11 +13,11 @@
     "https://www.rhb.ch/it/job/sicherheitsbeauftragte-r-infrastruktur-50-100_2026-2248/",
     "https://www.rhb.ch/it/job/handwerker-in-komponentenwechsel-50-100_2026-2214/",
     "https://www.rhb.ch/it/job/gleismonteur-in-80-100_2026-2246/",
-    "https://www.rhb.ch/it/job/mechaniker-in-drehgestellaufarbeitung-trieb-und-gliederzuge-80-100_2026-2245/",
     "https://www.rhb.ch/it/job/auftragsleiter-in-komponenten-50-100_2026-2244/",
     "https://www.rhb.ch/it/job/auftragsleiter-in-anhangefahrzeuge-50-100_2026-2243/",
     "https://www.rhb.ch/it/job/projektingenieur-in-kabelanlagen-50-100_2026-2217/",
-    "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-sud_2026-2241/"
+    "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-sud_2026-2241/",
+    "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/"
   ],
   "seedMetaByUrl": {
     "https://www.rhb.ch/it/job/ausbildner-in-triebfahrzeugfuhrende-vte-80-100-landquart_2026-2250/": {
@@ -40,10 +40,6 @@
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
     },
-    "https://www.rhb.ch/it/job/mechaniker-in-drehgestellaufarbeitung-trieb-und-gliederzuge-80-100_2026-2245/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
-    },
     "https://www.rhb.ch/it/job/auftragsleiter-in-komponenten-50-100_2026-2244/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -59,8 +55,12 @@
     "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-sud_2026-2241/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
+    },
+    "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-09-01T00:33:13.841Z"
+  "updatedAt": "2026-09-01T07:31:46.520Z"
 }
