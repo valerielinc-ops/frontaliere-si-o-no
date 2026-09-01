@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import {
+  assertNoOverlappingJobs,
   ISSUE_6759_COVERAGE,
   ISSUE_6797_SHARED_BOARD_TRANSFERS,
   mergeRetiredCrawlerJobs,
@@ -152,6 +153,31 @@ describe('issue #6759 reconciliation', () => {
     expect(result.sourceJobs).toEqual([]);
     expect(result.targetJobs).toHaveLength(1);
     expect(result.targetJobs[0].previousSlugs).toContain('broad-slug');
+  });
+
+  it('fails loud instead of merging jobs identified only by slug', () => {
+    const weakIdentity = {
+      ...job('retired', '1', 'shared-slug'),
+      id: '',
+      url: '',
+    };
+
+    expect(() => mergeRetiredCrawlerJobs([], [weakIdentity], 'canonical'))
+      .toThrow('ownership identity reached unsafe slug fallback: shared-slug');
+  });
+
+  it('asserts that shared-board transfer leaves no supplier identity in both slices', () => {
+    const broad = job('broad', '1', 'broad-slug');
+    const dedicated = job('dedicated', '1', 'dedicated-slug');
+    const result = transferOverlappingJobs([broad], [dedicated]);
+
+    expect(() => assertNoOverlappingJobs(
+      result.sourceJobs,
+      result.targetJobs,
+      'broad->dedicated',
+    )).not.toThrow();
+    expect(() => assertNoOverlappingJobs([broad], [dedicated], 'broad->dedicated'))
+      .toThrow('broad->dedicated: 1 shared ownership identities remain');
   });
 
   it('rehomes predicate-owned unique shared-board jobs without changing their route', () => {
