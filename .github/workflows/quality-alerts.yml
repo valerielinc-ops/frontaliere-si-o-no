@@ -22,12 +22,10 @@ jobs:
             !/data/translation-cache/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
