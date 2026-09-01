@@ -5,8 +5,10 @@ import {
   ALBERGO_GARDENIA_COMPANY_DOMAIN,
   ALBERGO_GARDENIA_COMPANY_NAME,
   ALBERGO_GARDENIA_FETCH_BUDGET,
+  ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS,
   ALBERGO_GARDENIA_KEY,
   ALBERGO_GARDENIA_SITEMAP_URL,
+  ALBERGO_GARDENIA_TOTAL_BUDGET_MS,
   assertCompleteAlbergoGardeniaSnapshot,
   fetchAlbergoGardeniaSourcePage,
   assertNoGardeniaCareerSurface,
@@ -171,9 +173,59 @@ describe('Albergo Gardenia authoritative crawler', () => {
       failure = error;
     }
     expect(failure).toBeInstanceOf(Error);
+    expect(failure).toMatchObject({
+      code: 'ERR_GARDENIA_CONNECTION_EXHAUSTED',
+      retryable: true,
+    });
     expect(failure).not.toHaveProperty('status');
     expect(isConnectionLevelFetchError(failure)).toBe(true);
     expect(fetchPage).toHaveBeenCalledTimes(2);
+  });
+
+  it('does not invent an apex/www fallback for another trusted subdomain', async () => {
+    const sourceUrl = 'https://careers.albergo-gardenia.ch/story.php?mid=1&pid=1';
+    const fetchPage = vi.fn(async (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    }));
+    const response = await fetchAlbergoGardeniaSourcePage(sourceUrl, { fetchPage });
+    expect(response).toMatchObject({ ok: false, status: 0, url: sourceUrl });
+    expect(fetchPage).toHaveBeenCalledOnce();
+  });
+
+  it('enforces a crawler-wide deadline with an explicit connection-level outcome', async () => {
+    let now = 1_000;
+    const fetchPage = vi.fn(async (url: string) => {
+      now = 1_101;
+      return {
+        ok: true,
+        status: 200,
+        url,
+        body: representativeSitemap(),
+        host: new URL(url).hostname,
+      };
+    });
+    await expect(fetchAlbergoGardeniaSourcePage(ALBERGO_GARDENIA_SITEMAP_URL, {
+      kind: 'sitemap',
+      fetchPage,
+      deadlineAt: 1_100,
+      nowImpl: () => now,
+    })).rejects.toMatchObject({
+      code: 'ERR_GARDENIA_CONNECTION_EXHAUSTED',
+      retryable: true,
+    });
+    expect(fetchPage).toHaveBeenCalledOnce();
+  });
+
+  it('keeps the total Gardenia transport bound below the Group19 job timeout', () => {
+    const group19TimeoutMs = 340 * 60_000;
+    expect(ALBERGO_GARDENIA_TOTAL_BUDGET_MS).toBe(30 * 60_000);
+    expect(ALBERGO_GARDENIA_TOTAL_BUDGET_MS + ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS)
+      .toBeLessThan(group19TimeoutMs);
+    expect(ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS).toBe(115_000);
   });
 
   it.each([
@@ -210,7 +262,9 @@ describe('Albergo Gardenia authoritative crawler', () => {
         host: new URL(responseUrl).hostname,
       };
     });
-    await expect(fetchAllAlbergoGardeniaJobs({ fetchPage: redirected })).rejects.toThrow(/redirected outside its inventory/);
+    await expect(fetchAllAlbergoGardeniaJobs({ fetchPage: redirected })).rejects.toThrow(
+      /content identity mismatch/,
+    );
 
     const sitemapRedirected = vi.fn(async (url: string) => ({
       ok: true,
@@ -219,7 +273,9 @@ describe('Albergo Gardenia authoritative crawler', () => {
       body: url === ALBERGO_GARDENIA_SITEMAP_URL ? sitemap : gardeniaPage(),
       host: new URL(url).hostname,
     }));
-    await expect(fetchAllAlbergoGardeniaJobs({ fetchPage: sitemapRedirected })).rejects.toThrow(/sitemap fetch failed/);
+    await expect(fetchAllAlbergoGardeniaJobs({ fetchPage: sitemapRedirected })).rejects.toThrow(
+      /sitemap identity mismatch/,
+    );
   });
 
   it('fails closed on missing source identity, career navigation, or JobPosting', () => {
