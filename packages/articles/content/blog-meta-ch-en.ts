@@ -4972,6 +4972,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'L Fribourg permit: duration and renewal',
     'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'L Freiburg permit: valid for up to 1 year, renewal and transition to B and C permits. Procedures, documents and employer constraints.',
     'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'L permit documentation and employment contract in Swiss cantonal administrative office',
+    'blog.article.processo-ndrangheta-svizzera.title': 'Process at the alleged financial reference point of the \'ndrangheta',
+    'blog.article.processo-ndrangheta-svizzera.excerpt': 'The proceedings against a 59-year-old Italian resident in the Canton of Aargau, accused of links with the Anello-Fruci clan, have begun.',
+    'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Aerial view of the Tribunale penale federale di Bellinzona with a focus on the courtroom where the trial is taking place.',
 };
 
 export default blogMetaChEn;

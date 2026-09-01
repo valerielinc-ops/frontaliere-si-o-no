@@ -4972,6 +4972,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'Permesso L Friburgo: durata e rinnovo',
     'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'Permesso L Friburgo: validità fino a 1 anno, rinnovo e passaggio ai permessi B e C. Procedure, documenti e vincoli del datore di lavoro.',
     'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'Documentazione del permesso L e contratto di lavoro presso ufficio amministrativo cantonale svizzero',
+    'blog.article.processo-ndrangheta-svizzera.title': 'Processo al presunto punto di riferimento finanziario della \'ndrangheta',
+    'blog.article.processo-ndrangheta-svizzera.excerpt': 'Iniziato il procedimento contro un 59enne italiano residente nel Canton Argovia, accusato di legami con il clan Anello-Fruci.',
+    'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Vista aerea del Tribunale penale federale di Bellinzona con focus sull\'aula di tribunale dove si svolge il processo.',
 };
 
 export default blogMetaChIt;

@@ -64526,6 +64526,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-ndrangheta-svizzera': {
+    title: 'Processo al presunto punto di riferimento finanziario della \'ndrangheta',
+    description: 'Iniziato il procedimento contro un 59enne italiano residente nel Canton Argovia, accusato di legami con il clan Anello-Fruci. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, presunto, punto, riferimento',
+    ogTitle: 'Processo al presunto punto di riferimento finanziario della \'ndrangheta in Svizzera',
+    ogDescription: 'Iniziato il procedimento contro un 59enne italiano residente nel Canton Argovia, accusato di legami con il clan Anello-Fruci. Il processo si svolge al Tribunale penale federale di Bellinzona e durerà fino all\'11 settembre.',
+    canonicalPath: '/articoli-svizzera/processo-ndrangheta-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo al presunto punto di riferimento finanziario della 'ndrangheta",
+      "description": "Iniziato il procedimento contro un 59enne italiano residente nel Canton Argovia, accusato di legami con il clan Anello-Fruci. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/processo-ndrangheta-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Tribunale penale federale di Bellinzona con focus sull'aula di tribunale dove si svolge il processo."
+      },
+      "datePublished": "2026-09-01T17:49:56+00:00",
+      "dateModified": "2026-09-01T17:49:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/processo-ndrangheta-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

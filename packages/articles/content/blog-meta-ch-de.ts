@@ -4972,6 +4972,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'L-Fribourg-Genehmigung: Dauer und Verlängerung',
     'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'L-Freiburg-Permit: gültig bis zu 1 Jahr, Verlängerung und Umstellung auf B- und C-Permits. Verfahren, Dokumente und Arbeitgeberbeschränkungen.',
     'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'L-Bewilligung und Arbeitsvertrag in Schweizer Kantonsamt für Migration',
+    'blog.article.processo-ndrangheta-svizzera.title': 'Verfahren am mutmaßlichen finanziellen Bezugspunkt der \'Ndrangheta',
+    'blog.article.processo-ndrangheta-svizzera.excerpt': 'Das Verfahren gegen einen 59-jährigen Italiener aus dem Kanton Aargau, dem Verbindungen zum Clan Anello-Fruci vorgeworfen werden, wurde eingeleitet.',
+    'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Luftaufnahme des Tribunale penale federale di Bellinzona mit Fokus auf dem Gerichtssaal, in dem der Prozess stattfindet.',
 };
 
 export default blogMetaChDe;
