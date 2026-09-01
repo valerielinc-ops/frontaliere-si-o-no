@@ -6,7 +6,7 @@
  * isTrustedDomain() using HTML fixtures mirroring the real
  * Umantis ATS page structure at tenant 2904.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   TSCHUGGEN_KEY,
@@ -131,6 +131,17 @@ describe('Tschuggen Collection crawler parser', () => {
       department: 'Rooms Division',
       location: 'Ascona',
     });
+  });
+  it('warns when the two Umantis views disagree on a populated field', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mergeTschuggenListing(
+      { vacancyId: '1325', title: 'First title' },
+      { vacancyId: '1325', title: 'Second title' },
+    );
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining(
+      'Tschuggen vacancy 1325: conflicting title',
+    ));
+    warn.mockRestore();
   });
   // ── Constants ──
   it('exports valid company key and name', () => {
