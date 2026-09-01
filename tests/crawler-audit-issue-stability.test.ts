@@ -9,8 +9,10 @@ vi.mock('node:child_process', () => {
 const {
   COVERAGE_GAP_ISSUE_KEY,
   DUPLICATE_ISSUE_KEY,
+  STALE_SNAPSHOT_ISSUE_KEY,
   duplicateIssue,
   gapIssue,
+  staleSnapshotIssue,
 } = await import('../scripts/audit-duplicate-crawler-companies.mjs');
 const { createGithubIssue } = await import('../scripts/lib/github-issue-creator.mjs');
 
@@ -27,6 +29,16 @@ function coverageGaps(count: number) {
     twin: 'witness',
     missing: Array.from({ length: count }, (_, index) => `https://jobs.example/${index}`),
   }];
+}
+
+function staleSnapshots(count: number) {
+  return Array.from({ length: count }, (_, index) => ({
+    key: `witness-${index}`,
+    twin: `keeper-${index}`,
+    assembledAtMs: Date.now() - (72 + index) * 60 * 60 * 1000,
+    ageMs: (72 + index) * 60 * 60 * 1000,
+    maskedMissing: [`https://jobs.example/${index}`],
+  }));
 }
 
 function ghCalls(): string[][] {
@@ -62,6 +74,17 @@ describe.each([
     second: () => gapIssue(coverageGaps(6)),
     firstCount: '16 vacancy',
     secondCount: '6 vacancy',
+  },
+  {
+    family: 'stale crawler snapshot',
+    issueNumber: 6873,
+    key: STALE_SNAPSHOT_ISSUE_KEY,
+    olderLegacyTitle: '[crawler-snapshot-stale] 7 crawler witness senza snapshot aggiornato',
+    legacyTitle: '[crawler-snapshot-stale] 3 crawler witness senza snapshot aggiornato',
+    first: () => staleSnapshotIssue(staleSnapshots(3)),
+    second: () => staleSnapshotIssue(staleSnapshots(2)),
+    firstCount: '3 witness stale',
+    secondCount: '2 witness stale',
   },
 ])('$family issue reporting', ({
   issueNumber,
