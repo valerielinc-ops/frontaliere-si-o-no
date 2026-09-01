@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-08-31T17:05:10.192Z",
+  "generatedAt": "2026-09-01T00:31:05.060Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 8,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 18237,
-  "avgDurationMs": 18237,
+  "durationMs": 19801,
+  "avgDurationMs": 19801,
   "durationHistory": [
-    18237
+    19801
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Praktikum im Einkauf (w/m/d) REF295276U",
       "slug": "praktikum-im-einkauf-w-m-d-ref295276u-bosch-frauenfeld",
@@ -35,16 +36,21 @@
       "sourceLang": "de",
       "postedDate": "2026-08-31",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-be9533de1af3",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-31T17:05:10.188Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 18,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Head of the Regional Governance Unit for Information Security and Data Protection - Bosch Switzerland 100% (f/m/div.) REF290730T",
       "slug": "head-of-the-regional-governance-unit-for-information-security-and-data-protection-bosch-switzerland-100-f-m-div-ref290730t-bosch-solothurn-zuchwil",
@@ -72,6 +78,7 @@
       "salaryMax": 143000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T21:41:34.659Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -108,6 +115,7 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T21:41:34.659Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -144,6 +152,7 @@
       "salaryMax": 113500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T09:52:57.273Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -179,6 +188,8 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T10:20:16.772Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -214,6 +225,8 @@
       "salaryMax": 121500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-11T10:10:53.064Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -249,6 +262,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-10T21:53:34.878Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -284,6 +298,7 @@
       "salaryMax": 89500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:37:07.409Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -293,42 +308,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Logistiker 100% (w/m/div.) - REF292961C",
-      "slug": "logisticista-100-f-m-div-ref292961c-bosch-thermotechnik-ag-st-niklaus",
-      "url": "https://jobs.bosch.com/en/job/REF292961C-logistiker-100-w-m-div-ref292961c",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000140452921-logistiker-100-w-m-div-ref292961c?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "St. Niklaus",
-      "addressLocality": "St. Niklaus",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-29",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-1e02f0d218e7",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-29T22:09:22.160Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
