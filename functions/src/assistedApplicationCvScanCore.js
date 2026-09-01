@@ -28,6 +28,7 @@
 
 import admin from 'firebase-admin';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
+import { resolveStorageBucketName } from './lib/storageBucket.js';
 
 // assisted-application-uploads/{orderId}/{file} — mirrors the cv-uploads/{jobId}/{file}
 // shape already used by the publisher apply form (storage.rules).
@@ -36,10 +37,7 @@ export const ASSISTED_APPLICATION_UPLOAD_PATH_RE = /^assisted-application-upload
 export const EICAR_TEST_SIGNATURE =
   'X5O!P%@AP[4\\PZX54(P^)7CC)7}$EICAR-STANDARD-ANTIVIRUS-TEST-FILE!$H+H*';
 
-const STORAGE_BUCKET =
-  process.env.FIREBASE_STORAGE_BUCKET ||
-  process.env.STORAGE_BUCKET ||
-  'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = resolveStorageBucketName();
 
 /**
  * @param {string} filePath

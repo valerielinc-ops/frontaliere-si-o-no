@@ -17,15 +17,13 @@ import admin from 'firebase-admin';
 import { randomUUID } from 'node:crypto';
 import { bridgeEmailCascadeCredentialsToEnv } from './remoteConfigSecrets.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from './emailCascade.js';
+import { resolveStorageBucketName } from './lib/storageBucket.js';
 
 const FROM_EMAIL = 'Frontaliere Ticino <confirmation@frontaliereticino.ch>';
 const RETENTION_DAYS = 90;
 // Same bucket the client uploads CVs to (storage.rules cv-uploads/**). The admin
 // app may be initialised without an explicit storageBucket, so name it here.
-const STORAGE_BUCKET =
-  process.env.FIREBASE_STORAGE_BUCKET ||
-  process.env.STORAGE_BUCKET ||
-  'frontaliere-ticino.firebasestorage.app';
+const STORAGE_BUCKET = resolveStorageBucketName();
 // V4 signed-URL max lifetime is 7 days; the publisher should review promptly.
 const CV_SIGNED_URL_TTL_MS = 7 * 86400000;
 
