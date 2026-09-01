@@ -11055,6 +11055,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tariffe-ail-2027-stabili.title': 'Tarifs ail 2027 : Pas d\'augmentation pour l’énergie',
     'blog.article.tariffe-ail-2027-stabili.excerpt': 'Les tarifs de l\'électricité et du gaz ail resteront stables en 2027, grâce à la stratégie d\'achat échelonné et aux investissements dans les énergies renouvelables.',
     'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Vue aérienne de Lugano avec des bâtiments industriels et des infrastructures énergétiques',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'Hôpitaux EOC au Tessin : recherche ANQ détecte les lumières et les ombres',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'L\'enquête nationale ANQ récompense les hôpitaux tessinois (75 % de patients satisfaits), mais signale des marges d\'amélioration de la communication pendant les attentes.',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Service d\'hospitalisation de l\'EOC au Tessin avec personnel médical communiquant avec un patient',
 };
 
 export default blogMetaFr;

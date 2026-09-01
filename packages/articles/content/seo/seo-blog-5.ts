@@ -81815,6 +81815,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eoc-ospedali-comunicazione-pazienti': {
+    title: 'Ospedali EOC in Ticino: ricerca ANQ rileva luci e ombre',
+    description: 'La ricerca ANQ 2025 premia gli ospedali ticinesi (75% pazienti soddisfatti), ma segnala criticità nella comunicazione durante le attese. Lugano e Bellinzona più',
+    keywords: 'frontalieri, ticino, svizzera, italia, ospedali, ricerca, rileva, luci',
+    ogTitle: 'Ospedali EOC: 75% pazienti soddisfatti, serve comunicazione',
+    ogDescription: 'L\'indagine ANQ 2025 sull\'Ente ospedaliero cantonale ticinese rivela risultati positivi complessivi (75% pazienti), ma evidenzia margini di miglioramento nella comunicazione durante le attese in ammissione. Gli ospedali più grandi registrano più',
+    canonicalPath: '/articoli-frontaliere/eoc-ospedali-comunicazione-pazienti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ospedali EOC in Ticino: ricerca ANQ rileva luci e ombre",
+      "description": "La ricerca ANQ 2025 premia gli ospedali ticinesi (75% pazienti soddisfatti), ma segnala criticità nella comunicazione durante le attese. Lugano e Bellinzona più",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/eoc-ospedali-comunicazione-pazienti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Reparto di ricovero ospedaliero dell'EOC in Ticino con personale medico che comunica con un paziente"
+      },
+      "datePublished": "2026-09-01T20:22:04+00:00",
+      "dateModified": "2026-09-01T20:22:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eoc-ospedali-comunicazione-pazienti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

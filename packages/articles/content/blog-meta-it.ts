@@ -11054,6 +11054,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tariffe-ail-2027-stabili.title': 'Tariffe AIL 2027: Nessun Aumento per l’Energia',
     'blog.article.tariffe-ail-2027-stabili.excerpt': 'Le tariffe di elettricità e gas AIL rimarranno stabili nel 2027, grazie alla strategia di acquisto scaglionato e agli investimenti nelle rinnovabili.',
     'blog.article.tariffe-ail-2027-stabili.imageAlt': 'Vista aerea di Lugano con edifici industriali e infrastrutture energetiche',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.title': 'Ospedali EOC in Ticino: ricerca ANQ rileva luci e ombre',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.excerpt': 'L\'indagine nazionale ANQ premia gli ospedali ticinesi (75% pazienti soddisfatti), ma segnala margini di miglioramento nella comunicazione durante le attese.',
+    'blog.article.eoc-ospedali-comunicazione-pazienti.imageAlt': 'Reparto di ricovero ospedaliero dell\'EOC in Ticino con personale medico che comunica con un paziente',
 };
 
 export default blogMetaIt;
