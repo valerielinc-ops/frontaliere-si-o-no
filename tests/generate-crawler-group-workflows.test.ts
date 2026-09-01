@@ -23,6 +23,7 @@ import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
 import { packGroups, GROUP_COUNT, OUTLIER_MEDIAN_MULTIPLE, generate, buildCrawlerShellBody, assignGroupsStable, extractAssignmentsFromWorkflows, extractManualPreamble, generateCrossRepoExecutionArtifacts, assertCrawlerLogicParity, crossRepoCrawlerSparsePatterns, generateCrawlerLogicArtifacts, collectSiteRuntimePaths } from '../scripts/generate-crawler-group-workflows.mjs';
 import { assertCrawlerManifestDelta, CORPUS_OBSERVER_FILES, CRAWLER_WORKFLOW_FILES, prepareCrawlerWorkflowCorpusSync } from '../scripts/ci/prepare-crawler-workflow-corpus-sync.mjs';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 interface Crawler {
   slug: string;
@@ -965,22 +966,6 @@ describe('cross-repo crawler execution artifacts', () => {
     return { ...result, outDir, contractPath };
   }
 
-  function collectRelativeImportClosure(entrypoint: string) {
-    const pending = [entrypoint];
-    const visited = new Set<string>();
-    while (pending.length > 0) {
-      const runtimePath = pending.pop()!;
-      if (visited.has(runtimePath)) continue;
-      visited.add(runtimePath);
-      const source = fs.readFileSync(path.join(repoRoot, runtimePath), 'utf8');
-      for (const match of source.matchAll(/^\s*(?:import|export)\s+(?:(?:\{[\s\S]*?\}|[^'"\n]+)\s+from\s+)?['"](\.[^'"]+)['"]/gm)) {
-        const importedPath = path.posix.normalize(path.posix.join(path.posix.dirname(runtimePath), match[1]));
-        pending.push(importedPath);
-      }
-    }
-    return [...visited].sort();
-  }
-
   it('lega i 23 job completi *-logic.yml alla stessa sorgente del generatore', () => {
     const { contract } = generateArtifacts();
     const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
@@ -1020,7 +1005,7 @@ describe('cross-repo crawler execution artifacts', () => {
 
   it('hash-binda la closure import reale del finalizer in ogni artifact di gruppo', () => {
     const { contract, outDir } = generateArtifacts();
-    const expectedClosure = collectRelativeImportClosure('scripts/crawler-group-generation-finalizer.mjs');
+    const expectedClosure = collectRelativeImportClosure(repoRoot, 'scripts/crawler-group-generation-finalizer.mjs');
     expect(expectedClosure).not.toContain('scripts/ci/crawler-generation-roster.json');
 
     for (const artifact of contract.artifacts.filter((entry: any) => /^crawler-group-/.test(entry.file))) {

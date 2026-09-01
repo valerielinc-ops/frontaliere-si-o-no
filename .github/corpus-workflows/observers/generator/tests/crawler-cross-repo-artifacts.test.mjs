@@ -23,16 +23,65 @@ function occurrences(text, pattern) {
 }
 
 function crawlerIdsFromArtifact(text) {
-  return [...text.matchAll(/^\s+id: crawler-(.+)\n\s+background: true$/gm)]
-    .map((match) => match[1]);
+  const lines = text.split(/\r?\n/);
+  const crawlerIds = [];
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const stepStart = /^(\s*)-\s+(.*)$/.exec(lines[index]);
+    if (!stepStart) continue;
+
+    const stepIndent = stepStart[1].length;
+    const fieldIndent = ' '.repeat(stepIndent + 2);
+    const fields = [fieldIndent + stepStart[2]];
+    for (let cursor = index + 1; cursor < lines.length; cursor += 1) {
+      const indentation = /^(\s*)\S/.exec(lines[cursor]);
+      if (indentation && indentation[1].length <= stepIndent) break;
+      fields.push(lines[cursor]);
+      index = cursor;
+    }
+
+    let crawlerId = '';
+    let background = false;
+    for (const line of fields) {
+      if (!line.startsWith(fieldIndent) || line.startsWith(`${fieldIndent}  `)) continue;
+      const id = /^\s*id:\s*crawler-([a-z0-9-]+)\s*$/.exec(line);
+      if (id) crawlerId = id[1];
+      if (/^\s*background:\s*true\s*$/.test(line)) background = true;
+    }
+    if (crawlerId && background) crawlerIds.push(crawlerId);
+  }
+
+  return crawlerIds;
 }
 
-test('il parser del roster ignora il wait terminale non-background', () => {
+test('il parser del roster tollera field-order e ignora wait o campi annidati non-background', () => {
   const workflow = [
-    '      id: crawler-coop',
-    '      background: true',
-    '      id: crawler-generation-wait',
-    '      wait-all: true',
+    '      - name: Run coop',
+    '        id: crawler-coop',
+    '        if: success()',
+    '        background: true',
+    '        run: echo coop',
+    '      - name: Run alfa',
+    '        background: true',
+    '        continue-on-error: false',
+    '        id: crawler-alfa',
+    '        run: echo alfa',
+    '      - name: Ignore nested shell text',
+    '        run: |-',
+    '          id: crawler-fake',
+    '          background: true',
+    '      - name: Wait',
+    '        id: crawler-generation-wait',
+    '        wait-all: true',
+  ].join('\n');
+  assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop', 'alfa']);
+});
+
+test('il parser del roster conserva il formato corrente minimale', () => {
+  const workflow = [
+    '      - name: Run coop',
+    '        id: crawler-coop',
+    '        background: true',
   ].join('\n');
   assert.deepEqual(crawlerIdsFromArtifact(workflow), ['coop']);
 });

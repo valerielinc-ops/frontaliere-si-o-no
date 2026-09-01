@@ -3,27 +3,13 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import { GROUP_IDS } from '../scripts/lib/crawler-generation-contract.mjs';
+import { collectRelativeImportClosure } from './helpers/collectRelativeImportClosure';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const WORKFLOW_PATH = path.join(
   ROOT,
   '.github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml',
 );
-
-function collectRelativeImportClosure(entrypoint: string) {
-  const pending = [entrypoint];
-  const visited = new Set<string>();
-  while (pending.length > 0) {
-    const runtimePath = pending.pop()!;
-    if (visited.has(runtimePath)) continue;
-    visited.add(runtimePath);
-    const source = fs.readFileSync(path.join(ROOT, runtimePath), 'utf8');
-    for (const match of source.matchAll(/^\s*(?:import|export)\s+(?:(?:\{[\s\S]*?\}|[^'"\n]+)\s+from\s+)?['"](\.[^'"]+)['"]/gm)) {
-      pending.push(path.posix.normalize(path.posix.join(path.posix.dirname(runtimePath), match[1])));
-    }
-  }
-  return [...visited].sort();
-}
 
 describe('portable crawler generation observer workflow', () => {
   it('uses exactly 23 workflow_run triggers and rejects legacy empty-token runs before runner allocation', () => {
@@ -107,7 +93,7 @@ describe('portable crawler generation observer workflow', () => {
         .filter(Boolean)
         .sort();
       expect(sparsePaths).toEqual([
-        ...collectRelativeImportClosure('scripts/crawler-generation-observer.mjs'),
+        ...collectRelativeImportClosure(ROOT, 'scripts/crawler-generation-observer.mjs'),
         'scripts/ci/crawler-generation-roster.json',
       ].sort());
     }
