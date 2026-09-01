@@ -64292,6 +64292,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-requisiti-patrimoniali': {
+    title: 'UBS contesta proposta CET-S su requisiti patrimoniali',
+    description: 'UBS apprezza la CET-S ma critica i nuovi requisiti patrimoniali: 30 miliardi di dollari di costi aggiuntivi minaccerebbero la competitività della piazza',
+    keywords: 'frontalieri, ticino, svizzera, italia, contesta, proposta, cet-s, requisiti',
+    ogTitle: 'UBS contesta proposta CET-S su requisiti patrimoniali',
+    ogDescription: 'UBS riconosce il lavoro della Commissione dell\'economia su nuovi requisiti patrimoniali, ma boccia la proposta concreta. La banca afferma che comporterebbe 30 miliardi di dollari di capitale aggiuntivo, aumentando i costi di finanziamento',
+    canonicalPath: '/articoli-svizzera/ubs-requisiti-patrimoniali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS contesta proposta CET-S su requisiti patrimoniali",
+      "description": "UBS apprezza la CET-S ma critica i nuovi requisiti patrimoniali: 30 miliardi di dollari di costi aggiuntivi minaccerebbero la competitività della piazza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-requisiti-patrimoniali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio bancario svizzero con documenti sui requisiti patrimoniali e grafici finanziari visibili."
+      },
+      "datePublished": "2026-09-01T15:19:06+00:00",
+      "dateModified": "2026-09-01T15:19:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-requisiti-patrimoniali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
