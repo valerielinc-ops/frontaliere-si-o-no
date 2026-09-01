@@ -33024,6 +33024,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'tariffe-ail-2027-stabili',
+ category: 'novita',
+ date: '2026-09-01T19:27:51.608Z',
+ image: '/images/blog/tariffe-ail-2027-stabili.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
