@@ -1,45 +1,33 @@
 #!/usr/bin/env node
 /**
- * Albergo Gardenia job parser — Fetcher and job builder.
+ * Albergo Gardenia authoritative source-state reader.
  *
- * Source: https://www.hotelleriesuisse.ch/it/
- *
- * Exports the 4 required functions for the crawler template:
- *   - fetchAllAlbergoGardeniaJobs()  — Fetch and parse all jobs
- *   - isAlbergoGardeniaJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ * The hotel does not publish vacancies today. Its legacy website has no
+ * dedicated careers endpoint, so an empty snapshot is authoritative only
+ * after every content page advertised by its sitemap has been fetched and
+ * checked. Any incomplete inventory or newly observed career signal fails
+ * closed and leaves the previous slice untouched.
  */
-import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
-
-/* ── Constants ─────────────────────────────────────────────── */
+import { JSDOM } from 'jsdom';
+import { CAREER_TOKEN_RX } from './prospector/config.mjs';
+import { decodeEntities } from './prospector/entities.mjs';
+import { politeFetch } from './prospector/polite-fetch.mjs';
 
 export const ALBERGO_GARDENIA_KEY = 'albergo-gardenia';
 export const ALBERGO_GARDENIA_COMPANY_NAME = 'Albergo Gardenia';
-export const ALBERGO_GARDENIA_COMPANY_DOMAIN = 'hotelleriesuisse.ch';
+export const ALBERGO_GARDENIA_COMPANY_DOMAIN = 'albergo-gardenia.ch';
+export const ALBERGO_GARDENIA_HOME_URL = 'https://www.albergo-gardenia.ch/';
+export const ALBERGO_GARDENIA_SITEMAP_URL = 'https://www.albergo-gardenia.ch/sitemap.xml';
 
-const CAREER_URL = 'https://www.hotelleriesuisse.ch/it/';
-
-/* ── Helpers ───────────────────────────────────────────────── */
+const MIN_SITEMAP_URLS = 50;
+const MIN_CONTENT_URLS = 40;
+const CONTENT_PATH_RX = /^\/(?:index|story)\.php$/i;
+const EXPECTED_BRAND_RX = /(?:albergo|villa|garni)\s+gardenia/i;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-/* ── Company Matchers ──────────────────────────────────────── */
-
-/**
- * Check if a job belongs to Albergo Gardenia.
- * Used by the template to filter this company's jobs from the global dataset.
- */
 export function isAlbergoGardeniaJob(job) {
   const key = normalize(job?.companyKey || job?.company || '')
     .normalize('NFD')
@@ -47,152 +35,168 @@ export function isAlbergoGardeniaJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
 
   return (
-    key === ALBERGO_GARDENIA_KEY ||
-    key.startsWith('albergo-gardenia') ||
-    company.includes('albergo gardenia') ||
-    url.includes('hotelleriesuisse.ch')
+    key === ALBERGO_GARDENIA_KEY
+    || key.startsWith('albergo-gardenia')
+    || company.includes('albergo gardenia')
+    || isTrustedDomain(job?.url)
   );
 }
 
-/**
- * Validate that a URL belongs to Albergo Gardenia's domain.
- */
 export function isTrustedDomain(rawUrl = '') {
   try {
     const host = new URL(rawUrl).hostname.toLowerCase();
-    return host === 'hotelleriesuisse.ch' || host.endsWith('.hotelleriesuisse.ch');
+    return host === ALBERGO_GARDENIA_COMPANY_DOMAIN
+      || host.endsWith(`.${ALBERGO_GARDENIA_COMPANY_DOMAIN}`);
   } catch {
     return false;
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
-
-function detectCategory(title = '') {
-  const t = normalize(title);
-  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
-  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
-  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
-  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
-  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
-  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
-  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
-  return 'Altro';
-}
-
-function detectExperienceLevel(title = '') {
-  const t = normalize(title);
-  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
-  return 'mid';
-}
-
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
-  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
-  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
-}
-
-/* ── Fetcher guidato dalla spec ───────────────────────────────
- * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
- * template degli URL di dettaglio, appresi dalla pagina reale.
- */
-async function fetchJobListings() {
-  const spec = loadSpec(ALBERGO_GARDENIA_KEY);
-  return runSpecInProduction(spec);
+function decodeSitemapLocation(value = '') {
+  let decoded = String(value).trim();
+  // The live sitemap double-encodes query separators as `&amp;amp;`.
+  // Decode to a fixed point instead of teaching URL identity about bad XML.
+  for (let pass = 0; pass < 3; pass++) {
+    const next = decodeEntities(decoded);
+    if (next === decoded) break;
+    decoded = next;
+  }
+  return decoded;
 }
 
 /**
- * Fetch all Albergo Gardenia jobs.
- * Returns an array of ParsedJob objects (source-locale only).
+ * Parse and prove the bounded website inventory advertised by Gardenia.
  *
- * IMPORTANT: Only set source-locale fields. Other locales are filled
- * by the AI localization step and translate-pending pipeline.
+ * @param {string} xml
+ * @returns {{ allUrls: string[], contentUrls: string[] }}
  */
-export async function fetchAllAlbergoGardeniaJobs() {
-  console.log(`🔍 Fetching Albergo Gardenia jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
-
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
+export function parseAlbergoGardeniaSitemap(xml = '') {
+  const locations = [...String(xml).matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/gi)]
+    .map((match) => decodeSitemapLocation(match[1]));
+  if (locations.length < MIN_SITEMAP_URLS) {
+    throw new Error(`Albergo Gardenia sitemap is incomplete (${locations.length} < ${MIN_SITEMAP_URLS})`);
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
-  const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
-
-    const geography = resolveSourceBackedSwissGeography(listing.location);
-    if (!geography) continue;
-    const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
-    const publicUrl = listing.url || CAREER_URL;
-
-    const sourceLang = detectLang(descriptionText || title, 'it');
-    const jobSlug = slugify(`${title} albergo-gardenia ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const job = {
-      // ── Required fields ──
-      id: `albergo-gardenia-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
-      company: ALBERGO_GARDENIA_COMPANY_NAME,
-      companyKey: ALBERGO_GARDENIA_KEY,
-      companyDomain: ALBERGO_GARDENIA_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
-      location,
-      canton,
-      url: publicUrl,
-      source: 'Albergo Gardenia Dedicated Parser',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
-
-      // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
-      category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Altro', // TODO: Set appropriate sector
-      currency: 'CHF',
-      featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
-      applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
+  const allUrls = [];
+  const seen = new Set();
+  for (const rawUrl of locations) {
+    let parsed;
+    try {
+      parsed = new URL(rawUrl);
+    } catch {
+      throw new Error(`Albergo Gardenia sitemap contains an invalid URL: ${rawUrl}`);
+    }
+    if (parsed.protocol !== 'https:' || !isTrustedDomain(parsed.href)) {
+      throw new Error(`Albergo Gardenia sitemap escaped the trusted source: ${parsed.href}`);
+    }
+    parsed.hash = '';
+    const normalized = parsed.toString();
+    if (!seen.has(normalized)) {
+      seen.add(normalized);
+      allUrls.push(normalized);
+    }
+  }
+  if (allUrls.length !== locations.length) {
+    throw new Error(`Albergo Gardenia sitemap contains duplicate identities (${locations.length - allUrls.length})`);
   }
 
-  console.log(`\n📋 Total Albergo Gardenia jobs discovered: ${jobs.length}`);
+  const contentUrls = allUrls.filter((url) => CONTENT_PATH_RX.test(new URL(url).pathname));
+  if (contentUrls.length < MIN_CONTENT_URLS) {
+    throw new Error(`Albergo Gardenia content inventory is incomplete (${contentUrls.length} < ${MIN_CONTENT_URLS})`);
+  }
+  if (allUrls.some((url) => CAREER_TOKEN_RX.test(new URL(url).pathname))) {
+    throw new Error('Albergo Gardenia sitemap now advertises a career surface');
+  }
+  return { allUrls, contentUrls };
+}
+
+/**
+ * Reject a newly introduced vacancy/career surface. We deliberately inspect
+ * semantic headings and links rather than arbitrary body prose: old hotel
+ * pages can mention work/jobs conversationally, while a navigable career
+ * surface must expose a heading, link or structured JobPosting.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ */
+export function assertNoGardeniaCareerSurface(html = '', pageUrl = '') {
+  const dom = new JSDOM(html, { url: pageUrl });
+  try {
+    const document = dom.window.document;
+    const title = String(document.title || '').replace(/\s+/g, ' ').trim();
+    if (!EXPECTED_BRAND_RX.test(title)) {
+      throw new Error(`Albergo Gardenia source identity is missing at ${pageUrl}`);
+    }
+
+    for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+      if (/"@type"\s*:\s*"JobPosting"/i.test(script.textContent || '')) {
+        throw new Error(`Albergo Gardenia JobPosting detected at ${pageUrl}`);
+      }
+    }
+
+    const semanticNodes = document.querySelectorAll('title, h1, h2, h3, a[href]');
+    for (const node of semanticNodes) {
+      const text = String(node.textContent || '').replace(/\s+/g, ' ').trim();
+      const href = node.tagName === 'A' ? String(node.getAttribute('href') || '') : '';
+      if (CAREER_TOKEN_RX.test(text) || (href && CAREER_TOKEN_RX.test(href))) {
+        throw new Error(`Albergo Gardenia career signal detected at ${pageUrl}`);
+      }
+    }
+  } finally {
+    dom.window.close();
+  }
+}
+
+function markAuthoritativeEmptySnapshot(jobs, sourcePageCount) {
+  Object.defineProperties(jobs, {
+    gardeniaSnapshotState: { value: 'authoritative-site-zero', enumerable: false },
+    discoveredCount: { value: 0, enumerable: false },
+    sourcePageCount: { value: sourcePageCount, enumerable: false },
+  });
   return jobs;
+}
+
+export function assertCompleteAlbergoGardeniaSnapshot(jobs) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.length !== 0
+    || Reflect.get(jobs, 'gardeniaSnapshotState') !== 'authoritative-site-zero'
+    || Number(Reflect.get(jobs, 'sourcePageCount')) < MIN_CONTENT_URLS
+  ) {
+    throw new Error('Albergo Gardenia snapshot is not a proven authoritative empty state');
+  }
+  return true;
+}
+
+/**
+ * @param {{ fetchPage?: typeof politeFetch }} [runtime]
+ */
+export async function fetchAllAlbergoGardeniaJobs({ fetchPage = politeFetch } = {}) {
+  console.log('🔍 Fetching Albergo Gardenia authoritative site inventory');
+  console.log(`   Sitemap: ${ALBERGO_GARDENIA_SITEMAP_URL}\n`);
+
+  const sitemap = await fetchPage(ALBERGO_GARDENIA_SITEMAP_URL, {
+    accept: 'application/xml,text/xml,*/*',
+  });
+  if (!sitemap?.ok || !isTrustedDomain(sitemap.url || ALBERGO_GARDENIA_SITEMAP_URL)) {
+    throw new Error(`Albergo Gardenia sitemap fetch failed (${sitemap?.status || 0})`);
+  }
+  const { allUrls, contentUrls } = parseAlbergoGardeniaSitemap(sitemap.body);
+
+  for (const sourceUrl of contentUrls) {
+    const page = await fetchPage(sourceUrl);
+    if (!page?.ok || !isTrustedDomain(page.url || '')) {
+      throw new Error(`Albergo Gardenia content fetch failed for ${sourceUrl} (${page?.status || 0})`);
+    }
+    const expectedIdentity = new URL(sourceUrl).href;
+    if (new URL(page.url).href !== expectedIdentity) {
+      throw new Error(`Albergo Gardenia content redirected outside its inventory: ${sourceUrl} -> ${page.url}`);
+    }
+    assertNoGardeniaCareerSurface(page.body, page.url);
+  }
+
+  console.log(`  ✅ ${allUrls.length} sitemap URLs; ${contentUrls.length} content pages; 0 vacancy surfaces.`);
+  return markAuthoritativeEmptySnapshot([], contentUrls.length);
 }
