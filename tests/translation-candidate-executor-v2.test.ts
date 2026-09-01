@@ -375,7 +375,7 @@ describe('translation candidate executor v2', () => {
     expect(callerQuality.protectedTokens[0].value).toBe('Acme');
   });
 
-  it('quarantines an invalidated-only exact attempt without invoking the provider', async () => {
+  it('retries invalidated-only attempts and records only a new output', async () => {
     const recorded = recordTranslationCandidateV2(createEmptyTranslationMemoryV2(), {
       identity, engineVersion: 'stub-v1', gateVersion: 'quality-v2', outputText: candidateText, status: 'rejected', evidence: [],
     });
@@ -384,10 +384,18 @@ describe('translation candidate executor v2', () => {
       candidateId: recorded.records[0].candidates[0].candidateId,
       reasonCode: 'test_invalidated',
     });
-    const stub = provider();
-    const result = await executeTranslationCandidateV2(executorInput(input({ memory: invalidated, provider: stub.provider })));
-    expect(result).toMatchObject({ status: 'duplicate_attempt', memory: invalidated, metrics: { providerCalls: 0, recorded: false } });
-    expect(stub.calls()).toBe(0);
+    const same = provider(candidateText);
+    const duplicate = await executeTranslationCandidateV2(executorInput(input({ memory: invalidated, provider: same.provider })));
+    expect(duplicate).toMatchObject({ status: 'duplicate_attempt', memory: invalidated, metrics: { providerCalls: 1, recorded: false } });
+    expect(same.calls()).toBe(1);
+
+    const replacementText = candidateText.replace('supporta', 'affianca');
+    const different = provider(replacementText);
+    const recordedAgain = await executeTranslationCandidateV2(executorInput(input({ memory: invalidated, provider: different.provider })));
+    expect(recordedAgain).toMatchObject({ status: 'validated', metrics: { providerCalls: 1, recorded: true } });
+    expect(recordedAgain.memory.records[0].candidates).toHaveLength(2);
+    const reused = await executeTranslationCandidateV2(executorInput(input({ memory: recordedAgain.memory })));
+    expect(reused).toMatchObject({ status: 'reused', metrics: { providerCalls: 0, recorded: false } });
   });
 
   it('aborts a pending provider at its required bounded timeout', async () => {

@@ -340,6 +340,13 @@ describe('translation candidate quality v2', () => {
     expect(performance.now() - start).toBeLessThan(2_000);
   });
 
+  it('streams URL suppression before email comparison without a sorting path', () => {
+    const source = readFileSync(new URL('../scripts/lib/translation-candidate-quality-v2.mjs', import.meta.url), 'utf8');
+    const emailExtraction = source.slice(source.indexOf('function extractEmails'), source.indexOf('function numericCore'));
+    expect(emailExtraction).not.toContain('mergeRanges');
+    expect(emailExtraction).not.toContain('.sort(');
+  });
+
   it('blocks source echoes, flattened bullets, title residue and concatenated words', () => {
     expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: base.sourceText }))).toContain('source.echo');
     const echoSource = `Skills: JavaScript, SQL; 2024-10-01! ${'unique skills roles '.repeat(8)}`;
@@ -521,8 +528,10 @@ describe('translation candidate quality v2', () => {
     }
   });
 
-  it('rejects a periodic tail that dominates despite a long contaminating prefix', () => {
-    const prefix = Array.from({ length: 500 }, (_, index) => `intro${index}`).join(' ');
+  it('rejects a periodic tail despite same-period decoy anchors outside the region', () => {
+    const prefixTokens = Array.from({ length: 500 }, (_, index) => `intro${index}`);
+    for (const index of [0, 25, 50, 75]) prefixTokens[index] = 'decoy';
+    const prefix = prefixTokens.join(' ');
     const phrase = Array.from({ length: 25 }, (_, index) => `tail${index}`).join(' ');
     const candidateText = `${prefix} ${Array.from({ length: 200 }, () => phrase).join(' ')}`;
     expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).toContain('description.degenerate_content');
@@ -594,11 +603,21 @@ describe('translation candidate quality v2', () => {
 
   it('keeps clean title fixture entries out of low-confidence language rejection', () => {
     const fixture = JSON.parse(readFileSync(new URL('./fixtures/title-locale-corpus.json', import.meta.url), 'utf8'));
-    const clean = fixture.entries.filter((entry: Record<string, unknown>) => (
-      entry.broken === false && !entry.isSourceSlot && entry.sourceTitle && entry.title
-        && entry.sourceTitle.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('und')
-          !== entry.title.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('und')
-        && entry.sourceLang !== entry.targetLocale
+    const titleEntry = (entry: unknown): entry is {
+      broken: boolean; isSourceSlot: boolean; sourceTitle: string; title: string; sourceLang: string; targetLocale: string;
+    } => {
+      if (!entry || typeof entry !== 'object') return false;
+      const value = entry as Record<string, unknown>;
+      return value.broken === false && value.isSourceSlot === false
+        && typeof value.sourceTitle === 'string' && typeof value.title === 'string'
+        && typeof value.sourceLang === 'string' && typeof value.targetLocale === 'string';
+    };
+    const clean = fixture.entries.filter(titleEntry).filter((entry: {
+      sourceTitle: string; title: string; sourceLang: string; targetLocale: string;
+    }) => (
+      entry.sourceTitle.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('und')
+        !== entry.title.normalize('NFKD').replace(/\p{M}/gu, '').toLocaleLowerCase('und')
+      && entry.sourceLang !== entry.targetLocale
     ));
     expect(clean).toHaveLength(81);
     for (const entry of clean) {

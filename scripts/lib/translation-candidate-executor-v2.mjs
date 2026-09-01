@@ -304,13 +304,6 @@ export async function executeTranslationCandidateV2(input) {
       evidence: fixedEvidence('conflict'), providerCalls: 0, recorded: false,
     });
   }
-  if (lookup.candidates.length > 0 && lookup.applicableCandidates.length === 0) {
-    return outcome({
-      status: 'duplicate_attempt', attemptKey: lookup.attemptKey, memory: value.memory,
-      evidence: fixedEvidence('duplicate_attempt'), providerCalls: 0, recorded: false,
-    });
-  }
-
   let candidateText;
   const controller = new AbortController();
   const provider = value.provider;
@@ -364,6 +357,14 @@ export async function executeTranslationCandidateV2(input) {
       evidence: quality.evidence, providerCalls: 1, recorded: false,
     });
   }
+  const outputHash = sha256TranslationText(normalizeTranslationText(candidateText));
+  const existing = lookup.candidates.find((candidate) => candidate.outputHash === outputHash);
+  if (existing) {
+    return outcome({
+      status: 'duplicate_attempt', attemptKey: lookup.attemptKey, candidate: existing, memory: value.memory,
+      evidence: fixedEvidence('duplicate_attempt'), providerCalls: 1, recorded: false,
+    });
+  }
   const nextMemory = recordTranslationCandidateV2(value.memory, {
     identity: value.identity,
     engineVersion: value.engineVersion,
@@ -373,7 +374,6 @@ export async function executeTranslationCandidateV2(input) {
     evidence: quality.evidence,
   });
   const duplicate = serializeTranslationMemoryV2(nextMemory) === serializeTranslationMemoryV2(value.memory);
-  const outputHash = sha256TranslationText(normalizeTranslationText(candidateText));
   const candidateId = `translation-candidate:v2:${digestTranslationDocumentV2({
     attemptKey: lookup.attemptKey,
     outputHash,

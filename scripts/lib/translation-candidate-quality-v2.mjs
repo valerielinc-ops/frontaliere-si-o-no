@@ -255,7 +255,11 @@ function isDegenerateDescription(tokens) {
     }
     return low;
   };
-  const candidates = new Map();
+  // Retain every qualifying anchor, rather than the first anchor per period.
+  // A short periodic decoy can otherwise claim a period before a dominant
+  // region with that same period is seen. There is at most one candidate per
+  // token index, keeping this O(n) in memory; LCP checks are O(log n).
+  const candidates = [];
   const occurrences = new Map();
   for (let index = 0; index < values.length; index += 1) {
     const previous = occurrences.get(values[index]);
@@ -265,9 +269,10 @@ function isDegenerateDescription(tokens) {
     }
     const gap = index - previous.last;
     const run = gap === previous.gap ? previous.run + 1 : 1;
-    if (run >= 3 && !candidates.has(gap)) candidates.set(gap, index);
+    if (run >= 3) candidates.push([gap, index]);
     occurrences.set(values[index], { last: index, gap, run });
   }
+  const exactRegions = new Set();
   for (const [period, anchor] of candidates) {
     if (period < 1 || period * 4 > tokens.length) continue;
     const right = equalPrefixLength(anchor - period, anchor, tokens.length - anchor, forward);
@@ -281,6 +286,9 @@ function isDegenerateDescription(tokens) {
     const end = anchor + right;
     const regionLength = end - start;
     if (regionLength < MIN_DOMINANT_PERIODIC_TOKENS || regionLength * 10 < tokens.length * 9) continue;
+    const regionKey = `${start}:${end}:${period}`;
+    if (exactRegions.has(regionKey)) continue;
+    exactRegions.add(regionKey);
     let exact = true;
     for (let index = start + period; index < end; index += 1) {
       if (tokens[index] !== tokens[index - period]) {
@@ -356,14 +364,15 @@ function extractUrls(text) {
 
 function extractEmails(text) {
   if (!text.includes('@')) return [];
-  const urlRanges = mergeRanges([...text.matchAll(URL_RE)]
-    .map((match) => [match.index ?? 0, (match.index ?? 0) + match[0].length]));
-  let cursor = 0;
+  // Both matchAll iterators are ordered by index. Streaming URL ranges avoids
+  // materializing and sorting O(U) ranges before scanning O(E) addresses.
+  const urls = text.matchAll(URL_RE);
+  let nextUrl = urls.next().value;
   const emails = [];
   for (const match of text.matchAll(EMAIL_RE)) {
     const start = match.index ?? 0;
-    while (cursor < urlRanges.length && urlRanges[cursor][1] <= start) cursor += 1;
-    if (cursor < urlRanges.length && start >= urlRanges[cursor][0] && start < urlRanges[cursor][1]) continue;
+    while (nextUrl && (nextUrl.index ?? 0) + nextUrl[0].length <= start) nextUrl = urls.next().value;
+    if (nextUrl && start >= (nextUrl.index ?? 0) && start < (nextUrl.index ?? 0) + nextUrl[0].length) continue;
     emails.push(match[1]);
   }
   return sortedMultiset(emails);
