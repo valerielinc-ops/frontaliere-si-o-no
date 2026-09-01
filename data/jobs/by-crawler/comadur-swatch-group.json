@@ -1,6 +1,6 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-09-01T14:14:42.204Z",
+  "assembledAt": "2026-09-01T23:13:52.206Z",
   "jobs": [
     {
       "id": "company-7ubj0x",
@@ -66,7 +66,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "0200 Français Rechercher Rechercher Dessinateur",
-      "addressRegion": "NE"
+      "addressRegion": "NE",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-7ubixe",
@@ -91,7 +92,7 @@
       "crawledAt": "2026-09-01T14:14:37.316Z",
       "firstSeenAt": "2026-08-27T01:14:05.544Z",
       "titleByLocale": {
-        "it": "Leader del progetto industriale",
+        "it": "Chef de Projet Industriel",
         "en": "Industrial Project Leader",
         "de": "Industrieprojektleiter",
         "fr": "Chef de Projet Industriel"
@@ -148,7 +149,9 @@
       "employmentType": "FULL_TIME",
       "addressLocality": "Rue du Temps 2926 Boncourt (Jura) Suisse",
       "addressRegion": "JU",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
