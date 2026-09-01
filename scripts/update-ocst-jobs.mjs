@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import {
   fetchAllOcstJobs,
+  assertCompleteOcstSnapshot,
   isOcstJob,
   isTrustedDomain,
   OCST_KEY,
@@ -27,6 +28,8 @@ runStandardCrawlerPipeline({
   isCompanyJob: isOcstJob,
   isTrustedDomain,
   defaultSourceLang: 'it',
+  validateAuthoritativeSnapshot: assertCompleteOcstSnapshot,
+  allowAuthoritativeEmptySnapshot: true,
 }).catch((err) => {
   console.error(`❌ OCST crawler failed: ${err?.message || err}`);
   process.exit(1);

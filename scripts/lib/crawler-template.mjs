@@ -791,9 +791,47 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {Function} [isTrustedDomain]   — (url) => boolean. For URL validation.
  * @property {Function} [matchKey]          — Custom URL matching for merge dedup
  * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
- * @property {Function} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
+ * @property {(jobs: object[]|undefined|null) => boolean} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
+ * @property {boolean}  [allowAuthoritativeEmptySnapshot] — Publish a source-proven zero instead of keeping stale rows
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  */
+
+/**
+ * Evaluate the opt-in authoritative-snapshot contract. A zero may be
+ * published only when a source-specific validator proves it and the caller
+ * explicitly opts in; an opt-in without a validator has no effect.
+ *
+ * @param {object[]|undefined|null} parsedJobs
+ * @param {{
+ *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean,
+ *   allowAuthoritativeEmptySnapshot?: boolean,
+ *   companyLabel?: string,
+ * }} [options]
+ * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean }}
+ */
+export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
+  const {
+    validateAuthoritativeSnapshot,
+    allowAuthoritativeEmptySnapshot = false,
+    companyLabel = 'Crawler',
+  } = options;
+  let authoritativeSnapshotVerified = false;
+  if (validateAuthoritativeSnapshot) {
+    if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
+      throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
+    }
+    authoritativeSnapshotVerified = true;
+  }
+  return {
+    authoritativeSnapshotVerified,
+    authoritativeEmptySnapshot: Boolean(
+      authoritativeSnapshotVerified
+      && allowAuthoritativeEmptySnapshot
+      && Array.isArray(parsedJobs)
+      && parsedJobs.length === 0
+    ),
+  };
+}
 
 /**
  * Restore the active slug identity of jobs already present in the crawler
@@ -888,6 +926,7 @@ export async function runStandardCrawlerPipeline(config) {
     matchKey,
     preserveExistingSlugs = false,
     validateAuthoritativeSnapshot,
+    allowAuthoritativeEmptySnapshot = false,
     baseCrawlerOpts = {},
   } = config;
 
@@ -968,20 +1007,21 @@ export async function runStandardCrawlerPipeline(config) {
   // retire every unmatched record immediately. Validation runs before the
   // zero-job soft exit and before any scratch/archive write, so a partial or
   // degraded crawl fails closed with the existing slice untouched.
-  let authoritativeSnapshotVerified = false;
-  if (validateAuthoritativeSnapshot) {
-    if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
-      throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
-    }
-    authoritativeSnapshotVerified = true;
-  }
+  const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(
+    parsedJobs,
+    { validateAuthoritativeSnapshot, allowAuthoritativeEmptySnapshot, companyLabel },
+  );
 
-  if (!parsedJobs || parsedJobs.length === 0) {
+  if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
     return;
   }
 
-  console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed. Merging...\n`);
+  if (authoritativeEmptySnapshot) {
+    console.log(`\n🧩 ${companyLabel}: authoritative empty snapshot verified. Retiring stale jobs...\n`);
+  } else {
+    console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed. Merging...\n`);
+  }
 
   // ─── Step 3: Merge with slug stability ──────────────────────
   // mergePreserveLocaleData preserves translations, slugByLocale, and previousSlugs
@@ -1034,16 +1074,20 @@ export async function runStandardCrawlerPipeline(config) {
   // Translates titles + descriptions to all 4 locales via AI.
   // Uses translation cache (SHA256-based) for ~90% hit rate on re-runs.
   // Sets needsRetranslation=true for jobs that couldn't be translated.
-  console.log(`\n🌐 Running AI localization for ${companyLabel} jobs...`);
-  await runDedicatedBaseCrawler({
-    root,
-    companyKeys: companyKey,
-    disableWorkdayForce: true,
-    localizeExistingOnly: true,
-    forceLocalizationWhenAiEnabledOnly: true,
-    dataJobsPath: DATA_JOBS,
-    ...baseCrawlerOpts,
-  });
+  if (authoritativeEmptySnapshot) {
+    console.log(`\n🌐 ${companyLabel}: no active jobs to localize.`);
+  } else {
+    console.log(`\n🌐 Running AI localization for ${companyLabel} jobs...`);
+    await runDedicatedBaseCrawler({
+      root,
+      companyKeys: companyKey,
+      disableWorkdayForce: true,
+      localizeExistingOnly: true,
+      forceLocalizationWhenAiEnabledOnly: true,
+      dataJobsPath: DATA_JOBS,
+      ...baseCrawlerOpts,
+    });
+  }
 
   // ─── Step 6: Validation ─────────────────────────────────────
   // Checks: locale coverage, URL domains, slug format, description quality.
@@ -1054,7 +1098,7 @@ export async function runStandardCrawlerPipeline(config) {
     dataJobsPath: DATA_JOBS,
     isTargetJob: isCompanyJob,
     failOnMissingJobsFile: true,
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: `No ${companyLabel} jobs found after crawl.`,
     detectSourceLang: (text) => detectLang(text, defaultSourceLang),
     deriveSlug: deriveLocalizedSlug,

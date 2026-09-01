@@ -1,20 +1,17 @@
 #!/usr/bin/env node
 /**
- * OCST job parser — Fetcher and job builder.
+ * OCST careers parser — authoritative source-state reader.
  *
  * Source: https://www.ocst.ch/il-sindacato/lavora-con-noi
  *
- * Exports the 4 required functions for the crawler template:
- *   - fetchAllOcstJobs()  — Fetch and parse all jobs
+ * Exports the functions required by the crawler template:
+ *   - fetchAllOcstJobs()  — Fetch and parse the authoritative careers page
+ *   - assertCompleteOcstSnapshot() — Prove an explicit empty source state
  *   - isOcstJob()         — Match jobs belonging to this company
- *   - isTrustedDomain()           — Validate URLs belong to this company
- *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
+ *   - isTrustedDomain()    — Validate URLs belong to this company
  */
-import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { JSDOM } from 'jsdom';
+import { politeFetch } from './prospector/polite-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -22,16 +19,18 @@ export const OCST_KEY = 'ocst';
 export const OCST_COMPANY_NAME = 'OCST';
 export const OCST_COMPANY_DOMAIN = 'ocst.ch';
 
-const CAREER_URL = 'https://www.ocst.ch/il-sindacato/lavora-con-noi';
+export const OCST_CAREER_URL = 'https://www.ocst.ch/il-sindacato/lavora-con-noi';
+const EXPLICIT_EMPTY_RE = /\b(?:attualmente\s+)?non\s+(?:ci\s+)?sono\s+posizioni\s+aperte\b/i;
+const OCST_REQUEST_HEADERS = {
+  // The public-DNS dispatcher exposes OCST's gzip bytes without decoding them.
+  // Identity encoding preserves the SSRF-safe transport and yields parseable HTML.
+  'Accept-Encoding': 'identity',
+};
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
-}
-
-function normalizeSpace(s = '') {
-  return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -69,130 +68,119 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-/* ── Category Detection ────────────────────────────────────── */
+/* ── Authoritative source boundary ─────────────────────────── */
 
-function detectCategory(title = '') {
-  const t = normalize(title);
-  if (/\b(ingegner|engineer|entwickl)/.test(t)) return 'Ingegneria';
-  if (/\b(techni|tecnic|mecanic|elektr|install)/.test(t)) return 'Tecnica';
-  if (/\b(admin|segret|contab|buchhalt|account)/.test(t)) return 'Amministrazione';
-  if (/\b(vendita|sales|verkauf|commerce)/.test(t)) return 'Commerciale';
-  if (/\b(logist|magazz|lager|warehouse)/.test(t)) return 'Logistica';
-  if (/\b(produz|operat|operator|manufactur)/.test(t)) return 'Produzione';
-  if (/\b(qualit|qa|qc|quality)/.test(t)) return 'Qualità';
-  if (/\b(it|software|develop|programm)/.test(t)) return 'IT';
-  if (/\b(hr|human|risorse|personal)/.test(t)) return 'Risorse Umane';
-  if (/\b(market|kommunik|comunicaz)/.test(t)) return 'Marketing';
-  if (/\b(finanz|finance|financ)/.test(t)) return 'Finanza';
-  if (/\b(legal|giurid|recht)/.test(t)) return 'Legale';
-  return 'Altro';
-}
-
-function detectExperienceLevel(title = '') {
-  const t = normalize(title);
-  if (/\b(praktik|stages?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|stagiair|intern(?:ship)?s?(?![a-zA-Z0-9_À-ÖØ-öø-ÿ])|apprendist|lehrling|lernend|apprenti)/.test(t)) return 'intern';
-  if (/\b(junior|jr)/.test(t)) return 'junior';
-  if (/\b(senior|sr|lead|head|director|dirett|chef|verantwort|responsab)/.test(t)) return 'senior';
-  return 'mid';
-}
-
-function detectEmploymentType(text = '') {
-  const t = normalize(text);
-  if (/\b(part.?time|teilzeit|tempo parziale|temps partiel)/.test(t)) return 'PART_TIME';
-  if (/\b(full.?time|vollzeit|tempo pieno|temps plein)/.test(t)) return 'FULL_TIME';
-  return 'OTHER';
-}
-
-/* ── Fetcher guidato dalla spec ───────────────────────────────
- * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
- * template degli URL di dettaglio, appresi dalla pagina reale.
+/**
+ * Read only the semantic body of OCST's careers article. The rest of the page
+ * contains general news links which the old learned template mistook for job
+ * details. An explicit "no positions" sentence inside this exact boundary is
+ * authoritative; missing or unfamiliar markup throws so the pipeline keeps
+ * the previous slice instead of publishing guessed vacancies or a guessed 0.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @returns {[]}
  */
-async function fetchJobListings() {
-  const spec = loadSpec(OCST_KEY);
-  return runSpecInProduction(spec);
+export function extractOcstCareersSnapshot(html = '', pageUrl = OCST_CAREER_URL) {
+  let effectiveUrl;
+  try {
+    effectiveUrl = new URL(pageUrl);
+  } catch {
+    throw new Error(`OCST careers source returned an invalid URL: ${pageUrl}`);
+  }
+  const expectedUrl = new URL(OCST_CAREER_URL);
+  if (
+    effectiveUrl.protocol !== expectedUrl.protocol
+    || effectiveUrl.hostname !== expectedUrl.hostname
+    || effectiveUrl.pathname.replace(/\/+$/, '') !== expectedUrl.pathname
+  ) {
+    throw new Error(`OCST careers source drifted outside the expected page: ${effectiveUrl.href}`);
+  }
+
+  const dom = new JSDOM(html);
+  try {
+    const bodies = dom.window.document.querySelectorAll('#t3-content article section.article-content');
+    if (bodies.length !== 1) {
+      throw new Error(`OCST careers article boundary missing or ambiguous (${bodies.length} matches)`);
+    }
+    const body = bodies[0].cloneNode(true);
+    for (const node of body.querySelectorAll('form, script, style, noscript')) node.remove();
+    const text = String(body.textContent || '').replace(/\s+/g, ' ').trim();
+    if (!EXPLICIT_EMPTY_RE.test(text)) {
+      throw new Error('OCST careers page has no supported vacancy list or explicit empty-state marker');
+    }
+    return [];
+  } finally {
+    dom.window.close();
+  }
+}
+
+/**
+ * Mark the source-proven state without serialising crawler-control metadata
+ * into the dataset payload.
+ *
+ * @param {object[]} jobs
+ * @returns {object[]}
+ */
+function markExplicitEmptySnapshot(jobs) {
+  Object.defineProperty(jobs, 'ocstSnapshotState', {
+    value: 'explicit-empty',
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'discoveredCount', {
+    value: 0,
+    enumerable: false,
+  });
+  return jobs;
+}
+
+/**
+ * Source-specific completeness proof consumed by the standard pipeline.
+ * Plain empty arrays are deliberately rejected.
+ *
+ * @param {object[]} jobs
+ * @returns {true}
+ */
+export function assertCompleteOcstSnapshot(jobs) {
+  if (!Array.isArray(jobs) || jobs.length !== 0 || Reflect.get(jobs, 'ocstSnapshotState') !== 'explicit-empty') {
+    throw new Error('OCST snapshot is not an explicit authoritative empty state');
+  }
+  return true;
 }
 
 /**
  * Fetch all OCST jobs.
- * Returns an array of ParsedJob objects (source-locale only).
+ * OCST currently publishes no vacancies and exposes a single authoritative
+ * empty-state page. `fetchPage` is injectable for deterministic tests.
  *
- * IMPORTANT: Only set source-locale fields. Other locales are filled
- * by the AI localization step and translate-pending pipeline.
+ * `ignoreRobots` is intentionally narrow to this request: OCST's robots URL
+ * currently redirects HTTPS to the malformed origin `http://www.ocst.ch`,
+ * while the requested HTTPS careers page itself is healthy. `politeFetch`
+ * still enforces the identifying UA, host throttling, public-DNS policy and
+ * same-host redirect validation for the careers page.
+ *
+ * @param {{ fetchPage?: typeof politeFetch }} [runtime]
  */
-export async function fetchAllOcstJobs() {
+export async function fetchAllOcstJobs({ fetchPage = politeFetch } = {}) {
   console.log(`🔍 Fetching OCST jobs`);
-  console.log(`   Source: ${CAREER_URL}\n`);
+  console.log(`   Source: ${OCST_CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
-  if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
+  const page = await fetchPage(OCST_CAREER_URL, {
+    ignoreRobots: true,
+    headers: OCST_REQUEST_HEADERS,
+  });
+  if (!page?.ok) {
+    const reason = page?.policyBlocked
+      ? (page.error || 'public URL policy rejected the request')
+      : `HTTP ${page?.status || 0}`;
+    const error = Object.assign(
+      new Error(`OCST careers fetch failed for ${page?.url || OCST_CAREER_URL}: ${reason}`),
+      { status: page?.status || undefined },
+    );
+    throw error;
   }
 
-  console.log(`  📋 Listings found: ${listings.length}`);
-
-  const jobs = [];
-  for (const listing of listings) {
-    // TODO: Extract fields from each listing.
-    // Adapt these field names to match the actual API response.
-    const title = normalizeSpace(listing.title || '');
-    if (!title || title.length < 3) continue;
-
-    const geography = resolveSourceBackedSwissGeography(listing.location);
-    if (!geography) continue;
-    const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
-    const publicUrl = listing.url || CAREER_URL;
-
-    const sourceLang = detectLang(descriptionText || title, 'it');
-    const jobSlug = slugify(`${title} ocst ch`);
-    const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-
-    const job = {
-      // ── Required fields ──
-      id: `ocst-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { [sourceLang]: jobSlug },
-      company: OCST_COMPANY_NAME,
-      companyKey: OCST_KEY,
-      companyDomain: OCST_COMPANY_DOMAIN,
-      title,
-      titleByLocale: { [sourceLang]: title },
-      description: descriptionText,
-      descriptionByLocale: { [sourceLang]: descriptionText },
-      location,
-      canton,
-      url: publicUrl,
-      source: 'OCST Dedicated Parser',
-      sourceLang,
-      crawledAt: new Date().toISOString(),
-
-      // ── Recommended fields ──
-      addressLocality: normalizeSpace(listing.addressLocality || location.split(/[,;/|]/)[0]),
-      addressRegion: normalizeSpace(listing.addressRegion || canton),
-      addressCountry: normalizeSpace(listing.addressCountry || "CH"),
-      country: normalizeSpace(listing.addressCountry || "CH"),
-      ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
-      ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
-      category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Altro', // TODO: Set appropriate sector
-      currency: 'CHF',
-      featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
-      applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
-    };
-
-    jobs.push(job);
-    await new Promise((r) => setTimeout(r, 300)); // Rate limiting
-  }
-
-  console.log(`\n📋 Total OCST jobs discovered: ${jobs.length}`);
-  return jobs;
+  const jobs = extractOcstCareersSnapshot(page.body, page.url || OCST_CAREER_URL);
+  console.log('  ✅ OCST explicitly reports no open positions.');
+  return markExplicitEmptySnapshot(jobs);
 }
