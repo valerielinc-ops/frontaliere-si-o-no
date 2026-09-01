@@ -1,6 +1,6 @@
 {
   "crawlerKey": "giorgio-armani",
-  "assembledAt": "2026-09-01T00:53:02.741Z",
+  "assembledAt": "2026-09-01T07:32:52.041Z",
   "jobs": [
     {
       "title": "Client Advisor - Giorgio Armani Zurich",
@@ -58,6 +58,7 @@
         }
       },
       "firstSeenAt": "2026-07-17T12:00:46.733Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich"
@@ -72,7 +73,7 @@
       "previousSlugs": [
         "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich"
       ],
-      "salarySource": "estimated"
+      "needsRetranslation": true
     }
   ]
 }
