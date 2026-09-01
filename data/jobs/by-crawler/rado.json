@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-09-01T08:56:34.610Z",
+  "assembledAt": "2026-09-01T10:31:37.372Z",
   "jobs": [
     {
       "id": "company-7ubiwj",
@@ -22,7 +22,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-01T07:28:38.706Z",
+      "crawledAt": "2026-09-01T10:31:31.715Z",
       "firstSeenAt": "2026-08-26T10:03:40.581Z",
       "titleByLocale": {
         "de": "Logistiker:in Lehrstelle 2027",
@@ -77,8 +77,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
       "postalCode": "2543",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "salarySource": "estimated"
     },
     {
       "id": "company-7ubiwk",
@@ -100,7 +99,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-01T07:28:38.706Z",
+      "crawledAt": "2026-09-01T10:31:31.715Z",
       "firstSeenAt": "2026-08-26T10:03:40.581Z",
       "titleByLocale": {
         "de": "Uhrmacher:in Produktion Lehrstelle 2027",
@@ -155,8 +154,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bielstrasse 45",
       "postalCode": "2543",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "salarySource": "estimated"
     }
   ]
 }

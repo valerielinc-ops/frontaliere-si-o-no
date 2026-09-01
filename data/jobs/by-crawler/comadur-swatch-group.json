@@ -1,6 +1,6 @@
 {
   "crawlerKey": "comadur-swatch-group",
-  "assembledAt": "2026-09-01T08:56:34.598Z",
+  "assembledAt": "2026-09-01T10:31:37.361Z",
   "jobs": [
     {
       "id": "company-7ubj0x",
@@ -16,11 +16,11 @@
       "requirements": [],
       "featured": false,
       "postedDate": "2026-08-31",
-      "url": "https://swatchgroup.com/fr/job/32953",
+      "url": "https://www.swatchgroup.com/fr/job/32953",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-01T08:56:29.188Z",
+      "crawledAt": "2026-09-01T10:31:31.715Z",
       "firstSeenAt": "2026-08-31T17:15:47.373Z",
       "titleByLocale": {
         "it": "Dessinateur - constructeur en Habillage Horloger (H/F)",
@@ -151,7 +151,8 @@
       "addressLocality": "Rue du Temps 2926 Boncourt (Jura) Suisse",
       "addressRegion": "JU",
       "salarySource": "estimated",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     }
   ]
 }
