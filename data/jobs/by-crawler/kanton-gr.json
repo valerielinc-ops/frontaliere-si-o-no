@@ -149,7 +149,6 @@
           "lehrstelle-als-koch-kochin-efz-kanton-gr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:12:41.382Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -232,7 +231,6 @@
           "lehrstelle-als-kaufmann-frau-efz-fur-leistungssportler-innen-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:12:40.037Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -308,7 +306,6 @@
           "apprendistato-come-kaufmann-frau-cfc-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:48:35.180Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -472,7 +469,6 @@
           "lehrstelle-fachmann-frau-hotellerie-hauswirtschaft-efz-kanton-gr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:12:35.767Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -1063,7 +1059,6 @@
           "lehrstelle-als-automobil-mechatroniker-in-efz-personenwagen-kanton-gr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:34:52.021Z",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -1141,14 +1136,16 @@
         "social-worker-in-kantonale-verwaltung-graubunden-cazis-14f1aa",
         "sozialarbeiter-in-kanton-gr-ch-7x67hd",
         "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis",
-        "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis-14f1aa"
+        "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-cazis-14f1aa",
+        "sozialarbeiter-in-kanton-gr-ch-ajci6f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-sociale-kantonale-verwaltung-graubunden-cazis",
           "sozialarbeiter-in-kanton-gr-ch-2",
           "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis",
-          "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis-14f1aa"
+          "lavoratore-sociale-kantonale-verwaltung-graubunden-cazis-14f1aa",
+          "sozialarbeiter-in-kanton-gr-ch-ajci6f"
         ],
         "en": [
           "sozialarbeiter-in-kanton-gr-ch-2",
@@ -1156,7 +1153,8 @@
           "social-worker-in-kantonale-verwaltung-graubunden-cazis-14f1aa"
         ],
         "de": [
-          "sozialarbeiter-in-kanton-gr-ch-7x67hd"
+          "sozialarbeiter-in-kanton-gr-ch-7x67hd",
+          "sozialarbeiter-in-kanton-gr-ch-ajci6f"
         ],
         "fr": [
           "sozialarbeiter-in-kanton-gr-ch-2",
@@ -1195,7 +1193,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper/in",
         "en": "Streetkeeper/in",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue/in"
@@ -1606,7 +1604,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper/in",
         "en": "Streetkeeper/in",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue/in"
@@ -1685,7 +1683,7 @@
       "slugByLocale": {
         "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur",
         "en": "social-worker-in-kantonale-verwaltung-graubunden-chur",
-        "de": "sozialarbeiter-in-kanton-gr-ch",
+        "de": "sozialarbeiter-in-kanton-gr-ch-8uq8ji",
         "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1731,16 +1729,6 @@
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80-100%",
-      "previousSlugs": [
-        "sozialarbeiter-in-kanton-gr-ch",
-        "lavoratore-sociale-kantonale-verwaltung-graubunden-chur-c83c7a",
-        "lavoratore-sociale-kantonale-verwaltung-graubunden-chur-fac501",
-        "social-worker-in-kantonale-verwaltung-graubunden-chur-fac501",
-        "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur-fac501",
-        "travailleurs-sociaux-kantonale-verwaltung-graubunden-chur",
-        "sozialarbeiter-in-kanton-gr-ch-8uq8ji",
-        "lavoratore-sociale-kantonale-verwaltung-graubunden-chur"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-kanton-gr-ch",
@@ -1762,6 +1750,16 @@
           "sozialarbeiter-in-kanton-gr-ch"
         ]
       },
+      "previousSlugs": [
+        "sozialarbeiter-in-kanton-gr-ch",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-chur-c83c7a",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-chur-fac501",
+        "social-worker-in-kantonale-verwaltung-graubunden-chur-fac501",
+        "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur-fac501",
+        "travailleurs-sociaux-kantonale-verwaltung-graubunden-chur",
+        "sozialarbeiter-in-kanton-gr-ch-8uq8ji",
+        "lavoratore-sociale-kantonale-verwaltung-graubunden-chur"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:48:50.538Z",
       "salaryMin": 57500,
@@ -2005,18 +2003,31 @@
       "pensum": "80-100%",
       "previousSlugs": [
         "leiter-in-landerwerb-kanton-gr-ch",
-        "responsabile-landerwerb-kantonale-verwaltung-graubunden-chur"
+        "responsabile-landerwerb-kantonale-verwaltung-graubunden-chur",
+        "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur",
+        "head-secretary-kantonale-verwaltung-graubunden-chur",
+        "leiter-in-sekretariat-kanton-gr-ch",
+        "chef-secretaire-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-landerwerb-kanton-gr-ch",
-          "responsabile-landerwerb-kantonale-verwaltung-graubunden-chur"
+          "responsabile-landerwerb-kantonale-verwaltung-graubunden-chur",
+          "responsabile-sekretariat-kantonale-verwaltung-graubunden-chur",
+          "head-secretary-kantonale-verwaltung-graubunden-chur",
+          "leiter-in-sekretariat-kanton-gr-ch",
+          "chef-secretaire-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "leiter-in-landerwerb-kanton-gr-ch"
+          "leiter-in-landerwerb-kanton-gr-ch",
+          "head-secretary-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "leiter-in-landerwerb-kanton-gr-ch"
+          "leiter-in-landerwerb-kanton-gr-ch",
+          "chef-secretaire-kantonale-verwaltung-graubunden-chur"
+        ],
+        "de": [
+          "leiter-in-sekretariat-kanton-gr-ch"
         ]
       },
       "firstSeenAt": "2026-08-20T09:48:47.429Z",
@@ -2479,7 +2490,7 @@
         "it": "Risorse Umane Business Partner",
         "en": "HR Business Partner",
         "de": "Personalwesen Business Partner",
-        "fr": "HR Business Partner"
+        "fr": "Partenaire d'affaires RH"
       },
       "description": "Das Personalamt setzt strategische und operative Aufgaben als Kompetenzzentrum des HR für die gesamte Kantonale Verwaltung Graubünden um. Wir tragen dazu bei, dass der Kanton Graubünden ein attraktiver und fortschrittlicher Arbeitgeber ist. In unserer Abteilung Personalberatung werden sämtliche Departemente, Dienststellen, Gerichte und Anstalten zu Themen entlang des HR-Lifecycles kompetent beraten und unterstützt. Bei uns erwartet dich ein engagiertes, kollegiales sowie kommunikatives Team, in dem gegenseitige Unterstützung grossgeschrieben wird.\n\nDu willst Verantwortung übernehmen, Führungskräfte auf Augenhöhe beraten und die Zukunft der kantonalen Verwaltung aktiv mitgestalten? Du packst Herausforderungen pragmatisch an und verlierst auch in komplexen Situationen nicht den Überblick? Dann bist du bei uns genau richtig! Zur Verstärkung unseres Teams suchen wir per 1. Januar 2027 oder nach Vereinbarung eine/-n HR Business Partner.\n\nAufgaben\n• Beratung und Begleitung von Führungskräften und Personalverantwortlichen im eigenen Zuständigkeitsbereich innerhalb der kantonalen Verwaltung\n\n• Verantwortung für den gesamten HR-Lifeycle - von der Rekrutierung über die Entwicklung bis zum Austritt.\n\n• Begleitung von Veränderungsprozessen und Reorganisationen\n\n• Begleitung von Rekrutierungen (u. a. Persönlichkeitsprofilanalysen, Assessments)\n\n• Beratung und Begleitung der Führungskräfte in der Nachfolgeplanung und Talententwicklung\n\n• Durchführung von HR-Schulungen für Führungskräfte und Mitarbeitende\n\n• Leitung und Mitwirkung in Projekten zur Optimierung und Digitalisierung von HR-Prozessen oder Fachapplikationen\n\n• Partner bei der Umsetzung der HR-Strategie\n\nAnforderungen\n• Eidg. HR-Fachausweis oder Hochschulabschluss mit Schwerpunkt Human Resources oder ähnlicher Fachrichtung\n\n• Mehrjährige Erfahrung in einer beratenden HR-Funktion, idealerweise als HR Business Partner\n\n• Selbständige, strukturierte, zuverlässige und diskrete Arbeitsweise\n\n• Digitale Affinität und Verständnis für moderne Kommunikationsmittel\n\n• Souveränes Auftreten sowie die Fähigkeit, Führungskräfte konstruktiv zu begleiten\n\n• Belastbarkeit und stilsichere Kommunikation\n\n• Empathische, teamorientierte und authentische Persönlichkeit mit einer positiven Grundhaltung",
       "descriptionByLocale": {
@@ -2524,7 +2535,6 @@
           "risorse-umane-business-partner-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:26:04.904Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2773,7 +2783,6 @@
           "generalsekretar-in-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:26:02.196Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2844,12 +2853,31 @@
       "pensum": "30-50%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-aushilfe-im-stundenlohn-kanton-gr-ch",
-        "dipl-pflegefachperson-hf-aushilfe-im-stundenlohn-kantonale-verwaltung-graubunden-cazis"
+        "dipl-pflegefachperson-hf-aushilfe-im-stundenlohn-kantonale-verwaltung-graubunden-cazis",
+        "dipl-professionista-hf-kantonale-verwaltung-graubunden-cazis",
+        "dipl-care-professional-hf-kantonale-verwaltung-graubunden-cazis",
+        "dipl-pflegefachperson-hf-kanton-gr-ch",
+        "dipl-soins-professionnels-hf-kantonale-verwaltung-graubunden-cazis",
+        "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-aushilfe-im-stundenlohn-kanton-gr-ch",
-          "dipl-pflegefachperson-hf-aushilfe-im-stundenlohn-kantonale-verwaltung-graubunden-cazis"
+          "dipl-pflegefachperson-hf-aushilfe-im-stundenlohn-kantonale-verwaltung-graubunden-cazis",
+          "dipl-professionista-hf-kantonale-verwaltung-graubunden-cazis",
+          "dipl-care-professional-hf-kantonale-verwaltung-graubunden-cazis",
+          "dipl-pflegefachperson-hf-kanton-gr-ch",
+          "dipl-soins-professionnels-hf-kantonale-verwaltung-graubunden-cazis",
+          "dipl-pflegefachperson-hf-kantonale-verwaltung-graubunden-cazis"
+        ],
+        "en": [
+          "dipl-care-professional-hf-kantonale-verwaltung-graubunden-cazis"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-kanton-gr-ch"
+        ],
+        "fr": [
+          "dipl-soins-professionnels-hf-kantonale-verwaltung-graubunden-cazis"
         ]
       },
       "firstSeenAt": "2026-08-13T10:26:01.525Z",
@@ -3055,7 +3083,6 @@
         "werde-polizist-in-bei-der-kapo-gr-kantonale-verwaltung-graubunden-chur",
         "diventa-poliziotto-poliziotta-presso-la-kapo-gr-kantonale-verwaltung-graubunden-chur"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:48:34.939Z",
       "salaryMin": 57500,
       "salaryMax": 87000,

@@ -52,6 +52,8 @@
       "postalCode": "",
       "streetAddress": "",
       "sourceLang": "it",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -65,14 +67,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
+          "sanitarinstallateur-in-fur-kuchen-bader-fust-bellinzona-ticino",
+          "plumber-installer-for-kitchens-bathrooms-fust-bellinzona-ticino"
+        ],
+        "en": [
+          "plumber-installer-for-kitchens-bathrooms-fust-bellinzona-ticino"
+        ],
+        "de": [
+          "sanitarinstallateur-in-fur-kuchen-bader-fust-bellinzona-ticino"
         ]
       },
       "previousSlugs": [
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
-      ],
-      "salaryMin": 70500,
-      "salaryMax": 98500
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
+        "sanitarinstallateur-in-fur-kuchen-bader-fust-bellinzona-ticino",
+        "plumber-installer-for-kitchens-bathrooms-fust-bellinzona-ticino"
+      ]
     },
     {
       "id": "company-j8u1t2",
@@ -4983,7 +4997,8 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gktcfr",

@@ -138,12 +138,29 @@
       "pensumMax": 100,
       "previousSlugs": [
         "med-praxisassistent-in-mpa-efz-50-100-rss-surselva-ch",
-        "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz"
+        "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
+        "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+        "assistance-medicale-mpa-efz-50-100-pratique-mediselva-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-mpa-efz-50-100-rss-surselva-ch",
-          "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz"
+          "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz",
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
+          "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+          "assistance-medicale-mpa-efz-50-100-pratique-mediselva-regionalspital-surselva-ilanz"
+        ],
+        "en": [
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
+        ],
+        "de": [
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch"
+        ],
+        "fr": [
+          "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
         ]
       },
       "needsRetranslation": true,
@@ -414,7 +431,6 @@
           "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-regionalspital-surselva-ilanz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-15T15:14:31.495Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
@@ -806,7 +822,7 @@
       "title": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert SSS Emergency Care 100%",
-        "en": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
+        "en": "Dipl. Expert / Expert HF Emergency Care 100%",
         "de": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
         "fr": "Dipl. Expert / Expert HF Soins d'urgence 100%"
       },
@@ -863,7 +879,6 @@
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:58:28.867Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -1219,7 +1234,6 @@
           "arztsekretar-in-100-rss-surselva-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:28:01.046Z",
       "salaryMin": 57500,
       "salaryMax": 87000,

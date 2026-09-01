@@ -2131,7 +2131,7 @@
       "title": "BIM Manager:in 80-100%",
       "titleByLocale": {
         "it": "BIM Manager: 80-100 %",
-        "en": "BIM Manager:in 80-100%",
+        "en": "BIM Manager: in 80-100 %",
         "de": "BIM Manager:in 80-100%",
         "fr": "Gestionnaire BIM: dans 80-100 %"
       },
@@ -2367,7 +2367,7 @@
       "companyDomain": "amstein-walthert.ch",
       "title": "Praxisintegriertes Bachelor-Studium PiBS",
       "titleByLocale": {
-        "it": "Praxisintegriertes Bachelor-Studium PiBS",
+        "it": "Studi universitari integrati nella pratica PiBS",
         "en": "Practice-integrated undergraduate studies PiBS",
         "de": "Praxisintegriertes Bachelor-Studium PiBS",
         "fr": "Études de premier cycle intégrées à la pratique PiBS"
@@ -2422,11 +2422,9 @@
           "praxisintegriertes-bachelor-studium-pibs-amstein-walthert-zurich-juke43803"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:16:07.751Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -2436,7 +2434,9 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "amstein-walthert-985e27a4ed21",

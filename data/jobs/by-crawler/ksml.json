@@ -4842,21 +4842,35 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37947",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-oberstufenschule-buchholz-37947",
-        "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-oberstufenschule-buchholz-37947",
-          "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun"
+          "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+          "scuola-curativa-pedagogue-scuola-pedagoga-curativa-ciclo-2-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-roggwil",
+          "school-curative-pedagogue-school-curative-pedagogue-cycle-2-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39377",
+          "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-60-100-schule-roggwil-roggwil-39377",
+          "pedagogue-curative-scolaire-pedagogue-curative-scolaire-cycle-2-60-100-ksml-kantonaler-stellenmarkt-fur-39377"
         ],
         "de": [
-          "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-oberstufenschule-buchholz-37947"
+          "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-oberstufenschule-buchholz-37947",
+          "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-60-100-schule-roggwil-roggwil-39377"
+        ],
+        "en": [
+          "school-curative-pedagogue-school-curative-pedagogue-cycle-2-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39377"
+        ],
+        "fr": [
+          "pedagogue-curative-scolaire-pedagogue-curative-scolaire-cycle-2-60-100-ksml-kantonaler-stellenmarkt-fur-39377"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T07:22:10.703Z",
+      "previousSlugs": [
+        "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-oberstufenschule-buchholz-37947",
+        "schulische-heilpadagogin-schulischer-heilpadagoge-11-13-l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun",
+        "scuola-curativa-pedagogue-scuola-pedagoga-curativa-ciclo-2-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-roggwil",
+        "school-curative-pedagogue-school-curative-pedagogue-cycle-2-60-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-39377",
+        "schulische-heilpadagogin-schulischer-heilpadagoge-zyklus-2-60-100-schule-roggwil-roggwil-39377",
+        "pedagogue-curative-scolaire-pedagogue-curative-scolaire-cycle-2-60-100-ksml-kantonaler-stellenmarkt-fur-39377"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4869,7 +4883,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-01T07:22:10.703Z"
     },
     {
       "id": "ksml-a0e5c091332f",
