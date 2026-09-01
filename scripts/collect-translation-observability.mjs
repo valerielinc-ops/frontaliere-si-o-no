@@ -25,13 +25,16 @@ function existingJson(file) { return file && fs.existsSync(file) ? json(file) : 
 function run(argv) {
   const value = args(argv);
   if (value.mode === 'start') {
-    const snapshot = createTranslationObservabilitySnapshot(json(value.jobs), { now: Date.parse(value.now || '') || Date.now() });
+    const snapshot = createTranslationObservabilitySnapshot(json(value.jobs), {
+      now: Date.parse(value.now || '') || Date.now(),
+      measureLanguageQuality: false,
+    });
     writeJsonAtomic(value.output, snapshot, { compact: true });
     return snapshot;
   }
   if (value.mode === 'finish') {
     const before = json(value.before);
-    const final = createTranslationObservabilitySnapshot(json(value.jobs));
+    const final = createTranslationObservabilitySnapshot(json(value.jobs), { measureLanguageQuality: true });
     const finishedAt = value.finishedAt || new Date().toISOString();
     let previousState = null;
     let stateIssue = null;
