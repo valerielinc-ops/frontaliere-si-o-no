@@ -148,6 +148,195 @@ describe('iPersonal AG crawler parser', () => {
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
     });
 
+    it('accounts only explicitly rejected source rows and not duplicate listing links', async () => {
+      const seedUrl = 'https://ipersonal-accounting.example/';
+      const acceptedUrl = `${seedUrl}jobs/accepted/`;
+      const rejectedUrl = `${seedUrl}jobs/rejected-no-swiss-location/`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`
+            <a href="${acceptedUrl}">Fachperson Zürich</a>
+            <a href="${acceptedUrl}">Fachperson Zürich duplicate link</a>
+            <a href="${rejectedUrl}">Remote role without Swiss location</a>`, { status: 200 });
+        }
+        const accepted = url === acceptedUrl;
+        const schema = {
+          '@context': 'https://schema.org',
+          '@type': 'JobPosting',
+          title: accepted ? 'Fachperson Zürich' : 'Remote role without Swiss location',
+          url,
+          description: 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.',
+          ...(accepted ? {
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich',
+                addressRegion: 'ZH',
+                addressCountry: 'CH',
+              },
+            },
+          } : {}),
+        };
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify(schema)}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards.</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig und nachvollziehbar dokumentieren</li><li>Kundinnen und Kunden professionell beraten und Termine koordinieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'iPersonal AG',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        discoveredCount: number;
+        qualityDroppedCount: number;
+        sourceIdentityCollisionCount: number;
+        unaccountedReturnedCount: number;
+      };
+      expect(jobs).toHaveLength(1);
+      expect(evidence.discoveredCount).toBe(2);
+      expect(evidence.qualityDroppedCount).toBe(1);
+      expect(evidence.sourceIdentityCollisionCount).toBe(0);
+      expect(evidence.unaccountedReturnedCount).toBe(0);
+    });
+
+    it('keeps a detail HTTP failure separate from source-proven quality drops', async () => {
+      const seedUrl = 'https://ipersonal-http-failure.example/';
+      const acceptedUrl = `${seedUrl}jobs/accepted/`;
+      const failedUrl = `${seedUrl}jobs/unavailable/`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(
+            `<a href="${acceptedUrl}">Fachperson Zürich</a><a href="${failedUrl}">Unavailable role</a>`,
+            { status: 200 },
+          );
+        }
+        if (url === failedUrl) return new Response('temporary upstream outage', { status: 500 });
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Fachperson Zürich',
+            url: acceptedUrl,
+            description: 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.',
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich',
+                addressRegion: 'ZH',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards.</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'iPersonal AG',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        discoveredCount: number;
+        qualityDroppedCount: number;
+        detailFailureCount: number;
+      };
+      expect(jobs).toHaveLength(1);
+      expect(evidence.discoveredCount).toBe(2);
+      expect(evidence.qualityDroppedCount).toBe(0);
+      expect(evidence.detailFailureCount).toBe(1);
+      expect(() => assertCompleteIpersonalSnapshot(evidence)).toThrow(
+        /detail fetch\/parse failure/,
+      );
+    });
+
+    it('surfaces two detail aliases resolving to one response identity', async () => {
+      const seedUrl = 'https://ipersonal-redirect.example/';
+      const firstUrl = `${seedUrl}jobs/first/`;
+      const secondUrl = `${seedUrl}jobs/second/`;
+      const canonicalDetailUrl = `${seedUrl}jobs/canonical/`;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(`<a href="${firstUrl}">First role</a><a href="${secondUrl}">Second role</a>`, {
+            status: 200,
+          });
+        }
+        const response = new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: url === firstUrl ? 'First role' : 'Second role',
+            url: canonicalDetailUrl,
+            description: 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.',
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich',
+                addressRegion: 'ZH',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards.</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig und nachvollziehbar dokumentieren</li><li>Kundinnen und Kunden professionell beraten und Termine koordinieren</li></ul>
+          </div></section>`, { status: 200 });
+        Object.defineProperty(response, 'url', { value: canonicalDetailUrl });
+        return response;
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'iPersonal AG',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      const evidence = jobs as typeof jobs & {
+        qualityDroppedCount: number;
+        sourceIdentityCollisionCount: number;
+      };
+      expect(evidence.qualityDroppedCount).toBe(0);
+      expect(evidence.sourceIdentityCollisionCount).toBe(1);
+    });
+
     it('records an empty configured listing seed and rejects the batch as partial', async () => {
       const seedUrl = 'https://ipersonal-seeds.example/';
       const emptySeedUrl = `${seedUrl}empty/`;
