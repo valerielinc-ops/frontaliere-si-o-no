@@ -13,6 +13,19 @@ const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
+export function normalizeLaderachJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/jobs\/\d+\/[^/]+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
@@ -104,16 +117,15 @@ export function parseLaderachNextDataJobs(jobs) {
   for (const item of jobs) {
     if (!item || !item.title) continue;
     const jobId = String(item.jobPostingId || '');
-    const url = String(item.link || '').trim();
-    const key = url || jobId;
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
+    const url = normalizeLaderachJobUrl(item.link);
+    if (!url || seen.has(url)) continue;
+    seen.add(url);
 
     result.push({
       id: slugify(item.title),
       jobId,
       title: String(item.title).trim(),
-      url: url.startsWith('http') ? url : `${CAREERS_BASE}${url}`,
+      url,
       location: String(item.location || 'Ennenda').trim(),
       canton: inferAnyCanton(String(item.location || 'Ennenda')) || 'GL',
       department: '',
@@ -134,7 +146,8 @@ function parseLaderachHtmlFallback(html) {
   while ((m = pattern.exec(html)) !== null) {
     const rawUrl = readAttr(m[1], 'href').trim();
     if (!/\/jobs\/\d+\//i.test(rawUrl)) continue;
-    const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+    const url = normalizeLaderachJobUrl(rawUrl);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -236,11 +249,12 @@ export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
 }
 
 export async function fetchLaderachDetailPage(url, timeoutMs = 15_000) {
-  if (!url) return null;
+  const safeUrl = normalizeLaderachJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });

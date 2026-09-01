@@ -1,8 +1,10 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchLaderachDetailPage,
   parseLaderachListingHtml,
   parseLaderachNextDataJobs,
   parseLaderachDetailHtml,
+  normalizeLaderachJobUrl,
   extractNextData,
   slugify,
   stripHtml,
@@ -73,6 +75,29 @@ const SAMPLE_DETAIL_HTML_MINIMAL = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Läderach job parser', () => {
+  describe('normalizeLaderachJobUrl', () => {
+    it('allows only relative or same-origin HTTPS Läderach job routes', () => {
+      const path = '/jobs/62367409/Technical-IT-Architect/';
+      expect(normalizeLaderachJobUrl(path)).toBe(`https://laderach.career.softgarden.de${path}`);
+      expect(normalizeLaderachJobUrl(`https://laderach.career.softgarden.de${path}`))
+        .toBe(`https://laderach.career.softgarden.de${path}`);
+      expect(normalizeLaderachJobUrl(`https://attacker.example${path}`)).toBeNull();
+      expect(normalizeLaderachJobUrl(`http://laderach.career.softgarden.de${path}`)).toBeNull();
+      expect(normalizeLaderachJobUrl('https://laderach.career.softgarden.de/about-us/')).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchLaderachDetailPage('https://attacker.example/jobs/62367409/Technical-IT-Architect/'))
+          .resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('extractNextData', () => {
     it('extracts __NEXT_DATA__ JSON from HTML', () => {
       const data = extractNextData(SAMPLE_LISTING_HTML);
@@ -104,8 +129,8 @@ describe('Läderach job parser', () => {
 
     it('deduplicates by URL', () => {
       const duped = [
-        { jobPostingId: 1, title: 'Job A', link: 'https://example.com/jobs/1/A/', location: 'Zug' },
-        { jobPostingId: 1, title: 'Job A', link: 'https://example.com/jobs/1/A/', location: 'Zug' },
+        { jobPostingId: 1, title: 'Job A', link: 'https://laderach.career.softgarden.de/jobs/1/A/', location: 'Zug' },
+        { jobPostingId: 1, title: 'Job A', link: 'https://laderach.career.softgarden.de/jobs/1/A/', location: 'Zug' },
       ];
       expect(parseLaderachNextDataJobs(duped)).toHaveLength(1);
     });
