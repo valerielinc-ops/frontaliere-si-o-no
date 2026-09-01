@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-09-01T07:45:11.446Z",
+  "assembledAt": "2026-09-01T09:11:31.036Z",
   "jobs": [
     {
       "id": "company-5chvhl",
@@ -25,7 +25,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T07:45:08.375Z",
       "titleByLocale": {
         "it": "Montatore/trice di impianti sanitari per cucine & bagni",
@@ -52,8 +52,6 @@
       "postalCode": "",
       "streetAddress": "",
       "sourceLang": "it",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -64,7 +62,17 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
+        ]
+      },
+      "previousSlugs": [
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
+      ],
+      "salaryMin": 70500,
+      "salaryMax": 98500
     },
     {
       "id": "company-j8u1t2",
@@ -89,7 +97,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
@@ -153,7 +161,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Monteur per den Austausch von Kücheneinbaugeräten",
@@ -242,7 +250,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
@@ -306,7 +314,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -378,7 +386,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
@@ -442,7 +450,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -509,7 +517,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Heimliefermonteur:in von Elektrohaushaltgeräten",
@@ -586,7 +594,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Montage-Assistent:in per la Heimlieferung von Elektrohaushaltgeräten",
@@ -665,7 +673,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -689,8 +697,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-28",
-          "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-f03a45",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-sknog8",
           "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-f03a45",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-29",
@@ -709,7 +715,9 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-3",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen-5nx1qw",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
-          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen"
+          "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-swiss-household-services-ag-oberburen",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-28",
+          "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-f03a45"
         ],
         "en": [
           "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-30d8b6",
@@ -816,7 +824,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Kundendienstmitarbeiter:in Service",
@@ -889,7 +897,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
@@ -948,7 +956,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Sanitärmonteur:in Küchen & Bäder",
@@ -1028,7 +1036,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
@@ -1092,7 +1100,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
@@ -1156,7 +1164,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -1228,7 +1236,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -1300,7 +1308,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio Consumer Electronics CFC",
@@ -1372,7 +1380,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -1439,7 +1447,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Empfang Zentrale-Reparaturannahme 20%",
@@ -1528,7 +1536,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Kauffrau:mann CFC",
@@ -1626,7 +1634,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -1705,7 +1713,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-chpcr1",
@@ -1778,7 +1786,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-erqyia",
@@ -1851,7 +1859,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-o4c31p",
@@ -1924,7 +1932,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-8dks7j",
@@ -1997,7 +2005,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-uu17yh",
@@ -2070,7 +2078,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-srhg06",
@@ -2143,7 +2151,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-nyjyk8",
@@ -2216,7 +2224,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-n42nei",
@@ -2289,7 +2297,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-fshc9x",
@@ -2362,7 +2370,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-ng9vqk",
@@ -2435,7 +2443,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-wep421",
@@ -2508,7 +2516,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Schreinermonteur:in Küchen & Bäder",
@@ -2579,7 +2587,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Schreinermonteur:in Küchen & Bäder",
@@ -2652,7 +2660,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Sanitärmonteur:in Küchen & Bäder",
@@ -2725,7 +2733,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Multimediaelektroniker:in CFC",
@@ -2796,7 +2804,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -2869,7 +2877,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -2942,7 +2950,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-7ybtec",
@@ -3015,7 +3023,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-gc2hxg",
@@ -3088,7 +3096,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-tsukfs",
@@ -3161,7 +3169,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-x78rwu",
@@ -3234,7 +3242,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-zfxqtp",
@@ -3307,7 +3315,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-20fb5u",
@@ -3378,7 +3386,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-amlrqn",
@@ -3446,7 +3454,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-26T10:22:41.364Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -3546,7 +3554,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-jfjavw",
@@ -3614,7 +3622,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-26T10:22:41.364Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica AFP",
@@ -3704,7 +3712,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-26T10:22:41.364Z",
       "titleByLocale": {
         "it": "impiegata/impiegato in logistica CFC",
@@ -3775,7 +3783,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-hdt5ri",
@@ -3812,7 +3820,6 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-22",
           "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-447cc5",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-bhf8lm",
           "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-447cc5",
@@ -3831,7 +3838,8 @@
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
           "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-891924",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-ej8teb",
-          "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-891924"
+          "specialiste-du-commerce-de-detail-mann-efz-forme-d-experiences-shopping-fust-swiss-household-services-ag-891924",
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-22"
         ],
         "en": [
           "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-swiss-household-services-ag-oberburen-cdff0b",
@@ -3958,7 +3966,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-26T10:22:41.364Z",
       "titleByLocale": {
         "it": "Detailhandelsfachfrau:mann CFC \"Gestalten von Einkaufserlebnissen\"",
@@ -4035,7 +4043,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-26T10:22:41.364Z",
       "titleByLocale": {
         "it": "Apprendistato commercio al dettaglio AFC settore multimedia",
@@ -4133,7 +4141,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-qni6la",
@@ -4208,7 +4216,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-d1rbjm",
@@ -4278,7 +4286,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T22:48:33.305Z",
       "titleByLocale": {
         "it": "Sanitärmonteur:in Küchen & Bäder",
@@ -4303,7 +4311,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op",
           "dispatcher-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf-mts3op",
           "dispatcheur-se-cuisines-salles-de-bain-fust-swiss-household-services-ag-burgdorf-mts3op",
           "installatore-in-cucine-e-bagni-fust-burgdorf-bern",
@@ -4322,7 +4329,8 @@
           "dispatch-in-kitchens-bathrooms-fust-burgdorf-bern",
           "disposant-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf-bern",
           "expedition-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
-          "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf"
+          "coordinatore-a-cucine-bagni-fust-swiss-household-services-ag-burgdorf",
+          "disponent-in-kuchen-bader-fust-burgdorf-bern-mts3op"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-vcavfl",
@@ -4417,7 +4425,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T22:48:33.305Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt e Multimedia",
@@ -4509,7 +4517,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T10:16:07.437Z",
       "titleByLocale": {
         "it": "Tecnico di servizio: in Soluzioni Professionali",
@@ -4533,7 +4541,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
           "servicetechniker-in-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l",
           "servicetechniker-dans-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
           "technicien-de-service-solutions-professionnelles-fust-swiss-household-services-ag-luzern",
@@ -4552,7 +4559,8 @@
           "tecnico-di-servizio-in-soluzioni-professionali-fust-oberburen",
           "tecnico-di-servizio-in-soluzioni-professionali-fust-luzern-d19b20",
           "servicetechniker-in-professional-solutions-fust-luzern",
-          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern"
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern",
+          "service-technician-professional-solutions-fust-swiss-household-services-ag-luzern-8ywp4l"
         ],
         "en": [
           "servicetechniker-in-professional-solutions-fust-oberburen-4f8jjo",
@@ -4630,7 +4638,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T10:16:07.437Z",
       "titleByLocale": {
         "it": "Heimliefermonteur:in von Elektrohaushaltgeräten",
@@ -4703,7 +4711,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T10:16:07.437Z",
       "titleByLocale": {
         "it": "Heimliefermonteur:in von Elektrohaushaltgeräten",
@@ -4793,7 +4801,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T10:16:07.437Z",
       "titleByLocale": {
         "it": "Servicetechniker:in Heimservice",
@@ -4866,7 +4874,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "slugByLocale": {
         "it": "servicetechniker-in-professional-solutions-fust-region-zurich-basel",
@@ -4930,7 +4938,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T10:16:07.437Z",
       "titleByLocale": {
         "it": "Apprendista Category Management",
@@ -5000,7 +5008,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-25T10:16:07.437Z",
       "titleByLocale": {
         "it": "2nd Level Support Ingegnere",
@@ -5072,7 +5080,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-24T21:33:16.218Z",
       "titleByLocale": {
         "it": "Outsystems Sviluppatore",
@@ -5152,7 +5160,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-24T21:33:16.218Z",
       "titleByLocale": {
         "it": "Titolare del prodotto",
@@ -5236,7 +5244,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-24T21:33:16.218Z",
       "titleByLocale": {
         "it": "Outsystems Tech Lead",
@@ -5302,7 +5310,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-24T10:48:09.917Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt e Multimedia",
@@ -5326,7 +5334,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-bern",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-grenchen",
           "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-luzern",
@@ -5345,7 +5352,8 @@
           "verkaufsberater-in-per-elektrohaushalt-80-100-fust-swiss-household-services-ag-oftringen",
           "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-chur",
           "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-frauenfeld",
-          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-oberburen"
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-oberburen",
+          "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-wallisellen"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-zurich-xgatco",
@@ -5435,7 +5443,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-24T10:48:09.917Z",
       "titleByLocale": {
         "en": "Application Developer Java 80 - 100%",
@@ -5512,7 +5520,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-20T21:43:22.965Z",
       "titleByLocale": {
         "it": "Addetto/a al Servizio Clienti Cucine & Bagni",
@@ -5596,7 +5604,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-20T21:43:22.965Z",
       "titleByLocale": {
         "it": "Addetto Servizio Clienti Cucine e Bagni",
@@ -5620,7 +5628,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen-depljj",
           "monteur-de-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-oberburen-depljj",
           "carpenter-kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen",
           "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen",
@@ -5639,7 +5646,8 @@
           "customer-service-representative-fust-swiss-household-services-ag-oberburen",
           "schreinermonteur-in-kuchen-bader-fust-swiss-household-services-ag-oberburen-sankt-gallen-x1cr3h",
           "montatore-di-cucine-e-bagni-fust-swiss-household-services-ag-oberburen",
-          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-depljj"
+          "schreinermonteur-in-kuchen-bader-fust-oberburen-sankt-gallen-depljj",
+          "kitchen-bathroom-installer-fust-swiss-household-services-ag-oberburen-depljj"
         ],
         "en": [
           "sachbearbeiter-in-kundendienst-kuchen-bader-fust-oberburen-sankt-gallen-rcnhdl",
@@ -5717,7 +5725,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-19T21:48:15.306Z",
       "titleByLocale": {
         "it": "Collaboratore/trice Facility Management & Betriebsunterhalt",
@@ -5803,7 +5811,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-19T09:53:46.522Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt e Multimedia",
@@ -5896,7 +5904,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-19T09:53:46.522Z",
       "titleByLocale": {
         "it": "Verkaufsberater:in per Elektrohaushalt & Multimedia 80% - 100%",
@@ -5920,7 +5928,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis",
           "sales-consultant-in-for-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-bern",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen-db1310",
@@ -5939,7 +5946,8 @@
           "sales-consultant-for-household-appliances-and-multimedia-fust-swiss-household-services-ag-oberburen",
           "sales-consultant-in-electrical-household-and-multimedia-fust-swiss-household-services-ag-wallisellen",
           "sales-consultant-in-electrical-household-multimedia-80-100-fust-swiss-household-services-ag-oftringen",
-          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3"
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-oftringen-aargau-hb54v3",
+          "verkaufsberater-in-per-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch"
         ],
         "en": [
           "verkaufsberater-in-fur-elektrohaushalt-multimedia-80-100-fust-swiss-household-services-ag-visp-wallis-fb5zch",
@@ -6050,7 +6058,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T21:39:13.848Z",
       "titleByLocale": {
         "it": "Werkstatt Techniker:in per Elektrokleingeräte",
@@ -6149,7 +6157,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T21:39:13.848Z",
       "titleByLocale": {
         "it": "Specialista di processo: in officina",
@@ -6247,7 +6255,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "titleByLocale": {
         "it": "Direttore/trice lavori",
@@ -6330,7 +6338,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "slugByLocale": {
         "it": "collaboratore-trice-intralogistik-bereich-warenausgang-fust-oberburen-sankt-gallen-skxokz",
@@ -6400,7 +6408,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Technicien de service après-vente",
@@ -6464,7 +6472,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "slugByLocale": {
         "it": "collaboratore-trice-intralogistik-bereich-retouren-fust-oberburen-sankt-gallen-h7n2sa",
@@ -6534,7 +6542,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "slugByLocale": {
         "it": "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-lenzburg-aargau-hyph4d",
@@ -6628,7 +6636,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "slugByLocale": {
         "it": "chauffeur-in-cat-c-ce-fust-swiss-household-services-ag-oberburen",
@@ -6706,7 +6714,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "slugByLocale": {
         "it": "venditore-in-planner-in-cucine-e-bagni-fust-swiss-household-services-ag-biel",
@@ -6793,7 +6801,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-18T10:03:30.510Z",
       "slugByLocale": {
         "it": "tecnico-di-servizio-in-soluzioni-professionali-fust-swiss-household-services-ag-oberburen",
@@ -6898,7 +6906,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-14T10:21:40.064Z",
       "titleByLocale": {
         "it": "Qualità responsabile:r Consegna a domicilio",
@@ -6981,7 +6989,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-12T10:36:37.402Z",
       "titleByLocale": {
         "it": "Tecnico/a di Assistenza Professional Solutions",
@@ -7087,7 +7095,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-12T10:36:37.402Z",
       "titleByLocale": {
         "it": "Responsabile di Progetti Aziendali",
@@ -7169,7 +7177,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "titleByLocale": {
         "it": "Conseillère ou conseiller de vente secteur Electroménager & Multimédia 80% - 100%",
@@ -7233,7 +7241,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T07:45:08.375Z",
+      "crawledAt": "2026-09-01T09:11:28.519Z",
       "firstSeenAt": "2026-08-10T10:36:09.189Z",
       "titleByLocale": {
         "it": "Capo della ricevuta aggiunto",
