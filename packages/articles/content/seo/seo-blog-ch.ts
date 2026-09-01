@@ -64643,6 +64643,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-friburgo-permesso-l-rinnovo': {
+    title: 'Permesso L Friburgo: validità e proroga | Frontaliere Ticino',
+    description: 'Scopri come funziona il permesso L di breve durata nel Cantone Friburgo: durata massima, condizioni di proroga e passaggio ai permessi B e C nel sistema',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, friburgo, validità, proroga',
+    ogTitle: 'Permesso L Friburgo: validità e proroga',
+    ogDescription: 'Guida pratica al permesso di breve durata per lavoratori stranieri nel Cantone Friburgo. Scopri durata, proroga, vincoli e come passare al permesso di dimora nel sistema federale SEM della Svizzera.',
+    canonicalPath: '/articoli-svizzera/friburgo-permesso-l-rinnovo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Friburgo: validità e proroga",
+      "description": "Scopri come funziona il permesso L di breve durata nel Cantone Friburgo: durata massima, condizioni di proroga e passaggio ai permessi B e C nel sistema",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/friburgo-permesso-l-rinnovo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano svizzero con vista su cantone e città amministrativa della Confederazione"
+      },
+      "datePublished": "2026-09-01T18:30:58+00:00",
+      "dateModified": "2026-09-01T18:30:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/friburgo-permesso-l-rinnovo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

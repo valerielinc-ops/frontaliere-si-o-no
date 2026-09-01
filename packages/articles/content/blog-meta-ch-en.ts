@@ -4981,6 +4981,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Service sector: strong increase in turnover in June',
     'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Service sector turnover in Switzerland increased by 6.8% in June compared to 2025.',
     'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'View of a bustling Swiss city street with shops and businesses.',
+    'blog.article.friburgo-permesso-l-rinnovo.title': 'Permit L Freiburg: validity and extension',
+    'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'The short-term L permit allows foreigners to work in Switzerland for up to 1 year. Learn about extension rules, employer constraints, and how to switch to B and C permits.',
+    'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Swiss alpine landscape with administrative canton region representative of the Confederation',
 };
 
 export default blogMetaChEn;
