@@ -37,7 +37,6 @@
         "fr": "Pharma-Assistent / Pharma-Assistentin als Springer (w/m/d)"
       },
       "id": "galenica-0ae54b782e20",
-      "needsRetranslation": true,
       "previousSlugs": [
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-als-springer-w-m-d-bern",
         "assistant-pharmacien-assistante-pharmacienne-en-tant-que-remplacant-h-f-galenica-ag-galenica-bern",
@@ -174,17 +173,6 @@
         "fr": "Teamleiter /Teamleiterin Operationscenter (w/m/d)"
       },
       "id": "galenica-6bef6dc3f5f5",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -204,7 +192,17 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
+          "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern"
+      ]
     },
     {
       "title": "Data Engineer (w/m/d)",
@@ -371,7 +369,6 @@
         "fr": "Mitarbeiter / Mitarbeiterin Koordination und Administration Aussendienst (w/m/d)"
       },
       "id": "galenica-b73b9028a1d1",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-mitarbeiter-mitarbeiterin-koordination-und-administration-aussendienst-w-m-d-bern",
@@ -441,20 +438,6 @@
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-6516edcee86c",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
-        ],
-        "fr": [
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -474,7 +457,20 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ],
+        "fr": [
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
+      ]
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -651,17 +647,6 @@
         "fr": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)"
       },
       "id": "galenica-af80e62ec451",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -681,7 +666,17 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)",
@@ -718,7 +713,6 @@
         "fr": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)"
       },
       "id": "galenica-c54efb2e8379",
-      "needsRetranslation": true,
       "previousSlugs": [
         "galenica-galenica-ag-apotheker-apothekerin-fur-fph-weiterbildung-w-m-bern"
       ],
@@ -851,7 +845,11 @@
         "fr": "Apotheker / Apothekerin (w/m/d)"
       },
       "id": "galenica-50ee8fb74dfa",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
+        "farmacista-m-f-galenica-galenica-bern",
+        "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
@@ -865,11 +863,6 @@
           "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ]
       },
-      "previousSlugs": [
-        "apotheker-apothekerin-w-m-d-galenica-galenica-bern",
-        "farmacista-m-f-galenica-galenica-bern",
-        "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1050,7 +1043,6 @@
         "fr": "Mitarbeiter Medizinische Rechnungsprüfung (w/m/d)"
       },
       "id": "galenica-c117a489a175",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-mitarbeiter-medizinische-rechnungsprufung-w-m-d-bern"
@@ -1159,7 +1151,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 2
     },
     {
       "title": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
@@ -1263,7 +1256,6 @@
         "fr": "Apotheker / Apothekerin als Springer (w/m/d)"
       },
       "id": "galenica-e4a309e256e5",
-      "needsRetranslation": true,
       "previousSlugs": [
         "galenica-galenica-ag-apotheker-apothekerin-als-springer-w-m-d-bern"
       ],
@@ -1331,20 +1323,6 @@
         "fr": "Apotheker als Geschäftsführer / Apothekerin als Geschäftsführerin (w/m/d)"
       },
       "id": "galenica-b530bd8895d7",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nx5zaz",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxn9es",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxn9c2",
-        "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-bern",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny4je9",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxna2u",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny551o",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5r6u",
-        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5qh6",
-        "pharmacien-directeur-pharmacienne-directrice-w-m-d-galenica-ag-galenica-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
@@ -1363,7 +1341,19 @@
           "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-galenica-ag-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nx5zaz",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxn9es",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxn9c2",
+        "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-w-d-galenica-ag-galenica-bern",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny4je9",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-nxna2u",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny551o",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5r6u",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-ag-ny5qh6",
+        "pharmacien-directeur-pharmacienne-directrice-w-m-d-galenica-ag-galenica-bern"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1382,7 +1372,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
@@ -1419,7 +1410,6 @@
         "fr": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)"
       },
       "id": "galenica-1feedbd2d5c2",
-      "needsRetranslation": true,
       "previousSlugs": [
         "galenica-galenica-apotheker-apothekerin-fur-fph-weiterbildung-w-m-d-bern",
         "apotheker-apothekerin-per-fph-weiterbildung-m-w-d-galenica-bern-nxnuwx",
@@ -1492,20 +1482,6 @@
         "fr": "Automaticien / Électricien de maintenance industrielle (f/h/d)"
       },
       "id": "galenica-7c391226484a",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "automatico-elettricista-di-manutenzione-industriale-f-m-d-galenica-ag-galenica-bern",
-          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
-        ],
-        "de": [
-          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "automatico-elettricista-di-manutenzione-industriale-f-m-d-galenica-ag-galenica-bern",
-        "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1525,7 +1501,20 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "automatico-elettricista-di-manutenzione-industriale-f-m-d-galenica-ag-galenica-bern",
+          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+        ],
+        "de": [
+          "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "automatico-elettricista-di-manutenzione-industriale-f-m-d-galenica-ag-galenica-bern",
+        "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern"
+      ]
     },
     {
       "title": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
@@ -1562,7 +1551,6 @@
         "fr": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)"
       },
       "id": "galenica-ed7c5e1f5f78",
-      "needsRetranslation": true,
       "previousSlugs": [
         "galenica-galenica-ag-apotheker-als-stellvertretung-apothekerin-als-stellvertretung-w-m-d-bern"
       ],
@@ -1909,17 +1897,6 @@
         "fr": "Apotheker (w/m/d)"
       },
       "id": "galenica-ab7b0d1e608b",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "it": [
-          "farmacista-m-f-n-galenica-galenica-bern",
-          "galenica-galenica-apotheker-w-m-d-bern"
-        ]
-      },
-      "previousSlugs": [
-        "farmacista-m-f-n-galenica-galenica-bern",
-        "galenica-galenica-apotheker-w-m-d-bern"
-      ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1939,7 +1916,17 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "farmacista-m-f-n-galenica-galenica-bern",
+          "galenica-galenica-apotheker-w-m-d-bern"
+        ]
+      },
+      "previousSlugs": [
+        "farmacista-m-f-n-galenica-galenica-bern",
+        "galenica-galenica-apotheker-w-m-d-bern"
+      ]
     },
     {
       "title": "Senior Agile & Product Coach (f/h/d)",
@@ -2033,7 +2020,6 @@
         "fr": "Apotheker / Apothekerin (w/m/d) für FPH-Weiterbildung"
       },
       "id": "galenica-9dc5c829b2db",
-      "needsRetranslation": true,
       "previousSlugs": [
         "galenica-galenica-apotheker-apothekerin-w-m-d-fur-fph-weiterbildung-bern"
       ],
@@ -2234,10 +2220,6 @@
         "fr": "Kundenberater / Kundenberaterin Frontoffice befristet (w/m/d)"
       },
       "id": "galenica-f5087fa8764e",
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
@@ -2246,7 +2228,9 @@
           "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
         ]
       },
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-galenica-ag-kundenberater-kundenberaterin-frontoffice-befristet-w-m-d-bern"
+      ],
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2265,7 +2249,8 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Digital Commerce Content & Newsletter Manager (w/m/d)",
@@ -2650,10 +2635,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Pully, Rue de la Poste 26, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Pully, Rue de la Poste 26, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Pully, Rue de la Poste 26, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Pully, Rue de la Poste 26, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Pully, Rue de la Poste 26, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Pully, Rue de la Poste 26, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Descrizione\n- Assistente di farmacia AFC presso Amavita (Gruppo Galenica), situato in Pully, Rue de la Poste 26, Svizzera.\n- Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n- Questa posizione offre l'opportunità di lavorare in un ambiente dinamico, orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+        "en": "Description\n- Assistente di farmacia AFC at Amavita (Galenica Group), located in Pully, Rue de la Poste 26, Switzerland.\n- Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n- This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Beschreibung\n- Assistente di farmacia AFC bei Amavita (Galenica Group), gelegen in Pully, Rue de la Poste 26, Schweiz.\n- Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n- Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
+        "fr": "Description\n- Assistante di farmacia AFC à Amavita (Groupe Galenica), situé à Pully, rue de la Poste 26, Suisse.\n- Galenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n- Ce poste offre l’opportunité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement de carrière."
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692314-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pully-vd-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -2668,23 +2653,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmaassistent/in AFC",
+        "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-10ec4c14a409",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-pully-1nc138",
-        "galenica-amavita-assistente-di-farmacia-afc-pully-1nc0fw"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-pully-1nc138",
-          "galenica-amavita-assistente-di-farmacia-afc-pully-1nc0fw"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2701,7 +2675,19 @@
       },
       "addressLocality": "Pully",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-pully-1nc138",
+          "galenica-amavita-assistente-di-farmacia-afc-pully-1nc0fw"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-pully-1nc138",
+        "galenica-amavita-assistente-di-farmacia-afc-pully-1nc0fw"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2916,10 +2902,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Zürich, Löwenstrasse 31-35, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Zürich, Löwenstrasse 31-35, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Zürich, Löwenstrasse 31-35, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Zürich, Löwenstrasse 31-35, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Zürich, Löwenstrasse 31-35, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Zürich, Löwenstrasse 31-35, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Descrizione\n- Assistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Zurigo, Löwenstrasse 31-35, Svizzera\n- Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality\n- Questa posizione offre l'opportunità di lavorare in un ambiente dinamico, orientato al paziente con ottime prospettive di sviluppo professionale",
+        "en": "Description\n- Assistente di farmacia AFC at Amavita (Galenica Group), located in Zürich, Löwenstrasse 31-35, Switzerland\n- Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality\n- This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects",
+        "de": "Beschreibung\n- Assistente di farmacia AFC bei Amavita (Galenica Group), Sitz in Zürich, Löwenstraße 31-35, Schweiz\n- Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetz des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality\n- Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten",
+        "fr": "Description\n- Assistante di farmacia AFC à Amavita (Groupe Galenica), situé à Zurich, Löwenstrasse 31-35, Suisse\n- Galenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality\n- Ce poste offre l’opportunité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement de carrière"
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692343-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zuerich-zh-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -2934,29 +2920,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Apothekenassistent AFC",
+        "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-98514ea04553",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -2973,7 +2942,25 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3352,11 +3339,6 @@
         "fr": "Assistant de pharmacie AFC"
       },
       "id": "galenica-9424e2f2f279",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges",
-        "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f",
-        "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc1rc"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f",
@@ -3366,8 +3348,11 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-epalinges",
+        "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc11f",
+        "galenica-amavita-assistente-di-farmacia-afc-epalinges-1nc1rc"
+      ],
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -3384,7 +3369,8 @@
       },
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3724,10 +3710,10 @@
       "description": "Assistente di farmacia AFC at Coop Vitality  (Galenica Group), located in Bern, Europaplatz 1a, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Bern, Europaplatz 1a, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Bern, Europaplatz 1a, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Coop Vitality (Galenica Group), located in Bern, Europaplatz 1a, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Coop Vitality (Galenica Group), gelegen in Bern, Europaplatz 1a, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Coop Vitality (Galenica Group), situé à Bern, Europaplatz 1a, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Posizione\nAssistente di farmacia AFC\n\nAzienda\nCoop Vitality (Gruppo Galenica)\n\nPosizione\n- Berna, Europaplatz 1a, Svizzera\n\nInformazioni su Galenica\n- Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n\nInformazioni su questo ruolo\n- Questa posizione offre l'opportunità di lavorare in un ambiente dinamico, orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+        "en": "Position\nAssistente di farmacia AFC\n\nCompany\nCoop Vitality (Galenica Group)\n\nLocation\n- Bern, Europaplatz 1a, Switzerland\n\nAbout Galenica\n- Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n\nAbout This Role\n- This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Position\nAssistente di farmacia AFC\n\nGesellschaft\nCoop Vitality (Galenica Group)\n\nLage\n- Bern, Europaplatz 1a, Schweiz\n\nÜber Galenica\n- Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n\nÜber diese Rolle\n- Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
+        "fr": "Poste\nAssistante di farmacia AFC\n\nEntreprise\nCoop Vitality (Groupe Galenica)\n\nEmplacement\n- Berne, Europaplatz 1a, Suisse\n\nÀ propos de Galenica\n- Galenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n\nÀ propos de ce rôle\n- Ce poste offre l’opportunité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement de carrière."
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692404-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern-be-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -3742,28 +3728,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmaassistent/-in AFC",
+        "fr": "Assistant(e) en pharmacie AFC"
       },
       "id": "galenica-3d12db856ed5",
-      "previousSlugs": [
-        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
-        "pharma-assistent-efz-coop-vitality-galenica-bern",
-        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
-          "pharma-assistent-efz-coop-vitality-galenica-bern",
-          "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2"
-        ],
-        "de": [
-          "pharma-assistent-efz-coop-vitality-galenica-bern"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3782,7 +3752,24 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
+          "pharma-assistent-efz-coop-vitality-galenica-bern",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2"
+        ],
+        "de": [
+          "pharma-assistent-efz-coop-vitality-galenica-bern"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nc09u",
+        "pharma-assistent-efz-coop-vitality-galenica-bern",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4645,12 +4632,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-8071fecc0b23",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1",
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
@@ -4661,8 +4642,12 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-gallen",
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe",
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1",
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f"
+      ],
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -4679,7 +4664,8 @@
       },
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4976,10 +4962,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Pratteln, Bahnhofstrasse 3, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Pratteln, Bahnhofstrasse 3, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Pratteln, Bahnhofstrasse 3, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Pratteln, Bahnhofstrasse 3, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Pratteln, Bahnhofstrasse 3, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Pratteln, Bahnhofstrasse 3, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Descrizione\n\nAssistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Pratteln, Bahnhofstrasse 3, Svizzera.\n\nInformazioni sull'azienda\n\n- Galenica è il principale gruppo sanitario svizzero\n- Gestisce la più grande rete di farmacie del paese\n- Con marchi come Amavita, Sun Store e Coop Vitality\n\nCosa offriamo\n\n- Opportunità di lavorare in un ambiente dinamico e orientato al paziente\n- Eccellenti prospettive di sviluppo professionale",
+        "en": "Description\n\nAssistente di farmacia AFC at Amavita (Galenica Group), located in Pratteln, Bahnhofstrasse 3, Switzerland.\n\nAbout the Company\n\n- Galenica is the leading Swiss healthcare group\n- Operates the largest pharmacy network in the country\n- With brands including Amavita, Sun Store, and Coop Vitality\n\nWhat We Offer\n\n- Opportunity to work in a dynamic, patient-oriented environment\n- Excellent career development prospects",
+        "de": "Beschreibung\n\nAssistente di farmacia AFC bei Amavita (Galenica Group), gelegen in Pratteln, Bahnhofstraße 3, Schweiz.\n\nÜber das Unternehmen\n\n- Galenica ist die führende Schweizer Gesundheitsgruppe\n- Betreibt das größte Apothekennetz des Landes\n- Mit Marken wie Amavita, Sun Store und Coop Vitality\n\nWas wir anbieten\n\n- Möglichkeit, in einer dynamischen, patientenorientierten Umgebung zu arbeiten\n- Ausgezeichnete Berufsaussichten",
+        "fr": "Description\n\nAssistante di farmacia AFC at Amavita (Groupe Galenica), située à Pratteln, Station, 3, Suisse.\n\nÀ propos de la société\n\n- Galenica est le principal groupe suisse de santé\n- Exploite le plus grand réseau de pharmacies du pays\n- Avec des marques telles qu’Amavita, Sun Store et Coop Vitality\n\nCe que nous proposons\n\n- Opportunité de travailler dans un environnement dynamique et orienté patient\n- Excellentes perspectives de développement de carrière"
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692335-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-pratteln-bl-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -4994,28 +4980,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Apothekassistent/in AFC",
+        "fr": "Assistant/e de pharmacie AFC"
       },
       "id": "galenica-93ab2f0a19e4",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
-        "apothekenassistent-afc-amavita-galenica-pratteln",
-        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
-          "apothekenassistent-afc-amavita-galenica-pratteln",
-          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5"
-        ],
-        "de": [
-          "apothekenassistent-afc-amavita-galenica-pratteln"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -5032,7 +5002,24 @@
       },
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
+          "apothekenassistent-afc-amavita-galenica-pratteln",
+          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5"
+        ],
+        "de": [
+          "apothekenassistent-afc-amavita-galenica-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
+        "apothekenassistent-afc-amavita-galenica-pratteln",
+        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0e5"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5166,10 +5153,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Bern, Christoffelunterführung 6, RailCity, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Bern, Christoffelunterführung 6, RailCity, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Bern, Christoffelunterführung 6, RailCity, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Bern, Christoffelunterführung 6, RailCity, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Bern, Christoffelunterführung 6, RailCity, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Bern, Christoffelunterführung 6, RailCity, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Descrizione\n- Assistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Berna, Christoffelunterführung 6, RailCity, Svizzera\n- Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality\n- Questa posizione offre l'opportunità di lavorare in un ambiente dinamico, orientato al paziente con ottime prospettive di sviluppo professionale",
+        "en": "Description\n- Assistente di farmacia AFC at Amavita (Galenica Group), located in Bern, Christoffelunterführung 6, RailCity, Switzerland\n- Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality\n- This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects",
+        "de": "Beschreibung\n- Assistente di farmacia AFC bei Amavita (Galenica Group), mit Sitz in Bern, Christoffelunterführung 6, RailCity, Schweiz\n- Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetz des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality\n- Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten",
+        "fr": "Description\n- Assistante di farmacia AFC chez Amavita (Groupe Galenica), situé à Berne, Christoffelunterführung 6, RailCity, Suisse\n- Galenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality\n- Ce poste offre l’opportunité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement de carrière"
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692317-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern-be-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -5184,25 +5171,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharma-Assistent/in EFZ",
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6f3e9a00cf5b",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5221,7 +5195,21 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft",
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5258,22 +5246,6 @@
         "fr": "Assistant/e en Pharmacie AFC"
       },
       "id": "galenica-a708b665900f",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
-        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
-          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
-        ],
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5290,7 +5262,22 @@
       },
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9",
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5843,10 +5830,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Descrizione\n\nAssistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Svizzera. Galenica è il principale gruppo sanitario svizzero e gestisce la più grande rete farmaceutica del paese, con marchi come Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico, orientato al paziente, con eccellenti prospettive di sviluppo professionale.",
+        "en": "Description\n\nAssistente di farmacia AFC at Amavita (Galenica Group), located in Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Beschreibung\n\nAssistente di farmacia AFC bei Amavita (Galenica Group), mit Sitz in Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Schweiz. Galenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality. Diese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
+        "fr": "Description\n\nAssistante di farmacia AFC chez Amavita (Groupe Galenica), situé à Le Landeron, Centre Migros le Landeron, Rte de Neuchâtel 46, Suisse. Galenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality. Ce poste offre l’opportunité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement de carrière."
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692311-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-le-landeron-ne-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -5861,21 +5848,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmaassistent/in EFZ",
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-78405c8f57d0",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-le-landeron-18dnc9"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-le-landeron-18dnc9"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -5892,7 +5870,17 @@
       },
       "addressLocality": "Le Landeron",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-le-landeron-18dnc9"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-le-landeron-18dnc9"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -7823,11 +7811,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-6bbd4224b0eb",
-      "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
-        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
-        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
@@ -7837,8 +7820,11 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen"
         ]
       },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugs": [
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
+        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
+        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -7855,7 +7841,8 @@
       },
       "addressLocality": "Riehen",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -8314,10 +8301,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Winterthur, Shopping Seen, Hinterdorfstrasse 40, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Winterthur, Shopping Seen, Hinterdorfstrasse 40, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Winterthur, Shopping Seen, Hinterdorfstrasse 40, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Winterthur, Shopping Seen, Hinterdorfstrasse 40, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Winterthur, Shopping Seen, Hinterdorfstrasse 40, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Winterthur, Shopping Seen, Hinterdorfstrasse 40, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Posizione\nAssistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Winterthur, Shopping Seen, Hinterdorfstrasse 40, Svizzera.\n\nChi siamo\nGalenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n\nCosa offriamo\nQuesta posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente, con ottime prospettive di sviluppo professionale.",
+        "en": "Position\nAssistente di farmacia AFC at Amavita (Galenica Group), located in Winterthur, Shopping Seen, Hinterdorfstrasse 40, Switzerland.\n\nAbout us\nGalenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n\nWhat we offer\nThis position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Position\nAssistente di farmacia AFC bei Amavita (Galenica Group), mit Sitz in Winterthur, Shopping Seen, Hinterdorfstraße 40, Schweiz.\n\nÜber uns\nGalenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n\nWas wir anbieten\nDiese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
+        "fr": "Poste\nAssistante di farmacia AFC chez Amavita (Groupe Galenica), situé à Winterthur, Shopping Seen, Hinterdorfstrasse 40, Suisse.\n\nÀ propos de nous\nGalenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n\nCe que nous proposons\nCe poste offre la possibilité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement professionnel."
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692309-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-winterthur-zh-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -8332,23 +8319,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Apothekenassistent/in AFC",
+        "fr": "Assistant de pharmacie AFC"
       },
       "id": "galenica-1b201cef0afe",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2",
-        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2",
-          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -8365,7 +8341,19 @@
       },
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2",
+          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2",
+        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9208,22 +9196,6 @@
         "fr": "Assistant(e) de pharmacie AFC"
       },
       "id": "galenica-019b0922d394",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
-          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
-        ],
-        "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -9240,7 +9212,22 @@
       },
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
+        ],
+        "de": [
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3",
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
+      ]
     },
     {
       "title": "Mediamatico/a AFC",
@@ -10745,28 +10732,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-6ce795739579",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-thun-1nc0gr",
-        "afc-pharmacy-assistant-amavita-galenica-thun",
-        "apothekenassistent-afc-amavita-galenica-thun",
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-thun-1nc0gr",
-          "afc-pharmacy-assistant-amavita-galenica-thun",
-          "apothekenassistent-afc-amavita-galenica-thun"
-        ],
-        "en": [
-          "afc-pharmacy-assistant-amavita-galenica-thun"
-        ],
-        "de": [
-          "apothekenassistent-afc-amavita-galenica-thun",
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun"
-        ]
-      },
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -10783,7 +10748,28 @@
       },
       "addressLocality": "Thun",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-thun-1nc0gr",
+          "afc-pharmacy-assistant-amavita-galenica-thun",
+          "apothekenassistent-afc-amavita-galenica-thun"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-thun"
+        ],
+        "de": [
+          "apothekenassistent-afc-amavita-galenica-thun",
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-thun-1nc0gr",
+        "afc-pharmacy-assistant-amavita-galenica-thun",
+        "apothekenassistent-afc-amavita-galenica-thun",
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11620,10 +11606,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Spiez, Oberlandstrasse 7, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Spiez, Oberlandstrasse 7, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Spiez, Oberlandstrasse 7, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Spiez, Oberlandstrasse 7, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Spiez, Oberlandstrasse 7, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Spiez, Oberlandstrasse 7, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Assistente di farmacia AFC presso Amavita (Galenica Group)\n\nSituata a Spiez, Oberlandstrasse 7, Svizzera\n\nInformazioni su Galenica\n\nGalenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n\nCosa offriamo\n\n- Lavorare in un ambiente dinamico e orientato al paziente\n- Eccellenti prospettive di sviluppo professionale",
+        "en": "Assistente di farmacia AFC at Amavita (Galenica Group)\n\nLocated in Spiez, Oberlandstrasse 7, Switzerland\n\nAbout Galenica\n\nGalenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n\nWhat we offer\n\n- Work in a dynamic, patient-oriented environment\n- Excellent career development prospects",
+        "de": "Assistente di farmacia AFC at Amavita (Galenica Group)\n\nGelegen in Spiez, Oberlandstraße 7, Schweiz\n\nÜber Galenica\n\nGalenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n\nWas wir anbieten\n\n- In einer dynamischen, patientenorientierten Umgebung arbeiten\n- Ausgezeichnete Berufsaussichten",
+        "fr": "Assistante di farmacia AFC chez Amavita (Groupe Galenica)\n\nSitué à Spiez, Oberlandstrasse 7, Suisse\n\nÀ propos de Galenica\n\nGalenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n\nCe que nous proposons\n\n- Travailler dans un environnement dynamique et orienté patient\n- Excellentes perspectives de développement de carrière"
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692306-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-spiez-be-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -11638,9 +11624,9 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmazie-Assistent/in AFC",
+        "fr": "Assistant(e) en pharmacie AFC"
       },
       "id": "galenica-d957410d3f3c",
       "previousSlugs": [
@@ -11676,7 +11662,8 @@
       },
       "addressLocality": "Spiez",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Informatico/a AFC sviluppo di applicazioni",
@@ -12837,10 +12824,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Moutier, Rue de l'Ecluse 1, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Moutier, Rue de l'Ecluse 1, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Moutier, Rue de l'Ecluse 1, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Moutier, Rue de l'Ecluse 1, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Moutier, Rue de l'Ecluse 1, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Moutier, Rue de l'Ecluse 1, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Assistente di farmacia AFC\n\nDatore di lavoro: Amavita (Galenica Group)\nLocalità: Moutier, Rue de l'Ecluse 1, Svizzera\n\nInformazioni su Galenica\n\nGalenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n\nCosa offriamo\n\n- Ambiente dinamico orientato al paziente\n- Eccellenti prospettive di sviluppo professionale",
+        "en": "Assistente di farmacia AFC\n\nEmployer: Amavita (Galenica Group)\nLocation: Moutier, Rue de l'Ecluse 1, Switzerland\n\nAbout Galenica\n\nGalenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n\nWhat we offer\n\n- Dynamic, patient-oriented environment\n- Excellent career development prospects",
+        "de": "Assistente di farmacia AFC\n\nArbeitgeber: Amavita (Galenica Group)\nLage: Moutier, Rue de l'Ecluse 1, Schweiz\n\nÜber Galenica\n\nGalenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n\nWas wir anbieten\n\n- Dynamische, patientenorientierte Umgebung\n- Ausgezeichnete Berufsaussichten",
+        "fr": "Assistante di farmacia AFC\n\nEmployeur : Amavita (Groupe Galenica)\nEmplacement : Moutier, rue de l’Ecluse 1, Suisse\n\nÀ propos de Galenica\n\nGalenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n\nCe que nous proposons\n\n- Environnement dynamique et orienté patient\n- Excellentes perspectives de développement de carrière"
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692291-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier-be-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -12855,9 +12842,9 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmaassistent/in AFC",
+        "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-c56697c729cc",
       "previousSlugs": [
@@ -12892,7 +12879,8 @@
       },
       "addressLocality": "Moutier",
       "addressRegion": "JU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13101,10 +13089,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Luzern, LöwenCenter, Zürichstrasse 5, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Luzern, LöwenCenter, Zürichstrasse 5, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Luzern, LöwenCenter, Zürichstrasse 5, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Luzern, LöwenCenter, Zürichstrasse 5, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Luzern, LöwenCenter, Zürichstrasse 5, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Luzern, LöwenCenter, Zürichstrasse 5, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Posizione\nAssistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Lucerna, LöwenCenter, Zürichstrasse 5, Svizzera.\n\nInformazioni sull'azienda\nGalenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n\nInformazioni su questo ruolo\nQuesta posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente, con ottime prospettive di sviluppo professionale.",
+        "en": "Position\nAssistente di farmacia AFC at Amavita (Galenica Group), located in Luzern, LöwenCenter, Zürichstrasse 5, Switzerland.\n\nAbout the Company\nGalenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n\nAbout This Role\nThis position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
+        "de": "Position\nAssistente di farmacia AFC bei Amavita (Galenica Group), mit Sitz in Luzern, LöwenCenter, Zürichstraße 5, Schweiz.\n\nÜber das Unternehmen\nGalenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n\nÜber diese Rolle\nDiese Position bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereaussichten zu arbeiten.",
+        "fr": "Poste\nAssistante di farmacia AFC chez Amavita (Groupe Galenica), situé à Lucerne, LöwenCenter, Zürichstrasse 5, Suisse.\n\nÀ propos de la société\nGalenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n\nÀ propos de ce rôle\nCe poste offre la possibilité de travailler dans un environnement dynamique, orienté patient, avec d’excellentes perspectives de développement professionnel."
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692265-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-luzern-lu-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -13119,25 +13107,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmaassistentin AFC",
+        "fr": "Assistante en pharmacie CFC"
       },
       "id": "galenica-f24cf3002989",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
-        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
-          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
-          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13154,7 +13129,21 @@
       },
       "addressLocality": "Luzern",
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc129",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -13562,10 +13551,10 @@
       "description": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Basel, Stadthausgasse 10, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
       "descriptionIt": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Basel, Stadthausgasse 10, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "descriptionByLocale": {
-        "it": "Assistente di farmacia AFC presso Amavita (Gruppo Galenica), con sede a Basel, Stadthausgasse 10, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-        "en": "Assistente di farmacia AFC at Amavita (Galenica Group), located in Basel, Stadthausgasse 10, Switzerland. Galenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality. This position offers the opportunity to work in a dynamic, patient-oriented environment with excellent career development prospects.",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ) at Amavita (Galenica Group), gelegen in Basel, Stadthausgasse 10, Schweiz. Galenica is die führende Schweizer Gesundheitsgruppe and operates das grösste Apothekennetzwerk des Landes, with brands including Amavita, Sun Store, and Coop Vitality. Diese Stelle bietet die Möglichkeit, in einem dynamischen, patientenorientierten Umfeld mit hervorragenden Karriereentwicklungsmöglichkeiten zu arbeiten.",
-        "fr": "Assistant/e en pharmacie CFC chez Amavita (Galenica Group), situé à Basel, Stadthausgasse 10, Suisse. Galenica is le premier groupe de santé suisse and operates le plus grand réseau de pharmacies du pays, with brands including Amavita, Sun Store, and Coop Vitality. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le patient, avec d'excellentes perspectives de développement de carrière."
+        "it": "Posizione\n\nAssistente di farmacia AFC presso Amavita (Gruppo Galenica), situato a Basilea, Stadthausgasse 10, Svizzera.\n\nInformazioni su Galenica\n\nGalenica è il principale gruppo sanitario svizzero e gestisce la più grande rete di farmacie del paese, con marchi come Amavita, Sun Store e Coop Vitality.\n\nCosa offriamo\n\n- Lavorare in un ambiente dinamico e orientato al paziente\n- Eccellenti prospettive di sviluppo professionale",
+        "en": "Position\n\nAssistente di farmacia AFC at Amavita (Galenica Group), located in Basel, Stadthausgasse 10, Switzerland.\n\nAbout Galenica\n\nGalenica is the leading Swiss healthcare group and operates the largest pharmacy network in the country, with brands including Amavita, Sun Store, and Coop Vitality.\n\nWhat We Offer\n\n- Work in a dynamic, patient-oriented environment\n- Excellent career development prospects",
+        "de": "Position\n\nAssistente di farmacia AFC bei Amavita (Galenica Group), mit Sitz in Basel, Stadthausgasse 10, Schweiz.\n\nÜber Galenica\n\nGalenica ist die führende Schweizer Gesundheitsgruppe und betreibt das größte Apothekennetzwerk des Landes, mit Marken wie Amavita, Sun Store und Coop Vitality.\n\nWas wir anbieten\n\n- In einer dynamischen, patientenorientierten Umgebung arbeiten\n- Ausgezeichnete Berufsaussichten",
+        "fr": "Poste\n\nAssistante di farmacia AFC à Amavita (Groupe Galenica), situé à Bâle, Stadthausgasse 10, Suisse.\n\nÀ propos de Galenica\n\nGalenica est le principal groupe suisse de la santé et exploite le plus grand réseau de pharmacies du pays, avec des marques telles qu’Amavita, Sun Store et Coop Vitality.\n\nCe que nous proposons\n\n- Travailler dans un environnement dynamique et orienté patient\n- Excellentes perspectives de développement de carrière"
       },
       "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692329-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-basel-bs-amavita?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
@@ -13580,27 +13569,12 @@
       },
       "titleByLocale": {
         "it": "Assistente di farmacia AFC",
-        "en": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "de": "Fachmann/-frau Apotheke EFZ (alt Pharma-Assistent/in EFZ)",
-        "fr": "Assistant/e en pharmacie CFC"
+        "en": "Pharmacy Assistant EFZ",
+        "de": "Pharmaassistent/in AFC",
+        "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-8bd5a501512d",
-      "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1s6",
-        "pharmaassistent-in-afc-amavita-galenica-basel",
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
-          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1s6",
-          "pharmaassistent-in-afc-amavita-galenica-basel",
-          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -13617,7 +13591,23 @@
       },
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1s6",
+          "pharmaassistent-in-afc-amavita-galenica-basel",
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1s6",
+        "pharmaassistent-in-afc-amavita-galenica-basel",
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew"
+      ],
+      "retranslationAttempts": 1
     },
     {
       "title": "Assistente di farmacia AFC",
