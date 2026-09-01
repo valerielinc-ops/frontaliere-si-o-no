@@ -1,50 +1,18 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-01T07:21:56.819Z",
-  "total": 58,
-  "newCount": 4,
-  "updatedCount": 53,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 42300,
-  "avgDurationMs": 42300,
+  "generatedAt": "2026-09-01T08:39:28.847Z",
+  "total": 57,
+  "newCount": 3,
+  "updatedCount": 54,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 39744,
+  "avgDurationMs": 39744,
   "durationHistory": [
-    42300
+    39744
   ],
   "newJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin?oga=true",
-      "title": "Fachärzt/-in für Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Solothurn",
-      "addressLocality": "Solothurn",
-      "addressRegion": "SO",
-      "canton": "SO",
-      "country": "CH",
-      "postalCode": "4500",
-      "slug": "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-09-01",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SO",
-        "location": "Solothurn"
-      },
-      "sourceLang": "de",
-      "_qualityScore": 56,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 12
-      }
-    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
@@ -143,6 +111,39 @@
     }
   ],
   "updatedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4500",
+      "slug": "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-01",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Solothurn"
+      },
+      "sourceLang": "de",
+      "firstSeenAt": "2026-09-01T07:21:56.807Z",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146476699-guest-journey-coordinator",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146476699-guest-journey-coordinator?oga=true",
@@ -1096,43 +1097,9 @@
         "translation": 21,
         "completeness": 12
       }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142660370-infirmier-ere-instrumentiste",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142660370-infirmier-ere-instrumentiste?oga=true",
-      "title": "Infirmier(ère) instrumentiste",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Sion",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "canton": "VS",
-      "country": "CH",
-      "postalCode": "1950",
-      "slug": "infirmier-ere-instrumentiste-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-08-24",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "VS",
-        "location": "Sion"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-08-24T21:40:26.997Z",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 12
-      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
@@ -1171,5 +1138,6 @@
         "completeness": 17
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
