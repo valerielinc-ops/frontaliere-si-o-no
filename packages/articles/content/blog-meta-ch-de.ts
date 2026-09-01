@@ -4939,6 +4939,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.telefonia-asta-frequenze-2029.title': 'Mobiltelefonie, die Auktion beginnt bei 855 Millionen',
     'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom startet die Auktion für Mobilfunkfrequenzen mit einer Basis von 855 Millionen. Anwendungen bis zum 3. Dezember, Zuweisung 2027, Konzessionen ab 2029 für 15 Jahre.',
     'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Luftansicht von Lugano mit Telekommunikationsinfrastruktur und Funknetz-Symbolen',
+    'blog.article.novartis-studio-clinico-sospeso.title': 'Novartis setzt klinische Studien aus, +5 % am Aktienmarkt',
+    'blog.article.novartis-studio-clinico-sospeso.excerpt': 'Novartis hat die Studien zu Rap-cel aufgrund von drei Todesfällen eingestellt; gleichzeitig gibt es positive Ergebnisse zu Remibrutinib bekannt. Aktien +5 % heute, +19 % bis heute in die Saison.',
+    'blog.article.novartis-studio-clinico-sospeso.imageAlt': 'Schweizer Pharmalabor mit Forschern, die Daten auf Bildschirmen in moderner Forschungsumgebung analysieren.',
 };
 
 export default blogMetaChDe;
