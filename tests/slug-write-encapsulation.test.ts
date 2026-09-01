@@ -76,7 +76,7 @@ const DIRECT_WRITE_BASELINE: Record<string, number> = {
   'build-prev-slug-restore-denylist.mjs': 2,
   'clean-lis-data.mjs': 3,
   'cleanup-redundant-previous-slugs.mjs': 1,
-  'decontaminate-prev-slugs.mjs': 7,
+  'decontaminate-prev-slugs.mjs': 2,
   'download-company-logos.mjs': 1,
   'lib/canton-ticino-osc-job-parser.mjs': 1,
   'lib/clinica-hildebrand-job-parser.mjs': 1,

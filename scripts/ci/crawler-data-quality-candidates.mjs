@@ -14,7 +14,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { processFile as scanPreviousSlugContamination } from '../decontaminate-prev-slugs.mjs';
+import { processFiles as scanPreviousSlugContamination } from '../decontaminate-prev-slugs.mjs';
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { extractStableJobId } from '../lib/job-match-key.mjs';
 
@@ -117,15 +117,13 @@ function baselineRetranslation(windowDays, relativeDataDir) {
 }
 
 function scanContamination(slices) {
-  const affected = [];
-  let moved = 0;
-  for (const slice of slices) {
-    const result = scanPreviousSlugContamination(slice.filePath);
-    if (!result?.moved) continue;
-    moved += result.moved;
-    affected.push({ file: slice.file, moved: result.moved });
-  }
-  return { moved, affected };
+  const result = scanPreviousSlugContamination(slices.map((slice) => slice.filePath));
+  return {
+    moved: result.moved,
+    affected: result.affected
+      .filter((entry) => entry.moved > 0)
+      .map((entry) => ({ file: path.basename(entry.filePath), moved: entry.moved })),
+  };
 }
 
 function stableIdDuplicates(slices) {

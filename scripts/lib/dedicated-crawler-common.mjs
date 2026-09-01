@@ -6902,6 +6902,26 @@ export function replaceActiveSlug(job, nextSlug, {
 // generated under the correct locale prefix (e.g. /fr/trouver-emploi-tessin/old-slug)
 // instead of blindly across all locales.
 
+/** Remove locale-history keys that cannot represent a redirect route. */
+export function pruneEmptyPreviousSlugLocaleBuckets(job) {
+  const locales = job?.previousSlugsByLocale;
+  if (!locales || typeof locales !== 'object') return 0;
+
+  let pruned = 0;
+  for (const [locale, slugs] of Object.entries(locales)) {
+    if (!Array.isArray(slugs) || slugs.length > 0) continue;
+    delete locales[locale];
+    pruned++;
+  }
+  if (Object.keys(locales).length === 0) {
+    delete job.previousSlugsByLocale;
+    // An already-empty container has no locale key to count, but deleting it
+    // is still a material cleanup that the caller must persist.
+    if (pruned === 0) pruned = 1;
+  }
+  return pruned;
+}
+
 /**
  * Record a previous slug for a specific locale.
  * Writes to `job.previousSlugsByLocale[locale]` AND keeps legacy
