@@ -303,10 +303,25 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
       ['#!/usr/bin/env bash', '# Minimal flock(1) shim for tests: ignores the lockfile arg, runs the -c command.', 'lockfile="$1"; shift', 'flag="$1"; shift', 'exec bash -c "$1"', ''].join('\n'),
       { mode: 0o755 },
     );
+    const timeoutShim = path.join(binDir, 'timeout');
+    fs.writeFileSync(
+      timeoutShim,
+      [
+        '#!/usr/bin/env bash',
+        '# Portable timeout(1) shim: tests can force expiry without sleeping.',
+        'while [[ "$1" == --* ]]; do shift; done',
+        'duration="$1"; shift',
+        'if [ "${TEST_FORCE_TARGET_TIMEOUT:-0}" = "1" ]; then exit 124; fi',
+        'exec "$@"',
+        '',
+      ].join('\n'),
+      { mode: 0o755 },
+    );
     originalPath = process.env.PATH;
     process.env.PATH = `${binDir}:${originalPath}`;
   });
   afterEach(() => {
+    delete process.env.TEST_FORCE_TARGET_TIMEOUT;
     process.env.PATH = originalPath;
     fs.rmSync(binDir, { recursive: true, force: true });
   });
@@ -408,6 +423,54 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
 
     expect(exitCode).not.toBe(0);
     expect(stdout).toContain('REPORTED_FAILURE');
+  });
+
+  it('bounds the complete target work phase and keeps the failure reporter outside the timeout', () => {
+    const okCommitDir = writeFixtureCommitScript(0);
+    const crawler = {
+      ...crawlerFixture({ commitCommand: okCommitDir }),
+      targetTimeoutMinutes: 30,
+    };
+    const body = buildCrawlerShellBody(crawler);
+
+    expect(body).toContain('timeout --signal=TERM --kill-after=30s 30m bash -c');
+    expect(body.indexOf('timeout --signal=TERM')).toBeLessThan(body.indexOf('REPORTED_FAILURE'));
+    expect(body.indexOf('flock /tmp/crawler-group-git.lock')).toBeLessThan(body.indexOf('REPORTED_FAILURE'));
+    expect(body).toContain('outside timeout, only on target failure');
+
+    const { exitCode, stdout } = runBody(body);
+    expect(exitCode).toBe(0);
+    expect(stdout).not.toContain('REPORTED_FAILURE');
+  });
+
+  it('fails closed on target timeout, reports it, and never reaches commit', () => {
+    const commitMarker = path.join(tmpDir, 'commit-ran');
+    const commitDir = fs.mkdtempSync(path.join(tmpDir, 'lib-timeout-'));
+    fs.writeFileSync(
+      path.join(commitDir, 'git-commit-data.sh'),
+      `#!/usr/bin/env bash\ntouch ${JSON.stringify(commitMarker)}\n`,
+      { mode: 0o755 },
+    );
+    const crawler = {
+      ...crawlerFixture({ commitCommand: commitDir }),
+      targetTimeoutMinutes: 30,
+    };
+    process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+
+    expect(exitCode).not.toBe(0);
+    expect(stdout).toContain('target exceeded 30 minute wall timeout');
+    expect(stdout).toContain('REPORTED_FAILURE');
+    expect(fs.existsSync(commitMarker)).toBe(false);
+  });
+
+  it('rejects an invalid target timeout instead of silently falling back to the group limit', () => {
+    const crawler = {
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 340,
+    };
+    expect(() => buildCrawlerShellBody(crawler)).toThrow(/positive integer below the 340 minute group timeout/);
   });
 
   it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
@@ -528,6 +591,36 @@ describe('push-contention class (exit 42) in generated steps', () => {
       expect(y).toContain('push contention loss (exit 42)');
       // real failures still fail the step (the plain exit 1 path survives)
       expect(y).toContain('exit 1');
+    }
+  });
+});
+
+describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
+  const ROOT = path.resolve(import.meta.dirname, '..');
+
+  it('keeps the budget in the manifest and renders it in all three owned group-18 artifacts only', () => {
+    const { manifest } = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/crawler-manifest.json'), 'utf8'));
+    const bounded = manifest.filter((crawler: any) => crawler.targetTimeoutMinutes != null);
+    expect(bounded.map((crawler: any) => ({ slug: crawler.slug, minutes: crawler.targetTimeoutMinutes }))).toEqual([
+      { slug: 'apleona-schweiz-ag', minutes: 60 },
+    ]);
+
+    const artifacts = [
+      '.github/workflows/crawler-group-18.yml',
+      '.github/workflows/crawler-group-18-logic.yml',
+      '.github/corpus-workflows/crawler-group-18.yml',
+    ];
+    for (const relativePath of artifacts) {
+      const text = fs.readFileSync(path.join(ROOT, relativePath), 'utf8');
+      expect(text.match(/timeout --signal=TERM --kill-after=30s 60m bash -c/g)).toHaveLength(1);
+      expect(text).toContain('Run apleona-schweiz-ag');
+      expect(text).toContain('outside timeout, only on target failure');
+    }
+
+    const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))
+      .filter((file) => /^crawler-group-(?!18(?:-logic)?\.yml$)\d+(?:-logic)?\.yml$/.test(file));
+    for (const file of otherGroups) {
+      expect(fs.readFileSync(path.join(ROOT, '.github/workflows', file), 'utf8')).not.toContain('target wall timeout');
     }
   });
 });

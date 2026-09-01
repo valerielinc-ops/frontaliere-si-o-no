@@ -884,24 +884,44 @@ jobs:
           set -uo pipefail
           set +e
 
-          # ---- apleona-schweiz-ag: run crawler (verbatim from original workflow) ----
+          # ---- apleona-schweiz-ag: 60 minute target wall timeout ----
+          # shellcheck disable=SC2016 -- child-shell variables expand inside the quoted bash -c body
+          timeout --signal=TERM --kill-after=30s 60m bash -c 'set -uo pipefail
+          set +e
+
+          # ---- apleona-schweiz-ag: run crawler (bounded work phase) ----
           node scripts/update-apleona-schweiz-ag-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- apleona-schweiz-ag: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- apleona-schweiz-ag: Housekeeping — remove expired job listings (scoped) (only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- apleona-schweiz-ag: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- apleona-schweiz-ag: Commit and push (only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            flock /tmp/crawler-group-git.lock -c 'bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Apleona Schweiz AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'
+            flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update Apleona Schweiz AG jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
             git_commit_exit=$?
           fi
 
-          # ---- apleona-schweiz-ag: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::apleona-schweiz-ag: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ apleona-schweiz-ag: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if [ "$crawler_exit" -ne 0 ] || [ "$git_commit_exit" -ne 0 ]; then
+            exit 1
+          fi
+          exit 0'
+          target_exit=$?
+          if [ "$target_exit" -eq 124 ]; then
+            echo "::error::apleona-schweiz-ag: target exceeded 60 minute wall timeout"
+            if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ apleona-schweiz-ag: target timed out after 60 minutes" >> "$GITHUB_STEP_SUMMARY"; fi
+          fi
+
+          # ---- apleona-schweiz-ag: Report failure to GitHub Issue (outside timeout, only on target failure) ----
+          if [ "$target_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run apleona-schweiz-ag" \
               --description "## Crawler fallito
@@ -912,12 +932,8 @@ jobs:
               --label Bug \
               --workflow "Run apleona-schweiz-ag"
           fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::apleona-schweiz-ag: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ apleona-schweiz-ag: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
-          fi
 
-          if [ "$crawler_exit" -ne 0 ] || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ]; }; then
+          if [ "$target_exit" -ne 0 ]; then
             exit 1
           fi
           exit 0
