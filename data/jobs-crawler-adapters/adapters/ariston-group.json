@@ -13,14 +13,8 @@
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
   "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only jobs carrying the authoritative CH country marker and a source-backed Swiss location.",
-  "updatedAt": "2026-09-01T07:44:01.507Z",
+  "updatedAt": "2026-09-01T09:10:21.591Z",
   "seedMetaByUrl": {
-    "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
-      "location": "Bedano, CH, 6930",
-      "canton": "TI",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-28"
-    },
     "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
       "location": "Rothenburg, CH, 6023",
       "canton": "LU",
@@ -62,6 +56,12 @@
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-08-14"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
+      "location": "Bedano, CH, 6930",
+      "canton": "TI",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-28"
     }
   }
 }
