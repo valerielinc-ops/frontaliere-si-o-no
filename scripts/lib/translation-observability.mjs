@@ -1,6 +1,6 @@
 import { createHash } from 'node:crypto';
 import { digestDocument } from './canonical-json-digest.mjs';
-import { buildStableJobIdentity } from './job-identity.mjs';
+import { buildAssembledJobIdentity } from './job-identity.mjs';
 import { isIncomplete, summarizeJobs, finalizeEntry } from '../log-translation-stats.mjs';
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { titleLooksUntranslated } from './job-locale-utils.mjs';
@@ -128,7 +128,7 @@ export function createTranslationObservabilitySnapshot(document, { now = Date.no
   for (const job of jobs) {
     const incomplete = isIncomplete(job);
     const flagged = !!job.needsRetranslation;
-    const identityHash = sha256(buildStableJobIdentity(job));
+    const identityHash = sha256(buildAssembledJobIdentity(job));
     const contentHash = sourceTranslationUnitHash(job);
     const state = incomplete ? 'incomplete' : flagged ? 'flagged' : 'complete';
     rows.push({ identityHash, contentHash, state });
@@ -368,7 +368,7 @@ export function advanceTranslationObservabilityState({ previousState = null, fin
     const priorIdentity = eligibleRetired.get(row.identityHash);
     if (priorIdentity) {
       proven++;
-      if (priorIdentity.state === 'complete') perfectReuseCandidates++;
+      if (priorIdentity.state === 'complete' && priorIdentity.contentHash === row.contentHash) perfectReuseCandidates++;
       eligibleRetired.delete(row.identityHash);
       identityHashes.push(row.identityHash);
       continue;
