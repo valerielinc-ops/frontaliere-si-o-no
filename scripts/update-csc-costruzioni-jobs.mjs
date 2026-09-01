@@ -16,6 +16,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
@@ -177,10 +178,121 @@ export function parseCscCareersPage(html) {
   return { urls: [...urls], authoritativeEmpty: empty };
 }
 
-export function isCscJobDetailHtml(html) {
+function readQuotedHtmlAttr(attrs, name) {
+  const match = String(attrs || '').match(new RegExp(`\\b${name}\\s*=\\s*(["'])(.*?)\\1`, 'i'));
+  return match?.[2] || '';
+}
+
+function collectJobPostingNodes(value, out) {
+  if (Array.isArray(value)) {
+    for (const item of value) collectJobPostingNodes(item, out);
+    return;
+  }
+  if (!value || typeof value !== 'object') return;
+
+  const types = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+  if (types.some((type) => String(type || '').toLowerCase() === 'jobposting')) out.push(value);
+  if (value['@graph']) collectJobPostingNodes(value['@graph'], out);
+}
+
+function extractCscJobPostingNodes(source) {
+  const nodes = [];
+  const scriptPattern = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = scriptPattern.exec(source)) !== null) {
+    if (!/^application\/ld\+json(?:\s*;|$)/i.test(readQuotedHtmlAttr(match[1], 'type'))) continue;
+    if (!/JobPosting/i.test(match[2])) continue;
+    let parsed;
+    try {
+      parsed = JSON.parse(match[2].trim());
+    } catch {
+      throw new Error('CSC detail invariant failed: malformed JobPosting JSON-LD.');
+    }
+    collectJobPostingNodes(parsed, nodes);
+  }
+  return nodes;
+}
+
+function stableSemanticValue(value) {
+  if (Array.isArray(value)) return value.map(stableSemanticValue);
+  if (!value || typeof value !== 'object') {
+    return typeof value === 'string' ? cscPlainText(value) : value;
+  }
+  return Object.fromEntries(
+    Object.keys(value)
+      .filter((key) => !['@context', '@id', 'url', 'mainEntityOfPage'].includes(key))
+      .sort()
+      .map((key) => [key, stableSemanticValue(value[key])]),
+  );
+}
+
+function explicitJobPostingIdentifier(node) {
+  const identifier = node?.identifier;
+  if (typeof identifier === 'string' || typeof identifier === 'number') {
+    return cscPlainText(String(identifier));
+  }
+  if (identifier && typeof identifier === 'object') {
+    return cscPlainText(String(identifier.value || identifier.name || ''));
+  }
+  return '';
+}
+
+function semanticJobPostingHash(node, articleText) {
+  const payload = node ? {
+    title: node.title,
+    description: node.description,
+    hiringOrganization: node.hiringOrganization,
+    jobLocation: node.jobLocation,
+    employmentType: node.employmentType,
+    datePosted: node.datePosted,
+    validThrough: node.validThrough,
+  } : { articleText };
+  return createHash('sha256')
+    .update(JSON.stringify(stableSemanticValue(payload)))
+    .digest('hex');
+}
+
+/**
+ * Accept only the primary Drupal article inside <main>. A related-job widget
+ * elsewhere in the page cannot promote a generic shell to a trusted detail.
+ */
+export function parseCscPrimaryJobDetail(html) {
   const source = String(html || '');
-  return /\bnode--type-work-position\b/i.test(source)
-    || /["']@type["']\s*:\s*(?:\[\s*)?["']JobPosting["']/i.test(source);
+  if (!/<\/html>\s*$/i.test(source.trim())) return null;
+
+  const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
+  const article = main.match(/<article\b([^>]*)>([\s\S]*?)<\/article>/i);
+  if (!article) return null;
+
+  const articleClass = readQuotedHtmlAttr(article[1], 'class');
+  if (!/(?:^|\s)node--type-work-position(?:\s|$)/i.test(articleClass)) return null;
+
+  const nodeId = readQuotedHtmlAttr(article[1], 'data-history-node-id');
+  const jobPostings = extractCscJobPostingNodes(source);
+  if (jobPostings.length > 1) {
+    throw new Error(`CSC detail invariant failed: primary work-position page exposes ${jobPostings.length} JobPosting nodes.`);
+  }
+
+  const articleText = cscPlainText(article[2]);
+  if (jobPostings.length === 0 && articleText.length < 80) return null;
+
+  const jobPosting = jobPostings[0] || null;
+  const explicitIdentifier = explicitJobPostingIdentifier(jobPosting);
+  const identity = /^\d+$/.test(nodeId)
+    ? `drupal-node:${nodeId}`
+    : explicitIdentifier
+      ? `job-identifier:${explicitIdentifier}`
+      : `semantic:${semanticJobPostingHash(jobPosting, articleText)}`;
+
+  return { identity, nodeId: /^\d+$/.test(nodeId) ? nodeId : '', hasJobPosting: Boolean(jobPosting) };
+}
+
+export function isCscJobDetailHtml(html) {
+  try {
+    return Boolean(parseCscPrimaryJobDetail(html));
+  } catch {
+    return false;
+  }
 }
 
 async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
@@ -196,7 +308,9 @@ async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
     if (contentType && !/\b(?:text\/html|application\/xhtml\+xml)\b/i.test(contentType)) {
       throw new Error(`${url} returned unexpected content-type ${contentType}`);
     }
-    return { html: await res.text(), responseUrl: res.url || url };
+    const responseUrl = typeof res.url === 'string' ? res.url.trim() : '';
+    if (!responseUrl) throw new Error(`${url} returned no final response URL.`);
+    return { html: await res.text(), responseUrl };
   } finally {
     clearTimeout(timer);
   }
@@ -211,15 +325,22 @@ export async function verifyCscDetailUrls(urls, options = {}) {
   }
 
   const verified = [];
+  const identities = new Map();
   for (const candidate of candidates) {
     const { html, responseUrl } = await fetchCscHtml(candidate, { fetchImpl, timeoutMs });
     const canonicalResponseUrl = canonicalCscDetailUrl(responseUrl);
     if (!canonicalResponseUrl || canonicalResponseUrl !== candidate) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
-    if (!isCscJobDetailHtml(html)) {
+    const detail = parseCscPrimaryJobDetail(html);
+    if (!detail) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
+    const firstCandidate = identities.get(detail.identity);
+    if (firstCandidate && firstCandidate !== candidate) {
+      throw new Error(`CSC detail invariant failed: ${candidate} and ${firstCandidate} share semantic identity ${detail.identity}.`);
+    }
+    identities.set(detail.identity, candidate);
     verified.push(canonicalResponseUrl);
   }
 
