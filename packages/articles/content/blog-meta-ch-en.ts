@@ -4918,6 +4918,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.title': 'Reference mortgage rate remains at 1.25%: what changes for rents',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.excerpt': 'FOAB confirms the parameter at 1.25% for the third quarter: historic low, average mortgage rate at 1.31%, SNB stuck at 0.0%. What happens now for tenants and landlords.',
     'blog.article.tasso-ipotecario-riferimento-1-25-stabile.imageAlt': 'Facade of a Swiss residential apartment building with rental flats',
+    'blog.article.riduzione-affitto-tassi-ipotecari.title': 'Tenants\' association: "it is necessary to ask for a reduction in rent"',
+    'blog.article.riduzione-affitto-tassi-ipotecari.excerpt': 'The benchmark mortgage rate fell twice in 2025, but most tenants did not get a rent reduction.',
+    'blog.article.riduzione-affitto-tassi-ipotecari.imageAlt': 'View of Lugano city with residential buildings',
 };
 
 export default blogMetaChEn;

@@ -14752,6 +14752,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'riduzione-affitto-tassi-ipotecari',
+    category: 'pratico',
+    date: '2026-09-01T11:09:31.742Z',
+    image: '/images/blog/riduzione-affitto-tassi-ipotecari.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
