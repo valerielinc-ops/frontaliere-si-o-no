@@ -81737,6 +81737,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confapi-pmi-varese-credito-2026': {
+    title: 'Confapi: credito difficile blocca investimenti PMI Nord',
+    description: 'Rapporto Confapi su 2.000 PMI: 60% in difficoltà per geopolitica e credito. Impatto diretto su occupazione e salari dei frontalieri Varese-Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, confapi, credito, difficile, blocca',
+    ogTitle: 'Confapi: credito difficile blocca investimenti PMI Nord',
+    ogDescription: 'Il rapporto Confapi su 2.000 PMI italiane mostra produzione in calo per il 60%, ordini in contrazione per il 64,18%. Tensioni geopolitiche e credito difficile frenano assunzioni nei settori Varese. Impatto diretto sui salari e occupazione',
+    canonicalPath: '/articoli-frontaliere/confapi-pmi-varese-credito-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Confapi: credito difficile blocca investimenti PMI Nord",
+      "description": "Rapporto Confapi su 2.000 PMI: 60% in difficoltà per geopolitica e credito. Impatto diretto su occupazione e salari dei frontalieri Varese-Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confapi-pmi-varese-credito-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Area industriale di Mendrisio al confine con la provincia di Varese, Ticino"
+      },
+      "datePublished": "2026-09-01T15:51:24+00:00",
+      "dateModified": "2026-09-01T15:51:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confapi-pmi-varese-credito-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
