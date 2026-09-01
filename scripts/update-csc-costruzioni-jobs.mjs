@@ -214,7 +214,10 @@ export async function verifyCscDetailUrls(urls, options = {}) {
   for (const candidate of candidates) {
     const { html, responseUrl } = await fetchCscHtml(candidate, { fetchImpl, timeoutMs });
     const canonicalResponseUrl = canonicalCscDetailUrl(responseUrl);
-    if (!canonicalResponseUrl || !isCscJobDetailHtml(html)) {
+    if (!canonicalResponseUrl || canonicalResponseUrl !== candidate) {
+      throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
+    }
+    if (!isCscJobDetailHtml(html)) {
       throw new Error(`CSC detail invariant failed: ${candidate} did not return a canonical work-position page.`);
     }
     verified.push(canonicalResponseUrl);

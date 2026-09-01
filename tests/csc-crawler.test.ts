@@ -88,7 +88,7 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(3);
   });
 
-  it('rejects detail collisions and non-job response shells', async () => {
+  it('rejects detail redirects and non-job response shells', async () => {
     const collisionFetch = vi.fn(async (url: string | URL) => {
       const detail = fixture.details[0];
       return htmlResponse(detail.url, detail.html);
@@ -96,7 +96,7 @@ describe('CSC authoritative Drupal discovery', () => {
     await expect(verifyCscDetailUrls(
       fixture.details.slice(0, 2).map((detail) => detail.url),
       { fetchImpl: collisionFetch, timeoutMs: 1000 },
-    )).rejects.toThrow(/collapsed to 1 canonical URLs/);
+    )).rejects.toThrow(/redirected outside its exact detail contract/);
 
     const shellUrl = fixture.details[0].url;
     await expect(verifyCscDetailUrls([shellUrl], {
