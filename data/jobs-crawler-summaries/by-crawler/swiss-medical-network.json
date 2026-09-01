@@ -1,18 +1,50 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-01T02:24:06.367Z",
-  "total": 57,
-  "newCount": 3,
+  "generatedAt": "2026-09-01T07:21:56.819Z",
+  "total": 58,
+  "newCount": 4,
   "updatedCount": 53,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 38005,
-  "avgDurationMs": 38005,
+  "durationMs": 42300,
+  "avgDurationMs": 42300,
   "durationHistory": [
-    38005
+    42300
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin?oga=true",
+      "title": "Fachärzt/-in für Allgemeine Innere Medizin",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Solothurn",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "canton": "SO",
+      "country": "CH",
+      "postalCode": "4500",
+      "slug": "facharzt-in-fur-allgemeine-innere-medizin-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-01",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "SO",
+        "location": "Solothurn"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
@@ -332,11 +364,11 @@
       },
       "sourceLang": "de",
       "firstSeenAt": "2026-09-01T00:38:15.013Z",
-      "_qualityScore": 56,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 21,
         "completeness": 12
       }
     },
@@ -1099,86 +1131,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144499894-assistant-e-technique-bloc-operatoire",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144499894-assistant-e-technique-bloc-operatoire?oga=true",
-      "title": "Assistant(e) technique bloc opératoire",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Neuchâtel",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "canton": "NE",
-      "country": "CH",
-      "postalCode": "2000",
-      "slug": "assistant-e-technique-bloc-operatoire-swiss-medical-network",
-      "category": "admin",
-      "datePosted": "2026-08-20",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "NE",
-        "location": "Neuchâtel"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-08-20T10:09:07.462Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "currency": "CHF",
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000138659948-medizinische-praxisassistenz-fur-allgemeine-innere-medizin?oga=true",
-      "title": "Medizinische Praxisassistenz für Allgemeine Innere Medizin",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Stein am Rhein",
-      "addressLocality": "Stein am Rhein",
-      "addressRegion": "SH",
-      "canton": "SH",
-      "country": "CH",
-      "postalCode": "8260",
-      "slug": "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network",
-      "category": "healthcare",
-      "datePosted": "2026-08-28",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "SH",
-        "location": "Stein am Rhein"
-      },
-      "sourceLang": "de",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-28T05:38:48.385Z",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "salarySource": "estimated",
-      "retranslationAttempts": 1,
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro",
@@ -1209,7 +1162,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T00:38:15.013Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 61,
       "_qualityBreakdown": {
         "cleanliness": 20,
