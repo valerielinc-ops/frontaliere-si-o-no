@@ -266,6 +266,11 @@ fi
 # where a tree object would break redirection.
 declare -A _SEEN_RESOLVED_FILES=()
 RESOLVED_FILES=()
+declare -A _BATCH_SNAPSHOT_OPERATION=()
+declare -A _BATCH_SNAPSHOT_STATE=()
+declare -A _BATCH_SNAPSHOT_MODE=()
+declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
+declare -A _BATCH_SNAPSHOT_BLOB=()
 
 append_resolved_file() {
   local file_path="$1"
@@ -315,15 +320,25 @@ for path_item in "${ALL_FILES[@]}"; do
 done
 
 if [ "$GROUP_BATCH" = true ]; then
-  _batch_paths_file="$(mktemp /tmp/crawler-group-batch-paths.XXXXXX)"
-  trap 'rm -f "${_batch_paths_file:-}"' EXIT
-  if ! node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-paths > "$_batch_paths_file"; then
+  _batch_snapshots_file="$(mktemp /tmp/crawler-group-batch-snapshots.XXXXXX)"
+  trap 'rm -f "${_batch_snapshots_file:-}"' EXIT
+  if ! node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-snapshots > "$_batch_snapshots_file"; then
     echo "❌ crawler group batch: invalid or unreadable commit descriptors"
     exit 1
   fi
   while IFS= read -r -d '' path_item; do
+    IFS= read -r -d '' snapshot_operation || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_state || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_mode || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_base_blob || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_blob || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
     append_resolved_file "$path_item"
-  done < "$_batch_paths_file"
+    _BATCH_SNAPSHOT_OPERATION["$path_item"]="$snapshot_operation"
+    _BATCH_SNAPSHOT_STATE["$path_item"]="$snapshot_state"
+    _BATCH_SNAPSHOT_MODE["$path_item"]="$snapshot_mode"
+    _BATCH_SNAPSHOT_BASE_BLOB["$path_item"]="$snapshot_base_blob"
+    _BATCH_SNAPSHOT_BLOB["$path_item"]="$snapshot_blob"
+  done < "$_batch_snapshots_file"
   if [ "${#RESOLVED_FILES[@]}" -eq 0 ]; then
     echo "ℹ️ crawler group batch: no successful crawler produced a commit descriptor"
     [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
@@ -1226,7 +1241,8 @@ is_push_contention_output() {
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
-  local f local_blob remote_blob base_blob blob_to_stage key_hint
+  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path conflict_scan_path
+  local snapshot_operation snapshot_state
   local delay
 
   base_sha="$(git rev-parse HEAD)"
@@ -1239,8 +1255,18 @@ commit_isolated_from_worktree() {
   # (the staged-diff variant can't be used: nothing is ever staged in the
   # shared index on this path).
   for f in "${RESOLVED_FILES[@]}"; do
-    [ -f "$f" ] || continue
-    if grep -qE '^(<<<<<<< |======= ?$|>>>>>>> )' "$f" 2>/dev/null; then
+    if [ "$GROUP_BATCH" = true ]; then
+      [ "${_BATCH_SNAPSHOT_STATE[$f]}" = "present" ] || continue
+      if ! git cat-file blob "${_BATCH_SNAPSHOT_BLOB[$f]}" > "$merge_dir/conflict-scan"; then
+        echo "❌ crawler group batch: snapshot blob disappeared before commit for $f"
+        return 1
+      fi
+      conflict_scan_path="$merge_dir/conflict-scan"
+    else
+      [ -f "$f" ] || continue
+      conflict_scan_path="$f"
+    fi
+    if grep -qE '^(<<<<<<< |======= ?$|>>>>>>> )' "$conflict_scan_path" 2>/dev/null; then
       echo "❌ grouped-isolated: refusing to commit — unresolved merge conflict markers in $f"
       echo "   For job slice files specifically: node scripts/recover-conflict-marker-slices.mjs"
       return 1
@@ -1259,17 +1285,56 @@ commit_isolated_from_worktree() {
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
 
     for f in "${RESOLVED_FILES[@]}"; do
-      # Known limitation: a deleted tracked file is NOT committed as a
-      # deletion here (the remote blob stays in the private index). Grouped
-      # crawlers never delete their files — they write [] — so this is
-      # intentionally unhandled; retirements go through a manual commit.
-      [ -f "$f" ] || continue
-      if git check-ignore -q "$f" 2>/dev/null; then
-        continue
-      fi
-      local_blob="$(git hash-object -w -- "$f")"
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
-      base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      local_merge_path="$f"
+      mode_to_stage="100644"
+
+      if [ "$GROUP_BATCH" = true ]; then
+        snapshot_operation="${_BATCH_SNAPSHOT_OPERATION[$f]}"
+        snapshot_state="${_BATCH_SNAPSHOT_STATE[$f]}"
+        base_blob="${_BATCH_SNAPSHOT_BASE_BLOB[$f]}"
+
+        # An unchanged path is attribution-only. Leaving the freshly-seeded
+        # remote entry untouched preserves any newer remote writer without
+        # manufacturing a change from this crawler's old base snapshot.
+        if [ "$snapshot_operation" = "unchanged" ]; then
+          continue
+        fi
+
+        if [ "$snapshot_state" = "absent" ]; then
+          if [ -z "$remote_blob" ]; then
+            continue
+          fi
+          if [ "$remote_blob" != "$base_blob" ]; then
+            echo "❌ crawler group batch: delete conflicts with a newer remote blob for $f"
+            return 1
+          fi
+          GIT_INDEX_FILE="$tmp_index" git update-index --force-remove -- "$f"
+          continue
+        fi
+
+        local_blob="${_BATCH_SNAPSHOT_BLOB[$f]}"
+        mode_to_stage="${_BATCH_SNAPSHOT_MODE[$f]}"
+        mkdir -p "$merge_dir/local/$(dirname "$f")"
+        if ! git cat-file blob "$local_blob" > "$merge_dir/local/$f"; then
+          echo "❌ crawler group batch: snapshot blob disappeared during retry for $f"
+          return 1
+        fi
+        local_merge_path="$merge_dir/local/$f"
+        if git check-ignore -q "$f" 2>/dev/null; then
+          echo "❌ crawler group batch: descriptor path is ignored and cannot be committed: $f"
+          return 1
+        fi
+      else
+        # The legacy isolated path still reads its caller's current worktree.
+        # Only --group-batch is snapshot-bound by the deferred descriptors.
+        [ -f "$f" ] || continue
+        if git check-ignore -q "$f" 2>/dev/null; then
+          continue
+        fi
+        local_blob="$(git hash-object -w -- "$f")"
+        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      fi
 
       # Job-slice delete-vs-stale-modify must resolve to the CURRENT remote
       # deletion. Do not impose this policy on summaries, caches or explicit
@@ -1284,6 +1349,10 @@ commit_isolated_from_worktree() {
       if [ -n "$base_blob" ] && [ -z "$remote_blob" ]; then
         case "$f" in
           data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
+            if [ "$GROUP_BATCH" = true ]; then
+              echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f"
+              return 1
+            fi
             echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
             continue
             ;;
@@ -1313,20 +1382,22 @@ commit_isolated_from_worktree() {
         if merge_json_3way \
           "$merge_dir/base/$f" \
           "$merge_dir/remote/$f" \
-          "$f" \
+          "$local_merge_path" \
           "$merge_dir/out/$f" \
           "$key_hint" \
           "$f"; then
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
         else
-          # Merge policy elsewhere in this script is "keep local" on
-          # unresolvable conflicts; do the same rather than aborting the
-          # whole commit (which would lose this crawler's entire run).
+          if [ "$GROUP_BATCH" = true ]; then
+            echo "❌ crawler group batch: snapshot merge failed for $f — refusing a partial commit"
+            return 1
+          fi
+          # Preserve the established non-batch policy for sequential callers.
           echo "⚠️ grouped-isolated: 3-way merge failed for $f — keeping local content"
         fi
       fi
 
-      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${blob_to_stage},${f}"
+      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
     done
 
     new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"

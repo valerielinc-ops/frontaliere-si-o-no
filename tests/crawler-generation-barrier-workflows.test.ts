@@ -49,7 +49,7 @@ function benchmarkReceipt(crawlerId: string, primarySlice: string) {
       path: filePath,
       state: 'present',
       blobOid,
-      sha256: filePath.startsWith('data/jobs/by-crawler/') ? hash : null,
+      sha256: /^data\/jobs\/(?:expired\/)?by-crawler\//.test(filePath) ? hash : null,
     })),
   };
   return { ...payload, digest: digestDocument(payload) };
