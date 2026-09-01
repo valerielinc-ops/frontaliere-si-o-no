@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { looksLikeShortLabelValue, extractCompanyFromText, extractLocationFromText, __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 
 const { buildKnownJobUrlsSet } = __testables;
@@ -320,4 +320,101 @@ describe('toJobFromJsonLd — declared addressCountry outranks the adapter seed 
       }
     });
   });
+});
+
+describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
+  const { toJobFromJsonLd } = __testables;
+  const frenchFustUrl = 'https://jobs.fust.ch/postes-vacants/conseiller-de-vente/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6';
+  const node = {
+    '@type': 'JobPosting',
+    title: 'Conseillère ou conseiller de vente électroménager',
+    description: 'Conseiller notre clientèle, gérer les commandes et travailler avec une équipe expérimentée. Exigences: expérience dans la vente et sens du service.',
+    hiringOrganization: { name: 'Fust | Swiss Household Services AG' },
+    jobLocation: {
+      '@type': 'Place',
+      address: {
+        addressCountry: 'Suisse',
+        addressLocality: 'Crissier',
+        addressRegion: 'VD',
+      },
+    },
+  };
+
+  it('keeps the generic URL classifier strict for an undeclared French route', () => {
+    expect(toJobFromJsonLd(node, 'Fust', frenchFustUrl)).toMatchObject({
+      job: null,
+      reason: 'jsonld_not_detail_url',
+    });
+  });
+
+  it('accepts the same real posting when its adapter declares that exact detail URL', () => {
+    const result = toJobFromJsonLd(node, 'Fust', frenchFustUrl, {
+      isSeedDetail: true,
+      seedMeta: { location: 'Crissier', canton: 'VD', company: 'Fust' },
+    });
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({
+      url: frenchFustUrl,
+      company: 'Fust',
+      location: 'Crissier, VD',
+      canton: 'VD',
+    });
+  });
+
+  it('does not let a declared page bless a different JSON-LD URL', () => {
+    expect(toJobFromJsonLd(
+      { ...node, url: 'https://jobs.fust.ch/fr/carriere' },
+      'Fust',
+      frenchFustUrl,
+      { isSeedDetail: true },
+    )).toMatchObject({ job: null, reason: 'jsonld_not_detail_url' });
+  });
+
+  it('routes a detail-only adapter through JSON-LD even when its homepage is unavailable', async () => {
+    const { processCompany, setCompanyAdaptersForTests } = __testables;
+    setCompanyAdaptersForTests(new Map([['fust', {
+      enabled: true,
+      crawlerModes: ['html', 'jsonld'],
+      seedDetailUrls: [frenchFustUrl],
+      seedMetaByUrl: {
+        [frenchFustUrl]: { location: 'Crissier', canton: 'VD', company: 'Fust' },
+      },
+    }]]));
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+      const url = String(input);
+      if (url === frenchFustUrl) {
+        return new Response(
+          `<script type="application/ld+json">${JSON.stringify(node)}</script>`,
+          { status: 200, headers: { 'content-type': 'text/html' } },
+        );
+      }
+      return new Response('not found', { status: 404 });
+    });
+
+    const result = await processCompany(
+      { key: 'fust', name: 'Fust', website: 'https://www.fust.ch/', city: 'Oberbüren' },
+      /(job|career|vacanc|stellen|emploi)/i,
+      {
+        sourceSeeds: { byDomain: {}, byName: {} },
+        companyCrawlerMode: { fust: ['html', 'jsonld'] },
+        webDiscoveryEnabled: false,
+        minQualityScore: 0,
+        minDescriptionChars: 0,
+      },
+    );
+
+    expect(result.extractedJobs).toHaveLength(1);
+    expect(result.extractedJobs[0]).toMatchObject({
+      url: frenchFustUrl,
+      companyKey: 'fust',
+      canton: 'VD',
+    });
+    expect(result.filteredOutByReason.jsonld_not_detail_url).toBeUndefined();
+    expect(result.scrapedJobPages).toBe(1);
+  });
+});
+
+afterEach(() => {
+  __testables.setCompanyAdaptersForTests(new Map());
+  vi.restoreAllMocks();
 });

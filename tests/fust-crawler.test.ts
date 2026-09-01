@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import {
+  buildFustAdapterConfig,
   buildFustPublishPlan,
   deriveFustWorkplaceCanton,
   ensureUniqueFustSlugs,
@@ -15,6 +16,7 @@ import {
   writeFustPublishPlan,
 } from '../scripts/update-fust-jobs.mjs';
 import { exitCrawlerOnError } from '../scripts/lib/crawler-template.mjs';
+import { __testables as sharedCrawlerTestables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import { snapshotJobSlugs } from '../scripts/jobs-url-helper.mjs';
 
 type FustFixtureDetail = { url: string; workplace: string; canton: string; html: string };
@@ -42,6 +44,64 @@ const fixture = JSON.parse(
 ) as FustFixture;
 
 describe('Fust authoritative discovery', () => {
+  it('publishes canonical feed URLs only through the explicit detail contract', () => {
+    const seedDetailUrls = fixture.details.map((detail) => detail.url);
+    const seedMetaByUrl = Object.fromEntries(fixture.details.map((detail) => [
+      detail.url,
+      { location: detail.workplace, canton: detail.canton },
+    ]));
+    const adapter = buildFustAdapterConfig(
+      { companyKey: 'fust', seedUrls: ['https://jobs.fust.ch/jobs'] },
+      seedDetailUrls,
+      seedMetaByUrl,
+      '2026-09-01T00:00:00.000Z',
+    );
+
+    expect(adapter.seedUrls).toBeUndefined();
+    expect(adapter.seedDetailUrls).toEqual(seedDetailUrls);
+    expect(adapter.seedMetaByUrl).toEqual(seedMetaByUrl);
+    expect(adapter.updatedAt).toBe('2026-09-01T00:00:00.000Z');
+  });
+
+  it('parses the representative French detail fixture only through that explicit contract', () => {
+    const detail = fixture.details.find((item) => item.url.includes('/postes-vacants/'))!;
+    const jsonLd = detail.html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+    expect(jsonLd).toBeTruthy();
+    const node = JSON.parse(String(jsonLd));
+    const seedMeta = {
+      location: detail.workplace,
+      canton: detail.canton,
+      company: 'Fust',
+    };
+
+    expect(sharedCrawlerTestables.toJobFromJsonLd(node, 'Fust', detail.url, { seedMeta }))
+      .toMatchObject({ job: null, reason: 'jsonld_not_detail_url' });
+    const parsed = sharedCrawlerTestables.toJobFromJsonLd(node, 'Fust', detail.url, {
+      seedMeta,
+      isSeedDetail: true,
+    });
+    expect(parsed).toMatchObject({
+      reason: null,
+      job: {
+        url: detail.url,
+        company: 'Fust',
+        canton: detail.canton,
+      },
+    });
+    const reconciled = reconcileFustJobsWithDiscovery([parsed.job], {
+      urls: [detail.url],
+      seedMetaByUrl: { [detail.url]: seedMeta },
+    });
+    expect(reconciled[0]).toMatchObject({
+      url: detail.url,
+      company: 'Fust',
+      location: detail.workplace,
+      addressLocality: detail.workplace,
+      canton: detail.canton,
+      addressRegion: detail.canton,
+    });
+  });
+
   it('accepts only canonical branded detail URLs with UUID identity', () => {
     for (const detail of fixture.details) expect(isCanonicalFustDetailUrl(detail.url)).toBe(true);
     expect(isCanonicalFustDetailUrl('https://jobs.coopjobs.ch/offene-stellen/foo/56db6b36-264e-4f25-bdf5-40a42e764b6b')).toBe(false);

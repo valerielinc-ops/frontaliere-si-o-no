@@ -18,7 +18,7 @@
  *   3. Drops any Fust job whose canton label doesn't resolve to a Swiss
  *      canton (CH-only gate — foreign/unresolved postings are dropped, never
  *      defaulted to TI).
- *   4. Sets those detail page URLs as adapter seed URLs.
+ *   4. Declares those verified pages as adapter seedDetailUrls.
  *   5. Runs the base crawler to fetch JSON-LD JobPosting data from each page.
  *   6. Re-tags discovered jobs with companyKey "fust".
  *   7. Translates missing locales and validates coverage.
@@ -581,33 +581,50 @@ export async function fetchFustJobUrls(options = {}) {
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
+export function buildFustAdapterConfig(
+  baseAdapter,
+  seedDetailUrls,
+  seedMetaByUrl = {},
+  updatedAt = new Date().toISOString(),
+) {
+  const adapter = {
+    ...(baseAdapter || {}),
+    seedDetailUrls,
+    seedMetaByUrl,
+    updatedAt,
+  };
+  // The Prospective feed already proves that every canonical UUID is a Fust
+  // vacancy detail. Keeping the same URLs as generic seeds makes non-DE/IT
+  // routes pass through the listing heuristic before the explicit detail path.
+  delete adapter.seedUrls;
+  return adapter;
+}
+
 function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
   const adapterPath = path.join(ADAPTERS_DIR, `${FUST_KEY}.json`);
 
   if (!fs.existsSync(adapterPath)) {
     console.log(`⚠️ Adapter ${FUST_KEY}.json not found — creating it.`);
-    const adapter = {
+    const adapter = buildFustAdapterConfig({
       companyKey: FUST_KEY,
       companyName: FUST_COMPANY_NAME,
       companyHost: 'fust.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      seedMetaByUrl,
       notes: 'Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103, server-side filtered to attribute 70=1114045 "Fust"). Canonical detail pages on jobs.fust.ch; real workplace enriched from page analytics.',
-      updatedAt: new Date().toISOString(),
-    };
+    }, seedUrls, seedMetaByUrl);
     fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
     fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
     return;
   }
 
   try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
-    adapter.updatedAt = new Date().toISOString();
+    const adapter = buildFustAdapterConfig(
+      JSON.parse(fs.readFileSync(adapterPath, 'utf-8')),
+      seedUrls,
+      seedMetaByUrl,
+    );
     fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
     console.log(`📝 Adapter ${FUST_KEY} updated with ${seedUrls.length} seed URLs.`);
   } catch (err) {
