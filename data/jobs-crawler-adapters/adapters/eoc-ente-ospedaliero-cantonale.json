@@ -6,7 +6,8 @@
   "priority": 10,
   "crawlerModes": [
     "generic_ats",
-    "html"
+    "html",
+    "jsonld"
   ],
   "seedUrls": [
     "https://recruitingapp-2761.umantis.com/Vacancies/2777/Description/4",
@@ -182,5 +183,5 @@
     "https://recruitingapp-2761.umantis.com/Vacancies/1096/Description/4"
   ],
   "notes": "Umantis ATS at recruitingapp-2761.umantis.com — EOC hospital job listings for all institutes.",
-  "updatedAt": "2026-09-01T07:21:45.361Z"
+  "updatedAt": "2026-09-01T08:38:15.902Z"
 }
