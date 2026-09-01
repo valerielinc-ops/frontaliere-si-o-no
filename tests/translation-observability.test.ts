@@ -14,6 +14,7 @@ import {
   unpackTranslationObservabilityState,
 } from '../scripts/lib/translation-observability.mjs';
 import { rollupTranslationObservability } from '../scripts/rollup-translation-observability.mjs';
+import { buildAssembledJobIdentity, buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
 
 const NOW = Date.parse('2026-08-31T00:00:00Z');
 const DESCRIPTION = 'Questa descrizione italiana dettagliata contiene tutte le informazioni necessarie per il ruolo professionale proposto a Lugano. '.repeat(2);
@@ -65,20 +66,40 @@ function redigest<T extends Record<string, any>>(value: T): T {
 }
 
 describe('translation observability', () => {
-  it('proves N/N+1/N+K delete-to-readd only from the same stable identity hash', () => {
+  it('keeps hash-fragment siblings distinct and proves delete-to-readd only for the removed sibling', () => {
     const firstJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#before' });
-    const readdedJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#after' });
-    expect(snapshot([firstJob]).rows[0].identityHash).toBe(snapshot([readdedJob]).rows[0].identityHash);
+    const siblingJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#after' });
+    expect(snapshot([firstJob]).rows[0].identityHash).not.toBe(snapshot([siblingJob]).rows[0].identityHash);
 
-    const n = generation(null, [firstJob]);
+    const n = generation(null, [firstJob, siblingJob]);
+    expect(unpackTranslationObservabilityState(n.state).activeRows).toHaveLength(2);
     expect(n.continuity.deleteReaddEvidence).toMatchObject({ observable: false, complete: false, proven: 0, reason: 'bootstrap_first_valid_generation' });
-    const n1 = generation(n.state, []);
+    const n1 = generation(n.state, [firstJob]);
     expect(n1.continuity).toMatchObject({ retired: 1, deleteReaddEvidence: { observable: true, complete: true, proven: 0 } });
-    const nk = generation(n1.state, [readdedJob]);
+    const nk = generation(n1.state, [firstJob, siblingJob]);
     expect(nk.continuity).toMatchObject({ ambiguous: 0, perfectReuseCandidates: 1, retired: 0, deleteReaddEvidence: { proven: 1 } });
 
-    const replay = generation(nk.state, [readdedJob]);
-    expect(replay.continuity).toMatchObject({ activePersisted: 1, perfectReuseCandidates: 0, deleteReaddEvidence: { proven: 0 } });
+    const replay = generation(nk.state, [firstJob, siblingJob]);
+    expect(replay.continuity).toMatchObject({ activePersisted: 2, perfectReuseCandidates: 0, deleteReaddEvidence: { proven: 0 } });
+  });
+
+  it('requires identical content for a same-URL complete perfect-reuse candidate', () => {
+    const firstJob = job();
+    const changedJob = job({ description: `${DESCRIPTION} Aggiornata.` });
+    const n = generation(null, [firstJob]);
+    const n1 = generation(n.state, []);
+    const nk = generation(n1.state, [changedJob]);
+    expect(nk.continuity).toMatchObject({
+      ambiguous: 0,
+      perfectReuseCandidates: 0,
+      deleteReaddEvidence: { proven: 1 },
+    });
+  });
+
+  it('uses assembled URL normalization and stable fallbacks for population identities', () => {
+    expect(buildAssembledJobIdentity(job({ url: 'HTTPS://EXAMPLE.INVALID/Jobs/Role/' }))).toBe('url:https://example.invalid/jobs/role');
+    const withoutUrl = job({ url: '', id: ' External-ID ' });
+    expect(buildAssembledJobIdentity(withoutUrl)).toBe(buildStableJobIdentity(withoutUrl));
   });
 
   it('labels equal source content under a different identity as ambiguous, never proven', () => {
@@ -99,7 +120,7 @@ describe('translation observability', () => {
     const n = generation(null, [job()]);
     const failure = generation(n.state, [], { validFinal: false, skipReason: 'true_final_outcome_not_success' });
     const dryRun = generation(n.state, [], { validFinal: false, skipReason: 'state_advance_not_requested' });
-    const duplicate = generation(n.state, [job(), job()], { validFinal: true });
+    const duplicate = generation(n.state, [job(), job({ id: 'other-private-id' })], { validFinal: true });
     expect(failure).toMatchObject({ advanced: false, state: n.state, continuity: { deleteReaddEvidence: { observable: false, reason: 'true_final_outcome_not_success' } } });
     expect(dryRun).toMatchObject({ advanced: false, state: n.state, continuity: { deleteReaddEvidence: { observable: false, reason: 'state_advance_not_requested' } } });
     expect(duplicate).toMatchObject({ advanced: false, state: n.state, continuity: { deleteReaddEvidence: { observable: false, reason: 'invalid_true_final_population' } } });
