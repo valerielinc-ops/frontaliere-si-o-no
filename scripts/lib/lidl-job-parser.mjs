@@ -7,7 +7,8 @@
  * silently empty the crawler:
  *
  *   - Search-API contract: LIDL_SEARCH_API_BASE, LIDL_SEARCH_JOBS_KEY,
- *     buildLidlSearchQuery(), getLidlSearchPageCount(), extractLidlApiHitFields().
+ *     buildLidlSearchQuery(), getLidlSearchPageCount(),
+ *     extractLidlSearchLanguagePartitions(), extractLidlApiHitFields().
  *     The LiCa API is GET /it/api/v1/search?general={"page":N,"resultsPerPage":20,...}
  *     -> { jobs[], meta { totalCount, resultsPerPage, page } }. (The legacy
  *     /it/search_api/jobsearch endpoint with result.hits[] was retired and 404s.)
@@ -36,14 +37,20 @@ export const LIDL_DEFAULT_RESULTS_PER_PAGE = 20;
  * JSON-encoded `general` object — a bare `page=N` query param is silently
  * ignored (meta.page stays 1 and the same first page is returned).
  */
-export function buildLidlSearchQuery(page, resultsPerPage = LIDL_DEFAULT_RESULTS_PER_PAGE) {
+export function buildLidlSearchQuery(
+  page,
+  resultsPerPage = LIDL_DEFAULT_RESULTS_PER_PAGE,
+  language = '',
+) {
   const general = JSON.stringify({
     page,
     resultsPerPage,
     sortField: '',
     sortOrder: 'desc',
   });
-  return new URLSearchParams({ general }).toString();
+  const params = new URLSearchParams({ general });
+  if (language) params.set('facets', JSON.stringify({ language: [language] }));
+  return params.toString();
 }
 
 /**
@@ -54,6 +61,52 @@ export function getLidlSearchPageCount(meta, resultsPerPage = LIDL_DEFAULT_RESUL
   const totalCount = Number(meta?.totalCount) || 0;
   const perPage = Number(meta?.resultsPerPage) || resultsPerPage || 1;
   return totalCount > 0 ? Math.ceil(totalCount / perPage) : 1;
+}
+
+/**
+ * Read the source-declared language partition from the national envelope.
+ * The unfiltered LiCa paginator can omit hits from otherwise well-formed
+ * intermediate pages; the language facets are independently count-bound and
+ * their declared counts must form an exact partition of the national total.
+ */
+export function extractLidlSearchLanguagePartitions(meta) {
+  const totalCount = Number(meta?.totalCount);
+  if (!Number.isInteger(totalCount) || totalCount < 0) {
+    throw new Error(`Lidl language partition invalid: national total=${meta?.totalCount ?? '?'}.`);
+  }
+  if (totalCount === 0) return [];
+
+  const languageFilters = Array.isArray(meta?.filters)
+    ? meta.filters.filter((filter) => filter?.identifier === 'language')
+    : [];
+  if (languageFilters.length !== 1 || !Array.isArray(languageFilters[0]?.values)) {
+    throw new Error('Lidl language partition invalid: expected exactly one language filter.');
+  }
+
+  const seen = new Set();
+  const partitions = [];
+  for (const value of languageFilters[0].values) {
+    const language = String(value?.identifier || '').trim();
+    const count = Number(value?.count);
+    if (!/^[a-z]{2}$/.test(language)
+        || seen.has(language)
+        || !Number.isInteger(count)
+        || count < 0) {
+      throw new Error(
+        `Lidl language partition invalid: language=${language || '?'}, count=${value?.count ?? '?'}.`,
+      );
+    }
+    seen.add(language);
+    if (count > 0) partitions.push({ language, count });
+  }
+
+  const partitionTotal = partitions.reduce((total, partition) => total + partition.count, 0);
+  if (partitionTotal !== totalCount) {
+    throw new Error(
+      `Lidl language partition incomplete: facets=${partitionTotal}, national=${totalCount}.`,
+    );
+  }
+  return partitions.sort((left, right) => left.language.localeCompare(right.language));
 }
 
 /**
