@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-09-01T08:44:54.557Z",
+  "generatedAt": "2026-09-01T10:18:45.921Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 36674,
-  "avgDurationMs": 36674,
+  "durationMs": 34308,
+  "avgDurationMs": 34308,
   "durationHistory": [
-    36674
+    34308
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:44:49.747Z",
+      "crawledAt": "2026-09-01T10:18:42.101Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:44:50.055Z",
+      "crawledAt": "2026-09-01T10:18:42.413Z",
       "addressLocality": "Uznach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -78,6 +78,7 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T09:36:47.734Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
