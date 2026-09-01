@@ -4954,6 +4954,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asib-normativa-ubs-sostegno.title': 'ASIB pousse pour les plans sociaux dans la réglementation UBS',
     'blog.article.asib-normativa-ubs-sostegno.excerpt': 'L’association des employés de la banque appelle à des protections obligatoires dans le paquet réglementaire UBS CET-S, invoquant la crise de l’emploi dans le secteur.',
     'blog.article.asib-normativa-ubs-sostegno.imageAlt': 'Siège d\'une banque suisse : le secteur bancaire fait face à des pressions croissantes sur l\'emploi.',
+    'blog.article.ubs-requisiti-patrimoniali.title': 'UBS conteste la proposition cet-S sur les exigences de fonds propres',
+    'blog.article.ubs-requisiti-patrimoniali.excerpt': 'La grande banque apprécie le travail de la Commission mais critique les nouvelles exigences en capitaux, qui coûteraient au total 30 milliards de dollars.',
+    'blog.article.ubs-requisiti-patrimoniali.imageAlt': 'Bureau bancaire suisse avec documents de capital et graphiques financiers affichés.',
 };
 
 export default blogMetaChFr;
