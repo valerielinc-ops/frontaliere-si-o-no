@@ -4978,6 +4978,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.legumi-texture-carne-ricerca-eth.title': 'Legumes with meat textures: ETH Zurich research',
     'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'ETH researchers transform peas, beans and lentils into products with a fibrous meat-like structure, reducing food waste.',
     'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Modern research kitchen laboratory with fresh legumes on counter, scientific equipment visible',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Service sector: strong increase in turnover in June',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Service sector turnover in Switzerland increased by 6.8% in June compared to 2025.',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'View of a bustling Swiss city street with shops and businesses.',
 };
 
 export default blogMetaChEn;

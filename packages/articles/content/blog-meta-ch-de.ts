@@ -4978,6 +4978,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.legumi-texture-carne-ricerca-eth.title': 'Hülsenfrüchte mit Fleischtextur: Forschung ETH Zürich',
     'blog.article.legumi-texture-carne-ricerca-eth.excerpt': 'ETH-Forscher verwandeln Erbsen, Bohnen und Linsen in Produkte mit fleischähnlicher Faserstruktur und reduzieren so die Lebensmittelverschwendung.',
     'blog.article.legumi-texture-carne-ricerca-eth.imageAlt': 'Modernes Forschungsküchlenlabor mit frischen Hülsenfrüchten auf Arbeitsfläche, Geräte im Hintergrund',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Dienstleistungssektor: Starke Umsatzsteigerung im Juni',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Der Umsatz des Dienstleistungssektors in der Schweiz stieg im Juni gegenüber 2025 um 6,8%.',
+    'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'Ansicht einer belebten Schweizer Stadtstraße mit Geschäften und Unternehmen.',
 };
 
 export default blogMetaChDe;

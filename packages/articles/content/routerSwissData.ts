@@ -1685,6 +1685,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-friburgo-durata-rinnovo': { it: 'permesso-l-friburgo-durata-rinnovo', en: 'l-permit-fribourg-duration-renewal', de: 'l-bewilligung-freiburg-gueltigkeitsdauer-verlaengerung', fr: 'permis-l-fribourg-duree-renouvellement' },
  'processo-ndrangheta-svizzera': { it: 'processo-ndrangheta-svizzera', en: 'ndrangheta-trial-switzerland', de: 'ndrangheta-prozess-schweiz', fr: 'proces-ndrangheta-suisse' },
  'legumi-texture-carne-ricerca-eth': { it: 'legumi-texture-carne-ricerca-eth', en: 'legumes-meat-texture-eth-research', de: 'huelsenfruechte-fleischstruktur-eth-forschung', fr: 'legumes-texture-viande-recherche-eth' },
+ 'settore-servizi-aumento-fatturato-giugno': { it: 'settore-servizi-aumento-fatturato-giugno', en: 'services-sector-revenue-increase-june', de: 'dienstleistungssektor-umsatzsteigerung-juni', fr: 'secteur-des-services-augmentation-du-chiffre-d-affaires-juin' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
