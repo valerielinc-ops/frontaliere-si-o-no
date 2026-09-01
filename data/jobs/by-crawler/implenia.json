@@ -1,6 +1,6 @@
 {
   "crawlerKey": "implenia",
-  "assembledAt": "2026-09-01T10:35:14.872Z",
+  "assembledAt": "2026-09-01T14:32:01.791Z",
   "jobs": [
     {
       "id": "implenia-1055af78708a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbuchhalter-%28mwd%29%2C-Olten%2C-60/13663-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:11.333Z",
+      "crawledAt": "2026-09-01T14:31:58.736Z",
       "addressLocality": "Aarauerstrasse 11 Postfach-4601 Olten",
       "postalCode": "",
       "streetAddress": "",
@@ -113,7 +113,7 @@
       "url": "https://jobs.implenia.com/job/Bewirtschafter-Gewerbeimmobilien-%28mwd%29%2C-Bern-PostParc%2C-60-80/12436-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:10.484Z",
+      "crawledAt": "2026-09-01T14:31:57.369Z",
       "addressLocality": "Bern",
       "postalCode": "3008",
       "streetAddress": "Bogenschützenstrasse 9B",
@@ -132,11 +132,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bewirtschafter-gewerbeimmobilien-m-w-d-bern-postparc-60-80-implenia-ch"
+        "bewirtschafter-gewerbeimmobilien-m-w-d-bern-postparc-60-80-implenia-ch",
+        "responsabile-immobiliare-commerciale-m-f-d-bern-postparc-60-80-implenia-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bewirtschafter-gewerbeimmobilien-m-w-d-bern-postparc-60-80-implenia-ch"
+          "bewirtschafter-gewerbeimmobilien-m-w-d-bern-postparc-60-80-implenia-ch",
+          "responsabile-immobiliare-commerciale-m-f-d-bern-postparc-60-80-implenia-bern"
         ]
       },
       "firstSeenAt": "2026-06-26T11:55:19.758Z",
@@ -185,7 +187,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Region-Westschweiz%2C-Equipment-&-Technology-Services-Schweiz-%28ETS%29/13026-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:10.014Z",
+      "crawledAt": "2026-09-01T14:31:58.048Z",
       "addressLocality": "Echandens",
       "postalCode": "1026",
       "streetAddress": "",
@@ -242,7 +244,7 @@
       "title": "Lead Buyer HLKS (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Acquirente principale HVAC (lunedì/venedì/d) 80-100%",
-        "en": "Lead Buyer HLKS (m/f/d) 80-100 %",
+        "en": "Lead Buyer HLKS (m/w/d) 80-100%",
         "de": "Lead Buyer HLKS (m/w/d) 80-100%",
         "fr": "Acheteur de plomb CVC (m/f/d) 80-100 %"
       },
@@ -258,7 +260,7 @@
       "url": "https://jobs.implenia.com/job/Lead-Buyer-HLKS-%28mwd%29-80-100/13046-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:09.715Z",
+      "crawledAt": "2026-09-01T14:31:58.286Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -279,19 +281,22 @@
       "previousSlugs": [
         "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
         "hvac-m-f-d-80-100-implenia-glattpark-opfikon",
-        "lead-buyer-hvac-m-f-d-80-100-implenia-glattpark-opfikon"
+        "lead-buyer-hvac-m-f-d-80-100-implenia-glattpark-opfikon",
+        "acquirente-principale-hvac-lunedi-venedi-d-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-buyer-hlks-m-w-d-80-100-implenia-ch",
           "hvac-m-f-d-80-100-implenia-glattpark-opfikon",
-          "lead-buyer-hvac-m-f-d-80-100-implenia-glattpark-opfikon"
+          "lead-buyer-hvac-m-f-d-80-100-implenia-glattpark-opfikon",
+          "acquirente-principale-hvac-lunedi-venedi-d-80-100-implenia-glattpark-opfikon"
         ],
         "fr": [
           "lead-buyer-hlks-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.480Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -337,7 +342,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Baumeister-Neu-undoder-Umbau-%28wmd%29/11598-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:09.444Z",
+      "crawledAt": "2026-09-01T14:31:50.712Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -357,12 +362,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kalkulator-baumeister-neu-und-oder-umbau-w-m-d-implenia-ch",
-        "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon"
+        "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon",
+        "calcolatrice-master-builder-nuova-e-o-conversione-f-m-d-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kalkulator-baumeister-neu-und-oder-umbau-w-m-d-implenia-ch",
-          "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon"
+          "kalkulator-baumeister-neu-e-o-umbau-m-w-d-implenia-opfikon",
+          "calcolatrice-master-builder-nuova-e-o-conversione-f-m-d-implenia-opfikon"
         ]
       },
       "firstSeenAt": "2026-08-12T22:06:50.924Z",
@@ -411,7 +418,7 @@
       "url": "https://jobs.implenia.com/job/Leiterin-Technisches-B%C3%BCro-80-100-%28wmd%29/12462-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:09.166Z",
+      "crawledAt": "2026-09-01T14:31:56.761Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -431,14 +438,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
+          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
+          "bauingenieur-in-geotechnik-80-100-implenia-ch"
         ],
         "it": [
-          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
+          "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
+          "ingegneria-civile-ingegneria-geotecnica-80-100-implenia-opfikon"
         ]
       },
       "previousSlugs": [
-        "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch"
+        "leiter-in-technisches-buro-80-100-w-m-d-implenia-ch",
+        "bauingenieur-in-geotechnik-80-100-implenia-ch",
+        "ingegneria-civile-ingegneria-geotecnica-80-100-implenia-opfikon"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-18T10:44:05.134Z",
@@ -487,7 +498,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-%28mwd%29%2C-Gisikon%2C-80-100/12487-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:08.892Z",
+      "crawledAt": "2026-09-01T14:31:53.917Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -506,11 +517,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baufuhrer-m-w-d-gisikon-80-100-implenia-ch"
+        "baufuhrer-m-w-d-gisikon-80-100-implenia-ch",
+        "direttore-della-costruzione-m-f-d-gisikon-80-100-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-m-w-d-gisikon-80-100-implenia-ch"
+          "baufuhrer-m-w-d-gisikon-80-100-implenia-ch",
+          "direttore-della-costruzione-m-f-d-gisikon-80-100-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-08-06T11:45:34.116Z",
@@ -559,7 +572,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Neubau-Gisikon/13685-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:08.448Z",
+      "crawledAt": "2026-09-01T14:31:53.669Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -624,7 +637,7 @@
       "url": "https://jobs.implenia.com/job/IT-Demand-Lead-%28mwd%29%2C-Opfikon%2C-80-100/13563-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:08.182Z",
+      "crawledAt": "2026-09-01T14:31:54.130Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -644,16 +657,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "it-demand-lead-m-w-d-opfikon-80-100-implenia-ch"
+          "it-demand-lead-m-w-d-opfikon-80-100-implenia-ch",
+          "demand-manager-it-m-w-d-opfikon-80-100-implenia-ch"
         ],
         "it": [
           "demand-manager-it-m-w-d-opfikon-80-100-implenia-ch",
-          "it-demand-lead-m-w-d-opfikon-80-100-implenia-ch"
+          "it-demand-lead-m-w-d-opfikon-80-100-implenia-ch",
+          "responsabile-it-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
         ]
       },
       "previousSlugs": [
         "demand-manager-it-m-w-d-opfikon-80-100-implenia-ch",
-        "it-demand-lead-m-w-d-opfikon-80-100-implenia-ch"
+        "it-demand-lead-m-w-d-opfikon-80-100-implenia-ch",
+        "responsabile-it-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:47:11.013Z",
@@ -677,7 +693,7 @@
       "slugByLocale": {
         "it": "iniziativbewerbung-implenia-opfikon",
         "en": "initiativbewerbung-implenia-opfikon",
-        "de": "initiativebewerbung-implenia-opfikon",
+        "de": "initiativbewerbung-implenia-opfikon",
         "fr": "initiativbewerbung-implenia-ch"
       },
       "company": "Implenia",
@@ -699,7 +715,7 @@
       "url": "https://jobs.implenia.com/job/Initiativbewerbung/12287-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T10:35:07.900Z",
+      "crawledAt": "2026-09-01T14:31:52.133Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -719,13 +735,17 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initiativbewerbung-implenia-ch",
+        "initiativebewerbung-implenia-opfikon",
+        "iniziativbewerbung-implenia-opfikon",
         "initiativbewerbung-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "initiativbewerbung-implenia-ch"
+          "initiativbewerbung-implenia-ch",
+          "iniziativbewerbung-implenia-opfikon"
         ],
         "de": [
+          "initiativebewerbung-implenia-opfikon",
           "initiativbewerbung-implenia-opfikon"
         ]
       },
@@ -776,7 +796,7 @@
       "url": "https://jobs.implenia.com/job/Kalkulator-Tunnelbau-%28mwd%29-80-100/9854-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:07.506Z",
+      "crawledAt": "2026-09-01T14:31:51.861Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -804,7 +824,8 @@
         "project-manager-conversion-f-m-d-implenia-opfikon",
         "projektleiter-umbau-w-m-d-implenia-ch",
         "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
-        "tunnelling-m-f-d-80-100-implenia-opfikon"
+        "tunnelling-m-f-d-80-100-implenia-opfikon",
+        "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -817,7 +838,8 @@
           "project-manager-conversion-f-m-d-implenia-opfikon",
           "projektleiter-umbau-w-m-d-implenia-ch",
           "transformation-du-gestionnaire-de-projet-f-m-d-implenia-opfikon",
-          "tunnelling-m-f-d-80-100-implenia-opfikon"
+          "tunnelling-m-f-d-80-100-implenia-opfikon",
+          "kalkulator-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
         ],
         "en": [
           "kalkulator-tunnelbau-m-w-d-80-100-implenia-ch",
@@ -832,6 +854,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:14.064Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -877,7 +900,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Tunnelbau-%28mwd%29-80-100/10973-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:07.229Z",
+      "crawledAt": "2026-09-01T14:31:51.720Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -896,11 +919,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch"
+        "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch",
+        "projektleiter-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch"
+          "projektleiter-tunnelbau-m-w-d-80-100-implenia-ch",
+          "projektleiter-costruzione-gallerie-m-w-d-80-100-implenia-opfikon"
         ]
       },
       "needsRetranslation": true,
@@ -950,7 +975,7 @@
       "url": "https://jobs.implenia.com/job/Juniorprojektleiterin-Elektro-%28Gisikon-Opfikon%29/13043-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:06.941Z",
+      "crawledAt": "2026-09-01T14:31:51.399Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -969,11 +994,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch"
+        "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch",
+        "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch"
+          "juniorprojektleiter-in-elektro-gisikon-opfikon-implenia-ch",
+          "junior-project-manager-a-elektro-gisikon-opfikon-implenia-gisikon"
         ]
       },
       "needsRetranslation": true,
@@ -1023,7 +1050,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Elektroplanung-%28Gisikon-Opfikon-Bern%29/13041-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:06.619Z",
+      "crawledAt": "2026-09-01T14:31:51.180Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -1042,11 +1069,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
+        "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch",
+        "responsabile-di-progetto-elektroplanung-gisikon-opfikon-bern-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
+          "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch",
+          "responsabile-di-progetto-elektroplanung-gisikon-opfikon-bern-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-in-elektroplanung-gisikon-opfikon-bern-implenia-ch"
@@ -1102,7 +1131,7 @@
       "url": "https://jobs.implenia.com/job/Sicherheitsw%C3%A4rter-Sicherheitschef/12496-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:35:05.974Z",
+      "crawledAt": "2026-09-01T14:31:50.868Z",
       "addressLocality": "Opfikon",
       "postalCode": "8152",
       "streetAddress": "",
@@ -1122,12 +1151,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sicherheitswarter-sicherheitschef-implenia-ch",
-        "sicherheitswarter-sicherheitschef-implenia-opfikon"
+        "sicherheitswarter-sicherheitschef-implenia-opfikon",
+        "guardia-di-sicurezza-capo-della-sicurezza-implenia-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitswarter-sicherheitschef-implenia-ch",
-          "sicherheitswarter-sicherheitschef-implenia-opfikon"
+          "sicherheitswarter-sicherheitschef-implenia-opfikon",
+          "guardia-di-sicurezza-capo-della-sicurezza-implenia-opfikon"
         ],
         "en": [
           "sicherheitswarter-sicherheitschef-implenia-opfikon"
@@ -1221,7 +1252,9 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-1b2205a851ab",
@@ -1300,7 +1333,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-a488967ab472",
@@ -1375,7 +1409,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-1fad18a5ef56",
@@ -1448,7 +1483,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-6620966555fe",
@@ -1521,7 +1557,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-fb11291b0c44",
@@ -1594,7 +1631,8 @@
           "maxValue": 198500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-1b9cdac52d2a",
@@ -1667,7 +1705,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-be4d589a15c3",
@@ -1700,7 +1739,7 @@
       "url": "https://jobs.implenia.com/job/Finanzbuchhalter-%28wmd%29/13725-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:58.273Z",
+      "crawledAt": "2026-09-01T14:31:54.863Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1773,7 +1812,7 @@
       "url": "https://jobs.implenia.com/job/Leiterin-Modernisierung-Deutschschweiz/13667-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:58.086Z",
+      "crawledAt": "2026-09-01T14:31:54.617Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1792,11 +1831,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-modernisierung-deutschschweiz-implenia-ch"
+        "leiter-in-modernisierung-deutschschweiz-implenia-ch",
+        "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-modernisierung-deutschschweiz-implenia-ch"
+          "leiter-in-modernisierung-deutschschweiz-implenia-ch",
+          "responsabile-modernisierung-deutschschweiz-implenia-glattpark-opfikon"
         ]
       },
       "needsRetranslation": true,
@@ -1830,7 +1871,7 @@
       "title": "ICT Workplace Engineer (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "ICT Workplace Ingegnere (m/w/d) 80-100%",
-        "en": "ICT Workplace Engineer (m/f/d) 80-100 %",
+        "en": "ICT Workplace Engineer (m/w/d) 80-100%",
         "de": "ICT Workplace Ingenieur (m/w/d) 80-100%",
         "fr": "ICT Workplace Ingénieur (m/w/d) 80-100%"
       },
@@ -1846,7 +1887,7 @@
       "url": "https://jobs.implenia.com/job/ICT-Workplace-Engineer-%28mwd%29-80-100/13439-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:57.766Z",
+      "crawledAt": "2026-09-01T14:31:50.485Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -1865,17 +1906,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ict-workplace-engineer-m-w-d-80-100-implenia-ch"
+        "ict-workplace-engineer-m-w-d-80-100-implenia-ch",
+        "ict-workplace-ingegnere-m-w-d-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-workplace-engineer-m-w-d-80-100-implenia-ch"
+          "ict-workplace-engineer-m-w-d-80-100-implenia-ch",
+          "ict-workplace-ingegnere-m-w-d-80-100-implenia-glattpark-opfikon"
         ],
         "fr": [
           "ict-workplace-engineer-m-w-d-80-100-implenia-ch"
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:34.939Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -1921,7 +1965,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Baumeister-Luzern-%28wmd%29/12839-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:57.578Z",
+      "crawledAt": "2026-09-01T14:31:50.355Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -1941,12 +1985,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-baumeister-luzern-w-m-d-implenia-ch",
-        "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon"
+        "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon",
+        "capo-progetto-capomastro-lucerna-f-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-baumeister-luzern-w-m-d-implenia-ch",
-          "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon"
+          "project-manager-master-builder-lucerne-f-m-d-implenia-gisikon",
+          "capo-progetto-capomastro-lucerna-f-m-d-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-06-30T11:48:32.984Z",
@@ -1995,7 +2041,7 @@
       "url": "https://jobs.implenia.com/job/Modellierer-AVORKalkulation-%28wmd%29%2C-80-100/13349-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:57.247Z",
+      "crawledAt": "2026-09-01T14:31:54.349Z",
       "addressLocality": "Aarau",
       "postalCode": "",
       "streetAddress": "",
@@ -2040,7 +2086,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "implenia-c27d90ab4a16",
@@ -2073,7 +2120,7 @@
       "url": "https://jobs.implenia.com/job/Gesamtplanungsleiter-%28wmd%29/13518-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:56.978Z",
+      "crawledAt": "2026-09-01T14:31:50.071Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2097,14 +2144,16 @@
         "project-manager-planning-and-development-f-m-d-implenia-glattpark-opfikon",
         "gestionnaire-de-projet-planification-et-developpement-f-m-d-implenia-glattpark-opfikon",
         "gesamtplanungsleiter-w-m-d-implenia-ch",
-        "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon"
+        "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon",
+        "direttore-generale-della-pianificazione-w-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-planung-und-entwicklung-w-m-d-implenia-ch",
           "projektleiter-planung-e-entwicklung-m-w-d-implenia-glattpark-opfikon",
           "gesamtplanungsleiter-w-m-d-implenia-ch",
-          "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon"
+          "gesamtplanungsleiter-w-m-d-implenia-glattpark-opfikon",
+          "direttore-generale-della-pianificazione-w-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-planung-und-entwicklung-w-m-d-implenia-ch",
@@ -2166,7 +2215,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-GUTU-Gisikon-%28wmd%29/12695-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:56.426Z",
+      "crawledAt": "2026-09-01T14:31:49.818Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -2186,15 +2235,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+        "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+        "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
-          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon"
+          "projektleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
+          "project-manager-nuovo-edificio-gu-tu-gisikon-f-m-d-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-06-30T22:39:49.973Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2240,7 +2292,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Neubau-GUTU-Gisikon-%28wmd%29/12704-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:56.131Z",
+      "crawledAt": "2026-09-01T14:31:49.548Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -2263,7 +2315,8 @@
         "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
         "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
         "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
-        "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
+        "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon",
+        "gestore-di-costruzione-nuovo-edificio-gu-tu-gisikon-m-f-d-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2271,7 +2324,8 @@
           "bauleiter-neubau-gu-tu-gisikon-m-w-d-implenia-gisikon",
           "gestore-di-costruzione-nuovo-gu-tu-gisikon-f-m-d-implenia-gisikon",
           "construction-manager-new-gu-tu-gisikon-f-m-d-implenia-gisikon",
-          "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon"
+          "directeur-de-la-construction-nouveau-gu-tu-gisikon-f-m-d-implenia-gisikon",
+          "gestore-di-costruzione-nuovo-edificio-gu-tu-gisikon-m-f-d-implenia-gisikon"
         ],
         "en": [
           "bauleiter-neubau-gu-tu-gisikon-w-m-d-implenia-ch",
@@ -2328,7 +2382,7 @@
       "url": "https://jobs.implenia.com/job/Akquisiteur-Grundst%C3%BCcke-&-Entwicklungspotenziale-%28wmd%29-50-100/13639-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:55.952Z",
+      "crawledAt": "2026-09-01T14:31:49.319Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2406,7 +2460,7 @@
       "url": "https://jobs.implenia.com/job/EPC-Proposal-Manager-%28wmd%29/13086-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:55.669Z",
+      "crawledAt": "2026-09-01T14:31:48.584Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2483,7 +2537,7 @@
       "url": "https://jobs.implenia.com/job/Planungsleiter-Umbauprojekt-Jelmoli-%28wmd%29/12963-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:55.392Z",
+      "crawledAt": "2026-09-01T14:31:48.344Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2550,7 +2604,7 @@
       "companyDomain": "implenia.com",
       "title": "Senior ServiceNow Administrator (m/w/d), Opfikon, 80-100%",
       "titleByLocale": {
-        "it": "Amministratore senior di ServiceNow (m/f/d), Opfikon, 80-100 %",
+        "it": "Senior ServiceNow Administrator (m/w/d), Opfikon, 80-100%",
         "en": "Senior ServiceNow Administrator (m/f/d), Opfikon, 80-100 %",
         "de": "Senior ServiceNow Administrator (m/w/d), Opfikon, 80-100%",
         "fr": "Administrateur principal ServiceNow (m/f/j), Opfikon, 80-100 %"
@@ -2567,7 +2621,7 @@
       "url": "https://jobs.implenia.com/job/Senior-ServiceNow-Administrator-%28mwd%29%2C-Opfikon%2C-80-100/12992-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:55.132Z",
+      "crawledAt": "2026-09-01T14:31:47.092Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2586,14 +2640,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-servicenow-administrator-m-w-d-opfikon-80-100-implenia-ch"
+        "senior-servicenow-administrator-m-w-d-opfikon-80-100-implenia-ch",
+        "amministratore-senior-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-servicenow-administrator-m-w-d-opfikon-80-100-implenia-ch"
+          "senior-servicenow-administrator-m-w-d-opfikon-80-100-implenia-ch",
+          "amministratore-senior-m-f-d-opfikon-80-100-implenia-glattpark-opfikon"
         ]
       },
       "firstSeenAt": "2026-07-01T12:15:10.758Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2623,7 +2680,7 @@
       "title": "Team Lead SAP Finance & Reporting (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Capo Team SAP Finanza & Reporting (m/w/d) 80-100%",
-        "en": "Team Lead SAP Finance & Reporting (m/f/d) 80-100 %",
+        "en": "Team Lead SAP Finance & Reporting (m/w/d) 80-100%",
         "de": "Teamleiter SAP Finanzen & Reporting (m/w/d) 80-100%",
         "fr": "Chef d'équipe SAP Finance & Reporting (m/w/d) 80-100%"
       },
@@ -2639,7 +2696,7 @@
       "url": "https://jobs.implenia.com/job/Team-Lead-SAP-Finance-&-Reporting-%28mwd%29-80-100/12991-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:54.875Z",
+      "crawledAt": "2026-09-01T14:31:47.236Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2669,6 +2726,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.846Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -2714,7 +2772,7 @@
       "url": "https://jobs.implenia.com/job/Junior-Bauleiter-Umbau-%28mwd%29-100/13398-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:54.518Z",
+      "crawledAt": "2026-09-01T14:31:48.023Z",
       "addressLocality": "Aarau",
       "postalCode": "",
       "streetAddress": "",
@@ -2734,15 +2792,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "junior-bauleiter-umbau-m-w-d-100-implenia-ch",
-        "junior-bauleiter-umbau-m-w-d-100-implenia-aarau"
+        "junior-bauleiter-umbau-m-w-d-100-implenia-aarau",
+        "junior-construction-manager-conversione-m-f-d-100-implenia-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "junior-bauleiter-umbau-m-w-d-100-implenia-ch",
-          "junior-bauleiter-umbau-m-w-d-100-implenia-aarau"
+          "junior-bauleiter-umbau-m-w-d-100-implenia-aarau",
+          "junior-construction-manager-conversione-m-f-d-100-implenia-aarau"
         ]
       },
       "firstSeenAt": "2026-08-22T10:04:55.605Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -2788,7 +2849,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Angebot-und-Kostenplanung-Modernisation-%28wmd%29/13482-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:54.196Z",
+      "crawledAt": "2026-09-01T14:31:47.772Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2865,7 +2926,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Schadstoffsanierung-%28wmd%29/12750-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:53.918Z",
+      "crawledAt": "2026-09-01T14:31:47.548Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -2995,7 +3056,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-63806d318f4f",
@@ -3103,7 +3165,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-dca8c77c909a",
@@ -3175,7 +3238,9 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-cbb42c18818d",
@@ -3208,7 +3273,7 @@
       "url": "https://jobs.implenia.com/job/Lernender-Kauffrau-mann-Immobilien-EFZ-%28mwd%29/13501-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:51.300Z",
+      "crawledAt": "2026-09-01T14:31:46.374Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "streetAddress": "Gäuggelistrasse 7",
@@ -3229,13 +3294,15 @@
       "previousSlugs": [
         "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch-2",
         "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch",
-        "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch-3"
+        "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch-3",
+        "apprendista-kauffrau-mann-immobilien-cfc-m-w-d-implenia-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch-2",
           "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch",
-          "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch-3"
+          "lernende-r-kauffrau-mann-immobilien-efz-m-w-d-implenia-ch-3",
+          "apprendista-kauffrau-mann-immobilien-cfc-m-w-d-implenia-chur"
         ]
       },
       "needsRetranslation": true,
@@ -3285,7 +3352,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiterin-Lehrger%C3%BCstbau-und-Br%C3%BCckenbau%2C-80-100/12594-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:50.873Z",
+      "crawledAt": "2026-09-01T14:31:46.029Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3304,11 +3371,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
+        "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch",
+        "responsabile-di-progetto-lehrgerustbau-e-bruckenbau-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
+          "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch",
+          "responsabile-di-progetto-lehrgerustbau-e-bruckenbau-80-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "projektleiter-in-lehrgerustbau-und-bruckenbau-80-100-implenia-ch"
@@ -3364,7 +3433,7 @@
       "url": "https://jobs.implenia.com/job/Polier-im-Lehrger%C3%BCst-und-Br%C3%BCckenbau-100-%28wm%29/12585-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:50.602Z",
+      "crawledAt": "2026-09-01T14:31:45.888Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -3443,7 +3512,7 @@
       "url": "https://jobs.implenia.com/job/Projektleiter-Neubau-Baumeister-Aarau-%28mwd%29/11078-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:50.241Z",
+      "crawledAt": "2026-09-01T14:31:45.673Z",
       "addressLocality": "Aarau",
       "postalCode": "",
       "streetAddress": "",
@@ -3464,16 +3533,19 @@
       "previousSlugs": [
         "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-ch",
         "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-aarau",
-        "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau"
+        "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau",
+        "responsabile-del-progetto-neubau-baumeister-aarau-m-f-d-implenia-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-ch",
           "projektleiter-neubau-baumeister-aarau-m-w-d-implenia-aarau",
-          "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau"
+          "project-manager-nuovo-costruttore-maestro-costruttore-aarau-m-f-d-implenia-aarau",
+          "responsabile-del-progetto-neubau-baumeister-aarau-m-f-d-implenia-aarau"
         ]
       },
       "firstSeenAt": "2026-08-14T10:36:37.005Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -3562,7 +3634,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "implenia-a8fc6a9d2289",
@@ -3595,7 +3668,7 @@
       "url": "https://jobs.implenia.com/job/Vorarbeiter-Holzbau-%28mwd%29%2C-80-100/12920-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:49.648Z",
+      "crawledAt": "2026-09-01T14:31:45.429Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -3618,7 +3691,8 @@
         "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
         "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+        "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3626,7 +3700,8 @@
           "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
           "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang",
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+          "costruzione-di-legname-m-f-d-80-100-implenia-rumlang"
         ],
         "en": [
           "foreman-timber-construction-m-f-d-80-100-implenia-rumlang-u2ewf3",
@@ -3682,7 +3757,7 @@
       "url": "https://jobs.implenia.com/job/Polier-Holzbau-%28mwd%29%2C-80-100/12918-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:49.367Z",
+      "crawledAt": "2026-09-01T14:31:45.167Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -3747,7 +3822,7 @@
       "url": "https://jobs.implenia.com/job/Ingenieur-Holzbau%2C-%28mwd%29-80-100/9584-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:49.184Z",
+      "crawledAt": "2026-09-01T14:31:44.936Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -3767,12 +3842,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+        "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+        "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-holzbau-m-w-d-80-100-implenia-ch",
-          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
+          "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch",
+          "ingegnere-holzbau-m-f-d-80-100-implenia-rumlang"
         ],
         "de": [
           "praktikant-ingenieur-holzbau-m-w-d-80-100-implenia-ch"
@@ -3825,7 +3902,7 @@
       "url": "https://jobs.implenia.com/job/Leiter-Kalkulation-Zentralschweiz-%28wmd%29%2C-80-100/12911-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:49.011Z",
+      "crawledAt": "2026-09-01T14:31:44.667Z",
       "addressLocality": "Gisikon",
       "postalCode": "6038",
       "streetAddress": "",
@@ -3845,12 +3922,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-        "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
+        "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
+        "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-kalkulation-zentralschweiz-w-m-d-80-100-implenia-ch",
-          "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
+          "capo-di-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon",
+          "responsabile-del-calcolo-svizzera-centrale-f-m-d-80-100-implenia-gisikon"
         ]
       },
       "firstSeenAt": "2026-08-14T10:36:36.727Z",
@@ -3882,7 +3961,7 @@
       "companyDomain": "implenia.com",
       "title": "Senior Kalkulator Holzbau, (m/w/d), 80-100%",
       "titleByLocale": {
-        "it": "Calcolatore senior Holzbau, (m/f/d), 80-100 %",
+        "it": "Senior Kalkulator Holzbau, (m/w/d), 80-100%",
         "en": "Senior calculator Holzbau, (m/f/d), 80-100 %",
         "de": "Senior Kalkulator Holzbau, (m/w/d), 80-100%",
         "fr": "Calculatrice senior Holzbau, (m/f/d), 80-100 %"
@@ -3899,7 +3978,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Kalkulator-Holzbau%2C-%28mwd%29%2C-80-100/12872-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:48.615Z",
+      "crawledAt": "2026-09-01T14:31:44.365Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Wibachstrasse 12",
@@ -3919,12 +3998,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+        "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+        "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-kalkulator-holzbau-m-w-d-80-100-implenia-ch",
-          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang"
+          "calcolatrice-senior-costruzioni-in-legno-lun-vended-g-80-100-implenia-rumlang",
+          "costruzione-di-legname-da-calcolatore-senior-m-f-d-80-100-implenia-rumlang"
         ]
       },
       "needsRetranslation": true,
@@ -3974,7 +4055,7 @@
       "url": "https://jobs.implenia.com/job/Bauf%C3%BChrer-Holzbau%2C-%28mwd%29%2C-80-100/10512-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:47.989Z",
+      "crawledAt": "2026-09-01T14:31:44.126Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -3993,14 +4074,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+        "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+        "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch"
+          "baufuhrer-holzbau-m-w-d-80-100-implenia-ch",
+          "foreman-timber-construction-m-f-d-80-100-implenia-rumlang"
         ]
       },
       "firstSeenAt": "2026-08-11T10:27:41.418Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4046,7 +4130,7 @@
       "url": "https://jobs.implenia.com/job/Zimmermann-EFZ-%28mwd%29%2C-80-100/13057-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:34:46.975Z",
+      "crawledAt": "2026-09-01T14:31:43.695Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "",
@@ -4065,14 +4149,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zimmermann-efz-m-w-d-80-100-implenia-ch"
+        "zimmermann-efz-m-w-d-80-100-implenia-ch",
+        "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zimmermann-efz-m-w-d-80-100-implenia-ch"
+          "zimmermann-efz-m-w-d-80-100-implenia-ch",
+          "zimmermann-cfc-m-w-d-80-100-implenia-rumlang"
         ]
       },
       "firstSeenAt": "2026-08-13T22:17:43.056Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -4159,7 +4246,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-ce7af0509daa",
@@ -4252,7 +4339,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "implenia-369fb23a9876",
@@ -4345,7 +4433,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "implenia-302a929097c6",
@@ -4378,7 +4466,7 @@
       "url": "https://jobs.implenia.com/job/Immobilienbewirtschafter-%28mwd%29%2C-Z%C3%BCrich-Central%2C-80-100/13689-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:44:03.674Z",
+      "crawledAt": "2026-09-01T14:31:56.103Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Weinbergstrasse 5 / Stampfenbachstrasse 6",
@@ -4410,8 +4498,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-68afcfc176b6",
@@ -4444,7 +4531,7 @@
       "url": "https://jobs.implenia.com/job/Senior-Bewirtschafter-Gewerbe-%28mwd%29%2C-Z%C3%BCrich%2C-80-100/13598-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:44:02.906Z",
+      "crawledAt": "2026-09-01T14:31:55.417Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Weinbergstrasse 5 / Stampfenbachstrasse 6",
@@ -4463,14 +4550,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-bewirtschafter-gewerbe-m-w-d-zurich-80-100-implenia-ch"
+        "senior-bewirtschafter-gewerbe-m-w-d-zurich-80-100-implenia-ch",
+        "responsabile-del-commercio-m-f-d-zurigo-80-100-implenia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-bewirtschafter-gewerbe-m-w-d-zurich-80-100-implenia-ch"
+          "senior-bewirtschafter-gewerbe-m-w-d-zurich-80-100-implenia-ch",
+          "responsabile-del-commercio-m-f-d-zurigo-80-100-implenia-zurich"
         ]
       },
       "firstSeenAt": "2026-08-21T22:02:45.893Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4483,8 +4573,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-292b9155221c",
@@ -4517,7 +4606,7 @@
       "url": "https://jobs.implenia.com/job/%28Senior%29-Immobilienbewirtschafter-%28mwd%29%2C-Basel-oder-Rheinfelden%2C-80-100-befristet/13294-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:44:01.483Z",
+      "crawledAt": "2026-09-01T14:31:53.050Z",
       "addressLocality": "Basel",
       "postalCode": "4052",
       "streetAddress": "Grosspeteranlage 5+7",
@@ -4565,8 +4654,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-c6ef7be9ca89",
@@ -4599,7 +4687,7 @@
       "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-%28mwd%29%2C-Kriens-%28Pilatusmarkt%29%2C-80-100/13649-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:44:00.812Z",
+      "crawledAt": "2026-09-01T14:31:52.401Z",
       "addressLocality": "Lucerna",
       "postalCode": "",
       "streetAddress": "",
@@ -4639,7 +4727,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "needsRetranslation": true
     },
     {
       "id": "implenia-c9519875b0da",
@@ -4672,7 +4760,7 @@
       "url": "https://jobs.implenia.com/job/Bauleiter-Umbau-%28wmd%29/13114-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:57.989Z",
+      "crawledAt": "2026-09-01T14:31:49.082Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4707,7 +4795,8 @@
         "senior-construction-manager-conversion-f-m-d-implenia-glattpark-opfikon",
         "senior-bauleiter-umbau-w-m-d-implenia-ch",
         "transformation-du-directeur-principal-des-travaux-f-m-d-implenia-glattpark-opfikon",
-        "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon"
+        "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
+        "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4724,7 +4813,8 @@
           "senior-construction-manager-conversion-f-m-d-implenia-glattpark-opfikon",
           "senior-bauleiter-umbau-w-m-d-implenia-ch",
           "transformation-du-directeur-principal-des-travaux-f-m-d-implenia-glattpark-opfikon",
-          "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon"
+          "senior-bauleiter-umbau-m-w-d-implenia-glattpark-opfikon",
+          "conversione-construction-manager-f-m-d-implenia-glattpark-opfikon"
         ],
         "en": [
           "bauleiter-umbau-w-m-d-implenia-ch",
@@ -4743,6 +4833,7 @@
         ]
       },
       "firstSeenAt": "2026-07-02T11:29:53.606Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4755,8 +4846,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "implenia-f4091f213da6",
@@ -4789,7 +4879,7 @@
       "url": "https://jobs.implenia.com/job/Mitarbeiter-Bauablaufplanung-AVOR-%28mwd%29%2C-80-100/12998-de_DE",
       "source": "Implenia Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:43:57.814Z",
+      "crawledAt": "2026-09-01T14:31:48.815Z",
       "addressLocality": "Glattpark (Opfikon)",
       "postalCode": "8152",
       "streetAddress": "Thurgauerstrasse 101A",
@@ -4808,11 +4898,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+        "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
+        "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
+          "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch",
+          "collaboratore-trice-bauablaufplanung-avor-m-w-d-80-100-implenia-glattpark-opfikon"
         ],
         "en": [
           "mitarbeiter-bauablaufplanung-avor-m-w-d-80-100-implenia-ch"
@@ -4835,81 +4927,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "implenia-df84023f100d",
-      "slug": "gestione-della-proprieta-specialista-del-noleggio-m-f-d-basilea-50-implenia-ticino",
-      "slugByLocale": {
-        "it": "gestione-della-proprieta-specialista-del-noleggio-m-f-d-basilea-50-implenia-ticino",
-        "en": "property-management-rental-specialist-m-f-d-basel-50-implenia-ticino",
-        "de": "sachbearbeiter-immobilienbewirtschaftung-vermietungsspezialist-m-w-d-basel-50-implenia-ch",
-        "fr": "specialiste-de-la-gestion-immobiliere-location-m-f-d-bale-50-implenia-ticino"
-      },
-      "company": "Implenia",
-      "companyKey": "implenia",
-      "companyDomain": "implenia.com",
-      "title": "Sachbearbeiter Immobilienbewirtschaftung / Vermietungsspezialist (m/w/d), Basel, 50%",
-      "titleByLocale": {
-        "it": "Gestione della proprietà / specialista di noleggio (m/f/d), Basilea, 50 %",
-        "en": "Property management / rental specialist (m/f/d), Basel, 50 %",
-        "de": "Sachbearbeiter Immobilienbewirtschaftung / Vermietungsspezialist (m/w/d), Basel, 50%",
-        "fr": "Spécialiste de la gestion immobilière / location (h/f/d), Bâle, 50 %"
-      },
-      "description": "Als vielfältiger Immobilien-Dienstleister kombinieren wir im Center- und Mixed Use Site Management Retail Know-how mit Immobilienexpertise. So übernehmen wir für unsere Kunden die technische und betriebswirtschaftliche Gesamtleitung komplexer Areale – von Geschäftsliegenschaften über Bürogebäude und Shopping-Center bis hin zu gemischt genutzten Arealen. Neu ergänzen gemischt genutzte Liegenschaften mit über 400 Wohnobjekten unser Portfolio in Basel und Pratteln. Daher suchen wir eine engagierte, offenherzige und verlässliche Persönlichkeit als Sachbearbeiter Immobilienbewirtschaftung / Vermietungsspezialist (m/w/d) St. Jakob-Park, Basel, 50% Das bewegst du in deiner Rolle als Vermietungsspezialist (m/w/d):\n• Du steuerst den digitalen Wiedervermietungsprozess vom Kündigungseingang bis zur Objektübergabe an die neuen Mieter, kommunizierst mit Mietern und Interessenten, prüfst Bewerbungen und erstellst Mietverträge\n• Du reduzierst Leerstände durch wirkungsvolle Vermarktungsmassnahmen – von fehlerfreien Online-Inseraten bis zur Koordination von Fotos und 360°-Rundgängen\n• Du führst selbstständig Besichtigungen, Übergaben und Abnahmen von Wohnungen durch. Bei Bedarf auch ausserhalb der üblichen Arbeitszeiten. Das bewegst du in deiner Rolle als Sachbearbeiter (m/w/d):\n• Du unterstützt das Bewirtschaftungs-Team bei administrativen Aufgaben und sorgst für reibungslose Abläufe\n• Du koordinierst die Zusammenarbeit mit FM-Providern, Handwerksbetrieben und Ämtern – inklusive Offerten, Auftragsvergaben und Arbeitskontrolle\n• Schlussabrechnungen, Depotauflösungen sowie die Bearbeitung von Kreditoren, Debitoren und Mahnwesen gehören ebenfalls zu deinem Aufgabenbereich Deshalb gelingt es dir:\n• Du bringst eine kaufmännische Grundausbildung mit; eine Weiterbildung im Bereich Immobilienbewirtschaftung ist von Vorteil oder du bist bereit, diese zu absolvieren\n• Idealerweise hast du bereits erste Erfahrung in der Immobilienbranche oder in einer administrativen Funktion mit Kundenkontakt gesammelt\n• Du arbeitest strukturiert, behältst auch in hektischen Situationen den Überblick und kommunizierst sicher auf Deutsch; Englisch ist ein Plus\n• Du bist belastbar, kundenorientiert, teamfähig und mobil mit gültigem Führerausweis\n• Der persönliche Kontakt mit Mietern und Mietinteressenten macht dir Freude und die Dienstleistungsorientierung steht bei dir an oberster Stelle Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
-      "descriptionByLocale": {
-        "it": "Come fornitore di servizi immobiliari diversificato, combiniamo il know-how al dettaglio con competenze immobiliari nel centro e gestione di siti di uso misto. Per i nostri clienti, prendiamo il controllo della gestione tecnica e aziendale di aree complesse – dalle proprietà aziendali agli edifici per uffici e centri commerciali alle aree di uso misto. Le proprietà di uso misto con oltre 400 proprietà residenziali ora completano il nostro portafoglio a Basilea e Pratteln. Pertanto, stiamo cercando una personalità impegnata, aperta e affidabile come la gestione della proprietà / specialista di noleggio (m/f/d) St. Jakob-Park, Basilea, 50% Questo è ciò che fai nel tuo ruolo di specialista di noleggio (m/f/d):\n• Si controlla il processo di re-letting digitale dal ricevimento della comunicazione al trasferimento della proprietà ai nuovi inquilini, comunicare con inquilini e parti interessate, controllare le applicazioni e creare contratti di locazione\n• Ridurre la vacanza attraverso efficaci misure di marketing – da pubblicità online senza errori al coordinamento di foto e tour a 360°\n• Lei effettua autonomamente visite, trasferimenti e accettazione di appartamenti. Se necessario, anche al di fuori delle ore di lavoro abituali. Questo è ciò che fai nel tuo ruolo come impiegato (m/f/d):\n• Supporti il team di gestione con compiti amministrativi e assicura processi lisci\n• Coordinate la collaborazione con fornitori FM, aziende artigianali e agenzie – tra cui offerte, contratti e controllo del lavoro\n• Le dichiarazioni finali, gli insediamenti depositari e il trattamento dei creditori, dei debitori e delle procedure d'esecuzione fanno parte della vostra area di responsabilità.\n• Si porta una formazione commerciale di base; un'ulteriore formazione nella gestione immobiliare è vantaggioso o si è pronti a completarlo\n• Idealmente, hai già acquisito esperienza iniziale nel settore immobiliare o in una funzione amministrativa con il contatto con il cliente\n• Si lavora in modo strutturato, tenere una panoramica anche in situazioni frenetiche e comunicare in modo sicuro in tedesco; l'inglese è un plus\n• Sei resiliente, orientato al cliente, capace di lavoro di squadra e mobile con una patente valida\n• Il contatto personale con inquilini e potenziali inquilini ti rende felice e l'orientamento del servizio è la tua priorità assoluta Ecco alcuni dei nostri vantaggi:\n• Ore lavorative: Viviamo il lavoro mobile con ore di lavoro individuali (anno) e/o lavoro part-time. Fino al 40% home office è possibile. L'equilibrio della vita lavorativa è una priorità assoluta per noi, perché i dipendenti equilibrati e rilassati sono importanti per noi. L'acquisto di vacanze aggiuntive è possibile.\n• Mobilità e cibo: riceverete un contributo per il telefono cellulare. Per il vostro cibo, offriamo anche un contributo.\n• Istruzione e formazione: promuovere i dipendenti è una parte importante della nostra cultura. Approfittate del generoso sostegno all'istruzione e alla formazione interna ed esterna. Offriamo opportunità di carriera nelle funzioni gestionali, specialistiche e di progetto\n• Salär: Con noi, puoi aspettarti una remunerazione basata sul mercato con una retribuzione uguale assoluta per tutti i generi. I benefici pensione sono attraenti e si può scegliere quello giusto per voi da modelli diversi. L'assicurazione contro gli infortuni copre il dipartimento ospedaliero privato. Ulteriori informazioni sui nostri vantaggi possono essere trovate nella nostra pagina di carriera. ♪Wincasa",
-        "en": "As a diverse real estate service provider, we combine retail know-how with real estate expertise in center and mixed use site management. For our customers, we take over the technical and business management of complex areas – from business properties to office buildings and shopping centers to mixed-use areas. Mixed-use properties with over 400 residential properties now complement our portfolio in Basel and Pratteln. Therefore, we are looking for a committed, open-hearted and reliable personality as property management / rental specialist (m/f/d) St. Jakob-Park, Basel, 50% This is what you do in your role as a rental specialist (m/f/d):\n• You control the digital re-letting process from the receipt of notice to the transfer of the property to the new tenants, communicate with tenants and interested parties, check applications and create lease contracts\n• You reduce vacancy through effective marketing measures – from error-free online advertisements to the coordination of photos and 360° tours\n• You independently carry out visits, transfers and acceptances of apartments. If necessary, also outside the usual working hours. This is what you do in your role as (m/f/d) clerk:\n• You support the management team with administrative tasks and ensure smooth processes\n• You coordinate cooperation with FM providers, craft businesses and agencies – including offers, contracting and work control\n• Final statements, custodial settlements and the processing of creditors, debtors and dunning procedures are also part of your area of responsibility.\n• You bring a basic commercial education; a further education in real estate management is advantageous or you are ready to complete it\n• Ideally, you have already gained initial experience in the real estate industry or in an administrative function with customer contact\n• You work in a structured way, keep an overview even in hectic situations and communicate safely in German; English is a plus\n• You are resilient, customer-oriented, capable of teamwork and mobile with a valid driver’s license\n• Personal contact with tenants and prospective tenants makes you happy and the service orientation is your top priority Here are some of our benefits:\n• Working hours: We live mobile work with individual (year) working hours and/or part-time work. Up to 40% home office is possible. Work-life balance is a top priority for us, because balanced and relaxed employees are important to us. The purchase of additional holidays is possible.\n• Mobility and food: You will receive a contribution for the mobile phone. For your food, we also make a contribution.\n• Education and training: Promoting employees is an important part of our culture. Benefit from generous support in internal and external education and training. We offer career opportunities in management, specialist and project functions\n• Salär: With us, you can expect market-based remuneration with absolute equal pay for all genders. The pension benefits are attractive and you can choose the right one for you from different models. Accident protection insurance covers the private hospital department. More information about our benefits can be found on our career page. #Wincasa",
-        "de": "Als vielfältiger Immobilien-Dienstleister kombinieren wir im Center- und Mixed Use Site Management Retail Know-how mit Immobilienexpertise. So übernehmen wir für unsere Kunden die technische und betriebswirtschaftliche Gesamtleitung komplexer Areale – von Geschäftsliegenschaften über Bürogebäude und Shopping-Center bis hin zu gemischt genutzten Arealen. Neu ergänzen gemischt genutzte Liegenschaften mit über 400 Wohnobjekten unser Portfolio in Basel und Pratteln. Daher suchen wir eine engagierte, offenherzige und verlässliche Persönlichkeit als Sachbearbeiter Immobilienbewirtschaftung / Vermietungsspezialist (m/w/d) St. Jakob-Park, Basel, 50% Das bewegst du in deiner Rolle als Vermietungsspezialist (m/w/d):\n• Du steuerst den digitalen Wiedervermietungsprozess vom Kündigungseingang bis zur Objektübergabe an die neuen Mieter, kommunizierst mit Mietern und Interessenten, prüfst Bewerbungen und erstellst Mietverträge\n• Du reduzierst Leerstände durch wirkungsvolle Vermarktungsmassnahmen – von fehlerfreien Online-Inseraten bis zur Koordination von Fotos und 360°-Rundgängen\n• Du führst selbstständig Besichtigungen, Übergaben und Abnahmen von Wohnungen durch. Bei Bedarf auch ausserhalb der üblichen Arbeitszeiten. Das bewegst du in deiner Rolle als Sachbearbeiter (m/w/d):\n• Du unterstützt das Bewirtschaftungs-Team bei administrativen Aufgaben und sorgst für reibungslose Abläufe\n• Du koordinierst die Zusammenarbeit mit FM-Providern, Handwerksbetrieben und Ämtern – inklusive Offerten, Auftragsvergaben und Arbeitskontrolle\n• Schlussabrechnungen, Depotauflösungen sowie die Bearbeitung von Kreditoren, Debitoren und Mahnwesen gehören ebenfalls zu deinem Aufgabenbereich Deshalb gelingt es dir:\n• Du bringst eine kaufmännische Grundausbildung mit; eine Weiterbildung im Bereich Immobilienbewirtschaftung ist von Vorteil oder du bist bereit, diese zu absolvieren\n• Idealerweise hast du bereits erste Erfahrung in der Immobilienbranche oder in einer administrativen Funktion mit Kundenkontakt gesammelt\n• Du arbeitest strukturiert, behältst auch in hektischen Situationen den Überblick und kommunizierst sicher auf Deutsch; Englisch ist ein Plus\n• Du bist belastbar, kundenorientiert, teamfähig und mobil mit gültigem Führerausweis\n• Der persönliche Kontakt mit Mietern und Mietinteressenten macht dir Freude und die Dienstleistungsorientierung steht bei dir an oberster Stelle Hier einige unserer Benefits:\n• Arbeitszeiten: Wir leben mobiles Arbeiten mit individueller (Jahres)-Arbeitszeit und/oder Teilzeitarbeit. Bis zu 40% Home-Office sind möglich. Work-Life-Balance wird bei uns grossgeschrieben, denn ausgeglichene und erholte Mitarbeitende sind uns wichtig. Der Kauf von zusätzlichen Ferien ist möglich.\n• Mobilität und Verpflegung: Du erhältst einen Beitrag für das Mobiltelefon. Für deine Verpflegung leisten wir ebenfalls einen Beitrag.\n• Aus- und Weiterbildung: Das Fördern von Mitarbeitenden ist ein wichtiger Bestandteil unserer Kultur. Profitiere von einer grosszügigen Unterstützung bei internen und externen Aus- und Weiterbildungen. Wir bieten Laufbahnmöglichkeiten in Führungs-, Fach- und Projektfunktionen\n• Salär: Bei uns erwartet dich eine marktgerechte Entlöhnung mit absoluter Lohngleichheit für alle Geschlechter. Die Pensionskassenleistungen sind attraktiv und du kannst aus verschiedenen Modellen das für dich passende wählen. Die Unfallschutzversicherung deckt die private Spitalabteilung ab. Weitere Informationen zu unseren Benefits findest du auf unserer Karriereseite. #Wincasa",
-        "fr": "En tant que fournisseur de services immobiliers diversifié, nous combinons le savoir-faire au détail et l'expertise en immobilier dans le centre et la gestion mixte du site. Pour nos clients, nous prenons en charge la gestion technique et commerciale de zones complexes – des propriétés d'affaires aux immeubles de bureaux et centres commerciaux aux zones à usage mixte. Les propriétés à usage mixte avec plus de 400 propriétés résidentielles complètent désormais notre portefeuille à Bâle et Pratteln. Par conséquent, nous recherchons une personnalité engagée, ouverte et fiable en tant que spécialiste de la gestion immobilière / location (h/f/d) St. Jakob-Park, Bâle, 50% Voici ce que vous faites dans votre rôle de spécialiste de la location (h/f/d):\n• Vous contrôlez le processus de re-lettrage numérique de la réception de l'avis au transfert de la propriété aux nouveaux locataires, communiquez avec les locataires et les parties intéressées, vérifiez les demandes et créez des contrats de location\n• Vous réduisez la vacance par des mesures marketing efficaces – des publicités en ligne sans erreur à la coordination des photos et des visites à 360°\n• Vous effectuez indépendamment des visites, des transferts et des réceptions d'appartements. Si nécessaire, en dehors des heures de travail habituelles. Voici ce que vous faites dans votre rôle de commis (h/f/d):\n• Vous soutenez l'équipe de gestion avec des tâches administratives et assurer des processus en douceur\n• Vous coordonnez la coopération avec les fournisseurs de FM, les entreprises artisanales et les agences – y compris les offres, les contrats et le contrôle du travail\n• Les déclarations finales, les règlements de garde et le traitement des créanciers, des débiteurs et des procédures de dunning font également partie de votre domaine de responsabilité.\n• Vous apportez une éducation commerciale de base; une formation supplémentaire en gestion immobilière est avantageuse ou vous êtes prêt à l'achever\n• Idéalement, vous avez déjà acquis une expérience initiale dans l'industrie immobilière ou dans une fonction administrative avec contact client\n• Vous travaillez de façon structurée, gardez un aperçu même dans des situations mouvementées et communiquez en toute sécurité en allemand; l'anglais est un plus\n• Vous êtes résilient, orienté client, capable de travailler en équipe et mobile avec un permis de conduire valide.\n• Le contact personnel avec les locataires et les locataires potentiels vous rend heureux et l'orientation du service est votre priorité absolue Voici quelques-uns de nos avantages:\n• Heures de travail: Nous vivons un travail mobile avec des heures de travail individuelles (année) et/ou à temps partiel. Jusqu'à 40% de bureau à domicile est possible. L'équilibre entre le travail et la vie personnelle est une priorité absolue pour nous, car les employés équilibrés et détendus sont importants pour nous. L'achat de jours fériés supplémentaires est possible.\n• Mobilité et nourriture: Vous recevrez une contribution pour le téléphone mobile. Pour votre nourriture, nous apportons également une contribution.\n• Éducation et formation: La promotion des employés est un élément important de notre culture. Bénéficiez d'un soutien généreux dans l'éducation et la formation internes et externes. Nous offrons des opportunités de carrière dans les fonctions de gestion, de spécialiste et de projet\n• Salär: Avec nous, vous pouvez vous attendre à une rémunération basée sur le marché avec un salaire absolu égal pour tous les sexes. Les prestations de retraite sont attrayantes et vous pouvez choisir la bonne pour vous parmi différents modèles. L ' assurance contre les accidents couvre le service hospitalier privé. Pour en savoir plus sur nos avantages, consultez notre page de carrière. #Wincasa"
-      },
-      "location": "Basilea Città",
-      "canton": "BS",
-      "url": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-Vermietungsspezialist-%28mwd%29%2C-Basel%2C-50/13560-de_DE",
-      "source": "Implenia Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T07:28:36.417Z",
-      "addressLocality": "Basilea Città",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Construction & Construction Services (civil engineering, building construction, real estate)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://jobs.implenia.com/job/Sachbearbeiter-Immobilienbewirtschaftung-Vermietungsspezialist-%28mwd%29%2C-Basel%2C-50/13560-de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-immobilienbewirtschaftung-vermietungsspezialist-m-w-d-basel-50-implenia-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-immobilienbewirtschaftung-vermietungsspezialist-m-w-d-basel-50-implenia-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-26T10:27:35.143Z",
-      "salaryMin": 31000,
-      "salaryMax": 47000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 31000,
-          "maxValue": 47000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
