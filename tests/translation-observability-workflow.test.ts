@@ -7,11 +7,32 @@ const workflow = fs.readFileSync(path.resolve('.github/workflows/translate-pendi
 const portableWorkflow = fs.readFileSync(path.resolve('.github/corpus-workflows/translate-pending.yml'), 'utf8');
 const titleFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-titles.mjs'), 'utf8');
 
+type YamlMapping = Record<string, unknown>;
+
+function isYamlMapping(value: unknown): value is YamlMapping {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function parseTranslationSteps(document: string): YamlMapping[] {
+  const parsed: unknown = YAML.parse(document);
+  if (!isYamlMapping(parsed) || !isYamlMapping(parsed.jobs) ||
+      !isYamlMapping(parsed.jobs.translate) || !Array.isArray(parsed.jobs.translate.steps)) {
+    throw new Error('translate workflow must define jobs.translate.steps');
+  }
+  return parsed.jobs.translate.steps.map((step, index) => {
+    if (!isYamlMapping(step)) throw new Error(`translate workflow step ${index} must be a mapping`);
+    return step;
+  });
+}
+
 describe('translation observability workflow', () => {
   it('advances true-final state only on successful non-dry source and portable runs', () => {
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
-      const steps: any[] = YAML.parse(document).jobs.translate.steps;
+      const steps = parseTranslationSteps(document);
       const final = steps.find((step) => step.name === 'Capture final translation observability (shadow)');
+      if (!final || typeof final.name !== 'string' || typeof final.if !== 'string' || typeof final.run !== 'string') {
+        throw new Error(`${label}: final observability step must define name, if, and run`);
+      }
       expect(final, `${label}: final observability step missing`).toMatchObject({
         if: "always() && steps.translation_observability_before.outputs.ready == 'true'",
       });
