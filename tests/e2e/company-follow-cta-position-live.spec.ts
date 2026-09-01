@@ -171,15 +171,24 @@ async function probeSettle(page: Page): Promise<void> {
   await page.waitForTimeout(1_000);
 }
 
+// Attached before the FIRST navigation of a test (not per-candidate inside
+// `navigateToSurface`), so it covers the entire navigate → probeSettle →
+// settle → assertSurfaceLayout window, matching the "no uncaught JS error
+// fires while surface renders" guarantee (file header, point 3) even though
+// `navigateToSurface` may run several times against different candidates
+// before the one that gets asserted.
+function collectPageErrors(page: Page): string[] {
+  const pageErrors: string[] = [];
+  page.on('pageerror', (err) => pageErrors.push(err.message));
+  return pageErrors;
+}
+
 async function navigateToSurface(page: Page, path: string): Promise<void> {
   await page.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded', timeout: 30_000 });
   await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
 }
 
-async function assertSurfaceLayout(page: Page, label: string): Promise<void> {
-  const pageErrors: string[] = [];
-  page.on('pageerror', (err) => pageErrors.push(err.message));
-
+async function assertSurfaceLayout(page: Page, label: string, pageErrors: string[]): Promise<void> {
   for (const viewport of VIEWPORTS) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.waitForTimeout(300);
@@ -203,15 +212,17 @@ async function assertSurfaceLayout(page: Page, label: string): Promise<void> {
 }
 
 async function assertSurface(page: Page, path: string, label: string): Promise<void> {
+  const pageErrors = collectPageErrors(page);
   await navigateToSurface(page, path);
   await settle(page);
-  await assertSurfaceLayout(page, label);
+  await assertSurfaceLayout(page, label, pageErrors);
 }
 
 test('gated job detail: follow CTA sits above the auth gate, no fixed-widget collisions', async ({ page }) => {
   // Bounded discovery across up to 20 live candidates (see probeSettle above)
   // plus the full settle+assertion on the match — above the default 60s.
   test.setTimeout(120_000);
+  const pageErrors = collectPageErrors(page);
   const candidates = await listActiveJobDetailPaths(page, { limit: 20 });
   for (const path of candidates) {
     await navigateToSurface(page, path);
@@ -219,7 +230,7 @@ test('gated job detail: follow CTA sits above the auth gate, no fixed-widget col
     const layout = await readFollowCtaLayout(page);
     if (layout.hasHub && layout.hasFollow) {
       await settle(page);
-      await assertSurfaceLayout(page, 'gated job detail');
+      await assertSurfaceLayout(page, 'gated job detail', pageErrors);
       return;
     }
   }
