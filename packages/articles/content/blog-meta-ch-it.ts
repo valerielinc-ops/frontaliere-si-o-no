@@ -4948,6 +4948,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti avverte: rischi per l\'economia svizzera',
     'blog.article.ubs-ermotti-capital-requirements.excerpt': 'UBS critica la proposta della CET-S su capital requirements, avvertendo che misure oltre gli standard internazionali aumenterebbero i costi per l\'intera economia svizzera.',
     'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Quartiere finanziario con grattacieli e sedi bancarie, simbolo della piazza finanziaria svizzera.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'Il tasso ipotecario di riferimento nei contratti di locazione rimane all’1,25 %',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'L\'Ufficio federale delle abitazioni (UFAB) ha annunciato che il tasso ipotecario di riferimento rimane all’1,25 % dal 2 settembre 2026.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra il distretto finanziario.',
 };
 
 export default blogMetaChIt;

@@ -64214,6 +64214,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasso-ipotecario-riferimento-1-25-2026': {
+    title: 'Il tasso ipotecario di riferimento nei contratti di locazione rimane all’1,25 %',
+    description: 'L\'Ufficio federale delle abitazioni (UFAB) ha annunciato che il tasso ipotecario di riferimento rimane all’1,25 % dal 2 settembre 2026. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasso, ipotecario, riferimento, contratti',
+    ogTitle: 'Tasso ipotecario di riferimento all’1,25 %',
+    ogDescription: 'L\'Ufficio federale delle abitazioni (UFAB) ha annunciato che il tasso ipotecario di riferimento rimane all’1,25 % dal 2 settembre 2026. Questo tasso è determinante per stabilire gli affitti in tutta la Svizzera.',
+    canonicalPath: '/articoli-svizzera/tasso-ipotecario-riferimento-1-25-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il tasso ipotecario di riferimento nei contratti di locazione rimane all’1,25 %",
+      "description": "L'Ufficio federale delle abitazioni (UFAB) ha annunciato che il tasso ipotecario di riferimento rimane all’1,25 % dal 2 settembre 2026. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasso-ipotecario-riferimento-1-25-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra il distretto finanziario."
+      },
+      "datePublished": "2026-09-01T14:51:28+00:00",
+      "dateModified": "2026-09-01T14:51:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tasso-ipotecario-riferimento-1-25-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

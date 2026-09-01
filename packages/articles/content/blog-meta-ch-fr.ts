@@ -4948,6 +4948,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti met en garde : des risques pour l’économie suisse',
     'blog.article.ubs-ermotti-capital-requirements.excerpt': 'UBS critique la proposition de la cet-S sur les exigences de capital, avertissant que des mesures dépassant les normes internationales augmenteraient les coûts pour l\'ensemble de l\'économie suisse.',
     'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Quartier financier avec immeubles de bureaux et sièges de banques, symbole du centre financier suisse.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'Le taux hypothécaire de référence dans les baux reste à 1,25 %',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'L’Office fédéral du logement (FOH) a annoncé que le taux d’intérêt hypothécaire de référence restera à 1,25 % au 2 septembre 2026.',
+    'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan, montrant le quartier financier.',
 };
 
 export default blogMetaChFr;
