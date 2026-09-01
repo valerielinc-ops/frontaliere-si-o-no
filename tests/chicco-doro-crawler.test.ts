@@ -83,7 +83,16 @@ describe('Chicco d\u2019Oro crawler parser', () => {
     const jobs = await fetchAllChiccoDoroJobs({ fetchPage, sleep: async () => {} });
     expect(jobs).toHaveLength(1);
     expect(jobs[0]).toEqual(expect.objectContaining({ title: 'Tecnico manutentore' }));
-    expect(assertCompleteChiccoDoroSnapshot(jobs)).toBe(true);
+    expect(() => assertCompleteChiccoDoroSnapshot(jobs)).toThrow(/not a proven complete/);
+    expect(evaluateAuthoritativeSnapshot(jobs, {
+      validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
+      allowAuthoritativeEmptySnapshot: true,
+      authoritativeSnapshotScope: 'empty-only',
+      companyLabel: CHICCO_DORO_COMPANY_NAME,
+    })).toEqual({
+      authoritativeSnapshotVerified: false,
+      authoritativeEmptySnapshot: false,
+    });
   });
 
   it('fails closed when one source path is unresolved or the source identity disappears', async () => {
@@ -125,6 +134,7 @@ describe('Chicco d\u2019Oro crawler parser', () => {
     const runner = fs.readFileSync(path.join(ROOT, 'scripts/update-chicco-doro-jobs.mjs'), 'utf8');
     expect(runner).toContain('validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot');
     expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
   });
 
   // ── Constants ──
