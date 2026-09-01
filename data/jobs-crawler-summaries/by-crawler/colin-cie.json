@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-09-01T00:43:21.127Z",
+  "generatedAt": "2026-09-01T02:20:26.006Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8164,
-  "avgDurationMs": 8164,
+  "durationMs": 8307,
+  "avgDurationMs": 8307,
   "durationHistory": [
-    8164
+    8307
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -160,6 +160,7 @@
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -313,6 +314,7 @@
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -352,6 +354,7 @@
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -391,6 +394,7 @@
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
