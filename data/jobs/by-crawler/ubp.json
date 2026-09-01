@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-09-01T00:40:11.514Z",
+  "assembledAt": "2026-09-01T04:04:17.034Z",
   "jobs": [
     {
       "id": "ubp-66596982e1f3",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:07.152Z",
+      "crawledAt": "2026-09-01T04:04:13.164Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "it-business-analyst-credit-it-ubp-ch"
+          "it-business-analyst-credit-it-ubp-ch",
+          "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
           "it-business-analyst-credit-it-ubp-ch",
-          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
+          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
+          "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-business-analyst-credit-it-ubp-ch"
@@ -67,9 +69,12 @@
       },
       "previousSlugs": [
         "it-business-analyst-credit-it-ubp-ch",
-        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
+        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
+        "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland",
+        "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:35.564Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -115,7 +120,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:06.681Z",
+      "crawledAt": "2026-09-01T04:04:12.629Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -134,10 +139,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "structured-product-engineer-ubp-ch"
+          "structured-product-engineer-ubp-ch",
+          "structured-product-engineer-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
-          "structured-product-engineer-ubp-ch"
+          "structured-product-engineer-ubp-ch",
+          "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "structured-product-engineer-ubp-ch"
@@ -147,7 +154,9 @@
         ]
       },
       "previousSlugs": [
-        "structured-product-engineer-ubp-ch"
+        "structured-product-engineer-ubp-ch",
+        "structured-product-engineer-union-bancaire-privee-geneva-switzerland",
+        "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:32.358Z",
       "salaryMin": 71000,
@@ -195,7 +204,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:06.212Z",
+      "crawledAt": "2026-09-01T04:04:12.087Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -214,17 +223,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland",
-        "assistant-relationship-manager-latam-ubp-ch"
+        "assistant-relationship-manager-latam-ubp-ch",
+        "assistente-manager-relazioni-latam-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-relationship-manager-latam-ubp-ch"
+          "assistant-relationship-manager-latam-ubp-ch",
+          "assistente-manager-relazioni-latam-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-05-17T11:17:16.114Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -245,7 +257,7 @@
       "slugByLocale": {
         "it": "amministratore-del-database-union-bancaire-privee-geneva-switzerland",
         "en": "junior-database-administrator-consultant-ubp-ch",
-        "de": "datenbankverwalter-union-bancaire-privee-geneva-switzerland",
+        "de": "junior-database-administrator-berater-union-bancaire-privee-geneva-switzerland",
         "fr": "administrateur-de-base-de-donnees-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
@@ -270,7 +282,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:05.739Z",
+      "crawledAt": "2026-09-01T04:04:11.561Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -293,6 +305,8 @@
         "database-administrator-consultant-ubp-ch",
         "junior-database-administrator-consultant-ubp-ch",
         "junior-database-administrator-consultant-union-bancaire-privee-geneva-switzerland",
+        "datenbankverwalter-union-bancaire-privee-geneva-switzerland",
+        "amministratore-del-database-union-bancaire-privee-geneva-switzerland",
         "junior-database-administrator-berater-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
@@ -300,7 +314,8 @@
           "database-administrator-ubp-ch",
           "database-administrator-union-bancaire-privee-geneva-switzerland",
           "database-administrator-consultant-ubp-ch",
-          "junior-database-administrator-consultant-ubp-ch"
+          "junior-database-administrator-consultant-ubp-ch",
+          "amministratore-del-database-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "database-administrator-ubp-ch",
@@ -309,6 +324,7 @@
         ],
         "de": [
           "database-administrator-ubp-ch",
+          "datenbankverwalter-union-bancaire-privee-geneva-switzerland",
           "junior-database-administrator-berater-union-bancaire-privee-geneva-switzerland"
         ],
         "fr": [
@@ -361,7 +377,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:05.262Z",
+      "crawledAt": "2026-09-01T04:04:11.028Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -381,12 +397,14 @@
       "previousSlugs": [
         "change-incident-problem-vulnerability-management-ubp-ch",
         "change-incident-problem-vulnerability-management-union-bancaire-privee-geneva-switzerland",
-        "change-incident-problem-vulnerability-management-consultant-ubp-ch"
+        "change-incident-problem-vulnerability-management-consultant-ubp-ch",
+        "cambia-incidente-problema-gestione-della-vulnerabilita-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "change-incident-problem-vulnerability-management-ubp-ch",
-          "change-incident-problem-vulnerability-management-consultant-ubp-ch"
+          "change-incident-problem-vulnerability-management-consultant-ubp-ch",
+          "cambia-incidente-problema-gestione-della-vulnerabilita-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "change-incident-problem-vulnerability-management-union-bancaire-privee-geneva-switzerland"
@@ -444,7 +462,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1112",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:04.790Z",
+      "crawledAt": "2026-09-01T04:04:10.487Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -463,11 +481,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cybersecurity-frontline-risk-and-control-manager-ubp-ch",
-        "cybersecurity-frontline-risk-and-control-manager-union-bancaire-privee-geneva-switzerland"
+        "cybersecurity-frontline-risk-and-control-manager-union-bancaire-privee-geneva-switzerland",
+        "responsabile-del-rischio-e-del-controllo-di-prima-linea-della-cybersecurity-union-bancaire-privee-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-frontline-risk-and-control-manager-ubp-ch"
+          "cybersecurity-frontline-risk-and-control-manager-ubp-ch",
+          "responsabile-del-rischio-e-del-controllo-di-prima-linea-della-cybersecurity-union-bancaire-privee-switzerland"
         ],
         "en": [
           "cybersecurity-frontline-risk-and-control-manager-union-bancaire-privee-geneva-switzerland"
@@ -525,7 +545,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1108",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:04.299Z",
+      "crawledAt": "2026-09-01T04:04:09.905Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -544,11 +564,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fcc-framework-head-of-amlc-team-ubp-ch",
-        "fcc-framework-head-of-amlc-team-union-bancaire-privee-geneva-switzerland"
+        "fcc-framework-head-of-amlc-team-union-bancaire-privee-geneva-switzerland",
+        "fcc-framework-responsabile-amlc-team-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fcc-framework-head-of-amlc-team-ubp-ch"
+          "fcc-framework-head-of-amlc-team-ubp-ch",
+          "fcc-framework-responsabile-amlc-team-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "fcc-framework-head-of-amlc-team-union-bancaire-privee-geneva-switzerland"
@@ -589,7 +611,7 @@
       "companyDomain": "ubp.com",
       "title": "IT SERVICE DELIVERY",
       "titleByLocale": {
-        "it": "LA SERVIZIO",
+        "it": "IT SERVICE DELIVERY",
         "en": "IT SERVICE DELIVERY",
         "de": "IT-DIENSTLEISTUNG",
         "fr": "LIVRAISON DE SERVICES"
@@ -606,7 +628,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1193",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:03.820Z",
+      "crawledAt": "2026-09-01T04:04:09.376Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -625,12 +647,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-service-delivery-ubp-ch",
-        "la-servizio-union-bancaire-privee-geneva-switzerland"
+        "la-servizio-union-bancaire-privee-geneva-switzerland",
+        "it-service-delivery-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-service-delivery-ubp-ch",
-          "la-servizio-union-bancaire-privee-geneva-switzerland"
+          "la-servizio-union-bancaire-privee-geneva-switzerland",
+          "it-service-delivery-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-service-delivery-ubp-ch"
@@ -640,6 +664,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T23:58:59.872Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -685,7 +710,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1010",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:03.342Z",
+      "crawledAt": "2026-09-01T04:04:08.845Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -706,13 +731,15 @@
         "system-engineer-messaging-ubp-ch",
         "system-ingenieur-union-bancaire-privee-geneva-switzerland",
         "system-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "system-engineer-messaging-union-bancaire-privee-geneva-switzerland"
+        "system-engineer-messaging-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-messaging-ubp-ch",
           "system-ingenieur-union-bancaire-privee-geneva-switzerland",
-          "system-ingegnere-union-bancaire-privee-geneva-switzerland"
+          "system-ingegnere-union-bancaire-privee-geneva-switzerland",
+          "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "system-engineer-messaging-union-bancaire-privee-geneva-switzerland"
@@ -755,7 +782,7 @@
       "titleByLocale": {
         "it": "Senior Wealth Planner - Zurigo",
         "en": "Senior Wealth Planner - Zurich",
-        "de": "Senior Wealth Planner - Zürich",
+        "de": "Senior Wealth Planner - Zurich",
         "fr": "Planificateur principal de gestion patrimoniale - Zurich"
       },
       "description": "You will join the Wealth Planning Team at Union Bancaire Privée (UBP) in Zurich, Switzerland.\n In this role, you will serve clients and partner with Relationship Managers to ensure that wealth planning needs are appropriately addressed.\n You will provide guidance on succession and legacy planning, tax suitability, mobility planning, and wealth structuring—based on each client’s specific circumstances—to create added value and mitigate risk, collaborating with Compliance on an on-demand basis to ensure alignment with KYC/AML requirements and internal policies.\n The role also includes delivering training and presentations on compliant wealth planning strategies and options, helping clients stay ahead of fast-changing, increasingly complex regulations and protect their wealth while maximizing after-tax income, and preparing timely, accurate internal Wealth Planning Alerts and client memorandums on the topics outlined above.\n\nMain responsibilities:\n\n• Proactive engagement with bankers to recognize and anticipate clients’ needs, and to identify, and capture business opportunities.\n\n• Provide and train Private Bankers with up-to-date, relevant technical information to understand impactful tax and legal developments and take proper action.\n\n• Identify, present and discuss appropriate and compliant wealth planning solutions and strategies to meet clients’ needs: deliver customized service and bespoke strategies.\n\n• Meet clients and prospects (including business travel with bankers)\n\n• Actively promote Wealth Planning services across the Bank via ad hoc presentations and publications on selected, high-impact themes; actively support tax and legal wealth-preservation objectives.\n\n• Maintain a high level of technical expertise on dedicated markets and take an effective, risk-based and outcomes-focused approach to mitigate risks.\n\n• Build and maintain a network of intermediaries such as trust and corporate service providers, tax and law firms.\n\n• Comply with external and internal compliance and regulatory requirements, including the Bank’s policies, operating procedures and controls to meet the Bank’s and regulatory requirements and protect the business from legal, financial and reputational risk.\n\n• Integrate with the local team of Wealth Planners based in Zurich; collaborate across UBP Group; report to Head of Wealth Planning – Switzerland, based in Geneva.\n\n• Partner with the Compliance Department to review complex existing cases and fiduciary/ownership structures (trusts, foundations, SPVs) strictly on a Compliance-initiated, on-demand basis; verify beneficial ownership and document structuring rationales in line with KYC/AML policies and cross-border rules.\n\n• Support onboarding for structure-heavy clients only upon Compliance request: UBO identification, rationale, required entity documentation, ownership charts, and justification memos to facilitate Compliance approval.\n\n• Perform periodic and event-driven reviews (e.g., KYC refresh, trigger events) exclusively when initiated by Compliance.\n\nRequirements:\n\n• 12+ years of relevant experience in wealth planning services\n\n• Deep expertise in UK and Anglo-Saxon wealth structuring, with a proven track record of success in these jurisdictions.\n\n• Broad, advanced knowledge across core wealth planning disciplines (tax, legal, succession, governance), evidenced by complex case execution and client impac t.\n\n• Law background/diploma required for this role\n\n• Fluency in English; German and additional languages are an advantage\n\n• Confident, persuasive communicator with excellent presentation skills\n\n• Outstanding verbal and written communication skills, with the ability to simplify complex topics for varied audiences\n\n• Resilient and adaptable: able to perform under pressure, prioritize effectively, and maintain high standards\n\n• Self-motivated, service driven, and relentlessly focused on client outcomes\n\n• Strong team player, highly organized with exceptional attention to detail\n\nThis is a 100% role located in Zurich.\n Start: asap",
@@ -770,7 +797,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1186",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:02.864Z",
+      "crawledAt": "2026-09-01T04:04:08.312Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -788,17 +815,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-wealth-planner-zurich-ubp-ch"
+        "senior-wealth-planner-zurich-ubp-ch",
+        "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-wealth-planner-zurich-ubp-ch"
+          "senior-wealth-planner-zurich-ubp-ch",
+          "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland"
         ],
         "fr": [
           "senior-wealth-planner-zurich-ubp-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T23:49:58.466Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -844,7 +874,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1237",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:02.386Z",
+      "crawledAt": "2026-09-01T04:04:07.785Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -863,11 +893,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-cyber-security-engineering-ubp-ch",
-        "head-of-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
+        "head-of-cyber-security-engineering-union-bancaire-privee-geneva-switzerland",
+        "responsabile-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-cyber-security-engineering-ubp-ch"
+          "head-of-cyber-security-engineering-ubp-ch",
+          "responsabile-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "head-of-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
@@ -925,7 +957,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1245",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:01.911Z",
+      "crawledAt": "2026-09-01T04:04:07.241Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -944,11 +976,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "multi-skilled-maintenance-technician-ubp-ch",
-        "multi-skilled-maintenance-technician-union-bancaire-privee-london-united-kingdom"
+        "multi-skilled-maintenance-technician-union-bancaire-privee-london-united-kingdom",
+        "tecnico-di-manutenzione-multi-skilled-union-bancaire-privee-london-united-kingdom"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "multi-skilled-maintenance-technician-ubp-ch"
+          "multi-skilled-maintenance-technician-ubp-ch",
+          "tecnico-di-manutenzione-multi-skilled-union-bancaire-privee-london-united-kingdom"
         ],
         "en": [
           "multi-skilled-maintenance-technician-union-bancaire-privee-london-united-kingdom"
@@ -1006,7 +1040,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:01.313Z",
+      "crawledAt": "2026-09-01T04:04:06.650Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1025,11 +1059,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "system-engineer-active-directory-specialist-ubp-ch"
+          "system-engineer-active-directory-specialist-ubp-ch",
+          "system-engineer-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
           "system-engineer-ubp-ch",
-          "system-engineer-active-directory-specialist-ubp-ch"
+          "system-engineer-active-directory-specialist-ubp-ch",
+          "system-ingegnere-active-directory-specialista-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-ubp-ch"
@@ -1040,7 +1076,9 @@
       },
       "previousSlugs": [
         "system-engineer-ubp-ch",
-        "system-engineer-active-directory-specialist-ubp-ch"
+        "system-engineer-active-directory-specialist-ubp-ch",
+        "system-engineer-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-active-directory-specialista-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-06-30T12:44:27.675Z",
       "salaryMin": 71000,
@@ -1088,7 +1126,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/254",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:00.832Z",
+      "crawledAt": "2026-09-01T04:04:06.117Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1107,11 +1145,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-analyst-ubp-ch",
-        "technical-analyst-union-bancaire-privee-geneva-switzerland"
+        "technical-analyst-union-bancaire-privee-geneva-switzerland",
+        "technical-analista-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-analyst-ubp-ch"
+          "technical-analyst-ubp-ch",
+          "technical-analista-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "technical-analyst-union-bancaire-privee-geneva-switzerland"
@@ -1124,6 +1164,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:48:39.693Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1169,7 +1210,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1217",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:40:00.186Z",
+      "crawledAt": "2026-09-01T04:04:05.586Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1189,12 +1230,14 @@
       "previousSlugs": [
         "ms-cloud-engineer-ubp-ch",
         "microsoft-cloud-engineer-consultant-ubp-ch",
-        "microsoft-cloud-engineer-consultant-union-bancaire-privee-geneva-switzerland"
+        "microsoft-cloud-engineer-consultant-union-bancaire-privee-geneva-switzerland",
+        "ms-cloud-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ms-cloud-engineer-ubp-ch",
-          "microsoft-cloud-engineer-consultant-ubp-ch"
+          "microsoft-cloud-engineer-consultant-ubp-ch",
+          "ms-cloud-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "ms-cloud-engineer-ubp-ch",
@@ -1253,7 +1296,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1310",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:59.713Z",
+      "crawledAt": "2026-09-01T04:04:05.056Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1272,11 +1315,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operations-transformation-manager-ubp-ch",
-        "operations-transformation-manager-union-bancaire-privee-geneva-switzerland"
+        "operations-transformation-manager-union-bancaire-privee-geneva-switzerland",
+        "gestione-delle-operazioni-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operations-transformation-manager-ubp-ch"
+          "operations-transformation-manager-ubp-ch",
+          "gestione-delle-operazioni-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "operations-transformation-manager-union-bancaire-privee-geneva-switzerland"
@@ -1332,7 +1377,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1311",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:59.245Z",
+      "crawledAt": "2026-09-01T04:04:04.520Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1351,11 +1396,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "microsoft-cloud-digital-workplace-architect-ubp-ch",
-        "microsoft-cloud-digital-workplace-architect-union-bancaire-privee-geneva-switzerland"
+        "microsoft-cloud-digital-workplace-architect-union-bancaire-privee-geneva-switzerland",
+        "microsoft-cloud-digital-workplace-architetto-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "microsoft-cloud-digital-workplace-architect-ubp-ch"
+          "microsoft-cloud-digital-workplace-architect-ubp-ch",
+          "microsoft-cloud-digital-workplace-architetto-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "microsoft-cloud-digital-workplace-architect-union-bancaire-privee-geneva-switzerland"
@@ -1380,7 +1427,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ubp-035f7aff21c2",
@@ -1413,7 +1461,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1308",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:58.763Z",
+      "crawledAt": "2026-09-01T04:04:03.989Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1438,7 +1486,8 @@
         "tax-spezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialiste-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-3",
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "progetto-infrastruture-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1448,7 +1497,8 @@
           "tax-spezialist-union-bancaire-privee-geneva-switzerland",
           "tax-specialiste-union-bancaire-privee-geneva-switzerland",
           "tax-specialist-ubp-ch-3",
-          "tax-specialist-ubp-ch"
+          "tax-specialist-ubp-ch",
+          "progetto-infrastruture-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "infrastructure-project-manager-union-bancaire-privee-geneva-switzerland",
@@ -1509,7 +1559,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1216",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:58.291Z",
+      "crawledAt": "2026-09-01T04:04:03.457Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1528,11 +1578,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "control-m-batch-engineer-consultant-ubp-ch",
-        "control-m-batch-engineer-consultant-union-bancaire-privee-geneva-switzerland"
+        "control-m-batch-engineer-consultant-union-bancaire-privee-geneva-switzerland",
+        "control-m-batch-ingegnere-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "control-m-batch-engineer-consultant-ubp-ch"
+          "control-m-batch-engineer-consultant-ubp-ch",
+          "control-m-batch-ingegnere-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "control-m-batch-engineer-consultant-union-bancaire-privee-geneva-switzerland"
@@ -1590,7 +1642,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1331",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:57.812Z",
+      "crawledAt": "2026-09-01T04:04:02.923Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1609,11 +1661,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ebanking-it-l3-support-consultant-ubp-ch",
-        "ebanking-it-l3-support-consultant-union-bancaire-privee-geneva-switzerland"
+        "ebanking-it-l3-support-consultant-union-bancaire-privee-geneva-switzerland",
+        "ebanking-it-l3-support-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ebanking-it-l3-support-consultant-ubp-ch"
+          "ebanking-it-l3-support-consultant-ubp-ch",
+          "ebanking-it-l3-support-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "ebanking-it-l3-support-consultant-union-bancaire-privee-geneva-switzerland"
@@ -1669,7 +1723,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/504",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:57.326Z",
+      "crawledAt": "2026-09-01T04:04:02.379Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1688,11 +1742,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-engineer-openshift-consultant-ubp-ch",
-        "system-engineer-openshift-consultant-union-bancaire-privee-geneva-switzerland"
+        "system-engineer-openshift-consultant-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-openshift-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-openshift-consultant-ubp-ch"
+          "system-engineer-openshift-consultant-ubp-ch",
+          "system-ingegnere-openshift-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "system-engineer-openshift-consultant-union-bancaire-privee-geneva-switzerland"
@@ -1750,7 +1806,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/587",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:56.847Z",
+      "crawledAt": "2026-09-01T04:04:01.847Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1770,12 +1826,14 @@
       "previousSlugs": [
         "qa-engineer-ebanking-private-banking-wealth-management-ubp-ch",
         "qa-engineer-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland",
-        "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch"
+        "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch",
+        "qa-ingegnere-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "qa-engineer-ebanking-private-banking-wealth-management-ubp-ch",
-          "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch"
+          "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch",
+          "qa-ingegnere-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "qa-engineer-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland"
@@ -1800,7 +1858,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ubp-6a41af4eb41b",
@@ -1833,7 +1892,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1389",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:56.371Z",
+      "crawledAt": "2026-09-01T04:04:01.300Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1852,12 +1911,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "entreprise-functional-architect-consultant-ubp-ch"
+          "entreprise-functional-architect-consultant-ubp-ch",
+          "enterprise-functional-architect-ubp-ch"
         ],
         "it": [
           "enterprise-functional-architect-ubp-ch",
           "enterprise-functional-architect-consultant-ubp-ch",
-          "entreprise-functional-architect-consultant-ubp-ch"
+          "entreprise-functional-architect-consultant-ubp-ch",
+          "enterprise-functional-architetto-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "enterprise-functional-architect-ubp-ch"
@@ -1869,9 +1930,11 @@
       "previousSlugs": [
         "enterprise-functional-architect-ubp-ch",
         "enterprise-functional-architect-consultant-ubp-ch",
-        "entreprise-functional-architect-consultant-ubp-ch"
+        "entreprise-functional-architect-consultant-ubp-ch",
+        "enterprise-functional-architetto-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-07-27T12:46:58.571Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1917,7 +1980,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1307",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:55.895Z",
+      "crawledAt": "2026-09-01T04:04:00.748Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1935,11 +1998,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-tooling-devops-specialist-consultant-ubp-ch"
+        "it-tooling-devops-specialist-consultant-ubp-ch",
+        "it-tooling-devops-specialista-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-tooling-devops-specialist-consultant-ubp-ch"
+          "it-tooling-devops-specialist-consultant-ubp-ch",
+          "it-tooling-devops-specialista-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-tooling-devops-specialist-consultant-ubp-ch"
@@ -1994,7 +2059,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:55.423Z",
+      "crawledAt": "2026-09-01T04:04:00.125Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2013,10 +2078,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "wm-business-risk-manager-ubp-ch"
+          "wm-business-risk-manager-ubp-ch",
+          "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
-          "wm-business-risk-manager-ubp-ch"
+          "wm-business-risk-manager-ubp-ch",
+          "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland"
         ],
         "fr": [
           "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland"
@@ -2024,7 +2091,8 @@
       },
       "previousSlugs": [
         "wm-business-risk-manager-ubp-ch",
-        "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland"
+        "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland",
+        "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T11:30:12.370Z",
@@ -2073,7 +2141,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/588",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:54.948Z",
+      "crawledAt": "2026-09-01T04:03:59.575Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2104,7 +2172,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "qa-test-manager-with-execution-and-coordination-activities-consultant-union-bancaire-privee-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "qa-test-manager-with-execution-and-coordination-activities-consultant-union-bancaire-privee-geneva-switzerland"
+      ]
     },
     {
       "id": "ubp-27a65f5f1049",
@@ -2137,7 +2213,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1444",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:54.471Z",
+      "crawledAt": "2026-09-01T04:03:59.040Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2155,11 +2231,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fees-specialist-ubp-ch"
+        "fees-specialist-ubp-ch",
+        "fees-specialista-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fees-specialist-ubp-ch"
+          "fees-specialist-ubp-ch",
+          "fees-specialista-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "fees-specialist-ubp-ch"
@@ -2214,7 +2292,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1447",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:53.996Z",
+      "crawledAt": "2026-09-01T04:03:58.509Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2234,14 +2312,17 @@
       "firstSeenAt": "2026-08-03T12:51:00.349Z",
       "previousSlugsByLocale": {
         "it": [
-          "securities-transfers-officer-ubp-ch"
+          "securities-transfers-officer-ubp-ch",
+          "securities-transfer-officer-ubp-ch"
         ],
         "en": [
-          "securities-transfers-officer-ubp-ch"
+          "securities-transfers-officer-ubp-ch",
+          "securities-transfer-officer-ubp-ch"
         ]
       },
       "previousSlugs": [
-        "securities-transfers-officer-ubp-ch"
+        "securities-transfers-officer-ubp-ch",
+        "securities-transfer-officer-ubp-ch"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2288,7 +2369,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1381",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:53.514Z",
+      "crawledAt": "2026-09-01T04:03:57.973Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2306,11 +2387,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
+        "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch",
+        "appway-sviluppatore-support-client-lifecycle-management-clm-kyc-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
+          "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch",
+          "appway-sviluppatore-support-client-lifecycle-management-clm-kyc-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
@@ -2320,6 +2403,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:04.508Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2365,7 +2449,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1451",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:53.035Z",
+      "crawledAt": "2026-09-01T04:03:57.418Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2384,11 +2468,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "client-record-remediation-specialist-temporary-7-months-ubp-ch"
+          "client-record-remediation-specialist-temporary-7-months-ubp-ch",
+          "client-data-remediation-temporary-7-months-ubp-ch"
         ],
         "it": [
           "client-data-remediation-temporary-7-months-ubp-ch",
-          "client-record-remediation-specialist-temporary-7-months-ubp-ch"
+          "client-record-remediation-specialist-temporary-7-months-ubp-ch",
+          "risanamento-dati-cliente-temporaria-7-mesi-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "client-data-remediation-temporary-7-months-ubp-ch"
@@ -2399,7 +2485,8 @@
       },
       "previousSlugs": [
         "client-data-remediation-temporary-7-months-ubp-ch",
-        "client-record-remediation-specialist-temporary-7-months-ubp-ch"
+        "client-record-remediation-specialist-temporary-7-months-ubp-ch",
+        "risanamento-dati-cliente-temporaria-7-mesi-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-04T22:30:16.755Z",
       "salaryMin": 60500,
@@ -2447,7 +2534,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1460",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:52.559Z",
+      "crawledAt": "2026-09-01T04:03:56.888Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2465,11 +2552,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
+        "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch",
+        "quantitative-analista-alm-junior-treasury-dealer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
+          "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch",
+          "quantitative-analista-alm-junior-treasury-dealer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
@@ -2525,7 +2614,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1392",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:52.085Z",
+      "crawledAt": "2026-09-01T04:03:56.353Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2545,12 +2634,14 @@
       "previousSlugsByLocale": {
         "en": [
           "senior-database-engineer-ubp-ch",
-          "senior-database-engineer-consultant-ubp-ch"
+          "senior-database-engineer-consultant-ubp-ch",
+          "bi-controlling-developer-ubp-ch"
         ],
         "it": [
           "bi-controlling-developer-ubp-ch",
           "senior-database-engineer-ubp-ch",
-          "senior-database-engineer-consultant-ubp-ch"
+          "senior-database-engineer-consultant-ubp-ch",
+          "bi-controlling-sviluppatore-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "bi-controlling-developer-ubp-ch"
@@ -2562,7 +2653,8 @@
       "previousSlugs": [
         "bi-controlling-developer-ubp-ch",
         "senior-database-engineer-ubp-ch",
-        "senior-database-engineer-consultant-ubp-ch"
+        "senior-database-engineer-consultant-ubp-ch",
+        "bi-controlling-sviluppatore-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-05T11:36:37.957Z",
       "salaryMin": 97500,
@@ -2610,7 +2702,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1387",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:51.612Z",
+      "crawledAt": "2026-09-01T04:03:55.822Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2628,11 +2720,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-consultant-ubp-ch"
+        "project-manager-consultant-ubp-ch",
+        "project-manager-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-consultant-ubp-ch"
+          "project-manager-consultant-ubp-ch",
+          "project-manager-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "project-manager-consultant-ubp-ch"
@@ -2642,6 +2736,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:42.639Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2687,7 +2782,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1200",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:51.135Z",
+      "crawledAt": "2026-09-01T04:03:55.288Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2705,11 +2800,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "media-relations-content-specialist-ubp-ch"
+        "media-relations-content-specialist-ubp-ch",
+        "media-relations-content-specialista-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "media-relations-content-specialist-ubp-ch"
+          "media-relations-content-specialist-ubp-ch",
+          "media-relations-content-specialista-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:12.494Z",
@@ -2758,7 +2855,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1466",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:50.651Z",
+      "crawledAt": "2026-09-01T04:03:54.740Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2776,11 +2873,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "reconciliations-specialist-7-months-mission-ubp-ch"
+        "reconciliations-specialist-7-months-mission-ubp-ch",
+        "reconciliations-specialist-7-months-mission-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reconciliations-specialist-7-months-mission-ubp-ch"
+          "reconciliations-specialist-7-months-mission-ubp-ch",
+          "reconciliations-specialist-7-months-mission-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:28.912Z",
@@ -2829,7 +2928,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1465",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:50.168Z",
+      "crawledAt": "2026-09-01T04:03:54.205Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2847,11 +2946,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fees-specialist-6-months-mission-ubp-ch"
+        "fees-specialist-6-months-mission-ubp-ch",
+        "fees-specialista-6-months-mission-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fees-specialist-6-months-mission-ubp-ch"
+          "fees-specialist-6-months-mission-ubp-ch",
+          "fees-specialista-6-months-mission-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "fees-specialist-6-months-mission-ubp-ch"
@@ -2906,7 +3007,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1390",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:49.686Z",
+      "crawledAt": "2026-09-01T04:03:53.670Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2925,18 +3026,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "core-banking-business-analyst-ba-ubp-ch",
-        "core-banking-business-analyst-consultant-ubp-ch"
+        "core-banking-business-analyst-consultant-ubp-ch",
+        "core-banking-business-analista-ba-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "core-banking-business-analyst-ba-ubp-ch",
-          "core-banking-business-analyst-consultant-ubp-ch"
+          "core-banking-business-analyst-consultant-ubp-ch",
+          "core-banking-business-analista-ba-union-bancaire-privee-geneva-switzerland"
         ],
         "fr": [
           "core-banking-business-analyst-ba-ubp-ch"
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:27.928Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2982,7 +3086,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1384",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:49.204Z",
+      "crawledAt": "2026-09-01T04:03:53.118Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3000,11 +3104,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "api-developer-ubp-ch"
+        "api-developer-ubp-ch",
+        "api-sviluppatore-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "api-developer-ubp-ch"
+          "api-developer-ubp-ch",
+          "api-sviluppatore-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "api-developer-ubp-ch"
@@ -3059,7 +3165,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1481",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:48.723Z",
+      "crawledAt": "2026-09-01T04:03:52.581Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3077,11 +3183,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "security-engineer-ubp-ch"
+        "security-engineer-ubp-ch",
+        "security-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-engineer-ubp-ch"
+          "security-engineer-ubp-ch",
+          "security-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "security-engineer-ubp-ch"
@@ -3136,7 +3244,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1135",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:48.217Z",
+      "crawledAt": "2026-09-01T04:03:52.040Z",
       "addressLocality": "Guernsey",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3208,7 +3316,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1382",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:47.696Z",
+      "crawledAt": "2026-09-01T04:03:51.490Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3226,11 +3334,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
+        "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch",
+        "database-oriented-analista-sviluppatore-oracle-banking-sector-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
+          "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch",
+          "database-oriented-analista-sviluppatore-oracle-banking-sector-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
@@ -3286,7 +3396,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1380",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:47.202Z",
+      "crawledAt": "2026-09-01T04:03:50.956Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3304,11 +3414,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "documentum-developer-consultant-ubp-ch"
+        "documentum-developer-consultant-ubp-ch",
+        "documentum-sviluppatore-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "documentum-developer-consultant-ubp-ch"
+          "documentum-developer-consultant-ubp-ch",
+          "documentum-sviluppatore-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "documentum-developer-consultant-ubp-ch"
@@ -3364,7 +3476,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1373",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:46.718Z",
+      "crawledAt": "2026-09-01T04:03:50.421Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3382,11 +3494,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "credit-structuring-officer-m-f-x-ubp-ch"
+        "credit-structuring-officer-m-f-x-ubp-ch",
+        "credit-structing-officer-m-f-x-union-bancaire-privee-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-structuring-officer-m-f-x-ubp-ch"
+          "credit-structuring-officer-m-f-x-ubp-ch",
+          "credit-structing-officer-m-f-x-union-bancaire-privee-luxembourg"
         ],
         "fr": [
           "credit-structuring-officer-m-f-x-ubp-ch"
@@ -3439,7 +3553,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1386",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:46.191Z",
+      "crawledAt": "2026-09-01T04:03:49.880Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3457,11 +3571,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anonymization-developer-ubp-ch"
+        "anonymization-developer-ubp-ch",
+        "anonymization-sviluppatore-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anonymization-developer-ubp-ch"
+          "anonymization-developer-ubp-ch",
+          "anonymization-sviluppatore-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "anonymization-developer-ubp-ch"
@@ -3516,7 +3632,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1385",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:45.704Z",
+      "crawledAt": "2026-09-01T04:03:49.328Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3534,11 +3650,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-java-platform-engineer-banking-sector-ubp-ch"
+        "senior-java-platform-engineer-banking-sector-ubp-ch",
+        "senior-java-platform-ingegnere-banking-sector-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-platform-engineer-banking-sector-ubp-ch"
+          "senior-java-platform-engineer-banking-sector-ubp-ch",
+          "senior-java-platform-ingegnere-banking-sector-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "senior-java-platform-engineer-banking-sector-ubp-ch"
@@ -3548,6 +3666,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T09:50:28.013Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -3593,7 +3712,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1505",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:45.203Z",
+      "crawledAt": "2026-09-01T04:03:48.793Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3611,11 +3730,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-intern-ubp-ch"
+        "hr-intern-ubp-ch",
+        "risorse-umane-tirocinante-union-bancaire-privee-london-united-kingdom"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-intern-ubp-ch"
+          "hr-intern-ubp-ch",
+          "risorse-umane-tirocinante-union-bancaire-privee-london-united-kingdom"
         ],
         "de": [
           "hr-intern-ubp-ch"
@@ -3670,7 +3791,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1508",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:44.372Z",
+      "crawledAt": "2026-09-01T04:03:48.103Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3734,7 +3855,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1472",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:43.886Z",
+      "crawledAt": "2026-09-01T04:03:47.555Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3754,11 +3875,13 @@
       "previousSlugsByLocale": {
         "en": [
           "system-engineer-union-bancaire-privee-geneva-switzerland",
-          "system-engineer-ad-consultant-ubp-ch"
+          "system-engineer-ad-consultant-ubp-ch",
+          "system-engineer-ubp-ch"
         ],
         "it": [
           "system-engineer-ubp-ch",
-          "system-engineer-ad-consultant-ubp-ch"
+          "system-engineer-ad-consultant-ubp-ch",
+          "system-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-ubp-ch"
@@ -3770,7 +3893,8 @@
       "previousSlugs": [
         "system-engineer-ubp-ch",
         "system-engineer-union-bancaire-privee-geneva-switzerland",
-        "system-engineer-ad-consultant-ubp-ch"
+        "system-engineer-ad-consultant-ubp-ch",
+        "system-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-12T21:54:16.043Z",
       "salaryMin": 71000,
@@ -3792,9 +3916,9 @@
       "slug": "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
-        "it": "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+        "it": "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
         "de": "teamleiter-cash-services-union-bancaire-privee-geneva-switzerland",
-        "fr": "chef-d-equipe-union-bancaire-privee-geneva-switzerland"
+        "fr": "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3818,7 +3942,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:43.407Z",
+      "crawledAt": "2026-09-01T04:03:47.012Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3836,42 +3960,44 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
-        "it": [
-          "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+        "en": [
+          "programme-pmo-and-delivery-lead-ubp-ch",
           "senior-cash-projects-coordination-manager-ubp-ch",
-          "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
+          "team-head-cash-services-union-bancaire-privee-geneva-switzerland"
+        ],
+        "it": [
           "programma-pmo-e-piombo-di-consegna-union-bancaire-privee-geneva-switzerland",
           "programme-pmo-and-delivery-lead-ubp-ch",
           "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland",
           "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
-          "programme-pmo-and-delivery-lead-consultant-ubp-ch"
-        ],
-        "fr": [
-          "gestionnaire-principal-des-projets-de-tresorerie-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
-          "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
-          "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland"
-        ],
-        "en": [
+          "programme-pmo-and-delivery-lead-consultant-ubp-ch",
           "senior-cash-projects-coordination-manager-ubp-ch",
-          "programme-pmo-and-delivery-lead-ubp-ch"
+          "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+          "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland"
+        ],
+        "fr": [
+          "gestionnaire-principal-des-projets-de-tresorerie-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
+          "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
+          "chef-d-equipe-union-bancaire-privee-geneva-switzerland",
+          "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "previousSlugs": [
         "gestionnaire-principal-des-projets-de-tresorerie-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
-        "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
-        "chef-d-equipe-union-bancaire-privee-geneva-switzerland",
-        "senior-cash-projects-coordination-manager-ubp-ch",
-        "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
-        "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
-        "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
         "programma-pmo-e-piombo-di-consegna-union-bancaire-privee-geneva-switzerland",
         "programme-pmo-and-delivery-lead-ubp-ch",
         "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland",
         "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
-        "programme-pmo-and-delivery-lead-consultant-ubp-ch"
+        "programme-pmo-and-delivery-lead-consultant-ubp-ch",
+        "senior-cash-projects-coordination-manager-ubp-ch",
+        "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+        "chef-d-equipe-union-bancaire-privee-geneva-switzerland",
+        "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
+        "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
+        "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:42:59.407Z",
@@ -3920,7 +4046,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1271",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:42.922Z",
+      "crawledAt": "2026-09-01T04:03:46.437Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3939,11 +4065,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-securities-transfer-ubp-ch",
-        "head-of-securities-transfer-union-bancaire-privee-geneva-switzerland"
+        "head-of-securities-transfer-union-bancaire-privee-geneva-switzerland",
+        "responsabile-securities-transfer-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-securities-transfer-ubp-ch"
+          "head-of-securities-transfer-ubp-ch",
+          "responsabile-securities-transfer-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "head-of-securities-transfer-union-bancaire-privee-geneva-switzerland"
@@ -4001,7 +4129,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1437",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:42.425Z",
+      "crawledAt": "2026-09-01T04:03:45.893Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4020,12 +4148,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "tax-specialist-temporary-8-months-ubp-ch",
-        "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa"
+        "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa",
+        "tax-specialista-temporary-8-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tax-specialist-temporary-8-months-ubp-ch",
-          "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa"
+          "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa",
+          "tax-specialista-temporary-8-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "tax-specialist-temporary-8-months-ubp-ch"
@@ -4081,7 +4211,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1438",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:41.929Z",
+      "crawledAt": "2026-09-01T04:03:45.361Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4099,11 +4229,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tax-specialist-temporary-6-months-ubp-ch"
+        "tax-specialist-temporary-6-months-ubp-ch",
+        "tax-specialista-temporary-6-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tax-specialist-temporary-6-months-ubp-ch"
+          "tax-specialist-temporary-6-months-ubp-ch",
+          "tax-specialista-temporary-6-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "tax-specialist-temporary-6-months-ubp-ch"
@@ -4131,8 +4263,8 @@
       "id": "ubp-4106e566e91a",
       "slug": "murex-technical-lead-consulente-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "en": "murex-technical-lead-consultant-ubp-ch",
         "it": "murex-technical-lead-consulente-union-bancaire-privee-geneva-switzerland",
+        "en": "murex-technical-lead-consultant-ubp-ch",
         "de": "murex-technical-lead-berater-union-bancaire-privee-geneva-switzerland",
         "fr": "murex-responsable-technique-consultant-union-bancaire-privee-geneva-switzerland"
       },
@@ -4158,7 +4290,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1524",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:41.449Z",
+      "crawledAt": "2026-09-01T04:03:44.820Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4175,21 +4307,6 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1524",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 97500,
-      "salaryMax": 148000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 148000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-31T17:10:07.209Z",
       "previousSlugs": [
         "murex-technical-lead-consultant-ubp-ch",
         "murex-technical-lead-consulente-union-bancaire-privee-geneva-switzerland"
@@ -4205,14 +4322,29 @@
         "fr": [
           "murex-technical-lead-consultant-ubp-ch"
         ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:10:07.209Z",
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
       "id": "ubp-b3e458c3f352",
       "slug": "murex-treasury-ba-consulente-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
-        "en": "murex-treasury-ba-consultant-ubp-ch",
         "it": "murex-treasury-ba-consulente-union-bancaire-privee-geneva-switzerland",
+        "en": "murex-treasury-ba-consultant-ubp-ch",
         "de": "murex-treasury-ba-berater-union-bancaire-privee-geneva-switzerland",
         "fr": "murex-treasury-ba-consultant-ubp-ch"
       },
@@ -4238,7 +4370,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1526",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:40.940Z",
+      "crawledAt": "2026-09-01T04:03:44.280Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4255,21 +4387,6 @@
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1526",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-31T17:10:06.653Z",
       "previousSlugs": [
         "murex-treasury-ba-consultant-ubp-ch",
         "murex-treasury-ba-consulente-union-bancaire-privee-geneva-switzerland"
@@ -4282,6 +4399,21 @@
         "de": [
           "murex-treasury-ba-consultant-ubp-ch"
         ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:10:06.653Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -4315,7 +4447,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1525",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:40.453Z",
+      "crawledAt": "2026-09-01T04:03:43.724Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4392,7 +4524,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1532",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T00:39:39.963Z",
+      "crawledAt": "2026-09-01T04:03:43.190Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4472,7 +4604,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1464",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:39:39.468Z",
+      "crawledAt": "2026-09-01T04:03:42.568Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
