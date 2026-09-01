@@ -1696,6 +1696,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-friburgo-procedura': { it: 'patente-guida-friburgo-procedura', en: 'driving-license-fribourg-procedure', de: 'fuehrerschein-freiburg-verfahren', fr: 'permis-conduite-fribourg-procedure' },
  'vendite-auto-svizzera-agosto-2026': { it: 'vendite-auto-svizzera-agosto-2026', en: 'swiss-car-sales-august-2026', de: 'schweizer-auto-verkaufe-august-2026', fr: 'ventes-auto-suisse-aout-2026' },
  'asilo-nido-custodia-bambini-grigioni': { it: 'asilo-nido-custodia-bambini-grigioni', en: 'nursery-childcare-graubunden-costs', de: 'kindergarten-betreuung-graubuenden-kosten', fr: 'garderie-enfants-grisons-tarifs' },
+ 'acquisto-immobiliare-grigioni-mutuo': { it: 'acquisto-immobiliare-grigioni-mutuo', en: 'buy-property-grisons-mortgage', de: 'immobilienkauf-graubuenden-hypothek', fr: 'achat-immobilier-grisons-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

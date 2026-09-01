@@ -5011,6 +5011,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Graubünden',
     'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Betreuungsmöglichkeiten, einkommensberechnete Tarife und Kantonsbeiträge: Praktischer Leitfaden für Familien in Graubünden.',
     'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Modernes Kindergartenklassenzimmer in der Schweiz mit Kindern und Erziehern beim Spielen',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Haus kaufen im Kanton Graubünden: Hypothek, Kosten und Verfahren',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Praktischer Leitfaden für den Immobilienkauf in Graubünden: Kauf- und Verkaufsverfahren, erforderliche Eigenmittel, Tragbarkeit des Hypothekendarlehens, Abgaben und Notargebühren.',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Modernes Wohnhaus im traditionellen Schweizer Alpin-Stil mit Holzarchitektur und alpiner Umgebung.',
 };
 
 export default blogMetaChDe;
