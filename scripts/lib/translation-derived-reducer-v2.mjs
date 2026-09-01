@@ -10,6 +10,7 @@ import {
 } from './translation-derived-patch-v2.mjs';
 
 export const MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2 = 250;
+export const MAX_TRANSLATION_DERIVED_JSON_DEPTH_V2 = 128;
 
 function isPlainObject(value) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
@@ -17,7 +18,12 @@ function isPlainObject(value) {
   return prototype === Object.prototype || prototype === null;
 }
 
-function assertJsonData(value, label, ancestors = new Set()) {
+function assertJsonData(value, label, ancestors = new Set(), depth = 0) {
+  if (depth > MAX_TRANSLATION_DERIVED_JSON_DEPTH_V2) {
+    throw new TypeError(
+      `${label} must not exceed JSON depth ${MAX_TRANSLATION_DERIVED_JSON_DEPTH_V2}`,
+    );
+  }
   if (value === null || typeof value === 'string' || typeof value === 'boolean') return;
   if (typeof value === 'number') {
     if (Number.isFinite(value)) return;
@@ -51,7 +57,7 @@ function assertJsonData(value, label, ancestors = new Set()) {
       if (!descriptor?.enumerable || !Object.hasOwn(descriptor, 'value')) {
         throw new TypeError(`${label} must contain only JSON data properties`);
       }
-      assertJsonData(descriptor.value, label, ancestors);
+      assertJsonData(descriptor.value, label, ancestors, depth + 1);
     }
   } else {
     if (!isPlainObject(value)) throw new TypeError(`${label} must contain only plain JSON objects`);
@@ -61,7 +67,7 @@ function assertJsonData(value, label, ancestors = new Set()) {
       if (!descriptor?.enumerable || !Object.hasOwn(descriptor, 'value')) {
         throw new TypeError(`${label} must contain only JSON data properties`);
       }
-      assertJsonData(descriptor.value, label, ancestors);
+      assertJsonData(descriptor.value, label, ancestors, depth + 1);
     }
   }
   ancestors.delete(value);

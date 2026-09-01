@@ -9,6 +9,7 @@ import {
   createTranslationDerivedPatchV2,
 } from '../scripts/lib/translation-derived-patch-v2.mjs';
 import {
+  MAX_TRANSLATION_DERIVED_JSON_DEPTH_V2,
   MAX_TRANSLATION_DERIVED_PATCH_BATCH_V2,
   reduceTranslationDerivedPatchBatchV2,
   reduceTranslationDerivedPatchV2,
@@ -180,6 +181,30 @@ describe('translation derived reducer v2', () => {
       { ...slice(), metadata: huge },
       patchFor(BASE_JOB),
     )).toThrow(/dense JSON arrays/);
+  });
+
+  it('rejects excessive acyclic JSON depth with a controlled TypeError before clone', () => {
+    const metadata: Record<string, unknown> = {};
+    let cursor = metadata;
+    for (let depth = 0; depth < 12_000; depth += 1) {
+      const next: Record<string, unknown> = {};
+      cursor.next = next;
+      cursor = next;
+    }
+    let caught: unknown;
+    try {
+      reduceTranslationDerivedPatchV2(
+        { ...slice(), metadata },
+        patchFor(BASE_JOB),
+      );
+    } catch (error) {
+      caught = error;
+    }
+
+    expect(caught).toBeInstanceOf(TypeError);
+    expect((caught as Error).message)
+      .toContain(`JSON depth ${MAX_TRANSLATION_DERIVED_JSON_DEPTH_V2}`);
+    expect(caught).not.toBeInstanceOf(RangeError);
   });
 
   it('ignores inherited locale maps, creates an own map and leaves the prototype untouched', () => {
