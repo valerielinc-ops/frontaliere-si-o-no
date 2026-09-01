@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-09-01T14:16:42.052Z",
+  "generatedAt": "2026-09-01T23:14:57.741Z",
   "total": 27,
   "newCount": 0,
   "updatedCount": 20,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 42759,
-  "avgDurationMs": 42759,
+  "durationMs": 43914,
+  "avgDurationMs": 43914,
   "durationHistory": [
-    42759
+    43914
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -114,17 +114,16 @@
       "validThrough": "",
       "workload": "100%",
       "id": "agie-charmilles-34b4ff53c8b7",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T09:00:25.577Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -157,11 +156,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T09:00:25.577Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -194,11 +193,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T09:00:25.577Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -491,7 +490,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T10:42:35.531Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -803,11 +801,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-01T09:00:25.577Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     }

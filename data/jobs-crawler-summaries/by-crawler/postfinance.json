@@ -1,16 +1,16 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-09-01T14:15:42.231Z",
+  "generatedAt": "2026-09-01T23:13:59.821Z",
   "total": 18,
   "newCount": 0,
   "updatedCount": 18,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37012,
-  "avgDurationMs": 37012,
+  "durationMs": 37876,
+  "avgDurationMs": 37876,
   "durationHistory": [
-    37012
+    37876
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +38,6 @@
       "experienceLevel": "",
       "sector": "IT",
       "workload": "80-100%",
-      "needsRetranslation": true,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
@@ -47,12 +46,19 @@
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "postedDate": "04.08.26",
       "crawledAt": "",
-      "_qualityScore": 81,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     },
     {
@@ -690,11 +696,11 @@
       "id": "postfinance-d5dbcaad5f86",
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "crawledAt": "",
-      "_qualityScore": 69,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 12,
-        "translation": 23,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -736,7 +742,7 @@
       "salarySource": "estimated",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,

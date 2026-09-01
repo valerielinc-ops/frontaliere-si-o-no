@@ -1,42 +1,18 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-09-01T14:21:19.139Z",
-  "total": 192,
-  "newCount": 11,
-  "updatedCount": 178,
+  "generatedAt": "2026-09-01T23:19:36.653Z",
+  "total": 191,
+  "newCount": 10,
+  "updatedCount": 179,
   "removedCount": 1,
-  "unchangedCount": 3,
-  "durationMs": 355556,
-  "avgDurationMs": 355556,
+  "unchangedCount": 2,
+  "durationMs": 353943,
+  "avgDurationMs": 353943,
   "durationHistory": [
-    355556
+    353943
   ],
   "newJobs": [
-    {
-      "title": "Boucher/ère 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Vevey-Boucher%C3%A8re-100/1366210955/",
-      "location": "Vevey Boucherère 100",
-      "canton": "VD",
-      "country": "CH",
-      "category": "retail",
-      "descriptionIt": "Boucher/ère 100% presso Manor, con sede a Vevey Boucherère 100, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-09-01",
-      "source": "company-website",
-      "slug": "manor-boucher-ere-100-vevey-boucherere-100",
-      "sourceLang": "it",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 16,
-        "completeness": 11
-      }
-    },
     {
       "title": "Retail Media Coordinator 100%",
       "company": "Manor AG",
@@ -358,6 +334,32 @@
       }
     },
     {
+      "title": "Boucher/ère 100%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Vevey-Boucher%C3%A8re-100/1366210955/",
+      "location": "Vevey Boucherère 100",
+      "canton": "VD",
+      "country": "CH",
+      "category": "retail",
+      "descriptionIt": "Boucher/ère 100% presso Manor, con sede a Vevey Boucherère 100, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
+      "postedDate": "2026-09-01",
+      "source": "company-website",
+      "slug": "manor-boucher-ere-100-vevey-boucherere-100",
+      "sourceLang": "it",
+      "id": "manor-4c8a6dc49ff1",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:21:19.125Z",
+      "crawledAt": "",
+      "_qualityScore": 70,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 20,
+        "completeness": 11
+      }
+    },
+    {
       "title": "Mitarbeiter*in Verkauf Bijouterie",
       "company": "Manor AG",
       "companyKey": "manor",
@@ -369,7 +371,7 @@
       "descriptionIt": "deutschsprechend, Teamplay, zuverlässig, schnelle Auffassungsgabe, Freude an schönem Schmuck und Uhren, Kundenorientiert, Leidenschaft beim Verkaufen, hohe Konzentration und Disziplin (hoher Warenwert), Stressresistent, lösungsorientiert",
       "postedDate": "2026-09-01",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-bijouterie-basel-mitarbeiterin-verkauf-bijouterie",
+      "slug": "collaboratore-trice-in-vendita-bijouterie-manor-ag-basel-mitarbeiterin-verkauf-bijouterie",
       "sourceLang": "de",
       "id": "manor-6334790e083e",
       "needsRetranslation": true,
@@ -1028,70 +1030,9 @@
         "translation": 25,
         "completeness": 11
       }
-    },
-    {
-      "title": "Impiegato/a del commercio dettaglio AFC 100%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Locarno-Impiegatoa-del-commercio-dettaglio-AFC-100/1365814355/",
-      "location": "Locarno Impiegatoa del commercio",
-      "canton": "TI",
-      "country": "CH",
-      "category": "apprenticeship",
-      "descriptionIt": "puntualità e rispetto degli orari, motivazione e interesse per il lavoro, precisione nello svolgere i compiti, portare sempre a termine i compiti scolastici.",
-      "postedDate": "2026-08-27",
-      "source": "company-website",
-      "slug": "manor-impiegato-a-del-commercio-dettaglio-afc-100-locarno-impiegatoa-del-commercio",
-      "sourceLang": "it",
-      "id": "manor-31ecae485cb1",
-      "firstSeenAt": "2026-08-28T05:29:15.749Z",
-      "crawledAt": "",
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 3,
-        "translation": 25,
-        "completeness": 11
-      }
     }
   ],
   "removedJobs": [
-    {
-      "title": "Collaborateur/trice caisse (Confection Enfants) 20%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-caisse-%28Confection-Enfants%29-20/1364973655/",
-      "location": "Lausanne Collaborateurtrice caisse (Confection",
-      "canton": "VD",
-      "country": "CH",
-      "category": "sales",
-      "descriptionIt": "Collaborateur/trice caisse (Confection Enfants) 20% presso Manor, con sede a Lausanne Collaborateurtrice caisse (Confection, Canton Vaud, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "postedDate": "2026-08-19",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-caisse-confection-enfants-20-lausanne-collaborateurtrice-caisse-confection",
-      "sourceLang": "it",
-      "id": "manor-8c13e3523f15",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-19T10:25:28.531Z",
-      "crawledAt": "",
-      "salaryMin": 14400,
-      "salaryMax": 22200,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Lausanne Collaborateurtrice caisse (Confection",
-      "addressRegion": "VD",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 78,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 23,
-        "completeness": 16
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "title": "Mitarbeiter*in Kasse 20%",
       "company": "Manor AG",
@@ -1125,7 +1066,9 @@
         "translation": 23,
         "completeness": 16
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "title": "Collaborateur/trice logistique Etudiant/e 20%",
       "company": "Manor AG",
@@ -1151,7 +1094,7 @@
       "addressLocality": "Vevey Collaborateurtrice logistique Etudiante",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1185,7 +1128,7 @@
       "addressLocality": "Chur Mitarbeiterin Kasse 20",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,

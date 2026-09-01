@@ -1,7 +1,86 @@
 {
   "crawlerKey": "imad",
-  "assembledAt": "2026-09-01T14:15:17.825Z",
+  "assembledAt": "2026-09-01T23:13:34.583Z",
   "jobs": [
+    {
+      "id": "imad-df86166e23b2",
+      "slug": "candidatura-spontanea-altro-imad-geneva",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-altro-imad-geneva",
+        "en": "candidature-spontanee-autres-imad-geneva",
+        "de": "initiativbewerbung-sonstiges-imad-geneva",
+        "fr": "candidature-spontanee-autres-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Candidature spontanée / Autres",
+      "titleByLocale": {
+        "it": "Candidatura spontanea / Altro",
+        "en": "Candidature spontanée / Autres",
+        "de": "Initiativbewerbung / Sonstiges",
+        "fr": "Candidature spontanée / Autres"
+      },
+      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
+      "descriptionByLocale": {
+        "it": "• Si prega di allegare al vostro fascicolo: un curriculum vitae aggiornato, una lettera di presentazione, una copia dei vostri diplomi e dei certificati di lavoro.",
+        "en": "• Please attach to your file: an up-to-date curriculum vitae, a cover letter, a copy of your diplomas and your work certificates.",
+        "de": "• Bitte fügen Sie Ihrer Akte einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen bei.",
+        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-01T23:13:32.141Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-09-01",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
+      "jobReqId": "744000079253489",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "candidature-spontanee-autres-imad-geneva",
+        "spontaneous-application-others-imad-geneva",
+        "candidatura-spontanea-altro-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-autres-imad-geneva",
+          "candidatura-spontanea-altro-imad-geneva"
+        ],
+        "en": [
+          "spontaneous-application-others-imad-geneva",
+          "candidature-spontanee-autres-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-05-19T19:53:28.560Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
     {
       "id": "imad-7f9cc0cbf10b",
       "slug": "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva",
@@ -34,7 +113,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.210Z",
+      "crawledAt": "2026-09-01T23:13:32.140Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -56,7 +135,8 @@
         "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva",
         "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva",
         "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva",
-        "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva"
+        "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva",
+        "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +144,8 @@
           "pool-centrale-di-lungo-periodo-pcld-80-100-a-tempo-indeterminato-imad-geneva",
           "long-term-centralized-pool-pcld-80-100-full-time-imad-geneva",
           "langfristiger-zentraler-pool-pcld-80-100-vollzeit-imad-geneva",
-          "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva"
+          "assc-pool-zentralisierte-lange-dauer-pcld-80-100-cdi-imad-geneva",
+          "assc-pool-centralized-long-duration-pcld-80-100-cdi-imad-geneva"
         ],
         "en": [
           "assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi-imad-geneva",
@@ -106,7 +187,7 @@
       "titleByLocale": {
         "it": "Home Care Infermiera / 80-100% / CDI",
         "en": "Home Care Nurse / 80-100% / CDI",
-        "de": "Home Pflege Krankenschwester / 80-100% / CDI",
+        "de": "Infirmier.ère en soins à domicile / à 80-100% / en CDI",
         "fr": "Infirmier.ère en soins à domicile / à 80-100% / en CDI"
       },
       "description": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\n Vos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail.",
@@ -116,12 +197,13 @@
         "de": "Die Krankenschwester interveniert zu Hause mit Kunden, mit der ganzen Bevölkerung, alle Altersgruppen, die Pflegebedürftige erfordern. Die Spezifität der Heimarbeit hängt mit der Unvorhersehbarkeit des Kontexts, der Art und der Vielfalt der Situationen zusammen, die sowohl sozio-ökonomische, ökologische als auch psycho-physische auftreten. Die Leistungen werden unabhängig erbracht, wobei der Lebensstil, die Überzeugungen, Werte, die Kultur, die Autonomie und die Integrität des Kunden respektiert werden. Ihre Missionen und Verantwortlichkeiten\n• Ausübung einer Statusreferenzrolle innerhalb des Heimhalte-Team-Modells und handeln nach den Grundsätzen des professionellen Pflegecodes der Ethik\n• Bereitstellung umfassender, präventiver, kurativer, pädagogischer und palliativer personalisierter Pflegeleistungen an Kunden aller Altersgruppen zu Hause, unabhängig und/oder an medizinischer Delegation\n• Organisieren von medico-sozialen Ansätzen, Koordinierung und Zusammenarbeit mit all jenen, die an der Situation eines bestimmten Kunden beteiligt sind, Mobilisierung verfügbarer Ressourcen und Führungspflege, die den SASCs durchgeführt oder delegiert wurden\n• Arbeiten in der Interdisziplinarität und Interprofessionalität, wobei die Mission und die institutionellen Ziele respektiert werden\n• Teilnahme an Ausbildung und Forschungsaktivitäten.\n• Bachelor der Pflege oder gleichwertige Ausbildung\n• Mindestens zwei Jahre Berufserfahrung\n• Kenntnisse des Genfer Pflegenetzes\n• Fähigkeit, selbständig und als interdisziplinäres Team zu arbeiten\n• Ausgezeichnete Anpassungsfähigkeit und Delegation\n• Verantwortung und Richtungslösung\n• Wesentliche Mobilität (Bike / Fuß / Auto / TPG). Was wir anbieten\n• Bei IMAD denken wir, dass ein Profi. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umweltangebot entwickeln können:\n• Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen gedacht, um Ihr Tempo zu halten\n• Lohngehälter und Sozialversicherung, so dass Ihr Engagement auf dem fairen Wert anerkannt wird\n• Ein IMAD Trainingscampus, um weiter zu lernen, zu entwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu gewährleisten\n• Eine auf starken Werten basierende Unternehmenskultur, die von einem Management geleitet wird, das Goodwill und Nachfrage kombiniert\n• Engagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\n• Das Glück\n• Eine reiche, vielfältige und anregende professionelle Umgebung, näher an den menschlichen Gegebenheiten\n• Eingang ins Büro: zu vereinbaren\n• Bitte fügen Sie Ihre Datei an: ein aktuelles Curriculum vitae, ein Cover-Brief, eine Kopie Ihrer Diplome, Diplomerkennung und Ihre Arbeitszeugnisse.",
         "fr": "L’infirmier.ère intervient à domicile des clients, auprès de toute la population, toutes catégories d’âges confondues, nécessitant des soins infirmiers. La spécificité du travail à domicile est liée à l’imprévisibilité du contexte, à la nature et la variété des situations rencontrées tant sur le plan socio-économique et environnemental que psycho-physique. Les prestations s’effectuent de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs, de la culture, de l’autonomie et de l’intégrité du client.\nVos missions et responsabilités\n\n• Exercer un rôle de référent de situation dans le cadre du modèle des équipes de maintien à domicile et agir conformément aux principes du code déontologique professionnel infirmier\n\n• Dispenser de manière autonome et/ou sur délégation médicale des soins infirmiers personnalisés complets, de nature préventive, curative, éducative et palliative à des clients de tous âges à domicile\n\n• Organiser les démarches médico-sociales, la coordination et la collaboration avec tous les intervenants de la situation d’un client donné, en mobilisant les ressources à disposition et en encadrant des soins effectués ou délégués aux ASSC\n\n• Travailler en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs institutionnels\n\n• Participer à des activités de formation et de recherche.\n\n• Bachelor en soins infirmiers ou formation jugée équivalente\n\n• Minimum deux ans d’expérience professionnelle\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Excellente capacité d’adaptation et de délégation\n\n• Sens des responsabilités et orientation solution\n\n• Mobilité indispensable (vélo / marche à pied / voiture / TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme et vos certificats de travail."
       },
+      "needsRetranslation": true,
       "location": "Geneva",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/imad/744000130145669-infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.209Z",
+      "crawledAt": "2026-09-01T23:13:32.139Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -139,88 +221,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+        "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+        "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva"
+          "infirmier-ere-en-soins-a-domicile-a-80-100-en-cdi-imad-geneva",
+          "infermierein-cure-domiciliari-all-80-100-in-contratto-a-tempo-indeterminato-imad-geneva"
         ]
       },
       "firstSeenAt": "2026-06-04T12:23:32.617Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "imad-df86166e23b2",
-      "slug": "candidatura-spontanea-altro-imad-geneva",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-altro-imad-geneva",
-        "en": "spontaneous-application-others-imad-geneva",
-        "de": "initiativbewerbung-sonstiges-imad-geneva",
-        "fr": "candidature-spontanee-autres-imad-geneva"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Candidature spontanée / Autres",
-      "titleByLocale": {
-        "it": "Candidatura spontanea / Altro",
-        "en": "Spontaneous application / Other",
-        "de": "Initiativbewerbung / Sonstiges",
-        "fr": "Candidature spontanée / Autres"
-      },
-      "description": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail.",
-      "descriptionByLocale": {
-        "it": "• Si prega di allegare al vostro fascicolo: un curriculum vitae aggiornato, una lettera di presentazione, una copia dei vostri diplomi e dei certificati di lavoro.",
-        "en": "• Please attach to your file: an up-to-date curriculum vitae, a cover letter, a copy of your diplomas and your work certificates.",
-        "de": "• Bitte fügen Sie Ihrer Akte einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Ihre Arbeitsbescheinigungen bei.",
-        "fr": "• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail."
-      },
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.207Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-09-01",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000079253489-candidature-spontanee-autres?oga=true",
-      "jobReqId": "744000079253489",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "candidature-spontanee-autres-imad-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-autres-imad-geneva"
-        ],
-        "en": [
-          "candidature-spontanee-autres-imad-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T19:53:28.560Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -261,12 +271,13 @@
         "de": "Das ASSC bietet Dienstleistungen unabhängig an ein Heimwartungsteam, das den Lebensstil, die Überzeugungen, Werte und die Kultur des Kunden respektiert. Er arbeitet in Interdisziplinarität und Interprofessionalität und respektiert die Mission und Ziele der Institution. Ihre Missionen und Verantwortlichkeiten\n• Bereitstellung grundlegender Pflege- und medizinischer Verfahren, delegiert von der Referent Krankenschwester, in einem umfassenden Kundenansatz\n• Förderung der Wiederherstellung der Gesundheit des Klienten, Stärkung oder Aufrechterhaltung seiner Autonomie, um seinen Lebensstil wiederherzustellen, fortzusetzen oder anzupassen, damit er oder sie zu Hause bleiben oder zurückkehren kann\n• Bewertung und Neubewertung der praktischen Hilfesituationen und Einführung\n• Bereitstellung praktischer Hilfe im Einklang mit dem Lebensstil und der Umwelt des Kunden\n• Förderung und Zusammenarbeit mit der Gemeinschaft durch die Identifizierung von Ressourcen und die Bereitstellung von Informationen und Unterstützung.\n• Föderales Zertifikat der ASSC-Kapazität und Zulassung der Praxis im Kanton Genf\n• Bedeutung von Kommunikation und Beziehung mit anderen, Zuhörqualität\n• Fähigkeit, Situationen zu beurteilen und verantwortungsvoll zu handeln\n• Widerstand gegen Stress und körperliche Arbeit\n• Fähigkeit, selbständig und interprofessionell in einem multidisziplinären Team zu arbeiten\n• Wesentliche Mobilität (Fahrrad / Gehweg / mit Auto / per TPG). Was wir anbieten\n• Bei IMAD denken wir, dass ein Profi. Deshalb tun wir alles, um sicherzustellen, dass Sie ruhig arbeiten und sich in einem Umweltangebot entwickeln können:\n• Ein Gleichgewicht zwischen Privatsphäre und Arbeitsleben, mit flexiblen Arbeitsvereinbarungen gedacht, um Ihr Tempo zu halten\n• Lohngehälter und Sozialversicherung, so dass Ihr Engagement auf dem fairen Wert anerkannt wird\n• Ein IMAD Trainingscampus, um weiter zu lernen, zu entwickeln und Ihre Beschäftigungsfähigkeit in Ihrem Beruf zu gewährleisten\n• Eine auf starken Werten basierende Unternehmenskultur, die von einem Management geleitet wird, das Goodwill und Nachfrage kombiniert\n• Engagement für einen Social Responsibility Approach (SRP), der nachhaltige, humane und integrative Praktiken fördert\n• Das Glück\n• Eine reiche, vielfältige und anregende professionelle Umgebung, näher an den menschlichen Gegebenheiten\n• Eingang ins Büro: zu vereinbaren\n• Bitte fügen Sie Ihre Datei an: ein aktuelles Curriculum vitae, ein Titelbrief, eine Kopie Ihrer Diplome, Anerkennung von Diplom, Recht auf Praxis im Kanton Genf und Ihre Arbeitszeugnisse.",
         "fr": "Rattaché.e à une équipe de maintien à domicile, l’ASSC assure des prestations de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs et de la culture du client. Il.elle travaille en interdisciplinarité et en interprofessionnalité, en respectant la mission et les objectifs de l’institution.\nVos missions et responsabilités\n\n• Prodiguer des soins de base et des actes médicotechniques, délégués par l’infirmier.ère référent.e, dans une approche globale du client\n\n• Favoriser le rétablissement de l’état de santé du client, le renforcement ou le maintien de son autonomie pour lui permettre de rétablir, poursuivre ou adapter son mode de vie afin qu’il puisse rester ou retourner à domicile\n\n• Evaluer et réévaluer les situations d’aide pratique et en assumer la référence\n\n• Réaliser des prestations d'aide pratique dans le respect des habitudes de vie du client et de son environnement\n\n• Favoriser le maintien des liens avec l’entourage et collaborer avec ce dernier en déterminant les ressources et en apportant information et soutien.\n\n• Certificat fédéral de capacité d'ASSC et autorisation de pratique dans le canton de Genève\n\n• Sens de la communication et de la relation avec autrui, qualité d’écoute\n\n• Capacité à évaluer des situations et agir de manière responsable\n\n• Résistance au stress et au travail physique\n\n• Aptitude au travail en autonomie et en interprofessionnalité au sein d’une équipe pluridisciplinaire\n\n• Mobilité indispensable (à vélo / à pied / en voiture / en TPG).\n\nCe que nous offrons\n\n• Chez l’IMAD, nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n\n• Un équilibre entre vie privée et vie professionnelle, avec des modalités de travail flexibles pensées pour respecter votre rythme\n\n• Des salaires et assurances sociales avantageux, pour que votre engagement soit reconnu à sa juste valeur\n\n• Un campus de formation IMAD, pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n\n• Une culture d’entreprise fondée sur des valeurs fortes, portée par un management alliant bienveillance et exigence\n\n• Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n\n• Le programme Happ’IMAD, qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n\n• Un environnement professionnel riche, diversifié et stimulant, au plus proche des réalités humaines\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes, reconnaissance de diplôme, droit de pratique dans le Canton de Geneve et vos certificats de travail."
       },
+      "needsRetranslation": true,
       "location": "Geneva",
       "canton": "GE",
       "url": "https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.207Z",
+      "crawledAt": "2026-09-01T23:13:32.139Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -286,12 +297,14 @@
       "previousSlugs": [
         "assc-in-home-care-80-100-cdi-imad-geneva",
         "assc-in-heimpflege-80-100-cdi-imad-geneva",
-        "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva"
+        "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva",
+        "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assc-in-home-care-80-100-cdi-imad-geneva",
-          "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva"
+          "assc-en-soins-a-domicile-80-100-en-cdi-imad-geneva",
+          "assc-in-assistenza-domiciliare-80-100-a-tempo-indeterminato-imad-geneva"
         ],
         "de": [
           "assc-in-heimpflege-80-100-cdi-imad-geneva"
@@ -308,84 +321,6 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "imad-a8760f78d9cc",
-      "slug": "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510",
-      "slugByLocale": {
-        "it": "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510",
-        "en": "nurse-clinical-specialist-centre-for-interprofessional-practices-operations-directorate-80-cdi-imad-geneva-86c510",
-        "de": "krankenschwester-klinischer-spezialist-zentrum-fur-interprofessionelle-praktiken-operations-directorate-80-cdi-86c510",
-        "fr": "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
-      },
-      "company": "imad",
-      "companyKey": "imad",
-      "companyDomain": "imad-ge.ch",
-      "title": "Infirmier.ère spécialiste clinique / Centre des pratiques interprofessionnelles - Direction des opérations / à 80% / en CDI",
-      "titleByLocale": {
-        "it": "Infermiera Specialista / Centro per le Pratiche Interprofessionali - Direzione Operazioni / 80% / CDI",
-        "en": "Nurse Clinical Specialist / Centre for Interprofessional Practices - Operations Directorate / 80% / CDI",
-        "de": "Krankenschwester Klinischer Spezialist / Zentrum für Interprofessionelle Praktiken - Operations Directorate / 80% / CDI",
-        "fr": "Infirmier.ère spécialiste clinique / Centre des pratiques interprofessionnelles - Direction des opérations / à 80% / en CDI"
-      },
-      "description": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\n Vos missions et responsabilités\n Intervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\n Développement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\n Actualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\n Ce que nous offrons\n Chez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n Un équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation:  10.09.2026\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-      "descriptionByLocale": {
-        "it": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation: 10.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-        "en": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation: 10.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-        "de": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation: 10.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
-        "fr": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation:  10.09.2026\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
-      },
-      "needsRetranslation": true,
-      "location": "Geneva",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000144248719-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
-      "source": "imad Dedicated Parser (SmartRecruiters API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.206Z",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Cure a domicilio",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000144248719-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
-      "jobReqId": "744000144248719",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
-        ],
-        "en": [
-          "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
-        ],
-        "de": [
-          "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
-        ]
-      },
-      "firstSeenAt": "2026-08-19T09:52:55.954Z",
-      "salaryMin": 69200,
-      "salaryMax": 96400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69200,
-          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }
@@ -422,7 +357,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000141447514-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.205Z",
+      "crawledAt": "2026-09-01T23:13:32.137Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -444,7 +379,8 @@
         "infermiere-i-di-riferimento-a-domicilio-a-tempo-pieno-o-part-time-a-tempo-indeterminato-presso-l-equipe-centralizzata",
         "full-time-or-part-time-home-care-reference-nurse-position-in-the-centralized-team-for-long-term-substitutions-6-to-15",
         "referenz-pflegekraft-im-homecare-bereich-in-voll-oder-teilzeit-im-zentralisierten-team-fur-langzeiteinsatze-6-bis-15",
-        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-8epn7f"
+        "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-8epn7f",
+        "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -452,7 +388,8 @@
           "infermiere-i-di-riferimento-a-domicilio-a-tempo-pieno-o-part-time-a-tempo-indeterminato-presso-l-equipe-centralizzata",
           "full-time-or-part-time-home-care-reference-nurse-position-in-the-centralized-team-for-long-term-substitutions-6-to-15",
           "referenz-pflegekraft-im-homecare-bereich-in-voll-oder-teilzeit-im-zentralisierten-team-fur-langzeiteinsatze-6-bis-15",
-          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-8epn7f"
+          "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-8epn7f",
+          "infermeria-refer-e-a-casa-a-80-o-100-in-cdi-all-interno-del-team-centralizzato-per-missioni-di-sostituzione-a-lungo"
         ],
         "en": [
           "infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee",
@@ -474,6 +411,86 @@
           "@type": "QuantitativeValue",
           "minValue": 86500,
           "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "imad-9724369f09f6",
+      "slug": "infermiera-in-home-hospital-had-80-cdi-imad-geneva",
+      "slugByLocale": {
+        "it": "infermiera-in-home-hospital-had-80-cdi-imad-geneva",
+        "en": "nurse-in-home-hospital-had-80-cdi-imad-geneva",
+        "de": "krankenschwester-im-home-hospital-had-80-cdi-imad-geneva",
+        "fr": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+      },
+      "company": "imad",
+      "companyKey": "imad",
+      "companyDomain": "imad-ge.ch",
+      "title": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDI",
+      "titleByLocale": {
+        "it": "Infermiera in Home Hospital (HAD) / 80% / CDI",
+        "en": "Nurse in Home Hospital (HAD) / 80% / CDI",
+        "de": "Krankenschwester im Home Hospital (HAD) / 80% / CDI",
+        "fr": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDI"
+      },
+      "description": "Pour éviter un séjour à l'hôpital ou en favoriser une sortie précoce, l'hospitalisation à domicile (HAD) est destinée à toute personne, du nourrisson à l'adulte, pour qui un soin technique et/ou complexe de type hospitalier est nécessaire. Ainsi, HAD intervient dans tout le canton 365j/année et 24h/24, lorsqu’une prise en charge des soins est jugée possible à domicile et qu’une expertise spécifique dans un domaine spécialisé est requise (pédiatrie, oncologie adulte et pédiatrique, néphrologie, soins de plaies, etc.).\n L’offre en prestations de HAD s’inscrit en relais et en complémentarité de l’offre en prestations des équipes de maintien à domicile de l'IMAD . Nos infirmiers.ères assurent des prestations de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs et de la culture du client. Les interventions se font, sur prescription médicale, en étroite collaboration avec les médecins traitants ou spécialisés, Proximos, les cliniques, les hôpitaux et les partenaires du réseau.\n Vos missions et responsabilités\n\n• Répondre avec efficacité à des prises en charge spécifiques en dispensant de manière autonome et sur délégation médicale des soins infirmiers techniquement complexes à domicile des clients, habituellement dispensés en milieu hospitalier (transfusion sanguine, dialyse péritonéale, antibiothérapie IV,…)\n\n• Prodiguer des soins personnalisés complets à des clients de tous âges et à haut risque d’hospitalisation, souffrant de pathologies lourdes (soins palliatifs adultes et pédiatrique) ou chronique (somatiques et/ou psychiques)\n\n• Exercer un rôle de référent.e de situation et agir conformément aux principes du code déontologique infirmier afin d’assurer une prise en charge globale du client dans son environnement habituel\n\n• Participer à la mission institutionnelle visant à favoriser le maintien à domicile dans un cadre stimulant pour nos clients.\n\n• Bachelor en soins infirmiers\n\n• Minimum deux ans d’expérience professionnelle en milieu hospitalier au sein d’un service de soins aigus\n\n• Dextérité dans les soins techniques\n\n• Capacité d’adaptation, de souplesse et de réactivité\n\n• Grande aisance relationnelle, aptitude à gérer le stress et sens des responsabilités\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Mobilité en voiture indispensable.\n\n• Délai de postulation : 22.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplôme, vos certificats de travail.",
+      "descriptionByLocale": {
+        "it": "Al fine di evitare un soggiorno in ospedale o di promuovere un'uscita precoce, l'ospedalizzazione domestica (HAD) è destinato a chiunque, da bambino a adulto, per il quale è richiesta una cura tecnica e/o complessa di tipo ospedaliero. Così, HAD opera in tutto il cantone 365d/anno e 24h/24, quando la cura è ritenuta possibile a casa e la competenza specifica in un campo specializzato è richiesto (pediatria, oncologia adulta e pediatrica, nefrologia, cura delle ferite, ecc.).\nL'offerta dei servizi HAD fa parte del relè e del complemento della fornitura di servizi da parte dei team di manutenzione casa IMAD. I nostri infermieri forniscono servizi indipendentemente, rispettando lo stile di vita del cliente, le convinzioni, i valori e la cultura. Gli interventi vengono effettuati, su prescrizione medica, in stretta collaborazione con medici specializzati, Proximos, cliniche, ospedali e partner di rete.\nLe vostre missioni e responsabilità\n\n• Rispondere efficacemente a cure specifiche fornendo autonomamente e su delegazione medica di assistenza tecnicamente complessa a casa dei clienti, di solito fornito in ospedale (trasfusione di sangue, dialisi peritoneale, antibiotico IV,...)\n\n• Fornire una cura personalizzata completa ai clienti di tutte le età e ad alto rischio di ricovero, con patologie gravi (cura palliativa adulta e pediatrica) o croniche (somatica e/o psicologica)\n\n• Esercitare un ruolo di referente situazioniale e agire secondo i principi del Codice Etico Infermieristico per garantire la cura generale del cliente nel suo ambiente abituale\n\n• Partecipa alla missione istituzionale di promuovere la cura della casa in un ambiente stimolante per i nostri clienti.\n\n• Bachelor of Nursing\n\n• Minimo due anni di esperienza di lavoro ospedaliero in cura acuta\n\n• Dexterità nell'assistenza tecnica\n\n• Adattabilità, flessibilità e reattività\n\n• Grande facilità relazionale, capacità di gestire lo stress e il senso di responsabilità\n\n• Conoscenza della rete di assistenza di Ginevra\n\n• Capacità di lavorare in modo indipendente e come team interdisciplinare\n\n• Mobilità in auto essenziale.\n\n• Tempo di pubblicazione: 22.09.2026\n\n• Entrata in ufficio: da concordare\n\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e il riconoscimento dei diplomi, i certificati di lavoro.",
+        "en": "In order to avoid a stay in the hospital or to promote an early exit, home hospitalisation (HAD) is intended for anyone, from infant to adult, for whom technical and/or complex hospital-type care is required. Thus, HAD operates throughout the canton 365d/year and 24h/24, when care is deemed possible at home and specific expertise in a specialized field is required (pediatry, adult and paediatric oncology, nephrology, wound care, etc.).\nThe offer of HAD services is part of the relay and complement of the provision of services by the IMAD home maintenance teams. Our nurses provide services independently, respecting the customer's lifestyle, beliefs, values and culture. Interventions are carried out, on medical prescription, in close collaboration with treating or specialized physicians, Proximos, clinics, hospitals and network partners.\nYour missions and responsibilities\n\n• Respond effectively to specific care by providing autonomously and on medical delegation of technically complex nursing care at home to clients, usually provided in hospital (blood transfusion, peritoneal dialysis, antibiotic IV,...)\n\n• Provide comprehensive personalized care to clients of all ages and high risk of hospitalization, with severe pathologies (adult and paediatric palliative care) or chronic (somatic and/or psychological)\n\n• Exercising a role of situational referent and acting in accordance with the principles of the Code of Nursing Ethics to ensure overall care of the client in his or her usual environment\n\n• Participate in the institutional mission to foster home care in a stimulating environment for our clients.\n\n• Bachelor of Nursing\n\n• Minimum two years of hospital work experience in acute care\n\n• Dexterity in technical care\n\n• Adaptability, flexibility and responsiveness\n\n• Great relational ease, ability to manage stress and sense of responsibility\n\n• Knowledge of the Geneva care network\n\n• Ability to work independently and as an interdisciplinary team\n\n• Mobility by car essential.\n\n• Posting time: 22.09.2026\n\n• Entry into office: to be agreed\n\n• Please attach to your file: an up-to-date resume, a cover letter, a copy of your diplomas and diploma recognition, your work certificates.",
+        "de": "Um einen Krankenhausaufenthalt zu vermeiden oder einen vorzeitigen Ausstieg zu fördern, ist ein Krankenhausaufenthalt zu Hause (HAD) für jeden, vom Säugling bis zum Erwachsenen, vorgesehen, für den eine technische und / oder komplexe Krankenhausbehandlung erforderlich ist. Daher ist HAD im gesamten Kanton 365d/Jahr und 24h/24 tätig, wenn die Pflege zu Hause für möglich gehalten wird und spezielle Fachkenntnisse erforderlich sind (Pädiatrie, Erwachsenen- und Kinderonkologie, Nephrologie, Wundversorgung usw.).\nDas Angebot der HAD-Services ist Teil der Relais- und Ergänzungsleistungen der IMAD-Hauswartungsteams. Unsere Krankenschwestern bieten Dienstleistungen unabhängig an und respektieren den Lebensstil, die Überzeugungen, die Werte und die Kultur des Kunden. Interventionen werden auf ärztliche Verschreibung in enger Zusammenarbeit mit behandelnden oder spezialisierten Ärzten, Proximos, Kliniken, Krankenhäusern und Netzwerkpartnern durchgeführt.\nIhre Missionen und Verantwortlichkeiten\n\n• Reagieren Sie effektiv auf spezifische Versorgung durch autonome und medizinische Delegation von technisch komplexen Pflege zu Hause an Kunden, in der Regel im Krankenhaus (Bluttransfusion, Peritonealdialyse, Antibiotika IV,...)\n\n• Umfassende personalisierte Betreuung von Klienten jeden Alters und hohem Risiko eines Krankenhausaufenthalts mit schweren Pathologien (Erwachsene und pädiatrische Palliativmedizin) oder chronischen (somatischen und / oder psychologischen)\n\n• Ausübung einer Rolle des situativen Referenten und Handeln in Übereinstimmung mit den Grundsätzen des Code of Nursing Ethics, um die allgemeine Betreuung des Kunden in seinem üblichen Umfeld zu gewährleisten\n\n• Beteiligen Sie sich an der institutionellen Mission, die häusliche Pflege in einem stimulierenden Umfeld für unsere Kunden zu fördern.\n\n• Bachelor of Nursing\n\n• Mindestens zwei Jahre Krankenhauserfahrung in der Akutpflege\n\n• Geschicklichkeit in der technischen Versorgung\n\n• Anpassungsfähigkeit, Flexibilität und Reaktionsfähigkeit\n\n• Große relationale Leichtigkeit, Fähigkeit, Stress zu bewältigen und Verantwortungsbewusstsein\n\n• Kenntnisse des Genfer Pflegenetzwerks\n\n• Fähigkeit, selbstständig und als interdisziplinäres Team zu arbeiten\n\n• Mobilität mit dem Auto unerlässlich.\n\n• Sendezeit: 22.09.2026\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei: einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Diplomanerkennung, Ihre Arbeitsbescheinigungen.",
+        "fr": "Pour éviter un séjour à l'hôpital ou en favoriser une sortie précoce, l'hospitalisation à domicile (HAD) est destinée à toute personne, du nourrisson à l'adulte, pour qui un soin technique et/ou complexe de type hospitalier est nécessaire. Ainsi, HAD intervient dans tout le canton 365j/année et 24h/24, lorsqu’une prise en charge des soins est jugée possible à domicile et qu’une expertise spécifique dans un domaine spécialisé est requise (pédiatrie, oncologie adulte et pédiatrique, néphrologie, soins de plaies, etc.).\nL’offre en prestations de HAD s’inscrit en relais et en complémentarité de l’offre en prestations des équipes de maintien à domicile de l'IMAD . Nos infirmiers.ères assurent des prestations de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs et de la culture du client. Les interventions se font, sur prescription médicale, en étroite collaboration avec les médecins traitants ou spécialisés, Proximos, les cliniques, les hôpitaux et les partenaires du réseau.\nVos missions et responsabilités\n\n• Répondre avec efficacité à des prises en charge spécifiques en dispensant de manière autonome et sur délégation médicale des soins infirmiers techniquement complexes à domicile des clients, habituellement dispensés en milieu hospitalier (transfusion sanguine, dialyse péritonéale, antibiothérapie IV,…)\n\n• Prodiguer des soins personnalisés complets à des clients de tous âges et à haut risque d’hospitalisation, souffrant de pathologies lourdes (soins palliatifs adultes et pédiatrique) ou chronique (somatiques et/ou psychiques)\n\n• Exercer un rôle de référent.e de situation et agir conformément aux principes du code déontologique infirmier afin d’assurer une prise en charge globale du client dans son environnement habituel\n\n• Participer à la mission institutionnelle visant à favoriser le maintien à domicile dans un cadre stimulant pour nos clients.\n\n• Bachelor en soins infirmiers\n\n• Minimum deux ans d’expérience professionnelle en milieu hospitalier au sein d’un service de soins aigus\n\n• Dextérité dans les soins techniques\n\n• Capacité d’adaptation, de souplesse et de réactivité\n\n• Grande aisance relationnelle, aptitude à gérer le stress et sens des responsabilités\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Mobilité en voiture indispensable.\n\n• Délai de postulation : 22.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplôme, vos certificats de travail."
+      },
+      "needsRetranslation": true,
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/imad/744000145255180-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
+      "source": "imad Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-01T23:13:32.136Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Cure a domicilio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000145255180-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
+      "jobReqId": "744000145255180",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva",
+        "infermiera-in-home-hospital-had-80-cdi-imad-geneva"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva",
+          "infermiera-in-home-hospital-had-80-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "firstSeenAt": "2026-08-24T21:42:45.890Z",
+      "salaryMin": 69200,
+      "salaryMax": 96400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69200,
+          "maxValue": 96400,
           "unitText": "YEAR"
         }
       }
@@ -510,7 +527,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000145718479-infirmier-ere-de-liaison-arcade-a-80-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.204Z",
+      "crawledAt": "2026-09-01T23:13:32.135Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -543,37 +560,38 @@
       }
     },
     {
-      "id": "imad-9724369f09f6",
-      "slug": "infermiera-in-home-hospital-had-80-cdi-imad-geneva",
+      "id": "imad-a8760f78d9cc",
+      "slug": "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510",
       "slugByLocale": {
-        "it": "infermiera-in-home-hospital-had-80-cdi-imad-geneva",
-        "en": "nurse-in-home-hospital-had-80-cdi-imad-geneva",
-        "de": "krankenschwester-im-home-hospital-had-80-cdi-imad-geneva",
-        "fr": "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+        "it": "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510",
+        "en": "nurse-clinical-specialist-centre-for-interprofessional-practices-operations-directorate-80-cdi-imad-geneva-86c510",
+        "de": "krankenschwester-klinischer-spezialist-zentrum-fur-interprofessionelle-praktiken-operations-directorate-80-cdi-86c510",
+        "fr": "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
       },
       "company": "imad",
       "companyKey": "imad",
       "companyDomain": "imad-ge.ch",
-      "title": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDI",
+      "title": "Infirmier.ère spécialiste clinique / Centre des pratiques interprofessionnelles - Direction des opérations / à 80% / en CDI",
       "titleByLocale": {
-        "it": "Infermiera in Home Hospital (HAD) / 80% / CDI",
-        "en": "Nurse in Home Hospital (HAD) / 80% / CDI",
-        "de": "Krankenschwester im Home Hospital (HAD) / 80% / CDI",
-        "fr": "Infirmier.ère en hospitalisation à domicile (HAD) / à 80% / en CDI"
+        "it": "Infermiera Specialista / Centro per le Pratiche Interprofessionali - Direzione Operazioni / 80% / CDI",
+        "en": "Nurse Clinical Specialist / Centre for Interprofessional Practices - Operations Directorate / 80% / CDI",
+        "de": "Krankenschwester Klinischer Spezialist / Zentrum für Interprofessionelle Praktiken - Operations Directorate / 80% / CDI",
+        "fr": "Infirmier.ère spécialiste clinique / Centre des pratiques interprofessionnelles - Direction des opérations / à 80% / en CDI"
       },
-      "description": "Pour éviter un séjour à l'hôpital ou en favoriser une sortie précoce, l'hospitalisation à domicile (HAD) est destinée à toute personne, du nourrisson à l'adulte, pour qui un soin technique et/ou complexe de type hospitalier est nécessaire. Ainsi, HAD intervient dans tout le canton 365j/année et 24h/24, lorsqu’une prise en charge des soins est jugée possible à domicile et qu’une expertise spécifique dans un domaine spécialisé est requise (pédiatrie, oncologie adulte et pédiatrique, néphrologie, soins de plaies, etc.).\n L’offre en prestations de HAD s’inscrit en relais et en complémentarité de l’offre en prestations des équipes de maintien à domicile de l'IMAD . Nos infirmiers.ères assurent des prestations de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs et de la culture du client. Les interventions se font, sur prescription médicale, en étroite collaboration avec les médecins traitants ou spécialisés, Proximos, les cliniques, les hôpitaux et les partenaires du réseau.\n Vos missions et responsabilités\n\n• Répondre avec efficacité à des prises en charge spécifiques en dispensant de manière autonome et sur délégation médicale des soins infirmiers techniquement complexes à domicile des clients, habituellement dispensés en milieu hospitalier (transfusion sanguine, dialyse péritonéale, antibiothérapie IV,…)\n\n• Prodiguer des soins personnalisés complets à des clients de tous âges et à haut risque d’hospitalisation, souffrant de pathologies lourdes (soins palliatifs adultes et pédiatrique) ou chronique (somatiques et/ou psychiques)\n\n• Exercer un rôle de référent.e de situation et agir conformément aux principes du code déontologique infirmier afin d’assurer une prise en charge globale du client dans son environnement habituel\n\n• Participer à la mission institutionnelle visant à favoriser le maintien à domicile dans un cadre stimulant pour nos clients.\n\n• Bachelor en soins infirmiers\n\n• Minimum deux ans d’expérience professionnelle en milieu hospitalier au sein d’un service de soins aigus\n\n• Dextérité dans les soins techniques\n\n• Capacité d’adaptation, de souplesse et de réactivité\n\n• Grande aisance relationnelle, aptitude à gérer le stress et sens des responsabilités\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Mobilité en voiture indispensable.\n\n• Délai de postulation : 22.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplôme, vos certificats de travail.",
+      "description": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\n Vos missions et responsabilités\n Intervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\n Développement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\n Actualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\n Ce que nous offrons\n Chez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\n Un équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\n Des salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\n Un campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\n Une culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\n Un engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\n Le programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\n Un environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation:  10.09.2026\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
       "descriptionByLocale": {
-        "it": "Al fine di evitare un soggiorno in ospedale o di promuovere un'uscita precoce, l'ospedalizzazione domestica (HAD) è destinato a chiunque, da bambino a adulto, per il quale è richiesta una cura tecnica e/o complessa di tipo ospedaliero. Così, HAD opera in tutto il cantone 365d/anno e 24h/24, quando la cura è ritenuta possibile a casa e la competenza specifica in un campo specializzato è richiesto (pediatria, oncologia adulta e pediatrica, nefrologia, cura delle ferite, ecc.).\nL'offerta dei servizi HAD fa parte del relè e del complemento della fornitura di servizi da parte dei team di manutenzione casa IMAD. I nostri infermieri forniscono servizi indipendentemente, rispettando lo stile di vita del cliente, le convinzioni, i valori e la cultura. Gli interventi vengono effettuati, su prescrizione medica, in stretta collaborazione con medici specializzati, Proximos, cliniche, ospedali e partner di rete.\nLe vostre missioni e responsabilità\n\n• Rispondere efficacemente a cure specifiche fornendo autonomamente e su delegazione medica di assistenza tecnicamente complessa a casa dei clienti, di solito fornito in ospedale (trasfusione di sangue, dialisi peritoneale, antibiotico IV,...)\n\n• Fornire una cura personalizzata completa ai clienti di tutte le età e ad alto rischio di ricovero, con patologie gravi (cura palliativa adulta e pediatrica) o croniche (somatica e/o psicologica)\n\n• Esercitare un ruolo di referente situazioniale e agire secondo i principi del Codice Etico Infermieristico per garantire la cura generale del cliente nel suo ambiente abituale\n\n• Partecipa alla missione istituzionale di promuovere la cura della casa in un ambiente stimolante per i nostri clienti.\n\n• Bachelor of Nursing\n\n• Minimo due anni di esperienza di lavoro ospedaliero in cura acuta\n\n• Dexterità nell'assistenza tecnica\n\n• Adattabilità, flessibilità e reattività\n\n• Grande facilità relazionale, capacità di gestire lo stress e il senso di responsabilità\n\n• Conoscenza della rete di assistenza di Ginevra\n\n• Capacità di lavorare in modo indipendente e come team interdisciplinare\n\n• Mobilità in auto essenziale.\n\n• Tempo di pubblicazione: 22.09.2026\n\n• Entrata in ufficio: da concordare\n\n• Si prega di allegare al file: un curriculum aggiornato, una lettera di copertura, una copia dei diplomi e il riconoscimento dei diplomi, i certificati di lavoro.",
-        "en": "In order to avoid a stay in the hospital or to promote an early exit, home hospitalisation (HAD) is intended for anyone, from infant to adult, for whom technical and/or complex hospital-type care is required. Thus, HAD operates throughout the canton 365d/year and 24h/24, when care is deemed possible at home and specific expertise in a specialized field is required (pediatry, adult and paediatric oncology, nephrology, wound care, etc.).\nThe offer of HAD services is part of the relay and complement of the provision of services by the IMAD home maintenance teams. Our nurses provide services independently, respecting the customer's lifestyle, beliefs, values and culture. Interventions are carried out, on medical prescription, in close collaboration with treating or specialized physicians, Proximos, clinics, hospitals and network partners.\nYour missions and responsibilities\n\n• Respond effectively to specific care by providing autonomously and on medical delegation of technically complex nursing care at home to clients, usually provided in hospital (blood transfusion, peritoneal dialysis, antibiotic IV,...)\n\n• Provide comprehensive personalized care to clients of all ages and high risk of hospitalization, with severe pathologies (adult and paediatric palliative care) or chronic (somatic and/or psychological)\n\n• Exercising a role of situational referent and acting in accordance with the principles of the Code of Nursing Ethics to ensure overall care of the client in his or her usual environment\n\n• Participate in the institutional mission to foster home care in a stimulating environment for our clients.\n\n• Bachelor of Nursing\n\n• Minimum two years of hospital work experience in acute care\n\n• Dexterity in technical care\n\n• Adaptability, flexibility and responsiveness\n\n• Great relational ease, ability to manage stress and sense of responsibility\n\n• Knowledge of the Geneva care network\n\n• Ability to work independently and as an interdisciplinary team\n\n• Mobility by car essential.\n\n• Posting time: 22.09.2026\n\n• Entry into office: to be agreed\n\n• Please attach to your file: an up-to-date resume, a cover letter, a copy of your diplomas and diploma recognition, your work certificates.",
-        "de": "Um einen Krankenhausaufenthalt zu vermeiden oder einen vorzeitigen Ausstieg zu fördern, ist ein Krankenhausaufenthalt zu Hause (HAD) für jeden, vom Säugling bis zum Erwachsenen, vorgesehen, für den eine technische und / oder komplexe Krankenhausbehandlung erforderlich ist. Daher ist HAD im gesamten Kanton 365d/Jahr und 24h/24 tätig, wenn die Pflege zu Hause für möglich gehalten wird und spezielle Fachkenntnisse erforderlich sind (Pädiatrie, Erwachsenen- und Kinderonkologie, Nephrologie, Wundversorgung usw.).\nDas Angebot der HAD-Services ist Teil der Relais- und Ergänzungsleistungen der IMAD-Hauswartungsteams. Unsere Krankenschwestern bieten Dienstleistungen unabhängig an und respektieren den Lebensstil, die Überzeugungen, die Werte und die Kultur des Kunden. Interventionen werden auf ärztliche Verschreibung in enger Zusammenarbeit mit behandelnden oder spezialisierten Ärzten, Proximos, Kliniken, Krankenhäusern und Netzwerkpartnern durchgeführt.\nIhre Missionen und Verantwortlichkeiten\n\n• Reagieren Sie effektiv auf spezifische Versorgung durch autonome und medizinische Delegation von technisch komplexen Pflege zu Hause an Kunden, in der Regel im Krankenhaus (Bluttransfusion, Peritonealdialyse, Antibiotika IV,...)\n\n• Umfassende personalisierte Betreuung von Klienten jeden Alters und hohem Risiko eines Krankenhausaufenthalts mit schweren Pathologien (Erwachsene und pädiatrische Palliativmedizin) oder chronischen (somatischen und / oder psychologischen)\n\n• Ausübung einer Rolle des situativen Referenten und Handeln in Übereinstimmung mit den Grundsätzen des Code of Nursing Ethics, um die allgemeine Betreuung des Kunden in seinem üblichen Umfeld zu gewährleisten\n\n• Beteiligen Sie sich an der institutionellen Mission, die häusliche Pflege in einem stimulierenden Umfeld für unsere Kunden zu fördern.\n\n• Bachelor of Nursing\n\n• Mindestens zwei Jahre Krankenhauserfahrung in der Akutpflege\n\n• Geschicklichkeit in der technischen Versorgung\n\n• Anpassungsfähigkeit, Flexibilität und Reaktionsfähigkeit\n\n• Große relationale Leichtigkeit, Fähigkeit, Stress zu bewältigen und Verantwortungsbewusstsein\n\n• Kenntnisse des Genfer Pflegenetzwerks\n\n• Fähigkeit, selbstständig und als interdisziplinäres Team zu arbeiten\n\n• Mobilität mit dem Auto unerlässlich.\n\n• Sendezeit: 22.09.2026\n\n• Amtsantritt: noch zu vereinbaren\n\n• Bitte fügen Sie Ihrer Datei bei: einen aktuellen Lebenslauf, ein Anschreiben, eine Kopie Ihrer Diplome und Diplomanerkennung, Ihre Arbeitsbescheinigungen.",
-        "fr": "Pour éviter un séjour à l'hôpital ou en favoriser une sortie précoce, l'hospitalisation à domicile (HAD) est destinée à toute personne, du nourrisson à l'adulte, pour qui un soin technique et/ou complexe de type hospitalier est nécessaire. Ainsi, HAD intervient dans tout le canton 365j/année et 24h/24, lorsqu’une prise en charge des soins est jugée possible à domicile et qu’une expertise spécifique dans un domaine spécialisé est requise (pédiatrie, oncologie adulte et pédiatrique, néphrologie, soins de plaies, etc.).\nL’offre en prestations de HAD s’inscrit en relais et en complémentarité de l’offre en prestations des équipes de maintien à domicile de l'IMAD . Nos infirmiers.ères assurent des prestations de manière autonome, dans le respect des habitudes de vie, des croyances, des valeurs et de la culture du client. Les interventions se font, sur prescription médicale, en étroite collaboration avec les médecins traitants ou spécialisés, Proximos, les cliniques, les hôpitaux et les partenaires du réseau.\nVos missions et responsabilités\n\n• Répondre avec efficacité à des prises en charge spécifiques en dispensant de manière autonome et sur délégation médicale des soins infirmiers techniquement complexes à domicile des clients, habituellement dispensés en milieu hospitalier (transfusion sanguine, dialyse péritonéale, antibiothérapie IV,…)\n\n• Prodiguer des soins personnalisés complets à des clients de tous âges et à haut risque d’hospitalisation, souffrant de pathologies lourdes (soins palliatifs adultes et pédiatrique) ou chronique (somatiques et/ou psychiques)\n\n• Exercer un rôle de référent.e de situation et agir conformément aux principes du code déontologique infirmier afin d’assurer une prise en charge globale du client dans son environnement habituel\n\n• Participer à la mission institutionnelle visant à favoriser le maintien à domicile dans un cadre stimulant pour nos clients.\n\n• Bachelor en soins infirmiers\n\n• Minimum deux ans d’expérience professionnelle en milieu hospitalier au sein d’un service de soins aigus\n\n• Dextérité dans les soins techniques\n\n• Capacité d’adaptation, de souplesse et de réactivité\n\n• Grande aisance relationnelle, aptitude à gérer le stress et sens des responsabilités\n\n• Connaissance du réseau de soins genevois\n\n• Aptitude au travail en autonomie ainsi qu’en équipe interdisciplinaire\n\n• Mobilité en voiture indispensable.\n\n• Délai de postulation : 22.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et reconnaissance de diplôme, vos certificats de travail."
+        "it": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation: 10.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
+        "en": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation: 10.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
+        "de": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation: 10.09.2026\n\n• Entrée en fonction : à convenir\n\n• Veuillez svp joindre à votre dossier : un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier.",
+        "fr": "Le Centre des Pratiques Interprofessionnelles (CPI) au sein de la direction des opérations recherche un.e infirmier.ère spécialiste clinique qui soutient en 2ème ligne les professionnels de l’aide et des soins à domicile, dans le but de maintenir et développer la qualité et la sécurité des prestations et des compétences cliniques des collaborateurs. Il.elle agit sur 3 niveaux, l’expertise au travers de l’analyse et le soutien lors de situations complexes, le développement des compétences et l’actualisation des pratiques professionnelles.\nVos missions et responsabilités\nIntervention en qualité d’expert dans les situations complexes auprès du client et de l’équipe\n\n• Développer une expertise domiciliaire\n\n• Développer et maintenir les compétences des professionnels\n\n• Analyser les demandes et identifier les problèmes, mettre en œuvre des stratégies d’action en utilisant les ressources des équipes pluridisciplinaires\n\n• Suivre des équipes pour la mise en œuvre de solutions\n\n• Accompagner le développement du jugement clinique des professionnels\n\n• Utiliser des outils tels que les analyses de situation pour promouvoir la démarche de résolution de problèmes et des pratiques professionnelles de qualité\nDéveloppement de compétences\n\n• Elaborer et animer des réunions de formation relatives aux pratiques professionnelles (contexte domiciliaire, domaine clinique spécifique)\n\n• Accompagner les professionnels de l’aide et des soins dans le développement de compétences pour des clientèles spécifiques en lien avec le domaine d’expertise\n\n• Soutenir les collaborateurs dans l’exercice de leur fonction par des séquences de formation de proximité.\nActualisation des pratiques\n\n• Elaborer et proposer des outils cliniques utiles aux pratiques professionnelles et soutenir les équipes dans l’acquisition de ceux-ci en se basant sur des données scientifiques récentes\n\n• Elaborer, réaliser et promouvoir des programmes d’enseignement destinés aux clients et à leurs proches aidants, ainsi qu’aux équipes de professionnels\n\n• Favoriser et assurer l’amélioration de la qualité et de la sécurité des prestations d’aide et de soins.\n\n• Proposer aux responsables des pratiques professionnelles toute action et/ou étude permettant une amélioration de la qualité et sécurité des prestations.\n\n• Bachelor en soins infirmiers, complété par une spécialisation de niveau CAS, DAS ou Master dans un domaine d’expertise, tels que santé mentale, soins palliatifs, soins à la personne âgée ou autre domaine en lien avec les soins à domicile. Le CAS seul devra être complété à terme par un DAS.\n\n• 5 à 7 années d’expérience en tant qu’infirmier\n\n• Expérience et expertise souhaitées en pratique domiciliaire\n\n• Bonne capacité d’analyse et rédactionnelle\n\n• Personne engagée, motivée avec un excellent relationnel\n\n• Expérience dans l’aide à domicile est un atout\n\n• Connaissance du réseau de soins genevois\n\n• Bonne capacité pédagogique, souplesse et proactivité\n\n• Capacité à se positionner en adéquation avec la ligne institutionnelle\n\n• Connaissance de l’anglais (lu et parlé) souhaitée\nCe que nous offrons\nChez l’IMAD , nous pensons qu’un.e professionnel.le épanoui.e est un.e professionnel.le performant.e. C’est pourquoi nous mettons tout en œuvre pour que vous puissiez travailler sereinement et évoluer dans un environnement proposant :\nUn équilibre entre vie privée et vie professionnelle , avec des modalités de travail flexibles pensées pour respecter votre rythme\nDes salaires et assurances sociales avantageux , pour que votre engagement soit reconnu à sa juste valeur\nUn campus de formation IMAD , pour continuer à apprendre, évoluer et garantir votre employabilité dans votre métier\nUne culture d’entreprise fondée sur des valeurs fortes , portée par un management alliant bienveillance et exigence\nUn engagement dans une démarche de responsabilité sociétale (RSE) favorisant des pratiques durables, humaines et inclusives\nLe programme Happ’IMAD , qui propose un ensemble d’activités et d’avantages pour renforcer la cohésion, le plaisir au travail et créer des moments de ressourcement\nUn environnement professionnel riche , diversifié et stimulant, au plus proche des réalités humaines.\n\n• Délai de postulation:  10.09.2026\n\n• Entrée en fonction :  à convenir\n\n• Veuillez svp joindre à votre dossier :  un curriculum vitae à jour, une lettre de motivation, une copie de vos diplômes et vos certificats de travail\n\n• Nous considérons uniquement les dossiers de candidature complets\n\n• Nous vous garantissons une confidentialité totale dans le traitement de votre dossier."
       },
+      "needsRetranslation": true,
       "location": "Geneva",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/imad/744000145255180-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
+      "url": "https://jobs.smartrecruiters.com/imad/744000144248719-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.202Z",
+      "crawledAt": "2026-09-01T23:13:32.134Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -585,26 +603,28 @@
       "sector": "Sanità / Cure a domicilio",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000145255180-infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi?oga=true",
-      "jobReqId": "744000145255180",
+      "postedDate": "2026-08-19",
+      "applyUrl": "https://jobs.smartrecruiters.com/imad/744000144248719-infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction-des-operations-a-80-en-cdi-?oga=true",
+      "jobReqId": "744000144248719",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+        "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction",
+        "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+          "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction",
+          "infermiera-specialista-centro-per-le-pratiche-interprofessionali-direzione-operazioni-80-cdi-imad-geneva-86c510"
         ],
         "en": [
-          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+          "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
         ],
         "de": [
-          "infirmier-ere-en-hospitalisation-a-domicile-had-a-80-en-cdi-imad-geneva"
+          "infirmier-ere-specialiste-clinique-centre-des-pratiques-interprofessionnelles-direction"
         ]
       },
-      "firstSeenAt": "2026-08-24T21:42:45.890Z",
+      "firstSeenAt": "2026-08-19T09:52:55.954Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -651,7 +671,7 @@
       "url": "https://jobs.smartrecruiters.com/imad/744000146659808-auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi?oga=true",
       "source": "imad Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:15:15.200Z",
+      "crawledAt": "2026-09-01T23:13:32.131Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",

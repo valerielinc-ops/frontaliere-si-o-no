@@ -1,21 +1,23 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-09-01T14:15:49.331Z",
+  "generatedAt": "2026-09-01T23:13:59.546Z",
   "total": 10,
   "discovered": null,
   "written": 10,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4433,
-  "avgDurationMs": 4433,
+  "unchangedCount": 1,
+  "durationMs": 4705,
+  "avgDurationMs": 4705,
   "durationHistory": [
-    4433
+    4705
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-gut-3886-2e8e8c547b5d",
       "slug": "specialista-tecnico-chirurgico-hf-80-klinik-gut-ag-st-moritz",
@@ -47,7 +49,7 @@
       "salaryMin": 65200,
       "salaryMax": 91200,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -56,7 +58,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
