@@ -554,10 +554,10 @@
     },
     {
       "id": "etat-de-vaud-5741",
-      "slug": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "en": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "greffier-ere-etat-de-vaud-lausanne"
       },
@@ -629,7 +629,6 @@
       "previousSlugs": [
         "greffier-ere-etat-de-vaud-lausanne",
         "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
-        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
         "registrar-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
         "cancelliere-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -640,12 +639,14 @@
         "it": [
           "greffier-ere-etat-de-vaud-lausanne",
           "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
-          "cancelliere-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "cancelliere-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "greffier-ere-etat-de-vaud-lausanne",
           "registrar-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
-          "clerk-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "clerk-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "greffier-ere-etat-de-vaud-lausanne",
@@ -2591,8 +2592,8 @@
       "slug": "direttore-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
       "slugByLocale": {
         "it": "direttore-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "en": "director-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "de": "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "en": "datacenter-administrator-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "de": "datacenter-administrator-in-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
         "fr": "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -2657,17 +2658,21 @@
         ]
       },
       "previousSlugs": [
-        "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
+        "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
+        "director-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
         ],
         "en": [
-          "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
+          "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
+          "director-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "de": [
-          "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
+          "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
+          "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",

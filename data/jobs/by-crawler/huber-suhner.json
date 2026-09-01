@@ -207,7 +207,7 @@
       "slugByLocale": {
         "it": "partner-direttore-ferroviario-emea-america-huber-suhner-ag-pfaffikon",
         "en": "partner-manager-railway-emea-americas-huber-suhner-pfaffikon",
-        "de": "partner-manager-railway-emea-americas-huber-suhner-pfaffikon",
+        "de": "partnerschaftsmanager-eisenbahn-emea-americas-huber-suhner-ag-pfaffikon",
         "fr": "gestionnaire-partenaire-chemin-de-fer-emea-americas-huber-suhner-ag-pfaffikon"
       },
       "company": "Huber+Suhner AG",
@@ -294,6 +294,9 @@
           "partner-manager-railway-emea-americas-huber-suhner-pfaffikon"
         ],
         "fr": [
+          "partner-manager-railway-emea-americas-huber-suhner-pfaffikon"
+        ],
+        "de": [
           "partner-manager-railway-emea-americas-huber-suhner-pfaffikon"
         ]
       },
@@ -981,8 +984,7 @@
       "pensum": "40-60%",
       "previousSlugs": [
         "werkstudent-rf-process-and-technology-engineering-huber-suhner-herisau",
-        "etudiante-en-cours-d-emploi-en-genie-des-processus-rf-et-de-la-technologie-huber-suhner-ag-herisau",
-        "studente-di-lavoro-rf-process-and-technology-engineering-huber-suhner-ag-herisau"
+        "etudiante-en-cours-d-emploi-en-genie-des-processus-rf-et-de-la-technologie-huber-suhner-ag-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1122,9 +1124,9 @@
     },
     {
       "id": "huber-suhner-9fedb779b568",
-      "slug": "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon",
+      "slug": "pianificatore-di-produzione-con-responsabilita-di-team-huber-suhner-ag-pfaffikon",
       "slugByLocale": {
-        "it": "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon",
+        "it": "pianificatore-di-produzione-con-responsabilita-di-team-huber-suhner-ag-pfaffikon",
         "en": "shopfloor-planner-with-team-responsibility-huber-suhner-ag-pfaffikon",
         "de": "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon",
         "fr": "planificateur-d-etage-avec-responsabilite-d-equipe-huber-suhner-ag-pfaffikon"
@@ -1179,12 +1181,14 @@
         ],
         "it": [
           "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon",
-          "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon"
+          "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon",
+          "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon"
         ]
       },
       "previousSlugs": [
         "produktionsplaner-mit-teamverantwortung-huber-suhner-pfaffikon",
-        "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon"
+        "shopfloor-planer-mit-teamverantwortung-huber-suhner-pfaffikon",
+        "produktionsplaner-con-teamverantwortung-huber-suhner-ag-pfaffikon"
       ],
       "firstSeenAt": "2026-07-16T11:46:32.935Z",
       "salaryMin": 76000,

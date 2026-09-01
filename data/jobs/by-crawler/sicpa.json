@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "sicpa-872ccc6022d2",
-      "slug": "operatore-gardening-road-sicpa-sa-prilly",
+      "slug": "operatore-giardinaggio-e-strade-sicpa-sa-prilly",
       "slugByLocale": {
-        "it": "operatore-gardening-road-sicpa-sa-prilly",
+        "it": "operatore-giardinaggio-e-strade-sicpa-sa-prilly",
         "en": "operator-gardening-road-sicpa-prilly",
-        "de": "operator-gardening-road-sicpa-prilly",
+        "de": "mitarbeiter-in-garten-strassenunterhalt-sicpa-sa-prilly",
         "fr": "operator-gardening-road-sicpa-prilly"
       },
       "company": "SICPA SA",
@@ -89,6 +89,9 @@
         "it": [
           "operator-gardening-road-sicpa-prilly",
           "operatore-gardening-road-sicpa-sa-prilly"
+        ],
+        "de": [
+          "operator-gardening-road-sicpa-prilly"
         ]
       },
       "firstSeenAt": "2026-08-31T17:33:34.312Z",
@@ -197,13 +200,11 @@
       },
       "firstSeenAt": "2026-08-31T17:33:33.788Z",
       "previousSlugs": [
-        "laboratory-technician-specialist-sicpa-prilly",
-        "laboratory-technician-specialista-sicpa-sa-prilly"
+        "laboratory-technician-specialist-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-technician-specialist-sicpa-prilly",
-          "laboratory-technician-specialista-sicpa-sa-prilly"
+          "laboratory-technician-specialist-sicpa-prilly"
         ],
         "de": [
           "laboratory-technician-specialist-sicpa-prilly"
@@ -289,12 +290,12 @@
     },
     {
       "id": "sicpa-058c84d88c58",
-      "slug": "partnerships-coordinatore-sicpa-sa-prilly",
+      "slug": "coordinatore-delle-partnership-sicpa-sa-prilly",
       "slugByLocale": {
-        "it": "partnerships-coordinatore-sicpa-sa-prilly",
+        "it": "coordinatore-delle-partnership-sicpa-sa-prilly",
         "en": "partnerships-coordinator-sicpa-prilly",
         "de": "partnerships-koordinator-sicpa-sa-prilly",
-        "fr": "partnerships-coordinateur-sicpa-sa-prilly"
+        "fr": "coordinateur-des-partenariats-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -364,17 +365,21 @@
         ]
       },
       "previousSlugs": [
-        "partnerships-coordinator-sicpa-prilly"
+        "partnerships-coordinator-sicpa-prilly",
+        "partnerships-coordinatore-sicpa-sa-prilly",
+        "partnerships-coordinateur-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "partnerships-coordinator-sicpa-prilly"
+          "partnerships-coordinator-sicpa-prilly",
+          "partnerships-coordinatore-sicpa-sa-prilly"
         ],
         "de": [
           "partnerships-coordinator-sicpa-prilly"
         ],
         "fr": [
-          "partnerships-coordinator-sicpa-prilly"
+          "partnerships-coordinator-sicpa-prilly",
+          "partnerships-coordinateur-sicpa-sa-prilly"
         ]
       },
       "firstSeenAt": "2026-08-28T05:31:44.126Z",
@@ -472,13 +477,11 @@
         ]
       },
       "previousSlugs": [
-        "delivery-lead-sicpa-prilly",
-        "consegna-di-piombo-sicpa-sa-prilly"
+        "delivery-lead-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "delivery-lead-sicpa-prilly",
-          "consegna-di-piombo-sicpa-sa-prilly"
+          "delivery-lead-sicpa-prilly"
         ],
         "de": [
           "delivery-lead-sicpa-prilly"
@@ -925,13 +928,11 @@
       },
       "previousSlugs": [
         "senior-laboratory-technical-specialist-sicpa-prilly",
-        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly",
-        "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly"
+        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-laboratory-technical-specialist-sicpa-prilly",
-          "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly"
+          "senior-laboratory-technical-specialist-sicpa-prilly"
         ],
         "de": [
           "senior-laboratory-technical-specialist-sicpa-prilly",

@@ -3354,7 +3354,7 @@
       "slug": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne",
       "slugByLocale": {
         "it": "leiterin-leiter-facility-management-a-100-hirslanden-klinik-biel-bienne",
-        "en": "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne",
+        "en": "head-of-facility-management-a-100-hirslanden-klinik-hirslanden-klinik-linde",
         "de": "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne",
         "fr": "responsable-de-la-gestion-des-installations-a-100-hirslanden-klinik-biel-bienne"
       },
@@ -3402,6 +3402,9 @@
           "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne"
         ],
         "fr": [
+          "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne"
+        ],
+        "en": [
           "leiterin-leiter-facility-management-a-100-hirslanden-biel-bienne"
         ]
       },
@@ -16382,7 +16385,7 @@
       "slugByLocale": {
         "it": "auditore-notturno-al-20-flessibile-hirslanden-klinik-lausanne",
         "en": "night-auditor-a-20-flexible-hirslanden-lausanne",
-        "de": "night-auditor-a-20-flexible-hirslanden-lausanne",
+        "de": "night-auditor-bei-20-flexibel-hirslanden-klinik-hirslanden-clinique-cecil",
         "fr": "night-auditor-a-20-flexible-hirslanden-lausanne"
       },
       "company": "Hirslanden Klinik",
@@ -16424,16 +16427,18 @@
       "crawledAt": "2026-09-01T02:26:36.551Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "it": [
-          "night-auditor-a-20-flexible-hirslanden-lausanne"
-        ]
-      },
       "previousSlugs": [
         "night-auditor-a-20-flexible-hirslanden-lausanne"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "night-auditor-a-20-flexible-hirslanden-lausanne"
+        ],
+        "de": [
+          "night-auditor-a-20-flexible-hirslanden-lausanne"
+        ]
+      },
       "firstSeenAt": "2026-08-17T21:30:15.376Z",
-      "needsRetranslation": true,
       "salaryMin": 17300,
       "salaryMax": 24100,
       "salarySource": "estimated",
@@ -16446,7 +16451,8 @@
           "maxValue": 24100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-531529a12a7b",
@@ -22914,9 +22920,9 @@
     },
     {
       "id": "hirslanden-2a15a9977814",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern",
+      "slug": "dipl-infermieristica-professionale-a-angio-suite-50-100-hirslanden-klinik-hirslanden-klinik-beau-site",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern",
+        "it": "dipl-infermieristica-professionale-a-angio-suite-50-100-hirslanden-klinik-hirslanden-klinik-beau-site",
         "en": "dipl-nursing-professional-a-angio-suite-50-100-hirslanden-klinik-bern",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern",
         "fr": "dipl-professionnel-des-soins-infirmiers-a-angio-suite-50-100-hirslanden-klinik-bern"
@@ -22961,7 +22967,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-23T22:08:27.359Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -22974,7 +22979,16 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-angio-suite-50-100-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-f9de808475c9",
@@ -25501,7 +25515,7 @@
       "slug": "specialist-health-clinic-st-anna-in-meggen-a-40-hirslanden-klinik-luzern",
       "slugByLocale": {
         "it": "specialist-health-clinic-st-anna-in-meggen-a-40-hirslanden-klinik-luzern",
-        "en": "fachfrau-fachmann-gesundheit-klinik-st-anna-in-meggen-a-40-hirslanden-luzern",
+        "en": "specialist-health-clinic-st-anna-in-meggen-a-40-hirslanden-klinik-hirslanden-klinik-st-anna",
         "de": "fachfrau-fachmann-gesundheit-klinik-st-anna-in-meggen-a-40-hirslanden-luzern",
         "fr": "clinique-de-sante-specialisee-st-anna-a-meggen-a-40-hirslanden-klinik-luzern"
       },
@@ -25553,10 +25567,12 @@
         ],
         "fr": [
           "fachfrau-fachmann-gesundheit-klinik-st-anna-in-meggen-a-40-hirslanden-luzern"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-klinik-st-anna-in-meggen-a-40-hirslanden-luzern"
         ]
       },
       "firstSeenAt": "2026-08-24T10:07:03.971Z",
-      "needsRetranslation": true,
       "salaryMin": 34600,
       "salaryMax": 48200,
       "salarySource": "estimated",
@@ -25569,7 +25585,8 @@
           "maxValue": 48200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-2ca462e66b41",

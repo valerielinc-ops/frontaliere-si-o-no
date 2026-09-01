@@ -300,7 +300,7 @@
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-st-gallen",
         "en": "manager-per-cookie-einwilligungen-schindler-st-gallen",
-        "fr": "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-st-gallen",
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
         "it": "manager-per-cookie-einwilligungen-schindler-st-gallen"
       },
       "company": "Schindler",
@@ -353,7 +353,7 @@
           "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-st"
         ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen"
+          "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-st-gallen"
         ],
         "en": [
           "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7"
@@ -362,7 +362,8 @@
       "previousSlugs": [
         "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-st",
         "gestionnaire-pour-les-consentements-de-cookies-schindler-st-gallen",
-        "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7"
+        "manager-per-cookie-einwilligungen-schindler-st-gallen-kf0ro7",
+        "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-st-gallen"
       ],
       "needsRetranslation": true,
       "salaryMin": 48000,
@@ -2068,7 +2069,7 @@
       "slugByLocale": {
         "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
-        "fr": "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler-ebikon",
+        "fr": "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
         "en": "manager-per-cookie-einwilligungen-schindler-ebikon"
       },
       "company": "Schindler",
@@ -2122,14 +2123,15 @@
           "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler"
         ],
         "fr": [
-          "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon"
+          "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler-ebikon"
         ]
       },
       "previousSlugs": [
         "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler",
         "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
-        "manager-fur-cookie-einwilligungen-schindler-ebikon-12"
+        "manager-fur-cookie-einwilligungen-schindler-ebikon-12",
+        "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler-ebikon"
       ],
       "needsRetranslation": true,
       "salaryMin": 58500,
@@ -3571,7 +3573,6 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "cookie-consent-manager-schindler-bussigny",
           "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny"
         ],
         "en": [
@@ -3582,7 +3583,6 @@
         ]
       },
       "previousSlugs": [
-        "cookie-consent-manager-schindler-bussigny",
         "apprentissage-d-employe-e-de-commerce-cfc-pour-2027-schindler-bussigny",
         "swc-trade-employee-learning-for-2027-schindler-bussigny",
         "swc-trade-employee-learning-fur-2027-schindler-bussigny"
@@ -4162,8 +4162,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-          "gestore-consenso-ai-cookie-schindler-locarno"
+          "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno"
         ],
         "de": [
           "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno"
@@ -4173,10 +4172,7 @@
         ]
       },
       "previousSlugs": [
-        "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-        "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno"
+        "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno"
       ],
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -6045,7 +6041,6 @@
       "previousSlugsByLocale": {
         "it": [
           "polymechanical-cfc-elevator-mounter-learning-per-2027-schindler-sion",
-          "cookie-consent-manager-schindler-sion",
           "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion"
         ],
         "en": [
@@ -6061,7 +6056,6 @@
         "polymechanical-cfc-elevator-mounter-learning-per-2027-schindler-sion",
         "polymechanical-cfc-elevator-mounter-learning-for-2027-schindler-sion",
         "polymechanisches-cfc-elevator-mounter-learning-fur-2027-schindler-sion",
-        "cookie-consent-manager-schindler-sion",
         "apprentissage-de-polymecanicien-ne-cfc-monteur-euse-d-ascenseurs-pour-2027-schindler-sion",
         "polymechanic-cfc-elevator-mounter-for-2027-schindler-sion",
         "polymechanische-fckw-aufzugshalterung-fur-2027-schindler-sion"

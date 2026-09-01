@@ -164,9 +164,9 @@
     },
     {
       "id": "empa-e5605f1e4107",
-      "slug": "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf",
+      "slug": "apprendista-a-specialista-in-manutenzione-edifici-afc-o-cfp-a-empa-dubendorf",
       "slugByLocale": {
-        "it": "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf",
+        "it": "apprendista-a-specialista-in-manutenzione-edifici-afc-o-cfp-a-empa-dubendorf",
         "en": "apprentice-facility-maintenance-specialist-efz-or-eba-a-empa-dubendorf",
         "de": "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
         "fr": "apprenti-e-specialiste-en-maintenance-des-batiments-cfc-ou-afp-a-empa-dubendorf"
@@ -234,11 +234,13 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
+        "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
+        "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
+          "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf",
+          "apprendista-fachperson-betriebsunterhalt-cfc-o-afp-a-empa-dubendorf"
         ],
         "en": [
           "lernende-r-fachperson-betriebsunterhalt-efz-oder-eba-a-empa-dubendorf"
@@ -264,12 +266,12 @@
     },
     {
       "id": "empa-0f9fc065f003",
-      "slug": "apprendista-polymechaniker-in-a-empa-dubendorf",
+      "slug": "apprendista-politecnico-meccanico-a-empa-dubendorf",
       "slugByLocale": {
-        "it": "apprendista-polymechaniker-in-a-empa-dubendorf",
-        "en": "apprentice-polymechaniker-in-a-empa-dubendorf",
+        "it": "apprendista-politecnico-meccanico-a-empa-dubendorf",
+        "en": "apprentice-polymechanic-a-empa-dubendorf",
         "de": "lernende-r-polymechaniker-in-a-empa-dubendorf",
-        "fr": "apprenti-e-polymechaniker-in-a-empa-dubendorf"
+        "fr": "apprenti-e-polymecanicien-a-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -345,17 +347,23 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-polymechaniker-in-a-empa-dubendorf"
+        "lernende-r-polymechaniker-in-a-empa-dubendorf",
+        "apprendista-polymechaniker-in-a-empa-dubendorf",
+        "apprentice-polymechaniker-in-a-empa-dubendorf",
+        "apprenti-e-polymechaniker-in-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-polymechaniker-in-a-empa-dubendorf"
+          "lernende-r-polymechaniker-in-a-empa-dubendorf",
+          "apprendista-polymechaniker-in-a-empa-dubendorf"
         ],
         "en": [
-          "lernende-r-polymechaniker-in-a-empa-dubendorf"
+          "lernende-r-polymechaniker-in-a-empa-dubendorf",
+          "apprentice-polymechaniker-in-a-empa-dubendorf"
         ],
         "fr": [
-          "lernende-r-polymechaniker-in-a-empa-dubendorf"
+          "lernende-r-polymechaniker-in-a-empa-dubendorf",
+          "apprenti-e-polymechaniker-in-a-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.167Z",
@@ -523,10 +531,10 @@
     },
     {
       "id": "empa-18740ead79ed",
-      "slug": "apprendista-physiklaborant-in-a-empa-thun-fb5508",
+      "slug": "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun",
       "slugByLocale": {
-        "it": "apprendista-physiklaborant-in-a-empa-thun-fb5508",
-        "en": "apprentice-physiklaborant-in-a-empa-thun-fb5508",
+        "it": "apprendista-tecnico-di-laboratorio-fisico-a-empa-thun",
+        "en": "apprentice-physics-laboratory-technician-a-empa-thun",
         "de": "lernende-r-physiklaborant-in-a-empa-thun",
         "fr": "laboratoire-d-apprentissage-de-physique-a-empa-thun"
       },
@@ -604,16 +612,20 @@
         "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
         "apprendista-physiklaborant-in-a-empa-thun",
         "apprentice-physiklaborant-in-a-empa-thun",
-        "apprentissage-laboratoire-de-physique-en-a-empa-thun"
+        "apprentissage-laboratoire-de-physique-en-a-empa-thun",
+        "apprendista-physiklaborant-in-a-empa-thun-fb5508",
+        "apprentice-physiklaborant-in-a-empa-thun-fb5508"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-r-physiklaborant-in-a-empa-thun",
           "apprendista-physiklaborant-in-a-empa-thun",
-          "apprentice-physiklaborant-in-a-empa-thun"
+          "apprentice-physiklaborant-in-a-empa-thun",
+          "apprendista-physiklaborant-in-a-empa-thun-fb5508"
         ],
         "en": [
-          "lernende-r-physiklaborant-in-a-empa-thun"
+          "lernende-r-physiklaborant-in-a-empa-thun",
+          "apprentice-physiklaborant-in-a-empa-thun-fb5508"
         ],
         "fr": [
           "laboratoire-d-apprentissage-de-physique-a-empa-thun-fb5508",
@@ -937,12 +949,12 @@
     },
     {
       "id": "empa-d5c944130420",
-      "slug": "gruppo-leader-in-electric-80-100-a-empa-dubendorf",
+      "slug": "responsabile-di-gruppo-elettrico-80-100-a-empa-dubendorf",
       "slugByLocale": {
-        "it": "gruppo-leader-in-electric-80-100-a-empa-dubendorf",
+        "it": "responsabile-di-gruppo-elettrico-80-100-a-empa-dubendorf",
         "en": "group-leader-in-electric-80-100-a-empa-dubendorf",
         "de": "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
-        "fr": "leader-du-groupe-en-electric-80-100-a-empa-dubendorf"
+        "fr": "responsable-de-groupe-electricite-80-100-a-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1016,17 +1028,21 @@
         ]
       },
       "previousSlugs": [
-        "gruppenleiter-in-elektro-80-100-a-empa-dubendorf"
+        "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
+        "gruppo-leader-in-electric-80-100-a-empa-dubendorf",
+        "leader-du-groupe-en-electric-80-100-a-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-elektro-80-100-a-empa-dubendorf"
+          "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
+          "gruppo-leader-in-electric-80-100-a-empa-dubendorf"
         ],
         "en": [
           "gruppenleiter-in-elektro-80-100-a-empa-dubendorf"
         ],
         "fr": [
-          "gruppenleiter-in-elektro-80-100-a-empa-dubendorf"
+          "gruppenleiter-in-elektro-80-100-a-empa-dubendorf",
+          "leader-du-groupe-en-electric-80-100-a-empa-dubendorf"
         ]
       },
       "firstSeenAt": "2026-08-06T11:49:43.418Z",
@@ -1130,8 +1146,8 @@
       "slugByLocale": {
         "it": "ricercatore-post-dottorato-in-ceramica-proton-conductors-e-semiconduttore-fotoelettrochimica-empa-dubendorf",
         "en": "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
-        "de": "postdoktorand-in-keramik-protonenleiter-und-halbleiter-photoelektrochemie-empa-dubendorf",
-        "fr": "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf"
+        "de": "postdoktorand-in-in-keramischen-protonenleitern-und-halbleiter-photoelektrochemie-empa-dubendorf",
+        "fr": "chercheur-se-postdoctoral-e-en-conducteurs-protoniques-ceramiques-et-photoelectrochimie-des-semiconducteurs-empa"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1207,17 +1223,21 @@
         ]
       },
       "previousSlugs": [
-        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor"
+        "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
+        "postdoktorand-in-keramik-protonenleiter-und-halbleiter-photoelektrochemie-empa-dubendorf",
+        "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor"
         ],
         "de": [
-          "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor"
+          "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
+          "postdoktorand-in-keramik-protonenleiter-und-halbleiter-photoelektrochemie-empa-dubendorf"
         ],
         "fr": [
-          "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor"
+          "postdoctoral-researcher-in-ceramic-proton-conductors-and-semiconductor",
+          "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf"
         ]
       },
       "needsRetranslation": true,
@@ -1350,12 +1370,12 @@
     },
     {
       "id": "empa-551ce77de7a9",
-      "slug": "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen",
+      "slug": "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen",
       "slugByLocale": {
-        "it": "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen",
-        "en": "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+        "it": "apprendista-laboratore-trice-afc-indirizzo-tessile-a-empa-st-gallen",
+        "en": "apprentice-laboratory-technician-efz-specialization-textile-a-empa-st-gallen",
         "de": "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
-        "fr": "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        "fr": "apprenti-e-laborantin-e-cfc-orientation-textile-a-empa-st-gallen"
       },
       "company": "Empa",
       "companyKey": "empa",
@@ -1431,10 +1451,18 @@
         ]
       },
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+        "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen",
+          "apprendista-laborant-in-cfc-specializzazione-textil-a-empa-st-gallen"
+        ],
+        "en": [
+          "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
+        ],
+        "fr": [
           "lernende-r-laborant-in-efz-fachrichtung-textil-a-empa-st-gallen"
         ]
       },

@@ -694,7 +694,7 @@
       "slugByLocale": {
         "it": "assistente-esecutivo-e-o-segretario-alla-cancelleria-di-stato-etat-de-fribourg-fribourg",
         "en": "executive-assistant-and-or-secretary-to-the-state-chancellery-etat-de-fribourg-fribourg",
-        "de": "assistant-e-de-direction-et-ou-secretaire-de-direction-aupres-de-la-chancellerie-d-etat",
+        "de": "direktionsassistent-in-und-oder-direktionssekretar-in-bei-der-staatskanzlei-etat-de-fribourg-fribourg",
         "fr": "assistant-e-de-direction-et-ou-secretaire-de-direction-aupres-de-la-chancellerie-d-etat"
       },
       "company": "Etat de Fribourg",
@@ -777,6 +777,9 @@
           "assistant-e-de-direction-et-ou-secretaire-de-direction-aupres-de-la-chancellerie-d-etat"
         ],
         "en": [
+          "assistant-e-de-direction-et-ou-secretaire-de-direction-aupres-de-la-chancellerie-d-etat"
+        ],
+        "de": [
           "assistant-e-de-direction-et-ou-secretaire-de-direction-aupres-de-la-chancellerie-d-etat"
         ]
       },
@@ -1510,7 +1513,7 @@
       "slugByLocale": {
         "it": "dipendente-contabile-etat-de-fribourg-fribourg",
         "en": "accounting-employee-etat-de-fribourg-fribourg",
-        "de": "buchhaltungsangestellte-r-etat-de-fribourg",
+        "de": "buchhalter-etat-de-fribourg-fribourg",
         "fr": "employe-e-de-comptabilite-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -1582,8 +1585,7 @@
         "buchhalter-etat-de-fribourg-fribourg-cd01d7",
         "employe-e-de-comptabilite-etat-de-fribourg",
         "employe-e-de-comptabilite-etat-de-fribourg-ch",
-        "buchhalter-etat-de-fribourg-fribourg",
-        "dipendente-contabile-etat-de-fribourg-fribourg"
+        "buchhaltungsangestellte-r-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1599,7 +1601,7 @@
         "de": [
           "buchhalter-etat-de-fribourg-fribourg-cd01d7",
           "employe-e-de-comptabilite-etat-de-fribourg-ch",
-          "buchhalter-etat-de-fribourg-fribourg"
+          "buchhaltungsangestellte-r-etat-de-fribourg"
         ]
       },
       "needsRetranslation": true,
@@ -2253,7 +2255,7 @@
       "slugByLocale": {
         "it": "collaboratore-amministrativo-ve-siera-etat-de-fribourg-granges-paccot",
         "en": "administrative-collaborator-ve-siera-etat-de-fribourg-granges-paccot",
-        "de": "administrative-r-mitarbeiter-in-siera-etat-de-fribourg-granges-paccot",
+        "de": "verwaltungsmitarbeiter-viera-etat-de-fribourg-granges-paccot",
         "fr": "collaborateur-trice-administratif-ve-siera-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -2323,8 +2325,7 @@
       "pensum": "80-85%",
       "previousSlugs": [
         "collaborateur-trice-administratif-ve-siera-etat-de-fribourg-ch",
-        "verwaltungsmitarbeiter-viera-etat-de-fribourg-granges-paccot",
-        "collaboratore-amministrativo-ve-siera-etat-de-fribourg-granges-paccot"
+        "administrative-r-mitarbeiter-in-siera-etat-de-fribourg-granges-paccot"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2335,7 +2336,7 @@
         ],
         "de": [
           "collaborateur-trice-administratif-ve-siera-etat-de-fribourg-ch",
-          "verwaltungsmitarbeiter-viera-etat-de-fribourg-granges-paccot"
+          "administrative-r-mitarbeiter-in-siera-etat-de-fribourg-granges-paccot"
         ]
       },
       "needsRetranslation": true,
@@ -3989,7 +3990,7 @@
       "slug": "lezione-in-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "it": "lezione-in-etat-de-fribourg-fribourg",
-        "en": "lecturer-etat-de-fribourg",
+        "en": "lector-in-etat-de-fribourg-fribourg",
         "de": "lektor-in-etat-de-fribourg-ch",
         "fr": "lecteur-in-etat-de-fribourg-fribourg"
       },
@@ -4063,8 +4064,7 @@
         "office-manager-etat-de-fribourg-fribourg",
         "buroleiter-in-etat-de-fribourg-ch",
         "directeur-de-bureau-etat-de-fribourg-fribourg",
-        "lector-in-etat-de-fribourg-fribourg",
-        "lezione-in-etat-de-fribourg-fribourg"
+        "lecturer-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4079,7 +4079,7 @@
         "en": [
           "lektor-in-etat-de-fribourg-ch",
           "office-manager-etat-de-fribourg-fribourg",
-          "lector-in-etat-de-fribourg-fribourg"
+          "lecturer-etat-de-fribourg"
         ],
         "de": [
           "buroleiter-in-etat-de-fribourg-ch"
@@ -4438,7 +4438,7 @@
         "it": "apprendista-kauffrau-kaufmann-afp-cfc-etat-de-fribourg-fribourg",
         "en": "apprentice-kauffrau-kaufmann-eba-efz-etat-de-fribourg-fribourg",
         "de": "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch",
-        "fr": "apprenti-e-kauffrau-kaufmann-eba-efz-etat-de-fribourg-fribourg"
+        "fr": "apprenti-e-employe-e-de-commerce-eba-efz-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4487,7 +4487,8 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch"
+        "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch",
+        "apprenti-e-kauffrau-kaufmann-eba-efz-etat-de-fribourg-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4497,7 +4498,8 @@
           "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch"
         ],
         "fr": [
-          "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch"
+          "lernende-kauffrau-kaufmann-eba-efz-etat-de-fribourg-ch",
+          "apprenti-e-kauffrau-kaufmann-eba-efz-etat-de-fribourg-fribourg"
         ]
       },
       "firstSeenAt": "2026-08-28T05:35:52.274Z",
@@ -5140,7 +5142,7 @@
       "slugByLocale": {
         "it": "assistente-sociale-settore-accoglienza-bambini-etat-de-fribourg-fribourg",
         "en": "social-worker-childcare-services-sector-etat-de-fribourg-fribourg",
-        "de": "assistent-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-fribourg",
+        "de": "sozialarbeiter-in-bereich-kinderbetreuung-etat-de-fribourg-fribourg",
         "fr": "assistant-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -5236,10 +5238,14 @@
         ],
         "en": [
           "assistant-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "assistent-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-fribourg"
         ]
       },
       "previousSlugs": [
-        "assistant-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-ch"
+        "assistant-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-ch",
+        "assistent-e-social-e-secteur-des-milieux-d-accueil-etat-de-fribourg-fribourg"
       ]
     },
     {
@@ -5557,7 +5563,7 @@
       "slugByLocale": {
         "it": "assistente-amministrativo-a-bilingue-servizio-accademico-etat-de-fribourg-fribourg",
         "en": "bilingual-administrative-assistant-academic-service-etat-de-fribourg-fribourg",
-        "de": "assistent-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-fribourg",
+        "de": "zweisprachiger-e-verwaltungsassistent-in-akademischer-service-etat-de-fribourg-fribourg",
         "fr": "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -5655,10 +5661,14 @@
         ],
         "en": [
           "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "assistent-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-fribourg"
         ]
       },
       "previousSlugs": [
-        "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch"
+        "assistant-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-ch",
+        "assistent-e-administratif-ve-bilingue-service-academique-etat-de-fribourg-fribourg"
       ]
     },
     {
@@ -6486,8 +6496,8 @@
       "slug": "logisticien-ne-etat-de-fribourg-hauterive-fr",
       "slugByLocale": {
         "it": "logisticien-ne-etat-de-fribourg-hauterive-fr",
-        "en": "logisticien-ne-etat-de-fribourg-ch",
-        "de": "logisticien-ne-etat-de-fribourg-ch",
+        "en": "born-logistician-etat-de-fribourg-hauterive-fr",
+        "de": "geborener-logistiker-etat-de-fribourg-hauterive-fr",
         "fr": "logisticien-ne-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
@@ -6537,6 +6547,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logisticien-ne-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "logisticien-ne-etat-de-fribourg-ch"
+        ],
+        "de": [
           "logisticien-ne-etat-de-fribourg-ch"
         ]
       },
@@ -6674,9 +6690,9 @@
       "slug": "responsabile-des-2-forstkreises-etat-de-fribourg-rechthalten",
       "slugByLocale": {
         "it": "responsabile-des-2-forstkreises-etat-de-fribourg-rechthalten",
-        "en": "leiter-in-des-2-forstkreises-etat-de-fribourg-ch",
+        "en": "head-of-the-2nd-forest-district-etat-de-fribourg-rechthalten",
         "de": "leiter-in-des-2-forstkreises-etat-de-fribourg-ch",
-        "fr": "leiter-in-des-2-forstkreises-etat-de-fribourg-ch"
+        "fr": "responsable-du-2e-arrondissement-forestier-etat-de-fribourg-rechthalten"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6755,6 +6771,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-des-2-forstkreises-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "leiter-in-des-2-forstkreises-etat-de-fribourg-ch"
+        ],
+        "fr": [
           "leiter-in-des-2-forstkreises-etat-de-fribourg-ch"
         ]
       },

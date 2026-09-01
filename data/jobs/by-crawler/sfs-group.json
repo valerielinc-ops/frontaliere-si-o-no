@@ -451,9 +451,9 @@
       "slug": "logista-commissionamento-2-turni-m-w-d-sfs-group-rotkreuz",
       "slugByLocale": {
         "it": "logista-commissionamento-2-turni-m-w-d-sfs-group-rotkreuz",
-        "en": "logistician-in-order-picking-2-layer-m-f-d-sfs-group-rotkreuz",
+        "en": "logistics-order-picker-2-shift-m-f-d-sfs-group-rotkreuz",
         "de": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-        "fr": "logisticien-dans-l-ordre-de-cueillette-2-couches-h-f-d-sfs-group-rotkreuz"
+        "fr": "logisticien-ne-preparation-de-commandes-2-equipes-m-f-d-sfs-group-rotkreuz"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -528,20 +528,22 @@
         "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
         "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
         "logisticista-in-ordine-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz",
-        "logista-commissionamento-2-turni-m-w-d-sfs-group-rotkreuz"
+        "logistician-in-order-picking-2-layer-m-f-d-sfs-group-rotkreuz",
+        "logisticien-dans-l-ordre-de-cueillette-2-couches-h-f-d-sfs-group-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
           "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
-          "logisticista-in-ordine-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz",
-          "logista-commissionamento-2-turni-m-w-d-sfs-group-rotkreuz"
+          "logisticista-in-ordine-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz"
         ],
         "en": [
-          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+          "logistician-in-order-picking-2-layer-m-f-d-sfs-group-rotkreuz"
         ],
         "fr": [
-          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+          "logisticien-dans-l-ordre-de-cueillette-2-couches-h-f-d-sfs-group-rotkreuz"
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:11.465Z",
@@ -641,9 +643,9 @@
     },
     {
       "id": "sfs-group-d5628f00a1be",
-      "slug": "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+      "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "it": "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
         "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
@@ -717,14 +719,14 @@
       },
       "previousSlugs": [
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg"
+          "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
@@ -753,9 +755,9 @@
     },
     {
       "id": "sfs-group-98ca54d31023",
-      "slug": "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+      "slug": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
       "slugByLocale": {
-        "it": "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+        "it": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
         "en": "area-sales-manager-industry-and-metal-m-f-d-sfs-group-rotkreuz",
         "de": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
         "fr": "directeur-des-ventes-industrie-et-metal-h-f-d-sfs-group-rotkreuz"
@@ -833,11 +835,13 @@
         ]
       },
       "previousSlugs": [
-        "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
+        "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
+          "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+          "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz"
         ],
         "en": [
           "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
@@ -940,13 +944,11 @@
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
-        "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
+        "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
-          "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
+          "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
@@ -1133,13 +1135,11 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
-        "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
-          "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
+          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
