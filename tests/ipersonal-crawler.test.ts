@@ -9,6 +9,7 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 import {
   assertCompleteIpersonalSnapshot,
   extractIpersonalDescription,
+  getVerifiedIpersonalGeography,
   runIpersonalSpecInProduction,
 } from '../scripts/lib/ipersonal-spec-runtime.mjs';
 
@@ -146,6 +147,143 @@ describe('iPersonal AG crawler parser', () => {
       expect(first[0].description).toContain('\n• Patientinnen kompetent betreuen');
       expect(acceptedEncodings.length).toBeGreaterThan(0);
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
+    });
+
+    it('commits observer state and parsed content only from the retry that succeeds', async () => {
+      const seedUrl = 'https://ipersonal-retry.example/';
+      const detailUrl = `${seedUrl}jobs/retry-winner/`;
+      let detailCalls = 0;
+      const winningDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">Retry winner</a>`, { status: 200 });
+        detailCalls++;
+        if (detailCalls === 1) {
+          return new Response('<p>poison body from failed attempt</p>', { status: 503 });
+        }
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Retry winner',
+            url: detailUrl,
+            description: winningDescription,
+            jobLocation: {
+              '@type': 'Place',
+              address: {
+                '@type': 'PostalAddress',
+                addressLocality: 'Zürich',
+                addressRegion: 'ZH',
+                addressCountry: 'CH',
+              },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails">
+            <p>${winningDescription}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 1,
+      });
+      const evidence = jobs as typeof jobs & {
+        discoveredCount: number;
+        resolvedDetailCount: number;
+        parsedDetailCount: number;
+        detailFailureCount: number;
+      };
+      expect(detailCalls).toBe(2);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].title).toBe('Retry winner');
+      expect(jobs[0].description).toContain('Ergebnisse zuverlässig dokumentieren');
+      expect(jobs[0].description).not.toContain('poison body');
+      expect(evidence.discoveredCount).toBe(1);
+      expect(evidence.resolvedDetailCount).toBe(1);
+      expect(evidence.parsedDetailCount).toBe(1);
+      expect(evidence.detailFailureCount).toBe(0);
+    });
+
+    it('does not schedule another transport attempt after a successful detail', async () => {
+      const seedUrl = 'https://ipersonal-no-retry-after-success.example/';
+      const detailUrl = `${seedUrl}jobs/first-success/`;
+      let detailCalls = 0;
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${detailUrl}">First success</a>`, { status: 200 });
+        detailCalls++;
+        if (detailCalls > 1) throw new Error('a successful detail must terminate retries');
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'JobPosting', title: 'First success',
+            url: detailUrl, description,
+            jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Bern', addressRegion: 'BE', addressCountry: 'CH' } },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails"><p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 3,
+      });
+      expect(detailCalls).toBe(1);
+      expect(jobs).toHaveLength(1);
+      expect((jobs as any).resolvedDetailCount).toBe(1);
+      expect((jobs as any).parsedDetailCount).toBe(1);
+    });
+
+    it('counts a validated one-to-one redirect as one attempted vacancy', async () => {
+      const seedUrl = 'https://ipersonal-one-to-one.example/';
+      const aliasUrl = `${seedUrl}jobs/legacy-alias/`;
+      const canonicalDetailUrl = `${seedUrl}jobs/canonical-role/`;
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) return new Response(`<a href="${aliasUrl}">Canonical role</a>`, { status: 200 });
+        if (url === aliasUrl) {
+          return new Response('', { status: 302, headers: { Location: canonicalDetailUrl } });
+        }
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'JobPosting', title: 'Canonical role',
+            url: canonicalDetailUrl, description,
+            jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Obbürgen', postalCode: '6363', addressRegion: 'Nidwalden', addressCountry: 'CH' } },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails"><p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'iPersonal AG', platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+      });
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].url).toBe(aliasUrl);
+      expect(getVerifiedIpersonalGeography(jobs[0])).toMatchObject({ canton: 'NW' });
+      expect((jobs as any).discoveredCount).toBe(1);
+      expect((jobs as any).resolvedDetailCount).toBe(1);
+      expect((jobs as any).parsedDetailCount).toBe(1);
+      expect((jobs as any).sourceIdentityCollisionCount).toBe(0);
     });
 
     it('accounts only explicitly rejected source rows and not duplicate listing links', async () => {
