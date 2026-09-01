@@ -1670,6 +1670,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tasso-ipotecario-riferimento-stabile': { it: 'tasso-ipotecario-riferimento-stabile', en: 'mortgage-reference-rate-stable', de: 'referenzzinssatz-fuer-hypotheken-unverandert', fr: 'taux-de-reference-pour-les-hypotheques-stable' },
  'formazione-azienda-prioritario': { it: 'formazione-azienda-prioritario', en: 'company-training-priority', de: 'betriebliche-ausbildung-prioritaet', fr: 'formation-entreprise-prioritaire' },
  'dazit-termine-2026': { it: 'dazit-termine-2026', en: 'dazit-end-2026', de: 'dazit-ende-2026', fr: 'dazit-fin-2026' },
+ 'apprendisti-lacune-competenze-base': { it: 'apprendisti-lacune-competenze-base', en: 'apprentices-skill-gaps-basics', de: 'lehrlinge-kompetenzluecken-grundlagen', fr: 'apprentis-lacunes-competences-base' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

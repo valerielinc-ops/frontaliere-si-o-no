@@ -64019,6 +64019,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendisti-lacune-competenze-base': {
+    title: 'Aziende rilevano carenze competenze apprendisti',
+    description: 'Sondaggio di Economiesuisse rivela lacune in scrittura e matematica tra gli apprendisti svizzeri. Tre quarti delle aziende fornisce supporto aggiuntivo',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, rilevano, carenze, competenze',
+    ogTitle: 'Competenze base: il problema degli apprendisti svizzeri',
+    ogDescription: 'Le aziende svizzere segnalano persistenti lacune nelle competenze di base degli apprendisti, soprattutto in scrittura e matematica. Scopri i dati del sondaggio di Economiesuisse, USAM e USI sul deterioramento della formazione professionale.',
+    canonicalPath: '/articoli-svizzera/apprendisti-lacune-competenze-base/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aziende rilevano carenze competenze apprendisti",
+      "description": "Sondaggio di Economiesuisse rivela lacune in scrittura e matematica tra gli apprendisti svizzeri. Tre quarti delle aziende fornisce supporto aggiuntivo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendisti-lacune-competenze-base.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista svizzero concentrato su un compito tecnico in un laboratorio di formazione professionale"
+      },
+      "datePublished": "2026-09-01T13:14:00+00:00",
+      "dateModified": "2026-09-01T13:14:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendisti-lacune-competenze-base/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

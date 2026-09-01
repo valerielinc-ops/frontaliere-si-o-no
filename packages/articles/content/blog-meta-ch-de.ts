@@ -4933,6 +4933,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazit-termine-2026.title': 'Das DaziT-Programm geht zu Ende, die digitale Transformation setzt sich fort',
     'blog.article.dazit-termine-2026.excerpt': 'Das DaziT-Programm der FOCBS endet am 31. Dezember 2026 und digitalisiert Zoll- und Grenzsicherungsprozesse.',
     'blog.article.dazit-termine-2026.imageAlt': 'Luftaufnahme von Bellinzona, Schweiz, mit moderner digitaler Infrastruktur und Grenzkontrollsystemen.',
+    'blog.article.apprendisti-lacune-competenze-base.title': 'Unternehmen erkennen Qualifikationsengpässe bei Auszubildenden',
+    'blog.article.apprendisti-lacune-competenze-base.excerpt': 'Umfrage von Economiesuisse zeigt kritische Lücken in Schreiben und Mathematik bei Schweizer Lernenden. Drei Viertel der Unternehmen bieten zusätzliche Unterstützung.',
+    'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Lehrling bei konzentrierter Arbeit an einer technischen Aufgabe in einer Schweizer Berufsausbildungswerkstatt',
 };
 
 export default blogMetaChDe;

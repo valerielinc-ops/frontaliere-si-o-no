@@ -4933,6 +4933,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazit-termine-2026.title': 'Il programma DaziT volge al termine, la trasformazione digitale continua',
     'blog.article.dazit-termine-2026.excerpt': 'Il programma DaziT dell\'UDSC terminerà il 31 dicembre 2026, digitalizzando i processi doganali e di sicurezza ai confini.',
     'blog.article.dazit-termine-2026.imageAlt': 'Vista aerea di Bellinzona, Svizzera, con infrastrutture digitali moderne e sistemi di controllo dei confini.',
+    'blog.article.apprendisti-lacune-competenze-base.title': 'Aziende rilevano carenze competenze apprendisti',
+    'blog.article.apprendisti-lacune-competenze-base.excerpt': 'Sondaggio di Economiesuisse rivela lacune critiche in scrittura e matematica tra gli apprendisti svizzeri. Tre quarti delle aziende fornisce supporto aggiuntivo.',
+    'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Apprendista svizzero concentrato su un compito tecnico in un laboratorio di formazione professionale',
 };
 
 export default blogMetaChIt;
