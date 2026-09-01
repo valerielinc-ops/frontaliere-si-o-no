@@ -11060,6 +11060,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cocquio-trevisago-frontaliere-ticino-guida.title': 'Vivere a Cocquio-Trevisago da frontaliere ticinese: guida 2024',
     'blog.article.cocquio-trevisago-frontaliere-ticino-guida.excerpt': 'Trasferirsi da Cocquio-Trevisago per lavorare in Ticino: il Nuovo Accordo Frontalieri 2024, imposta alla fonte, esenzioni €7500–€10000 e procedura step-by-step.',
     'blog.article.cocquio-trevisago-frontaliere-ticino-guida.imageAlt': 'Vista panoramica di Lugano al mattino: lago, edifici residenziali e uffici sotto il Monte San Salvatore.',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.title': 'Vivere a Cambiasca, lavorare in Ticino: guida del frontaliere',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.excerpt': 'Fiscalità, permesso G, costi e procedure concrete per frontalieri che vivono a Cambiasca e lavorano nel Canton Ticino. Cosa c\'è da sapere.',
+    'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Lugano e del Lago Ceresio, paesaggio di confine tra Svizzera e Italia per frontalieri del Ticino.',
 };
 
 export default blogMetaIt;
