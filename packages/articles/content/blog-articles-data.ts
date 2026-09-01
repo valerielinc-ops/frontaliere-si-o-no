@@ -32970,6 +32970,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'galleria-moscia-acapulco-180-milioni',
+ category: 'novita',
+ date: '2026-09-01T10:37:01.279Z',
+ image: '/images/blog/galleria-moscia-acapulco-180-milioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

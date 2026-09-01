@@ -11033,6 +11033,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'I numeri del giorno per i frontalieri – 1 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Bollettino frontalieri del 1 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'I numeri del 1 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Galleria Moscia-Acapulco: 180 milioni per la viabilità',
+    'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'Il progetto della galleria Moscia-Acapulco e la riqualifica della strada litoranea rappresentano un investimento significativo per il miglioramento della viabilità e della qualità della vita dei frontalieri.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Vista aerea del progetto della galleria Moscia-Acapulco in Ticino',
 };
 
 export default blogMetaIt;

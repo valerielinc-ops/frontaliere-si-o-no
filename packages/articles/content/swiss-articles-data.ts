@@ -14725,6 +14725,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-riduzione-tasso-riferimento',
+    category: 'pratico',
+    date: '2026-09-01T10:15:10.114Z',
+    image: '/images/blog/affitti-riduzione-tasso-riferimento.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
