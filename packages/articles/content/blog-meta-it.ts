@@ -11022,6 +11022,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riqualifica-frontaliere-genitore-2026.title': 'Riqualifica frontaliere 2026: focus famiglia',
     'blog.article.riqualifica-frontaliere-genitore-2026.excerpt': 'Nuovo Accordo Frontalieri dal 2024: riqualifica nel 2026 aumenta netto e LPP per frontalieri con figli. Analisi fiscale e checklist operativa.',
     'blog.article.riqualifica-frontaliere-genitore-2026.imageAlt': 'Donna frontaliera al computer durante una videolezione di formazione professionale, con vista sul Lago di Lugano',
+    'blog.article.valutare-simulazione-ritorno-formazione.title': 'Valutare il ritorno della formazione: guida pratica 2026',
+    'blog.article.valutare-simulazione-ritorno-formazione.excerpt': 'Come valutare se una formazione conviene: checklist pratica, scenari di simulazione e criteri decisionali per frontalieri nel 2026.',
+    'blog.article.valutare-simulazione-ritorno-formazione.imageAlt': 'Professionista che studia documenti di formazione su una scrivania con vista sul Lago di Lugano',
 };
 
 export default blogMetaIt;

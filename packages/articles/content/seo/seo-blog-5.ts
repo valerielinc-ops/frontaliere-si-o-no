@@ -81425,6 +81425,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-valutare-simulazione-ritorno-formazione': {
+    title: 'Valutare il ritorno della formazione: guida pratica 2026',
+    description: 'Guida pratica per valutare il ritorno di una formazione professionale nel 2026. Checklist, simulazione ROI e scenari per frontalieri Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, valutare, ritorno, formazione, pratica',
+    ogTitle: 'Valutare il ritorno della formazione: guida 2026',
+    ogDescription: 'Decidi se un corso di formazione conviene davvero. Scopri come valutare il ritorno con una checklist pratica, simulare il ROI, confrontare scenari e usare gli strumenti per pianificare il tuo percorso professionale da frontaliere nel 2026.',
+    canonicalPath: '/articoli-frontaliere/valutare-simulazione-ritorno-formazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Valutare il ritorno della formazione: guida pratica 2026",
+      "description": "Guida pratica per valutare il ritorno di una formazione professionale nel 2026. Checklist, simulazione ROI e scenari per frontalieri Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/valutare-simulazione-ritorno-formazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionista che studia documenti di formazione su una scrivania con vista sul Lago di Lugano"
+      },
+      "datePublished": "2026-09-01T06:31:25+00:00",
+      "dateModified": "2026-09-01T06:31:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valutare-simulazione-ritorno-formazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
