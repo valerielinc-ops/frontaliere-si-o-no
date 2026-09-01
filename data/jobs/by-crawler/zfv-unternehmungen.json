@@ -3148,7 +3148,7 @@
       "title": "Köchin / Koch: (80%)",
       "titleByLocale": {
         "it": "Cucinare / cucinare: (80%)",
-        "en": "Köchin / Koch: (80%)",
+        "en": "Cook / cook: (80%)",
         "de": "Köchin / Koch: (80%)",
         "fr": "Cuisinière: (80 %)"
       },
@@ -3165,7 +3165,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:19:28.978Z",
-      "needsRetranslation": true,
       "addressLocality": "Biel / Bienne",
       "postalCode": "2503",
       "streetAddress": "Scheibenweg / Ch. de la Ciblerie 45",
@@ -6844,7 +6843,10 @@
         "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
         "service-collaboratore-trice-aushilfe-zfv-unternehmungen-winterthur",
         "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
-        "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur"
+        "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
+        "service-collaboratore-trice-vip-aushilfe-zfv-unternehmungen-zurich",
+        "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich",
+        "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6854,16 +6856,21 @@
           "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
           "service-collaboratore-trice-aushilfe-zfv-unternehmungen-winterthur",
           "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
-          "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur"
+          "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
+          "service-collaboratore-trice-vip-aushilfe-zfv-unternehmungen-zurich",
+          "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich",
+          "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich"
         ],
         "de": [
           "bar-mitarbeiter-in-studentische-aushilfe-zfv-unternehmungen-zurich",
-          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur"
+          "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-winterthur",
+          "service-mitarbeiter-in-vip-aushilfe-zfv-unternehmungen-zurich"
         ],
         "fr": [
           "service-mitarbeiter-in-aushilfe-zfv-unternehmungen-zurich",
           "bar-collaborateur-trice-studentische-aushilfe-zfv-unternehmungen-zurich",
-          "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur"
+          "service-collaborateur-trice-aushilfe-zfv-unternehmungen-winterthur",
+          "service-collaborateur-trice-vip-aushilfe-zfv-unternehmungen-zurich"
         ]
       },
       "firstSeenAt": "2026-07-08T11:36:02.368Z",
