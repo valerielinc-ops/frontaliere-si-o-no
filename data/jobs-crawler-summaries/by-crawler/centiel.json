@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-09-01T01:14:01.367Z",
+  "generatedAt": "2026-09-01T02:26:51.878Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4062,
-  "avgDurationMs": 4062,
+  "durationMs": 3189,
+  "avgDurationMs": 3189,
   "durationHistory": [
-    4062
+    3189
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -82,11 +82,11 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 15,
         "completeness": 22
       }
     },
@@ -120,11 +120,11 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 15,
         "completeness": 22
       }
     },
@@ -158,11 +158,11 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 15,
         "completeness": 22
       }
     },
@@ -272,7 +272,6 @@
       "postalCode": "6900",
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
