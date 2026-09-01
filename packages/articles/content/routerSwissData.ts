@@ -1687,6 +1687,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'legumi-texture-carne-ricerca-eth': { it: 'legumi-texture-carne-ricerca-eth', en: 'legumes-meat-texture-eth-research', de: 'huelsenfruechte-fleischstruktur-eth-forschung', fr: 'legumes-texture-viande-recherche-eth' },
  'settore-servizi-aumento-fatturato-giugno': { it: 'settore-servizi-aumento-fatturato-giugno', en: 'services-sector-revenue-increase-june', de: 'dienstleistungssektor-umsatzsteigerung-juni', fr: 'secteur-des-services-augmentation-du-chiffre-d-affaires-juin' },
  'friburgo-permesso-l-rinnovo': { it: 'friburgo-permesso-l-rinnovo', en: 'fribourg-l-permit-renewal', de: 'freiburg-l-permit-verlaengerung', fr: 'fribourg-permis-l-renouvellement' },
+ 'apprendistato-formazione-professionale-canton-friburgo': { it: 'apprendistato-formazione-professionale-canton-friburgo', en: 'apprenticeship-professional-training-canton-fribourg', de: 'lehre-berufsbildung-kanton-freiburg', fr: 'apprentissage-formation-professionnelle-canton-fribourg' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

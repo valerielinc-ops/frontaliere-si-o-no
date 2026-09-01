@@ -4984,6 +4984,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.friburgo-permesso-l-rinnovo.title': 'Erlaubnis L Freiburg: Gültigkeit und Verlängerung',
     'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'Mit der Kurzzeitbewilligung L können Ausländerinnen und Ausländer bis zu 1 Jahr in der Schweiz arbeiten. Erfahren Sie mehr über die Verlängerungsregeln, die Bindungen zum Arbeitgeber und wie Sie zu den Genehmigungen B und C wechseln können.',
     'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Schweizer Alpengegend mit Verwaltungsregion der Eidgenossenschaft',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.title': 'Lehre und Berufsausbildung im Kanton Freiburg',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.excerpt': 'Erfahren Sie, wie Sie im Kanton Freiburg eine Lehrstelle finden, die Vertragsdetails und die Lehrlingsvergütung.',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.imageAlt': 'Ein Lehrling arbeitet im Kanton Freiburg',
 };
 
 export default blogMetaChDe;

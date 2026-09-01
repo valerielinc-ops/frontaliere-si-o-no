@@ -4984,6 +4984,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.friburgo-permesso-l-rinnovo.title': 'Permesso L Friburgo: validità e proroga',
     'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'Il permesso L di breve durata consente agli stranieri di lavorare in Svizzera fino a 1 anno. Scopri le regole di proroga, i vincoli con il datore di lavoro e come passare ai permessi B e C.',
     'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Paesaggio montano svizzero con vista su cantone e città amministrativa della Confederazione',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.title': 'Apprendistato e formazione professionale nel Cantone di Friburgo',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.excerpt': 'Scopri come trovare un posto di tirocinio, i dettagli del contratto e la retribuzione degli apprendisti nel Cantone di Friburgo.',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.imageAlt': 'Un apprendista al lavoro nel Cantone di Friburgo',
 };
 
 export default blogMetaChIt;

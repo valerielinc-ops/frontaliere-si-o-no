@@ -4984,6 +4984,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.friburgo-permesso-l-rinnovo.title': 'Permit L Freiburg: validity and extension',
     'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'The short-term L permit allows foreigners to work in Switzerland for up to 1 year. Learn about extension rules, employer constraints, and how to switch to B and C permits.',
     'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Swiss alpine landscape with administrative canton region representative of the Confederation',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.title': 'Apprenticeship and vocational training in the Canton of Freiburg',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.excerpt': 'Find out how to find a traineeship, contract details and the remuneration of apprentices in the Canton of Freiburg.',
+    'blog.article.apprendistato-formazione-professionale-canton-friburgo.imageAlt': 'An apprentice working in the Canton of Fribourg',
 };
 
 export default blogMetaChEn;
