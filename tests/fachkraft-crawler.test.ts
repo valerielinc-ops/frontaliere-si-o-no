@@ -273,6 +273,54 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
     });
 
+    it('recovers a rate-limited detail without losing the authoritative snapshot', async () => {
+      const limitedTitle = 'Polymechaniker/in';
+      const siblingTitle = 'Montage-Elektriker/in';
+      const limitedUrl = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const cards = listingHtml(
+        listingCard({ title: limitedTitle, path: 'polymechaniker-in-luzern-123' }),
+        listingCard({ title: siblingTitle, path: 'montage-elektriker-in-luzern-456' }),
+      );
+      let limitedAttempts = 0;
+      let now = Date.UTC(2026, 8, 1, 10, 0, 0);
+      const sleeps: number[] = [];
+      const fetchImpl = vi.fn(async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(cards, { status: 200 });
+        if (target === limitedUrl && limitedAttempts++ === 0) {
+          return new Response('rate limited', { status: 429, headers: { 'Retry-After': '3' } });
+        }
+        const title = target === limitedUrl ? limitedTitle : siblingTitle;
+        return new Response(detailHtml({ title, description: words(55, 'detail') }), { status: 200 });
+      });
+      const nowSpy = vi.spyOn(Date, 'now').mockImplementation(() => now);
+      let snapshot;
+      try {
+        snapshot = await fetchFachkraftSnapshot({
+          ...runtimeOptions,
+          fetchImpl,
+          existingJobs: [],
+          detailWorkers: 1,
+          sleepImpl: async (ms: number) => { sleeps.push(ms); now += ms; },
+        });
+      } finally {
+        nowSpy.mockRestore();
+      }
+
+      expect(limitedAttempts).toBe(2);
+      expect(sleeps.some((ms) => ms >= 2_900 && ms <= 3_000)).toBe(true);
+      expect(snapshot).toHaveLength(2);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        complete: true,
+        discovered: 2,
+        detailRequested: 2,
+        detailCompleted: 2,
+        fetchFailures: 0,
+        accounted: 2,
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
     it('aborts a hung request and exhausts only the configured bounded retry count', async () => {
       let attempts = 0;
       const fetchImpl = () => {
