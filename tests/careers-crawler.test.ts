@@ -23,12 +23,14 @@ const RSS_FIXTURE = fs.readFileSync(
   .replace('{{PUB_DATE_1}}', FIRST_POSTED_DATE.toUTCString())
   .replace('{{PUB_DATE_2}}', SECOND_POSTED_DATE.toUTCString());
 
-const validRssItem = ({
+const rssItemXml = ({
   title = '<title><![CDATA[Maintenance Mechanic (Böckten, BL)]]></title>',
   description = '<description><![CDATA[<p>Maintenance and repair work.</p>]]></description>',
   pubDate = `<pubDate>${SECOND_POSTED_DATE.toUTCString()}</pubDate>`,
   link = '<link>https://careers.orior.ch/job/Boeckten-Maintenance-BL/123/</link>',
-} = {}) => `<rss><channel><item>${title}${description}${pubDate}${link}</item></channel></rss>`;
+} = {}) => `<item>${title}${description}${pubDate}${link}</item>`;
+const rssFeed = (...items: string[]) => `<rss><channel>${items.join('')}</channel></rss>`;
+const validRssItem = (overrides = {}) => rssFeed(rssItemXml(overrides));
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -263,6 +265,25 @@ describe('lepatron crawler parser', () => {
       expect(warnSpy).toHaveBeenCalledWith(
         expect.stringMatching(new RegExp(`${field} must be a single scalar string`)),
       );
+      warnSpy.mockRestore();
+    });
+
+    it('keeps one malformed sibling but aborts when eligible-item drops exceed 50%', async () => {
+      const valid = rssItemXml();
+      const malformed = rssItemXml({
+        link: '<link>https://careers.orior.ch/job/Boeckten-One-BL/123/</link><link>https://careers.orior.ch/job/Boeckten-Two-BL/456/</link>',
+      });
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const fetchMock = vi.fn()
+        .mockResolvedValueOnce(new Response(rssFeed(valid, malformed), { status: 200 }))
+        .mockResolvedValueOnce(new Response(rssFeed(valid, malformed, malformed), { status: 200 }));
+      vi.stubGlobal('fetch', fetchMock);
+
+      await expect(fetchAllCareersJobs()).resolves.toHaveLength(1);
+      await expect(fetchAllCareersJobs()).rejects.toThrow(
+        /\[careers-rss-drop-ratio\] dropped 2\/3 eligible items/,
+      );
+      expect(warnSpy).toHaveBeenCalled();
       warnSpy.mockRestore();
     });
 

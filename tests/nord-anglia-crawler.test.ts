@@ -10,14 +10,17 @@ import {
   parseNordAngliaRss,
 } from '../scripts/lib/nord-anglia-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('La Côte International School Aubonne (Nord Anglia Education) crawler parser', () => {
-  const validRssItem = ({
+  const rssItemXml = ({
     title = '<title><![CDATA[Teacher of Biology (Aubonne, CH)]]></title>',
     link = '<link>https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/</link>',
     description = '<description><![CDATA[<p>Teach biology in Aubonne.</p>]]></description>',
     pubDate = '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate>',
-  } = {}) => `<rss><channel><item>${title}${link}${description}${pubDate}</item></channel></rss>`;
+  } = {}) => `<item>${title}${link}${description}${pubDate}</item>`;
+  const rssFeed = (...items: string[]) => `<rss><channel>${items.join('')}</channel></rss>`;
+  const validRssItem = (overrides = {}) => rssFeed(rssItemXml(overrides));
 
   afterEach(() => {
     vi.unstubAllGlobals();
@@ -117,13 +120,79 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
     expect(canonicalizeNordAngliaJobUrl('https://example.com/job/Aubonne-Teacher/1/?utm_source=rss')).toBe('');
   });
 
-  it('fails loudly instead of shrinking when an Aubonne link moves off the trusted ATS host', async () => {
+  it('logs a canonical URL drop without exposing its query and fails on feed-wide URL drift', async () => {
     const driftedFeed = validRssItem({
-      link: '<link>https://example.com/job/Aubonne-Teacher-of-Biology/1399902133/?utm_source=rss</link>',
+      link: '<link>https://example.com/jobs/1399902133/?session=secret-token</link>',
     });
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     vi.stubGlobal('fetch', vi.fn(async () => new Response(driftedFeed, { status: 200 })));
 
-    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(/non-canonical Aubonne job URL/);
+    await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+      /\[nord-anglia-drop-ratio\] canonical Aubonne URL guard: dropped 1\/1 items/,
+    );
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[nord-anglia-canonical-url-drop]'),
+    );
+    expect(warnSpy.mock.calls.flat().join(' ')).toContain('https://example.com/jobs/1399902133/');
+    expect(warnSpy.mock.calls.flat().join(' ')).not.toContain('secret-token');
+    warnSpy.mockRestore();
+  });
+
+  it('drops and logs one shifted URL while keeping a valid sibling at the 50% budget', async () => {
+    const mixedFeed = rssFeed(
+      rssItemXml(),
+      rssItemXml({
+        title: '<title><![CDATA[Teacher of Mathematics (Aubonne, CH)]]></title>',
+        link: '<link>https://example.com/new-job-template/1400000000/?session=rotating</link>',
+      }),
+    );
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(mixedFeed, { status: 200 })));
+
+    const jobs = await fetchAllNordAngliaJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].jobReqId).toBe('1399902133');
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringContaining('[nord-anglia-canonical-url-drop]'),
+    );
+    warnSpy.mockRestore();
+  });
+
+  it('derives new identity from the canonical URL, not rotating jobs2web query tokens', async () => {
+    const base = 'https://careers.nordangliaeducation.com/job/Aubonne-Teacher-of-Biology/1399902133/';
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(validRssItem({
+        link: `<link>${base}?feedId=null&amp;utm_source=J2WRSS&amp;session=first</link>`,
+      }), { status: 200 }))
+      .mockResolvedValueOnce(new Response(validRssItem({
+        link: `<link>${base}?feedId=changed&amp;utm_source=Partner&amp;session=second</link>`,
+      }), { status: 200 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const [first] = await fetchAllNordAngliaJobs();
+    const [second] = await fetchAllNordAngliaJobs();
+    expect(first.url).toBe(base);
+    expect(second.url).toBe(base);
+    expect(second.id).toBe(first.id);
+  });
+
+  it('preserves an indexed raw-link ID and slug history during the canonical-identity migration', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(validRssItem(), { status: 200 })));
+    const [fresh] = await fetchAllNordAngliaJobs();
+    const legacy = {
+      ...fresh,
+      id: 'nord-anglia-8720a5afd8ce',
+      url: `${fresh.url}?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS`,
+      slug: 'indexed-legacy-slug',
+      slugByLocale: { en: 'indexed-legacy-slug', fr: 'slug-fr-indexe' },
+      previousSlugs: ['older-indexed-slug'],
+    };
+
+    const [merged] = mergePreserveLocaleData([legacy], [{ ...fresh }], { retainMissingJobs: false });
+    expect(merged.id).toBe(legacy.id);
+    expect(merged.url).toBe(fresh.url);
+    expect(merged.slugByLocale.fr).toBe('slug-fr-indexe');
+    expect(merged.previousSlugs).toContain('older-indexed-slug');
   });
 
   describe('RSS parser guards', () => {
@@ -143,6 +212,12 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       expect(() => parseNordAngliaRss(xml)).toThrow(/XML parse failed/);
     });
 
+    it('rejects a valid XML document whose RSS channel envelope drifted', () => {
+      expect(() => parseNordAngliaRss('<rss><feed><item /></feed></rss>')).toThrow(
+        /feed shape drift: expected an rss\.channel object/,
+      );
+    });
+
     it.each([
       ['title', { title: '<title><strong>Teacher of Biology (Aubonne, CH)</strong></title>' }],
       ['link', { link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-One/1/</link><link>https://careers.nordangliaeducation.com/job/Aubonne-Two/2/</link>' }],
@@ -154,6 +229,25 @@ describe('La Côte International School Aubonne (Nord Anglia Education) crawler 
       expect(warnSpy).toHaveBeenCalledWith(
         expect.stringMatching(new RegExp(`${field} must be a single scalar string`)),
       );
+      warnSpy.mockRestore();
+    });
+
+    it('keeps one malformed sibling but aborts when malformed items exceed the feed budget', async () => {
+      const valid = rssItemXml();
+      const malformed = rssItemXml({
+        link: '<link>https://careers.nordangliaeducation.com/job/Aubonne-One/1/</link><link>https://careers.nordangliaeducation.com/job/Aubonne-Two/2/</link>',
+      });
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const fetchMock = vi.fn()
+        .mockResolvedValueOnce(new Response(rssFeed(valid, malformed), { status: 200 }))
+        .mockResolvedValueOnce(new Response(rssFeed(valid, malformed, malformed), { status: 200 }));
+      vi.stubGlobal('fetch', fetchMock);
+
+      await expect(fetchAllNordAngliaJobs()).resolves.toHaveLength(1);
+      await expect(fetchAllNordAngliaJobs()).rejects.toThrow(
+        /\[nord-anglia-drop-ratio\] malformed RSS item guard: dropped 2\/3 items/,
+      );
+      expect(warnSpy).toHaveBeenCalled();
       warnSpy.mockRestore();
     });
   });

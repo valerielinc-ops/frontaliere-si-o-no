@@ -8,11 +8,15 @@ function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+class AristonRssItemShapeError extends Error {}
+
 function readOptionalRssScalar(item, field, itemNumber) {
   const value = item?.[field];
   if (value == null) return '';
   if (typeof value !== 'string') {
-    throw new Error(`Ariston RSS item ${itemNumber} ${field} must be a single scalar string`);
+    throw new AristonRssItemShapeError(
+      `Ariston RSS item ${itemNumber} ${field} must be a single scalar string`,
+    );
   }
   return value;
 }
@@ -132,6 +136,9 @@ export function parseAristonSitemapFeed(xml = '') {
           validThrough: normalizeSpace(readOptionalRssScalar(item, 'g:expiration_date', itemNumber)),
         };
       } catch (err) {
+        // Recover only declared leaf-shape failures; unexpected regressions
+        // must propagate to the crawler's existing zero-feed hard guard.
+        if (!(err instanceof AristonRssItemShapeError)) throw err;
         // Per-item guard: one degenerate leaf (non-scalar/repeated field) must
         // not zero out the whole ~180-item feed. Feed-shape drift (malformed
         // XML, missing envelope) still throws above, before this map.
