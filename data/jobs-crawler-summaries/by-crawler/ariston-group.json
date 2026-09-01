@@ -1,55 +1,19 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-09-01T07:44:01.912Z",
+  "generatedAt": "2026-09-01T09:10:21.938Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5108,
-  "avgDurationMs": 5108,
+  "durationMs": 6626,
+  "avgDurationMs": 6626,
   "durationHistory": [
-    5108
+    6626
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "TECNICO DI SERVIZIO PER IMPIANTI DI RISCALDAMENTO A GASOLIO",
-      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-bedano-ch-6930",
-      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1420717933/?locale=en_US",
-      "company": "Ariston Group",
-      "companyKey": "ariston-group",
-      "companyDomain": "aristongroup.com",
-      "location": "Bedano, CH, 6930",
-      "addressLocality": "Bedano, CH, 6930",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Energia & Riscaldamento",
-      "source": "ariston-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-08-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-10-01",
-      "id": "ariston-group-23cd4179422b",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-30T22:12:24.362Z",
-      "salarySource": "estimated",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
     {
       "title": "SERVICETECHNIKER ÖL/GAS-ATMO (M/W)",
       "slug": "servicetechniker-ol-gas-atmo-m-w-ariston-group-rothenburg-ch-6023",
@@ -155,6 +119,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-06-10T11:36:36.719Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -192,6 +157,7 @@
       "postalCode": "3001",
       "firstSeenAt": "2026-05-17T09:38:09.822Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -310,46 +276,45 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "VERKAUFSBERATER/IN AUSSENDIENST (W/M) - REGION OBERWALLIS",
-      "slug": "consulente-di-vendita-sul-campo-f-m-regione-alto-vallese-ariston-group-brig-ch-1070",
-      "url": "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/",
-      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1187004201/?locale=en_US",
+      "title": "TECNICO DI SERVIZIO PER IMPIANTI DI RISCALDAMENTO A GASOLIO",
+      "slug": "tecnico-di-servizio-per-impianti-di-riscaldamento-a-gasolio-ariston-group-bedano-ch-6930",
+      "url": "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/",
+      "applyUrl": "https://careers.aristongroup.com/talentcommunity/apply/1420717933/?locale=en_US",
       "company": "Ariston Group",
       "companyKey": "ariston-group",
       "companyDomain": "aristongroup.com",
-      "location": "Brig, CH, 1070",
-      "addressLocality": "Brig, CH, 1070",
-      "addressRegion": "VS",
+      "location": "Bedano, CH, 6930",
+      "addressLocality": "Bedano, CH, 6930",
+      "addressRegion": "TI",
       "addressCountry": "CH",
-      "canton": "VS",
+      "canton": "TI",
       "country": "CH",
       "category": "engineering",
       "sector": "Energia & Riscaldamento",
       "source": "ariston-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-19",
+      "sourceLang": "it",
+      "postedDate": "2026-08-28",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "2026-10-01",
-      "id": "ariston-group-8f87aad08aa9",
+      "id": "ariston-group-23cd4179422b",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
-      "postalCode": "3900",
-      "firstSeenAt": "2026-05-17T09:38:09.822Z",
-      "salarySource": "reported",
-      "_qualityScore": 94,
+      "firstSeenAt": "2026-07-30T22:12:24.362Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 22,
+        "richness": 24,
         "translation": 25,
-        "completeness": 22
+        "completeness": 19
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
