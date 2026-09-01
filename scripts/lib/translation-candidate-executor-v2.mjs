@@ -12,6 +12,7 @@ import {
   validateTranslationUnitIdentityV2,
 } from './translation-unit-identity-v2.mjs';
 import { normalizeTranslationText, sha256TranslationText } from './translation-unit-identity.mjs';
+import { isPromise } from 'node:util/types';
 
 export const TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION = 2;
 
@@ -167,19 +168,29 @@ function fixedEvidence(code) {
 }
 
 function wrapIntrinsicPromise(value) {
+  // `Promise.prototype.then` checks a Promise internal slot without invoking
+  // an untrusted `then`. It does, however, consult the source promise's
+  // species before attaching its handlers. Pin that synchronous lookup to the
+  // intrinsic constructor so a hostile subclass cannot throw and leave an
+  // already-rejected provider promise unobserved.
+  if (!isPromise(value)) return null;
   let resolveTrusted;
   let rejectTrusted;
   const trusted = new Promise((resolve, reject) => {
     resolveTrusted = resolve;
     rejectTrusted = reject;
   });
+  const constructor = Object.getOwnPropertyDescriptor(value, 'constructor');
   try {
-    // This checks the Promise internal slot. It accepts genuine subclass and
-    // cross-realm promises, while Proxy/custom thenable values fail without a
-    // `then` property read or attacker-controlled assimilation.
+    Object.defineProperty(value, 'constructor', {
+      value: Promise, configurable: true, enumerable: false, writable: true,
+    });
     Promise.prototype.then.call(value, resolveTrusted, rejectTrusted);
   } catch {
     return null;
+  } finally {
+    if (constructor) Object.defineProperty(value, 'constructor', constructor);
+    else delete value.constructor;
   }
   // Observe immediately, including synchronous and late provider rejection.
   Promise.prototype.then.call(trusted, undefined, () => undefined);

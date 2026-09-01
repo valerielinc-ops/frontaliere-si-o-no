@@ -528,6 +528,19 @@ describe('translation candidate quality v2', () => {
     }
   });
 
+  it('rejects duplicate-bearing periods through intra-period changes, decoys, prefixes and tails', () => {
+    for (const phrase of ['uno uno due due tre tre', 'a a b b', 'a b b a']) {
+      const repeated = Array.from({ length: 64 }, () => phrase).join(' ');
+      const prefixTokens = Array.from({ length: 20 }, (_, index) => (
+        index % 4 === 0 ? 'a' : `intro${index}`
+      ));
+      const candidateText = `${prefixTokens.join(' ')} ${repeated} finale uno due tre quattro cinque`;
+      for (const text of [candidateText, candidateText.replace(phrase, phrase.replace(/due|b/u, 'variante'))]) {
+        expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: text }))).toContain('description.degenerate_content');
+      }
+    }
+  });
+
   it('rejects a periodic tail despite same-period decoy anchors outside the region', () => {
     const prefixTokens = Array.from({ length: 500 }, (_, index) => `intro${index}`);
     for (const index of [0, 25, 50, 75]) prefixTokens[index] = 'decoy';

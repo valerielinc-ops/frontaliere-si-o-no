@@ -118,6 +118,18 @@ describe('translation candidate executor v2', () => {
     expect(echoed).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
   });
 
+  it('does not persist or reuse a duplicate-bearing periodic candidate', async () => {
+    const periodic = `${Array.from({ length: 64 }, () => 'uno uno due due tre tre').join(' ')} finale uno due tre quattro cinque`;
+    const firstStub = provider(periodic);
+    const first = await executeTranslationCandidateV2(executorInput(input({ provider: firstStub.provider })));
+    expect(first).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
+    const retryStub = provider(periodic);
+    const retried = await executeTranslationCandidateV2(executorInput(input({ memory: first.memory, provider: retryStub.provider })));
+    expect(retried).toMatchObject({ status: 'retryable_reject', candidate: null, memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
+    expect(firstStub.calls()).toBe(1);
+    expect(retryStub.calls()).toBe(1);
+  });
+
   it('does not call or mutate memory for provider errors and empty output', async () => {
     for (const generated of [new Error('stub failure'), '   ', null as unknown as string, 'x'.repeat(120_001)]) {
       const stub = provider(generated);
@@ -240,6 +252,49 @@ describe('translation candidate executor v2', () => {
       expect(signal?.aborted).toBe(true);
     } finally {
       vi.useRealTimers();
+    }
+  });
+
+  it('observes immediate and late hostile-species promise rejections without persistence or reuse', async () => {
+    const unhandled: unknown[] = [];
+    const observeUnhandled = (reason: unknown) => unhandled.push(reason);
+    process.on('unhandledRejection', observeUnhandled);
+    class HostileSpeciesPromise<T> extends Promise<T> {
+      static get [Symbol.species]() { throw new Error('hostile species getter'); }
+    }
+    try {
+      const immediate = input({
+        provider: {
+          schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+          translate() { return HostileSpeciesPromise.reject(new Error('immediate hostile rejection')); },
+        },
+      });
+      const first = await executeTranslationCandidateV2(executorInput(immediate));
+      expect(first).toMatchObject({ status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
+      const retried = await executeTranslationCandidateV2(executorInput({ ...immediate, memory: first.memory }));
+      expect(retried).toMatchObject({ status: 'generation_failed', metrics: { providerCalls: 1, recorded: false } });
+
+      vi.useFakeTimers();
+      try {
+        const late = input({
+          providerTimeoutMs: 5,
+          provider: {
+            schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+            translate() { return new HostileSpeciesPromise((_, reject) => setTimeout(() => reject(new Error('late hostile rejection')), 75)); },
+          },
+        });
+        const pending = executeTranslationCandidateV2(executorInput(late));
+        await vi.advanceTimersByTimeAsync(5);
+        const timedOut = await pending;
+        expect(timedOut).toMatchObject({ status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false } });
+        await vi.advanceTimersByTimeAsync(75);
+      } finally {
+        vi.useRealTimers();
+      }
+      await Promise.resolve();
+      expect(unhandled).toEqual([]);
+    } finally {
+      process.off('unhandledRejection', observeUnhandled);
     }
   });
 

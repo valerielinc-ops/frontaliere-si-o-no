@@ -256,15 +256,18 @@ function isDegenerateDescription(tokens) {
     return low;
   };
   // Retain every qualifying anchor, rather than the first anchor per period.
-  // A short periodic decoy can otherwise claim a period before a dominant
-  // region with that same period is seen. There is at most one candidate per
-  // token index, keeping this O(n) in memory; LCP checks are O(log n).
+  // Pair anchors, rather than single tokens, keep a period visible when its
+  // repeated unit contains adjacent duplicates (`a a b b`), whose individual
+  // token gaps alternate within every unit. There is at most one candidate per
+  // token-pair index, keeping this O(n) in memory; LCP checks are O(log n).
   const candidatePeriods = new Map();
   const occurrences = new Map();
-  for (let index = 0; index < values.length; index += 1) {
-    const previous = occurrences.get(values[index]);
+  const pairBase = values.length + 1;
+  for (let index = 0; index + 1 < values.length; index += 1) {
+    const pair = values[index] * pairBase + values[index + 1];
+    const previous = occurrences.get(pair);
     if (!previous) {
-      occurrences.set(values[index], { last: index, gap: 0, run: 0 });
+      occurrences.set(pair, { last: index, gap: 0, run: 0 });
       continue;
     }
     const gap = index - previous.last;
@@ -280,7 +283,7 @@ function isDegenerateDescription(tokens) {
         if (knownPeriod === undefined || gap < knownPeriod) candidatePeriods.set(anchor, gap);
       }
     }
-    occurrences.set(values[index], { last: index, gap, run });
+    occurrences.set(pair, { last: index, gap, run });
   }
   const candidates = [...candidatePeriods]
     .sort(([leftAnchor, leftPeriod], [rightAnchor, rightPeriod]) => (
