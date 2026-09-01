@@ -34,6 +34,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { execFileSync } from 'node:child_process';
 import { exitCrawlerOnError, slugify } from './lib/crawler-template.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -603,12 +604,28 @@ export function buildFustAdapterConfig(
   return adapter;
 }
 
-function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${FUST_KEY}.json`);
+export function assertFustAdapterParity(adapter, seedDetailUrls, seedMetaByUrl = {}) {
+  if (!isDeepStrictEqual(adapter?.seedDetailUrls, seedDetailUrls)) {
+    throw new Error('Fust adapter parity failed: seedDetailUrls differ from the authoritative feed.');
+  }
+  if (!isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
+    throw new Error('Fust adapter parity failed: seedMetaByUrl differs from the authoritative feed.');
+  }
+  if (Object.hasOwn(adapter || {}, 'seedUrls')) {
+    throw new Error('Fust adapter parity failed: generic seedUrls must stay disabled.');
+  }
+  return true;
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${FUST_KEY}.json not found — creating it.`);
-    const adapter = buildFustAdapterConfig({
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  seedMetaByUrl = {},
+  adapterPath = path.join(ADAPTERS_DIR, `${FUST_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: FUST_KEY,
       companyName: FUST_COMPANY_NAME,
       companyHost: 'fust.ch',
@@ -616,23 +633,16 @@ function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
       notes: 'Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103, server-side filtered to attribute 70=1114045 "Fust"). Canonical detail pages on jobs.fust.ch; real workplace enriched from page analytics.',
-    }, seedUrls, seedMetaByUrl);
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
+    };
+  if (!fs.existsSync(adapterPath)) {
+    console.log(`⚠️ Adapter ${FUST_KEY}.json not found — creating it.`);
   }
-
-  try {
-    const adapter = buildFustAdapterConfig(
-      JSON.parse(fs.readFileSync(adapterPath, 'utf-8')),
-      seedUrls,
-      seedMetaByUrl,
-    );
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${FUST_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildFustAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertFustAdapterParity(persisted, seedUrls, seedMetaByUrl);
+  console.log(`📝 Adapter ${FUST_KEY} updated with ${seedUrls.length} detail seed URLs (feed parity verified).`);
+  return persisted;
 }
 
 /* ── Re-tag existing Fust jobs ─────────────────────────────── */

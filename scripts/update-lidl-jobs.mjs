@@ -24,6 +24,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -295,7 +296,7 @@ function buildSeedMetaFromFields(fields) {
   };
 }
 
-async function fetchLidlSearchPage(page, { userAgent, timeoutMs }) {
+async function fetchLidlSearchPage(page, { userAgent, timeoutMs, fetchImpl = globalThis.fetch }) {
   // The LiCa API paginates via a JSON-encoded `general` object, NOT a bare
   // `page=N` query param (that one is silently ignored — meta.page stays 1).
   // Query + base URL contract live in lidl-job-parser.mjs (single source of truth).
@@ -303,7 +304,7 @@ async function fetchLidlSearchPage(page, { userAgent, timeoutMs }) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(apiUrl, {
+    const res = await fetchImpl(apiUrl, {
       signal: controller.signal,
       headers: {
         Accept: 'application/json, text/plain, */*',
@@ -313,8 +314,7 @@ async function fetchLidlSearchPage(page, { userAgent, timeoutMs }) {
       },
     });
     if (!res.ok) {
-      console.warn(`    ⚠️ API returned ${res.status} for page ${page}`);
-      return null;
+      throw new Error(`Lidl discovery failed: API returned ${res.status} for page ${page}.`);
     }
     return await res.json();
   } finally {
@@ -322,10 +322,26 @@ async function fetchLidlSearchPage(page, { userAgent, timeoutMs }) {
   }
 }
 
-async function fetchLidlJobDetailUrls() {
+function canonicalizeLidlDetailUrl(rawUrl = '', reqId = '') {
+  try {
+    const parsed = new URL(toAbsoluteLidlUrl(rawUrl));
+    parsed.protocol = 'https:';
+    parsed.hash = '';
+    parsed.search = '';
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '');
+    const match = parsed.pathname.match(/^\/(it|de|fr|en)\/jobs\/[^/]*-(\d{5,})$/i);
+    if (parsed.hostname.toLowerCase() !== LIDL_TEAM_HOST || !match || !reqId || match[2] !== reqId) return '';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
+export async function fetchLidlJobDetailUrls(options = {}) {
   const selectedByKey = new Map();
   const seedMetaByUrl = {};
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
   const userAgent =
     process.env.JOBS_CRAWLER_USER_AGENT ||
     'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -337,39 +353,49 @@ async function fetchLidlJobDetailUrls() {
   console.log('🔍 Fetching Lidl jobs CH-wide from team.lidl.ch search API (unfiltered, paginated)...');
 
   let droppedNonCh = 0;
-  let pageCount = 1;
-  for (let page = 1; page <= LIDL_MAX_PAGES; page += 1) {
-    let payload = null;
-    try {
-      payload = await fetchLidlSearchPage(page, { userAgent, timeoutMs });
-    } catch (err) {
-      console.warn(`    ⚠️ Failed to fetch Lidl page ${page}: ${err?.message || err}`);
-      break;
-    }
-    if (!payload) break;
-
-    if (page === 1) {
-      const totalCount = Number(payload?.meta?.totalCount) || 0;
-      const reportedPageCount = getLidlSearchPageCount(payload?.meta, LIDL_RESULTS_PER_PAGE);
-      pageCount = Math.min(reportedPageCount, LIDL_MAX_PAGES);
-      console.log(`    📦 Reported national results: ${totalCount || '?'} (${pageCount} page(s))`);
-      // Surface the safety-ceiling so a silent cap ≠ a fully drained feed.
-      if (reportedPageCount > LIDL_MAX_PAGES) {
-        console.warn(`    ⚠️ Pagination capped at ${LIDL_MAX_PAGES}/${reportedPageCount} pages (LIDL_MAX_PAGES=${LIDL_MAX_PAGES} ceiling) — raise JOBS_LIDL_MAX_PAGES if the national Lidl feed has grown.`);
-      }
-    }
-
-    // LiCa API returns the job list at the top-level `jobs` key (legacy nested
-    // `result.hits` is gone). The shared guard warns loudly on a shape/rename drift.
+  let droppedMalformed = 0;
+  let duplicateIdentity = 0;
+  let rawFetched = 0;
+  let totalCount = null;
+  let pageCount = null;
+  for (let page = 1; page <= (pageCount || 1); page += 1) {
+    const payload = await fetchLidlSearchPage(page, { userAgent, timeoutMs, fetchImpl });
+    const metaTotal = Number(payload?.meta?.totalCount);
+    const metaPerPage = Number(payload?.meta?.resultsPerPage);
+    const metaPage = Number(payload?.meta?.page);
+    const metaCount = Number(payload?.meta?.count);
     const hits = assertJsonListShape(payload, { key: LIDL_SEARCH_JOBS_KEY, source: `lidl:page${page}` });
-    if (hits.length === 0) break;
+    if (!Number.isInteger(metaTotal) || metaTotal < 0
+        || !Number.isInteger(metaPerPage) || metaPerPage <= 0
+        || metaPerPage !== LIDL_RESULTS_PER_PAGE
+        || !Number.isInteger(metaPage) || metaPage !== page
+        || !Number.isInteger(metaCount) || metaCount !== hits.length) {
+      throw new Error(
+        `Lidl discovery envelope invalid on page ${page}: total=${payload?.meta?.totalCount ?? '?'}, perPage=${payload?.meta?.resultsPerPage ?? '?'}, page=${payload?.meta?.page ?? '?'}, count=${payload?.meta?.count ?? '?'}, hits=${hits.length}.`
+      );
+    }
+    if (totalCount === null) {
+      totalCount = metaTotal;
+      pageCount = getLidlSearchPageCount(payload.meta, LIDL_RESULTS_PER_PAGE);
+      if (pageCount > LIDL_MAX_PAGES) {
+        throw new Error(`Lidl discovery incomplete: ${pageCount} reported pages exceed LIDL_MAX_PAGES=${LIDL_MAX_PAGES}.`);
+      }
+      console.log(`    📦 Reported national results: ${totalCount || '?'} (${pageCount} page(s))`);
+    } else if (metaTotal !== totalCount) {
+      throw new Error(`Lidl discovery total drift: page ${page} reports ${metaTotal}, expected ${totalCount}.`);
+    }
+    rawFetched += hits.length;
     console.log(`    📡 page ${page}: ${hits.length} hit(s)`);
 
     for (const hit of hits) {
       // Normalize the LiCa hit once; all downstream consumers read `fields`.
       const fields = extractLidlApiHitFields(hit);
-      const detailUrl = toAbsoluteLidlUrl(fields.detailUrl);
-      if (!detailUrl || !/\/jobs\//i.test(detailUrl)) continue;
+      const reqId = extractReqIdFromFields(fields, fields.detailUrl);
+      const detailUrl = canonicalizeLidlDetailUrl(fields.detailUrl, reqId);
+      if (!detailUrl) {
+        droppedMalformed += 1;
+        continue;
+      }
 
       // Drop jobs whose location does not resolve to a Swiss canton
       // (non-CH / unresolved). Never default to TI.
@@ -379,20 +405,21 @@ async function fetchLidlJobDetailUrls() {
         continue;
       }
 
-      const reqId = extractReqIdFromFields(fields, detailUrl);
-      const pathKey = normalizeLidlDetailPath(detailUrl);
-      const key = reqId ? `req:${reqId}` : `path:${pathKey}`;
+      const key = `req:${reqId}`;
       const lang = inferFieldsLanguage(fields, detailUrl);
       const descLen = String(fields.descriptionHtml || '').length;
       const score = languageScore(lang) + Math.min(8000, descLen) + (fields.highlight ? 120 : 0);
 
       const prev = selectedByKey.get(key);
+      if (prev) duplicateIdentity += 1;
       if (!prev || score > prev.score) {
         selectedByKey.set(key, { score, detailUrl, reqId, fields });
       }
     }
+  }
 
-    if (page >= pageCount) break;
+  if (totalCount === null || rawFetched !== totalCount) {
+    throw new Error(`Lidl discovery incomplete: fetched ${rawFetched}/${totalCount ?? '?'} API hits.`);
   }
 
   const detailUrls = [];
@@ -402,60 +429,87 @@ async function fetchLidlJobDetailUrls() {
     seedMetaByUrl[item.detailUrl] = buildSeedMetaFromFields(item.fields);
     // Build job directly from API fields (rich description available)
     const apiJob = buildJobFromApiFields(item.fields, item.detailUrl);
-    if (apiJob) jobsFromApi.push(apiJob);
+    if (!apiJob) {
+      throw new Error(`Lidl discovery invariant failed: canonical hit ${item.reqId} lacks a rich CH API job.`);
+    }
+    jobsFromApi.push(apiJob);
   }
 
   detailUrls.sort((a, b) => a.localeCompare(b));
+  const accounted = detailUrls.length + duplicateIdentity + droppedNonCh + droppedMalformed;
+  if (accounted !== rawFetched
+      || droppedNonCh !== 0
+      || droppedMalformed !== 0
+      || jobsFromApi.length !== detailUrls.length
+      || Object.keys(seedMetaByUrl).length !== detailUrls.length) {
+    throw new Error(
+      `Lidl discovery invariant failed: fetched=${rawFetched}, accounted=${accounted}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, non-CH=${droppedNonCh}, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}, rich=${jobsFromApi.length}.`
+    );
+  }
   if (droppedNonCh > 0) {
     console.log(`  🚫 Dropped ${droppedNonCh} Lidl hit(s) not resolving to a Swiss canton.`);
   }
   console.log(`✅ Total unique Lidl detail URLs discovered: ${detailUrls.length}`);
   console.log(`✅ Jobs built from API data: ${jobsFromApi.length}`);
-  return { urls: detailUrls, seedMetaByUrl, jobsFromApi };
+  return {
+    urls: detailUrls,
+    seedMetaByUrl,
+    jobsFromApi,
+    totalCount,
+    rawFetched,
+    duplicateIdentity,
+    droppedNonCh,
+    droppedMalformed,
+    sourceZero: totalCount === 0,
+  };
 }
 
-function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${LIDL_KEY}.json`);
+export function buildLidlAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl = {}, updatedAt = new Date().toISOString()) {
   const notes =
     'Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.';
+  return {
+    ...(baseAdapter || {}),
+    companyName: LIDL_COMPANY_NAME,
+    companyHost: LIDL_TEAM_HOST,
+    seedUrls,
+    seedMetaByUrl,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html', 'jsonld'])),
+    notes,
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${LIDL_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertLidlAdapterParity(adapter, seedUrls, seedMetaByUrl = {}) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)
+      || !isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
+    throw new Error('Lidl adapter parity failed: persisted seeds differ from the complete LiCa feed.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  seedMetaByUrl = {},
+  adapterPath = path.join(ADAPTERS_DIR, `${LIDL_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: LIDL_KEY,
       companyName: LIDL_COMPANY_NAME,
       companyHost: LIDL_TEAM_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      seedMetaByUrl,
-      notes,
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.companyName = LIDL_COMPANY_NAME;
-    adapter.companyHost = LIDL_TEAM_HOST;
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.crawlerModes = Array.isArray(adapter.crawlerModes) ? adapter.crawlerModes : [];
-    if (!adapter.crawlerModes.includes('generic_ats')) adapter.crawlerModes.unshift('generic_ats');
-    if (!adapter.crawlerModes.includes('html')) adapter.crawlerModes.push('html');
-    if (!adapter.crawlerModes.includes('jsonld')) adapter.crawlerModes.push('jsonld');
-    adapter.notes = notes;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${LIDL_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err?.message || err}`);
-  }
+  const adapter = buildLidlAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertLidlAdapterParity(persisted, seedUrls, seedMetaByUrl);
+  console.log(`📝 Adapter ${LIDL_KEY} updated with ${seedUrls.length} seed URLs (LiCa parity verified).`);
+  return persisted;
 }
 
 function runBaseCrawler() {
@@ -783,7 +837,7 @@ async function main() {
   console.log('');
 
   const discovery = await fetchLidlJobDetailUrls();
-  if (discovery.urls.length === 0) {
+  if (discovery.sourceZero) {
     console.log('ℹ️ Nessun URL di dettaglio Lidl trovato dalla search API. Uscita OK.');
     return;
   }
@@ -832,4 +886,14 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Lidl'));
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => exitCrawlerOnError(err, 'Lidl'));
+}

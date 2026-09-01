@@ -18,6 +18,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import {
   snapshotJobSlugs,
@@ -50,6 +51,7 @@ import {
 } from './lib/federal-job-normalization.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { extractStableJobId } from './lib/job-match-key.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -149,10 +151,32 @@ function buildSeedMetaFromApiJob(job, regionKey) {
 }
 
 /* ── API Discovery ─────────────────────────────────────────── */
-async function fetchVtgJobUrls() {
+function canonicalizeVtgDetailUrl(rawUrl = '') {
+  try {
+    const parsed = new URL(String(rawUrl || '').trim());
+    if (!['http:', 'https:'].includes(parsed.protocol) || parsed.hostname.toLowerCase() !== VTG_HOST) return '';
+    parsed.protocol = 'https:';
+    parsed.hostname = VTG_HOST;
+    parsed.search = '';
+    parsed.hash = '';
+    parsed.pathname = parsed.pathname.replace(/\/+$/, '');
+    if (!/^\/offene-stellen\/[^/]+\/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(parsed.pathname)) return '';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
+
+export async function fetchVtgJobUrls(options = {}) {
   const allUrls = new Set();
+  const stableIdToUrl = new Map();
   const seedMetaByUrl = {};
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
+  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  const regionTotals = {};
+  let fetched = 0;
+  let duplicateIdentity = 0;
+  let droppedMalformed = 0;
 
   for (const [regionKey, regionId] of Object.entries(REGION_IDS)) {
     const params = new URLSearchParams({
@@ -169,76 +193,124 @@ async function fetchVtgJobUrls() {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
-      const res = await fetch(apiUrl, {
+      const res = await fetchImpl(apiUrl, {
         signal: controller.signal,
         headers: { Accept: 'application/json', 'User-Agent': UA },
       });
 
       if (!res.ok) {
-        console.warn(`⚠️ API returned ${res.status} for region ${regionKey} — skipping.`);
-        continue;
+        throw new Error(`VTG discovery failed: API returned ${res.status} for region ${regionKey}.`);
       }
 
       const data = await res.json();
       const jobs = assertJsonListShape(data, { key: 'jobs', source: 'vtg', lang: regionKey });
+      const total = Number(data?.total);
+      if (!Number.isInteger(total) || total < 0 || total > API_LIMIT || jobs.length !== total) {
+        throw new Error(`VTG discovery incomplete for ${regionKey}: fetched ${jobs.length}/${data?.total ?? '?'} jobs (limit ${API_LIMIT}).`);
+      }
+      regionTotals[regionKey] = total;
+      fetched += jobs.length;
       console.log(`  📦 ${regionKey}: ${jobs.length} VTG jobs in this region`);
 
       let addedCount = 0;
       for (const job of jobs) {
-        const directLink = String(job?.links?.directlink || '').trim();
-        if (directLink && directLink.startsWith('http')) {
-          if (!allUrls.has(directLink)) {
-            seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job, regionKey);
-            addedCount++;
-          }
-          allUrls.add(directLink);
+        const directLink = canonicalizeVtgDetailUrl(job?.links?.directlink || '');
+        if (!directLink) {
+          droppedMalformed += 1;
+          continue;
         }
+        const stableId = extractStableJobId(directLink);
+        const previousUrl = stableIdToUrl.get(stableId);
+        if (previousUrl) {
+          if (previousUrl !== directLink) {
+            throw new Error(`VTG discovery identity conflict: ${stableId} maps to both ${previousUrl} and ${directLink}.`);
+          }
+          duplicateIdentity += 1;
+          continue;
+        }
+        stableIdToUrl.set(stableId, directLink);
+        allUrls.add(directLink);
+        seedMetaByUrl[directLink] = buildSeedMetaFromApiJob(job, regionKey);
+        addedCount++;
       }
       console.log(`  🎖️ ${regionKey}: ${addedCount} new unique URLs added`);
     } catch (err) {
-      console.warn(`⚠️ API fetch failed for region ${regionKey}: ${err.message}`);
+      if (String(err?.message || '').startsWith('VTG discovery')) throw err;
+      throw new Error(`VTG discovery failed for ${regionKey}: ${err.message}`, { cause: err });
     } finally {
       clearTimeout(timer);
     }
   }
 
+  const expectedRegions = Object.keys(REGION_IDS);
+  const sourceZero = fetched === 0;
+  if (Object.keys(regionTotals).length !== expectedRegions.length
+      || expectedRegions.some((key) => !Object.hasOwn(regionTotals, key))
+      || droppedMalformed !== 0
+      || allUrls.size + duplicateIdentity !== fetched
+      || Object.keys(seedMetaByUrl).length !== allUrls.size
+      || (sourceZero && Object.values(regionTotals).some((total) => total !== 0))) {
+    throw new Error(
+      `VTG discovery invariant failed: regions=${Object.keys(regionTotals).length}/${expectedRegions.length}, fetched=${fetched}, canonical=${allUrls.size}, duplicates=${duplicateIdentity}, malformed=${droppedMalformed}, metadata=${Object.keys(seedMetaByUrl).length}.`
+    );
+  }
   console.log(`\n✅ Total unique VTG detail URLs discovered: ${allUrls.size}\n`);
-  return { urls: [...allUrls], seedMetaByUrl };
+  return {
+    urls: [...allUrls],
+    seedMetaByUrl,
+    regionTotals,
+    fetched,
+    duplicateIdentity,
+    droppedMalformed,
+    sourceZero,
+  };
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
-function ensureAdapterSeedUrls(seedUrls, seedMetaByUrl = {}) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${VTG_KEY}.json`);
+export function buildVtgAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl = {}, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyName: VTG_COMPANY_NAME,
+    companyHost: VTG_HOST,
+    seedUrls,
+    seedMetaByUrl,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html', 'jsonld'])),
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${VTG_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertVtgAdapterParity(adapter, seedUrls, seedMetaByUrl = {}) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)
+      || !isDeepStrictEqual(adapter?.seedMetaByUrl, seedMetaByUrl)) {
+    throw new Error('VTG adapter parity failed: persisted seeds differ from the complete regional feed.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  seedMetaByUrl = {},
+  adapterPath = path.join(ADAPTERS_DIR, `${VTG_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: VTG_KEY,
       companyName: VTG_COMPANY_NAME,
       companyHost: VTG_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      seedMetaByUrl,
       notes: 'Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). Filtered by VTG verwaltungseinheit IDs for TI + Ostschweiz regions.',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.seedMetaByUrl = seedMetaByUrl;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${VTG_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildVtgAdapterConfig(baseAdapter, seedUrls, seedMetaByUrl, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertVtgAdapterParity(persisted, seedUrls, seedMetaByUrl);
+  console.log(`📝 Adapter ${VTG_KEY} updated with ${seedUrls.length} seed URLs (regional feed parity verified).`);
+  return persisted;
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
@@ -325,7 +397,7 @@ async function main() {
   // Step 1: Discover VTG job URLs from the Prospective.ch API
   const discovery = await fetchVtgJobUrls();
   const detailUrls = discovery.urls;
-  if (detailUrls.length === 0) {
+  if (discovery.sourceZero) {
     console.log('ℹ️ No VTG detail URLs found from API. Exiting OK.');
     return;
   }
@@ -381,4 +453,14 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'VTG'));
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => exitCrawlerOnError(err, 'VTG'));
+}
