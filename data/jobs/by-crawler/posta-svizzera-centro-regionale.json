@@ -634,9 +634,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schiers",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schiers",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-schiers",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-schiers"
       },
       "sourceLang": "de",
       "department": "",
@@ -675,6 +675,12 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -1803,7 +1809,7 @@
       },
       "slug": "information-security-officer-die-schweizerische-post-bellinzona",
       "slugByLocale": {
-        "it": "information-security-officer-die-schweizerische-post-bellinzona",
+        "it": "responsabile-della-sicurezza-die-schweizerische-post-bellinzona",
         "en": "information-security-officer-post",
         "de": "information-security-officer-post",
         "fr": "specialiste-de-la-securite-informatique-die-schweizerische-post-bellinzona"
@@ -1845,16 +1851,14 @@
       "firstSeenAt": "2026-08-25T21:45:31.521Z",
       "previousSlugsByLocale": {
         "it": [
-          "information-security-officer-post",
-          "responsabile-della-sicurezza-die-schweizerische-post-bellinzona"
+          "information-security-officer-post"
         ],
         "fr": [
           "information-security-officer-post"
         ]
       },
       "previousSlugs": [
-        "information-security-officer-post",
-        "responsabile-della-sicurezza-die-schweizerische-post-bellinzona"
+        "information-security-officer-post"
       ],
       "salarySource": "estimated",
       "retranslationAttempts": 1
@@ -4015,13 +4019,11 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-6jgq3j",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-6jgq3j"
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salarySource": "estimated"
     },
@@ -4179,7 +4181,6 @@
         ],
         "de": [
           "stv-teamleader-zustellung-briefe-und-pakete-post",
-          "zusteller-in-briefe-und-pakete-post-vponne",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
@@ -4190,8 +4191,7 @@
         "stv-teamleader-delivery-letters-and-packages-die-schweizerische-post-arosa",
         "stv-teamleader-zustellung-briefe-und-pakete-post",
         "stv-teamleader-lettres-de-livraison-et-colis-die-schweizerische-post-arosa",
-        "supplier-in-letters-and-packages-die-schweizerische-post-arosa",
-        "zusteller-in-briefe-und-pakete-post-vponne"
+        "supplier-in-letters-and-packages-die-schweizerische-post-arosa"
       ],
       "salarySource": "estimated"
     },
@@ -4710,13 +4710,11 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-koowxp",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-koowxp"
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salarySource": "estimated"
     },
@@ -4877,15 +4875,13 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-dudpy3",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "lettres-et-colis-die-schweizerische-post-samedan",
-        "livreur-de-lettres-et-de-colis-die-schweizerische-post-samedan",
-        "zusteller-in-briefe-und-pakete-post-dudpy3"
+        "livreur-de-lettres-et-de-colis-die-schweizerische-post-samedan"
       ],
       "salarySource": "estimated"
     },
@@ -5507,15 +5503,13 @@
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-trun"
         ],
         "de": [
-          "zusteller-in-briefe-und-pakete-post-1b3w50",
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-die-schweizerische-post-trun",
-        "livraison-de-lettres-et-de-colis-die-schweizerische-post-trun",
-        "zusteller-in-briefe-und-pakete-post-1b3w50"
+        "livraison-de-lettres-et-de-colis-die-schweizerische-post-trun"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-19a49604239b",
@@ -10231,12 +10225,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et paquets) dans EFZ Distribution"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-schattdorf",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-1d1602",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-schattdorf",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-1d1602",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-schattdorf",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-paquets-dans-efz-distribution-die-schweizerische-1d1602"
       },
       "sourceLang": "de",
       "department": "",
@@ -10256,12 +10250,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-schattdorf"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-schattdorf"
       ],
       "id": "posta-svizzera-centro-regionale-2b6c3909a86d",
       "salaryMin": 58500,
