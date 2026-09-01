@@ -984,8 +984,9 @@ describe('#6482 — assignGroupsStable', () => {
 
   it('keeps a slug pinned twice only once — a duplicate would race two commits on one file', () => {
     const crawlers = [crawler('a'), crawler('b')];
-    const { groups } = assignGroupsStable(crawlers, [['a', 'b'], ['a']], median);
+    const { groups, duplicatesDiscarded } = assignGroupsStable(crawlers, [['a', 'b'], ['a']], median);
     expect(groups.map((g) => g.members.map((m) => m.slug))).toEqual([['a', 'b'], []]);
+    expect(duplicatesDiscarded).toEqual(['a']);
   });
 
   it('refuses to place a new crawler when every group is reserved for an outlier, instead of silently growing one', () => {
