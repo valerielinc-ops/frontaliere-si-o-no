@@ -1,6 +1,6 @@
 {
   "crawlerKey": "efg-international",
-  "assembledAt": "2026-09-01T10:13:51.045Z",
+  "assembledAt": "2026-09-01T14:09:55.364Z",
   "jobs": [
     {
       "id": "efg-6456",
@@ -118,7 +118,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.228Z",
+      "crawledAt": "2026-09-01T14:09:48.626Z",
       "slugByLocale": {
         "it": "responsabile-del-rischio-efg-international-ag-geneve",
         "en": "risk-manager-efg-geneve",
@@ -157,7 +157,8 @@
       "previousSlugs": [
         "risk-manager-efg-geneve"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6413",
@@ -208,7 +209,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.226Z",
+      "crawledAt": "2026-09-01T14:09:48.625Z",
       "slugByLocale": {
         "it": "finanza-internship-efg-international-ag-geneve",
         "en": "finance-internship-efg-geneve",
@@ -247,7 +248,8 @@
       "previousSlugs": [
         "finance-internship-efg-geneve"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6384",
@@ -382,7 +384,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.224Z",
+      "crawledAt": "2026-09-01T14:09:48.623Z",
       "slugByLocale": {
         "it": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
         "en": "business-risk-manager-pb-coo-brm-temp-efg-zurich",
@@ -408,7 +410,8 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "firstSeenAt": "2026-07-20T22:01:00.554Z",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6336",
@@ -604,7 +607,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.223Z",
+      "crawledAt": "2026-09-01T14:09:48.622Z",
       "slugByLocale": {
         "it": "responsabile-governance-e-supervisione-del-rischio-legale-e-conformita-efg-international-ag-geneve",
         "en": "governance-risk-oversight-manager-legal-compliance-efg-geneve",
@@ -642,7 +645,8 @@
       "previousSlugs": [
         "governance-risk-oversight-manager-legal-compliance-efg-geneve"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6327",
@@ -787,7 +791,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.220Z",
+      "crawledAt": "2026-09-01T14:09:48.618Z",
       "slugByLocale": {
         "it": "ricevitore-efg-international-ag-zurich",
         "en": "receptionist-efg-international-ag-zurich",
@@ -827,7 +831,8 @@
       "previousSlugs": [
         "receptionist-efg-zurich"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6317",
@@ -952,7 +957,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.219Z",
+      "crawledAt": "2026-09-01T14:09:48.616Z",
       "slugByLocale": {
         "it": "iam-support-specialista-efg-international-ag-geneve",
         "en": "iam-support-specialist-efg-geneve",
@@ -1007,7 +1012,8 @@
         "pb-support-specialiste-americas-geneva-efg-international-ag-geneve",
         "pb-specialist-americas-ginevra-efg-international-ag-geneve"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6219",
@@ -1058,7 +1064,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.217Z",
+      "crawledAt": "2026-09-01T14:09:48.610Z",
       "slugByLocale": {
         "it": "data-ops-ingegnere-efg-international-ag-geneve",
         "en": "data-ops-engineer-efg-geneve",
@@ -1102,7 +1108,8 @@
         "ingenieur-des-operations-de-donnees-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6210",
@@ -1125,7 +1132,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "General Services Employee",
-        "de": "Mitarbeiter für allgemeine Dienstleistungen",
+        "de": "General Services Employee",
         "it": "Servizi generali Dipendenti",
         "fr": "Services généraux Employé"
       },
@@ -1153,11 +1160,11 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.215Z",
+      "crawledAt": "2026-09-01T14:09:48.608Z",
       "slugByLocale": {
         "it": "servizi-generali-dipendenti-efg-international-ag-geneve",
         "en": "general-services-employee-efg-geneve",
-        "de": "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
+        "de": "general-services-employee-efg-international-ag-geneve",
         "fr": "services-generaux-employe-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -1190,15 +1197,18 @@
         ],
         "de": [
           "general-services-employee-efg-geneve",
+          "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
           "general-services-employee-efg-international-ag-geneve"
         ]
       },
       "previousSlugs": [
         "general-services-employee-efg-geneve",
         "g-id-1-impiegata-servizi-generali-g-g-id-2-g-efg-international-ag-geneve",
+        "mitarbeiter-fur-allgemeine-dienstleistungen-efg-international-ag-geneve",
         "general-services-employee-efg-international-ag-geneve"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6175",
@@ -1324,7 +1334,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.213Z",
+      "crawledAt": "2026-09-01T14:09:48.605Z",
       "slugByLocale": {
         "it": "specialista-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
@@ -1370,7 +1380,8 @@
         "pb-support-specialist-middle-east-ch-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6163",
@@ -1523,7 +1534,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.210Z",
+      "crawledAt": "2026-09-01T14:09:48.601Z",
       "slugByLocale": {
         "it": "learning-development-specialista-efg-international-ag-lugano-n932z9",
         "en": "learning-development-specialist-efg-international-ag-lugano-n932z9",
@@ -1649,7 +1660,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.202Z",
+      "crawledAt": "2026-09-01T14:09:48.586Z",
       "slugByLocale": {
         "it": "responsabile-del-servizio-dati-it-efg-international-ag-geneve",
         "en": "it-data-service-manager-efg-geneve",
@@ -1832,7 +1843,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.200Z",
+      "crawledAt": "2026-09-01T14:09:48.581Z",
       "slugByLocale": {
         "it": "client-services-officer-geneva-talent-pool-efg-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
@@ -1871,7 +1882,8 @@
         "tester-di-penetrazione-interna-della-sicurezza-informatica-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6039",
@@ -1922,7 +1934,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.197Z",
+      "crawledAt": "2026-09-01T14:09:48.574Z",
       "slugByLocale": {
         "it": "sviluppatore-epm-onestream-analista-dati-business-efg-international-ag-lugano",
         "en": "epm-onestream-developer-business-data-analyst-efg-lugano",
@@ -1961,7 +1973,8 @@
       ],
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5967",
@@ -2108,7 +2121,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.181Z",
+      "crawledAt": "2026-09-01T14:09:48.554Z",
       "slugByLocale": {
         "it": "responsabile-della-fondazione-efg-international-ag-zurich",
         "en": "foundation-manager-efg-international-ag-lugano-n93k14",
@@ -2169,7 +2182,8 @@
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5892",
@@ -2220,7 +2234,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-01T10:13:48.177Z",
+      "crawledAt": "2026-09-01T14:09:48.549Z",
       "slugByLocale": {
         "it": "data-ingegnere-efg-international-ag-geneve",
         "en": "data-engineer-efg-geneve",
@@ -2451,7 +2465,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Group Financial Controller",
-        "fr": "Contrôleur financier du groupe",
+        "fr": "Group Financial Controller",
         "it": "Gruppo Controllore finanziario",
         "de": "Konzern Finanzverantwortlicher"
       },
@@ -2624,7 +2638,8 @@
         "group-financial-controller-efg-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5984",
@@ -2647,7 +2662,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "Switchboard operator",
-        "it": "Operatore di commutazione",
+        "it": "Switchboard operator",
         "de": "Schaltstelle-Operator",
         "fr": "Opérateur de central"
       },
@@ -2677,9 +2692,9 @@
       },
       "crawledAt": "2026-08-25T09:44:22.596Z",
       "slugByLocale": {
-        "it": "operatore-di-commutazione-efg-international-ag-lugano",
+        "it": "switchboard-operator-efg-international-ag-lugano",
         "en": "switchboard-operator-efg-lugano",
-        "de": "schaltnetzbetreiber-efg-international-ag-lugano",
+        "de": "schaltstelle-operator-efg-international-ag-lugano",
         "fr": "switchboard-operateur-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
@@ -2705,18 +2720,23 @@
       "firstSeenAt": "2026-07-10T10:26:15.024Z",
       "previousSlugsByLocale": {
         "it": [
-          "switchboard-operator-efg-lugano"
+          "switchboard-operator-efg-lugano",
+          "operatore-di-commutazione-efg-international-ag-lugano"
         ],
         "de": [
           "switchboard-operator-efg-lugano",
+          "schaltnetzbetreiber-efg-international-ag-lugano",
           "schaltstelle-operator-efg-international-ag-lugano"
         ]
       },
       "previousSlugs": [
         "switchboard-operator-efg-lugano",
+        "operatore-di-commutazione-efg-international-ag-lugano",
+        "schaltnetzbetreiber-efg-international-ag-lugano",
         "schaltstelle-operator-efg-international-ag-lugano"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6046",
@@ -2811,7 +2831,8 @@
         "specialiste-principal-des-produits-des-marches-prives-efg-international-ag-zurich"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6326",
@@ -3004,7 +3025,8 @@
         "back-office-cash-reconciliation-spezialist-efg-international-ag-geneve",
         "back-office-cash-reconciliation-specialiste-efg-international-ag-geneve"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6137",
@@ -3511,7 +3533,8 @@
         "client-services-officer-geneva-talent-pool-efg-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-5969",
@@ -3828,7 +3851,8 @@
         "network-proxy-support-capo-team-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6334",
@@ -3997,7 +4021,8 @@
       "previousSlugs": [
         "senior-compliance-officer-onboarding-periodic-reviews-efg-geneve"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6266",
@@ -4251,7 +4276,8 @@
         "cis-specialist-onboarding-recensioni-periodiche-compliance-officer-efg-international-ag-geneve"
       ],
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "efg-6203",
@@ -4273,7 +4299,7 @@
       "companyDomain": "efginternational.com",
       "titleByLocale": {
         "en": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
-        "fr": "EFG Programme d'études supérieures 2026 - Fonctions corporatives - Ressources humaines - Lugano",
+        "fr": "EFG Graduate Programme 2026 - Corporate Functions - Human Resources - Lugano",
         "it": "Programma di Laurea EFG 2026 - Funzioni Corporate - Risorse Umane - Lugano",
         "de": "EFG Graduate Programme 2026 - Corporate Functions - Personalwesen - Lugano"
       },
@@ -4359,97 +4385,8 @@
       },
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
-      "salarySource": "reported"
-    },
-    {
-      "id": "efg-6177",
-      "slug": "client-support-officer-efg-st-moritz",
-      "company": "EFG International AG",
-      "title": "Client Support Officer",
-      "location": "St. Moritz",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "description": "General Info\n\n-\nWork time Percentage : 100%\n\n-\nLocation : St Moritz\n\n## Job Description\n\nTo support our growing activities in St. Moritz, we are looking for a Client Service Officer who will provide high-quality administrative and client service support to our Client Relationship Officers (CROs), while also contributing to the smooth running of our front office reception and cashier operations.\n\nThis role is ideal for a service-oriented, hands-on professional who enjoys working in a dynamic, international private banking environment and who is motivated to take ownership, act proactively and deliver an outstanding client experience.\n\n## Main Responsibilities\n\n## 1. Client and CRO Support\n\n-\nSupport clients and CROs in their daily business activities.\n\n-\nMaintain active client contact in written and spoken German and English.\n\n-\nProvide top-quality service to clients through regular and prompt contact by phone and email.\n\n-\n## Execute client account openings, closures and updates, including\n\n-\nConducting internet searches and basic due diligence checks.\n\n-\nCollecting and verifying corroborative documentation.\n\n-\n## Prepare and follow up on client visits, including\n\n-\nPreparing account documentation and reviewing documents.\n\n-\nOrganising account statements and other supporting material.\n\n-\n## Execute and control client instructions, such as\n\n-\nStock market transactions.\n\n-\nPayments and transfers.\n\n-\nForeign currency trades.\n\n-\n## Perform various administrative and organisational tasks, including\n\n-\nClient reviews and periodic checks.\n\n-\nFollow-up on missing or pending documents.\n\n-\nDelivery and monitoring of hold mail.\n\n-\n## Prepare marketing and client materials, such as\n\n-\nPresentations and pitchbooks.\n\n-\nInvestment proposals & portfolio reviews.\n\n-\nActively promote paperless accounts and e-banking usage to clients.\n\n-\nEnsure full compliance with the Code of Conduct and all internal regulations (e.g. Cross Border, AML, Clear & Clean Desk Policy, Absence Management).\n\n## 2. Reception and Front Office Support\n\n-\nWelcome and assist clients upon arrival, ensuring a professional and warm first impression.\n\n-\n## Manage reception duties, including\n\n-\nAnswering and directing phone calls.\n\n-\nHandling appointments and coordinating meeting room bookings.\n\n-\nPrepare and serve beverages to clients and ensure a high standard of hospitality.\n\n-\nEnsure meeting rooms and client areas are tidy, well-presented and adequately equipped at all times.\n\n-\nHandle incoming and outgoing mail and deliveries, ensuring timely distribution and proper documentation.\n\n## 3. Cashier and Branch Support\n\n-\n## Support daily cashier operations, including\n\n-\nProcessing client deposits and withdrawals.\n\n-\nHandling basic cash and payment transactions in line with internal guidelines.\n\n-\nCollaborate closely with CROs and other team members to ensure smooth branch operations.\n\n-\nSupport marketing and client events, including preparation, logistics and on-site assistance.\n\n## Skills and experience\n\n-\nEducation and Professional Background\n\n-\nCommercial apprenticeship in a bank or similar banking-related education.\n\n-\nFurther education in the financial sector is an advantage.\n\n-\nMinimum 3 years of experience in a private banking or intermediary environment.\n\n-\nSkills\n\n-\n## Good understanding of financial instruments, including\n\n-\nEquities, bonds, structured products and derivatives.\n\n-\nSolid knowledge of Compliance and AML topics relevant to private banking.\n\n-\nConfident user of Microsoft Office (Excel, PowerPoint, Outlook, Word).\n\n-\nFamiliarity with banking systems and front-office tools is an asset.\n\n-\nStrong client service orientation with excellent interpersonal skills.\n\n-\nHigh level of reliability, discretion and integrity.\n\n-\nAbility to cope with pressure and tight deadlines, with a flexible approach to working hours when required.\n\n-\nComfortable working in a small branch environment, taking on a broad range of tasks (from client administration to reception and cashier support).\n\n-\nProficient in written and spoken German and English (essential).\n\n-\nItalian is a strong plus; any additional languages are an advantage.\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n-\nPlease ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\n-\nShould you wish to apply for this position use this link to apply.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6177",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "titleByLocale": {
-        "en": "Client Support Officer",
-        "it": "Responsabile del servizio clienti",
-        "de": "Kundenbetreuungsbeauftragter",
-        "fr": "Spécialiste de l ' appui aux clients"
-      },
-      "descriptionByLocale": {
-        "en": "General Info\n\n-\nWork time Percentage : 100%\n\n-\nLocation : St Moritz\n\n## Job Description\n\nTo support our growing activities in St. Moritz, we are looking for a Client Service Officer who will provide high-quality administrative and client service support to our Client Relationship Officers (CROs), while also contributing to the smooth running of our front office reception and cashier operations.\n\nThis role is ideal for a service-oriented, hands-on professional who enjoys working in a dynamic, international private banking environment and who is motivated to take ownership, act proactively and deliver an outstanding client experience.\n\n## Main Responsibilities\n\n## 1. Client and CRO Support\n\n-\nSupport clients and CROs in their daily business activities.\n\n-\nMaintain active client contact in written and spoken German and English.\n\n-\nProvide top-quality service to clients through regular and prompt contact by phone and email.\n\n-\n## Execute client account openings, closures and updates, including\n\n-\nConducting internet searches and basic due diligence checks.\n\n-\nCollecting and verifying corroborative documentation.\n\n-\n## Prepare and follow up on client visits, including\n\n-\nPreparing account documentation and reviewing documents.\n\n-\nOrganising account statements and other supporting material.\n\n-\n## Execute and control client instructions, such as\n\n-\nStock market transactions.\n\n-\nPayments and transfers.\n\n-\nForeign currency trades.\n\n-\n## Perform various administrative and organisational tasks, including\n\n-\nClient reviews and periodic checks.\n\n-\nFollow-up on missing or pending documents.\n\n-\nDelivery and monitoring of hold mail.\n\n-\n## Prepare marketing and client materials, such as\n\n-\nPresentations and pitchbooks.\n\n-\nInvestment proposals & portfolio reviews.\n\n-\nActively promote paperless accounts and e-banking usage to clients.\n\n-\nEnsure full compliance with the Code of Conduct and all internal regulations (e.g. Cross Border, AML, Clear & Clean Desk Policy, Absence Management).\n\n## 2. Reception and Front Office Support\n\n-\nWelcome and assist clients upon arrival, ensuring a professional and warm first impression.\n\n-\n## Manage reception duties, including\n\n-\nAnswering and directing phone calls.\n\n-\nHandling appointments and coordinating meeting room bookings.\n\n-\nPrepare and serve beverages to clients and ensure a high standard of hospitality.\n\n-\nEnsure meeting rooms and client areas are tidy, well-presented and adequately equipped at all times.\n\n-\nHandle incoming and outgoing mail and deliveries, ensuring timely distribution and proper documentation.\n\n## 3. Cashier and Branch Support\n\n-\n## Support daily cashier operations, including\n\n-\nProcessing client deposits and withdrawals.\n\n-\nHandling basic cash and payment transactions in line with internal guidelines.\n\n-\nCollaborate closely with CROs and other team members to ensure smooth branch operations.\n\n-\nSupport marketing and client events, including preparation, logistics and on-site assistance.\n\n## Skills and experience\n\n-\nEducation and Professional Background\n\n-\nCommercial apprenticeship in a bank or similar banking-related education.\n\n-\nFurther education in the financial sector is an advantage.\n\n-\nMinimum 3 years of experience in a private banking or intermediary environment.\n\n-\nSkills\n\n-\n## Good understanding of financial instruments, including\n\n-\nEquities, bonds, structured products and derivatives.\n\n-\nSolid knowledge of Compliance and AML topics relevant to private banking.\n\n-\nConfident user of Microsoft Office (Excel, PowerPoint, Outlook, Word).\n\n-\nFamiliarity with banking systems and front-office tools is an asset.\n\n-\nStrong client service orientation with excellent interpersonal skills.\n\n-\nHigh level of reliability, discretion and integrity.\n\n-\nAbility to cope with pressure and tight deadlines, with a flexible approach to working hours when required.\n\n-\nComfortable working in a small branch environment, taking on a broad range of tasks (from client administration to reception and cashier support).\n\n-\nProficient in written and spoken German and English (essential).\n\n-\nItalian is a strong plus; any additional languages are an advantage.\n\n## Our Values\n\n-\nAccountability : Taking ownership for tasks and challenges, as well as seeking continuous improvement\n\n-\nHands-on : Being proactive to rapidly deliver high-quality results\n\n-\nPassionate : Being committed and striving for excellence\n\n-\nSolution-driven : Focusing on client outcomes and treating clients fairly with a risk-aware mindset\n\n-\nPartnership-oriented : Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.\n\n-\nPlease ensure to attach a cover letter to your CV when filling the application.\n\n## Application\n\n-\nShould you wish to apply for this position use this link to apply.",
-        "it": "Informazioni generali\n- No.\nTempo di lavoro Percentuale: 100%\n- No.\nPosizione: St Moritz\n\nDescrizione del lavoro\n\nPer sostenere le nostre attività di crescita a St. Moritz, stiamo cercando un Client Service Officer che fornirà un supporto amministrativo e clienti di alta qualità ai nostri Clienti Relationship Officers (CRO), contribuendo al buon funzionamento della reception e delle operazioni di cassa.\n\nQuesto ruolo è ideale per un professionista orientato al servizio, pratico che gode di lavorare in un ambiente di private banking dinamico e internazionale e che è motivato a prendere la proprietà, agire in modo proattivo e fornire un'esperienza cliente eccezionale.\n\nPrincipali responsabilità\n\n1. Supporto cliente e CRO\n- No.\nSostenere clienti e CRO nelle loro attività quotidiane di business.\n- No.\nMantenere il contatto client attivo in tedesco e inglese scritto e parlato.\n- No.\nFornire un servizio di alta qualità ai clienti attraverso un contatto regolare e rapido per telefono e email.\n- No.\nEseguire le aperture, le chiusure e gli aggiornamenti dell'account client, inclusi\n- No.\nCondurre ricerche su internet e controlli di due diligence di base.\n- No.\nRaccogliere e verificare la documentazione corroborante.\n- No.\nPreparare e seguire le visite dei clienti, incluso\n- No.\nPreparazione della documentazione dell'account e revisione dei documenti.\n- No.\nOrganizzare le dichiarazioni dei conti e altri materiali di supporto.\n- No.\nEseguire e controllare le istruzioni del cliente, come\n- No.\nOperazioni di mercato azionario.\n- No.\nPagamenti e trasferimenti.\n- No.\nCommercio di valuta estera.\n- No.\nEseguire vari compiti amministrativi e organizzativi, tra cui\n- No.\nRecensioni dei clienti e controlli periodici.\n- No.\nSeguire i documenti mancanti o pendenti.\n- No.\nConsegna e monitoraggio della posta di attesa.\n- No.\nPreparare il marketing e materiali client, come\n- No.\nPresentazioni e pitchbook.\n- No.\nProposte di investimento e recensioni di portafoglio.\n- No.\nPromuovi attivamente account senza carta e l'utilizzo di e-banking ai clienti.\n- No.\nAssicurare la piena conformità al Codice di condotta e a tutte le normative interne (ad esempio Cross Border, AML, Clear & Clean Desk Policy, Absence Management).\n\n2. Supporto reception e reception\n- No.\nBenvenuto e assistere i clienti all'arrivo, assicurando una prima impressione professionale e calda.\n- No.\nGestire i compiti di ricezione, compreso\n- No.\nRispondendo e indirizzando le telefonate.\n- No.\nGestione degli appuntamenti e coordinamento delle prenotazioni delle sale riunioni.\n- No.\nPreparare e servire bevande ai clienti e garantire un elevato standard di ospitalità.\n- No.\nAssicurarsi che le sale riunioni e le aree clienti siano ordinate, ben rappresentate e adeguatamente attrezzate in ogni momento.\n- No.\nMantenere la posta in entrata e in uscita e le consegne, assicurando la distribuzione tempestiva e la corretta documentazione.\n\n3. Supporto Cashier e Branch\n- No.\nSupporta operazioni giornaliere di cassa, tra cui\n- No.\nElaborazione di depositi e prelievi dei clienti.\n- No.\nGestione delle operazioni di base in contanti e pagamento in linea con le linee guida interne.\n- No.\nCollaborare a stretto contatto con i CRO e altri membri del team per garantire operazioni di ramo liscia.\n- No.\nSupporto marketing e eventi client, tra cui preparazione, logistica e assistenza in loco.\n\nCompetenze ed esperienza\n- No.\nIstruzione e sfondo professionale\n- No.\nApprendistato commerciale in una banca o in una simile istruzione bancaria.\n- No.\nL'ulteriore istruzione nel settore finanziario è un vantaggio.\n- No.\nMinimo 3 anni di esperienza in un ambiente privato bancario o intermedio.\n- No.\nCompetenze\n- No.\nBuona comprensione degli strumenti finanziari, compreso\n- No.\nEquità, obbligazioni, prodotti strutturati e derivati.\n- No.\nConoscenza solida dei temi Compliance e AML relativi al private banking.\n- No.\nConfidente utente di Microsoft Office (Excel, PowerPoint, Outlook, Word).\n- No.\nLa familiarità con i sistemi bancari e gli strumenti di front-office è una risorsa.\n- No.\nForte orientamento al servizio clienti con eccellenti competenze interpersonali.\n- No.\nAlto livello di affidabilità, discrezione e integrità.\n- No.\nCapacità di far fronte a pressioni e scadenze strette, con un approccio flessibile alle ore di lavoro quando necessario.\n- No.\nConfortevole lavoro in un piccolo ambiente di ramo, assumendo una vasta gamma di compiti (da amministrazione client alla ricezione e supporto cassiere).\n- No.\nCompetenza in tedesco e inglese scritto e parlato (essenziale).\n- No.\nL'italiano è un vantaggio forte; le altre lingue sono un vantaggio.\n\nI nostri valori\n- No.\nResponsabilità: Prendere la proprietà per i compiti e le sfide, nonché cercare un miglioramento continuo\n- No.\nHands-on: essere proattivi per fornire rapidamente risultati di alta qualità\n- No.\nPassionato: Impegnarsi e lottare per l'eccellenza\n- No.\nSoluzione-driven: Concentrarsi sui risultati del cliente e trattare i clienti in modo corretto con una mentalità di rischio\n- No.\nPartenariato: promuovere la collaborazione e il lavoro di squadra. Lavorare insieme a uno spirito imprenditoriale.\n- No.\nAssicurarsi di allegare una lettera di copertura al vostro CV durante la compilazione dell'applicazione.\n\nApplicazione\n- No.\nSe si desidera richiedere per questa posizione utilizzare questo link per applicare.",
-        "de": "Allgemeine Info\n- Ja.\nArbeitszeit Prozentsatz : 100%\n- Ja.\nOrt : St Moritz\n\nJob Description\n\nUm unsere wachsenden Aktivitäten in St. Moritz zu unterstützen, suchen wir einen Kundendienstbeauftragten, der unseren Kundenbeziehungsoffiziern (CROs) eine hochwertige administrative und Client-Service-Unterstützung bietet und gleichzeitig einen reibungslosen Ablauf unserer Rezeption und Kasse-Operationen im Front Office unterstützt.\n\nDiese Rolle ist ideal für einen serviceorientierten, hand-on-Profi, der in einem dynamischen, internationalen Privatbanken-Umfeld arbeitet und motiviert ist, Eigentum zu nehmen, proaktiv zu handeln und ein hervorragendes Kundenerlebnis zu bieten.\n\nHauptverantwortlichkeiten\n\n1. Client- und CRO-Unterstützung\n- Ja.\nSupport Kunden und CROs in ihren täglichen Geschäftsaktivitäten.\n- Ja.\nBewahren Sie aktiven Kundenkontakt in schriftlichem und gesprochenem Deutsch und Englisch.\n- Ja.\nBieten Sie erstklassigen Service an Kunden durch regelmäßigen und schnellen Kontakt per Telefon und E-Mail.\n- Ja.\nAusführen von Client-Account-Öffnungen, Schließungen und Updates, einschließlich\n- Ja.\nDurchführung von Internet-Suche und grundlegende Due Diligence-Kontrollen.\n- Ja.\nSammeln und Verifizieren der korroborativen Dokumentation.\n- Ja.\nBereiten und folgen Sie auf Kundenbesuche, einschließlich\n- Ja.\nErstellung von Dokumenten und Überprüfungen.\n- Ja.\nOrganisation von Kontoauszügen und anderen unterstützenden Materialien.\n- Ja.\nAusführung und Steuerung von Client-Anweisungen, wie\n- Ja.\nAktienmarkttransaktionen.\n- Ja.\nZahlungen und Transfers.\n- Ja.\nAußenhandel.\n- Ja.\nDurchführung verschiedener administrativer und organisatorischer Aufgaben, einschließlich\n- Ja.\nKundenrezensionen und regelmäßige Überprüfungen.\n- Ja.\nFolgen auf fehlenden oder anhängigen Dokumenten.\n- Ja.\nLieferung und Überwachung von Halteposten.\n- Ja.\nVorbereitung von Marketing- und Kundenmaterialien, wie\n- Ja.\nVorträge und Pitchbooks.\n- Ja.\nInvestitionsvorschläge und Portfolio-Bewertungen.\n- Ja.\nAktiv fördern papierlose Konten und E-Banking-Nutzung für Kunden.\n- Ja.\nGewährleistung der vollständigen Einhaltung des Verhaltenskodex und aller internen Vorschriften (z.B. Cross Border, AML, Clear & Clean Desk Policy, Absence Management).\n\n2. Empfang und Unterstützung des Front Office\n- Ja.\nWillkommen und unterstützen Sie Kunden bei der Ankunft, um einen professionellen und warmen ersten Eindruck zu gewährleisten.\n- Ja.\nVerwaltungsempfangspflichten, einschließlich\n- Ja.\nTelefonanrufe beantworten und leiten.\n- Ja.\nTermine bearbeiten und Tagungsraumbuchungen koordinieren.\n- Ja.\nBereiten und servieren Sie Getränke für Kunden und stellen Sie einen hohen Standard der Gastfreundschaft.\n- Ja.\nStellen Sie sicher, dass Tagungsräume und Kundenbereiche jederzeit ordentlich, gut vertreten und ausreichend ausgestattet sind.\n- Ja.\nGeben Sie eingehende und ausgehende Post und Lieferungen aus, um eine rechtzeitige Verteilung und ordnungsgemäße Dokumentation zu gewährleisten.\n\n3. Kassen- und Zweigunterstützung\n- Ja.\nUnterstützung der täglichen Kasseoperationen, einschließlich\n- Ja.\nVerarbeitung von Kundeneinlagen und -enthebungen.\n- Ja.\nUmgang mit grundlegenden Bargeld- und Zahlungstransaktionen im Einklang mit internen Richtlinien.\n- Ja.\nMit CROs und anderen Teammitgliedern eng zusammenarbeiten, um reibungslose Filialen zu gewährleisten.\n- Ja.\nUnterstützung von Marketing- und Kundenveranstaltungen, einschließlich Vorbereitung, Logistik und Unterstützung vor Ort.\n\nFähigkeiten und Erfahrung\n- Ja.\nBildung und beruflicher Hintergrund\n- Ja.\nHandelslehre in einer Bank oder ähnlichen bankbezogenen Bildung.\n- Ja.\nDie Weiterbildung im Finanzsektor ist ein Vorteil.\n- Ja.\nMindestens 3 Jahre Erfahrung in einem privaten Bank- oder Zwischenraum.\n- Ja.\nFähigkeiten\n- Ja.\nGutes Verständnis von Finanzinstrumenten, einschließlich\n- Ja.\nAktien, Anleihen, strukturierte Produkte und Derivate.\n- Ja.\nSolides Wissen über Compliance und AML-Themen, die für Privatbanken relevant sind.\n- Ja.\nVertrauter Benutzer von Microsoft Office (Excel, PowerPoint, Outlook, Word).\n- Ja.\nVertrautheit mit Bankensystemen und Front-Office-Tools ist ein Vorteil.\n- Ja.\nStarke Kundendienstorientierung mit hervorragenden zwischenmenschlichen Fähigkeiten.\n- Ja.\nHohe Zuverlässigkeit, Diskretion und Integrität.\n- Ja.\nFähigkeit, Druck und enge Fristen zu bewältigen, mit einem flexiblen Ansatz für Arbeitszeiten, wenn erforderlich.\n- Ja.\nBequeme Arbeit in einer kleinen Zweigumgebung, die eine breite Palette von Aufgaben (von der Client-Administration bis zur Rezeption und Kasse Unterstützung).\n- Ja.\nProficient in schriftlichem und gesprochenem Deutsch und Englisch (wesentlich).\n- Ja.\nItalienisch ist ein starkes Plus; alle zusätzlichen Sprachen sind ein Vorteil.\n\nUnsere Werte\n- Ja.\nRechenschaftspflicht: Eigentumsbesitz für Aufgaben und Herausforderungen sowie kontinuierliche Verbesserung\n- Ja.\nHands-on: Als proaktiv, um schnell qualitativ hochwertige Ergebnisse zu liefern\n- Ja.\nLeidenschaftlich : Engagement und Streben nach Exzellenz\n- Ja.\nLösungsgetrieben : Fokussieren auf Client-Ergebnisse und Behandlung von Kunden ziemlich mit einem risikobewussten Mindset\n- Ja.\nPartnerschaftsorientiert : Förderung von Zusammenarbeit und Teamarbeit. Zusammenarbeit mit einem Unternehmergeist.\n- Ja.\nBitte stellen Sie sicher, dass Sie beim Ausfüllen der Bewerbung einen Brief an Ihren Lebenslauf anbringen.\n\nAnwendung\n- Ja.\nWenn Sie sich für diese Position bewerben möchten, verwenden Sie diesen Link.",
-        "fr": "Informations générales\n- Temps de travail Pourcentage : 100%\n- Lieu : St Moritz Description de l'emploi Pour appuyer nos activités croissantes à St. Moritz, nous recherchons un agent de service à la clientèle qui fournira un soutien administratif et un service à la clientèle de haute qualité à nos agents de relations avec la clientèle (ORC), tout en contribuant au bon fonctionnement de notre réception et de nos opérations de caisse. Ce rôle est idéal pour un professionnel orienté vers le service, qui aime travailler dans un environnement bancaire privé international dynamique et qui est motivé à s'approprier, agir de manière proactive et offrir une expérience client exceptionnelle. 1. Soutien aux clients et aux OC\n- Appuyer les clients et les OC dans leurs activités quotidiennes.\n- Maintenir un contact client actif en allemand et anglais écrits et parlés.\n- Fournir un service de qualité supérieure aux clients grâce à un contact régulier et rapide par téléphone et par courriel.\n- Exécuter les ouvertures de compte client, les fermetures et les mises à jour, y compris\n- Effectuer des recherches sur Internet et des vérifications de la diligence raisonnable de base.\n- Collecte et vérification de documents corroborants.\n- Préparer et suivre les visites des clients, y compris\n- Préparer la documentation du compte et examiner les documents.\n- Organisation de relevés de compte et d'autres documents à l'appui.\n- Exécuter et contrôler les instructions du client, telles que - transactions boursières.\n- Paiements et transferts.\n- Les échanges de devises.\n- Exécuter diverses tâches administratives et organisationnelles, y compris\n- Examens des clients et contrôles périodiques.\n- Suivi des documents manquants ou en attente.\n- Livraison et surveillance du courrier.\n- Préparer du matériel de marketing et de client, comme\n- Présentations et pitchbooks.\n- Propositions d'investissement et examens de portefeuille.\n- Promouvoir activement les comptes sans papier et l'utilisation de la banque électronique auprès des clients.\n- Veiller à la pleine conformité avec le Code de conduite et tous les règlements internes (p. ex., Politique sur les comptoirs transfrontaliers, LMA, Clear & Clean, Gestion des absences). 2. Accueil et soutien de la réception\n- Accueil et assistance aux clients à leur arrivée, en assurant une première impression professionnelle et chaleureuse.\n- Gérer les fonctions de réception, y compris - répondre et diriger les appels téléphoniques.\n- Traitement des rendez-vous et coordination des réservations de salles de réunion.\n- Préparer et servir les boissons aux clients et assurer un haut niveau d'hospitalité.\n- Veiller à ce que les salles de réunion et les espaces clients soient rangés, bien présentés et bien équipés en tout temps.\n- Traiter le courrier et les livraisons entrants et sortants, en assurant une distribution en temps voulu et une documentation appropriée. 3. Caissier et soutien de la succursale\n- Appuyer les opérations quotidiennes de caissier, y compris\n- Traitement des dépôts et des retraits des clients.\n- Traitement des opérations de paiement et de trésorerie de base conformément aux directives internes.\n- Collaborer étroitement avec les ORC et d'autres membres de l'équipe pour assurer le bon fonctionnement des succursales.\n- Soutenir le marketing et les événements clients, y compris la préparation, la logistique et l'assistance sur place. Compétences et expérience\n- Formation et formation professionnelle\n- Apprentissage commercial dans une banque ou une formation similaire liée à la banque.\n- La formation continue dans le secteur financier est un avantage.\n- Minimum 3 ans d'expérience dans un environnement bancaire privé ou intermédiaire.\n- Compétences\n- Bonne compréhension des instruments financiers, y compris\n- Actions, obligations, produits structurés et dérivés.\n- Connaissance approfondie des sujets liés à la conformité et à la LAM dans le secteur bancaire privé.\n- Un utilisateur fiable de Microsoft Office (Excel, PowerPoint, Outlook, Word).\n- La connaissance des systèmes bancaires et des outils de front-office est un atout.\n- Forte orientation du service à la clientèle avec d'excellentes compétences interpersonnelles.\n- Haute fiabilité, discrétion et intégrité.\n- Capacité de faire face à la pression et aux délais serrés, avec une approche flexible des heures de travail au besoin.\n- Travail confortable dans un environnement de petite branche, prenant une large gamme de tâches (de l'administration cliente à la réception et le soutien de la caisse).\n- Maîtrise de l'allemand et de l'anglais (essentiel).\n- L'italien est un plus fort; toute autre langue est un avantage. Nos valeurs\n- Responsabilité : S'approprier les tâches et les défis, ainsi que chercher une amélioration continue\n- Hands-on : Être proactif pour produire rapidement des résultats de haute qualité\n- Passionné : S'engager et s'efforcer d'atteindre l'excellence\n- Inspiré de la solution : Se concentrer sur les résultats des clients et traiter les clients équitablement avec un état d'esprit conscient des risques\n- Orienté vers le partenariat : Promouvoir la collaboration et le travail d'équipe. Travailler ensemble avec un esprit d'entreprise.\n- Veuillez joindre une lettre d'accompagnement à votre CV au moment de remplir la demande. Demande\n- Si vous souhaitez postuler pour ce poste, utilisez ce lien pour postuler."
-      },
-      "requirementsByLocale": {},
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\" lang=\"DE\">General Info</span></span></p><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Work</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">time</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\"> </span></span><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Percentage</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: 100%</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Location</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: St Moritz</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Company</span></h1><p><span lang=\"EN-GB\">EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span lang=\"EN-GB\">EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span style=\"color:#8C3F3E;\"><span style=\"font-size:14.0pt;letter-spacing:-.4pt;\">Our Purpose and Mission</span></span></p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Empowering entrepreneurial minds to create value – today and for the future.</span></span></p><p> </p><p><span style=\"color:#333C40;\"><span lang=\"EN-GB\">We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></span></p><h1><span lang=\"EN-GB\">Job Description</span></h1><p style=\"text-align:justify;\"><span>To support our growing activities in St. Moritz, we are looking for a <strong>Client Service Officer</strong> who will provide high-quality administrative and client service support to our Client Relationship Officers (CROs), while also contributing to the smooth running of our front office reception and cashier operations.</span></p><p style=\"text-align:justify;\"><span>This role is ideal for a service-oriented, hands-on professional who enjoys working in a dynamic, international private banking environment and who is motivated to take ownership, act proactively and deliver an outstanding client experience.</span></p><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>Main Responsibilities</strong></span></span></h1><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>1. Client and CRO Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support clients and CROs in their daily business activities.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Maintain active client contact in written and spoken German and English.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Provide top-quality service to clients through regular and prompt contact by phone and email.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Execute client account openings, closures and updates, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Conducting internet searches and basic due diligence checks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Collecting and verifying corroborative documentation.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare and follow up on client visits, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Preparing account documentation and reviewing documents.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Organising account statements and other supporting material.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Execute and control client instructions, such as:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Stock market transactions.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Payments and transfers.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Foreign currency trades.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Perform various administrative and organisational tasks, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Client reviews and periodic checks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Follow-up on missing or pending documents.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Delivery and monitoring of hold mail.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare marketing and client materials, such as:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Presentations and pitchbooks.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Investment proposals & portfolio reviews.</span></span></p></li></ul></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Actively promote paperless accounts and e-banking usage to clients.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ensure full compliance with the Code of Conduct and all internal regulations (e.g. Cross Border, AML, Clear & Clean Desk Policy, Absence Management).</span></span></p></li></ul><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\"><strong>2. Reception and Front Office Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Welcome and assist clients upon arrival, ensuring a professional and warm first impression.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Manage reception duties, including:</span></span></p><ul><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Answering and directing phone calls.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handling appointments and coordinating meeting room bookings.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Prepare and serve beverages to clients and ensure a high standard of hospitality.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ensure meeting rooms and client areas are tidy, well-presented and adequately equipped at all times.</span></span></p></li><li><p class=\"Bulletlist\" style=\"tab-stops:list 17.0pt;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handle incoming and outgoing mail and deliveries, ensuring timely distribution and proper documentation.</span></span></p></li></ul></li></ul><h1><span style=\"color:#333C40;\"><span style=\"font-size:9.0pt;letter-spacing:0pt;\">3. <strong>Cashier and Branch Support</strong></span></span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support daily cashier operations, including:</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Processing client deposits and withdrawals.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Handling basic cash and payment transactions in line with internal guidelines.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Collaborate closely with CROs and other team members to ensure smooth branch operations.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Support marketing and client events, including preparation, logistics and on-site assistance.</span></span></p></li></ul><h1><span lang=\"EN-GB\">Skills and experience</span></h1><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Education and Professional Background</strong></span></span></p></li></ol><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Commercial apprenticeship in a bank or similar banking-related education.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Further education in the financial sector is an advantage.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Minimum 3 years of experience in a private banking or intermediary environment.</span></span></p></li></ul><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Skills</strong></span></span></p></li></ol><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Good understanding of financial instruments, including: </span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Equities, bonds, structured products and derivatives.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Solid knowledge of Compliance and AML topics relevant to private banking.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Confident user of Microsoft Office (Excel, PowerPoint, Outlook, Word).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Familiarity with banking systems and front-office tools is an asset.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Strong client service orientation with excellent interpersonal skills.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">High level of reliability, discretion and integrity.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Ability to cope with pressure and tight deadlines, with a flexible approach to working hours when required.</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Comfortable working in a small branch environment, taking on a broad range of tasks (from client administration to reception and cashier support).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Proficient in written and spoken German and English (essential).</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Italian is a strong plus; any additional languages are an advantage.</span></span></p></li></ul><h1><span lang=\"IT-CH\">Our Values</span></h1><ul style=\"list-style-type:square;\"><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Accountability</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Hands-on</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being proactive to rapidly deliver high-quality results</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Passionate</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Being committed and striving for excellence</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Solution-driven</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></span></p></li><li><p class=\"Bulletlist\"><span style=\"color:#333C40;font-family:\"Fira Sans\",sans-serif;\"><span lang=\"EN-GB\">Partnership-oriented</span></span><span style=\"color:#333C40;\"><span lang=\"EN-GB\">: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></span></p></li></ul><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\"><strong>Please ensure to attach a cover letter to your CV when filling the application.</strong></span></span></p></li></ol><h1><span lang=\"EN-GB\">Application</span></h1><ol><li><p class=\"Bulletlist\" style=\"tab-stops:.5in;\"><span style=\"color:#333C40;\"><span lang=\"EN-GB\">Should you wish to apply for this position use this link to apply.</span></span></p></li></ol>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-07-03T11:07:52.383Z",
-      "slugByLocale": {
-        "it": "client-support-officer-efg-st-moritz",
-        "en": "client-support-officer-efg-international-ag-st-moritz",
-        "de": "client-support-officer-efg-st-moritz",
-        "fr": "client-support-officer-efg-st-moritz"
-      },
-      "addressLocality": "St. Moritz",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-01",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "",
-      "postalCode": "7500",
-      "addressRegion": "GR",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-05-17T10:08:35.143Z",
-      "previousSlugs": [
-        "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
-        "funzionario-dell-assistenza-clienti-efg-international-ag-st",
-        "responsabile-del-servizio-clienti-efg-international-ag-st-moritz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "funzionario-dell-assistenza-clienti-efg-international-ag-st-moritz",
-          "funzionario-dell-assistenza-clienti-efg-international-ag-st"
-        ]
-      },
-      "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     }
   ]
 }

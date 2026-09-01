@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tecan",
-  "assembledAt": "2026-09-01T10:14:03.419Z",
+  "assembledAt": "2026-09-01T14:14:24.684Z",
   "jobs": [
     {
       "id": "tecan-4d9b42b4b490",
@@ -34,7 +34,7 @@
       "url": "https://careers.tecan.com/job/Service-Sales-Manager/1418508233/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:14:00.718Z",
+      "crawledAt": "2026-09-01T14:14:18.785Z",
       "addressLocality": "China",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-sales-manager-tecan-china"
+        "service-sales-manager-tecan-china",
+        "responsabile-vendite-di-servizi-tecan-china"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-sales-manager-tecan-china"
+          "service-sales-manager-tecan-china",
+          "responsabile-vendite-di-servizi-tecan-china"
         ],
         "fr": [
           "service-sales-manager-tecan-china"
@@ -109,7 +111,7 @@
       "url": "https://careers.tecan.com/job/Sales-Generalist/1289976301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:14:00.108Z",
+      "crawledAt": "2026-09-01T14:14:18.275Z",
       "addressLocality": "France",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -172,7 +174,7 @@
       "url": "https://careers.tecan.com/job/Material-HandlerMRB-Coordinator/1431632933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:59.513Z",
+      "crawledAt": "2026-09-01T14:14:17.714Z",
       "addressLocality": "United States",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -236,7 +238,7 @@
       "url": "https://careers.tecan.com/job/Field-Automation-Engineer%2C-Detection/1432091433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:58.918Z",
+      "crawledAt": "2026-09-01T14:14:17.188Z",
       "addressLocality": "United States",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -272,8 +274,8 @@
       "id": "tecan-95f7f888bbc1",
       "slug": "sales-supervisore-bp-tecan-china",
       "slugByLocale": {
-        "en": "sales-supervisor-bp-tecan-china",
         "it": "sales-supervisore-bp-tecan-china",
+        "en": "sales-supervisor-bp-tecan-china",
         "de": "sales-vorgesetzter-bp-tecan-china",
         "fr": "sales-superviseur-bp-tecan-china"
       },
@@ -300,7 +302,7 @@
       "url": "https://careers.tecan.com/job/Sales-Supervisor-BP/1432204433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:58.285Z",
+      "crawledAt": "2026-09-01T14:14:16.658Z",
       "addressLocality": "China",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -317,20 +319,6 @@
       "applyUrl": "https://careers.tecan.com/talentcommunity/apply/1432204433/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-01T07:22:27.012Z",
       "previousSlugs": [
         "sales-supervisor-bp-tecan-china",
         "sales-supervisore-bp-tecan-china"
@@ -346,6 +334,20 @@
         "fr": [
           "sales-supervisor-bp-tecan-china"
         ]
+      },
+      "firstSeenAt": "2026-09-01T07:22:27.012Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 126000,
+          "unitText": "YEAR"
+        }
       }
     },
     {
@@ -379,7 +381,7 @@
       "url": "https://careers.tecan.com/job/Junior-HR-BP-HR-Project-Specialist/1421563233/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:57.671Z",
+      "crawledAt": "2026-09-01T14:14:16.132Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -397,11 +399,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-hr-bp-hr-project-specialist-tecan-mannedorf"
+        "junior-hr-bp-hr-project-specialist-tecan-mannedorf",
+        "junior-risorse-umane-bp-risorse-umane-project-specialista-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-hr-bp-hr-project-specialist-tecan-mannedorf"
+          "junior-hr-bp-hr-project-specialist-tecan-mannedorf",
+          "junior-risorse-umane-bp-risorse-umane-project-specialista-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-09-01T00:38:58.896Z",
@@ -451,7 +455,7 @@
       "url": "https://careers.tecan.com/job/Senior-Motion-Control-Engineer/1426456733/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:57.086Z",
+      "crawledAt": "2026-09-01T14:14:15.592Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -515,7 +519,7 @@
       "url": "https://careers.tecan.com/job/Project-Manager/1415380833/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:56.494Z",
+      "crawledAt": "2026-09-01T14:14:15.070Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -533,11 +537,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-tecan-mannedorf"
+        "project-manager-tecan-mannedorf",
+        "responsabile-del-progetto-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-tecan-mannedorf"
+          "project-manager-tecan-mannedorf",
+          "responsabile-del-progetto-tecan-mannedorf"
         ],
         "de": [
           "project-manager-tecan-mannedorf"
@@ -593,7 +599,7 @@
       "url": "https://careers.tecan.com/job/Global-Trade-Compliance-Manager/1420284933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:55.897Z",
+      "crawledAt": "2026-09-01T14:14:14.534Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -657,7 +663,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer-Electronics/1379904133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:55.305Z",
+      "crawledAt": "2026-09-01T14:14:13.995Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -677,12 +683,14 @@
       "previousSlugs": [
         "production-engineer-electronics-tecan-mannedorf",
         "ingegneri-di-produzione-elettronica-tecan-mannedorf",
-        "produktionsingenieur-elektronik-tecan-mannedorf"
+        "produktionsingenieur-elektronik-tecan-mannedorf",
+        "ingegnere-di-produzione-elettronica-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-engineer-electronics-tecan-mannedorf",
-          "ingegneri-di-produzione-elettronica-tecan-mannedorf"
+          "ingegneri-di-produzione-elettronica-tecan-mannedorf",
+          "ingegnere-di-produzione-elettronica-tecan-mannedorf"
         ],
         "de": [
           "produktionsingenieur-elektronik-tecan-mannedorf"
@@ -734,7 +742,7 @@
       "url": "https://careers.tecan.com/job/Senior-Embedded-Software-Engineer/1289076101/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:54.593Z",
+      "crawledAt": "2026-09-01T14:14:13.429Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -828,7 +836,7 @@
       "url": "https://careers.tecan.com/job/EHS-Specialist/1428299133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:54.005Z",
+      "crawledAt": "2026-09-01T14:14:12.868Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -846,11 +854,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ehs-specialist-tecan-mannedorf"
+        "ehs-specialist-tecan-mannedorf",
+        "ehs-specialista-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ehs-specialist-tecan-mannedorf"
+          "ehs-specialist-tecan-mannedorf",
+          "ehs-specialista-tecan-mannedorf"
         ],
         "fr": [
           "ehs-specialist-tecan-mannedorf"
@@ -902,7 +912,7 @@
       "url": "https://careers.tecan.com/job/Senior-Manager-Key-Account-Products/1413947533/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:53.435Z",
+      "crawledAt": "2026-09-01T14:14:12.330Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -920,11 +930,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-key-account-products-tecan-mannedorf"
+        "senior-manager-key-account-products-tecan-mannedorf",
+        "prodotti-principali-dell-account-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-key-account-products-tecan-mannedorf"
+          "senior-manager-key-account-products-tecan-mannedorf",
+          "prodotti-principali-dell-account-tecan-mannedorf"
         ],
         "fr": [
           "senior-manager-key-account-products-tecan-mannedorf"
@@ -977,7 +989,7 @@
       "url": "https://careers.tecan.com/job/Regional-Channel-Sales-&-Distributors-Manager-EMEA/1411946533/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:52.807Z",
+      "crawledAt": "2026-09-01T14:14:11.776Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -995,11 +1007,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "regional-channel-sales-distributors-manager-emea-tecan-mannedorf"
+        "regional-channel-sales-distributors-manager-emea-tecan-mannedorf",
+        "responsabile-vendite-e-distributori-di-canale-regionale-emea-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "regional-channel-sales-distributors-manager-emea-tecan-mannedorf"
+          "regional-channel-sales-distributors-manager-emea-tecan-mannedorf",
+          "responsabile-vendite-e-distributori-di-canale-regionale-emea-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-08-24T10:07:50.414Z",
@@ -1049,7 +1063,7 @@
       "url": "https://careers.tecan.com/job/Head-Software-Product-Manager-Lab-Automation-&-Liquid-Handling/1403393933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:52.171Z",
+      "crawledAt": "2026-09-01T14:14:11.204Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1068,14 +1082,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
+          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
+          "head-software-product-management-tecan-mannedorf"
         ],
         "it": [
-          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
+          "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
+          "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf"
         ]
       },
       "previousSlugs": [
-        "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf"
+        "head-software-product-manager-lab-automation-liquid-handling-tecan-mannedorf",
+        "head-software-product-management-tecan-mannedorf",
+        "gestione-del-prodotto-del-software-di-testa-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-08-04T11:54:53.348Z",
       "salaryMin": 121500,
@@ -1124,7 +1142,7 @@
       "url": "https://careers.tecan.com/job/Associate-Product-Manager/1400236433/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:51.585Z",
+      "crawledAt": "2026-09-01T14:14:10.662Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1144,13 +1162,15 @@
       "previousSlugs": [
         "associate-product-manager-tecan-mannedorf",
         "associate-customer-product-manager-tecan-mannedorf",
-        "gestionnaire-de-produit-client-associe-tecan-mannedorf"
+        "gestionnaire-de-produit-client-associe-tecan-mannedorf",
+        "responsabile-del-prodotto-associato-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "associate-product-manager-tecan-mannedorf",
           "associate-customer-product-manager-tecan-mannedorf",
-          "gestionnaire-de-produit-client-associe-tecan-mannedorf"
+          "gestionnaire-de-produit-client-associe-tecan-mannedorf",
+          "responsabile-del-prodotto-associato-tecan-mannedorf"
         ],
         "de": [
           "associate-customer-product-manager-tecan-mannedorf"
@@ -1206,7 +1226,7 @@
       "url": "https://careers.tecan.com/job/Production-Engineer/1393509133/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:50.928Z",
+      "crawledAt": "2026-09-01T14:14:10.137Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1231,7 +1251,8 @@
         "production-ingenieur-electronics-tecan-mannedorf",
         "ingenieur-de-production-electronique-tecan-mannedorf",
         "ingegneri-di-produzione-elettronica-tecan-mannedorf",
-        "produktionsingenieur-elektronik-tecan-mannedorf"
+        "produktionsingenieur-elektronik-tecan-mannedorf",
+        "ingegnere-di-produzione-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1241,7 +1262,8 @@
           "production-ingenieur-electronics-tecan-mannedorf",
           "ingenieur-de-production-electronique-tecan-mannedorf",
           "ingegneri-di-produzione-elettronica-tecan-mannedorf",
-          "produktionsingenieur-elektronik-tecan-mannedorf"
+          "produktionsingenieur-elektronik-tecan-mannedorf",
+          "ingegnere-di-produzione-tecan-mannedorf"
         ],
         "de": [
           "produktionstechnik-tecan-mannedorf"
@@ -1294,7 +1316,7 @@
       "url": "https://careers.tecan.com/job/Technical-Writer/1226895301/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:50.327Z",
+      "crawledAt": "2026-09-01T14:14:09.563Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1351,11 +1373,13 @@
           "reasoning-the-target-language-specified-in-the-request-is-english-en-the-original-title-is-already-in-english-technical",
           "technical-editor-tecan-mannedorf",
           "think-okay-so-the-user-wants-me-to-translate-the-job-title-technical-writer-into-english-wait-but-the-original-title-is",
-          "technical-writer-tecan-mannedorf"
+          "technical-writer-tecan-mannedorf",
+          "technical-writers-tecan-mannedorf"
         ],
         "it": [
           "scrittore-tecnico-tecan-mannedorf",
-          "technical-writer-tecan-mannedorf"
+          "technical-writer-tecan-mannedorf",
+          "tecnico-della-documentazione-tecan-mannedorf"
         ],
         "de": [
           "technischer-redakteur-tecan-mannedorf"
@@ -1378,7 +1402,9 @@
         "scrittore-tecnico-tecan-mannedorf",
         "technical-writer-tecan-mannedorf",
         "technischer-redakteur-tecan-mannedorf",
-        "auteurs-techniques-tecan-mannedorf"
+        "auteurs-techniques-tecan-mannedorf",
+        "technical-writers-tecan-mannedorf",
+        "tecnico-della-documentazione-tecan-mannedorf"
       ],
       "firstSeenAt": "2026-05-19T19:53:27.097Z",
       "salaryMin": 83000,
@@ -1426,7 +1452,7 @@
       "url": "https://careers.tecan.com/job/Trainee-in-Marketing/1411950933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:49.704Z",
+      "crawledAt": "2026-09-01T14:14:09.043Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1444,11 +1470,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trainee-in-marketing-tecan-mannedorf"
+        "trainee-in-marketing-tecan-mannedorf",
+        "apprendista-in-marketing-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trainee-in-marketing-tecan-mannedorf"
+          "trainee-in-marketing-tecan-mannedorf",
+          "apprendista-in-marketing-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-07-06T22:18:00.757Z",
@@ -1497,7 +1525,7 @@
       "url": "https://careers.tecan.com/job/Product-Environmental-Compliance-Manager/1405614933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:49.064Z",
+      "crawledAt": "2026-09-01T14:14:08.488Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1515,11 +1543,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "product-environmental-compliance-manager-tecan-mannedorf"
+        "product-environmental-compliance-manager-tecan-mannedorf",
+        "responsabile-della-conformita-ambientale-del-prodotto-tecan-mannedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-environmental-compliance-manager-tecan-mannedorf"
+          "product-environmental-compliance-manager-tecan-mannedorf",
+          "responsabile-della-conformita-ambientale-del-prodotto-tecan-mannedorf"
         ]
       },
       "firstSeenAt": "2026-06-17T13:49:54.698Z",
@@ -1569,7 +1599,7 @@
       "url": "https://careers.tecan.com/job/CAD-PDM-Administrator/1403539933/",
       "source": "Tecan Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:13:48.356Z",
+      "crawledAt": "2026-09-01T14:14:07.878Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",

@@ -1,7 +1,7 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-09-01T10:21:08.553Z",
+  "generatedAt": "2026-09-01T14:17:35.215Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7036,
-  "avgDurationMs": 7036,
+  "durationMs": 7508,
+  "avgDurationMs": 7508,
   "durationHistory": [
-    7036
+    7508
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=7d8be38b-93e4-4258-b4a0-47a77e6250c1&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T10:21:05.291Z",
+      "crawledAt": "2026-09-01T14:17:31.415Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       "salaryMin": 60200,
       "salaryMax": 84000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,

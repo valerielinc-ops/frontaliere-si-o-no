@@ -1,18 +1,18 @@
 {
   "key": "adus-klinik",
   "label": "ADUS Klinik",
-  "generatedAt": "2026-09-01T10:40:11.598Z",
-  "total": 2,
+  "generatedAt": "2026-09-01T14:27:33.284Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4127,
-  "avgDurationMs": 4127,
+  "unchangedCount": 0,
+  "durationMs": 4810,
+  "avgDurationMs": 4810,
   "durationHistory": [
-    4127
+    4810
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://karriere.adus-klinik.ch/jobs/6277966-dipl-physiotherapeut-in-20-30-im-stundenlohn",
       "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:40:08.418Z",
+      "crawledAt": "2026-09-01T14:27:30.414Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,47 +55,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "adus-klinik-ecd57ffb299a",
-      "slug": "esperto-a-in-anestesia-50-60-adus-klinik-dielsdorf",
-      "company": "ADUS Klinik",
-      "companyKey": "adus-klinik",
-      "companyDomain": "adus-klinik.ch",
-      "title": "Dipl. Expert:in Anästhesiepflege 50–60%",
-      "location": "Dielsdorf",
-      "canton": "ZH",
-      "url": "https://karriere.adus-klinik.ch/jobs/7537525-dipl-expert-in-anaesthesiepflege-50-60",
-      "source": "ADUS Klinik Dedicated Parser (Teamtailor RSS)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T09:13:05.140Z",
-      "addressLocality": "Dielsdorf",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8157",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-09",
-      "applyUrl": "https://karriere.adus-klinik.ch/jobs/7537525-dipl-expert-in-anaesthesiepflege-50-60",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-05-20T06:03:25.423Z",
-      "salaryMin": 54900,
-      "salaryMax": 76800,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

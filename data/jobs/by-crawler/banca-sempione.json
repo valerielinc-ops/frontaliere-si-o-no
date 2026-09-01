@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-sempione",
-  "assembledAt": "2026-09-01T10:18:42.216Z",
+  "assembledAt": "2026-09-01T14:19:44.431Z",
   "jobs": [
     {
       "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
@@ -225,7 +225,7 @@
         "it": "Global Wealth Management – Private Banker (Lugano)",
         "en": "Global Wealth Management.",
         "de": "Global Wealth Management – Privatbanker (Lugano)",
-        "fr": "Gestion mondiale de patrimoine – banquier privé (Lugano)"
+        "fr": "Global Wealth Management – Private Banker (Lugano)"
       },
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
@@ -285,7 +285,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",

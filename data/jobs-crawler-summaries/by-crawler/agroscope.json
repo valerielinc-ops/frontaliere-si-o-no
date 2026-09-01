@@ -1,18 +1,49 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-01T10:15:48.984Z",
+  "generatedAt": "2026-09-01T14:09:40.658Z",
   "total": 9,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 20142,
-  "avgDurationMs": 20142,
+  "durationMs": 3099,
+  "avgDurationMs": 3099,
   "durationHistory": [
-    20142
+    3099
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Futtermittelinspektor/in",
+      "slug": "futtermittelinspektor-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/futtermittelinspektor-in/91dbc73e-9ddd-4e45-afbb-43828163217f",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20093",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux, Schweiz",
+      "addressLocality": "Posieux",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-26",
+      "validThrough": "2026-09-27",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
@@ -42,6 +73,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-27T00:35:38.161Z",
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -232,44 +264,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Futtermittelinspektor/in",
-      "slug": "ispettore-a-dei-mangimi-agroscope-posieux-schweiz",
-      "url": "https://jobs.admin.ch/posti-vacanti/futtermittelinspektor-in/91dbc73e-9ddd-4e45-afbb-43828163217f",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20093",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux, Schweiz",
-      "addressLocality": "Posieux",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-26",
-      "validThrough": "2026-09-27",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "agroscope-1172f22c489c",
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-27T00:35:38.161Z",
-      "salarySource": "estimated",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Praktikum Waldrandbeweidung 80-100%",

@@ -4939,6 +4939,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.telefonia-asta-frequenze-2029.title': 'Mobile telephony, the auction starts at 855 million',
     'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom launches the auction for mobile frequencies with a base of 855 million. Applications by 3 December, assignment in 2027, concessions from 2029 for 15 years.',
     'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Aerial view of Lugano with telecommunications infrastructure and wireless network symbols',
+    'blog.article.novartis-studio-clinico-sospeso.title': 'Novartis suspends clinical trials, +5% on the stock market',
+    'blog.article.novartis-studio-clinico-sospeso.excerpt': 'Novartis has stopped studies on rap-cel due to three deaths; at the same time it announces positive results on Remibrutinib. Stock +5% today, +19% YTD.',
+    'blog.article.novartis-studio-clinico-sospeso.imageAlt': 'Swiss pharmaceutical laboratory with researchers analyzing data on screens in modern research facility.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Penalties of up to 30 thousand francs for unrest',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Motion by the UDC and the Federal Democratic Union in Mendrisio calls for reimbursement of police and firefighters\' expenses for those who cause unrest. Amount up to 30 thousand francs.',
+    'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Mendrisio municipal building where the motion on fines for unlawful public disorder was submitted',
 };
 
 export default blogMetaChEn;

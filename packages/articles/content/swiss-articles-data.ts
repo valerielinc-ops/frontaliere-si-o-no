@@ -14815,6 +14815,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'novartis-studio-clinico-sospeso',
+    category: 'novita',
+    date: '2026-09-01T14:05:34.393Z',
+    image: '/images/blog/novartis-studio-clinico-sospeso.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'sanzioni-disordini-rimborso-mendrisio',
+    category: 'novita',
+    date: '2026-09-01T14:17:27.771Z',
+    image: '/images/blog/sanzioni-disordini-rimborso-mendrisio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

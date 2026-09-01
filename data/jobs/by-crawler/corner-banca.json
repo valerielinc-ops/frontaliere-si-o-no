@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-09-01T10:16:02.403Z",
+  "assembledAt": "2026-09-01T14:26:27.761Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.853Z",
+      "crawledAt": "2026-09-01T14:26:24.600Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland"
       ],
@@ -65,6 +65,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:13:15.988Z",
+      "needsRetranslation": true,
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -153,7 +154,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.852Z",
+      "crawledAt": "2026-09-01T14:26:24.599Z",
       "previousSlugs": [
         "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
         "team-recupero-dipendenti-di-zurigo-corner-banca-wallisellen"
@@ -203,7 +204,7 @@
       "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
       "titleByLocale": {
         "it": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
-        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 10",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk - ref. 1086",
         "de": "Risikomanager - Asset Liability Management (ALM) und Liquiditätsrisiko - Ref. 1086",
         "fr": "Gestionnaire des risques - Gestion des passifs en matière d'actifs (GAP) et risque de liquidité - réf. 1086"
       },
@@ -250,7 +251,7 @@
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.852Z",
+      "crawledAt": "2026-09-01T14:26:24.599Z",
       "previousSlugsByLocale": {
         "it": [
           "risk-manager-asset-liability-management-alm-and-liquidity-risk-ref-1086-corner-banca-lugano",
@@ -366,7 +367,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.851Z",
+      "crawledAt": "2026-09-01T14:26:24.598Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -425,7 +426,7 @@
       "title": "Information Security Specialista  -  ref. 1108",
       "titleByLocale": {
         "it": "Information Security Specialista - ref. 1108",
-        "en": "Information Security Specialist - ref. 1108",
+        "en": "Information Security Specialista  -  ref. 1108",
         "de": "Information Security Spezialist - ref. 1108",
         "fr": "Information Security Spécialiste - ref. 1108"
       },
@@ -476,7 +477,7 @@
       "url": "https://jobs.corner.ch/o/information-security-specialist-ref-1108",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.850Z",
+      "crawledAt": "2026-09-01T14:26:24.597Z",
       "previousSlugs": [
         "information-security-specialist-ref-1108-corner-banca-lugano"
       ],
@@ -486,6 +487,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.230Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -496,6 +498,104 @@
           "@type": "QuantitativeValue",
           "minValue": 85500,
           "maxValue": 150000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-5c5ec31e11d9",
+      "slug": "fi-administration-e-business-support-ref-1116-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "fi-administration-e-business-support-ref-1116-corner-banca-lugano",
+        "en": "fi-administration-e-business-support-ref-1116-corner-banca-lugano",
+        "de": "fi-verwaltung-geschaftsunterstutzung-ref-1116-corner-banca-lugano",
+        "fr": "fi-administration-e-business-support-ref-1116-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "FI Administration & Business Support  - ref. 1116",
+      "titleByLocale": {
+        "it": "FI Administration & Business Support - ref. 1116",
+        "en": "FI Administration & Business Support  - ref. 1116",
+        "de": "FI-Verwaltung & Geschäftsunterstützung – Ref. 1116",
+        "fr": "FI Administration & Business Support - réf. 1116"
+      },
+      "description": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
+        "en": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n• Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n• Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
+        "de": "Wir suchen einen hochmotivierten und qualifizierten Kandidaten, der unserem FI Administration & Business Support Team beitritt. Der erfolgreiche Bewerber gewährleistet die operative und administrative Abdeckung der Tätigkeiten, die das Netz der Finanzintermediäre unterstützen, die rechtzeitige Bearbeitung von Anträgen, die administrative Unterstützung und eine genaue Fallbearbeitung unter Einhaltung der festgelegten Verfahren und Zeitpläne.\n\nSchlüsselfunktionen\n\n• Bereitstellung administrativer Unterstützung für die Aktivitäten der Funktion\n\n• Verwalten und Überwachen von Sonderfällen, Gewährleistung einer ordnungsgemäßen Verwaltung und Lösung im Einklang mit den vereinbarten Prioritäten\n\n• Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, Gewährleistung von Genauigkeit, Vollständigkeit und Einhaltung von Servicestandards\n\n• Verwalten Sie den gemeinsam genutzten Posteingang und die täglichen Anfragen, um zeitnahe Antworten und eine effiziente Abwicklung der täglichen betrieblichen Arbeitsbelastung zu gewährleisten\n\n• Bearbeitung von Kreditkartenanfragen in Abstimmung mit den zuständigen internen Teams\n\n• Bereiten Sie regelmäßige und Ad-hoc-Berichte vor, einschließlich Daten-/Statistikextraktion und -analyse für die betriebliche Überwachung\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und das Management der Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• Ausgezeichnete Kenntnisse von Microsoft Office (insbesondere Excel und Word)\n\n• Fähigkeit zur Erstellung von Verwaltungsunterlagen in mindestens zwei Landessprachen\n\n• Starke Kommunikation und zwischenmenschliche Fähigkeiten mit internen / externen Partnern per Telefon und / oder E-Mail\n\n• Schneller Lernender, operative Flexibilität und lösungsorientiertes Mindset\n\n• Teamorientierte Einstellung und Fähigkeit zur funktionsübergreifenden Zusammenarbeit\n\n• Ausgezeichnete Kenntnisse der Landessprachen und Englisch (geschrieben und gesprochen)\n\n• Frühere Erfahrungen in ähnlichen Rollen im Banken- / Finanzsektor oder in administrativen Unterstützungsfunktionen (bevorzugt)\n\n• Wohnen im Tessin oder bereit zu verlagern",
+        "fr": "Nous recherchons un candidat hautement motivé et qualifié pour rejoindre notre équipe d'administration et de soutien aux entreprises FI. Le candidat retenu assurera la couverture opérationnelle et administrative des activités d'appui au réseau d'intermédiaires financiers, en assurant le traitement rapide des demandes, le soutien administratif et la gestion précise des cas, conformément aux procédures et aux délais de service définis.\n\nResopnsabilités clés\n\n• Fournir un appui administratif aux activités de la fonction\n\n• Gérer et surveiller les cas particuliers, en veillant à ce qu ' ils soient dûment pris en charge et réglés conformément aux priorités convenues\n\n• Traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service\n\n• Gérer la boîte de réception partagée et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que la charge de travail opérationnelle quotidienne soit gérée efficacement\n\n• Traitement des demandes de carte de crédit en coordination avec les équipes internes compétentes\n\n• Préparer des rapports périodiques et spéciaux, y compris l ' extraction et l ' analyse de données/statistiques aux fins de la surveillance opérationnelle\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• Excellente connaissance de Microsoft Office (surtout Excel et Word)\n\n• Aptitude à rédiger la documentation administrative dans au moins deux langues nationales\n\n• Fortes compétences en communication et en relations interpersonnelles avec des partenaires internes/externes par téléphone et/ou courriel\n\n• Apprentissage rapide, flexibilité opérationnelle et état d'esprit orienté vers la solution\n\n• Attitude et capacité de collaboration axées sur l'équipe\n\n• Excellente connaissance des langues nationales et de l'anglais (écrit et parlé)\n\n• Expérience antérieure dans des rôles similaires au sein du secteur bancaire/financier ou dans des fonctions de soutien administratif (préféré)\n\n• Résident au Tessin ou prêt à déménager"
+      },
+      "requirements": [
+        "Ottima conoscenza di Microsoft Office, in particolare Excel e Word.",
+        "Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.",
+        "Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.",
+        "Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.",
+        "Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.",
+        "Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.",
+        "Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).",
+        "Residenza in Ticino oppure disponibilità a trasferirsi."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Excellent knowledge of Microsoft Office (especially Excel and Word)",
+          "Ability to draft administrative documentation in at least two national languages",
+          "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
+          "Fast learner, operational flexibility and solution-oriented mindset",
+          "Team-oriented attitude and ability to collaborate across functions",
+          "Excellent knowledge of national languages and English (written and spoken)",
+          "Resident in Ticino or willing to relocate",
+          "Ottima conoscenza di Microsoft Office, in particolare Excel e Word."
+        ],
+        "en": [
+          "Excellent knowledge of Microsoft Office (especially Excel and Word)",
+          "Ability to draft administrative documentation in at least two national languages",
+          "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
+          "Fast learner, operational flexibility and solution-oriented mindset",
+          "Team-oriented attitude and ability to collaborate across functions",
+          "Excellent knowledge of national languages and English (written and spoken)",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-01T14:26:24.596Z",
+      "previousSlugs": [
+        "fi-administration-e-business-support-2-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fi-administration-e-business-support-2-corner-banca-lugano"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:34:20.594Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
           "unitText": "YEAR"
         }
       },
@@ -568,7 +668,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.849Z",
+      "crawledAt": "2026-09-01T14:26:24.595Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
       ],
@@ -578,6 +678,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.211Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -592,104 +693,6 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-5c5ec31e11d9",
-      "slug": "fi-administration-e-business-support-ref-1116-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "fi-administration-e-business-support-ref-1116-corner-banca-lugano",
-        "en": "fi-administration-e-business-support-ref-1116-corner-banca-lugano",
-        "de": "fi-verwaltung-geschaftsunterstutzung-ref-1116-corner-banca-lugano",
-        "fr": "fi-administration-e-business-support-ref-1116-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "FI Administration & Business Support  - ref. 1116",
-      "titleByLocale": {
-        "it": "FI Administration & Business Support - ref. 1116",
-        "en": "FI Administration & Business Support - ref. 1116",
-        "de": "FI-Verwaltung & Geschäftsunterstützung – Ref. 1116",
-        "fr": "FI Administration & Business Support - réf. 1116"
-      },
-      "description": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
-        "en": "We are looking for a highly motivated and qualified candidate to join our FI Administration & Business Support team. The successful candidate will ensure the operational and administrative coverage of activities supporting the network of financial intermediaries, providing timely handling of requests, administrative support and accurate case management, in compliance with defined procedures and service timelines.\n\nKey Resopnsabilities\n\n• Provide administrative support to the function’s activities\n\n• Manage and monitor special cases, ensuring proper ownership and resolution in line with agreed priorities\n\n• Process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards\n\n• Manage the shared inbox and daily requests, ensuring timely responses and efficient handling of the daily operational workload\n\n• Handle any credit card-related requests in coordination with the relevant internal teams\n\n• Prepare periodic and ad hoc reporting, including data/statistical extraction and analysis for operational monitoring\n\nWhat do we offer?\n\n• Flexibiity in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\n• Numerous benefits and incentives\n\n• Well-being, motivational and team-building activities\n\n• Excellent knowledge of Microsoft Office (especially Excel and Word)\n\n• Ability to draft administrative documentation in at least two national languages\n\n• Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail\n\n• Fast learner, operational flexibility and solution-oriented mindset\n\n• Team-oriented attitude and ability to collaborate across functions\n\n• Excellent knowledge of national languages and English (written and spoken)\n\n• Previous experience in similar roles within the banking/financial sector or in administrative support functions (preferred)\n\n• Resident in Ticino or willing to relocate",
-        "de": "Wir suchen einen hochmotivierten und qualifizierten Kandidaten, der unserem FI Administration & Business Support Team beitritt. Der erfolgreiche Bewerber gewährleistet die operative und administrative Abdeckung der Tätigkeiten, die das Netz der Finanzintermediäre unterstützen, die rechtzeitige Bearbeitung von Anträgen, die administrative Unterstützung und eine genaue Fallbearbeitung unter Einhaltung der festgelegten Verfahren und Zeitpläne.\n\nSchlüsselfunktionen\n\n• Bereitstellung administrativer Unterstützung für die Aktivitäten der Funktion\n\n• Verwalten und Überwachen von Sonderfällen, Gewährleistung einer ordnungsgemäßen Verwaltung und Lösung im Einklang mit den vereinbarten Prioritäten\n\n• Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, Gewährleistung von Genauigkeit, Vollständigkeit und Einhaltung von Servicestandards\n\n• Verwalten Sie den gemeinsam genutzten Posteingang und die täglichen Anfragen, um zeitnahe Antworten und eine effiziente Abwicklung der täglichen betrieblichen Arbeitsbelastung zu gewährleisten\n\n• Bearbeitung von Kreditkartenanfragen in Abstimmung mit den zuständigen internen Teams\n\n• Bereiten Sie regelmäßige und Ad-hoc-Berichte vor, einschließlich Daten-/Statistikextraktion und -analyse für die betriebliche Überwachung\n\nWas bieten wir an?\n\n• Flexibilität bei der Arbeit von zu Hause aus und das Management der Arbeitszeiten, um eine gesunde Work-Life-Balance zu gewährleisten\n\n• Zahlreiche Vorteile und Anreize\n\n• Wohlbefinden, Motivation und Teambuilding\n\n• Ausgezeichnete Kenntnisse von Microsoft Office (insbesondere Excel und Word)\n\n• Fähigkeit zur Erstellung von Verwaltungsunterlagen in mindestens zwei Landessprachen\n\n• Starke Kommunikation und zwischenmenschliche Fähigkeiten mit internen / externen Partnern per Telefon und / oder E-Mail\n\n• Schneller Lernender, operative Flexibilität und lösungsorientiertes Mindset\n\n• Teamorientierte Einstellung und Fähigkeit zur funktionsübergreifenden Zusammenarbeit\n\n• Ausgezeichnete Kenntnisse der Landessprachen und Englisch (geschrieben und gesprochen)\n\n• Frühere Erfahrungen in ähnlichen Rollen im Banken- / Finanzsektor oder in administrativen Unterstützungsfunktionen (bevorzugt)\n\n• Wohnen im Tessin oder bereit zu verlagern",
-        "fr": "Nous recherchons un candidat hautement motivé et qualifié pour rejoindre notre équipe d'administration et de soutien aux entreprises FI. Le candidat retenu assurera la couverture opérationnelle et administrative des activités d'appui au réseau d'intermédiaires financiers, en assurant le traitement rapide des demandes, le soutien administratif et la gestion précise des cas, conformément aux procédures et aux délais de service définis.\n\nResopnsabilités clés\n\n• Fournir un appui administratif aux activités de la fonction\n\n• Gérer et surveiller les cas particuliers, en veillant à ce qu ' ils soient dûment pris en charge et réglés conformément aux priorités convenues\n\n• Traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service\n\n• Gérer la boîte de réception partagée et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que la charge de travail opérationnelle quotidienne soit gérée efficacement\n\n• Traitement des demandes de carte de crédit en coordination avec les équipes internes compétentes\n\n• Préparer des rapports périodiques et spéciaux, y compris l ' extraction et l ' analyse de données/statistiques aux fins de la surveillance opérationnelle\n\nQu'est-ce qu'on offre ?\n\n• Flexibilité dans le travail à domicile et la gestion des heures de travail afin de garantir un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages et incitations\n\n• Activités de bien-être, de motivation et de renforcement des équipes\n\n• Excellente connaissance de Microsoft Office (surtout Excel et Word)\n\n• Aptitude à rédiger la documentation administrative dans au moins deux langues nationales\n\n• Fortes compétences en communication et en relations interpersonnelles avec des partenaires internes/externes par téléphone et/ou courriel\n\n• Apprentissage rapide, flexibilité opérationnelle et état d'esprit orienté vers la solution\n\n• Attitude et capacité de collaboration axées sur l'équipe\n\n• Excellente connaissance des langues nationales et de l'anglais (écrit et parlé)\n\n• Expérience antérieure dans des rôles similaires au sein du secteur bancaire/financier ou dans des fonctions de soutien administratif (préféré)\n\n• Résident au Tessin ou prêt à déménager"
-      },
-      "requirements": [
-        "Ottima conoscenza di Microsoft Office, in particolare Excel e Word.",
-        "Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.",
-        "Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.",
-        "Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.",
-        "Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.",
-        "Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.",
-        "Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).",
-        "Residenza in Ticino oppure disponibilità a trasferirsi."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Excellent knowledge of Microsoft Office (especially Excel and Word)",
-          "Ability to draft administrative documentation in at least two national languages",
-          "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
-          "Fast learner, operational flexibility and solution-oriented mindset",
-          "Team-oriented attitude and ability to collaborate across functions",
-          "Excellent knowledge of national languages and English (written and spoken)",
-          "Resident in Ticino or willing to relocate",
-          "Ottima conoscenza di Microsoft Office, in particolare Excel e Word."
-        ],
-        "en": [
-          "Excellent knowledge of Microsoft Office (especially Excel and Word)",
-          "Ability to draft administrative documentation in at least two national languages",
-          "Strong communication and interpersonal skills with internal/external partners via phone and/or e-mail",
-          "Fast learner, operational flexibility and solution-oriented mindset",
-          "Team-oriented attitude and ability to collaborate across functions",
-          "Excellent knowledge of national languages and English (written and spoken)",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.849Z",
-      "previousSlugs": [
-        "fi-administration-e-business-support-2-corner-banca-lugano"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fi-administration-e-business-support-2-corner-banca-lugano"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T21:34:20.594Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 49500,
-          "maxValue": 75000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
       "employmentType": "FULL_TIME"
     },
     {
@@ -757,7 +760,7 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.848Z",
+      "crawledAt": "2026-09-01T14:26:24.594Z",
       "previousSlugs": [
         "employee-backoffice-ref-1110-corner-banca-lugano"
       ],
@@ -767,6 +770,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.210Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -850,7 +854,7 @@
       "url": "https://jobs.corner.ch/o/employee-underwriting-e-cash-ref-1113",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.847Z",
+      "crawledAt": "2026-09-01T14:26:24.594Z",
       "previousSlugs": [
         "employee-underwriting-e-cash-ref-1113-corner-banca-lugano"
       ],
@@ -860,6 +864,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:12:28.201Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -956,7 +961,7 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:15:59.846Z",
+      "crawledAt": "2026-09-01T14:26:24.593Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
@@ -994,7 +999,7 @@
         "it": "Senior Compliance Officer - ref. 1111",
         "en": "Senior Compliance Officer - ref. 1111",
         "de": "Senior Compliance Officer - ref. 1111",
-        "fr": "Agent principal de conformité - réf. 1111"
+        "fr": "Senior Compliance Officer  - ref. 1111"
       },
       "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
       "descriptionByLocale": {
@@ -1044,7 +1049,7 @@
       "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.845Z",
+      "crawledAt": "2026-09-01T14:26:24.592Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-compliance-officer-ref-1111-corner-banca-lugano",
@@ -1090,7 +1095,7 @@
       "title": "Consulente Fiscale (Private Banking)  - ref. 1117",
       "titleByLocale": {
         "it": "Consulente Fiscale (Private Banking) - ref. 1117",
-        "en": "Fiscale Consultant (Private Banking) - ref. 11",
+        "en": "Consulente Fiscale (Private Banking)  - ref. 1117",
         "de": "Steuerberater (Private Banking) – Ref. 1117",
         "fr": "Conseiller fiscal (Banque privée) - réf. 1117"
       },
@@ -1142,7 +1147,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.844Z",
+      "crawledAt": "2026-09-01T14:26:24.590Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -1152,6 +1157,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:44:57.049Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1223,7 +1229,7 @@
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.843Z",
+      "crawledAt": "2026-09-01T14:26:24.589Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
@@ -1310,7 +1316,7 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T10:15:59.842Z",
+      "crawledAt": "2026-09-01T14:26:24.588Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
