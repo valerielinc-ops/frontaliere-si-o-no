@@ -5,6 +5,8 @@ import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   CRAWLER_GENERATION_REF_RETENTION_MS,
+  DIRECT_RUN_HYDRATION_BACKOFF_MS,
+  DIRECT_RUN_HYDRATION_TIMEOUT_MS,
   GITHUB_API_VERSION,
   MAX_CRAWLER_GENERATION_REAPER_CANDIDATES,
   cleanupCrawlerGenerationDispatchRef,
@@ -760,8 +762,9 @@ describe('crawler generation dispatch protocol', () => {
     expect(getCalls).toBe(2);
   });
 
-  it('retries a transient 200 binding mismatch until the exact run snapshot hydrates', async () => {
+  it('hydrates the authoritative run ID after more than three partial GET snapshots', async () => {
     let getCalls = 0;
+    const sleeps: number[] = [];
     const request = vi.fn(async (input: any) => {
       if (input.method === 'POST') return {
         status: 200,
@@ -774,7 +777,9 @@ describe('crawler generation dispatch protocol', () => {
       getCalls += 1;
       return {
         status: 200,
-        body: getCalls === 1 ? { ...boundRun(), path: null } : boundRun(),
+        body: getCalls <= 4
+          ? { ...boundRun(), display_title: 'Crawler Group 01 (sparse cross-repo execution)', path: null }
+          : boundRun(),
       };
     });
     await expect(dispatchWorkflowOnce({
@@ -784,9 +789,11 @@ describe('crawler generation dispatch protocol', () => {
       generationToken,
       inputs: { skip_ai_translation: '1', generation_token: generationToken },
       request,
-      sleep: async () => {},
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
     })).resolves.toEqual({ status: 'direct', runId: '7001' });
-    expect(getCalls).toBe(2);
+    expect(getCalls).toBe(5);
+    expect(sleeps).toEqual(DIRECT_RUN_HYDRATION_BACKOFF_MS.slice(0, 4));
+    expect(request.mock.calls.some(([input]) => input.path.includes('/actions/runs?'))).toBe(false);
   });
 
   it('fails shadow binding closed if corpus main advances between preflight and POST', async () => {
@@ -816,11 +823,14 @@ describe('crawler generation dispatch protocol', () => {
       sleep: async () => {},
     })).resolves.toEqual({ status: 'binding_mismatch', runId: null });
     expect(postCalls).toBe(1);
-    expect(request).toHaveBeenCalledTimes(4);
+    expect(request).toHaveBeenCalledTimes(2);
   });
 
-  it('returns a negative status after bounded direct-ID GET propagation retries', async () => {
+  it('times out bounded direct-ID hydration without duplicating the POST or using list discovery', async () => {
     let postCalls = 0;
+    let getCalls = 0;
+    let nowMs = 0;
+    const sleeps: number[] = [];
     const request = vi.fn(async (input: any) => {
       if (input.method === 'POST') {
         postCalls += 1;
@@ -833,6 +843,8 @@ describe('crawler generation dispatch protocol', () => {
           },
         };
       }
+      getCalls += 1;
+      nowMs += 6_000;
       return { status: 404, body: null };
     });
     await expect(dispatchWorkflowOnce({
@@ -842,10 +854,19 @@ describe('crawler generation dispatch protocol', () => {
       generationToken,
       inputs: { skip_ai_translation: '1', generation_token: generationToken },
       request,
-      sleep: async () => {},
+      now: () => nowMs,
+      sleep: async (milliseconds) => {
+        sleeps.push(milliseconds);
+        nowMs += milliseconds;
+      },
     })).resolves.toEqual({ status: 'missing', runId: null });
     expect(postCalls).toBe(1);
-    expect(request).toHaveBeenCalledTimes(4);
+    expect(getCalls).toBe(2);
+    expect(sleeps).toEqual([250]);
+    expect(nowMs).toBeGreaterThan(DIRECT_RUN_HYDRATION_TIMEOUT_MS);
+    expect(request.mock.calls.some(([input]) => input.path.includes('/actions/runs?'))).toBe(false);
+    expect(request.mock.calls.filter(([input]) => input.method === 'GET').map(([input]) => input.timeoutMs))
+      .toEqual([10_000, 3_750]);
   });
 
   it('treats 204 as a protocol mismatch even when reconciliation finds a run', async () => {
@@ -1118,6 +1139,70 @@ describe('generation checkpoint and fallback', () => {
     expect(JSON.parse(fs.readFileSync(checkpointPath, 'utf8'))).toEqual(result);
     expect(dispatched).toHaveLength(23);
     expect(dispatched.every(({ inputs }) => inputs.site_code_commit === siteCodeCommit)).toBe(true);
+  });
+
+  it('classifies all 23 hydrated authoritative IDs deterministically in the final checkpoint', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-hydrated-wave-'));
+    tempRoots.push(root);
+    let nextRunId = 12_000;
+    let postCalls = 0;
+    const groupsByRunId = new Map<number, string>();
+    const getCallsByRunId = new Map<number, number>();
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        nextRunId += 1;
+        groupsByRunId.set(nextRunId, String(postCalls).padStart(2, '0'));
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: nextRunId,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/${nextRunId}`,
+            html_url: `https://github.com/${repository}/actions/runs/${nextRunId}`,
+          },
+        };
+      }
+      expect(input.path).not.toContain('/actions/runs?');
+      const runId = Number(input.path.split('/').at(-1));
+      const group = groupsByRunId.get(runId);
+      if (!group) throw new Error(`unbound test run ${runId}`);
+      const getCalls = (getCallsByRunId.get(runId) ?? 0) + 1;
+      getCallsByRunId.set(runId, getCalls);
+      const run = boundRun(group, runId, corpusCodeCommit);
+      return {
+        status: 200,
+        body: getCalls <= 4 ? { ...run, display_title: run.name, path: null } : run,
+      };
+    });
+
+    const checkpoint = await runCrawlerGenerationDispatchWave({
+      generationToken,
+      siteCodeCommit,
+      corpusCodeCommit,
+      shadowReady: true,
+      checkpointPath: path.join(root, 'checkpoint.json'),
+      delayMs: 0,
+      dispatch: ({ group, workflowFile, inputs }: any) => dispatchWorkflowOnce({
+        repository,
+        workflowFile,
+        group,
+        generationToken,
+        corpusCodeCommit,
+        inputs,
+        request,
+        allowReconciliation: false,
+        sleep: async () => {},
+      }),
+    });
+
+    expect(postCalls).toBe(23);
+    expect([...getCallsByRunId.values()]).toEqual(Array(23).fill(5));
+    expect(checkpoint.dispatchDiagnostics).toEqual(Object.fromEntries(GROUP_IDS.map((group, index) => [
+      group, { status: 'direct', runId: String(12_001 + index) },
+    ])));
+    expect(GROUP_IDS.map((group) => checkpoint.groups[group].runId)).toEqual(
+      GROUP_IDS.map((_, index) => String(12_001 + index)),
+    );
   });
 
   it('fails preflight closed but explicitly selects legacy inputs instead of blocking crawlers', () => {
