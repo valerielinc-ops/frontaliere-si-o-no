@@ -4981,6 +4981,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Secteur des services : forte augmentation du chiffre d\'affaires en juin',
     'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Le chiffre d\'affaires du secteur des services en Suisse a augmenté de 6,8% en juin par rapport à 2025.',
     'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'Vue d\'une rue animée d\'une ville suisse avec des magasins et des entreprises.',
+    'blog.article.friburgo-permesso-l-rinnovo.title': 'Permis L Fribourg : validité et prolongation',
+    'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'Le permis L de courte durée permet aux étrangers de travailler en Suisse jusqu\'à 1 an. Découvrez les règles de prolongation, les contraintes avec l\'employeur et comment passer aux permis B et C.',
+    'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Paysage alpin suisse avec région administrative de la Confédération',
 };
 
 export default blogMetaChFr;

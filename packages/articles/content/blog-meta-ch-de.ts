@@ -4981,6 +4981,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Dienstleistungssektor: Starke Umsatzsteigerung im Juni',
     'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Der Umsatz des Dienstleistungssektors in der Schweiz stieg im Juni gegenüber 2025 um 6,8%.',
     'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'Ansicht einer belebten Schweizer Stadtstraße mit Geschäften und Unternehmen.',
+    'blog.article.friburgo-permesso-l-rinnovo.title': 'Erlaubnis L Freiburg: Gültigkeit und Verlängerung',
+    'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'Mit der Kurzzeitbewilligung L können Ausländerinnen und Ausländer bis zu 1 Jahr in der Schweiz arbeiten. Erfahren Sie mehr über die Verlängerungsregeln, die Bindungen zum Arbeitgeber und wie Sie zu den Genehmigungen B und C wechseln können.',
+    'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Schweizer Alpengegend mit Verwaltungsregion der Eidgenossenschaft',
 };
 
 export default blogMetaChDe;

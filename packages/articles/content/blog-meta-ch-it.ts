@@ -4981,6 +4981,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.settore-servizi-aumento-fatturato-giugno.title': 'Settore dei servizi: forte aumento del fatturato in giugno',
     'blog.article.settore-servizi-aumento-fatturato-giugno.excerpt': 'Il fatturato del settore dei servizi in Svizzera è aumentato del 6,8% in giugno rispetto al 2025.',
     'blog.article.settore-servizi-aumento-fatturato-giugno.imageAlt': 'Vista di una strada cittadina svizzera con negozi e attività commerciali.',
+    'blog.article.friburgo-permesso-l-rinnovo.title': 'Permesso L Friburgo: validità e proroga',
+    'blog.article.friburgo-permesso-l-rinnovo.excerpt': 'Il permesso L di breve durata consente agli stranieri di lavorare in Svizzera fino a 1 anno. Scopri le regole di proroga, i vincoli con il datore di lavoro e come passare ai permessi B e C.',
+    'blog.article.friburgo-permesso-l-rinnovo.imageAlt': 'Paesaggio montano svizzero con vista su cantone e città amministrativa della Confederazione',
 };
 
 export default blogMetaChIt;
