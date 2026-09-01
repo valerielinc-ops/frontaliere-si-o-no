@@ -11041,6 +11041,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'With the first of September, Trenord tickets and passes increase',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'From 1 September 2026, Trenord tickets and passes will undergo significant increases, with impacts on routes such as Gallarate-Milan.',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Increase in Trenord tickets from September 1, 2026',
+    'blog.article.dogane-udsc-nuova-informatica.title': 'New IT at FOCBS: costs down, benefits for the economy',
+    'blog.article.dogane-udsc-nuova-informatica.excerpt': 'The FOCBS\'s DaziT programme ends at the end of 2023, with a reduction of CHF 125 million in regulatory costs for the economy.',
+    'blog.article.dogane-udsc-nuova-informatica.imageAlt': 'Federal Customs Administration and Border Security Office in Lugano',
 };
 
 export default blogMetaEn;

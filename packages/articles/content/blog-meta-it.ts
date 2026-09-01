@@ -11042,6 +11042,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'Con il primo settembre aumentano biglietti e abbonamenti Trenord',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'Dal 1° settembre 2026, i biglietti e abbonamenti Trenord subiscono aumenti significativi, con impatti su tratte come Gallarate-Milano.',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Aumento dei biglietti Trenord dal 1° settembre 2026',
+    'blog.article.dogane-udsc-nuova-informatica.title': 'Nuova informatica a UDSC: costi giù, benefici per l\'economia',
+    'blog.article.dogane-udsc-nuova-informatica.excerpt': 'Il programma DaziT dell\'UDSC si conclude alla fine del 2023, con una riduzione di 125 milioni di franchi nei costi di regolamentazione per l\'economia.',
+    'blog.article.dogane-udsc-nuova-informatica.imageAlt': 'Ufficio federale della dogana e della sicurezza dei confini a Lugano',
 };
 
 export default blogMetaIt;

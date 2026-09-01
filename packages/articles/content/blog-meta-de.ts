@@ -11040,6 +11040,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-trenord-aumento-biglietti-2026.title': 'Mit dem ersten September steigen die Tickets und Karten für Trenord',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.excerpt': 'Ab dem 1. September 2026 werden Trenord-Tickets und -Pässe deutlich erhöht, mit Auswirkungen auf Strecken wie Gallarate-Mailand.',
     'blog.article.mobilita-trenord-aumento-biglietti-2026.imageAlt': 'Erhöhung der Trenord-Tickets ab dem 1. September 2026',
+    'blog.article.dogane-udsc-nuova-informatica.title': 'Neue IT bei FOCBS: Kosten sinken, Vorteile für die Wirtschaft',
+    'blog.article.dogane-udsc-nuova-informatica.excerpt': 'Das DaziT-Programm des UDSC endet Ende 2023 mit einer Reduktion der Regulierungskosten für die Wirtschaft um 125 Millionen Franken.',
+    'blog.article.dogane-udsc-nuova-informatica.imageAlt': 'Bundesamt für Zoll und Grenzsicherheit in Lugano',
 };
 
 export default blogMetaDe;
