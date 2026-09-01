@@ -36,6 +36,9 @@ const CONTENT_PATH_RX = /^\/(?:index|story)\.php$/i;
 const EXPECTED_BRAND_RX = /(?:albergo|villa|garni)\s+gardenia/i;
 const GARDENIA_APEX_HOST = ALBERGO_GARDENIA_COMPANY_DOMAIN;
 const GARDENIA_WWW_HOST = `www.${ALBERGO_GARDENIA_COMPANY_DOMAIN}`;
+const GARDENIA_CLEAN_EGRESS_SOURCE_ID = 'gardenia-clean-egress-source';
+const GARDENIA_CLEAN_EGRESS_ERROR_ID = 'gardenia-clean-egress-error';
+const CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS = 105_000;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -231,6 +234,247 @@ export function createAlbergoGardeniaBrowserTransport({
       const browser = browserPromise ? await browserPromise.catch(() => null) : null;
       await browser?.close?.().catch(() => {});
     },
+  };
+}
+
+function gardeniaCloudflareInventoryScript() {
+  return `(() => {
+    const finish = (id, value) => {
+      const output = document.createElement('pre');
+      output.id = id;
+      output.textContent = typeof value === 'string' ? value : JSON.stringify(value);
+      document.body.replaceChildren(output);
+    };
+    const decode = (value) => {
+      let decoded = String(value || '');
+      const textarea = document.createElement('textarea');
+      for (let pass = 0; pass < 3; pass += 1) {
+        textarea.innerHTML = decoded;
+        const next = textarea.value;
+        if (next === decoded) break;
+        decoded = next;
+      }
+      return decoded;
+    };
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const contentPathRx = new RegExp(${JSON.stringify(CONTENT_PATH_RX.source)}, '${CONTENT_PATH_RX.flags}');
+    (async () => {
+      const sitemapResponse = await fetch('/sitemap.xml', {
+        headers: { Accept: 'application/xml,text/xml,*/*' },
+      });
+      const sitemapBody = await sitemapResponse.text();
+      const locations = [...sitemapBody.matchAll(/<loc>\\s*([^<]+?)\\s*<\\/loc>/gi)]
+        .map((match) => decode(match[1]));
+      const contentUrls = locations.filter((rawUrl) => {
+        try { return contentPathRx.test(new URL(rawUrl).pathname); }
+        catch { return false; }
+      });
+      const pages = [];
+      for (const sourceUrl of contentUrls) {
+        await sleep(${HOST_DELAY_MS});
+        const gardeniaUrl = new URL(sourceUrl);
+        gardeniaUrl.protocol = location.protocol;
+        gardeniaUrl.hostname = location.hostname;
+        const response = await fetch(gardeniaUrl.href, {
+          headers: { Accept: 'text/html,application/xhtml+xml,*/*;q=0.8' },
+        });
+        pages.push({
+          requestedUrl: sourceUrl,
+          status: response.status,
+          url: response.url,
+          body: await response.text(),
+        });
+      }
+      finish('${GARDENIA_CLEAN_EGRESS_SOURCE_ID}', {
+        homepageUrl: location.href,
+        sitemap: {
+          status: sitemapResponse.status,
+          url: sitemapResponse.url,
+          body: sitemapBody,
+        },
+        pages,
+      });
+    })().catch((error) => finish('${GARDENIA_CLEAN_EGRESS_ERROR_ID}', String(error?.message || error)));
+  })();`;
+}
+
+/**
+ * Clean-egress transport used only when the ordinary runner network and its
+ * local Chromium process both time out before receiving any HTTP response.
+ * One bounded Cloudflare browser session fetches the malformed sitemap as raw
+ * text, then reads every advertised content page with the same solved browser
+ * session and the usual host delay. The returned URLs and every page body are
+ * still validated by the source-specific identity and zero-vacancy contract.
+ *
+ * @param {{ fetchImpl?: typeof fetch, gardeniaCfAccount?: string, gardeniaCfKey?: string, gardeniaGithubToken?: string, gardeniaCfEmail?: string }} [runtime]
+ */
+export function createAlbergoGardeniaCleanEgressTransport({
+  fetchImpl = fetch,
+  gardeniaCfAccount = process.env.CF_ACCOUNT_ID,
+  gardeniaCfKey = process.env.CF_GLOBAL_API_KEY,
+  gardeniaGithubToken = process.env.GITHUB_PAT,
+  gardeniaCfEmail,
+} = {}) {
+  let inventoryPromise = null;
+
+  async function loadAuthEmail() {
+    if (gardeniaCfEmail) return gardeniaCfEmail;
+    if (!gardeniaGithubToken) throw Object.assign(new Error('GitHub token missing for Cloudflare auth identity'), { status: 401 });
+    const response = await fetchImpl('https://api.github.com/user/emails', {
+      headers: {
+        Authorization: `Bearer ${gardeniaGithubToken}`,
+        Accept: 'application/vnd.github+json',
+        'User-Agent': UA,
+      },
+    });
+    if (!response.ok) {
+      throw Object.assign(new Error(`GitHub auth identity lookup failed (${response.status})`), {
+        status: response.status,
+      });
+    }
+    const emails = await response.json();
+    const primary = Array.isArray(emails)
+      ? emails.find((entry) => entry?.primary === true && entry?.verified === true)?.email
+      : '';
+    if (!primary) throw Object.assign(new Error('GitHub auth identity has no verified primary email'), { status: 401 });
+    return primary;
+  }
+
+  async function loadInventory() {
+    if (!gardeniaCfAccount || !gardeniaCfKey) {
+      throw Object.assign(new Error('Cloudflare clean-egress credentials are missing'), { status: 401 });
+    }
+    const email = await loadAuthEmail();
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), ALBERGO_GARDENIA_MAX_DEADLINE_OVERHANG_MS);
+    try {
+      const response = await fetchImpl(
+        `https://api.cloudflare.com/client/v4/accounts/${gardeniaCfAccount}/browser-rendering/content`,
+        {
+          method: 'POST',
+          headers: {
+            'X-Auth-Email': email,
+            'X-Auth-Key': gardeniaCfKey,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            url: ALBERGO_GARDENIA_HOME_URL,
+            actionTimeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
+            gotoOptions: {
+              waitUntil: 'domcontentloaded',
+              timeout: 60_000,
+            },
+            addScriptTag: [{ content: gardeniaCloudflareInventoryScript() }],
+            waitForSelector: {
+              selector: `#${GARDENIA_CLEAN_EGRESS_SOURCE_ID}, #${GARDENIA_CLEAN_EGRESS_ERROR_ID}`,
+              timeout: CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS,
+            },
+          }),
+          signal: controller.signal,
+        },
+      );
+      if (!response.ok) {
+        throw Object.assign(new Error(`Cloudflare browser rendering failed (${response.status})`), {
+          status: response.status,
+        });
+      }
+      const envelope = await response.json();
+      if (!envelope?.success || typeof envelope?.result !== 'string') {
+        throw Object.assign(new Error('Cloudflare browser rendering returned an invalid envelope'), { status: 502 });
+      }
+      const dom = new JSDOM(envelope.result);
+      try {
+        const remoteError = dom.window.document.getElementById(GARDENIA_CLEAN_EGRESS_ERROR_ID)?.textContent;
+        if (remoteError) throw Object.assign(new Error(`Cloudflare Gardenia session failed: ${remoteError}`), { status: 502 });
+        const payload = dom.window.document.getElementById(GARDENIA_CLEAN_EGRESS_SOURCE_ID)?.textContent;
+        if (!payload) throw Object.assign(new Error('Cloudflare Gardenia session returned no inventory'), { status: 502 });
+        return JSON.parse(payload);
+      } finally {
+        dom.window.close();
+      }
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  async function inventory() {
+    if (!inventoryPromise) inventoryPromise = loadInventory();
+    return inventoryPromise;
+  }
+
+  return {
+    async fetchPage(rawUrl) {
+      if (!isAllowedGardeniaBrowserUrl(rawUrl)) {
+        return {
+          ok: false,
+          status: 0,
+          url: rawUrl,
+          body: '',
+          host: '',
+          policyBlocked: true,
+          error: 'Albergo Gardenia clean-egress transport rejected a non-canonical URL',
+        };
+      }
+      try {
+        const snapshot = await inventory();
+        if (!isSameGardeniaResource(snapshot?.homepageUrl, ALBERGO_GARDENIA_HOME_URL)) {
+          return {
+            ok: false,
+            status: 0,
+            url: snapshot?.homepageUrl || '',
+            body: '',
+            host: '',
+            policyBlocked: true,
+            error: 'Albergo Gardenia clean-egress homepage identity mismatch',
+          };
+        }
+        const target = new URL(rawUrl);
+        const source = target.pathname === '/sitemap.xml'
+          ? snapshot?.sitemap
+          : snapshot?.pages?.find((page) => isSameGardeniaResource(page?.requestedUrl, rawUrl));
+        if (!source) {
+          return {
+            ok: false,
+            status: 502,
+            url: rawUrl,
+            body: '',
+            host: target.hostname,
+            error: 'Albergo Gardenia clean-egress inventory omitted the requested resource',
+          };
+        }
+        let sourceHost;
+        try {
+          sourceHost = new URL(source.url || rawUrl).hostname;
+        } catch {
+          return {
+            ok: false,
+            status: 502,
+            url: String(source.url || ''),
+            body: '',
+            host: '',
+            error: 'Albergo Gardenia clean-egress resource URL is invalid',
+          };
+        }
+        return {
+          ok: Number(source.status || 0) >= 200 && Number(source.status || 0) < 300,
+          status: Number(source.status || 0),
+          url: source.url || rawUrl,
+          body: String(source.body || ''),
+          host: sourceHost,
+        };
+      } catch (error) {
+        return {
+          ok: false,
+          status: Number(error?.status || 0),
+          url: rawUrl,
+          body: '',
+          host: new URL(rawUrl).hostname,
+          error: String(error?.message || error),
+        };
+      }
+    },
+
+    async close() {},
   };
 }
 
@@ -461,12 +705,14 @@ export function assertCompleteAlbergoGardeniaSnapshot(jobs) {
 }
 
 /**
- * @param {{ fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, browserTransportFactory?: typeof createAlbergoGardeniaBrowserTransport, nowImpl?: () => number, totalBudgetMs?: number }} [runtime]
+ * @param {{ fetchPage?: typeof politeFetch, browserFetchPage?: typeof politeFetch, cleanEgressFetchPage?: typeof politeFetch, browserTransportFactory?: typeof createAlbergoGardeniaBrowserTransport, cleanEgressTransportFactory?: typeof createAlbergoGardeniaCleanEgressTransport, nowImpl?: () => number, totalBudgetMs?: number }} [runtime]
  */
 export async function fetchAllAlbergoGardeniaJobs({
   fetchPage = politeFetch,
   browserFetchPage,
+  cleanEgressFetchPage,
   browserTransportFactory = createAlbergoGardeniaBrowserTransport,
+  cleanEgressTransportFactory = createAlbergoGardeniaCleanEgressTransport,
   nowImpl = Date.now,
   totalBudgetMs = ALBERGO_GARDENIA_TOTAL_BUDGET_MS,
 } = {}) {
@@ -475,7 +721,27 @@ export async function fetchAllAlbergoGardeniaJobs({
   const deadlineAt = nowImpl() + totalBudgetMs;
   const ownsBrowserTransport = !browserFetchPage && fetchPage === politeFetch;
   const browserTransport = ownsBrowserTransport ? browserTransportFactory() : null;
-  const effectiveBrowserFetch = browserFetchPage || browserTransport?.fetchPage;
+  const ownsCleanEgressTransport = !cleanEgressFetchPage && fetchPage === politeFetch;
+  const cleanEgressTransport = ownsCleanEgressTransport ? cleanEgressTransportFactory() : null;
+  const browserFetch = browserFetchPage || browserTransport?.fetchPage;
+  const cleanEgressFetch = cleanEgressFetchPage || cleanEgressTransport?.fetchPage;
+  let preferredFallback = browserFetch ? 'browser' : 'clean-egress';
+  const effectiveBrowserFetch = browserFetch || cleanEgressFetch
+    ? async (rawUrl, options) => {
+        if (preferredFallback === 'clean-egress' || !browserFetch) {
+          return cleanEgressFetch(rawUrl, options);
+        }
+        const response = await browserFetch(rawUrl, options);
+        const connectionFailure = Number(response?.status || 0) === 0
+          && !response?.blockedByRobots
+          && !response?.policyBlocked;
+        if (!connectionFailure || !cleanEgressFetch) return response;
+        console.warn(`  ⚠️ Gardenia runner Chromium exhausted for ${rawUrl}; trying bounded clean-egress transport.`);
+        const rescued = await cleanEgressFetch(rawUrl, options);
+        if (rescued?.ok) preferredFallback = 'clean-egress';
+        return rescued;
+      }
+    : undefined;
   const transportState = {};
 
   try {
@@ -521,5 +787,6 @@ export async function fetchAllAlbergoGardeniaJobs({
     return markAuthoritativeEmptySnapshot([], contentUrls.length);
   } finally {
     await browserTransport?.close();
+    await cleanEgressTransport?.close();
   }
 }

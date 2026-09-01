@@ -12,6 +12,7 @@ import {
   ALBERGO_GARDENIA_TOTAL_BUDGET_MS,
   assertCompleteAlbergoGardeniaSnapshot,
   createAlbergoGardeniaBrowserTransport,
+  createAlbergoGardeniaCleanEgressTransport,
   fetchAlbergoGardeniaSourcePage,
   assertNoGardeniaCareerSurface,
   fetchAllAlbergoGardeniaJobs,
@@ -162,6 +163,36 @@ describe('Albergo Gardenia authoritative crawler', () => {
     );
   });
 
+  it('switches from exhausted runner Chromium to clean egress and keeps that rescue sticky', async () => {
+    const sitemap = representativeSitemap();
+    const failed = (url: string) => ({
+      ok: false,
+      status: 0,
+      url,
+      body: '',
+      host: new URL(url).hostname,
+    });
+    const fetchPage = vi.fn(async (url: string) => failed(url));
+    const browserFetchPage = vi.fn(async (url: string) => failed(url));
+    const cleanEgressFetchPage = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      url,
+      body: new URL(url).pathname === '/sitemap.xml' ? sitemap : gardeniaPage(),
+      host: new URL(url).hostname,
+    }));
+
+    const jobs = await fetchAllAlbergoGardeniaJobs({
+      fetchPage,
+      browserFetchPage,
+      cleanEgressFetchPage,
+    });
+    expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
+    expect(fetchPage).toHaveBeenCalledTimes(2);
+    expect(browserFetchPage).toHaveBeenCalledOnce();
+    expect(cleanEgressFetchPage).toHaveBeenCalledTimes(41);
+  });
+
   it('never turns an exhausted Chromium fallback into an authoritative empty snapshot', async () => {
     const failed = (url: string) => ({
       ok: false,
@@ -297,6 +328,113 @@ describe('Albergo Gardenia authoritative crawler', () => {
     await transport.close();
     expect(context.close).toHaveBeenCalledOnce();
     expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('loads one Cloudflare browser inventory and binds every clean-egress resource identity', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn(async () => new Response(JSON.stringify({
+      success: true,
+      result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+    }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+
+    const sitemap = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    const response = await transport.fetchPage(sourceUrl);
+    expect(sitemap).toMatchObject({
+      ok: true,
+      status: 200,
+      url: ALBERGO_GARDENIA_SITEMAP_URL,
+    });
+    expect(response).toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+      host: 'www.albergo-gardenia.ch',
+    });
+    expect(fetchImpl).toHaveBeenCalledOnce();
+    const [apiUrl, options] = fetchImpl.mock.calls[0];
+    expect(apiUrl).toBe(
+      'https://api.cloudflare.com/client/v4/accounts/account-123/browser-rendering/content',
+    );
+    expect(options.headers).toMatchObject({
+      'X-Auth-Email': 'owner@example.test',
+      'X-Auth-Key': 'global-key',
+    });
+    expect(options.signal).toBeInstanceOf(AbortSignal);
+    expect(JSON.parse(options.body)).toMatchObject({
+      url: ALBERGO_GARDENIA_HOME_URL,
+      waitForSelector: {
+        selector: '#gardenia-clean-egress-source, #gardenia-clean-egress-error',
+      },
+    });
+  });
+
+  it('fails closed when the clean-egress browser loses homepage identity or a resource', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const envelope = (snapshot: object) => {
+      const escaped = JSON.stringify(snapshot)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      return new Response(JSON.stringify({
+        success: true,
+        result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+      }), { status: 200 });
+    };
+    const mismatchedHomepage = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl: vi.fn(async () => envelope({
+        homepageUrl: 'https://attacker.example/',
+        sitemap: {},
+        pages: [],
+      })),
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+    await expect(mismatchedHomepage.fetchPage(sourceUrl)).resolves.toMatchObject({
+      ok: false,
+      policyBlocked: true,
+      error: expect.stringMatching(/homepage identity mismatch/),
+    });
+
+    const omittedResource = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl: vi.fn(async () => envelope({
+        homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+        sitemap: {},
+        pages: [],
+      })),
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+    await expect(omittedResource.fetchPage(sourceUrl)).resolves.toMatchObject({
+      ok: false,
+      status: 502,
+      error: expect.stringMatching(/omitted the requested resource/),
+    });
   });
 
   it('turns a missing Chromium executable into a safe connection-level result', async () => {
