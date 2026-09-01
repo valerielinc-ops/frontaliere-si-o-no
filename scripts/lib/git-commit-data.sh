@@ -1336,9 +1336,14 @@ commit_isolated_from_worktree() {
         base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
       fi
 
-      # Job-slice delete-vs-stale-modify must resolve to the CURRENT remote
-      # deletion. Do not impose this policy on summaries, caches or explicit
-      # extra files: those consumers keep their existing merge semantics.
+      # A remote delete after this writer's base is a concurrent change, not a
+      # writable empty slot. Snapshot-bound group batches cannot distinguish a
+      # deliberate retirement from an accidental removal, so every descriptor
+      # path must fail closed instead of resurrecting its stale present blob.
+      # Unchanged snapshots already continue above (and therefore preserve the
+      # remote deletion); genuine creates have no base blob; explicit snapshot
+      # deletes are handled above. Keep the established drop-stale policy below
+      # scoped to job slices for legacy, non-batch callers.
       # A long-running writer can start while a slice still exists, modify its
       # stale worktree copy hours later, then arrive here after another commit
       # deliberately retired that slice. The private index is already seeded
@@ -1347,12 +1352,12 @@ commit_isolated_from_worktree() {
       # A genuinely new slice remains allowed: it has no blob in either the
       # checkout base or origin/main.
       if [ -n "$base_blob" ] && [ -z "$remote_blob" ]; then
+        if [ "$GROUP_BATCH" = true ]; then
+          echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f"
+          return 1
+        fi
         case "$f" in
           data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
-            if [ "$GROUP_BATCH" = true ]; then
-              echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f"
-              return 1
-            fi
             echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
             continue
             ;;
