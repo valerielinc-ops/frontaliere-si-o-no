@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-08-31T17:31:21.015Z",
+  "assembledAt": "2026-09-01T00:44:48.834Z",
   "jobs": [
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -34,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:31:18.422Z",
+      "crawledAt": "2026-09-01T00:44:46.567Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:31:18.049Z",
+      "crawledAt": "2026-09-01T00:44:46.106Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:31:17.638Z",
+      "crawledAt": "2026-09-01T00:44:45.627Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -268,7 +268,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:31:17.244Z",
+      "crawledAt": "2026-09-01T00:44:45.172Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -361,7 +361,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:31:16.474Z",
+      "crawledAt": "2026-09-01T00:44:44.434Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -443,7 +443,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T17:31:15.047Z",
+      "crawledAt": "2026-09-01T00:44:42.816Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -460,15 +460,17 @@
       "applyUrl": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-28T05:34:45.119Z",
+      "previousSlugs": [
+        "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair",
+        "medizinische-praxisassistentin-cfc-60-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair"
+          "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair",
+          "medizinische-praxisassistentin-cfc-60-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
         ]
       },
-      "previousSlugs": [
-        "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair"
-      ],
+      "firstSeenAt": "2026-08-28T05:34:45.119Z",
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
