@@ -27,6 +27,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import {
   BASE_URL,
+  BUILD_DATE_STAMP,
   FUEL_CHART_SCRIPT_TAG,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
@@ -5363,7 +5364,16 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       }
 
       const history = readHistory(rootDir);
-      const today = new Date();
+      // BUILD_DATE_STAMP (deploy-wide, derived from DEPLOY_BUILD_ID), NOT a
+      // fresh `new Date()` — this "today" gates which past months qualify
+      // for archive pages, and on the matrix deploy the it/en/de/fr shards
+      // are independent processes. A per-shard `new Date()` could cross a
+      // UTC-midnight boundary between shards, so the current month flips to
+      // "past" on one shard but not its siblings: the archive page (and its
+      // sitemap-fuel-daily.xml entry, emitted from the same pass) exists on
+      // one shard but not the others once merged (#6971, same class as #5911
+      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_DATE_STAMP doc.
+      const today = new Date(BUILD_DATE_STAMP);
 
       // ── Single source of truth for station contexts (2026-04-29) ─
       // Compute Swiss + Italian contexts ONCE before any generator runs,
