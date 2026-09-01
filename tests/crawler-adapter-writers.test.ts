@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   assertAbbAdapterParity,
   ensureAdapterSeedUrls as ensureAbb,
@@ -290,16 +290,39 @@ describe('SBB two-source discovery invariants', () => {
     });
   });
 
-  it('fails closed when either source is unavailable and supports verified empty sources', async () => {
+  it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {
     const unavailable = async () => null;
+    // Primary source (AEM API): unavailable is still fatal — there is no
+    // fallback for the core SBB job feed.
     await expect(fetchSbbJobDetailUrls({ fetchPageImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/unavailable/);
-    await expect(fetchLoginSbbDetailUrls({ fetchPageImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/unavailable/);
+    // Secondary source (login.org apprenticeships, #6961): unavailable
+    // degrades in place (zero NEW seeds, `sourceZero: false` so existing
+    // apprenticeship jobs are never treated as verified-gone) instead of
+    // throwing and taking down the whole SBB crawl over an optional source.
+    await expect(fetchLoginSbbDetailUrls({ fetchPageImpl: unavailable, timeoutMs: 1000 })).resolves.toMatchObject({
+      urls: [], sourceZero: false, degraded: true,
+    });
     const emptyAem = async () => '[]';
     await expect(fetchSbbJobDetailUrls({ fetchPageImpl: emptyAem, timeoutMs: 1000 })).resolves.toMatchObject({ urls: [], sourceZero: true });
     const emptyLogin = async () => '<link rel="canonical" href="https://www.login.org/it/panoramica-dei-posti-di-tirocinio-disponibili-nel"><html>No apprenticeships</html>';
     await expect(fetchLoginSbbDetailUrls({ fetchPageImpl: emptyLogin, timeoutMs: 1000 })).resolves.toMatchObject({ urls: [], sourceZero: true });
+    // Malformed payload (challenge/WAF page masquerading as the listing):
+    // still a hard failure, distinct from a plain HTTP-level outage — it
+    // signals our identity marker/URL-extraction contract may have drifted,
+    // which is worth failing loud on rather than silently degrading.
     const unrelatedLogin = async () => '<html>challenge</html>';
     await expect(fetchLoginSbbDetailUrls({ fetchPageImpl: unrelatedLogin, timeoutMs: 1000 })).rejects.toThrow(/identity marker/);
+  });
+
+  it('degrades login.org on a real HTTP 451 response without touching the AEM path (#6961)', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('', { status: 451 })));
+    try {
+      await expect(fetchLoginSbbDetailUrls({ timeoutMs: 1000 })).resolves.toMatchObject({
+        urls: [], sourceZero: false, degraded: true,
+      });
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });
 
