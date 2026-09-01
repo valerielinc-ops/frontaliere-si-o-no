@@ -153,9 +153,15 @@ describe('translation state store v2', () => {
     await store.initialize();
     const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
     const pending = await store.listPending({ crawlerKey: 'example-crawler' });
+    const queuedState = await store.readAcknowledgments([patch.patchHash]);
 
     expect(pending.pending).toHaveLength(1);
     expect(pending.pending[0].patch).toEqual(patch);
+    expect(queuedState).toMatchObject({
+      commit: checkpoint.commit,
+      acknowledgments: [null],
+      queued: [true],
+    });
     const paths = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit).split('\n');
     expect(paths.some((path) => path.startsWith(`v2/patches/${patch.patchHash.slice(0, 2)}/`))).toBe(true);
     expect(paths.some((path) => path.startsWith('v2/memory/'))).toBe(true);
@@ -171,7 +177,10 @@ describe('translation state store v2', () => {
       intentHash: null,
     }]);
     expect((await store.listPending({ crawlerKey: 'example-crawler' })).pending).toHaveLength(0);
-    expect((await store.readAcknowledgment(patch.patchHash)).acknowledgment.outcome).toBe('already_valid');
+    const acknowledgedState = await store.readAcknowledgments([patch.patchHash]);
+    expect(acknowledgedState.commit).toBe(ack.commit);
+    expect(acknowledgedState.queued).toEqual([false]);
+    expect(acknowledgedState.acknowledgments[0].outcome).toBe('already_valid');
 
     const changed = git(one, 'diff-tree', '--no-commit-id', '--name-status', '-r', `${ack.commit}^`, ack.commit);
     expect(changed).toMatch(/^A\s+v2\/acks\//m);
@@ -179,8 +188,12 @@ describe('translation state store v2', () => {
     expect(changed).toMatch(/^D\s+v2\/queue\//m);
 
     const firstReceipt = (await store.readAcknowledgment(patch.patchHash)).acknowledgment;
-    await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch], requeue: true });
+    const requeue = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch], requeue: true });
     expect((await store.listPending({ crawlerKey: 'example-crawler' })).pending).toHaveLength(1);
+    const requeuedState = await store.readAcknowledgments([patch.patchHash]);
+    expect(requeuedState.commit).toBe(requeue.commit);
+    expect(requeuedState.queued).toEqual([true]);
+    expect(requeuedState.acknowledgments[0].ackHash).toBe(firstReceipt.ackHash);
     await store.acknowledgeBatch([{
       patch,
       slicePath: SLICE_PATH,
@@ -194,6 +207,26 @@ describe('translation state store v2', () => {
     expect(latest.acknowledgment.lifecycleSequence).toBeGreaterThan(firstReceipt.lifecycleSequence);
     expect(git(one, 'ls-tree', '-r', '--name-only', latest.commit, '--', `v2/acks/${patch.patchHash.slice(0, 2)}/${patch.patchHash}`)
       .split('\n')).toHaveLength(2);
+  });
+
+  it('fails closed when queue presence disagrees with the journal state', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const queuePath = git(one, 'ls-tree', '-r', '--name-only', checkpoint.commit)
+      .split('\n')
+      .find((path) => path.startsWith('v2/queue/'));
+    expect(queuePath).toBeDefined();
+
+    git(one, 'checkout', '-q', '-B', 'tampered-state', checkpoint.commit);
+    git(one, 'rm', '-q', queuePath!);
+    git(one, 'commit', '-q', '-m', 'remove queue without lifecycle transition');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const fresh = createTranslationStateStoreV2({ repository: one });
+    await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/queue and lifecycle state disagree/);
   });
 
   it('rebuilds a losing CAS transaction from the winning state without dropping either patch', async () => {

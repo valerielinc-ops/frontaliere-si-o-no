@@ -313,103 +313,100 @@ export function createTranslationStateDrainerV2(options) {
   async function recoverPublishedAtTip(patches, slicePath, mainCommit) {
     const listed = await stateStore.listIntents(patches[0].patchHash);
     const candidates = listed.intents.filter((intent) => validateIntentForBatch(intent, slicePath, patches));
-    let publishedFound = false;
-    let latestSlice = null;
-    for (const intent of candidates.reverse()) {
+    const publishedByCommit = new Map();
+    for (const intent of candidates) {
       if (!await verifyPublishedIntent(git, remote, mainRef, intent, patches, mainCommit)) continue;
-      publishedFound = true;
-      latestSlice ??= await readSlice(git, mainCommit, slicePath);
-      const observed = reduceTranslationDerivedPatchBatchV2(latestSlice.slice, patches).outcomes;
-      const outcomes = observed.map((outcome, index) => (
-        intent.outcomes[index] === 'applied' && outcome === 'already_valid' ? 'applied' : outcome
-      ));
-      if (observed.includes('applied')) continue;
-      return {
-        status: 'recovered',
-        intent,
-        mainCommit,
-        outcomes,
-      };
+      const duplicate = publishedByCommit.get(intent.proposedCommit);
+      if (duplicate !== undefined && duplicate.intentHash !== intent.intentHash) {
+        throw new TypeError('translation publish commit has conflicting intents');
+      }
+      publishedByCommit.set(intent.proposedCommit, intent);
     }
-    return { status: publishedFound ? 'needs_apply' : 'absent', mainCommit };
+    if (publishedByCommit.size === 0) return { status: 'absent', mainCommit };
+    const independent = (await checked(git, [
+      'merge-base',
+      '--independent',
+      ...publishedByCommit.keys(),
+    ])).split(/\s+/u).filter(Boolean);
+    if (independent.length !== 1) {
+      throw new TypeError('published translation intents have ambiguous maximal commits');
+    }
+    const latestIntent = publishedByCommit.get(independent[0]);
+    if (latestIntent === undefined) {
+      throw new TypeError('published translation intent maximum is unknown');
+    }
+    const latestSlice = await readSlice(git, mainCommit, slicePath);
+    const observed = reduceTranslationDerivedPatchBatchV2(latestSlice.slice, patches).outcomes;
+    if (observed.includes('applied')) return { status: 'needs_apply', mainCommit };
+    const outcomes = observed.map((outcome, index) => (
+      latestIntent.outcomes[index] === 'applied' && outcome === 'already_valid' ? 'applied' : outcome
+    ));
+    return {
+      status: 'recovered',
+      intent: latestIntent,
+      mainCommit,
+      outcomes,
+    };
   }
 
   async function drain({ slicePath: rawSlicePath, patches: rawPatches }) {
     const slicePath = validateTranslationSlicePathV2(rawSlicePath);
     const requestedPatches = assertPatchBatch(rawPatches);
-    let patches = requestedPatches;
-    let activeIndexes = requestedPatches.map((_patch, index) => index);
-    const retainedOutcomes = Array(requestedPatches.length).fill(null);
-    const finalize = (result) => {
-      const outcomes = [...retainedOutcomes];
-      activeIndexes.forEach((requestedIndex, activeIndex) => {
-        outcomes[requestedIndex] = result.outcomes[activeIndex];
-      });
-      if (outcomes.some((outcome) => outcome === null)) {
-        throw new TypeError('translation drainer did not resolve every requested patch');
-      }
-      return deepFreezeTranslationV2({ ...result, outcomes });
-    };
     await stateStore.initialize();
+    const fetchPushDurationsMs = [];
+    let attemptBudgetUsed = 0;
+    let retries = 0;
+    let processedAny = false;
+    let allReplayed = true;
+    let latestPublishedCommit = null;
 
-    const acknowledgmentSnapshot = await stateStore.readAcknowledgments(
-      requestedPatches.map((patch) => patch.patchHash),
-    );
-    const acknowledgments = acknowledgmentSnapshot.acknowledgments;
-    const acknowledgedIndexes = acknowledgments.flatMap((acknowledgment, index) => (
-      acknowledgment === null ? [] : [index]
-    ));
-    if (acknowledgedIndexes.length > 0) {
-      acknowledgedIndexes.forEach((index) => {
-        if (!acknowledgmentMatchesPatch(acknowledgments[index], slicePath, requestedPatches[index])) {
+    function consumeAttemptBudget() {
+      if (attemptBudgetUsed >= maxPushAttempts) {
+        throw new Error('translation main CAS retry budget exhausted');
+      }
+      attemptBudgetUsed += 1;
+    }
+
+    async function auditRequestedBatch() {
+      const snapshot = await stateStore.readAcknowledgments(
+        requestedPatches.map((patch) => patch.patchHash),
+      );
+      snapshot.acknowledgments.forEach((acknowledgment, index) => {
+        if (
+          acknowledgment !== null
+          && !acknowledgmentMatchesPatch(acknowledgment, slicePath, requestedPatches[index])
+        ) {
           throw new TypeError('translation acknowledgment does not match its patch and slice');
         }
       });
       const fresh = await fetchTip(git, remote, mainRef);
       const latestSlice = await readSlice(git, fresh.tip, slicePath);
       const observed = reduceTranslationDerivedPatchBatchV2(latestSlice.slice, requestedPatches).outcomes;
-      activeIndexes = requestedPatches.flatMap((_patch, index) => {
-        const acknowledgment = acknowledgments[index];
-        if (acknowledgment === null) return [index];
+      if (await remoteTip(git, remote, mainRef) !== fresh.tip) {
+        consumeAttemptBudget();
+        retries += 1;
+        return null;
+      }
+      const outcomes = Array(requestedPatches.length).fill(null);
+      const activeIndexes = requestedPatches.flatMap((_patch, index) => {
+        const acknowledgment = snapshot.acknowledgments[index];
+        if (snapshot.queued[index] || acknowledgment === null) return [index];
         if (shouldRequeueAcknowledgment(acknowledgment.outcome, observed[index])) return [index];
-        retainedOutcomes[index] = acknowledgment.outcome;
+        outcomes[index] = acknowledgment.outcome;
         return [];
       });
-      if (activeIndexes.length === 0) {
-        return deepFreezeTranslationV2({
-          outcomes: retainedOutcomes,
-          mainCommit: fresh.tip,
-          publishedCommit: acknowledgments.find((acknowledgment) => acknowledgment !== null)
-            ?.publishedCommit ?? null,
-          retries: 0,
-          fetchPushDurationsMs: [],
-          replayed: true,
-        });
-      }
-      for (const index of activeIndexes) {
-        const prior = acknowledgments[index]?.outcome;
-        if (prior !== undefined && !canRequeueAcknowledgment(prior)) {
-          throw new TypeError('translation drainer cannot requeue a terminal outcome');
-        }
-      }
-      patches = activeIndexes.map((index) => requestedPatches[index]);
-      await stateStore.checkpointBatch({
-        slicePath,
-        patches,
-        requeue: activeIndexes.some((index) => acknowledgments[index] !== null),
-      });
-      await onStage('afterCheckpoint', { slicePath, patches });
-    } else {
-      await stateStore.checkpointBatch({ slicePath, patches });
-      await onStage('afterCheckpoint', { slicePath, patches });
+      return { activeIndexes, acknowledgments: snapshot.acknowledgments, fresh, outcomes };
     }
 
-    const fetchPushDurationsMs = [];
-    for (let attempt = 1; attempt <= maxPushAttempts; attempt += 1) {
+    async function processActiveBatch(patches) {
+      consumeAttemptBudget();
       const fresh = await fetchTip(git, remote, mainRef);
       const recovered = await recoverPublishedAtTip(patches, slicePath, fresh.tip);
       if (recovered.status === 'recovered') {
-        if (await remoteTip(git, remote, mainRef) !== fresh.tip) continue;
+        if (await remoteTip(git, remote, mainRef) !== fresh.tip) {
+          retries += 1;
+          return null;
+        }
         await acknowledge(
           patches,
           slicePath,
@@ -418,14 +415,12 @@ export function createTranslationStateDrainerV2(options) {
           recovered.intent.proposedCommit,
           recovered.intent.intentHash,
         );
-        return finalize({
+        return {
           outcomes: recovered.outcomes,
           mainCommit: recovered.mainCommit,
           publishedCommit: recovered.intent.proposedCommit,
-          retries: attempt - 1,
-          fetchPushDurationsMs,
           replayed: true,
-        });
+        };
       }
       const source = await readSlice(git, fresh.tip, slicePath);
       const reduced = reduceTranslationDerivedPatchBatchV2(source.slice, patches);
@@ -434,16 +429,17 @@ export function createTranslationStateDrainerV2(options) {
           throw new TypeError('translation recovery disagrees with the reducer result at one main tip');
         }
         const confirmedTip = await remoteTip(git, remote, mainRef);
-        if (confirmedTip !== fresh.tip) continue;
+        if (confirmedTip !== fresh.tip) {
+          retries += 1;
+          return null;
+        }
         await acknowledge(patches, slicePath, reduced.outcomes, fresh.tip, null, null);
-        return finalize({
+        return {
           outcomes: reduced.outcomes,
           mainCommit: fresh.tip,
           publishedCommit: null,
-          retries: attempt - 1,
-          fetchPushDurationsMs,
           replayed: false,
-        });
+        };
       }
 
       const content = serializeLike(source.raw, reduced.slice);
@@ -471,7 +467,10 @@ export function createTranslationStateDrainerV2(options) {
       if (published.status !== 'absent') {
         await onStage('afterMainPush', { intent: recorded.intent });
       }
-      if (await remoteTip(git, remote, mainRef) !== latest.tip) continue;
+      if (await remoteTip(git, remote, mainRef) !== latest.tip) {
+        retries += 1;
+        return null;
+      }
       if (published.status === 'recovered') {
         await acknowledge(
           patches,
@@ -481,17 +480,57 @@ export function createTranslationStateDrainerV2(options) {
           published.intent.proposedCommit,
           published.intent.intentHash,
         );
-        return finalize({
+        return {
           outcomes: published.outcomes,
           mainCommit: published.mainCommit,
           publishedCommit: published.intent.proposedCommit,
-          retries: attempt - 1,
-          fetchPushDurationsMs,
           replayed: false,
+        };
+      }
+      retries += 1;
+      return null;
+    }
+
+    while (true) {
+      const audit = await auditRequestedBatch();
+      if (audit === null) continue;
+      if (audit.activeIndexes.length === 0) {
+        if (audit.outcomes.some((outcome) => outcome === null)) {
+          throw new TypeError('translation drainer did not resolve every requested patch');
+        }
+        return deepFreezeTranslationV2({
+          outcomes: audit.outcomes,
+          mainCommit: audit.fresh.tip,
+          publishedCommit: latestPublishedCommit
+            ?? audit.acknowledgments.find((acknowledgment) => acknowledgment !== null)
+              ?.publishedCommit
+            ?? null,
+          retries,
+          fetchPushDurationsMs,
+          replayed: processedAny ? allReplayed : true,
         });
       }
+
+      for (const index of audit.activeIndexes) {
+        const prior = audit.acknowledgments[index]?.outcome;
+        if (prior !== undefined && !canRequeueAcknowledgment(prior)) {
+          throw new TypeError('translation drainer cannot requeue a terminal outcome');
+        }
+      }
+      const patches = audit.activeIndexes.map((index) => requestedPatches[index]);
+      await stateStore.checkpointBatch({
+        slicePath,
+        patches,
+        requeue: audit.activeIndexes.some((index) => audit.acknowledgments[index] !== null),
+      });
+      await onStage('afterCheckpoint', { slicePath, patches });
+
+      let processed = null;
+      while (processed === null) processed = await processActiveBatch(patches);
+      processedAny = true;
+      allReplayed &&= processed.replayed;
+      latestPublishedCommit = processed.publishedCommit ?? latestPublishedCommit;
     }
-    throw new Error('translation main CAS retry budget exhausted');
   }
 
   return Object.freeze({ drain });

@@ -187,6 +187,25 @@ describe('translation state drainer v2', () => {
     expect(statePaths.filter((path) => path.startsWith('v2/intents/by-patch/'))).toHaveLength(2);
   });
 
+  it('completes a stable happy path with one main CAS attempt', async () => {
+    const { one, slice } = setup();
+    const patch = patchFor(slice.jobs[0]);
+    const stateStore = createTranslationStateStoreV2({ repository: one });
+    const drainer = createTranslationStateDrainerV2({
+      repository: one,
+      stateStore,
+      maxPushAttempts: 1,
+    });
+
+    const result = await drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+
+    expect(result.outcomes).toEqual(['applied']);
+    expect(result.retries).toBe(0);
+    expect(result.publishedCommit).not.toBeNull();
+    expect((await stateStore.readAcknowledgment(patch.patchHash)).acknowledgment.publishedCommit)
+      .toBe(result.publishedCommit);
+  });
+
   it('rebuilds from a newly advanced main after CAS rejection', async () => {
     const { one, rival, slice } = setup();
     let advanced = false;
@@ -449,12 +468,51 @@ describe('translation state drainer v2', () => {
     advanceMain(rival, 'derived-value-disappeared', (current) => {
       current.jobs[0].titleByLocale.it = '';
     });
-    const replay = await drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const orderedStateStore = {
+      ...stateStore,
+      async listIntents(patchHash: string) {
+        const listed = await stateStore.listIntents(patchHash);
+        return {
+          ...listed,
+          intents: [...listed.intents].sort((left, right) => (
+            left.intentHash === firstAck.intentHash ? 1 : right.intentHash === firstAck.intentHash ? -1 : 0
+          )),
+        };
+      },
+    };
+    let crashed = false;
+    let secondIntent: any = null;
+    const crashing = createTranslationStateDrainerV2({
+      repository: one,
+      stateStore: orderedStateStore,
+      onStage: async (stage, value) => {
+        if (stage === 'afterMainPush') secondIntent = (value as any).intent;
+        if (stage === 'beforeAck' && !crashed) {
+          crashed = true;
+          throw new Error('crash:requeue-before-ack');
+        }
+      },
+    });
+    await expect(crashing.drain({ slicePath: SLICE_PATH, patches: [patch] }))
+      .rejects.toThrow('crash:requeue-before-ack');
+    const replay = await createTranslationStateDrainerV2({
+      repository: one,
+      stateStore: orderedStateStore,
+    }).drain({ slicePath: SLICE_PATH, patches: [patch] });
     const latestAckResult = await stateStore.readAcknowledgment(patch.patchHash);
     const latestAck = latestAckResult.acknowledgment;
+    const intents = (await stateStore.listIntents(patch.patchHash)).intents;
 
     expect(replay.outcomes).toEqual(['applied']);
-    expect(replay.replayed).toBe(false);
+    expect(replay.replayed).toBe(true);
+    expect(secondIntent).not.toBeNull();
+    expect(replay.publishedCommit).not.toBe(first.publishedCommit);
+    expect(replay.publishedCommit).toBe(secondIntent.proposedCommit);
+    expect(latestAck.publishedCommit).toBe(replay.publishedCommit);
+    expect(latestAck.intentHash).toBe(secondIntent.intentHash);
+    expect(intents).toHaveLength(2);
+    expect(intents.find((intent) => intent.intentHash === latestAck.intentHash)?.proposedCommit)
+      .toBe(replay.publishedCommit);
     expect(readRemoteSlice(one).jobs[0].titleByLocale.it).toBe(`Traduzione ${slice.jobs[0].slug}`);
     expect(latestAck.lifecycleSequence).toBeGreaterThan(firstAck.lifecycleSequence);
     expect(git(one, 'ls-tree', '-r', '--name-only', latestAckResult.commit, '--', `v2/acks/${patch.patchHash.slice(0, 2)}/${patch.patchHash}`)
@@ -500,6 +558,89 @@ describe('translation state drainer v2', () => {
     expect(readRemoteSlice(one).jobs[0].titleByLocale.it).toBe('Traduzione ripristinata');
     expect(terminalAfter.ackHash).toBe(terminalAck.ackHash);
     expect((await replay.stateStore.listPending({ crawlerKey: 'example-crawler' })).pending)
+      .toHaveLength(0);
+  }, 30_000);
+
+  it('re-audits retained acknowledgments after an active sibling changes main', async () => {
+    const { one, rival, slice } = setup();
+    const retainedPatch = patchFor(slice.jobs[0], 'Traduzione trattenuta');
+    const siblingPatch = patchFor(slice.jobs[1], 'Traduzione sorella');
+    const initial = createPair(one);
+    await initial.drainer.drain({ slicePath: SLICE_PATH, patches: [retainedPatch] });
+    const retainedBefore = (await initial.stateStore.readAcknowledgment(retainedPatch.patchHash))
+      .acknowledgment;
+
+    let advanced = false;
+    const checkpointed: string[][] = [];
+    const current = createPair(one, async (stage, value) => {
+      if (stage !== 'afterCheckpoint') return;
+      const active = (value as any).patches as Array<{ patchHash: string }>;
+      checkpointed.push(active.map((patch) => patch.patchHash));
+      if (!advanced) {
+        advanced = true;
+        advanceMain(rival, 'retained-derived-disappeared', (latest) => {
+          latest.jobs[0].titleByLocale.it = '';
+        });
+      }
+    });
+    const result = await current.drainer.drain({
+      slicePath: SLICE_PATH,
+      patches: [retainedPatch, siblingPatch],
+    });
+    const retainedAfter = (await current.stateStore.readAcknowledgment(retainedPatch.patchHash))
+      .acknowledgment;
+
+    expect(result.outcomes).toEqual(['applied', 'applied']);
+    expect(result.mainCommit)
+      .toBe(git(one, 'ls-remote', '--refs', 'origin', 'refs/heads/main').split(/\s+/u)[0]);
+    expect(readRemoteSlice(one).jobs[0].titleByLocale.it).toBe('Traduzione trattenuta');
+    expect(readRemoteSlice(one).jobs[1].titleByLocale.it).toBe('Traduzione sorella');
+    expect(retainedAfter.lifecycleSequence).toBeGreaterThan(retainedBefore.lifecycleSequence);
+    expect(checkpointed).toEqual([[siblingPatch.patchHash], [retainedPatch.patchHash]]);
+    expect((await current.stateStore.listPending({ crawlerKey: 'example-crawler' })).pending)
+      .toHaveLength(0);
+  }, 30_000);
+
+  it('retains the latest published provenance when a later reconciliation round is no-write', async () => {
+    const absentJob = job(2);
+    const { one, rival, slice } = setup(2, (current) => {
+      current.jobs.splice(1, 1);
+    });
+    const activePatch = patchFor(slice.jobs[0], 'Traduzione pubblicata');
+    const retainedPatch = patchFor(absentJob, 'Traduzione già presente');
+    const initial = createPair(one);
+    const absent = await initial.drainer.drain({ slicePath: SLICE_PATH, patches: [retainedPatch] });
+    expect(absent.outcomes).toEqual(['target_absent']);
+
+    let readded = false;
+    const checkpointed: string[][] = [];
+    const current = createPair(one, async (stage, value) => {
+      if (stage !== 'afterCheckpoint') return;
+      const active = (value as any).patches as Array<{ patchHash: string }>;
+      checkpointed.push(active.map((patch) => patch.patchHash));
+      if (!readded) {
+        readded = true;
+        advanceMain(rival, 'target-readded-already-valid', (latest) => {
+          const restored = job(2);
+          restored.titleByLocale.it = 'Traduzione già presente';
+          latest.jobs.push(restored);
+        });
+      }
+    });
+    const result = await current.drainer.drain({
+      slicePath: SLICE_PATH,
+      patches: [activePatch, retainedPatch],
+    });
+    const activeAck = (await current.stateStore.readAcknowledgment(activePatch.patchHash)).acknowledgment;
+    const retainedAck = (await current.stateStore.readAcknowledgment(retainedPatch.patchHash)).acknowledgment;
+
+    expect(result.outcomes).toEqual(['applied', 'already_valid']);
+    expect(result.replayed).toBe(false);
+    expect(result.publishedCommit).toBe(activeAck.publishedCommit);
+    expect(result.publishedCommit).not.toBeNull();
+    expect(retainedAck.publishedCommit).toBeNull();
+    expect(checkpointed).toEqual([[activePatch.patchHash], [retainedPatch.patchHash]]);
+    expect((await current.stateStore.listPending({ crawlerKey: 'example-crawler' })).pending)
       .toHaveLength(0);
   }, 30_000);
 

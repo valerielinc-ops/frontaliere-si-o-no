@@ -888,8 +888,9 @@ export function createTranslationStateStoreV2(options) {
       }
       receipts.push(receipt);
     }
+    let journal = null;
     if (receipts.length > 0) {
-      const journal = await readAttemptJournal(git, tip, receipts[0].attemptKey);
+      journal = await readAttemptJournal(git, tip, receipts[0].attemptKey);
       for (const receipt of receipts) {
         if (receipt.attemptKey !== receipts[0].attemptKey) {
           throw new TypeError('translation acknowledgments for one patch span multiple attempts');
@@ -897,10 +898,26 @@ export function createTranslationStateStoreV2(options) {
         assertAcknowledgmentLifecycleProof(journal, receipt);
       }
     }
+    const storedPatch = await parsePath(git, tip, `v2/patches/${patchHash.slice(0, 2)}/${patchHash}.json`);
+    let queued = false;
+    if (storedPatch !== null) {
+      const patch = validateTranslationDerivedPatchV2(storedPatch);
+      if (patch.patchHash !== patchHash) {
+        throw new TypeError('translation state patch path does not match its hash');
+      }
+      journal ??= await readAttemptJournal(git, tip, patch.candidate.attemptKey);
+      const queue = await parsePath(git, tip, queuePath(patch));
+      queued = getTranslationJournalStateV2(journal, patch.candidate.attemptKey).state === 'queued';
+      if (queued !== (queue !== null)) {
+        throw new TypeError('translation queue and lifecycle state disagree');
+      }
+      if (queue !== null) assertQueueMatches(queue, patch, queue.slicePath);
+    }
     receipts.sort((left, right) => left.lifecycleSequence - right.lifecycleSequence);
     return deepFreezeTranslationV2({
       commit: tip,
       acknowledgment: receipts.at(-1) ?? null,
+      queued,
     });
   }
 
@@ -914,11 +931,13 @@ export function createTranslationStateStoreV2(options) {
     }
     const tip = await snapshotTip();
     const acknowledgments = [];
+    const queued = [];
     for (const patchHash of patchHashes) {
       const result = await readAcknowledgmentAtTip(tip, patchHash);
       acknowledgments.push(result.acknowledgment);
+      queued.push(result.queued);
     }
-    return deepFreezeTranslationV2({ commit: tip, acknowledgments });
+    return deepFreezeTranslationV2({ commit: tip, acknowledgments, queued });
   }
 
   async function readAcknowledgment(patchHash) {
@@ -926,6 +945,7 @@ export function createTranslationStateStoreV2(options) {
     return deepFreezeTranslationV2({
       commit: result.commit,
       acknowledgment: result.acknowledgments[0],
+      queued: result.queued[0],
     });
   }
 
