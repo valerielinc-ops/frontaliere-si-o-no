@@ -1,18 +1,19 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-09-01T16:14:17.165Z",
+  "generatedAt": "2026-09-01T23:30:34.520Z",
   "total": 90,
-  "newCount": 1,
-  "updatedCount": 89,
+  "newCount": 0,
+  "updatedCount": 90,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 98511,
-  "avgDurationMs": 98511,
+  "durationMs": 135778,
+  "avgDurationMs": 135778,
   "durationHistory": [
-    98511
+    135778
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-7c8vf5",
       "slug": "business-analyst-hr-project-manager-fust-oberburen",
@@ -28,34 +29,37 @@
       "url": "https://jobs.fust.ch/offene-stellen/business-analyst-hr-project-manager/3f3041d5-026d-4faf-bab9-0206b16fb86a",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
+        "type": "source_detail",
         "location": "Oberbüren",
         "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T16:14:14.176Z",
       "addressLocality": "Oberbüren",
       "addressRegion": "SG",
       "sourceLang": "de",
+      "salarySource": "estimated",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 84,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 21,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-5chvhl",
       "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco",
       "company": "Fust",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
-      "location": "Giubiasco",
+      "location": "Bellinzona",
       "canton": "TI",
       "category": "health",
       "contract": "part-time",
@@ -65,27 +69,29 @@
       "url": "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/5455cd96-289e-4590-b30a-e096a160e2da",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Giubiasco",
+        "type": "source_detail",
+        "location": "Bellinzona",
         "canton": "TI"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T07:45:08.375Z",
       "needsRetranslation": true,
-      "addressLocality": "Giubiasco",
+      "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "6512",
+      "streetAddress": "Via Campagna 1",
       "sourceLang": "it",
       "salarySource": "estimated",
-      "_qualityScore": 84,
+      "addressCountry": "Svizzera",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -93,8 +99,8 @@
       "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-fust-romanel-sur-lausanne",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Romanel-sur-Lausanne",
-      "canton": "VD",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "other",
       "contract": "temporary",
       "currency": "CHF",
@@ -103,27 +109,29 @@
       "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/ae3fe890-981b-4323-8aa1-5c6d868b1ed4",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Romanel-sur-Lausanne",
-        "canton": "VD"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "needsRetranslation": true,
-      "addressLocality": "Romanel-sur-Lausanne",
-      "addressRegion": "VD",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "fr",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "addressCountry": "Suisse",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -141,27 +149,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/monteur-fuer-den-austausch-von-kuecheneinbaugeraeten/d02d3df2-1594-4273-84aa-b869c32b60f6",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
+        "type": "source_detail",
         "location": "Burgdorf",
         "canton": "BE"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "3400",
+      "streetAddress": "Buchmattstrasse 118",
       "sourceLang": "de",
       "salarySource": "estimated",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -169,8 +179,8 @@
       "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-crissier",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Crissier",
-      "canton": "VD",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "other",
       "contract": "temporary",
       "currency": "CHF",
@@ -179,27 +189,29 @@
       "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/16b8e741-80a2-4026-b38c-5d3d6df2b109",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Crissier",
-        "canton": "VD"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "needsRetranslation": true,
-      "addressLocality": "Crissier",
-      "addressRegion": "VD",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "fr",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "addressCountry": "Suisse",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -207,8 +219,8 @@
       "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-visp",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Visp",
-      "canton": "VS",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -217,27 +229,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/54c8b03f-bc8b-44e3-a93c-0b06cca22e52",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Visp",
-        "canton": "VS"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "de",
       "salarySource": "estimated",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -245,8 +259,8 @@
       "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-fust-meyrin",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Meyrin",
-      "canton": "GE",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "other",
       "contract": "temporary",
       "currency": "CHF",
@@ -255,27 +269,29 @@
       "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/df38b815-400d-4ab6-8fb9-a4a96bd3aa4d",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Meyrin",
-        "canton": "GE"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "needsRetranslation": true,
-      "addressLocality": "Meyrin",
-      "addressRegion": "GE",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "fr",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "addressCountry": "Suisse",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -283,8 +299,8 @@
       "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-zuchwil",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Zuchwil",
-      "canton": "SO",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -293,27 +309,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/50e5a78d-61cf-46fe-958c-8fedb859c76b",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Zuchwil",
-        "canton": "SO"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
-      "addressLocality": "Zuchwil",
-      "addressRegion": "SO",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "de",
       "salarySource": "estimated",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -321,8 +339,8 @@
       "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-oberburen-1ga2a6",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
-      "location": "Dübendorf",
-      "canton": "ZH",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -332,27 +350,29 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Dübendorf",
-        "canton": "ZH"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "salarySource": "reported",
-      "postalCode": "",
-      "streetAddress": "",
-      "_qualityScore": 84,
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -360,8 +380,8 @@
       "slug": "montage-assistent-in-per-la-heimlieferung-von-elektrohaushaltgeraten-fust-swiss-household-services-ag-oberburen-qmnfmq",
       "company": "Fust",
       "title": "Montage-Assistent:in für die Heimlieferung von Elektrohaushaltgeräten",
-      "location": "Dübendorf",
-      "canton": "ZH",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "admin",
       "contract": "part-time",
       "currency": "CHF",
@@ -371,27 +391,29 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Dübendorf",
-      "addressRegion": "ZH",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Dübendorf",
-        "canton": "ZH"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "salarySource": "reported",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -399,8 +421,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Rickenbach",
-      "canton": "TG",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -410,27 +432,29 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Rickenbach",
-      "addressRegion": "TG",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Rickenbach",
-        "canton": "TG"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -438,7 +462,7 @@
       "slug": "kundendienstmitarbeiter-in-service-fust-koniz-bern-hl3t4s",
       "company": "Fust",
       "title": "Kundendienstmitarbeiter:in Service",
-      "location": "Niederwangen BE",
+      "location": "Köniz",
       "canton": "BE",
       "category": "admin",
       "contract": "part-time",
@@ -448,28 +472,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/kundendienstmitarbeiter-in-service/a59b04ae-f56c-48c2-bd6a-6a8c9473ed7f",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Niederwangen BE",
+        "type": "source_detail",
+        "location": "Köniz",
         "canton": "BE"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "addressLocality": "Niederwangen BE",
+      "addressLocality": "Köniz",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
-      "_qualityScore": 84,
+      "postalCode": "3172",
+      "streetAddress": "Riedmoosstrasse 10",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -477,8 +503,8 @@
       "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-villeneuve",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Villeneuve",
-      "canton": "VD",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "other",
       "contract": "temporary",
       "currency": "CHF",
@@ -487,27 +513,29 @@
       "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Villeneuve",
-        "canton": "VD"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "needsRetranslation": true,
-      "addressLocality": "Villeneuve",
-      "addressRegion": "VD",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "fr",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "addressCountry": "Suisse",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -526,7 +554,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "needsRetranslation": true,
       "sourceLang": "de",
@@ -534,19 +562,21 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "_targetScope": {
-        "type": "adapter_seed_meta",
+        "type": "source_detail",
         "location": "Steg-Hohtenn",
         "canton": "VS"
       },
       "salarySource": "estimated",
-      "postalCode": "",
+      "postalCode": "3940",
       "streetAddress": "",
-      "_qualityScore": 84,
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 16,
-        "completeness": 19
+        "completeness": 22
       }
     },
     {
@@ -554,8 +584,8 @@
       "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-fust-etoy",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Etoy",
-      "canton": "VD",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "other",
       "contract": "temporary",
       "currency": "CHF",
@@ -564,27 +594,29 @@
       "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/0f4d2530-040e-44aa-8b5f-8c1474553425",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Etoy",
-        "canton": "VD"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "needsRetranslation": true,
-      "addressLocality": "Etoy",
-      "addressRegion": "VD",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "fr",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "addressCountry": "Suisse",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -592,8 +624,8 @@
       "slug": "gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-fust-geneve-balexert",
       "company": "Fust",
       "title": "Gestionnaire du commerce de détail CFC \"Conception et réalisation d'expériences d'achat\"",
-      "location": "Genève Balexert",
-      "canton": "GE",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "other",
       "contract": "temporary",
       "currency": "CHF",
@@ -602,27 +634,29 @@
       "url": "https://jobs.fust.ch/postes-vacants/gestionnaire-du-commerce-de-detail-cfc-conception-et-realisation-d-experiences-d-achat/9d4f17e1-db6e-46ec-9e68-6fa4215de759",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Genève Balexert",
-        "canton": "GE"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
       "needsRetranslation": true,
-      "addressLocality": "Genève Balexert",
-      "addressRegion": "GE",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "fr",
       "salarySource": "estimated",
-      "_qualityScore": 82,
+      "addressCountry": "Suisse",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 16,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -630,8 +664,8 @@
       "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberwil",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Oberwil",
-      "canton": "BL",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -640,27 +674,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/a6989ea0-ac14-4b56-80c9-a2159dc98f13",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Oberwil",
-        "canton": "BL"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
-      "addressLocality": "Oberwil",
-      "addressRegion": "BL",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "de",
       "salarySource": "estimated",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -668,8 +704,8 @@
       "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnisse-fust-niederwangen-bei-bern",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Niederwangen bei Bern",
-      "canton": "BE",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -678,27 +714,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/eb70bde3-96b7-4ae2-b674-917132e6a54a",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Niederwangen bei Bern",
-        "canton": "BE"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
-      "addressLocality": "Niederwangen bei Bern",
-      "addressRegion": "BE",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "de",
       "salarySource": "estimated",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -706,8 +744,8 @@
       "slug": "apprendistato-commercio-al-dettaglio-consumer-electronics-cfc-fust-oberburen-n7niz9",
       "company": "Fust",
       "title": "Lehrstelle Detailhandel Consumer Electronics EFZ",
-      "location": "Rickenbach",
-      "canton": "TG",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -716,27 +754,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/lehrstelle-detailhandel-consumer-electronics-efz/162b883f-f27d-4e3a-b52d-aded9ade6f90",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Rickenbach",
-        "canton": "TG"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Rickenbach",
-      "addressRegion": "TG",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
-      "_qualityScore": 87,
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -744,8 +784,8 @@
       "slug": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-egerkingen",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Egerkingen",
-      "canton": "SO",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -754,27 +794,29 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/bff6b8f0-5f66-4f3a-a1e7-bcabcb728452",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Egerkingen",
-        "canton": "SO"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-09-01T00:50:15.339Z",
-      "addressLocality": "Egerkingen",
-      "addressRegion": "SO",
-      "postalCode": "",
-      "streetAddress": "",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
       "sourceLang": "de",
       "salarySource": "estimated",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -793,7 +835,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "sourceLang": "de",
       "addressLocality": "Oberbüren",
@@ -803,17 +845,21 @@
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2516,
       "_targetScope": {
-        "type": "adapter_seed_meta",
+        "type": "source_detail",
         "location": "Oberbüren",
         "canton": "SG"
       },
       "salarySource": "estimated",
-      "_qualityScore": 91,
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 23,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -832,7 +878,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "sourceLang": "de",
       "addressLocality": "Oberbüren",
@@ -842,17 +888,21 @@
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1210,
       "_targetScope": {
-        "type": "adapter_seed_meta",
+        "type": "source_detail",
         "location": "Oberbüren",
         "canton": "SG"
       },
       "salarySource": "estimated",
-      "_qualityScore": 87,
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -860,8 +910,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-fpey5u",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Schwyz",
-      "canton": "SZ",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -870,30 +920,32 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/e4156c00-882a-4e77-84b4-890f5e994672",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schwyz",
-        "canton": "SZ"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-27T01:00:08.892Z",
       "sourceLang": "de",
-      "addressLocality": "Schwyz",
-      "addressRegion": "SZ",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "retranslationAttempts": 3,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1209,
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
-      "_qualityScore": 87,
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 21,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -901,8 +953,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-chpcr1",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Meilen",
-      "canton": "ZH",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -911,28 +963,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9e430e60-ca13-4121-ad59-4c8f83f55954",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Meilen",
-        "canton": "ZH"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -940,8 +994,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-erqyia",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Zug",
-      "canton": "ZG",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -950,28 +1004,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/216e414b-2838-4836-bf08-3fc296d3a4f0",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Zug",
-        "canton": "ZG"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Zug",
-      "addressRegion": "ZG",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -979,8 +1035,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-o4c31p",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Zürich Sihlcity",
-      "canton": "ZH",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -989,28 +1045,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9e490333-fa86-4ab4-8d13-d872fed8d6d7",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Zürich Sihlcity",
-        "canton": "ZH"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Zürich Sihlcity",
-      "addressRegion": "ZH",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -1018,8 +1076,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-8dks7j",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Netstal",
-      "canton": "GL",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -1028,28 +1086,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/7eae996a-0fa9-488f-bb11-2853ac8d1fb1",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Netstal",
-        "canton": "GL"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Netstal",
-      "addressRegion": "GL",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -1057,8 +1117,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-uu17yh",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Emmen Center",
-      "canton": "LU",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -1067,28 +1127,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/55eebbfc-7dc1-4be1-a954-40dba7b4c6b7",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Emmen Center",
-        "canton": "LU"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Emmen Center",
-      "addressRegion": "LU",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -1096,8 +1158,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-srhg06",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Schattdorf",
-      "canton": "UR",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -1106,28 +1168,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/32f5e577-b1b3-49ef-89b1-bab9c4d6692b",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Schattdorf",
-        "canton": "UR"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Schattdorf",
-      "addressRegion": "UR",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     },
     {
@@ -1135,8 +1199,8 @@
       "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-nyjyk8",
       "company": "Fust",
       "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Emmenbrücke Wohncenter",
-      "canton": "LU",
+      "location": "Oberbüren",
+      "canton": "SG",
       "category": "finance",
       "contract": "temporary",
       "currency": "CHF",
@@ -1145,67 +1209,30 @@
       "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/25bb855c-7d4b-4357-8303-eee4070e2571",
       "source": "Company Careers Crawler",
       "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Emmenbrücke Wohncenter",
-        "canton": "LU"
+        "type": "source_detail",
+        "location": "Oberbüren",
+        "canton": "SG"
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
+      "crawledAt": "2026-09-01T23:29:48.980Z",
       "firstSeenAt": "2026-08-31T07:39:06.286Z",
       "sourceLang": "de",
-      "addressLocality": "Emmenbrücke Wohncenter",
-      "addressRegion": "LU",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
+      "postalCode": "9245",
+      "streetAddress": "Industrie Haslen 3",
+      "addressCountry": "Schweiz",
+      "_enrichedFromDetail": true,
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 19,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-n42nei",
-      "slug": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-n42nei",
-      "company": "Fust",
-      "title": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
-      "location": "Bülach",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "url": "https://jobs.fust.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/06f6410b-c5aa-4091-b7f8-62a05cdbb380",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Bülach",
-        "canton": "ZH"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-09-01T16:14:14.176Z",
-      "firstSeenAt": "2026-08-31T07:39:06.286Z",
-      "sourceLang": "de",
-      "addressLocality": "Bülach",
-      "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "salarySource": "estimated",
-      "postalCode": "",
-      "streetAddress": "",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 19,
-        "completeness": 19
+        "completeness": 25
       }
     }
   ],
