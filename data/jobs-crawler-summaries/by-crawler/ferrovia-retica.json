@@ -1,44 +1,18 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-09-01T07:31:48.715Z",
+  "generatedAt": "2026-09-01T08:39:56.435Z",
   "total": 10,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 8,
-  "durationMs": 27373,
-  "avgDurationMs": 27373,
+  "removedCount": 0,
+  "unchangedCount": 9,
+  "durationMs": 20242,
+  "avgDurationMs": 20242,
   "durationHistory": [
-    27373
+    20242
   ],
-  "newJobs": [
-    {
-      "title": "Ausbildung als Lokführer/in (100%) Region Nord",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "transport",
-      "postedDate": "2026-09-01",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "ausbildung-als-lokfuhrer-in-100-region-nord-ferrovia-retica-rhb-chur",
-      "percentage": "",
-      "_qualityScore": 62,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 2,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Handwerker/in Komponentenwechsel (50-100%)",
@@ -75,42 +49,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Mechaniker/in Drehgestellaufarbeitung Trieb- und Gliederzüge (80-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/mechaniker-in-drehgestellaufarbeitung-trieb-und-gliederzuge-80-100_2026-2245/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "postedDate": "2026-09-01",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "mechaniker-in-drehgestellaufarbeitung-trieb-und-gliederzuge-80-100-ferrovia-retica-rhb-chur",
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-13T10:25:14.579Z",
-      "salarySource": "estimated",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Ausbildner/in Triebfahrzeugführende VTE (80-100%) Landquart",
@@ -440,12 +379,17 @@
       "needsRetranslation": true,
       "addressLocality": "Chur",
       "addressRegion": "GR",
-      "_qualityScore": 64,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T07:31:48.713Z",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 4,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ]
