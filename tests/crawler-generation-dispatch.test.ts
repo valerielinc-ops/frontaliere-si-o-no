@@ -22,6 +22,7 @@ import {
   crawlerGenerationSentinelWorkflowIdentity,
   crawlerGenerationLegacyWorkflowIdentity,
   crawlerGenerationWorkflowIdentity,
+  isCrawlerGenerationToken,
   validateCrawlerGenerationWorkflowRun,
 } from '../scripts/lib/crawler-generation-contract.mjs';
 
@@ -143,6 +144,58 @@ describe('crawler generation dispatch protocol', () => {
     for (const { binding, run } of fixtures) {
       expect(validateCrawlerGenerationWorkflowRun(run, binding)).toMatchObject({ valid: true, errors: [] });
     }
+  });
+
+  it('derives the dispatch ref from the validated generationToken field, not a runName regex', () => {
+    const binding = {
+      ...crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit),
+      runName: 'renamed-run-name-format-that-no-regex-would-parse',
+    };
+    const run = {
+      id: 7001,
+      repository: { full_name: repository },
+      name: binding.workflowName,
+      display_title: binding.runName,
+      path: `.github/workflows/${binding.workflowFile}`,
+      event: 'workflow_dispatch',
+      head_branch: dispatchRef,
+      head_sha: corpusCodeCommit,
+      run_attempt: 1,
+      status: 'queued',
+      conclusion: null,
+    };
+    const result = validateCrawlerGenerationWorkflowRun(run, binding);
+    expect(result.errors).not.toContain('head_branch_mismatch');
+    expect(result.errors).not.toContain('workflow_path_mismatch');
+  });
+
+  it('keeps token validation equivalent to the legacy canonical grammar', () => {
+    const legacyToken = /^[1-9][0-9]*-[1-9][0-9]*$/;
+    for (const token of ['1-1', '9001-2', '999999999999-42', '0-1', '01-1', '1-0', '1-01', '1', '1-1-extra', '']) {
+      expect(isCrawlerGenerationToken(token)).toBe(legacyToken.test(token));
+    }
+  });
+
+  it('accepts only the canonical run-name fallback for a legacy binding without generationToken', () => {
+    const modern = crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit);
+    const { generationToken: _generationToken, ...legacy } = modern;
+    const run = boundRun('01', 7001, corpusCodeCommit);
+    expect(validateCrawlerGenerationWorkflowRun(run, legacy)).toMatchObject({ valid: true, errors: [] });
+
+    const renamed = { ...legacy, runName: 'renamed-legacy-binding' };
+    expect(validateCrawlerGenerationWorkflowRun({ ...run, display_title: renamed.runName }, renamed)).toMatchObject({
+      valid: false,
+      errors: expect.arrayContaining(['head_branch_mismatch', 'workflow_path_mismatch']),
+    });
+  });
+
+  it('fails closed when an explicit generationToken is invalid', () => {
+    const binding = { ...crawlerGenerationWorkflowIdentity('01', generationToken, '7001', corpusCodeCommit), generationToken: null };
+    const result = validateCrawlerGenerationWorkflowRun(boundRun('01', 7001, corpusCodeCommit), binding);
+    expect(result).toMatchObject({
+      valid: false,
+      errors: expect.arrayContaining(['head_branch_mismatch', 'workflow_path_mismatch']),
+    });
   });
 
   it('rejects translate or a group/workflow mismatch before any POST', async () => {
