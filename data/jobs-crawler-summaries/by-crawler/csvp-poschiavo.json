@@ -1,7 +1,7 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-08-31T22:32:07.113Z",
+  "generatedAt": "2026-09-01T01:17:14.044Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8715,
-  "avgDurationMs": 8715,
+  "durationMs": 4999,
+  "avgDurationMs": 4999,
   "durationHistory": [
-    8715
+    4999
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/927-operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-31T22:32:00.740Z",
+      "crawledAt": "2026-09-01T01:17:10.545Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/922-infermiere-sss-oss-fage",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-31T22:32:02.397Z",
+      "crawledAt": "2026-09-01T01:17:11.506Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
