@@ -38,14 +38,56 @@ const URL_HOST_RE = /"url"\s*:\s*"https?:\/\/([^/"?#\\]+)/g;
 /** `"url": "https://host/path"` — origin + path, query and fragment dropped. */
 const URL_FULL_RE = /"url"\s*:\s*"(https?:\/\/[^"\\?#]+)/g;
 
-// Query-only job detail pages need one stable identifier to remain distinct.
-// Everything else (language, source, session, UTM, presentation switches) is
-// deliberately discarded so two links to the same posting still compare equal.
-// The allow-list is grounded in the current corpus; keys are matched lowercase.
-const JOB_IDENTITY_QUERY_PARAMS = new Set([
-  'career_job_req_id', 'gh_jid', 'id', 'job', 'jobdbpvid', 'jobid', 'offerapiid',
-  'panel', 'position', 'q', 'refcode', 'reference', 'role', 'unid', 'vacancyno',
-  'uuid', 'yid',
+// Query-only job detail pages need one stable identifier to remain distinct,
+// but names such as `id`, `q`, `role` and `position` are not identities on
+// arbitrary hosts. They are also common tracking, search and session keys.
+// This host-scoped matrix is grounded in the checked-in corpus plus active
+// crawler parsers whose current slice can legitimately be empty.
+const JOB_IDENTITY_QUERY_PARAMS_BY_HOST = new Map([
+  ['apply5.lumessetalentlink.com', ['jobid']],
+  ['bellinz.pi-asp.de', ['id']],
+  ['boards.greenhouse.io', ['gh_jid']],
+  ['career012.successfactors.eu', ['career_job_req_id']],
+  ['career5.successfactors.eu', ['career_job_req_id', 'job', 'jobid']],
+  ['career55.sapsf.eu', ['career_job_req_id']],
+  ['career74.sapsf.eu', ['career_job_req_id']],
+  ['careers.marriott.com', ['id']],
+  ['careers.nagra.com', ['id']],
+  ['careers.pkb.ch', ['id']],
+  ['careers.theheinekencompany.com', ['jobid']],
+  ['careers.zegnagroup.com', ['jobid']],
+  ['cittamen.pi-asp.de', ['id']],
+  ['corporate.lastminute.com', ['id']],
+  ['dxt.com', ['panel']],
+  ['emea3.recruitmentplatform.com', ['jobid']],
+  ['emploi.lasource.ch', ['id']],
+  ['emploi.ophtalmique.ch', ['id']],
+  ['etavis.softgarden.io', ['jobdbpvid']],
+  ['foodiverse.com', ['id']],
+  ['fs-2662.my.salesforce-sites.com', ['vacancyno']],
+  ['joblink.allibo.com', ['id']],
+  ['jobs.hornbach.ch', ['offerapiid']],
+  ['jobs.ubs.com', ['jobid']],
+  ['karriere.hochgebirgsklinik.ch', ['offerapiid']],
+  ['lavoraconnoi.lugano-lis.ch', ['id']],
+  ['lombardi.group', ['id']],
+  ['mendrisio.ch', ['uuid']],
+  ['otb.apps.vs.ch', ['job']],
+  ['sygnumpeopleportal.my.salesforce-sites.com', ['vacancyno']],
+  ['vaudoise.softgarden.io', ['jobdbpvid']],
+  ['weissearena.com', ['jobid']],
+  ['concorsi.ti.ch', ['yid']],
+  ['coopers.ch', ['refcode']],
+  ['ksml.apps.be.ch', ['q']],
+  ['lafonte.ch', ['role']],
+  ['linnea.ch', ['position']],
+  ['lugano.ch', ['unid']],
+  ['rhne.ch', ['jobid']],
+  ['scandit.com', ['gh_jid']],
+  ['wagerenhof.ch', ['reference']],
+  ['e-lavoro.ch', ['id']],
+  ['zambon.com', ['id']],
+  ['www4.ti.ch', ['id']],
 ]);
 
 /**
@@ -206,8 +248,9 @@ export function loadSourceHostOwnership(root, opts = {}) {
 }
 
 /**
- * Normalise a job URL the way the overlap comparisons do: lowercase, no
- * fragment/trailing slash, and only stable job-identity query parameters.
+ * Normalise a job URL the way the overlap comparisons do: lowercase scheme,
+ * host and path, no fragment/trailing slash, and only stable host-scoped
+ * job-identity query parameters. Identity values preserve their original case.
  * Session/tracking parameters are removed, but query-only detail pages such as
  * `concorsi.ti.ch/...?yid=4264&sid=...` retain `yid`; otherwise every cantonal
  * vacancy collapses onto the same listing URL and becomes a false duplicate.
@@ -216,17 +259,26 @@ export function loadSourceHostOwnership(root, opts = {}) {
  * @returns {string}
  */
 export function normalizeJobUrl(raw = '') {
-  const s = String(raw).trim().toLowerCase();
+  const s = String(raw).trim();
   const [withoutFragment] = s.split('#');
   const queryAt = withoutFragment.indexOf('?');
   const base = (queryAt >= 0 ? withoutFragment.slice(0, queryAt) : withoutFragment)
+    .toLowerCase()
     .replace(/\/+$/, '');
   if (queryAt < 0) return base;
 
+  let sourceHost = '';
+  try {
+    sourceHost = normalizeSourceHost(new URL(withoutFragment).hostname);
+  } catch {
+    // A malformed/non-absolute URL has no trustworthy host identity. Keep its
+    // safely normalised base, but never retain a globally ambiguous query key.
+  }
+  const identityParams = JOB_IDENTITY_QUERY_PARAMS_BY_HOST.get(sourceHost) || [];
   const kept = [];
   for (const [key, value] of new URLSearchParams(withoutFragment.slice(queryAt + 1))) {
     const normalizedKey = key.toLowerCase();
-    if (JOB_IDENTITY_QUERY_PARAMS.has(normalizedKey) && value) {
+    if (identityParams.includes(normalizedKey) && value) {
       kept.push([normalizedKey, value]);
     }
   }
@@ -312,6 +364,7 @@ export function matchExistingCrawler(urls, ownership, opts = {}) {
  * @property {number|null} activeTotalB
  * @property {number|null} snapshotSkewMs
  * @property {string|null} olderSnapshotKey
+ * @property {number|null} olderSnapshotAtMs
  */
 
 /**
@@ -367,6 +420,9 @@ export function findOverlappingCrawlers(ownership) {
         : null,
       olderSnapshotKey: Number.isFinite(assembledAtA) && Number.isFinite(assembledAtB)
         ? (assembledAtA < assembledAtB ? a : (assembledAtB < assembledAtA ? b : null))
+        : null,
+      olderSnapshotAtMs: Number.isFinite(assembledAtA) && Number.isFinite(assembledAtB)
+        ? Math.min(assembledAtA, assembledAtB)
         : null,
     });
   }

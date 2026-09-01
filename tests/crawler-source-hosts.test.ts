@@ -27,11 +27,17 @@ const LOBBY = 'https://jobs.smartrecruiters.com';
 
 let root: string;
 
+const HOUR_MS = 60 * 60 * 1000;
+
+function hoursAgo(hours: number, nowMs = Date.now()) {
+  return new Date(nowMs - hours * HOUR_MS).toISOString();
+}
+
 /** Write a slice in the real shape: `{ crawlerKey, jobs: [...] }`. */
 function slice(
   key: string,
   jobs: { url: string; companyKey?: string; title?: string; crawlerMissStreak?: number; expiredAt?: string }[],
-  assembledAt = '2026-08-25T00:00:00.000Z',
+  assembledAt = hoursAgo(1),
 ) {
   const payload = {
     crawlerKey: key,
@@ -103,6 +109,47 @@ describe('source-host ownership', () => {
     expect(normalizeJobUrl('https://Host.ch/Job/1/?utm=x#top')).toBe('https://host.ch/job/1');
     expect(normalizeJobUrl("https://www.concorsi.ti.ch/offerte-d'impieghi.html?sid=abc&yid=4264"))
       .toBe("https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4264");
+  });
+
+  it('preserves identity value case while normalising its safe URL components', () => {
+    expect(normalizeJobUrl('HTTPS://WWW.COOPERS.CH/Jobs/?utm=x&RefCode=AbC9#apply'))
+      .toBe('https://www.coopers.ch/jobs?refcode=AbC9');
+    expect(normalizeJobUrl('https://www.lugano.ch/download?UNID=AbC%2FDeF'))
+      .toBe('https://www.lugano.ch/download?unid=AbC%2FDeF');
+  });
+
+  it('keeps generic query names only on the audited host that owns their identity meaning', () => {
+    expect(normalizeJobUrl('https://careers.pkb.ch/job/view-job.php?id=Role-A'))
+      .toBe('https://careers.pkb.ch/job/view-job.php?id=Role-A');
+    expect(normalizeJobUrl('https://tracker.example/jobs?id=session-A&role=visitor'))
+      .toBe('https://tracker.example/jobs');
+    expect(normalizeJobUrl('https://jobs.fr.ch/search/?q=RFSM'))
+      .toBe('https://jobs.fr.ch/search');
+    expect(normalizeJobUrl('https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40039'))
+      .toBe('https://www.ksml.apps.be.ch/ksml?q=stellen%2Fad%2F40039');
+  });
+
+  it.each([
+    ['career012.successfactors.eu', 'career_job_req_id'],
+    ['boards.greenhouse.io', 'gh_jid'],
+    ['careers.nagra.com', 'id'],
+    ['otb.apps.vs.ch', 'job'],
+    ['etavis.softgarden.io', 'jobdbpvid'],
+    ['jobs.ubs.com', 'jobid'],
+    ['jobs.hornbach.ch', 'offerapiid'],
+    ['dxt.com', 'panel'],
+    ['www.linnea.ch', 'position'],
+    ['www.ksml.apps.be.ch', 'q'],
+    ['www.coopers.ch', 'refcode'],
+    ['www.wagerenhof.ch', 'reference'],
+    ['www.lafonte.ch', 'role'],
+    ['www.lugano.ch', 'unid'],
+    ['sygnumpeopleportal.my.salesforce-sites.com', 'vacancyno'],
+    ['mendrisio.ch', 'uuid'],
+    ['www.concorsi.ti.ch', 'yid'],
+  ])('retains the audited %s identity parameter %s', (host, param) => {
+    expect(normalizeJobUrl(`https://${host}/detail?${param}=CaseSensitive-A`))
+      .toBe(`https://${host}/detail?${param}=CaseSensitive-A`);
   });
 
   it('survives a sparse checkout with no slices at all', () => {
@@ -239,42 +286,74 @@ describe('audit findings', () => {
     expect(classifyFindings(pair ? [pair] : []).gaps).toEqual([]);
   });
 
-  it('does not compare crawler snapshots from different daily cycles', () => {
+  it('treats a temporary cross-cycle skew as non-comparable without a stale alert', () => {
+    const nowMs = Date.now();
     const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://skew.example.ch/job/${i}` }));
-    slice('skew-keeper', shared, '2026-08-31T05:00:00.000Z');
+    slice('skew-keeper', shared, hoursAgo(1, nowMs));
     slice(
       'skew-witness',
       [...shared.slice(0, 4), { url: 'https://skew.example.ch/job/then-live' }],
-      '2026-08-28T05:00:00.000Z',
+      hoursAgo(36, nowMs),
     );
 
     const own = loadSourceHostOwnership(root, { urls: true });
     const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('skew-keeper'));
-    expect(pair?.snapshotSkewMs).toBe(3 * 24 * 60 * 60 * 1000);
-    const findings = classifyFindings(pair ? [pair] : []);
+    expect(pair?.snapshotSkewMs).toBe(35 * HOUR_MS);
+    const findings = classifyFindings(pair ? [pair] : [], { nowMs });
     expect(findings.gaps).toEqual([]);
     expect(findings.ignored).toMatchObject([
       { key: 'skew-keeper', twin: 'skew-witness', reason: 'snapshot-skew' },
     ]);
+    expect(findings.staleSnapshots).toEqual([]);
+  });
+
+  it('reports a witness stopped beyond two cycles separately from its suppressed gap', () => {
+    const nowMs = Date.now();
+    const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://stale-witness.example.ch/job/${i}` }));
+    slice('stale-witness-keeper', shared, hoursAgo(1, nowMs));
+    slice(
+      'stale-witness',
+      [...shared.slice(0, 4), { url: 'https://stale-witness.example.ch/job/then-live' }],
+      hoursAgo(73, nowMs),
+    );
+
+    const own = loadSourceHostOwnership(root, { urls: true });
+    const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('stale-witness-keeper'));
+    const findings = classifyFindings(pair ? [pair] : [], { nowMs });
+    expect(findings.gaps).toEqual([]);
+    expect(findings.ignored).toMatchObject([
+      { key: 'stale-witness-keeper', twin: 'stale-witness', reason: 'snapshot-skew' },
+    ]);
+    expect(findings.staleSnapshots).toEqual([
+      {
+        key: 'stale-witness',
+        twin: 'stale-witness-keeper',
+        assembledAtMs: nowMs - 73 * HOUR_MS,
+        ageMs: 73 * HOUR_MS,
+        maskedMissing: ['https://stale-witness.example.ch/job/then-live'],
+      },
+    ]);
   });
 
   it('still reports a fresh witness gap when the keeper snapshot is the stale side', () => {
+    const nowMs = Date.now();
     const shared = Array.from({ length: 6 }, (_, i) => ({ url: `https://stale-keeper.example.ch/job/${i}` }));
-    slice('stale-keeper', shared, '2026-08-28T05:00:00.000Z');
+    slice('stale-keeper', shared, hoursAgo(73, nowMs));
     slice(
       'fresh-witness',
       [...shared.slice(0, 4), { url: 'https://stale-keeper.example.ch/job/new-live' }],
-      '2026-08-31T05:00:00.000Z',
+      hoursAgo(1, nowMs),
     );
 
     const own = loadSourceHostOwnership(root, { urls: true });
     const pair = findOverlappingCrawlers(own).find((p) => p.keys.includes('stale-keeper'));
     expect(pair?.olderSnapshotKey).toBe('stale-keeper');
-    const findings = classifyFindings(pair ? [pair] : []);
+    const findings = classifyFindings(pair ? [pair] : [], { nowMs });
     expect(findings.gaps).toMatchObject([
       { key: 'stale-keeper', twin: 'fresh-witness', missing: ['https://stale-keeper.example.ch/job/new-live'] },
     ]);
     expect(findings.ignored).toEqual([]);
+    expect(findings.staleSnapshots).toEqual([]);
   });
 
   it.each([
