@@ -1,5 +1,135 @@
 [
   {
+    "slug": "software-system-ingegnere-stadler-rail-wallisellen",
+    "title": "Software & System Engineer",
+    "titleByLocale": {
+      "it": "Software & System Ingegnere",
+      "en": "Software & System Engineer",
+      "de": "Software & System Ingenieur",
+      "fr": "Software & System Ingénieur"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Wallisellen",
+    "addressLocality": "Wallisellen",
+    "descriptionByLocale": {
+      "it": "Software e System Engineer\n\nStudi MSc completati in Ingegneria Elettrica, Ingegneria Meccanica, Meccatronica, Scienza Informatica o una zona tematica simile\nConoscenza di base della programmazione software, idealmente PLC (Python, C#/C++ sono anche desiderabili)\nFamiliarità con strumenti di versione software come SVN e Git.\nInteressi nella tecnologia ferroviaria e nella segnalazione\nLavoro di squadra, iniziativa e buone capacità di comunicazione\nBuona conoscenza della lingua tedesca e inglese\nVolontà di viaggiare fino al 10%.\n\nTASKS\n\nSviluppo e realizzazione di soluzioni software nel campo delle applicazioni ferroviarie della tecnologia del segnale\nSupporto nella pianificazione, implementazione e documentazione dei test software in vari ambienti (simulazione, laboratorio, veicolo)\nCollaborare con altri ingegneri e team per sviluppare tecniche\n• Capire e implementare i requisiti\nRisoluzione dei problemi e ottimizzazione delle soluzioni software esistenti",
+      "en": "Software and System Engineer\n\nCompleted MSc Studies in Electrical Engineering, Mechanical Engineering, Mechatronics, Computer Science or a similar subject area\nBasic knowledge of software programming, ideally PLC (Python, C#/C++ are also desirable)\nFamiliarity with software versioning tools like SVN and Git.\nInterest in railway technology and signalling\nTeamwork, initiative and good communication skills\nGood knowledge of German and English\nWillingness to travel up to 10%.\n\nTASKS\n\nDevelopment and implementation of software solutions in the field of signal technology railway applications\nSupport in the planning, implementation and documentation of software tests in various environments (simulation, laboratory, vehicle)\nCollaborating with other engineers and teams to develop technical\n• Understand and implement requirements\nTroubleshooting and optimization of existing software solutions",
+      "de": "Software and System Engineer\n\nAbgeschlossenes MSc Studium im Bereich Elektrotechnik, Maschinenbau, Mechatronik, Informatik oder einer ähnlichen Fachrichtung\nGrundkenntnisse in der Programmierung von Software, idealerweise SPS (Python, C#/C++ sind auch wünschenswert)\nVertrautheit mit Software-Versionierungstools wie SVN und Git.\nInteresse an der Eisenbahntechnik und Signaltechnik\nTeamfähigkeit, Eigeninitiative und gute Kommunikationsfähigkeiten\nGute Deutsch- und Englischkenntnisse\nReisebereitschaft bis zu 10 %.\n\nAUFGABEN\n\nEntwicklung und Implementierung von Softwarelösungen im Bereich der Signaltechnik Bahnanwendungen\nUnterstützung bei der Planung, Durchführung und Dokumentation von Softwaretests in verschiedenen Umgebungen (Simulation, Labor, Fahrzeug)\nZusammenarbeit mit anderen Ingenieuren und Teams, um technische\n• Anforderungen zu verstehen und umzusetzen\nFehlerbehebung und Optimierung bestehender Softwarelösungen",
+      "fr": "Ingénieur logiciel et système\n\nÉtudes de maîtrise en génie électrique, en génie mécanique, en mécatronique, en informatique ou dans un domaine semblable\nConnaissance de base de la programmation logicielle, idéalement PLC (Python, C#/C++ sont également souhaitables)\nFamiliarité avec des outils de version logicielle comme SVN et Git.\nIntérêt pour la technologie ferroviaire et la signalisation\nTravail d'équipe, initiative et bonnes compétences en communication\nBonne connaissance de l'allemand et de l'anglais\nVolonté de voyager jusqu'à 10%.\n\nTÂCHES\n\nDéveloppement et mise en œuvre de solutions logicielles dans le domaine des applications ferroviaires de la technologie du signal\nAppui à la planification, à la mise en œuvre et à la documentation des tests logiciels dans divers environnements (simulation, laboratoire, véhicule)\nCollaborer avec d'autres ingénieurs et équipes pour développer\n• Comprendre et mettre en œuvre les exigences\nDépannage et optimisation des solutions logicielles existantes"
+    },
+    "slugByLocale": {
+      "it": "software-system-ingegnere-stadler-rail-wallisellen",
+      "en": "software-system-engineer-stadler-rail-ch",
+      "de": "software-system-engineer-stadler-rail-ch",
+      "fr": "software-system-ingenieur-stadler-rail-wallisellen"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-09-01T07:24:13.648Z",
+    "previousSlugs": [
+      "software-system-engineer-stadler-rail-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "software-system-engineer-stadler-rail-ch"
+      ],
+      "fr": [
+        "software-system-engineer-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "8304",
+    "salaryMin": 83000,
+    "salaryMax": 126000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "ingegnere-elettrico-stadler-rail-bussnang",
+    "title": "Elektroingenieur:in",
+    "titleByLocale": {
+      "it": "Ingegnere Elettrico",
+      "en": "Electrical Engineer:",
+      "de": "Elektroingenieur:in",
+      "fr": "Ingénieur électrique:"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "TASKS\n• Progettazione e integrazione dei componenti elettrici di sistemi di bordo come HVAC, sistemi di imbarco (porte, scalini) e sistemi di protezione antincendio nei veicoli ferroviari\n• Coordinamento tecnico e gestione dell'interfaccia con aree specialistiche interne (software, pianificazione dell'installazione, meccanica, tecnologia di controllo del veicolo, acquisto) e fornitori esterni\n• Creazione di concetti di sistema, requisiti elettrici specifiche e specifiche di integrazione e test\n• Definizione e coordinamento delle interfacce elettriche (fornitura, segnali, comunicazione) tra sottosistemi e veicoli\n• Accompagnamento di messa in servizio e test di tipo con focus sull'integrazione del sistema elettrico\n• Analisi e correzione dei problemi tecnici in funzione con attenzione alle cause elettriche e alle interfacce\n• Coordinamento e valutazione tecnica dei fornitori per quanto riguarda l'integrazione elettrica e il comportamento del sistema\n• Garantire la corretta integrazione dei sistemi nella tecnologia di controllo del veicolo e nell'approvvigionamento energetico PROFESSIONALE\n• Studi completi in ingegneria elettrica, meccatronica o disciplina comparabile\n• Conoscenza dell'integrazione del sistema elettrico o della tecnologia dei veicoli ferroviari\n• Esperienza nel trattare sistemi elettrici, interfacce e la loro integrazione in complessi sistemi complessivi\n• Comprensione dei componenti elettrici, dell'approvvigionamento energetico e della tecnologia di controllo dei veicoli\n• L'esperienza nel trattare con interfacce (ad esempio segnali, sistemi bus, I/O) è vantaggiosa\n• Prontezza per supportare la messa in servizio e la sperimentazione direttamente sul veicolo\n• Metodi di lavoro strutturati e orientati al sistema e forti capacità di comunicazione\n• Buona conoscenza del tedesco e dell'inglese nelle parole e nella scrittura (almeno livello B2)",
+      "en": "TASKS\n• Design and integration of the electrical components of on-board systems such as HVAC, boarding systems (doors, stepways) and fire protection systems in railway vehicles\n• Technical coordination and interface management with internal specialist areas (software, installation planning, mechanics, vehicle control technology, purchasing) and external suppliers\n• Creation of system concepts, electrical requirements specifications and integration and test specifications\n• Definition and coordination of electrical interfaces (supply, signals, communication) between subsystems and vehicle\n• Accompaniment of commissionings and type tests with focus on electrical system integration\n• Analysis and correction of technical problems in operation with focus on electrical causes and interfaces\n• Coordination and technical evaluation of suppliers with regard to electrical integration and system behaviour\n• Ensuring the correct integration of the systems into vehicle control technology and energy supply PROFILE\n• Completed studies in electrical engineering, mechatronics or a comparable discipline\n• Knowledge of electrical system integration or rail vehicle technology\n• Experience in dealing with electrical systems, interfaces and their integration into complex overall systems\n• Understanding electrical components, energy supply and vehicle control technology\n• Experience in dealing with interfaces (e.g. signals, bus systems, I/O) is advantageous\n• Readiness to support commissioning and testing directly on the vehicle\n• Structured and system-oriented working methods and strong communication skills\n• Good knowledge of German and English in words and writing (at least level B2)",
+      "de": "AUFGABEN\n\n• Konzeption und Integration der elektrischen Anteile von fahrzeugseitigen Systemen wie HLK, Einstiegssystemen (Türen, Trittstufen) und Brandschutzanlagen in Schienenfahrzeuge\n\n• Technische Koordination und Schnittstellenmanagement mit internen Fachbereichen (Software, Einbauplanung, Mechanik, Fahrzeugleittechnik, Einkauf) sowie externen Lieferanten\n\n• Erstellen von Systemkonzepten, elektrischen Anforderungsspezifikationen sowie Integrations- und Testspezifikatione\n\n• Definition und Abstimmung von elektrischen Schnittstellen (Versorgung, Signale, Kommunikation) zwischen Teilsystemen und Fahrzeug\n\n• Begleitung von Inbetriebnahmen und Typprüfungen mit Fokus auf die elektrische Systemintegratio\n\n• Analyse und Behebung von technischen Problemen im Betrieb mit Fokus auf elektrische Ursachen und Schnittstellen\n\n• Koordination und technische Bewertung von Lieferanten hinsichtlich elektrischer Integration und Systemverhalten\n\n• Sicherstellen der korrekten Einbindung der Systeme in die Fahrzeugleittechnik und Energieversorgung\n\nPROFIL\n\n• Abgeschlossenes Studium in Elektrotechnik, Mechatronik oder einer vergleichbaren Fachrichtung\n\n• Kenntnisse in der elektrischen Systemintegration oder Schienenfahrzeugtechnik\n\n• Erfahrung im Umgang mit elektrischen Systemen, Schnittstellen und deren Integration in komplexe Gesamtsysteme von Vorteil\n\n• Verständnis für elektrische Komponenten, Energieversorgung und Fahrzeugleittechnik\n\n• Erfahrung im Umgang mit Schnittstellen (z. B. Signale, Bussysteme, I/O) von Vorteil\n\n• Bereitschaft zur Unterstützung von Inbetriebnahmen und Tests direkt am Fahrzeug\n\n•\nStrukturierte und systemorientierte Arbeitsweise sowie ausgeprägte Kommunikationsfähigkeit\n\n• Gute Deutsch- und Englischkenntnisse in Wort und Schrift (mindestens Niveau B2)",
+      "fr": "TÂCHES\n• Conception et intégration des composants électriques des systèmes embarqués tels que CVC, systèmes d'embarquement (portes, escaliers) et systèmes de protection contre l'incendie dans les véhicules ferroviaires\n• Coordination technique et gestion des interfaces avec les domaines spécialisés internes (logiciels, planification des installations, mécanique, technologie de contrôle des véhicules, achats) et fournisseurs externes\n• Création de concepts de systèmes, spécifications relatives aux exigences électriques et spécifications relatives à l'intégration et aux essais\n• Définition et coordination des interfaces électriques (fourniture, signaux, communication) entre les sous-systèmes et le véhicule\n• Accompagnement des mises en service et essais de type en mettant l'accent sur l'intégration du système électrique\n• Analyse et correction des problèmes techniques en fonctionnement en mettant l'accent sur les causes et les interfaces électriques\n• Coordination et évaluation technique des fournisseurs en ce qui concerne l'intégration électrique et le comportement du système\n• Assurer l'intégration correcte des systèmes dans la technologie de contrôle des véhicules et l'approvisionnement en énergie PROFIL\n• Études complétées en génie électrique, mécatronique ou discipline comparable\n• Connaissance de l'intégration des systèmes électriques ou de la technologie des véhicules ferroviaires\n• Expérience dans le traitement des systèmes électriques, des interfaces et de leur intégration dans des systèmes globaux complexes\n• Comprendre les composants électriques, l'approvisionnement en énergie et la technologie de contrôle des véhicules\n• L'expérience dans le traitement des interfaces (p. ex. signaux, systèmes de bus, E/S) est avantageuse\n• Préparation à la mise en service et aux essais directement sur le véhicule\n• Méthodes de travail structurées et axées sur le système et compétences solides en matière de communication\n• Bonne connaissance de l'allemand et de l'anglais en mots et en écriture (au moins niveau B2)"
+    },
+    "slugByLocale": {
+      "it": "ingegnere-elettrico-stadler-rail-bussnang",
+      "en": "elektroingenieur-in-stadler-rail-bussnang",
+      "de": "elektroingenieur-in-stadler-rail-ch",
+      "fr": "elektroingenieur-in-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-09-01T07:24:13.648Z",
+    "previousSlugs": [
+      "elektroingenieur-in-stadler-rail-ch",
+      "elektroingenieur-in-stadler-rail-bussnang",
+      "saldatrice-in-alluminio-stadler-rail-bussnang",
+      "aluminium-welders-in-stadler-rail-bussnang",
+      "aluminiumschweisser-in-stadler-rail-ch",
+      "soudeurs-en-aluminium-stadler-rail-bussnang",
+      "aluminiumschweisser-in-stadler-rail-bussnang",
+      "saldi-in-alluminio-in-stadler-rail-bussnang",
+      "ingegnere-della-protezione-antincendio-stadler-rail-bussnang",
+      "brandschutzingenieur-in-stadler-rail-ch",
+      "ingenieur-en-protection-incendie-stadler-rail-bussnang",
+      "fire-protection-engineer-stadler-rail-bussnang",
+      "ingegnere-elettrico-in-tecnico-elettrico-in-per-veicoli-speciali-stadler-rail-bussnang",
+      "electrical-engineer-in-electrical-technician-in-for-special-vehicles-stadler-rail-bussnang",
+      "elektroingenieur-in-elektrotechniker-in-fur-spezialfahrzeuge-stadler-rail-ch",
+      "ingenieur-electricien-ingenieur-electricien-pour-vehicules-speciaux-stadler-rail-bussnang",
+      "elektroingenieur-in-elektrotechniker-in-per-spezialfahrzeuge-stadler-rail-bussnang",
+      "electrical-engineer-stadler-rail-bussnang",
+      "ingenieur-electrique-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "elektroingenieur-in-stadler-rail-ch",
+        "elektroingenieur-in-stadler-rail-bussnang",
+        "saldatrice-in-alluminio-stadler-rail-bussnang",
+        "aluminium-welders-in-stadler-rail-bussnang",
+        "aluminiumschweisser-in-stadler-rail-ch",
+        "soudeurs-en-aluminium-stadler-rail-bussnang",
+        "aluminiumschweisser-in-stadler-rail-bussnang",
+        "saldi-in-alluminio-in-stadler-rail-bussnang",
+        "ingegnere-della-protezione-antincendio-stadler-rail-bussnang",
+        "brandschutzingenieur-in-stadler-rail-ch",
+        "ingenieur-en-protection-incendie-stadler-rail-bussnang",
+        "ingegnere-elettrico-in-tecnico-elettrico-in-per-veicoli-speciali-stadler-rail-bussnang",
+        "electrical-engineer-in-electrical-technician-in-for-special-vehicles-stadler-rail-bussnang",
+        "elektroingenieur-in-elektrotechniker-in-fur-spezialfahrzeuge-stadler-rail-ch",
+        "ingenieur-electricien-ingenieur-electricien-pour-vehicules-speciaux-stadler-rail-bussnang",
+        "elektroingenieur-in-elektrotechniker-in-per-spezialfahrzeuge-stadler-rail-bussnang"
+      ],
+      "en": [
+        "fire-protection-engineer-stadler-rail-bussnang",
+        "electrical-engineer-in-electrical-technician-in-for-special-vehicles-stadler-rail-bussnang",
+        "electrical-engineer-stadler-rail-bussnang"
+      ],
+      "de": [
+        "elektroingenieur-in-elektrotechniker-in-fur-spezialfahrzeuge-stadler-rail-ch"
+      ],
+      "fr": [
+        "ingenieur-electricien-ingenieur-electricien-pour-vehicules-speciaux-stadler-rail-bussnang",
+        "ingenieur-electrique-stadler-rail-bussnang"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 67000,
+    "salaryMax": 102000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "responsabile-vendite-direttore-senior-delle-vendite-stadler-rail-bussnang",
     "title": "Sales Manager / Senior Sales Manager",
     "titleByLocale": {
