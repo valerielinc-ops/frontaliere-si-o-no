@@ -94,18 +94,24 @@ if [ -f ".git/index.lock" ]; then
   rm -f ".git/index.lock"
 fi
 
-# ── Parse --slice-only flag ──────────────────────────────────────────────────
+# ── Parse commit mode ────────────────────────────────────────────────────────
 SLICE_ONLY=false
+GROUP_BATCH=false
 # Set to true (below) only for grouped crawler-group invocations, which share
 # one working copy across ~25 concurrent sibling crawlers and therefore must
 # never mutate the shared worktree/index while committing.
 GROUPED_ISOLATED=false
-if [ "${1:-}" = "--slice-only" ]; then
+if [ "${1:-}" = "--group-batch" ]; then
+  GROUP_BATCH=true
+  SLICE_ONLY=true
+  GROUPED_ISOLATED=true
+  shift
+elif [ "${1:-}" = "--slice-only" ]; then
   SLICE_ONLY=true
   shift
 fi
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only] 'commit message' [extra-paths...]}"
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 
@@ -136,7 +142,13 @@ ${SLUG_HISTORY_BODY}"
 fi
 
 # ── Standard data files committed by every crawler ──────────────────────────
-if [ "$SLICE_ONLY" = true ]; then
+if [ "$GROUP_BATCH" = true ]; then
+  # Paths are loaded below from the successful crawlers' immutable descriptors.
+  # Keeping this list empty is load-bearing: the batch must never sweep a
+  # failed sibling's partial files merely because they remain dirty in the
+  # shared worktree.
+  STANDARD_FILES=()
+elif [ "$SLICE_ONLY" = true ]; then
   # Slice-only mode: only commit per-crawler slice files + ai-cache.
   # Shared monolithic files are assembled during deploy, not per-crawler.
   #
@@ -226,6 +238,28 @@ if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
   ALL_FILES+=("${EXTRA_PATHS[@]}")
 fi
 
+# A grouped crawler shares its checkout with every sibling. Directory-valued
+# extras (most commonly data/jobs-crawler-adapters/) therefore describe the
+# union of every concurrent writer, not this crawler's ownership: recording
+# that live directory diff in one successful descriptor could sweep a failed
+# sibling's partial output into the group commit. Defer mode keeps only the
+# exact per-crawler standard files plus explicit file extras. The shared AI
+# cache is deliberately excluded for the same reason; it is not attributable
+# to one crawler in the shared worktree and heals through sequential writers.
+if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
+  ALL_FILES=()
+  for path_item in "${STANDARD_FILES[@]}"; do
+    [ "$path_item" = "data/jobs-ai-cache.json" ] || ALL_FILES+=("$path_item")
+  done
+  for path_item in "${EXTRA_PATHS[@]}"; do
+    normalized_path="${path_item%/}"
+    if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
+      continue
+    fi
+    ALL_FILES+=("$path_item")
+  done
+fi
+
 # Resolve input paths to concrete files for snapshot/rebase-merge logic.
 # Extra paths may include directories (e.g. data/jobs-crawler-adapters/).
 # Directory paths are valid for `git add`, but not for `git show "$sha:$path"`
@@ -280,6 +314,27 @@ for path_item in "${ALL_FILES[@]}"; do
   expand_path_to_files "$path_item"
 done
 
+if [ "$GROUP_BATCH" = true ]; then
+  _batch_paths_file="$(mktemp /tmp/crawler-group-batch-paths.XXXXXX)"
+  trap 'rm -f "${_batch_paths_file:-}"' EXIT
+  if ! node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-paths > "$_batch_paths_file"; then
+    echo "❌ crawler group batch: invalid or unreadable commit descriptors"
+    exit 1
+  fi
+  while IFS= read -r -d '' path_item; do
+    append_resolved_file "$path_item"
+  done < "$_batch_paths_file"
+  if [ "${#RESOLVED_FILES[@]}" -eq 0 ]; then
+    echo "ℹ️ crawler group batch: no successful crawler produced a commit descriptor"
+    [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+    exit 0
+  fi
+  if ! COMMIT_MSG="$(node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-message "$COMMIT_MSG")"; then
+    echo "❌ crawler group batch: could not assemble deterministic commit attribution"
+    exit 1
+  fi
+fi
+
 # Optional shadow-only generation receipt. Disabled callers execute only the
 # empty-env guard below; enabled callers receive a best-effort observation of
 # the exact private-index tree. Receipt failure must never change this helper's
@@ -291,14 +346,33 @@ emit_crawler_generation_receipt() {
   local remote_base_sha="${3:-}"
   [ -n "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ] || return 0
 
+  local receipt_args=("${RESOLVED_FILES[@]}")
+  if [ "$GROUP_BATCH" = true ]; then
+    receipt_args=(--batch-receipts)
+  fi
   if ! CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
     CRAWLER_GENERATION_RECEIPT_COMMIT="$commit_sha" \
     CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$remote_base_sha" \
-    node "$(dirname "$0")/crawler-generation-receipt.mjs" "${RESOLVED_FILES[@]}"; then
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" "${receipt_args[@]}"; then
     echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
   fi
   return 0
 }
+
+if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
+  if [ "$GROUP_BATCH" = true ] || [ "$GROUPED_ISOLATED" != true ]; then
+    echo "❌ crawler group defer mode requires one --slice-only crawler invocation"
+    exit 1
+  fi
+  if ! CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}"; then
+    echo "❌ crawler group defer mode could not persist its commit descriptor"
+    exit 1
+  fi
+  echo "ℹ️ Deferred ${JOBS_HOUSEKEEPING_SCOPE} data for the atomic crawler-group commit"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+  exit 0
+fi
 
 create_rebase_snapshot() {
   local base_sha="$1"
@@ -1310,7 +1384,7 @@ if [ "$GROUPED_ISOLATED" = true ]; then
   # not cascade-fail subsequent steps (translations, slug-regen) or create a
   # spurious failure issue. Grouped crawlers (JOBS_SLICE_FILE set) keep exit 42
   # so their per-crawler failure-report step can skip the issue for this class.
-  if [ "$_commit_result" -eq 42 ] && [ -z "${JOBS_SLICE_FILE:-}" ]; then
+  if [ "$_commit_result" -eq 42 ] && [ -z "${JOBS_SLICE_FILE:-}" ] && [ "$GROUP_BATCH" != true ]; then
     echo "⚠️ Sequential push: contention exhausted after $MAX_PUSH_ATTEMPTS attempts — soft success (data self-heals on the next scheduled run)"
     exit 0
   fi

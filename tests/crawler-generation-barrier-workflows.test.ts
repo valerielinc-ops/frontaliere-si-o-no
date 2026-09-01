@@ -180,9 +180,14 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(background).toHaveLength(results.generationRoster.groups[group].length);
       expect(background.every((step: any) =>
         !Object.prototype.hasOwnProperty.call(step.env ?? {}, 'CRAWLER_GENERATION_RECEIPT_DIR'))).toBe(true);
-      expect(job.steps.at(-3)).toEqual({
+      expect(job.steps.at(-4)).toEqual({
         name: 'Wait for all crawlers in this group',
         'wait-all': true,
+      });
+      expect(job.steps.at(-3)).toEqual({
+        name: 'Commit crawler group data atomically',
+        if: 'always()',
+        run: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
       });
       expect(job.steps.at(-2).env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
       expect(JSON.parse(job.steps.at(-2).env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(

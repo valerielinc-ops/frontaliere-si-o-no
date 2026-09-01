@@ -1667,6 +1667,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tasso-ipotecario-riferimento-1-25-stabile': { it: 'tasso-ipotecario-riferimento-1-25-stabile', en: 'swiss-reference-mortgage-rate-stays-1-25', de: 'referenzzinssatz-bleibt-1-25-prozent', fr: 'taux-hypothecaire-reference-reste-1-25' },
  'riduzione-affitto-tassi-ipotecari': { it: 'riduzione-affitto-tassi-ipotecari', en: 'rent-reduction-mortgage-rates', de: 'mietreduktion-hypothekenzinsen', fr: 'reduction-loyer-taux-hypothecaires' },
  'commercio-dettaglio-vendite-luglio-2025': { it: 'commercio-dettaglio-vendite-luglio-2025', en: 'retail-sales-increase-july-2025', de: 'einzelhandelsumsatz-steigt-im-juli-2025', fr: 'ventes-au-detail-augmentent-en-juillet-2025' },
+ 'tasso-ipotecario-riferimento-stabile': { it: 'tasso-ipotecario-riferimento-stabile', en: 'mortgage-reference-rate-stable', de: 'referenzzinssatz-fuer-hypotheken-unverandert', fr: 'taux-de-reference-pour-les-hypotheques-stable' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
