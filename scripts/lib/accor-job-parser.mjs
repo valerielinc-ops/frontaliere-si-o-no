@@ -19,7 +19,8 @@ import {
   isSufficientVacancyDescription,
 } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import { politeFetch } from './prospector/polite-fetch.mjs';
+import { createSpecUrlPolicy, loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -28,6 +29,7 @@ export const ACCOR_COMPANY_NAME = 'Ibis Budget';
 export const ACCOR_COMPANY_DOMAIN = 'careers.accor.com';
 
 const CAREER_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
+const ACCOR_MAX_LISTING_PAGES = 20;
 const ACCOR_REQUEST_HEADERS = {
   // Node's custom public-DNS dispatcher currently exposes Attrax's Brotli body
   // as compressed bytes instead of decoded HTML. Identity encoding keeps the
@@ -43,6 +45,114 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Attrax exposes both the total result count and the selected page size. The
+ * semantic last-page control is authoritative when present. Without it, only
+ * a complete single-page or zero-result envelope can be published; otherwise
+ * stopping at page one would silently retire later jobs.
+ */
+export function accorPageCount(html = '') {
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
+  const lastPageValues = [...doc.querySelectorAll('.attrax-pagination__results-of--2')]
+    .map((node) => Number.parseInt(node.textContent || '', 10))
+    .filter(Number.isInteger);
+  const totalNode = doc.querySelector('.attrax-pagination__total-results');
+  const pageSizeNode = doc.querySelector('.attrax-pagination__resultsperpage .active');
+  const totalText = totalNode?.textContent || '';
+  const totalDigits = totalText.replace(/\D/g, '');
+  const totalResults = Number.parseInt(totalDigits, 10);
+  const pageSizeLabel = pageSizeNode?.getAttribute('aria-label') || '';
+  const pageSize = Number.parseInt(pageSizeLabel, 10);
+  dom.window.close();
+
+  const distinctLastPages = [...new Set(lastPageValues)];
+  if (distinctLastPages.length > 1) {
+    throw new Error(`Accor pagination disagrees on the last page: ${distinctLastPages.join(', ')}`);
+  }
+  const markerPage = distinctLastPages.length === 1 && distinctLastPages[0] >= 1
+    ? distinctLastPages[0]
+    : null;
+  if (distinctLastPages.length && markerPage === null) {
+    throw new Error('Accor pagination has an invalid last-page marker');
+  }
+  if (Boolean(totalNode) !== Boolean(pageSizeNode)
+    || (totalNode && (!Number.isInteger(totalResults) || totalResults < 0
+      || !Number.isInteger(pageSize) || pageSize < 1))) {
+    throw new Error('Accor pagination has unreadable total or page-size metadata');
+  }
+  const countPage = totalNode
+    ? Math.max(1, Math.ceil(totalResults / pageSize))
+    : null;
+  if (markerPage !== null) return Math.max(markerPage, countPage || 1);
+  if (countPage === 1) return 1;
+  throw new Error('Accor pagination is missing a trustworthy last-page marker');
+}
+
+export function accorPageUrl(seedUrl, page) {
+  const url = new URL(seedUrl);
+  url.searchParams.set('page', String(page));
+  return url.toString();
+}
+
+/**
+ * A listing can reorder while it is being walked. Every page up to the
+ * greatest source-declared bound is therefore fetched once; a short page and
+ * a decreasing later counter never act as an end signal. A missing counter,
+ * failed intermediate page, or cap overflow rejects the complete snapshot.
+ */
+export async function collectAccorPageUrls(
+  seedUrl,
+  fetchPage,
+  maxPages = ACCOR_MAX_LISTING_PAGES,
+  pageSnapshots = null,
+) {
+  let lastPage = 1;
+  const pages = [];
+  for (let page = 1; page <= lastPage; page += 1) {
+    const pageUrl = accorPageUrl(seedUrl, page);
+    const fetched = await fetchPage(pageUrl);
+    const body = typeof fetched === 'string' ? fetched : fetched?.body;
+    if (typeof body !== 'string' || !body) {
+      throw new Error(`Accor pagination returned an empty snapshot for ${pageUrl}`);
+    }
+    const effectiveUrl = typeof fetched === 'string' ? pageUrl : (fetched.url || pageUrl);
+    const status = typeof fetched === 'string' ? 200 : Number(fetched.status);
+    if (!Number.isInteger(status) || status < 200 || status >= 300) {
+      throw new Error(`Accor pagination returned invalid snapshot status ${status} for ${effectiveUrl}`);
+    }
+    const declaredLastPage = accorPageCount(body);
+    if (declaredLastPage > maxPages) {
+      throw new Error(`Accor pagination declares ${declaredLastPage} pages, above the safe limit ${maxPages}`);
+    }
+    lastPage = Math.max(lastPage, declaredLastPage);
+    if (pageSnapshots?.has(effectiveUrl)) {
+      throw new Error(`Accor pagination resolved multiple pages to ${effectiveUrl}`);
+    }
+    pageSnapshots?.set(effectiveUrl, {
+      body,
+      status,
+      contentType: 'text/html; charset=utf-8',
+    });
+    pages.push(effectiveUrl);
+  }
+  return pages;
+}
+
+function createAccorSnapshotFetch(pageSnapshots, fallbackFetch) {
+  return async (input, init) => {
+    const url = typeof input === 'string'
+      ? input
+      : input instanceof URL ? input.href : input?.url;
+    const snapshot = pageSnapshots.get(url);
+    if (!snapshot) return fallbackFetch(input, init);
+    return new Response(snapshot.body, {
+      status: snapshot.status,
+      headers: { 'Content-Type': snapshot.contentType },
+    });
+  };
 }
 
 /**
@@ -143,12 +253,37 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings({ fetchImpl = fetch } = {}) {
   const spec = loadSpec(ACCOR_KEY);
-  return runSpecInProduction(spec, {
-    headers: ACCOR_REQUEST_HEADERS,
-    detailExtractor: extractAccorDetailFields,
-  });
+  const seedUrl = spec.seedUrls?.[0];
+  if (!seedUrl || spec.seedUrls.length !== 1) {
+    throw new Error('Accor requires exactly one Swiss listing seed for dynamic pagination');
+  }
+  const urlPolicy = createSpecUrlPolicy(spec);
+  try {
+    const pageSnapshots = new Map();
+    const seedUrls = await collectAccorPageUrls(seedUrl, async (url) => {
+      const page = await politeFetch(url, {
+        urlPolicy,
+        dispatcher: urlPolicy.dispatcher,
+        headers: ACCOR_REQUEST_HEADERS,
+      });
+      if (!page.ok || !page.body) {
+        const reason = page.blockedByRobots ? 'blocked by robots.txt'
+          : page.policyBlocked ? (page.error || 'blocked by public URL policy')
+            : `HTTP ${page.status || 0}`;
+        throw new Error(`Accor listing pagination fetch failed for ${page.url || url}: ${reason}`);
+      }
+      return page;
+    }, ACCOR_MAX_LISTING_PAGES, pageSnapshots);
+    return runSpecInProduction({ ...spec, seedUrls }, {
+      headers: ACCOR_REQUEST_HEADERS,
+      detailExtractor: extractAccorDetailFields,
+      fetchImpl: createAccorSnapshotFetch(pageSnapshots, fetchImpl),
+    });
+  } finally {
+    await urlPolicy.dispatcher.close();
+  }
 }
 
 /**
@@ -158,11 +293,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllAccorJobs() {
+export async function fetchAllAccorJobs(runtime = {}) {
   console.log(`🔍 Fetching Ibis Budget jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings(runtime);
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];

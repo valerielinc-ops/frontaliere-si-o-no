@@ -36,22 +36,47 @@ import { assembleUrlKey } from '../scripts/lib/job-url-key.mjs';
 const SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1';
 const SECOND_SEED_URL = 'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=2';
 const JOB_URL = 'https://careers.accor.com/fr/fr/job/sales-executive';
-const LISTING_HTML = '<a href="/fr/fr/job/sales-executive">Sales Executive</a>';
+const accorPagination = (lastPage: number, total: number) => [
+  `<span class="attrax-pagination__total-results">${total} résultat(s)</span>`,
+  `<span class="attrax-pagination__results-of--2">${lastPage}</span>`,
+  '<span class="attrax-pagination__resultsperpage"><a class="active" aria-label="12 results per page"></a></span>',
+].join('');
+const TWO_PAGE_PAGINATION_HTML = accorPagination(2, 13);
+const LISTING_HTML = `${TWO_PAGE_PAGINATION_HTML}<a href="/fr/fr/job/sales-executive">Sales Executive</a>`;
 const DESCRIPTION = '<div class="vacancy-description" data-type="DescriptionWidget"><div aria-label="Job description"><p>Lead commercial development, manage client relationships and coordinate the local sales team for the hotel.</p></div></div>';
 const isAccorSeed = (url: string) => url === SEED_URL || url === SECOND_SEED_URL;
+const fixtureFetch = async (input: string | URL | Request) => {
+  const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+  return new Response(await fetchHtml(url), {
+    status: 200,
+    headers: { 'Content-Type': 'text/html; charset=utf-8' },
+  });
+};
 
 describe('prospector location and identity contract', () => {
   beforeEach(() => {
     fetchHtml.mockReset();
     fetchGreenhouseJobs.mockReset();
     politeFetch.mockReset();
-    politeFetch.mockImplementation(async (url: string) => ({
-      ok: true,
-      status: 200,
-      body: await fetchHtml(url),
-      url,
-      host: new URL(url).hostname,
-    }));
+    politeFetch.mockImplementation(async (url: string, options: any = {}) => {
+      if (options.fetchImpl) {
+        const response = await options.fetchImpl(url, {});
+        return {
+          ok: response.ok,
+          status: response.status,
+          body: await response.text(),
+          url,
+          host: new URL(url).hostname,
+        };
+      }
+      return {
+        ok: true,
+        status: 200,
+        body: await fetchHtml(url),
+        url,
+        host: new URL(url).hostname,
+      };
+    });
   });
 
   it('keeps stable URL identity and slug while using source-backed geography', async () => {
@@ -59,7 +84,7 @@ describe('prospector location and identity contract', () => {
       ? LISTING_HTML
       : `<h1>Sales Executive</h1><div class="job-location">Chiasso</div>${DESCRIPTION}`);
 
-    const [job] = await fetchAllAccorJobs();
+    const [job] = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
 
     expect(job.id).toBe(`accor-${createHash('sha1').update(JOB_URL).digest('hex').slice(0, 12)}`);
     expect(job.slug).toBe('sales-executive-accor-ch');
@@ -71,6 +96,39 @@ describe('prospector location and identity contract', () => {
         },
       }));
     }
+  });
+
+  it('replays one complete growing pagination snapshot without identity churn', async () => {
+    const listingCalls = new Map<number, number>();
+    const listingPage = (page: number) => {
+      if (page === 1) return `${accorPagination(2, 13)}<a href="/fr/fr/job/first-role">First Role</a>`;
+      if (page === 2) return `${accorPagination(3, 25)}<a href="/fr/fr/job/second-role">Second Role</a>`;
+      return `${accorPagination(3, 25)}<a href="/fr/fr/job/first-role">First Role</a><a href="/fr/fr/job/third-role">Third Role</a>`;
+    };
+    fetchHtml.mockImplementation(async (url: string) => {
+      if (url.startsWith('https://careers.accor.com/fr/fr/jobs?')) {
+        const page = Number(new URL(url).searchParams.get('page'));
+        const calls = (listingCalls.get(page) || 0) + 1;
+        listingCalls.set(page, calls);
+        if (calls > 1) {
+          return `${accorPagination(4, 37)}<a href="/fr/fr/job/drift-role">Drift Role</a>`;
+        }
+        return listingPage(page);
+      }
+      const title = url.includes('first-role') ? 'First Role'
+        : url.includes('second-role') ? 'Second Role' : 'Third Role';
+      return `<h1>${title}</h1><div class="job-location">Chiasso</div>${DESCRIPTION}`;
+    });
+
+    const jobs = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
+
+    expect([...listingCalls.entries()]).toEqual([[1, 1], [2, 1], [3, 1]]);
+    expect(jobs.map((job) => job.url)).toEqual([
+      'https://careers.accor.com/fr/fr/job/first-role',
+      'https://careers.accor.com/fr/fr/job/second-role',
+      'https://careers.accor.com/fr/fr/job/third-role',
+    ]);
+    expect(new Set(jobs.map((job) => job.id)).size).toBe(3);
   });
 
   it('propagates the selected structured address through runtime and generated parser', async () => {
@@ -86,7 +144,7 @@ describe('prospector location and identity contract', () => {
           } },
         })}</script>${DESCRIPTION}`);
 
-    const [job] = await fetchAllAccorJobs();
+    const [job] = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
     expect(job).toMatchObject({
       location: 'Pratteln, BL',
       canton: 'BL',
@@ -104,7 +162,7 @@ describe('prospector location and identity contract', () => {
       : `<h1>Sales Executive</h1>${DESCRIPTION}`);
     const warning = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-    await expect(fetchAllAccorJobs()).resolves.toEqual([]);
+    await expect(fetchAllAccorJobs({ fetchImpl: fixtureFetch })).resolves.toEqual([]);
     expect(warning).toHaveBeenCalledWith(expect.stringContaining('scartati 1/1 annunci'));
     expect(warning).toHaveBeenCalledWith(expect.stringContaining('source-backed'));
     warning.mockRestore();
@@ -114,6 +172,7 @@ describe('prospector location and identity contract', () => {
     let releaseFirst = () => {};
     const firstDetailMayFinish = new Promise<void>((resolve) => { releaseFirst = resolve; });
     const listing = [
+      TWO_PAGE_PAGINATION_HTML,
       '<a href="/fr/fr/job/first-role">First Role</a>',
       '<a href="/fr/fr/job/second-role">Second Role</a>',
     ].join('');
@@ -127,7 +186,7 @@ describe('prospector location and identity contract', () => {
       return `<h1>Second Role</h1><div class="job-location">Winterthur</div>${DESCRIPTION}`;
     });
 
-    const jobs = await fetchAllAccorJobs();
+    const jobs = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
 
     expect(jobs.map((job) => job.title)).toEqual(['First Role', 'Second Role']);
   });
@@ -142,7 +201,7 @@ describe('prospector location and identity contract', () => {
           jobLocation: { address: { addressLocality: 'Geneva', addressRegion: 'NY', addressCountry: 'US' } },
         })}</script><div class="job-location">Geneva</div>${DESCRIPTION}`);
 
-    await expect(fetchAllAccorJobs()).resolves.toEqual([]);
+    await expect(fetchAllAccorJobs({ fetchImpl: fixtureFetch })).resolves.toEqual([]);
   });
 
   it('selects a Swiss JSON-LD location after an earlier foreign location', async () => {
@@ -158,7 +217,7 @@ describe('prospector location and identity contract', () => {
           ],
         })}</script>${DESCRIPTION}`);
 
-    const [job] = await fetchAllAccorJobs();
+    const [job] = await fetchAllAccorJobs({ fetchImpl: fixtureFetch });
     expect(job).toMatchObject({ location: 'Zürich, ZH', canton: 'ZH' });
   });
 
@@ -247,7 +306,7 @@ describe('prospector location and identity contract', () => {
     fetchHtml.mockImplementation(async (url: string) => isAccorSeed(url)
       ? LISTING_HTML
       : '<h1>Sales Executive</h1><div class="job-location">Chiasso</div>');
-    await expect(fetchAllAccorJobs()).resolves.toEqual([]);
+    await expect(fetchAllAccorJobs({ fetchImpl: fixtureFetch })).resolves.toEqual([]);
   });
 
   it('rejects an autonomously discovered cross-origin detail before gate/runtime can diverge', async () => {
