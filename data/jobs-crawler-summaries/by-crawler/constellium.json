@@ -1,7 +1,7 @@
 {
   "key": "constellium",
   "label": "Constellium Valais",
-  "generatedAt": "2026-09-01T00:59:58.432Z",
+  "generatedAt": "2026-09-01T01:18:14.772Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,11 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7391,
-  "avgDurationMs": 7391,
+  "durationMs": 8084,
+  "avgDurationMs": 8084,
   "durationHistory": [
-    7391
+    7391,
+    8084
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +42,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-%28mwd%29-im-4-Schicht-Betrieb-1-Vala-3940/1386045133/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:59:55.745Z",
+      "crawledAt": "2026-09-01T01:18:11.557Z",
       "firstSeenAt": "2026-08-04T22:39:06.660Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -76,7 +77,7 @@
       "applyUrl": "https://jobs.constellium.com/job/Steg-Betriebsschlosser-in-Tagesarbeit-Vala-3940/1386046533/",
       "source": "Constellium Valais Dedicated Parser (Jobs2Web)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:59:55.121Z",
+      "crawledAt": "2026-09-01T01:18:10.872Z",
       "firstSeenAt": "2026-07-08T22:07:31.879Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
