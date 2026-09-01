@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hochgebirgsklinik-davos",
-  "assembledAt": "2026-09-01T10:13:45.480Z",
+  "assembledAt": "2026-09-01T14:09:37.807Z",
   "jobs": [
     {
       "id": "hochgebirgsklinik-davos-c634b3960b3a",
@@ -33,7 +33,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegefachperson-w-m-d/52da1727-a83d-4832-96b0-36f5a4f523dd",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.935Z",
+      "crawledAt": "2026-09-01T14:09:32.265Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -128,7 +128,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/pflegehelfer-w-m-d/ce60703d-7f74-4a5b-8e90-9bcd926d7f05",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.934Z",
+      "crawledAt": "2026-09-01T14:09:32.263Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -171,6 +171,7 @@
         ]
       },
       "firstSeenAt": "2026-07-06T14:58:53.520Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -217,7 +218,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachperson-gesundheit-w-m-d/14775039-62be-49b3-bf6f-6bfc07902e8d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.933Z",
+      "crawledAt": "2026-09-01T14:09:32.261Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -296,7 +297,7 @@
       "title": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
       "titleByLocale": {
         "it": "Psychologe Eltern- Kind e Jugendstation (m/w/d) 80 - 100%",
-        "en": "Psychologist parent-child and youth station (m/f/d) 80 - 100%",
+        "en": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "de": "Psychologe Eltern- Kind und Jugendstation (m/w/d) 80 - 100%",
         "fr": "Groupe des parents et des jeunes (m/f/j)"
       },
@@ -312,7 +313,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/psychologe-eltern-kind-und-jugendstation-m-w-d-80-100/83c6ab17-db8e-4be4-bc62-c8fca77da559",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.931Z",
+      "crawledAt": "2026-09-01T14:09:32.260Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -381,7 +382,7 @@
       "companyDomain": "hochgebirgsklinik.ch",
       "title": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
       "titleByLocale": {
-        "it": "Cosmetico / Cosmetico (m/f/d) 50 - 60 %",
+        "it": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "en": "Spa Therapist (m/f) 50 - 60 %",
         "de": "Kosmetikerin / Kosmetiker (w/m/d) 50 - 60%",
         "fr": "Thérapeute de spa (m/f) 50 - 60 %"
@@ -398,7 +399,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/kosmetikerin-kosmetiker-w-m-d-50-60/53b75447-57a9-4109-95a1-cdd03c439546",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.930Z",
+      "crawledAt": "2026-09-01T14:09:32.256Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -446,6 +447,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:03:11.797Z",
+      "needsRetranslation": true,
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
@@ -456,89 +458,6 @@
           "@type": "QuantitativeValue",
           "minValue": 48900,
           "maxValue": 68400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-57aa243b3de1",
-      "slug": "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
-      "slugByLocale": {
-        "it": "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
-        "en": "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
-        "de": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
-        "fr": "assistance-horaire-hochgebirgsklinik-davos-davos"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Service-Aushilfe auf Stundenbasis",
-      "titleByLocale": {
-        "it": "Assistenza di servizio su base oraria",
-        "en": "Service assistance on an hourly basis",
-        "de": "Service-Aushilfe auf Stundenbasis",
-        "fr": "Assistance horaire"
-      },
-      "description": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
-      "descriptionByLocale": {
-        "it": "Per rafforzare il nostro team di assistenza, stiamo cercando un aiuto di servizio motivato su base oraria | Compiti:\n• Collaborazione a colazione, pranzo e servizio serale\n• Cura cordiale per i nostri pazienti e ospiti\n• Supporto per eventi interni ed esterni\n• Supporto del team di assistenza nelle operazioni quotidiane | Requisiti:\n• Divertimento del lavoro in servizio (esperienza professionale di vantaggio)\n• Divertimento nel trattare con pazienti e ospiti\n• Metodi di lavoro indipendenti, affidabili e attenti\n• Resilienza, flessibilità e lavoro di squadra\n• Buona conoscenza del tedesco nelle parole e nella scrittura | Offriamo:\n• Missioni flessibili su base oraria\n• Attività varie e significative\n• Apparecchiature di lavoro moderne e un team collegiale\n• Condizioni di lavoro interessanti e buone prestazioni sociali",
-        "en": "To strengthen our service team, we are looking for a motivated service help on an hourly basis | Tasks:\n• Collaboration in breakfast, lunch and evening service\n• Heartfelt care for our patients and guests\n• Support for internal and external events\n• Support of the service team in daily operations | Requirements:\n• Enjoyment of working in service (professional experience of advantage)\n• Enjoyment in dealing with patients and guests\n• Independent, reliable and careful working methods\n• Resilience, flexibility and teamwork\n• Good knowledge of German in words and writing | We offer:\n• Flexible missions on an hourly basis\n• Varied and meaningful activity\n• Modern work equipment and a collegial team\n• Attractive employment conditions and good social benefits",
-        "de": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
-        "fr": "Pour renforcer notre équipe de service, nous cherchons une aide de service motivée sur une base horaire.\n• Collaboration au petit déjeuner, déjeuner et service du soir\n• Soins de cœur pour nos patients et nos invités\n• Soutien aux manifestations internes et externes\n• Soutien de l'équipe de service dans les opérations quotidiennes\n• Appréciation du travail en service (expérience professionnelle d'avantage)\n• Appréciation à traiter avec les patients et les invités\n• Méthodes de travail indépendantes, fiables et prudentes\n• Résilience, flexibilité et travail d'équipe\n• Bonne connaissance de l'allemand par les mots et l'écriture\n• Missions flexibles sur une base horaire\n• Activités variées et significatives\n• Équipement de travail moderne et équipe collégiale\n• Des conditions d'emploi attrayantes et de bonnes prestations sociales"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.929Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ristorazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-06",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/655/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Küche/Service",
-      "streetAddress": "Promenade 117",
-      "contactPerson": "André Sutter",
-      "contactPhone": "4022",
-      "previousSlugs": [
-        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
-        "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
-          "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
-        ],
-        "en": [
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
-        ],
-        "fr": [
-          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:15:31.425Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
           "unitText": "YEAR"
         }
       },
@@ -575,7 +494,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/sozialpaedagoge-w-m-d-oder-fachperson-betreuung-w-m-d-abteilung-eltern-kind-und-jugend-schwerpunkt-psychosomatik/ed55dec7-5df4-4a5a-a095-4af48a6c5f8b",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.926Z",
+      "crawledAt": "2026-09-01T14:09:32.251Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -657,7 +576,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/teamleitung-pflege-kardiologie-w-m-d-80-100/7a96b7e9-b155-4c7b-aecf-9cf71bac3290",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.924Z",
+      "crawledAt": "2026-09-01T14:09:32.249Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -749,7 +668,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-kinder-und-jugendpsychiatrie-m-w-d-50-100/2a0add2d-0614-42ba-ad05-60d19f534e16",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.923Z",
+      "crawledAt": "2026-09-01T14:09:32.245Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -841,7 +760,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/leitender-arzt-leitende-aerztin-kardiologie-m-w-d-80-100/1542b5b8-94c8-4b7b-9967-005e20fd5755",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.921Z",
+      "crawledAt": "2026-09-01T14:09:32.242Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -927,7 +846,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/forschungspraktikum-kardiologie-100-w-m-d/18ac40eb-ec84-4dc0-b508-ed30a3cbab9c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.920Z",
+      "crawledAt": "2026-09-01T14:09:32.240Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1007,7 +926,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberaerztin-oberarzt-oder-leitende-aerztin-leitender-arzt-angiologie-60-100/2b77f4b9-21fc-4d7e-a122-021827e42ea3",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.915Z",
+      "crawledAt": "2026-09-01T14:09:32.237Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1105,7 +1024,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/oberarzt-oberaerztin-kardiologie-m-w-80-100/5de1a134-374a-45f8-bc5e-29aa1d6bf4a7",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.914Z",
+      "crawledAt": "2026-09-01T14:09:32.234Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1153,6 +1072,7 @@
         ]
       },
       "firstSeenAt": "2026-07-14T21:58:40.639Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1199,7 +1119,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/fachaerztin-facharzt-kinder-und-jugendmedizin-aufbau-ambulante-paediatrie/5a2bec78-5935-4cc2-9ed5-43778371169c",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.912Z",
+      "crawledAt": "2026-09-01T14:09:32.231Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1291,7 +1211,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/study-nurse-m-w-80-100/1aaf22d9-f967-4db9-a315-b9b7aff66888",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.910Z",
+      "crawledAt": "2026-09-01T14:09:32.228Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1328,77 +1248,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:52:55.991Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "hochgebirgsklinik-davos-22d12305cf52",
-      "slug": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
-      "slugByLocale": {
-        "it": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
-        "en": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
-        "de": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
-        "fr": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch"
-      },
-      "company": "Hochgebirgsklinik Davos",
-      "companyKey": "hochgebirgsklinik-davos",
-      "companyDomain": "hochgebirgsklinik.ch",
-      "title": "Assistenzarzt Dermatologie (m/w) 100%",
-      "titleByLocale": {
-        "it": "Assistenzarzt Dermatologie (m/w) 100%",
-        "en": "Assistenzarzt Dermatologie (m/w) 100%",
-        "de": "Assistenzarzt Dermatologie (m/w) 100%",
-        "fr": "Assistenzarzt Dermatologie (m/w) 100%"
-      },
-      "description": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
-      "descriptionByLocale": {
-        "it": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
-        "en": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
-        "de": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
-        "fr": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit"
-      },
-      "location": "Davos",
-      "canton": "GR",
-      "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-dermatologie-m-w-100/71b27b26-cf82-4266-8375-99b1f9ba821e",
-      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.909Z",
-      "addressLocality": "Davos",
-      "postalCode": "7270",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-28",
-      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/505/Application/CheckLogin/1?lang=ger",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Ärztlicher/medizinischer Dienst",
-      "streetAddress": "Promenade 117",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "contactPerson": "Thomas Fischer",
-      "contactPhone": "0814173078",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:00:42.754Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1445,7 +1295,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-kardiologie-m-w-d-100-ab-01-oktober-2026/22edadbd-7656-4096-b02f-9d630c9e61ec",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.907Z",
+      "crawledAt": "2026-09-01T14:09:32.226Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1483,6 +1333,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.368Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1529,7 +1380,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-kardiologie-m-w-d-100-ab-01-november-2026/fa2ded15-ea66-41d8-80f8-b9e27e5050d7",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.905Z",
+      "crawledAt": "2026-09-01T14:09:32.223Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1571,6 +1422,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:05.297Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1617,7 +1469,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-kardiologie-m-w-d-100-ab-01-dezember-2026/59103d66-1af8-4063-a58b-c8d72c3ab67f",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.904Z",
+      "crawledAt": "2026-09-01T14:09:32.220Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1659,6 +1511,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:05.295Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1705,7 +1558,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-ab-01-januar-2027/3b68d999-67c3-4c6d-b901-5d41248ea40d",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.902Z",
+      "crawledAt": "2026-09-01T14:09:32.218Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1785,7 +1638,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-pneumologie-m-w-d-100-01-januar-2027/4d4e7800-74a2-47bf-9804-5fd982caf4bf",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.899Z",
+      "crawledAt": "2026-09-01T14:09:32.215Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1819,6 +1672,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T21:57:11.365Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1865,7 +1719,7 @@
       "url": "https://karriere.hochgebirgsklinik.ch/jobs/lehrstelle-als-fachperson-gesundheit-fage-efz-w-m-d-ab-august-2027/5a2f85b0-3b8b-423e-beb0-523a10861221",
       "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:40.886Z",
+      "crawledAt": "2026-09-01T14:09:32.175Z",
       "addressLocality": "Davos",
       "postalCode": "7270",
       "addressCountry": "CH",
@@ -1921,6 +1775,162 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "hochgebirgsklinik-davos-57aa243b3de1",
+      "slug": "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
+      "slugByLocale": {
+        "it": "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos",
+        "en": "service-assistance-on-an-hourly-basis-hochgebirgsklinik-davos-davos",
+        "de": "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "fr": "assistance-horaire-hochgebirgsklinik-davos-davos"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Service-Aushilfe auf Stundenbasis",
+      "titleByLocale": {
+        "it": "Assistenza di servizio su base oraria",
+        "en": "Service assistance on an hourly basis",
+        "de": "Service-Aushilfe auf Stundenbasis",
+        "fr": "Assistance horaire"
+      },
+      "description": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
+      "descriptionByLocale": {
+        "it": "Per rafforzare il nostro team di assistenza, stiamo cercando un aiuto di servizio motivato su base oraria | Compiti:\n• Collaborazione a colazione, pranzo e servizio serale\n• Cura cordiale per i nostri pazienti e ospiti\n• Supporto per eventi interni ed esterni\n• Supporto del team di assistenza nelle operazioni quotidiane | Requisiti:\n• Divertimento del lavoro in servizio (esperienza professionale di vantaggio)\n• Divertimento nel trattare con pazienti e ospiti\n• Metodi di lavoro indipendenti, affidabili e attenti\n• Resilienza, flessibilità e lavoro di squadra\n• Buona conoscenza del tedesco nelle parole e nella scrittura | Offriamo:\n• Missioni flessibili su base oraria\n• Attività varie e significative\n• Apparecchiature di lavoro moderne e un team collegiale\n• Condizioni di lavoro interessanti e buone prestazioni sociali",
+        "en": "To strengthen our service team, we are looking for a motivated service help on an hourly basis | Tasks:\n• Collaboration in breakfast, lunch and evening service\n• Heartfelt care for our patients and guests\n• Support for internal and external events\n• Support of the service team in daily operations | Requirements:\n• Enjoyment of working in service (professional experience of advantage)\n• Enjoyment in dealing with patients and guests\n• Independent, reliable and careful working methods\n• Resilience, flexibility and teamwork\n• Good knowledge of German in words and writing | We offer:\n• Flexible missions on an hourly basis\n• Varied and meaningful activity\n• Modern work equipment and a collegial team\n• Attractive employment conditions and good social benefits",
+        "de": "Zur Verstärkung unseres Serviceteams suchen wir per sofort oder nach Vereinbarung eine motivierte Service-Aushilfe auf Stundenbasis | Aufgaben:\n• Mitarbeit im Frühstücks-, Mittags- und Abendservice\n• Herzliche Betreuung unserer Patientinnen und Patienten sowie Gäste\n• Unterstützung bei internen und externen Anlässen\n• Unterstützung des Serviceteams im täglichen Betrieb | Anforderungen:\n• Freude an der Arbeit im Service (Berufserfahrung von Vorteil)\n• Freude am Umgang mit Patientinnen und Patienten sowie Gästen\n• Selbstständige, zuverlässige und sorgfältige Arbeitsweise\n• Belastbarkeit, Flexibilität und Teamfähigkeit\n• Gute Deutschkenntnisse in Wort und Schrift | Wir bieten:\n• Flexible Einsätze auf Stundenbasis\n• Abwechslungsreiche und sinnstiftende Tätigkeit\n• Moderne Arbeitsmittel und ein kollegiales Team\n• Attraktive Anstellungsbedingungen und gute Sozialleistungen",
+        "fr": "Pour renforcer notre équipe de service, nous cherchons une aide de service motivée sur une base horaire.\n• Collaboration au petit déjeuner, déjeuner et service du soir\n• Soins de cœur pour nos patients et nos invités\n• Soutien aux manifestations internes et externes\n• Soutien de l'équipe de service dans les opérations quotidiennes\n• Appréciation du travail en service (expérience professionnelle d'avantage)\n• Appréciation à traiter avec les patients et les invités\n• Méthodes de travail indépendantes, fiables et prudentes\n• Résilience, flexibilité et travail d'équipe\n• Bonne connaissance de l'allemand par les mots et l'écriture\n• Missions flexibles sur une base horaire\n• Activités variées et significatives\n• Équipement de travail moderne et équipe collégiale\n• Des conditions d'emploi attrayantes et de bonnes prestations sociales"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/service-aushilfe-auf-stundenbasis/2eae9f26-33fb-4d8b-8173-43c74cb3ff04",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T10:13:40.929Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-06",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/655/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Küche/Service",
+      "streetAddress": "Promenade 117",
+      "contactPerson": "André Sutter",
+      "contactPhone": "4022",
+      "previousSlugs": [
+        "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+        "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch",
+          "assistenza-di-servizio-su-base-oraria-hochgebirgsklinik-davos-davos"
+        ],
+        "en": [
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "service-aushilfe-auf-stundenbasis-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:15:31.425Z",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "hochgebirgsklinik-davos-22d12305cf52",
+      "slug": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
+      "slugByLocale": {
+        "it": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "en": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "de": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch",
+        "fr": "assistenzarzt-dermatologie-m-w-100-hochgebirgsklinik-davos-ch"
+      },
+      "company": "Hochgebirgsklinik Davos",
+      "companyKey": "hochgebirgsklinik-davos",
+      "companyDomain": "hochgebirgsklinik.ch",
+      "title": "Assistenzarzt Dermatologie (m/w) 100%",
+      "titleByLocale": {
+        "it": "Assistenzarzt Dermatologie (m/w) 100%",
+        "en": "Assistenzarzt Dermatologie (m/w) 100%",
+        "de": "Assistenzarzt Dermatologie (m/w) 100%",
+        "fr": "Assistenzarzt Dermatologie (m/w) 100%"
+      },
+      "description": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
+      "descriptionByLocale": {
+        "it": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
+        "en": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
+        "de": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit",
+        "fr": "Aufgaben:\n• Abklärung, Behandlung und Betreuung von stationären und ambulanten Patientinnen und Patienten mit dem Schwerpunkt Dermatologie\n• Interdisziplinäre Zusammenarbeit\n• Einsätze im Rahmen des klinikinternen Bereitschaftsdienstes | Anforderungen:\n• Eidgenössisches Arztdiplom oder abgeschlossenes Medizinstudium mit Schweizer Anerkennung (MEBEKO)\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Selbständige und zuverlässige Arbeitsweise\n• Belastbarkeit, Flexibilität, Verantwortungsbewusstsein und Teamfähigkeit"
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "url": "https://karriere.hochgebirgsklinik.ch/jobs/assistenzarzt-dermatologie-m-w-100/71b27b26-cf82-4266-8375-99b1f9ba821e",
+      "source": "Hochgebirgsklinik Davos Dedicated Parser (Connectoor/Typesense)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T10:13:40.909Z",
+      "addressLocality": "Davos",
+      "postalCode": "7270",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Medicina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://recruitingapp-2932.umantis.com/Vacancies/505/Application/CheckLogin/1?lang=ger",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Ärztlicher/medizinischer Dienst",
+      "streetAddress": "Promenade 117",
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "contactPerson": "Thomas Fischer",
+      "contactPhone": "0814173078",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:00:42.754Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1
     }
   ]
 }
