@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-09-01T00:41:31.557Z",
+  "generatedAt": "2026-09-01T01:53:55.313Z",
   "total": 2,
   "newCount": 3,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4810,
-  "avgDurationMs": 4810,
+  "durationMs": 4964,
+  "avgDurationMs": 4964,
   "durationHistory": [
-    4810
+    4964
   ],
   "newJobs": [
     {
@@ -175,12 +175,12 @@
       "contractType": "full-time",
       "validThrough": "",
       "id": "a-group-555f4c55dbc7",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:26:25.994Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
