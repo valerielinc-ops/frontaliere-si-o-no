@@ -288,6 +288,74 @@ describe('translation state drainer v2', () => {
     expect(after.jobs[1].titleByLocale.it).toBe('Traduzione due');
   });
 
+  it('converges when another drainer completes the same patch before checkpoint', async () => {
+    const { one, rival, slice } = setup();
+    const patch = patchFor(slice.jobs[0]);
+    const winner = createPair(one);
+    const baseStore = createTranslationStateStoreV2({ repository: one });
+    let winnerResult: any = null;
+    let intercepted = false;
+    const racingStore = {
+      ...baseStore,
+      async checkpointBatch(input: any) {
+        if (!intercepted) {
+          intercepted = true;
+          winnerResult = await winner.drainer.drain({ slicePath: SLICE_PATH, patches: [patch] });
+          advanceMain(rival, 'unrelated-after-competing-drain');
+        }
+        return baseStore.checkpointBatch(input);
+      },
+    };
+    const contender = createTranslationStateDrainerV2({ repository: one, stateStore: racingStore });
+
+    const result = await contender.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const acknowledgment = (await baseStore.readAcknowledgment(patch.patchHash)).acknowledgment;
+    git(one, 'fetch', '-q', 'origin', 'main');
+
+    expect(winnerResult.outcomes).toEqual(['applied']);
+    expect(result.outcomes).toEqual(['applied']);
+    expect(result.replayed).toBe(true);
+    expect(result.publishedCommit).toBe(winnerResult.publishedCommit);
+    expect(acknowledgment.publishedCommit).toBe(winnerResult.publishedCommit);
+    expect(git(one, 'rev-list', '--count', 'origin/main', '--', SLICE_PATH)).toBe('2');
+    expect((await baseStore.listPending({ crawlerKey: 'example-crawler' })).pending).toHaveLength(0);
+  }, 30_000);
+
+  it('reconciles a same-patch completion after post-checkpoint confirmation', async () => {
+    const { one, rival, slice } = setup();
+    const patch = patchFor(slice.jobs[0]);
+    const baseStore = createTranslationStateStoreV2({ repository: one });
+    const winner = createTranslationStateDrainerV2({ repository: one, stateStore: baseStore });
+    let reads = 0;
+    let winnerResult: any = null;
+    const racingStore = {
+      ...baseStore,
+      async readAcknowledgments(patchHashes: string[]) {
+        const snapshot = await baseStore.readAcknowledgments(patchHashes);
+        reads += 1;
+        if (reads === 2) {
+          winnerResult = await winner.drain({ slicePath: SLICE_PATH, patches: [patch] });
+          advanceMain(rival, 'unrelated-after-confirmed-competing-drain');
+        }
+        return snapshot;
+      },
+    };
+    const contender = createTranslationStateDrainerV2({ repository: one, stateStore: racingStore });
+
+    const result = await contender.drain({ slicePath: SLICE_PATH, patches: [patch] });
+    const acknowledgment = (await baseStore.readAcknowledgment(patch.patchHash)).acknowledgment;
+    git(one, 'fetch', '-q', 'origin', 'main');
+
+    expect(winnerResult.outcomes).toEqual(['applied']);
+    expect(result.outcomes).toEqual(['applied']);
+    expect(result.replayed).toBe(true);
+    expect(result.retries).toBeGreaterThanOrEqual(1);
+    expect(result.publishedCommit).toBe(winnerResult.publishedCommit);
+    expect(acknowledgment.publishedCommit).toBe(winnerResult.publishedCommit);
+    expect(git(one, 'rev-list', '--count', 'origin/main', '--', SLICE_PATH)).toBe('2');
+    expect((await baseStore.listPending({ crawlerKey: 'example-crawler' })).pending).toHaveLength(0);
+  }, 30_000);
+
   it.each(['afterCheckpoint', 'afterIntent', 'afterMainPush', 'beforeAck'])(
     'replays idempotently after a crash at %s',
     async (crashStage) => {
@@ -573,10 +641,11 @@ describe('translation state drainer v2', () => {
     let advanced = false;
     const checkpointed: string[][] = [];
     const current = createPair(one, async (stage, value) => {
-      if (stage !== 'afterCheckpoint') return;
-      const active = (value as any).patches as Array<{ patchHash: string }>;
-      checkpointed.push(active.map((patch) => patch.patchHash));
-      if (!advanced) {
+      if (stage === 'afterCheckpoint') {
+        const active = (value as any).patches as Array<{ patchHash: string }>;
+        checkpointed.push(active.map((patch) => patch.patchHash));
+      }
+      if (stage === 'afterMainPush' && !advanced) {
         advanced = true;
         advanceMain(rival, 'retained-derived-disappeared', (latest) => {
           latest.jobs[0].titleByLocale.it = '';
@@ -615,10 +684,11 @@ describe('translation state drainer v2', () => {
     let readded = false;
     const checkpointed: string[][] = [];
     const current = createPair(one, async (stage, value) => {
-      if (stage !== 'afterCheckpoint') return;
-      const active = (value as any).patches as Array<{ patchHash: string }>;
-      checkpointed.push(active.map((patch) => patch.patchHash));
-      if (!readded) {
+      if (stage === 'afterCheckpoint') {
+        const active = (value as any).patches as Array<{ patchHash: string }>;
+        checkpointed.push(active.map((patch) => patch.patchHash));
+      }
+      if (stage === 'afterMainPush' && !readded) {
         readded = true;
         advanceMain(rival, 'target-readded-already-valid', (latest) => {
           const restored = job(2);

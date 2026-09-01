@@ -8,6 +8,7 @@ import { reduceTranslationDerivedPatchBatchV2 } from './translation-derived-redu
 import { validateTranslationDerivedPatchV2 } from './translation-derived-patch-v2.mjs';
 import {
   MAX_TRANSLATION_STATE_BATCH_V2,
+  TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2,
   validateTranslationSlicePathV2,
 } from './translation-state-store-v2.mjs';
 import {
@@ -300,14 +301,20 @@ export function createTranslationStateDrainerV2(options) {
 
   async function acknowledge(patches, slicePath, outcomes, mainCommit, publishedCommit, intentHash) {
     await onStage('beforeAck', { outcomes, mainCommit, publishedCommit, intentHash });
-    return stateStore.acknowledgeBatch(patches.map((patch, index) => ({
-      patch,
-      slicePath,
-      outcome: outcomes[index],
-      mainCommit,
-      publishedCommit,
-      intentHash,
-    })));
+    try {
+      await stateStore.acknowledgeBatch(patches.map((patch, index) => ({
+        patch,
+        slicePath,
+        outcome: outcomes[index],
+        mainCommit,
+        publishedCommit,
+        intentHash,
+      })));
+      return true;
+    } catch (error) {
+      if (error?.code === TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2) return false;
+      throw error;
+    }
   }
 
   async function recoverPublishedAtTip(patches, slicePath, mainCommit) {
@@ -395,7 +402,13 @@ export function createTranslationStateDrainerV2(options) {
         outcomes[index] = acknowledgment.outcome;
         return [];
       });
-      return { activeIndexes, acknowledgments: snapshot.acknowledgments, fresh, outcomes };
+      return {
+        activeIndexes,
+        acknowledgments: snapshot.acknowledgments,
+        fresh,
+        outcomes,
+        queued: snapshot.queued,
+      };
     }
 
     async function processActiveBatch(patches) {
@@ -407,7 +420,7 @@ export function createTranslationStateDrainerV2(options) {
           retries += 1;
           return null;
         }
-        await acknowledge(
+        const acknowledged = await acknowledge(
           patches,
           slicePath,
           recovered.outcomes,
@@ -415,6 +428,10 @@ export function createTranslationStateDrainerV2(options) {
           recovered.intent.proposedCommit,
           recovered.intent.intentHash,
         );
+        if (!acknowledged) {
+          retries += 1;
+          return 'reconcile';
+        }
         return {
           outcomes: recovered.outcomes,
           mainCommit: recovered.mainCommit,
@@ -433,7 +450,10 @@ export function createTranslationStateDrainerV2(options) {
           retries += 1;
           return null;
         }
-        await acknowledge(patches, slicePath, reduced.outcomes, fresh.tip, null, null);
+        if (!await acknowledge(patches, slicePath, reduced.outcomes, fresh.tip, null, null)) {
+          retries += 1;
+          return 'reconcile';
+        }
         return {
           outcomes: reduced.outcomes,
           mainCommit: fresh.tip,
@@ -444,14 +464,23 @@ export function createTranslationStateDrainerV2(options) {
 
       const content = serializeLike(source.raw, reduced.slice);
       const proposal = await createMainCommit(git, fresh.tip, slicePath, content);
-      const recorded = await stateStore.recordIntent({
-        slicePath,
-        patches,
-        outcomes: reduced.outcomes,
-        expectedMain: fresh.tip,
-        proposedCommit: proposal.commit,
-        expectedSliceBlob: proposal.blob,
-      });
+      let recorded;
+      try {
+        recorded = await stateStore.recordIntent({
+          slicePath,
+          patches,
+          outcomes: reduced.outcomes,
+          expectedMain: fresh.tip,
+          proposedCommit: proposal.commit,
+          expectedSliceBlob: proposal.blob,
+        });
+      } catch (error) {
+        if (error?.code === TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2) {
+          retries += 1;
+          return 'reconcile';
+        }
+        throw error;
+      }
       await onStage('afterIntent', { intent: recorded.intent });
       const pushed = await git(['push', remote, `${proposal.commit}:${mainRef}`]);
       fetchPushDurationsMs.push(performance.now() - fresh.startedAt);
@@ -472,7 +501,7 @@ export function createTranslationStateDrainerV2(options) {
         return null;
       }
       if (published.status === 'recovered') {
-        await acknowledge(
+        const acknowledged = await acknowledge(
           patches,
           slicePath,
           published.outcomes,
@@ -480,6 +509,10 @@ export function createTranslationStateDrainerV2(options) {
           published.intent.proposedCommit,
           published.intent.intentHash,
         );
+        if (!acknowledged) {
+          retries += 1;
+          return 'reconcile';
+        }
         return {
           outcomes: published.outcomes,
           mainCommit: published.mainCommit,
@@ -525,8 +558,21 @@ export function createTranslationStateDrainerV2(options) {
       });
       await onStage('afterCheckpoint', { slicePath, patches });
 
+      const confirmed = await auditRequestedBatch();
+      if (confirmed === null) continue;
+      const expectedIndexes = new Set(audit.activeIndexes);
+      const checkpointStillOwned = audit.activeIndexes.every((index) => confirmed.queued[index]);
+      const activeSetUnchanged = confirmed.activeIndexes.length === audit.activeIndexes.length
+        && confirmed.activeIndexes.every((index) => expectedIndexes.has(index));
+      if (!checkpointStillOwned || !activeSetUnchanged) {
+        consumeAttemptBudget();
+        retries += 1;
+        continue;
+      }
+
       let processed = null;
       while (processed === null) processed = await processActiveBatch(patches);
+      if (typeof processed === 'string') continue;
       processedAny = true;
       allReplayed &&= processed.replayed;
       latestPublishedCommit = processed.publishedCommit ?? latestPublishedCommit;

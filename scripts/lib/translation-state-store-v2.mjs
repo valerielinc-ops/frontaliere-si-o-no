@@ -33,6 +33,7 @@ export const MAX_TRANSLATION_STATE_ARTIFACT_BYTES_V2 = 1024 * 1024;
 export const MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2 = 64;
 export const MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2 = 1024;
 export const TRANSLATION_STATE_GIT_TIMEOUT_MS_V2 = 30_000;
+export const TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2 = 'TRANSLATION_STATE_QUEUE_CONFLICT_V2';
 
 const SHA_PATTERN = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const REF_PATTERN = /^refs\/heads\/[A-Za-z0-9][A-Za-z0-9._/-]{0,127}$/;
@@ -74,6 +75,12 @@ const ACK_KEYS = [
   'schemaVersion',
   'slicePath',
 ];
+
+function queueConflict(message) {
+  return Object.assign(new TypeError(message), {
+    code: TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2,
+  });
+}
 
 function assertBatch(value, label) {
   if (!Array.isArray(value) || value.length < 1 || value.length > MAX_TRANSLATION_STATE_BATCH_V2) {
@@ -325,7 +332,6 @@ function createGitRunner(repository) {
         cwd: repository,
         encoding: 'utf8',
         env: options.env ? { ...process.env, ...options.env } : process.env,
-        input: options.input,
         maxBuffer: 16 * 1024 * 1024,
         timeout: TRANSLATION_STATE_GIT_TIMEOUT_MS_V2,
       });
@@ -720,7 +726,7 @@ export function createTranslationStateStoreV2(options) {
       const changes = [];
       for (const patch of patches) {
         const queue = await parsePath(git, tip, queuePath(patch));
-        if (queue === null) throw new TypeError('translation publish intent requires queued patches');
+        if (queue === null) throw queueConflict('translation publish intent requires queued patches');
         assertQueueMatches(queue, patch, slicePath);
         const existingIntents = await listPaths(git, tip, intentIndexPrefix(patch.patchHash));
         const targetPath = intentIndexPath(patch.patchHash, intent.intentHash);
@@ -822,7 +828,7 @@ export function createTranslationStateStoreV2(options) {
           }
           const match = existing.find((receipt) => Object.entries(payload)
             .every(([key, value]) => canonicalTranslationJsonV2(receipt[key]) === canonicalTranslationJsonV2(value)));
-          if (!match) throw new TypeError('translation acknowledgment requires a queued patch');
+          if (!match) throw queueConflict('translation acknowledgment requires a queued patch');
           receipts.push(match);
           continue;
         }
