@@ -123,6 +123,10 @@ jobs:
         if: steps.commit.outputs.compat_changed == 'true'
         env:
           GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
         run: bash scripts/lib/trigger-deploy.sh
 
       - name: Report failure to GitHub Issues
