@@ -41,13 +41,12 @@ import {
 import {
   fetchPradaJobUrls,
   fetchPradaDetailPage,
+  resolvePradaTicinoLocation,
   slugify, inferEmploymentType,
 } from './lib/prada-job-parser.mjs';
-import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
-import { isLocationExplicitlyForeign } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -59,7 +58,6 @@ const COMPANY_KEY = 'prada';
 // of #3775/#3768).
 const DATA_JOBS = crawlerScratchPathFor(COMPANY_KEY);
 const PUBLIC_DATA_JOBS = `${DATA_JOBS}.public.json`;
-const DEFAULT_CANTON = getCompanyDefaults(COMPANY_KEY)?.canton || 'TI';
 const COMPANY_NAME = 'Prada Group';
 
 function isCompanyJob(job) {
@@ -75,11 +73,10 @@ function writeJobsFiles(jobs) {
   }
 }
 
-function mergeCompanyJobs(parsedJobs) {
+function mergeCompanyJobs(parsedJobs, companyExisting) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((job) => !isCompanyJob(job));
-  const companyExisting = allJobs.filter((job) => isCompanyJob(job));
   const byUrl = new Map();
   for (const job of parsedJobs) {
     const key = String(job?.url || '').trim().replace(/\/+$/, '');
@@ -121,12 +118,15 @@ function buildPradaDescriptions(title, location, department) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Prada Group');
+  const sourceCounts = { discovered: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Prada Group', sourceCounts);
   console.log(`👜 Running dedicated ${COMPANY_NAME} crawler...`);
 
-    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
+  const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+  const _beforeSnapshot = snapshotJobSlugs(priorJobs);
 
   const rawJobs = await fetchPradaJobUrls();
+  sourceCounts.discovered = rawJobs.length;
   if (rawJobs.length === 0) {
     console.log('\u26a0\ufe0f No jobs found on Prada Group careers page. Keeping existing jobs.');
     return;
@@ -135,6 +135,12 @@ async function main() {
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Prada Group job links. Fetching details...`);
   const parsedJobs = [];
   for (const raw of rawJobs) {
+    const listingLocation = resolvePradaTicinoLocation(raw);
+    if (!listingLocation) {
+      console.log(`  ⏭️  ${raw.title}: source location "${raw.location || '(missing)'}" is outside Mendrisio — skipping`);
+      continue;
+    }
+
     const detail = await fetchPradaDetailPage(raw.url);
     // SuccessFactors detail pages are 100% JS-rendered — description is usually empty.
     // Use detail description only if truly substantial (200+ chars), otherwise build rich
@@ -142,18 +148,18 @@ async function main() {
     let detailDesc = detail?.description || '';
     const hasRealDescription = detailDesc.length >= 200 && !detailDesc.toLowerCase().includes('prada group careers');
 
-    // Use the real job location from the listing/detail page, prefer detail if available
-    const loc = detail?.location || raw.location || 'Mendrisio';
+    // A non-empty detail location is more authoritative than the listing and
+    // must independently pass the same target gate. A blank detail falls back
+    // to the already-proven listing/route location.
+    const detailLocation = String(detail?.location || '').trim();
+    const loc = detailLocation
+      ? resolvePradaTicinoLocation({ location: detailLocation, url: raw.url })
+      : listingLocation;
     const dept = raw.department || detail?.department || '';
-
-    // Skip jobs in explicitly foreign locations (Paris, Monaco, etc.)
-    if (isLocationExplicitlyForeign(loc)) {
-      console.log(`  ⏭️  ${raw.title}: foreign location "${loc}" — skipping`);
+    if (!loc) {
+      console.log(`  ⏭️  ${raw.title}: detail location "${detailLocation}" is outside Mendrisio — skipping`);
       continue;
     }
-
-    // Infer canton from actual city, fall back to TI for Mendrisio/unknown
-    const canton = inferAnyCanton(loc) || DEFAULT_CANTON;
 
     // Build rich locale-specific descriptions (200+ chars each)
     const descByLocale = hasRealDescription
@@ -185,7 +191,7 @@ async function main() {
       requirements: [],
       requirementsByLocale: { en: [] },
       location: loc,
-      canton,
+      canton: 'TI',
       addressLocality: loc,
       addressCountry: 'CH',
       category: 'fashion',
@@ -201,12 +207,13 @@ async function main() {
     console.log(`  \u2705 ${raw.title} \u2014 ${loc}`);
   }
 
-  if (parsedJobs.length === 0) {
-    console.log('\u26a0\ufe0f No valid jobs parsed. Keeping existing jobs.');
-    return;
-  }
-
-  const published = mergeCompanyJobs(parsedJobs);
+  // The query endpoint returned a coherent non-empty snapshot, so records
+  // outside this crawler's Mendrisio ownership are known false positives, not
+  // transient misses. Exclude them from merge grace and archive their routes.
+  const targetExisting = priorJobs.filter((job) => resolvePradaTicinoLocation(job));
+  const retiredForeign = priorJobs.filter((job) => !resolvePradaTicinoLocation(job));
+  const archivedForeign = archiveRemovedJobsToSlice(retiredForeign, COMPANY_KEY);
+  const published = mergeCompanyJobs(parsedJobs, targetExisting);
   printPublishedJobUrls(published, 'Prada Group');
   writeJobsSummary(published, 'Prada Group');
 
@@ -214,6 +221,34 @@ async function main() {
   const diff = computeCrawlDiff(_beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, 'Prada Group');
   writeCrawlChangeSummaryToGH(diff, 'Prada Group');
+
+  if (published.length === 0) {
+    writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true, preserveExistingSlugs: true });
+    const _durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: COMPANY_KEY,
+      label: 'Prada Group',
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: rawJobs.length,
+      written: 0,
+      sourceProvenEmpty: true,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: diff.removedJobs.length,
+      unchangedCount: 0,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: diff.removedJobs.slice(0, 30),
+      unchangedJobs: [],
+    });
+    await assembleJobsDataset();
+    console.log(`ℹ️ Prada source proved 0 Mendrisio jobs; archived ${archivedForeign} foreign route(s).`);
+    return;
+  }
 
   await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true, forceLocalizationWhenAiEnabledOnly: true });
 

@@ -5,16 +5,22 @@
  * slugify(), stripHtml(), inferEmploymentType()
  * using HTML fixtures matching the real SAP SuccessFactors portal.
  */
+import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 import { describe, it, expect, vi } from 'vitest';
 import {
   fetchPradaDetailPage,
+  fetchPradaJobUrls,
   normalizePradaJobUrl,
+  resolvePradaTicinoLocation,
   parsePradaListingHtml,
   parsePradaDetailHtml,
   slugify,
   stripHtml,
   inferEmploymentType,
 } from '@/scripts/lib/prada-job-parser.mjs';
+import { archiveRemovedJobsToSlice } from '@/scripts/lib/expired-jobs-archive.mjs';
 
 // ── Fixtures matching real SuccessFactors search results ────────────────────
 
@@ -120,12 +126,117 @@ describe('Prada Group crawler — URL boundary', () => {
     }
   });
 
+  it('fails closed on a partial search snapshot', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce({
+        ok: true,
+        status: 200,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location',
+        text: async () => LISTING_HTML_FIXTURE,
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: false,
+        status: 503,
+        url: 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location',
+        text: async () => '',
+      } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      expect(fetchSpy).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+    }
+  });
+
+  it('fails closed on a 200 response without the authoritative listing table', async () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
+      status: 200,
+      url: 'https://jobs.pradagroup.com/search/',
+      text: async () => '<html><body>Access denied</body></html>',
+    } as Response);
+    try {
+      await expect(fetchPradaJobUrls()).resolves.toEqual([]);
+      expect(fetchSpy).toHaveBeenCalledTimes(1);
+    } finally {
+      fetchSpy.mockRestore();
+      warnSpy.mockRestore();
+    }
+  });
+
   it('rejects off-domain listing links without reserving their job ID', () => {
     const html = `
       <a class="jobTitle-link" href="https://attacker.example/job/Fake/1377980233/">Fake job</a>
       <a class="jobTitle-link" href="/job/Mendrisio-Client-Advisor/1377980233/">Client Advisor</a>`;
     expect(parsePradaListingHtml(html).map((job) => job.url))
       .toEqual(['https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/']);
+  });
+});
+
+describe('Prada Group crawler — Ticino ownership', () => {
+  it('accepts source-backed Mendrisio locations and canonical route fallback', () => {
+    const url = 'https://jobs.pradagroup.com/job/Mendrisio-Client-Advisor/1377980233/';
+    expect(resolvePradaTicinoLocation({ location: 'Mendrisio', url })).toBe('Mendrisio');
+    expect(resolvePradaTicinoLocation({ location: 'Mendrisio, TI, Switzerland', url }))
+      .toBe('Mendrisio, TI, Switzerland');
+    expect(resolvePradaTicinoLocation({
+      location: '',
+      url,
+    })).toBe('Mendrisio');
+  });
+
+  it.each([
+    ['Arezzo Purchasing intern', 'https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/'],
+    ['Nearest Major Market: Las Vegas', 'https://jobs.pradagroup.com/job/Las-Vegas-Client-Advisor/1387030234/'],
+    ['St. Moritz', 'https://jobs.pradagroup.com/job/St-Moritz-Client-Advisor/1387030235/'],
+    ['', 'https://jobs.pradagroup.com/job/Milano-Digital-Content-Intern/1387030236/'],
+  ])('rejects non-Ticino source evidence: %s', (location, url) => {
+    expect(resolvePradaTicinoLocation({ location, url })).toBeNull();
+  });
+
+  it('does not let a Mendrisio title override an authoritative foreign location', () => {
+    expect(resolvePradaTicinoLocation({
+      location: 'Arezzo',
+      url: 'https://jobs.pradagroup.com/job/Arezzo-Mendrisio-Manager/1387030237/',
+    })).toBeNull();
+  });
+
+  it('rejects a historical foreign route even when its stale location was defaulted to Mendrisio', () => {
+    expect(resolvePradaTicinoLocation({
+      location: 'Mendrisio',
+      url: 'https://jobs.pradagroup.com/job/Paris-Client-Advisor/1387030238/',
+    })).toBeNull();
+  });
+
+  it('archives a retired foreign route with its slug history intact', () => {
+    const dir = mkdtempSync(path.join(tmpdir(), 'prada-expired-'));
+    const prior = {
+      slug: 'purchasing-intern-prada-group-arezzo',
+      title: 'Purchasing intern',
+      company: 'Prada Group',
+      companyKey: 'prada',
+      location: 'Arezzo',
+      url: 'https://jobs.pradagroup.com/job/Arezzo-Purchasing-intern/1387030233/',
+      slugByLocale: { it: 'stage-acquisti-prada-arezzo' },
+      previousSlugs: ['purchasing-intern-prada-arezzo'],
+      previousSlugsByLocale: { it: ['vecchio-stage-acquisti-prada-arezzo'] },
+    };
+    try {
+      const retired = [prior].filter((job) => !resolvePradaTicinoLocation(job));
+      expect(archiveRemovedJobsToSlice(retired, 'prada', { dir })).toBe(1);
+      const archived = JSON.parse(readFileSync(path.join(dir, 'prada.json'), 'utf8'));
+      expect(archived[0]).toMatchObject({
+        slug: prior.slug,
+        slugByLocale: prior.slugByLocale,
+        previousSlugs: prior.previousSlugs,
+        previousSlugsByLocale: prior.previousSlugsByLocale,
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
   });
 });
 
