@@ -1083,12 +1083,17 @@ function emptySnapshotRunCount(summary) {
   return raw;
 }
 
+function isConfirmedEmptySnapshot(summary) {
+  return summary?.authoritativeEmptyConfirmed === true;
+}
+
 /**
  * A coherent `total=0` is destructive only after two consecutive successful
- * observations. The first observation writes a durable marker into Fust's
- * already-versioned summary slice while preserving the jobs slice verbatim.
- * Any later successful non-empty publication overwrites that summary without
- * the marker, resetting the sequence by construction.
+ * observations. The first observation writes a durable pending marker into
+ * Fust's already-versioned summary slice while preserving the jobs slice
+ * verbatim. The confirming observation replaces it with a durable confirmed
+ * marker. Later zero observations see that marker and perform no writes; a
+ * successful non-empty publication overwrites it, resetting the sequence.
  *
  * @param {FustDiscoveryResult} discovery
  * @param {object[]} priorJobs
@@ -1109,6 +1114,9 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
     ...publishOptions
   } = options;
   const previousSummary = await readSummary();
+  if (isConfirmedEmptySnapshot(previousSummary)) {
+    return { confirmed: true, total: 0, archived: 0, noop: true };
+  }
   const priorEmptyRuns = emptySnapshotRunCount(previousSummary);
 
   if (priorEmptyRuns < 1) {
@@ -1127,9 +1135,12 @@ export async function handleFustEmptyDiscovery(discovery, priorJobs, beforeSnaps
     ...publishOptions,
     authoritativeEmpty: true,
     priorJobs,
-    writeSummary,
+    writeSummary: (summary) => writeSummary({
+      ...summary,
+      authoritativeEmptyConfirmed: true,
+    }),
   });
-  return { confirmed: true, ...result };
+  return { confirmed: true, ...result, noop: false };
 }
 
 function validateLocaleCoverage() {
