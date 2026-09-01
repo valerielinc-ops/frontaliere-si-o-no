@@ -3565,7 +3565,7 @@
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-zurich"
     },
     "sector": "",
-    "expiredAt": "2026-09-01T14:10:35.648Z",
+    "expiredAt": "2026-09-01T14:56:43.827Z",
     "previousSlugs": [
       "galenica-amavita-assistente-di-farmacia-afc-zurich"
     ],
@@ -3643,15 +3643,21 @@
       "fr": "galenica-amavita-assistant-e-en-pharmacie-cfc-geneve"
     },
     "sector": "",
-    "expiredAt": "2026-09-01T14:10:35.648Z",
+    "expiredAt": "2026-09-01T14:56:43.827Z",
     "previousSlugs": [
-      "galenica-amavita-assistente-di-farmacia-afc-geneve"
+      "galenica-amavita-assistente-di-farmacia-afc-geneve",
+      "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t"
     ],
     "salaryMin": 86500,
     "salaryMax": 120500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "dedupArchive": true
+    "dedupArchive": true,
+    "previousSlugsByLocale": {
+      "it": [
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t"
+      ]
+    }
   },
   {
     "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
