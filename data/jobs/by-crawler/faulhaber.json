@@ -1,6 +1,6 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-09-01T07:42:19.175Z",
+  "assembledAt": "2026-09-01T08:38:58.999Z",
   "jobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
@@ -46,7 +46,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T07:42:17.223Z",
+      "crawledAt": "2026-09-01T08:38:56.869Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "salaryMin": 49500,
@@ -108,7 +108,11 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:42:04.625Z",
+      "crawledAt": "2026-09-01T08:38:46.462Z",
+      "previousSlugs": [
+        "junior-logistica-specialista-faulhaber-croglio",
+        "junior-logistics-specialist-croglio-faulhaber"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-logistica-specialista-faulhaber-croglio",
@@ -121,10 +125,6 @@
           "junior-logistics-specialist-croglio-faulhaber"
         ]
       },
-      "previousSlugs": [
-        "junior-logistica-specialista-faulhaber-croglio",
-        "junior-logistics-specialist-croglio-faulhaber"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "salaryMin": 41600,
@@ -186,15 +186,15 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T07:41:53.078Z",
+      "crawledAt": "2026-09-01T08:38:36.036Z",
+      "previousSlugs": [
+        "technicien-di-misura-faulhaber-croglio"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "technicien-di-misura-faulhaber-croglio"
         ]
       },
-      "previousSlugs": [
-        "technicien-di-misura-faulhaber-croglio"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "salaryMin": 58000,
