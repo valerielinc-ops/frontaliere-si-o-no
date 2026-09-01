@@ -1,18 +1,18 @@
 {
   "key": "oetiker",
   "label": "Oetiker",
-  "generatedAt": "2026-08-31T22:32:21.833Z",
-  "total": 3,
+  "generatedAt": "2026-09-01T00:37:00.673Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4036,
-  "avgDurationMs": 4036,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5004,
+  "avgDurationMs": 5004,
   "durationHistory": [
-    4036
+    5004
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000143252339-lehrstelle-als-polymechaniker-in-efz-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:32:18.882Z",
+      "crawledAt": "2026-09-01T00:36:56.972Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -67,7 +67,7 @@
       "url": "https://jobs.smartrecruiters.com/Oetiker/744000135999378-it-service-management-specialist-emea-all-?oga=true",
       "source": "Oetiker Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-31T22:32:18.897Z",
+      "crawledAt": "2026-09-01T00:36:56.994Z",
       "addressLocality": "Horgen",
       "addressRegion": "ZH",
       "streetAddress": "Spätzstrasse 11",
@@ -95,8 +95,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "oetiker-67888c0434c2",
       "slug": "cnc-polymechaniker-fraser-mit-teamfuhrung-all-oetiker-horgen-switzerland",
@@ -140,5 +139,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
