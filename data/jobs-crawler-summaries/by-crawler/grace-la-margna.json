@@ -1,17 +1,16 @@
 {
   "key": "grace-la-margna",
   "label": "grace",
-  "generatedAt": "2026-09-01T10:22:07.198Z",
+  "generatedAt": "2026-09-01T11:13:34.083Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 111503,
-  "avgDurationMs": 111503,
+  "durationMs": 108296,
+  "avgDurationMs": 108296,
   "durationHistory": [
-    106490,
-    111503
+    108296
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,7 +37,7 @@
       "postedDate": "2026-08-31",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:11.018Z",
+      "crawledAt": "2026-09-01T11:12:43.748Z",
       "id": "grace-la-margna-675ec72d2b14",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -47,14 +46,14 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:42.182Z",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 25
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Back of House Clerk - be the backbone of the operations",
@@ -79,7 +78,7 @@
       "postedDate": "2026-08-27",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:15.578Z",
+      "crawledAt": "2026-09-01T11:12:48.017Z",
       "id": "grace-la-margna-8c67600e0104",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -88,14 +87,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-28T05:37:26.527Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 25
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Event Manager- be the spark behind every celebration",
@@ -120,7 +119,7 @@
       "postedDate": "2026-08-26",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:23.678Z",
+      "crawledAt": "2026-09-01T11:12:59.496Z",
       "id": "grace-la-margna-d29647cbfed5",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -129,14 +128,14 @@
       "postalCode": "7500",
       "firstSeenAt": "2026-08-25T22:00:27.623Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
         "completeness": 25
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "F&B Manager - be the heart of hospitality",
@@ -161,7 +160,7 @@
       "postedDate": "2026-08-31",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:28.422Z",
+      "crawledAt": "2026-09-01T11:13:03.823Z",
       "id": "grace-la-margna-904ca01fa2ea",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -170,14 +169,14 @@
       "streetAddress": "Via Serlas 5",
       "postalCode": "7500",
       "firstSeenAt": "2026-08-31T17:35:54.488Z",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
         "completeness": 25
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "F&B Trainee - kickstart your career with us",
@@ -202,7 +201,7 @@
       "postedDate": "2026-08-27",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:32.926Z",
+      "crawledAt": "2026-09-01T11:13:08.182Z",
       "id": "grace-la-margna-37be54b5c05d",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -242,7 +241,7 @@
       "postedDate": "2026-08-26",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:44.679Z",
+      "crawledAt": "2026-09-01T11:13:12.494Z",
       "id": "grace-la-margna-3a693cb7389a",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -282,7 +281,7 @@
       "postedDate": "2026-08-26",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:21:49.200Z",
+      "crawledAt": "2026-09-01T11:13:16.818Z",
       "id": "grace-la-margna-b4f6437e14a4",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -322,7 +321,7 @@
       "postedDate": "2026-08-26",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:22:00.930Z",
+      "crawledAt": "2026-09-01T11:13:28.556Z",
       "id": "grace-la-margna-ba221949eef3",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -362,7 +361,7 @@
       "postedDate": "2026-08-26",
       "validThrough": "",
       "source": "dedicated-crawler",
-      "crawledAt": "2026-09-01T10:22:05.959Z",
+      "crawledAt": "2026-09-01T11:13:32.863Z",
       "id": "grace-la-margna-e4f2b02066fe",
       "salaryMin": 57500,
       "salaryMax": 87000,
