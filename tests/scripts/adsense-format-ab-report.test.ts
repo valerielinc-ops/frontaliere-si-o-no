@@ -9,10 +9,13 @@ const {
   CANTON_PAGE_PATHS,
   CONTROL_CHANNEL,
   TREATMENT_CHANNEL,
+  EXPERIMENTS,
+  DEFAULT_EXPERIMENT,
   CWV_METRICS,
   POSTHOG_CWV_WINDOW_DAYS,
   SMALL_SAMPLE_PAGEVIEWS,
   parseCellNumber,
+  parseCoveragePct,
   pctDelta,
   computeDeltas,
   computeEngagementDeltas,
@@ -22,24 +25,33 @@ const {
   fetchGa4WebVitalsRatings,
   buildMarkdown,
   buildHistoryEntry,
+  findExperiment,
+  experimentFromArgs,
+  classifyWindow,
 } = reportModule as unknown as {
   ADSENSE_ACCOUNT: string;
   CANTON_PAGE_PATHS: { control: string; treatment: string };
   CONTROL_CHANNEL: string;
   TREATMENT_CHANNEL: string;
+  EXPERIMENTS: readonly any[];
+  DEFAULT_EXPERIMENT: any;
   CWV_METRICS: readonly string[];
   POSTHOG_CWV_WINDOW_DAYS: number;
   SMALL_SAMPLE_PAGEVIEWS: number;
   parseCellNumber: (v: unknown) => number | null;
+  parseCoveragePct: (v: unknown) => number | null;
   pctDelta: (treatment: number | null, control: number | null) => number | null;
   computeDeltas: (control: any, treatment: any) => { rpmPct: number | null; coveragePct: number | null; earningsPerPageviewPct: number | null };
   computeEngagementDeltas: (control: any, treatment: any) => Record<string, number | null>;
   postHogTrickleHasAnyData: (posthog: any) => boolean;
-  fetchChannelReport: (token: string) => Promise<any>;
+  fetchChannelReport: (token: string, experiment?: any) => Promise<any>;
   fetchCruxRecord: (url: string, apiKey?: string | null) => Promise<any>;
-  fetchGa4WebVitalsRatings: (token: string) => Promise<any>;
+  fetchGa4WebVitalsRatings: (token: string, experiment?: any) => Promise<any>;
   buildMarkdown: (report: any, history?: any) => string;
   buildHistoryEntry: (report: any) => Record<string, unknown>;
+  findExperiment: (id: string) => any | null;
+  experimentFromArgs: (args: string[]) => any;
+  classifyWindow: (experiment: any, window: { start: string; end: string }) => string;
 };
 
 afterEach(() => {
@@ -52,10 +64,49 @@ describe('adsense-format-ab-report / identifiers', () => {
     expect(ADSENSE_ACCOUNT).toBe('accounts/pub-8628054934855353');
   });
 
-  it('scopes the two AdSense URL channels and the two page paths to the IT canton pages under test', () => {
+  it('keeps the legacy pair as the default experiment', () => {
     expect(CONTROL_CHANNEL).toBe('frontaliereticino.ch/cerca-lavoro-basilea');
     expect(TREATMENT_CHANNEL).toBe('frontaliereticino.ch/cerca-lavoro-lucerna');
     expect(CANTON_PAGE_PATHS).toEqual({ control: '/cerca-lavoro-basilea/', treatment: '/cerca-lavoro-lucerna/' });
+    expect(DEFAULT_EXPERIMENT.id).toBe('basilea-lucerna');
+  });
+
+  it('defines a separate exact-PAGE_URL experiment for Svizzera control vs Ticino treatment', () => {
+    expect(EXPERIMENTS.map((experiment) => experiment.id)).toEqual(['basilea-lucerna', 'svizzera-ticino']);
+    const experiment = findExperiment('svizzera-ticino');
+    expect(experiment).toMatchObject({
+      adsenseDimension: 'PAGE_URL',
+      control: {
+        label: 'Svizzera',
+        adsenseValue: 'https://frontaliereticino.ch/cerca-lavoro-svizzera/',
+        path: '/cerca-lavoro-svizzera/',
+      },
+      treatment: {
+        label: 'Ticino',
+        adsenseValue: 'https://frontaliereticino.ch/cerca-lavoro-ticino/',
+        path: '/cerca-lavoro-ticino/',
+      },
+    });
+  });
+
+  it('selects an experiment from either CLI syntax and rejects unknown ids', () => {
+    expect(experimentFromArgs(['--experiment', 'svizzera-ticino']).id).toBe('svizzera-ticino');
+    expect(experimentFromArgs(['--experiment=basilea-lucerna']).id).toBe('basilea-lucerna');
+    expect(() => experimentFromArgs(['--experiment=unknown'])).toThrow(/Esperimento sconosciuto/);
+  });
+
+  it('classifies pre, mixed and clean post-treatment reporting windows', () => {
+    const experiment = findExperiment('svizzera-ticino');
+    const boundary = new Date(`${experiment.firstFullTreatmentDate}T00:00:00Z`);
+    const before = new Date(boundary);
+    before.setUTCDate(before.getUTCDate() - 1);
+    const after = new Date(boundary);
+    after.setUTCDate(after.getUTCDate() + 1);
+    const date = (value: Date) => value.toISOString().slice(0, 10);
+
+    expect(classifyWindow(experiment, { start: date(before), end: date(before) })).toBe('pre-treatment');
+    expect(classifyWindow(experiment, { start: date(before), end: date(boundary) })).toBe('mixed');
+    expect(classifyWindow(experiment, { start: date(boundary), end: date(after) })).toBe('post-treatment');
   });
 });
 
@@ -72,6 +123,14 @@ describe('adsense-format-ab-report / parseCellNumber()', () => {
     expect(parseCellNumber(null)).toBeNull();
     expect(parseCellNumber(undefined)).toBeNull();
     expect(parseCellNumber('n/a')).toBeNull();
+  });
+});
+
+describe('adsense-format-ab-report / parseCoveragePct()', () => {
+  it('normalizes both API fractions and percent-formatted values to percentage points', () => {
+    expect(parseCoveragePct('0.6114')).toBe(61.14);
+    expect(parseCoveragePct('61.14%')).toBe(61.14);
+    expect(parseCoveragePct('61.14')).toBe(61.14);
   });
 });
 
@@ -158,6 +217,34 @@ describe('adsense-format-ab-report / fetchChannelReport()', () => {
     expect(url).toContain('dimensions=URL_CHANNEL_NAME');
   });
 
+  it('uses PAGE_URL and exact canonical hub URLs for the Svizzera/Ticino experiment', async () => {
+    const experiment = findExperiment('svizzera-ticino');
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      async json() {
+        return {
+          headers: [{ name: 'ESTIMATED_EARNINGS', currencyCode: 'EUR' }],
+          rows: [
+            { cells: [{ value: experiment.control.adsenseValue }, { value: '1900' }, { value: '10.43' }, { value: '12.25' }, { value: '61%' }, { value: '1175' }] },
+            { cells: [{ value: experiment.treatment.adsenseValue }, { value: '2300' }, { value: '7.11' }, { value: '11.86' }, { value: '63%' }, { value: '1668' }] },
+            { cells: [{ value: 'https://frontaliereticino.ch/cerca-lavoro-ticino/infermieri/' }, { value: '9999' }, { value: '99' }, { value: '99' }, { value: '99%' }, { value: '9999' }] },
+          ],
+        };
+      },
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const report = await fetchChannelReport('test-token', experiment);
+
+    expect(report.currencyCode).toBe('EUR');
+    expect(report.control?.channel).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera/');
+    expect(report.treatment?.channel).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/');
+    expect(report.treatment?.pageViews).toBe(1668);
+    const [url] = fetchMock.mock.calls[0];
+    expect(url).toContain('dimensions=PAGE_URL');
+  });
+
   it('returns null (not throw) for a channel absent from the report (e.g. zero impressions this week)', async () => {
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200, async json() { return { rows: [] }; } }));
     const report = await fetchChannelReport('test-token');
@@ -224,23 +311,28 @@ describe('adsense-format-ab-report / fetchGa4WebVitalsRatings()', () => {
   });
 
   it('reports available with rows when the dimensions ARE registered (future-proofing: this path activates automatically if the owner registers them)', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
+    const experiment = findExperiment('svizzera-ticino');
+    const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
       status: 200,
       async json() {
         return {
           rows: [
             {
-              dimensionValues: [{ value: CANTON_PAGE_PATHS.treatment }, { value: 'LCP' }, { value: 'good' }],
+              dimensionValues: [{ value: experiment.treatment.path }, { value: 'LCP' }, { value: 'good' }],
               metricValues: [{ value: '10' }],
             },
           ],
         };
       },
-    }));
-    const out = await fetchGa4WebVitalsRatings('test-token');
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const out = await fetchGa4WebVitalsRatings('test-token', experiment);
     expect(out.available).toBe(true);
     expect(out.rows).toHaveLength(1);
+    const [, request] = fetchMock.mock.calls[0];
+    expect(JSON.parse(request.body).dimensionFilter.andGroup.expressions[1].filter.inListFilter.values)
+      .toEqual(['/cerca-lavoro-svizzera/', '/cerca-lavoro-ticino/']);
   });
 });
 
@@ -263,7 +355,15 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
   it('always includes the small-sample disclaimer — this script must never claim statistical significance', () => {
     const md = buildMarkdown(baseReport, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
     expect(md).toContain('NON è un test di significatività statistica');
-    expect(md).toMatch(new RegExp(String(SMALL_SAMPLE_PAGEVIEWS)));
+    expect(md).toContain('può includere sotto-URL');
+  });
+
+  it('prints the configured threshold when either weekly sample is small', () => {
+    const md = buildMarkdown(
+      { ...baseReport, control: { ...baseReport.control, pageViews: SMALL_SAMPLE_PAGEVIEWS - 1 } },
+      { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } },
+    );
+    expect(md).toContain(`${SMALL_SAMPLE_PAGEVIEWS} pageview/settimana`);
   });
 
   it('states explicitly (never silently) when CWV is not measurable on any of the three sources', () => {
@@ -284,7 +384,7 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
     };
     const md = buildMarkdown(report, { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } });
     expect(md).not.toContain('CWV non misurabile per queste pagine questa settimana');
-    expect(md).toContain(`finestra ${POSTHOG_CWV_WINDOW_DAYS} giorni`);
+    expect(md).toContain(`finestra di fallback ${POSTHOG_CWV_WINDOW_DAYS} giorni`);
     for (const m of CWV_METRICS) expect(md).toContain(m);
     expect(md).toContain('n=3, p75=3435ms');
   });
@@ -294,6 +394,21 @@ describe('adsense-format-ab-report / buildMarkdown()', () => {
     expect(md).toContain('NON deve peggiorare l\'engagement');
     expect(md).toContain('Bounce rate');
     expect(md).toContain('46.6%'); // engagementRatePct delta
+  });
+
+  it('renders the selected experiment labels and exact AdSense dimension without leaking legacy labels', () => {
+    const experiment = findExperiment('svizzera-ticino');
+    const md = buildMarkdown(
+      { ...baseReport, experiment, currencyCode: 'EUR' },
+      { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } },
+    );
+    expect(md).toContain('Svizzera (controllo) vs Ticino (trattamento)');
+    expect(md).toContain('AdSense `PAGE_URL`');
+    expect(md).toContain('i sotto-URL sono esclusi');
+    expect(md).toContain('questa run è una baseline');
+    expect(md).toContain('https://frontaliereticino.ch/cerca-lavoro-ticino/');
+    expect(md).not.toContain('Basilea (controllo)');
+    expect(md).not.toContain('Lucerna (trattamento)');
   });
 
   it('flags missing AdSense data with a warning instead of rendering a fabricated table', () => {
@@ -321,11 +436,33 @@ describe('adsense-format-ab-report / buildHistoryEntry()', () => {
     };
     const entry = buildHistoryEntry(report);
     const parsed = JSON.parse(JSON.stringify(entry));
+    expect(parsed.experimentId).toBe('basilea-lucerna');
+    expect(parsed.adsenseDimension).toBe('URL_CHANNEL_NAME');
     expect(parsed.control.channel).toBe(CONTROL_CHANNEL);
     expect(parsed.treatment.channel).toBe(TREATMENT_CHANNEL);
     expect(parsed.deltas.rpmPct).toBe(-3.4);
     expect(parsed.engagement).toBeNull();
     expect(parsed.cwv).toBeNull();
+  });
+
+  it('tags the Svizzera/Ticino history independently and stores its exact paths', () => {
+    const experiment = findExperiment('svizzera-ticino');
+    const report = {
+      experiment,
+      currencyCode: 'EUR',
+      window: { start: 'window-start', end: 'window-end' },
+      control: { impressions: 1, rpmCHF: 1, earningsCHF: 1, coveragePct: 1, pageViews: 1, earningsPerPageviewCHF: 1 },
+      treatment: { impressions: 1, rpmCHF: 1, earningsCHF: 1, coveragePct: 1, pageViews: 1, earningsPerPageviewCHF: 1 },
+      deltas: {},
+      engagement: null,
+      engagementDeltas: {},
+      cwv: null,
+    };
+    const entry: any = buildHistoryEntry(report);
+    expect(entry.experimentId).toBe('svizzera-ticino');
+    expect(entry.adsenseDimension).toBe('PAGE_URL');
+    expect(entry.control.path).toBe('/cerca-lavoro-svizzera/');
+    expect(entry.treatment.path).toBe('/cerca-lavoro-ticino/');
   });
 
   it('carries engagement and CWV along in the SAME history line when available, never gating on them', () => {

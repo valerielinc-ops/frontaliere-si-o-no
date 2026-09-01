@@ -1,10 +1,11 @@
 name: AdSense format A/B report (weekly)
 
 # Weekly companion to the canton in-feed-ad A/B test (services/adsenseSlots.ts
-# INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): Basilea (controllo, unchanged) vs
-# Lucerna (trattamento, in-feed manual slot removed on the canton job-search
-# listing page) — plus GA4 engagement and Core Web Vitals guardrails, so a
-# revenue win never ships unnoticed alongside a UX regression. See
+# INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): Basilea vs Lucerna and Svizzera vs
+# Ticino. Lucerna and Ticino are treatments (manual in-feed removed); both
+# controls keep the existing cadence. The high-volume pair uses exact AdSense
+# PAGE_URL rows, never an URL-channel prefix that could include sub-URLs. GA4
+# engagement and Core Web Vitals remain guardrails. See
 # scripts/adsense-format-ab-report.mjs module docblock for the full design
 # (three CWV sources tried in order, sample-size disclaimers, etc).
 #
@@ -56,11 +57,18 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run AdSense format A/B report (save)
-        run: node scripts/adsense-format-ab-report.mjs --save --markdown > /tmp/adsense-format-ab-report.md
+        run: |
+          node scripts/adsense-format-ab-report.mjs --experiment basilea-lucerna --save --markdown > /tmp/adsense-format-ab-basilea-lucerna.md
+          node scripts/adsense-format-ab-report.mjs --experiment svizzera-ticino --save --markdown > /tmp/adsense-format-ab-svizzera-ticino.md
+          {
+            cat /tmp/adsense-format-ab-basilea-lucerna.md
+            echo
+            cat /tmp/adsense-format-ab-svizzera-ticino.md
+          } > /tmp/adsense-format-ab-report.md
 
       - name: Print summary to job log
         run: |
-          echo "## AdSense format A/B report" >> "$GITHUB_STEP_SUMMARY"
+          echo "## AdSense format A/B reports" >> "$GITHUB_STEP_SUMMARY"
           cat /tmp/adsense-format-ab-report.md >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload report artifact
@@ -81,7 +89,8 @@ jobs:
           # Full reports live under reports/ which is gitignored (preserved as
           # build artifacts only, see "Upload report artifact" above). Only the
           # compact append-only history file is committed so the next weekly
-          # run can compute the cumulative-sample trend (same pattern as
+          # run can compute each experiment's separate cumulative-sample trend
+          # (one tagged JSONL row per pair; same pattern as
           # data/revenue-monitor-history.jsonl, see revenue-monitor.yml).
           git add data/adsense-format-ab-history.jsonl
           if git diff --cached --quiet; then
@@ -120,7 +129,7 @@ jobs:
           # single week. Omitting it lets this land as the gentler
           # `category: other` / `fu-prio: low`.
           node scripts/lib/github-issue-creator.mjs \
-            --title "AdSense format A/B: Basilea (controllo) vs Lucerna (trattamento)" \
+            --title "AdSense in-feed A/B: monitor settimanale" \
             --description "$(cat /tmp/adsense-format-ab-report.md)" \
             --priority 4 \
             --label adsense-ab-test \

@@ -1,31 +1,30 @@
 #!/usr/bin/env node
 /**
- * AdSense format A/B report — Basilea (controllo) vs Lucerna (trattamento)
+ * AdSense in-feed format A/B reports
  *
  * Weekly companion to the canton in-feed-ad A/B test wired in
  * services/adsenseSlots.ts (INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): on the
- * canton job-search listing pages (/cerca-lavoro-{canton}/), Lucerna has the
- * manual In-page in-feed slot (JOBLIST_INFEED_DESKTOP/MOBILE) removed —
- * Auto Ads (Anchor/Vignette/in-page automatic) fill that placement instead —
- * while Basilea is left untouched as the control. Basilea and Lucerna were
- * picked (2026-08-25 AdSense Reporting API v2 query) as the closest-matched
- * canton pair in the whole IT canton set (July: €0.44/1498 impr/15% coverage
- * vs €0.43/1536 impr/18% coverage), on deliberately low-volume pages so a
- * bad outcome costs little.
+ * job-search listings, the treatment pages have the manual In-page in-feed
+ * slot (JOBLIST_INFEED_DESKTOP/MOBILE) removed while Auto Ads remain active.
+ * Two independent comparisons are monitored:
+ *   - Basilea control vs Lucerna treatment (started 2026-08-25);
+ *   - Svizzera control vs Ticino treatment (owner-requested 2026-09-01).
+ * See docs/ADSENSE-INFEED-AB-TEST.md for scope, URL-level attribution and
+ * interpretation rules.
  *
- * Three independent signals, all scoped to the same two IT-locale page paths
- * (`/cerca-lavoro-basilea/`, `/cerca-lavoro-lucerna/` — the paths the
- * router resolves for these two canton job-search pages; see
+ * Three independent signals, all scoped to the selected pair's two exact
+ * IT-locale page paths (the paths the router resolves for the job listings; see
  * `services/router.ts` `parseJobBoardSlug` / `resolveCantonGroup` and
  * `build-plugins/jobsSeoPagesPlugin.ts` `buildCantonAwareSection`, the same
  * spots read while wiring the A/B test itself):
  *
  * 1. AdSense (the test's primary metric — RPM/coverage/earnings-per-pageview,
- *    via the two AdSense URL channels already registered for these pages).
+ *    via URL channels for the legacy low-volume pair and exact PAGE_URL for
+ *    the high-volume Svizzera/Ticino pair, so sub-URLs are not aggregated).
  * 2. GA4 engagement guardrail (`averageSessionDuration`, `engagementRate`,
  *    `bounceRate`, `screenPageViewsPerSession`, property 524485296) — the
  *    hypothesis under test is that removing the in-page ad must NOT make
- *    Lucerna's engagement worse than Basilea's; a higher RPM paired with a
+ *    the treatment's engagement worse than its control; a higher RPM with a
  *    real engagement drop is a losing trade, not a win.
  * 3. Core Web Vitals (LCP/INP/CLS) guardrail — best-effort across THREE
  *    sources, tried in this order and reported honestly when none works:
@@ -41,28 +40,21 @@
  *         registered dimension needs a processing window before it backfills
  *         anyway) — it just detects the 400 and falls through.
  *      b. PostHog `$web_vitals` events (project from POSTHOG_PROJECT_ID),
- *         filtered by `$pathname`. VERIFIED LIVE 2026-08-25: some data exists
- *         (n=1..19 samples over the last 180 days per metric/path) but at a
- *         trickle far below what a 7-day window would catch — PostHog ingest
- *         has been down to ~6-30 events/day site-wide since 2026-07-23 (was
- *         ~100k/day). This script therefore queries a POSTHOG_CWV_WINDOW_DAYS
- *         rolling window (30d, not 7d) for this section ONLY, and reports the
- *         sample count `n` next to every number so a 1-sample "p75" is never
- *         mistaken for a real distribution.
+ *         filtered by exact `$pathname`. This section uses a
+ *         POSTHOG_CWV_WINDOW_DAYS rolling window (30d, not 7d) and reports the
+ *         sample count `n` next to every p75, so legacy sparse pages and the
+ *         higher-volume pair remain distinguishable.
  *      c. CrUX API (`chromeuxreport.googleapis.com`, per-URL PHONE record).
- *         VERIFIED LIVE 2026-08-25: `404 NOT_FOUND` for both URLs — these
- *         pages are below CrUX's minimum real-Chrome-traffic threshold for a
- *         per-URL record.
+ *         A per-URL record may be unavailable below CrUX's traffic threshold;
+ *         availability is reported independently for each selected page.
  *    When none of the three yields data, the report says so explicitly
  *    ("CWV non misurabile") instead of omitting the section or inventing a
  *    number.
  *
- * At the declared volume for these two pages (~1500-2000 pageviews/month
- * each), a single week carries only a few hundred pageviews per side — nowhere
- * near enough for a real significance test on ANY of the three signals above.
- * This script does NOT compute one; it reports raw numbers plus an explicit
- * small-sample disclaimer every run, and leaves the "is this real yet"
- * judgment to the owner reading the accumulating weekly history.
+ * A weekly delta is descriptive, not a significance test. The script reports
+ * raw numbers, an explicit sample disclaimer and a per-experiment cumulative
+ * history; it never combines the two experiments or treats a category channel
+ * as if it were an exact hub URL.
  *
  * Auth (env, loaded via scripts/load-rc-env.mjs, same as revenue-monitor.mjs
  * and rpm-canary.yml):
@@ -75,16 +67,17 @@
  *
  * Usage:
  *   node scripts/adsense-format-ab-report.mjs             # human table
+ *   node scripts/adsense-format-ab-report.mjs --experiment svizzera-ticino
  *   node scripts/adsense-format-ab-report.mjs --json       # JSON payload
  *   node scripts/adsense-format-ab-report.mjs --markdown   # GitHub-flavored markdown
- *   node scripts/adsense-format-ab-report.mjs --save       # write reports/adsense-format-ab-YYYY-MM-DD.{md,json}
+ *   node scripts/adsense-format-ab-report.mjs --save       # write reports/adsense-format-ab-<experiment>-YYYY-MM-DD.{md,json}
  *                                                           # + append data/adsense-format-ab-history.jsonl
  *
  * Exits 0 always — this is a report, not a gate (mirrors revenue-monitor.mjs
  * "monitor, not gate"). A fetch failure on any of the three signals is
  * recorded as a warning IN the report (so the weekly GitHub issue update
  * surfaces it) rather than failing the workflow; the history line's AdSense
- * fields are only populated when real data for both channels was fetched, so
+ * fields are only populated when real data for both sides was fetched, so
  * a bad week never pollutes the trend file with fabricated zeros — the
  * engagement/CWV fields are best-effort and recorded as `null` when missing.
  */
@@ -112,34 +105,79 @@ const HISTORY_FILE = resolve(__dirname, '..', 'data', 'adsense-format-ab-history
 // the same publisher id under two different Google API naming conventions.
 export const ADSENSE_ACCOUNT = `accounts/${AD_CLIENT.replace(/^ca-/, '')}`;
 
-// The two AdSense URL channels this test compares. Both already exist in
-// AdSense (registered against these exact canton job-search listing pages)
-// — this script only reads them, it never creates/modifies AdSense config.
-export const CONTROL_CHANNEL = 'frontaliereticino.ch/cerca-lavoro-basilea';
-export const TREATMENT_CHANNEL = 'frontaliereticino.ch/cerca-lavoro-lucerna';
-
-// Same two pages, as GA4/PostHog/CrUX identify them: an absolute pathname
-// (GA4 `pagePath` / PostHog `$pathname`) or a full URL (CrUX). IT locale only
-// (no /en//de//fr/ prefix) — matches the AdSense URL channels above, which
-// are registered against the IT paths specifically; mixing locale variants
-// in would compare a different population than the AdSense side.
-export const CANTON_PAGE_PATHS = {
-  control: '/cerca-lavoro-basilea/',
-  treatment: '/cerca-lavoro-lucerna/',
-};
 const SITE_ORIGIN = 'https://frontaliereticino.ch';
 
-// Metrics pulled per channel. Order here is also the `cells[]` order AdSense
-// returns for a `dimensions=URL_CHANNEL_NAME` report — cells[0] is always the
+/**
+ * One configuration per independent experiment. The legacy comparison keeps
+ * URL_CHANNEL_NAME so its existing history remains comparable. The new
+ * high-volume comparison deliberately uses PAGE_URL with canonical full URLs:
+ * the corresponding URL-channel patterns also match sub-URLs and therefore
+ * cannot measure the two hub pages alone.
+ */
+export const EXPERIMENTS = Object.freeze([
+  Object.freeze({
+    id: 'basilea-lucerna',
+    firstFullTreatmentDate: '2026-08-26',
+    adsenseDimension: 'URL_CHANNEL_NAME',
+    control: Object.freeze({
+      label: 'Basilea',
+      adsenseValue: 'frontaliereticino.ch/cerca-lavoro-basilea',
+      path: '/cerca-lavoro-basilea/',
+    }),
+    treatment: Object.freeze({
+      label: 'Lucerna',
+      adsenseValue: 'frontaliereticino.ch/cerca-lavoro-lucerna',
+      path: '/cerca-lavoro-lucerna/',
+    }),
+  }),
+  Object.freeze({
+    id: 'svizzera-ticino',
+    // Conservative clean-window boundary: the deployment may complete after
+    // midnight on 2026-09-02, so the first unquestionably full day is Sep 3.
+    firstFullTreatmentDate: '2026-09-03',
+    adsenseDimension: 'PAGE_URL',
+    control: Object.freeze({
+      label: 'Svizzera',
+      adsenseValue: `${SITE_ORIGIN}/cerca-lavoro-svizzera/`,
+      path: '/cerca-lavoro-svizzera/',
+    }),
+    treatment: Object.freeze({
+      label: 'Ticino',
+      adsenseValue: `${SITE_ORIGIN}/cerca-lavoro-ticino/`,
+      path: '/cerca-lavoro-ticino/',
+    }),
+  }),
+]);
+
+export const DEFAULT_EXPERIMENT = EXPERIMENTS[0];
+export const CONTROL_CHANNEL = DEFAULT_EXPERIMENT.control.adsenseValue;
+export const TREATMENT_CHANNEL = DEFAULT_EXPERIMENT.treatment.adsenseValue;
+export const CANTON_PAGE_PATHS = Object.freeze({
+  control: DEFAULT_EXPERIMENT.control.path,
+  treatment: DEFAULT_EXPERIMENT.treatment.path,
+});
+
+export function findExperiment(id) {
+  return EXPERIMENTS.find((experiment) => experiment.id === id) || null;
+}
+
+export function classifyWindow(experiment, window) {
+  if (window.end < experiment.firstFullTreatmentDate) return 'pre-treatment';
+  if (window.start < experiment.firstFullTreatmentDate) return 'mixed';
+  return 'post-treatment';
+}
+
+// Metrics pulled per dimension value. Order here is also the `cells[]` order
+// AdSense returns — cells[0] is always the selected dimension and
 // dimension value, cells[1..] follow this list positionally (same contract
 // revenue-monitor.mjs's fetchAdSenseReport relies on for its own dimensioned
 // queries).
 const METRICS = ['IMPRESSIONS', 'IMPRESSIONS_RPM', 'ESTIMATED_EARNINGS', 'AD_REQUESTS_COVERAGE', 'PAGE_VIEWS'];
 
-// Rows returned per query. The account has one URL channel per canton
-// job-search page (~26); 200 leaves comfortable headroom without risking a
-// slow/huge response.
-const CHANNEL_ROW_LIMIT = 200;
+// PAGE_URL may expose substantially more rows than the ~26 configured URL
+// channels. Keep enough headroom that an exact hub cannot disappear merely
+// because the account gains more monetized pages.
+const REPORT_ROW_LIMIT = 10000;
 
 /**
  * Parse an AdSense report cell value into a plain number. Handles both a
@@ -154,14 +192,20 @@ export function parseCellNumber(v) {
   return Number.isFinite(n) ? n : null;
 }
 
+export function parseCoveragePct(v) {
+  const parsed = parseCellNumber(v);
+  if (parsed === null) return null;
+  if (String(v).includes('%')) return parsed;
+  return parsed >= 0 && parsed <= 1 ? Number((parsed * 100).toFixed(2)) : parsed;
+}
+
 /**
- * Fetch the URL_CHANNEL_NAME-dimensioned report for the last 7 full days and
- * pick out the control + treatment rows client-side (same "fetch broad, find
- * the row you want" pattern as revenue-monitor.mjs's AD_UNIT_NAME lookup —
- * more robust than trusting AdSense `filters` query syntax for an OR across
- * two channel names).
+ * Fetch the selected AdSense dimension for the last 7 full days and pick the
+ * control + treatment rows client-side. PAGE_URL experiments therefore match
+ * full canonical hub URLs, while the legacy experiment retains its historical
+ * URL_CHANNEL_NAME series.
  */
-export async function fetchChannelReport(token) {
+export async function fetchChannelReport(token, experiment = DEFAULT_EXPERIMENT) {
   const { start, end } = last7Days();
 
   const params = new URLSearchParams();
@@ -173,8 +217,8 @@ export async function fetchChannelReport(token) {
   params.append('endDate.month', String(Number(end.slice(5, 7))));
   params.append('endDate.day', String(Number(end.slice(8, 10))));
   for (const m of METRICS) params.append('metrics', m);
-  params.append('dimensions', 'URL_CHANNEL_NAME');
-  params.append('limit', String(CHANNEL_ROW_LIMIT));
+  params.append('dimensions', experiment.adsenseDimension);
+  params.append('limit', String(REPORT_ROW_LIMIT));
 
   const url = `https://adsense.googleapis.com/v2/${ADSENSE_ACCOUNT}/reports:generate?${params}`;
   const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
@@ -183,25 +227,31 @@ export async function fetchChannelReport(token) {
   const rows = data.rows || [];
 
   const norm = (s) => String(s || '').trim().toLowerCase().replace(/\/$/, '');
-  const pickChannel = (channelName) => {
-    const row = rows.find((r) => norm(r.cells?.[0]?.value) === norm(channelName));
+  const pickValue = (adsenseValue) => {
+    const row = rows.find((r) => norm(r.cells?.[0]?.value) === norm(adsenseValue));
     if (!row) return null;
     const cells = row.cells || [];
+    // The *CHF property names predate this change and are kept for JSONL
+    // history compatibility. `currencyCode` from the API header is the
+    // authoritative unit shown in every rendered report.
     const impressions = parseCellNumber(cells[1]?.value);
     const rpmCHF = parseCellNumber(cells[2]?.value);
     const earningsCHF = parseCellNumber(cells[3]?.value);
     const coverageRaw = cells[4]?.value ?? null;
-    const coveragePct = parseCellNumber(cells[4]?.value);
+    const coveragePct = parseCoveragePct(cells[4]?.value);
     const pageViews = parseCellNumber(cells[5]?.value);
     const earningsPerPageviewCHF =
       earningsCHF !== null && pageViews ? Number((earningsCHF / pageViews).toFixed(4)) : null;
-    return { channel: channelName, impressions, rpmCHF, earningsCHF, coverageRaw, coveragePct, pageViews, earningsPerPageviewCHF };
+    return { channel: adsenseValue, impressions, rpmCHF, earningsCHF, coverageRaw, coveragePct, pageViews, earningsPerPageviewCHF };
   };
+
+  const currencyCode = data.headers?.find((header) => header.currencyCode)?.currencyCode || 'EUR';
 
   return {
     window: { start, end },
-    control: pickChannel(CONTROL_CHANNEL),
-    treatment: pickChannel(TREATMENT_CHANNEL),
+    currencyCode,
+    control: pickValue(experiment.control.adsenseValue),
+    treatment: pickValue(experiment.treatment.adsenseValue),
     rowCount: rows.length,
   };
 }
@@ -227,12 +277,12 @@ export function computeDeltas(control, treatment) {
 const GA4_SCOPES = ['https://www.googleapis.com/auth/analytics.readonly'];
 
 /**
- * Session-level engagement for the two canton pages, same 7-day window as
+ * Session-level engagement for the selected two pages, same 7-day window as
  * AdSense. Metric order below is also the `metricValues[]` positional order
  * GA4 returns (dimensions first, metrics in request order) — same contract
  * `fetchChannelReport` above relies on for AdSense.
  */
-export async function fetchGa4Engagement(token) {
+export async function fetchGa4Engagement(token, experiment = DEFAULT_EXPERIMENT) {
   const { start, end } = last7Days();
   const url = `https://analyticsdata.googleapis.com/v1beta/${DEFAULT_GA4_PROPERTY_ID}:runReport`;
   const body = {
@@ -249,7 +299,7 @@ export async function fetchGa4Engagement(token) {
     dimensionFilter: {
       filter: {
         fieldName: 'pagePath',
-        inListFilter: { values: [CANTON_PAGE_PATHS.control, CANTON_PAGE_PATHS.treatment] },
+        inListFilter: { values: [experiment.control.path, experiment.treatment.path] },
       },
     },
   };
@@ -275,7 +325,7 @@ export async function fetchGa4Engagement(token) {
       pageViewsPerSession: num(5) !== null ? Number(num(5).toFixed(2)) : null,
     };
   };
-  return { control: pick(CANTON_PAGE_PATHS.control), treatment: pick(CANTON_PAGE_PATHS.treatment) };
+  return { control: pick(experiment.control.path), treatment: pick(experiment.treatment.path) };
 }
 
 export function computeEngagementDeltas(control, treatment) {
@@ -309,7 +359,7 @@ export const POSTHOG_CWV_MIN_N = 5;
  * they are NOT (see module docblock). Returns `{ available: false, reason }`
  * on ANY failure (never throws) so the caller can fall through to PostHog.
  */
-export async function fetchGa4WebVitalsRatings(token) {
+export async function fetchGa4WebVitalsRatings(token, experiment = DEFAULT_EXPERIMENT) {
   const { start, end } = last7Days();
   const url = `https://analyticsdata.googleapis.com/v1beta/${DEFAULT_GA4_PROPERTY_ID}:runReport`;
   const body = {
@@ -323,7 +373,7 @@ export async function fetchGa4WebVitalsRatings(token) {
           {
             filter: {
               fieldName: 'pagePath',
-              inListFilter: { values: [CANTON_PAGE_PATHS.control, CANTON_PAGE_PATHS.treatment] },
+              inListFilter: { values: [experiment.control.path, experiment.treatment.path] },
             },
           },
         ],
@@ -355,10 +405,10 @@ export async function fetchGa4WebVitalsRatings(token) {
  * (e.g. missing credentials) is recorded as `{ n: 0, p75: null, error }` for
  * that cell only, so one bad query doesn't blank the whole table.
  */
-export async function fetchPostHogCwvTrickle() {
+export async function fetchPostHogCwvTrickle(experiment = DEFAULT_EXPERIMENT) {
   const result = { control: {}, treatment: {} };
   for (const side of ['control', 'treatment']) {
-    const path = CANTON_PAGE_PATHS[side];
+    const path = experiment[side].path;
     for (const metric of CWV_METRICS) {
       const decimals = metric === 'CLS' ? 3 : 0;
       const q = `
@@ -389,7 +439,7 @@ export function postHogTrickleHasAnyData(posthog) {
   return ['control', 'treatment'].some((side) => CWV_METRICS.some((m) => (posthog[side]?.[m]?.n || 0) > 0));
 }
 
-/** CrUX per-URL PHONE record — VERIFIED 404 for both pages on 2026-08-25 (below CrUX's minimum-traffic threshold). Kept as the last-resort source in case traffic grows. */
+/** CrUX per-URL PHONE record, kept as the last-resort source. */
 export async function fetchCruxRecord(url, apiKey) {
   if (!apiKey) return { available: false, reason: 'PAGESPEED_API_KEY not set' };
   try {
@@ -429,26 +479,43 @@ export const SMALL_SAMPLE_PAGEVIEWS = 500;
 
 export function buildMarkdown(report, history) {
   const { window, control, treatment, deltas, engagement, engagementDeltas, cwv, warnings } = report;
+  const experiment = report.experiment || DEFAULT_EXPERIMENT;
+  const controlLabel = experiment.control.label;
+  const treatmentLabel = experiment.treatment.label;
+  const currencyCode = report.currencyCode || 'EUR';
+  const windowPhase = report.windowPhase || classifyWindow(experiment, window);
   const lines = [];
-  lines.push(`# AdSense format A/B: Basilea (controllo) vs Lucerna (trattamento)`);
+  lines.push(`# AdSense format A/B: ${controlLabel} (controllo) vs ${treatmentLabel} (trattamento)`);
   lines.push('');
   lines.push(`**Finestra:** ${window.start} → ${window.end} (ultimi 7 giorni pieni)`);
   lines.push('');
+  if (windowPhase !== 'post-treatment') {
+    const phaseLabel = windowPhase === 'pre-treatment' ? 'interamente precedente' : 'mista pre/post trattamento';
+    lines.push(`⚠️ **Finestra ${phaseLabel}.** Il primo giorno completo dichiarato per il trattamento è ${experiment.firstFullTreatmentDate}; questa run è una baseline e non entra nel cumulativo post-trattamento.`);
+    lines.push('');
+  }
   lines.push('## AdSense — metrica primaria del test');
   lines.push('');
+  if (experiment.adsenseDimension === 'URL_CHANNEL_NAME') {
+    lines.push('> Nota di attribuzione: questo esperimento conserva un pattern di canale URL per continuità storica; il valore può includere sotto-URL e non rappresenta necessariamente il solo hub.');
+    lines.push('');
+  } else {
+    lines.push('> Attribuzione esatta: `PAGE_URL` confronta soltanto i due URL canonici completi; i sotto-URL sono esclusi.');
+    lines.push('');
+  }
 
   if (!control || !treatment) {
     lines.push('⚠️ **Dati AdSense mancanti o incompleti per questa finestra** — vedi warning sotto. Nessuna riga aggiunta allo storico.');
     lines.push('');
   } else {
-    lines.push('| Metrica | Basilea (controllo) | Lucerna (trattamento) | Δ% (trattamento vs controllo) |');
+    lines.push(`| Metrica | ${controlLabel} (controllo) | ${treatmentLabel} (trattamento) | Δ% (trattamento vs controllo) |`);
     lines.push('|---|---:|---:|---:|');
     lines.push(`| Impressioni | ${control.impressions ?? '—'} | ${treatment.impressions ?? '—'} | ${pctDelta(treatment.impressions, control.impressions) ?? '—'}% |`);
     lines.push(`| Page view | ${control.pageViews ?? '—'} | ${treatment.pageViews ?? '—'} | ${pctDelta(treatment.pageViews, control.pageViews) ?? '—'}% |`);
-    lines.push(`| Earnings (CHF) | ${control.earningsCHF ?? '—'} | ${treatment.earningsCHF ?? '—'} | ${pctDelta(treatment.earningsCHF, control.earningsCHF) ?? '—'}% |`);
-    lines.push(`| RPM (CHF/1000 impr.) | ${control.rpmCHF ?? '—'} | ${treatment.rpmCHF ?? '—'} | ${deltas.rpmPct ?? '—'}% |`);
+    lines.push(`| Earnings (${currencyCode}) | ${control.earningsCHF ?? '—'} | ${treatment.earningsCHF ?? '—'} | ${pctDelta(treatment.earningsCHF, control.earningsCHF) ?? '—'}% |`);
+    lines.push(`| RPM (${currencyCode}/1000 impr.) | ${control.rpmCHF ?? '—'} | ${treatment.rpmCHF ?? '—'} | ${deltas.rpmPct ?? '—'}% |`);
     lines.push(`| Coverage (%) | ${control.coveragePct ?? '—'} | ${treatment.coveragePct ?? '—'} | ${deltas.coveragePct ?? '—'}% |`);
-    lines.push(`| **Earnings / pageview (CHF)** | **${control.earningsPerPageviewCHF ?? '—'}** | **${treatment.earningsPerPageviewCHF ?? '—'}** | **${deltas.earningsPerPageviewPct ?? '—'}%** |`);
+    lines.push(`| **Earnings / pageview (${currencyCode})** | **${control.earningsPerPageviewCHF ?? '—'}** | **${treatment.earningsPerPageviewCHF ?? '—'}** | **${deltas.earningsPerPageviewPct ?? '—'}%** |`);
     lines.push('');
     lines.push('Earnings/pageview è la metrica più onesta per confrontare due format diversi (in-feed manuale vs solo Auto Ads) quando controllo e trattamento hanno pageview leggermente diversi — normalizza per il traffico invece di dividere per "impressioni", che dipende esso stesso dal format in test.');
     lines.push('');
@@ -458,14 +525,14 @@ export function buildMarkdown(report, history) {
     lines.push('### Dimensione del campione (AdSense)');
     lines.push('');
     lines.push(
-      `⚠️ **Questo NON è un test di significatività statistica.** Con ~1.500-2.000 pageview/mese per canton dichiarati per queste due pagine, una singola settimana porta poche centinaia di pageview per lato (questa settimana: Basilea ${control.pageViews ?? '—'}, Lucerna ${treatment.pageViews ?? '—'}). I numeri sopra sono descrittivi, non una prova — servono a costruire uno storico settimana su settimana, non a decidere dopo una sola run. Lo stesso vale per le sezioni Engagement e Core Web Vitals sotto: stesso ordine di grandezza di traffico, stessa cautela.`,
+      `⚠️ **Questo NON è un test di significatività statistica.** Questa settimana: ${controlLabel} ${control.pageViews ?? '—'} pageview, ${treatmentLabel} ${treatment.pageViews ?? '—'} pageview. I numeri sopra sono descrittivi, non una prova — servono a costruire uno storico settimana su settimana, non a decidere dopo una sola run. Lo stesso vale per le sezioni Engagement e Core Web Vitals sotto.`,
     );
     if (smallControl || smallTreatment) {
       lines.push(`Campione sotto la soglia euristica di ${SMALL_SAMPLE_PAGEVIEWS} pageview/settimana per almeno un lato: il delta di questa settimana va letto con ancora più cautela del solito.`);
     }
     if (history && history.weeksWithData > 0) {
       lines.push('');
-      lines.push(`Storico cumulativo (${history.weeksWithData} settimane con dati, incl. questa): Basilea ${history.cumulativePageViews.control} pageview totali, Lucerna ${history.cumulativePageViews.treatment} pageview totali. Anche il cumulativo resta un confronto descrittivo — non sostituisce un test statistico formale.`);
+      lines.push(`Storico cumulativo (${history.weeksWithData} settimane con dati, incl. questa): ${controlLabel} ${history.cumulativePageViews.control} pageview totali, ${treatmentLabel} ${history.cumulativePageViews.treatment} pageview totali. Anche il cumulativo resta un confronto descrittivo — non sostituisce un test statistico formale.`);
     }
     lines.push('');
   }
@@ -473,11 +540,11 @@ export function buildMarkdown(report, history) {
   // ── Engagement guardrail ──────────────────────────────────────────────
   lines.push('## Engagement (GA4) — guardrail');
   lines.push('');
-  lines.push('Ipotesi da verificare: rimuovere l\'annuncio in-page a Lucerna NON deve peggiorare l\'engagement rispetto a Basilea — un RPM più alto pagato con engagement peggiore non è una vittoria.');
+  lines.push(`Ipotesi da verificare: rimuovere l'annuncio in-page a ${treatmentLabel} NON deve peggiorare l'engagement rispetto a ${controlLabel} — un RPM più alto pagato con engagement peggiore non è una vittoria.`);
   lines.push('');
   if (engagement && engagement.control && engagement.treatment) {
     const e = engagement;
-    lines.push('| Metrica | Basilea (controllo) | Lucerna (trattamento) | Δ% (trattamento vs controllo) |');
+    lines.push(`| Metrica | ${controlLabel} (controllo) | ${treatmentLabel} (trattamento) | Δ% (trattamento vs controllo) |`);
     lines.push('|---|---:|---:|---:|');
     lines.push(`| Sessioni (7g) | ${e.control.sessions ?? '—'} | ${e.treatment.sessions ?? '—'} | ${pctDelta(e.treatment.sessions, e.control.sessions) ?? '—'}% |`);
     lines.push(`| Durata media sessione (s) | ${e.control.avgSessionDurationSec ?? '—'} | ${e.treatment.avgSessionDurationSec ?? '—'} | ${engagementDeltas.avgSessionDurationPct ?? '—'}% |`);
@@ -485,7 +552,7 @@ export function buildMarkdown(report, history) {
     lines.push(`| Bounce rate (%) | ${e.control.bounceRatePct ?? '—'} | ${e.treatment.bounceRatePct ?? '—'} | ${engagementDeltas.bounceRatePct ?? '—'}% |`);
     lines.push(`| Pageview / sessione | ${e.control.pageViewsPerSession ?? '—'} | ${e.treatment.pageViewsPerSession ?? '—'} | ${engagementDeltas.pageViewsPerSessionPct ?? '—'}% |`);
     lines.push('');
-    lines.push(`⚠️ Sessioni GA4 di questa settimana nell'ordine delle decine per lato — stesso avvertimento di campione piccolo della sezione AdSense sopra, ancora più marcato qui.`);
+    lines.push(`⚠️ Anche i dati GA4 sono descrittivi: volume e qualità del traffico possono differire tra le due pagine, quindi il delta va letto insieme allo storico di ciascun lato.`);
   } else {
     lines.push('⚠️ **Dati di engagement GA4 non disponibili questa settimana** — vedi warning sotto.');
   }
@@ -499,8 +566,8 @@ export function buildMarkdown(report, history) {
     lines.push(`- GA4: ${cwv.ga4.available ? '✅ disponibile' : `❌ non disponibile — ${cwv.ga4.reason}`}`);
     const phNote = (side) =>
       CWV_METRICS.map((m) => `${m} n=${cwv.posthog?.[side]?.[m]?.n ?? 0}`).join(', ');
-    lines.push(`- PostHog: Basilea (${phNote('control')}) · Lucerna (${phNote('treatment')})`);
-    lines.push(`- CrUX: Basilea ${cwv.crux?.control?.available ? '✅' : `❌ ${cwv.crux?.control?.reason ?? 'n/a'}`} · Lucerna ${cwv.crux?.treatment?.available ? '✅' : `❌ ${cwv.crux?.treatment?.reason ?? 'n/a'}`}`);
+    lines.push(`- PostHog: ${controlLabel} (${phNote('control')}) · ${treatmentLabel} (${phNote('treatment')})`);
+    lines.push(`- CrUX: ${controlLabel} ${cwv.crux?.control?.available ? '✅' : `❌ ${cwv.crux?.control?.reason ?? 'n/a'}`} · ${treatmentLabel} ${cwv.crux?.treatment?.available ? '✅' : `❌ ${cwv.crux?.treatment?.reason ?? 'n/a'}`}`);
     lines.push('');
 
     if (cwv.ga4.available) {
@@ -522,16 +589,16 @@ export function buildMarkdown(report, history) {
         b.total += count;
         buckets.set(key, b);
       }
-      const pageLabel = (p) => (p === CANTON_PAGE_PATHS.control ? 'Basilea' : p === CANTON_PAGE_PATHS.treatment ? 'Lucerna' : p);
+      const pageLabel = (p) => (p === experiment.control.path ? controlLabel : p === experiment.treatment.path ? treatmentLabel : p);
       for (const [key, b] of buckets) {
         const [path, metric] = key.split('|');
         lines.push(`| ${pageLabel(path)} | ${metric} | ${b.good} | ${b.ni} | ${b.poor} | ${b.total} |`);
       }
       lines.push('');
     } else if (postHogTrickleHasAnyData(cwv.posthog)) {
-      lines.push(`### PostHog (finestra ${POSTHOG_CWV_WINDOW_DAYS} giorni — non 7, per campione insufficiente su una settimana sola)`);
+      lines.push(`### PostHog (finestra di fallback ${POSTHOG_CWV_WINDOW_DAYS} giorni — non 7)`);
       lines.push('');
-      lines.push('| Metrica | Basilea n / p75 | Lucerna n / p75 |');
+      lines.push(`| Metrica | ${controlLabel} n / p75 | ${treatmentLabel} n / p75 |`);
       lines.push('|---|---:|---:|');
       for (const m of CWV_METRICS) {
         const c = cwv.posthog.control[m];
@@ -540,11 +607,18 @@ export function buildMarkdown(report, history) {
         lines.push(`| ${m} | n=${c?.n ?? 0}, p75=${c?.p75 ?? '—'}${unit} | n=${t?.n ?? 0}, p75=${t?.p75 ?? '—'}${unit} |`);
       }
       lines.push('');
-      lines.push('⚠️ Campione troppo piccolo per essere un trend affidabile (ordine di 1-20 campioni su 30 giorni, non su 7) — riportato solo come indicazione grezza, mai come prova.');
+      const hasSparsePostHogCell = ['control', 'treatment'].some((side) =>
+        CWV_METRICS.some((metric) => (cwv.posthog?.[side]?.[metric]?.n || 0) < POSTHOG_CWV_MIN_N),
+      );
+      lines.push(
+        hasSparsePostHogCell
+          ? `⚠️ Almeno una cella ha meno di ${POSTHOG_CWV_MIN_N} campioni: il p75 è soltanto un'indicazione grezza.`
+          : 'I conteggi sono mostrati accanto a ogni p75; anche con campione sufficiente per un guardrail descrittivo, questa sezione non prova causalità o significatività.',
+      );
     } else if (cwv.crux?.control?.available && cwv.crux?.treatment?.available) {
       lines.push('### CrUX (p75, PHONE)');
       lines.push('');
-      lines.push('| Metrica | Basilea | Lucerna |');
+      lines.push(`| Metrica | ${controlLabel} | ${treatmentLabel} |`);
       lines.push('|---|---:|---:|');
       lines.push(`| LCP (ms) | ${cwv.crux.control.lcpMs ?? '—'} | ${cwv.crux.treatment.lcpMs ?? '—'} |`);
       lines.push(`| INP (ms) | ${cwv.crux.control.inpMs ?? '—'} | ${cwv.crux.treatment.inpMs ?? '—'} |`);
@@ -566,18 +640,25 @@ export function buildMarkdown(report, history) {
   }
 
   lines.push('---');
-  lines.push(`Canali AdSense: \`${CONTROL_CHANNEL}\` (controllo) / \`${TREATMENT_CHANNEL}\` (trattamento). Pagine GA4/PostHog/CrUX: \`${CANTON_PAGE_PATHS.control}\` / \`${CANTON_PAGE_PATHS.treatment}\`. Storico: \`data/adsense-format-ab-history.jsonl\`. Script: \`scripts/adsense-format-ab-report.mjs\`.`);
+  lines.push(`AdSense \`${experiment.adsenseDimension}\`: \`${experiment.control.adsenseValue}\` (controllo) / \`${experiment.treatment.adsenseValue}\` (trattamento). Pagine GA4/PostHog/CrUX: \`${experiment.control.path}\` / \`${experiment.treatment.path}\`. Storico separato per \`${experiment.id}\` in \`data/adsense-format-ab-history.jsonl\`. Script: \`scripts/adsense-format-ab-report.mjs\`.`);
 
   return lines.join('\n');
 }
 
 export function buildHistoryEntry(report) {
   const { window, control, treatment, deltas, engagement, engagementDeltas, cwv } = report;
+  const experiment = report.experiment || DEFAULT_EXPERIMENT;
   return {
     date: new Date().toISOString().slice(0, 10),
+    experimentId: experiment.id,
+    windowPhase: report.windowPhase || classifyWindow(experiment, window),
+    adsenseDimension: experiment.adsenseDimension,
+    currencyCode: report.currencyCode || 'EUR',
     window,
     control: {
-      channel: CONTROL_CHANNEL,
+      label: experiment.control.label,
+      path: experiment.control.path,
+      channel: experiment.control.adsenseValue,
       impressions: control.impressions,
       rpmCHF: control.rpmCHF,
       earningsCHF: control.earningsCHF,
@@ -586,7 +667,9 @@ export function buildHistoryEntry(report) {
       earningsPerPageviewCHF: control.earningsPerPageviewCHF,
     },
     treatment: {
-      channel: TREATMENT_CHANNEL,
+      label: experiment.treatment.label,
+      path: experiment.treatment.path,
+      channel: experiment.treatment.adsenseValue,
       impressions: treatment.impressions,
       rpmCHF: treatment.rpmCHF,
       earningsCHF: treatment.earningsCHF,
@@ -612,8 +695,8 @@ export function buildHistoryEntry(report) {
   };
 }
 
-/** Reads the existing history file (if any) and sums pageviews per side, for the cumulative-sample note in the markdown. */
-function readHistorySummary() {
+/** Reads one experiment's history only; legacy untagged lines belong to the original pair. */
+function readHistorySummary(experiment = DEFAULT_EXPERIMENT) {
   if (!existsSync(HISTORY_FILE)) return { weeksWithData: 0, cumulativePageViews: { control: 0, treatment: 0 } };
   const lines = readFileSync(HISTORY_FILE, 'utf8').split('\n').filter(Boolean);
   let weeksWithData = 0;
@@ -622,6 +705,8 @@ function readHistorySummary() {
   for (const line of lines) {
     try {
       const entry = JSON.parse(line);
+      const entryExperimentId = entry?.experimentId || DEFAULT_EXPERIMENT.id;
+      if (entryExperimentId !== experiment.id) continue;
       if (entry?.control?.pageViews != null && entry?.treatment?.pageViews != null) {
         weeksWithData++;
         controlPv += Number(entry.control.pageViews) || 0;
@@ -635,11 +720,25 @@ function readHistorySummary() {
 }
 
 function log(emoji, msg) {
-  console.log(`${emoji} ${msg}`);
+  // Keep stdout machine/report-clean: workflows redirect Markdown/JSON there.
+  console.error(`${emoji} ${msg}`);
+}
+
+export function experimentFromArgs(args) {
+  const inline = args.find((arg) => arg.startsWith('--experiment='));
+  const separateIndex = args.indexOf('--experiment');
+  const id = inline?.slice('--experiment='.length) || (separateIndex >= 0 ? args[separateIndex + 1] : null);
+  if (!id) return DEFAULT_EXPERIMENT;
+  const experiment = findExperiment(id);
+  if (!experiment) {
+    throw new Error(`Esperimento sconosciuto "${id}". Valori validi: ${EXPERIMENTS.map((item) => item.id).join(', ')}`);
+  }
+  return experiment;
 }
 
 async function main() {
   const args = process.argv.slice(2);
+  const experiment = experimentFromArgs(args);
   const flags = {
     json: args.includes('--json'),
     markdown: args.includes('--markdown'),
@@ -650,6 +749,7 @@ async function main() {
   const warnings = [];
   let control = null;
   let treatment = null;
+  let currencyCode = 'EUR';
   let window = last7Days();
 
   // ── 1. AdSense (primary metric) ─────────────────────────────────────
@@ -659,12 +759,13 @@ async function main() {
     log('⚪', warnings[warnings.length - 1]);
   } else {
     try {
-      const fetched = await fetchChannelReport(adSenseToken);
+      const fetched = await fetchChannelReport(adSenseToken, experiment);
       window = fetched.window;
+      currencyCode = fetched.currencyCode;
       control = fetched.control;
       treatment = fetched.treatment;
-      if (!control) warnings.push(`Canale controllo "${CONTROL_CHANNEL}" assente dal report AdSense questa settimana (probabile 0 impressioni).`);
-      if (!treatment) warnings.push(`Canale trattamento "${TREATMENT_CHANNEL}" assente dal report AdSense questa settimana (probabile 0 impressioni).`);
+      if (!control) warnings.push(`${experiment.adsenseDimension} controllo "${experiment.control.adsenseValue}" assente dal report AdSense questa settimana (probabile 0 impressioni).`);
+      if (!treatment) warnings.push(`${experiment.adsenseDimension} trattamento "${experiment.treatment.adsenseValue}" assente dal report AdSense questa settimana (probabile 0 impressioni).`);
     } catch (e) {
       warnings.push(`AdSense fetch failed: ${e.message}`);
       log('⚠️', warnings[warnings.length - 1]);
@@ -682,49 +783,50 @@ async function main() {
     log('⚪', warnings[warnings.length - 1]);
   } else {
     try {
-      engagement = await fetchGa4Engagement(ga4Token);
+      engagement = await fetchGa4Engagement(ga4Token, experiment);
     } catch (e) {
       warnings.push(`GA4 engagement fetch failed: ${e.message}`);
       log('⚠️', warnings[warnings.length - 1]);
       if (flags.debug) console.error(e.stack);
     }
-    ga4WebVitals = await fetchGa4WebVitalsRatings(ga4Token);
+    ga4WebVitals = await fetchGa4WebVitalsRatings(ga4Token, experiment);
   }
   const engagementDeltas = computeEngagementDeltas(engagement?.control, engagement?.treatment);
 
   // ── 3b/3c. CWV fallbacks — PostHog trickle, then CrUX ────────────────
   let posthogCwv = { control: {}, treatment: {} };
   if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
-    posthogCwv = await fetchPostHogCwvTrickle();
+    posthogCwv = await fetchPostHogCwvTrickle(experiment);
   } else {
     warnings.push('PostHog credentials missing (POSTHOG_PERSONAL_API_KEY/POSTHOG_PROJECT_ID not set) — CWV PostHog fallback skipped.');
     log('⚪', warnings[warnings.length - 1]);
   }
   const pagespeedKey = process.env.PAGESPEED_API_KEY;
   const [cruxControl, cruxTreatment] = await Promise.all([
-    fetchCruxRecord(`${SITE_ORIGIN}${CANTON_PAGE_PATHS.control}`, pagespeedKey),
-    fetchCruxRecord(`${SITE_ORIGIN}${CANTON_PAGE_PATHS.treatment}`, pagespeedKey),
+    fetchCruxRecord(`${SITE_ORIGIN}${experiment.control.path}`, pagespeedKey),
+    fetchCruxRecord(`${SITE_ORIGIN}${experiment.treatment.path}`, pagespeedKey),
   ]);
   const cwv = { ga4: ga4WebVitals, posthog: posthogCwv, crux: { control: cruxControl, treatment: cruxTreatment } };
   if (!ga4WebVitals.available && !postHogTrickleHasAnyData(posthogCwv) && !(cruxControl.available && cruxTreatment.available)) {
     warnings.push('CWV non misurabile questa settimana su nessuna delle tre fonti (GA4/PostHog/CrUX) — vedi sezione Core Web Vitals per il motivo di ciascuna.');
   }
 
-  const report = { window, control, treatment, deltas, engagement, engagementDeltas, cwv, warnings };
-  const historySummary = readHistorySummary();
+  const windowPhase = classifyWindow(experiment, window);
+  const report = { experiment, windowPhase, currencyCode, window, control, treatment, deltas, engagement, engagementDeltas, cwv, warnings };
+  const historySummary = readHistorySummary(experiment);
 
   if (flags.json) {
     console.log(JSON.stringify(report, null, 2));
   } else if (flags.markdown) {
     console.log(buildMarkdown(report, historySummary));
   } else {
-    console.log(`AdSense format A/B — ${window.start} → ${window.end}`);
-    console.log(`  Basilea (controllo):   impr=${control?.impressions ?? '—'} rpm=${control?.rpmCHF ?? '—'} coverage=${control?.coveragePct ?? '—'}% pv=${control?.pageViews ?? '—'} epv=${control?.earningsPerPageviewCHF ?? '—'}`);
-    console.log(`  Lucerna (trattamento): impr=${treatment?.impressions ?? '—'} rpm=${treatment?.rpmCHF ?? '—'} coverage=${treatment?.coveragePct ?? '—'}% pv=${treatment?.pageViews ?? '—'} epv=${treatment?.earningsPerPageviewCHF ?? '—'}`);
+    console.log(`AdSense format A/B ${experiment.id} — ${window.start} → ${window.end}`);
+    console.log(`  ${experiment.control.label} (controllo): impr=${control?.impressions ?? '—'} rpm=${control?.rpmCHF ?? '—'} coverage=${control?.coveragePct ?? '—'}% pv=${control?.pageViews ?? '—'} epv=${control?.earningsPerPageviewCHF ?? '—'}`);
+    console.log(`  ${experiment.treatment.label} (trattamento): impr=${treatment?.impressions ?? '—'} rpm=${treatment?.rpmCHF ?? '—'} coverage=${treatment?.coveragePct ?? '—'}% pv=${treatment?.pageViews ?? '—'} epv=${treatment?.earningsPerPageviewCHF ?? '—'}`);
     console.log(`  Δ rpm=${deltas.rpmPct ?? '—'}% coverage=${deltas.coveragePct ?? '—'}% earnings/pageview=${deltas.earningsPerPageviewPct ?? '—'}%`);
     if (engagement?.control && engagement?.treatment) {
-      console.log(`  Engagement Basilea:   sessions=${engagement.control.sessions} engRate=${engagement.control.engagementRatePct}% bounce=${engagement.control.bounceRatePct}%`);
-      console.log(`  Engagement Lucerna:   sessions=${engagement.treatment.sessions} engRate=${engagement.treatment.engagementRatePct}% bounce=${engagement.treatment.bounceRatePct}%`);
+      console.log(`  Engagement ${experiment.control.label}: sessions=${engagement.control.sessions} engRate=${engagement.control.engagementRatePct}% bounce=${engagement.control.bounceRatePct}%`);
+      console.log(`  Engagement ${experiment.treatment.label}: sessions=${engagement.treatment.sessions} engRate=${engagement.treatment.engagementRatePct}% bounce=${engagement.treatment.bounceRatePct}%`);
     }
     console.log(`  CWV: ga4=${cwv.ga4.available ? 'available' : 'unavailable'} posthogData=${postHogTrickleHasAnyData(posthogCwv)} crux=${cruxControl.available && cruxTreatment.available ? 'available' : 'unavailable'}`);
     for (const w of warnings) console.log(`  ⚠️ ${w}`);
@@ -734,22 +836,24 @@ async function main() {
     const reportsDir = resolve(__dirname, '..', 'reports');
     if (!existsSync(reportsDir)) mkdirSync(reportsDir, { recursive: true });
     const stamp = new Date().toISOString().slice(0, 10);
-    writeFileSync(resolve(reportsDir, `adsense-format-ab-${stamp}.json`), JSON.stringify(report, null, 2));
-    writeFileSync(resolve(reportsDir, `adsense-format-ab-${stamp}.md`), buildMarkdown(report, historySummary));
-    log('📄', `reports/adsense-format-ab-${stamp}.{json,md} written`);
+    const reportBase = `adsense-format-ab-${experiment.id}-${stamp}`;
+    writeFileSync(resolve(reportsDir, `${reportBase}.json`), JSON.stringify(report, null, 2));
+    writeFileSync(resolve(reportsDir, `${reportBase}.md`), buildMarkdown(report, historySummary));
+    log('📄', `reports/${reportBase}.{json,md} written`);
 
-    // Only persist a history line when BOTH AdSense sides produced real
-    // numbers — a fabricated/partial row would silently corrupt the
+    // Only persist a history line for a clean post-treatment window when BOTH
+    // AdSense sides produced real numbers — a mixed/partial row would corrupt the
     // cumulative trend (mirrors revenue-monitor.mjs's philosophy of never
     // writing a metric it could not actually measure). Engagement/CWV ride
     // along in the same line when available, null otherwise — they never
     // gate the AdSense history the way AdSense gates itself.
-    if (control && treatment) {
+    if (control && treatment && windowPhase === 'post-treatment') {
       if (!existsSync(dirname(HISTORY_FILE))) mkdirSync(dirname(HISTORY_FILE), { recursive: true });
       appendFileSync(HISTORY_FILE, JSON.stringify(buildHistoryEntry(report)) + '\n');
       log('🗂 ', 'data/adsense-format-ab-history.jsonl appended');
     } else {
-      log('⚪', 'History append skipped — incomplete AdSense data this week.');
+      const reason = windowPhase === 'post-treatment' ? 'incomplete AdSense data' : `${windowPhase} window`;
+      log('⚪', `History append skipped — ${reason}.`);
     }
   }
 }
