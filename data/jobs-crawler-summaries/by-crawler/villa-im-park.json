@@ -1,20 +1,21 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-09-01T00:35:57.325Z",
+  "generatedAt": "2026-09-01T04:06:08.491Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4828,
-  "avgDurationMs": 4828,
+  "durationMs": 4876,
+  "avgDurationMs": 4876,
   "durationHistory": [
-    4828
+    4876
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "villa-im-park-7c5e56f454c4",
       "slug": "mitarbeiter-in-bistro-villa-im-park-rothrist",
@@ -27,7 +28,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:35:53.834Z",
+      "crawledAt": "2026-09-01T04:06:04.965Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist 4852",
@@ -44,16 +45,15 @@
       "postedDate": "2026-08-31",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
       "needsRetranslation": true,
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-09-01T00:35:53.834Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "villa-im-park-2e1ad74d807b",
       "slug": "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist",
@@ -66,7 +66,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T00:35:54.269Z",
+      "crawledAt": "2026-09-01T04:06:05.385Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
