@@ -11037,6 +11037,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Tunnel Moscia-Acapulco : 180 millions pour le réseau routier',
     'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'Le projet du tunnel Moscia-Acapulco et la réhabilitation de la route côtière représentent un investissement important dans l’amélioration du réseau routier et de la qualité de vie des navetteurs transfrontaliers.',
     'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Vue aérienne du projet de tunnel Moscia-Acapulco dans le Tessin',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.title': 'Fermetures nocturnes entre l’A8 et la branche Gallarate-Gattico le 4 septembre',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.excerpt': 'Autostrade per l’Italia annonce des fermetures de nuit entre l’A8 et la branche Gallarate-Gattico pour des travaux de pavage et des anti-bruit.',
+    'blog.article.chiusure-notturne-a8-dir-gallarate-gattico.imageAlt': 'Fermetures nocturnes entre A8 et Diramazione Gallarate-Gattico',
 };
 
 export default blogMetaFr;
