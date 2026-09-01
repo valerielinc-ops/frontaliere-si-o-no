@@ -24,7 +24,9 @@ const DEFAULT_DATA_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
 const MAX_FINDINGS = 5;
 const MAX_EXAMPLES = 5;
 const STALE_ACTIVE_DAYS = 60;
+const DAY_MS = 24 * 60 * 60 * 1000;
 const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
+export const OPEN_ISSUES_LIMIT = 100;
 export const GH_ACTION_TIMEOUT_MS = 2 * 60 * 1000;
 
 function parseArgs(argv) {
@@ -315,21 +317,41 @@ function dedupMarker(key) {
   return `<!-- crawler-data-quality:${key} -->`;
 }
 
-function auditCycleMarker(generatedAt) {
+/** Return the ISO-8601 audit week and a Monday-aligned rotation ordinal. */
+export function auditCycle(generatedAt) {
   const timestamp = Date.parse(generatedAt);
   if (!Number.isFinite(timestamp)) throw new Error(`Invalid report.generatedAt: ${generatedAt}`);
-  return `<!-- crawler-data-quality-cycle:${Math.floor(timestamp / WEEK_MS)} -->`;
+  const instant = new Date(timestamp);
+  const isoDay = instant.getUTCDay() || 7;
+  const mondayMs = Date.UTC(
+    instant.getUTCFullYear(),
+    instant.getUTCMonth(),
+    instant.getUTCDate() - isoDay + 1,
+  );
+  const thursday = new Date(mondayMs + (3 * DAY_MS));
+  const isoYear = thursday.getUTCFullYear();
+  const januaryFourth = new Date(Date.UTC(isoYear, 0, 4));
+  const januaryFourthIsoDay = januaryFourth.getUTCDay() || 7;
+  const firstMondayMs = Date.UTC(isoYear, 0, 4 - januaryFourthIsoDay + 1);
+  const isoWeek = 1 + Math.floor((mondayMs - firstMondayMs) / WEEK_MS);
+  return {
+    key: `${isoYear}-W${String(isoWeek).padStart(2, '0')}`,
+    ordinal: Math.floor(mondayMs / WEEK_MS),
+  };
+}
+
+function auditCycleMarker(generatedAt) {
+  return `<!-- crawler-data-quality-cycle:${auditCycle(generatedAt).key} -->`;
 }
 
 function boundedFindingWindow(report) {
   const findings = Array.isArray(report?.findings) ? report.findings : [];
   if (findings.length <= MAX_FINDINGS) return { cursor: 0, findings };
 
-  const generatedAt = Date.parse(report.generatedAt);
-  if (!Number.isFinite(generatedAt)) throw new Error(`Invalid report.generatedAt: ${report.generatedAt}`);
   // Rotate once per audit week. A stable run is reproducible, while every
   // candidate enters the five-action window over successive weekly runs.
-  const cursor = Math.floor(generatedAt / WEEK_MS) % findings.length;
+  const cycle = auditCycle(report.generatedAt);
+  const cursor = ((cycle.ordinal % findings.length) + findings.length) % findings.length;
   const rotated = [...findings.slice(cursor), ...findings.slice(0, cursor)];
   return { cursor, findings: rotated.slice(0, MAX_FINDINGS) };
 }
@@ -432,12 +454,25 @@ export function materializeIssuePacket(report, openIssues, { outputPath, bodyDir
   return packet;
 }
 
-function loadOpenIssues(filePath) {
+export function validateOpenIssueInventory(parsed, limit = OPEN_ISSUES_LIMIT) {
+  if (!Number.isSafeInteger(limit) || limit < 1 || limit > 10_000) {
+    throw new Error(`open-issues-limit must be an integer between 1 and 10000: ${limit}`);
+  }
+  if (!Array.isArray(parsed)) throw new Error('openIssuesFile must contain a JSON array');
+  if (parsed.length >= limit) {
+    throw new Error(
+      `Open crawler-data-quality issue inventory reached its fetch cap (${parsed.length}/${limit}); refusing mutations because dedup coverage may be incomplete`,
+    );
+  }
+  return parsed;
+}
+
+export function loadOpenIssues(filePath, limit = OPEN_ISSUES_LIMIT) {
+  validateOpenIssueInventory([], limit);
   if (!filePath) return [];
   const safePath = assertTemporaryPath(filePath, 'openIssuesFile');
   const parsed = JSON.parse(fs.readFileSync(safePath, 'utf8'));
-  if (!Array.isArray(parsed)) throw new Error('openIssuesFile must contain a JSON array');
-  return parsed;
+  return validateOpenIssueInventory(parsed, limit);
 }
 
 /**
@@ -517,6 +552,7 @@ function main() {
   const bodyDir = args['body-dir'];
   const runUrl = args['run-url'];
   const windowDays = Number(args['window-days'] || 15);
+  const openIssuesLimit = Number(args['open-issues-limit'] || OPEN_ISSUES_LIMIT);
   const generatedAt = new Date(args.now || Date.now()).toISOString();
 
   if (!outputPath || !bodyDir || !runUrl) {
@@ -558,7 +594,7 @@ function main() {
     },
     housekeeping,
   });
-  const packet = materializeIssuePacket(report, loadOpenIssues(args['open-issues']), {
+  const packet = materializeIssuePacket(report, loadOpenIssues(args['open-issues'], openIssuesLimit), {
     outputPath,
     bodyDir,
   });

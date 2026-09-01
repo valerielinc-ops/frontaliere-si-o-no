@@ -3,10 +3,13 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
+  auditCycle,
   buildCrawlerDataQualityReport,
   executeIssuePacket,
   GH_ACTION_TIMEOUT_MS,
+  loadOpenIssues,
   materializeIssuePacket,
+  OPEN_ISSUES_LIMIT,
   planIssueActions,
 } from '../scripts/ci/crawler-data-quality-candidates.mjs';
 
@@ -153,7 +156,7 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     const report = worstCaseReport();
     const first = report.findings[0];
     const marker = `<!-- crawler-data-quality:${first.key} -->`;
-    const cycle = `<!-- crawler-data-quality-cycle:${Math.floor(Date.parse(report.generatedAt) / (7 * 24 * 60 * 60 * 1000))} -->`;
+    const cycle = `<!-- crawler-data-quality-cycle:${auditCycle(report.generatedAt).key} -->`;
 
     const createdInThisRun = planIssueActions(report, [{
       number: 101,
@@ -178,6 +181,89 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
       generatedAt: new Date(Date.parse(report.generatedAt) + (7 * 24 * 60 * 60 * 1000)).toISOString(),
     }, [{ number: 101, title: first.title, body: `${marker}\n${cycle}`, comments: [] }]);
     expect(nextWeek.find((action) => action.key === first.key)?.kind).toBe('comment');
+  });
+
+  it('uses the same Monday-UTC ISO week for dedup markers and rotation cursors', () => {
+    const base = worstCaseReport();
+    const findings = Array.from({ length: 7 }, (_, index) => ({
+      ...base.findings[index % base.findings.length],
+      key: `iso-finding-${index + 1}`,
+      title: `[data-quality] test: ISO finding ${index + 1}`,
+    }));
+    const sunday = { ...base, generatedAt: '2026-09-06T23:59:59.999Z', findings };
+    const monday = { ...base, generatedAt: '2026-09-07T00:00:00.000Z', findings };
+    const sundayCycle = auditCycle(sunday.generatedAt);
+    const mondayCycle = auditCycle(monday.generatedAt);
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-iso-week-'));
+    const sundayPacket = materializeIssuePacket(sunday, [], {
+      outputPath: path.join(root, 'sunday.json'),
+      bodyDir: root,
+    });
+    const sundayBody = fs.readFileSync(sundayPacket.actions[0].bodyFile, 'utf8');
+    const mondayBodyDir = path.join(root, 'monday');
+    const mondayPacket = materializeIssuePacket(monday, [], {
+      outputPath: path.join(root, 'monday.json'),
+      bodyDir: mondayBodyDir,
+    });
+    const mondayBody = fs.readFileSync(mondayPacket.actions[0].bodyFile, 'utf8');
+    const mondayCursor = mondayCycle.ordinal % findings.length;
+
+    expect(sundayCycle.key).toBe('2026-W36');
+    expect(Number.isSafeInteger(sundayCycle.ordinal)).toBe(true);
+    expect(mondayCycle.key).toBe('2026-W37');
+    expect(mondayCycle.ordinal).toBe(sundayCycle.ordinal + 1);
+    expect(sundayBody).toContain(`<!-- crawler-data-quality-cycle:${sundayCycle.key} -->`);
+    expect(sundayPacket.scheduling.actionCursor).toBe(sundayCycle.ordinal % findings.length);
+    expect(mondayBody).toContain(`<!-- crawler-data-quality-cycle:${mondayCycle.key} -->`);
+    expect(mondayPacket.scheduling.actionCursor).toBe(mondayCursor);
+    expect(planIssueActions(monday, [
+      {
+        number: 101,
+        title: findings[mondayCursor].title,
+        body: `<!-- crawler-data-quality:${findings[mondayCursor].key} -->\n`
+          + `<!-- crawler-data-quality-cycle:${sundayCycle.key} -->`,
+        comments: [],
+      },
+    ])[0]).toMatchObject({ key: findings[mondayCursor].key, kind: 'comment' });
+  });
+
+  it('keeps ISO week identity stable across the calendar-year boundary', () => {
+    expect(auditCycle('2026-12-31T23:59:59.999Z').key).toBe('2026-W53');
+    expect(auditCycle('2027-01-01T00:00:00.000Z').key).toBe('2026-W53');
+    expect(auditCycle('2027-01-04T00:00:00.000Z').key).toBe('2027-W01');
+  });
+
+  it('fails closed before mutations when the open-issue inventory reaches its cap', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-inventory-'));
+    const inventoryPath = (count: number) => {
+      const file = path.join(root, `open-${count}.json`);
+      fs.writeFileSync(file, JSON.stringify(Array.from({ length: count }, (_, index) => ({
+        number: index + 1,
+        title: `issue ${index + 1}`,
+        body: '',
+        comments: [],
+      }))));
+      return file;
+    };
+
+    expect(OPEN_ISSUES_LIMIT).toBe(100);
+    expect(loadOpenIssues(inventoryPath(99), OPEN_ISSUES_LIMIT)).toHaveLength(99);
+    for (const count of [100, 101]) {
+      let mutations = 0;
+      expect(() => {
+        const packet = materializeIssuePacket(
+          worstCaseReport(),
+          loadOpenIssues(inventoryPath(count), OPEN_ISSUES_LIMIT),
+          { outputPath: path.join(root, `packet-${count}.json`), bodyDir: root },
+        );
+        executeIssuePacket(packet, () => {
+          mutations += 1;
+          return { status: 0, stdout: '', stderr: '' };
+        });
+      }).toThrow(`reached its fetch cap (${count}/${OPEN_ISSUES_LIMIT})`);
+      expect(mutations).toBe(0);
+      expect(fs.existsSync(path.join(root, `packet-${count}.json`))).toBe(false);
+    }
   });
 
   it('executes serially and stops before later gh mutations after the first failure', () => {
