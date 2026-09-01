@@ -65,6 +65,35 @@ describe('translation candidate quality v2', () => {
     })).toThrow(TypeError);
   });
 
+  it('snapshots only exact data descriptors before reading bounded quality input', () => {
+    let candidateReads = 0;
+    const candidateAccessor = { ...base } as Record<string, unknown>;
+    Object.defineProperty(candidateAccessor, 'candidateText', {
+      enumerable: true,
+      get() { candidateReads += 1; return 'x'.repeat(120_001); },
+    });
+    expect(() => assessTranslationCandidateQualityV2(candidateAccessor as never)).toThrow(TypeError);
+    expect(candidateReads).toBe(0);
+
+    let tokenReads = 0;
+    const tokensAccessor = { ...base } as Record<string, unknown>;
+    Object.defineProperty(tokensAccessor, 'protectedTokens', {
+      enumerable: true,
+      get() { tokenReads += 1; return Array.from({ length: 65 }, () => ({ category: 'company', value: 'Acme' })); },
+    });
+    expect(() => assessTranslationCandidateQualityV2(tokensAccessor as never)).toThrow(TypeError);
+    expect(tokenReads).toBe(0);
+
+    let itemReads = 0;
+    const protectedTokens = [{ category: 'company', value: 'Acme' }];
+    Object.defineProperty(protectedTokens, '0', {
+      enumerable: true,
+      get() { itemReads += 1; return { category: 'company', value: 'Acme' }; },
+    });
+    expect(() => assessTranslationCandidateQualityV2({ ...base, protectedTokens })).toThrow(TypeError);
+    expect(itemReads).toBe(0);
+  });
+
   it('classifies empty source terminally and empty candidate as retryable', () => {
     expect(assessTranslationCandidateQualityV2({ ...base, sourceText: '', candidateText: '' })).toMatchObject({
       status: 'rejected', retryClass: 'terminal',
@@ -319,6 +348,28 @@ describe('translation candidate quality v2', () => {
         sourceText: long(`${token} lavora.`),
         candidateText: long(candidateText),
         protectedTokens: [{ category: 'company', value: token }],
+      }))).toContain('protected_token.missing');
+    }
+    for (const ignorable of ['\u2061', '\u00ad', '\u200e', '\u2066', '\u200c', '\u{e0100}']) {
+      for (const [token, candidateText] of [
+        ['ACME', `ACME${ignorable}X lavora.`],
+        ['C++', `C++${ignorable}X lavora.`],
+      ]) {
+        expect(codes(assessTranslationCandidateQualityV2({
+          ...base,
+          sourceText: long(`${token} lavora.`),
+          candidateText: long(candidateText),
+          protectedTokens: [{ category: 'company', value: token }],
+        }))).toContain('protected_token.missing');
+      }
+    }
+    for (const candidateText of ['C+++ lavora.', 'C## lavora.', 'AT&T& lavora.', '+C++ lavora.', '#C# lavora.', '&AT&T lavora.']) {
+      const token = candidateText.includes('AT&T') ? 'AT&T' : candidateText.includes('C#') ? 'C#' : 'C++';
+      expect(codes(assessTranslationCandidateQualityV2({
+        ...base,
+        sourceText: long(`${token} lavora.`),
+        candidateText: long(candidateText),
+        protectedTokens: [{ category: 'structured', value: token }],
       }))).toContain('protected_token.missing');
     }
     expect(() => assessTranslationCandidateQualityV2({

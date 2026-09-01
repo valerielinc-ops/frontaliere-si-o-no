@@ -2,8 +2,6 @@ import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { titleLooksUntranslated } from './job-locale-utils.mjs';
 import { hasConcatenatedWords, isAcceptableTranslation, isStructureFlattenedCopy } from './translation-quality.mjs';
 import {
-  assertTranslationExactKeysV2,
-  assertTranslationPlainObjectV2,
   deepFreezeTranslationV2,
   digestTranslationDocumentV2,
 } from './translation-unit-identity-v2.mjs';
@@ -22,6 +20,18 @@ const MAX_PROTECTED_TOKEN_LENGTH = 512;
 // second calibration for this additive gate.
 const RELIABLE_LANGUAGE_CONFIDENCE = 0.6;
 const MAX_EVIDENCE = 8;
+
+const DEFAULT_IGNORABLE_RE = (() => {
+  try {
+    // Node's supported target implements this Unicode property. The fallback
+    // remains complete for older runtimes rather than weakening boundaries.
+    return /\p{Default_Ignorable_Code_Point}/gu;
+  } catch {
+    return /[\u00ad\u034f\u061c\u115f-\u1160\u17b4-\u17b5\u180b-\u180f\u200b-\u200f\u202a-\u202e\u2060-\u206f\u3164\ufeff\uffa0\ufff0-\ufff8\u{1bca0}-\u{1bca3}\u{1d173}-\u{1d17a}\u{e0000}-\u{e007f}\u{e0100}-\u{e01ef}]/gu;
+  }
+})();
+const PROTECTED_BOUNDARY = String.raw`[\p{L}\p{N}+&#]`;
+const PROTECTED_BOUNDARY_RE = new RegExp(PROTECTED_BOUNDARY, 'u');
 
 const URL_RE = /https?:\/\/[^\s<>"']+/giu;
 const EMAIL_RE = /(?<![\p{L}\p{N}_%+\-])([\p{L}\p{N}][\p{L}\p{N}._%+\-]*@[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?(?:\.[\p{L}\p{N}](?:[\p{L}\p{N}-]*[\p{L}\p{N}])?)+)(?![\p{L}\p{N}_%+\-])/gu;
@@ -48,6 +58,53 @@ function assertBoundedText(value, label, limit = MAX_TEXT_LENGTH) {
   }
 }
 
+function snapshotExactDataObject(value, keys, label) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) {
+    throw new TypeError(`${label} must be a plain object`);
+  }
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype !== Object.prototype && prototype !== null) {
+    throw new TypeError(`${label} must be a plain object`);
+  }
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const ownKeys = Reflect.ownKeys(descriptors);
+  if (ownKeys.length !== keys.length || ownKeys.some((key) => typeof key !== 'string' || !keys.includes(key))) {
+    throw new TypeError(`${label} has an unsupported schema`);
+  }
+  const snapshot = {};
+  for (const key of keys) {
+    const descriptor = descriptors[key];
+    if (!descriptor || !Object.hasOwn(descriptor, 'value') || descriptor.get || descriptor.set) {
+      throw new TypeError(`${label} must use data properties`);
+    }
+    snapshot[key] = descriptor.value;
+  }
+  return Object.freeze(snapshot);
+}
+
+function snapshotProtectedTokens(value) {
+  if (!Array.isArray(value)) throw new TypeError('protectedTokens must be a bounded array');
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const length = descriptors.length?.value;
+  if (!Number.isSafeInteger(length) || length < 0 || length > MAX_PROTECTED_TOKENS) {
+    throw new TypeError('protectedTokens must be a bounded array');
+  }
+  const expectedKeys = [...Array.from({ length }, (_, index) => String(index)), 'length'];
+  const ownKeys = Reflect.ownKeys(descriptors);
+  if (ownKeys.length !== expectedKeys.length || ownKeys.some((key) => typeof key !== 'string' || !expectedKeys.includes(key))) {
+    throw new TypeError('protectedTokens must be a bounded array');
+  }
+  const tokens = [];
+  for (let index = 0; index < length; index += 1) {
+    const descriptor = descriptors[index];
+    if (!descriptor || !Object.hasOwn(descriptor, 'value') || descriptor.get || descriptor.set) {
+      throw new TypeError('protectedTokens must use data properties');
+    }
+    tokens.push(snapshotExactDataObject(descriptor.value, PROTECTED_TOKEN_KEYS, 'protected token'));
+  }
+  return Object.freeze(tokens);
+}
+
 function normalizeLanguage(value, label) {
   if (typeof value !== 'string' || !LANGUAGES.has(value)) {
     throw new TypeError(`${label} must be one of it, en, de, fr`);
@@ -56,19 +113,13 @@ function normalizeLanguage(value, label) {
 }
 
 function validateInput(input) {
-  assertTranslationPlainObjectV2(input, 'translation candidate quality v2 input');
-  assertTranslationExactKeysV2(input, INPUT_KEYS, 'translation candidate quality v2 input');
-  assertBoundedText(input.sourceText, 'sourceText');
-  assertBoundedText(input.candidateText, 'candidateText');
-  const sourceLang = normalizeLanguage(input.sourceLang, 'sourceLang');
-  const targetLang = normalizeLanguage(input.targetLang, 'targetLang');
-  if (!FIELDS.has(input.field)) throw new TypeError('field must be title or description');
-  if (!Array.isArray(input.protectedTokens) || input.protectedTokens.length > MAX_PROTECTED_TOKENS) {
-    throw new TypeError('protectedTokens must be a bounded array');
-  }
-  const protectedTokens = input.protectedTokens.map((token) => {
-    assertTranslationPlainObjectV2(token, 'protected token');
-    assertTranslationExactKeysV2(token, PROTECTED_TOKEN_KEYS, 'protected token');
+  const value = snapshotExactDataObject(input, INPUT_KEYS, 'translation candidate quality v2 input');
+  assertBoundedText(value.sourceText, 'sourceText');
+  assertBoundedText(value.candidateText, 'candidateText');
+  const sourceLang = normalizeLanguage(value.sourceLang, 'sourceLang');
+  const targetLang = normalizeLanguage(value.targetLang, 'targetLang');
+  if (!FIELDS.has(value.field)) throw new TypeError('field must be title or description');
+  const protectedTokens = snapshotProtectedTokens(value.protectedTokens).map((token) => {
     if (!TOKEN_CATEGORIES.has(token.category)) throw new TypeError('protected token category is invalid');
     assertBoundedText(token.value, 'protected token value', MAX_PROTECTED_TOKEN_LENGTH);
     if (!canonicalProtectedParts(token.value).length) throw new TypeError('protected token value must contain visible tokens');
@@ -79,11 +130,11 @@ function validateInput(input) {
     throw new TypeError('protectedTokens must not contain canonical duplicates');
   }
   return Object.freeze({
-    sourceText: input.sourceText,
-    candidateText: input.candidateText,
+    sourceText: value.sourceText,
+    candidateText: value.candidateText,
     sourceLang,
     targetLang,
-    field: input.field,
+    field: value.field,
     protectedTokens: Object.freeze(protectedTokens),
   });
 }
@@ -99,7 +150,8 @@ function visibleTokens(value) {
 function canonicalProtectedText(value) {
   return value
     .normalize('NFKD')
-    .replace(/[\p{M}\u200B-\u200D\u2060\uFEFF]/gu, '')
+    .replace(/\p{M}/gu, '')
+    .replace(DEFAULT_IGNORABLE_RE, '')
     .toLocaleLowerCase('und');
 }
 
@@ -122,7 +174,7 @@ function containsProtectedToken(text, value) {
       .split(/\s+/u)
       .map((part) => part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
       .join(String.raw`\s+`);
-    return new RegExp(String.raw`(?<![\p{L}\p{N}])${exactPattern}(?![\p{L}\p{N}])`, 'u').test(canonicalText);
+    return new RegExp(String.raw`(?<!${PROTECTED_BOUNDARY})${exactPattern}(?!${PROTECTED_BOUNDARY})`, 'u').test(canonicalText);
   }
   const textParts = [...canonicalText.matchAll(/[\p{L}\p{N}]+|[+&#]+/gu)];
   const valueParts = canonicalProtectedParts(value);
@@ -131,7 +183,8 @@ function containsProtectedToken(text, value) {
     if (!valueParts.every((part, offset) => textParts[index + offset][0] === part)) continue;
     const start = textParts[index].index ?? 0;
     const end = (textParts[index + valueParts.length - 1].index ?? 0) + textParts[index + valueParts.length - 1][0].length;
-    if (!/[\p{L}\p{N}]/u.test(canonicalText[start - 1] ?? '') && !/[\p{L}\p{N}]/u.test(canonicalText[end] ?? '')) return true;
+    if (!PROTECTED_BOUNDARY_RE.test(canonicalText[start - 1] ?? '')
+        && !PROTECTED_BOUNDARY_RE.test(canonicalText[end] ?? '')) return true;
   }
   return false;
 }

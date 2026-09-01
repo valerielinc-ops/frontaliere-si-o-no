@@ -265,6 +265,30 @@ describe('translation candidate executor v2', () => {
     expect(getterCalls).toBe(0);
   });
 
+  it('snapshots the exact top-level request before reading timeout or provider fields', async () => {
+    const stub = provider();
+    const request = executorInput(input({ provider: stub.provider })) as Record<string, unknown>;
+    let timeoutReads = 0;
+    Object.defineProperty(request, 'providerTimeoutMs', {
+      enumerable: true,
+      get() { timeoutReads += 1; return 1; },
+    });
+    await expect(executeTranslationCandidateV2(request as never)).rejects.toThrow(TypeError);
+    expect(timeoutReads).toBe(0);
+    expect(stub.calls()).toBe(0);
+
+    let ownKeysCalls = 0;
+    const stable = executorInput(input());
+    const oneShotProxy = new Proxy(stable, {
+      ownKeys(target) {
+        ownKeysCalls += 1;
+        return ownKeysCalls === 1 ? Reflect.ownKeys(target) : ['providerTimeoutMs'];
+      },
+    });
+    await expect(executeTranslationCandidateV2(oneShotProxy)).resolves.toMatchObject({ status: 'validated' });
+    expect(ownKeysCalls).toBe(1);
+  });
+
   it('uses the frozen exact provider snapshot as the callable receiver', async () => {
     let receiver: unknown;
     const result = await executeTranslationCandidateV2(executorInput(input({

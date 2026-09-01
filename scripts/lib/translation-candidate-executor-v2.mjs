@@ -6,8 +6,6 @@ import {
 } from './content-addressed-translation-memory-v2.mjs';
 import { assessTranslationCandidateQualityV2 } from './translation-candidate-quality-v2.mjs';
 import {
-  assertTranslationExactKeysV2,
-  assertTranslationPlainObjectV2,
   deepFreezeTranslationV2,
   digestTranslationDocumentV2,
   normalizeTranslationVersionV2,
@@ -23,6 +21,53 @@ const QUALITY_KEYS = ['field', 'protectedTokens', 'sourceLang', 'sourceText', 't
 const DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
 const MAX_PROVIDER_OUTPUT_LENGTH = 120_000;
 const MAX_PROVIDER_TIMEOUT_MS = 300_000;
+
+function snapshotExactDataObject(value, keys, label) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) {
+    throw new TypeError(`${label} must be a plain object`);
+  }
+  const prototype = Object.getPrototypeOf(value);
+  if (prototype !== Object.prototype && prototype !== null) {
+    throw new TypeError(`${label} must be a plain object`);
+  }
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const ownKeys = Reflect.ownKeys(descriptors);
+  if (ownKeys.length !== keys.length || ownKeys.some((key) => typeof key !== 'string' || !keys.includes(key))) {
+    throw new TypeError(`${label} has an unsupported schema`);
+  }
+  const snapshot = {};
+  for (const key of keys) {
+    const descriptor = descriptors[key];
+    if (!descriptor || !Object.hasOwn(descriptor, 'value') || descriptor.get || descriptor.set) {
+      throw new TypeError(`${label} must use data properties`);
+    }
+    snapshot[key] = descriptor.value;
+  }
+  return Object.freeze(snapshot);
+}
+
+function snapshotProtectedTokens(value) {
+  if (!Array.isArray(value)) throw new TypeError('protectedTokens must be a bounded array');
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const length = descriptors.length?.value;
+  if (!Number.isSafeInteger(length) || length < 0 || length > 64) {
+    throw new TypeError('protectedTokens must be a bounded array');
+  }
+  const expectedKeys = [...Array.from({ length }, (_, index) => String(index)), 'length'];
+  const ownKeys = Reflect.ownKeys(descriptors);
+  if (ownKeys.length !== expectedKeys.length || ownKeys.some((key) => typeof key !== 'string' || !expectedKeys.includes(key))) {
+    throw new TypeError('protectedTokens must be a bounded array');
+  }
+  const tokens = [];
+  for (let index = 0; index < length; index += 1) {
+    const descriptor = descriptors[index];
+    if (!descriptor || !Object.hasOwn(descriptor, 'value') || descriptor.get || descriptor.set) {
+      throw new TypeError('protectedTokens must use data properties');
+    }
+    tokens.push(snapshotExactDataObject(descriptor.value, ['category', 'value'], 'protected token'));
+  }
+  return Object.freeze(tokens);
+}
 
 function fixedEvidence(code) {
   return Object.freeze([Object.freeze({
@@ -44,9 +89,17 @@ function outcome({ status, attemptKey, candidate = null, memory, evidence, provi
 }
 
 function validateQuality(input, identity) {
-  assertTranslationPlainObjectV2(input, 'translation candidate executor v2 quality input');
-  assertTranslationExactKeysV2(input, QUALITY_KEYS, 'translation candidate executor v2 quality input');
-  const quality = deepFreezeTranslationV2(structuredClone(input));
+  const value = snapshotExactDataObject(input, QUALITY_KEYS, 'translation candidate executor v2 quality input');
+  const quality = deepFreezeTranslationV2({
+    field: value.field,
+    protectedTokens: snapshotProtectedTokens(value.protectedTokens).map((token) => ({
+      category: token.category,
+      value: token.value,
+    })),
+    sourceLang: value.sourceLang,
+    sourceText: value.sourceText,
+    targetLang: value.targetLang,
+  });
   // Reuse the public gate's exact schema and bounds before any provider call.
   assessTranslationCandidateQualityV2({ ...quality, candidateText: quality.sourceText });
   if (
@@ -61,22 +114,12 @@ function validateQuality(input, identity) {
 }
 
 function snapshotProvider(input, engineVersion) {
-  assertTranslationPlainObjectV2(input, 'translation candidate executor v2 provider');
-  const ownKeys = Reflect.ownKeys(input);
-  if (ownKeys.length !== PROVIDER_KEYS.length || ownKeys.some((key) => typeof key !== 'string' || !PROVIDER_KEYS.includes(key))) {
-    throw new TypeError('translation candidate executor v2 provider has an unsupported schema');
-  }
-  const descriptors = Object.getOwnPropertyDescriptors(input);
-  for (const key of PROVIDER_KEYS) {
-    if (!Object.hasOwn(descriptors, key) || descriptors[key].get || descriptors[key].set) {
-      throw new TypeError('translation candidate executor v2 provider must use data properties');
-    }
-  }
+  const descriptors = snapshotExactDataObject(input, PROVIDER_KEYS, 'translation candidate executor v2 provider');
   const provider = deepFreezeTranslationV2({
-    costClass: descriptors.costClass.value,
-    engineVersion: descriptors.engineVersion.value,
-    schemaVersion: descriptors.schemaVersion.value,
-    translate: descriptors.translate.value,
+    costClass: descriptors.costClass,
+    engineVersion: descriptors.engineVersion,
+    schemaVersion: descriptors.schemaVersion,
+    translate: descriptors.translate,
   });
   if (provider.schemaVersion !== TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION
       || provider.costClass !== 'zero'
@@ -88,30 +131,29 @@ function snapshotProvider(input, engineVersion) {
 }
 
 function validateInput(input) {
-  assertTranslationPlainObjectV2(input, 'translation candidate executor v2 input');
-  assertTranslationExactKeysV2(input, INPUT_KEYS, 'translation candidate executor v2 input');
-  if (!DIGEST_PATTERN.test(input.scanDigest ?? '') || !DIGEST_PATTERN.test(input.currentScanDigest ?? '')) {
+  const value = snapshotExactDataObject(input, INPUT_KEYS, 'translation candidate executor v2 input');
+  if (!DIGEST_PATTERN.test(value.scanDigest ?? '') || !DIGEST_PATTERN.test(value.currentScanDigest ?? '')) {
     throw new TypeError('translation candidate executor v2 scan digest is invalid');
   }
-  const identity = validateTranslationUnitIdentityV2(input.identity);
-  const memory = validateTranslationMemoryV2(input.memory);
-  const engineVersion = normalizeTranslationVersionV2(input.engineVersion, 'engineVersion');
-  const gateVersion = normalizeTranslationVersionV2(input.gateVersion, 'gateVersion');
-  if (!Number.isSafeInteger(input.providerTimeoutMs) || input.providerTimeoutMs < 1 || input.providerTimeoutMs > MAX_PROVIDER_TIMEOUT_MS) {
+  const identity = validateTranslationUnitIdentityV2(value.identity);
+  const memory = validateTranslationMemoryV2(value.memory);
+  const engineVersion = normalizeTranslationVersionV2(value.engineVersion, 'engineVersion');
+  const gateVersion = normalizeTranslationVersionV2(value.gateVersion, 'gateVersion');
+  if (!Number.isSafeInteger(value.providerTimeoutMs) || value.providerTimeoutMs < 1 || value.providerTimeoutMs > MAX_PROVIDER_TIMEOUT_MS) {
     throw new TypeError('translation candidate executor v2 providerTimeoutMs is invalid');
   }
-  const provider = snapshotProvider(input.provider, engineVersion);
-  const quality = validateQuality(input.quality, identity);
+  const provider = snapshotProvider(value.provider, engineVersion);
+  const quality = validateQuality(value.quality, identity);
   return Object.freeze({
-    currentScanDigest: input.currentScanDigest,
+    currentScanDigest: value.currentScanDigest,
     engineVersion,
     gateVersion,
     identity,
     memory,
     provider,
-    providerTimeoutMs: input.providerTimeoutMs,
+    providerTimeoutMs: value.providerTimeoutMs,
     quality,
-    scanDigest: input.scanDigest,
+    scanDigest: value.scanDigest,
   });
 }
 
