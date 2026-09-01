@@ -9,9 +9,11 @@ name: Crawler Data Quality Audit (weekly, Claude)
 # UP/DOWN freshness (empty/stale runs), not semantic correctness of the JSON
 # content itself. This workflow fills that gap.
 #
-# Deliberately Claude, not a deterministic script: the defects found were subtle
-# (cross-job slug contamination, silent-drop-instead-of-redirect) and needed code
-# reading + git-history reasoning, not a fixed regex/threshold check.
+# Hybrid by construction: deterministic fleet-wide scanners build a bounded
+# evidence packet and pre-render at most five issue bodies; Claude only executes
+# the already-planned create/comment actions. The semantic defect classes remain
+# those found by the manual audit, while checkout exploration can no longer burn
+# the whole 80-turn budget before issue transport (run 33480042764).
 #
 # Deliberately NOT auto-routed to the IMMEDIATE crawler route (ISSUES.md
 # category `other` — no label/title pattern here matches issue-triage's
@@ -113,15 +115,29 @@ jobs:
             --description "Weekly Claude audit: semantic data-quality finding in data/jobs/by-crawler" \
             --force 2>/dev/null || true
 
-      # Pre-create exactly five slots (the prompt's hard cap) so Claude only
-      # needs the Edit tool. Exact-path grants avoid relying on wildcard
-      # matching and never authorize a write inside the checkout.
-      - name: Prepare scoped issue body slots
+      # Run every fleet-wide scan once, before Claude. The script also snapshots
+      # open issues, plans marker/title-based dedup and materializes each body;
+      # only the compact action packet crosses into the prompt. This makes the
+      # five-finding worst case exactly five gh mutations, not an open-ended
+      # investigation followed by permission-sensitive file editing.
+      - name: Build bounded data-quality action packet
+        id: evidence
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WINDOW_DAYS: ${{ inputs.window_days || '15' }}
         run: |
-          for n in 1 2 3 4 5; do
-            printf '%s\n' '<!-- CRAWLER_DATA_QUALITY_BODY -->' \
-              > "/tmp/crawler-data-quality-issue-${n}.md"
-          done
+          set -euo pipefail
+          gh issue list --state open --label crawler-data-quality \
+            --json number,title,body --limit 50 \
+            > /tmp/crawler-data-quality-open-issues.json
+          PACKET=$(node scripts/ci/crawler-data-quality-candidates.mjs \
+            --data-dir data/jobs/by-crawler \
+            --open-issues /tmp/crawler-data-quality-open-issues.json \
+            --output /tmp/crawler-data-quality-candidates.json \
+            --body-dir /tmp \
+            --window-days "$WINDOW_DAYS" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}")
+          printf 'packet=%s\n' "$PACKET" >> "$GITHUB_OUTPUT"
 
       - name: Setup Headroom compression proxy
         uses: ./.github/actions/setup-headroom
@@ -158,56 +174,32 @@ jobs:
           # actor (confirmed with both a human and a bot actor on the broken side).
           # Falling back to scoped --allowedTools until the upstream root cause
           # is understood.
-          # max-turns raised 40→65 after run 28790742227 hit error_max_turns
-          # without reaching a finding: 2 denied compound Bash calls (cd+redirect,
-          # xargs -I{} — Claude Code rejects compound patterns regardless of an
-          # allowlisted leading binary) plus a self-inflicted import error burned
-          # turns before any real audit work (issue #3679). Not a cost-cut lower,
-          # AGENTS.md permits raising turns for legitimate complexity.
-          # 65→80 (2026-07-17, owner): fleet-wide bump of every Claude max-turns cap.
-          # Run 33412802101 (#6787) found and opened all three real findings
-          # (#6784-#6786), but only after six denied Write calls and four denied
-          # inline/multiline Bash bodies; the workaround consumed turn 81/80 and
-          # made the workflow red after doing the useful work. Five exact-path
-          # Edit grants match the five pre-created slots above: no Write tool,
-          # no wildcard matcher and no repository file is authorized.
-          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit(//tmp/crawler-data-quality-issue-1.md),Edit(//tmp/crawler-data-quality-issue-2.md),Edit(//tmp/crawler-data-quality-issue-3.md),Edit(//tmp/crawler-data-quality-issue-4.md),Edit(//tmp/crawler-data-quality-issue-5.md)'"
+          # Keep the established 80-turn ceiling, but make it unreachable by
+          # construction in normal operation: the only tool is gh and the packet
+          # contains at most five planned actions. Run 33480042764 proved that
+          # merely fixing Edit permissions was insufficient (61 Bash, 19 Read,
+          # 6 Grep, then turn 81/80); removing git/node/read/grep/glob/edit from
+          # the Claude phase closes that exploration surface instead of blindly
+          # increasing the cap.
+          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*)'"
           prompt: |
-            Audit qualità dati crawler, settimanale. Finestra lookback: ${{ env.WINDOW_DAYS }} giorni.
+            Sei il dispatcher read-only dell'audit qualità crawler. Le scansioni,
+            la dedup e i body sono già stati prodotti deterministicamente.
 
-            **Contesto:** questo audit replica manualmente eseguito che ha prodotto la PR #3245 (7-8 difetti reali: contaminazione cross-job di `previousSlugs`, un bug che droppava invece di redirectare gli slug in un array flat, staleness di `needsTranslation`, regressioni di slug regeneration). Nessun check automatico esistente copre la correttezza SEMANTICA del contenuto JSON — `crawler-health-monitor.yml` verifica solo se un crawler produce output fresco/non-vuoto, non se il contenuto è corretto. Il tuo scopo è lo stesso identico audit, ripetuto.
+            Action packet (JSON, massimo cinque azioni):
+            ${{ steps.evidence.outputs.packet }}
 
-            **Bootstrap:**
-            1. Leggi `docs/CRAWLERS.md` (architettura crawler/translation/slug) e `AGENTS.md → ## Static SEO Pages` (contratto previousSlugs/bridge pages) SOLO per il contesto necessario — non serve tutto AGENTS.md.
-            2. `git log --since="${{ env.WINDOW_DAYS }} days ago" --oneline -- data/jobs/by-crawler/` per la finestra di commit da esaminare. Se il volume è enorme (centinaia di commit — normale coi crawler dedicati automatici), NON leggere ogni diff: campiona i commit più grandi (`git log --since="${{ env.WINDOW_DAYS }} days ago" --stat -- data/jobs/by-crawler/ | ...`) e usa gli script deterministici sotto come segnale primario invece di leggere diff a mano uno per uno.
+            Esegui le azioni in ordine, esattamente una volta ciascuna:
+            - `kind=create`: `gh issue create --title <title> --label crawler-data-quality --body-file <bodyFile>`
+            - `kind=comment`: `gh issue comment <issueNumber> --body-file <bodyFile>`
 
-            **Verifiche (stesse 5 categorie dell'audit manuale):**
-
-            1. **Slug stability / previousSlugs correctness**: esegui `node scripts/decontaminate-prev-slugs.mjs` (SENZA `--apply`, dry-run) contro `data/jobs/by-crawler/*.json` corrente. Se riporta contaminazioni (`moved > 0`) → REGRESSIONE del bug fixato in #3245: è evidenza concreta, la decontaminazione post-merge dovrebbe aver riportato tutto a 0. Ispeziona anche a campione se `previousSlugs` flat e `previousSlugsByLocale` per-locale restano coerenti tra loro (stesso schema del bug flat-array fixato dopo #3245).
-            2. **Translation system**: campiona job con `needsTranslation: true` — quanti sono più vecchi di 72h (`crawledAt`/`updatedAt`) senza traduzione risolta? Un accumulo crescente indica una pipeline di traduzione bloccata (non copiato da nessun health-check esistente).
-            3. **Crawling / merge system**: verifica a campione la correttezza del merge by-stable-id (`extractStableJobId(job.url)`, import da `scripts/lib/job-match-key.mjs` — NON da `dedicated-crawler-common.mjs`) — job duplicati con lo stesso id-stabile ma slug diversi non collassati, o entries orfane dopo un merge.
-            4. **Slug regeneration correctness**: campiona slug troncati — verifica che `truncateSlugAtWordBoundary` non abbia prodotto tronconi a metà parola o slug regenerati senza motivo (title wording minore che NON dovrebbe produrre nuovo slug, vedi `docs/CRAWLERS.md` riga 32).
-            5. **Housekeeping**: `previousSlugs`/`previousSlugsByLocale` che puntano a target inesistenti nel dataset corrente, oggetti locale vuoti, `crawledAt` molto vecchio su un job ancora marcato attivo.
-
-            **Filtro evidenza (CRITICO — no rumore):** apri un finding SOLO con evidenza concreta e citabile (comando eseguito + output, o file:riga specifici) — mai un sospetto vago. Se una categoria non produce nulla di anomalo, salta silenziosamente: NON forzare un finding per "coprire" ogni categoria.
-
-            **Dedup (prima di creare qualsiasi issue):** `gh issue list --state open --label crawler-data-quality --json number,title,body --limit 50`. Se un'issue aperta copre già lo stesso pattern (stesso script/categoria, non necessariamente stesso job) → usa uno slot body come descritto sotto e posta il commento con `gh issue comment <numero> --body-file /tmp/crawler-data-quality-issue-N.md`, includendo `🔁 Ricorrenza rilevata nel run <link run>` e la nuova evidenza, invece di aprirne una nuova.
-
-            **Se trovi evidenza NUOVA (nessun match dedup):**
-            - Per ogni finding o commento dedup (massimo 5 azioni totali), usa lo strumento **Edit** sul successivo slot pre-creato `/tmp/crawler-data-quality-issue-N.md` (N da 1 a 5) e sostituisci il marker esatto `<!-- CRAWLER_DATA_QUALITY_BODY -->` con il body multilinea. Non usare Write: gli slot esistono gia'.
-            - Per una nuova issue il body deve contenere evidenza + comando/output + file interessati + prossimo passo suggerito + link a questo run (`https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}`); poi esegui `gh issue create --title "[data-quality] <categoria>: <sintesi breve>" --label crawler-data-quality --body-file /tmp/crawler-data-quality-issue-N.md`.
-            - **MAI** passare il body inline con `--body`: i body multilinea/quotati non sono analizzabili dal permission mode unattended e nel run 33412802101 hanno bruciato turni in retry prima di raggiungere `error_max_turns`.
-            - **NON** usare i label `crawler`, `parser-broken`, o `priority:high` insieme a un titolo che contiene "crawler"/"parser" — instraderebbero l'issue nella route `agent:fix` IMMEDIATA (`issue-triage.yml`), riservata al caso production-critical/alto-volume già provato sicuro. Un giudizio LLM come questo entra comunque in auto-fix, ma dalla coda anti-starvation (`agent:fix-queued` → `other`, drenata da `followup-drainer`), non dal bypass diretto.
-            - Massimo 5 issue per run (se trovi più pattern, aggrega i correlati in una singola issue invece di aprirne 5+).
-
-            **Se non trovi nulla:** non fare nulla, log pulito, nessuna issue. Non e' un errore.
-
-            **Constraint:**
-            - Read-only sul codice/dati: NIENTE `git commit`/`push`/edit di file nel checkout. Le uniche modifiche su file ammesse sono la sostituzione del marker nei cinque slot `/tmp/crawler-data-quality-issue-N.md`, solo per passarli a `gh issue create/comment --body-file`; restano ammesse `gh issue create`/`gh issue comment` e la lettura via `gh issue list`.
-            - Non tentare fix — questo audit trova, non ripara.
-            - Incerto se qualcosa è un vero difetto → non aprire issue; se borderline ma degno di attenzione umana, apri comunque MA marca chiaramente "da verificare" nel body.
-            - Bash qui è allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`/redirect (`> file`), niente `xargs -I{}`. Un comando per invocazione, output letto via tool separato — i pattern composti vengono negati a prescindere dal binario in testa e sprecano turni (causa di #3679).
-            - Solo dopo aver completato create o dedup-comment per TUTTI i pattern supportati dall'evidenza (entro il cap di 5 azioni), termina con un riepilogo conciso: non ripetere misure gia' concluse e non tentare ulteriori workaround di scrittura.
+            Non eseguire `gh issue list`: la dedup è già incorporata nel packet.
+            Non investigare, non leggere file, non usare git/node/grep/glob/Edit/Write,
+            non modificare il checkout e non tentare fix. Non inventare azioni oltre
+            a quelle nel packet. Se `actions` è vuoto, termina senza tool call.
+            Se un comando fallisce, non cambiare forma né usare body inline: riporta
+            l'errore e termina, così il workflow resta fail-closed. Dopo tutte le
+            azioni, riepiloga solo conteggio create/comment e metriche del packet.
 
       - name: Claude usage metrics
         if: always()
