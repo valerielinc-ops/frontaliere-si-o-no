@@ -106,6 +106,83 @@ describe('translation journal v2 state machine', () => {
     expect(getTranslationJournalStateV2(replayedWithRetry, attemptKey).state).toBe('target_absent');
   });
 
+  it.each([
+    'applied',
+    'already_valid',
+    'stale_source',
+    'stale_target',
+    'target_absent',
+    'ambiguous_target',
+    'rejected_candidate',
+    'malformed_target',
+  ])('records queued -> %s as an exact reducer outcome', (outcome) => {
+    const replayed = replayTranslationJournalV2([
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
+      event(3, 'generated', 'validated', candidateId),
+      event(4, 'validated', 'queued', candidateId),
+      event(5, 'queued', outcome, candidateId),
+    ]);
+
+    expect(getTranslationJournalStateV2(replayed, attemptKey)).toEqual({
+      state: outcome,
+      candidateId,
+    });
+  });
+
+  it.each(['stale_target', 'ambiguous_target', 'malformed_target', 'applied', 'already_valid'])(
+    'requeues recoverable %s with the same candidate',
+    (outcome) => {
+      const replayed = replayTranslationJournalV2([
+        event(1, null, 'missing', null),
+        event(2, 'missing', 'generated', candidateId),
+        event(3, 'generated', 'validated', candidateId),
+        event(4, 'validated', 'queued', candidateId),
+        event(5, 'queued', outcome, candidateId),
+        event(6, outcome, 'queued', candidateId),
+      ]);
+
+      expect(getTranslationJournalStateV2(replayed, attemptKey)).toEqual({
+        state: 'queued',
+        candidateId,
+      });
+    },
+  );
+
+  it.each(['stale_source', 'rejected_candidate'])(
+    'keeps terminal %s from re-entering the queue',
+    (outcome) => {
+      const prefix = [
+        event(1, null, 'missing', null),
+        event(2, 'missing', 'generated', candidateId),
+        event(3, 'generated', 'validated', candidateId),
+        event(4, 'validated', 'queued', candidateId),
+        event(5, 'queued', outcome, candidateId),
+      ];
+      expect(() => replayTranslationJournalV2([
+        ...prefix,
+        event(6, outcome, 'queued', candidateId),
+      ])).toThrow(/illegal/);
+    },
+  );
+
+  it('rejects outcome shortcuts and candidate substitution on retry', () => {
+    expect(() => replayTranslationJournalV2([
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
+      event(3, 'generated', 'already_valid', candidateId),
+    ])).toThrow(/illegal/);
+
+    expect(() => replayTranslationJournalV2([
+      event(1, null, 'missing', null),
+      event(2, 'missing', 'generated', candidateId),
+      event(3, 'generated', 'validated', candidateId),
+      event(4, 'validated', 'queued', candidateId),
+      event(5, 'queued', 'stale_target', candidateId),
+      event(6, 'stale_target', 'queued', secondCandidateId),
+    ])).toThrow(/candidate changed/);
+  });
+
   it('rejects stale fromState, skipped validation and candidate substitution', () => {
     const missing = appendTranslationJournalEventV2(
       createEmptyTranslationJournalV2(),
