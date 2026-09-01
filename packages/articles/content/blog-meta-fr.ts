@@ -11064,6 +11064,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.title': 'Vivre à Cambiasca, travailler au Tessin : guide du frontalier',
     'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.excerpt': 'Fiscalité, permis G, coûts et procédures concrètes pour les frontaliers qui vivent à Cambiasca et travaillent dans le canton du Tessin. Ce qu\'il faut savoir.',
     'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne du Lac Lugano, paysage frontalier suisse-italien pour travailleurs frontaliers du Tessin.',
+    'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Vivre à Inverigo, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distance, fiscalité, permis G, LAMal et coûts : tout ce dont vous avez besoin avant de déménager à Inverigo en travaillant au Tessin en tant que frontalier.',
+    'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'Vue de la vallée Mendrisio-Como à la frontière Tessin-Lombardie, avec architecture alpine suisse et constructions italiennes, forêts et lac au loin.',
 };
 
 export default blogMetaFr;

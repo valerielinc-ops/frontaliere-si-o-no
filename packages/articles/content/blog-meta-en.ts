@@ -11062,6 +11062,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.title': 'Living in Cambiasca, working in Ticino: frontier guide',
     'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.excerpt': 'Taxation, G permit, costs and concrete procedures for border workers living in Cambiasca and working in the Canton of Ticino. What you need to know.',
     'blog.article.vivere-cambiasca-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Lugano and Lake Ceresio, Swiss-Italian border landscape for Ticino frontier workers.',
+    'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Living in Inverigo, working in Ticino: border guide',
+    'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distance, taxation, G permit, LAMal and costs: everything you need before moving to Inverigo working in Ticino as a border worker.',
+    'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'View of the Mendrisio-Como valley at the Ticino-Lombardy border, with Swiss Alpine and Italian architecture, forests and lake in the distance.',
 };
 
 export default blogMetaEn;
