@@ -98,7 +98,10 @@ function ownershipIdentity(job = {}) {
   const normalizedUrl = normalizeJobUrl(url);
   if (normalizedUrl) return `url:${normalizedUrl}`;
   if (job?.id) return `id:${job.id}`;
-  return job?.slug ? `slug:${job.slug}` : null;
+  if (job?.slug) {
+    throw new Error(`ownership identity reached unsafe slug fallback: ${job.slug}`);
+  }
+  return null;
 }
 
 /** Preserve every route known by `removed` on `survivor`. */
@@ -280,6 +283,17 @@ function assertOwnedTransfer(sourceJobs, result, predicate, label) {
   }
 }
 
+/** Shared-board overlaps must be fully removed even when ownership has no predicate. */
+export function assertNoOverlappingJobs(broadJobs, dedicatedJobs, label) {
+  const targetIdentities = new Set(dedicatedJobs.map(ownershipIdentity).filter(Boolean));
+  const overlaps = broadJobs
+    .map(ownershipIdentity)
+    .filter((identity) => identity && targetIdentities.has(identity));
+  if (overlaps.length > 0) {
+    throw new Error(`${label}: ${overlaps.length} shared ownership identities remain`);
+  }
+}
+
 function run({ apply = false } = {}) {
   const report = [];
 
@@ -320,6 +334,12 @@ function run({ apply = false } = {}) {
     }
     source.jobs = result.sourceJobs;
     target.jobs = result.targetJobs;
+    if (!ownerPredicate) {
+      // These boards expose the umbrella company on every record, so there is
+      // no honest owner predicate. The supplier vacancy identity is the
+      // ownership contract; assert its postcondition instead.
+      assertNoOverlappingJobs(source.jobs, target.jobs, `${item.broad}->${item.dedicated}`);
+    }
     if (apply) {
       writeSlice(source);
       writeSlice(target);
