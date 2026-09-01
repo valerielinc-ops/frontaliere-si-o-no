@@ -33,6 +33,7 @@ export const KLINIK_SCHLOSS_MAMMERN_COMPANY_DOMAIN = 'klinik-schloss-mammern.ch'
 
 const SITEMAP_URL = 'https://ksm-jobs.ch/jobs-sitemap.xml';
 const PUBLIC_CAREER_URL = 'https://ksm-jobs.ch/';
+const KSM_ORIGIN = 'https://ksm-jobs.ch';
 
 export function isKlinikSchlossMammernJob(job) {
   if (job?.companyKey === KLINIK_SCHLOSS_MAMMERN_KEY) return true;
@@ -60,6 +61,24 @@ const EVERGREEN_SLUGS = new Set([
   'talentierte-fachkraefte',
 ]);
 
+/**
+ * Fail-closed gate for KSM job URLs: HTTPS, exact `ksm-jobs.ch` origin, exact
+ * `/job/<slug>/` route. A relative path resolves against the public career
+ * site. Anything else (off-domain, non-HTTPS, wrong route) returns `null`.
+ */
+export function normalizeKsmJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), PUBLIC_CAREER_URL);
+    const isJobPath = /^\/job\/[^/]+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== KSM_ORIGIN || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
 /** Parse the AIOSEO sitemap → array of canonical job URLs. */
 export function parseJobsSitemap(xml = '') {
   const out = [];
@@ -67,8 +86,8 @@ export function parseJobsSitemap(xml = '') {
   const rx = /<loc>\s*<!\[CDATA\[([^\]]+)\]\]>\s*<\/loc>/g;
   let m;
   while ((m = rx.exec(xml))) {
-    const url = m[1].trim();
-    if (!/\/job\/[^/]+\/?$/.test(url)) continue;
+    const url = normalizeKsmJobUrl(m[1]);
+    if (!url) continue;
     if (seen.has(url)) continue;
     const slug = url.replace(/\/$/, '').split('/').pop();
     if (EVERGREEN_SLUGS.has(slug)) continue;
@@ -124,6 +143,24 @@ export function extractKsmDetail(html = '') {
   return { title, description };
 }
 
+/**
+ * Fetch and parse a single KSM detail page. Fails closed (never calls
+ * `fetchHtml`) for any URL outside `https://ksm-jobs.ch/job/<slug>/`.
+ */
+export async function fetchKsmDetailPage(detailUrl) {
+  const safeUrl = normalizeKsmJobUrl(detailUrl);
+  if (!safeUrl) return null;
+  // The sitemap emits already-decoded URLs (raw `+`, accented characters);
+  // for fetch we URL-encode the unsafe characters (only `+`, accents, etc.)
+  // *before* the URL constructor has a chance to re-encode them. We work
+  // on the validated string with a targeted encode pass.
+  const fetchUrl = safeUrl
+    .replace(/\+/g, '%2B')
+    .replace(/[ÄÖÜäöüß]/g, (c) => encodeURIComponent(c));
+  const detailHtml = await fetchHtml(fetchUrl);
+  return extractKsmDetail(detailHtml);
+}
+
 export async function fetchAllKlinikSchlossMammernJobs() {
   console.log(`🏥 Fetching ${KLINIK_SCHLOSS_MAMMERN_COMPANY_NAME} jobs`);
   console.log(`   Sitemap: ${SITEMAP_URL}`);
@@ -141,19 +178,13 @@ export async function fetchAllKlinikSchlossMammernJobs() {
   for (const detailUrl of urls) {
     let title = '';
     let description = '';
-    // The sitemap emits already-decoded URLs (raw `+`, accented characters);
-    // for fetch we URL-encode the unsafe characters (only `+`, accents, etc.)
-    // *before* the URL constructor has a chance to re-encode them. We work
-    // on the raw string with a targeted encode pass.
-    const fetchUrl = detailUrl
-      .replace(/\+/g, '%2B')
-      .replace(/[ÄÖÜäöüß]/g, (c) => encodeURIComponent(c));
     try {
-      const detailHtml = await fetchHtml(fetchUrl);
-      const d = extractKsmDetail(detailHtml);
-      title = d.title;
-      description = d.description;
-      if (description) detailHits++;
+      const d = await fetchKsmDetailPage(detailUrl);
+      if (d) {
+        title = d.title;
+        description = d.description;
+        if (description) detailHits++;
+      }
     } catch (err) {
       console.log(`     ⚠ detail fetch failed for ${detailUrl}: ${err.message}`);
     }
