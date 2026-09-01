@@ -130,6 +130,7 @@
     "https://team.lidl.ch/de/jobs/mitarbeiter-mitarbeiterin-self-checkout-und-verkauf-zuerich-701463",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-qualitaetssicherung-nachhaltigkeit-m-w-d-80-100-weinfelden-730812",
     "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-recruiting-m-w-d-80-100-weinfelden-725294",
+    "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-sortiment-m-w-d-80-100-sevaz-713245",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-40-schluein-710973",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-bern-741136",
     "https://team.lidl.ch/de/jobs/studentenjob-verkauf-m-w-d-20-60-duebendorf-701459",
@@ -225,7 +226,6 @@
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-80-duedingen-741292",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-80-zuerich-735749",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-60-chur-735659",
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-80-100-bern-696052",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-baden-702631",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-bremgarten-734274",
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-mit-schichtverantwortung-m-w-d-60-80-1-brugg-702634",
@@ -314,7 +314,7 @@
     "https://team.lidl.ch/it/jobs/ch_venditore-venditrice-con-responsabilita-del-turno-m-f-d-60-80-st.-moritz-728439"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), fetched UNFILTERED and paginated CH-wide (all 26 cantons); per-job canton inferred from the city signal.",
-  "updatedAt": "2026-09-01T00:31:09.857Z",
+  "updatedAt": "2026-09-01T07:22:15.628Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/lehrstelle-detailhandel-eba-oder-efz-kreuzlingen-727482": {
       "location": "Kreuzlingen",
@@ -2377,15 +2377,6 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-80-100-bern-696052": {
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "company": "Lidl Svizzera",
-      "companyDomain": "lidl.ch",
-      "contract": "Part-time"
-    },
     "https://team.lidl.ch/de/jobs/abpacker-m-w-d-40-60-bern-696045": {
       "location": "Bern",
       "addressLocality": "Bern",
@@ -2601,6 +2592,15 @@
       "company": "Lidl Svizzera",
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
+    },
+    "https://team.lidl.ch/de/jobs/sachbearbeiter-sachbearbeiterin-sortiment-m-w-d-80-100-sevaz-713245": {
+      "location": "Sévaz",
+      "addressLocality": "Sévaz",
+      "canton": "FR",
+      "country": "CH",
+      "company": "Lidl Svizzera",
+      "companyDomain": "lidl.ch",
+      "contract": "Full-time"
     },
     "https://team.lidl.ch/fr/jobs/gerant-adjoint-gerante-adjointe-h-f-d-80-100-payerne-663191": {
       "location": "Payerne",
