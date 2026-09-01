@@ -232,7 +232,6 @@
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern-1z5n3q",
         "kommissionierer-in-verpacker-in-e-shop-20-coop-langenthal-bern"
       ],
-      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800
     },
@@ -133312,7 +133311,7 @@
       "crawledAt": "2026-09-01T14:24:01.661Z",
       "firstSeenAt": "2026-08-01T00:47:54.682Z",
       "titleByLocale": {
-        "it": "Vorlehre im Detailhandel",
+        "it": "Formazione preliminare nel commercio al dettaglio",
         "en": "Vorlehre im Retail",
         "de": "Vorlehre im Detailhandel",
         "fr": "Vorlehre im commerce de détail"
@@ -175921,7 +175920,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-samstagsaushilfe-coop-genossenschaft-feuerthalen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-samstagsaushilfe-coop-genossenschaft-feuerthalen"
+      ]
     },
     {
       "id": "company-tfbswr",

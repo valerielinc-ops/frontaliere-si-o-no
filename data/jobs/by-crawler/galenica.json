@@ -33,7 +33,7 @@
       "titleByLocale": {
         "it": "Assistente Farmaceutico / Assistente Farmaceutica come Supplente (m/f/d)",
         "en": "Pharma Assistant as Springer (m/f/d)",
-        "de": "Pharma-Assistent / Pharma-Assistentin als Springer (w/m/d)",
+        "de": "Pharma-Assistent / Pharma-Assistentin als Springer (m/w/d)",
         "fr": "Assistant / Assistante en Pharmacie comme Remplaçant (m/f/d)"
       },
       "id": "galenica-0ae54b782e20",
@@ -69,9 +69,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -102,9 +100,9 @@
         "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Pharma-Assistent / Pharma-Assistentin (m/f/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "de": "Pharma-Assistent / Pharma-Assistentin (m/w/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (h/f/d)"
       },
       "id": "galenica-b47bd8f21daf",
@@ -121,7 +119,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -197,7 +194,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
@@ -209,8 +205,7 @@
         "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
         "galenica-galenica-ag-teamleiter-teamleiterin-operationscenter-w-m-d-bern",
         "teamleiter-teamleiterin-operationscenter-m-w-d-galenica-ag-galenica-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Data Engineer (w/m/d)",
@@ -256,7 +251,6 @@
         "galenica-galenica-ag-data-engineer-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -309,7 +303,7 @@
         "it": "Farmacista (f/h/d)",
         "en": "Pharmacien / Pharmacienne (f/h/d)",
         "de": "Apotheker/in (f/h/d)",
-        "fr": "Pharmacien / Pharmacienne (f/h/d)"
+        "fr": "Pharmacien / Pharmacien (h/f/d)"
       },
       "id": "galenica-ece491744913",
       "previousSlugs": [
@@ -339,8 +333,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Mitarbeiter / Mitarbeiterin Koordination und Administration Aussendienst (w/m/d)",
@@ -373,7 +366,7 @@
       "titleByLocale": {
         "it": "Servizio sul campo di coordinamento e amministrazione dei dipendenti (m/f/d)",
         "en": "Employee Coordination and Administration Field Service (m/f/d)",
-        "de": "Mitarbeiter / Mitarbeiterin Koordination und Administration Aussendienst (w/m/d)",
+        "de": "Mitarbeiter / Mitarbeiterin Koordination und Administration Aussendienst (m/w/d)",
         "fr": "Collaborateur/Collaboratrice Coordination et Administration Services Externes (m/f/d)"
       },
       "id": "galenica-b73b9028a1d1",
@@ -409,9 +402,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -437,14 +428,14 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
-        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
+        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
         "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
         "fr": "apotekeriste-apotetheker-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
         "it": "Apoteker / Apotekerin (m/f/d)",
         "en": "Pharmacist (m/f/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker / Apothekerin (m/w/d)",
         "fr": "Apotekériste / Apotethéker (h/f/d)"
       },
       "id": "galenica-6516edcee86c",
@@ -473,7 +464,8 @@
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
         ],
         "en": [
-          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9"
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
+          "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
         ],
         "de": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern"
@@ -487,10 +479,9 @@
       "previousSlugs": [
         "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern",
         "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nx6nk9",
-        "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+        "apotheker-apothekerin-m-w-d-galenica-ag-galenica-bern",
+        "apoteker-apotekerin-m-f-d-galenica-ag-galenica-bern"
+      ]
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -527,7 +518,6 @@
         "fr": "Apotekériste / Apotethéker (h/f/d)"
       },
       "id": "galenica-c045b9e72156",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -547,8 +537,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -579,9 +568,9 @@
         "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "it": "Pharma-Assistent / Pharma-Assistentin (m/f/d)",
         "en": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
-        "de": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
+        "de": "Pharma-Assistent / Pharma-Assistentin (m/w/d)",
         "fr": "Pharma-Assistant / Pharma-Assistant (h/f/d)"
       },
       "id": "galenica-2336e8f09b70",
@@ -596,7 +585,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -646,13 +634,12 @@
         "fr": "product-owner-digital-platform-m-w-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Product Owner Digital Platform (w/m/d)",
+        "it": "Proprietario del prodotto Piattaforma digitale (m/f/d)",
         "en": "Product Owner Digital Platform (w/m/d)",
-        "de": "Product Owner Digital Platform (w/m/d)",
-        "fr": "Product Owner Digital Platform (w/m/d)"
+        "de": "Product Owner Digitale Plattform (m/w/d)",
+        "fr": "Propriétaire du produit Plateforme numérique (h/f/d)"
       },
       "id": "galenica-f9f25e1b9941",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-product-owner-digital-platform-w-m-d-bern"
@@ -723,7 +710,7 @@
       "titleByLocale": {
         "it": "Assistente Farmaceutico / Assistente Farmaceutica nel Centro Servizi Clienti (m/f/d)",
         "en": "Pharma Assistant at the Customer Service Center (m/f/d)",
-        "de": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (w/m/d)",
+        "de": "Pharma-Assistent / Pharma-Assistentin im Kundenservicecenter (m/w/d)",
         "fr": "Assistant Pharmaceutique / Assistante Pharmaceutique au Centre de Services à la Clientèle (h/f/d)"
       },
       "id": "galenica-af80e62ec451",
@@ -747,7 +734,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
@@ -759,8 +745,7 @@
         "assistente-farmaceutico-assistente-farmaceutica-nel-centro-servizi-clienti-m-f-d-galenica-ag-galenica-bern",
         "galenica-galenica-ag-pharma-assistent-pharma-assistentin-im-kundenservicecenter-w-m-d-bern",
         "pharma-assistent-pharma-assistentin-im-kundenservicecenter-m-w-d-galenica-ag-galenica-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)",
@@ -793,7 +778,7 @@
       "titleByLocale": {
         "it": "Farmacista per la formazione continua FPH (m/f)",
         "en": "Pharmacist for FPH further training (m/f)",
-        "de": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m)",
+        "de": "Apotheker / Apothekerin für FPH-Weiterbildung (m/w)",
         "fr": "Pharmacien / Pharmacienne pour la formation continue FPH (m/f)"
       },
       "id": "galenica-c54efb2e8379",
@@ -827,9 +812,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistante en pharmacie / assistant en pharmacie (f/h/d)",
@@ -863,7 +846,7 @@
         "it": "Assistante en pharmacie / assistant en pharmacie (f/m/d)",
         "en": "Assistante en pharmacie / assistant en pharmacie (f/h/d), 50% CV La Chaux-de-Fonds",
         "de": "Assistante en pharmacie / Assistent en pharmacie (f/h/d), 50% CV La Chaux-de-Fonds",
-        "fr": "Assistante en pharmacie / assistant en pharmacie (f/h/d)"
+        "fr": "Assistant en pharmacie / Assistant en pharmacie (h/f/d)"
       },
       "id": "galenica-c6b840803913",
       "previousSlugs": [
@@ -875,7 +858,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 42500,
       "salaryMax": 59500,
       "currency": "CHF",
@@ -920,14 +902,14 @@
       "slug": "apotheker-apothekerin-m-w-d-galenica-bern",
       "slugByLocale": {
         "it": "apotheker-apothekerin-m-w-d-galenica-bern",
-        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern",
+        "en": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
         "de": "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
         "fr": "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern"
       },
       "titleByLocale": {
         "it": "Farmacista (m/f)",
         "en": "Pharmacist (m/f/d)",
-        "de": "Apotheker / Apothekerin (w/m/d)",
+        "de": "Apotheker / Apothekerin (m/w/d)",
         "fr": "Pharmacien / Pharmacienne (h/f/d)"
       },
       "id": "galenica-50ee8fb74dfa",
@@ -940,7 +922,8 @@
         "farmacista-m-f-galenica-galenica-bern-65dfc4",
         "pharmacien-pharmacienne-h-f-d-galenica-galenica-bern-65dfc4",
         "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
-        "apotheker-apothekerin-m-w-d-galenica-bern"
+        "apotheker-apothekerin-m-w-d-galenica-bern",
+        "farmacista-m-f-galenica-galenica-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -963,7 +946,8 @@
         ],
         "en": [
           "galenica-galenica-ag-apotheker-apothekerin-w-m-d-mit-fachtechnischer-verantwortung-bern",
-          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p"
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern-nx5i4p",
+          "galenica-galenica-apotheker-apothekerin-w-m-d-bern"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -985,9 +969,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "CRM Application Owner (w/m/d)",
@@ -1018,7 +1000,7 @@
         "fr": "proprietaire-de-l-application-crm-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "CRM Application Owner (w/m/d)",
+        "it": "CRM Applicazione proprietario (m/f/d)",
         "en": "CRM Application Owner (w/m/d)",
         "de": "CRM Application Owner (m/w/d)",
         "fr": "Propriétaire de l'application CRM (h/f/d)"
@@ -1051,8 +1033,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Drogistin / Drogist (w/m/d)",
@@ -1083,14 +1064,13 @@
         "fr": "drogistine-drogist-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Drogistin / Drogist (w/m/d)",
+        "it": "Drogistin / Drogist (m/f/d)",
         "en": "Drogistin / Drogist (w/m/d)",
         "de": "Drogistin / Drogistin (m/w/d)",
         "fr": "Drogistine / Drogist (h/f/d)"
       },
       "id": "galenica-54494a3ffcaa",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1142,7 +1122,7 @@
       "titleByLocale": {
         "it": "Collaboratore Verifica Fatture Mediche (m/f/d)",
         "en": "Medical Audit Employee (m/f/d)",
-        "de": "Mitarbeiter Medizinische Rechnungsprüfung (w/m/d)",
+        "de": "Mitarbeiter Medizinische Rechnungsprüfung (m/w/d)",
         "fr": "Collaborateur Vérification des Factures Médicales (h/f/n)"
       },
       "id": "galenica-c117a489a175",
@@ -1180,9 +1160,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",
@@ -1219,7 +1197,6 @@
         "fr": "Pharmacien / Pharmacienne (h/f/d)"
       },
       "id": "galenica-419cf67c6b7a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -1239,8 +1216,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Qualitätsmanager (w/m/d)",
@@ -1271,7 +1247,7 @@
         "fr": "responsable-de-la-qualite-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Qualitätsmanager (w/m/d)",
+        "it": "Qualitätsmanager (m/f/d)",
         "en": "Quality manager (m/f/d)",
         "de": "Qualitätsmanager (m/w/d)",
         "fr": "Responsable Qualité (h/f/d)"
@@ -1346,7 +1322,7 @@
         "fr": "gestionnaire-de-logiciels-et-gestionnaire-de-logiciels-principal-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
+        "it": "Software seniorentwickler/Softwareentwicklerin (m/f/d)",
         "en": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
         "de": "Senior Softwareentwickler/Softwareentwicklerin in (m/w/d)",
         "fr": "Logiciel principal mèche-mèche/logiciel mèche-mèche (h/f/d)"
@@ -1381,8 +1357,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apotheker / Apothekerin als Springer (w/m/d)",
@@ -1415,7 +1390,7 @@
       "titleByLocale": {
         "it": "Farmacista Sostituto/a (m/f/d)",
         "en": "Pharmacist as a stand-in (m/f/d)",
-        "de": "Apotheker / Apothekerin als Springer (w/m/d)",
+        "de": "Apotheker / Apothekerin als Springer (m/w/d)",
         "fr": "Pharmacien / Pharmacienne Remplaçant(e) (m/f/d)"
       },
       "id": "galenica-e4a309e256e5",
@@ -1451,9 +1426,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apotheker als Geschäftsführer / Apothekerin als Geschäftsführerin (w/m/d)",
@@ -1486,7 +1459,7 @@
       "titleByLocale": {
         "it": "Farmacista come Amministratore Delegato nel (m/f/d)",
         "en": "Pharmacist as Managing Director in (m/f/d)",
-        "de": "Apotheker als Geschäftsführer / Apothekerin als Geschäftsführerin (w/m/d)",
+        "de": "Apotheker als Geschäftsführer / Apothekerin als Geschäftsführer in (m/w/d)",
         "fr": "Apothicaire pour la gestion des Finances publiques / Apothicaire pour la Gestion des Finances Publiques (h/f/d)"
       },
       "id": "galenica-b530bd8895d7",
@@ -1544,9 +1517,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
@@ -1579,7 +1550,7 @@
       "titleByLocale": {
         "it": "Farmacista per Formazione Continua FPH (w/m/d)",
         "en": "Pharmacist for FPH further training (m/f/d)",
-        "de": "Apotheker / Apothekerin für FPH-Weiterbildung (w/m/d)",
+        "de": "Apotheker / Apothekerin für FPH-Weiterbildung (m/w/d)",
         "fr": "Pharmacien / Pharmacienne pour Formation Continue FPH (w/m/d)"
       },
       "id": "galenica-1feedbd2d5c2",
@@ -1618,9 +1589,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Automaticien / Électricien de maintenance industrielle (f/h/d)",
@@ -1654,7 +1623,7 @@
         "it": "Automatico / Elettricista di Manutenzione Industriale (f/m/d)",
         "en": "Automaticien / Électricien de maintenance industrielle (f/h/d)",
         "de": "Automatiker / Industrieelektriker (f/m/d)",
-        "fr": "Automaticien / Électricien de maintenance industrielle (f/h/d)"
+        "fr": "Automatique / Electricien de maintenance industrielle (h/f/d)"
       },
       "id": "galenica-7c391226484a",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -1690,9 +1659,7 @@
       "previousSlugs": [
         "galenica-galenica-ag-automaticien-electricien-de-maintenance-industrielle-f-h-d-bern",
         "automaticien-electricien-de-maintenance-industrielle-m-w-d-galenica-ag-galenica-bern"
-      ],
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
@@ -1725,7 +1692,7 @@
       "titleByLocale": {
         "it": "Farmacista come Sostituto/Sostituta (w/m/d)",
         "en": "Pharmacist as Deputy (m/f/d)",
-        "de": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (w/m/d)",
+        "de": "Apotheker als Stellvertretung / Apothekerin als Stellvertretung (m/w/d)",
         "fr": "Pharmacien remplaçant / Pharmacienne remplaçante (w/m/d)"
       },
       "id": "galenica-ed7c5e1f5f78",
@@ -1761,9 +1728,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Pharmacy Support (w/m/d)",
@@ -1794,13 +1759,12 @@
         "fr": "support-pharmacie-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Pharmacy Support (w/m/d)",
+        "it": "Supporto farmacia (m/f/d)",
         "en": "Pharmacy Support (w/m/d)",
-        "de": "Pharmacy Support (w/m/d)",
-        "fr": "Pharmacy Support (w/m/d)"
+        "de": "Pharmazie-Unterstützung (m/w/d)",
+        "fr": "Assistance Pharmacie (h/f/d)"
       },
       "id": "galenica-6cc860855108",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "supporto-farmacia-w-m-d-galenica-ag-galenica-bern",
@@ -1878,7 +1842,7 @@
         "it": "Addetto/a in farmacia (f/m/d)",
         "en": "Assistante en pharmacie / assistant en pharmacie, (f/h/d)",
         "de": "Pharmaassistent/in (f/m/d)",
-        "fr": "Assistante en pharmacie / assistant en pharmacie, (f/h/d)"
+        "fr": "Assistante en pharmacie / Assistante en pharmacie, (h/f/d)"
       },
       "id": "galenica-1f2952f1c6cf",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -1900,8 +1864,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistante en pharmacie (f/h/d)",
@@ -1932,10 +1895,10 @@
         "fr": "galenica-galenica-ag-assistante-en-pharmacie-f-h-d-bern"
       },
       "titleByLocale": {
-        "it": "Assistante en pharmacie (f/h/d)",
+        "it": "Assistente in farmacia (m/f/d)",
         "en": "Assistante en pharmacie (f/h/d)",
         "de": "Apothekenassistentin (m/w/d)",
-        "fr": "Assistante en pharmacie (f/h/d)"
+        "fr": "Assistante en pharmacie (h/f/d)"
       },
       "id": "galenica-c7a93f36ea3a",
       "previousSlugsByLocale": {
@@ -1974,8 +1937,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Pharma-Assistent (w/m)",
@@ -2008,7 +1970,7 @@
       "titleByLocale": {
         "it": "Assistente Farmaceutico (m/f)",
         "en": "Pharma-Assistent (w/m)",
-        "de": "Pharma-Assistent (w/m)",
+        "de": "Pharma-Assistent (m/w)",
         "fr": "Assistant(e) Pharmaceutique"
       },
       "id": "galenica-200fdb1e39ca",
@@ -2041,8 +2003,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Apotheker (w/m/d)",
@@ -2075,7 +2036,7 @@
       "titleByLocale": {
         "it": "Farmacista (m/f/n)",
         "en": "Pharmacist (m/f/d)",
-        "de": "Apotheker (w/m/d)",
+        "de": "Apotheker (m/w/d)",
         "fr": "Pharmacien (h/f/n)"
       },
       "id": "galenica-ab7b0d1e608b",
@@ -2099,7 +2060,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "farmacista-m-f-n-galenica-galenica-bern",
@@ -2111,8 +2071,7 @@
         "farmacista-m-f-n-galenica-galenica-bern",
         "galenica-galenica-apotheker-w-m-d-bern",
         "apotheker-m-w-d-galenica-bern"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Senior Agile & Product Coach (f/h/d)",
@@ -2203,7 +2162,7 @@
       "titleByLocale": {
         "it": "Farmacista (m/f) per la formazione specialistica FPH",
         "en": "Pharmacist (m/f/d) for FPH further education",
-        "de": "Apotheker / Apothekerin (w/m/d) für FPH-Weiterbildung",
+        "de": "Apotheker / Apothekerin (m/w/d) für FPH-Weiterbildung",
         "fr": "Pharmacien / Pharmacienne (m/f) pour la formation spécialisée FPH"
       },
       "id": "galenica-9dc5c829b2db",
@@ -2237,9 +2196,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Spezialist Payroll (m/w/d)",
@@ -2353,7 +2310,6 @@
       },
       "id": "galenica-37f59f07f619",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -2405,7 +2361,7 @@
       "titleByLocale": {
         "it": "Consulente Clienti Front Office Temporaneo (m/f/d)",
         "en": "Client Advisor Front Office Temporary (m/f/d)",
-        "de": "Kundenberater / Kundenberaterin Frontoffice befristet (w/m/d)",
+        "de": "Kundenberater / Kundenberaterin Frontoffice befristet (m/w/d)",
         "fr": "Conseiller client Front Office temporaire (h/f/d)"
       },
       "id": "galenica-f5087fa8764e",
@@ -2439,9 +2395,7 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Digital Commerce Content & Newsletter Manager (w/m/d)",
@@ -2472,7 +2426,7 @@
         "fr": "responsable-contenu-digital-commerce-et-newsletter-w-m-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
-        "it": "Digital Commerce Content & Newsletter Manager (w/m/d)",
+        "it": "Contenuti di commercio digitale & Newsletter Manager (m/f/d)",
         "en": "Digital Commerce Content & Newsletter Manager (w/m/d)",
         "de": "Digitaler Commerce Content & Newsletter Manager (m/w/d)",
         "fr": "Responsable Contenu Digital Commerce et Newsletter (w/m/d)"
@@ -2490,7 +2444,6 @@
         "galenica-galenica-ag-digital-commerce-content-newsletter-manager-w-m-d-bern"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 115000,
       "salaryMax": 160000,
       "currency": "CHF",
@@ -2672,7 +2625,6 @@
         "fr": "Assistante en pharmacie CFC"
       },
       "id": "galenica-6adce3446041",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2690,8 +2642,7 @@
       },
       "addressLocality": "Thônex-Genève",
       "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -2935,7 +2886,6 @@
         "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-63dd406e2ce7",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2979,8 +2929,7 @@
         "pharmaassistent-in-afc-amavita-galenica-geneve",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
         "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -3684,7 +3633,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -4130,7 +4078,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -4184,18 +4131,19 @@
         "fr": "Assistant(e) de pharmacie AFC"
       },
       "id": "galenica-019b0922d394",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+          "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-neuchatel",
-        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t"
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc15t",
+        "galenica-amavita-assistente-di-farmacia-afc-neuchatel-1nc0e3"
       ],
       "salaryMin": 86000,
       "salaryMax": 120000,
@@ -4214,8 +4162,7 @@
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -4463,7 +4410,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -4663,7 +4609,6 @@
           "galenica-coop-vitality-assistente-di-farmacia-afc-bern-1nbzq2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -4683,8 +4628,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -5894,18 +5838,19 @@
         "fr": "Assistant/e en Pharmacie AFC"
       },
       "id": "galenica-a708b665900f",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
+          "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-fribourg",
-        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143"
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc143",
+        "galenica-amavita-assistente-di-farmacia-afc-fribourg-1nc0d9"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -5924,8 +5869,7 @@
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6382,9 +6326,7 @@
       },
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -6634,7 +6576,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -7685,7 +7626,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -8380,7 +8320,6 @@
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -8808,7 +8747,6 @@
         "fr": "Assistant en pharmacie CFC"
       },
       "id": "galenica-616b5c735b43",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -8841,8 +8779,7 @@
         "galenica-amavita-assistente-di-farmacia-afc-chur-1nc1s5",
         "galenica-amavita-assistente-di-farmacia-afc-chur-1nc0f0",
         "apothekenassistent-afc-amavita-galenica-chur"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -9618,7 +9555,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -9875,7 +9811,7 @@
         "fr": "droghiere-a-afc-amavita-galenica-tavannes"
       },
       "titleByLocale": {
-        "it": "Droghiere/a AFC",
+        "it": "Droghiere/AFC",
         "en": "Droghiere/a AFC",
         "de": "Droghiere/a AFC Amavita",
         "fr": "Droghiere/a AFC Amavita"
@@ -9899,7 +9835,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -10078,7 +10013,6 @@
         "fr": "Assistante de pharmacie AFC"
       },
       "id": "galenica-25082493d1d6",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -10106,8 +10040,7 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbyxo",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-monthey-1nbzmj"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -10371,7 +10304,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -10516,7 +10448,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -11152,7 +11083,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -11206,7 +11136,6 @@
         "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-453a2b29bdfd",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "galenica-coop-vitality-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-kriens"
@@ -11236,8 +11165,7 @@
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -11960,7 +11888,6 @@
         "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-5048d0d32c80",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thun",
@@ -11997,8 +11924,7 @@
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12374,7 +12300,6 @@
         "fr": "Assistante de pharmacie AFC"
       },
       "id": "galenica-0b43bf70c4af",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "galenica-sun-store-apotheke-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bulle"
@@ -12404,8 +12329,7 @@
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12538,8 +12462,7 @@
       },
       "addressLocality": "Davos Dorf",
       "addressRegion": "GR",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -12856,7 +12779,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -12922,7 +12844,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13231,14 +13152,16 @@
       "id": "galenica-c56697c729cc",
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs"
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc10h"
       ],
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs"
+          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc10h"
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
@@ -13857,7 +13780,7 @@
         "fr": "galenica-galenica-ag-operateur-operatrice-en-informatique-cfc-bern"
       },
       "titleByLocale": {
-        "it": "Operatore/trice informatico/a AFC",
+        "it": "Operatore/trice informatica/a AFC",
         "en": "Operatore/trice informatico/a AFC",
         "de": "Informatiker/in AFC",
         "fr": "Opérateur/trice informatique AFC"
@@ -13895,8 +13818,7 @@
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -14857,7 +14779,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-2ab2e0a25ceb",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -14875,8 +14796,7 @@
       },
       "addressLocality": "Sierre",
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -15956,7 +15876,6 @@
         "fr": "Assistant(e) de pharmacie AFC"
       },
       "id": "galenica-f31036d027b4",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15977,13 +15896,16 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn"
-      ],
-      "retranslationAttempts": 1
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16020,7 +15942,6 @@
         "fr": "Assistante di farmacia AFC"
       },
       "id": "galenica-6b68917d1381",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-st-moritz"
@@ -16052,8 +15973,7 @@
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16090,7 +16010,6 @@
         "fr": "Assistant/e en pharmacie AFC"
       },
       "id": "galenica-87491e77d88c",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -16123,8 +16042,7 @@
         "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0gq",
         "apothekenassistent-afc-amavita-galenica-bulach",
         "galenica-amavita-assistente-di-farmacia-afc-bulach-1nc0d6"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16161,7 +16079,6 @@
         "fr": "Assistant/e de pharmacie AFC"
       },
       "id": "galenica-391e096b87b7",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -16182,13 +16099,14 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
-      ],
-      "retranslationAttempts": 1
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16225,7 +16143,6 @@
         "fr": "Assistante di farmacia AFC"
       },
       "id": "galenica-ccc38c8491aa",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -16253,8 +16170,7 @@
       "previousSlugs": [
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
         "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16291,7 +16207,6 @@
         "fr": "Assistant en pharmacie AFC"
       },
       "id": "galenica-b6d7fbd2bf6d",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -16324,8 +16239,7 @@
           "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
           "pharma-assistent-in-efz-amavita-galenica-bern"
         ]
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16362,7 +16276,6 @@
         "fr": "Assistant/e en pharmacie CFC"
       },
       "id": "galenica-a7697b083d87",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -16380,8 +16293,7 @@
       "addressLocality": "Urtenen - Schönbühl BE",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-04-13T21:44:00.314Z"
     },
     {
       "title": "IT Process Manager (f/h/d)",
@@ -16414,11 +16326,10 @@
       "titleByLocale": {
         "it": "IT Process Manager (f/m/d)",
         "en": "IT Process Manager (f/h/d)",
-        "de": "IT Process Manager (f/h/d)",
-        "fr": "IT Process Manager (f/h/d)"
+        "de": "IT Prozessmanager (m/w/d)",
+        "fr": "Gestionnaire de processus informatique (h/f/d)"
       },
       "id": "galenica-f88c789009f6",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
@@ -16493,7 +16404,20 @@
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1nc1sx",
+          "apotheken-assistent-in-afc-amavita-galenica-biel-bienne"
+        ],
+        "de": [
+          "apotheken-assistent-in-afc-amavita-galenica-biel-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1nc1sx",
+        "apotheken-assistent-in-afc-amavita-galenica-biel-bienne"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16548,7 +16472,20 @@
       "addressLocality": "Spiez",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-spiez-1nc17h",
+          "pharma-assistent-in-afc-amavita-galenica-spiez"
+        ],
+        "de": [
+          "pharma-assistent-in-afc-amavita-galenica-spiez"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-spiez-1nc17h",
+        "pharma-assistent-in-afc-amavita-galenica-spiez"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16666,7 +16603,15 @@
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc17g"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc17g"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16721,7 +16666,19 @@
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16776,7 +16733,19 @@
       "addressLocality": "Le Landeron",
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-le-landeron-1nc0fz",
+          "galenica-amavita-assistente-di-farmacia-afc-le-landeron-18dnc9",
+          "pharmaassistent-in-efz-amavita-galenica-le-landeron"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-le-landeron-1nc0fz",
+        "galenica-amavita-assistente-di-farmacia-afc-le-landeron-18dnc9",
+        "pharmaassistent-in-efz-amavita-galenica-le-landeron"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -16872,10 +16841,14 @@
       "previousSlugsByLocale": {
         "de": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen"
+        ],
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen"
+        "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
+        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -16949,7 +16922,21 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -17004,7 +16991,20 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc091",
+          "pharma-assistent-efz-coop-vitality-galenica-zurich"
+        ],
+        "de": [
+          "pharma-assistent-efz-coop-vitality-galenica-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-coop-vitality-assistente-di-farmacia-afc-zurich-1nc091",
+        "pharma-assistent-efz-coop-vitality-galenica-zurich"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -17059,7 +17059,15 @@
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-delemont-1nc0ey"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-delemont-1nc0ey"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -17169,7 +17177,15 @@
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -17224,7 +17240,15 @@
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -17334,7 +17358,20 @@
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
+          "apothekenassistent-afc-amavita-galenica-pratteln"
+        ],
+        "de": [
+          "apothekenassistent-afc-amavita-galenica-pratteln"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-pratteln-1nc0gt",
+        "apothekenassistent-afc-amavita-galenica-pratteln"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
@@ -17389,7 +17426,17 @@
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z"
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
+          "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
+        ]
+      },
+      "previousSlugs": [
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc0e4",
+        "galenica-amavita-assistente-di-farmacia-afc-luzern-1nc1tq"
+      ]
     },
     {
       "title": "Assistente di farmacia AFC",
