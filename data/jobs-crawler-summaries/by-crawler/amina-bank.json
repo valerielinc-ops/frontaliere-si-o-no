@@ -1,7 +1,7 @@
 {
   "key": "amina-bank",
   "label": "AMINA Bank",
-  "generatedAt": "2026-09-01T01:28:33.214Z",
+  "generatedAt": "2026-09-01T04:35:37.001Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,11 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 320036,
-  "avgDurationMs": 320036,
+  "durationMs": 3439,
+  "avgDurationMs": 3439,
   "durationHistory": [
-    3460,
-    320036
+    3439
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +28,7 @@
       "url": "https://amina.jobs.personio.com/job/2752820",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:23:14.012Z",
+      "crawledAt": "2026-09-01T04:35:34.603Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -43,7 +42,6 @@
       "featured": false,
       "postedDate": "2026-08-13",
       "applyUrl": "https://amina.jobs.personio.com/job/2752820",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-13T10:35:16.318Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -65,7 +63,7 @@
       "url": "https://amina.jobs.personio.com/job/2558847",
       "source": "AMINA Bank Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T01:23:14.011Z",
+      "crawledAt": "2026-09-01T04:35:34.601Z",
       "addressLocality": "Zug",
       "postalCode": "6300",
       "addressCountry": "CH",
@@ -79,7 +77,6 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://amina.jobs.personio.com/job/2558847",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:21:14.959Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
