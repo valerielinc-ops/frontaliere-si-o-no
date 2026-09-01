@@ -317,6 +317,29 @@ describe('crawler generation dispatch protocol', () => {
     expect(request).toHaveBeenCalledTimes(1);
   });
 
+  it('runs the real cleanup-ref CLI path without requiring GITHUB_OUTPUT or checkpoint arguments', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) => {
+      if (init?.method === 'GET') return new Response(JSON.stringify({
+        ref: `refs/heads/${dispatchRef}`,
+        object: { type: 'commit', sha: corpusCodeCommit },
+      }), { status: 200 });
+      expect(String(input)).toContain(`/git/refs/heads/${dispatchRef}`);
+      expect(init?.method).toBe('DELETE');
+      return new Response(null, { status: 204 });
+    });
+    vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+
+    await expect(runCrawlerGenerationDispatchCli([
+      'cleanup-ref',
+      '--generation-token', generationToken,
+      '--corpus-code-commit', corpusCodeCommit,
+    ], {
+      GITHUB_API_URL: 'https://api.github.test',
+      GITHUB_PAT_NANAKO: 'test-token',
+    })).resolves.toEqual({ status: 'deleted', dispatchRef });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
   it('reaps only exact stale terminal owners and preserves active, young, malformed or changed refs', async () => {
     const now = Date.parse('2026-09-01T12:00:00.000Z');
     const tokens = [

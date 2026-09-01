@@ -732,7 +732,7 @@ export async function runPreflight({ request, contractPath, observerPath, sleep 
 
 function parseArguments(argv) {
   const mode = argv[0];
-  if (!['preflight', 'dispatch-groups', 'dispatch-sentinel'].includes(mode)) {
+  if (!['preflight', 'dispatch-groups', 'dispatch-sentinel', 'cleanup-ref'].includes(mode)) {
     throw new TypeError('Invalid crawler generation dispatch mode');
   }
   const values = {};
