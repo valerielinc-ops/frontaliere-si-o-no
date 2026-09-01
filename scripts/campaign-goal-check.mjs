@@ -126,6 +126,29 @@ async function evalAlertFunnelConversion() {
   };
 }
 
+// GA4 fallback for #4298, used only when the PostHog vitality guard says the
+// primary source is dead (2026-08-25 owner decision, issue #6463: fall back
+// to GA4 instead of leaving the goal `unmeasurable` for the whole duration
+// of an outage). job_alert_cta_shown and job_alert_created are mirrored to
+// GA4 verbatim by Analytics.log() (services/analytics.ts — the same call
+// fires both posthogCapture() and the Firebase/GA4 log), so counting by
+// eventName is a faithful substitute for the PostHog countIf(). #4304's
+// native $dead_click (PostHog-only autocapture) and #4307's session-scoped
+// funnel have no GA4 equivalent and are not given a fallback — see GOALS.
+async function evalAlertFunnelConversionGa4() {
+  const token = await getGoogleAccessToken();
+  const counts = await ga4EventCountByName(token, ['job_alert_cta_shown', 'job_alert_created'], 14);
+  const shownN = counts.get('job_alert_cta_shown') || 0;
+  const createdN = counts.get('job_alert_created') || 0;
+  const rate = shownN > 0 ? createdN / shownN : null;
+  return {
+    passed: rate !== null && rate >= 0.05,
+    value: { rate, created: createdN, shown: shownN },
+    targetDescription: '>= 5% (job_alert_created / job_alert_cta_shown, 14gg, fallback GA4)',
+    detail: `${createdN}/${shownN} = ${fmtPct(rate)} [GA4 fallback — PostHog non misurabile]`,
+  };
+}
+
 // #4304 — PostHog's native $dead_click, 14d, target < 5,991 (baseline 25,675
 // at 30d, -50% target reproportioned to the 14d maturation window: 25675 *
 // 14/30 * 0.5 ≈ 5,991). Note: a separate custom `dead_click` event also
@@ -182,6 +205,37 @@ async function evalErrorRate() {
     value: { rate, errorPersons: ep, pageviewPersons: pv },
     targetDescription: '< 1% (persone con app_error|exception|$exception / persone con $pageview, 30gg)',
     detail: `${ep}/${pv} = ${fmtPct(rate)} (nota: nessuno dei 3 event type porta il tag ad_blocker, solo resource_load_error — tolleranza rumore ad-blocker non filtrabile accettata)`,
+  };
+}
+
+// GA4 fallback for #4304's error-rate goal (same 2026-08-25 decision as
+// above, issue #6463). app_error and exception are mirrored to GA4 by
+// Analytics.log() like the funnel events above; PostHog's native $exception
+// has no GA4 equivalent, so this fallback's numerator is narrower than the
+// primary query — disclosed in the detail string, not hidden. page_view is
+// GA4's own automatically-collected pageview event, the direct analogue of
+// PostHog's $pageview.
+async function evalErrorRateGa4() {
+  const token = await getGoogleAccessToken();
+  const [errorUsers, pageviewUsers] = await Promise.all([
+    ga4DistinctUsersForEvents(token, ['app_error', 'exception'], 30),
+    ga4DistinctUsersForEvents(token, ['page_view'], 30),
+  ]);
+  const rate = pageviewUsers > 0 ? errorUsers / pageviewUsers : null;
+  if (rate === null) {
+    return {
+      passed: false,
+      unmeasurable: true,
+      value: { rate: null, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
+      targetDescription: '< 1% (persone con errori / persone con page_view, 30gg, fallback GA4)',
+      detail: 'risposta GA4 vuota (0 pageview users) — riprovo al prossimo run',
+    };
+  }
+  return {
+    passed: rate < 0.01,
+    value: { rate, errorPersons: errorUsers, pageviewPersons: pageviewUsers },
+    targetDescription: '< 1% (persone con app_error|exception / persone con page_view, 30gg, fallback GA4)',
+    detail: `${errorUsers}/${pageviewUsers} = ${fmtPct(rate)} [GA4 fallback — PostHog non misurabile; non include $exception nativo PostHog, nessun equivalente GA4]`,
   };
 }
 
@@ -425,6 +479,62 @@ async function ga4SessionsByChannelGroup(token, channelGroupExact, windowDays) {
   return (data.rows || []).reduce((sum, r) => sum + Number(r.metricValues?.[0]?.value || 0), 0);
 }
 
+// Shared GA4 runReport POST for the fallback goals above — same 2-day lag
+// rationale as ga4SessionsByChannelGroup (PR #4362).
+async function ga4RunReport(token, { dimensions = [], metrics, dimensionFilter, windowDays, lagDays = 2 }) {
+  const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
+  const end = new Date();
+  end.setUTCDate(end.getUTCDate() - lagDays);
+  const start = new Date(end);
+  start.setUTCDate(start.getUTCDate() - windowDays);
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      dateRanges: [{ startDate: fmt(start), endDate: fmt(end) }],
+      dimensions,
+      metrics: metrics.map((name) => ({ name })),
+      ...(dimensionFilter ? { dimensionFilter } : {}),
+    }),
+  });
+  if (!res.ok) throw new Error(`GA4 ${res.status}: ${(await res.text()).slice(0, 300)}`);
+  return res.json();
+}
+
+function ga4EventNameFilter(eventNames) {
+  return { filter: { fieldName: 'eventName', inListFilter: { values: eventNames } } };
+}
+
+/** Per-eventName counts (eventCount) — the alert-funnel GA4 fallback needs
+ * the two event counts kept separate. */
+async function ga4EventCountByName(token, eventNames, windowDays) {
+  const data = await ga4RunReport(token, {
+    dimensions: [{ name: 'eventName' }],
+    metrics: ['eventCount'],
+    dimensionFilter: ga4EventNameFilter(eventNames),
+    windowDays,
+  });
+  const perEvent = new Map();
+  for (const r of data.rows || []) {
+    perEvent.set(r.dimensionValues?.[0]?.value, Number(r.metricValues?.[0]?.value || 0));
+  }
+  return perEvent;
+}
+
+/** Distinct users touching ANY of the given events, aggregated with no
+ * per-event breakdown dimension so a user firing two of the events is
+ * counted once — the error-rate GA4 fallback needs a person-level ratio. */
+async function ga4DistinctUsersForEvents(token, eventNames, windowDays) {
+  const data = await ga4RunReport(token, {
+    dimensions: [],
+    metrics: ['totalUsers'],
+    dimensionFilter: ga4EventNameFilter(eventNames),
+    windowDays,
+  });
+  return Number(data.rows?.[0]?.metricValues?.[0]?.value || 0);
+}
+
 // #4299 — sessions via GA4's built-in "Email" channel group, 90d, target >= 7,350.
 async function evalEmailSessions() {
   const token = await getGoogleAccessToken();
@@ -493,9 +603,9 @@ async function evalBingClicks() {
 // ---------------------------------------------------------------------------
 
 export const GOALS = [
-  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversion },
+  { id: 'alert_funnel_conversion', title: 'Alert funnel conversion (shown→created)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4298', evaluate: evalAlertFunnelConversion, ga4Fallback: evalAlertFunnelConversionGa4 },
   { id: 'dead_clicks_reduction', title: 'Dead click $dead_click -50% (14gg)', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#4304', evaluate: evalDeadClicksReduction },
-  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRate },
+  { id: 'error_rate', title: 'Error rate < 1% (30gg)', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4304', evaluate: evalErrorRate, ga4Fallback: evalErrorRateGa4 },
   { id: 'calc_deeplink_input_start', title: 'Calcolatore deep-link → input start >= 25%', source: 'posthog', windowDays: 30, matureAfterDays: 30, issueRef: '#4307', evaluate: evalCalcDeeplinkInputStart },
   { id: 'canton_hub_positions', title: 'Hub cantonali: svizzera<20 E zurigo<14', source: 'gsc', matureAfterDays: 30, issueRef: '#4303', evaluate: evalCantonHubPositions },
   { id: 'brand_query_ctr', title: 'CTR query brand > 2%', source: 'gsc', matureAfterDays: 30, issueRef: '#4306', evaluate: evalBrandQueryCtr },
@@ -627,22 +737,33 @@ export async function runCampaignGoalCheck({
     }
 
     // action === 'evaluate'
+    let evaluate = goal.evaluate;
+    let statSource = goal.source;
     if (goal.source === 'posthog') {
       const dead = await posthogNotMeasurable(goal.windowDays);
       if (dead) {
-        const note = `sorgente non misurabile: ${dead.reason}`;
-        state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
-        results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
-        continue;
+        if (typeof goal.ga4Fallback !== 'function') {
+          const note = `sorgente non misurabile: ${dead.reason}`;
+          state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note };
+          results.push({ id: goal.id, state: 'unmeasurable', detail: note, matureAt });
+          continue;
+        }
+        // GA4 fallback (2026-08-25 owner decision, issue #6463): keep
+        // evaluating instead of going permanently unmeasurable for the
+        // outage's whole duration. Bucketed under its own source key so a
+        // fallback success never masks PostHog itself still being dead in
+        // `deadSources`.
+        evaluate = goal.ga4Fallback;
+        statSource = `${goal.source}-ga4-fallback`;
       }
     }
 
-    const stat = sourceStats.get(goal.source) || { attempted: 0, errored: 0 };
+    const stat = sourceStats.get(statSource) || { attempted: 0, errored: 0 };
     stat.attempted += 1;
-    sourceStats.set(goal.source, stat);
+    sourceStats.set(statSource, stat);
 
     try {
-      const outcome = await goal.evaluate();
+      const outcome = await evaluate();
 
       if (outcome.unmeasurable) {
         state.goals[goal.id] = { ...prior, ...base, state: 'unmeasurable', lastCheckAt: now.toISOString(), note: outcome.note };

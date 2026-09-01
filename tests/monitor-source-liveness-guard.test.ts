@@ -326,7 +326,16 @@ describe('campaign-goal-check abstains on a dead source', () => {
     const posthogGoals = results.filter((r: { id: string }) =>
       ['alert_funnel_conversion', 'dead_clicks_reduction', 'error_rate', 'calc_deeplink_input_start'].includes(r.id));
     expect(posthogGoals.length).toBe(4);
-    for (const g of posthogGoals) {
+    // `alert_funnel_conversion` and `error_rate` declare a GA4 fallback
+    // (#6463): when PostHog is dead they legitimately compute a real
+    // verdict off GA4 instead, so any state is acceptable for them here.
+    // `dead_clicks_reduction` and `calc_deeplink_input_start` have no GA4
+    // equivalent (PostHog-native $dead_click autocapture, and a
+    // session-scoped multi-event funnel join) and must still never produce
+    // a pass/fail verdict computed off the dead PostHog source.
+    const noFallback = posthogGoals.filter((g: { id: string }) =>
+      ['dead_clicks_reduction', 'calc_deeplink_input_start'].includes(g.id));
+    for (const g of noFallback) {
       // `observing` is fine (not yet mature); what must never happen is a
       // pass/fail verdict computed off the dead source.
       expect(['unmeasurable', 'observing']).toContain(g.state);
