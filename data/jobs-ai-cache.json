@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "savedAt": "2026-09-01T00:35:57.117Z",
+  "savedAt": "2026-09-01T00:45:10.821Z",
   "entries": [
     {
       "key": "8ffbd57d1f9e95c4e576f21358380d2e97ace012198e1e2601bbc9bf27f1d5ae",
@@ -247398,75 +247398,12 @@
       }
     },
     {
-      "key": "4bb8809fd6a4a2dc1624692dcd7093a51426d4b09d0a51533b24d6921219c7ec",
-      "touchedAt": 1788197488438,
-      "value": {
-        "isJob": true,
-        "confidence": 0.97,
-        "reason": "The page is a specific job posting for 'CS Transformation & Implementation Specialist' at lastminute.com, containing a concrete job title, detailed responsibilities, requirements, and application context (working model, location, contract type, team, level)."
-      }
-    },
-    {
-      "key": "58974cc3355bff23c4bde5f76ba08672d5af90a82771109376d372d696da8501",
-      "touchedAt": 1788197497550,
-      "value": {
-        "isJob": true,
-        "confidence": 97,
-        "reason": "Concrete job title (Telesales Agent – Spanish Speaking), detailed responsibilities/qualifications, location (Madrid), contract type, and application context (Apply now buttons) are present. This is a single job detail page, not a listing or generic page."
-      }
-    },
-    {
-      "key": "e8578b4587177e5c768854f3bec43e227941b09fa85be44f2fe28d36bc09bc21",
-      "touchedAt": 1788197500713,
-      "value": {
-        "isJob": true,
-        "confidence": 98,
-        "reason": "The page contains a concrete job title (Consolidation Specialist), detailed responsibilities (e.g., preparing consolidated financial statements, reconciling intercompany accounts, managing Tagetik reports), qualifications (Master's degree, 3+ years IFRS experience), and application context (Apply now button, location, contract type) specific to lastminute.com's Finance & Payments department."
-      }
-    },
-    {
       "key": "30812101f3aba01b020f2c560fbece2742ff1f56c63f4f2f5c35cfc4c84d5e34",
       "touchedAt": 1788197575502,
       "value": {
         "isJob": true,
         "confidence": 0.98,
         "reason": "Contains specific job title (Telesales Agent - Italian Speaking), detailed role description with responsibilities (customer service, sales for Italian market), explicit requirements (language skills, communication abilities, sales orientation), location (Madrid, Spain), contract type (Full-time), work schedule (36h/week, hybrid 2 office/3 remote), benefits/compensation, start date (15/09), and clear 'Apply now' call-to-action. This is a complete single job posting, not a generic careers listing."
-      }
-    },
-    {
-      "key": "fc43c78368d9145f9fa42282133bf9e80976eb6940d97963e254126244df496c",
-      "touchedAt": 1788197592143,
-      "value": {
-        "isJob": true,
-        "confidence": 99,
-        "reason": "Concrete job title (Telesales Agent – French Speaking), detailed responsibilities, requirements, and application context with location, contract type, and apply now buttons. This is a real single job detail page."
-      }
-    },
-    {
-      "key": "a6204b3442f294f2c12059924dda5d498788ec2221b57e30dba7969edca0cbb2",
-      "touchedAt": 1788197596451,
-      "value": {
-        "isJob": true,
-        "confidence": 97,
-        "reason": "Concrete job title (Accountant), detailed responsibilities, qualifications, and application context including location, contract type, selection process, and apply CTA. This is a single job detail page on the lastminute.com careers portal."
-      }
-    },
-    {
-      "key": "064a3e2bf72117b9c52b567836de180d8c7fac58cd6612628457f20783c356a7",
-      "touchedAt": 1788197605396,
-      "value": {
-        "isJob": true,
-        "confidence": 99,
-        "reason": "Concrete job title (Agent – Telesales) with detailed responsibilities (inbound/outbound calls, selling holiday packages), qualifications, location (Bengaluru), contract type, and application context (Apply now button, selection process steps)."
-      }
-    },
-    {
-      "key": "76586e5ac4ac02c3aab497b7917e25b6c6c728ac61e372b75c872a12396ad620",
-      "touchedAt": 1788197608706,
-      "value": {
-        "isJob": true,
-        "confidence": 0.98,
-        "reason": "Concrete job title (Junior Accountant), detailed responsibilities, required skills/experience, location (Bengaluru, India), contract type (Full-time), department, and application button are all present, indicating a real single job detail page."
       }
     },
     {
@@ -247485,15 +247422,6 @@
         "isJob": true,
         "confidence": 0.99,
         "reason": "Concrete job title (Responsable d'équipe sinistres complexes h/f/d 80-100%), detailed responsibilities ('Ce que tu fais'), requirements ('Ce que tu apportes'), application instructions, contact person, and location/work model details are all present."
-      }
-    },
-    {
-      "key": "30dbbe11b3a0ee4985c7aba490d745a660512337c096eb95e276023502ef83c3",
-      "touchedAt": 1788197644086,
-      "value": {
-        "isJob": true,
-        "confidence": 0.99,
-        "reason": "Concrete role title (Global Payroll & HR Systems Manager) with detailed responsibilities, requirements, qualifications, location, contract type, and application context including a selection process and 'Apply now' button."
       }
     },
     {
@@ -255345,6 +255273,87 @@
       "key": "e4d459a96a21802c18f92647de39158799232e568f8d03dc1fd8c46a788bbf96",
       "touchedAt": 1788222955840,
       "value": "Direkthilfe 60 %"
+    },
+    {
+      "key": "4bb8809fd6a4a2dc1624692dcd7093a51426d4b09d0a51533b24d6921219c7ec",
+      "touchedAt": 1788223495139,
+      "value": {
+        "isJob": true,
+        "confidence": 96,
+        "reason": "The page contains a concrete job title ('CS Transformation & Implementation Specialist'), detailed responsibilities, requirements, and application context including team, location, contract type, and working model. This is a real single job detail page."
+      }
+    },
+    {
+      "key": "58974cc3355bff23c4bde5f76ba08672d5af90a82771109376d372d696da8501",
+      "touchedAt": 1788223496431,
+      "value": {
+        "isJob": true,
+        "confidence": 97,
+        "reason": "Concrete job title (Telesales Agent – Spanish Speaking), detailed responsibilities/qualifications, location (Madrid), contract type, and application context (Apply now buttons) are present. This is a single job detail page, not a listing or generic page."
+      }
+    },
+    {
+      "key": "e8578b4587177e5c768854f3bec43e227941b09fa85be44f2fe28d36bc09bc21",
+      "touchedAt": 1788223497664,
+      "value": {
+        "isJob": true,
+        "confidence": 98,
+        "reason": "The page contains a concrete job title (Consolidation Specialist), detailed responsibilities (e.g., preparing consolidated financial statements, reconciling intercompany accounts, managing Tagetik reports), qualifications (Master's degree, 3+ years IFRS experience), and application context (Apply now button, location, contract type) specific to lastminute.com's Finance & Payments department."
+      }
+    },
+    {
+      "key": "7fb2a3af718f4060dcbe4cc031119eac01ea1972e00d4e0fa5e0c057023f95dd",
+      "touchedAt": 1788223500370,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete job title (Telesales Agent – Italian Speaking), detailed job description, qualifications, location (Madrid), contract type, and application context with 'Apply now' button are all present."
+      }
+    },
+    {
+      "key": "fc43c78368d9145f9fa42282133bf9e80976eb6940d97963e254126244df496c",
+      "touchedAt": 1788223501540,
+      "value": {
+        "isJob": true,
+        "confidence": 99,
+        "reason": "Concrete job title (Telesales Agent – French Speaking), detailed responsibilities, requirements, and application context with location, contract type, and apply now buttons. This is a real single job detail page."
+      }
+    },
+    {
+      "key": "a6204b3442f294f2c12059924dda5d498788ec2221b57e30dba7969edca0cbb2",
+      "touchedAt": 1788223504502,
+      "value": {
+        "isJob": true,
+        "confidence": 97,
+        "reason": "Concrete job title (Accountant), detailed responsibilities, qualifications, and application context including location, contract type, selection process, and apply CTA. This is a single job detail page on the lastminute.com careers portal."
+      }
+    },
+    {
+      "key": "064a3e2bf72117b9c52b567836de180d8c7fac58cd6612628457f20783c356a7",
+      "touchedAt": 1788223505913,
+      "value": {
+        "isJob": true,
+        "confidence": 99,
+        "reason": "Concrete job title (Agent – Telesales) with detailed responsibilities (inbound/outbound calls, selling holiday packages), qualifications, location (Bengaluru), contract type, and application context (Apply now button, selection process steps)."
+      }
+    },
+    {
+      "key": "76586e5ac4ac02c3aab497b7917e25b6c6c728ac61e372b75c872a12396ad620",
+      "touchedAt": 1788223507201,
+      "value": {
+        "isJob": true,
+        "confidence": 0.98,
+        "reason": "Concrete job title (Junior Accountant), detailed responsibilities, required skills/experience, location (Bengaluru, India), contract type (Full-time), department, and application button are all present, indicating a real single job detail page."
+      }
+    },
+    {
+      "key": "30dbbe11b3a0ee4985c7aba490d745a660512337c096eb95e276023502ef83c3",
+      "touchedAt": 1788223508716,
+      "value": {
+        "isJob": true,
+        "confidence": 0.99,
+        "reason": "Concrete role title (Global Payroll & HR Systems Manager) with detailed responsibilities, requirements, qualifications, location, contract type, and application context including a selection process and 'Apply now' button."
+      }
     }
   ]
 }
