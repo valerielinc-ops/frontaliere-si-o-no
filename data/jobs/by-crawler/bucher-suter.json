@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bucher-suter",
-  "assembledAt": "2026-08-31T17:35:39.434Z",
+  "assembledAt": "2026-09-01T00:48:01.354Z",
   "jobs": [
     {
       "id": "bucher-suter-e7211275b39e",
@@ -34,7 +34,7 @@
       "url": "https://www.bucher-suter.com/jobs/salesforce-business-consultant-agentforce-contact-center-service-cloud-ch/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:35:36.315Z",
+      "crawledAt": "2026-09-01T00:47:59.208Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -115,7 +115,7 @@
       "url": "https://www.bucher-suter.com/jobs/team-leader-operations-people-process-business-applications/",
       "source": "Bucher + Suter AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-31T17:35:33.186Z",
+      "crawledAt": "2026-09-01T00:47:56.877Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -237,7 +237,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salarySource": "estimated"
     },
     {
@@ -319,7 +319,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salarySource": "estimated"
     }
   ]
