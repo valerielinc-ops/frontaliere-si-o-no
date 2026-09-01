@@ -11048,6 +11048,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.origgio-tragedia-cantiere-2026.title': 'Tragedia in cantiere a Origgio: morto un uomo di 55 anni',
     'blog.article.origgio-tragedia-cantiere-2026.excerpt': 'Un uomo di 55 anni ha perso la vita in un infortunio sul lavoro a Origgio. Davide Bellotto della Fillea Cgil Varese: «Non conosciamo ancora i dettagli»',
     'blog.article.origgio-tragedia-cantiere-2026.imageAlt': 'Scene di un cantiere a Origgio dopo una tragedia sul lavoro',
+    'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: credito difficile blocca investimenti PMI Nord',
+    'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Rapporto Confapi su 2.000 PMI: 60% in difficoltà per geopolitica e credito. Impatto diretto su occupazione e salari dei frontalieri Varese-Ticino.',
+    'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Area industriale di Mendrisio al confine con la provincia di Varese, Ticino',
 };
 
 export default blogMetaIt;

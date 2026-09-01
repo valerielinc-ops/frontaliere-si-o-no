@@ -33015,6 +33015,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'confapi-pmi-varese-credito-2026',
+ category: 'pratico',
+ date: '2026-09-01T15:51:24.378Z',
+ image: '/images/blog/confapi-pmi-varese-credito-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

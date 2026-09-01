@@ -11049,6 +11049,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.origgio-tragedia-cantiere-2026.title': 'Tragédie sur le chantier d’Origgio : un homme de 55 ans est décédé',
     'blog.article.origgio-tragedia-cantiere-2026.excerpt': 'Un homme de 55 ans a perdu la vie dans un accident de travail à Origgio. Davide Bellotto de Fillea Cgil Varese : « Nous ne connaissons pas encore les détails »',
     'blog.article.origgio-tragedia-cantiere-2026.imageAlt': 'Scène d\'un chantier à Origgio après une tragédie sur le lieu de travail',
+    'blog.article.confapi-pmi-varese-credito-2026.title': 'Confapi: crédit difficile bloque investissements PMI Nord',
+    'blog.article.confapi-pmi-varese-credito-2026.excerpt': 'Rapport Confapi sur 2 000 PME : 60 % en difficulté en raison de la géopolitique et du crédit. Impact direct sur l’emploi et les salaires des travailleurs transfrontaliers de Varèse-Tessin.',
+    'blog.article.confapi-pmi-varese-credito-2026.imageAlt': 'Zone industrielle de Mendrisio à la frontière avec la province de Varèse, Tessin',
 };
 
 export default blogMetaFr;
