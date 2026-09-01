@@ -11023,6 +11023,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.valutare-simulazione-ritorno-formazione.title': 'Bewertung der Rückkehr des Trainings: 2026 Anleitung',
     'blog.article.valutare-simulazione-ritorno-formazione.excerpt': 'Wie man bewertet, ob sich eine Ausbildung lohnt: praktische Checkliste, Simulationsszenarien und Entscheidungskriterien für grenzüberschreitende Pendler im Jahr 2026.',
     'blog.article.valutare-simulazione-ritorno-formazione.imageAlt': 'Fachperson studiert Schulungsunterlagen am Schreibtisch mit Blick auf den Luganersee',
+    'blog.article.vivere-villette-frontaliere.title': 'Leben in Villette und Arbeit im Tessin als grenzüberschreitender Pendler',
+    'blog.article.vivere-villette-frontaliere.excerpt': 'Wohnen in Villette als Grenzgänger und Arbeiten im Tessin: Transport, Kosten und Steuervorteile. Leitfaden für Passagen, AHV-Regeln, G-Bewilligung und administrative Fristen.',
+    'blog.article.vivere-villette-frontaliere.imageAlt': 'Wohnstraße in einem kleinen Ort in der Provinz Como an der Grenze zum Kanton Tessin',
 };
 
 export default blogMetaDe;
