@@ -181,13 +181,24 @@ export function parseRssItems(xml = '') {
   const normalizedItems = assertRssChannelItems(parsed, { source: 'badrutts-palace' });
 
   return normalizedItems
-    .map((item, index) => ({
-      title: normalizeSpace(readOptionalRssScalar(item, 'title', index + 1)),
-      url: normalizeSpace(readOptionalRssScalar(item, 'link', index + 1)),
-      descriptionHtml: readOptionalRssScalar(item, 'description', index + 1),
-      pubDate: normalizeSpace(readOptionalRssScalar(item, 'pubDate', index + 1)),
-    }))
-    .filter((item) => item.title && item.url);
+    .map((item, index) => {
+      const itemNumber = index + 1;
+      try {
+        return {
+          title: normalizeSpace(readOptionalRssScalar(item, 'title', itemNumber)),
+          url: normalizeSpace(readOptionalRssScalar(item, 'link', itemNumber)),
+          descriptionHtml: readOptionalRssScalar(item, 'description', itemNumber),
+          pubDate: normalizeSpace(readOptionalRssScalar(item, 'pubDate', itemNumber)),
+        };
+      } catch (err) {
+        // Per-item guard: one degenerate leaf (non-scalar/repeated field) must
+        // not zero out the whole feed. Feed-shape drift (malformed XML,
+        // missing envelope) still throws above, before this map.
+        console.warn(`⚠️ Badrutt's Palace RSS item ${itemNumber} skipped: ${err?.message || err}`);
+        return null;
+      }
+    })
+    .filter((item) => item && item.title && item.url);
 }
 
 /**

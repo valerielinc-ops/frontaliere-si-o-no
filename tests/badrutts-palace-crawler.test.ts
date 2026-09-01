@@ -11,7 +11,7 @@
  *   - Job shape validation
  *   - Category detection for hotel/hospitality roles
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
   BADRUTTS_PALACE_KEY,
   BADRUTTS_PALACE_COMPANY_NAME,
@@ -249,10 +249,13 @@ describe('parseRssItems', () => {
     }],
     ['description', { description: '<description>First</description><description>Second</description>' }],
     ['pubDate', { pubDate: '<pubDate>Mon, 01 Apr 2026 12:00:00 +0000</pubDate><pubDate>Tue, 02 Apr 2026 12:00:00 +0000</pubDate>' }],
-  ])('rejects non-scalar or repeated %s leaves', (field, override) => {
-    expect(() => parseRssItems(validItem(override))).toThrow(
-      new RegExp(`${field} must be a single scalar string`),
+  ])('drops a single item with a non-scalar or repeated %s leaf instead of aborting the whole feed', (field, override) => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseRssItems(validItem(override))).toEqual([]);
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringMatching(new RegExp(`${field} must be a single scalar string`)),
     );
+    warnSpy.mockRestore();
   });
 });
 

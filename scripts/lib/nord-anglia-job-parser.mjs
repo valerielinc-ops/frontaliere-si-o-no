@@ -299,16 +299,25 @@ export function parseNordAngliaRss(xml = '') {
   }
 
   return toArray(parsed?.rss?.channel?.item).map((item, index) => {
-    if (item == null || typeof item !== 'object' || Array.isArray(item)) {
-      throw new Error(`Nord Anglia RSS item ${index + 1} must be an object`);
+    const itemNumber = index + 1;
+    try {
+      if (item == null || typeof item !== 'object' || Array.isArray(item)) {
+        throw new Error(`Nord Anglia RSS item ${itemNumber} must be an object`);
+      }
+      return {
+        title: readOptionalRssScalar(item, 'title', itemNumber),
+        link: readOptionalRssScalar(item, 'link', itemNumber),
+        description: readOptionalRssScalar(item, 'description', itemNumber),
+        pubDate: readOptionalRssScalar(item, 'pubDate', itemNumber),
+      };
+    } catch (err) {
+      // Per-item guard: one degenerate item (non-object shape, non-scalar or
+      // repeated leaf) must not zero out the whole feed. Feed-shape drift
+      // (malformed XML, missing envelope) still throws above, before this map.
+      console.warn(`⚠️ Nord Anglia RSS item ${itemNumber} skipped: ${err?.message || err}`);
+      return null;
     }
-    return {
-      title: readOptionalRssScalar(item, 'title', index + 1),
-      link: readOptionalRssScalar(item, 'link', index + 1),
-      description: readOptionalRssScalar(item, 'description', index + 1),
-      pubDate: readOptionalRssScalar(item, 'pubDate', index + 1),
-    };
-  });
+  }).filter(Boolean);
 }
 
 /**

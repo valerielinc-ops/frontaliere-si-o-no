@@ -237,9 +237,13 @@ describe('lepatron crawler parser', () => {
       )).toThrow(/unexpected channel element: job/);
     });
 
-    it('rejects partial rows instead of publishing fabricated defaults', () => {
+    it('drops a partial row instead of publishing fabricated defaults, without aborting the rest of the feed', () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
       const missingLocation = RSS_FIXTURE.replace(' (Böckten, BL)', '');
-      expect(() => parseCareersRss(missingLocation)).toThrow(/missing location, Swiss canton/);
+      const jobs = parseCareersRss(missingLocation);
+      expect(jobs.map((job) => job.title)).toEqual(['Betriebsmechaniker: in Instandhaltung, 80-100%']);
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringMatching(/missing location, Swiss canton/));
+      warnSpy.mockRestore();
     });
 
     it.each([
@@ -253,10 +257,13 @@ describe('lepatron crawler parser', () => {
       ['link', {
         link: '<link>https://careers.orior.ch/job/Boeckten-Maintenance-BL/123/</link><link>https://careers.orior.ch/job/Boeckten-Maintenance-BL/456/</link>',
       }],
-    ])('rejects non-scalar or repeated %s leaves', (field, override) => {
-      expect(() => parseCareersRss(validRssItem(override))).toThrow(
-        new RegExp(`${field} must be a single scalar string`),
+    ])('drops a single item with a non-scalar or repeated %s leaf instead of aborting the whole feed', (field, override) => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      expect(parseCareersRss(validRssItem(override))).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        expect.stringMatching(new RegExp(`${field} must be a single scalar string`)),
       );
+      warnSpy.mockRestore();
     });
 
     it.each([
