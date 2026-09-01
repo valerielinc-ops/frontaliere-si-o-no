@@ -5011,6 +5011,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Nursery and childcare in the Canton of Graubünden',
     'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Custody options, income-based fees and cantonal subsidies: a practical guide for families in Graubünden.',
     'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Modern kindergarten classroom in Switzerland with children and educators engaged in play',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Buying a house in the canton of Graubünden: mortgage, costs and procedures',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Practical guide to buying real estate in Graubünden: purchase and sale procedures, own funds required, mortgage loan sustainability, transfer taxes and notary fees.',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Modern Swiss residential property in traditional Alpine architectural style with wooden elements and landscape.',
 };
 
 export default blogMetaChEn;

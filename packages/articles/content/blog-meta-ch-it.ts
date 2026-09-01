@@ -5011,6 +5011,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-grigioni.title': 'Asilo nido e custodia bambini nel Canton Grigioni',
     'blog.article.asilo-nido-custodia-bambini-grigioni.excerpt': 'Opzioni di custodia, tariffe calcolate sul reddito e sussidi cantonali: guida pratica per famiglie nel Grigioni.',
     'blog.article.asilo-nido-custodia-bambini-grigioni.imageAlt': 'Aula di asilo nido moderno in Svizzera con bambini e educatrici intenti a giocare',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.title': 'Comprare casa nel canton Grigioni: mutuo, costi e procedure',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.excerpt': 'Guida pratica all\'acquisto immobiliare nel Grigioni: procedure di compravendita, fondi propri richiesti, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese notarili.',
+    'blog.article.acquisto-immobiliare-grigioni-mutuo.imageAlt': 'Casa residenziale moderna con architettura tradizionale svizzera in ambiente alpino del canton Grigioni.',
 };
 
 export default blogMetaChIt;

@@ -17,7 +17,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software-Engineer 80–100 %",
+        "en": "Software Engineer 80-100%",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -34,7 +34,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:42.005Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -270,7 +269,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:40.275Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -352,7 +350,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:39.843Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -450,7 +447,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:39.411Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -532,7 +528,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:38.977Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -614,7 +609,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:38.544Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -879,7 +873,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:37.227Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -942,7 +935,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT-System Engineer Betrieb 80–100 %",
+        "en": "ICT System Engineer Operation 80-100%",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -983,15 +976,37 @@
       "pensum": "100%",
       "previousSlugs": [
         "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
-        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+        "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-bern",
+        "ict-system-engineer-betrieb-80-100-abraxas-bern",
+        "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-bern",
+        "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
+        "ict-system-engineer-80-100-abraxas-bern",
+        "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern",
+        "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+        "system-engineer-devops-deutsch-80-100-abraxas-bern",
+        "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-bern",
+          "ict-system-engineer-betrieb-80-100-abraxas-bern",
+          "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-bern",
+          "ict-system-ingegnere-80-100-abraxas-informatik-ag-bern",
+          "ict-system-engineer-80-100-abraxas-bern",
+          "ict-system-ingenieur-80-100-abraxas-informatik-ag-bern",
+          "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
+          "system-engineer-devops-deutsch-80-100-abraxas-bern",
+          "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern"
         ],
         "fr": [
-          "ict-system-engineer-betrieb-80-100-abraxas-st-gallen"
+          "ict-system-engineer-betrieb-80-100-abraxas-st-gallen",
+          "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-bern"
+        ],
+        "de": [
+          "ict-system-engineer-betrieb-80-100-abraxas-bern"
         ]
       },
       "firstSeenAt": "2026-08-06T11:37:32.667Z",
@@ -1110,7 +1125,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:35.909Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1179,7 +1193,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:35.476Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1514,7 +1527,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in 80-100%",
-        "en": "Applikations-Manager:in 80–100 %",
+        "en": "Application Manager: in 80-100%",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1682,7 +1695,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-01T14:27:32.857Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
