@@ -226,7 +226,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegehelferin-pflegehelfer-srk-50-100-tertianum-dotzigen",
-        "assistente-in-srk-50-100-tertianum-dotzigen",
         "assistente-in-srk-50-80-tertianum-dotzigen",
         "pflegehelferin-pflegehelfer-srk-50-80-tertianum-dotzigen",
         "nursing-assistant-in-srk-50-80-tertianum-dotzigen",
@@ -236,7 +235,6 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegehelferin-pflegehelfer-srk-50-100-tertianum-dotzigen",
-          "assistente-in-srk-50-100-tertianum-dotzigen",
           "assistente-in-srk-50-80-tertianum-dotzigen",
           "pflegehelferin-pflegehelfer-srk-50-80-tertianum-dotzigen",
           "nursing-assistant-in-srk-50-80-tertianum-dotzigen",
@@ -344,7 +342,6 @@
       },
       "previousSlugs": [
         "kochin-koch-tertianum-bern",
-        "cuoco-cuoca-tertianum-bern",
         "cuoco-cuoca-50-70-tertianum-bern",
         "kochin-koch-50-70-tertianum-bern",
         "cuisinier-cuisiniere-50-70-tertianum-bern",
@@ -356,7 +353,6 @@
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-tertianum-bern",
-          "cuoco-cuoca-tertianum-bern",
           "cuoco-cuoca-50-70-tertianum-bern",
           "kochin-koch-50-70-tertianum-bern",
           "cuisinier-cuisiniere-50-70-tertianum-bern",
@@ -24822,9 +24818,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel",
       "slugByLocale": {
         "de": "pflegefachfrau-mann-tertianum-stadel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-im-nachtdienst-60-100-tertianum-stadel"
+        "en": "nurse-tertianum-stadel",
+        "fr": "infirmier-infirmiere-tertianum-stadel",
+        "it": "infermieristica-professionale-tertianum-stadel"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -24873,12 +24869,6 @@
           "infermieristica-professionale-tertianum-stadel",
           "dipl-infermiere-i-hf-fh-dnii-in-servizio-notturno-60-100-tertianum-stadel",
           "pflegefachfrau-mann-tertianum-stadel-mqcj0r"
-        ],
-        "en": [
-          "nurse-tertianum-stadel"
-        ],
-        "fr": [
-          "infirmier-infirmiere-tertianum-stadel"
         ]
       },
       "previousSlugs": [

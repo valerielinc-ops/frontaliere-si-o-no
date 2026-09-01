@@ -507,7 +507,7 @@
     },
     {
       "title": "Mechanical Engineer",
-      "slug": "mechanical-engineer-delvitech-mendrisio",
+      "slug": "mechanical-ingegnere-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/mechanical-engineer-2/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Mechanical%20Engineer",
       "company": "Delvitech SA",
@@ -542,8 +542,8 @@
       },
       "slugByLocale": {
         "en": "mechanical-engineer-delvitech-mendrisio",
-        "it": "mechanical-engineer-delvitech-mendrisio",
-        "de": "mechanical-engineer-delvitech-mendrisio",
+        "it": "mechanical-ingegnere-delvitech-sa-mendrisio",
+        "de": "mechanical-ingenieur-delvitech-sa-mendrisio",
         "fr": "mechanical-engineer-delvitech-mendrisio"
       },
       "contactEmail": "career@delvi.tech",
@@ -562,7 +562,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T14:18:11.305Z"
+      "firstSeenAt": "2026-09-01T14:18:11.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechanical-engineer-delvitech-mendrisio"
+        ],
+        "de": [
+          "mechanical-engineer-delvitech-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "mechanical-engineer-delvitech-mendrisio"
+      ]
     },
     {
       "title": "Software Development and Validation Engineer",
@@ -625,7 +636,7 @@
     },
     {
       "title": "Customer Support Manager",
-      "slug": "customer-support-manager-delvitech-mendrisio",
+      "slug": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
       "url": "https://legacy.delvi.tech/customer-support-manager/",
       "applyUrl": "mailto:career@delvi.tech?subject=Application%20-%20Customer%20Support%20Manager",
       "company": "Delvitech SA",
@@ -660,9 +671,9 @@
       },
       "slugByLocale": {
         "en": "customer-support-manager-delvitech-mendrisio",
-        "it": "customer-support-manager-delvitech-mendrisio",
+        "it": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
         "de": "customer-support-manager-delvitech-mendrisio",
-        "fr": "customer-support-manager-delvitech-mendrisio"
+        "fr": "gestionnaire-de-soutien-a-la-clientele-delvitech-sa-mendrisio"
       },
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-572058706020",
@@ -681,7 +692,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T14:18:11.305Z"
+      "firstSeenAt": "2026-09-01T14:18:11.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-support-manager-delvitech-mendrisio"
+        ],
+        "fr": [
+          "customer-support-manager-delvitech-mendrisio"
+        ]
+      },
+      "previousSlugs": [
+        "customer-support-manager-delvitech-mendrisio"
+      ]
     }
   ]
 }

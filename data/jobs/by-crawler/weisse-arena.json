@@ -3429,23 +3429,19 @@
           "mitarbeiter-in-reinigung-aushilfe-weisse-arena-ch",
           "collaborateur-trice-reinigung-aushilfe-weisse-arena-gruppe-laax",
           "associate-reinigung-aushilfe-weisse-arena-gruppe-laax",
-          "collaboratore-trice-reinigung-aushilfe-weisse-arena-gruppe-laax",
           "collaboratore-trice-reinigung-aushilfe-weisse-arena-gruppe-laax-6ha0ry"
         ],
         "en": [
-          "mitarbeiter-in-reinigung-aushilfe-weisse-arena-ch",
-          "associate-reinigung-aushilfe-weisse-arena-gruppe-laax"
+          "mitarbeiter-in-reinigung-aushilfe-weisse-arena-ch"
         ],
         "fr": [
-          "mitarbeiter-in-reinigung-aushilfe-weisse-arena-ch",
-          "collaborateur-trice-reinigung-aushilfe-weisse-arena-gruppe-laax"
+          "mitarbeiter-in-reinigung-aushilfe-weisse-arena-ch"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-reinigung-aushilfe-weisse-arena-ch",
         "collaborateur-trice-reinigung-aushilfe-weisse-arena-gruppe-laax",
         "associate-reinigung-aushilfe-weisse-arena-gruppe-laax",
-        "collaboratore-trice-reinigung-aushilfe-weisse-arena-gruppe-laax",
         "collaboratore-trice-reinigung-aushilfe-weisse-arena-gruppe-laax-6ha0ry"
       ],
       "salaryMin": 62000,
@@ -4026,7 +4022,7 @@
         "de": "mitarbeiter-in-lingerie-reinigung-weisse-arena-ch",
         "it": "collaboratore-trice-lingerie-reinigung-weisse-arena-gruppe-laax",
         "en": "mitarbeiter-in-lingerie-reinigung-weisse-arena-ch",
-        "fr": "mitarbeiter-in-lingerie-reinigung-weisse-arena-ch"
+        "fr": "collaborateur-trice-lingerie-reinigung-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4075,6 +4071,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-lingerie-reinigung-weisse-arena-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-lingerie-reinigung-weisse-arena-ch"
         ]
       },

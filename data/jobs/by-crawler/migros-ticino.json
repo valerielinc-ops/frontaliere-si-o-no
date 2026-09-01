@@ -369,9 +369,9 @@
       },
       "slugByLocale": {
         "it": "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell",
-        "en": "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell-a8wfh0",
+        "en": "head-of-she-safety-fresh-food-beverage-group-bischofszell",
         "de": "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell-a8wfh0",
-        "fr": "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell-a8wfh0"
+        "fr": "responsable-she-securite-fresh-food-beverage-group-bischofszell"
       },
       "requirementsByLocale": {
         "it": [],
@@ -391,6 +391,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell-a8wfh0"
+        ],
+        "en": [
+          "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell-a8wfh0"
+        ],
+        "fr": [
           "leiter-in-she-sibe-fresh-food-beverage-group-bischofszell-a8wfh0"
         ]
       },
@@ -479,9 +485,9 @@
       },
       "slugByLocale": {
         "it": "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil",
-        "en": "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil-2fjsss",
+        "en": "project-manager-engineering-in-house-bakeries-fresh-food-beverage-group-volketswil",
         "de": "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil-2fjsss",
-        "fr": "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil-2fjsss"
+        "fr": "chef-de-projets-engineering-boulangeries-internes-fresh-food-beverage-group-volketswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -501,6 +507,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil-2fjsss"
+        ],
+        "en": [
+          "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil-2fjsss"
+        ],
+        "fr": [
           "projektleiter-engineering-hausbackereien-m-w-d-fresh-food-beverage-group-volketswil-2fjsss"
         ]
       },
@@ -921,7 +933,7 @@
     },
     {
       "id": "company-11quuw",
-      "slug": "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw",
+      "slug": "camionista-cat-ce-genossenschaft-migros-aare-urtenen-schonbuhl",
       "company": "Genossenschaft Migros Aare",
       "title": "Lastwagenchauffeur*in (Kat. CE)",
       "location": "Urtenen-Schönbühl",
@@ -988,19 +1000,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw",
-        "en": "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw",
+        "it": "camionista-cat-ce-genossenschaft-migros-aare-urtenen-schonbuhl",
+        "en": "truck-driver-cat-ce-genossenschaft-migros-aare-urtenen-schonbuhl",
         "de": "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw",
-        "fr": "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw"
+        "fr": "chauffeur-routier-cat-ce-genossenschaft-migros-aare-urtenen-schonbuhl"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl"
+          "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl",
+          "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw"
+        ],
+        "en": [
+          "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw"
+        ],
+        "fr": [
+          "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw"
         ]
       },
       "previousSlugs": [
-        "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl"
+        "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl",
+        "lastwagenchauffeur-in-kat-ce-genossenschaft-migros-aare-urtenen-schonbuhl-11quuw"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1021,7 +1041,7 @@
     },
     {
       "id": "company-d7g3xq",
-      "slug": "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq",
+      "slug": "macellaio-a-genossenschaft-migros-aare-brugg",
       "company": "Genossenschaft Migros Aare",
       "title": "Metzger*in",
       "location": "Brugg",
@@ -1069,9 +1089,9 @@
       "firstSeenAt": "2026-09-01T12:22:47.270Z",
       "slugByLocale": {
         "de": "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq",
-        "it": "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq",
-        "en": "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq",
-        "fr": "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq"
+        "it": "macellaio-a-genossenschaft-migros-aare-brugg",
+        "en": "butcher-genossenschaft-migros-aare-brugg",
+        "fr": "boucher-ere-genossenschaft-migros-aare-brugg"
       },
       "titleByLocale": {
         "de": "Metzger*in",
@@ -1115,11 +1135,19 @@
       "employmentType": "FULL_TIME",
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-genossenschaft-migros-aare-brugg"
+          "metzger-in-genossenschaft-migros-aare-brugg",
+          "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq"
+        ],
+        "en": [
+          "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq"
+        ],
+        "fr": [
+          "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq"
         ]
       },
       "previousSlugs": [
-        "metzger-in-genossenschaft-migros-aare-brugg"
+        "metzger-in-genossenschaft-migros-aare-brugg",
+        "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq"
       ]
     },
     {
@@ -22797,7 +22825,6 @@
           "specialist-vendor-in-butchery-genossenschaft-migros-aare-buchs"
         ],
         "de": [
-          "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-thun-b6ga9s",
           "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-buchs-0rnol7"
         ],
         "fr": [
@@ -26657,8 +26684,7 @@
           "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t",
           "instructeur-de-fitness-f-m-d-fitnesspark-luzern",
           "fitness-instructor-m-w-d-fitnesspark-luzern",
-          "fitness-instructor-w-m-d-fitnesspark-luzern",
-          "fitness-instructor-m-w-d-activ-fitness-luzern"
+          "fitness-instructor-w-m-d-fitnesspark-luzern"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu",
@@ -26674,8 +26700,7 @@
         "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t",
         "instructeur-de-fitness-f-m-d-fitnesspark-luzern",
         "fitness-instructor-m-w-d-fitnesspark-luzern",
-        "fitness-instructor-w-m-d-fitnesspark-luzern",
-        "fitness-instructor-m-w-d-activ-fitness-luzern"
+        "fitness-instructor-w-m-d-fitnesspark-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -29647,16 +29672,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen"
+        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -38383,13 +38406,11 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
-        "fitness-instructor-m-w-d-activ-fitness-bern"
+        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
-          "fitness-instructor-m-w-d-activ-fitness-bern"
+          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
         ],
         "en": [
           "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
@@ -39690,15 +39711,7 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "previousSlugsByLocale": {
-        "it": [
-          "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-romanshorn"
-        ]
-      },
-      "previousSlugs": [
-        "fachverkaufer-in-fleisch-fisch-genossenschaft-migros-ostschweiz-romanshorn"
-      ]
+      "salaryMax": 87000
     },
     {
       "id": "company-i1e296",
@@ -43685,13 +43698,11 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-          "assistente-manager-fitness-club-activ-fitness-zofingen"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
-        "assistente-manager-fitness-club-activ-fitness-zofingen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -44138,16 +44149,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-          "fitness-instructor-m-w-d-activ-fitness-zofingen"
+          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
-        "fitness-instructor-m-w-d-activ-fitness-zofingen"
+        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -49943,16 +49952,14 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-          "fitness-instructor-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
-        "fitness-instructor-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -54768,8 +54775,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
-          "fitness-instructor-m-w-d-activ-fitness-aarau"
+          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
@@ -54777,8 +54783,7 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
-        "fitness-instructor-m-w-d-activ-fitness-aarau"
+        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -56494,8 +56499,7 @@
           "fitness-instructor-w-activ-fitness-zurich",
           "instructeur-fitness-w-m-d-activ-fitness-zurich",
           "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-          "fitness-instructor-m-w-d-activ-fitness-zurich"
+          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
         ],
         "en": [
           "fitness-instructor-w-activ-fitness-zurich"
@@ -56514,8 +56518,7 @@
         "fitness-instructor-w-activ-fitness-zurich",
         "instructeur-fitness-w-m-d-activ-fitness-zurich",
         "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
-        "fitness-instructor-m-w-d-activ-fitness-zurich"
+        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -65431,14 +65434,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-          "fitness-instructor-w-m-d-activ-fitness-kloten",
-          "fitness-instructor-m-w-d-activ-fitness-kloten"
+          "fitness-instructor-w-m-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-        "fitness-instructor-w-m-d-activ-fitness-kloten",
-        "fitness-instructor-m-w-d-activ-fitness-kloten"
+        "fitness-instructor-w-m-d-activ-fitness-kloten"
       ],
       "salarySource": "estimated",
       "salaryMin": 73500,
@@ -65764,7 +65765,6 @@
           "dipendente-del-macelleriano-genossenschaft-migros-aare-langenthal-4akl8f",
           "employee-in-metzgerei-genossenschaft-migros-aare-langenthal-4akl8f",
           "employe-de-boucherie-genossenschaft-migros-aare-langenthal-4akl8f",
-          "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
           "collaboratore-trice-in-frische-genossenschaft-migros-aare-grenchen-6lckxj",
           "fresh-department-associate-genossenschaft-migros-aare-grenchen",
           "mitarbeiter-in-frische-genossenschaft-migros-aare-grenchen-6lckxj",
@@ -65801,7 +65801,6 @@
         "dipendente-del-macelleriano-genossenschaft-migros-aare-langenthal-4akl8f",
         "employee-in-metzgerei-genossenschaft-migros-aare-langenthal-4akl8f",
         "employe-de-boucherie-genossenschaft-migros-aare-langenthal-4akl8f",
-        "capo-reparto-in-macelleria-genossenschaft-migros-aare-grenchen",
         "collaboratore-trice-in-frische-genossenschaft-migros-aare-grenchen-6lckxj",
         "fresh-department-associate-genossenschaft-migros-aare-grenchen",
         "mitarbeiter-in-frische-genossenschaft-migros-aare-grenchen-6lckxj",
@@ -74185,8 +74184,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
-          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -74202,8 +74200,7 @@
         "fitness-instructor-aushilfe-m-w-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
-        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
-        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
+        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -84052,8 +84049,7 @@
           "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen",
           "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-jmaavj",
           "professeur-minitrampoline-bellicon-en-salaire-horaire-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+          "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
           "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen"
@@ -84071,8 +84067,7 @@
         "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen",
         "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-jmaavj",
         "professeur-minitrampoline-bellicon-en-salaire-horaire-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+        "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
