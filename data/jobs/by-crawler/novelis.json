@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novelis",
-  "assembledAt": "2026-09-01T07:23:05.833Z",
+  "assembledAt": "2026-09-01T08:46:23.209Z",
   "jobs": [
     {
       "id": "novelis-a1e0b3dd23e1",
@@ -49,7 +49,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:23:03.511Z",
+      "crawledAt": "2026-09-01T08:46:20.534Z",
       "previousSlugs": [
         "plant-hr-manager-f-m-d-novelis-ch",
         "plant-risorse-umane-manager-f-m-d-novelis-sierre"
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -128,7 +129,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T07:23:02.970Z",
+      "crawledAt": "2026-09-01T08:46:19.897Z",
       "previousSlugs": [
         "mecanicien-de-maintenance-novelis-ch",
         "ingegnere-di-manutenzione-novelis-sierre"
@@ -207,7 +208,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:23:02.464Z",
+      "crawledAt": "2026-09-01T08:46:19.298Z",
       "previousSlugs": [
         "it-solutions-lead-m-w-d-novelis-ch",
         "soluzioni-it-piombo-m-w-d-novelis-ticino"
@@ -286,7 +287,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52860/internship-%28m-f-d%29-internal-communications-%2840%25-60%25%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T07:23:01.838Z",
+      "crawledAt": "2026-09-01T08:46:18.419Z",
       "previousSlugs": [
         "internship-m-f-d-internal-communications-40-60-novelis-ch",
         "internship-m-f-d-comunicazioni-interne-40-60-novelis-kusnacht"
@@ -304,6 +305,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:38:44.264Z",
+      "needsRetranslation": true,
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
