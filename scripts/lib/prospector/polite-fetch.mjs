@@ -24,8 +24,13 @@ import {
 
 /** @type {Map<string, number>} host -> timestamp of the last request */
 const lastHit = new Map();
+/** @type {Map<string, { until: number, generation: number }>} */
+const hostCooldown = new Map();
 /** @type {Map<string, Promise<{ disallow: string[], allow: string[] }>>} */
 const robotsCache = new Map();
+
+const RETRY_AFTER_CAP_MS = 60_000;
+const retryAfterHeader = Symbol('retryAfterHeader');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -33,14 +38,44 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * Wait out the per-host cooldown, then stamp the host as hit.
  * @param {string} host
  */
-async function throttle(host, sleepImpl = sleep) {
-  const now = Date.now();
+async function throttle(host, sleepImpl = sleep, nowImpl = Date.now) {
+  const now = nowImpl();
   const prev = lastHit.get(host) || 0;
-  const wait = prev + HOST_DELAY_MS - now;
+  const cooldown = hostCooldown.get(host) || { until: 0, generation: 0 };
+  const slot = Math.max(now, prev + HOST_DELAY_MS, cooldown.until);
+  const wait = slot - now;
   // Stamp BEFORE awaiting so concurrent callers on the same host queue behind
   // each other instead of all reading the same stale timestamp and firing together.
-  lastHit.set(host, Math.max(now, prev + HOST_DELAY_MS));
+  lastHit.set(host, slot);
   if (wait > 0) await sleepImpl(wait);
+  // A sibling may receive 429 while this request is already queued. Re-check
+  // only when the server cooldown changed; this preserves deterministic test
+  // transports whose sleep implementation intentionally does not advance time.
+  const latest = hostCooldown.get(host);
+  if (latest && latest.generation !== cooldown.generation && latest.until > slot) {
+    await throttle(host, sleepImpl, nowImpl);
+  }
+}
+
+function boundedRetryAfterMs(value, fallbackMs, now) {
+  const fallback = Number.isFinite(fallbackMs) ? Math.max(0, fallbackMs) : 0;
+  const raw = String(value || '').trim();
+  let requested = 0;
+  if (/^\d+$/.test(raw)) {
+    requested = Number(raw) * 1_000;
+  } else if (raw) {
+    const parsed = Date.parse(raw);
+    if (Number.isFinite(parsed) && parsed > now) requested = parsed - now;
+  }
+  return Math.min(RETRY_AFTER_CAP_MS, Math.max(fallback, requested));
+}
+
+function extendHostCooldown(host, delayMs, now) {
+  if (!host || !Number.isFinite(delayMs) || delayMs <= 0) return;
+  const previous = hostCooldown.get(host) || { until: 0, generation: 0 };
+  const until = now + delayMs;
+  if (until <= previous.until) return;
+  hostCooldown.set(host, { until, generation: previous.generation + 1 });
 }
 
 /**
@@ -154,7 +189,7 @@ class RobotsDeniedError extends Error {
  * every run into an error-handling exercise instead of a discovery run.
  *
  * @param {string} url
- * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, sleepImpl?: (ms: number) => Promise<unknown> }} [opts]
+ * @param {{ timeoutMs?: number, accept?: string, ignoreRobots?: boolean, method?: string, body?: string, contentType?: string, headers?: Record<string,string|undefined>, retries?: number, retryBaseMs?: number, maxRedirects?: number, fetchImpl?: typeof fetch, lookupImpl?: any, urlPolicy?: any, dispatcher?: unknown, signal?: AbortSignal, sleepImpl?: (ms: number) => Promise<unknown>, nowImpl?: () => number }} [opts]
  * @returns {Promise<{ ok: boolean, status: number, url: string, body: string, host: string, blockedByRobots?: boolean, policyBlocked?: boolean, error?: string }>}
  */
 export async function politeFetch(url, opts = {}) {
@@ -189,10 +224,12 @@ export async function politeFetch(url, opts = {}) {
       : 3;
     const attempts = retryCount + 1;
     let last = { ok: false, status: 0, url, body: '', host };
+    let retryViaHostCooldown = false;
     for (let attempt = 0; attempt < attempts; attempt++) {
-      if (attempt > 0) {
+      if (attempt > 0 && !retryViaHostCooldown) {
         await (opts.sleepImpl || sleep)((opts.retryBaseMs ?? 1500) * attempt);
       }
+      retryViaHostCooldown = false;
       try {
         last = await fetchOnce(url, transport);
       } catch (error) {
@@ -207,6 +244,13 @@ export async function politeFetch(url, opts = {}) {
             ? { policyBlocked: true, error: String(error?.message || error) }
             : {}),
         };
+      }
+      if (last.status === 429) {
+        const fallbackMs = Number(opts.retryBaseMs ?? 1500) * (attempt + 1);
+        const now = (opts.nowImpl || Date.now)();
+        const cooldownMs = boundedRetryAfterMs(last[retryAfterHeader], fallbackMs, now);
+        extendHostCooldown(last.host || host, cooldownMs, now);
+        retryViaHostCooldown = true;
       }
       // Retry only what a retry can fix. Policy failures, 4xx and successful
       // responses are final; connection failures/5xx retain bounded retries.
@@ -238,64 +282,94 @@ export async function politeFetch(url, opts = {}) {
  * @param {Record<string, any>} opts
  */
 async function fetchOnce(url, opts) {
-  const ac = new AbortController();
-  const timer = setTimeout(() => ac.abort(), opts.timeoutMs || FETCH_TIMEOUT_MS);
-  try {
-    const method = opts.method || (opts.body ? 'POST' : 'GET');
-    const headers = {
-      'User-Agent': UA,
-      Accept: opts.accept || 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'it,de;q=0.9,fr;q=0.8,en;q=0.7',
-    };
-    if (opts.body) headers['Content-Type'] = opts.contentType || 'application/json';
-    // Explicit overrides win, and an explicit `undefined` REMOVES a default —
-    // Overpass runs behind an Apache that answers 406 to our Accept-Language,
-    // so a source must be able to drop a header, not just replace it.
-    for (const [k, v] of Object.entries(opts.headers || {})) {
-      if (v === undefined) delete headers[k]; else headers[k] = v;
-    }
-    const { response: res, effectiveUrl } = await fetchFollowingValidatedRedirectsWithUrl(url, {
-      fetchImpl: opts.fetchImpl || fetch,
-      validateUrl: opts.urlPolicy,
-      maxRedirects: opts.maxRedirects ?? 5,
-      beforeRequest: async (hopUrl) => {
-        const hop = new URL(hopUrl);
-        const hopHost = normalizeHost(hop.hostname);
-        if (!opts.ignoreRobots) {
-          const robots = await loadRobots(hop.origin, {
-            ...opts,
-            host: hopHost,
-          });
-          if (!robotsAllows(robots, `${hop.pathname}${hop.search}`)) {
-            throw new RobotsDeniedError(hopUrl);
-          }
-        }
-        // Every actual request — including every redirect and robots fetch —
-        // consumes the destination host's slot. Cross-origin allowlisted hops
-        // therefore cannot borrow the seed host's throttle budget. Robots is
-        // loaded first so a policy/DNS rejection does not reserve a phantom
-        // target request or create what looks like retry backoff.
-        await throttle(hopHost, opts.sleepImpl || sleep);
-      },
-      requestOptions: {
-        method,
-        signal: ac.signal,
-        headers,
-        ...(opts.dispatcher ? { dispatcher: opts.dispatcher } : {}),
-        ...(opts.body ? { body: opts.body } : {}),
-      },
-    });
-    const body = method === 'HEAD' ? '' : await res.text();
-    const effectiveHost = normalizeHost(new URL(effectiveUrl).hostname);
-    return { ok: res.ok, status: res.status, url: effectiveUrl, body, host: effectiveHost };
-  } finally {
-    clearTimeout(timer);
+  const method = opts.method || (opts.body ? 'POST' : 'GET');
+  const headers = {
+    'User-Agent': UA,
+    Accept: opts.accept || 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'it,de;q=0.9,fr;q=0.8,en;q=0.7',
+  };
+  if (opts.body) headers['Content-Type'] = opts.contentType || 'application/json';
+  // Explicit overrides win, and an explicit `undefined` REMOVES a default —
+  // Overpass runs behind an Apache that answers 406 to our Accept-Language,
+  // so a source must be able to drop a header, not just replace it.
+  for (const [k, v] of Object.entries(opts.headers || {})) {
+    if (v === undefined) delete headers[k]; else headers[k] = v;
   }
+  // The signal identifies one logical attempt across redirects. Keep that
+  // identity stable for observers, but arm a fresh timer only around actual
+  // network work so robots/throttle/cooldown waits cannot consume its budget.
+  const ac = new AbortController();
+  const signal = opts.signal
+    ? AbortSignal.any([opts.signal, ac.signal])
+    : ac.signal;
+  const withNetworkTimeout = async (operation) => {
+    const timer = setTimeout(() => ac.abort(), opts.timeoutMs || FETCH_TIMEOUT_MS);
+    try {
+      return await operation();
+    } finally {
+      clearTimeout(timer);
+    }
+  };
+  const fetchImpl = (hopUrl, init = {}) => withNetworkTimeout(
+    () => (opts.fetchImpl || fetch)(hopUrl, { ...init, signal }),
+  );
+  const { response: res, effectiveUrl } = await fetchFollowingValidatedRedirectsWithUrl(url, {
+    fetchImpl,
+    validateUrl: opts.urlPolicy,
+    maxRedirects: opts.maxRedirects ?? 5,
+    beforeRequest: async (hopUrl) => {
+      const hop = new URL(hopUrl);
+      const hopHost = normalizeHost(hop.hostname);
+      if (!opts.ignoreRobots) {
+        const robots = await loadRobots(hop.origin, {
+          ...opts,
+          host: hopHost,
+        });
+        if (!robotsAllows(robots, `${hop.pathname}${hop.search}`)) {
+          throw new RobotsDeniedError(hopUrl);
+        }
+      }
+      // Every actual request — including every redirect and robots fetch —
+      // consumes the destination host's slot. Cross-origin allowlisted hops
+      // therefore cannot borrow the seed host's throttle budget. Robots is
+      // loaded first so a policy/DNS rejection does not reserve a phantom
+      // target request or create what looks like retry backoff.
+      await throttle(hopHost, opts.sleepImpl || sleep, opts.nowImpl || Date.now);
+    },
+    requestOptions: {
+      method,
+      ...(opts.signal ? { signal: opts.signal } : {}),
+      headers,
+      ...(opts.dispatcher ? { dispatcher: opts.dispatcher } : {}),
+      ...(opts.body ? { body: opts.body } : {}),
+    },
+  });
+  const effectiveHost = normalizeHost(new URL(effectiveUrl).hostname);
+  const rawRetryAfter = res.headers?.get?.('retry-after') || null;
+  if (res.status === 429) {
+    const now = (opts.nowImpl || Date.now)();
+    const fallbackMs = Number(opts.retryBaseMs ?? 1500);
+    extendHostCooldown(
+      effectiveHost,
+      boundedRetryAfterMs(rawRetryAfter, fallbackMs, now),
+      now,
+    );
+  }
+  const body = method === 'HEAD' ? '' : await withNetworkTimeout(() => res.text());
+  return {
+    ok: res.ok,
+    status: res.status,
+    url: effectiveUrl,
+    body,
+    host: effectiveHost,
+    [retryAfterHeader]: rawRetryAfter,
+  };
 }
 
 /** Test-only state reset: avoids cross-test robots/throttle cache coupling. */
 export function clearPoliteFetchStateForTests() {
   lastHit.clear();
+  hostCooldown.clear();
   robotsCache.clear();
 }
 
