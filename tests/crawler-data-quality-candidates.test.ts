@@ -286,6 +286,80 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
     expect(calls[0].slice(0, 2)).toEqual(['issue', 'create']);
   });
 
+  it('re-checks issue state immediately before commenting and skips a closed target (#6940 item 2)', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-stale-dedup-'));
+    const report = worstCaseReport();
+    const first = report.findings[0];
+    const marker = `<!-- crawler-data-quality:${first.key} -->`;
+    const openIssues = [{ number: 101, title: 'different', body: marker, comments: [] }];
+    const packet = materializeIssuePacket(report, openIssues, {
+      outputPath: path.join(root, 'packet.json'),
+      bodyDir: root,
+    });
+    expect(packet.actions[0]).toMatchObject({ kind: 'comment', issueNumber: 101 });
+
+    const calls: string[][] = [];
+    const runner = (_command: string, args: string[]) => {
+      calls.push(args);
+      if (args[0] === 'issue' && args[1] === 'view') return { status: 0, stdout: 'CLOSED\n', stderr: '' };
+      return { status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    const result = executeIssuePacket(packet, runner);
+
+    expect(calls[0]).toEqual(['issue', 'view', '101', '--json', 'state', '-q', '.state']);
+    expect(calls).toHaveLength(packet.actions.length);
+    expect(calls.filter((call) => call[0] === 'issue' && call[1] === 'comment')).toHaveLength(0);
+    expect(result.commented).toBe(0);
+    expect(result.skipped).toBe(1);
+    expect(result.created).toBe(4);
+  });
+
+  it('comments when the re-checked issue is still open (#6940 item 2)', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-fresh-dedup-'));
+    const report = worstCaseReport();
+    const first = report.findings[0];
+    const marker = `<!-- crawler-data-quality:${first.key} -->`;
+    const openIssues = [{ number: 101, title: 'different', body: marker, comments: [] }];
+    const packet = materializeIssuePacket(report, openIssues, {
+      outputPath: path.join(root, 'packet.json'),
+      bodyDir: root,
+    });
+
+    const calls: string[][] = [];
+    const runner = (_command: string, args: string[]) => {
+      calls.push(args);
+      if (args[0] === 'issue' && args[1] === 'view') return { status: 0, stdout: 'OPEN\n', stderr: '' };
+      return { status: 0, stdout: 'ok', stderr: '' };
+    };
+
+    const result = executeIssuePacket(packet, runner);
+
+    expect(calls[1]).toEqual(['issue', 'comment', '101', '--body-file', packet.actions[0].bodyFile]);
+    expect(result.commented).toBe(1);
+    expect(result.skipped).toBe(0);
+  });
+
+  it('stops the run when the pre-comment state check itself fails (#6940 item 2)', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-quality-check-fail-'));
+    const report = worstCaseReport();
+    const first = report.findings[0];
+    const marker = `<!-- crawler-data-quality:${first.key} -->`;
+    const openIssues = [{ number: 101, title: 'different', body: marker, comments: [] }];
+    const packet = materializeIssuePacket(report, openIssues, {
+      outputPath: path.join(root, 'packet.json'),
+      bodyDir: root,
+    });
+
+    const runner = (_command: string, args: string[]) => (
+      args[0] === 'issue' && args[1] === 'view'
+        ? { status: 1, stdout: '', stderr: 'simulated gh view failure' }
+        : { status: 0, stdout: 'ok', stderr: '' }
+    );
+
+    expect(() => executeIssuePacket(packet, runner)).toThrow(/gh state check for issue #101 failed/);
+  });
+
   it('executes an empty packet without invoking gh', () => {
     let calls = 0;
     const result = executeIssuePacket({ actions: [] }, () => {
@@ -293,7 +367,7 @@ describe('bounded weekly crawler data-quality candidates (#6787)', () => {
       return { status: 0, stderr: '', stdout: '' };
     });
 
-    expect(result).toEqual({ attempted: 0, created: 0, commented: 0 });
+    expect(result).toEqual({ attempted: 0, created: 0, commented: 0, skipped: 0 });
     expect(calls).toBe(0);
   });
 

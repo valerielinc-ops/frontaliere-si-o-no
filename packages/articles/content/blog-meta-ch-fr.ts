@@ -4951,6 +4951,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.title': 'Le taux hypothécaire de référence dans les baux reste à 1,25 %',
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.excerpt': 'L’Office fédéral du logement (FOH) a annoncé que le taux d’intérêt hypothécaire de référence restera à 1,25 % au 2 septembre 2026.',
     'blog.article.tasso-ipotecario-riferimento-1-25-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan, montrant le quartier financier.',
+    'blog.article.asib-normativa-ubs-sostegno.title': 'ASIB pousse pour les plans sociaux dans la réglementation UBS',
+    'blog.article.asib-normativa-ubs-sostegno.excerpt': 'L’association des employés de la banque appelle à des protections obligatoires dans le paquet réglementaire UBS CET-S, invoquant la crise de l’emploi dans le secteur.',
+    'blog.article.asib-normativa-ubs-sostegno.imageAlt': 'Siège d\'une banque suisse : le secteur bancaire fait face à des pressions croissantes sur l\'emploi.',
 };
 
 export default blogMetaChFr;

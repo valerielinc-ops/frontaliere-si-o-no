@@ -1676,6 +1676,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sanzioni-disordini-rimborso-mendrisio': { it: 'sanzioni-disordini-rimborso-mendrisio', en: 'fines-unlawful-gatherings-mendrisio', de: 'strafen-stoerungen-mendrisio', fr: 'amendes-troubles-mendrisio' },
  'ubs-ermotti-capital-requirements': { it: 'ubs-ermotti-capital-requirements', en: 'ermotti-warns-swiss-economy-risks', de: 'ermotti-warnt-schweizer-wirtschaft-risiken', fr: 'ermotti-avertit-risques-economie-suisse' },
  'tasso-ipotecario-riferimento-1-25-2026': { it: 'tasso-ipotecario-riferimento-1-25-2026', en: 'reference-mortgage-rate-1-25-2026', de: 'referenz-hypothekarzinssatz-1-25-2026', fr: 'taux-hippocaire-de-reference-1-25-2026' },
+ 'asib-normativa-ubs-sostegno': { it: 'asib-normativa-ubs-sostegno', en: 'asib-ubs-regulation-support', de: 'asib-ubs-regulierung-unterstuetzung', fr: 'asib-reglementation-ubs-soutien' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
