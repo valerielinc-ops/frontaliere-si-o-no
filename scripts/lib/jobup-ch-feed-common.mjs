@@ -37,6 +37,7 @@ import { launchChromium } from './ensure-chromium.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -473,18 +474,14 @@ export function createJobupChFeedParser(config) {
 
       // Fetch detail page for rich description (JSON-LD JobPosting)
       const detailDescription = await fetchJobupDetailDescription(link);
-      if (detailDescription) detailHits++;
       await new Promise((r) => setTimeout(r, 250));
+      if (!hasPublishableJobupDetail(detailDescription)) {
+        console.log(`     ⚠ detail content rejected for ${link}: missing or thin source description`);
+        return [];
+      }
+      detailHits++;
 
-      const description = detailDescription || normalizeSpace(
-        [
-          decodeEntities(raw?.ref || ''),
-          raw?.contrat ? `Contrat : ${decodeEntities(raw.contrat)}` : '',
-          raw?.occupationmin && raw?.occupationmax
-            ? `Taux : ${String(raw.occupationmin)}-${String(raw.occupationmax).replace(/[^\d]/g, '')}%`
-            : '',
-        ].filter(Boolean).join(' · '),
-      ) || `${title} — ${companyName}`;
+      const description = detailDescription;
 
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);

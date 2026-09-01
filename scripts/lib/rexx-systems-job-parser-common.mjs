@@ -40,6 +40,12 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
+import {
+  extractDetailFields as readRexxStructuredDetail,
+  isSufficientVacancyDescription as hasPublishableRexxBody,
+  jsonLdBlocks as readRexxStructuredBlocks,
+} from './prospector/extract.mjs';
+import { evaluateSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -144,14 +150,66 @@ function stripHtmlInline(raw = '') {
     .replace(/&nbsp;/g, ' ');
 }
 
+function isRexxJobPosting(node) {
+  const types = Array.isArray(node?.['@type']) ? node['@type'] : [node?.['@type']];
+  return types.some((type) => normalize(type) === 'jobposting');
+}
+
+function canonicalRexxUrl(value = '') {
+  try {
+    const url = new URL(value);
+    url.hash = '';
+    url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+    return url.toString();
+  } catch {
+    return '';
+  }
+}
+
+function readRexxStructuredPosting(html, title, pageUrl) {
+  const postings = readRexxStructuredBlocks(html).filter(isRexxJobPosting);
+  const pageIdentity = canonicalRexxUrl(pageUrl);
+  const candidates = postings.filter((posting) => {
+    const titleMatches = title
+      && normalize(posting?.title || posting?.name) === normalize(title);
+    const postingIdentity = canonicalRexxUrl(posting?.url || posting?.sameAs || '');
+    if (postingIdentity) return Boolean(pageIdentity && postingIdentity === pageIdentity);
+    return titleMatches;
+  });
+  return candidates.length === 1 ? candidates[0] : null;
+}
+
+function readRexxStructuredDescription(posting) {
+  const raw = posting?.description;
+  if (typeof raw !== 'string') return '';
+  return normalizeSpace(decodeEntities(stripHtmlInline(raw))).replace(/\s*•\s*/g, '\n• ');
+}
+
 /**
  * Extract title + description sections from a rexx-systems detail page.
  *
  * @param {string} html
- * @returns {{ title:string, description:string }}
+ * @param {string} [pageUrl]
+ * @returns {{
+ *   title:string,
+ *   description:string,
+ *   sourceAddresses:Array<Object>,
+ *   authoritativeLocationConflict:boolean,
+ *   postedDate:string,
+ *   employmentType:string,
+ * }}
  */
-export function extractRexxDetail(html = '') {
-  if (!html || typeof html !== 'string') return { title: '', description: '' };
+export function extractRexxDetail(html = '', pageUrl = '') {
+  if (!html || typeof html !== 'string') {
+    return {
+      title: '',
+      description: '',
+      sourceAddresses: [],
+      authoritativeLocationConflict: false,
+      postedDate: '',
+      employmentType: '',
+    };
+  }
 
   // Strip noisy regions
   const cleaned = html
@@ -164,6 +222,18 @@ export function extractRexxDetail(html = '') {
   // Title = <h1>
   const titleMatch = cleaned.match(/<h1[^>]*>([^<]+)<\/h1>/);
   const title = titleMatch ? normalizeSpace(decodeEntities(titleMatch[1])) : '';
+  const structuredPosting = readRexxStructuredPosting(html, title, pageUrl);
+  const structured = structuredPosting
+    ? readRexxStructuredDetail(html, pageUrl)
+    : {
+        title: '',
+        description: '',
+        locationCandidates: [],
+        authoritativeLocationConflict: false,
+        postedDate: '',
+        employmentType: '',
+      };
+  const authoritativeTitle = title || normalizeSpace(decodeEntities(structuredPosting?.title || ''));
 
   // Walk all <h2>/<h3> headers in order; capture text between consecutive ones.
   const headers = [...cleaned.matchAll(/<h([23])[^>]*>([^<]+)<\/h[23]>/g)];
@@ -181,7 +251,21 @@ export function extractRexxDetail(html = '') {
     parts.push(`${label}:\n${text}`);
   }
 
-  return { title, description: parts.join('\n\n') };
+  const structuredDescription = readRexxStructuredDescription(structuredPosting);
+  const headedDescription = parts.join('\n\n');
+  const genericDescription = normalizeSpace(decodeEntities(structured.description || ''));
+  const description = hasPublishableRexxBody(structuredDescription)
+    ? structuredDescription
+    : (hasPublishableRexxBody(headedDescription) ? headedDescription : genericDescription);
+
+  return {
+    title: authoritativeTitle,
+    description,
+    sourceAddresses: structured.locationCandidates || [],
+    authoritativeLocationConflict: Boolean(structured.authoritativeLocationConflict),
+    postedDate: structured.postedDate || '',
+    employmentType: structured.employmentType || '',
+  };
 }
 
 /* ── Classifiers ─────────────────────────────────────────── */
@@ -261,6 +345,55 @@ export function createRexxSystemsParser(config) {
   const corporateHost = String(companyDomain || '').replace(/^www\./, '').toLowerCase();
   const atsHostLower = String(atsHost).toLowerCase();
 
+  function resolveRexxWorkplace(detail) {
+    if (detail?.authoritativeLocationConflict) return null;
+    const candidates = Array.isArray(detail?.sourceAddresses) ? detail.sourceAddresses : [];
+    const isEmployerLabel = (candidate) => {
+      const locality = normalizeSpace(candidate?.addressLocality || candidate?.location || '');
+      const localityKey = normalize(locality);
+      const companyKeyNormalized = normalize(companyName);
+      return localityKey === companyKeyNormalized
+        || companyKeyNormalized.includes(localityKey)
+        || localityKey.includes(companyKeyNormalized);
+    };
+    const distinctCandidates = candidates.filter((candidate) => {
+      const locality = normalizeSpace(candidate?.addressLocality || candidate?.location || '');
+      return locality && !isEmployerLabel(candidate);
+    });
+    if (distinctCandidates.length) {
+      const decision = evaluateSourceBackedSwissGeography(distinctCandidates);
+      if (!decision.geography) return null;
+      const locality = normalizeSpace(
+        decision.candidate?.addressLocality || decision.geography.location || '',
+      );
+      return {
+        location: locality,
+        canton: decision.geography.canton,
+        postalCode: normalizeSpace(decision.candidate?.postalCode || '') || defaultPostalCode,
+        streetAddress: normalizeSpace(decision.candidate?.streetAddress || ''),
+      };
+    }
+
+    const employerCandidate = candidates.find(isEmployerLabel);
+    if (employerCandidate) {
+      const candidatePostalCode = normalizeSpace(employerCandidate?.postalCode || '');
+      if (candidatePostalCode && candidatePostalCode !== defaultPostalCode) return null;
+      const region = normalizeSpace(employerCandidate?.addressRegion || '');
+      const decision = evaluateSourceBackedSwissGeography([{
+        ...employerCandidate,
+        location: [defaultCity, region].filter(Boolean).join(', '),
+        addressLocality: defaultCity,
+      }]);
+      if (!decision.geography || decision.geography.canton !== defaultCanton) return null;
+    }
+    return {
+      location: defaultCity,
+      canton: defaultCanton,
+      postalCode: normalizeSpace(employerCandidate?.postalCode || '') || defaultPostalCode,
+      streetAddress: normalizeSpace(employerCandidate?.streetAddress || ''),
+    };
+  }
+
   function isCompanyJob(job) {
     const key = normalize(job?.companyKey || '');
     const url = normalize(job?.url || '');
@@ -299,20 +432,33 @@ export function createRexxSystemsParser(config) {
     for (const entry of entries) {
       let detailDescription = '';
       let detailTitle = '';
+      let detail;
       try {
         const detailHtml = await fetchHtml(entry.detailUrl);
-        const detail = extractRexxDetail(detailHtml);
+        detail = extractRexxDetail(detailHtml, entry.detailUrl);
         detailDescription = detail.description;
         detailTitle = detail.title;
-        if (detailDescription) detailHits++;
       } catch (err) {
         console.log(`     ⚠ detail fetch failed for j${entry.id}: ${err.message}`);
+        return [];
+      } finally {
+        await new Promise((r) => setTimeout(r, 200));
       }
-      await new Promise((r) => setTimeout(r, 200));
+
+      if (!hasPublishableRexxBody(detailDescription)) {
+        console.log(`     ⚠ detail content rejected for j${entry.id}: missing or thin source description`);
+        return [];
+      }
+      if (detailDescription) detailHits++;
 
       const title = detailTitle || entry.title;
-      const description = detailDescription || `${title} — ${companyName}`;
+      const description = detailDescription;
       const sourceLang = detectLang(description || title, defaultSourceLang);
+      const resolvedWorkplace = resolveRexxWorkplace(detail);
+      if (!resolvedWorkplace) {
+        console.log(`     ⚠ detail location rejected for j${entry.id}: source contradicts configured headquarters`);
+        return [];
+      }
       const jobSlug = slugify(`${title} ${companyKey} ${defaultCity}`);
       const urlHash = createHash('sha1').update(entry.detailUrl).digest('hex').slice(0, 12);
 
@@ -333,6 +479,10 @@ export function createRexxSystemsParser(config) {
         needsRetranslation: true,
         location: defaultCity,
         canton: inferSwissTargetCanton(defaultCity) || defaultCanton,
+        ...{
+          location: resolvedWorkplace.location,
+          canton: resolvedWorkplace.canton,
+        },
         url: entry.detailUrl,
         source: `${companyName} Dedicated Parser (rexx systems ${atsHostLower})`,
         sourceLang,
@@ -343,14 +493,22 @@ export function createRexxSystemsParser(config) {
         addressCountry: 'CH',
         country: 'CH',
         postalCode: defaultPostalCode,
+        ...{
+          addressLocality: resolvedWorkplace.location,
+          addressRegion: resolvedWorkplace.canton,
+          postalCode: resolvedWorkplace.postalCode,
+          ...(resolvedWorkplace.streetAddress ? { streetAddress: resolvedWorkplace.streetAddress } : {}),
+        },
         category: detectCategory(title),
         contract: 'full-time',
         employmentType: detectEmploymentType(title),
+        ...(detail.employmentType ? { employmentType: detail.employmentType } : {}),
         experienceLevel: detectExperienceLevel(title),
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
         postedDate: todayIso,
+        ...(detail.postedDate ? { postedDate: detail.postedDate } : {}),
         applyUrl: entry.detailUrl,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
