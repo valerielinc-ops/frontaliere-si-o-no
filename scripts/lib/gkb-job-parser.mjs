@@ -41,6 +41,7 @@ import {
   stripScriptsAndStyles,
 } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { mergeUmantisListing } from './umantis-listing-merge.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -67,14 +68,7 @@ function normalize(value = '') {
 
 /** Merge duplicate Umantis rows without letting a sparse view erase metadata. */
 export function mergeGkbListing(existing = {}, incoming = {}) {
-  const merged = { ...existing };
-  for (const [key, value] of Object.entries(incoming)) {
-    const current = merged[key];
-    const currentMissing = current == null || (typeof current === 'string' && current.trim() === '');
-    const incomingPresent = value != null && (typeof value !== 'string' || value.trim() !== '');
-    if (currentMissing && incomingPresent) merged[key] = value;
-  }
-  return merged;
+  return mergeUmantisListing(existing, incoming, 'GKB');
 }
 
 /**
