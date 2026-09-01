@@ -3036,7 +3036,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Pflegefachfrau / Pflegefachmann",
+        "it": "Infermieristica professionale / infermieristica",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -3104,8 +3104,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "ksw-a8a7856cbcb4",
@@ -3121,7 +3120,7 @@
       "companyDomain": "ksw.ch",
       "title": "Pflegefachfrau / Pflegefachmann",
       "titleByLocale": {
-        "it": "Pflegefachfrau / Pflegefachmann",
+        "it": "Infermieristica professionale / infermieristica",
         "en": "Nursing professional / nursing professional",
         "de": "Pflegefachfrau / Pflegefachmann",
         "fr": "Professionnels des soins infirmiers / professionnels des soins infirmiers"
@@ -3195,7 +3194,6 @@
           "specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-medecine-intensive-kantonsspital-winterthur-ksw"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T21:41:46.470Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5100,7 +5098,7 @@
       "companyDomain": "ksw.ch",
       "title": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
       "titleByLocale": {
-        "it": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
+        "it": "Cura intensiva di esperti NDS",
         "en": "Expert / Expert Intensive Care NDS Intensive Care",
         "de": "Expertin / Experte Intensivpflege NDS Intensivmedizin",
         "fr": "Expert / Expert Soins intensifs SND Soins intensifs"
@@ -5149,7 +5147,6 @@
           "expertin-experte-intensivpflege-nds-intensivmedizin-ksw-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-08T09:47:11.540Z",
       "salaryMin": 91500,
       "salaryMax": 128000,

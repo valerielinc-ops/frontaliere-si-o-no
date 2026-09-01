@@ -27,9 +27,9 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Pittore\n\n## Missione :\n• Incarico tramite agenzia\n• Esperienza nel settore\n• Disponibilità immediata\n\n## Profilo :\n• Tinteggiatura interna ed esterna\n• Cappotti, rete e colla\n• Isolazione\n• Automunito",
       "titleByLocale": {
         "it": "Pittore",
-        "en": "Pittore",
-        "de": "Pittore",
-        "fr": "Pittore"
+        "en": "Painter",
+        "de": "Maler",
+        "fr": "Peintre"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Pittore\n\n## Missione :\n• Incarico tramite agenzia\n• Esperienza nel settore\n• Disponibilità immediata\n\n## Profilo :\n• Tinteggiatura interna ed esterna\n• Cappotti, rete e colla\n• Isolazione\n• Automunito",
@@ -86,9 +86,9 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Giardiniere\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Giardiniere con esperienza\n• Perfetta autonomia nell’uso degli attrezzi di lavoro\n• Automunito\n\n## Profilo :\n• Esperienza pregressa di almeno 2 anni\n• Lavori di manutenzione e di costruzione giardini\n• Potatura siepi\n• Posa di tappeti erbosi",
       "titleByLocale": {
         "it": "Giardiniere",
-        "en": "Giardiniere",
-        "de": "Giardiniere",
-        "fr": "Giardiniere"
+        "en": "Gardens",
+        "de": "Gärten",
+        "fr": "Jardins"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Giardiniere\n\n## Missione :\n• Incarico interinale tramite agenzia\n• Giardiniere con esperienza\n• Perfetta autonomia nell’uso degli attrezzi di lavoro\n• Automunito\n\n## Profilo :\n• Esperienza pregressa di almeno 2 anni\n• Lavori di manutenzione e di costruzione giardini\n• Potatura siepi\n• Posa di tappeti erbosi",
@@ -145,9 +145,9 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Copritetto\n\n## Missione :\n• Incarico tramite agenzia interinale\n• Comprovata esperienza nel settore\n• Disponibilità immediata\n• A tempo indeterminato\n\n## Profilo :\n• Posa tetto dallo scheletro, travi, travetti, perlinatura, listonatura, isolamento, posa tegole e vari manti di copertura\n• Ottimo uso degli attrezzi da lavoro\n• Conoscenza DPI",
       "titleByLocale": {
         "it": "Copritetto",
-        "en": "Copritetto",
-        "de": "Copritetto",
-        "fr": "Copritetto"
+        "en": "Cover",
+        "de": "Abdeckung",
+        "fr": "Couverture"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Copritetto\n\n## Missione :\n• Incarico tramite agenzia interinale\n• Comprovata esperienza nel settore\n• Disponibilità immediata\n• A tempo indeterminato\n\n## Profilo :\n• Posa tetto dallo scheletro, travi, travetti, perlinatura, listonatura, isolamento, posa tegole e vari manti di copertura\n• Ottimo uso degli attrezzi da lavoro\n• Conoscenza DPI",
@@ -177,7 +177,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T08:46:37.970Z"
+      "firstSeenAt": "2026-09-01T08:46:37.970Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "copritetto-afc-pemsa-bellinzona",
+          "dachdecker-efz-pemsa-bellinzona",
+          "afc-blanket-pemsa-bellinzona",
+          "couvre-lit-afc-pemsa-bellinzona"
+        ],
+        "en": [
+          "afc-blanket-pemsa-bellinzona"
+        ],
+        "de": [
+          "dachdecker-efz-pemsa-bellinzona"
+        ],
+        "fr": [
+          "couvre-lit-afc-pemsa-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "copritetto-afc-pemsa-bellinzona",
+        "dachdecker-efz-pemsa-bellinzona",
+        "afc-blanket-pemsa-bellinzona",
+        "couvre-lit-afc-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Manovale Edile",
@@ -206,7 +229,7 @@
         "it": "Manovale Edile",
         "en": "Manovale Edile",
         "de": "Manovale Edile",
-        "fr": "Manovale Edile"
+        "fr": "Manovale Édile"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Manovale Edile\n\n## Missione :\n• Lavoro tramite agenzia interinale\n• Manovali edili: aiuto muratore, aiuto carpentiere, aiuto ferraiolo\n• Lavori di manovalanza in tutto il settore edile\n• Uso di attrezzature da costruzione\n\n## Profilo :\n• Comprovata esperienza pregressa nel settore edile\n• Lavorare in maniera autonoma\n• Utilizzo di attrezzature e macchinari per l’edilizia\n• Conoscenza di strumenti, materiali e DPI\n• Automunito",
@@ -1168,9 +1191,9 @@
       "description": "Pemsa Valais vi affianca nella ricerca di un impiego, sia che si tratti di incarichi a tempo determinato che di posti di lavoro a tempo indeterminato.\n\n## Il tuo incarico:\n• Intervenire per riparazioni elettriche in edifici residenziali, commerciali o industriali.\n• Individuare i guasti ed effettuare le riparazioni necessarie.\n• Padronanza dei circuiti ad alta e bassa tensione.\n• Adeguamento degli impianti elettrici alle norme NIBT.\n• Leggere e interpretare schemi e schede tecniche elettriche.\n• Garantire un servizio di qualità e la massima soddisfazione dei clienti\n\n## E ora parliamo di te?\nNon esitare a inviarci la tua candidatura completa (CV, lettera di motivazione, diploma, certificati di lavoro, documento d’identità). Risponderemo solo alle candidature il cui profilo corrisponda a quello richiesto",
       "titleByLocale": {
         "it": "Installatore elettricista AFC (m/f/d)",
-        "en": "Installatore elettricista AFC (m/f/d)",
-        "de": "Installatore elettricista AFC (m/f/d)",
-        "fr": "Installatore elettricista AFC (m/f/d)"
+        "en": "Electrical installation AFC (m/f/d)",
+        "de": "Elektrische Installation AFC (m/w/d)",
+        "fr": "Installation électrique AFC (h/f/d)"
       },
       "descriptionByLocale": {
         "it": "Pemsa Valais vi affianca nella ricerca di un impiego, sia che si tratti di incarichi a tempo determinato che di posti di lavoro a tempo indeterminato.\n\n## Il tuo incarico:\n• Intervenire per riparazioni elettriche in edifici residenziali, commerciali o industriali.\n• Individuare i guasti ed effettuare le riparazioni necessarie.\n• Padronanza dei circuiti ad alta e bassa tensione.\n• Adeguamento degli impianti elettrici alle norme NIBT.\n• Leggere e interpretare schemi e schede tecniche elettriche.\n• Garantire un servizio di qualità e la massima soddisfazione dei clienti\n\n## E ora parliamo di te?\nNon esitare a inviarci la tua candidatura completa (CV, lettera di motivazione, diploma, certificati di lavoro, documento d’identità). Risponderemo solo alle candidature il cui profilo corrisponda a quello richiesto",
@@ -1933,9 +1956,9 @@
       "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere edile\n\n## Missione :\n• Incarico tramite agenzia interinale\n• Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n• Lavori di scavo, impalcatura, casseratura, armatura\n• Uso di attrezzature da costruzione\n\n## Profilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",
       "titleByLocale": {
         "it": "Carpentiere edile",
-        "en": "Carpentiere edile",
-        "de": "Carpentiere edile",
-        "fr": "Carpentiere edile"
+        "en": "Construction carpenters",
+        "de": "Bautischler",
+        "fr": "Charpentiers de construction"
       },
       "descriptionByLocale": {
         "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere edile\n\n## Missione :\n• Incarico tramite agenzia interinale\n• Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n• Lavori di scavo, impalcatura, casseratura, armatura\n• Uso di attrezzature da costruzione\n\n## Profilo :\nLa tua persona di contatto:\nIl tuo contatto per questa posizione è Neri. Con oltre 15 anni di esperienza nel campo del reclutamento, sarà in grado di accompagnarti, consigliarti e rispondere a tutte le tue domande sulla posizione. Questo lavoro non è esattamente quello che sta cercando, ma i nostri valori ti piacciono? Non esitare a inviarci la tua candidatura spontanea!",

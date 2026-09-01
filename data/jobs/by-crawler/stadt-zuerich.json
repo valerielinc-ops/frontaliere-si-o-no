@@ -55,11 +55,34 @@
       "unit": "Sonderpädagogik",
       "referenceNumber": "51499",
       "previousSlugs": [
-        "fachperson-betriebsunterhalt-stadt-zuerich-zurigo-51499"
+        "fachperson-betriebsunterhalt-stadt-zuerich-zurigo-51499",
+        "diritto-specialistico-stadt-zurich-zurich",
+        "specialist-law-stadt-zurich-zurich",
+        "fachperson-recht-stadt-zuerich-zurigo-51378",
+        "droit-specialise-stadt-zurich-zurich",
+        "fachperson-betriebsunterhalt-schule-utogrund-stadt-zurich-zurich",
+        "fachperson-betriebsunterhalt-schule-utogrund-stadt-zuerich-zurigo-51357"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betriebsunterhalt-stadt-zuerich-zurigo-51499"
+          "fachperson-betriebsunterhalt-stadt-zuerich-zurigo-51499",
+          "diritto-specialistico-stadt-zurich-zurich",
+          "specialist-law-stadt-zurich-zurich",
+          "fachperson-recht-stadt-zuerich-zurigo-51378",
+          "droit-specialise-stadt-zurich-zurich",
+          "fachperson-betriebsunterhalt-schule-utogrund-stadt-zurich-zurich",
+          "fachperson-betriebsunterhalt-schule-utogrund-stadt-zuerich-zurigo-51357"
+        ],
+        "en": [
+          "specialist-law-stadt-zurich-zurich"
+        ],
+        "de": [
+          "fachperson-recht-stadt-zuerich-zurigo-51378",
+          "fachperson-betriebsunterhalt-schule-utogrund-stadt-zuerich-zurigo-51357"
+        ],
+        "fr": [
+          "droit-specialise-stadt-zurich-zurich",
+          "fachperson-betriebsunterhalt-schule-utogrund-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -523,7 +546,111 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-school-gabler-stadt-zurich-zurich",
+          "hortleitung-schule-gabler-stadt-zuerich-zurigo-46295",
+          "chef-de-l-ecole-gabler-stadt-zurich-zurich",
+          "social-pedagogue-as-manager-school-rutihof-stadt-zurich-zurich",
+          "sozialpadagog-in-als-hortleitung-schule-rutihof-stadt-zuerich-zurigo-50821",
+          "pedagogue-sociale-comme-gestionnaire-ecole-rutihof-stadt-zurich-zurich",
+          "pedagogici-sociali-alla-scuola-gabler-stadt-zurich-zurich",
+          "pedagogici-sociali-in-scuola-leimbach-stadt-zurich-zurich",
+          "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+          "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zuerich-zurigo-51338",
+          "social-pedagogue-a-scuola-hurstholz-stadt-zurich-zurich",
+          "social-pedagogue-nella-scuola-kungenmatt-stadt-zurich-zurich",
+          "scuola-di-educazione-sociale-nella-scuola-kungenmatt-stadt-zurich-zurich",
+          "school-social-education-in-school-kungenmatt-stadt-zurich-zurich",
+          "schulsozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-50702",
+          "enseignement-social-scolaire-a-l-ecole-kungenmatt-stadt-zurich-zurich",
+          "schulsozialpadagog-in-schule-kungenmatt-stadt-zurich-zurich",
+          "social-pedagogue-scuola-nordstern-stadt-zurich-zurich",
+          "pedagogue-sociale-a-l-ecole-parthill-stadt-zurich-zurich",
+          "social-pedagogue-in-school-parthill-stadt-zurich-zurich"
+        ],
+        "en": [
+          "social-pedagogue-in-school-hurstholz-stadt-zurich-zurich",
+          "social-pedagogue-in-school-kungenmatt-stadt-zurich-zurich",
+          "social-pedagogue-school-nordstern-stadt-zurich-zurich",
+          "social-pedagogue-in-hortleitung-school-loogarten-stadt-zurich-zurich",
+          "social-pedagogics-at-school-gabler-stadt-zurich-zurich",
+          "social-pedagogics-in-school-leimbach-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sozialpadagog-in-schule-kolbenacker-stadt-zurich-zurich",
+          "sozialpadagog-in-schule-hurstholz-stadt-zuerich-zurigo-51401",
+          "sozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-48558",
+          "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937",
+          "sozialpadagog-in-hortleitung-schule-loogarten-stadt-zuerich-zurigo-50956",
+          "sozialpadagog-in-schule-gabler-stadt-zuerich-zurigo-50963",
+          "sozialpadagog-in-schule-leimbach-stadt-zuerich-zurigo-50492"
+        ],
+        "fr": [
+          "sozialpadagog-in-schule-kolbenacker-stadt-zuerich-zurigo-51477",
+          "pedagogue-sociale-a-l-ecole-hurstholz-stadt-zurich-zurich",
+          "pedagogue-sociale-a-l-ecole-kungenmatt-stadt-zurich-zurich",
+          "pedagogue-sociale-ecole-nordstern-stadt-zurich-zurich",
+          "pedagogue-sociale-in-ecole-hortleitung-loogarten-stadt-zurich-zurich",
+          "pedagogie-sociale-a-l-ecole-gabler-stadt-zurich-zurich",
+          "pedagogiques-sociaux-a-l-ecole-leimbach-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "pedagogici-sociali-nella-scuola-holderbach-stadt-zurich-zurich",
+        "social-pedagogics-in-school-holderbach-stadt-zurich-zurich",
+        "sozialpadagog-in-schule-holderbach-stadt-zuerich-zurigo-50370",
+        "pedagogie-sociale-a-holderbach-stadt-zurich-zurich",
+        "sozialpadagog-in-schule-rebhugel-stadt-zuerich-zurigo-50415",
+        "social-pedagogue-in-scuola-di-hortleitung-loogarten-stadt-zurich-zurich",
+        "sozialpadagog-in-come-hortleitung-schule-letten-stadt-zurich",
+        "social-pedagogue-as-hoard-management-school-latvians-stadt-zurich-zurich",
+        "sozialpadagog-in-als-hortleitung-schule-letten-stadt-zuerich-zurigo-51297",
+        "pedagogue-sociale-en-tant-que-gestion-de-garde-ecole-lettons-stadt-zurich-zurich",
+        "sozialpadagog-in-come-hortleitung-schule-rutihof-stadt-zurich",
+        "capo-della-scuola-gabler-stadt-zurich-zurich",
+        "head-of-school-gabler-stadt-zurich-zurich",
+        "hortleitung-schule-gabler-stadt-zuerich-zurigo-46295",
+        "chef-de-l-ecole-gabler-stadt-zurich-zurich",
+        "social-pedagogue-as-manager-school-rutihof-stadt-zurich-zurich",
+        "sozialpadagog-in-als-hortleitung-schule-rutihof-stadt-zuerich-zurigo-50821",
+        "pedagogue-sociale-comme-gestionnaire-ecole-rutihof-stadt-zurich-zurich",
+        "pedagogici-sociali-alla-scuola-gabler-stadt-zurich-zurich",
+        "pedagogici-sociali-in-scuola-leimbach-stadt-zurich-zurich",
+        "social-pedagogue-in-school-hurstholz-stadt-zurich-zurich",
+        "social-pedagogue-in-school-kungenmatt-stadt-zurich-zurich",
+        "social-pedagogue-school-nordstern-stadt-zurich-zurich",
+        "social-pedagogue-in-hortleitung-school-loogarten-stadt-zurich-zurich",
+        "social-pedagogics-at-school-gabler-stadt-zurich-zurich",
+        "social-pedagogics-in-school-leimbach-stadt-zurich-zurich",
+        "sozialpadagog-in-schule-kolbenacker-stadt-zurich-zurich",
+        "sozialpadagog-in-schule-hurstholz-stadt-zuerich-zurigo-51401",
+        "sozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-48558",
+        "sozialpadagog-in-schule-nordstern-stadt-zuerich-zurigo-50937",
+        "sozialpadagog-in-hortleitung-schule-loogarten-stadt-zuerich-zurigo-50956",
+        "sozialpadagog-in-schule-gabler-stadt-zuerich-zurigo-50963",
+        "sozialpadagog-in-schule-leimbach-stadt-zuerich-zurigo-50492",
+        "sozialpadagog-in-schule-kolbenacker-stadt-zuerich-zurigo-51477",
+        "pedagogue-sociale-a-l-ecole-hurstholz-stadt-zurich-zurich",
+        "pedagogue-sociale-a-l-ecole-kungenmatt-stadt-zurich-zurich",
+        "pedagogue-sociale-ecole-nordstern-stadt-zurich-zurich",
+        "pedagogue-sociale-in-ecole-hortleitung-loogarten-stadt-zurich-zurich",
+        "pedagogie-sociale-a-l-ecole-gabler-stadt-zurich-zurich",
+        "pedagogiques-sociaux-a-l-ecole-leimbach-stadt-zurich-zurich",
+        "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zurich-zurich",
+        "reinigungsmitarbeiter-in-schule-kolbenacker-stadt-zuerich-zurigo-51338",
+        "social-pedagogue-a-scuola-hurstholz-stadt-zurich-zurich",
+        "social-pedagogue-nella-scuola-kungenmatt-stadt-zurich-zurich",
+        "scuola-di-educazione-sociale-nella-scuola-kungenmatt-stadt-zurich-zurich",
+        "school-social-education-in-school-kungenmatt-stadt-zurich-zurich",
+        "schulsozialpadagog-in-schule-kungenmatt-stadt-zuerich-zurigo-50702",
+        "enseignement-social-scolaire-a-l-ecole-kungenmatt-stadt-zurich-zurich",
+        "schulsozialpadagog-in-schule-kungenmatt-stadt-zurich-zurich",
+        "social-pedagogue-scuola-nordstern-stadt-zurich-zurich",
+        "pedagogue-sociale-a-l-ecole-parthill-stadt-zurich-zurich",
+        "social-pedagogue-in-school-parthill-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-3da5787dfcea",
@@ -579,12 +706,24 @@
       "referenceNumber": "51496",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-51496",
-        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
+        "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich",
+        "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
+        "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zuerich-zurigo-51488",
+        "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich",
+        "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zuerich-zurigo-51466"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zuerich-zurigo-51496",
-          "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich"
+          "dipl-pflegefachperson-hf-fh-standort-triemlipark-2-stadt-zurich-zurich",
+          "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
+          "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zuerich-zurigo-51488",
+          "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich",
+          "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zuerich-zurigo-51466"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-pflegewohngruppe-triemlipark-1-stadt-zurich-zurich",
+          "dipl-pflegefachperson-hf-fh-pflegewohngruppe-koschenruti-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -657,12 +796,161 @@
       "referenceNumber": "51512",
       "previousSlugs": [
         "schulsozialarbeiter-in-stadt-zuerich-zurigo-51512",
-        "schulsozialarbeiter-in-stadt-zurich-zurich"
+        "schulsozialarbeiter-in-stadt-zurich-zurich",
+        "fitter-per-tubi-stadt-zurich-zurich",
+        "rohrnetzmonteur-in-stadt-zurich-zurich",
+        "trampilota-stadt-zurich-zurich",
+        "trampilot-in-stadt-zurich-zurich",
+        "pilote-tram-stadt-zurich-zurich",
+        "griglia-elettrica-stadt-zurich-zurich",
+        "guida-stadt-zurich-zurich-ef10a3",
+        "guida-stadt-zurich-zurich",
+        "hortleitung-stadt-zurich-zurich",
+        "guida-ai-cani-di-servizio-stadt-zurich-zurich",
+        "diensthundefuhrer-in-stadt-zurich-zurich",
+        "protezione-consolare-stadt-zurich-zurich",
+        "konsulatsschutzerin-stadt-zurich-zurich",
+        "protection-consulaire-stadt-zurich-zurich",
+        "giudice-della-citta-stadt-zurich-zurich",
+        "protezione-consolare-stadt-zurich-zurich-115457",
+        "konsulatsschutzer-in-stadt-zurich-zurich",
+        "giardiniere-stadt-zurich-zurich",
+        "kanzleisekretar-in-stadt-zuerich-zurigo-51285",
+        "kanzleisekretarin-in-stadt-zurich-zurich-gp0rpr",
+        "police-aspirant-stadt-zurich-zurich-463598",
+        "gardener-stadt-zurich-zurich-626657",
+        "police-aspirant-stadt-zurich-zurich",
+        "bus-driver-stadt-zurich-zurich",
+        "pipeline-fitter-stadt-zurich-zurich",
+        "grid-electrician-stadt-zurich-zurich",
+        "guidance-stadt-zurich-zurich-ef10a3",
+        "guidance-stadt-zurich-zurich",
+        "service-dog-guide-stadt-zurich-zurich",
+        "consular-protection-stadt-zurich-zurich",
+        "city-judge-stadt-zurich-zurich",
+        "consular-protection-stadt-zurich-zurich-115457",
+        "gardener-stadt-zurich-zurich",
+        "polizeiaspirantin-stadt-zuerich-zurigo-16913",
+        "bestattungsallrounder-in-stadt-zuerich-zurigo-51059",
+        "gartner-in-stadt-zuerich-zurigo-51345",
+        "polizeiaspirant-in-stadt-zuerich-zurigo-27881",
+        "busfahrer-in-stadt-zuerich-zurigo-46696",
+        "rohrnetzmonteur-in-stadt-zuerich-zurigo-50089",
+        "systemtechniker-in-stadt-zuerich-zurigo-51446",
+        "trampilot-in-stadt-zuerich-zurigo-48193",
+        "netzelektriker-in-stadt-zuerich-zurigo-49558",
+        "hortleitung-stadt-zuerich-zurigo-50709",
+        "hortleitung-stadt-zuerich-zurigo-51324",
+        "diensthundefuhrer-in-stadt-zuerich-zurigo-51325",
+        "konsulatsschutzerin-stadt-zuerich-zurigo-23632",
+        "stadtrichter-in-stadt-zuerich-zurigo-51000",
+        "konsulatsschutzer-in-stadt-zuerich-zurigo-49282",
+        "gartner-in-stadt-zuerich-zurigo-50017",
+        "kanzleisekretarin-in-stadt-zuerich-zurigo-51285",
+        "familienberater-in-stadt-zuerich-zurigo-51351",
+        "aspirant-policier-stadt-zurich-zurich-463598",
+        "bestattungsallrounder-in-stadt-zurich-zurich",
+        "jardinier-stadt-zurich-zurich-626657",
+        "polizeiaspirant-in-stadt-zurich",
+        "conducteur-d-autobus-stadt-zurich-zurich",
+        "monteur-de-pipeline-stadt-zurich-zurich",
+        "systemtechniker-in-stadt-zurich-zurich",
+        "trampilot-in-stadt-zurich",
+        "electricien-du-reseau-stadt-zurich-zurich",
+        "orientation-stadt-zurich-zurich-ef10a3",
+        "orientation-stadt-zurich-zurich",
+        "guide-pour-chien-de-service-stadt-zurich-zurich",
+        "konsulatsschutzerin-stadt-zurich",
+        "juge-municipal-stadt-zurich-zurich",
+        "protection-consulaire-stadt-zurich-zurich-115457",
+        "jardinier-stadt-zurich-zurich",
+        "kanzleisekretarin-in-stadt-zurich-zurich",
+        "familienberater-in-stadt-zurich-zurich",
+        "aspirante-di-polizia-stadt-zurich-zurich-463598",
+        "polizeiaspirantin-stadt-zurich-zurich",
+        "giardiniere-stadt-zurich-zurich-626657",
+        "aspiratore-di-polizia-stadt-zurich-zurich",
+        "polizeiaspirant-in-stadt-zurich-zurich",
+        "aspirant-policier-stadt-zurich-zurich",
+        "autista-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-stadt-zuerich-zurigo-51512",
-          "schulsozialarbeiter-in-stadt-zurich-zurich"
+          "guida-stadt-zurich-zurich",
+          "hortleitung-stadt-zurich-zurich",
+          "guida-ai-cani-di-servizio-stadt-zurich-zurich",
+          "diensthundefuhrer-in-stadt-zurich-zurich",
+          "protezione-consolare-stadt-zurich-zurich",
+          "konsulatsschutzerin-stadt-zurich-zurich",
+          "protection-consulaire-stadt-zurich-zurich",
+          "giudice-della-citta-stadt-zurich-zurich",
+          "protezione-consolare-stadt-zurich-zurich-115457",
+          "konsulatsschutzer-in-stadt-zurich-zurich",
+          "giardiniere-stadt-zurich-zurich",
+          "kanzleisekretar-in-stadt-zuerich-zurigo-51285",
+          "kanzleisekretarin-in-stadt-zurich-zurich-gp0rpr",
+          "aspirante-di-polizia-stadt-zurich-zurich-463598",
+          "polizeiaspirantin-stadt-zurich-zurich",
+          "giardiniere-stadt-zurich-zurich-626657",
+          "aspiratore-di-polizia-stadt-zurich-zurich",
+          "polizeiaspirant-in-stadt-zurich-zurich",
+          "aspirant-policier-stadt-zurich-zurich",
+          "autista-stadt-zurich-zurich"
+        ],
+        "en": [
+          "police-aspirant-stadt-zurich-zurich-463598",
+          "gardener-stadt-zurich-zurich-626657",
+          "police-aspirant-stadt-zurich-zurich",
+          "bus-driver-stadt-zurich-zurich",
+          "pipeline-fitter-stadt-zurich-zurich",
+          "grid-electrician-stadt-zurich-zurich",
+          "guidance-stadt-zurich-zurich-ef10a3",
+          "guidance-stadt-zurich-zurich",
+          "service-dog-guide-stadt-zurich-zurich",
+          "consular-protection-stadt-zurich-zurich",
+          "city-judge-stadt-zurich-zurich",
+          "consular-protection-stadt-zurich-zurich-115457",
+          "gardener-stadt-zurich-zurich"
+        ],
+        "de": [
+          "polizeiaspirantin-stadt-zuerich-zurigo-16913",
+          "bestattungsallrounder-in-stadt-zuerich-zurigo-51059",
+          "gartner-in-stadt-zuerich-zurigo-51345",
+          "polizeiaspirant-in-stadt-zuerich-zurigo-27881",
+          "busfahrer-in-stadt-zuerich-zurigo-46696",
+          "rohrnetzmonteur-in-stadt-zuerich-zurigo-50089",
+          "systemtechniker-in-stadt-zuerich-zurigo-51446",
+          "trampilot-in-stadt-zuerich-zurigo-48193",
+          "netzelektriker-in-stadt-zuerich-zurigo-49558",
+          "hortleitung-stadt-zuerich-zurigo-50709",
+          "hortleitung-stadt-zuerich-zurigo-51324",
+          "diensthundefuhrer-in-stadt-zuerich-zurigo-51325",
+          "konsulatsschutzerin-stadt-zuerich-zurigo-23632",
+          "stadtrichter-in-stadt-zuerich-zurigo-51000",
+          "konsulatsschutzer-in-stadt-zuerich-zurigo-49282",
+          "gartner-in-stadt-zuerich-zurigo-50017",
+          "kanzleisekretarin-in-stadt-zuerich-zurigo-51285",
+          "familienberater-in-stadt-zuerich-zurigo-51351"
+        ],
+        "fr": [
+          "aspirant-policier-stadt-zurich-zurich-463598",
+          "bestattungsallrounder-in-stadt-zurich-zurich",
+          "jardinier-stadt-zurich-zurich-626657",
+          "polizeiaspirant-in-stadt-zurich",
+          "conducteur-d-autobus-stadt-zurich-zurich",
+          "monteur-de-pipeline-stadt-zurich-zurich",
+          "systemtechniker-in-stadt-zurich-zurich",
+          "trampilot-in-stadt-zurich",
+          "electricien-du-reseau-stadt-zurich-zurich",
+          "orientation-stadt-zurich-zurich-ef10a3",
+          "orientation-stadt-zurich-zurich",
+          "guide-pour-chien-de-service-stadt-zurich-zurich",
+          "konsulatsschutzerin-stadt-zurich",
+          "juge-municipal-stadt-zurich-zurich",
+          "protection-consulaire-stadt-zurich-zurich-115457",
+          "jardinier-stadt-zurich-zurich",
+          "kanzleisekretarin-in-stadt-zurich-zurich",
+          "familienberater-in-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -751,10 +1039,17 @@
           "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-49608",
           "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-trn9in",
           "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-f0jxae",
-          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029"
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029",
+          "kauffrau-kaufmann-efz-stadt-zurich-zurich",
+          "kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51048",
+          "lehrstelle-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51048"
         ],
         "de": [
-          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50583"
+          "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-50583",
+          "kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51048"
+        ],
+        "fr": [
+          "kauffrau-kaufmann-efz-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
@@ -771,7 +1066,10 @@
         "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-49608",
         "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-trn9in",
         "apprendistato-2027-kauffrau-kaufmann-cfc-stadt-zurich-f0jxae",
-        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029"
+        "lehrstelle-2027-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51029",
+        "kauffrau-kaufmann-efz-stadt-zurich-zurich",
+        "kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51048",
+        "lehrstelle-kauffrau-kaufmann-efz-stadt-zuerich-zurigo-51048"
       ],
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -1130,18 +1428,31 @@
       "referenceNumber": "40169",
       "previousSlugs": [
         "praktikant-in-medizinische-therapien-stadt-zuerich-zurigo-40169",
-        "stage-in-terapie-mediche-stadt-zurich-zurich"
+        "stage-in-terapie-mediche-stadt-zurich-zurich",
+        "stage-in-terapie-mediche-posizione-kaferberg-stadt-zurich-zurich",
+        "internship-in-medical-therapies-kaferberg-location-stadt-zurich-zurich",
+        "praktikant-in-medizinische-therapien-standort-kaferberg-stadt-zuerich-zurigo-48757",
+        "stage-en-therapies-medicales-kaferberg-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-medizinische-therapien-stadt-zuerich-zurigo-40169",
-          "stage-in-terapie-mediche-stadt-zurich-zurich"
+          "stage-in-terapie-mediche-stadt-zurich-zurich",
+          "stage-in-terapie-mediche-posizione-kaferberg-stadt-zurich-zurich",
+          "internship-in-medical-therapies-kaferberg-location-stadt-zurich-zurich",
+          "praktikant-in-medizinische-therapien-standort-kaferberg-stadt-zuerich-zurigo-48757",
+          "stage-en-therapies-medicales-kaferberg-stadt-zurich-zurich"
         ],
         "en": [
-          "praktikant-in-medizinische-therapien-stadt-zuerich-zurigo-40169"
+          "praktikant-in-medizinische-therapien-stadt-zuerich-zurigo-40169",
+          "internship-in-medical-therapies-kaferberg-location-stadt-zurich-zurich"
         ],
         "fr": [
-          "praktikant-in-medizinische-therapien-stadt-zuerich-zurigo-40169"
+          "praktikant-in-medizinische-therapien-stadt-zuerich-zurigo-40169",
+          "stage-en-therapies-medicales-kaferberg-stadt-zurich-zurich"
+        ],
+        "de": [
+          "praktikant-in-medizinische-therapien-standort-kaferberg-stadt-zuerich-zurigo-48757"
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.725Z",
@@ -1298,18 +1609,56 @@
       "previousSlugs": [
         "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zuerich",
         "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zurich-zurich",
-        "diplomierte-pflegefachperson-hf-vorwiegend-nachtdienst-standort-klus-park-stadt-zuerich"
+        "diplomierte-pflegefachperson-hf-vorwiegend-nachtdienst-standort-klus-park-stadt-zuerich",
+        "diplomierte-pflegefachperson-hf-standort-stampfenbach-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-standort-stampfenbach-stadt-zuerich-zurigo-51398",
+        "infermiere-laureato-hf-servizio-notturno-di-maggioranza-wolfswinkel-posizione-stadt-zurich-zurich",
+        "graduated-nurse-hf-majority-night-service-wolfswinkel-location-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-mehrheitlich-nachtdienst-standort-wolfswinkel-stadt",
+        "infirmiere-diplomee-hf-service-de-nuit-majoritaire-emplacement-wolfswinkel-stadt-zurich-zurich",
+        "infermiera-laureata-hf-klus-park-posizione-stadt-zurich-zurich",
+        "graduate-nurse-hf-klus-park-location-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-standort-klus-park-stadt-zuerich-zurigo-48231",
+        "infirmiere-diplomee-hf-emplacement-du-parc-klus-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-standort-klus-park-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-standort-entlisberg-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-standort-entlisberg-stadt-zuerich-zurigo-51241"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zuerich",
-          "diplomierte-pflegefachperson-hf-vorwiegend-nachtdienst-standort-klus-park-stadt-zuerich"
+          "diplomierte-pflegefachperson-hf-vorwiegend-nachtdienst-standort-klus-park-stadt-zuerich",
+          "diplomierte-pflegefachperson-hf-standort-stampfenbach-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-stampfenbach-stadt-zuerich-zurigo-51398",
+          "infermiere-laureato-hf-servizio-notturno-di-maggioranza-wolfswinkel-posizione-stadt-zurich-zurich",
+          "graduated-nurse-hf-majority-night-service-wolfswinkel-location-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-mehrheitlich-nachtdienst-standort-wolfswinkel-stadt",
+          "infirmiere-diplomee-hf-service-de-nuit-majoritaire-emplacement-wolfswinkel-stadt-zurich-zurich",
+          "infermiera-laureata-hf-klus-park-posizione-stadt-zurich-zurich",
+          "graduate-nurse-hf-klus-park-location-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-klus-park-stadt-zuerich-zurigo-48231",
+          "infirmiere-diplomee-hf-emplacement-du-parc-klus-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-klus-park-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-entlisberg-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-entlisberg-stadt-zuerich-zurigo-51241"
         ],
         "en": [
-          "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zurich-zurich"
+          "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zurich-zurich",
+          "graduated-nurse-hf-majority-night-service-wolfswinkel-location-stadt-zurich-zurich",
+          "graduate-nurse-hf-klus-park-location-stadt-zurich-zurich"
         ],
         "fr": [
-          "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zurich-zurich"
+          "diplomierte-pflegefachperson-hf-fur-den-nachtdienst-standort-klus-park-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-stampfenbach-stadt-zurich-zurich",
+          "infirmiere-diplomee-hf-service-de-nuit-majoritaire-emplacement-wolfswinkel-stadt-zurich-zurich",
+          "infirmiere-diplomee-hf-emplacement-du-parc-klus-stadt-zurich-zurich",
+          "diplomierte-pflegefachperson-hf-standort-entlisberg-stadt-zurich-zurich"
+        ],
+        "de": [
+          "diplomierte-pflegefachperson-hf-standort-stampfenbach-stadt-zuerich-zurigo-51398",
+          "diplomierte-pflegefachperson-hf-mehrheitlich-nachtdienst-standort-wolfswinkel-stadt",
+          "diplomierte-pflegefachperson-hf-standort-klus-park-stadt-zuerich-zurigo-48231",
+          "diplomierte-pflegefachperson-hf-standort-entlisberg-stadt-zuerich-zurigo-51241"
         ]
       },
       "needsRetranslation": true,
@@ -1646,12 +1995,19 @@
       "referenceNumber": "51507",
       "previousSlugs": [
         "abteilungsleiter-in-ubergangswohnen-stadt-zuerich-zurigo-51507",
-        "abteilungsleiter-in-ubergangswohnen-stadt-zurich-zurich"
+        "abteilungsleiter-in-ubergangswohnen-stadt-zurich-zurich",
+        "abteilungsleiter-in-services-stadt-zurich-zurich",
+        "abteilungsleiter-in-services-stadt-zuerich-zurigo-51372"
       ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-ubergangswohnen-stadt-zuerich-zurigo-51507",
-          "abteilungsleiter-in-ubergangswohnen-stadt-zurich-zurich"
+          "abteilungsleiter-in-ubergangswohnen-stadt-zurich-zurich",
+          "abteilungsleiter-in-services-stadt-zurich-zurich",
+          "abteilungsleiter-in-services-stadt-zuerich-zurigo-51372"
+        ],
+        "fr": [
+          "abteilungsleiter-in-services-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1724,12 +2080,52 @@
       "referenceNumber": "51501",
       "previousSlugs": [
         "sachbearbeiter-in-schulsport-stadt-zuerich-zurigo-51501",
-        "sachbearbeiter-in-schulsport-stadt-zurich-zurich"
+        "sachbearbeiter-in-schulsport-stadt-zurich-zurich",
+        "sachbearbeiter-in-stadt-zurich-zurich",
+        "sachbearbeiter-in-stadt-zuerich-zurigo-51399",
+        "sachbearbeiter-in-kundencenter-stadt-zurich-zurich",
+        "sachbearbeiter-in-kundencenter-stadt-zuerich-zurigo-51360",
+        "personale-registrazione-accidentale-stadt-zurich-zurich",
+        "personnel-in-accident-recording-stadt-zurich-zurich",
+        "sachbearbeiter-in-pflegebeitrage-stadt-zuerich-zurigo-50951",
+        "sachbearbeiter-in-unfallaufnahme-stadt-zuerich-zurigo-50607",
+        "sachbearbeiter-in-unfallaufnahme-stadt-zurich-zurich",
+        "sachbearbeiter-in-kreditoren-stadt-zuerich-zurigo-51238",
+        "sachbearbeiter-in-pflegebeitrage-stadt-zurich-zurich",
+        "personnel-enregistrement-des-accidents-stadt-zurich-zurich",
+        "sachbearbeiter-in-kreditoren-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-schulsport-stadt-zuerich-zurigo-51501",
-          "sachbearbeiter-in-schulsport-stadt-zurich-zurich"
+          "sachbearbeiter-in-schulsport-stadt-zurich-zurich",
+          "sachbearbeiter-in-stadt-zurich-zurich",
+          "sachbearbeiter-in-stadt-zuerich-zurigo-51399",
+          "sachbearbeiter-in-kundencenter-stadt-zurich-zurich",
+          "sachbearbeiter-in-kundencenter-stadt-zuerich-zurigo-51360",
+          "personale-registrazione-accidentale-stadt-zurich-zurich",
+          "personnel-in-accident-recording-stadt-zurich-zurich",
+          "sachbearbeiter-in-pflegebeitrage-stadt-zuerich-zurigo-50951",
+          "sachbearbeiter-in-unfallaufnahme-stadt-zuerich-zurigo-50607",
+          "sachbearbeiter-in-unfallaufnahme-stadt-zurich-zurich",
+          "sachbearbeiter-in-kreditoren-stadt-zuerich-zurigo-51238",
+          "sachbearbeiter-in-pflegebeitrage-stadt-zurich-zurich",
+          "personnel-enregistrement-des-accidents-stadt-zurich-zurich",
+          "sachbearbeiter-in-kreditoren-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sachbearbeiter-in-stadt-zuerich-zurigo-51399",
+          "sachbearbeiter-in-kundencenter-stadt-zurich-zurich",
+          "sachbearbeiter-in-kundencenter-stadt-zuerich-zurigo-51360",
+          "sachbearbeiter-in-pflegebeitrage-stadt-zuerich-zurigo-50951",
+          "sachbearbeiter-in-unfallaufnahme-stadt-zuerich-zurigo-50607",
+          "sachbearbeiter-in-unfallaufnahme-stadt-zurich-zurich",
+          "sachbearbeiter-in-kreditoren-stadt-zuerich-zurigo-51238",
+          "sachbearbeiter-in-pflegebeitrage-stadt-zurich-zurich",
+          "sachbearbeiter-in-kreditoren-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1883,11 +2279,28 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betriebsunterhalt-standort-sydefadeli-stadt-zuerich-zurigo-51511"
+          "fachperson-betriebsunterhalt-standort-sydefadeli-stadt-zuerich-zurigo-51511",
+          "specialista-della-salute-sito-sydefadeli-stadt-zurich-zurich",
+          "health-specialist-sydefadeli-site-stadt-zurich-zurich",
+          "fachperson-gesundheit-standort-sydefadeli-stadt-zuerich-zurigo-50070",
+          "specialiste-de-la-sante-site-de-sydefadeli-stadt-zurich-zurich"
+        ],
+        "en": [
+          "health-specialist-sydefadeli-site-stadt-zurich-zurich"
+        ],
+        "de": [
+          "fachperson-gesundheit-standort-sydefadeli-stadt-zuerich-zurigo-50070"
+        ],
+        "fr": [
+          "specialiste-de-la-sante-site-de-sydefadeli-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-betriebsunterhalt-standort-sydefadeli-stadt-zuerich-zurigo-51511"
+        "fachperson-betriebsunterhalt-standort-sydefadeli-stadt-zuerich-zurigo-51511",
+        "specialista-della-salute-sito-sydefadeli-stadt-zurich-zurich",
+        "health-specialist-sydefadeli-site-stadt-zurich-zurich",
+        "fachperson-gesundheit-standort-sydefadeli-stadt-zuerich-zurigo-50070",
+        "specialiste-de-la-sante-site-de-sydefadeli-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -2213,21 +2626,53 @@
       "previousSlugs": [
         "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-51203",
         "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-erwachsene-stadt-zurich-zurich",
-        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zurich-zurich"
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zurich-zurich",
+        "apprendistato-2026-fachfrau-fachmann-betreuung-cfc-kinder-verkurzt-stadt-zurich",
+        "apprenticeship-2026-professional-care-efz-children-shortened-stadt-zurich-zurich",
+        "apprentissage-2026-soins-professionnels-efz-enfants-raccourci-stadt-zurich-zurich",
+        "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-46994",
+        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-erwachsenenlehre-stadt-zurich",
+        "apprenticeship-2027-professional-care-efz-children-adult-teaching-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-erwachsenenlehre-stadt-zuerich",
+        "apprentissage-2027-soins-professionnels-efz-enfants-enseignement-pour-adultes-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-erwachsenenlehre-stadt-zurich-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-interne-mitarbeitende-stadt-zurich",
+        "apprenticeship-2027-professional-care-efz-children-internal-employees-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-interne-mitarbeitende-stadt-zuerich",
+        "apprentissage-2027-soins-professionnels-efz-enfants-employes-internes-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-51203",
-          "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-erwachsene-stadt-zurich-zurich"
+          "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-erwachsene-stadt-zurich-zurich",
+          "apprendistato-2026-fachfrau-fachmann-betreuung-cfc-kinder-verkurzt-stadt-zurich",
+          "apprenticeship-2026-professional-care-efz-children-shortened-stadt-zurich-zurich",
+          "apprentissage-2026-soins-professionnels-efz-enfants-raccourci-stadt-zurich-zurich",
+          "lehrstelle-2026-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-46994",
+          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-erwachsenenlehre-stadt-zurich",
+          "apprenticeship-2027-professional-care-efz-children-adult-teaching-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-erwachsenenlehre-stadt-zuerich",
+          "apprentissage-2027-soins-professionnels-efz-enfants-enseignement-pour-adultes-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-erwachsenenlehre-stadt-zurich-zurich",
+          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-interne-mitarbeitende-stadt-zurich",
+          "apprenticeship-2027-professional-care-efz-children-internal-employees-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-interne-mitarbeitende-stadt-zuerich",
+          "apprentissage-2027-soins-professionnels-efz-enfants-employes-internes-stadt-zurich-zurich"
         ],
         "en": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-51203"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-51203",
+          "apprenticeship-2027-professional-care-efz-children-adult-teaching-stadt-zurich-zurich",
+          "apprenticeship-2027-professional-care-efz-children-internal-employees-stadt-zurich-zurich"
         ],
         "de": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zurich-zurich"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-erwachsenenlehre-stadt-zuerich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-interne-mitarbeitende-stadt-zuerich"
         ],
         "fr": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-51203"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-verkurzt-stadt-zuerich-zurigo-51203",
+          "apprentissage-2027-soins-professionnels-efz-enfants-enseignement-pour-adultes-stadt-zurich-zurich",
+          "apprentissage-2027-soins-professionnels-efz-enfants-employes-internes-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2384,7 +2829,12 @@
         "apprendistato-2027-praticante-di-manutenzione-eba-varie-posizioni-stadt-zurich-zurich",
         "apprenticeships-2027-maintenance-practitioner-eba-various-locations-stadt-zurich-zurich",
         "lehrstellen-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-diverse-standorte-stadt",
-        "apprentissage-2027-medecin-d-entretien-eba-divers-endroits-stadt-zurich-zurich"
+        "apprentissage-2027-medecin-d-entretien-eba-divers-endroits-stadt-zurich-zurich",
+        "apprendistato-2027-unterhaltspraktikerin-unterhaltspraktiker-afp-stadt-zurich",
+        "apprenticeship-2027-maintenance-practitioner-maintenance-practitioner-eba-stadt-zurich-zurich",
+        "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-stadt-zuerich-zurigo-51031",
+        "apprentissage-2027-praticien-de-l-entretien-praticien-de-l-entretien-eba-stadt-zurich-zurich",
+        "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2392,18 +2842,26 @@
           "apprendistato-2027-praticante-di-manutenzione-eba-varie-posizioni-stadt-zurich-zurich",
           "apprenticeships-2027-maintenance-practitioner-eba-various-locations-stadt-zurich-zurich",
           "lehrstellen-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-diverse-standorte-stadt",
-          "apprentissage-2027-medecin-d-entretien-eba-divers-endroits-stadt-zurich-zurich"
+          "apprentissage-2027-medecin-d-entretien-eba-divers-endroits-stadt-zurich-zurich",
+          "apprendistato-2027-unterhaltspraktikerin-unterhaltspraktiker-afp-stadt-zurich",
+          "apprenticeship-2027-maintenance-practitioner-maintenance-practitioner-eba-stadt-zurich-zurich",
+          "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-stadt-zuerich-zurigo-51031",
+          "apprentissage-2027-praticien-de-l-entretien-praticien-de-l-entretien-eba-stadt-zurich-zurich",
+          "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-stadt-zurich-zurich"
         ],
         "en": [
           "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-diverse-standorte-stadt",
-          "apprenticeships-2027-maintenance-practitioner-eba-various-locations-stadt-zurich-zurich"
+          "apprenticeships-2027-maintenance-practitioner-eba-various-locations-stadt-zurich-zurich",
+          "apprenticeship-2027-maintenance-practitioner-maintenance-practitioner-eba-stadt-zurich-zurich"
         ],
         "de": [
-          "lehrstellen-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-diverse-standorte-stadt"
+          "lehrstellen-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-diverse-standorte-stadt",
+          "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-stadt-zuerich-zurigo-51031"
         ],
         "fr": [
           "lehrstelle-2027-unterhaltspraktikerin-unterhaltspraktiker-eba-diverse-standorte-stadt",
-          "apprentissage-2027-medecin-d-entretien-eba-divers-endroits-stadt-zurich-zurich"
+          "apprentissage-2027-medecin-d-entretien-eba-divers-endroits-stadt-zurich-zurich",
+          "apprentissage-2027-praticien-de-l-entretien-praticien-de-l-entretien-eba-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2476,20 +2934,33 @@
       "referenceNumber": "51185",
       "previousSlugs": [
         "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich",
-        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zurich-zurich"
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zurich-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-schulkreis-glattal-stadt-zurich",
+        "apprenticeship-2027-professional-care-efz-children-s-school-district-glattal-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-glattal-stadt-zuerich",
+        "apprentissage-2027-soins-professionnels-efz-ecole-pour-enfants-district-glattal-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-glattal-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich",
+          "apprendistato-2027-fachfrau-fachmann-betreuung-cfc-kinder-schulkreis-glattal-stadt-zurich",
+          "apprenticeship-2027-professional-care-efz-children-s-school-district-glattal-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-glattal-stadt-zuerich",
+          "apprentissage-2027-soins-professionnels-efz-ecole-pour-enfants-district-glattal-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-glattal-stadt-zurich-zurich"
         ],
         "en": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich",
+          "apprenticeship-2027-professional-care-efz-children-s-school-district-glattal-stadt-zurich-zurich"
         ],
         "de": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zurich-zurich"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-glattal-stadt-zuerich"
         ],
         "fr": [
-          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich"
+          "lehrstelle-2027-fachfrau-fachmann-betreuung-efz-kinder-schulkreis-letzi-stadt-zuerich",
+          "apprentissage-2027-soins-professionnels-efz-ecole-pour-enfants-district-glattal-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2643,11 +3114,21 @@
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "51201",
       "previousSlugs": [
-        "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201"
+        "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201",
+        "hms-praxisjahr-2027-facility-management-stadt-zuerich-zurigo-50567",
+        "hms-praxisjahr-2027-facility-management-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201"
+          "hochschulpraktikum-facility-management-stadt-zuerich-zurigo-51201",
+          "hms-praxisjahr-2027-facility-management-stadt-zuerich-zurigo-50567",
+          "hms-praxisjahr-2027-facility-management-stadt-zurich-zurich"
+        ],
+        "de": [
+          "hms-praxisjahr-2027-facility-management-stadt-zuerich-zurigo-50567"
+        ],
+        "fr": [
+          "hms-praxisjahr-2027-facility-management-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-08-03T12:40:57.033Z",
@@ -2971,17 +3452,70 @@
       "unit": "Stiftung Alterswohnungen der Stadt Zürich",
       "referenceNumber": "51103",
       "previousSlugs": [
-        "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103"
+        "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103",
+        "lehrstelle-2027-ict-fachfrau-fachmann-efz-stadt-zuerich-zurigo-51089",
+        "apprentissage-2027-specialiste-des-tic-efz-stadt-zurich-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-werkdienst-stadt-zurich",
+        "apprenticeship-2027-specialist-company-maintenance-efz-werkdienst-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-werkdienst-stadt-zuerich-zurigo",
+        "apprentissage-2027-specialiste-entretien-de-l-entreprise-efz-werkdienst-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-werkdienst-stadt-zurich-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich",
+        "apprenticeship-2027-specialist-business-maintenance-efz-house-service-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zuerich-zurigo",
+        "apprentissage-2027-specialiste-de-l-entretien-des-entreprises-efz-house-service-stadt-zurich-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich-coukzy",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zurich-zurich",
+        "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-sportanlagen-stadt-zurich",
+        "apprenticeship-2027-specialist-maintenance-efz-sports-facilities-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-sportanlagen-stadt-zuerich-zurigo",
+        "apprentissage-2027-specialiste-entretien-efz-installations-sportives-stadt-zurich-zurich",
+        "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-sportanlagen-stadt-zurich-zurich",
+        "apprendistato-2027-ict-fachfrau-fachmann-cfc-stadt-zurich",
+        "apprenticeship-2027-ict-specialist-efz-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103"
+          "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103",
+          "lehrstelle-2027-ict-fachfrau-fachmann-efz-stadt-zuerich-zurigo-51089",
+          "apprentissage-2027-specialiste-des-tic-efz-stadt-zurich-zurich",
+          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-werkdienst-stadt-zurich",
+          "apprenticeship-2027-specialist-company-maintenance-efz-werkdienst-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-werkdienst-stadt-zuerich-zurigo",
+          "apprentissage-2027-specialiste-entretien-de-l-entreprise-efz-werkdienst-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-werkdienst-stadt-zurich-zurich",
+          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich",
+          "apprenticeship-2027-specialist-business-maintenance-efz-house-service-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zuerich-zurigo",
+          "apprentissage-2027-specialiste-de-l-entretien-des-entreprises-efz-house-service-stadt-zurich-zurich",
+          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-stadt-zurich-coukzy",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zurich-zurich",
+          "apprendistato-2027-fachfrau-fachmann-betriebsunterhalt-cfc-sportanlagen-stadt-zurich",
+          "apprenticeship-2027-specialist-maintenance-efz-sports-facilities-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-sportanlagen-stadt-zuerich-zurigo",
+          "apprentissage-2027-specialiste-entretien-efz-installations-sportives-stadt-zurich-zurich",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-sportanlagen-stadt-zurich-zurich",
+          "apprendistato-2027-ict-fachfrau-fachmann-cfc-stadt-zurich"
         ],
         "en": [
-          "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103"
+          "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103",
+          "apprenticeship-2027-ict-specialist-efz-stadt-zurich-zurich",
+          "apprenticeship-2027-specialist-company-maintenance-efz-werkdienst-stadt-zurich-zurich",
+          "apprenticeship-2027-specialist-business-maintenance-efz-house-service-stadt-zurich-zurich",
+          "apprenticeship-2027-specialist-maintenance-efz-sports-facilities-stadt-zurich-zurich"
         ],
         "fr": [
-          "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103"
+          "lehrstelle-2027-fachfrau-fachmann-gesundheit-efz-stadt-zuerich-zurigo-51103",
+          "apprentissage-2027-specialiste-des-tic-efz-stadt-zurich-zurich",
+          "apprentissage-2027-specialiste-entretien-de-l-entreprise-efz-werkdienst-stadt-zurich-zurich",
+          "apprentissage-2027-specialiste-de-l-entretien-des-entreprises-efz-house-service-stadt-zurich-zurich",
+          "apprentissage-2027-specialiste-entretien-efz-installations-sportives-stadt-zurich-zurich"
+        ],
+        "de": [
+          "lehrstelle-2027-ict-fachfrau-fachmann-efz-stadt-zuerich-zurigo-51089",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-werkdienst-stadt-zuerich-zurigo",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-stadt-zuerich-zurigo",
+          "lehrstelle-2027-fachfrau-fachmann-betriebsunterhalt-efz-sportanlagen-stadt-zuerich-zurigo"
         ]
       },
       "needsRetranslation": true,
@@ -3150,7 +3684,44 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "schulassistenz-schule-falletsche-stadt-zuerich-zurigo-51447",
+          "assistente-scolastico-scuola-nordstern-stadt-zurich-zurich-5756f2",
+          "school-assistant-school-nordstern-stadt-zurich-zurich-5756f2",
+          "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986",
+          "assistant-scolaire-ecole-nordstern-stadt-zurich-zurich-5756f2",
+          "assistente-di-scuola-secondaria-herzogenmuhle-scuola-stadt-zurich-zurich",
+          "secondary-school-assistant-herzogenmuhle-school-stadt-zurich-zurich",
+          "schulassistenz-sekundarstufe-schule-herzogenmuhle-stadt-zuerich-zurigo-51334",
+          "assistant-d-ecole-secondaire-ecole-herzogenmuhle-stadt-zurich-zurich"
+        ],
+        "en": [
+          "school-assistant-school-nordstern-stadt-zurich-zurich-5756f2",
+          "secondary-school-assistant-herzogenmuhle-school-stadt-zurich-zurich"
+        ],
+        "de": [
+          "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986",
+          "schulassistenz-sekundarstufe-schule-herzogenmuhle-stadt-zuerich-zurigo-51334"
+        ],
+        "fr": [
+          "schulassistenz-schule-falletsche-stadt-zuerich-zurigo-51447",
+          "assistant-scolaire-ecole-nordstern-stadt-zurich-zurich-5756f2",
+          "assistant-d-ecole-secondaire-ecole-herzogenmuhle-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "schulassistenz-schule-falletsche-stadt-zuerich-zurigo-51447",
+        "assistente-scolastico-scuola-nordstern-stadt-zurich-zurich-5756f2",
+        "school-assistant-school-nordstern-stadt-zurich-zurich-5756f2",
+        "schulassistenz-schule-nordstern-stadt-zuerich-zurigo-50986",
+        "assistant-scolaire-ecole-nordstern-stadt-zurich-zurich-5756f2",
+        "assistente-di-scuola-secondaria-herzogenmuhle-scuola-stadt-zurich-zurich",
+        "secondary-school-assistant-herzogenmuhle-school-stadt-zurich-zurich",
+        "schulassistenz-sekundarstufe-schule-herzogenmuhle-stadt-zuerich-zurigo-51334",
+        "assistant-d-ecole-secondaire-ecole-herzogenmuhle-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-421a099e3575",
@@ -3294,11 +3865,86 @@
       "referenceNumber": "51137",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137"
+          "sozialpadagog-in-oder-fachperson-betreuung-stadt-zurich",
+          "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich",
+          "specialist-care-or-social-pedagogue-for-the-secondary-day-school-stadt-zurich-zurich",
+          "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
+          "soins-specialises-ou-pedagogie-sociale-pour-l-ecole-secondaire-de-jour-stadt-zurich-zurich",
+          "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zurich",
+          "sozialpadagog-in-o-fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-stadt-zurich",
+          "social-pedagogue-nell-assistenza-complementare-stadt-zurich-zurich",
+          "social-pedagogue-in-supplementary-care-stadt-zurich-zurich",
+          "sozialpadagog-in-erganzende-betreuung-stadt-zuerich-zurigo-51390",
+          "pedagogue-sociale-en-soins-complementaires-stadt-zurich-zurich",
+          "supporto-specialistico-stv-stadt-zurich-zurich",
+          "fachperson-betreuung-stv-stadt-zurich-zurich",
+          "assistenza-specialistica-82-stadt-zurich-zurich",
+          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0cnh7r",
+          "assistenza-specialistica-stadt-zurich-zurich-639fea",
+          "assistenza-specialistica-stadt-zurich-zurich",
+          "specialist-care-stadt-zurich-zurich",
+          "fachperson-betreuung-stadt-zuerich-zurigo-50699",
+          "soins-specialises-stadt-zurich-zurich"
+        ],
+        "en": [
+          "specialist-care-stadt-zurich-zurich-639fea",
+          "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
+          "specialist-support-stv-stadt-zurich-zurich",
+          "specialist-care-82-stadt-zurich-zurich"
+        ],
+        "de": [
+          "fachperson-betreuung-stadt-zuerich-zurigo-50400",
+          "sozialpadagog-in-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
+          "fachperson-betreuung-stv-stadt-zuerich-zurigo-48899",
+          "fachperson-betreuung-82-stadt-zuerich-zurigo-51343"
+        ],
+        "fr": [
+          "soins-specialises-stadt-zurich-zurich-639fea",
+          "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich",
+          "soutien-specialise-stv-stadt-zurich-zurich",
+          "soins-specialises-82-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137"
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
+        "fachperson-betreuung-stadt-zuerich-zurigo-51343",
+        "assistenza-specialistica-stadt-zurich-zurich-a65157",
+        "specialist-assistance-isr-stadt-zurich-zurich-a65157",
+        "fachperson-betreuung-isr-stadt-zuerich-zurigo-50844",
+        "aide-specialisee-stadt-zurich-zurich-a65157",
+        "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
+        "sozialpadagog-in-oder-fachperson-betreuung-stadt-zurich",
+        "fachperson-betreuung-o-sozialpadagog-in-per-la-sekundar-tagesschule-stadt-zurich",
+        "specialist-care-or-social-pedagogue-for-the-secondary-day-school-stadt-zurich-zurich",
+        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zuerich",
+        "soins-specialises-ou-pedagogie-sociale-pour-l-ecole-secondaire-de-jour-stadt-zurich-zurich",
+        "fachperson-betreuung-oder-sozialpadagog-in-fur-die-sekundar-tagesschule-stadt-zurich",
+        "sozialpadagog-in-o-fachperson-betreuung-tagesschule-wolfsblick-abteilung-sekundar-stadt-zurich",
+        "social-pedagogue-nell-assistenza-complementare-stadt-zurich-zurich",
+        "social-pedagogue-in-supplementary-care-stadt-zurich-zurich",
+        "sozialpadagog-in-erganzende-betreuung-stadt-zuerich-zurigo-51390",
+        "pedagogue-sociale-en-soins-complementaires-stadt-zurich-zurich",
+        "supporto-specialistico-stv-stadt-zurich-zurich",
+        "fachperson-betreuung-stv-stadt-zurich-zurich",
+        "assistenza-specialistica-82-stadt-zurich-zurich",
+        "specialist-care-stadt-zurich-zurich-639fea",
+        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
+        "specialist-support-stv-stadt-zurich-zurich",
+        "specialist-care-82-stadt-zurich-zurich",
+        "fachperson-betreuung-stadt-zuerich-zurigo-50400",
+        "sozialpadagog-in-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
+        "fachperson-betreuung-stv-stadt-zuerich-zurigo-48899",
+        "fachperson-betreuung-82-stadt-zuerich-zurigo-51343",
+        "soins-specialises-stadt-zurich-zurich-639fea",
+        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich",
+        "soutien-specialise-stv-stadt-zurich-zurich",
+        "soins-specialises-82-stadt-zurich-zurich",
+        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-0cnh7r",
+        "assistenza-specialistica-stadt-zurich-zurich-639fea",
+        "assistenza-specialistica-stadt-zurich-zurich",
+        "specialist-care-stadt-zurich-zurich",
+        "fachperson-betreuung-stadt-zuerich-zurigo-50699",
+        "soins-specialises-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 91500,
@@ -3387,11 +4033,47 @@
       "crawlerMissStreak": 1,
       "previousSlugsByLocale": {
         "de": [
-          "gruppenleiter-in-bau-beleuchtung-stadt-zurich-zurich"
+          "gruppenleiter-in-bau-beleuchtung-stadt-zurich-zurich",
+          "gruppenleiter-in-stadt-zuerich-zurigo-49711",
+          "gruppenleiter-in-stadt-zuerich-zurigo-48291"
+        ],
+        "it": [
+          "leader-del-gruppo-stadt-zurich-zurich-1c7d8c",
+          "group-leader-stadt-zurich-zurich-1c7d8c",
+          "gruppenleiter-in-stadt-zuerich-zurigo-49711",
+          "chef-de-groupe-stadt-zurich-zurich-1c7d8c",
+          "leader-del-gruppo-stadt-zurich-zurich-d72a64",
+          "group-leader-stadt-zurich-zurich-d72a64",
+          "gruppenleiter-in-stadt-zuerich-zurigo-48291",
+          "chef-de-groupe-stadt-zurich-zurich-d72a64",
+          "leader-del-gruppo-stadt-zurich-zurich-e7f2eb",
+          "group-leader-stadt-zurich-zurich-e7f2eb",
+          "gruppenleiter-in-stadt-zuerich-zurigo-47510",
+          "chef-de-groupe-stadt-zurich-zurich-e7f2eb"
+        ],
+        "en": [
+          "group-leader-stadt-zurich-zurich-1c7d8c",
+          "group-leader-stadt-zurich-zurich-d72a64"
+        ],
+        "fr": [
+          "chef-de-groupe-stadt-zurich-zurich-1c7d8c",
+          "chef-de-groupe-stadt-zurich-zurich-d72a64"
         ]
       },
       "previousSlugs": [
-        "gruppenleiter-in-bau-beleuchtung-stadt-zurich-zurich"
+        "gruppenleiter-in-bau-beleuchtung-stadt-zurich-zurich",
+        "leader-del-gruppo-stadt-zurich-zurich-1c7d8c",
+        "group-leader-stadt-zurich-zurich-1c7d8c",
+        "gruppenleiter-in-stadt-zuerich-zurigo-49711",
+        "chef-de-groupe-stadt-zurich-zurich-1c7d8c",
+        "leader-del-gruppo-stadt-zurich-zurich-d72a64",
+        "group-leader-stadt-zurich-zurich-d72a64",
+        "gruppenleiter-in-stadt-zuerich-zurigo-48291",
+        "chef-de-groupe-stadt-zurich-zurich-d72a64",
+        "leader-del-gruppo-stadt-zurich-zurich-e7f2eb",
+        "group-leader-stadt-zurich-zurich-e7f2eb",
+        "gruppenleiter-in-stadt-zuerich-zurigo-47510",
+        "chef-de-groupe-stadt-zurich-zurich-e7f2eb"
       ]
     },
     {
@@ -3448,18 +4130,33 @@
       "referenceNumber": "51145",
       "previousSlugs": [
         "badangestellte-r-40-stadt-zuerich-zurigo-51145",
-        "lavoratori-del-bagno-40-stadt-zurich-zurich"
+        "lavoratori-del-bagno-40-stadt-zurich-zurich",
+        "lavoratori-in-cambio-80-100-stadt-zurich-zurich",
+        "workers-in-return-80-100-stadt-zurich-zurich",
+        "betriebsarbeiter-in-betriebskehricht-80-100-stadt-zuerich-zurigo-51295",
+        "travailleurs-en-echange-80-100-stadt-zurich-zurich",
+        "betriebsarbeiter-in-betriebskehricht-80-100-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "badangestellte-r-40-stadt-zuerich-zurigo-51145",
-          "lavoratori-del-bagno-40-stadt-zurich-zurich"
+          "lavoratori-del-bagno-40-stadt-zurich-zurich",
+          "lavoratori-in-cambio-80-100-stadt-zurich-zurich",
+          "workers-in-return-80-100-stadt-zurich-zurich",
+          "betriebsarbeiter-in-betriebskehricht-80-100-stadt-zuerich-zurigo-51295",
+          "travailleurs-en-echange-80-100-stadt-zurich-zurich",
+          "betriebsarbeiter-in-betriebskehricht-80-100-stadt-zurich-zurich"
         ],
         "en": [
-          "badangestellte-r-40-stadt-zuerich-zurigo-51145"
+          "badangestellte-r-40-stadt-zuerich-zurigo-51145",
+          "workers-in-return-80-100-stadt-zurich-zurich"
         ],
         "fr": [
-          "badangestellte-r-40-stadt-zuerich-zurigo-51145"
+          "badangestellte-r-40-stadt-zuerich-zurigo-51145",
+          "travailleurs-en-echange-80-100-stadt-zurich-zurich"
+        ],
+        "de": [
+          "betriebsarbeiter-in-betriebskehricht-80-100-stadt-zuerich-zurigo-51295"
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
@@ -3538,29 +4235,121 @@
         "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
         "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich",
         "projektleiter-in-standort-zurich-oerlikon-stadt-zurich",
-        "project-manager-80-100-stadt-zurich-zurich"
+        "project-manager-80-100-stadt-zurich-zurich",
+        "projektleiter-in-bau-stadt-zurich",
+        "project-manager-nella-digitalizzazione-stadt-zurich-zurich",
+        "project-manager-in-digitalization-stadt-zurich-zurich",
+        "projektleiter-in-digitalisierung-stadt-zuerich-zurigo-50818",
+        "gestionnaire-de-projet-en-numerisation-stadt-zurich-zurich",
+        "projektleiter-in-digitalisierung-stadt-zurich",
+        "projektleiter-in-digitalisierung-stadt-zurich-zurich",
+        "sap-service-manager-stadt-zuerich-zurigo-49567",
+        "sap-service-manager-stadt-zurich-zurich",
+        "gestionnaire-de-services-sap-stadt-zurich-zurich",
+        "product-e-projekt-manager-in-stadt-zurich",
+        "product-und-projekt-manager-in-stadt-zurich-zurich",
+        "product-und-projekt-manager-in-stadt-zuerich-zurigo-51034",
+        "chef-de-produit-et-de-projet-stadt-zurich-zurich",
+        "manager-stadt-zurich-zurich",
+        "junior-immobilienbewirtschafter-in-stadt-zurich-zurich",
+        "junior-immobilienbewirtschafter-in-stadt-zuerich-zurigo-50631",
+        "betriebsleiter-in-stadt-zuerich-zurigo-50995",
+        "gestionnaire-stadt-zurich-zurich",
+        "project-manager-in-costruzione-stadt-zurich-zurich",
+        "overall-project-manager-surface-manager-stadt-zurich-zurich",
+        "project-manager-in-order-to-meter-stadt-zurich-zurich",
+        "certificate-manager-stadt-zurich-zurich",
+        "project-manager-stadt-zurich-zurich",
+        "junior-property-manager-stadt-zurich-zurich",
+        "senior-finanza-manager-in-stadt-zurich-zurich",
+        "senior-finance-manager-in-stadt-zurich-zurich",
+        "senior-finance-manager-in-stadt-zuerich-zurigo-50677",
+        "project-manager-in-construction-stadt-zurich-zurich",
+        "gesamtprojektleiter-oberbauleiter-in-stadt-zuerich-zurigo-50723",
+        "projektleiter-in-order-to-meter-stadt-zuerich-zurigo-51335",
+        "hortleiter-in-stadt-zuerich-zurigo-51242",
+        "projektleiter-in-stadt-zuerich-zurigo-51240",
+        "projektleiter-in-bau-stadt-zuerich-zurigo-50110",
+        "directeur-general-de-projet-gestionnaire-de-surface-stadt-zurich-zurich",
+        "gestionnaire-de-projet-dans-order-to-meter-stadt-zurich-zurich",
+        "gestionnaire-de-certificat-stadt-zurich-zurich",
+        "gestionnaire-de-projet-stadt-zurich-zurich",
+        "directeur-immobilier-junior-stadt-zurich-zurich",
+        "directeur-principal-des-finances-stadt-zurich-zurich",
+        "chef-de-projet-en-construction-stadt-zurich-zurich",
+        "responsabile-del-progetto-responsabile-della-superficie-stadt-zurich-zurich",
+        "gesamtprojektleiter-oberbauleiter-in-stadt-zurich-zurich",
+        "projektleiter-in-order-to-meter-stadt-zurich",
+        "gestione-certificati-stadt-zurich-zurich",
+        "hortleiter-in-stadt-zuerich-zurigo-49673",
+        "gestione-certificati-stadt-zurich-zurich-d10e44",
+        "certificate-manager-stadt-zurich-zurich-d10e44",
+        "hortleiter-in-stadt-zuerich-zurigo-51387",
+        "gestionnaire-de-certificat-stadt-zurich-zurich-d10e44",
+        "projektleiter-in-stadt-zurich",
+        "real-estate-manager-trustee-stadt-zurich-zurich",
+        "immobilienbewirtschafter-in-treuhander-in-stadt-zurich-zurich",
+        "immobilienbewirtschafter-in-treuhander-in-stadt-zuerich-zurigo-50584",
+        "gestionnaire-immobilier-fiduciaire-stadt-zurich-zurich",
+        "gestione-delle-applicazioni-it-stadt-zurich-zurich",
+        "it-application-manager-in-stadt-zurich-zurich",
+        "it-application-manager-in-stadt-zuerich-zurigo-50664",
+        "gestionnaire-d-applications-informatiques-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
-          "projektleiter-in-80-100-stadt-zurich",
-          "project-manager-in-posizione-zurigo-oerlikon-stadt-zurich-zurich",
-          "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich",
-          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
-          "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich",
-          "projektleiter-in-standort-zurich-oerlikon-stadt-zurich",
-          "project-manager-80-100-stadt-zurich-zurich"
+          "gestionnaire-stadt-zurich-zurich",
+          "project-manager-in-costruzione-stadt-zurich-zurich",
+          "responsabile-del-progetto-responsabile-della-superficie-stadt-zurich-zurich",
+          "gesamtprojektleiter-oberbauleiter-in-stadt-zurich-zurich",
+          "projektleiter-in-order-to-meter-stadt-zurich",
+          "gestione-certificati-stadt-zurich-zurich",
+          "hortleiter-in-stadt-zuerich-zurigo-49673",
+          "gestione-certificati-stadt-zurich-zurich-d10e44",
+          "certificate-manager-stadt-zurich-zurich-d10e44",
+          "hortleiter-in-stadt-zuerich-zurigo-51387",
+          "gestionnaire-de-certificat-stadt-zurich-zurich-d10e44",
+          "projektleiter-in-stadt-zurich",
+          "real-estate-manager-trustee-stadt-zurich-zurich",
+          "immobilienbewirtschafter-in-treuhander-in-stadt-zurich-zurich",
+          "immobilienbewirtschafter-in-treuhander-in-stadt-zuerich-zurigo-50584",
+          "gestionnaire-immobilier-fiduciaire-stadt-zurich-zurich",
+          "gestione-delle-applicazioni-it-stadt-zurich-zurich",
+          "it-application-manager-in-stadt-zurich-zurich",
+          "it-application-manager-in-stadt-zuerich-zurigo-50664",
+          "gestionnaire-d-applications-informatiques-stadt-zurich-zurich"
         ],
         "en": [
           "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
-          "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich"
+          "project-manager-in-zurich-oerlikon-location-stadt-zurich-zurich",
+          "overall-project-manager-surface-manager-stadt-zurich-zurich",
+          "project-manager-in-order-to-meter-stadt-zurich-zurich",
+          "certificate-manager-stadt-zurich-zurich",
+          "project-manager-stadt-zurich-zurich",
+          "junior-property-manager-stadt-zurich-zurich",
+          "senior-finanza-manager-in-stadt-zurich-zurich",
+          "senior-finance-manager-in-stadt-zurich-zurich",
+          "senior-finance-manager-in-stadt-zuerich-zurigo-50677",
+          "project-manager-in-construction-stadt-zurich-zurich"
         ],
         "de": [
-          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864"
+          "projektleiter-in-standort-zurich-oerlikon-stadt-zuerich-zurigo-50864",
+          "gesamtprojektleiter-oberbauleiter-in-stadt-zuerich-zurigo-50723",
+          "projektleiter-in-order-to-meter-stadt-zuerich-zurigo-51335",
+          "hortleiter-in-stadt-zuerich-zurigo-51242",
+          "projektleiter-in-stadt-zuerich-zurigo-51240",
+          "projektleiter-in-bau-stadt-zuerich-zurigo-50110"
         ],
         "fr": [
           "projektleiter-in-80-100-stadt-zuerich-zurigo-51149",
-          "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich"
+          "chef-de-projet-a-zurich-oerlikon-stadt-zurich-zurich",
+          "directeur-general-de-projet-gestionnaire-de-surface-stadt-zurich-zurich",
+          "gestionnaire-de-projet-dans-order-to-meter-stadt-zurich-zurich",
+          "gestionnaire-de-certificat-stadt-zurich-zurich",
+          "gestionnaire-de-projet-stadt-zurich-zurich",
+          "directeur-immobilier-junior-stadt-zurich-zurich",
+          "directeur-principal-des-finances-stadt-zurich-zurich",
+          "chef-de-projet-en-construction-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:36.992Z",
@@ -3634,18 +4423,49 @@
       "previousSlugs": [
         "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zuerich-zurigo",
         "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich-zurich",
-        "collaboratore-trice-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich"
+        "collaboratore-trice-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich",
+        "collaboratore-trice-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zurich",
+        "employee-josy-80-temporary-until-31-12-2028-1-stadt-zurich-zurich",
+        "mitarbeiter-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zuerich-zurigo",
+        "employe-josy-80-temporaire-jusqu-au-31-12-2028-1-stadt-zurich-zurich",
+        "mitarbeiter-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zurich-zurich",
+        "collaboratore-trice-in-kasse-befristet-bis-12-marz-2027-stadt-zurich",
+        "employee-in-cash-temporary-until-12-march-2027-stadt-zurich-zurich",
+        "mitarbeiter-in-kasse-befristet-bis-12-marz-2027-stadt-zuerich-zurigo-50636",
+        "employe-en-especes-temporaire-jusqu-a-12-mars-2027-stadt-zurich-zurich",
+        "mitarbeiter-in-kasse-befristet-bis-12-marz-2027-stadt-zurich-zurich",
+        "mitarbeiter-in-kreislaufwirtschaft-josy-60-befristet-bis-31-12-2028-stadt-zuerich-zurigo"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zuerich-zurigo",
-          "collaboratore-trice-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich"
+          "collaboratore-trice-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich",
+          "collaboratore-trice-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zurich",
+          "employee-josy-80-temporary-until-31-12-2028-1-stadt-zurich-zurich",
+          "mitarbeiter-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zuerich-zurigo",
+          "employe-josy-80-temporaire-jusqu-au-31-12-2028-1-stadt-zurich-zurich",
+          "mitarbeiter-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zurich-zurich",
+          "collaboratore-trice-in-kasse-befristet-bis-12-marz-2027-stadt-zurich",
+          "employee-in-cash-temporary-until-12-march-2027-stadt-zurich-zurich",
+          "mitarbeiter-in-kasse-befristet-bis-12-marz-2027-stadt-zuerich-zurigo-50636",
+          "employe-en-especes-temporaire-jusqu-a-12-mars-2027-stadt-zurich-zurich",
+          "mitarbeiter-in-kasse-befristet-bis-12-marz-2027-stadt-zurich-zurich",
+          "mitarbeiter-in-kreislaufwirtschaft-josy-60-befristet-bis-31-12-2028-stadt-zuerich-zurigo"
         ],
         "en": [
-          "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich-zurich"
+          "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich-zurich",
+          "employee-josy-80-temporary-until-31-12-2028-1-stadt-zurich-zurich"
         ],
         "fr": [
-          "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich-zurich"
+          "mitarbeiter-in-kreislaufwirtschaft-josy-30-befristet-bis-31-12-2028-stadt-zurich-zurich",
+          "employe-josy-80-temporaire-jusqu-au-31-12-2028-1-stadt-zurich-zurich"
+        ],
+        "de": [
+          "mitarbeiter-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zuerich-zurigo",
+          "mitarbeiter-in-kreislaufwirtschaft-josy-80-befristet-bis-31-12-2028-1-stadt-zurich-zurich",
+          "mitarbeiter-in-kasse-befristet-bis-12-marz-2027-stadt-zuerich-zurigo-50636",
+          "mitarbeiter-in-kasse-befristet-bis-12-marz-2027-stadt-zurich-zurich",
+          "mitarbeiter-in-kreislaufwirtschaft-josy-60-befristet-bis-31-12-2028-stadt-zuerich-zurigo"
         ]
       },
       "needsRetranslation": true,
@@ -3809,18 +4629,33 @@
       "previousSlugs": [
         "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zuerich-zurigo-48664",
         "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zurich-zurich",
-        "dipl-logopad-innen-per-kinder-con-sonderschulstatus-stadt-zurich"
+        "dipl-logopad-innen-per-kinder-con-sonderschulstatus-stadt-zurich",
+        "dipl-logopad-innen-per-schuler-innen-con-sonderschulstatus-separation-stadt-zurich",
+        "dipl-speech-pedagogues-for-students-with-special-school-status-separation-stadt-zurich-zurich",
+        "dipl-logopad-innen-fur-schuler-innen-mit-sonderschulstatus-separation-stadt-zuerich-zurigo",
+        "dipl-pedagogues-pour-les-eleves-ayant-un-statut-scolaire-special-separation-stadt-zurich-zurich",
+        "dipl-logopad-innen-fur-schuler-innen-mit-sonderschulstatus-separation-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zuerich-zurigo-48664",
-          "dipl-logopad-innen-per-kinder-con-sonderschulstatus-stadt-zurich"
+          "dipl-logopad-innen-per-kinder-con-sonderschulstatus-stadt-zurich",
+          "dipl-logopad-innen-per-schuler-innen-con-sonderschulstatus-separation-stadt-zurich",
+          "dipl-speech-pedagogues-for-students-with-special-school-status-separation-stadt-zurich-zurich",
+          "dipl-logopad-innen-fur-schuler-innen-mit-sonderschulstatus-separation-stadt-zuerich-zurigo",
+          "dipl-pedagogues-pour-les-eleves-ayant-un-statut-scolaire-special-separation-stadt-zurich-zurich",
+          "dipl-logopad-innen-fur-schuler-innen-mit-sonderschulstatus-separation-stadt-zurich-zurich"
         ],
         "en": [
-          "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zurich-zurich"
+          "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zurich-zurich",
+          "dipl-speech-pedagogues-for-students-with-special-school-status-separation-stadt-zurich-zurich"
         ],
         "fr": [
-          "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zurich-zurich"
+          "dipl-logopad-innen-fur-kinder-mit-sonderschulstatus-stadt-zurich-zurich",
+          "dipl-pedagogues-pour-les-eleves-ayant-un-statut-scolaire-special-separation-stadt-zurich-zurich"
+        ],
+        "de": [
+          "dipl-logopad-innen-fur-schuler-innen-mit-sonderschulstatus-separation-stadt-zuerich-zurigo"
         ]
       },
       "needsRetranslation": true,
@@ -3894,18 +4729,31 @@
       "referenceNumber": "48667",
       "previousSlugs": [
         "werkstudent-in-logopadie-stadt-zuerich-zurigo-48667",
-        "werkstudent-in-logopala-stadt-zurich-zurich"
+        "werkstudent-in-logopala-stadt-zurich-zurich",
+        "praktikum-logopala-stadt-zurich-zurich",
+        "speech-training-stadt-zurich-zurich",
+        "praktikum-logopadie-stadt-zuerich-zurigo-50675",
+        "formation-a-la-parole-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-in-logopadie-stadt-zuerich-zurigo-48667",
-          "werkstudent-in-logopala-stadt-zurich-zurich"
+          "werkstudent-in-logopala-stadt-zurich-zurich",
+          "praktikum-logopala-stadt-zurich-zurich",
+          "speech-training-stadt-zurich-zurich",
+          "praktikum-logopadie-stadt-zuerich-zurigo-50675",
+          "formation-a-la-parole-stadt-zurich-zurich"
         ],
         "en": [
-          "werkstudent-in-logopadie-stadt-zuerich-zurigo-48667"
+          "werkstudent-in-logopadie-stadt-zuerich-zurigo-48667",
+          "speech-training-stadt-zurich-zurich"
         ],
         "fr": [
-          "werkstudent-in-logopadie-stadt-zuerich-zurigo-48667"
+          "werkstudent-in-logopadie-stadt-zuerich-zurigo-48667",
+          "formation-a-la-parole-stadt-zurich-zurich"
+        ],
+        "de": [
+          "praktikum-logopadie-stadt-zuerich-zurigo-50675"
         ]
       },
       "needsRetranslation": true,
@@ -4081,18 +4929,31 @@
         "dipl-psychomotoriktherapeut-innen-fur-stellvertretungen-stadt-zuerich-zurigo-50325",
         "dipl-psychomotherapeutes-pour-adjoints-stadt-zurich-zurich",
         "dipl-psychomotoriktherapeut-innen-fur-stellvertretungen-stadt-zurich-zurich",
-        "dipl-docenti-di-discorso-stadt-zurich-zurich"
+        "dipl-docenti-di-discorso-stadt-zurich-zurich",
+        "dipl-speech-pedagogue-nel-distretto-scolastico-letzi-stadt-zurich-zurich",
+        "dipl-speech-pedagogue-in-school-district-letzi-stadt-zurich-zurich",
+        "dipl-logopad-in-schulkreis-letzi-stadt-zuerich-zurigo-51400",
+        "dipl-pedagogue-dans-le-district-scolaire-letzi-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-logopad-innen-stadt-zuerich-zurigo-48662",
-          "dipl-docenti-di-discorso-stadt-zurich-zurich"
+          "dipl-docenti-di-discorso-stadt-zurich-zurich",
+          "dipl-speech-pedagogue-nel-distretto-scolastico-letzi-stadt-zurich-zurich",
+          "dipl-speech-pedagogue-in-school-district-letzi-stadt-zurich-zurich",
+          "dipl-logopad-in-schulkreis-letzi-stadt-zuerich-zurigo-51400",
+          "dipl-pedagogue-dans-le-district-scolaire-letzi-stadt-zurich-zurich"
         ],
         "en": [
-          "dipl-logopad-innen-stadt-zuerich-zurigo-48662"
+          "dipl-logopad-innen-stadt-zuerich-zurigo-48662",
+          "dipl-speech-pedagogue-in-school-district-letzi-stadt-zurich-zurich"
         ],
         "fr": [
-          "dipl-logopad-innen-stadt-zuerich-zurigo-48662"
+          "dipl-logopad-innen-stadt-zuerich-zurigo-48662",
+          "dipl-pedagogue-dans-le-district-scolaire-letzi-stadt-zurich-zurich"
+        ],
+        "de": [
+          "dipl-logopad-in-schulkreis-letzi-stadt-zuerich-zurigo-51400"
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.728Z",
@@ -4252,11 +5113,37 @@
       "referenceNumber": "51091",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091"
+          "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091",
+          "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich-0c12g7",
+          "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49666",
+          "sozialarbeiter-in-o-pflegefachperson-stadt-zurich",
+          "sozialarbeiter-in-oder-pflegefachperson-stadt-zurich-zurich",
+          "sozialarbeiter-in-oder-pflegefachperson-stadt-zuerich-zurigo-51253",
+          "sozialarbeiter-in-pflegefachperson-notunterkunft-per-familien-stadt-zurich",
+          "social-worker-nurse-emergency-accommodation-for-families-stadt-zurich-zurich",
+          "sozialarbeiter-in-pflegefachperson-notunterkunft-fur-familien-stadt-zuerich-zurigo-50772",
+          "aide-sociale-infirmiere-hebergement-d-urgence-pour-les-familles-stadt-zurich-zurich",
+          "sozialarbeiter-in-pflegefachperson-notunterkunft-fur-familien-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sozialarbeiter-in-oder-pflegefachperson-stadt-zuerich-zurigo-51253"
+        ],
+        "fr": [
+          "sozialarbeiter-in-oder-pflegefachperson-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091"
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich-0c12g7",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49666",
+        "sozialarbeiter-in-o-pflegefachperson-stadt-zurich",
+        "sozialarbeiter-in-oder-pflegefachperson-stadt-zurich-zurich",
+        "sozialarbeiter-in-oder-pflegefachperson-stadt-zuerich-zurigo-51253",
+        "sozialarbeiter-in-pflegefachperson-notunterkunft-per-familien-stadt-zurich",
+        "social-worker-nurse-emergency-accommodation-for-families-stadt-zurich-zurich",
+        "sozialarbeiter-in-pflegefachperson-notunterkunft-fur-familien-stadt-zuerich-zurigo-50772",
+        "aide-sociale-infirmiere-hebergement-d-urgence-pour-les-familles-stadt-zurich-zurich",
+        "sozialarbeiter-in-pflegefachperson-notunterkunft-fur-familien-stadt-zurich-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -4331,11 +5218,34 @@
       "referenceNumber": "51136",
       "previousSlugsByLocale": {
         "it": [
-          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
+          "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
+          "kindheitspadagog-in-hf-stadt-zurich-zurich-0coqg4",
+          "sozialpadagog-in-hf-o-kindheitspadagog-in-hf-stadt-zurich",
+          "social-pedagogue-hf-or-childhood-pedagogue-hf-stadt-zurich-zurich",
+          "sozialpadagog-in-hf-oder-kindheitspadagog-in-hf-stadt-zuerich-zurigo-49057",
+          "pedagogue-sociale-hf-ou-pedagogie-de-l-enfance-hf-stadt-zurich-zurich",
+          "sozialpadagog-in-oder-kindheitspadagog-in-hf-stadt-zuerich-zurigo-49057",
+          "sozialpadagog-in-oder-kindheitspadagog-in-hf-stadt-zurich"
+        ],
+        "en": [
+          "social-pedagogue-hf-or-childhood-pedagogue-hf-stadt-zurich-zurich"
+        ],
+        "de": [
+          "sozialpadagog-in-hf-oder-kindheitspadagog-in-hf-stadt-zuerich-zurigo-49057"
+        ],
+        "fr": [
+          "pedagogue-sociale-hf-ou-pedagogie-de-l-enfance-hf-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136"
+        "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
+        "kindheitspadagog-in-hf-stadt-zurich-zurich-0coqg4",
+        "sozialpadagog-in-hf-o-kindheitspadagog-in-hf-stadt-zurich",
+        "social-pedagogue-hf-or-childhood-pedagogue-hf-stadt-zurich-zurich",
+        "sozialpadagog-in-hf-oder-kindheitspadagog-in-hf-stadt-zuerich-zurigo-49057",
+        "pedagogue-sociale-hf-ou-pedagogie-de-l-enfance-hf-stadt-zurich-zurich",
+        "sozialpadagog-in-oder-kindheitspadagog-in-hf-stadt-zuerich-zurigo-49057",
+        "sozialpadagog-in-oder-kindheitspadagog-in-hf-stadt-zurich"
       ],
       "needsRetranslation": true,
       "salaryMin": 73500,
@@ -4837,12 +5747,22 @@
       "referenceNumber": "51019",
       "previousSlugs": [
         "sicherheitsbeauftragte-r-energielosungen-stadt-zuerich-zurigo-51019",
-        "sicherheitsbeauftragte-r-energielosungen-stadt-zurich-zurich"
+        "sicherheitsbeauftragte-r-energielosungen-stadt-zurich-zurich",
+        "sicherheitsbeauftragte-r-stadt-zurich-zurich",
+        "sicherheitsbeauftragte-r-stadt-zuerich-zurigo-51449"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sicherheitsbeauftragte-r-energielosungen-stadt-zuerich-zurigo-51019",
-          "sicherheitsbeauftragte-r-energielosungen-stadt-zurich-zurich"
+          "sicherheitsbeauftragte-r-energielosungen-stadt-zurich-zurich",
+          "sicherheitsbeauftragte-r-stadt-zurich-zurich",
+          "sicherheitsbeauftragte-r-stadt-zuerich-zurigo-51449"
+        ],
+        "de": [
+          "sicherheitsbeauftragte-r-stadt-zuerich-zurigo-51449"
+        ],
+        "fr": [
+          "sicherheitsbeauftragte-r-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-31T11:53:12.831Z",
@@ -5173,14 +6093,16 @@
       "referenceNumber": "50043",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-un5tny"
         ],
         "de": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
+        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-un5tny"
       ],
       "needsRetranslation": true,
       "salaryMin": 53500,
@@ -5590,18 +6512,31 @@
       "previousSlugs": [
         "hms-praxisjahr-2027-personal-stadt-zuerich-zurigo-50191",
         "hms-praxisjahr-2027-personal-stadt-zurich-zurich",
-        "hms-anno-di-pratica-2027-personale-stadt-zurich-zurich"
+        "hms-anno-di-pratica-2027-personale-stadt-zurich-zurich",
+        "hms-praxisjahr-2027-risorse-umane-services-stadt-zurich-zurich",
+        "hms-practical-year-2027-hr-services-stadt-zurich-zurich",
+        "hms-praxisjahr-2027-hr-services-stadt-zuerich-zurigo-51051",
+        "hms-praxisjahr-2027-ressources-humaines-services-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hms-praxisjahr-2027-personal-stadt-zuerich-zurigo-50191",
-          "hms-anno-di-pratica-2027-personale-stadt-zurich-zurich"
+          "hms-anno-di-pratica-2027-personale-stadt-zurich-zurich",
+          "hms-praxisjahr-2027-risorse-umane-services-stadt-zurich-zurich",
+          "hms-practical-year-2027-hr-services-stadt-zurich-zurich",
+          "hms-praxisjahr-2027-hr-services-stadt-zuerich-zurigo-51051",
+          "hms-praxisjahr-2027-ressources-humaines-services-stadt-zurich-zurich"
         ],
         "en": [
-          "hms-praxisjahr-2027-personal-stadt-zurich-zurich"
+          "hms-praxisjahr-2027-personal-stadt-zurich-zurich",
+          "hms-practical-year-2027-hr-services-stadt-zurich-zurich"
         ],
         "fr": [
-          "hms-praxisjahr-2027-personal-stadt-zuerich-zurigo-50191"
+          "hms-praxisjahr-2027-personal-stadt-zuerich-zurigo-50191",
+          "hms-praxisjahr-2027-ressources-humaines-services-stadt-zurich-zurich"
+        ],
+        "de": [
+          "hms-praxisjahr-2027-hr-services-stadt-zuerich-zurigo-51051"
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:37.026Z",
@@ -5676,19 +6611,32 @@
         "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zuerich-zurigo-50717",
         "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zurich-zurich",
         "lehrstelle-2027-gartnerin-gartner-efz-pflanzenproduktion-stadt-zuerich-zurigo-50717",
-        "apprendistato-2027-gartner-in-cfc-pflanzenproduktion-stadt-zurich"
+        "apprendistato-2027-gartner-in-cfc-pflanzenproduktion-stadt-zurich",
+        "gartner-in-cfc-stadt-zurich-zurich",
+        "gardener-in-efz-stadt-zurich-zurich",
+        "gartner-in-efz-stadt-zuerich-zurigo-51346",
+        "jardinier-en-efz-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zuerich-zurigo-50717",
           "lehrstelle-2027-gartnerin-gartner-efz-pflanzenproduktion-stadt-zuerich-zurigo-50717",
-          "apprendistato-2027-gartner-in-cfc-pflanzenproduktion-stadt-zurich"
+          "apprendistato-2027-gartner-in-cfc-pflanzenproduktion-stadt-zurich",
+          "gartner-in-cfc-stadt-zurich-zurich",
+          "gardener-in-efz-stadt-zurich-zurich",
+          "gartner-in-efz-stadt-zuerich-zurigo-51346",
+          "jardinier-en-efz-stadt-zurich-zurich"
         ],
         "en": [
-          "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zurich-zurich"
+          "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zurich-zurich",
+          "gardener-in-efz-stadt-zurich-zurich"
         ],
         "fr": [
-          "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zurich-zurich"
+          "lehrstelle-2027-gartner-in-efz-pflanzenproduktion-stadt-zurich-zurich",
+          "jardinier-en-efz-stadt-zurich-zurich"
+        ],
+        "de": [
+          "gartner-in-efz-stadt-zuerich-zurigo-51346"
         ]
       },
       "needsRetranslation": true,
@@ -6198,7 +7146,11 @@
         "controleur-dans-le-domaine-des-finances-stadt-zurich-zurich",
         "controleur-stadt-zurich-zurich",
         "controller-stadt-zurich-zurich",
-        "controller-in-stadt-zurich"
+        "controller-in-stadt-zurich",
+        "contributi-del-titolare-stadt-zurich-zurich",
+        "controller-in-care-contributions-stadt-zurich-zurich",
+        "controller-in-pflegebeitrage-stadt-zuerich-zurigo-50953",
+        "cotisation-du-controleur-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6207,19 +7159,26 @@
           "controller-in-the-area-of-finance-stadt-zurich-zurich",
           "controller-in-im-bereich-finanzen-stadt-zuerich-zurigo-51377",
           "controleur-dans-le-domaine-des-finances-stadt-zurich-zurich",
-          "controller-stadt-zurich-zurich"
+          "controller-stadt-zurich-zurich",
+          "contributi-del-titolare-stadt-zurich-zurich",
+          "controller-in-care-contributions-stadt-zurich-zurich",
+          "controller-in-pflegebeitrage-stadt-zuerich-zurigo-50953",
+          "cotisation-du-controleur-stadt-zurich-zurich"
         ],
         "en": [
           "controller-in-stadt-zuerich-zurigo-50452",
-          "controller-in-the-area-of-finance-stadt-zurich-zurich"
+          "controller-in-the-area-of-finance-stadt-zurich-zurich",
+          "controller-in-care-contributions-stadt-zurich-zurich"
         ],
         "de": [
-          "controller-in-im-bereich-finanzen-stadt-zuerich-zurigo-51377"
+          "controller-in-im-bereich-finanzen-stadt-zuerich-zurigo-51377",
+          "controller-in-pflegebeitrage-stadt-zuerich-zurigo-50953"
         ],
         "fr": [
           "controller-in-stadt-zurich-zurich",
           "controleur-dans-le-domaine-des-finances-stadt-zurich-zurich",
-          "controller-in-stadt-zurich"
+          "controller-in-stadt-zurich",
+          "cotisation-du-controleur-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T12:20:07.727Z",
@@ -6293,19 +7252,59 @@
       "previousSlugs": [
         "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50780",
         "sozialarbeiter-in-familienprofil-schwerpunkt-kindsschutzmandate-stadt-zuerich-zurigo-50780",
-        "social-worker-in-profilo-famiglia-stadt-zurich-zurich-c468a5"
+        "social-worker-in-profilo-famiglia-stadt-zurich-zurich-c468a5",
+        "social-worker-in-profilo-famiglia-stadt-zurich-zurich-211bbb",
+        "social-worker-in-family-profile-stadt-zurich-zurich-211bbb",
+        "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51058",
+        "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-211bbb",
+        "social-worker-in-profilo-famiglia-stadt-zurich-zurich-1d0851",
+        "social-worker-in-family-profile-stadt-zurich-zurich-1d0851",
+        "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268",
+        "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-1d0851",
+        "social-worker-in-profilo-famiglia-stadt-zurich-zurich",
+        "social-worker-in-family-profile-stadt-zurich-zurich",
+        "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50465",
+        "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich",
+        "social-worker-in-profilo-famiglia-stadt-zurich-zurich-0b0c11",
+        "social-worker-in-family-profile-stadt-zurich-zurich-0b0c11",
+        "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50463",
+        "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-0b0c11"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50780",
           "sozialarbeiter-in-familienprofil-schwerpunkt-kindsschutzmandate-stadt-zuerich-zurigo-50780",
-          "social-worker-in-profilo-famiglia-stadt-zurich-zurich-c468a5"
+          "social-worker-in-profilo-famiglia-stadt-zurich-zurich-c468a5",
+          "social-worker-in-profilo-famiglia-stadt-zurich-zurich-211bbb",
+          "social-worker-in-family-profile-stadt-zurich-zurich-211bbb",
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51058",
+          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-211bbb",
+          "social-worker-in-profilo-famiglia-stadt-zurich-zurich-1d0851",
+          "social-worker-in-family-profile-stadt-zurich-zurich-1d0851",
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268",
+          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-1d0851",
+          "social-worker-in-profilo-famiglia-stadt-zurich-zurich",
+          "social-worker-in-family-profile-stadt-zurich-zurich",
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50465",
+          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich",
+          "social-worker-in-profilo-famiglia-stadt-zurich-zurich-0b0c11",
+          "social-worker-in-family-profile-stadt-zurich-zurich-0b0c11",
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50463",
+          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-0b0c11"
         ],
         "en": [
-          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50780"
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50780",
+          "social-worker-in-family-profile-stadt-zurich-zurich-211bbb",
+          "social-worker-in-family-profile-stadt-zurich-zurich-1d0851"
         ],
         "fr": [
-          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50780"
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-50780",
+          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-211bbb",
+          "travailleur-social-dans-le-profil-familial-stadt-zurich-zurich-1d0851"
+        ],
+        "de": [
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51058",
+          "sozialarbeiter-in-familienprofil-stadt-zuerich-zurigo-51268"
         ]
       },
       "needsRetranslation": true,
@@ -6378,11 +7377,75 @@
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "50678",
       "previousSlugs": [
-        "lehrstellen-2027-fachfrau-fachmann-gesundheit-efz-diverse-standorte-stadt-zuerich-zurigo"
+        "lehrstellen-2027-fachfrau-fachmann-gesundheit-efz-diverse-standorte-stadt-zuerich-zurigo",
+        "apprendistato-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-bullinger-hardau-stadt-zurich",
+        "apprenticeship-2026-professional-hotel-industry-efz-bullinger-hardau-site-stadt-zurich-zurich",
+        "lehrstelle-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-bullinger-hardau",
+        "apprentissage-2026-industrie-hoteliere-professionnelle-efz-site-bullinger-hardau-stadt-zurich-zurich",
+        "apprendistato-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-selnau-stadt-zurich",
+        "apprenticeship-2026-professional-hotel-industry-efz-selnau-location-stadt-zurich-zurich",
+        "lehrstelle-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-selnau-stadt",
+        "apprentissage-2026-industrie-hoteliere-professionnelle-efz-selnau-location-stadt-zurich-zurich",
+        "apprendistato-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-rebwies-stadt-zurich",
+        "apprenticeship-2026-professional-hotel-industry-efz-rebwies-location-stadt-zurich-zurich",
+        "lehrstelle-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-rebwies-stadt",
+        "apprentissage-2026-industrie-hoteliere-professionnelle-efz-rebwies-emplacement-stadt-zurich-zurich",
+        "apprendistato-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-laubegg-stadt-zurich",
+        "apprenticeship-2026-professional-hotel-industry-efz-laubegg-location-stadt-zurich-zurich",
+        "lehrstelle-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-laubegg-stadt",
+        "apprenticeships-2026-professional-hotel-industry-efz-kaferberg-location-stadt-zurich-zurich",
+        "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-kaferberg-stadt",
+        "apprentissages-2026-industrie-hoteliere-professionnelle-efz-kaferberg-emplacement-stadt-zurich-zurich",
+        "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-kaferberg-stadt-zurich-zurich",
+        "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-stadt-zurich-zurich",
+        "apprenticeships-2027-specialist-company-maintenance-specialist-efz-hausdienst-various-locations-stadt-zurich-zurich",
+        "apprenticeships-2027-professional-hotel-industry-efz-various-locations-stadt-zurich-zurich",
+        "lehrstellen-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-diverse-standorte",
+        "lehrstellen-2027-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-diverse-standorte-stadt",
+        "apprentissages-2027-specialiste-specialiste-de-la-maintenance-d-entreprise-efz-hausdienst-divers-lieux-stadt-zurich",
+        "apprentissages-2027-industrie-hoteliere-professionnelle-efz-differents-endroits-stadt-zurich-zurich",
+        "lehrstellen-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-diverse-standorte-stadt-zurich-zurich",
+        "lehrstellen-2027-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-diverse-standorte-stadt-zurich-zurich",
+        "apprenticeships-2026-professional-hotel-industry-efz-stadt-zurich-zurich",
+        "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stadt-zuerich-zurigo",
+        "apprentissages-2026-industrie-hoteliere-professionnelle-efz-stadt-zurich-zurich",
+        "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stadt-zurich-zurich",
+        "apprentissage-2026-industrie-hoteliere-professionnelle-efz-laubegg-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstellen-2027-fachfrau-fachmann-gesundheit-efz-diverse-standorte-stadt-zuerich-zurigo"
+          "apprentissage-2026-industrie-hoteliere-professionnelle-efz-selnau-location-stadt-zurich-zurich",
+          "apprendistato-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-rebwies-stadt-zurich",
+          "apprenticeship-2026-professional-hotel-industry-efz-rebwies-location-stadt-zurich-zurich",
+          "lehrstelle-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-rebwies-stadt",
+          "apprentissage-2026-industrie-hoteliere-professionnelle-efz-rebwies-emplacement-stadt-zurich-zurich",
+          "apprendistato-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-laubegg-stadt-zurich",
+          "apprenticeship-2026-professional-hotel-industry-efz-laubegg-location-stadt-zurich-zurich",
+          "lehrstelle-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-laubegg-stadt",
+          "apprenticeships-2026-professional-hotel-industry-efz-kaferberg-location-stadt-zurich-zurich",
+          "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-standort-kaferberg-stadt",
+          "apprentissages-2026-industrie-hoteliere-professionnelle-efz-kaferberg-emplacement-stadt-zurich-zurich",
+          "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-standort-kaferberg-stadt-zurich-zurich",
+          "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-stadt-zurich-zurich",
+          "lehrstellen-2027-fachfrau-fachmann-betriebsunterhalt-cfc-hausdienst-diverse-standorte-stadt-zurich-zurich",
+          "lehrstellen-2027-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-diverse-standorte-stadt-zurich-zurich",
+          "apprenticeships-2026-professional-hotel-industry-efz-stadt-zurich-zurich",
+          "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stadt-zuerich-zurigo",
+          "apprentissages-2026-industrie-hoteliere-professionnelle-efz-stadt-zurich-zurich",
+          "lehrstellen-2026-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-stadt-zurich-zurich",
+          "apprentissage-2026-industrie-hoteliere-professionnelle-efz-laubegg-stadt-zurich-zurich"
+        ],
+        "en": [
+          "apprenticeships-2027-specialist-company-maintenance-specialist-efz-hausdienst-various-locations-stadt-zurich-zurich",
+          "apprenticeships-2027-professional-hotel-industry-efz-various-locations-stadt-zurich-zurich"
+        ],
+        "de": [
+          "lehrstellen-2027-fachfrau-fachmann-betriebsunterhalt-efz-hausdienst-diverse-standorte",
+          "lehrstellen-2027-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-diverse-standorte-stadt"
+        ],
+        "fr": [
+          "apprentissages-2027-specialiste-specialiste-de-la-maintenance-d-entreprise-efz-hausdienst-divers-lieux-stadt-zurich",
+          "apprentissages-2027-industrie-hoteliere-professionnelle-efz-differents-endroits-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
