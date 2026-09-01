@@ -9,10 +9,10 @@
   "basel-weil-am-rhein-hiltalingerstrasse": {
     "evening": "1-2 min"
   },
-  "chiasso-brogeda": {
-    "morning": "0-8 min"
+  "bizzarone-novazzano": {
+    "morning": "1-2 min"
   },
-  "chiasso-centro": {
+  "chiasso-brogeda": {
     "morning": "0-8 min"
   },
   "chiasso-strada": {
@@ -23,45 +23,58 @@
     "evening": "1-2 min"
   },
   "gaggiolo": {
-    "morning": "0-5 min"
+    "morning": "0-8 min",
+    "evening": "0-3 min"
   },
   "grenzach-wyhlen-riehen": {
-    "morning": "1-2 min",
+    "morning": "1-3 min",
     "evening": "0-5 min"
   },
   "konstanz-kreuzlingen": {
-    "morning": "1-2 min",
+    "morning": "2 min",
     "evening": "1-2 min"
   },
   "konstanz-tagerwilen-gottlieber-strasse": {
     "morning": "1-2 min",
     "evening": "1-2 min"
   },
+  "laufenburg-laufenburg-ag": {
+    "morning": "1-2 min"
+  },
   "moillesulaz": {
-    "morning": "1-2 min",
+    "morning": "2-3 min",
     "evening": "1-3 min"
   },
+  "perly": {
+    "morning": "0-2 min"
+  },
   "ponte-tresa": {
-    "morning": "1-2 min",
-    "evening": "0-2 min"
+    "morning": "1-2 min"
   },
   "porto-ceresio-brusino": {
     "morning": "2-6 min",
     "evening": "0-3 min"
   },
   "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
-    "morning": "0-2 min",
+    "morning": "2-3 min",
     "evening": "0-5 min"
   },
+  "san-pietro": {
+    "morning": "0-4 min",
+    "evening": "0-3 min"
+  },
   "st-margrethen-hochst": {
-    "morning": "1-3 min",
+    "morning": "1-4 min",
     "evening": "0-2 min"
   },
   "thonex-vallard": {
-    "morning": "1-3 min",
+    "morning": "2-4 min",
     "evening": "1-2 min"
   },
-  "waldshut-tiengen-koblenz-ag": {
+  "traforo-del-gran-san-bernardo": {
     "morning": "0-2 min"
+  },
+  "waldshut-tiengen-koblenz-ag": {
+    "morning": "1-2 min"
   }
 }
