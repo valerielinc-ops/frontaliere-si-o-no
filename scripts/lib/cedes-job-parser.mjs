@@ -16,7 +16,7 @@ const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontali
 export function normalizeCedesJobUrl(rawUrl = '') {
   try {
     const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
-    const isJobPath = /^\/(?:[a-z]{2}\/)?career\/jobs\/[^/]+\/?$/i.test(url.pathname)
+    const isJobPath = /^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?career\/jobs\/[^/]+\/?$/i.test(url.pathname)
       || /^\/en\/openings\/[^/]+\/?$/i.test(url.pathname);
     if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
       return null;
