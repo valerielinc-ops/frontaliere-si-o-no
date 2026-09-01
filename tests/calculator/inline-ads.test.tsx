@@ -49,6 +49,15 @@ describe('Homepage calculator — result-first monetization', () => {
     const source = read('components/tabs/CalcolatoreTabContent.tsx');
     expect(source).not.toMatch(/AD_SLOTS\.HOMEPAGE_MID_DISPLAY\b/);
   });
+
+  it('reserves the responsive desktop height at the new post-result position', () => {
+    const source = read('components/calculator/ResultsView.tsx');
+    const postResultSlot = source.indexOf('AD_SLOTS.CALCULATOR_POST_RESULT');
+    const comparison = source.indexOf('Comparison Grid:');
+    const postResultBlock = source.slice(postResultSlot, comparison);
+
+    expect(postResultBlock).toContain('xl:min-h-[600px]');
+  });
 });
 
 describe('Inline-ad registry invariants', () => {

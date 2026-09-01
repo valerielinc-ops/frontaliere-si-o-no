@@ -338,6 +338,11 @@ describe('jobCardHtml — renderJobCardListHtml in-feed ads', () => {
     expect(html).not.toContain('ft-infeed-ad');
   });
 
+  it.each([1, 2])('keeps a short %i-card sector result block ad-free', (count) => {
+    const html = renderJobCardListHtml(items.slice(0, count), { locale: 'it' });
+    expect(html).not.toContain('ft-infeed-ad');
+  });
+
   it('can be disabled via interleaveInfeedAds:false', () => {
     const html = renderJobCardListHtml(items, {
       locale: 'it',

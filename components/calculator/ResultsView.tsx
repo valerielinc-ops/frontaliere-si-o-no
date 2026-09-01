@@ -676,7 +676,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
  {/* AdSense: compact multiplex immediately after the net-advantage summary.
      This is the first completed-result moment, before the long comparison and
      secondary widgets; its fixed reserve keeps the move CLS-safe. */}
- <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] [contain:content]" />}>
+ <Suspense fallback={<div style={{ ['--ad-mh']: `${AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight}px` } as React.CSSProperties} className="my-6 min-h-[var(--ad-mh)] xl:min-h-[600px] [contain:content]" />}>
  <AdSenseBanner
  adSlot={AD_SLOTS.CALCULATOR_POST_RESULT.slot}
  adFormat={AD_SLOTS.CALCULATOR_POST_RESULT.format}

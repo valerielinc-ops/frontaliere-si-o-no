@@ -9972,7 +9972,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <React.Fragment key={job.id || job.slug || idx}>
  {renderJobCard(job)}
  {showAd && renderInfeedAd(`main-${idx}`)}
- {pos === utilitiesAfterPosition && postFirstResultsUtilities}
+ {!resultsResolving && pos === utilitiesAfterPosition && postFirstResultsUtilities}
  </React.Fragment>
  );
  })}

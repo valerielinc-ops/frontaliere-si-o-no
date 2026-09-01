@@ -11,7 +11,7 @@ describe('JobBoard category pages — results-first ordering', () => {
   it('mounts secondary discovery utilities once, after the first three available jobs', () => {
     expect(source).toContain('const postFirstResultsUtilities =');
     expect(source).toContain('const utilitiesAfterPosition = Math.min(3, displayJobs.length);');
-    expect(source).toContain('pos === utilitiesAfterPosition && postFirstResultsUtilities');
+    expect(source).toContain('!resultsResolving && pos === utilitiesAfterPosition && postFirstResultsUtilities');
     expect(source).toContain('displayJobs.length === 0 && !resultsResolving && postFirstResultsUtilities');
 
     expect(source.match(/<PopularSearchChips\b/g)).toHaveLength(1);
