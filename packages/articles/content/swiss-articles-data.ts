@@ -14833,6 +14833,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ubs-ermotti-capital-requirements',
+    category: 'novita',
+    date: '2026-09-01T14:38:54.176Z',
+    image: '/images/blog/ubs-ermotti-capital-requirements.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

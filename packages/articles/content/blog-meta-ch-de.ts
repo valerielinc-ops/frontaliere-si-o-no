@@ -4945,6 +4945,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sanzioni-disordini-rimborso-mendrisio.title': 'Strafen von bis zu 30.000 Francs für Unruhen',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.excerpt': 'Ein Antrag der UDC und der Bundesdemokratischen Union in Mendrisio fordert die Erstattung der Polizei- und Feuerwehrkosten für diejenigen, die Unruhen verursachen. Höhe bis zu 30.000 Francs.',
     'blog.article.sanzioni-disordini-rimborso-mendrisio.imageAlt': 'Gemeindebüro Mendrisio, Ort der Eingabe von Strafen-Initiative für Unruhen',
+    'blog.article.ubs-ermotti-capital-requirements.title': 'Ermotti warnt: Risiken für die Schweizer Wirtschaft',
+    'blog.article.ubs-ermotti-capital-requirements.excerpt': 'Die UBS kritisiert den CET-S-Vorschlag zu den Kapitalanforderungen und warnt, dass Maßnahmen über internationale Standards hinaus die Kosten für die gesamte Schweizer Wirtschaft erhöhen würden.',
+    'blog.article.ubs-ermotti-capital-requirements.imageAlt': 'Finanzbezirk mit modernen Bürogebäuden und Bankensitzen, Symbol des Schweizer Finanzplatzes.',
 };
 
 export default blogMetaChDe;
