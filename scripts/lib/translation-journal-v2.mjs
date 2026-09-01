@@ -120,6 +120,15 @@ function applyEvent(stateByAttempt, event) {
   });
 }
 
+function compareCanonicalEvents(left, right) {
+  if (left.attemptKey < right.attemptKey) return -1;
+  if (left.attemptKey > right.attemptKey) return 1;
+  if (left.sequence !== right.sequence) return left.sequence - right.sequence;
+  if (left.eventId < right.eventId) return -1;
+  if (left.eventId > right.eventId) return 1;
+  return 0;
+}
+
 export function createTranslationJournalEventV2(input) {
   assertTranslationPlainObjectV2(input, 'translation journal v2 event input');
   assertTranslationExactKeysV2(input, CREATE_EVENT_KEYS, 'translation journal v2 event input');
@@ -146,10 +155,9 @@ export function createEmptyTranslationJournalV2() {
 
 export function replayTranslationJournalV2(events) {
   if (!Array.isArray(events)) throw new TypeError('translation journal v2 replay input must be an array');
-  const stateByAttempt = new Map();
   const eventById = new Map();
   const eventByOccurrence = new Map();
-  const canonicalEvents = [];
+  const uniqueEvents = [];
   for (const rawEvent of events) {
     const event = validateEventShape(rawEvent);
     const existing = eventById.get(event.eventId);
@@ -163,10 +171,14 @@ export function replayTranslationJournalV2(events) {
     if (eventByOccurrence.has(occurrenceKey)) {
       throw new TypeError('translation journal v2 sequence has conflicting events');
     }
-    applyEvent(stateByAttempt, event);
     eventById.set(event.eventId, event);
     eventByOccurrence.set(occurrenceKey, event);
-    canonicalEvents.push(event);
+    uniqueEvents.push(event);
+  }
+  const canonicalEvents = uniqueEvents.sort(compareCanonicalEvents);
+  const stateByAttempt = new Map();
+  for (const event of canonicalEvents) {
+    applyEvent(stateByAttempt, event);
   }
   return deepFreezeTranslationV2({
     schemaVersion: TRANSLATION_JOURNAL_V2_SCHEMA_VERSION,
