@@ -4909,6 +4909,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzeri-chiedono-misure-clima.title': 'Di più Svizzeri chiedono misure contro riscaldamento climatico',
     'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'Dopo l\'ondata di caldo estiva, gli svizzeri chiedono misure concrete, quali la ristrutturazione degli edifici o l\'installazione di pannelli solari.',
     'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Vista aerea del Lago di Lugano con pannelli solari sui tetti.',
+    'blog.article.affitti-riduzione-tasso-riferimento.title': 'Affitti: tasso sceso ma la riduzione non è automatica',
+    'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'Nel 2025 il tasso ipotecario di riferimento è sceso due volte. Il 12% soltanto dei locatari ha richiesto la riduzione. L\'ASI ricorda che conviene chiedere attivamente il ribasso.',
+    'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Veduta della città di Lugano al tramonto con edifici residenziali e lago sullo sfondo',
 };
 
 export default blogMetaChIt;

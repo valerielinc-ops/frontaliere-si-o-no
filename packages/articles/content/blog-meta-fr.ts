@@ -11034,6 +11034,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'Les chiffres du jour pour les frontaliers – 1 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Bulletin du frontalier du 1 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'Les chiffres du 1 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Tunnel Moscia-Acapulco : 180 millions pour le réseau routier',
+    'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'Le projet du tunnel Moscia-Acapulco et la réhabilitation de la route côtière représentent un investissement important dans l’amélioration du réseau routier et de la qualité de vie des navetteurs transfrontaliers.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Vue aérienne du projet de tunnel Moscia-Acapulco dans le Tessin',
 };
 
 export default blogMetaFr;

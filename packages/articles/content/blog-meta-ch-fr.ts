@@ -4909,6 +4909,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.svizzeri-chiedono-misure-clima.title': 'De plus en plus de Suisses demandent des mesures contre le réchauffement climatique',
     'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'Après la vague de chaleur estivale, les Suisses réclament des mesures concrètes, telles que la rénovation des bâtiments ou l’installation de panneaux solaires.',
     'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Vue aérienne du Lac de Lugano avec des panneaux solaires sur les toits.',
+    'blog.article.affitti-riduzione-tasso-riferimento.title': 'Loyers : baisse de tarif mais la réduction n’est pas automatique',
+    'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'En 2025, le taux d’intérêt hypothécaire de référence a baissé deux fois. Seuls 12 % des locataires ont demandé cette réduction. L’ASI rappelle qu’il est payant de demander activement cette réduction.',
+    'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Vue de Lugano au coucher du soleil avec immeubles résidentiels et lac en arrière-plan',
 };
 
 export default blogMetaChFr;

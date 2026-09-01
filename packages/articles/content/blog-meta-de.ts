@@ -11031,6 +11031,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 1. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Grenzgänger-Bulletin vom 1. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'Die Zahlen vom 1. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Moscia-Acapulco-Tunnel: 180 Millionen für das Straßennetz',
+    'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'Das Moscia-Acapulco-Tunnelprojekt und die Neugestaltung der Küstenstraße stellen eine bedeutende Investition in die Verbesserung des Straßennetzes und der Lebensqualität grenzüberschreitender Pendler dar.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Luftaufnahme des Moscia-Acapulco-Tunnelprojekts im Tessin',
 };
 
 export default blogMetaDe;

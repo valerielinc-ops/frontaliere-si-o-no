@@ -63707,6 +63707,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-riduzione-tasso-riferimento': {
+    title: 'Affitti: tasso sceso ma la riduzione non è automatica',
+    description: 'Nel 2025 il tasso ipotecario di riferimento è sceso due volte. Il 12% soltanto dei locatari ha richiesto la riduzione. L\'ASI ricorda che conviene chiedere',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, tasso, sceso, riduzione',
+    ogTitle: 'Affitti in Svizzera: tasso sceso, riduzione non automatica',
+    ogDescription: 'Nel 2025 il tasso di riferimento per gli affitti è crollato due volte. Ma solo il 12% dei locatari ha formalmente richiesto la riduzione dovuta. L\'Associazione svizzera inquilini ricorda che non è automatica: devi chiedere. Usa il calcolatore ASI',
+    canonicalPath: '/articoli-svizzera/affitti-riduzione-tasso-riferimento/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti: tasso sceso ma la riduzione non è automatica",
+      "description": "Nel 2025 il tasso ipotecario di riferimento è sceso due volte. Il 12% soltanto dei locatari ha richiesto la riduzione. L'ASI ricorda che conviene chiedere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-riduzione-tasso-riferimento.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta della città di Lugano al tramonto con edifici residenziali e lago sullo sfondo"
+      },
+      "datePublished": "2026-09-01T10:15:10+00:00",
+      "dateModified": "2026-09-01T10:15:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-riduzione-tasso-riferimento/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

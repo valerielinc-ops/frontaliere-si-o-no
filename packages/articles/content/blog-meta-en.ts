@@ -11032,6 +11032,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-01.imageAlt': 'The day\'s numbers for cross-border commuters – September 1, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-01.seoDescription': 'Cross-border brief, September 1, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-01.ogDescription': 'The numbers for September 1, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.title': 'Moscia-Acapulco tunnel: 180 million for the road network',
+    'blog.article.galleria-moscia-acapulco-180-milioni.excerpt': 'The Moscia-Acapulco tunnel project and the redevelopment of the coastal road represent a significant investment in improving the road network and the quality of life of cross-border commuters.',
+    'blog.article.galleria-moscia-acapulco-180-milioni.imageAlt': 'Aerial view of the Moscia-Acapulco tunnel project in Ticino',
 };
 
 export default blogMetaEn;

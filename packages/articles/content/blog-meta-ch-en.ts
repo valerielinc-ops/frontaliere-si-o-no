@@ -4909,6 +4909,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzeri-chiedono-misure-clima.title': 'More Swiss call for measures against global warming',
     'blog.article.svizzeri-chiedono-misure-clima.excerpt': 'After the summer heatwave, the Swiss are calling for concrete measures, such as the renovation of buildings or the installation of solar panels.',
     'blog.article.svizzeri-chiedono-misure-clima.imageAlt': 'Aerial view of Lake Lugano with solar panels on rooftops.',
+    'blog.article.affitti-riduzione-tasso-riferimento.title': 'Rents: rate down but the reduction is not automatic',
+    'blog.article.affitti-riduzione-tasso-riferimento.excerpt': 'In 2025, the reference mortgage interest rate fell twice. Only 12% of tenants requested the reduction. The ASI reminds that it pays to actively request the reduction.',
+    'blog.article.affitti-riduzione-tasso-riferimento.imageAlt': 'Evening view of Lugano city with residential buildings and lake scenery',
 };
 
 export default blogMetaChEn;

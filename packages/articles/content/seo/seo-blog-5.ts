@@ -81542,6 +81542,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-galleria-moscia-acapulco-180-milioni': {
+    title: 'Galleria Moscia-Acapulco: 180 milioni per la viabilità',
+    description: 'Il progetto della galleria Moscia-Acapulco e la riqualifica della strada litoranea rappresentano un investimento significativo per il miglioramento',
+    keywords: 'frontalieri, ticino, svizzera, italia, galleria, moscia-acapulco, milioni, viabilità',
+    ogTitle: 'Galleria Moscia-Acapulco: un investimento da 180 milioni',
+    ogDescription: 'Il progetto della galleria Moscia-Acapulco e la riqualifica della strada litoranea rappresentano un investimento significativo per il miglioramento della viabilità e della qualità della vita dei frontalieri. La galleria a canna unica e a traffico',
+    canonicalPath: '/articoli-frontaliere/galleria-moscia-acapulco-180-milioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Galleria Moscia-Acapulco: 180 milioni per la viabilità",
+      "description": "Il progetto della galleria Moscia-Acapulco e la riqualifica della strada litoranea rappresentano un investimento significativo per il miglioramento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/galleria-moscia-acapulco-180-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del progetto della galleria Moscia-Acapulco in Ticino"
+      },
+      "datePublished": "2026-09-01T10:37:01+00:00",
+      "dateModified": "2026-09-01T10:37:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/galleria-moscia-acapulco-180-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
