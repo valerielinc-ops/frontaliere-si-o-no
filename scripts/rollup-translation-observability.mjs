@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { digestDocument } from './lib/canonical-json-digest.mjs';
 
 const SELF = fileURLToPath(import.meta.url);
 const WEEK_CAP = 104;
@@ -21,9 +22,16 @@ function compactReport(report) {
   const { fingerprints: _fingerprints, ...continuity } = report.continuity || {};
   return {
     runId: report.runId, finishedAt: report.finishedAt, digest: report.digest, outcome: report.outcome,
-    finalCommit: report.finalCommit, before: report.before, final: report.final, delta: report.delta,
+    finalCommit: report.finalCommit, stateTransition: report.stateTransition,
+    before: report.before, final: report.final, delta: report.delta,
     cohorts: report.cohorts, quality: report.quality, continuity,
   };
+}
+function validDigest(report) {
+  if (!report?.digest) return false;
+  const copy = structuredClone(report);
+  delete copy.digest;
+  return report.digest === digestDocument(copy);
 }
 function append(series, key, entry, cap) {
   const index = series.findIndex((item) => item.period === key);
@@ -35,8 +43,9 @@ function append(series, key, entry, cap) {
 export function rollupTranslationObservability(history, report) {
   const output = history?.schemaVersion === 1 ? structuredClone(history) : { schemaVersion: 1, weeks: [], months: [], baselineReports: [], seenReports: [] };
   output.seenReports ||= [];
+  if (!validDigest(report)) throw new TypeError('Translation observability report digest mismatch');
   const dedupKey = `${report?.runId || ''}:${report?.digest || ''}`;
-  if (!report?.digest || output.seenReports.includes(dedupKey)) return output;
+  if (output.seenReports.includes(dedupKey)) return output;
   const entry = compactReport(report);
   append(output.weeks, period(report.finishedAt), entry, WEEK_CAP);
   append(output.months, period(report.finishedAt, true), entry, MONTH_CAP);
