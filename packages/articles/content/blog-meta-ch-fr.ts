@@ -5002,6 +5002,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Location à Fribourg : droit de location',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Guide complet du dépôt de garantie, de la contestation de la redevance et de la résiliation selon le Code fédéral des obligations. Procédure de conciliation et délais.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Immeuble résidentiel suisse surplombant le paysage montagneux',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Permis de conduire à Fribourg : conversion et examens',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procédure de conversion du permis étranger dans le canton de Fribourg : cours obligatoires, examens théoriques et pratiques, documents requis et feuille de route étape par étape.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Voiture sur route de montagne suisse avec panneaux de circulation et paysage alpin ensoleillé',
 };
 
 export default blogMetaChFr;

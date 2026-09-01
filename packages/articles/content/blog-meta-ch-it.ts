@@ -5002,6 +5002,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Affitti in Friburgo: diritto di locazione',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Guida completa al deposito cauzionale, contestazione canone e disdetta secondo Codice Obbligazioni federale. Procedura conciliazione e scadenze.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Edificio residenziale svizzero con vista su paesaggio montano',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Patente di guida in Friburgo: conversione ed esami',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Auto su strada di montagna svizzera con segnaletica stradale e paesaggio alpino soleggiato',
 };
 
 export default blogMetaChIt;

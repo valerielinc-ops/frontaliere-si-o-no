@@ -5002,6 +5002,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-friburgo-contestazione-canone.title': 'Rentals in Freiburg: right of lease',
     'blog.article.affitti-friburgo-contestazione-canone.excerpt': 'Complete guide to security deposit, fee dispute and cancellation according to the Federal Bond Code. Conciliation procedure and deadlines.',
     'blog.article.affitti-friburgo-contestazione-canone.imageAlt': 'Swiss residential building overlooking mountain landscape',
+    'blog.article.patente-guida-friburgo-procedura.title': 'Driving license in Freiburg: conversion and exams',
+    'blog.article.patente-guida-friburgo-procedura.excerpt': 'Procedure for converting a foreign driver\'s license in the Canton of Freiburg: compulsory courses, theoretical and practical exams, required documents and step-by-step roadmaps.',
+    'blog.article.patente-guida-friburgo-procedura.imageAlt': 'Car on Swiss mountain road with traffic signs and sunny Alpine landscape',
 };
 
 export default blogMetaChEn;
