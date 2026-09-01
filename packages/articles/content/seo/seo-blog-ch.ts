@@ -63902,6 +63902,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tasso-ipotecario-riferimento-stabile': {
+    title: 'Il tasso ipotecario di riferimento rimane stabile',
+    description: 'Il tasso ipotecario di riferimento in Svizzera rimane all\'1,25%. L\'Ufficio federale delle abitazioni (UFAB) conferma il valore invariato dal 2 settembre 2025.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tasso, ipotecario, riferimento, rimane',
+    ogTitle: 'Il tasso ipotecario di riferimento rimane stabile',
+    ogDescription: 'Il tasso ipotecario di riferimento in Svizzera rimane all\'1,25%. L\'Ufficio federale delle abitazioni (UFAB) conferma il valore invariato dal 2 settembre 2025. Scopri le implicazioni per gli inquilini e come verificare se hai diritto a una riduzione',
+    canonicalPath: '/articoli-svizzera/tasso-ipotecario-riferimento-stabile/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il tasso ipotecario di riferimento rimane stabile",
+      "description": "Il tasso ipotecario di riferimento in Svizzera rimane all'1,25%. L'Ufficio federale delle abitazioni (UFAB) conferma il valore invariato dal 2 settembre 2025.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tasso-ipotecario-riferimento-stabile.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano e del suo lago, Svizzera"
+      },
+      "datePublished": "2026-09-01T12:04:28+00:00",
+      "dateModified": "2026-09-01T12:04:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tasso-ipotecario-riferimento-stabile/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

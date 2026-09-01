@@ -4924,6 +4924,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Retail trade, sales increase in July',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Swiss retail sales increased by 0.2% in July, an increase of 1.7% in real terms.',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Aerial view of Lugano city center with shops and commercial areas, Switzerland',
+    'blog.article.tasso-ipotecario-riferimento-stabile.title': 'The reference mortgage rate remains stable',
+    'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'The reference mortgage rate in Switzerland remains at 1.25%. The Federal Office for Housing (FOH) confirms the unchanged value from 2 September 2025.',
+    'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Aerial view of Lugano city and lake, Switzerland',
 };
 
 export default blogMetaChEn;

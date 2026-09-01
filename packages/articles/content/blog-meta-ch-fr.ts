@@ -4924,6 +4924,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.commercio-dettaglio-vendite-luglio-2025.title': 'Augmentation du commerce de détail et des ventes en juillet',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.excerpt': 'Les ventes dans le commerce de détail suisse ont augmenté de 0,2 % en juillet, en hausse de 1,7 % en termes réels.',
     'blog.article.commercio-dettaglio-vendite-luglio-2025.imageAlt': 'Vue aérienne du centre-ville de Lugano avec des magasins et des zones commerciales, Suisse',
+    'blog.article.tasso-ipotecario-riferimento-stabile.title': 'Le taux hypothécaire de référence reste stable',
+    'blog.article.tasso-ipotecario-riferimento-stabile.excerpt': 'Le taux hypothécaire de référence en Suisse reste à 1,25 %. L’Office fédéral du logement (FOH) confirme la valeur inchangée du 2 septembre 2025.',
+    'blog.article.tasso-ipotecario-riferimento-stabile.imageAlt': 'Vue aérienne de la ville et du lac de Lugano, Suisse',
 };
 
 export default blogMetaChFr;
