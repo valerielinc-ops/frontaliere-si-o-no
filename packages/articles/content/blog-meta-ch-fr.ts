@@ -4972,6 +4972,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-friburgo-durata-rinnovo.title': 'Permis de L Fribourg : durée et renouvellement',
     'blog.article.permesso-l-friburgo-durata-rinnovo.excerpt': 'Permis L Fribourg : validité jusqu\'à 1 an, renouvellement et passage aux permis B et C. Procédures, documents et contraintes de l\'employeur.',
     'blog.article.permesso-l-friburgo-durata-rinnovo.imageAlt': 'Documentation de permis L et contrat de travail au bureau administratif cantonal suisse',
+    'blog.article.processo-ndrangheta-svizzera.title': 'Processus au point de référence financier présumé de la \'ndrangheta',
+    'blog.article.processo-ndrangheta-svizzera.excerpt': 'Une procédure a été engagée contre un Italien de 59 ans résidant dans le canton d\'Argovie, accusé de liens avec le clan Anello-Fruci.',
+    'blog.article.processo-ndrangheta-svizzera.imageAlt': 'Vue aérienne du Tribunale penale federale di Bellinzona avec un focus sur la salle d\'audience où se déroule le procès.',
 };
 
 export default blogMetaChFr;

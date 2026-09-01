@@ -1683,6 +1683,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'audizione-concezione-energia-eolica': { it: 'audizione-concezione-energia-eolica', en: 'hearing-wind-energy-concept-framework', de: 'anhorung-windenergie-konzept-schweiz', fr: 'consultation-conception-energie-eolienne' },
  'lucerna-taxi-cari-mondo': { it: 'lucerna-taxi-cari-mondo', en: 'lucerne-most-expensive-taxis-world', de: 'luzern-teuerste-taxis-welt', fr: 'lucerne-taxis-plus-chers-monde' },
  'permesso-l-friburgo-durata-rinnovo': { it: 'permesso-l-friburgo-durata-rinnovo', en: 'l-permit-fribourg-duration-renewal', de: 'l-bewilligung-freiburg-gueltigkeitsdauer-verlaengerung', fr: 'permis-l-fribourg-duree-renouvellement' },
+ 'processo-ndrangheta-svizzera': { it: 'processo-ndrangheta-svizzera', en: 'ndrangheta-trial-switzerland', de: 'ndrangheta-prozess-schweiz', fr: 'proces-ndrangheta-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
