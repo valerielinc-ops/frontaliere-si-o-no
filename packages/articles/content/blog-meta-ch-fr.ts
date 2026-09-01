@@ -4936,6 +4936,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendisti-lacune-competenze-base.title': 'Les entreprises détectent des pénuries de compétences chez les apprentis',
     'blog.article.apprendisti-lacune-competenze-base.excerpt': 'L\'enquête d\'Economiesuisse révèle des lacunes critiques en écriture et en mathématiques parmi les apprentis suisses. Les trois quarts des entreprises fournissent un soutien supplémentaire.',
     'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Apprenti concentré sur une tâche technique dans un atelier de formation professionnelle suisse',
+    'blog.article.telefonia-asta-frequenze-2029.title': 'Téléphonie mobile, la vente aux enchères commence à 855 millions',
+    'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom lance la vente aux enchères pour les fréquences mobiles avec une base de 855 millions. Demandes d’ici le 3 décembre, attribution en 2027, concessions à partir de 2029 pour 15 ans.',
+    'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Vue aérienne de Lugano avec infrastructure de télécommunications et symboles de réseau',
 };
 
 export default blogMetaChFr;

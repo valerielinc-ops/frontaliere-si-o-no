@@ -4936,6 +4936,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendisti-lacune-competenze-base.title': 'Aziende rilevano carenze competenze apprendisti',
     'blog.article.apprendisti-lacune-competenze-base.excerpt': 'Sondaggio di Economiesuisse rivela lacune critiche in scrittura e matematica tra gli apprendisti svizzeri. Tre quarti delle aziende fornisce supporto aggiuntivo.',
     'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Apprendista svizzero concentrato su un compito tecnico in un laboratorio di formazione professionale',
+    'blog.article.telefonia-asta-frequenze-2029.title': 'Telefonia mobile, l\'asta parte da 855 milioni',
+    'blog.article.telefonia-asta-frequenze-2029.excerpt': 'ComCom lancia l\'asta per le frequenze mobili con base di 855 milioni. Candidature entro 3 dicembre, assegnazione nel 2027, concessioni dal 2029 per 15 anni.',
+    'blog.article.telefonia-asta-frequenze-2029.imageAlt': 'Vista di Lugano con infrastrutture di telecomunicazione e simboli di rete wireless sulla Svizzera',
 };
 
 export default blogMetaChIt;

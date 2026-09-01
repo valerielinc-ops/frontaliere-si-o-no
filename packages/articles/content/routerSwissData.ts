@@ -1671,6 +1671,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'formazione-azienda-prioritario': { it: 'formazione-azienda-prioritario', en: 'company-training-priority', de: 'betriebliche-ausbildung-prioritaet', fr: 'formation-entreprise-prioritaire' },
  'dazit-termine-2026': { it: 'dazit-termine-2026', en: 'dazit-end-2026', de: 'dazit-ende-2026', fr: 'dazit-fin-2026' },
  'apprendisti-lacune-competenze-base': { it: 'apprendisti-lacune-competenze-base', en: 'apprentices-skill-gaps-basics', de: 'lehrlinge-kompetenzluecken-grundlagen', fr: 'apprentis-lacunes-competences-base' },
+ 'telefonia-asta-frequenze-2029': { it: 'telefonia-asta-frequenze-2029', en: 'mobile-frequencies-auction-2029', de: 'mobilfunk-frequenzauktion-2029', fr: 'encheres-frequences-mobiles-2029' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
