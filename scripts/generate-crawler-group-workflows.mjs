@@ -260,13 +260,21 @@ export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
   const groupCount = pinnedGroups.length;
   const memberSlugsByGroup = Array.from({ length: groupCount }, () => []);
   const placed = new Set();
+  const duplicatesDiscarded = [];
 
   // Pass 1: keep every pin that still matches a manifest crawler, at its
   // recorded position. Pins whose crawler left the manifest simply do not
   // survive this pass — that is the "a removal touches one file" property.
+  // A slug already `placed` here can only mean an earlier group in this same
+  // pass pinned it too (pass 2 hasn't run yet) — a duplicate pin, tracked so
+  // the CLI can surface a self-heal that would otherwise be silent.
   for (let i = 0; i < groupCount; i++) {
     for (const slug of pinnedGroups[i]) {
-      if (!bySlug.has(slug) || placed.has(slug)) continue;
+      if (!bySlug.has(slug)) continue;
+      if (placed.has(slug)) {
+        duplicatesDiscarded.push(slug);
+        continue;
+      }
       memberSlugsByGroup[i].push(slug);
       placed.add(slug);
     }
@@ -323,7 +331,7 @@ export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
     };
   });
 
-  return { groups, assignments: memberSlugsByGroup, added, removed };
+  return { groups, assignments: memberSlugsByGroup, added, removed, duplicatesDiscarded };
 }
 
 /**
@@ -1772,7 +1780,7 @@ export function generate({
     ? packGroups(crawlers, GROUP_COUNT, medianMs).map((g) => g.members.map((m) => m.slug))
     : loadAssignments(assignmentsPath, GROUP_COUNT);
 
-  const { groups, assignments, added, removed } = assignGroupsStable(crawlers, pinned, medianMs);
+  const { groups, assignments, added, removed, duplicatesDiscarded } = assignGroupsStable(crawlers, pinned, medianMs);
 
   // Sanity: every crawler appears exactly once.
   const seen = new Set();
@@ -1838,6 +1846,7 @@ export function generate({
 
   results.assignmentsAdded = added;
   results.assignmentsRemoved = removed;
+  results.assignmentsDuplicatesDiscarded = duplicatesDiscarded;
   results.generationRoster = generationRoster;
   if (write) {
     // Commit phase: render/validation is complete. Every individual replace is
@@ -1942,6 +1951,7 @@ if (isMain) {
   }
   for (const slug of results.assignmentsRemoved) console.log(`  - unassigned (gone from the manifest): ${slug}`);
   for (const slug of results.assignmentsAdded) console.log(`  + newly assigned: ${slug}`);
+  for (const slug of results.assignmentsDuplicatesDiscarded) console.log(`  ! duplicate pin discarded (kept first occurrence): ${slug}`);
   console.log(`Generated ${results.length} group workflows:`);
   for (const r of results) {
     console.log(`  ${r.fileName}: ${r.memberCount} crawlers, ~${Math.round(r.wallClockMs / 60000)}min wall-clock`);
