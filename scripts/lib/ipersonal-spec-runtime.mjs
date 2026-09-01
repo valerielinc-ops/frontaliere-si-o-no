@@ -5,6 +5,25 @@ import { extractDetailFields, isSufficientVacancyDescription } from './prospecto
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 
+const VERIFIED_SOURCE_GEOGRAPHY = Symbol('ipersonal-source-backed-geography');
+
+/**
+ * Recover the exact geography already accepted by the shared Prospector gate.
+ * The symbol is module-private so arbitrary input rows cannot impersonate that
+ * proof, and equality checks prevent a later mutation from reusing stale proof.
+ *
+ * @param {Record<string, any>} row
+ * @returns {{ location: string, canton: string, addressCountry?: string }|null}
+ */
+export function getVerifiedIpersonalGeography(row) {
+  const geography = row?.[VERIFIED_SOURCE_GEOGRAPHY];
+  if (!geography
+    || geography.location !== row?.location
+    || geography.canton !== row?.canton
+    || (geography.addressCountry || '') !== (row?.addressCountry || row?.country || '')) return null;
+  return { ...geography };
+}
+
 /** @param {string | URL} value */
 function canonicalUrl(value = '') {
   try {
@@ -113,6 +132,8 @@ export function extractIpersonalDescription(html = '') {
  *   discoveredCount: number,
  *   expectedSeedCount: number,
  *   loadedSeedCount: number,
+ *   resolvedDetailCount: number,
+ *   parsedDetailCount: number,
  *   qualityDroppedCount: number,
  *   detailFailureCount: number,
  *   sourceIdentityCollisionCount: number,
@@ -124,6 +145,9 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   const attemptedDetailUrls = new Set();
   const resolvedDetailsByAttempt = new Map();
   const parsedDetails = new Map();
+  const detailAttemptBySignal = new WeakMap();
+  const successfulDetailAttempts = new Map();
+  let detailAttemptSequence = 0;
   const expectedSeedUrls = new Set(
     (spec?.seedUrls || []).map((seed) => canonicalUrl(seed)).filter(Boolean),
   );
@@ -138,29 +162,48 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     const inputUrl = typeof input === 'string' || input instanceof URL
       ? String(input)
       : input.url;
-    let attemptedDetailUrl = '';
+    const canonicalInputUrl = canonicalUrl(inputUrl);
+    let detailAttempt = init.signal && typeof init.signal === 'object'
+      ? detailAttemptBySignal.get(init.signal)
+      : null;
     if (method !== 'HEAD' && detailTemplateRx) {
       try {
         const parsed = new URL(inputUrl);
-        if (detailTemplateRx.test(parsed.pathname)) {
-          attemptedDetailUrl = canonicalUrl(parsed);
-          attemptedDetailUrls.add(attemptedDetailUrl);
+        if (!detailAttempt && detailTemplateRx.test(parsed.pathname)) {
+          detailAttempt = {
+            attemptedUrl: canonicalUrl(parsed),
+            sequence: detailAttemptSequence++,
+          };
+          attemptedDetailUrls.add(detailAttempt.attemptedUrl);
+          if (init.signal && typeof init.signal === 'object') {
+            detailAttemptBySignal.set(init.signal, detailAttempt);
+          }
         }
       } catch { /* the public fetch policy rejects invalid URLs */ }
     }
     const response = await upstreamFetch(input, { ...init, headers });
     if (method !== 'HEAD') {
       const originalHtml = await response.clone().text();
-      const canonicalInputUrl = canonicalUrl(inputUrl);
       const resolvedDetailUrl = canonicalUrl(response.url || inputUrl);
-      if (attemptedDetailUrl) {
-        resolvedDetailsByAttempt.set(attemptedDetailUrl, resolvedDetailUrl);
+      if (detailAttempt && response.ok) {
+        const previous = successfulDetailAttempts.get(detailAttempt.attemptedUrl);
+        if (!previous || detailAttempt.sequence >= previous.sequence) {
+          successfulDetailAttempts.set(detailAttempt.attemptedUrl, {
+            sequence: detailAttempt.sequence,
+            resolvedUrl: resolvedDetailUrl,
+            html: originalHtml,
+          });
+          resolvedDetailsByAttempt.set(detailAttempt.attemptedUrl, resolvedDetailUrl);
+          pages.set(detailAttempt.attemptedUrl, originalHtml);
+          pages.set(resolvedDetailUrl, originalHtml);
+        }
+      } else if (response.ok) {
+        pages.set(canonicalInputUrl, originalHtml);
+        if (response.url) pages.set(canonicalUrl(response.url), originalHtml);
       }
-      if (expectedSeedUrls.has(canonicalInputUrl) && originalHtml.trim()) {
+      if (response.ok && expectedSeedUrls.has(canonicalInputUrl) && originalHtml.trim()) {
         loadedSeedUrls.add(canonicalInputUrl);
       }
-      pages.set(canonicalUrl(inputUrl), originalHtml);
-      if (response.url) pages.set(canonicalUrl(response.url), originalHtml);
       const normalizedHtml = normalizeKnownIpersonalLocalities(originalHtml);
       if (normalizedHtml !== originalHtml) {
         return new Response(normalizedHtml, {
@@ -184,8 +227,22 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     detailExtractor: capturingDetailExtractor,
   });
   const enriched = rows.map((row) => {
-    const description = extractIpersonalDescription(pages.get(canonicalUrl(row.url)) || '');
-    return description ? { ...row, description } : row;
+    const attemptedUrl = canonicalUrl(row.url);
+    const description = extractIpersonalDescription(pages.get(attemptedUrl) || '');
+    const output = {
+      ...row,
+      ...(description ? { description } : {}),
+    };
+    const location = String(row?.location || '').trim();
+    const canton = String(row?.canton || '').trim();
+    if (location && canton) {
+      const addressCountry = String(row?.addressCountry || row?.country || '').trim();
+      Object.defineProperty(output, VERIFIED_SOURCE_GEOGRAPHY, {
+        value: Object.freeze({ location, canton, ...(addressCountry ? { addressCountry } : {}) }),
+        enumerable: false,
+      });
+    }
+    return output;
   });
   Object.defineProperty(enriched, 'discoveredCount', {
     value: attemptedDetailUrls.size,
@@ -199,12 +256,25 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     value: loadedSeedUrls.size,
     enumerable: false,
   });
+  Object.defineProperty(enriched, 'resolvedDetailCount', {
+    value: successfulDetailAttempts.size,
+    enumerable: false,
+  });
+  const parsedDetailCount = [...attemptedDetailUrls].filter((attemptedUrl) => {
+    const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
+    return parsedDetails.has(resolvedDetailUrl) || parsedDetails.has(attemptedUrl);
+  }).length;
+  Object.defineProperty(enriched, 'parsedDetailCount', {
+    value: parsedDetailCount,
+    enumerable: false,
+  });
   // Count only source-proven quality rejections. Arithmetic based solely on
   // `attempted - returned` would also bless unrelated losses (dedup bugs,
   // redirect aliasing, or a later adapter filter).
   const returnedUrls = new Set(rows.map((row) => canonicalUrl(row?.url)).filter(Boolean));
   const responseIdentityCounts = new Map();
   for (const attemptedUrl of attemptedDetailUrls) {
+    if (!successfulDetailAttempts.has(attemptedUrl)) continue;
     const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
     responseIdentityCounts.set(
       resolvedDetailUrl,
@@ -217,12 +287,13 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     const resolvedDetailUrl = resolvedDetailsByAttempt.get(attemptedUrl) || attemptedUrl;
     if (returnedUrls.has(attemptedUrl) || returnedUrls.has(resolvedDetailUrl)) continue;
     const detail = parsedDetails.get(resolvedDetailUrl) || parsedDetails.get(attemptedUrl);
-    if (!detail) {
+    const successfulAttempt = successfulDetailAttempts.get(attemptedUrl);
+    if (!successfulAttempt || !detail) {
       detailFailureUrls.add(attemptedUrl);
       continue;
     }
     const geography = resolveDetailOrListingSwissGeography(detail, {}).geography;
-    const sourceMarkup = pages.get(resolvedDetailUrl) || pages.get(attemptedUrl) || '';
+    const sourceMarkup = successfulAttempt.html;
     const descriptionProven = isSufficientVacancyDescription(detail.description)
       || isSufficientVacancyDescription(extractIpersonalDescription(sourceMarkup));
     if (!geography || !descriptionProven) qualityDroppedUrls.add(attemptedUrl);
@@ -247,7 +318,7 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
     value: [...returnedUrls].filter((url) => !attemptedIdentities.has(url)).length,
     enumerable: false,
   });
-  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, qualityDroppedCount: number, detailFailureCount: number, sourceIdentityCollisionCount: number, unaccountedReturnedCount: number }} */ (
+  return /** @type {Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number, resolvedDetailCount: number, parsedDetailCount: number, qualityDroppedCount: number, detailFailureCount: number, sourceIdentityCollisionCount: number, unaccountedReturnedCount: number }} */ (
     /** @type {unknown} */ (enriched)
   );
 }
@@ -262,6 +333,8 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
  *   discoveredCount?: number,
  *   expectedSeedCount?: number,
  *   loadedSeedCount?: number,
+ *   resolvedDetailCount?: number,
+ *   parsedDetailCount?: number,
  *   qualityDroppedCount?: number,
  *   detailFailureCount?: number,
  *   sourceIdentityCollisionCount?: number,
@@ -273,6 +346,8 @@ export function assertCompleteIpersonalSnapshot(jobs) {
   const discoveredCount = Number(jobs?.discoveredCount);
   const expectedSeedCount = Number(jobs?.expectedSeedCount);
   const loadedSeedCount = Number(jobs?.loadedSeedCount);
+  const resolvedDetailCount = Number(jobs?.resolvedDetailCount);
+  const parsedDetailCount = Number(jobs?.parsedDetailCount);
   const qualityDroppedCount = jobs?.qualityDroppedCount ?? 0;
   const detailFailureCount = jobs?.detailFailureCount ?? 0;
   const sourceIdentityCollisionCount = jobs?.sourceIdentityCollisionCount ?? 0;
@@ -297,6 +372,14 @@ export function assertCompleteIpersonalSnapshot(jobs) {
     || detailFailureCount < 0
     || detailFailureCount !== 0) {
     throw new Error('iPersonal snapshot incomplete: detail fetch/parse failure');
+  }
+  if (!Number.isInteger(resolvedDetailCount)
+    || !Number.isInteger(parsedDetailCount)
+    || resolvedDetailCount !== discoveredCount
+    || parsedDetailCount !== discoveredCount) {
+    throw new Error(
+      `iPersonal snapshot incomplete: resolved ${resolvedDetailCount}/${discoveredCount}, parsed ${parsedDetailCount}/${discoveredCount} details`,
+    );
   }
   if (!Number.isInteger(sourceIdentityCollisionCount)
     || sourceIdentityCollisionCount < 0

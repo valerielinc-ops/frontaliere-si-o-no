@@ -15,7 +15,10 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec } from './prospector/spec-crawler.mjs';
-import { runIpersonalSpecInProduction } from './ipersonal-spec-runtime.mjs';
+import {
+  getVerifiedIpersonalGeography,
+  runIpersonalSpecInProduction,
+} from './ipersonal-spec-runtime.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -148,7 +151,8 @@ export async function fetchAllMedIpersonalJobs() {
     // structured canton). Re-checking with the bare string alone drops rows
     // upstream already verified, silently reproducing the "snapshot incomplete"
     // fail-closed this quality gate exists to distinguish from.
-    const geography = resolveSourceBackedSwissGeography(listing);
+    const geography = getVerifiedIpersonalGeography(listing)
+      || resolveSourceBackedSwissGeography(listing);
     if (!geography) continue;
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
@@ -195,8 +199,6 @@ export async function fetchAllMedIpersonalJobs() {
       featured: false,
       postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
       applyUrl: publicUrl,
-      requirements: [],
-      requirementsByLocale: { [sourceLang]: [] },
     };
 
     jobs.push(job);
@@ -214,6 +216,14 @@ export async function fetchAllMedIpersonalJobs() {
   });
   Object.defineProperty(jobs, 'loadedSeedCount', {
     value: Number(listings.loadedSeedCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'resolvedDetailCount', {
+    value: Number(listings.resolvedDetailCount),
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'parsedDetailCount', {
+    value: Number(listings.parsedDetailCount),
     enumerable: false,
   });
   Object.defineProperty(jobs, 'qualityDroppedCount', {

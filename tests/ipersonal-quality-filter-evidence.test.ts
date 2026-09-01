@@ -26,6 +26,8 @@ function withCounts(listings: any[], overrides: Record<string, number> = {}) {
     discoveredCount: listings.length,
     expectedSeedCount: 1,
     loadedSeedCount: 1,
+    resolvedDetailCount: listings.length,
+    parsedDetailCount: listings.length,
     qualityDroppedCount: 0,
     ...overrides,
   };
