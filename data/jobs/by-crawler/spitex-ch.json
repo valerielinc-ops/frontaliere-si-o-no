@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spitex-ch",
-  "assembledAt": "2026-09-01T10:14:14.803Z",
+  "assembledAt": "2026-09-01T14:14:30.913Z",
   "jobs": [
     {
       "id": "spitex-ch-49deac22d4cc",
@@ -34,7 +34,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegefachperson-hf/J989321",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:11.372Z",
+      "crawledAt": "2026-09-01T14:14:10.053Z",
       "addressLocality": "Lenzerheide/Lai",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -156,7 +156,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-c9a270fd428c",
@@ -190,7 +191,7 @@
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-fh-psychiatrie-oder-mit-erfahrung-in-der-psychiatrie-mit-einem-arbeitspensum-von-60-100-prozent/J976698",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:09.647Z",
+      "crawledAt": "2026-09-01T14:14:10.475Z",
       "addressLocality": "Turbenthal",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -263,7 +264,7 @@
       "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-fage-efz-psychiatrie-50-60-prozent-montag-freitag/J989337",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:08.877Z",
+      "crawledAt": "2026-09-01T14:14:24.226Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -371,7 +372,8 @@
           "maxValue": 115200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-3954681e04b5",
@@ -446,7 +448,8 @@
           "maxValue": 94200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "spitex-ch-a747b4bb3ac9",
@@ -480,7 +483,7 @@
       "url": "https://www.spitexjobs.ch/job/dipl-pflegefachperson-hf-60-100-prozent/J988356",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:05.688Z",
+      "crawledAt": "2026-09-01T14:14:22.525Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -597,7 +600,7 @@
       "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-efz-40-prozent-80-prozent/J988264",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:04.850Z",
+      "crawledAt": "2026-09-01T14:14:21.721Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -671,7 +674,7 @@
       "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-efz-40-prozent-100-prozent/J985821",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:03.925Z",
+      "crawledAt": "2026-09-01T14:14:21.205Z",
       "addressLocality": "Würenlos",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -792,7 +795,7 @@
       "url": "https://www.spitexjobs.ch/job/fachfrau-mann-gesundheit-efz-60-80-prozent/J991827",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:03.149Z",
+      "crawledAt": "2026-09-01T14:14:20.504Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -867,7 +870,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegefachperson-hf-fh-50-60-prozent/J991828",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:02.252Z",
+      "crawledAt": "2026-09-01T14:14:19.987Z",
       "addressLocality": "Adliswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -944,7 +947,7 @@
       "url": "https://www.spitexjobs.ch/job/fuer-unsere-einsatzplanung-eine-fachperson-gesundheit-fage/J991826",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:01.699Z",
+      "crawledAt": "2026-09-01T14:14:19.473Z",
       "addressLocality": "Sirnach",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1017,7 +1020,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegehelfer-in-srk-50-80-prozent/J986336",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:00.957Z",
+      "crawledAt": "2026-09-01T14:14:18.959Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1082,7 +1085,7 @@
       "url": "https://www.spitexjobs.ch/job/fage-20-80-prozent-w-m-d/J985173",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:14:00.368Z",
+      "crawledAt": "2026-09-01T14:14:18.383Z",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1157,7 +1160,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegehelfer-in-srk-oder-assistent-in-gesundheit-und-soziales-60-80-prozent/J991846",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:59.750Z",
+      "crawledAt": "2026-09-01T14:14:17.923Z",
       "addressLocality": "Reinach BL",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1230,7 +1233,7 @@
       "url": "https://www.spitexjobs.ch/job/diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-prozent-im-demenzteam/J990529",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:58.957Z",
+      "crawledAt": "2026-09-01T14:14:17.357Z",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1313,7 +1316,7 @@
       "url": "https://www.spitexjobs.ch/job/spitex-nahe-winterthur-sucht-dich-fage-m-w-d-60-100-prozent-fixe-tage-moeglich/J987897",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:58.107Z",
+      "crawledAt": "2026-09-01T14:14:16.831Z",
       "addressLocality": "Seuzach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1386,7 +1389,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegefachfrau-mann-hf-40-60-prozent-im-spaetdienst-fuer-das-zentrum-hinwil/J965669",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:57.328Z",
+      "crawledAt": "2026-09-01T14:14:16.085Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1466,7 +1469,7 @@
       "url": "https://www.spitexjobs.ch/job/fachverantwortung-hauswirtschaft-spitex/J991864",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:56.484Z",
+      "crawledAt": "2026-09-01T14:14:15.266Z",
       "addressLocality": "Weggis",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1503,27 +1506,27 @@
       "id": "spitex-ch-40ab72f66e0d",
       "slug": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
       "slugByLocale": {
-        "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+        "it": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
         "en": "nursing-professional-hf-with-additional-function-stv-team-leadership-60-100-spitex-obwalden-sarnen",
-        "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen",
-        "it": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen"
+        "de": "pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-spitex-ch-sarnen",
+        "fr": "soins-infirmiers-professionnels-hf-avec-fonction-supplementaire-stv-team-leadership-60-100-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
       "companyKey": "spitex-ch",
       "companyDomain": "spitexjobs.ch",
       "title": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%",
       "titleByLocale": {
-        "de": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%",
         "it": "Pflegefachperson HF con Zusatzfunktion Stv. Teamleitung 60-100%",
         "en": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%",
+        "de": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%",
         "fr": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%"
       },
       "description": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Du arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\n Deine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\n Du bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
       "descriptionByLocale": {
-        "de": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Du arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\n Deine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\n Du bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
-        "it": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Du arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\n Deine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\n Du bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
-        "en": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Du arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\n Deine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\n Du bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
-        "fr": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Du arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\n Deine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\n Du bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch"
+        "it": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nDu arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\nDeine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\nDu bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
+        "en": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nDu arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\nDeine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\nDu bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
+        "de": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nDu arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\nDeine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\nDu bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch",
+        "fr": "Pflegefachperson HF mit Zusatzfunktion Stv. Teamleitung 60-100%\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nDu arbeitest gerne selbstständig und hast Freude an der ambulanten Pflege? Dann bist du bei uns genau richtig.\nDeine Aufgaben\n\n• Sicherstellung einer hohen Pflegequalität für unsere Kunden und Kundinnen zu Hause\n\n• Bedarfsabklärung nach interRAI bis zum Abschluss des Pflegeprozesses als fallführende Pflegefachperson\n\n• Übernahme von pflegerischen und administrativen Aufgaben\n\n• Interdisziplinäre Zusammenarbeit mit Mitarbeitenden, Fachstellen und Ärzten\n\n• Verantwortung für die kompetente, wirtschaftliche und zeitgemässe Führung eines eingespielten Teams in der Stellvertretungsfunktion\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Wertschätzende Kommunikationskultur und Beherrschung der deutschen Sprache in Wort und Schrift\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n\n• interRai HC Kurs oder die Bereitschaft diesen zu absolvieren\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Interne Weiterbildungsmöglichkeiten\nDu bist interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, (041 662 90 90), gerne zur Verfügung. Wir freuen uns auf deine Bewerbung!\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch"
       },
       "needsRetranslation": true,
       "location": "Sarnen",
@@ -1531,7 +1534,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-prozent/J982140",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:55.895Z",
+      "crawledAt": "2026-09-01T14:14:12.926Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1548,9 +1551,8 @@
       "validThrough": "2026-10-01",
       "applyUrl": "https://www.spitexjobs.ch/job/pflegefachperson-hf-mit-zusatzfunktion-stv-teamleitung-60-100-prozent/J982140",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-01T10:13:55.895Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1563,16 +1565,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T10:13:55.895Z"
+      }
     },
     {
       "id": "spitex-ch-4183ffeb3413",
       "slug": "team-management-cura-80-100-mo-fr-spitex-obwalden-sarnen",
       "slugByLocale": {
-        "de": "teamleitung-pflege-80-100-mo-fr-spitex-ch-sarnen",
         "it": "team-management-cura-80-100-mo-fr-spitex-obwalden-sarnen",
         "en": "team-management-care-80-100-mo-fr-spitex-obwalden-sarnen",
+        "de": "teamleitung-pflege-80-100-mo-fr-spitex-ch-sarnen",
         "fr": "soins-de-gestion-d-equipe-80-100-mo-fr-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
@@ -1580,17 +1581,17 @@
       "companyDomain": "spitexjobs.ch",
       "title": "Teamleitung Pflege 80-100% (MO-FR)",
       "titleByLocale": {
-        "de": "Teamleitung Pflege 80-100% (MO-FR)",
         "it": "Teamleitung Pflege 80-100% (MO-FR)",
         "en": "Teamleitung Pflege 80-100% (MO-FR)",
+        "de": "Teamleitung Pflege 80-100% (MO-FR)",
         "fr": "Teamleitung Pflege 80-100% (MO-FR)"
       },
       "description": "Teamleitung Pflege 80-100% (MO-FR)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\n Magst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\n Deine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n Bist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
       "descriptionByLocale": {
-        "de": "Teamleitung Pflege 80-100% (MO-FR)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\n Magst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\n Deine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n Bist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
-        "it": "Teamleitung Pflege 80-100% (MO-FR)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\n Magst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\n Deine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n Bist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
-        "en": "Teamleitung Pflege 80-100% (MO-FR)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\n Magst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\n Deine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n Bist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
-        "fr": "Teamleitung Pflege 80-100% (MO-FR)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\n Magst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\n Deine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\n Dein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\n Wir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n Bist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch."
+        "it": "Teamleitung Pflege 80-100% (MO-FR)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\nMagst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\nDeine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\nBist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
+        "en": "Teamleitung Pflege 80-100% (MO-FR)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\nMagst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\nDeine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\nBist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
+        "de": "Teamleitung Pflege 80-100% (MO-FR)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\nMagst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\nDeine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\nBist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
+        "fr": "Teamleitung Pflege 80-100% (MO-FR)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n\nHeld/in im ambulanten Bereich gesucht!\nMagst du Dynamik im Spitex-Alltag? Dann ist diese Stelle genau das richtige für dich!\nDeine Aufgaben\n\n• Verantwortung für die kompetente, wirtschaftliche, und zeitgemässe Führung eines eingespielten Teams\n\n• Interdisziplinäre und interprofessionelle Zusammenarbeit mit der ganzen Versorgungskette\n\n• Projektarbeit und Übernahme von Zusatzaufgaben\n\n• Bedarfsabklärungen mit interRAI und Übernahme von Pflegeeinsätzen\nDein Profil\n\n• Ausbildung als Pflegefachperson HF\n\n• Führungserfahrung oder die Bereitschaft eine Führungsausbildung zu absolvieren\n\n• Berufserfahrung im ambulanten Bereich von Vorteil\n\n• Betriebswirtschaftliches Denken und Handeln\n\n• Organisatorische Fähigkeiten und Durchsetzungsvermögen\nWir bieten\n\n• Eine vielseitige, interessante und verantwortungsvolle Tätigkeit\n\n• Arbeitsplatz in schönen Räumlichkeiten und moderner Infrastruktur\n\n• Fortschrittliche Anstellungsbedingungen\n\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\nBist du interessiert? Für Auskünfte steht dir Michaela Bissig, Leitung Pflege, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch."
       },
       "needsRetranslation": true,
       "location": "Sarnen",
@@ -1598,7 +1599,7 @@
       "url": "https://www.spitexjobs.ch/job/teamleitung-pflege-80-100-prozent-mo-fr/J988754",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:54.981Z",
+      "crawledAt": "2026-09-01T14:14:13.656Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1615,17 +1616,18 @@
       "validThrough": "2026-10-01",
       "applyUrl": "https://www.spitexjobs.ch/job/teamleitung-pflege-80-100-prozent-mo-fr/J988754",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "teamleitung-pflege-80-100-mo-fr-spitex-ch-sarnen",
+        "team-management-cura-80-100-mo-fr-spitex-obwalden-sarnen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-pflege-80-100-mo-fr-spitex-ch-sarnen"
+          "teamleitung-pflege-80-100-mo-fr-spitex-ch-sarnen",
+          "team-management-cura-80-100-mo-fr-spitex-obwalden-sarnen"
         ]
       },
-      "previousSlugs": [
-        "teamleitung-pflege-80-100-mo-fr-spitex-ch-sarnen"
-      ],
+      "firstSeenAt": "2026-09-01T10:13:54.981Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1638,16 +1640,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T10:13:54.981Z"
+      }
     },
     {
       "id": "spitex-ch-ae938029e474",
       "slug": "home-helper-in-60-srk-desiderato-spitex-obwalden-sarnen",
       "slugByLocale": {
-        "de": "haushelfer-in-60-srk-erwunscht-spitex-ch-sarnen",
         "it": "home-helper-in-60-srk-desiderato-spitex-obwalden-sarnen",
         "en": "home-helper-in-60-srk-desired-spitex-obwalden-sarnen",
+        "de": "haushelfer-in-60-srk-erwunscht-spitex-ch-sarnen",
         "fr": "aide-a-domicile-en-60-srk-desire-spitex-obwalden-sarnen"
       },
       "company": "Spitex Obwalden",
@@ -1655,17 +1656,17 @@
       "companyDomain": "spitexjobs.ch",
       "title": "Haushelfer/in 60% (SRK erwünscht)",
       "titleByLocale": {
-        "de": "Haushelfer/in 60% (SRK erwünscht)",
         "it": "Haushelfer/in 60% (SRK erwünscht)",
         "en": "Haushelfer/in 60% (SRK erwünscht)",
+        "de": "Haushelfer/in 60% (SRK erwünscht)",
         "fr": "Haushelfer/in 60% (SRK erwünscht)"
       },
       "description": "Haushelfer/in 60% (SRK erwünscht)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Als Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\n Deine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\n Dein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\n Wir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\n Für Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
       "descriptionByLocale": {
-        "de": "Haushelfer/in 60% (SRK erwünscht)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Als Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\n Deine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\n Dein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\n Wir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\n Für Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
-        "it": "Haushelfer/in 60% (SRK erwünscht)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Als Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\n Deine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\n Dein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\n Wir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\n Für Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
-        "en": "Haushelfer/in 60% (SRK erwünscht)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Als Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\n Deine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\n Dein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\n Wir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\n Für Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
-        "fr": "Haushelfer/in 60% (SRK erwünscht)\n Im Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\n Als Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\n Deine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\n Dein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\n Wir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\n Für Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\n Deine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch."
+        "it": "Haushelfer/in 60% (SRK erwünscht)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nAls Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\nDeine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\nDein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\nWir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\nFür Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
+        "en": "Haushelfer/in 60% (SRK erwünscht)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nAls Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\nDeine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\nDein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\nWir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\nFür Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
+        "de": "Haushelfer/in 60% (SRK erwünscht)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nAls Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\nDeine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\nDein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\nWir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\nFür Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch.",
+        "fr": "Haushelfer/in 60% (SRK erwünscht)\nIm Auftrag der Einwohnergemeinden erbringt Spitex Obwalden umfassende Spitex-Dienstleistungen im gesamten Kanton Obwalden. Wir bieten professionelle Unterstützung in den Bereichen Pflege, Psychiatriepflege, Hauswirtschaft sowie Mütter- und Väterberatung – kompetent, zuverlässig und mit Herz. Spitex Obwalden ist zudem ein attraktiver Ausbildungsbetrieb und investiert gezielt in die Fachkräfte von morgen.\nAls Haushelfer/in ermöglichst du unseren Kunden ein selbstbestimmtes Leben in ihrer gewohnten Umgebung.\nDeine Aufgaben\n\n• Erledigung aller im Haushalt anfallenden Hausarbeiten\n\n• Wohnungs- und Wäschepflege\n\n• Haushaltsarbeiten welche einen sozialbetreuerischen Charakter haben\n\n• Vor- und Zubereitung von Mahlzeiten\nDein Profil\n\n• Erfahrung im hauswirtschaftlichen Bereich\n\n• Hohes Verantwortungsbewusstsein, selbständig und flexibel\n\n• Gültiger Fahrausweis und eigenes Fahrzeug\nWir bieten\n\n• Ein wertschätzendes und unterstützendes Arbeitsumfeld\n\n• Attraktive Anstellungsbedingungen\n\n• Ein engagiertes und herzliches Team, das sich auf Ihre Unterstützung freut.\nFür Auskünfte steht dir Gabriela Baumann, Leitung Hauswirtschaft, gerne zur Verfügung.\nDeine vollständigen Bewerbungsunterlagen richtest du bitte per Post oder Mail an Spitex Obwalden, Personaladministration, Kägiswilerstrasse 29, 6060 Sarnen oder personal@spitexow.ch."
       },
       "needsRetranslation": true,
       "location": "Sarnen",
@@ -1673,7 +1674,7 @@
       "url": "https://www.spitexjobs.ch/job/haushelfer-in-60-prozent-srk-erwuenscht/J988797",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:54.117Z",
+      "crawledAt": "2026-09-01T14:14:14.396Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "addressCountry": "CH",
@@ -1690,17 +1691,18 @@
       "validThrough": "2026-10-01",
       "applyUrl": "https://www.spitexjobs.ch/job/haushelfer-in-60-prozent-srk-erwuenscht/J988797",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "haushelfer-in-60-srk-erwunscht-spitex-ch-sarnen",
+        "home-helper-in-60-srk-desiderato-spitex-obwalden-sarnen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "haushelfer-in-60-srk-erwunscht-spitex-ch-sarnen"
+          "haushelfer-in-60-srk-erwunscht-spitex-ch-sarnen",
+          "home-helper-in-60-srk-desiderato-spitex-obwalden-sarnen"
         ]
       },
-      "previousSlugs": [
-        "haushelfer-in-60-srk-erwunscht-spitex-ch-sarnen"
-      ],
+      "firstSeenAt": "2026-09-01T10:13:54.117Z",
       "salaryMin": 51900,
       "salaryMax": 72300,
       "salarySource": "estimated",
@@ -1713,8 +1715,7 @@
           "maxValue": 72300,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T10:13:54.117Z"
+      }
     },
     {
       "id": "spitex-ch-35e17f9805f9",
@@ -1748,7 +1749,7 @@
       "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-efz-m-w-d-40-prozent-80-prozent/J986599",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:53.501Z",
+      "crawledAt": "2026-09-01T14:14:24.741Z",
       "addressLocality": "Grosshöchstetten",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1826,7 +1827,7 @@
       "url": "https://www.spitexjobs.ch/job/pflegefachperson-hf-50-prozent-wiedereinsteigerin-wiedereinsteiger-willkommen/J990010",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:52.774Z",
+      "crawledAt": "2026-09-01T14:14:23.233Z",
       "addressLocality": "Bauma",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1907,7 +1908,7 @@
       "url": "https://www.spitexjobs.ch/job/lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz/J991394",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:51.935Z",
+      "crawledAt": "2026-09-01T14:14:25.251Z",
       "addressLocality": "Lenzburg",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2002,7 +2003,7 @@
       "url": "https://www.spitexjobs.ch/job/geschaeftsfuehrerin-geschaeftsfuehrer-80-100-prozent/J989020",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:13:51.333Z",
+      "crawledAt": "2026-09-01T14:14:09.591Z",
       "addressLocality": "Oberhofen am Thunersee",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2083,7 +2084,7 @@
       "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit/J985849",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:39:12.123Z",
+      "crawledAt": "2026-09-01T14:14:11.219Z",
       "addressLocality": "Riggisberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2127,8 +2128,7 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "spitex-ch-705e1692785f",
@@ -2204,7 +2204,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-ch-b9743e176c6f",
@@ -2270,7 +2270,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-ch-ba13938ad08a",
@@ -2346,7 +2346,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "spitex-ch-3cf2f3c40f3d",
@@ -2380,7 +2380,7 @@
       "url": "https://www.spitexjobs.ch/job/fachmann-fachfrau-gesundheit-mit-einsatzplanung-70-100-prozent/J989339",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:38:54.065Z",
+      "crawledAt": "2026-09-01T14:14:25.763Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2421,8 +2421,7 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      },
-      "crawlerMissStreak": 1
+      }
     },
     {
       "id": "spitex-ch-db747145e83c",
@@ -2456,7 +2455,7 @@
       "url": "https://www.spitexjobs.ch/job/fachfrau-fachmann-gesundheit-fage-m-w-d-40100-prozent-zuerich/J990941",
       "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T08:38:52.650Z",
+      "crawledAt": "2026-09-01T14:14:23.719Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2516,8 +2515,160 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "spitex-ch-459ef94c4628",
+      "slug": "collaboratore-trice-hauswirtschaft-30-40-spitex-rupperswil-hunzenschwil-auen-rupperswil",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-hauswirtschaft-30-40-spitex-ch-rupperswil",
+        "it": "collaboratore-trice-hauswirtschaft-30-40-spitex-rupperswil-hunzenschwil-auen-rupperswil",
+        "en": "mitarbeiter-in-hauswirtschaft-30-40-spitex-ch-rupperswil",
+        "fr": "mitarbeiter-in-hauswirtschaft-30-40-spitex-ch-rupperswil"
       },
-      "crawlerMissStreak": 1
+      "company": "Spitex Rupperswil Hunzenschwil Auen",
+      "companyKey": "spitex-ch",
+      "companyDomain": "spitexjobs.ch",
+      "title": "Mitarbeiter:in Hauswirtschaft 30-40%",
+      "titleByLocale": {
+        "de": "Mitarbeiter:in Hauswirtschaft 30-40%",
+        "it": "Collaboratore/trice Hauswirtschaft 30-40%",
+        "en": "Associate Hauswirtschaft 30-40%",
+        "fr": "Collaborateur/trice Hauswirtschaft 30-40%"
+      },
+      "description": "Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Mitarbeiter:in Hauswirtschaft 30-40%\n Für diese Aufgabe suchen wir eine selbständige, engagierte und aufgestellte Persönlichkeit, die unseren Klienten mit viel Einfühlungsvermögen, Umsicht und Herz begegnet.\n Dein Beitrag:\n\n• Du unterstützt unsere Klienten im Haushalt, übernimmst Wäschepflege und Bügelarbeiten und erledigst bei Bedarf weitere Dienstleistungen im Rahmen unseres Angebots.\n\n• Du trägst Mitverantwortung für eine gute und kooperative Zusammenarbeit im Spitex-Team und repräsentierst unsere Spitex nach aussen.\n\n• Du verfügst über fundierte Kenntnisse in der hauswirtschaftlichen Reinigung und gehst individuell auf die Bedürfnisse unserer Klienten ein.\n\n• Du arbeitest geduldig, selbständig und verantwortungsbewusst und kommunizierst sicher auf Deutsch.\n\n• Du bist flexibel sowie körperlich und psychisch belastbar.\n Wir bieten:\n\n• Eine vielseitige und verantwortungsvolle Tätigkeit in einem spannenden Umfeld\n\n• Ein motiviertes und engagiertes Team\n\n• Attraktive Anstellungsbedingungen und fortschrittliche Sozialleistungen\n\n• Unterstützung bei Aus- und Weiterbildungen\n Haben wir dein Interesse geweckt? Dann freuen wir uns, dich kennenzulernen und vielleicht schon bald in unserem Team willkommen zu heissen.\n Für weitere Auskünfte steht dir Sibylle Schärer, Leiterin Hauswirtschaft, gerne zur Verfügung - 062 897 12 21.\n\n• Bewerbung an:  silvia.suter@spitex-rupperswil.ch\n\n• Homepage:  https://www.spitex-rupperswil.ch",
+      "descriptionByLocale": {
+        "de": "Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Mitarbeiter:in Hauswirtschaft 30-40%\n Für diese Aufgabe suchen wir eine selbständige, engagierte und aufgestellte Persönlichkeit, die unseren Klienten mit viel Einfühlungsvermögen, Umsicht und Herz begegnet.\n Dein Beitrag:\n\n• Du unterstützt unsere Klienten im Haushalt, übernimmst Wäschepflege und Bügelarbeiten und erledigst bei Bedarf weitere Dienstleistungen im Rahmen unseres Angebots.\n\n• Du trägst Mitverantwortung für eine gute und kooperative Zusammenarbeit im Spitex-Team und repräsentierst unsere Spitex nach aussen.\n\n• Du verfügst über fundierte Kenntnisse in der hauswirtschaftlichen Reinigung und gehst individuell auf die Bedürfnisse unserer Klienten ein.\n\n• Du arbeitest geduldig, selbständig und verantwortungsbewusst und kommunizierst sicher auf Deutsch.\n\n• Du bist flexibel sowie körperlich und psychisch belastbar.\n Wir bieten:\n\n• Eine vielseitige und verantwortungsvolle Tätigkeit in einem spannenden Umfeld\n\n• Ein motiviertes und engagiertes Team\n\n• Attraktive Anstellungsbedingungen und fortschrittliche Sozialleistungen\n\n• Unterstützung bei Aus- und Weiterbildungen\n Haben wir dein Interesse geweckt? Dann freuen wir uns, dich kennenzulernen und vielleicht schon bald in unserem Team willkommen zu heissen.\n Für weitere Auskünfte steht dir Sibylle Schärer, Leiterin Hauswirtschaft, gerne zur Verfügung - 062 897 12 21.\n\n• Bewerbung an:  silvia.suter@spitex-rupperswil.ch\n\n• Homepage:  https://www.spitex-rupperswil.ch",
+        "it": "Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Mitarbeiter:in Hauswirtschaft 30-40%\n Für diese Aufgabe suchen wir eine selbständige, engagierte und aufgestellte Persönlichkeit, die unseren Klienten mit viel Einfühlungsvermögen, Umsicht und Herz begegnet.\n Dein Beitrag:\n\n• Du unterstützt unsere Klienten im Haushalt, übernimmst Wäschepflege und Bügelarbeiten und erledigst bei Bedarf weitere Dienstleistungen im Rahmen unseres Angebots.\n\n• Du trägst Mitverantwortung für eine gute und kooperative Zusammenarbeit im Spitex-Team und repräsentierst unsere Spitex nach aussen.\n\n• Du verfügst über fundierte Kenntnisse in der hauswirtschaftlichen Reinigung und gehst individuell auf die Bedürfnisse unserer Klienten ein.\n\n• Du arbeitest geduldig, selbständig und verantwortungsbewusst und kommunizierst sicher auf Deutsch.\n\n• Du bist flexibel sowie körperlich und psychisch belastbar.\n Wir bieten:\n\n• Eine vielseitige und verantwortungsvolle Tätigkeit in einem spannenden Umfeld\n\n• Ein motiviertes und engagiertes Team\n\n• Attraktive Anstellungsbedingungen und fortschrittliche Sozialleistungen\n\n• Unterstützung bei Aus- und Weiterbildungen\n Haben wir dein Interesse geweckt? Dann freuen wir uns, dich kennenzulernen und vielleicht schon bald in unserem Team willkommen zu heissen.\n Für weitere Auskünfte steht dir Sibylle Schärer, Leiterin Hauswirtschaft, gerne zur Verfügung - 062 897 12 21.\n\n• Bewerbung an:  silvia.suter@spitex-rupperswil.ch\n\n• Homepage:  https://www.spitex-rupperswil.ch",
+        "en": "Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Mitarbeiter:in Hauswirtschaft 30-40%\n Für diese Aufgabe suchen wir eine selbständige, engagierte und aufgestellte Persönlichkeit, die unseren Klienten mit viel Einfühlungsvermögen, Umsicht und Herz begegnet.\n Dein Beitrag:\n\n• Du unterstützt unsere Klienten im Haushalt, übernimmst Wäschepflege und Bügelarbeiten und erledigst bei Bedarf weitere Dienstleistungen im Rahmen unseres Angebots.\n\n• Du trägst Mitverantwortung für eine gute und kooperative Zusammenarbeit im Spitex-Team und repräsentierst unsere Spitex nach aussen.\n\n• Du verfügst über fundierte Kenntnisse in der hauswirtschaftlichen Reinigung und gehst individuell auf die Bedürfnisse unserer Klienten ein.\n\n• Du arbeitest geduldig, selbständig und verantwortungsbewusst und kommunizierst sicher auf Deutsch.\n\n• Du bist flexibel sowie körperlich und psychisch belastbar.\n Wir bieten:\n\n• Eine vielseitige und verantwortungsvolle Tätigkeit in einem spannenden Umfeld\n\n• Ein motiviertes und engagiertes Team\n\n• Attraktive Anstellungsbedingungen und fortschrittliche Sozialleistungen\n\n• Unterstützung bei Aus- und Weiterbildungen\n Haben wir dein Interesse geweckt? Dann freuen wir uns, dich kennenzulernen und vielleicht schon bald in unserem Team willkommen zu heissen.\n Für weitere Auskünfte steht dir Sibylle Schärer, Leiterin Hauswirtschaft, gerne zur Verfügung - 062 897 12 21.\n\n• Bewerbung an:  silvia.suter@spitex-rupperswil.ch\n\n• Homepage:  https://www.spitex-rupperswil.ch",
+        "fr": "Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Mitarbeiter:in Hauswirtschaft 30-40%\n Für diese Aufgabe suchen wir eine selbständige, engagierte und aufgestellte Persönlichkeit, die unseren Klienten mit viel Einfühlungsvermögen, Umsicht und Herz begegnet.\n Dein Beitrag:\n\n• Du unterstützt unsere Klienten im Haushalt, übernimmst Wäschepflege und Bügelarbeiten und erledigst bei Bedarf weitere Dienstleistungen im Rahmen unseres Angebots.\n\n• Du trägst Mitverantwortung für eine gute und kooperative Zusammenarbeit im Spitex-Team und repräsentierst unsere Spitex nach aussen.\n\n• Du verfügst über fundierte Kenntnisse in der hauswirtschaftlichen Reinigung und gehst individuell auf die Bedürfnisse unserer Klienten ein.\n\n• Du arbeitest geduldig, selbständig und verantwortungsbewusst und kommunizierst sicher auf Deutsch.\n\n• Du bist flexibel sowie körperlich und psychisch belastbar.\n Wir bieten:\n\n• Eine vielseitige und verantwortungsvolle Tätigkeit in einem spannenden Umfeld\n\n• Ein motiviertes und engagiertes Team\n\n• Attraktive Anstellungsbedingungen und fortschrittliche Sozialleistungen\n\n• Unterstützung bei Aus- und Weiterbildungen\n Haben wir dein Interesse geweckt? Dann freuen wir uns, dich kennenzulernen und vielleicht schon bald in unserem Team willkommen zu heissen.\n Für weitere Auskünfte steht dir Sibylle Schärer, Leiterin Hauswirtschaft, gerne zur Verfügung - 062 897 12 21.\n\n• Bewerbung an:  silvia.suter@spitex-rupperswil.ch\n\n• Homepage:  https://www.spitex-rupperswil.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Rupperswil",
+      "canton": "AG",
+      "url": "https://www.spitexjobs.ch/job/mitarbeiterin-hauswirtschaft-30-40-prozent/J991959",
+      "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:14:12.387Z",
+      "addressLocality": "Rupperswil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5102",
+      "category": "Ospitalità",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "validThrough": "2026-10-01",
+      "applyUrl": "https://www.spitexjobs.ch/job/mitarbeiterin-hauswirtschaft-30-40-prozent/J991959",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-hauswirtschaft-30-40-spitex-ch-rupperswil"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-30-40-spitex-ch-rupperswil"
+      ],
+      "salaryMin": 27000,
+      "salaryMax": 33800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 27000,
+          "maxValue": 33800,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T14:14:12.387Z"
+    },
+    {
+      "id": "spitex-ch-d740a7b22998",
+      "slug": "professionista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-fage-40-80-spitex-ch-rupperswil",
+        "it": "professionista-della-salute-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
+        "en": "health-professional-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil",
+        "fr": "professionnels-de-la-sante-fage-40-80-spitex-rupperswil-hunzenschwil-auenstein-rupperswil"
+      },
+      "company": "Spitex Rupperswil/Hunzenschwil/Auenstein",
+      "companyKey": "spitex-ch",
+      "companyDomain": "spitexjobs.ch",
+      "title": "Fachperson Gesundheit (FaGe) 50-80%",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit (FaGe) 50-80%",
+        "it": "Fachperson Gesundheit (FaGe) 50-80%",
+        "en": "Fachperson Gesundheit (FaGe) 50-80%",
+        "fr": "Fachperson Gesundheit (FaGe) 50-80%"
+      },
+      "description": "Pflege mit Herz – direkt bei unseren Klienten zuhause!\n Du liebst es, Menschen zu unterstützen und ihnen den Alltag zu erleichtern? Dann bist du bei uns richtig! Wir suchen dich mit Herz, Kompetenz und Empathie für die Betreuung von unseren Klienten zu Hause.\n Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Fachperson Gesundheit (FaGe) 50-80%\n Dein Impact:\n • Du pflegst und betreust situations- und bedarfsgerecht im Bereich der Grund- und Behandlungspflege\n • Du führst und evaluierst die elektronische Klientendokumentation (Perigon)\n • Du arbeitest interdisziplinär zusammen mit Fachstellen und Ärzten und berätst Klienten und ihre Angehörigen\n • Du stellst die Qualität, Hygiene und Arbeitssicherheit unserer betrieblichen Richtlinien in deinem Verantwortungsbereich sicher\n Das bringst du mit:\n • Abgeschlossene Ausbildung als Fachperson Gesundheit (FaGe) EFZ\n • Berufserfahrung, idealerweise im ambulanten Bereich von Vorteil\n • IT-Anwenderkenntnisse, Perigon-Erfahrung von Vorteil\n • Gültiger Führerausweis Kat. B, oder Bereitschaft mit E-Bike zu fahren\n • Sehr gute Deutschkenntnisse (B2 oder höher) in Wort und Schrift\n • Einfühlungsvermögen, Geduld und Freude an selbstständiger Arbeit\n • Teamgeist, Flexibilität und Einsatzbereitschaft\n Wir bieten dir:\n • Wertschätzendes Arbeitsumfeld & flache Hierarchien\n • Familienfreundliche, geteilte Dienste ohne Spät- oder Nachdienst\n • Weiterbildungsmöglichkeiten & sehr gute Sozialleistungen\n Mach den Unterschied – bewirb dich jetzt!\n Gemeinsam bringen wir Lebensqualität direkt zu unseren Klienten nach Hause.\n Für weitere Auskünfte steht dir die Geschäftsleiterin Silvia Suter gerne zur Verfügung:\n\n• T 062 897 12 21\n\n• E-Mail: silvia.suter@spitex-rupperswil.ch\n\n• Homepage: https://www.spitex-rupperswil.ch",
+      "descriptionByLocale": {
+        "de": "Pflege mit Herz – direkt bei unseren Klienten zuhause!\n Du liebst es, Menschen zu unterstützen und ihnen den Alltag zu erleichtern? Dann bist du bei uns richtig! Wir suchen dich mit Herz, Kompetenz und Empathie für die Betreuung von unseren Klienten zu Hause.\n Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Fachperson Gesundheit (FaGe) 50-80%\n Dein Impact:\n • Du pflegst und betreust situations- und bedarfsgerecht im Bereich der Grund- und Behandlungspflege\n • Du führst und evaluierst die elektronische Klientendokumentation (Perigon)\n • Du arbeitest interdisziplinär zusammen mit Fachstellen und Ärzten und berätst Klienten und ihre Angehörigen\n • Du stellst die Qualität, Hygiene und Arbeitssicherheit unserer betrieblichen Richtlinien in deinem Verantwortungsbereich sicher\n Das bringst du mit:\n • Abgeschlossene Ausbildung als Fachperson Gesundheit (FaGe) EFZ\n • Berufserfahrung, idealerweise im ambulanten Bereich von Vorteil\n • IT-Anwenderkenntnisse, Perigon-Erfahrung von Vorteil\n • Gültiger Führerausweis Kat. B, oder Bereitschaft mit E-Bike zu fahren\n • Sehr gute Deutschkenntnisse (B2 oder höher) in Wort und Schrift\n • Einfühlungsvermögen, Geduld und Freude an selbstständiger Arbeit\n • Teamgeist, Flexibilität und Einsatzbereitschaft\n Wir bieten dir:\n • Wertschätzendes Arbeitsumfeld & flache Hierarchien\n • Familienfreundliche, geteilte Dienste ohne Spät- oder Nachdienst\n • Weiterbildungsmöglichkeiten & sehr gute Sozialleistungen\n Mach den Unterschied – bewirb dich jetzt!\n Gemeinsam bringen wir Lebensqualität direkt zu unseren Klienten nach Hause.\n Für weitere Auskünfte steht dir die Geschäftsleiterin Silvia Suter gerne zur Verfügung:\n\n• T 062 897 12 21\n\n• E-Mail: silvia.suter@spitex-rupperswil.ch\n\n• Homepage: https://www.spitex-rupperswil.ch",
+        "it": "Pflege mit Herz – direkt bei unseren Klienten zuhause!\n Du liebst es, Menschen zu unterstützen und ihnen den Alltag zu erleichtern? Dann bist du bei uns richtig! Wir suchen dich mit Herz, Kompetenz und Empathie für die Betreuung von unseren Klienten zu Hause.\n Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Fachperson Gesundheit (FaGe) 50-80%\n Dein Impact:\n • Du pflegst und betreust situations- und bedarfsgerecht im Bereich der Grund- und Behandlungspflege\n • Du führst und evaluierst die elektronische Klientendokumentation (Perigon)\n • Du arbeitest interdisziplinär zusammen mit Fachstellen und Ärzten und berätst Klienten und ihre Angehörigen\n • Du stellst die Qualität, Hygiene und Arbeitssicherheit unserer betrieblichen Richtlinien in deinem Verantwortungsbereich sicher\n Das bringst du mit:\n • Abgeschlossene Ausbildung als Fachperson Gesundheit (FaGe) EFZ\n • Berufserfahrung, idealerweise im ambulanten Bereich von Vorteil\n • IT-Anwenderkenntnisse, Perigon-Erfahrung von Vorteil\n • Gültiger Führerausweis Kat. B, oder Bereitschaft mit E-Bike zu fahren\n • Sehr gute Deutschkenntnisse (B2 oder höher) in Wort und Schrift\n • Einfühlungsvermögen, Geduld und Freude an selbstständiger Arbeit\n • Teamgeist, Flexibilität und Einsatzbereitschaft\n Wir bieten dir:\n • Wertschätzendes Arbeitsumfeld & flache Hierarchien\n • Familienfreundliche, geteilte Dienste ohne Spät- oder Nachdienst\n • Weiterbildungsmöglichkeiten & sehr gute Sozialleistungen\n Mach den Unterschied – bewirb dich jetzt!\n Gemeinsam bringen wir Lebensqualität direkt zu unseren Klienten nach Hause.\n Für weitere Auskünfte steht dir die Geschäftsleiterin Silvia Suter gerne zur Verfügung:\n\n• T 062 897 12 21\n\n• E-Mail: silvia.suter@spitex-rupperswil.ch\n\n• Homepage: https://www.spitex-rupperswil.ch",
+        "en": "Pflege mit Herz – direkt bei unseren Klienten zuhause!\n Du liebst es, Menschen zu unterstützen und ihnen den Alltag zu erleichtern? Dann bist du bei uns richtig! Wir suchen dich mit Herz, Kompetenz und Empathie für die Betreuung von unseren Klienten zu Hause.\n Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Fachperson Gesundheit (FaGe) 50-80%\n Dein Impact:\n • Du pflegst und betreust situations- und bedarfsgerecht im Bereich der Grund- und Behandlungspflege\n • Du führst und evaluierst die elektronische Klientendokumentation (Perigon)\n • Du arbeitest interdisziplinär zusammen mit Fachstellen und Ärzten und berätst Klienten und ihre Angehörigen\n • Du stellst die Qualität, Hygiene und Arbeitssicherheit unserer betrieblichen Richtlinien in deinem Verantwortungsbereich sicher\n Das bringst du mit:\n • Abgeschlossene Ausbildung als Fachperson Gesundheit (FaGe) EFZ\n • Berufserfahrung, idealerweise im ambulanten Bereich von Vorteil\n • IT-Anwenderkenntnisse, Perigon-Erfahrung von Vorteil\n • Gültiger Führerausweis Kat. B, oder Bereitschaft mit E-Bike zu fahren\n • Sehr gute Deutschkenntnisse (B2 oder höher) in Wort und Schrift\n • Einfühlungsvermögen, Geduld und Freude an selbstständiger Arbeit\n • Teamgeist, Flexibilität und Einsatzbereitschaft\n Wir bieten dir:\n • Wertschätzendes Arbeitsumfeld & flache Hierarchien\n • Familienfreundliche, geteilte Dienste ohne Spät- oder Nachdienst\n • Weiterbildungsmöglichkeiten & sehr gute Sozialleistungen\n Mach den Unterschied – bewirb dich jetzt!\n Gemeinsam bringen wir Lebensqualität direkt zu unseren Klienten nach Hause.\n Für weitere Auskünfte steht dir die Geschäftsleiterin Silvia Suter gerne zur Verfügung:\n\n• T 062 897 12 21\n\n• E-Mail: silvia.suter@spitex-rupperswil.ch\n\n• Homepage: https://www.spitex-rupperswil.ch",
+        "fr": "Pflege mit Herz – direkt bei unseren Klienten zuhause!\n Du liebst es, Menschen zu unterstützen und ihnen den Alltag zu erleichtern? Dann bist du bei uns richtig! Wir suchen dich mit Herz, Kompetenz und Empathie für die Betreuung von unseren Klienten zu Hause.\n Die Spitex Rupperswil/Hunzenschwil/Auenstein ist dynamisch, zukunftsorientiert und mitten im Leben. Drei Gemeinden, rund 12’500 Menschen, ein Team, das echte Betreuung möglich macht.\n Wir suchen dich zur Verstärkung für unser motiviertes und eingespieltes Team!\n Fachperson Gesundheit (FaGe) 50-80%\n Dein Impact:\n • Du pflegst und betreust situations- und bedarfsgerecht im Bereich der Grund- und Behandlungspflege\n • Du führst und evaluierst die elektronische Klientendokumentation (Perigon)\n • Du arbeitest interdisziplinär zusammen mit Fachstellen und Ärzten und berätst Klienten und ihre Angehörigen\n • Du stellst die Qualität, Hygiene und Arbeitssicherheit unserer betrieblichen Richtlinien in deinem Verantwortungsbereich sicher\n Das bringst du mit:\n • Abgeschlossene Ausbildung als Fachperson Gesundheit (FaGe) EFZ\n • Berufserfahrung, idealerweise im ambulanten Bereich von Vorteil\n • IT-Anwenderkenntnisse, Perigon-Erfahrung von Vorteil\n • Gültiger Führerausweis Kat. B, oder Bereitschaft mit E-Bike zu fahren\n • Sehr gute Deutschkenntnisse (B2 oder höher) in Wort und Schrift\n • Einfühlungsvermögen, Geduld und Freude an selbstständiger Arbeit\n • Teamgeist, Flexibilität und Einsatzbereitschaft\n Wir bieten dir:\n • Wertschätzendes Arbeitsumfeld & flache Hierarchien\n • Familienfreundliche, geteilte Dienste ohne Spät- oder Nachdienst\n • Weiterbildungsmöglichkeiten & sehr gute Sozialleistungen\n Mach den Unterschied – bewirb dich jetzt!\n Gemeinsam bringen wir Lebensqualität direkt zu unseren Klienten nach Hause.\n Für weitere Auskünfte steht dir die Geschäftsleiterin Silvia Suter gerne zur Verfügung:\n\n• T 062 897 12 21\n\n• E-Mail: silvia.suter@spitex-rupperswil.ch\n\n• Homepage: https://www.spitex-rupperswil.ch"
+      },
+      "needsRetranslation": true,
+      "location": "Rupperswil",
+      "canton": "AG",
+      "url": "https://www.spitexjobs.ch/job/fachperson-gesundheit-fage-50-80-prozent/J974275",
+      "source": "Spitex Schweiz Dedicated Parser (spitexjobs.ch federation board)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:14:11.963Z",
+      "addressLocality": "Rupperswil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5102",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "validThrough": "2026-10-01",
+      "applyUrl": "https://www.spitexjobs.ch/job/fachperson-gesundheit-fage-50-80-prozent/J974275",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-fage-50-80-spitex-ch-rupperswil"
+        ],
+        "de": [
+          "fachperson-gesundheit-fage-50-80-spitex-ch-rupperswil"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-fage-50-80-spitex-ch-rupperswil"
+      ],
+      "salaryMin": 70400,
+      "salaryMax": 98400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70400,
+          "maxValue": 98400,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T14:14:11.963Z"
     }
   ]
 }
