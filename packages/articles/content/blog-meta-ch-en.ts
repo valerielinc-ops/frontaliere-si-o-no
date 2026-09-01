@@ -4933,6 +4933,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazit-termine-2026.title': 'The DaziT program comes to an end, the digital transformation continues',
     'blog.article.dazit-termine-2026.excerpt': 'The UDSC\'s DaziT program will end on December 31, 2026, digitizing customs and border security processes.',
     'blog.article.dazit-termine-2026.imageAlt': 'Aerial view of Bellinzona, Switzerland, with modern digital infrastructure and border control systems.',
+    'blog.article.apprendisti-lacune-competenze-base.title': 'Companies detect skills shortages in apprentices',
+    'blog.article.apprendisti-lacune-competenze-base.excerpt': 'Survey by Economiesuisse reveals critical gaps in writing and mathematics among Swiss apprentices. Three-quarters of companies provide additional support.',
+    'blog.article.apprendisti-lacune-competenze-base.imageAlt': 'Young apprentice focused on technical work in a Swiss vocational training workshop',
 };
 
 export default blogMetaChEn;
