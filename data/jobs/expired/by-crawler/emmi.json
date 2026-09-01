@@ -1,5 +1,55 @@
 [
   {
+    "slug": "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
+    "title": "Anlagenführer:in MixMatic",
+    "titleByLocale": {
+      "it": "Operatore di impianto MixMatic",
+      "en": "System Manager: in MixMatic",
+      "de": "Anlagenführer:in MixMatic",
+      "fr": "Gestionnaire de système: dans MixMatic"
+    },
+    "company": "Emmi",
+    "companyKey": "emmi",
+    "location": "Ostermundigen, Bern",
+    "addressLocality": "Ostermundigen",
+    "descriptionByLocale": {
+      "it": "• Siete responsabili del funzionamento indipendente dell'impianto di miscelazione.\n• Fornisci le miscele per le farciture del reparto gelateria nonché per varie bevande al latte miscelate (es. Acqua Alta Proteica, Comella Drink, ecc.).\n• Conservate i resoconti di produzione in modo affidabile e corretto e trasmettete tutte le informazioni importanti al turno successivo.\n• Rispettate in modo affidabile le norme igieniche e di sicurezza affinché sia ​​sempre garantita la perfetta qualità dei nostri prodotti.\n• Istruisci il personale di linea che ti è stato assegnato in materia di qualità, igiene, sicurezza e ambiente.\n• Hai completato una formazione professionale nel settore alimentare (tecnologo del latte, panettiere, macellaio, cuoco, ecc.).\n• Hai una forte conoscenza tecnica e hai molta familiarità con SAP e MES.\n• Hai diversi anni di esperienza professionale in un ruolo simile.\n• Sei mobile e flessibile per lavorare su 3 turni.\n• Parli fluentemente il tedesco.",
+      "en": "• You are responsible for the independent operation of the mixing plant.\n• You provide the mixtures for the ice cream department's fillings as well as for various mixed milk drinks (e.g. High Protein Water, Comella Drink, etc.).\n• You keep the production reports reliably and properly and pass on all important information to the next shift.\n• You reliably adhere to the hygiene and safety regulations so that the perfect quality of our products can always be ensured.\n• You instruct the line staff assigned to you regarding quality, hygiene, safety and the environment.\n• You have completed vocational training in the food sector (milk technologist, baker, butcher, cook, etc.).\n• You have a strong technical understanding and are very familiar with SAP and MES.\n• You have several years of professional experience in a similar role.\n• You are mobile and flexible to work in 3 shifts.\n• You speak German fluently.",
+      "de": "• Du bist verantwortlich für die selbstständige Bedienung der Mischerei.\n\n• Du stellst die Mischungen für die Abfüllungen der Glace-Abteilung sowie für unterschiedliche Milchmischgetränke (z.B. High Protein Water, Comella Drink, etc.) bereit.\n\n• Du führst die Produktionsrapporte zuverlässig und ordnungsgemäss und übergibst alle wichtigen Informationen an die nächste Schicht.\n\n• Du hältst dich zuverlässig an die Hygiene- und Sicherheitsvorschriften, damit die einwandfreie Qualität unserer Produkte stets sichergestellt werden kann.\n\n• Du instruierst das dir zugeteilte Personal an der Linie im Bezug auf Qualität, Hygiene, Sicherheit und Umwelt.\n\n• Du verfügst über eine abgeschlossene Berufsausbildung im Lebensmittelbereich (Milchtechnologe/Milchtechnologin, Bäcker:in, Metzger:in, Koch/Köchin, etc.).\n\n• Du bringst ausgeprägtes technisches Verständnis mit und kennst dich mit SAP sowie MES bestens aus.\n\n• Du verfügst über mehrjährige Berufserfahrung in einer ähnlichen Funktion.\n\n• Du bist mobil und flexibel im 3-Schichtbetrieb zu arbeiten.\n\n• Du sprichst fliessend Deutsch.",
+      "fr": "• Vous êtes responsable de l'exploitation indépendante de la centrale de malaxage.\n• Vous fournissez les mélanges pour les garnitures du rayon glaces ainsi que pour diverses boissons lactées mélangées (par exemple Eau hyperprotéinée, Comella Drink, etc.).\n• Vous conservez les rapports de production de manière fiable et correcte et transmettez toutes les informations importantes à l'équipe suivante.\n• Vous respectez de manière fiable les règles d'hygiène et de sécurité afin que la qualité parfaite de nos produits puisse toujours être garantie.\n• Vous instruisez le personnel opérationnel qui vous est affecté en matière de qualité, d'hygiène, de sécurité et d'environnement.\n• Vous avez suivi une formation professionnelle dans le secteur alimentaire (technologue laitier, boulanger, boucher, cuisinier, etc.).\n• Vous avez une solide compréhension technique et êtes très familier avec SAP et MES.\n• Vous disposez de plusieurs années d'expérience professionnelle dans un rôle similaire.\n• Vous êtes mobile et flexible pour travailler en 3 équipes.\n• Vous parlez couramment l'allemand."
+    },
+    "slugByLocale": {
+      "it": "operatore-di-impianto-mixmatic-emmi-ostermundigen-bern",
+      "en": "system-manager-in-mixmatic-emmi-ostermundigen-bern",
+      "de": "anlagenfuhrer-in-mixmatic-emmi-ch",
+      "fr": "gestionnaire-de-systeme-dans-mixmatic-emmi-ostermundigen-bern"
+    },
+    "sector": "Food & Beverage (dairy)",
+    "expiredAt": "2026-09-01T10:19:41.290Z",
+    "previousSlugs": [
+      "anlagenfuhrer-in-mixmatic-emmi-ch",
+      "system-manager-in-mixmatic-emmi-ostermundigen"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "anlagenfuhrer-in-mixmatic-emmi-ch"
+      ],
+      "en": [
+        "anlagenfuhrer-in-mixmatic-emmi-ch",
+        "system-manager-in-mixmatic-emmi-ostermundigen"
+      ],
+      "fr": [
+        "anlagenfuhrer-in-mixmatic-emmi-ch"
+      ]
+    },
+    "postalCode": "3072",
+    "streetAddress": "Milchstrasse 9",
+    "salaryMin": 94500,
+    "salaryMax": 143000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
     "slug": "operatore-di-sistema-nella-preparazione-del-formaggio-emmi-emmen-luzern",
     "title": "Anlagenführer:in Käsekonfektionierung",
     "titleByLocale": {
