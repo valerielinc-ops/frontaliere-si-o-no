@@ -5,7 +5,7 @@
  * isSpitalDavosJob(), isTrustedDomain() using HTML fixtures mirroring
  * the real Umantis ATS 2023 UI page structure at tenant 2966.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   SPITAL_DAVOS_KEY,
@@ -311,6 +311,25 @@ describe('Spital Davos crawler parser', () => {
         snippet: 'Rich text',
         artText: 'Vollzeit',
       });
+    });
+
+    it('warns on non-empty field conflicts while keeping the first view', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      expect(mergeSpitalDavosListing(
+        { vacancyId: '723', title: 'First title', department: 'Pflege' },
+        { vacancyId: '723', title: 'Second title', department: 'Medizin' },
+      )).toEqual({
+        vacancyId: '723',
+        title: 'First title',
+        department: 'Pflege',
+      });
+      expect(warn).toHaveBeenCalledTimes(2);
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining(
+        'Spital Davos vacancy 723: conflicting title',
+      ));
+
+      warn.mockRestore();
     });
 
     it('deduplicates by vacancy ID', () => {
