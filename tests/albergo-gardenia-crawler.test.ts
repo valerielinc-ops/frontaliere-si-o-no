@@ -17,7 +17,7 @@ import { buildExpiredEntry } from '../scripts/lib/expired-jobs-archive.mjs';
 import { expiredJobSlugVariants } from '../build-plugins/shared/expiredSlugVariants';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
-const SLICE_PATH = path.join(ROOT, 'data/jobs/by-crawler/albergo-gardenia.json');
+const FALSE_JOBS_FIXTURE_PATH = path.join(ROOT, 'tests/fixtures/albergo-gardenia-false-jobs.json');
 const RUNNER_PATH = path.join(ROOT, 'scripts/update-albergo-gardenia-jobs.mjs');
 const FALSE_SPEC_PATHS = [
   'data/prospector/crawlers/albergo-gardenia.json',
@@ -121,8 +121,7 @@ describe('Albergo Gardenia authoritative crawler', () => {
   });
 
   it('retires exactly the three false identities through reachable archived routes', () => {
-    const slice = JSON.parse(fs.readFileSync(SLICE_PATH, 'utf8'));
-    const jobs = slice.jobs;
+    const jobs = JSON.parse(fs.readFileSync(FALSE_JOBS_FIXTURE_PATH, 'utf8'));
     expect(jobs.map((job: { id: string }) => job.id).sort()).toEqual([
       'albergo-gardenia-261a6e43b839',
       'albergo-gardenia-a58372a459dc',
