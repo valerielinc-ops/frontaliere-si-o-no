@@ -1292,6 +1292,73 @@ function isSoftThrottleError(msg) {
   return !!msg && /code=10004\b|email\.sending\.error\.throttled/i.test(msg);
 }
 
+/**
+ * Explicit HTTP rejections that are safe to retry more slowly. Transport-level
+ * failures are deliberately excluded: fetchOrTagAmbiguous marks those as
+ * ambiguousDelivery because the provider may already have accepted the email.
+ * Cloudflare code=10004 keeps its established 30s cooldown instead of being
+ * retried inside the same run.
+ */
+function isAdaptiveThrottleRetry(error) {
+  if (!error || error.ambiguousDelivery || isSoftThrottleError(error.message)) return false;
+  // Provider errors have the stable "Provider STATUS: body" shape. Anchor the
+  // status there so a number in the response body (for example a 500-message
+  // quota described by an HTTP 403) cannot accidentally look retryable.
+  return /^[A-Za-z][A-Za-z0-9_-]* (?:408|425|429|5\d\d)\b/.test(String(error.message || ''));
+}
+
+function createAdaptiveThrottleController(config, initialDelayMs, lastSendMap) {
+  if (!config) return null;
+  const stepMs = Number(config.stepMs);
+  const maxDelayMs = Number(config.maxDelayMs);
+  if (!Number.isFinite(initialDelayMs) || initialDelayMs < 0
+      || !Number.isFinite(stepMs) || stepMs <= 0
+      || !Number.isFinite(maxDelayMs) || maxDelayMs < initialDelayMs) {
+    throw new TypeError('invalid adaptiveThrottle configuration');
+  }
+
+  const providerState = new Map();
+  const stateFor = (providerId) => {
+    if (!providerState.has(providerId)) {
+      providerState.set(providerId, { delayMs: initialDelayMs, escalations: 0 });
+    }
+    return providerState.get(providerId);
+  };
+
+  return {
+    delayFor(providerId) {
+      return stateFor(providerId).delayMs;
+    },
+    async retryAfter(providerId, error) {
+      if (!isAdaptiveThrottleRetry(error)) return false;
+      const state = stateFor(providerId);
+      const nextDelayMs = Math.min(maxDelayMs, state.delayMs + stepMs);
+      if (nextDelayMs === state.delayMs) return false;
+
+      const previousDelayMs = state.delayMs;
+      state.delayMs = nextDelayMs;
+      state.escalations += 1;
+      const now = Date.now();
+      const retryAt = Math.max(lastSendMap[providerId] || 0, now + nextDelayMs);
+      lastSendMap[providerId] = retryAt + nextDelayMs;
+      console.warn(
+        `⏱️  ${providerId} adaptive throttle ${previousDelayMs}→${nextDelayMs}ms after: ${String(error.message || error).slice(0, 120)}`,
+      );
+      const waitMs = retryAt - now;
+      if (waitMs > 0) await new Promise((resolve) => setTimeout(resolve, waitMs));
+      return true;
+    },
+    snapshot() {
+      return {
+        initialDelayMs,
+        maxDelayMs,
+        stepMs,
+        providers: Object.fromEntries(providerState),
+      };
+    },
+  };
+}
+
 // Short cooldown for soft-throttled providers (mirrors the AI-model
 // provider cooldown in ai-models.mjs) — provider skipped for a bit,
 // quota counter left untouched so it resumes once the burst window clears.
@@ -1315,7 +1382,7 @@ function isProviderCoolingDown(providerId) {
   return (_providerCooldownUntil[providerId] || 0) > Date.now();
 }
 
-async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
+async function sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle) {
   const errors = [];
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -1335,37 +1402,43 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
     // the same final slot and overshoot a hard daily cap (101/100 was reproduced
     // with concurrency=3). A definite rejection releases the slot; an ambiguous
     // delivery keeps it consumed because the provider may have accepted it.
-    incrementCounter(provider.id, 1);
-    try {
-      // Optional hook: let the caller finalize the payload for the provider that
-      // is actually about to send (e.g. swap the subject to that provider's A/B
-      // winner). Must never throw — on error we send the payload unchanged.
-      if (typeof finalizeForProvider === 'function') {
-        try { finalizeForProvider(email, provider.id); } catch { /* send as-is */ }
-      }
-      // Resolved against the provider actually being tried (not the caller's
-      // preferred/first provider) — matters when the cascade falls back to a
-      // different provider with a different scheduledSend capability/lookahead.
-      const resolved = resolveScheduledAt(email, provider);
-      const result = await SEND_FNS[provider.id](email, resolved, signal);
-      recordRealSent(provider.id);
-      return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
-    } catch (err) {
-      if (!err.ambiguousDelivery) incrementCounter(provider.id, -1);
-      errors.push(`[${provider.id}] ${err.message}`);
-      if (err.ambiguousDelivery) {
-        // The provider may have already accepted/delivered this message —
-        // falling back to another provider here risks a second delivery
-        // (#4911). Stop the cascade for this email instead of guessing.
-        const ambiguousErr = new Error(`ambiguous delivery at [${provider.id}], not retried elsewhere: ${errors.join(' | ')}`);
-        ambiguousErr.ambiguousDelivery = true;
-        throw ambiguousErr;
-      }
-      if (isSoftThrottleError(err.message)) {
-        cooldownProvider(provider.id);
-      } else if (isRateLimitedError(err.message)) {
-        incrementCounter(provider.id, remainingQuota(provider.id));
-        console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
+    while (true) {
+      incrementCounter(provider.id, 1);
+      try {
+        // Optional hook: let the caller finalize the payload for the provider that
+        // is actually about to send (e.g. swap the subject to that provider's A/B
+        // winner). Must never throw — on error we send the payload unchanged.
+        if (typeof finalizeForProvider === 'function') {
+          try { finalizeForProvider(email, provider.id); } catch { /* send as-is */ }
+        }
+        // Resolved against the provider actually being tried (not the caller's
+        // preferred/first provider) — matters when the cascade falls back to a
+        // different provider with a different scheduledSend capability/lookahead.
+        const resolved = resolveScheduledAt(email, provider);
+        const result = await SEND_FNS[provider.id](email, resolved, signal);
+        recordRealSent(provider.id);
+        return { ...result, scheduledFor: resolved ? resolved.toISOString() : null };
+      } catch (err) {
+        if (!err.ambiguousDelivery) incrementCounter(provider.id, -1);
+        errors.push(`[${provider.id}] ${err.message}`);
+        if (err.ambiguousDelivery) {
+          // The provider may have already accepted/delivered this message —
+          // falling back to another provider here risks a second delivery
+          // (#4911). Stop the cascade for this email instead of guessing.
+          const ambiguousErr = new Error(`ambiguous delivery at [${provider.id}], not retried elsewhere: ${errors.join(' | ')}`);
+          ambiguousErr.ambiguousDelivery = true;
+          throw ambiguousErr;
+        }
+        if (adaptiveThrottle && await adaptiveThrottle.retryAfter(provider.id, err)) {
+          continue;
+        }
+        if (isSoftThrottleError(err.message)) {
+          cooldownProvider(provider.id);
+        } else if (isRateLimitedError(err.message)) {
+          incrementCounter(provider.id, remainingQuota(provider.id));
+          console.warn(`⚠️  ${provider.id} rate-limited/exhausted — skipping for rest of run: ${err.message.slice(0, 150)}`);
+        }
+        break;
       }
     }
   }
@@ -1378,7 +1451,7 @@ async function sendSingle(email, forceProvider, finalizeForProvider, signal) {
  * Waits until at least `delayMs` has elapsed since the last send to the same provider,
  * then delegates to the provider loop in sendSingle.
  */
-async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal) {
+async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, finalizeForProvider, signal, adaptiveThrottle) {
   // Determine which provider will be tried first (the one with remaining quota)
   const providers = forceProvider
     ? PROVIDERS.filter(p => p.id === forceProvider)
@@ -1395,8 +1468,9 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
     // "258 Mailtrap 403s in 5s" incident, now concurrency-safe for any future
     // concurrency>1 caller (was latent at the default concurrency=1).
     const now = Date.now();
+    const providerDelayMs = adaptiveThrottle?.delayFor(nextProvider.id) ?? delayMs;
     const slot = Math.max(now, lastSendMap[nextProvider.id] || 0);
-    lastSendMap[nextProvider.id] = slot + delayMs;
+    lastSendMap[nextProvider.id] = slot + providerDelayMs;
     const wait = slot - now;
     if (wait > 0) {
       await new Promise(r => setTimeout(r, wait));
@@ -1405,11 +1479,12 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
 
   // Slot already reserved above (advances even on throw), so no post-hoc clock
   // bump is needed — the worker's try/catch handles a thrown send.
-  const result = await sendSingle(email, forceProvider, finalizeForProvider, signal);
+  const result = await sendSingle(email, forceProvider, finalizeForProvider, signal, adaptiveThrottle);
   // If a different provider ended up sending, reserve its slot too.
   if (result?.provider && result.provider !== nextProvider?.id) {
     const now = Date.now();
-    lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + delayMs;
+    const providerDelayMs = adaptiveThrottle?.delayFor(result.provider) ?? delayMs;
+    lastSendMap[result.provider] = Math.max(now, lastSendMap[result.provider] || 0) + providerDelayMs;
   }
   return result;
 }
@@ -1426,6 +1501,9 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  * @param {Object} [opts]
  * @param {number} [opts.concurrency=1] - Max parallel sends (default 1 to avoid rate limits)
  * @param {number} [opts.delayMs=1000] - Delay in ms between sends to the same provider
+ * @param {{stepMs:number,maxDelayMs:number}} [opts.adaptiveThrottle] - Opt-in
+ *   additive backoff for explicit 408/425/429/5xx responses. Starts at delayMs,
+ *   retries the rejected message and never exceeds maxDelayMs.
  * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
  * @param {Function} [opts.onSent] - Called after each successful send: (item, result) => void
  * @param {Function} [opts.finalizeForProvider] - Called just before sending, once
@@ -1435,10 +1513,10 @@ async function sendSingleThrottled(email, forceProvider, lastSendMap, delayMs, f
  *   call so a caller with its own hang budget (e.g. a post-deploy live-check
  *   script) can bound the whole send. Omitted by default (no change for
  *   existing callers) — the cascade itself has no built-in timeout.
- * @returns {{ sent: Array, failed: Array }}
+ * @returns {{ sent: Array, failed: Array, adaptiveThrottle?: Object }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 1, delayMs = 1000, forceProvider, onSent, finalizeForProvider, signal } = opts;
+  const { concurrency = 1, delayMs = 1000, adaptiveThrottle: adaptiveConfig, forceProvider, onSent, finalizeForProvider, signal } = opts;
   const sent = [];
   const failed = [];
 
@@ -1455,10 +1533,11 @@ export async function sendEmailCascade(emails, opts = {}) {
   const totalQuota = available.reduce((sum, p) => sum + remainingQuota(p.id), 0);
   console.log(`📧 Email cascade: ${emails.length} to send, ${totalQuota} daily quota remaining`);
   console.log(`   Providers: ${available.map(p => `${p.id}(${remainingQuota(p.id)})`).join(' → ')}`);
-  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends`);
+  console.log(`   Throttle: concurrency=${concurrency}, delay=${delayMs}ms between sends${adaptiveConfig ? `, adaptive max=${adaptiveConfig.maxDelayMs}ms step=${adaptiveConfig.stepMs}ms` : ''}`);
 
   // Per-provider last-send timestamps for throttling
   const _lastSend = {};
+  const adaptiveThrottle = createAdaptiveThrottleController(adaptiveConfig, delayMs, _lastSend);
 
   // Process sequentially (concurrency=1) with per-provider delay
   let idx = 0;
@@ -1467,7 +1546,7 @@ export async function sendEmailCascade(emails, opts = {}) {
       const i = idx++;
       const item = emails[i];
       try {
-        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal);
+        const result = await sendSingleThrottled(item.payload, forceProvider, _lastSend, delayMs, finalizeForProvider, signal, adaptiveThrottle);
         sent.push({ ...item, ...result });
         if (onSent) await onSent(item, result);
       } catch (err) {
@@ -1498,7 +1577,9 @@ export async function sendEmailCascade(emails, opts = {}) {
   const immediateCount = sent.length - scheduledCount;
   console.log(`   Scheduling: scheduled=${scheduledCount}, immediate=${immediateCount}`);
 
-  return { sent, failed };
+  return adaptiveThrottle
+    ? { sent, failed, adaptiveThrottle: adaptiveThrottle.snapshot() }
+    : { sent, failed };
 }
 
 // ── Stats ────────────────────────────────────────────────────
