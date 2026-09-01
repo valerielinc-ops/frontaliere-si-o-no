@@ -183,16 +183,20 @@ commit_is_expected_or_descendant() {
   TRIGGER_COMPARE_FILE="$response_file" \
   TRIGGER_COMPARE_BASE="$expected_sha" \
   TRIGGER_COMPARE_HEAD="$candidate_sha" \
+  TRIGGER_COMPARE_REPOSITORY="$REPO" \
   node <<'NODE'
 const fs = require('node:fs');
 try {
   const comparison = JSON.parse(fs.readFileSync(process.env.TRIGGER_COMPARE_FILE, 'utf8'));
   const base = process.env.TRIGGER_COMPARE_BASE;
   const head = process.env.TRIGGER_COMPARE_HEAD;
+  const repository = process.env.TRIGGER_COMPARE_REPOSITORY;
+  const encodedRepository = repository.split('/').map(encodeURIComponent).join('/');
+  const expectedUrl = `https://api.github.com/repos/${encodedRepository}/compare/${base}...${head}`;
   if (comparison?.status !== 'ahead'
       || comparison?.base_commit?.sha !== base
       || comparison?.merge_base_commit?.sha !== base
-      || comparison?.head_commit?.sha !== head
+      || comparison?.url !== expectedUrl
       || !Number.isInteger(comparison?.ahead_by) || comparison.ahead_by < 1
       || comparison?.behind_by !== 0) process.exit(1);
 } catch {

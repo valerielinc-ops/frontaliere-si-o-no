@@ -35,9 +35,9 @@ function comparisonBody(base: string, head: string, status = 'ahead'): string {
     status,
     ahead_by: status === 'ahead' ? 1 : 0,
     behind_by: 0,
+    url: `https://api.github.com/repos/${REPOSITORY}/compare/${base}...${head}`,
     base_commit: { sha: base },
     merge_base_commit: { sha: base },
-    head_commit: { sha: head },
   });
 }
 
@@ -332,6 +332,26 @@ describe('scripts/lib/trigger-workflow.sh', () => {
     expect(result.status).toBe(1);
     expect(result.refCount).toBe(2);
     expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('fails closed before POST when the comparison response is bound to another head', () => {
+    const expectedSha = 'a'.repeat(40);
+    const candidateSha = 'b'.repeat(40);
+    const comparison = JSON.parse(comparisonBody(expectedSha, candidateSha));
+    comparison.url = comparison.url.replace(candidateSha, 'c'.repeat(40));
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: candidateSha }),
+        CURL_COMPARE_BODY: JSON.stringify(comparison),
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.compareCount).toBe(1);
     expect(result.postCount).toBe(0);
     expect(result.dispatchSent).toContain('dispatch_sent=false');
   });
