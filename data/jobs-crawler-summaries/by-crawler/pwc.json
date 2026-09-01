@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-01T00:39:40.831Z",
+  "generatedAt": "2026-09-01T04:03:41.970Z",
   "total": 133,
   "newCount": 0,
   "updatedCount": 86,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 4346,
-  "avgDurationMs": 4346,
+  "durationMs": 2915,
+  "avgDurationMs": 2915,
   "durationHistory": [
-    4346
+    2915
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,6 +42,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:26:25.590Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -692,7 +693,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-04T22:30:17.009Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -765,7 +765,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -839,11 +838,11 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -876,11 +875,11 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
       "needsRetranslation": true,
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -1424,6 +1423,7 @@
       "firstSeenAt": "2026-04-17T22:05:45.953Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1462,6 +1462,7 @@
       "firstSeenAt": "2026-05-08T22:21:17.082Z",
       "retranslationAttempts": 0,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
