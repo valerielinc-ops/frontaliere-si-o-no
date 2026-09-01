@@ -4897,6 +4897,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.drg-fatture-trasparenza.title': 'Hospital bills: why they don\'t explain everything',
     'blog.article.drg-fatture-trasparenza.excerpt': 'Since 2012, DRG has been hiding diagnoses in the invoice received. How to ask the hospital for clarification and dispute with the health insurer.',
     'blog.article.drg-fatture-trasparenza.imageAlt': 'Patient reviewing a Swiss hospital bill at desk with clinical documents and stethoscope',
+    'blog.article.breve-durata-friburgo-proroga.title': 'L Fribourg permit: validity, extension and requirements',
+    'blog.article.breve-durata-friburgo-proroga.excerpt': 'The short-term L permit in the Canton of Fribourg is valid for a maximum of one year and can be renewed under specific conditions. Find out about duration, extension and constraints.',
+    'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Swiss administrative office with documents and computer representing cantonal permit procedures',
 };
 
 export default blogMetaChEn;

@@ -14689,6 +14689,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'breve-durata-friburgo-proroga',
+    category: 'pratico',
+    date: '2026-09-01T06:00:09.451Z',
+    image: '/images/blog/breve-durata-friburgo-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

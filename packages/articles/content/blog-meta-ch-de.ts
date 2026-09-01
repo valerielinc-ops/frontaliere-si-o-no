@@ -4897,6 +4897,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.drg-fatture-trasparenza.title': 'Krankenhausrechnungen: Warum sie nicht alles erklären',
     'blog.article.drg-fatture-trasparenza.excerpt': 'Seit 2012 versteckt DRG Diagnosen in der erhaltenen Rechnung. Wie kann man das Krankenhaus um Klärung bitten und mit der Krankenversicherung streiten?',
     'blog.article.drg-fatture-trasparenza.imageAlt': 'Patient überprüft eine Spitalrechnung am Schreibtisch mit medizinischen Dokumenten',
+    'blog.article.breve-durata-friburgo-proroga.title': 'L-Fribourg-Genehmigung: Gültigkeit, Verlängerung und Anforderungen',
+    'blog.article.breve-durata-friburgo-proroga.excerpt': 'Die kurzfristige L-Erlaubnis im Kanton Freiburg ist maximal ein Jahr gültig und kann unter bestimmten Bedingungen verlängert werden. Informieren Sie sich über Dauer, Verlängerung und Einschränkungen.',
+    'blog.article.breve-durata-friburgo-proroga.imageAlt': 'Schweizer Verwaltungsbüro mit Dokumenten und Computer für kantonale Genehmigungsverfahren',
 };
 
 export default blogMetaChDe;
