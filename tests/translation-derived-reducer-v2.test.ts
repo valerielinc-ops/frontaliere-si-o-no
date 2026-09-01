@@ -78,6 +78,13 @@ describe('translation derived reducer v2', () => {
   it.each([
     ['empty target', { ...BASE_JOB, titleByLocale: { ...BASE_JOB.titleByLocale, it: '  ' } }],
     [
+      'whitespace-equivalent source copy',
+      {
+        ...BASE_JOB,
+        titleByLocale: { ...BASE_JOB.titleByLocale, it: '  Senior\t  Entwicklerin  ' },
+      },
+    ],
+    [
       'normalized CRLF/NFC source copy',
       {
         ...BASE_JOB,
@@ -115,6 +122,28 @@ describe('translation derived reducer v2', () => {
     expect(applied.outcome).toBe('applied');
     expect(applied.slice.jobs[0].descriptionByLocale).toEqual({ it: 'Un incarico versatile' });
     expect(active.jobs[0]).not.toHaveProperty('descriptionByLocale');
+  });
+
+  it('accepts a realistic extended slice envelope and preserves its metadata on apply and no-op', () => {
+    const active = {
+      crawlerKey: 'example-crawler',
+      assembledAt: new Date(Date.now() - 1_000).toISOString(),
+      generation: { id: 'fixture-generation', sources: ['example-crawler'] },
+      checksum: 'fixture-checksum',
+      jobs: [BASE_JOB],
+    };
+    const before = structuredClone(active);
+    const patch = patchFor(BASE_JOB);
+    const applied = reduceTranslationDerivedPatchV2(active, patch);
+    const replayed = reduceTranslationDerivedPatchV2(applied.slice, patch);
+
+    expect(applied.outcome).toBe('applied');
+    expect(replayed.outcome).toBe('already_valid');
+    for (const key of ['assembledAt', 'generation', 'checksum'] as const) {
+      expect(applied.slice[key]).toEqual(active[key]);
+      expect(replayed.slice[key]).toEqual(active[key]);
+    }
+    expect(active).toEqual(before);
   });
 
   it('never overwrites a non-source translation and is idempotent after apply', () => {
@@ -210,12 +239,17 @@ describe('translation derived reducer v2', () => {
 
   it('rejects source-copy and rejected candidates', () => {
     const sourceCopyPatch = patchFor(BASE_JOB, { outputText: BASE_JOB.title });
+    const whitespaceCopyPatch = patchFor(BASE_JOB, {
+      outputText: '  Senior\t  Entwicklerin  ',
+    });
     const rejectedPatch = patchFor(BASE_JOB, {
       outputText: 'Candidata respinta',
       status: 'rejected',
     });
 
     expect(reduceTranslationDerivedPatchV2(slice(BASE_JOB), sourceCopyPatch).outcome)
+      .toBe('rejected_candidate');
+    expect(reduceTranslationDerivedPatchV2(slice(BASE_JOB), whitespaceCopyPatch).outcome)
       .toBe('rejected_candidate');
     expect(reduceTranslationDerivedPatchV2(slice(BASE_JOB), rejectedPatch).outcome)
       .toBe('rejected_candidate');

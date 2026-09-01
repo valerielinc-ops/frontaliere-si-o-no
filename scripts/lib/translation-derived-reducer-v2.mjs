@@ -1,6 +1,5 @@
 import { resolveJobDiffKey } from './job-match-key.mjs';
 import {
-  assertTranslationExactKeysV2,
   assertTranslationPlainObjectV2,
   deepFreezeTranslationV2,
 } from './translation-unit-identity-v2.mjs';
@@ -10,12 +9,14 @@ import {
   validateTranslationDerivedPatchV2,
 } from './translation-derived-patch-v2.mjs';
 
-const SLICE_KEYS = ['crawlerKey', 'jobs'];
-
 function isPlainObject(value) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
   const prototype = Object.getPrototypeOf(value);
   return prototype === Object.prototype || prototype === null;
+}
+
+function comparableTranslationText(value) {
+  return normalizeTranslationText(value).trim().replace(/\s+/gu, ' ');
 }
 
 function result(slice, outcome) {
@@ -34,9 +35,13 @@ function sameIdentity(left, right) {
 
 export function reduceTranslationDerivedPatchV2(activeSlice, rawPatch) {
   assertTranslationPlainObjectV2(activeSlice, 'active crawler slice');
-  assertTranslationExactKeysV2(activeSlice, SLICE_KEYS, 'active crawler slice');
   const patch = validateTranslationDerivedPatchV2(rawPatch);
-  if (!Array.isArray(activeSlice.jobs) || typeof activeSlice.crawlerKey !== 'string') {
+  if (
+    !Object.hasOwn(activeSlice, 'crawlerKey')
+    || !Object.hasOwn(activeSlice, 'jobs')
+    || !Array.isArray(activeSlice.jobs)
+    || typeof activeSlice.crawlerKey !== 'string'
+  ) {
     return result(activeSlice, 'malformed_target');
   }
   if (activeSlice.crawlerKey !== patch.target.crawlerKey) {
@@ -71,9 +76,9 @@ export function reduceTranslationDerivedPatchV2(activeSlice, rawPatch) {
     return result(activeSlice, 'rejected_candidate');
   }
 
-  const normalizedSource = normalizeTranslationText(job[fieldPath]);
-  const normalizedOutput = normalizeTranslationText(patch.candidate.outputText);
-  if (normalizedOutput.trim().length === 0 || normalizedOutput === normalizedSource) {
+  const comparableSource = comparableTranslationText(job[fieldPath]);
+  const comparableOutput = comparableTranslationText(patch.candidate.outputText);
+  if (comparableOutput.length === 0 || comparableOutput === comparableSource) {
     return result(activeSlice, 'rejected_candidate');
   }
 
@@ -89,8 +94,8 @@ export function reduceTranslationDerivedPatchV2(activeSlice, rawPatch) {
   }
   if (
     typeof currentTarget === 'string'
-    && currentTarget.trim().length > 0
-    && normalizeTranslationText(currentTarget) !== normalizedSource
+    && comparableTranslationText(currentTarget).length > 0
+    && comparableTranslationText(currentTarget) !== comparableSource
   ) {
     return result(activeSlice, 'already_valid');
   }
