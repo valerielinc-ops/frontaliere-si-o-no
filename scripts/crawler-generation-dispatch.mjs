@@ -189,6 +189,14 @@ function missingHydrationValue(value) {
   return value === undefined || value === null || value === '';
 }
 
+function retryAfterMilliseconds(value) {
+  if (typeof value !== 'string' || !/^[1-9][0-9]*$/.test(value)) return null;
+  const seconds = Number(value);
+  return Number.isSafeInteger(seconds) && seconds <= Math.floor(Number.MAX_SAFE_INTEGER / 1_000)
+    ? seconds * 1_000
+    : null;
+}
+
 /**
  * GitHub can return the authoritative workflow_run_id before the exact run
  * snapshot has hydrated its run-name/path/ref fields. Retry only absent or
@@ -239,6 +247,17 @@ async function getAndValidateAuthoritativeRun({
       });
     } catch {
       response = null;
+    }
+    if (response?.status === 403) return { status: 'unavailable', observation: null };
+    if (response?.status === 429) {
+      const remainingMs = deadline - now();
+      const retryAfterMs = retryAfterMilliseconds(response.retryAfter);
+      if (attempt === DIRECT_RUN_HYDRATION_BACKOFF_MS.length
+          || retryAfterMs === null || retryAfterMs >= remainingMs) {
+        return { status: 'unavailable', observation: null };
+      }
+      await sleep(retryAfterMs);
+      continue;
     }
     if (response?.status === 200) {
       const validation = validateCrawlerGenerationWorkflowRun(response.body, binding, repository);

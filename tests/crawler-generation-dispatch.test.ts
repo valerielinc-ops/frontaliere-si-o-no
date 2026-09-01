@@ -869,6 +869,115 @@ describe('crawler generation dispatch protocol', () => {
       .toEqual([10_000, 3_750]);
   });
 
+  it('treats a 403 exact-ID response as terminal without retry, list discovery or another POST', async () => {
+    let postCalls = 0;
+    let getCalls = 0;
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          },
+        };
+      }
+      getCalls += 1;
+      return { status: 403, body: null, retryAfter: '1' };
+    });
+
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+    })).resolves.toEqual({ status: 'missing', runId: null });
+    expect({ postCalls, getCalls, sleeps }).toEqual({ postCalls: 1, getCalls: 1, sleeps: [] });
+    expect(request.mock.calls.some(([input]) => input.path.includes('/actions/runs?'))).toBe(false);
+  });
+
+  it('honours a positive 429 Retry-After only while it stays inside the hydration deadline', async () => {
+    let postCalls = 0;
+    let getCalls = 0;
+    let nowMs = 0;
+    const sleeps: number[] = [];
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'POST') {
+        postCalls += 1;
+        return {
+          status: 200,
+          body: {
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          },
+        };
+      }
+      getCalls += 1;
+      return getCalls === 1
+        ? { status: 429, body: null, retryAfter: '2' }
+        : { status: 200, body: boundRun() };
+    });
+
+    await expect(dispatchWorkflowOnce({
+      repository,
+      workflowFile: 'crawler-group-01.yml',
+      group: '01',
+      generationToken,
+      inputs: { skip_ai_translation: '1', generation_token: generationToken },
+      request,
+      now: () => nowMs,
+      sleep: async (milliseconds) => {
+        sleeps.push(milliseconds);
+        nowMs += milliseconds;
+      },
+    })).resolves.toEqual({ status: 'direct', runId: '7001' });
+    expect({ postCalls, getCalls, sleeps }).toEqual({ postCalls: 1, getCalls: 2, sleeps: [2_000] });
+    expect(request.mock.calls.filter(([input]) => input.method === 'GET').map(([input]) => input.timeoutMs))
+      .toEqual([10_000, 8_000]);
+  });
+
+  it.each([null, '0', '-1', '1.5', '10', '999999999999999999999'])(
+    'fails a 429 closed when Retry-After %s is invalid or exhausts the deadline',
+    async (retryAfter) => {
+      let postCalls = 0;
+      let getCalls = 0;
+      const sleeps: number[] = [];
+      const request = vi.fn(async (input: any) => {
+        if (input.method === 'POST') {
+          postCalls += 1;
+          return {
+            status: 200,
+            body: {
+              workflow_run_id: 7001,
+              run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+              html_url: `https://github.com/${repository}/actions/runs/7001`,
+            },
+          };
+        }
+        getCalls += 1;
+        return { status: 429, body: null, retryAfter };
+      });
+
+      await expect(dispatchWorkflowOnce({
+        repository,
+        workflowFile: 'crawler-group-01.yml',
+        group: '01',
+        generationToken,
+        inputs: { skip_ai_translation: '1', generation_token: generationToken },
+        request,
+        sleep: async (milliseconds) => { sleeps.push(milliseconds); },
+      })).resolves.toEqual({ status: 'missing', runId: null });
+      expect({ postCalls, getCalls, sleeps }).toEqual({ postCalls: 1, getCalls: 1, sleeps: [] });
+    },
+  );
+
   it('treats 204 as a protocol mismatch even when reconciliation finds a run', async () => {
     const request = vi.fn(async (input: any) => {
       if (input.method === 'POST') return { status: 204, body: null };
