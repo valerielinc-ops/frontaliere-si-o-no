@@ -291,9 +291,16 @@ export function assignGroupsStable(crawlers, pinnedGroups, medianMs) {
       const best = memberSlugsByGroup[target].length;
       if (size < best || (size === best && wallClockOf(i) < wallClockOf(target))) target = i;
     }
-    // Every group reserved (only reachable with a tiny corpus): fall back to
-    // group 0 rather than dropping the crawler on the floor.
-    if (target === -1) target = 0;
+    // Every group reserved (only reachable with a tiny corpus): fail loudly
+    // rather than silently growing a reserved group. A silent fallback to
+    // group 0 would violate the "never grow a reserved outlier group"
+    // invariant this function exists to enforce, whether or not group 0
+    // itself happens to be reserved.
+    if (target === -1) {
+      throw new Error(
+        `assignGroupsStable: cannot place '${slug}' — every group is reserved for a duration outlier`,
+      );
+    }
     memberSlugsByGroup[target].push(slug);
     placed.add(slug);
   }
