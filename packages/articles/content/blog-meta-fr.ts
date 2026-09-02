@@ -11091,6 +11091,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Vivre à Lentate et travailler au Tessin : frontalier',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso, dans la province de Milan, est un choix résidentiel stratégique pour les frontaliers. Découvrez les avantages fiscaux, le permis G, les procédures et les listes de contrôle pour le transfert.',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier entre le Tessin (Suisse) et la Lombardie (Italie), collines et route rurale au printemps',
+    'blog.article.vivere-cislago-lavorare-ticino.title': 'Vivre à Cislago, travailler au Tessin : guide du frontalier',
+    'blog.article.vivere-cislago-lavorare-ticino.excerpt': 'Frontaliers de Cislago au Tessin : fiscalité, nouvel accord, retenue à la source, permis de séjour et sécurité sociale pour ceux qui choisissent de vivre en Italie et de travailler en Suisse.',
+    'blog.article.vivere-cislago-lavorare-ticino.imageAlt': 'Vue aérienne de Mendrisio et frontière avec la province de Côme, où se trouve Cislago',
 };
 
 export default blogMetaFr;
