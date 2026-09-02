@@ -11109,6 +11109,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.title': 'Riverlhab: the project that regenerates the Lura stream',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.excerpt': 'Interreg Italy-Switzerland to renaturalize the Lura stream between Ticino and Varese. Cultural festival in Saronno 4-6 September and travelling exhibition in schools',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.imageAlt': 'Lura stream with riparian restoration in progress between Ticino and Varese, showing native plants and natural habitat',
+    'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: border crossing between Italy and Ticino',
+    'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Living in Crosio della Valle, working in Ticino: G permit, taxation, crossings and costs. Guide for border workers.',
+    'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Alpine valley landscape between Ticino and Italy border',
 };
 
 export default blogMetaEn;
