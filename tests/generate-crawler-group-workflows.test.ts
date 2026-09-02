@@ -444,6 +444,23 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('REPORTED_FAILURE');
   });
 
+  it('derives both timed shell headers from one preamble source without changing either shell phase', () => {
+    const crawler = {
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 30,
+    };
+    const body = buildCrawlerShellBody(crawler);
+    const source = fs.readFileSync(
+      path.resolve(import.meta.dirname, '../scripts/generate-crawler-group-workflows.mjs'),
+      'utf8',
+    );
+
+    expect(source.match(/const CRAWLER_SHELL_PREAMBLE = Object\.freeze/g)).toHaveLength(1);
+    expect(source.match(/\['set -uo pipefail', 'set \+e', ''\]/g)).toHaveLength(1);
+    expect(source.match(/\[\.\.\.CRAWLER_SHELL_PREAMBLE\]/g)).toHaveLength(2);
+    expect(body.match(/set -uo pipefail\nset \+e\n/g)).toHaveLength(2);
+  });
+
   it('fails closed on target timeout, reports it, and never reaches commit', () => {
     const commitMarker = path.join(tmpDir, 'commit-ran');
     const commitDir = fs.mkdtempSync(path.join(tmpDir, 'lib-timeout-'));

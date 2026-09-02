@@ -441,6 +441,8 @@ function validateTargetTimeoutMinutes(crawler) {
   return minutes;
 }
 
+const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', '']);
+
 /**
  * Build the isolated work phase for a crawler with an explicit wall timeout.
  *
@@ -450,8 +452,8 @@ function validateTargetTimeoutMinutes(crawler) {
  * observable and the target exits non-zero without committing partial data.
  */
 function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
-  const outer = ['set -uo pipefail', 'set +e', ''];
-  const work = ['set -uo pipefail', 'set +e', ''];
+  const outer = [...CRAWLER_SHELL_PREAMBLE];
+  const work = [...CRAWLER_SHELL_PREAMBLE];
 
   work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
