@@ -82478,6 +82478,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riverlhab-progetto-transfrontaliero-ticino': {
+    title: 'Riverlhab: il progetto che rigeneera il torrente Lura',
+    description: 'Progetto Interreg Riverlhab per la rinaturalizzazione del torrente Lura tra Ticino e Varese. Mostra itinerante, formazione tecnica e citizen science. Scopri',
+    keywords: 'frontalieri, ticino, svizzera, italia, riverlhab, progetto, rigeneera, torrente',
+    ogTitle: 'Riverlhab: il progetto che rigeneera il torrente Lura',
+    ogDescription: 'Interreg Italia-Svizzera per la rinaturalizzazione del torrente Lura. Mostra itinerante curata dalla SUPSI, festival culturale e corsi di formazione per tecnici e amministratori. Coinvolte 162 persone tra stakeholder e studenti.',
+    canonicalPath: '/articoli-frontaliere/riverlhab-progetto-transfrontaliero-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riverlhab: il progetto che rigeneera il torrente Lura",
+      "description": "Progetto Interreg Riverlhab per la rinaturalizzazione del torrente Lura tra Ticino e Varese. Mostra itinerante, formazione tecnica e citizen science. Scopri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riverlhab-progetto-transfrontaliero-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Torrente Lura con rive in fase di rinaturalizzazione tra Ticino e Varese, vegetazione autoctona e habitat naturale"
+      },
+      "datePublished": "2026-09-02T10:32:43+00:00",
+      "dateModified": "2026-09-02T10:32:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riverlhab-progetto-transfrontaliero-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

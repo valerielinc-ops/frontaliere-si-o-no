@@ -33186,6 +33186,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'riverlhab-progetto-transfrontaliero-ticino',
+ category: 'novita',
+ date: '2026-09-02T10:32:43.124Z',
+ image: '/images/blog/riverlhab-progetto-transfrontaliero-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

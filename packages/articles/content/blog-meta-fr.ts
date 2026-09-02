@@ -11108,6 +11108,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.title': 'Vivre à Bardello, Malgesso, Bregano et travailler au Tessin',
     'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert de Bardello, Malgesso et Bregano au Tessin.',
     'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.imageAlt': 'Vue panoramique du Lac de Lugano avec les montagnes du Tessin en arrière-plan',
+    'blog.article.riverlhab-progetto-transfrontaliero-ticino.title': 'Riverlhab : le projet qui régénérera le torrent Lura',
+    'blog.article.riverlhab-progetto-transfrontaliero-ticino.excerpt': 'Interreg Italie-Suisse pour renaturaliser le torrent Lura entre le Tessin et Varèse. Festival culturel à Saronno 4-6 septembre et exposition itinérante dans les écoles',
+    'blog.article.riverlhab-progetto-transfrontaliero-ticino.imageAlt': 'Torrent Lura avec restauration riveraine en cours entre le Tessin et Varèse, végétation indigène et habitat naturel',
 };
 
 export default blogMetaFr;
