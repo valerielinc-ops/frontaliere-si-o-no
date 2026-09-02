@@ -1,6 +1,6 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-09-02T13:50:09.529Z",
+  "assembledAt": "2026-09-02T23:22:55.871Z",
   "jobs": [
     {
       "id": "visionapartments-13b3c39f629e",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich",
         "en": "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich",
-        "de": "inkasso-spezialist-in-60-80-visionapartments-zurich",
+        "de": "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich",
         "fr": "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich"
       },
       "company": "Vision Management Services GmbH",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:50:07.060Z",
+      "crawledAt": "2026-09-02T23:22:53.179Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -60,6 +60,9 @@
         "it": [
           "inkasso-spezialist-in-60-80-visionapartments-zurich",
           "inkasso-spezialist-in-60-80-vision-management-services-gmbh-zurich"
+        ],
+        "de": [
+          "inkasso-spezialist-in-60-80-visionapartments-zurich"
         ]
       },
       "firstSeenAt": "2026-09-01T14:26:59.054Z",

@@ -1,18 +1,18 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-09-02T13:50:09.530Z",
+  "generatedAt": "2026-09-02T23:22:55.872Z",
   "total": 1,
   "discovered": null,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11375,
-  "avgDurationMs": 11375,
+  "durationMs": 3573,
+  "avgDurationMs": 3573,
   "durationHistory": [
-    11375
+    3573
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:50:07.060Z",
+      "crawledAt": "2026-09-02T23:22:53.179Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,49 +55,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "visionapartments-c5738b21cd34",
-      "slug": "coo-chief-operating-officer-100-vision-management-services-gmbh-zurich",
-      "company": "Vision Management Services GmbH",
-      "companyKey": "visionapartments",
-      "companyDomain": "visionapartments.com",
-      "title": "COO - CHIEF OPERATING OFFICER - 100%",
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://www.jobs.ch/en/vacancies/detail/a240d532-01d6-4266-99bd-0ee907cc60d4/",
-      "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-20T21:39:05.638Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "streetAddress": "Talstrasse 62",
-      "category": "Commerciale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Immobiliare / Ospitalità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://www.jobs.ch/en/vacancies/detail/a240d532-01d6-4266-99bd-0ee907cc60d4/",
-      "firstSeenAt": "2026-07-29T22:03:40.767Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "crawlerMissStreak": 2,
-      "salarySource": "reported",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
