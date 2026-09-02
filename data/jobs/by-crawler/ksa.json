@@ -2955,7 +2955,7 @@
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3028,14 +3028,13 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3045,7 +3044,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-50d01a54c105",
@@ -3303,7 +3304,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3351,7 +3352,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3367,14 +3369,13 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -3384,7 +3385,9 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -4111,7 +4114,7 @@
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4157,7 +4160,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4169,7 +4173,8 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
@@ -4179,7 +4184,6 @@
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
-      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -4189,7 +4193,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "salarySource": "estimated"
     },
     {
       "id": "ksa-009fd92a968e",
@@ -4449,7 +4454,7 @@
       "title": "Compensation & Benefits Analyst",
       "titleByLocale": {
         "it": "Compensation & Benefits Analista",
-        "en": "Compensation & Benefits Analyst",
+        "en": "Compensation and Benefits Analyst",
         "de": "Compensation & Benefits Analyst",
         "fr": "Compensation & Benefits Analyste"
       },
@@ -4496,7 +4501,6 @@
           "compensation-benefits-analyst-ksa-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T22:06:51.497Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
