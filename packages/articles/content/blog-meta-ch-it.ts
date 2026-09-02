@@ -5137,6 +5137,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-argovia.title': 'AVS e prestazioni complementari nel canton Argovia',
     'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'Primo pilastro della previdenza svizzera: rendita AVS, calcolo su storia contributiva, lacune contributive e prestazioni complementari per il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Ufficio amministrativo svizzero con documenti di previdenza e fascicoli di rendita su scrivania',
+    'blog.article.aiuti-malattie-rare-2025.title': 'Consiglio federale: più aiuti per le malattie rare',
+    'blog.article.aiuti-malattie-rare-2025.excerpt': 'Il Consiglio federale vuole migliorare l’assistenza ai malati di malattie rare in Svizzera con un intervento in due fasi.',
+    'blog.article.aiuti-malattie-rare-2025.imageAlt': 'Vista panoramica di Lugano con strutture sanitarie in primo piano',
 };
 
 export default blogMetaChIt;

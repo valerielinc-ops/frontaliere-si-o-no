@@ -11110,6 +11110,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.title': 'Riverlhab: il progetto che rigeneera il torrente Lura',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.excerpt': 'Interreg Italia-Svizzera per rinaturalizzare il torrente Lura tra Ticino e Varese. Festival culturale a Saronno 4-6 settembre e mostra itinerante nelle scuole',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.imageAlt': 'Torrente Lura con rive in fase di rinaturalizzazione tra Ticino e Varese, vegetazione autoctona e habitat naturale',
+    'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: frontaliere tra Italia e Ticino',
+    'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Vivere a Crosio della Valle, lavorare in Ticino: permesso G, fiscalità, valichi e costi. Guida per frontalieri.',
+    'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Paesaggio frontaliero tra Ticino e Italia con strada alpina e confine visibile',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Vivere a Gerenzano e lavorare in Ticino: guida per frontalieri',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Distanza, valichi, permesso G, tasse, AVS e LAMal: tutto ciò che serve sapere prima di trasferirsi a Gerenzano dal Ticino o da altre aree frontaliere.',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano al tramonto, con le Alpi svizzere sullo sfondo e il confine italiano visibile',
 };
 
 export default blogMetaIt;

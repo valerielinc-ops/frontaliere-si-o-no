@@ -5137,6 +5137,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-argovia.title': 'AHV und Ergänzungsleistungen im Kanton Aargau',
     'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'Erste Säule der schweizerischen Vorsorge: AHV-Rente, Beitragshistorie, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Schweizer Verwaltungsbüro mit Rentendokumenten und Personalakten auf dem Schreibtisch',
+    'blog.article.aiuti-malattie-rare-2025.title': 'Bundesrat: Mehr Hilfe für seltene Krankheiten',
+    'blog.article.aiuti-malattie-rare-2025.excerpt': 'Der Bundesrat will die Versorgung von Patienten mit seltenen Krankheiten in der Schweiz mit einem zweistufigen Eingriff verbessern.',
+    'blog.article.aiuti-malattie-rare-2025.imageAlt': 'Panoramablick auf Lugano mit Gesundheitsanlagen im Vordergrund',
 };
 
 export default blogMetaChDe;
