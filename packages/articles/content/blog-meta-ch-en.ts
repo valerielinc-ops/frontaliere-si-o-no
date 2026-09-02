@@ -5107,6 +5107,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.malattie-rare-cure-efficaci-2027.title': 'Rare diseases: Federal Council aims for more effective treatments',
     'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'The Federal Council has decided to improve health care for people with rare diseases, creating specialized facilities and a national registry.',
     'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland',
+    'blog.article.impulso-alberghi-montagna.title': 'Mountain hotels: 100 million for sanitation',
+    'blog.article.impulso-alberghi-montagna.excerpt': 'The Federal Council allocates 100 million francs for the energy modernization of mountain hotel facilities in the period 2028-2035.',
+    'blog.article.impulso-alberghi-montagna.imageAlt': 'Renovated hotel in the Swiss mountains',
 };
 
 export default blogMetaChEn;

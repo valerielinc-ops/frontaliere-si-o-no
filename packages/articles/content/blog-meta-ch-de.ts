@@ -5107,6 +5107,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.malattie-rare-cure-efficaci-2027.title': 'Seltene Krankheiten: Bundesrat setzt auf wirksamere Behandlungen',
     'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'Der Bundesrat hat beschlossen, die Gesundheitsversorgung für Menschen mit seltenen Krankheiten durch die Schaffung spezialisierter Strukturen und eines nationalen Registers zu verbessern.',
     'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz',
+    'blog.article.impulso-alberghi-montagna.title': 'Berghotels: 100 Millionen für die Sanierung',
+    'blog.article.impulso-alberghi-montagna.excerpt': 'Der Bundesrat stellt 100 Millionen Franken für die energetische Modernisierung der Berghotels im Zeitraum 2028-2035 zur Verfügung.',
+    'blog.article.impulso-alberghi-montagna.imageAlt': 'Renoviertes Hotel in den Schweizer Bergen',
 };
 
 export default blogMetaChDe;

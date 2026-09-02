@@ -66281,6 +66281,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-impulso-alberghi-montagna': {
+    title: 'Alberghi di montagna: 100 milioni per il risanamento',
+    description: 'Il Consiglio federale vara un programma da 100 milioni di franchi per l\'ammodernamento energetico degli hotel di montagna nel periodo 2028-2035. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, alberghi, montagna, milioni, risanamento',
+    ogTitle: '100 milioni per l\'ammodernamento degli alberghi di montagna',
+    ogDescription: 'Il governo svizzero ha adottato un programma d\'impulso per sostenere il risanamento energetico degli hotel nelle regioni montane. Scopri i dettagli del piano 2028-2035.',
+    canonicalPath: '/articoli-svizzera/impulso-alberghi-montagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alberghi di montagna: 100 milioni per il risanamento",
+      "description": "Il Consiglio federale vara un programma da 100 milioni di franchi per l'ammodernamento energetico degli hotel di montagna nel periodo 2028-2035. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/impulso-alberghi-montagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Hotel ristrutturato nelle montagne svizzere"
+      },
+      "datePublished": "2026-09-02T08:47:09+00:00",
+      "dateModified": "2026-09-02T08:47:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/impulso-alberghi-montagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

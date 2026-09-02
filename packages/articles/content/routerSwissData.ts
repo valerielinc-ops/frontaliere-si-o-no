@@ -1728,6 +1728,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-apertura-attivita-bc': { it: 'guida-apertura-attivita-bc', en: 'guide-opening-business-basel-countryside', de: 'anleitung-betriebseroffnung-basel-landschaft', fr: 'guide-creation-entreprise-bale-campagne' },
  'permesso-dimora-b-argovia-requisiti': { it: 'permesso-dimora-b-argovia-requisiti', en: 'residence-permit-b-aargau-requirements', de: 'aufenthaltsgenehmigung-b-aargau-anforderungen', fr: 'permis-sejour-b-argovie-exigences' },
  'malattie-rare-cure-efficaci-2027': { it: 'malattie-rare-cure-efficaci-2027', en: 'rare-diseases-effective-care-2027', de: 'seltene-krankheiten-effektive-versorgung-2027', fr: 'maladies-rares-soins-efficaces-2027' },
+ 'impulso-alberghi-montagna': { it: 'impulso-alberghi-montagna', en: 'mountain-hotel-impulse-program', de: 'impuls-programm-berghotels', fr: 'programme-impulsion-hotels-montagne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
