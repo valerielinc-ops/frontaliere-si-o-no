@@ -333,7 +333,12 @@ export function evaluateSourceBackedSwissGeography(candidates = []) {
  * }}
  */
 export function resolveDetailOrListingSwissGeography(detail = {}, listing = {}) {
-  if (detail?.authoritativeLocationConflict) {
+  // `locationGateRejected` marks a tenant-specific extractor that already
+  // verified and refused a candidate (e.g. a canton suffix mismatch): treat
+  // it like an authoritative conflict, not an absence of evidence, so the
+  // rejected signal cannot be silently overwritten by a generic listing
+  // fallback re-deriving a different geography.
+  if (detail?.authoritativeLocationConflict || detail?.locationGateRejected) {
     return { geography: null, explicitlyForeign: true, candidate: EMPTY_LOCATION_EVIDENCE };
   }
   const detailDecision = evaluateSourceBackedSwissGeography(locationEvidenceCandidates(detail));
