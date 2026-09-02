@@ -1,3 +1,4 @@
+import { randomBytes } from 'node:crypto';
 import { MessageChannel, parentPort, workerData } from 'node:worker_threads';
 
 const PROVIDER_PROTOCOL_SCHEMA_VERSION = 3;
@@ -14,26 +15,25 @@ function deepFreeze(value) {
 }
 
 const controller = new AbortController();
+const nonce = randomBytes(32).toString('hex');
 const { port1: privatePort, port2: bootstrapPort } = new MessageChannel();
-privatePort.ref();
+privatePort.unref();
 const sendPrivateMessage = privatePort.postMessage.bind(privatePort);
-parentPort.postMessage(Object.freeze({
+const sendParentMessage = parentPort.postMessage.bind(parentPort);
+sendParentMessage(Object.freeze({
   schemaVersion: PROVIDER_PROTOCOL_SCHEMA_VERSION,
   type: 'bootstrap',
   port: bootstrapPort,
+  nonce,
 }), [bootstrapPort]);
 
-let returnChecked = false;
-let pendingMessage = null;
 let terminal = false;
 
 function finish(message) {
-  if (terminal || pendingMessage) return;
-  pendingMessage = message;
-  if (!returnChecked) return;
+  if (terminal) return;
   terminal = true;
   controller.abort();
-  sendPrivateMessage(pendingMessage);
+  sendPrivateMessage(Object.freeze({ ...message, nonce }));
 }
 
 function protocolFailure() {
@@ -60,28 +60,28 @@ try {
   const providerModule = await import(workerData.provider.moduleUrl);
   const translate = providerModule[workerData.provider.exportName];
   if (typeof translate !== 'function') {
-    returnChecked = true;
     protocolFailure();
   } else {
     const request = deepFreeze(workerData.request);
     const options = Object.freeze({ signal: controller.signal, succeedText, fail });
     let returned;
+    let threw = false;
     try {
       returned = Reflect.apply(translate, undefined, [request, options]);
     } catch {
-      pendingMessage = Object.freeze({ schemaVersion: PROVIDER_PROTOCOL_SCHEMA_VERSION, type: 'fail' });
+      threw = true;
+      protocolFailure();
     }
-    if (returned !== undefined) {
-      pendingMessage = Object.freeze({ schemaVersion: PROVIDER_PROTOCOL_SCHEMA_VERSION, type: 'fail' });
-    }
-    returnChecked = true;
-    if (pendingMessage) {
-      const message = pendingMessage;
-      pendingMessage = null;
-      finish(message);
+    if (!threw && returned === undefined) {
+      sendParentMessage(Object.freeze({
+        schemaVersion: PROVIDER_PROTOCOL_SCHEMA_VERSION,
+        type: 'ack',
+        nonce,
+      }));
+    } else if (!threw) {
+      protocolFailure();
     }
   }
 } catch {
-  returnChecked = true;
   protocolFailure();
 }

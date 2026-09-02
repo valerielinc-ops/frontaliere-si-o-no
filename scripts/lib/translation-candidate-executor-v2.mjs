@@ -12,7 +12,7 @@ import {
   validateTranslationUnitIdentityV2,
 } from './translation-unit-identity-v2.mjs';
 import { normalizeTranslationText, sha256TranslationText } from './translation-unit-identity.mjs';
-import { MessagePort, Worker } from 'node:worker_threads';
+import { MessagePort, receiveMessageOnPort, Worker } from 'node:worker_threads';
 
 export const TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION = 2;
 
@@ -240,25 +240,45 @@ function snapshotProvider(input, engineVersion) {
   return provider;
 }
 
-function isProviderMessage(value) {
+function isProviderMessage(value, nonce) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
   const descriptors = Object.getOwnPropertyDescriptors(value);
   const keys = Reflect.ownKeys(descriptors);
   if (keys.some((key) => typeof key !== 'string' || !descriptors[key].enumerable
       || !Object.hasOwn(descriptors[key], 'value') || descriptors[key].get || descriptors[key].set)) return false;
-  if (descriptors.schemaVersion?.value !== PROVIDER_PROTOCOL_SCHEMA_VERSION) return false;
+  if (descriptors.schemaVersion?.value !== PROVIDER_PROTOCOL_SCHEMA_VERSION
+      || descriptors.nonce?.value !== nonce) return false;
   if (descriptors.type?.value === 'fail') {
-    return keys.length === 2 && keys.includes('schemaVersion') && keys.includes('type');
+    return keys.length === 3 && keys.includes('schemaVersion') && keys.includes('type') && keys.includes('nonce');
   }
   return descriptors.type?.value === 'succeed'
-    && keys.length === 3
+    && keys.length === 4
     && keys.includes('schemaVersion')
     && keys.includes('type')
     && keys.includes('text')
+    && keys.includes('nonce')
     && typeof descriptors.text?.value === 'string';
 }
 
 function isBootstrapMessage(value) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const keys = Reflect.ownKeys(descriptors);
+  return keys.length === 4
+    && keys.every((key) => typeof key === 'string' && descriptors[key].enumerable
+      && Object.hasOwn(descriptors[key], 'value') && !descriptors[key].get && !descriptors[key].set)
+    && keys.includes('schemaVersion')
+    && keys.includes('type')
+    && keys.includes('port')
+    && keys.includes('nonce')
+    && descriptors.schemaVersion.value === PROVIDER_PROTOCOL_SCHEMA_VERSION
+    && descriptors.type.value === 'bootstrap'
+    && descriptors.port.value instanceof MessagePort
+    && typeof descriptors.nonce.value === 'string'
+    && /^[a-f0-9]{64}$/.test(descriptors.nonce.value);
+}
+
+function isAckMessage(value, nonce) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
   const descriptors = Object.getOwnPropertyDescriptors(value);
   const keys = Reflect.ownKeys(descriptors);
@@ -267,10 +287,10 @@ function isBootstrapMessage(value) {
       && Object.hasOwn(descriptors[key], 'value') && !descriptors[key].get && !descriptors[key].set)
     && keys.includes('schemaVersion')
     && keys.includes('type')
-    && keys.includes('port')
+    && keys.includes('nonce')
     && descriptors.schemaVersion.value === PROVIDER_PROTOCOL_SCHEMA_VERSION
-    && descriptors.type.value === 'bootstrap'
-    && descriptors.port.value instanceof MessagePort;
+    && descriptors.type.value === 'ack'
+    && descriptors.nonce.value === nonce;
 }
 
 async function runIsolatedProvider(provider, request, timeoutMs) {
@@ -288,12 +308,18 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
   return new Promise((resolve) => {
     let finishing = false;
     let resultPort = null;
+    let bootstrapObserved = false;
+    let nonce = null;
+    let acknowledged = false;
+    let bufferedResult = null;
+    let exitDrainImmediate = null;
     let timeoutId = setTimeout(() => finish(null), PROVIDER_WORKER_STARTUP_TIMEOUT_MS);
 
     async function finish(candidateText) {
       if (finishing) return;
       finishing = true;
       clearTimeout(timeoutId);
+      if (exitDrainImmediate) clearImmediate(exitDrainImmediate);
       if (resultPort) {
         resultPort.removeAllListeners();
         resultPort.close();
@@ -307,25 +333,59 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
       resolve(candidateText);
     }
 
+    function maybeFinish() {
+      if (!acknowledged || !bufferedResult) return false;
+      finish(bufferedResult.type === 'succeed' ? bufferedResult.text : null);
+      return true;
+    }
+
+    function handleProviderResult(result) {
+      if (!isProviderMessage(result, nonce) || bufferedResult) return;
+      bufferedResult = result;
+      maybeFinish();
+    }
+
+    function drainProviderResults() {
+      if (!resultPort) return;
+      while (resultPort) {
+        const received = receiveMessageOnPort(resultPort);
+        if (!received) break;
+        handleProviderResult(received.message);
+      }
+    }
+
     worker.once('error', () => finish(null));
-    worker.once('exit', () => finish(null));
-    worker.once('message', (message) => {
+    worker.once('exit', () => {
+      if (finishing) return;
+      drainProviderResults();
+      if (maybeFinish()) return;
+      exitDrainImmediate = setImmediate(() => {
+        exitDrainImmediate = null;
+        drainProviderResults();
+        if (!maybeFinish()) finish(null);
+      });
+    });
+    worker.on('message', (message) => {
+      if (finishing) return;
+      if (resultPort) {
+        if (isAckMessage(message, nonce)) {
+          acknowledged = true;
+          maybeFinish();
+        }
+        return;
+      }
+      if (bootstrapObserved) return;
+      bootstrapObserved = true;
       if (!isBootstrapMessage(message)) {
         finish(null);
         return;
       }
       resultPort = message.port;
+      nonce = message.nonce;
       clearTimeout(timeoutId);
       timeoutId = setTimeout(() => finish(null), timeoutMs);
       resultPort.once('messageerror', () => finish(null));
-      resultPort.once('close', () => finish(null));
-      resultPort.on('message', (result) => {
-        if (!isProviderMessage(result)) {
-          finish(null);
-          return;
-        }
-        finish(result.type === 'succeed' ? result.text : null);
-      });
+      resultPort.on('message', handleProviderResult);
       resultPort.start();
     });
   });

@@ -208,7 +208,14 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     }));
     expect(failureFirst.status).toBe('generation_failed');
     const callbackThenReturnViolation = await executeTranslationCandidateV2(input({
-      provider: provider(`export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(candidateText)}); return 1; }`),
+      provider: provider(`
+        import { parentPort } from 'node:worker_threads';
+        export function translate(_request, { succeedText }) {
+          succeedText(${JSON.stringify(candidateText)});
+          parentPort.postMessage({ schemaVersion: 3, type: 'ack', nonce: ${JSON.stringify('0'.repeat(64))} });
+          return 1;
+        }
+      `),
     }));
     expect(callbackThenReturnViolation).toMatchObject({ status: 'generation_failed', metrics: { recorded: false } });
   });
@@ -216,7 +223,9 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
   it('accepts only the private result port after the exact first bootstrap', async () => {
     const forgedSuccessWithoutExport = `
       import { parentPort } from 'node:worker_threads';
-      parentPort.postMessage({ schemaVersion: 3, type: 'succeed', text: ${JSON.stringify(candidateText)} });
+      parentPort.postMessage({
+        schemaVersion: 3, type: 'succeed', text: ${JSON.stringify(candidateText)}, nonce: ${JSON.stringify('0'.repeat(64))}
+      });
     `;
     await expect(executeTranslationCandidateV2(input({ provider: provider(forgedSuccessWithoutExport) }))).resolves.toMatchObject({
       status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { recorded: false },
@@ -225,8 +234,10 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     const fakeSecondBootstrap = `
       import { MessageChannel, parentPort } from 'node:worker_threads';
       const { port1, port2 } = new MessageChannel();
-      parentPort.postMessage({ schemaVersion: 3, type: 'bootstrap', port: port2 }, [port2]);
-      port1.postMessage({ schemaVersion: 3, type: 'fail' });
+      parentPort.postMessage({ schemaVersion: 3, type: 'bootstrap', port: port2, nonce: ${JSON.stringify('0'.repeat(64))} }, [port2]);
+      parentPort.postMessage({ schemaVersion: 3, type: 'ack', nonce: ${JSON.stringify('0'.repeat(64))} });
+      parentPort.postMessage({ schemaVersion: 3, type: 'succeed', text: 'forged', nonce: ${JSON.stringify('0'.repeat(64))} });
+      port1.postMessage({ schemaVersion: 3, type: 'succeed', text: 'forged', nonce: ${JSON.stringify('0'.repeat(64))} });
       export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(candidateText)}); }
     `;
     await expect(executeTranslationCandidateV2(input({ provider: provider(fakeSecondBootstrap) }))).resolves.toMatchObject({ status: 'validated' });
@@ -238,6 +249,23 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     await expect(executeTranslationCandidateV2(input({
       provider: provider('export function translate(_request, { fail }) { fail(new Error("must not cross the protocol")); }'),
     }))).resolves.toMatchObject({ status: 'generation_failed' });
+  });
+
+  it('keeps the unrefed private port out of provider active handles', async () => {
+    const activeHandleProbe = `
+      import { MessagePort } from 'node:worker_threads';
+      export function translate(_request, { succeedText, fail }) {
+        const ports = process._getActiveHandles().filter((handle) => handle instanceof MessagePort);
+        if (ports.length === 0) { succeedText(${JSON.stringify(candidateText)}); return; }
+        for (const port of ports) {
+          port.postMessage({ schemaVersion: 3, type: 'succeed', text: ${JSON.stringify(candidateText)} });
+        }
+        fail();
+      }
+    `;
+    await expect(executeTranslationCandidateV2(input({ provider: provider(activeHandleProbe) }))).resolves.toMatchObject({
+      status: 'validated', metrics: { recorded: true },
+    });
   });
 
   it('closes the private parent MessagePort before resolving an attempt', async () => {
@@ -268,6 +296,23 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     expect(burstResults.every((result) => result.status === 'validated')).toBe(true);
     expect(fastSettledAt - started).toBeLessThan(1_000);
   });
+
+  it('drains authenticated results before exit across 128 forced-exit attempts', async () => {
+    const exitAfterReturn = provider(`
+      export function translate(_request, { succeedText }) {
+        succeedText(${JSON.stringify(candidateText)});
+        setImmediate(() => process.exit(0));
+      }
+    `);
+    const results = [];
+    for (let batch = 0; batch < 4; batch += 1) {
+      results.push(...await Promise.all(Array.from({ length: 32 }, () => (
+        executeTranslationCandidateV2(input({ provider: exitAfterReturn }))
+      ))));
+    }
+    expect(results).toHaveLength(128);
+    expect(results.every((result) => result.status === 'validated')).toBe(true);
+  }, 30_000);
 
   it('passes a deeply frozen isolated request, AbortSignal and exact callbacks to the module export', async () => {
     const source = `
