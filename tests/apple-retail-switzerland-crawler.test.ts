@@ -4,6 +4,7 @@ import {
   APPLE_RETAIL_SWITZERLAND_COMPANY_NAME,
   isAppleRetailSwitzerlandJob,
   isTrustedDomain,
+  resolveAppleRetailSwitzerlandCanton,
 } from '../scripts/lib/apple-retail-switzerland-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -56,6 +57,21 @@ describe('Apple Retail Switzerland crawler parser', () => {
     it('handles invalid URLs', () => {
       expect(isTrustedDomain('')).toBe(false);
       expect(isTrustedDomain('not-a-url')).toBe(false);
+    });
+  });
+
+  // ── resolveAppleRetailSwitzerlandCanton (issue #7055) ──
+  describe('resolveAppleRetailSwitzerlandCanton', () => {
+    it('resolves a real Swiss city to its canton', () => {
+      expect(resolveAppleRetailSwitzerlandCanton('Lugano')).toBe('TI');
+    });
+
+    it('does not route a nationwide "Switzerland" posting to a canton', () => {
+      expect(resolveAppleRetailSwitzerlandCanton('Switzerland')).toBe('');
+    });
+
+    it('falls back to ZH only when a real (unresolved) city is given', () => {
+      expect(resolveAppleRetailSwitzerlandCanton('Nowhereville')).toBe('ZH');
     });
   });
 
