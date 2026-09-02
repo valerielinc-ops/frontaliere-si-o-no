@@ -5059,6 +5059,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-lavoro-canton-grigioni.title': 'Marché du travail dans les Grisons : salaires et niveaux',
     'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Guide complet de la structure des salaires, de la fiscalité et des cotisations sociales dans le canton des Grisons. Salaires, niveaux de formation et conventions collectives.',
     'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Paysage montagneux du canton des Grisons avec zones résidentielles et commerciales représentant l\'économie alpine suisse et le marché du travail.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Droit de succession et donation Bâle-Ville : taux',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Guide des droits de succession et de donation dans le canton de Bâle-Ville : taux par degré de parenté, exonérations et procédures de déclaration.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Cabinet notarial suisse avec documents de succession et calculatrice, symbole de la planification patrimoniale',
 };
 
 export default blogMetaChFr;
