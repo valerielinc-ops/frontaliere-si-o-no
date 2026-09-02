@@ -1738,6 +1738,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-argovia-guida': { it: 'permesso-l-argovia-guida', en: 'residence-permit-l-aargau-guide', de: 'aufenthaltsbewilligung-l-aargau-leitfaden', fr: 'permis-l-argovie-guide' },
  'postazione-lavoro-sovranita-digitale': { it: 'postazione-lavoro-sovranita-digitale', en: 'digital-sovereignty-workstation', de: 'digital-souveranitat-arbeitsplatz', fr: 'poste-de-travail-souverainete-numerique' },
  'avs-prestazioni-complementari-argovia': { it: 'avs-prestazioni-complementari-argovia', en: 'avs-supplementary-benefits-aargau', de: 'avs-ergaenzungsleistungen-aargau', fr: 'avs-prestations-complementaires-argovie' },
+ 'aiuti-malattie-rare-2025': { it: 'aiuti-malattie-rare-2025', en: 'aid-rare-diseases-2025', de: 'hilfe-seltene-krankheiten-2025', fr: 'aide-maladies-rares-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

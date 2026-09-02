@@ -11112,6 +11112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: border crossing between Italy and Ticino',
     'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Living in Crosio della Valle, working in Ticino: G permit, taxation, crossings and costs. Guide for border workers.',
     'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Alpine valley landscape between Ticino and Italy border',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Living in Gerenzano and working in Ticino: a guide for border workers',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Distance, crossings, G permit, taxes, AVS and LAMal: everything you need to know before moving to Gerenzano from Ticino or other border areas.',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Lugano and Lake Lugano at sunset, with Swiss Alps in the background and Italian border clearly visible',
 };
 
 export default blogMetaEn;
