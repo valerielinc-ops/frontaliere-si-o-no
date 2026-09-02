@@ -5212,6 +5212,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.impresa-appenzello-esterno-registrazione.title': 'Registrare un\'impresa ad Appenzello esterno',
     'blog.article.impresa-appenzello-esterno-registrazione.excerpt': 'Guida ai passaggi, forme giuridiche, costi di registrazione e obblighi assicurativi per chi apre un\'attività nel canton AR.',
     'blog.article.impresa-appenzello-esterno-registrazione.imageAlt': 'Edificio di un\'amministrazione cantonale svizzera con sportelli del registro di commercio',
+    'blog.article.mercato-lavoro-appenzello-esterno.title': 'Salari e mercato del lavoro in Appenzello Esterno',
+    'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Analisi completa: stipendi per livello di formazione, settori che assumono, contratti collettivi, protezioni del lavoratore e salario minimo nei cantoni svizzeri.',
+    'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Professionisti che lavorano in un ufficio moderno svizzero con vista panoramica sulla città',
 };
 
 export default blogMetaChIt;

@@ -67646,6 +67646,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-appenzello-esterno': {
+    title: 'Salari e mercato del lavoro in Appenzello Esterno',
+    description: 'Analisi completa del mercato del lavoro svizzero: stipendi per livello di formazione, settori, contratti collettivi, protezioni e salario minimo nei cantoni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, appenzello',
+    ogTitle: 'Salari e mercato del lavoro in Appenzello Esterno',
+    ogDescription: 'Scopri come variano i salari in Svizzera per formazione, settore e cantone. Guida completa su contratti collettivi, salario minimo cantonale e protezioni del lavoratore dipendente.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-appenzello-esterno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro in Appenzello Esterno",
+      "description": "Analisi completa del mercato del lavoro svizzero: stipendi per livello di formazione, settori, contratti collettivi, protezioni e salario minimo nei cantoni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-appenzello-esterno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Professionisti che lavorano in un ufficio moderno svizzero con vista panoramica sulla città"
+      },
+      "datePublished": "2026-09-02T22:40:23+00:00",
+      "dateModified": "2026-09-02T22:40:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-appenzello-esterno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

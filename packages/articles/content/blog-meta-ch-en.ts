@@ -5212,6 +5212,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.impresa-appenzello-esterno-registrazione.title': 'Registering a business in external Appenzello',
     'blog.article.impresa-appenzello-esterno-registrazione.excerpt': 'Guide to the steps, legal forms, registration costs and insurance obligations for those who open a business in canton AR.',
     'blog.article.impresa-appenzello-esterno-registrazione.imageAlt': 'Swiss cantonal government building with commercial registration office windows',
+    'blog.article.mercato-lavoro-appenzello-esterno.title': 'Wages and the labour market in Appenzello Esterno',
+    'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Comprehensive analysis: salaries by level of training, hiring sectors, collective agreements, worker protections and minimum wage in the Swiss cantons.',
+    'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Professional team working in a modern Swiss office with panoramic city views',
 };
 
 export default blogMetaChEn;
