@@ -57,7 +57,7 @@
  * Location data quality gap: the Zurich boutique's `jobLocationShort`
  * literally has the CANTON CODE ("ZH") in the city field (e.g.
  * "ZH, CHE, 8002"), not a city name — a small canton→city fallback
- * table handles the cantons actually seen (ZH, SO, BE, GE, NE).
+ * table handles the cantons actually seen (ZH, SO, BE, GE, NE, LU).
  * `postalCode`/`streetAddress` are left empty (safe default, no
  * fabrication) for locations where the source genuinely omits them
  * (e.g. the Bern boutique) except for Grenchen HQ, where the real
@@ -108,6 +108,7 @@ const CANTON_CITY_FALLBACK = {
   GE: 'Genève',
   SO: 'Grenchen',
   NE: 'La Chaux-de-Fonds',
+  LU: 'Luzern',
 };
 
 const MIN_DESCRIPTION_WORDS = 30;

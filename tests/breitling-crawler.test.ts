@@ -219,6 +219,17 @@ describe('Breitling crawler parser', () => {
       });
     });
 
+    it('resolves the canton-only Luzern form to Luzern/LU, not Solothurn HQ', () => {
+      // Luzern boutique has active postings in data/jobs/by-crawler/breitling.json;
+      // if its source ever emits the canton-only shape (as Zürich's does), the
+      // city must not silently fall back to the Grenchen HQ.
+      expect(parseLocation('LU, CHE, 6002')).toEqual({
+        city: 'Luzern',
+        canton: 'LU',
+        postalCode: '6002',
+      });
+    });
+
     it('falls back to HQ only for a genuinely empty location', () => {
       expect(parseLocation('')).toEqual({
         city: 'Grenchen',
