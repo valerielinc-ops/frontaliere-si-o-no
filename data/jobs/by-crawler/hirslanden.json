@@ -16333,12 +16333,14 @@
         "dein-wirkungsbereich-hirslanden-search-11",
         "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-orthopadie-a-80-100-hirslanden-zurich",
         "dein-wirkungsbereich-hirslanden-search",
-        "dipl-specialista-infermieristica-focus-ortopedia-a-80-100-hirslanden-klinik-zurich"
+        "dipl-specialista-infermieristica-focus-ortopedia-a-80-100-hirslanden-klinik-zurich",
+        "il-tuo-raggio-d-azione-hirslanden-klinik-search-nt2kd1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dein-wirkungsbereich-hirslanden-search-11",
-          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-orthopadie-a-80-100-hirslanden-zurich"
+          "dipl-pflegefachfrau-pflegefachmann-schwerpunkt-orthopadie-a-80-100-hirslanden-zurich",
+          "il-tuo-raggio-d-azione-hirslanden-klinik-search-nt2kd1"
         ],
         "en": [
           "dein-wirkungsbereich-hirslanden-search-11"
@@ -16351,7 +16353,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T12:22:16.916Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -16364,7 +16365,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-5fd0dd51d70a",
@@ -23589,18 +23591,27 @@
       "previousSlugsByLocale": {
         "it": [
           "assistant-e-en-soins-et-sante-communautaire-a-80-hirslanden-lausanne",
-          "80-assistente-per-la-salute-e-la-cura-della-comunita-hirslanden-klinik-lausanne"
+          "80-assistente-per-la-salute-e-la-cura-della-comunita-hirslanden-klinik-lausanne",
+          "assistente-per-la-salute-e-la-cura-della-comunita-in-csd-di-1-mese-hirslanden-klinik-lausanne",
+          "community-health-and-care-assistant-in-1-month-csd-hirslanden-klinik-lausanne",
+          "assistant-e-en-soins-et-sante-communautaire-en-cdd-de-1-mois-hirslanden-lausanne"
         ],
         "en": [
-          "assistant-e-en-soins-et-sante-communautaire-a-80-hirslanden-lausanne"
+          "assistant-e-en-soins-et-sante-communautaire-a-80-hirslanden-lausanne",
+          "community-health-and-care-assistant-in-1-month-csd-hirslanden-klinik-lausanne"
+        ],
+        "fr": [
+          "assistant-e-en-soins-et-sante-communautaire-en-cdd-de-1-mois-hirslanden-lausanne"
         ]
       },
       "previousSlugs": [
         "assistant-e-en-soins-et-sante-communautaire-a-80-hirslanden-lausanne",
-        "80-assistente-per-la-salute-e-la-cura-della-comunita-hirslanden-klinik-lausanne"
+        "80-assistente-per-la-salute-e-la-cura-della-comunita-hirslanden-klinik-lausanne",
+        "assistente-per-la-salute-e-la-cura-della-comunita-in-csd-di-1-mese-hirslanden-klinik-lausanne",
+        "community-health-and-care-assistant-in-1-month-csd-hirslanden-klinik-lausanne",
+        "assistant-e-en-soins-et-sante-communautaire-en-cdd-de-1-mois-hirslanden-lausanne"
       ],
       "firstSeenAt": "2026-06-25T11:26:56.407Z",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -23613,7 +23624,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-3f28049f1ff5",
@@ -31047,18 +31059,25 @@
           "apprendistato-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich",
           "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich",
           "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
-          "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich"
+          "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-per-august-2027-hirslanden-klinik-biel-bienne",
+          "apprenticeship-apprenticeship-as-a-specialist-health-fage-efz-a-as-of-august-2027-hirslanden-klinik-biel-bienne",
+          "lehrstelle-lehre-als-fachfrau-fachmann-gesundheit-fage-efz-a-per-august-2027-hirslanden",
+          "apprentissage-apprentissage-en-tant-que-specialiste-sante-fage-efz-a-en-date-d-aout-2027-hirslanden-klinik-biel-bienne"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
-          "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich"
+          "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich",
+          "apprenticeship-apprenticeship-as-a-specialist-health-fage-efz-a-as-of-august-2027-hirslanden-klinik-biel-bienne"
         ],
         "fr": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
-          "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich"
+          "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich",
+          "apprentissage-apprentissage-en-tant-que-specialiste-sante-fage-efz-a-en-date-d-aout-2027-hirslanden-klinik-biel-bienne"
         ],
         "de": [
-          "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich"
+          "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
+          "lehrstelle-lehre-als-fachfrau-fachmann-gesundheit-fage-efz-a-per-august-2027-hirslanden"
         ]
       },
       "previousSlugs": [
@@ -31066,7 +31085,11 @@
         "apprendistato-fachfrau-fachmann-gesundheit-fage-cfc-a-hirslanden-klinik-zurich",
         "apprenticeship-professional-health-fage-efz-a-hirslanden-klinik-zurich",
         "lehrstelle-fachfrau-fachmann-gesundheit-fage-efz-a-hirslanden-zurich",
-        "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich"
+        "sante-professionnelle-des-apprentis-fage-efz-a-hirslanden-klinik-zurich",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-a-per-august-2027-hirslanden-klinik-biel-bienne",
+        "apprenticeship-apprenticeship-as-a-specialist-health-fage-efz-a-as-of-august-2027-hirslanden-klinik-biel-bienne",
+        "lehrstelle-lehre-als-fachfrau-fachmann-gesundheit-fage-efz-a-per-august-2027-hirslanden",
+        "apprentissage-apprentissage-en-tant-que-specialiste-sante-fage-efz-a-en-date-d-aout-2027-hirslanden-klinik-biel-bienne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T13:59:57.576Z",
