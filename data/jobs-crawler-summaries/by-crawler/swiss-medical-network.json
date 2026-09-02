@@ -1,18 +1,145 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-09-01T23:14:29.221Z",
-  "total": 57,
-  "newCount": 3,
-  "updatedCount": 54,
+  "generatedAt": "2026-09-02T13:39:47.309Z",
+  "total": 61,
+  "newCount": 7,
+  "updatedCount": 52,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 43639,
-  "avgDurationMs": 43639,
+  "unchangedCount": 2,
+  "durationMs": 45723,
+  "avgDurationMs": 45723,
   "durationHistory": [
-    43639
+    45723
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146993998-assistente-di-studio-medico",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146993998-assistente-di-studio-medico?oga=true",
+      "title": "Assistente di studio medico",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Gravesano",
+      "addressLocality": "Gravesano",
+      "addressRegion": "TI",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "assistente-di-studio-medico-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Gravesano"
+      },
+      "sourceLang": "it",
+      "_qualityScore": 55,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146939320-medecin-pediatre-h-f-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146939320-medecin-pediatre-h-f-?oga=true",
+      "title": "Médecin Pédiatre (H/F)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical?oga=true",
+      "title": "Candidature spontanée - Secteur médical",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
+      "title": "Mitarbeiter/-in Bistro",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Rothrist",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "canton": "AG",
+      "country": "CH",
+      "postalCode": "4852",
+      "slug": "mitarbeiter-in-bistro-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Rothrist"
+      },
+      "sourceLang": "de",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 6,
+        "completeness": 12
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
@@ -27,7 +154,7 @@
       "postalCode": "3818",
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
-      "datePosted": "2026-09-01",
+      "datePosted": "2026-09-02",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -59,7 +186,7 @@
       "postalCode": "5734",
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
-      "datePosted": "2026-09-01",
+      "datePosted": "2026-09-02",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -91,7 +218,7 @@
       "postalCode": "4622",
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
-      "datePosted": "2026-09-01",
+      "datePosted": "2026-09-02",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -535,39 +662,6 @@
         "cleanliness": 20,
         "richness": 18,
         "translation": 6,
-        "completeness": 12
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145268119-medecin-pediatre-h-f-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145268119-medecin-pediatre-h-f-?oga=true",
-      "title": "Médecin Pédiatre (H/F)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
-      "category": "medical",
-      "datePosted": "2026-08-24",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-08-24T21:40:26.997Z",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 21,
         "completeness": 12
       }
     },
@@ -1097,8 +1191,118 @@
         "translation": 21,
         "completeness": 12
       }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142660370-infirmier-ere-instrumentiste",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000142660370-infirmier-ere-instrumentiste?oga=true",
+      "title": "Infirmier(ère) instrumentiste",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Sion",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "canton": "VS",
+      "country": "CH",
+      "postalCode": "1950",
+      "slug": "infirmier-ere-instrumentiste-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-08-24",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-08-24T21:40:26.997Z",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 12
+      }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145268119-medecin-pediatre-h-f-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145268119-medecin-pediatre-h-f-?oga=true",
+      "title": "Médecin Pédiatre (H/F)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "category": "medical",
+      "datePosted": "2026-08-24",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-08-24T21:40:26.997Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 76,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical?oga=true",
+      "title": "Candidature spontanée - Secteur médical",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-07-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-07-02T12:27:49.670Z",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    }
+  ]
 }

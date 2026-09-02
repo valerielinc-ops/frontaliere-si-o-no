@@ -1,7 +1,214 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-09-01T23:14:32.895Z",
+  "assembledAt": "2026-09-02T13:39:50.783Z",
   "jobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146993998-assistente-di-studio-medico",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146993998-assistente-di-studio-medico?oga=true",
+      "title": "Assistente di studio medico",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Gravesano",
+      "addressLocality": "Gravesano",
+      "addressRegion": "TI",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Cerchiamo una persona dinamica,&#xa0;motivata, affidabile, flessibile e con ottime capacità relazionali, da inserire nel nostro team di medicina dello sport. Percentuale lavorativa: 50%-60% a partire da subito o data da convenire.\nRequisiti e competenze:\n\n• Esecuzione di prelievi ematici e infusioni\n\n• Esecuzione e gestione di ECG\n\n• Gestione e analisi degli esami di laboratorio\n\n• Accoglienza e assistenza dei pazienti\n\n• Gestione del segretariato medico e delle attività amministrative\n\n• Gestione degli appuntamenti e dell’agenda del medico\n\n• Preparazione e gestione della documentazione dei pazienti\n\n• Garantire un servizio professionale, attento e orientato alle esigenze del paziente\n\nRequisiti essenziali:\n\n• Diploma di Assistente di Studio Medico (AFC)\n\n• Cittadinanza svizzera o permesso C\n\n• Età preferenziale compresa tra i 25&#xa0;e i 40 anni\n\n• Lingua madre italiana\n\n• Multitasking\n\nOffriamo:\n\n• Ambiente di lavoro stimolante e multisciplinare\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport.",
+      "descriptionByLocale": {
+        "en": "Cerchiamo una persona dinamica,&#xa0;motivata, affidabile, flessibile e con ottime capacità relazionali, da inserire nel nostro team di medicina dello sport. Percentuale lavorativa: 50%-60% a partire da subito o data da convenire.\nRequisiti e competenze:\n\n• Esecuzione di prelievi ematici e infusioni\n\n• Esecuzione e gestione di ECG\n\n• Gestione e analisi degli esami di laboratorio\n\n• Accoglienza e assistenza dei pazienti\n\n• Gestione del segretariato medico e delle attività amministrative\n\n• Gestione degli appuntamenti e dell’agenda del medico\n\n• Preparazione e gestione della documentazione dei pazienti\n\n• Garantire un servizio professionale, attento e orientato alle esigenze del paziente\n\nRequisiti essenziali:\n\n• Diploma di Assistente di Studio Medico (AFC)\n\n• Cittadinanza svizzera o permesso C\n\n• Età preferenziale compresa tra i 25&#xa0;e i 40 anni\n\n• Lingua madre italiana\n\n• Multitasking\n\nOffriamo:\n\n• Ambiente di lavoro stimolante e multisciplinare\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport.",
+        "it": "Cerchiamo una persona dinamica,&#xa0;motivata, affidabile, flessibile e con ottime capacità relazionali, da inserire nel nostro team di medicina dello sport. Percentuale lavorativa: 50%-60% a partire da subito o data da convenire.\nRequisiti e competenze:\n\n• Esecuzione di prelievi ematici e infusioni\n\n• Esecuzione e gestione di ECG\n\n• Gestione e analisi degli esami di laboratorio\n\n• Accoglienza e assistenza dei pazienti\n\n• Gestione del segretariato medico e delle attività amministrative\n\n• Gestione degli appuntamenti e dell’agenda del medico\n\n• Preparazione e gestione della documentazione dei pazienti\n\n• Garantire un servizio professionale, attento e orientato alle esigenze del paziente\n\nRequisiti essenziali:\n\n• Diploma di Assistente di Studio Medico (AFC)\n\n• Cittadinanza svizzera o permesso C\n\n• Età preferenziale compresa tra i 25&#xa0;e i 40 anni\n\n• Lingua madre italiana\n\n• Multitasking\n\nOffriamo:\n\n• Ambiente di lavoro stimolante e multisciplinare\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport."
+      },
+      "titleByLocale": {
+        "en": "Assistente di studio medico"
+      },
+      "slug": "assistente-di-studio-medico-swiss-medical-network",
+      "slugByLocale": {
+        "en": "assistente-di-studio-medico-swiss-medical-network",
+        "it": "assistente-di-studio-medico-swiss-medical-network"
+      },
+      "category": "medical",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Gravesano"
+      },
+      "sourceLang": "it",
+      "salaryMin": 70500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70500,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:39:47.286Z"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146939320-medecin-pediatre-h-f-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146939320-medecin-pediatre-h-f-?oga=true",
+      "title": "Médecin Pédiatre (H/F)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "description": "• Assurer des consultations pédiatriques afin de suivre la santé des nourrissons, enfants et adolescents, en veillant à leur croissance et leur développement.\n\n• Réaliser le diagnostic et la prise en charge des pathologies courantes et complexes en pédiatrie, en adoptant une approche personnalisée et bienveillante.\n\n• Informer les parents et les accompagner dans la compréhension et la gestion des pathologies infantiles, en favorisant une approche éducative et rassurante.\n\n• Développer des actions de prévention et de vaccination selon les recommandations en vigueur, et participer aux campagnes de sensibilisation en santé infantile.\n\n• Collaborer avec d’autres spécialistes (néonatalogie, cardiologie pédiatrique, neurologie pédiatrique, etc.) afin de garantir une prise en charge pluridisciplinaire adaptée aux besoins des patients.\n\n• Mettre à jour les dossiers médicaux et assurer un suivi rigoureux pour garantir une continuité des soins optimale.\n\n• Encadrer et transmettre son expertise aux jeunes médecins et aux équipes soignantes dans une démarche de formation continue.\n\n• Diplôme de Médecin avec spécialisation en Pédiatrie, reconnu en Suisse ou éligible à l’équivalence.\n\n• Inscription ou reconnaissance MEBEKO en Suisse ou en cours de procédure.\n\n• Expérience avérée en pédiatrie générale et capacité à gérer une diversité de pathologies infantiles.\n\n• Sens aigu du relationnel et aptitude à travailler avec les enfants et leurs familles.\n\n• Compétences dans la gestion des situations d’urgence pédiatrique.\n\n• Capacité à travailler en équipe et à collaborer avec différents acteurs du parcours de soins.\n\nNous offrons une activité variée et stimulante au sein d’un établissement dynamique en constante évolution. Nos collaborateurs bénéficient d’un encadrement professionnel de qualité ainsi que de réelles perspectives de développement de carrière et de très bonnes conditions de rémunération.\nGrâce à une équipe pluridisciplinaire hautement qualifiée et à un plateau technique de pointe, nous garantissons un environnement de travail propice à l’excellence. De plus, nous accordons une grande importance à la formation continue afin de permettre à chacun de développer ses compétences et d’évoluer professionnellement.\nNous attachons une attention particulière à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts aussi bien aux femmes qu’aux hommes, dans un esprit d’inclusion et d’égalité des chances.\nNotre établissement promeut la diversité et l’équité, en encourageant les candidatures de professionnels issus de tous horizons souhaitant s’investir dans un cadre médical exigeant et innovant.\nEntrée en fonction&#xa0;: De suite ou à convenir\nLieu(x) de travail&#xa0;: &#xa0;St-Imier\n&#xa0;\n\nÉtablissement de proximité solidement ancré dans sa région, Le Réseau de l’Arc offre une prise en charge complète des patients.\nIl comprend deux sites hospitaliers situés à Moutier et à Saint-Imier et plusieurs Médicentres situés au Jura et Grand Chasseral. Son offre de soins est complétée par un réseau d’ambulances, deux EMS, deux instituts de radiologie, un centre de thérapies physiques et cognitives, ainsi qu’un service d’hospitalisation à domicile.\nGrâce à son expertise multidisciplinaire au service des patients, le Réseau de l’Arc propose des prestations médicales à haute valeur ajoutée. Avec près de 1 300 collaborateurs, il répond aux besoins médicaux et hospitaliers d’une population d’environ 80 000 habitants.\nDans le cadre du projet VIVA, le Réseau de l’Arc est devenu la première organisation de soins entièrement intégrée de Suisse à proposer un plan d’assurance santé. Le plan de santé VIVA est accessible aux habitants de l’Arc jurassien, garantissant une prise en charge optimale et coordonnée.\nAfin de renforcer son unité de pédiatrie, nous recherchons le spécialise suivant&#xa0;:",
+      "descriptionByLocale": {
+        "en": "• Assurer des consultations pédiatriques afin de suivre la santé des nourrissons, enfants et adolescents, en veillant à leur croissance et leur développement.\n\n• Réaliser le diagnostic et la prise en charge des pathologies courantes et complexes en pédiatrie, en adoptant une approche personnalisée et bienveillante.\n\n• Informer les parents et les accompagner dans la compréhension et la gestion des pathologies infantiles, en favorisant une approche éducative et rassurante.\n\n• Développer des actions de prévention et de vaccination selon les recommandations en vigueur, et participer aux campagnes de sensibilisation en santé infantile.\n\n• Collaborer avec d’autres spécialistes (néonatalogie, cardiologie pédiatrique, neurologie pédiatrique, etc.) afin de garantir une prise en charge pluridisciplinaire adaptée aux besoins des patients.\n\n• Mettre à jour les dossiers médicaux et assurer un suivi rigoureux pour garantir une continuité des soins optimale.\n\n• Encadrer et transmettre son expertise aux jeunes médecins et aux équipes soignantes dans une démarche de formation continue.\n\n• Diplôme de Médecin avec spécialisation en Pédiatrie, reconnu en Suisse ou éligible à l’équivalence.\n\n• Inscription ou reconnaissance MEBEKO en Suisse ou en cours de procédure.\n\n• Expérience avérée en pédiatrie générale et capacité à gérer une diversité de pathologies infantiles.\n\n• Sens aigu du relationnel et aptitude à travailler avec les enfants et leurs familles.\n\n• Compétences dans la gestion des situations d’urgence pédiatrique.\n\n• Capacité à travailler en équipe et à collaborer avec différents acteurs du parcours de soins.\n\nNous offrons une activité variée et stimulante au sein d’un établissement dynamique en constante évolution. Nos collaborateurs bénéficient d’un encadrement professionnel de qualité ainsi que de réelles perspectives de développement de carrière et de très bonnes conditions de rémunération.\nGrâce à une équipe pluridisciplinaire hautement qualifiée et à un plateau technique de pointe, nous garantissons un environnement de travail propice à l’excellence. De plus, nous accordons une grande importance à la formation continue afin de permettre à chacun de développer ses compétences et d’évoluer professionnellement.\nNous attachons une attention particulière à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts aussi bien aux femmes qu’aux hommes, dans un esprit d’inclusion et d’égalité des chances.\nNotre établissement promeut la diversité et l’équité, en encourageant les candidatures de professionnels issus de tous horizons souhaitant s’investir dans un cadre médical exigeant et innovant.\nEntrée en fonction&#xa0;: De suite ou à convenir\nLieu(x) de travail&#xa0;: &#xa0;St-Imier\n&#xa0;\n\nÉtablissement de proximité solidement ancré dans sa région, Le Réseau de l’Arc offre une prise en charge complète des patients.\nIl comprend deux sites hospitaliers situés à Moutier et à Saint-Imier et plusieurs Médicentres situés au Jura et Grand Chasseral. Son offre de soins est complétée par un réseau d’ambulances, deux EMS, deux instituts de radiologie, un centre de thérapies physiques et cognitives, ainsi qu’un service d’hospitalisation à domicile.\nGrâce à son expertise multidisciplinaire au service des patients, le Réseau de l’Arc propose des prestations médicales à haute valeur ajoutée. Avec près de 1 300 collaborateurs, il répond aux besoins médicaux et hospitaliers d’une population d’environ 80 000 habitants.\nDans le cadre du projet VIVA, le Réseau de l’Arc est devenu la première organisation de soins entièrement intégrée de Suisse à proposer un plan d’assurance santé. Le plan de santé VIVA est accessible aux habitants de l’Arc jurassien, garantissant une prise en charge optimale et coordonnée.\nAfin de renforcer son unité de pédiatrie, nous recherchons le spécialise suivant&#xa0;:",
+        "it": "• Assurer des consultations pédiatriques afin de suivre la santé des nourrissons, enfants et adolescents, en veillant à leur croissance et leur développement.\n\n• Réaliser le diagnostic et la prise en charge des pathologies courantes et complexes en pédiatrie, en adoptant une approche personnalisée et bienveillante.\n\n• Informer les parents et les accompagner dans la compréhension et la gestion des pathologies infantiles, en favorisant une approche éducative et rassurante.\n\n• Développer des actions de prévention et de vaccination selon les recommandations en vigueur, et participer aux campagnes de sensibilisation en santé infantile.\n\n• Collaborer avec d’autres spécialistes (néonatalogie, cardiologie pédiatrique, neurologie pédiatrique, etc.) afin de garantir une prise en charge pluridisciplinaire adaptée aux besoins des patients.\n\n• Mettre à jour les dossiers médicaux et assurer un suivi rigoureux pour garantir une continuité des soins optimale.\n\n• Encadrer et transmettre son expertise aux jeunes médecins et aux équipes soignantes dans une démarche de formation continue.\n\n• Diplôme de Médecin avec spécialisation en Pédiatrie, reconnu en Suisse ou éligible à l’équivalence.\n\n• Inscription ou reconnaissance MEBEKO en Suisse ou en cours de procédure.\n\n• Expérience avérée en pédiatrie générale et capacité à gérer une diversité de pathologies infantiles.\n\n• Sens aigu du relationnel et aptitude à travailler avec les enfants et leurs familles.\n\n• Compétences dans la gestion des situations d’urgence pédiatrique.\n\n• Capacité à travailler en équipe et à collaborer avec différents acteurs du parcours de soins.\n\nNous offrons une activité variée et stimulante au sein d’un établissement dynamique en constante évolution. Nos collaborateurs bénéficient d’un encadrement professionnel de qualité ainsi que de réelles perspectives de développement de carrière et de très bonnes conditions de rémunération.\nGrâce à une équipe pluridisciplinaire hautement qualifiée et à un plateau technique de pointe, nous garantissons un environnement de travail propice à l’excellence. De plus, nous accordons une grande importance à la formation continue afin de permettre à chacun de développer ses compétences et d’évoluer professionnellement.\nNous attachons une attention particulière à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts aussi bien aux femmes qu’aux hommes, dans un esprit d’inclusion et d’égalité des chances.\nNotre établissement promeut la diversité et l’équité, en encourageant les candidatures de professionnels issus de tous horizons souhaitant s’investir dans un cadre médical exigeant et innovant.\nEntrée en fonction&#xa0;: De suite ou à convenir\nLieu(x) de travail&#xa0;: &#xa0;St-Imier\n&#xa0;\n\nÉtablissement de proximité solidement ancré dans sa région, Le Réseau de l’Arc offre une prise en charge complète des patients.\nIl comprend deux sites hospitaliers situés à Moutier et à Saint-Imier et plusieurs Médicentres situés au Jura et Grand Chasseral. Son offre de soins est complétée par un réseau d’ambulances, deux EMS, deux instituts de radiologie, un centre de thérapies physiques et cognitives, ainsi qu’un service d’hospitalisation à domicile.\nGrâce à son expertise multidisciplinaire au service des patients, le Réseau de l’Arc propose des prestations médicales à haute valeur ajoutée. Avec près de 1 300 collaborateurs, il répond aux besoins médicaux et hospitaliers d’une population d’environ 80 000 habitants.\nDans le cadre du projet VIVA, le Réseau de l’Arc est devenu la première organisation de soins entièrement intégrée de Suisse à proposer un plan d’assurance santé. Le plan de santé VIVA est accessible aux habitants de l’Arc jurassien, garantissant une prise en charge optimale et coordonnée.\nAfin de renforcer son unité de pédiatrie, nous recherchons le spécialise suivant&#xa0;:"
+      },
+      "titleByLocale": {
+        "en": "Médecin Pédiatre (H/F)"
+      },
+      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "slugByLocale": {
+        "en": "medecin-pediatre-h-f-swiss-medical-network",
+        "it": "medecin-pediatre-h-f-swiss-medical-network"
+      },
+      "category": "medical",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:39:47.286Z"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical?oga=true",
+      "title": "Candidature spontanée - Secteur médical",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "description": "Postulez dès maintenant chez nous et rejoignez notre équipe inspirante ! Nous ne vous offrons pas seulement un emploi, mais une carrière passionnante avec des perspectives et des possibilités de développement.\nChez nous, l'épanouissement individuel et le développement personnel de nos collaborateurs sont au cœur de nos préoccupations. Nous vous proposons des défis passionnants qui vous permettront de vous dépasser et de développer vos compétences. Ensemble, nous façonnons votre avenir et celui du secteur de la santé\n\n• Formations continues internes et externes régulières\n\n• Possibilité de se garer dans notre propre parking\n\n• 5 semaines de vacances\n\n• Réductions spéciales du groupe Swiss Medical Network\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Possibilité d’effectuer de la recherche en collaboration avec l’Unité d’Epidémiologie Clinique\n\nPremier réseau de soins intégrés de Suisse, le Réseau de l’Arc est un acteur de référence de la prise en charge coordonnée et de proximité, dans les domaines somatique et de santé mentale. Comptant près de 1’300 collaborateurs, il s’appuie sur 2 sites hospitaliers à Moutier et à Saint-Imier ainsi qu’un réseau de Medicentres, d’ambulance, d’EMS, de radiologie, un centre de thérapies physiques et cognitives et un service d’hospitalisation à domicile.\nLe Réseau de l’Arc couvre les besoins médicaux-hospitaliers d’une population de près de 80’000 habitants et se caractérisent par son dynamisme, d’excellentes infrastructures et un souci constant de développer des prestations de proximité et de qualité.",
+      "descriptionByLocale": {
+        "en": "Postulez dès maintenant chez nous et rejoignez notre équipe inspirante ! Nous ne vous offrons pas seulement un emploi, mais une carrière passionnante avec des perspectives et des possibilités de développement.\nChez nous, l'épanouissement individuel et le développement personnel de nos collaborateurs sont au cœur de nos préoccupations. Nous vous proposons des défis passionnants qui vous permettront de vous dépasser et de développer vos compétences. Ensemble, nous façonnons votre avenir et celui du secteur de la santé\n\n• Formations continues internes et externes régulières\n\n• Possibilité de se garer dans notre propre parking\n\n• 5 semaines de vacances\n\n• Réductions spéciales du groupe Swiss Medical Network\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Possibilité d’effectuer de la recherche en collaboration avec l’Unité d’Epidémiologie Clinique\n\nPremier réseau de soins intégrés de Suisse, le Réseau de l’Arc est un acteur de référence de la prise en charge coordonnée et de proximité, dans les domaines somatique et de santé mentale. Comptant près de 1’300 collaborateurs, il s’appuie sur 2 sites hospitaliers à Moutier et à Saint-Imier ainsi qu’un réseau de Medicentres, d’ambulance, d’EMS, de radiologie, un centre de thérapies physiques et cognitives et un service d’hospitalisation à domicile.\nLe Réseau de l’Arc couvre les besoins médicaux-hospitaliers d’une population de près de 80’000 habitants et se caractérisent par son dynamisme, d’excellentes infrastructures et un souci constant de développer des prestations de proximité et de qualité.",
+        "it": "Postulez dès maintenant chez nous et rejoignez notre équipe inspirante ! Nous ne vous offrons pas seulement un emploi, mais une carrière passionnante avec des perspectives et des possibilités de développement.\nChez nous, l'épanouissement individuel et le développement personnel de nos collaborateurs sont au cœur de nos préoccupations. Nous vous proposons des défis passionnants qui vous permettront de vous dépasser et de développer vos compétences. Ensemble, nous façonnons votre avenir et celui du secteur de la santé\n\n• Formations continues internes et externes régulières\n\n• Possibilité de se garer dans notre propre parking\n\n• 5 semaines de vacances\n\n• Réductions spéciales du groupe Swiss Medical Network\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Possibilité d’effectuer de la recherche en collaboration avec l’Unité d’Epidémiologie Clinique\n\nPremier réseau de soins intégrés de Suisse, le Réseau de l’Arc est un acteur de référence de la prise en charge coordonnée et de proximité, dans les domaines somatique et de santé mentale. Comptant près de 1’300 collaborateurs, il s’appuie sur 2 sites hospitaliers à Moutier et à Saint-Imier ainsi qu’un réseau de Medicentres, d’ambulance, d’EMS, de radiologie, un centre de thérapies physiques et cognitives et un service d’hospitalisation à domicile.\nLe Réseau de l’Arc couvre les besoins médicaux-hospitaliers d’une population de près de 80’000 habitants et se caractérisent par son dynamisme, d’excellentes infrastructures et un souci constant de développer des prestations de proximité et de qualité."
+      },
+      "titleByLocale": {
+        "en": "Candidature spontanée - Secteur médical"
+      },
+      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "slugByLocale": {
+        "en": "candidature-spontanee-secteur-medical-swiss-medical-network",
+        "it": "candidature-spontanee-secteur-medical-swiss-medical-network"
+      },
+      "category": "healthcare",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:39:47.286Z"
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
+      "title": "Mitarbeiter/-in Bistro",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Rothrist",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "canton": "AG",
+      "country": "CH",
+      "postalCode": "4852",
+      "description": "• Die Anstellung ist vorläufig bis Ende März 2027 befristet\n\n• Freundliche und professionelle Bedienung der Gäste im Bistro sowie Funktion als Anlaufstelle für interne und externe Anspruchsgruppen\n\n• Sicherstellung eines ordnungsgemässen und reibungslosen Bistrobetriebs inklusive Bewirtschaftung der Vitrine, Auffüllen von Materialien, Bedienung der Abwaschmaschine sowie Sauberhalten der gesamten Infrastruktur\n\n• Verantwortung für die korrekte Kassenbewirtschaftung und -abrechnung mit dem Kassensystem iKentoo\n\n• Administrative Unterstützung der Küchenleitung im Tagesgeschäft\n\n• Bewirtschaftung des Personalraums in Zusammenarbeit mit dem Hilfspersonal der Küche\n\n• Unterstützung des Küchenteams beim Mittagsservice\n\n• Veranstaltungen und weitere Einsätze\n\n• Mithilfe bei der Planung, Organisation und Durchführung von internen Veranstaltungen\n\n&#xa0;\n\n• Erfahrung im Service und/oder Gastronomie oder Event-Bereich\n\n• PC-Anwenderkenntnisse\n\n• Administrative Kenntnisse\n\n• Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Freundliche, kunden- und dienstleistungsorientierte Persönlichkeit\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'300 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen.",
+      "descriptionByLocale": {
+        "en": "• Die Anstellung ist vorläufig bis Ende März 2027 befristet\n\n• Freundliche und professionelle Bedienung der Gäste im Bistro sowie Funktion als Anlaufstelle für interne und externe Anspruchsgruppen\n\n• Sicherstellung eines ordnungsgemässen und reibungslosen Bistrobetriebs inklusive Bewirtschaftung der Vitrine, Auffüllen von Materialien, Bedienung der Abwaschmaschine sowie Sauberhalten der gesamten Infrastruktur\n\n• Verantwortung für die korrekte Kassenbewirtschaftung und -abrechnung mit dem Kassensystem iKentoo\n\n• Administrative Unterstützung der Küchenleitung im Tagesgeschäft\n\n• Bewirtschaftung des Personalraums in Zusammenarbeit mit dem Hilfspersonal der Küche\n\n• Unterstützung des Küchenteams beim Mittagsservice\n\n• Veranstaltungen und weitere Einsätze\n\n• Mithilfe bei der Planung, Organisation und Durchführung von internen Veranstaltungen\n\n&#xa0;\n\n• Erfahrung im Service und/oder Gastronomie oder Event-Bereich\n\n• PC-Anwenderkenntnisse\n\n• Administrative Kenntnisse\n\n• Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Freundliche, kunden- und dienstleistungsorientierte Persönlichkeit\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'300 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen.",
+        "it": "• Die Anstellung ist vorläufig bis Ende März 2027 befristet\n\n• Freundliche und professionelle Bedienung der Gäste im Bistro sowie Funktion als Anlaufstelle für interne und externe Anspruchsgruppen\n\n• Sicherstellung eines ordnungsgemässen und reibungslosen Bistrobetriebs inklusive Bewirtschaftung der Vitrine, Auffüllen von Materialien, Bedienung der Abwaschmaschine sowie Sauberhalten der gesamten Infrastruktur\n\n• Verantwortung für die korrekte Kassenbewirtschaftung und -abrechnung mit dem Kassensystem iKentoo\n\n• Administrative Unterstützung der Küchenleitung im Tagesgeschäft\n\n• Bewirtschaftung des Personalraums in Zusammenarbeit mit dem Hilfspersonal der Küche\n\n• Unterstützung des Küchenteams beim Mittagsservice\n\n• Veranstaltungen und weitere Einsätze\n\n• Mithilfe bei der Planung, Organisation und Durchführung von internen Veranstaltungen\n\n&#xa0;\n\n• Erfahrung im Service und/oder Gastronomie oder Event-Bereich\n\n• PC-Anwenderkenntnisse\n\n• Administrative Kenntnisse\n\n• Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Freundliche, kunden- und dienstleistungsorientierte Persönlichkeit\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'300 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen."
+      },
+      "titleByLocale": {
+        "en": "Mitarbeiter/-in Bistro"
+      },
+      "slug": "mitarbeiter-in-bistro-swiss-medical-network",
+      "slugByLocale": {
+        "en": "mitarbeiter-in-bistro-swiss-medical-network",
+        "it": "mitarbeiter-in-bistro-swiss-medical-network"
+      },
+      "category": "healthcare",
+      "datePosted": "2026-09-02",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Rothrist"
+      },
+      "sourceLang": "de",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:39:47.286Z"
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146637229-facharzt-in-fur-allgemeine-innere-medizin?oga=true",
@@ -381,72 +588,41 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
       "title": "Fachärzt/-in Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Wengen",
-      "addressLocality": "Wengen",
+      "location": "Grindelwald",
+      "addressLocality": "Grindelwald",
       "addressRegion": "BE",
       "canton": "BE",
       "country": "CH",
-      "postalCode": "3823",
-      "description": "Das Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin\nDie Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen\nIhre Aufgaben:\nHausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin\nNotfallmedizin, Notfalldienst: Teilnahme am lokalen ärztlichen Notfalldienst, Behandlung von Notfallpatienten in der Praxis sowie vor Ort in enger Zusammenarbeit mit der Boden- und Luftrettung\nAltersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim in Lauterbrunnen\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nSanitätsdienst bei Grossveranstaltungen: Mitwirkung bei Organisation und Durchführung von sanitätsdienstlichen Einsätzen (Internationale Lauberhornrennen und andere Grossanlässe)\n\nWas Sie mitbringen:\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Interesse und idealerweise Erfahrung in der Notfallmedizin\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit voll-digitalem Röntgen, Labor, Ultraschall, Praxis-Apotheke, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Enge Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei der Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\n\nFür Fragen stehen Ihnen unser Leitender Arzt Dr. med. Markus Sinsel gerne telefonisch unter 033 856 28 28\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Wengen, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt\nUnser motiviertes und erfahrenes Team gewährleistet neben der allgemeinmedizinischen Grundversorgung auch den regionalen Notarztdienst sowie die Begleitung chronisch Kranker und älterer Menschen im Altersheim.\nWir suchen ab Juni 2026&#xa0;(oder nach Vereinbarung) eine/n Fachärztin/Facharzt für Allgemeine Innere Medizin (80–100%)",
+      "postalCode": "3818",
+      "description": "Hausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin Altersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim Grindelwald\nInterdisziplinäre Zusammenarbeit: enge fachliche Zusammenarbeit mit einer Advanced Practice Nurse und mit der Spitex\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nNotfalldienst: Behandlung von Notfällen in der Praxis in Zusammenarbeit mit dem Rettungsdienst/Rega\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Interesse an Sportmedizin und Traumatologie\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\nIhr Weg zu uns\n\nBitte senden Sie Ihre vollständigen Bewerbungsunterlagen über unseren Internet-Link\nFür Fragen steht&#xa0;Ihnen unsere Leitende Aerztin Dr. med. Pascale Meyer-Perret gerne telefonisch unter 033 854 54 40 zur Verfügung\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Grindelwald, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt.\n\nUnser motiviertes und erfahrenes Team gewährleistet die allgemeinmedizinische Grundversorgung, beteiligt sich am regionalen Notfalldienst und fokussiert ebenfalls auf die Begleitung chronisch kranker und älterer Menschen zu Hause und im Altersheim.\nZur Ergänzung des ärztlichen Teams suchen wir per sofort oder nach Vereinbarung eine/n:\nFachärzt/in Allgemeine Innere Medizin 80-100%\nDas Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin. Die Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen",
       "descriptionByLocale": {
-        "it": "Il profilo di lavoro combina la pratica familiare con un'area versatile di responsabilità nella medicina di emergenza\nSu richiesta, l'occupazione può anche essere temporanea per la stagione invernale\nI loro compiti:\nCura primaria: Cura completa per i pazienti di tutte le età in tutte le aree della medicina generale\nMedicina di emergenza, servizio di emergenza: partecipazione al servizio di emergenza medica locale, trattamento di pazienti di emergenza nella pratica e in loco in stretta collaborazione con il soccorso aereo e terra\nCasa degli anziani: assistenza medica continua per i pazienti locali nella casa dei vecchi a Lauterbrunnen\nFormazione: Partecipazione attiva alla formazione di medici assistenti, studenti medici e altri professionisti medici\nServizio medico a grandi eventi: partecipazione all'organizzazione e attuazione delle missioni mediche (International Lauberhorn Races e altri eventi importanti)\n\nCosa porti:\n\n• Specialista in Medicina Interna Generale FMH o equivalente diploma riconosciuto a livello federale\n\n• Interesse e esperienza ideale nella medicina di emergenza\n\n• Impegno al lavoro concentrato sul paziente, interdisciplinare e orientato al team\n\n• personalità responsabile, resiliente e flessibile\n\n• conoscenza del tedesco; Altre lingue straniere sono utili\n\n• Gioia di vivere e lavorare in una regione di montagna attraente\n\nCosa offriamo:\n\n• Eccitante e variegata attività con contatto diretto del paziente\n\n• Infrastruttura pratica moderna con raggi X completamente digitali, laboratorio, ecografia, farmacia pratica, ECG e altro ancora\n\n• Condizioni di lavoro attraenti con benefici progressivi e vantaggi frangia\n\n• Chiudere la rete con ospedali e specialisti regionali\n\n• Diverse opportunità di formazione e sviluppo\n\n• Assistenza nella ricerca di alloggi e integrazione sul sito\n\n• team interprofessionale caldo e esperto\n\n• Lavorare e vivere in un paesaggio di montagna onirico\n\nPer domande, il nostro medico principale Dr. Med. Markus Sinsel si prega di chiamare 033 856 28 28\n\nXundheitszentrum è un partner competente e affidabile per la vostra salute e fa parte di una rete di pratiche familiari stabilite in tutta la Svizzera sotto gli auspici della Swiss Medical Network AG.\nA Wengen, nel bel mezzo della splendida Oberland Bernese, offriamo cure mediche complete nel nostro Xundheitzentrum per pazienti di tutte le età e da tutto il mondo.\nOltre all'assistenza medica generale, il nostro team motivato ed esperto assicura anche il servizio medico di emergenza regionale, nonché il supporto di persone cronicamente ammalate e anziani nella casa di riposo.\nStiamo cercando uno specialista in medicina interna generale (80-100%) dal giugno 2026 (o su appuntamento)",
-        "en": "The job profile combines family practice with a versatile area of responsibility in emergency medicine\nOn request, employment can also be temporary for the winter season\nTheir tasks:\nPrimary care: Comprehensive care for patients of all age groups in all areas of general medicine\nEmergency medicine, emergency service: participation in the local medical emergency service, treatment of emergency patients in the practice and on site in close cooperation with ground and air rescue\nOlder people’s home: Continuous medical care for local patients in the old people’s home in Lauterbrunnen\nTraining: Active participation in the training of assistant doctors, medical students and other medical professionals\nMedical service at major events: participation in the organisation and implementation of medical missions (International Lauberhorn Races and other major events)\n\nWhat you bring:\n\n• Specialist for General Internal Medicine FMH or equivalent federally recognised diploma\n\n• Interest and ideally experience in emergency medicine\n\n• Commitment to patient-centred, interdisciplinary and team-oriented work\n\n• Responsible, resilient and flexible personality\n\n• knowledge of German; Other foreign languages are beneficial\n\n• Joy of living and working in an attractive mountain region\n\nWhat we offer:\n\n• Exciting and varied activity with direct patient contact\n\n• Modern practice infrastructure with fully digital X-ray, laboratory, ultrasound, practice pharmacy, ECG and more\n\n• Attractive employment conditions with progressive benefits and fringe benefits\n\n• Close networking with regional hospitals and specialists\n\n• Diverse training and development opportunities\n\n• Assistance in housing search and integration on site\n\n• Warm and experienced interprofessional team\n\n• Working and living in a dreamlike mountain landscape\n\nFor questions, our lead physician Dr. med. Markus Sinsel please call 033 856 28 28\n\nXundheitszentrum is a competent and reliable partner for your health and is part of a network of family practices established throughout Switzerland under the auspices of Swiss Medical Network AG.\nIn Wengen, in the middle of the beautiful Bernese Oberland, we offer comprehensive medical care in our Xundheitzentrum for patients of all ages and from all over the world.\nIn addition to general medical care, our motivated and experienced team also ensures the regional emergency medical service as well as the support of chronically ill and elderly people in the retirement home.\nWe are looking for a specialist in general internal medicine (80–100%) from June 2026 (or by appointment)",
-        "fr": "Le profil d'emploi combine la pratique familiale avec un domaine de responsabilité polyvalent en médecine d'urgence\nSur demande, l'emploi peut également être temporaire pour la saison hivernale\nLeurs tâches:\nSoins primaires: soins complets pour les patients de tous les groupes d'âge dans tous les domaines de la médecine générale\nMédecine d'urgence, service d'urgence: participation au service d'urgence médical local, traitement des patients d'urgence dans la pratique et sur place en étroite coopération avec le sauvetage terrestre et aérien\nMaison des personnes âgées: Soins médicaux continus pour les patients locaux chez les personnes âgées à Lauterbrunnen\nFormation: Participation active à la formation des médecins adjoints, étudiants en médecine et autres professionnels de la santé\nService médical lors d'événements majeurs: participation à l'organisation et à la mise en œuvre de missions médicales (courses internationales de Lauberhorn et autres événements majeurs)\n\nCe que vous apportez:\n\n• Spécialiste en médecine interne générale FMH ou diplôme équivalent reconnu par le gouvernement fédéral\n\n• Intérêt et expérience idéale en médecine d'urgence\n\n• Engagement envers le travail axé sur le patient, interdisciplinaire et axé sur l'équipe\n\n• Personnalité responsable, résistante et flexible\n\n• connaissance de l'allemand; les autres langues étrangères sont bénéfiques\n\n• Joy de vivre et de travailler dans une région montagneuse attractive\n\nCe que nous offrons:\n\n• Activité passionnante et variée avec contact direct avec le patient\n\n• Infrastructure de pratique moderne avec radiographie entièrement numérique, laboratoire, échographie, pharmacie de pratique, ECG et plus\n\n• Conditions d'emploi attrayantes avec avantages progressifs et avantages sociaux\n\n• Établissement de liens étroits avec les hôpitaux et les spécialistes régionaux\n\n• Différentes possibilités de formation et de perfectionnement\n\n• Aide à la recherche et à l'intégration de logements sur place\n\n• Équipe interprofessionnelle chaude et expérimentée\n\n• Travailler et vivre dans un paysage montagneux de rêve\n\nPour des questions, notre médecin principal Dr. med. Markus Sinsel s'il vous plaît appeler 033 856 28 28\n\nXundheitszentrum est un partenaire compétent et fiable pour votre santé et fait partie d'un réseau de pratiques familiales établi dans toute la Suisse sous les auspices de Swiss Medical Network AG.\nÀ Wengen, au milieu du magnifique Oberland bernois, nous offrons des soins médicaux complets dans notre Xundheitzentrum pour les patients de tous âges et du monde entier.\nEn plus des soins médicaux généraux, notre équipe motivée et expérimentée assure également le service médical d'urgence régional ainsi que le soutien des malades chroniques et des personnes âgées dans la maison de retraite.\nNous recherchons un spécialiste en médecine interne générale (80–100%) à partir de juin 2026 (ou sur rendez-vous)"
+        "en": "Hausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin Altersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim Grindelwald\nInterdisziplinäre Zusammenarbeit: enge fachliche Zusammenarbeit mit einer Advanced Practice Nurse und mit der Spitex\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nNotfalldienst: Behandlung von Notfällen in der Praxis in Zusammenarbeit mit dem Rettungsdienst/Rega\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Interesse an Sportmedizin und Traumatologie\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\nIhr Weg zu uns\n\nBitte senden Sie Ihre vollständigen Bewerbungsunterlagen über unseren Internet-Link\nFür Fragen steht&#xa0;Ihnen unsere Leitende Aerztin Dr. med. Pascale Meyer-Perret gerne telefonisch unter 033 854 54 40 zur Verfügung\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Grindelwald, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt.\n\nUnser motiviertes und erfahrenes Team gewährleistet die allgemeinmedizinische Grundversorgung, beteiligt sich am regionalen Notfalldienst und fokussiert ebenfalls auf die Begleitung chronisch kranker und älterer Menschen zu Hause und im Altersheim.\nZur Ergänzung des ärztlichen Teams suchen wir per sofort oder nach Vereinbarung eine/n:\nFachärzt/in Allgemeine Innere Medizin 80-100%\nDas Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin. Die Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen",
+        "it": "Hausärztliche Betreuung: Umfassende Versorgung von Patientinnen und Patienten aller Altersgruppen in sämtlichen Bereichen der Allgemeinmedizin Altersheim: Kontinuierliche medizinische Betreuung lokaler Patienten im Altersheim Grindelwald\nInterdisziplinäre Zusammenarbeit: enge fachliche Zusammenarbeit mit einer Advanced Practice Nurse und mit der Spitex\nAusbildung: Aktive Beteiligung an der Schulung von Assistenzärztinnen, Medizinstudierenden und weiterem medizinischem Fachpersonal\nNotfalldienst: Behandlung von Notfällen in der Praxis in Zusammenarbeit mit dem Rettungsdienst/Rega\n\n• Facharzt/-ärztin für Allgemeine Innere Medizin FMH oder gleichwertiges eidgenössisch anerkanntes Diplom\n\n• Engagement für patientenzentrierte, interdisziplinäre und teamorientierte Arbeit\n\n• Verantwortungsbewusste, belastbare und flexible Persönlichkeit\n\n• Deutschkenntnisse; weitere Fremdsprachen von Vorteil\n\n• Interesse an Sportmedizin und Traumatologie\n\n• Freude am Leben und Arbeiten in einer attraktiven Bergregion\n\nWas wir bieten:\n\n• Spannende und abwechslungsreiche Tätigkeit mit direktem Patientenkontakt\n\n• Moderne Praxisinfrastruktur mit digitaler Dokumentation, eigenes Röntgen, Labor, EKG und mehr\n\n• Attraktive Anstellungsbedingungen mit fortschrittlichen Sozialleistungen und Fringe Benefits\n\n• Vernetzung mit regionalen Spitälern und Spezialärztinnen/-ärzten\n\n• Vielfältige Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• Unterstützung bei Wohnungssuche und Integration vor Ort\n\n• Herzliches und erfahrenes interprofessionelles Team\n\n• Arbeiten und Leben in einer traumhaften Berglandschaft\nIhr Weg zu uns\n\nBitte senden Sie Ihre vollständigen Bewerbungsunterlagen über unseren Internet-Link\nFür Fragen steht&#xa0;Ihnen unsere Leitende Aerztin Dr. med. Pascale Meyer-Perret gerne telefonisch unter 033 854 54 40 zur Verfügung\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit und Teil eines schweizweit etablierten Netzwerks von Hausarztpraxen unter Trägerschaft der Swiss Medical Network AG.\nIn Grindelwald, inmitten des schönen Berner Oberlandes, bieten wir in unserem Xundheitszentrum eine umfassende medizinische Versorgung für Patientinnen und Patienten aller Altersgruppen und aus aller Welt.\n\nUnser motiviertes und erfahrenes Team gewährleistet die allgemeinmedizinische Grundversorgung, beteiligt sich am regionalen Notfalldienst und fokussiert ebenfalls auf die Begleitung chronisch kranker und älterer Menschen zu Hause und im Altersheim.\nZur Ergänzung des ärztlichen Teams suchen wir per sofort oder nach Vereinbarung eine/n:\nFachärzt/in Allgemeine Innere Medizin 80-100%\nDas Stellenprofil verbindet hausärztliche Tätigkeit mit einem vielseitigen Aufgabenbereich in der Notfallmedizin. Die Anstellung kann auf Wunsch auch befristet für die Wintersaison erfolgen"
       },
       "titleByLocale": {
-        "it": "Specialista in Medicina Interna Generale",
-        "en": "Specialist in General Internal Medicine",
-        "fr": "Spécialiste en médecine interne générale"
+        "en": "Fachärzt/-in Allgemeine Innere Medizin"
       },
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
         "en": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
+        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
       },
       "category": "healthcare",
-      "datePosted": "2026-09-01",
+      "datePosted": "2026-09-02",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "BE",
-        "location": "Wengen"
+        "location": "Grindelwald"
       },
       "sourceLang": "de",
-      "previousSlugs": [
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald",
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-wengen",
-        "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-xxbra7",
-        "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
-        "specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
-        "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "medizinische-praxisassistenz-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-grindelwald",
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-wengen",
-          "facharzt-in-allgemeine-innere-medizin-swiss-medical-network-xxbra7",
-          "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-egerkingen",
-          "medizinische-praxisassistenz-fur-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-          "medizinische-praxisassistenz-per-allgemeine-innere-medizin-swiss-medical-network-beromunster"
-        ],
-        "en": [
-          "specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen"
-        ],
-        "fr": [
-          "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T00:38:15.013Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -460,7 +636,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-02T13:39:47.286Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145523419-allgemeinmediziner-in-50-bis-100-",
@@ -738,70 +915,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T09:53:04.456Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145268119-medecin-pediatre-h-f-",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145268119-medecin-pediatre-h-f-?oga=true",
-      "title": "Médecin Pédiatre (H/F)",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "description": "• Assurer des consultations pédiatriques afin de suivre la santé des nourrissons, enfants et adolescents, en veillant à leur croissance et leur développement.\n\n• Réaliser le diagnostic et la prise en charge des pathologies courantes et complexes en pédiatrie, en adoptant une approche personnalisée et bienveillante.\n\n• Informer les parents et les accompagner dans la compréhension et la gestion des pathologies infantiles, en favorisant une approche éducative et rassurante.\n\n• Développer des actions de prévention et de vaccination selon les recommandations en vigueur, et participer aux campagnes de sensibilisation en santé infantile.\n\n• Collaborer avec d’autres spécialistes (néonatalogie, cardiologie pédiatrique, neurologie pédiatrique, etc.) afin de garantir une prise en charge pluridisciplinaire adaptée aux besoins des patients.\n\n• Mettre à jour les dossiers médicaux et assurer un suivi rigoureux pour garantir une continuité des soins optimale.\n\n• Encadrer et transmettre son expertise aux jeunes médecins et aux équipes soignantes dans une démarche de formation continue.\n\n• Diplôme de Médecin avec spécialisation en Pédiatrie, reconnu en Suisse ou éligible à l’équivalence.\n\n• Inscription ou reconnaissance MEBEKO en Suisse ou en cours de procédure.\n\n• Expérience avérée en pédiatrie générale et capacité à gérer une diversité de pathologies infantiles.\n\n• Sens aigu du relationnel et aptitude à travailler avec les enfants et leurs familles.\n\n• Compétences dans la gestion des situations d’urgence pédiatrique.\n\n• Capacité à travailler en équipe et à collaborer avec différents acteurs du parcours de soins.\n\nNous offrons une activité variée et stimulante au sein d’un établissement dynamique en constante évolution. Nos collaborateurs bénéficient d’un encadrement professionnel de qualité ainsi que de réelles perspectives de développement de carrière et de très bonnes conditions de rémunération.\nGrâce à une équipe pluridisciplinaire hautement qualifiée et à un plateau technique de pointe, nous garantissons un environnement de travail propice à l’excellence. De plus, nous accordons une grande importance à la formation continue afin de permettre à chacun de développer ses compétences et d’évoluer professionnellement.\nNous attachons une attention particulière à la diversité des parcours de vie de nos collaboratrices et collaborateurs. Nos postes sont ouverts aussi bien aux femmes qu’aux hommes, dans un esprit d’inclusion et d’égalité des chances.\nNotre établissement promeut la diversité et l’équité, en encourageant les candidatures de professionnels issus de tous horizons souhaitant s’investir dans un cadre médical exigeant et innovant.\nEntrée en fonction&#xa0;: De suite ou à convenir\nLieu(x) de travail&#xa0;: &#xa0;St-Imier\n&#xa0;\n\nÉtablissement de proximité solidement ancré dans sa région, Le Réseau de l’Arc offre une prise en charge complète des patients.\nIl comprend deux sites hospitaliers situés à Moutier et à Saint-Imier et plusieurs Médicentres situés au Jura et Grand Chasseral. Son offre de soins est complétée par un réseau d’ambulances, deux EMS, deux instituts de radiologie, un centre de thérapies physiques et cognitives, ainsi qu’un service d’hospitalisation à domicile.\nGrâce à son expertise multidisciplinaire au service des patients, le Réseau de l’Arc propose des prestations médicales à haute valeur ajoutée. Avec près de 1 300 collaborateurs, il répond aux besoins médicaux et hospitaliers d’une population d’environ 80 000 habitants.\nDans le cadre du projet VIVA, le Réseau de l’Arc est devenu la première organisation de soins entièrement intégrée de Suisse à proposer un plan d’assurance santé. Le plan de santé VIVA est accessible aux habitants de l’Arc jurassien, garantissant une prise en charge optimale et coordonnée.\nAfin de renforcer son unité de pédiatrie, nous recherchons le spécialise suivant&#xa0;:",
-      "descriptionByLocale": {
-        "it": "• Fornire consultazioni pedonali per monitorare la salute dei neonati, dei bambini e degli adolescenti, garantendo la loro crescita e sviluppo.\n\n• Per effettuare la diagnosi e la gestione di patologie comuni e complesse in pediatria, prendendo un approccio personalizzato e curato.\n\n• Informare i genitori e supportarli nella comprensione e nella gestione delle patologie infantili, promuovendo un approccio educativo e rassicurante.\n\n• Sviluppare misure di prevenzione e vaccinazione secondo le raccomandazioni attuali e partecipare a campagne di sensibilizzazione sulla salute dei bambini.\n\n• Collabora con altri specialisti (neonatalogia, cardiologia pediatrica, neurologia pediatrica, ecc.) per garantire cure multidisciplinari su misura per le esigenze dei pazienti.\n\n• Aggiornare i record medici e garantire un rigoroso follow-up per garantire una continuità ottimale delle cure.\n\n• Guidare e trasmettere le proprie competenze ai giovani medici e alle squadre di cura in un approccio di formazione continua.\n\n• Grado medico con specializzazione in Pediatria, riconosciuto in Svizzera o idoneo per l'equivalenza.\n\n• Registrazione o riconoscimento MEBEKO in Svizzera o durante la procedura.\n\n• Esperienza dimostrata in pediatria generale e capacità di gestire una varietà di patologie infantili.\n\n• Acuto senso di relazione e capacità di lavorare con i bambini e le loro famiglie.\n\n• Capacità di gestione di emergenza pediatrica.\n\n• Capacità di lavorare come squadra e collaborare con diversi attori nel percorso di cura.\n\nOffriamo un'attività varia e stimolante all'interno di uno stabilimento dinamico e in continua evoluzione. I nostri dipendenti beneficiano di una guida professionale di alta qualità, così come reali prospettive di sviluppo della carriera e condizioni di pagamento molto buone.\nGrazie a un team multidisciplinare altamente qualificato e a una piattaforma tecnica all'avanguardia, garantiamo un ambiente di lavoro favorevole all'eccellenza. Inoltre, attribuiamo grande importanza alla formazione continua per consentire a tutti di sviluppare le proprie competenze e sviluppare professionalmente.\nPrestiamo particolare attenzione alla diversità dei percorsi di vita dei nostri collaboratori. Le nostre posizioni sono aperte sia alle donne che agli uomini in uno spirito di inclusione e pari opportunità.\nLa nostra istituzione promuove la diversità e l'equità, incoraggiando le applicazioni di professionisti di tutte le passeggiate che vogliono investire in un ambiente medico esigente e innovativo.\nEntrata in funzione: Immediatamente o da concordare\nLuogo di lavoro\n&#xa0;\n\nUna struttura comunitaria saldamente ancorata nella sua regione, l'Arc Network offre una cura completa dei pazienti.\nSi compone di due siti ospedalieri situati in Moutier e Saint-Imier e diversi Medicentri situati in Jura e Grand Chasseral. La sua offerta di assistenza è completata da una rete di ambulanze, due EMS, due istituti di radiologia, un centro per terapie fisiche e cognitive, e un servizio ospedaliero domestico.\nGrazie alla sua competenza multidisciplinare al servizio dei pazienti, l'Arc Network offre servizi medici ad alto valore aggiunto. Con quasi 1.300 dipendenti, soddisfa le esigenze mediche e ospedaliere di una popolazione di circa 80.000 persone.\nNell'ambito del progetto VIVA, l'Arc Network è diventata la prima organizzazione sanitaria completamente integrata della Svizzera a proporre un piano di assicurazione sanitaria. Il piano sanitario VIVA è accessibile agli abitanti dell'Arco di Jura, garantendo cure ottimali e coordinate.\nPer rafforzare la sua unità pediatrica, stiamo cercando i seguenti specialisti:",
-        "en": "• Provide paediatric consultations to monitor the health of infants, children and adolescents, ensuring their growth and development.\n\n• To carry out the diagnosis and management of common and complex pathologies in paediatrics, taking a personalized and caring approach.\n\n• Inform parents and support them in understanding and managing childhood pathologies, promoting an educational and reassuring approach.\n\n• Develop prevention and vaccination measures according to the current recommendations, and participate in child health awareness campaigns.\n\n• Collaborate with other specialists (neonatalogy, paediatric cardiology, pediatric neurology, etc.) to ensure multidisciplinary care tailored to the needs of patients.\n\n• Update medical records and ensure rigorous follow-up to ensure optimal continuity of care.\n\n• To guide and pass on its expertise to young doctors and nursing teams in a continuing training approach.\n\n• Medical degree with specialization in Pediatrics, recognized in Switzerland or eligible for equivalence.\n\n• Registration or recognition MEBEKO in Switzerland or during the procedure.\n\n• Proven experience in general paediatrics and ability to manage a variety of childhood pathologies.\n\n• Acute sense of relationship and ability to work with children and their families.\n\n• Pediatric emergency management skills.\n\n• Ability to work as a team and collaborate with different actors in the care path.\n\nWe offer a varied and stimulating activity within a dynamic and constantly evolving establishment. Our employees benefit from high-quality professional guidance, as well as real career development prospects and very good pay conditions.\nThanks to a highly qualified multidisciplinary team and a cutting-edge technical platform, we guarantee a working environment conducive to excellence. In addition, we attach great importance to continuing training in order to enable everyone to develop their skills and develop professionally.\nWe pay particular attention to the diversity of life paths of our collaborators. Our positions are open to both women and men in a spirit of inclusion and equal opportunities.\nOur institution promotes diversity and equity, encouraging applications from professionals from all walks of life who want to invest in a demanding and innovative medical setting.\nEntry into operation: Immediately or to be agreed\nPlace(s) of work\n&#xa0;\n\nA community establishment firmly anchored in its region, the Arc Network offers comprehensive patient care.\nIt consists of two hospital sites located in Moutier and Saint-Imier and several Medicentres located in Jura and Grand Chasseral. Its offer of care is complemented by a network of ambulances, two EMS, two radiology institutes, a centre for physical and cognitive therapies, and a home hospital service.\nThanks to its multidisciplinary expertise in the service of patients, the Arc Network offers high added value medical services. With nearly 1,300 employees, it meets the medical and hospital needs of a population of around 80,000.\nAs part of the VIVA project, the Arc Network has become Switzerland's first fully integrated healthcare organization to propose a health insurance plan. The VIVA health plan is accessible to the inhabitants of the Jura Arc, ensuring optimal and coordinated care.\nIn order to strengthen its pediatric unit, we are looking for the following specialist:",
-        "de": "• Bereitstellung pädiatrischer Konsultationen zur Überwachung der Gesundheit von Säuglingen, Kindern und Jugendlichen, um deren Wachstum und Entwicklung sicherzustellen.\n\n• Um die Diagnose und das Management von häufigen und komplexen Pathologien in der Kinderheilkunde durchzuführen, wobei ein personalisierter und fürsorglicher Ansatz verfolgt wird.\n\n• Informieren Sie die Eltern und unterstützen Sie sie beim Verständnis und Management von Kindheitspathologien, fördern Sie einen pädagogischen und beruhigenden Ansatz.\n\n• Entwicklung von Präventions- und Impfmaßnahmen gemäß den aktuellen Empfehlungen und Teilnahme an Sensibilisierungskampagnen für Kindergesundheit.\n\n• Zusammenarbeit mit anderen Spezialisten (Neonatologie, Kinderkardiologie, pädiatrische Neurologie usw.), um eine multidisziplinäre Versorgung zu gewährleisten, die auf die Bedürfnisse der Patienten zugeschnitten ist.\n\n• Aktualisieren Sie die Krankenakten und sorgen Sie für eine strenge Nachsorge, um eine optimale Kontinuität der Versorgung zu gewährleisten.\n\n• Ihr Fachwissen zu begleiten und an junge Ärzte und Pflegeteams in einem Weiterbildungsansatz weiterzugeben.\n\n• Medizinischer Abschluss mit Spezialisierung in Pädiatrie, in der Schweiz anerkannt oder für Äquivalenz geeignet.\n\n• Registrierung oder Anerkennung MEBEKO in der Schweiz oder während des Verfahrens.\n\n• Nachgewiesene Erfahrung in der allgemeinen Pädiatrie und die Fähigkeit, eine Vielzahl von Kindheitspathologien zu verwalten.\n\n• Akutes Gefühl der Beziehung und die Fähigkeit, mit Kindern und ihren Familien zu arbeiten.\n\n• Pädiatrische Notfallmanagementfähigkeiten.\n\n• Fähigkeit, als Team zu arbeiten und mit verschiedenen Akteuren auf dem Pflegeweg zusammenzuarbeiten.\n\nWir bieten eine abwechslungsreiche und anregende Aktivität in einer dynamischen und sich ständig weiterentwickelnden Einrichtung. Unsere Mitarbeiterinnen und Mitarbeiter profitieren von einer hochwertigen fachlichen Beratung sowie echten Karriereaussichten und sehr guten Lohnkonditionen.\nDank eines hochqualifizierten multidisziplinären Teams und einer hochmodernen technischen Plattform garantieren wir ein hervorragendes Arbeitsumfeld. Darüber hinaus legen wir großen Wert auf Weiterbildung, damit jeder seine Fähigkeiten entwickeln und sich professionell weiterentwickeln kann.\nWir achten besonders auf die Vielfalt der Lebenswege unserer Mitarbeiter. Unsere Positionen stehen sowohl Frauen als auch Männern im Geiste der Integration und der Chancengleichheit offen.\nUnsere Institution fördert Vielfalt und Gerechtigkeit und fördert Bewerbungen von Fachleuten aus allen Lebensbereichen, die in ein anspruchsvolles und innovatives medizinisches Umfeld investieren möchten.\nInbetriebnahme: Sofort oder noch zu vereinbaren\nArbeitsort(e)\n&#xa0;\n\nAls fest in seiner Region verankertes Gemeinschaftsunternehmen bietet das Arc Network eine umfassende Patientenversorgung.\nEs besteht aus zwei Krankenhäusern in Moutier und Saint-Imier und mehreren Medicentres in Jura und Grand Chasseral. Ergänzt wird das Versorgungsangebot durch ein Netz von Krankenwagen, zwei EMS, zwei radiologische Institute, ein Zentrum für physikalische und kognitive Therapien und einen häuslichen Krankenhausdienst.\nDank seiner multidisziplinären Expertise im Dienst von Patienten bietet das Arc Network medizinische Dienstleistungen mit hohem Mehrwert. Mit fast 1.300 Mitarbeitern erfüllt es den medizinischen und Krankenhausbedarf einer Bevölkerung von rund 80.000.\nIm Rahmen des VIVA-Projekts hat das Arc Network als erste voll integrierte Gesundheitsorganisation der Schweiz eine Krankenversicherung vorgeschlagen. Der VIVA-Gesundheitsplan ist für die Bewohner des Jura-Bogens zugänglich und gewährleistet eine optimale und koordinierte Versorgung.\nUm seine pädiatrische Einheit zu stärken, suchen wir folgenden Spezialisten:"
-      },
-      "titleByLocale": {
-        "it": "medico pediatrico (M/F)",
-        "en": "Pediatric doctor (M/F)",
-        "de": "Kinderarzt (M/W)"
-      },
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
-      "slugByLocale": {
-        "it": "medecin-pediatre-h-f-swiss-medical-network",
-        "en": "medecin-pediatre-h-f-swiss-medical-network",
-        "de": "kinderarzt-m-w-swiss-medical-network-saint-imier"
-      },
-      "category": "medical",
-      "datePosted": "2026-08-24",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "previousSlugs": [
-        "medecin-pediatre-h-f-swiss-medical-network-saint-imier"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "medecin-pediatre-h-f-swiss-medical-network-saint-imier"
-        ]
-      },
-      "firstSeenAt": "2026-08-24T21:40:26.997Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1668,59 +1781,43 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785559-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143785489-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
       "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Beromünster",
-      "addressLocality": "Beromünster",
-      "addressRegion": "LU",
-      "canton": "LU",
+      "location": "Argovia",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "canton": "AG",
       "country": "CH",
-      "postalCode": "6222",
+      "postalCode": "5734",
       "description": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
       "descriptionByLocale": {
-        "it": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
-        "en": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau."
+        "en": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau.",
+        "it": "• Eigenverantwortliche Führung von fachärztlichen Sprechstunden\n\n• Auf- und Ausbau des Praxisangebotes\n\n• Laufende Überprüfung und Verbesserung der medizinischen Qualität und der Praxisabläufe\n\n• Zusammenarbeit im Team und einem Netzwerk mit externen Spezialisten\n\n• Beteiligung am lokalen Notfalldienst (nur Tagdienst, kein Nacht-, Wochenend- oder Feiertagsdienst)\n\n• Leidenschaft für die Hausarztmedizin\n\n• Verantwortungsbewusste und engagierte Persönlichkeit\n\n• Motivation und Engagement für eine interdisziplinäre, interprofessionelle und partnerschaftliche Zusammenarbeit\n\n• Anspruchsvolle, abwechslungsreiche und herausfordernde Tätigkeit in einem attraktiven und modernen Arbeitsumfeld\n\n• Wertschätzende Arbeitsatmosphäre in einem interdisziplinären Team\n\n• Fortschrittliche Anstellungsbedingungen und ausgezeichnete Sozialleistungen\n\n• Umfassende Unterstützung bei Ihren Fort- und Weiterbildungen\n\n• Möglichkeit zur aktiven Mitgestaltung bei der Weiterentwicklung unseres Xundheitszentrums\n\nHaben Sie Interesse an dieser anspruchsvollen und vielseitigen Herausforderung? Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen via E-Mail an Dietmar Krämer, dietmar.kraemer@spitalzofingen.ch.\n\nXundheitszentrum ist ein kompetenter und zuverlässiger Partner für Ihre Gesundheit mit einem umfassenden Angebot in der allgemein-medizinischen Grundversorgung, Kinder- und Jugendmedizin. Wir sind ein etabliertes Netzwerk von Hausarztpraxen, im Besitz der Swiss Medical Network GesundheitsZentrum AG. Swiss Medical Network ist eine der beiden führenden Schweizer Privatklinikgruppen und mit 19 Spitälern und 80 medizinischen Zentren in allen vier Sprachregionen des Landes vertreten. Wir gewährleisten eine umfassende und kompetente Versorgung aller Altersgruppen auf hohem medizinischem Niveau."
       },
       "titleByLocale": {
         "en": "Fachärztin / Facharzt für Allgemeine Innere Medizin"
       },
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
         "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-beromunster"
+        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
       },
       "category": "medical",
-      "datePosted": "2026-09-01",
+      "datePosted": "2026-09-02",
       "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "LU",
-        "location": "Beromünster"
+        "canton": "AG",
+        "location": "Reinach"
       },
       "sourceLang": "de",
-      "previousSlugs": [
-        "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-        "facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-        "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-        "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "facharztin-facharzt-fur-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-          "facharztin-facharzt-per-allgemeine-innere-medizin-50-100-swiss-medical-network-schaffhausen",
-          "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-beromunster",
-          "facharztin-facharzt-per-allgemeine-innere-medizin-swiss-medical-network-egerkingen"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T00:38:15.013Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -1728,11 +1825,12 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-02T13:39:47.286Z"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000143237494-physiotherapeute-du-sport-senior",
@@ -2386,16 +2484,16 @@
       "postalCode": "6500",
       "description": "• Preparare e strumentare tutte le operazioni pratiche\n\n• Partecipare all’accoglienza, l’informazione e la sicurezza del paziente\n\n• Contribuire attivamente al buon funzionamento delle attività del servizio e ai progetti di sviluppo del blocco operatorio\n\n• La candidata / il candidato svolgerà l'attività presso i centri di chirurgia della clinica (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\n• Possiede il diploma di Tecnico di Sala Operatoria o Infermiere strumentista riconosciuto CRS\n\n• Ha spirito d’équipe\n\n• Ha un buon senso dell’organizzazione\n\n• E’ una persona diplomatica e flessibile\n\nOffriamo\n\n• Ambiente di lavoro stimolante e multisciplinare (ortopedia, oftalmologia, chirurgia generale)\n\n• È richiesta flessibilità e dinamicità\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport. La Clinica fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Il prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nNell'ottobre 2025, la Clinica Ars Medica, in collaborazione con la rete di oftalmologia Swiss Visio Network, ha aperto un nuovo centro di chirurgia ambulatoriale a Bellinzona.",
       "descriptionByLocale": {
-        "it": "Mansioni\n- Preparare e strumentare tutte le operazioni pratiche\n- Partecipare all'accoglienza, l'informazione e la sicurezza del paziente\n- Contribuire attivamente al buon funzionamento delle attività del servizio e ai progetti di sviluppo del blocco operatorio\n- La candidata / il candidato svolgerà l'attività presso i centri di chirurgia della clinica (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\nRequisiti\n- Possiede il diploma di Tecnico di Sala Operatoria o Infermiere strumentista riconosciuto CRS\n- Ha spirito d'équipe\n- Ha un buon senso dell'organizzazione\n- E' una persona diplomatica e flessibile\n\nCosa offriamo\n- Ambiente di lavoro stimolante e multisciplinare (ortopedia, oftalmologia, chirurgia generale)\n- È richiesta flessibilità e dinamicità\n- Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nL'Azienda\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport. La Clinica fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Il prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l'attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\n\nNell'ottobre 2025, la Clinica Ars Medica, in collaborazione con la rete di oftalmologia Swiss Visio Network, ha aperto un nuovo centro di chirurgia ambulatoriale a Bellinzona.",
+        "it": "• Preparare e strumentare tutte le operazioni pratiche\n\n• Partecipare all’accoglienza, l’informazione e la sicurezza del paziente\n\n• Contribuire attivamente al buon funzionamento delle attività del servizio e ai progetti di sviluppo del blocco operatorio\n\n• La candidata / il candidato svolgerà l'attività presso i centri di chirurgia della clinica (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\n• Possiede il diploma di Tecnico di Sala Operatoria o Infermiere strumentista riconosciuto CRS\n\n• Ha spirito d’équipe\n\n• Ha un buon senso dell’organizzazione\n\n• E’ una persona diplomatica e flessibile\n\nOffriamo\n\n• Ambiente di lavoro stimolante e multisciplinare (ortopedia, oftalmologia, chirurgia generale)\n\n• È richiesta flessibilità e dinamicità\n\n• Condizioni contrattuali come Contratto Collettivo di Lavoro delle Cliniche Private Ticinesi\n\nLa Clinica Ars Medica è il polo di riferimento in Ticino per la chirurgia ortopedica e la traumatologia dell'apparato locomotore, per la chirurgia della colonna vertebrale e la medicina dello sport. La Clinica fa parte di Swiss Medical Network: uno dei maggiori gruppi di cliniche private svizzere fondato nel 2002. Il prestigio locale e internazionale della struttura, la preparazione del personale medico ed infermieristico, le tecnologie di punta a disposizione, il trattamento alberghiero e l’attenzione personalizzata verso i bisogni dei pazienti ne rappresentano i principali punti di forza.\nNell'ottobre 2025, la Clinica Ars Medica, in collaborazione con la rete di oftalmologia Swiss Visio Network, ha aperto un nuovo centro di chirurgia ambulatoriale a Bellinzona.",
         "en": "Tasks\n- Prepare and instrument all practical operations\n- Participate in patient reception, information and safety\n- Actively contribute to the smooth functioning of the service activities and to the development projects of the operating theatre\n- The candidate will carry out the activity at the clinic's surgery centers (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\nRequirements\n- Holds the diploma of Operating Room Technician or Instrumental Nurse recognized CRS\n- Has team spirit\n- Has a good sense of organization\n- He is a diplomatic and flexible person\n\nWhat we offer\n- Stimulating and multi-disciplinary working environment (orthopedics, ophthalmology, general surgery)\n- Flexibility and dynamism required\n- Contractual conditions such as the Collective Labour Agreement of the Ticino Private Clinics\n\nThe Company\nThe Ars Medica Clinic is the reference center in Ticino for orthopedic surgery and traumatology of the musculoskeletal system, for spine surgery and sports medicine. The Clinic is part of the Swiss Medical Network: one of the largest groups of Swiss private clinics founded in 2002. The local and international prestige of the facility, the preparation of the medical and nursing staff, the cutting-edge technologies available, the hotel treatment and the personalized attention to the needs of patients are its main strengths.\n\nIn October 2025, the Ars Medica Clinic, in collaboration with the Swiss Visio Network ophthalmology network, opened a new outpatient surgery center in Bellinzona.",
         "de": "Aufgaben\n- Alle praktischen Operationen vorbereiten und instrumentieren\n- Teilnahme an Patientenaufnahme, Information und Sicherheit\n- Aktiv zum reibungslosen Betrieb der Dienstleistungsaktivitäten und zu den Entwicklungsprojekten des Operationssaals beizutragen\n- Der Kandidat führt die Tätigkeit in den Operationszentren der Klinik durch (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\nAnforderungen\n- Inhaber des Diploms Operating Room Technician oder Instrumental Nurse mit der anerkannten CRS\n- Hat Teamgeist\n- Hat ein gutes Organisationsbewusstsein\n- Er ist eine diplomatische und flexible Person\n\nWas wir anbieten\n- Anregendes und multidisziplinäres Arbeitsumfeld (Orthopädie, Augenheilkunde, Allgemeinchirurgie)\n- Flexibilität und Dynamik erforderlich\n- Vertragsbedingungen wie der Tarifvertrag der Tessiner Privatkliniken\n\nDas Unternehmen\nDie Klinik Ars Medica ist das Referenzzentrum im Tessin für orthopädische Chirurgie und Traumatologie des muskuloskelettalen Systems sowie für Wirbelsäulenchirurgie und Sportmedizin. Die Klinik ist Teil des Swiss Medical Network: einer der größten Gruppen Schweizer Privatkliniken, gegründet 2002. Das lokale und internationale Ansehen der Einrichtung, die Ausbildung des medizinischen und pflegerischen Personals, die modernsten Technologien, die Hotelbehandlung und die persönliche Betreuung der Bedürfnisse der Patienten sind ihre Hauptstärken.\n\nIm Oktober 2025 eröffnete die Ars Medica Clinic in Zusammenarbeit mit dem ophthalmologischen Netzwerk des Swiss Visio Network ein neues ambulantes Operationszentrum in Bellinzona.",
         "fr": "Tâches\n- Préparer et instrumenter toutes les opérations pratiques\n- Participer à l’accueil des patients, à l’information et à la sécurité des patients\n- Contribuer activement au bon fonctionnement des activités de service et aux projets de développement du bloc opératoire\n- Le candidat effectuera l’activité dans les centres de chirurgie de la clinique (Via Carlo Salvioni 2A, 6500 Bellinzona / Via Grumo 16, 6929 Gravesano)\n\nExigences\n- Détient le diplôme de technicien en salle d’opération ou infirmier instrumental reconnu CRS\n- A de l’esprit d’équipe\n- A un bon sens de l’organisation\n- C’est une personne diplomate et flexible\n\nCe que nous proposons\n- Environnement de travail stimulant et multidisciplinaire (orthopédie, ophtalmologie, chirurgie générale)\n- Flexibilité et dynamisme requis\n- Conditions contractuelles telles que la convention collective de travail des cliniques privées du Tessin\n\nLa Compagnie\nLa clinique Ars Medica est le centre de référence du Tessin pour la chirurgie orthopédique et la traumatologie du système musculosquelettique, pour la chirurgie de la colonne vertébrale et la médecine du sport. La clinique fait partie du Réseau médical suisse : l’un des plus grands groupes de cliniques privées suisses fondées en 2002. Le prestige local et international de l’établissement, la préparation du personnel médical et infirmier, les technologies de pointe disponibles, le traitement hôtelier et l’attention personnalisée aux besoins des patients sont ses principaux atoux.\n\nEn octobre 2025, la clinique Ars Medica, en collaboration avec le réseau ophtalmologique suisse Visio Network, a ouvert un nouveau centre de chirurgie ambulatoire à Bellinzone."
       },
       "titleByLocale": {
+        "it": "Tecnico di sala operatoria / Infermiere strumentista",
         "en": "Operating room technician / Instrumentist nurse",
         "de": "Operationssaaltechniker/Instrumentistenkrankenschwester",
-        "fr": "Technicien en salle d'opération / Infirmière instrumentiste",
-        "it": "Tecnico di sala operatoria / Infermiere strumentista"
+        "fr": "Technicien en salle d'opération / Infirmière instrumentiste"
       },
       "slug": "tecnico-di-sala-operatoria-infermiere-strumentista-swiss-medical-network",
       "slugByLocale": {
@@ -2415,6 +2513,9 @@
         "location": "Bellinzona"
       },
       "sourceLang": "it",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1640,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-07-23T22:08:25.302Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -2429,10 +2530,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1640
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000139144598-it-business-analyst-healthcare",
@@ -3069,65 +3167,6 @@
           "@type": "QuantitativeValue",
           "minValue": 88000,
           "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135454639-candidature-spontanee-secteur-medical?oga=true",
-      "title": "Candidature spontanée - Secteur médical",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Saint-Imier",
-      "addressLocality": "Saint-Imier",
-      "addressRegion": "BE",
-      "canton": "BE",
-      "country": "CH",
-      "postalCode": "2610",
-      "description": "Postulez dès maintenant chez nous et rejoignez notre équipe inspirante ! Nous ne vous offrons pas seulement un emploi, mais une carrière passionnante avec des perspectives et des possibilités de développement.\nChez nous, l'épanouissement individuel et le développement personnel de nos collaborateurs sont au cœur de nos préoccupations. Nous vous proposons des défis passionnants qui vous permettront de vous dépasser et de développer vos compétences. Ensemble, nous façonnons votre avenir et celui du secteur de la santé\n\n• Formations continues internes et externes régulières\n\n• Possibilité de se garer dans notre propre parking\n\n• 5 semaines de vacances\n\n• Réductions spéciales du groupe Swiss Medical Network\n\n• Repas de midi à 5.- CHF pour les collaborateurs\n\n• Entretien et suivi par la Médecine du Personnel\n\n• Cadre de travail varié et stimulant\n\n• Possibilité d’effectuer de la recherche en collaboration avec l’Unité d’Epidémiologie Clinique\n\nPremier réseau de soins intégrés de Suisse, le Réseau de l’Arc est un acteur de référence de la prise en charge coordonnée et de proximité, dans les domaines somatique et de santé mentale. Comptant près de 1’300 collaborateurs, il s’appuie sur 2 sites hospitaliers à Moutier et à Saint-Imier ainsi qu’un réseau de Medicentres, d’ambulance, d’EMS, de radiologie, un centre de thérapies physiques et cognitives et un service d’hospitalisation à domicile.\nLe Réseau de l’Arc couvre les besoins médicaux-hospitaliers d’une population de près de 80’000 habitants et se caractérisent par son dynamisme, d’excellentes infrastructures et un souci constant de développer des prestations de proximité et de qualité.",
-      "descriptionByLocale": {
-        "it": "Chiedete ora alla nostra casa e unitevi al nostro team di ispirazione! Vi offriamo non solo un lavoro, ma una carriera emozionante con opportunità e opportunità di sviluppo. A casa, lo sviluppo individuale e personale dei nostri dipendenti sono al centro delle nostre preoccupazioni. Vi offriamo sfide emozionanti che vi permetteranno di superare e sviluppare le vostre competenze. Insieme, formeremo il vostro futuro e quello del settore sanitario\n• Formazione interna ed esterna regolare in futuro\n• Possibilita di parcheggio nel nostro parcheggio\n• 5 settimane di vacanza\n• Sconti speciali dalla Rete Medica Svizzera\n• Pasti da mezzogiorno a 5.- CHF per i dipendenti\n• Manutenzione e follow-up da parte della Medicina del Personale\n• Quadro vario e stimolante\n• Possibilita' di effettuare ricerche in collaborazione con l'Unità d,Epidemiologia Clinic Prima rete di assistenza integrata in Svizzera, la Rete de l,Arc è un giocatore di riferimento nella presa di assistenza sanitaria responsabilità coordinata e comunitaria nei settori della salute mentale e della somatica. Con quasi 1.300 dipendenti, si basa su 2 sedi ospedaliere a Moutier e Saint-Imier, oltre ad una rete di centri medici, d,ambulanza, d,EMS, radiologia, un centro di terapia fisica e cognitiva e un servizio ospedaliero domestico. La rete Arc copre le esigenze medico-ospitali di una popolazione di quasi 80.000 persone ed è caratterizzata dal suo dinamismo, dall'eccellente infrastruttura e dalla costante preoccupazione di sviluppare servizi di prossimità e qualità.",
-        "en": "Apply now for our home and join our inspiring team! We offer you not only a job, but an exciting career with opportunities and opportunities for development. At home, the individual development and personal development of our employees are at the heart of our concerns. We offer you exciting challenges that will allow you to overcome and develop your skills. Together, we shape your future and that of the health sector\n• Regular internal and external trainings in the future\n• Possibility of parking in our own parking lot\n• 5 weeks of vacation\n• Special discounts from the Swiss Medical Network\n• Meals from midday to 5.- CHF for employees\n• Maintenance and follow-up by the Personnel Medicine\n• Various and stimulating framework\n• Possibility of carrying out research in collaboration with the Unit d,Epidemiology Clinic First integrated care network in Switzerland, the Network de l,Arc is a reference player in the taking of health care coordinated and community-based responsibility in the fields of mental health and somatics. With nearly 1,300 employees, he is based on 2 hospital sites in Moutier and Saint-Imier, as well as a network of Medicentres, d,ambulance, d,EMS, radiology, a physical and cognitive therapy center and a home hospital service. The Arc network covers the medical-hospital needs of a population of nearly 80,000 and is characterised by its dynamism, excellent infrastructure and constant concern to develop services of proximity and quality.",
-        "de": "Bewerben Sie sich jetzt für unser Zuhause und schließen Sie sich unserem inspirierenden Team an! Wir bieten Ihnen nicht nur einen Job, sondern eine spannende Karriere mit Möglichkeiten und Möglichkeiten für Entwicklung. Zu Hause stehen die individuelle Entwicklung und persönliche Entwicklung unserer Mitarbeiter im Mittelpunkt unserer Anliegen. Wir bieten Ihnen spannende Herausforderungen, die es Ihnen ermöglichen, Ihre Fähigkeiten zu überwinden und weiterzuentwickeln. Gemeinsam gestalten wir Ihre Zukunft und die des Gesundheitswesens\n• Regelmäßige interne und externe Schulungen in Zukunft\n• Möglichkeit des Parkens auf unserem eigenen Parkplatz\n• 5 Wochen Urlaub\n• Sonderrabatte aus dem Swiss Medical Network\n• Mahlzeiten von Mittag bis 5.- CHF für Mitarbeiter\n• Wartung und Nachsorge durch die Personalmedizin\n• Verschiedene und stimulierende Rahmenbedingungen\n• Möglichkeit der Forschung in Zusammenarbeit mit der Unit d,Epidemiology Clinic Erste integrierte Pflegenetzwerk in der Schweiz, das Network de l,Arc ist ein Referenzfaktor bei der Übernahme der Gesundheitsversorgung koordinierte und gemeinschaftsbasierte Verantwortung im Bereich der psychischen Gesundheit und der Somatik. Mit fast 1.300 Mitarbeitern ist er auf 2 Klinikstandorten in Moutier und Saint-Imier sowie einem Netzwerk von Medicentres, d,ambulance, d,EMS, Radiologie, einem physikalischen und kognitiven Therapiezentrum und einem Heimkrankenhaus-Service tätig. Das Arc-Netzwerk deckt die medizinischen Krankenhausbedürfnisse von fast 80.000 Menschen ab und zeichnet sich durch Dynamik, exzellente Infrastruktur und ständiges Interesse an der Entwicklung von Dienstleistungen von Nähe und Qualität aus.",
-        "fr": "Postulez dès maintenant chez nous et rejoignez notre équipe inspirante ! Nous ne vous offrons pas seulement un emploi, mais une carrière passionnante avec des perspectives et des possibilités de développement. Chez nous, l'épanouissement individuel et le développement personnel de nos collaborateurs sont au cœur de nos préoccupations. Nous vous proposons des défis passionnants qui vous permettront de vous dépasser et de développer vos compétences. Ensemble, nous façonnons votre avenir et celui du secteur de la santé\n• Formations continues internes et externes régulières\n• Possibilité de se garer dans notre propre parking\n• 5 semaines de vacances\n• Réductions spéciales du groupe Swiss Medical Network\n• Repas de midi à 5.- CHF pour les collaborateurs\n• Entretien et suivi par la Médecine du Personnel\n• Cadre de travail varié et stimulant\n• Possibilité d’effectuer de la recherche en collaboration avec l’Unité d’Epidémiologie Clinique Premier réseau de soins intégrés de Suisse, le Réseau de l’Arc est un acteur de référence de la prise en charge coordonnée et de proximité, dans les domaines somatique et de santé mentale. Comptant près de 1’300 collaborateurs, il s’appuie sur 2 sites hospitaliers à Moutier et à Saint-Imier ainsi qu’un réseau de Medicentres, d’ambulance, d’EMS, de radiologie, un centre de thérapies physiques et cognitives et un service d’hospitalisation à domicile. Le Réseau de l’Arc couvre les besoins médicaux-hospitaliers d’une population de près de 80’000 habitants et se caractérisent par son dynamisme, d’excellentes infrastructures et un souci constant de développer des prestations de proximité et de qualité."
-      },
-      "titleByLocale": {
-        "it": "Applicazione spontanea - Settore medico",
-        "en": "Spontaneous application - Medical sector",
-        "de": "Spontane Anwendung - Medizinischer Bereich",
-        "fr": "Candidature spontanée - Secteur médical"
-      },
-      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
-      "slugByLocale": {
-        "it": "applicazione-non-richiesta-settore-medico-swiss-medical-network-saint-imier",
-        "en": "unsolicited-application-medical-sector-swiss-medical-network-saint-imier",
-        "de": "unerbetene-anwendung-medizinsektor-swiss-medical-network-saint-imier",
-        "fr": "applicazione-non-richiesta-settore-medico-swiss-medical-network-saint-imier"
-      },
-      "category": "healthcare",
-      "datePosted": "2026-07-02",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Saint-Imier"
-      },
-      "sourceLang": "fr",
-      "firstSeenAt": "2026-07-02T12:27:49.670Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
           "unitText": "YEAR"
         }
       }
