@@ -5050,6 +5050,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-guida.title': 'Aktivitäten im Kanton Graubünden eröffnen: Komplette Anleitung',
     'blog.article.aprire-attivita-grigioni-guida.excerpt': 'Von der Rechtsform bis zum Handelsregister: Alles, was Sie wissen müssen, um ein Unternehmen im Kanton Graubünden zu gründen.',
     'blog.article.aprire-attivita-grigioni-guida.imageAlt': 'Professioneller Schreibtisch mit Geschäftsdokumenten und Computer in einem Schweizer Büro zur Unternehmensregistrierung.',
+    'blog.article.aprire-attivita-grigioni-registro-costi.title': 'Geschäfte Graubünden eröffnen: Formulare, Register, Kosten',
+    'blog.article.aprire-attivita-grigioni-registro-costi.excerpt': 'Praktischer Leitfaden zur Gründung eines Unternehmens im Kanton Graubünden: Wahl der Rechtsform, Handelsregistereintrag, Besteuerung und Kosten. Bundes- und kantonale Verfahren.',
+    'blog.article.aprire-attivita-grigioni-registro-costi.imageAlt': 'Moderner Arbeitsplatz in einem Büro im Kanton Graubünden mit Aussicht auf Alpenberge.',
 };
 
 export default blogMetaChDe;
