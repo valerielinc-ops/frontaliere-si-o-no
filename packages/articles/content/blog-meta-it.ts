@@ -11084,6 +11084,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.title': 'Vivere a Cossogno e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.excerpt': 'Dalla fiscalità al costo della vita: tutto ciò che serve sapere per vivere a Cossogno e lavorare in Ticino come frontaliere.',
     'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.imageAlt': 'Veduta panoramica di Cossogno sul lago Maggiore con le montagne della Svizzera sullo sfondo',
+    'blog.article.vivere-lazzate-ticino-frontaliere.title': 'Vivere a Lazzate, lavorare in Ticino: la guida',
+    'blog.article.vivere-lazzate-ticino-frontaliere.excerpt': 'Lazzate offre prezzi abitativi inferiori per frontalieri. Scopri tempi di percorrenza, costi pendolarismo, tassazione (imposta alla fonte), Permesso G e procedura step-by-step.',
+    'blog.article.vivere-lazzate-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago Lugano con le sponde svizzera e italiana, simbolo della mobilità transfrontaliera',
 };
 
 export default blogMetaIt;
