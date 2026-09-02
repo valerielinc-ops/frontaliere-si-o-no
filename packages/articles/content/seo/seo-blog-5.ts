@@ -82790,6 +82790,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-varano-borghi-lavorare-ticino': {
+    title: 'Vivere a Varano Borghi, lavorare in Ticino: guida frontaliere',
+    description: 'Permesso G, fiscalità e procedura: guida per frontalieri che vivono a Varano Borghi e lavorano in Ticino. Franchigia €10.000 e dichiarazione 730.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, varano, borghi, lavorare',
+    ogTitle: 'Vivere a Varano Borghi, lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri se conviene trasferirsi a Varano Borghi per lavorare in Ticino: franchigia €10.000, LAMal, dichiarazione 730, procedura permesso G e analisi costo della vita a confronto.',
+    canonicalPath: '/articoli-frontaliere/vivere-varano-borghi-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Varano Borghi, lavorare in Ticino: guida frontaliere",
+      "description": "Permesso G, fiscalità e procedura: guida per frontalieri che vivono a Varano Borghi e lavorano in Ticino. Franchigia €10.000 e dichiarazione 730.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-varano-borghi-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del valico di Brogeda tra Ticino e Italia, zona di confine con paesaggio alpino mattutino."
+      },
+      "datePublished": "2026-09-02T17:23:43+00:00",
+      "dateModified": "2026-09-02T17:23:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-varano-borghi-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
