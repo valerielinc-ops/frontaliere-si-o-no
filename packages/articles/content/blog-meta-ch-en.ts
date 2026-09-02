@@ -5086,6 +5086,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Health Insurance Premiums in the Canton of Aargau and Premium Reductions',
     'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Find out how health insurance premiums work in Aargau, what deductibles are available, and how to apply for a reduction through cantonal subsidies.',
     'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Swiss administrative office for health insurance premiums and subsidy reductions in Canton Aargau.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'SBB offers solutions for finding seats on trains',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'SBB has drawn irritated reactions from some passengers with its tips on finding seats on trains.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'A crowded train station in Zurich with commuters waiting for their trains.',
 };
 
 export default blogMetaChEn;

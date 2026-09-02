@@ -5086,6 +5086,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Primes d\'assurance maladie du canton d\'Argovie et réduction des primes',
     'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Découvrez comment fonctionnent les primes d\'assurance maladie en Argovie, les franchises disponibles et comment demander une réduction grâce aux aides cantonales.',
     'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Bureau administratif suisse pour les primes d\'assurance-maladie et les réductions dans le canton d\'Argovie.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'Les CFF proposent des solutions pour trouver des places assises dans les trains',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'Les CFF ont suscité des réactions irritées chez certains usagers avec leurs conseils pour trouver des places assises dans les trains.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'Une gare ferroviaire bondée à Zurich avec des navetteurs attendant leurs trains.',
 };
 
 export default blogMetaChFr;

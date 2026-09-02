@@ -5086,6 +5086,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Premi cassa malati canton Argovia e riduzione premi',
     'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Scopri come funzionano i premi dell\'assicurazione malattia in Argovia, le franchigie disponibili e come richiedere la riduzione attraverso i sussidi cantonali.',
     'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Ufficio amministrativo svizzero dedicato ai premi dell\'assicurazione malattia e alle riduzioni nel Canton Argovia.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'Le FFS propongono soluzioni per trovare posti a sedere sui treni',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'Le FFS hanno suscitato reazioni irritate tra alcuni utenti con i loro consigli per trovare posti a sedere sui treni.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'Una stazione ferroviaria affollata a Zurigo con pendolari in attesa dei loro treni.',
 };
 
 export default blogMetaChIt;

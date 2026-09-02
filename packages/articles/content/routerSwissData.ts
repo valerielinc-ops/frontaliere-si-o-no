@@ -1721,6 +1721,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-grigioni-settori-livelli': { it: 'salari-grigioni-settori-livelli', en: 'salaries-graubunden-sectors-levels', de: 'loehne-graubuenden-sektoren-niveaus', fr: 'salaires-grisons-secteurs-niveaux' },
  'imposte-cantonali-argovia-aliquote': { it: 'imposte-cantonali-argovia-aliquote', en: 'cantonal-taxes-aargau-rates-deductions', de: 'kantonal-steuern-aargau-saetze-abzuege', fr: 'impots-cantonaux-argovie-taux-deductions' },
  'argovia-sussidi-cassa-malati-2026': { it: 'argovia-sussidi-cassa-malati-2026', en: 'aargau-health-insurance-premium-subsidies', de: 'aargau-krankenkasse-praemienzuschuesse', fr: 'argovie-subventions-primes-sante' },
+ 'ffs-consigli-posti-sedere-pendolari': { it: 'ffs-consigli-posti-sedere-pendolari', en: 'ffs-advice-seats-commuters', de: 'ffs-ratgeber-plaetze-pendler', fr: 'ffs-conseils-sieges-navetteurs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
