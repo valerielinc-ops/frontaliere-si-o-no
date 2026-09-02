@@ -371,9 +371,13 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
   });
 
   it('accepts a canonical/shortlink JSON-LD url variant carrying the same job identity (#7026 item 2)', () => {
-    // Same UUID as frenchFustUrl, different path shell — the shape a shortlink
-    // or a template revision could plausibly emit for the SAME vacancy.
-    const shortlinkUrl = 'https://jobs.fust.ch/job/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6';
+    // Same UUID as frenchFustUrl, but under a `/s/{uuid}` shell that
+    // isLikelyJobDetailUrl() does NOT recognise as a detail URL on its own
+    // (no `/job/`, `/jobs/…`, `/vacanc…`, `/offene-stellen/…` etc. segment) —
+    // so on the OLD code this is rejected via BOTH declaredSeedDetail (exact
+    // string mismatch) AND the isLikelyJobDetailUrl() fallback, isolating the
+    // new extractJobIdentityFromUrl() branch as what makes this pass.
+    const shortlinkUrl = 'https://jobs.fust.ch/s/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6';
     const result = toJobFromJsonLd(
       { ...node, url: shortlinkUrl },
       'Fust',
