@@ -1702,6 +1702,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-soletta-diritti-inquilini': { it: 'affitti-soletta-diritti-inquilini', en: 'soletta-rental-tenant-rights', de: 'soletta-mietrecht-mieterrechte', fr: 'soletta-droit-location-locataires' },
  'comprare-casa-grigioni-procedure-fondi': { it: 'comprare-casa-grigioni-procedure-fondi', en: 'buy-home-grisons-procedures-funds', de: 'haus-graubuenden-kaufverfahren-eigenkapital', fr: 'acheter-maison-grisons-procedures-fonds' },
  'affitti-grigioni-canoni-diritto': { it: 'affitti-grigioni-canoni-diritto', en: 'grisons-rental-market-tenants-rights', de: 'mietwohnungen-graubuenden-mietrecht', fr: 'loyers-grisons-droit-location' },
+ 'naturalizzazione-grigioni-requisiti-procedura': { it: 'naturalizzazione-grigioni-requisiti-procedura', en: 'naturalization-grisons-requirements-procedure', de: 'einburgerung-graubunden-anforderungen-verfahren', fr: 'naturalisation-grisons-exigences-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

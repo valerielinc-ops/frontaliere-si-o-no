@@ -11079,6 +11079,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mandello-lario-frontaliere.title': 'Mandello del Lario : guide frontalier 2024 Tessin',
     'blog.article.mandello-lario-frontaliere.excerpt': 'Mandello del Lario à Lecco : comment vivre et travailler comme frontalier au Tessin. Permis G, impôt à la source, franchise 2024, AVS/LAMal.',
     'blog.article.mandello-lario-frontaliere.imageAlt': 'Vue panoramique du lac Lugano depuis une région résidentielle des Alpes suisses avec le littoral italien en arrière-plan.',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.title': 'Vivre à Canzo et travailler au Tessin : guide frontalier',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.excerpt': 'Déménager à Canzo pour travailler au Tessin : nouvel accord, permis G, régime fiscal et liste de contrôle pratique pour commencer votre parcours frontalier.',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.imageAlt': 'Paysage frontalier entre Canzo et le Tessin avec route vers les passages frontaliers',
 };
 
 export default blogMetaFr;

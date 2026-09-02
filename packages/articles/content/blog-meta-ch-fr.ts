@@ -5029,6 +5029,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-grigioni-canoni-diritto.title': 'Loyers Grisons : redevances, dépôt et droit de location',
     'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Guide pratique du droit locatif suisse : comment fonctionne le dépôt de garantie, la contestation de la redevance et les délais de résiliation dans le canton des Grisons.',
     'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Village alpin suisse avec maisons de pierre traditionnelles dans les Grisons',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Naturalisation aux Grisons : exigences et procédure',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'Comment devenir citoyen suisse dans le canton des Grisons. Parcours fédéral, exigences cantonales, tests de langue et d\'intégration, taxes et durée de la procédure.',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Guichet d\'une administration cantonale suisse avec formulaires de naturalisation et documents officiels en lumière naturelle.',
 };
 
 export default blogMetaChFr;

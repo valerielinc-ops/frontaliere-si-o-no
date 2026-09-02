@@ -5029,6 +5029,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-grigioni-canoni-diritto.title': 'Affitti Grigioni: canoni, deposito e diritto di locazione',
     'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Guida pratica al diritto di locazione svizzero: come funziona il deposito di garanzia, la contestazione del canone e i termini di disdetta nel Cantone Grigioni.',
     'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Villaggio alpino svizzero con case tradizionali di pietra nelle Grigioni',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Naturalizzazione a Grigioni: requisiti e procedura',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'Come diventare cittadino svizzero nel canton Grigioni. Percorso federale, requisiti cantonali, test di lingua e integrazione, tasse e durata della procedura.',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Sportello di un\'amministrazione cantonale svizzera con moduli e documenti di naturalizzazione esposti, luce naturale.',
 };
 
 export default blogMetaChIt;

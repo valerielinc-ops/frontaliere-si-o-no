@@ -11077,6 +11077,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mandello-lario-frontaliere.title': 'Mandello del Lario: 2024 Ticino border guide',
     'blog.article.mandello-lario-frontaliere.excerpt': 'Mandello del Lario in Lecco: how to live and work as a border worker in Ticino. Permit G, tax at source, deductible 2024, AVS/LAMal.',
     'blog.article.mandello-lario-frontaliere.imageAlt': 'Panoramic view of Lake Lugano from Swiss Alpine residential area with Italian shoreline in the background.',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.title': 'Living in Canzo and working in Ticino: border guide',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.excerpt': 'Moving to Canzo to work in Ticino: New Agreement, G Permit, tax regime and practical checklist to start your border journey.',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.imageAlt': 'Border landscape between Canzo and Ticino with main road toward border crossings',
 };
 
 export default blogMetaEn;
