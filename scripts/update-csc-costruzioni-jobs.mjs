@@ -253,6 +253,39 @@ function semanticJobPostingHash(node, articleText) {
     .digest('hex');
 }
 
+const NESTED_WIDGET_TAGS = ['article', 'aside'];
+
+/**
+ * Strip nested descendant `<article>`/`<aside>` blocks (e.g. a related-
+ * vacancy widget rendered inside the primary work-position node) out of the
+ * primary article's raw HTML before it is turned into text for the
+ * *fallback semantic hash*. `articleText` (used unstripped for the <80-char
+ * reject check) intentionally still includes this text — that check only
+ * cares about "is there enough content", not identity — but the hash must
+ * not: two near-identical postings whose only difference is the content of
+ * a nested widget (e.g. a "related jobs" list that changes between crawls)
+ * would otherwise get an unstable/colliding identity (#7065).
+ */
+function stripNestedWidgetBlocks(html) {
+  const source = String(html || '');
+  const tagPattern = new RegExp(`<(${NESTED_WIDGET_TAGS.join('|')})\\b[^>]*>`, 'i');
+  let out = '';
+  let cursor = 0;
+  while (cursor < source.length) {
+    const remainder = source.slice(cursor);
+    const openMatch = tagPattern.exec(remainder);
+    if (!openMatch) { out += remainder; break; }
+    out += remainder.slice(0, openMatch.index);
+    const tagName = openMatch[1].toLowerCase();
+    const restStart = cursor + openMatch.index + openMatch[0].length;
+    const inner = extractBalancedTagBlock(source.slice(restStart), tagName, 50000);
+    const afterInner = restStart + inner.length;
+    const closeMatch = new RegExp(`^\\s*</${tagName}\\s*>`, 'i').exec(source.slice(afterInner));
+    cursor = closeMatch ? afterInner + closeMatch[0].length : afterInner;
+  }
+  return out;
+}
+
 /**
  * Locate the first `<article>` in `source` and its full, depth-balanced
  * content via the shared `extractBalancedTagBlock` walker (already relied
@@ -305,7 +338,7 @@ export function parseCscPrimaryJobDetail(html) {
     ? `drupal-node:${nodeId}`
     : explicitIdentifier
       ? `job-identifier:${explicitIdentifier}`
-      : `semantic:${semanticJobPostingHash(jobPosting, articleText)}`;
+      : `semantic:${semanticJobPostingHash(jobPosting, cscPlainText(stripNestedWidgetBlocks(article.content)))}`;
 
   return { identity, nodeId: /^\d+$/.test(nodeId) ? nodeId : '', hasJobPosting: Boolean(jobPosting) };
 }

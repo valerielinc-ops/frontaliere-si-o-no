@@ -128,6 +128,19 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(detail).toEqual({ identity: 'drupal-node:401', nodeId: '401', hasJobPosting: false });
   });
 
+  it('ignores nested widget text when computing the fallback semantic hash', () => {
+    const primaryText = 'Ricerchiamo un capo cantiere qualificato per progetti edili in Ticino, esperienza pluriennale richiesta.';
+    const shellFor = (widgetText: string) =>
+      `<!doctype html><html><body><main><article class="node node--type-work-position"><h1>Capo cantiere</h1><aside><article class="node node--type-related">${widgetText}</article></aside><p>${primaryText}</p></article></main></body></html>`;
+
+    const first = parseCscPrimaryJobDetail(shellFor('Altre offerte correlate: magazziniere, autista.'));
+    const second = parseCscPrimaryJobDetail(shellFor('Altre offerte correlate: elettricista, saldatore, gruista.'));
+
+    expect(first).toMatchObject({ hasJobPosting: false });
+    expect(first?.identity).toMatch(/^semantic:/);
+    expect(second?.identity).toBe(first?.identity);
+  });
+
   it('fails closed when the primary article never closes', () => {
     const unclosedShell = '<!doctype html><html><body><main><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><p>Testo senza chiusura del tag article primario.</p></main></body></html>';
     expect(parseCscPrimaryJobDetail(unclosedShell)).toBeNull();
