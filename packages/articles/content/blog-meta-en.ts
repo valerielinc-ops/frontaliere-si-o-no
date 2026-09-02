@@ -11151,6 +11151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Swiss franc hits 2025 summer low: impact on commuters',
     'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'The Swiss franc has reached its lowest since summer 2025, with the euro at 0.9435 francs on 2 September 2026. Discover the implications for frontier workers.',
     'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'View of Lugano with the lake and mountains in the background',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.title': 'Malles Venosta and Grisons: border tax 2024',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.excerpt': 'From 1 January 2024, the New Frontier Agreement modifies taxation and permits. Discover tax at source, deductibles, AVS and LAMal for those who live in Val Venosta and work in Switzerland.',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.imageAlt': 'Alpine valley landscape between Val Venosta and Grisons, Swiss-Italian border region',
 };
 
 export default blogMetaEn;

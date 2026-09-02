@@ -11150,6 +11150,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Franco svizzero ai minimi dal 2025: impatto sui frontalieri',
     'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'Der Schweizer Franken erreichte sein Tief seit dem Sommer 2025, der Euro lag am 2. September 2026 bei 0,9435 Franken. Erfahren Sie mehr über die Auswirkungen für Grenzgänger.',
     'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'Blick auf Lugano mit dem See und den Bergen im Hintergrund',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.title': 'Mals Vinschgau und Graubünden: Grenzsteuer 2024',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.excerpt': 'Ab dem 1. Januar 2024 ändert die Neue Grenzgängervereinbarung die Besteuerung und Genehmigungen. Entdecken Sie Quellensteuer, Franchisen, AHV und KVG für diejenigen, die im Vinschgau leben und in der Schweiz arbeiten.',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.imageAlt': 'Alpentallandschaft an der Grenze Val Venosta-Graubunden, Blick auf die Schweizer Grenzregion',
 };
 
 export default blogMetaDe;
