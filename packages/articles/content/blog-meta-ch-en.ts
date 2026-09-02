@@ -5083,6 +5083,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-argovia-aliquote.title': 'Aargau Cantonal Taxes: Rates and Deductions',
     'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Find out how cantonal and municipal taxes work in the Canton of Aargau, including progressive tax rates, allowable deductions, and how to file your taxes online. A practical guide.',
     'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Swiss tax office with declaration forms and calculator on desk',
+    'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Health Insurance Premiums in the Canton of Aargau and Premium Reductions',
+    'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Find out how health insurance premiums work in Aargau, what deductibles are available, and how to apply for a reduction through cantonal subsidies.',
+    'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Swiss administrative office for health insurance premiums and subsidy reductions in Canton Aargau.',
 };
 
 export default blogMetaChEn;

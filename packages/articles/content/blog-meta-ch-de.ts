@@ -5083,6 +5083,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-argovia-aliquote.title': 'Kantonale Steuern im Aargau: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Erfahren Sie, wie die kantonalen und kommunalen Steuern im Kanton Aargau funktionieren, welche progressiven Steuersätze gelten, welche Abzüge zulässig sind und wie Sie Ihre Steuererklärung online einreichen können. Ein praktischer Leitfaden.',
     'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Schweizer Steuerbüro mit Steuererklärungsformularen und Taschenrechner auf dem Schreibtisch',
+    'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Krankenkassenprämien im Kanton Aargau und Prämienermäßigung',
+    'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Erfahren Sie, wie die Krankenkassenprämien im Kanton Aargau funktionieren, welche Franchisen es gibt und wie Sie eine Prämienermäßigung durch kantonale Zuschüsse beantragen können.',
+    'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Schweizer Verwaltungsbüro für Krankenversicherungsprämien und Prämiensenkungen im Kanton Aargau.',
 };
 
 export default blogMetaChDe;
