@@ -370,6 +370,24 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     )).toMatchObject({ job: null, reason: 'jsonld_not_detail_url' });
   });
 
+  it('accepts a canonical/shortlink JSON-LD url variant carrying the same job identity (#7026 item 2)', () => {
+    // Same UUID as frenchFustUrl, but under a `/s/{uuid}` shell that
+    // isLikelyJobDetailUrl() does NOT recognise as a detail URL on its own
+    // (no `/job/`, `/jobs/…`, `/vacanc…`, `/offene-stellen/…` etc. segment) —
+    // so on the OLD code this is rejected via BOTH declaredSeedDetail (exact
+    // string mismatch) AND the isLikelyJobDetailUrl() fallback, isolating the
+    // new extractJobIdentityFromUrl() branch as what makes this pass.
+    const shortlinkUrl = 'https://jobs.fust.ch/s/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6';
+    const result = toJobFromJsonLd(
+      { ...node, url: shortlinkUrl },
+      'Fust',
+      frenchFustUrl,
+      { isSeedDetail: true, seedMeta: { location: 'Crissier', canton: 'VD', company: 'Fust' } },
+    );
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({ company: 'Fust', canton: 'VD' });
+  });
+
   it('routes a detail-only adapter through JSON-LD even when its homepage is unavailable', async () => {
     const { processCompany, setCompanyAdaptersForTests } = __testables;
     setCompanyAdaptersForTests(new Map([['fust', {
