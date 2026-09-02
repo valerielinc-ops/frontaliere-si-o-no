@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-09-01T23:07:51.319Z",
+  "generatedAt": "2026-09-02T13:34:32.230Z",
   "total": 10,
   "newCount": 0,
-  "updatedCount": 9,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 14262,
-  "avgDurationMs": 14262,
+  "unchangedCount": 0,
+  "durationMs": 14010,
+  "avgDurationMs": 14010,
   "durationHistory": [
-    14262
+    14010
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -70,7 +70,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -106,7 +106,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -144,7 +144,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -181,7 +181,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -220,7 +220,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -258,7 +258,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -295,7 +295,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -332,7 +332,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -350,10 +350,7 @@
         "translation": 25,
         "completeness": 22
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Technischer Verkaufsberater Aussendienst Komfortlüftung & Hallenklima (m/w/d)",
       "slug": "technischer-verkaufsberater-aussendienst-komfortluftung-hallenklima-m-w-d-hoval-feldmeilen-region-nws",
@@ -372,7 +369,7 @@
       "sector": "IT & Digital",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -391,5 +388,7 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
