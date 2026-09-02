@@ -5038,6 +5038,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Permesso C Basilea Città: requisiti e domanda',
     'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Permesso domicilio C Basilea: anni richiesti, integrazione, conoscenze linguistiche e procedura di domanda presso il cantone.',
     'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Ufficio migrazioni svizzero con documenti ufficiali e moduli per il permesso di domicilio C',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Asilo nido e custodia bambini a Basilea Città: tariffe e sussidi',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Guida alla custodia dei bambini nel canton Basilea Città: tariffe progressive, sussidi cantonali e deduzioni fiscali federali per famiglie. Come accedere ai servizi.',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Centro di custodia bambini svizzero con bambini che giocano e imparano in un ambiente luminoso e moderno.',
 };
 
 export default blogMetaChIt;

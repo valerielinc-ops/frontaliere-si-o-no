@@ -1705,6 +1705,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-grigioni-requisiti-procedura': { it: 'naturalizzazione-grigioni-requisiti-procedura', en: 'naturalization-grisons-requirements-procedure', de: 'einburgerung-graubunden-anforderungen-verfahren', fr: 'naturalisation-grisons-exigences-procedure' },
  'avs-prestazioni-complementari-grigioni': { it: 'avs-prestazioni-complementari-grigioni', en: 'avs-complementary-benefits-canton-grisons', de: 'avs-ergaenzungsleistungen-kanton-graubuenden', fr: 'avs-prestations-complementaires-canton-grisons' },
  'permesso-c-basilea-requisiti-domanda': { it: 'permesso-c-basilea-requisiti-domanda', en: 'residence-permit-c-basel-city-requirements-application', de: 'aufenthaltserlaubnis-c-basel-stadt-anforderungen-antrag', fr: 'permis-residence-c-bale-ville-conditions-demande' },
+ 'asilo-custodia-basilea-citta-tariffe': { it: 'asilo-custodia-basilea-citta-tariffe', en: 'nursery-childcare-basel-city-fees', de: 'kindergarten-kinderbetreuung-basel-stadt-gebuehren', fr: 'garderie-garde-enfants-bale-ville-tarifs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

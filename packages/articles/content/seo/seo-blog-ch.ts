@@ -65384,6 +65384,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asilo-custodia-basilea-citta-tariffe': {
+    title: 'Asilo nido e custodia bambini a Basilea Città: tariffe e sussidi',
+    description: 'Guida alla custodia dei bambini nel canton Basilea Città: tariffe progressive, sussidi cantonali e deduzioni fiscali federali per famiglie. Come accedere',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Custodia bambini a Basilea Città: tariffe e sussidi cantonali',
+    ogDescription: 'Scopri le opzioni di custodia bambini nel canton Basilea Città: asili nido, tariffe progressive calcolate sul reddito, sussidi cantonali e deduzioni fiscali federali e cantonali. Guida pratica per famiglie.',
+    canonicalPath: '/articoli-svizzera/asilo-custodia-basilea-citta-tariffe/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini a Basilea Città: tariffe e sussidi",
+      "description": "Guida alla custodia dei bambini nel canton Basilea Città: tariffe progressive, sussidi cantonali e deduzioni fiscali federali per famiglie. Come accedere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-custodia-basilea-citta-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di custodia bambini svizzero con bambini che giocano e imparano in un ambiente luminoso e moderno."
+      },
+      "datePublished": "2026-09-02T02:13:24+00:00",
+      "dateModified": "2026-09-02T02:13:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-custodia-basilea-citta-tariffe/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

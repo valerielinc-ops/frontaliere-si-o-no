@@ -5038,6 +5038,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Permit C Basel City: requirements and application',
     'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Residence permit C Basel: years required, integration, language skills and application procedure at the canton.',
     'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Swiss immigration office with official residence permit C documents and application forms',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Nursery and childcare in Basel City: fees and subsidies',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Guide to Child Custody in the Canton of Basel-City: Progressive Fees, Cantonal Subsidies, and Federal Family Tax Deductions. How to access services.',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Swiss daycare center with children playing and learning in a modern, bright facility.',
 };
 
 export default blogMetaChEn;
