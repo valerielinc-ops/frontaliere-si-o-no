@@ -313,6 +313,7 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
     let acknowledged = false;
     let bufferedResult = null;
     let terminalDrainImmediate = null;
+    let workerExited = false;
     let timeoutId = setTimeout(() => finish(null), PROVIDER_WORKER_STARTUP_TIMEOUT_MS);
 
     async function finish(candidateText) {
@@ -325,10 +326,12 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
         resultPort.close();
         resultPort = null;
       }
-      try {
-        await worker.terminate();
-      } catch {
-        candidateText = null;
+      if (!workerExited) {
+        try {
+          await worker.terminate();
+        } catch {
+          candidateText = null;
+        }
       }
       resolve(candidateText);
     }
@@ -366,7 +369,10 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
     }
 
     worker.once('error', drainBeforeTerminalFailure);
-    worker.once('exit', drainBeforeTerminalFailure);
+    worker.once('exit', () => {
+      workerExited = true;
+      drainBeforeTerminalFailure();
+    });
     worker.on('message', (message) => {
       if (finishing) return;
       if (resultPort) {
