@@ -5209,6 +5209,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-esterno-costi.title': 'Open activities in Appenzello Externo: costs',
     'blog.article.aprire-attivita-appenzello-esterno-costi.excerpt': 'Registration in the trade register: legal forms, tax obligations, AVS/AI and LAMal contributions. Practical guide to Appenzello Esterno.',
     'blog.article.aprire-attivita-appenzello-esterno-costi.imageAlt': 'Modern Swiss office with business registration documents and online commerce registry portal',
+    'blog.article.impresa-appenzello-esterno-registrazione.title': 'Registering a business in external Appenzello',
+    'blog.article.impresa-appenzello-esterno-registrazione.excerpt': 'Guide to the steps, legal forms, registration costs and insurance obligations for those who open a business in canton AR.',
+    'blog.article.impresa-appenzello-esterno-registrazione.imageAlt': 'Swiss cantonal government building with commercial registration office windows',
 };
 
 export default blogMetaChEn;

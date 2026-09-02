@@ -1762,6 +1762,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazi-usa-seco-svizzera-2026': { it: 'dazi-usa-seco-svizzera-2026', en: 'us-tariffs-seco-switzerland-2026', de: 'us-zolle-seco-schweiz-2026', fr: 'droits-douane-usa-seco-suisse-2026' },
  'diritto-locazione-zurigo-deposito-disdetta': { it: 'diritto-locazione-zurigo-deposito-disdetta', en: 'rental-law-zurich-deposit-termination', de: 'mietrecht-zurich-kaution-kundigung', fr: 'droit-bail-zurich-depot-resiliation' },
  'aprire-attivita-appenzello-esterno-costi': { it: 'aprire-attivita-appenzello-esterno-costi', en: 'start-business-appenzell-ausserrhoden-costs', de: 'unternehmen-appenzell-ausserrhoden-kosten', fr: 'ouvrir-entreprise-appenzell-rhodes-exterieures-couts' },
+ 'impresa-appenzello-esterno-registrazione': { it: 'impresa-appenzello-esterno-registrazione', en: 'register-company-appenzell-ausserrhoden', de: 'unternehmen-appenzell-ausserrhoden-registrieren', fr: 'entreprise-appenzell-rhodes-exterieures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
