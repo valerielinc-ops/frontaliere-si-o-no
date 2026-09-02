@@ -400,6 +400,28 @@ export function assertNoOverlappingJobs(broadJobs, dedicatedJobs, label) {
   }
 }
 
+/**
+ * A RETIREMENTS merge (active or archive) must leave every locale route owned
+ * by exactly one job. `mergeRetiredCrawlerJobs`/`mergeRetiredCrawlerArchive`
+ * collapse overlaps found *during* the merge, but two jobs that already
+ * shared a route before this run (e.g. two separately-merged historical
+ * records) are never compared against each other otherwise — the same class
+ * of asymmetry `assertNoOverlappingJobs` guards against for shared-board
+ * transfers.
+ */
+export function assertNoDuplicateRoutesWithin(jobs, label) {
+  const owners = new Map();
+  for (const job of jobs) {
+    for (const route of localeRouteKeys(job)) {
+      const owner = owners.get(route);
+      if (owner !== undefined && owner !== job) {
+        throw new Error(`${label}: route ${route} is owned by more than one job`);
+      }
+      owners.set(route, job);
+    }
+  }
+}
+
 function run({ apply = false } = {}) {
   const report = [];
 
@@ -413,6 +435,7 @@ function run({ apply = false } = {}) {
       }
       const result = mergeRetiredCrawlerJobs(canonical.jobs, retired.jobs, item.canonical);
       canonical.jobs = result.jobs;
+      assertNoDuplicateRoutesWithin(canonical.jobs, `${item.retired}->${item.canonical} active merge`);
       activeResult = { ...result, jobs: undefined, retiredSlice: apply ? 'deleted' : 'would-delete' };
       if (apply) {
         // Write the survivor first. A crash before the unlink leaves a duplicate
@@ -438,6 +461,7 @@ function run({ apply = false } = {}) {
         item.canonical,
       );
       canonicalExpired.jobs = result.jobs;
+      assertNoDuplicateRoutesWithin(canonicalExpired.jobs, `${item.retired}->${item.canonical} archive merge`);
       const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0;
       if (needsWrite) {
         archiveResult = {
