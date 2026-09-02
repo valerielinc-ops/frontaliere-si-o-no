@@ -38,6 +38,7 @@ import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
 import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
@@ -278,18 +279,33 @@ async function fetchFeed(url) {
   }
 }
 
+const CANTON_CODE_SET = new Set(ALL_CANTON_CODES);
+
+// Some jobup `lieu` values append the canton code after the city
+// ("6900 Lugano TI"). That trailing token belongs to the same slot as the
+// `postal` field, not the city name — left in `city`, it fails the exact-match
+// BFS lookup in `isKnownSwissMunicipalityInCanton` (e.g. "Lugano TI" is not a
+// registered municipality token, "Lugano" is), rejecting an otherwise valid
+// source location. See #7105.
+function stripTrailingCantonCode(city = '') {
+  const m = city.match(/^(.+?)\s+([A-Z]{2})$/);
+  if (m && CANTON_CODE_SET.has(m[2])) return m[1].trim();
+  return city;
+}
+
 /**
  * Parse the postal code + city from the jobup `lieu` field.
  * Examples:
  *   "1660 Château d'Oex" → { postal: "1660", city: "Château d'Oex" }
  *   "1400 Yverdon-les-Bains" → { postal: "1400", city: "Yverdon-les-Bains" }
  *   "Lausanne" → { postal: "", city: "Lausanne" }
+ *   "6900 Lugano TI" → { postal: "6900", city: "Lugano" }
  */
 export function parseJobupLieu(raw = '') {
   const decoded = decodeEntities(String(raw || ''));
   const m = decoded.match(/^\s*(\d{4})\s+(.+?)\s*$/);
-  if (m) return { postal: m[1], city: normalizeSpace(m[2]) };
-  return { postal: '', city: normalizeSpace(decoded) };
+  if (m) return { postal: m[1], city: stripTrailingCantonCode(normalizeSpace(m[2])) };
+  return { postal: '', city: stripTrailingCantonCode(normalizeSpace(decoded)) };
 }
 
 /**
@@ -489,9 +505,19 @@ export function createJobupChFeedParser(config) {
       const lieu = parseJobupLieu(rawLieu);
       const hasUnsupportedPostalPrefix = /^\d+\b/.test(rawLieu) && !lieu.postal;
       const location = lieu.city;
+      // Feed the already-parsed postal/city split as a structured candidate
+      // (addressLocality/postalCode) instead of the whole raw `lieu` string,
+      // matching the structured pattern used by the Coop/Cippà family. This
+      // grounds municipality→canton matching in the locality jobup itself
+      // separated from the postal prefix, instead of fuzzy-matching over the
+      // full "<postal> <city>" text.
       const geography = hasUnsupportedPostalPrefix
         ? null
-        : resolveSourceBackedSwissGeography(rawLieu);
+        : resolveSourceBackedSwissGeography({
+            location: rawLieu,
+            addressLocality: lieu.city,
+            postalCode: lieu.postal,
+          });
       const canton = geography?.canton || '';
       if (!location || !canton) {
         console.log(`     ⚠ source location rejected for ${link}: missing, foreign or unresolved lieu`);
