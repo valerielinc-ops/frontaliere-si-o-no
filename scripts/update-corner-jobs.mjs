@@ -210,6 +210,12 @@ async function fetchRecruiteeOffers() {
 // Parse offer → job object
 // ──────────────────────────────────────────────────────────────
 
+// Country-level location text with no city/canton evidence (e.g. Recruitee's
+// `locations[0].city: "Switzerland"` on the "Candidatura spontanea
+// apprendistato" unsolicited-application offer) — a nationwide signal, not a
+// missing one. See CH_COUNTRY_RE usage below (#7057).
+const CH_COUNTRY_RE = /\b(switzerland|schweiz|suisse|svizzera)\b/i;
+
 function parseCornerOffer(offer) {
   // Parse content fields (description, offer_sections, requirements, locale titles)
   const parsed = parseCornerOfferFull(offer);
@@ -220,7 +226,13 @@ function parseCornerOffer(offer) {
   // Location
   const loc = (offer.locations || [])[0] || {};
   const city = loc.city || offer.city || 'Lugano';
-  const canton = loc.state_code || offer.state_code || getCompanyDefaults('corner').canton;
+  const stateCode = loc.state_code || offer.state_code || '';
+  // A bare country name as the only location signal means the offer is
+  // nationwide (no branch office), not that the data is missing — applying
+  // the Ticino HQ default here would misrepresent it as a local Ticino
+  // vacancy with no supporting evidence (#7057).
+  const isNationwide = !stateCode && CH_COUNTRY_RE.test(city);
+  const canton = isNationwide ? '' : (stateCode || getCompanyDefaults('corner').canton);
 
   // URL
   const careersUrl = offer.careers_url || `https://jobs.corner.ch/o/${offer.slug}`;
