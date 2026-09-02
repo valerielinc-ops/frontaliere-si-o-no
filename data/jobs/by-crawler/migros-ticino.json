@@ -1026,18 +1026,33 @@
       "previousSlugsByLocale": {
         "it": [
           "lkw-mechaniker-in-genossenschaft-migros-zurich",
-          "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a"
+          "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a",
+          "meccanico-di-carrello-elevatore-genossenschaft-migros-zurich-zurich",
+          "forklift-mechanic-genossenschaft-migros-zurich-zurich",
+          "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
+          "mecanicien-du-chariot-elevateur-genossenschaft-migros-zurich-zurich",
+          "stapler-mechaniker-in-genossenschaft-migros-zurich"
         ],
         "en": [
-          "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a"
+          "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a",
+          "forklift-mechanic-genossenschaft-migros-zurich-zurich"
         ],
         "fr": [
-          "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a"
+          "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a",
+          "mecanicien-du-chariot-elevateur-genossenschaft-migros-zurich-zurich"
+        ],
+        "de": [
+          "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k"
         ]
       },
       "previousSlugs": [
         "lkw-mechaniker-in-genossenschaft-migros-zurich",
-        "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a"
+        "lkw-mechaniker-in-genossenschaft-migros-zurich-u64v9a",
+        "meccanico-di-carrello-elevatore-genossenschaft-migros-zurich-zurich",
+        "forklift-mechanic-genossenschaft-migros-zurich-zurich",
+        "stapler-mechaniker-in-genossenschaft-migros-zurich-5acx9k",
+        "mecanicien-du-chariot-elevateur-genossenschaft-migros-zurich-zurich",
+        "stapler-mechaniker-in-genossenschaft-migros-zurich"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1571,15 +1586,34 @@
       "previousSlugsByLocale": {
         "it": [
           "student-innen-aushilfe-genossenschaft-migros-zurich",
-          "student-innen-aushilfe-genossenschaft-migros-zurich-gjpp3n"
+          "student-innen-aushilfe-genossenschaft-migros-zurich-gjpp3n",
+          "assistenza-agli-studenti-genossenschaft-migros-zurich-pfaffikon",
+          "student-assistance-genossenschaft-migros-zurich-pfaffikon",
+          "student-innen-aushilfe-genossenschaft-migros-zurich-pfaffikon-h0ekr6",
+          "aide-aux-etudiants-genossenschaft-migros-zurich-pfaffikon",
+          "student-innen-aushilfe-genossenschaft-migros-zurich-pfaffikon",
+          "student-assistance-genossenschaft-migros-zurich-zurich"
         ],
         "fr": [
-          "student-innen-aushilfe-genossenschaft-migros-zurich-gjpp3n"
+          "student-innen-aushilfe-genossenschaft-migros-zurich-gjpp3n",
+          "aide-aux-etudiants-genossenschaft-migros-zurich-pfaffikon"
+        ],
+        "en": [
+          "student-assistance-genossenschaft-migros-zurich-pfaffikon"
+        ],
+        "de": [
+          "student-innen-aushilfe-genossenschaft-migros-zurich-pfaffikon-h0ekr6"
         ]
       },
       "previousSlugs": [
         "student-innen-aushilfe-genossenschaft-migros-zurich",
-        "student-innen-aushilfe-genossenschaft-migros-zurich-gjpp3n"
+        "student-innen-aushilfe-genossenschaft-migros-zurich-gjpp3n",
+        "assistenza-agli-studenti-genossenschaft-migros-zurich-pfaffikon",
+        "student-assistance-genossenschaft-migros-zurich-pfaffikon",
+        "student-innen-aushilfe-genossenschaft-migros-zurich-pfaffikon-h0ekr6",
+        "aide-aux-etudiants-genossenschaft-migros-zurich-pfaffikon",
+        "student-innen-aushilfe-genossenschaft-migros-zurich-pfaffikon",
+        "student-assistance-genossenschaft-migros-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -29877,7 +29911,8 @@
           "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t",
           "instructeur-de-fitness-f-m-d-fitnesspark-luzern",
           "fitness-instructor-m-w-d-fitnesspark-luzern",
-          "fitness-instructor-w-m-d-fitnesspark-luzern"
+          "fitness-instructor-w-m-d-fitnesspark-luzern",
+          "fitness-instructor-m-w-d-activ-fitness-luzern"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-luzern-18fupu",
@@ -29893,7 +29928,8 @@
         "fitness-instructor-m-w-d-fitnesspark-luzern-6dw70t",
         "instructeur-de-fitness-f-m-d-fitnesspark-luzern",
         "fitness-instructor-m-w-d-fitnesspark-luzern",
-        "fitness-instructor-w-m-d-fitnesspark-luzern"
+        "fitness-instructor-w-m-d-fitnesspark-luzern",
+        "fitness-instructor-m-w-d-activ-fitness-luzern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -32865,14 +32901,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
+          "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
+          "fitness-instructor-m-w-d-activ-fitness-st-gallen"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv"
+        "fitness-instructor-m-w-d-activ-fitness-st-gallen-69qnxv",
+        "fitness-instructor-m-w-d-activ-fitness-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -35979,7 +36017,7 @@
       "firstSeenAt": "2026-08-14T22:03:41.826Z",
       "titleByLocale": {
         "de": "Studentenaushilfe Supermarkt",
-        "it": "Studentenaushilfe Supermarkt",
+        "it": "Supermercato dell'assistenza agli studenti",
         "en": "Student Assistance Supermarket",
         "fr": "Supermarché de l'aide aux étudiants"
       },
@@ -36051,7 +36089,6 @@
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "estimated",
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -41257,11 +41294,13 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
+        "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
+        "fitness-instructor-m-w-d-activ-fitness-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
+          "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet",
+          "fitness-instructor-m-w-d-activ-fitness-bern"
         ],
         "en": [
           "fitness-instructor-m-w-d-activ-fitness-bern-o6mdet"
@@ -52399,14 +52438,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
+          "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
+          "fitness-instructor-m-w-d-activ-fitness-uzwil"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy"
+        "fitness-instructor-m-w-d-activ-fitness-uzwil-qgyefy",
+        "fitness-instructor-m-w-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -57146,7 +57187,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
+          "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
+          "fitness-instructor-m-w-d-activ-fitness-aarau"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi"
@@ -57154,7 +57196,8 @@
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-aarau-6dp8yi",
-        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi"
+        "fitnesstrainer-m-w-d-activ-fitness-aarau-6dp8yi",
+        "fitness-instructor-m-w-d-activ-fitness-aarau"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -58870,7 +58913,8 @@
           "fitness-instructor-w-activ-fitness-zurich",
           "instructeur-fitness-w-m-d-activ-fitness-zurich",
           "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
+          "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
+          "fitness-instructor-m-w-d-activ-fitness-zurich"
         ],
         "en": [
           "fitness-instructor-w-activ-fitness-zurich"
@@ -58889,7 +58933,8 @@
         "fitness-instructor-w-activ-fitness-zurich",
         "instructeur-fitness-w-m-d-activ-fitness-zurich",
         "fitnesstrainer-m-w-d-activ-fitness-kloten-m06cvc",
-        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich"
+        "fitness-instructor-m-w-d-aushilfe-activ-fitness-zurich",
+        "fitness-instructor-m-w-d-activ-fitness-zurich"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -67581,12 +67626,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-          "fitness-instructor-w-m-d-activ-fitness-kloten"
+          "fitness-instructor-w-m-d-activ-fitness-kloten",
+          "fitness-instructor-m-w-d-activ-fitness-kloten"
         ]
       },
       "previousSlugs": [
         "fitness-instructor-m-w-d-activ-fitness-kloten-lboeq8",
-        "fitness-instructor-w-m-d-activ-fitness-kloten"
+        "fitness-instructor-w-m-d-activ-fitness-kloten",
+        "fitness-instructor-m-w-d-activ-fitness-kloten"
       ],
       "salarySource": "estimated",
       "salaryMin": 73500,
@@ -76461,7 +76508,8 @@
       "previousSlugsByLocale": {
         "it": [
           "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24",
-          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
+          "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
+          "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
         ],
         "de": [
           "fitnesstrainer-aushilfe-m-w-d-activ-fitness-uzwil-9l6a24"
@@ -76477,7 +76525,8 @@
         "fitness-instructor-aushilfe-m-w-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-w-m-d-activ-fitness-thun",
         "fitnesstrainer-aushilfe-m-w-d-activ-fitness-thun-lxomto",
-        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil"
+        "fitness-instructor-aushilfe-w-m-d-activ-fitness-uzwil",
+        "fitness-instructor-aushilfe-m-w-d-activ-fitness-uzwil"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -86203,7 +86252,8 @@
           "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen",
           "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-jmaavj",
           "professeur-minitrampoline-bellicon-en-salaire-horaire-genossenschaft-migros-ostschweiz-st-gallen",
-          "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+          "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
+          "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
         ],
         "en": [
           "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen"
@@ -86221,7 +86271,8 @@
         "teacher-minitrampoline-bellicon-in-hourly-wages-genossenschaft-migros-ostschweiz-st-gallen",
         "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen-jmaavj",
         "professeur-minitrampoline-bellicon-en-salaire-horaire-genossenschaft-migros-ostschweiz-st-gallen",
-        "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
+        "lehrperson-minitrampolin-bellicon-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen",
+        "lehrperson-ballett-im-stundenlohn-genossenschaft-migros-ostschweiz-st-gallen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -96776,11 +96827,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
+          "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
+          "assistente-manager-fitness-club-activ-fitness-zofingen"
         ]
       },
       "previousSlugs": [
-        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen"
+        "assistant-manager-fitness-club-m-w-d-activ-fitness-zofingen",
+        "assistente-manager-fitness-club-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -96881,14 +96934,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
+          "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
+          "fitness-instructor-m-w-d-activ-fitness-zofingen"
         ],
         "fr": [
           "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
         ]
       },
       "previousSlugs": [
-        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n"
+        "fitness-instructor-m-w-d-activ-fitness-zofingen-jjhw6n",
+        "fitness-instructor-m-w-d-activ-fitness-zofingen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

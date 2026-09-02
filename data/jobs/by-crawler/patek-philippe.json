@@ -424,7 +424,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:14.719Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -680,7 +679,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:11.734Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 192000,
       "salarySource": "estimated",
@@ -710,7 +708,7 @@
       "title": "Chargé de Process Vie Série (H/F)",
       "titleByLocale": {
         "it": "Responsabile Processo Serie (H/F)",
-        "en": "Chargé de Process Vie Série (H/F)",
+        "en": "Process Life Manager (M/F) Series",
         "de": "Serienprozessbeauftragter (M/W)",
         "fr": "Chargé de Process Vie Série (H/F)"
       },
@@ -762,7 +760,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:12.395Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -979,7 +976,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:52:01.753Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1053,7 +1049,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:12:08.354Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1195,7 +1190,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:52:00.846Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1372,8 +1366,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

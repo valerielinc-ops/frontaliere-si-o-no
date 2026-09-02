@@ -2841,7 +2841,7 @@
       "title": "Lehre als Informatiker/-in Applikationsentwicklung",
       "titleByLocale": {
         "it": "Apprendistato come Informatiker/-in Applikationsentwicklung",
-        "en": "Lehre als Informatiker/-in Applikationsentwicklung",
+        "en": "Teaching as a computer scientist/in application development",
         "de": "Lehre als Informatiker/-in Applikationsentwicklung",
         "fr": "Enseignement en tant qu'informaticien/en développement d'applications"
       },
@@ -4979,12 +4979,24 @@
       },
       "previousSlugs": [
         "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
-        "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich"
+        "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
+        "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
-          "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich"
+          "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
+          "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch"
+        ],
+        "de": [
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch"
+        ],
+        "fr": [
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
