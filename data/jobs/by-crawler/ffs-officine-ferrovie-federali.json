@@ -11744,9 +11744,9 @@
       "slug": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
       "slugByLocale": {
         "it": "collaboratore-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "en": "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
+        "en": "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
         "de": "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "fr": "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
+        "fr": "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf"
       },
       "company": "FFS Officine (Ferrovie Federali)",
       "companyKey": "ffs-officine-ferrovie-federali",
@@ -11807,8 +11807,6 @@
         "mitarbeiter-in-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf",
         "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-        "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
-        "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
         "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf",
         "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
       ],
@@ -11818,12 +11816,10 @@
           "dipendente-in-assemblaggio-deviatoi-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "en": [
-          "switch-assembler-ffs-officine-ferrovie-federali-hagendorf",
           "associate-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ],
         "fr": [
           "employes-dans-pointsmontage-ffs-officine-ferrovie-federali-hagendorf",
-          "employe-en-montage-d-aiguillage-ffs-officine-ferrovie-federali-hagendorf",
           "collaborateur-trice-weichenmontage-ffs-officine-ferrovie-federali-hagendorf"
         ]
       },
@@ -14822,9 +14818,9 @@
     },
     {
       "id": "sbb-405c77fd8e51",
-      "slug": "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+      "slug": "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
       "slugByLocale": {
-        "it": "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "it": "cambio-carriera-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
         "en": "transverse-entry-firefighter-or-firefighter-and-engine-driver-ffs-officine-ferrovie-federali-rapperswil-sg",
         "de": "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
         "fr": "entree-laterale-en-tant-que-pompier-et-conducteur-de-train-ffs-officine-ferrovie-federali-rapperswil-sg"
@@ -14896,13 +14892,15 @@
         "it": [
           "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
           "accesso-incrociato-pompiere-o-vigile-del-fuoco-e-macchinista-in-ffs-officine-ferrovie-federali-rapperswil-sg",
-          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
+          "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
+          "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg"
         ]
       },
       "previousSlugs": [
         "quereinstieg-feuerwehrmann-oder-feuerwehrfrau-und-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg",
         "accesso-incrociato-pompiere-o-vigile-del-fuoco-e-macchinista-in-ffs-officine-ferrovie-federali-rapperswil-sg",
-        "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg"
+        "quereinstieg-spezialist-in-bahnrettung-ffs-officine-ferrovie-federali-rapperswil-sg",
+        "cambio-carriera-feuerwehrmann-o-feuerwehrfrau-e-lokfuhrer-in-ffs-officine-ferrovie-federali-rapperswil-sg"
       ],
       "firstSeenAt": "2026-08-24T21:45:00.920Z",
       "salaryMin": 60000,
@@ -14927,7 +14925,7 @@
       "slugByLocale": {
         "it": "responsabile-della-pianificazione-a-breve-termine-m-f-d-ffs-officine-ferrovie-federali-olten",
         "en": "short-term-planning-manager-m-f-d-ffs-officine-ferrovie-federali-olten",
-        "de": "verantwortlich-fur-die-kurzfristige-planung-m-w-d-ffs-officine-ferrovie-federali-olten",
+        "de": "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten",
         "fr": "responsable-de-la-planification-a-court-terme-h-f-d-ffs-officine-ferrovie-federali-olten"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -15014,12 +15012,13 @@
           "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
         ],
         "de": [
-          "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
+          "verantwortlich-fur-die-kurzfristige-planung-m-w-d-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "previousSlugs": [
         "responsabile-della-pianificazione-a-breve-termine-m-f-d-ffs-officine-ferrovie-j11dul",
-        "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
+        "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten",
+        "verantwortlich-fur-die-kurzfristige-planung-m-w-d-ffs-officine-ferrovie-federali-olten"
       ]
     }
   ]
