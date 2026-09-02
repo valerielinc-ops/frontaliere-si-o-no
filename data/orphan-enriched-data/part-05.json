@@ -441,10 +441,10 @@
         "fr": "abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
-        "en": "/en/find-jobs-graubunden/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
-        "de": "/de/jobs-in-graubunden/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
-        "fr": "/fr/trouver-emploi-grisons/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
+        "it": "/cerca-lavoro-ticino/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
+        "en": "/en/find-jobs-ticino/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
+        "de": "/de/jobs-im-tessin/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal",
+        "fr": "/fr/trouver-emploi-tessin/abteilungsleitung-pflegeheim-seora-rheinfelden-m-w-d-gesundheitszentrum-fricktal"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -21629,10 +21629,10 @@
         "fr": "devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-appenzello/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun",
-        "en": "/en/find-jobs-appenzell/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun",
+        "it": "/cerca-lavoro-berna/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun",
+        "en": "/en/find-jobs-bern/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun",
         "de": "/de/jobs-im-appenzell/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun",
-        "fr": "/fr/trouver-emploi-appenzell/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun"
+        "fr": "/fr/trouver-emploi-berne/devops-engineer-c5i-80-100-w-m-d-ruag-ag-thun"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29726,10 +29726,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-koniz-sldz02"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-koniz-sldz02",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-koniz-sldz02",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-koniz-sldz02",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-koniz-sldz02"
+        "it": "/cerca-lavoro-berna/food-sales-assistant-coop-genossenschaft-koniz-sldz02",
+        "en": "/en/find-jobs-bern/food-sales-assistant-coop-genossenschaft-koniz-sldz02",
+        "de": "/de/jobs-in-bern/food-sales-assistant-coop-genossenschaft-koniz-sldz02",
+        "fr": "/fr/trouver-emploi-berne/food-sales-assistant-coop-genossenschaft-koniz-sldz02"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -60665,10 +60665,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "sales-associate-cashier-services-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-kassen-services-coop-city-zurich-gjq0nn",
+        "it": "commesso-a-casse-servizi-coop-genossenschaft-zurich-958209",
         "en": "sales-associate-cashier-services-coop-genossenschaft-zurich",
-        "de": "sales-associate-cashier-services-coop-genossenschaft-zurich",
-        "fr": "sales-associate-cashier-services-coop-genossenschaft-zurich"
+        "fr": "vendeur-vendeuse-caisses-services-coop-genossenschaft-zurich-958209"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/sales-associate-cashier-services-coop-genossenschaft-zurich",
@@ -60682,6 +60682,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
