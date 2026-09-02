@@ -15,7 +15,9 @@ import {
   createAlbergoGardeniaCleanEgressTransport,
   fetchAlbergoGardeniaSourcePage,
   assertNoGardeniaCareerSurface,
+  decodeSitemapLocation,
   fetchAllAlbergoGardeniaJobs,
+  gardeniaInjectedDecodeSource,
   isAlbergoGardeniaJob,
   isTrustedDomain,
   parseAlbergoGardeniaSitemap,
@@ -63,6 +65,21 @@ describe('Albergo Gardenia authoritative crawler', () => {
     expect(inventory.allUrls).toHaveLength(50);
     expect(inventory.contentUrls).toHaveLength(40);
     expect(inventory.contentUrls[0]).toContain('?mid=1&pid=1');
+  });
+
+  it('decodes <loc> entities identically in the injected Cloudflare script and the Node parser', () => {
+    // eslint-disable-next-line no-new-func -- exercises the literal source injected into the browser script.
+    const decodeFromInjectedScript = new Function(`return ${gardeniaInjectedDecodeSource()};`)();
+    const cases = [
+      'https://www.albergo-gardenia.ch/story.php?mid=1&amp;amp;pid=1',
+      'https://www.albergo-gardenia.ch/index.php?mid=5&amp;pid=2',
+      'Soci&egrave;t&eacute; caf&eacute;',
+      '&#8220;quoted&#8221; &amp;amp; &#39;text&#39;',
+      'plain text with no entities',
+    ];
+    for (const raw of cases) {
+      expect(decodeFromInjectedScript(raw)).toBe(decodeSitemapLocation(raw));
+    }
   });
 
   it('returns only a marked authoritative zero after every content page succeeds', async () => {
