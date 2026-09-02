@@ -5197,6 +5197,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Geschäft im Aargau eröffnen: Handelsregister und Kosten',
     'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Rechtsformen, Handelsregistereintragung, Mindestkapital, Steuern und steuerliche Pflichten im Kanton Aargau: Betriebsanleitung.',
     'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Eingang zu einem schweizer Kantonalen Verwaltungsbüro für Handelsregister',
+    'blog.article.consultazione-politica-agricola-2030.title': 'Konsultation durch das Eidgenössische Departement eröffnet',
+    'blog.article.consultazione-politica-agricola-2030.excerpt': 'Der Bundesrat hat eine Reihe von Gesetzesanpassungen für die Agrarpolitik 2030+ vorgeschlagen.',
+    'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Schweizer Bauern diskutieren neue landwirtschaftliche Vorschriften auf einem Weizenfeld.',
 };
 
 export default blogMetaChDe;

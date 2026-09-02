@@ -5197,6 +5197,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Opening a business in Aargau: trade register and costs',
     'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Legal forms, registration in the commercial register, minimum capital, taxes and tax obligations in the Canton of Aargau: operational guide.',
     'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Entrance to a Swiss cantonal administrative office for commercial registration',
+    'blog.article.consultazione-politica-agricola-2030.title': 'Consultation opened by the Federal Department',
+    'blog.article.consultazione-politica-agricola-2030.excerpt': 'The Federal Council has proposed a series of legislative adjustments for the 2030+ agricultural policy.',
+    'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Swiss farmers discussing new agricultural regulations in a wheat field.',
 };
 
 export default blogMetaChEn;
