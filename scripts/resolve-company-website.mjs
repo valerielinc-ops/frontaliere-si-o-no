@@ -18,6 +18,9 @@ const REDIRECT_STATUSES = new Set([300, 301, 302, 303, 307, 308]);
 const HEAD_FALLBACK_STATUSES = new Set([403, 405, 501]);
 const BLOCKED_HOSTNAMES = new Set(['localhost', 'metadata.google.internal']);
 
+/** @typedef {(...args: any[]) => Promise<any>} AsyncImpl */
+/** @typedef {{ fetchImpl?: AsyncImpl, lookupImpl?: AsyncImpl, timeoutMs?: number, dispatcher?: any }} ResolverOptions */
+
 export function normalizeDomain(value) {
   try {
     const url = new URL(value);
@@ -74,17 +77,53 @@ async function cancelBody(response) {
   }
 }
 
-async function fetchWithTimeout(url, method, fetchImpl, timeoutMs, dispatcher) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+async function finishBeforeDeadline(operation, deadline) {
+  const remainingMs = deadline - Date.now();
+  if (remainingMs <= 0) return null;
+  let timer;
   try {
-    return await fetchImpl(url, {
-      method,
-      redirect: 'manual',
-      signal: controller.signal,
-      headers: { 'user-agent': 'frontaliere-company-website-resolver/1.0' },
-      ...(dispatcher ? { dispatcher } : {}),
-    });
+    return await Promise.race([
+      Promise.resolve().then(operation).catch(() => null),
+      new Promise((resolve) => { timer = setTimeout(() => resolve(null), remainingMs); }),
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+function createBoundedPublicDispatcher(lookupImpl, timeoutMs) {
+  const boundedLookup = async (hostname, options) => {
+    const records = await finishBeforeDeadline(
+      () => lookupImpl(hostname, options),
+      Date.now() + Math.max(0, Number(timeoutMs) || 0),
+    );
+    if (!records) throw new Error(`DNS lookup timed out for ${hostname}`);
+    return records;
+  };
+  return new Agent({ connect: { lookup: createPublicConnectionLookup(boundedLookup) } });
+}
+
+async function fetchBeforeDeadline(url, method, fetchImpl, deadline, dispatcher) {
+  const remainingMs = deadline - Date.now();
+  if (remainingMs <= 0) return null;
+  const controller = new AbortController();
+  let timer;
+  try {
+    return await Promise.race([
+      Promise.resolve().then(() => fetchImpl(url, {
+        method,
+        redirect: 'manual',
+        signal: controller.signal,
+        headers: { 'user-agent': 'frontaliere-company-website-resolver/1.0' },
+        ...(dispatcher ? { dispatcher } : {}),
+      })).catch(() => null),
+      new Promise((resolve) => {
+        timer = setTimeout(() => {
+          controller.abort();
+          resolve(null);
+        }, remainingMs);
+      }),
+    ]);
   } finally {
     clearTimeout(timer);
   }
@@ -93,14 +132,26 @@ async function fetchWithTimeout(url, method, fetchImpl, timeoutMs, dispatcher) {
 async function followRedirects(startUrl, method, { fetchImpl, lookupImpl, timeoutMs, dispatcher }) {
   let current = startUrl;
   for (let redirectCount = 0; redirectCount <= MAX_REDIRECTS; redirectCount += 1) {
-    const validated = await validatePublicHttpsUrl(current, lookupImpl);
+    const deadline = Date.now() + Math.max(0, Number(timeoutMs) || 0);
+    const validated = await finishBeforeDeadline(
+      () => validatePublicHttpsUrl(current, lookupImpl),
+      deadline,
+    );
     if (!validated) return null;
 
-    let response;
-    try {
-      response = await fetchWithTimeout(validated, method, fetchImpl, timeoutMs, dispatcher);
-    } catch {
-      return null;
+    const response = await fetchBeforeDeadline(validated, method, fetchImpl, deadline, dispatcher);
+    if (!response) return null;
+
+    let effectiveUrl = validated;
+    if (response?.url && response.url !== validated) {
+      effectiveUrl = await finishBeforeDeadline(
+        () => validatePublicHttpsUrl(response.url, lookupImpl),
+        deadline,
+      );
+      if (!effectiveUrl) {
+        await cancelBody(response);
+        return null;
+      }
     }
 
     if (REDIRECT_STATUSES.has(response?.status)) {
@@ -108,14 +159,14 @@ async function followRedirects(startUrl, method, { fetchImpl, lookupImpl, timeou
       await cancelBody(response);
       if (!location || redirectCount === MAX_REDIRECTS) return null;
       try {
-        current = new URL(location, validated).toString();
+        current = new URL(location, effectiveUrl).toString();
       } catch {
         return null;
       }
       continue;
     }
 
-    const result = response?.ok ? canonicalHttpsUrl(validated) : null;
+    const result = response?.ok ? canonicalHttpsUrl(effectiveUrl) : null;
     const status = response?.status;
     await cancelBody(response);
     return { result, status };
@@ -133,6 +184,10 @@ async function request(url, options) {
   return null;
 }
 
+/**
+ * @param {string} domain
+ * @param {ResolverOptions} [options]
+ */
 export async function resolveCompanyWebsite(domain, {
   fetchImpl = undiciFetch,
   lookupImpl = lookup,
@@ -141,7 +196,7 @@ export async function resolveCompanyWebsite(domain, {
 } = {}) {
   if (!domain) return null;
   const ownsDispatcher = !dispatcher;
-  const activeDispatcher = dispatcher || new Agent({ connect: { lookup: createPublicConnectionLookup(lookupImpl) } });
+  const activeDispatcher = dispatcher || createBoundedPublicDispatcher(lookupImpl, timeoutMs);
   try {
     const options = { fetchImpl, lookupImpl, timeoutMs, dispatcher: activeDispatcher };
     const results = await Promise.all([
@@ -156,6 +211,10 @@ export async function resolveCompanyWebsite(domain, {
   }
 }
 
+/**
+ * @param {Array<{website?: unknown}>} companies
+ * @param {ResolverOptions & {limit?: number, concurrency?: number}} [options]
+ */
 export async function resolveCompanyWebsites(companies, options = {}) {
   const domains = [...new Set(companies.map(({ website }) => normalizeDomain(website)).filter(Boolean))].sort();
   const limit = Number.isInteger(options.limit) ? options.limit : domains.length;
@@ -168,7 +227,10 @@ export async function resolveCompanyWebsites(companies, options = {}) {
   const concurrency = Math.min(MAX_DOMAIN_CONCURRENCY, Math.max(1, requestedConcurrency), selected.length);
   const entries = Array(selected.length);
   const ownsDispatcher = !options.dispatcher;
-  const dispatcher = options.dispatcher || new Agent({ connect: { lookup: createPublicConnectionLookup(options.lookupImpl || lookup) } });
+  const dispatcher = options.dispatcher || createBoundedPublicDispatcher(
+    options.lookupImpl || lookup,
+    options.timeoutMs ?? DEFAULT_TIMEOUT_MS,
+  );
   let cursor = 0;
   async function worker() {
     while (cursor < selected.length) {
@@ -186,6 +248,9 @@ export async function resolveCompanyWebsites(companies, options = {}) {
   }
 }
 
+/**
+ * @param {ResolverOptions & {inputPath?: string, outputPath?: string, limit?: number, concurrency?: number}} [options]
+ */
 export async function run({
   inputPath = path.resolve('data/crawler-companies-auto.json'),
   outputPath = path.resolve('data/company-website-resolved.json'),

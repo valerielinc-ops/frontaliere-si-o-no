@@ -4,14 +4,20 @@ import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
 import { normalizeDomain, resolveCompanyWebsite, resolveCompanyWebsites, run } from '../scripts/resolve-company-website.mjs';
 
-const PUBLIC_DNS = async () => [{ address: '93.184.216.34', family: 4 }];
+const PUBLIC_DNS = async (_hostname: string, _options?: unknown) => [{ address: '93.184.216.34', family: 4 }];
 
-function response(status = 200, location: string | null = null, cancel = vi.fn().mockResolvedValue(undefined)): Response {
+function response(
+  status = 200,
+  location: string | null = null,
+  cancel = vi.fn().mockResolvedValue(undefined),
+  url = '',
+): Response {
   return {
     ok: status >= 200 && status < 300,
     status,
     headers: new Headers(location ? { location } : {}),
     body: { cancel } as unknown as ReadableStream<Uint8Array>,
+    url,
   } as Response;
 }
 
@@ -23,7 +29,7 @@ describe('company website resolver', () => {
 
   it('follows bounded manual HTTPS redirects, including a public cross-domain destination', async () => {
     const lookupImpl = vi.fn(PUBLIC_DNS);
-    const fetchImpl = vi.fn(async (input: RequestInfo | URL): Promise<Response> => (
+    const fetchImpl = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit): Promise<Response> => (
       new URL(input.toString()).hostname.endsWith('example.ch')
         ? response(301, 'https://careers.example.net/jobs')
         : response()
@@ -106,6 +112,13 @@ describe('company website resolver', () => {
     expect(redirectFetch).toHaveBeenCalledTimes(2);
   });
 
+  it('rejects an unsafe effective URL reported by the transport', async () => {
+    const fetchImpl = vi.fn(async (): Promise<Response> => (
+      response(200, null, vi.fn().mockResolvedValue(undefined), 'https://127.0.0.1/admin')
+    ));
+    await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves.toBeNull();
+  });
+
   it('rejects a redirect that downgrades HTTPS instead of rewriting its scheme', async () => {
     const fetchImpl = vi.fn(async (): Promise<Response> => response(301, 'http://public.example.net/'));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves.toBeNull();
@@ -135,6 +148,22 @@ describe('company website resolver', () => {
     })).resolves.toBeNull();
     expect(aborted).toHaveLength(2);
     expect(aborted.every((signal) => signal.aborted)).toBe(true);
+  });
+
+  it('fails closed within the real budget when DNS lookup never settles', async () => {
+    const lookupImpl = vi.fn(() => new Promise<never>(() => {}));
+    const fetchImpl = vi.fn(async (): Promise<Response> => response());
+    const startedAt = Date.now();
+    await expect(resolveCompanyWebsite('example.ch', {
+      fetchImpl,
+      lookupImpl,
+      timeoutMs: 10,
+    })).resolves.toBeNull();
+    const elapsedMs = Date.now() - startedAt;
+    expect(lookupImpl).toHaveBeenCalledTimes(2);
+    expect(fetchImpl).not.toHaveBeenCalled();
+    expect(elapsedMs).toBeGreaterThanOrEqual(5);
+    expect(elapsedMs).toBeLessThan(500);
   });
 
   it('produces a sorted, duplicate-free registry through a low deterministic pool', async () => {
