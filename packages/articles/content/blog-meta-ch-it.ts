@@ -5110,6 +5110,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.impulso-alberghi-montagna.title': 'Alberghi di montagna: 100 milioni per il risanamento',
     'blog.article.impulso-alberghi-montagna.excerpt': 'Il Consiglio federale stanzia 100 milioni di franchi per l\'ammodernamento energetico delle strutture alberghiere di montagna nel periodo 2028-2035.',
     'blog.article.impulso-alberghi-montagna.imageAlt': 'Hotel ristrutturato nelle montagne svizzere',
+    'blog.article.accordo-investimenti-saudi-2026.title': 'Consiglio federale adotta messaggio su Accordo con Arabia Saudita',
+    'blog.article.accordo-investimenti-saudi-2026.excerpt': 'Il Consiglio federale ha adottato il messaggio sull’Accordo di protezione e promozione degli investimenti con l’Arabia Saudita, colmando il vuoto giuridico creato dopo la denuncia dell’accordo precedente.',
+    'blog.article.accordo-investimenti-saudi-2026.imageAlt': 'Vista aerea di Lugano con il lago Ceresio sullo sfondo',
 };
 
 export default blogMetaChIt;
