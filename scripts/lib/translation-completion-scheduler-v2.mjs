@@ -613,14 +613,19 @@ export function planTranslationScheduleV2(input) {
   let completionAfterKey = cursor.completionAfterKey;
   let fairnessAfterKey = cursor.fairnessAfterKey;
   while (selectedJobs.length < limits.maxJobs) {
-    const lane = fairnessCredit === limits.fairnessDenominator - limits.fairnessNumerator
+    let lane = fairnessCredit === limits.fairnessDenominator - limits.fairnessNumerator
       ? 'fairness' : 'completion';
-    const source = lane === 'fairness' ? fairness : completion;
-    const candidate = lane === 'fairness'
-      ? source.find((job) => !selectedKeys.has(job.schedulingKey))
-      : source.find((job) => !selectedKeys.has(job.schedulingKey)
+    let candidate = lane === 'fairness'
+      ? fairness.find((job) => !selectedKeys.has(job.schedulingKey))
+      : completion.find((job) => !selectedKeys.has(job.schedulingKey)
         && selectedUnits + job.remainingUnits <= limits.maxUnits);
-    if (candidate && selectedUnits + candidate.remainingUnits > limits.maxUnits) break;
+    if (lane === 'fairness' && (!candidate || selectedUnits + candidate.remainingUnits > limits.maxUnits)) {
+      // Fairness lane has no candidate that fits the residual capacity this turn:
+      // fall back to completion instead of halting the whole selection.
+      lane = 'completion';
+      candidate = completion.find((job) => !selectedKeys.has(job.schedulingKey)
+        && selectedUnits + job.remainingUnits <= limits.maxUnits);
+    }
     if (!candidate) break;
     selectedKeys.add(candidate.schedulingKey);
     selectedUnits += candidate.remainingUnits;
