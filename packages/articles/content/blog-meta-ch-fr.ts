@@ -5047,6 +5047,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Ouvrir activité Bâle Ville : registre du commerce',
     'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Guide complet pour ouvrir une entreprise dans le canton de Bâle-Ville : formes juridiques, capital minimum, inscription au registre du commerce, taxes et assurances.',
     'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Quartier d\'affaires suisse avec bâtiments de bureaux modernes en journée',
+    'blog.article.aprire-attivita-grigioni-guida.title': 'Ouvrir des activités dans le canton des Grisons : guide complet',
+    'blog.article.aprire-attivita-grigioni-guida.excerpt': 'Du choix de la forme juridique au registre du commerce : tout ce que vous devez savoir pour démarrer une entreprise dans le canton des Grisons.',
+    'blog.article.aprire-attivita-grigioni-guida.imageAlt': 'Bureau professionnel avec documents commerciaux et ordinateur dans un espace de travail suisse pour l\'enregistrement d\'entreprises.',
 };
 
 export default blogMetaChFr;
