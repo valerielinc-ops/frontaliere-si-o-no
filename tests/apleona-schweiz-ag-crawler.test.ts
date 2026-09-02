@@ -175,6 +175,25 @@ describe('Apleona Schweiz AG crawler parser', () => {
       })]);
     });
 
+    it('fails closed and logs a diagnosable warning when the second-skin heading is not German', () => {
+      const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const detailUrl = 'https://recruitingapp-2765.umantis.com/Vacancies/9001/Description/1';
+      const detail = extractApleonaDetailFields(
+        fixture('detail-non-german-heading.html'),
+        detailUrl,
+      );
+      // The row still fail-closes: an English "Your Tasks"/"Your Profile" pair
+      // is not covered by the German aufgaben/anforderungen pattern.
+      expect(detail.description).toBe('');
+      // But the drop must no longer be silent: the unmatched headings and the
+      // page URL are logged so a real heading drift is diagnosable from
+      // crawler logs instead of surfacing only as a missing-jobs symptom.
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('Your Tasks'));
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('Your Profile'));
+      expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining(detailUrl));
+      warnSpy.mockRestore();
+    });
+
     it('publishes rich unique vacancies, quarantines degraded detail and preserves identity', async () => {
       const seed = 'https://recruitingapp-2765.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
       const technicalUrl = 'https://recruitingapp-2765.umantis.com/Vacancies/2553/Description/1';
