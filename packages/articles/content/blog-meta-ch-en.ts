@@ -5095,6 +5095,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.title': 'Starting a Business in Basel-Landschaft: Costs and Registration',
     'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.excerpt': 'Learn about the administrative and financial steps involved in starting a business in the Canton of Basel-Landschaft, including the requirements for registration in the commercial register.',
     'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.imageAlt': 'Aerial view of Basel-Landschaft canton with a focus on commercial activities',
+    'blog.article.come-aprire-azienda-basilea-campagna.title': 'Start Basel Campaign activities: complete guide',
+    'blog.article.come-aprire-azienda-basilea-campagna.excerpt': 'Procedure for opening a business in Basel Countryside: legal forms, registration in the trade register, three-level taxation and social security and insurance obligations.',
+    'blog.article.come-aprire-azienda-basilea-campagna.imageAlt': 'Office desk with business registration documents, calculator, and Swiss alpine landscape in background',
 };
 
 export default blogMetaChEn;
