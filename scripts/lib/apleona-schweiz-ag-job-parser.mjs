@@ -51,7 +51,7 @@ function normalizeSpace(s = '') {
 function structuredElementText(element) {
   if (!element) return '';
   const clone = element.cloneNode(true);
-  for (const removable of clone.querySelectorAll('script, style, template, h1, h2, h3, .button')) {
+  for (const removable of clone.querySelectorAll('script, style, template, h1, h2, h3, h4, h5, h6, .button')) {
     removable.remove();
   }
   for (const br of clone.querySelectorAll('br')) br.replaceWith('\n');
