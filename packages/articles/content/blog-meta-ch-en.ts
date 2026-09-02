@@ -5167,6 +5167,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pa30-autonomia-agricoltori.title': 'PA 2030+: more freedom for Swiss farmers',
     'blog.article.pa30-autonomia-agricoltori.excerpt': 'The Federal Council launches consultation on PA30+: management autonomy, less bureaucracy, digitalisation and CHF 13.8 billion of investment for agriculture 2030-2033.',
     'blog.article.pa30-autonomia-agricoltori.imageAlt': 'Swiss agricultural field with ripening crops during golden hour, symbolizing agricultural policy 2030+ changes',
+    'blog.article.novartis-130-ristrutturazione-basilea.title': 'Novartis cuts 130 jobs in Basel',
+    'blog.article.novartis-130-ristrutturazione-basilea.excerpt': 'Novartis announces the cut of up to 130 jobs in Basel by the end of 2027. Reason: transfer of activities to Novartis Campus and expiration of contracts.',
+    'blog.article.novartis-130-ristrutturazione-basilea.imageAlt': 'Modern pharmaceutical production and research campus in Switzerland with contemporary architecture',
 };
 
 export default blogMetaChEn;

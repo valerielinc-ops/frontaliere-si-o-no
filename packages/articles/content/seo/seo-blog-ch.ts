@@ -67061,6 +67061,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-novartis-130-ristrutturazione-basilea': {
+    title: 'Novartis taglia 130 posti di lavoro a Basilea | Frontaliere Ticino',
+    description: 'Novartis annuncia il taglio di fino a 130 posti di lavoro a Basilea entro fine 2027. Motivo: trasferimento attività al Novartis Campus e scadenza contratti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, novartis, taglia, posti, lavoro',
+    ogTitle: 'Novartis taglia 130 posti di lavoro a Basilea',
+    ogDescription: 'Novartis taglia fino a 130 posti di lavoro a Basilea entro fine 2027. Scadenza contratti di locazione e trasferimento di attività al Novartis Campus motivo del taglio. Dal 2018, il gruppo ha eliminato quasi 3.000 posti in Svizzera. Reazione critica',
+    canonicalPath: '/articoli-svizzera/novartis-130-ristrutturazione-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Novartis taglia 130 posti di lavoro a Basilea",
+      "description": "Novartis annuncia il taglio di fino a 130 posti di lavoro a Basilea entro fine 2027. Motivo: trasferimento attività al Novartis Campus e scadenza contratti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/novartis-130-ristrutturazione-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campus di produzione e ricerca di un'azienda farmaceutica svizzera con architettura moderna"
+      },
+      "datePublished": "2026-09-02T14:56:07+00:00",
+      "dateModified": "2026-09-02T14:56:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/novartis-130-ristrutturazione-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
