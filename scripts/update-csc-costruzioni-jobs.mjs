@@ -346,12 +346,17 @@ function extractPrimaryArticle(source) {
     // description-scraping callers, not for this fail-closed trust boundary.
     // Require a genuine closing tag right after the extracted content.
     const closeMatch = /^\s*<\/article\s*>/i.exec(rest.slice(content.length));
-    if (!closeMatch) return null;
     const articleClass = readQuotedHtmlAttr(openMatch[1], 'class');
     if (/(?:^|\s)node--type-work-position(?:\s|$)/i.test(articleClass)) {
+      // Fail-closed applies only to the trusted candidate: an ambiguous close
+      // on the article we are about to promote must abort, not silently trust it.
+      if (!closeMatch) return null;
       return { attrs: openMatch[1], content };
     }
-    cursor += openMatch.index + openMatch[0].length + content.length + closeMatch[0].length;
+    // A non-matching sibling (e.g. breadcrumb/related-content widget) with an
+    // ambiguous close must be skipped, not treated as fail-closed for the whole
+    // scan — the real work-position article can still be further down in <main>.
+    cursor += openMatch.index + openMatch[0].length + content.length + (closeMatch ? closeMatch[0].length : 0);
   }
   return null;
 }
