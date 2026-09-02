@@ -1,6 +1,6 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-09-02T13:34:19.360Z",
+  "assembledAt": "2026-09-02T23:08:42.727Z",
   "jobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
@@ -46,7 +46,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:34:17.176Z",
+      "crawledAt": "2026-09-02T23:08:40.882Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "salaryMin": 49500,
@@ -66,9 +66,9 @@
     },
     {
       "id": "faulhaber-7c490c9a513f",
-      "slug": "junior-logistica-specialista-faulhaber-croglio",
+      "slug": "junior-logistics-specialist-croglio-faulhaber",
       "slugByLocale": {
-        "it": "junior-logistica-specialista-faulhaber-croglio",
+        "it": "junior-logistics-specialist-croglio-faulhaber",
         "en": "junior-logistics-specialist-croglio-faulhaber",
         "de": "junior-logistik-spezialist-faulhaber-croglio",
         "fr": "junior-logistique-specialiste-faulhaber-croglio"
@@ -108,9 +108,10 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:34:05.877Z",
+      "crawledAt": "2026-09-02T23:08:29.341Z",
       "previousSlugsByLocale": {
         "it": [
+          "junior-logistica-specialista-faulhaber-croglio",
           "junior-logistics-specialist-croglio-faulhaber"
         ],
         "de": [
@@ -121,6 +122,7 @@
         ]
       },
       "previousSlugs": [
+        "junior-logistica-specialista-faulhaber-croglio",
         "junior-logistics-specialist-croglio-faulhaber"
       ],
       "needsRetranslation": true,
@@ -147,7 +149,7 @@
         "it": "tecnico-di-misura-croglio-faulhaber",
         "en": "technician-di-misura-faulhaber-croglio",
         "de": "techniker-di-misura-faulhaber-croglio",
-        "fr": "technicien-di-misura-faulhaber-croglio"
+        "fr": "tecnico-di-misura-croglio-faulhaber"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
@@ -184,7 +186,15 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:33:53.797Z",
+      "crawledAt": "2026-09-02T23:08:16.987Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "technicien-di-misura-faulhaber-croglio"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-di-misura-faulhaber-croglio"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "salaryMin": 58000,
