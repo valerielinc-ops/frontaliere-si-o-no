@@ -339,6 +339,29 @@ async function fetchCscHtml(url, { fetchImpl, timeoutMs }) {
   }
 }
 
+/**
+ * A direct 200 response may legitimately carry a benign query string or
+ * fragment (cache-buster, session token) without being a redirect outside
+ * the detail contract: strip search/hash before the canonical comparison so
+ * only a genuine mismatch in host/path/route family is treated as a
+ * redirect. `canonicalCscDetailUrl` itself keeps rejecting query strings on
+ * *discovered* links (e.g. `?preview=1`) — that filtering is unrelated to
+ * this response-side check.
+ */
+function cscResponseMatchesCandidate(responseUrl, candidate) {
+  if (canonicalCscDetailUrl(responseUrl) === candidate) return true;
+  let url;
+  try {
+    url = new URL(responseUrl);
+  } catch {
+    return false;
+  }
+  if (!url.search && !url.hash) return false;
+  url.search = '';
+  url.hash = '';
+  return canonicalCscDetailUrl(url.href) === candidate;
+}
+
 export async function verifyCscDetailUrls(urls, options = {}) {
   const fetchImpl = options.fetchImpl || fetch;
   const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 12000;
@@ -351,8 +374,7 @@ export async function verifyCscDetailUrls(urls, options = {}) {
   const identities = new Map();
   for (const candidate of candidates) {
     const { html, responseUrl } = await fetchCscHtml(candidate, { fetchImpl, timeoutMs });
-    const canonicalResponseUrl = canonicalCscDetailUrl(responseUrl);
-    if (!canonicalResponseUrl || canonicalResponseUrl !== candidate) {
+    if (!cscResponseMatchesCandidate(responseUrl, candidate)) {
       throw new Error(`CSC detail invariant failed: ${candidate} redirected outside its exact detail contract to ${responseUrl}.`);
     }
     const detail = parseCscPrimaryJobDetail(html);
@@ -364,7 +386,7 @@ export async function verifyCscDetailUrls(urls, options = {}) {
       throw new Error(`CSC detail invariant failed: ${candidate} and ${firstCandidate} share semantic identity ${detail.identity}.`);
     }
     identities.set(detail.identity, candidate);
-    verified.push(canonicalResponseUrl);
+    verified.push(candidate);
   }
 
   if (new Set(verified).size !== candidates.length) {
