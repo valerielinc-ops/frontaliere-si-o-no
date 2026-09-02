@@ -5122,6 +5122,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'BVG: Freizügigkeitsfonds bei der Bundeskasse',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'Der Bundesrat schlägt vor, dass die BVG-Auffangeinrichtung die Gelder bei tiefen oder negativen Zinsen beim Bund hinterlegen darf.',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Bundeshaus in Bern, Sitz der Entscheidungen des Bundesrates.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.title': 'Lehrermangel: Ein Bericht analysiert Ursachen und Datenbanken',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.excerpt': 'Der Bundesrat hat den Bericht über die Datenerhebung und die Beurteilungen des Lehrkräftemangels genehmigt.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz, mit den umliegenden Bergen und der Stadt darunter.',
 };
 
 export default blogMetaChDe;

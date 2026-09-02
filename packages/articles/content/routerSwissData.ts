@@ -1733,6 +1733,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'programma-modernizzazione-alberghi-montagna': { it: 'programma-modernizzazione-alberghi-montagna', en: 'mountain-hotel-modernization-program', de: 'modernisierungsprogramm-berghotels', fr: 'programme-modernisation-hotels-montagne' },
  'voto-elettronico-neuchatel-2028': { it: 'voto-elettronico-neuchatel-2028', en: 'electronic-voting-neuchatel-2028', de: 'elektronische-wahlen-neuchatel-2028', fr: 'vote-electronique-neuchatel-2028' },
  'lpp-fondi-libero-passaggio-tesoreria': { it: 'lpp-fondi-libero-passaggio-tesoreria', en: 'lpp-vested-benefits-treasury', de: 'lpp-freizuegigkeitsguthaben-bundeskasse', fr: 'lpp-fonds-libre-passage-tresorerie' },
+ 'penuria-insegnanti-rapporto-cause-dati': { it: 'penuria-insegnanti-rapporto-cause-dati', en: 'teacher-shortage-report-causes-data', de: 'lehrer-mangel-bericht-ursachen-daten', fr: 'penurie-d-enseignants-rapport-causes-donnees' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

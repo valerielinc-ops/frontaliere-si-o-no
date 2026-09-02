@@ -5122,6 +5122,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'LPP: funds for free passage at the Federal Treasury',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'The Federal Council proposes to allow the collecting institute LPP to deposit funds with the Confederation in the event of low or negative rates.',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Federal Palace in Bern, seat of the Federal Council decisions.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.title': 'Teacher Shortage: A Report Analyzes Causes and Databases',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.excerpt': 'The Federal Council approved the report on data collection and assessments concerning teacher shortages.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland, with the surrounding mountains and the city below.',
 };
 
 export default blogMetaChEn;

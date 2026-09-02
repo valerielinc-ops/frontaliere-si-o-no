@@ -5122,6 +5122,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'LPP : fonds de libre passage auprès de la Trésorerie fédérale',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'Le Conseil fédéral propose que l\'Institution de Prestations Professionnelles de Substitution (BVG) soit autorisée à déposer des fonds auprès de la Confédération en cas de taux d\'intérêt bas ou négatifs.',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Palais fédéral à Berne, siège des décisions du Conseil fédéral.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.title': 'Pénurie d\'enseignants : un rapport analyse les causes et les bases de données',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.excerpt': 'Le Conseil fédéral a approuvé le rapport sur la collecte des données et les évaluations concernant la pénurie d\'enseignants.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.imageAlt': 'Vue aérienne de Castelgrande à Bellinzona, Suisse, avec les montagnes environnantes et la ville en dessous.',
 };
 
 export default blogMetaChFr;
