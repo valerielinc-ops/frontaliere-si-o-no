@@ -5128,6 +5128,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tribunale-ordina-bollettino-neutralita.title': 'Court orders correction of initiative bulletin',
     'blog.article.tribunale-ordina-bollettino-neutralita.excerpt': 'Court Orders Correction of Neutrality Initiative Bulletin. The Greens had challenged the publication by appealing to the courts.',
     'blog.article.tribunale-ordina-bollettino-neutralita.imageAlt': 'Interior of a Swiss courthouse with wooden benches depicting judicial oversight of democratic initiatives',
+    'blog.article.permesso-l-argovia-guida.title': 'Permit L in the Canton of Aargau: validity and renewal',
+    'blog.article.permesso-l-argovia-guida.excerpt': 'Guide to Short-Term Permit L in the Canton of Aargau: Validity Rules, Extension Procedures, and Criteria for Switching to Permit B.',
+    'blog.article.permesso-l-argovia-guida.imageAlt': 'Migration office in the Canton of Aargau',
 };
 
 export default blogMetaChEn;

@@ -5128,6 +5128,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tribunale-ordina-bollettino-neutralita.title': 'Das Gericht ordnet die Korrektur des Initiativblatts an',
     'blog.article.tribunale-ordina-bollettino-neutralita.excerpt': 'Das Gericht ordnet an, das Bulletin der Neutralitätsinitiative zu korrigieren. Die Grünen hatten die Veröffentlichung vor Gericht angefochten.',
     'blog.article.tribunale-ordina-bollettino-neutralita.imageAlt': 'Innenraum eines Schweizer Gerichtsgebäudes mit Holzbänken, das Richterliche Kontrolle von demokratischen Prozessen zeigt',
+    'blog.article.permesso-l-argovia-guida.title': 'L-Bewilligung im Kanton Aargau: Gültigkeit und Erneuerung',
+    'blog.article.permesso-l-argovia-guida.excerpt': 'Leitfaden zur Kurzzeitbewilligung L im Kanton Aargau: Gültigkeitsregeln, Verlängerungsverfahren und Kriterien für den Übergang zur Bewilligung B.',
+    'blog.article.permesso-l-argovia-guida.imageAlt': 'Migrationsamt im Kanton Aargau',
 };
 
 export default blogMetaChDe;

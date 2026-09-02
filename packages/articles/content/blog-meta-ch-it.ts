@@ -5128,6 +5128,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tribunale-ordina-bollettino-neutralita.title': 'Tribunale ordina la correzione del bollettino d\'iniziativa',
     'blog.article.tribunale-ordina-bollettino-neutralita.excerpt': 'Tribunale ordina di correggere il bollettino dell\'iniziativa sulla neutralità. I Verdi avevano contestato la pubblicazione rivolgendosi alla giustizia.',
     'blog.article.tribunale-ordina-bollettino-neutralita.imageAlt': 'Aula di un tribunale svizzero con banchi in legno che rappresenta il controllo giudiziario sui processi democratici',
+    'blog.article.permesso-l-argovia-guida.title': 'Permesso L nel Canton Argovia: validità e rinnovo',
+    'blog.article.permesso-l-argovia-guida.excerpt': 'Guida al permesso L di breve durata nel Canton Argovia: regole di validità, procedure di proroga e criteri per il passaggio al permesso B.',
+    'blog.article.permesso-l-argovia-guida.imageAlt': 'Ufficio della migrazione nel Cantone di Argovia',
 };
 
 export default blogMetaChIt;
