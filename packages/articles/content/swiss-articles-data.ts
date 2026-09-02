@@ -15157,6 +15157,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avviare-attivita-grigioni-forma-giuridica',
+    category: 'pratico',
+    date: '2026-09-02T03:52:46.359Z',
+    image: '/images/blog/avviare-attivita-grigioni-forma-giuridica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

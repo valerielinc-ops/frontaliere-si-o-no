@@ -1710,6 +1710,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-basilea-guida-commercio': { it: 'aprire-attivita-basilea-guida-commercio', en: 'opening-business-basel-city-commerce-guide', de: 'geschaft-eroffnen-basel-stadt-handelsregister', fr: 'ouvrir-activite-bale-ville-commerce' },
  'aprire-attivita-grigioni-guida': { it: 'aprire-attivita-grigioni-guida', en: 'starting-business-grisons-guide', de: 'unternehmen-graubuenden-anleitung', fr: 'creer-entreprise-grisons-guide' },
  'aprire-attivita-grigioni-registro-costi': { it: 'aprire-attivita-grigioni-registro-costi', en: 'open-business-graubunden-registry-costs', de: 'geschaft-graubunden-handelsregister-kosten', fr: 'ouvrir-activite-grisons-registre-couts' },
+ 'avviare-attivita-grigioni-forma-giuridica': { it: 'avviare-attivita-grigioni-forma-giuridica', en: 'starting-business-grisons-legal-form', de: 'unternehmen-gruendung-graubuenden-rechtsform', fr: 'demarrer-entreprise-grisons-forme-juridique' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

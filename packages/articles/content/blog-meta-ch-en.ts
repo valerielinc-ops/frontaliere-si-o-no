@@ -5053,6 +5053,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-registro-costi.title': 'Open Graubünden tasks: shapes, register, costs',
     'blog.article.aprire-attivita-grigioni-registro-costi.excerpt': 'Practical guide on how to set up a business in the Canton of Graubünden: choice of legal form, registration in the trade register, taxation and costs. Federal and cantonal procedures.',
     'blog.article.aprire-attivita-grigioni-registro-costi.imageAlt': 'Modern office workspace in Graubünden canton with alpine mountain view in the background.',
+    'blog.article.avviare-attivita-grigioni-forma-giuridica.title': 'Opening a business in Graubünden: legal forms and costs',
+    'blog.article.avviare-attivita-grigioni-forma-giuridica.excerpt': 'Practical guide on how to start a business in the Canton of Graubünden: legal forms, trade register, minimum capital, registration fees and federal insurance obligations.',
+    'blog.article.avviare-attivita-grigioni-forma-giuridica.imageAlt': 'Modern Swiss office with business professionals working on startup projects and company registration',
 };
 
 export default blogMetaChEn;
