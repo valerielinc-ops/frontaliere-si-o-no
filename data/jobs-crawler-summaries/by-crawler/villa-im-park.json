@@ -1,23 +1,22 @@
 {
   "key": "villa-im-park",
   "label": "Privatklinik Villa im Park",
-  "generatedAt": "2026-09-01T23:08:28.226Z",
-  "total": 2,
+  "generatedAt": "2026-09-02T13:36:17.976Z",
+  "total": 3,
   "discovered": null,
-  "written": 2,
-  "newCount": 0,
-  "updatedCount": 2,
+  "written": 3,
+  "newCount": 1,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6421,
-  "avgDurationMs": 6421,
+  "unchangedCount": 1,
+  "durationMs": 7025,
+  "avgDurationMs": 7025,
   "durationHistory": [
-    6421
+    7025
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "id": "villa-im-park-7c5e56f454c4",
+      "id": "villa-im-park-46eee8e83558",
       "slug": "mitarbeiter-in-bistro-villa-im-park-rothrist",
       "company": "Privatklinik Villa im Park",
       "companyKey": "villa-im-park",
@@ -25,10 +24,10 @@
       "title": "Mitarbeiter/-in Bistro",
       "location": "Rothrist",
       "canton": "AG",
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:08:23.017Z",
+      "crawledAt": "2026-09-02T13:36:12.223Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Rothrist 4852",
@@ -42,18 +41,19 @@
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T00:35:53.834Z",
-      "_qualityScore": 77,
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 19,
+        "translation": 4,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "villa-im-park-2e1ad74d807b",
       "slug": "lehrstelle-fachperson-gesundheit-fur-sommer-2027-villa-im-park-rothrist",
@@ -66,7 +66,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:08:23.449Z",
+      "crawledAt": "2026-09-02T13:36:12.639Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -94,5 +94,48 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "id": "villa-im-park-7c5e56f454c4",
+      "slug": "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist",
+      "company": "Privatklinik Villa im Park",
+      "companyKey": "villa-im-park",
+      "companyDomain": "swissmedical.net",
+      "title": "Mitarbeiter/-in Bistro",
+      "location": "Rothrist",
+      "canton": "AG",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
+      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T23:08:23.017Z",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "streetAddress": "Rothrist 4852",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4852",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146525509-mitarbeiter-in-bistro?oga=true",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T00:35:53.834Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ]
 }
