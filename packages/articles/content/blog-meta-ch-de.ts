@@ -5161,6 +5161,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-nomina-walser.title': 'Bundesrat ernennt Tobias Walser zum ETH-Rat',
     'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, Experte für Umweltwissenschaften, wurde zum Delegierten der Universitätsversammlungen der Eidgenössischen Technischen Hochschulen Zürich und Lausanne ernannt.',
     'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit dem See und den Bergen im Hintergrund.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'Schweiz weniger attraktiv für multinationale Konzerne: McKinsey-Alarm',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': '70% der CEOs warnen, dass die Schweiz an Wettbewerbsfähigkeit verliert. Kritik an langwierigen Verfahren, OECD-Steuer und mangelhafter Infrastruktur bedrohen ausländische Investitionen.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Skyline einer Schweizer Metropole mit modernen Bürogebäuden, Symbol der Wirtschaftsleistung.',
 };
 
 export default blogMetaChDe;

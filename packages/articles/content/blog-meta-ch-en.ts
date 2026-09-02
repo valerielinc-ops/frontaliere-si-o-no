@@ -5161,6 +5161,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-nomina-walser.title': 'Federal Council appoints Tobias Walser to PF Council',
     'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, an expert in environmental sciences, was appointed delegate of the university assemblies of the Federal Polytechnics of Zurich and Lausanne.',
     'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Aerial view of Lugano, Switzerland, with the lake and mountains in the background.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'Switzerland less attractive to multinationals: McKinsey alarm',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': '70% of CEOs warn that Switzerland is losing competitiveness. Criticisms of lengthy procedures, OECD tax and poor infrastructure threaten foreign investment.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Urban skyline of a Swiss city with modern office buildings representing Switzerland\'s economic competitiveness.',
 };
 
 export default blogMetaChEn;
