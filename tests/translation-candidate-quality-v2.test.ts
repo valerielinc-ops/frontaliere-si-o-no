@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { performance } from 'node:perf_hooks';
 import { describe, expect, it } from 'vitest';
 import { assessTranslationCandidateQualityV2 } from '../scripts/lib/translation-candidate-quality-v2.mjs';
+import { executeTranslationCandidateV2 } from '../scripts/lib/translation-candidate-executor-v2.mjs';
 import {
   createEmptyTranslationMemoryV2,
   recordTranslationCandidateV2,
@@ -20,6 +21,17 @@ const base = {
 
 function codes(result: ReturnType<typeof assessTranslationCandidateQualityV2>) {
   return result.evidence.map((item) => item.code);
+}
+
+function xorshiftBinaryPeriod(length: number) {
+  let state = 1;
+  return Array.from({ length }, () => {
+    state ^= state << 13;
+    state ^= state >>> 17;
+    state ^= state << 5;
+    state >>>= 0;
+    return state & 1 ? 'uno' : 'due';
+  });
 }
 
 describe('translation candidate quality v2', () => {
@@ -552,6 +564,62 @@ describe('translation candidate quality v2', () => {
       ]) {
         expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText: text }))).toContain('description.degenerate_content');
       }
+    }
+  });
+
+  it('rejects a long primitive binary period and never persists or reuses its variants', async () => {
+    const unit = xorshiftBinaryPeriod(5_000);
+    const repeatedTokens = Array.from({ length: 4 }, () => unit).flat();
+    const firstReplacement = [...repeatedTokens];
+    firstReplacement[0] = firstReplacement[0] === 'uno' ? 'due' : 'uno';
+    const sparseReplacement = [...repeatedTokens];
+    for (let index = 0; index < sparseReplacement.length; index += 997) {
+      sparseReplacement[index] = sparseReplacement[index] === 'uno' ? 'due' : 'uno';
+    }
+    const variants = [
+      repeatedTokens.join(' '),
+      `prefisso ${repeatedTokens.join(' ')} coda`,
+      firstReplacement.join(' '),
+      sparseReplacement.join(' '),
+    ];
+    expect(variants[0]).toHaveLength(79_999);
+    for (const candidateText of variants) {
+      expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).toContain('description.degenerate_content');
+    }
+
+    const identity = createTranslationUnitIdentityV2({
+      kind: 'job', fieldPath: 'description', sourceLocale: 'en', targetLocale: 'it', sourceText: base.sourceText,
+      context: { company: null, location: null },
+    });
+    const scanDigest = `sha256:${'a'.repeat(64)}`;
+    for (const candidateText of variants) {
+      let providerCalls = 0;
+      const provider = {
+        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
+        async translate() { providerCalls += 1; return candidateText; },
+      };
+      const request = {
+        currentScanDigest: scanDigest,
+        engineVersion: 'stub-v1',
+        gateVersion: 'quality-v2',
+        identity,
+        memory: createEmptyTranslationMemoryV2(),
+        provider,
+        providerTimeoutMs: 1_000,
+        quality: {
+          sourceText: base.sourceText, sourceLang: 'en', targetLang: 'it', field: 'description', protectedTokens: [],
+        },
+        scanDigest,
+      };
+      const first = await executeTranslationCandidateV2(request);
+      expect(first).toMatchObject({
+        status: 'retryable_reject', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
+      });
+      const retried = await executeTranslationCandidateV2({ ...request, memory: first.memory });
+      expect(retried).toMatchObject({
+        status: 'retryable_reject', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
+      });
+      expect(providerCalls).toBe(2);
     }
   });
 

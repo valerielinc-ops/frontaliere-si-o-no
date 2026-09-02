@@ -18,6 +18,8 @@ const MAX_PROTECTED_TOKENS = 64;
 const MAX_PROTECTED_TOKEN_LENGTH = 512;
 const MIN_DOMINANT_PERIODIC_TOKENS = 32;
 const MAX_EXHAUSTIVE_PERIODIC_COMPARISONS = 16_000_000;
+const MAX_LONG_PERIODIC_COMPARISONS = 4_000_000;
+const LONG_PERIOD_REPEAT_BOUND = 16;
 // detect-language documents confidence >= 0.6 as reliable; do not create a
 // second calibration for this additive gate.
 const RELIABLE_LANGUAGE_CONFIDENCE = 0.6;
@@ -218,9 +220,8 @@ function isDegenerateDescription(tokens) {
   if (tokens.length === 0 || new Set(tokens).size < 2) return true;
   // A lexical diversity cutoff is unsound here: the real corpus includes
   // legitimate descriptions with a 1.18% unique-token ratio. Detect instead
-  // an exact contiguous periodic region. Candidate periods are derived in one
-  // pass from four equally-spaced occurrences; rolling hashes only shortlist
-  // candidates, and a final direct comparison decides the result.
+  // positional periodicity, and confirm every near-periodic candidate by
+  // direct comparison before rejecting it.
   const tokenIds = new Map();
   const values = new Uint32Array(tokens.length);
   let nextId = 1;
@@ -233,6 +234,23 @@ function isDegenerateDescription(tokens) {
     }
     values[index] = id;
   }
+  // The prefix function gives the shortest exact period of the complete token
+  // sequence in O(n), regardless of alphabet size or duplicate n-grams. A
+  // trailing partial repetition is still a period and remains degenerate once
+  // at least four units are present.
+  if (values.length >= MIN_DOMINANT_PERIODIC_TOKENS) {
+    const prefixLengths = new Uint32Array(values.length);
+    for (let index = 1; index < values.length; index += 1) {
+      let matched = prefixLengths[index - 1];
+      while (matched > 0 && values[index] !== values[matched]) {
+        matched = prefixLengths[matched - 1];
+      }
+      if (values[index] === values[matched]) matched += 1;
+      prefixLengths[index] = matched;
+    }
+    const exactPeriod = values.length - prefixLengths[values.length - 1];
+    if (exactPeriod * 4 <= values.length) return true;
+  }
   // Exhaustively score primitive periods before using occurrence anchors.
   // This path depends only on positional equality, so repeated tokens and
   // repeated n-grams inside the primitive unit cannot hide its true period.
@@ -242,14 +260,40 @@ function isDegenerateDescription(tokens) {
   const allowedMismatches = values.length - requiredMatches + 2;
   const maxPeriod = Math.floor(values.length / 4);
   let exhaustiveComparisons = 0;
+  let exhaustivelyScannedThrough = 0;
   if (values.length >= MIN_DOMINANT_PERIODIC_TOKENS) {
-    exhaustivePeriods:
     for (let period = 1; period <= maxPeriod; period += 1) {
       let mismatches = 0;
+      let budgetExhausted = false;
       for (let index = period; index < values.length; index += 1) {
         exhaustiveComparisons += 1;
         if (values[index] !== values[index - period]) mismatches += 1;
-        if (exhaustiveComparisons >= MAX_EXHAUSTIVE_PERIODIC_COMPARISONS) break exhaustivePeriods;
+        if (exhaustiveComparisons >= MAX_EXHAUSTIVE_PERIODIC_COMPARISONS) {
+          budgetExhausted = true;
+          break;
+        }
+        if (mismatches > allowedMismatches) break;
+      }
+      if (budgetExhausted) break;
+      if (mismatches <= allowedMismatches) return true;
+      exhaustivelyScannedThrough = period;
+    }
+
+    // Long primitive periods have few repetitions. Scan that bounded band
+    // from n/4 downward so a four-copy candidate is reached immediately even
+    // with a short prefix/tail or sparse substitutions. This preserves the
+    // same 90% authority and adds a fixed cost, rather than raising the broad
+    // exhaustive budget.
+    const minLongPeriod = Math.floor(values.length / (LONG_PERIOD_REPEAT_BOUND + 1));
+    let longPeriodComparisons = 0;
+    longPeriods:
+    for (let period = maxPeriod; period > minLongPeriod; period -= 1) {
+      if (period <= exhaustivelyScannedThrough) break;
+      let mismatches = 0;
+      for (let index = period; index < values.length; index += 1) {
+        longPeriodComparisons += 1;
+        if (values[index] !== values[index - period]) mismatches += 1;
+        if (longPeriodComparisons >= MAX_LONG_PERIODIC_COMPARISONS) break longPeriods;
         if (mismatches > allowedMismatches) break;
       }
       if (mismatches <= allowedMismatches) return true;
