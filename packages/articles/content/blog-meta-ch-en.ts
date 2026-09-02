@@ -5215,6 +5215,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-appenzello-esterno.title': 'Wages and the labour market in Appenzello Esterno',
     'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Comprehensive analysis: salaries by level of training, hiring sectors, collective agreements, worker protections and minimum wage in the Swiss cantons.',
     'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Professional team working in a modern Swiss office with panoramic city views',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Residence permit B in the Inner Appenzell Canton: requirements and renewal',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Find out the requirements and the procedure for renewing the B residence permit in the Canton of Appenzello Interno.',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Castelgrande fortress in Bellinzona, Switzerland',
 };
 
 export default blogMetaChEn;

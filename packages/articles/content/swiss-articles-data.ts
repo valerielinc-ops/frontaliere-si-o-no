@@ -15643,6 +15643,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-dimora-b-appenzello-interno-requisiti-rinnovo',
+    category: 'pratico',
+    date: '2026-09-02T23:10:49.584Z',
+    image: '/images/blog/permesso-dimora-b-appenzello-interno-requisiti-rinnovo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
