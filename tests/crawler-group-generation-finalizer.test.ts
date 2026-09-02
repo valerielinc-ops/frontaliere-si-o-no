@@ -176,6 +176,19 @@ describe('crawler group generation finalizer', () => {
     expect(manifest.verifiedCrawlers).toBe(0);
   });
 
+  it('tags a group dispatched without its own generation token distinctly from a bad receipt', () => {
+    const fixture = fixtureRepository();
+    writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));
+
+    const manifest = finalizeCrawlerGroup({ ...baseInput(fixture), generationToken: null });
+
+    expect(manifest.valid).toBe(false);
+    expect(manifest.reasons).toContain('generation_token_missing');
+    expect(manifest.reasons).not.toContain('receipt_invalid');
+    expect(manifest.generationToken).toBeNull();
+    expect(validateGroupTerminalManifest(manifest)).toEqual({ valid: true, errors: [] });
+  });
+
   it('records wait and bounded non-interactive fetch failures without changing data', () => {
     const fixture = fixtureRepository();
     writeReceipt(fixture, receiptFor(fixture, [fixture.slice], 'noop', fixture.initial));

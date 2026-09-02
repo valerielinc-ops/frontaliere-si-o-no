@@ -82,6 +82,7 @@ describe('crawler generation contracts', () => {
   it('keeps reason codes and barrier states closed', () => {
     expect(GROUP_MANIFEST_REASON_CODES).toEqual([
       'wait_failed', 'remote_fetch_failed', 'invalid_expected_roster', 'receipt_missing', 'receipt_invalid',
+      'generation_token_missing',
       'receipt_primary_slice_missing', 'receipt_failed', 'receipt_commit_not_ancestor', 'receipt_blob_mismatch', 'slice_hash_mismatch',
       'duplicate_slice_ownership', 'manifest_internal_error',
     ]);
