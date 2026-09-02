@@ -944,7 +944,29 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   steps.push({
     name: 'Commit crawler group data atomically',
     if: 'always()',
-    run: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${String(groupIndex).padStart(2, '0')} jobs"`,
+    // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh, see
+    // commit_isolated_from_worktree): with `--group-batch`, GROUP_BATCH=true
+    // takes it out of the sequential soft-success path (JOBS_SLICE_FILE
+    // unset AND GROUP_BATCH != true), so the script's own exit 42 propagates
+    // raw. Left as a bare `run:` (GitHub Actions defaults to `bash -e {0}`),
+    // that failed the step and hard-failed the whole group job even though
+    // every member crawler had already produced valid data — only the final
+    // aggregated push lost the ref race. Mirror the per-crawler treatment of
+    // this same class (see buildCrawlerShellBody above): `set +e` so the
+    // non-zero exit doesn't abort the script before `$?` is captured, log a
+    // warning instead of filing/failing, and keep the step green. Any other
+    // non-zero exit still fails the step exactly as before.
+    run: [
+      'set +e',
+      `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${String(groupIndex).padStart(2, '0')} jobs"`,
+      'git_commit_exit=$?',
+      'if [ "$git_commit_exit" -eq 42 ]; then',
+      '  echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."',
+      '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
+      '  exit 0',
+      'fi',
+      'exit "$git_commit_exit"',
+    ].join('\n'),
   });
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
 

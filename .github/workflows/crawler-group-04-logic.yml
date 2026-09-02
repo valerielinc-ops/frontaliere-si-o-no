@@ -1556,7 +1556,16 @@ jobs:
         wait-all: true
       - name: Commit crawler group data atomically
         if: always()
-        run: bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 04 jobs"
+        run: |-
+          set +e
+          bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group 04 jobs"
+          git_commit_exit=$?
+          if [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."
+            echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          exit "$git_commit_exit"
       - name: Finalize crawler generation manifest (shadow)
         if: always()
         continue-on-error: true
