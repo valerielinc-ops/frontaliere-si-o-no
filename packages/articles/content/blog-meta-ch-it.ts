@@ -5218,6 +5218,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Appenzello Interno: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Scopri i requisiti e la procedura di rinnovo del permesso di dimora B nel Cantone di Appenzello Interno.',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Castelgrande fortress in Bellinzona, Switzerland',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Premi cassa malati nel Cantone di Appenzello Interno e riduzione premi',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Scopri le fasce di premio, franchigie e modelli alternativi per l\'assicurazione malattia obbligatoria nel Cantone di Appenzello Interno.',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Vista aerea del Cantone di Appenzello Interno con montagne e laghi, Svizzera',
 };
 
 export default blogMetaChIt;

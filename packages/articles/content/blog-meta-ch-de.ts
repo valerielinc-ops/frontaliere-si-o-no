@@ -5218,6 +5218,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Aufenthaltserlaubnis B im Kanton Appenzell Innerrhoden: Anforderungen und Verlängerung',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren zur Verlängerung der Aufenthaltsbewilligung B im Kanton Appenzell Innerrhoden.',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Castelgrande Festung in Bellinzona, Schweiz',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Krankenkassenprämien im Kanton Appenzell Innerrhoden und Prämienverbilligung',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Entdecken Sie die Prämiensparten, Franchisen und alternativen Modelle für die obligatorische Krankenversicherung im Kanton Appenzell Innerrhoden.',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Luftaufnahme des Kantons Appenzello Interno mit Bergen und Seen, Schweiz',
 };
 
 export default blogMetaChDe;
