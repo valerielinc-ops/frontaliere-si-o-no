@@ -5176,6 +5176,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-euro-minimi-anno.title': 'Franco svizzero ai minimi: cosa significa per gli investitori',
     'blog.article.franco-euro-minimi-anno.excerpt': 'Der Schweizer Franken schwächt sich gegenüber dem Euro weiter ab und erreicht den niedrigsten Stand seit einem Jahr. Erfahren Sie mehr über die Implikationen für Investoren.',
     'blog.article.franco-euro-minimi-anno.imageAlt': 'Luftaufnahme des Luganer Sees mit den Schweizer Alpen im Hintergrund',
+    'blog.article.estate-calda-svizzera-2026.title': 'Jeder zweite Sommer wird wärmer als der aktuelle',
+    'blog.article.estate-calda-svizzera-2026.excerpt': 'Laut Klimatologe Reto Knutti wird jeder zweite Sommer wärmer sein als heute. Notwendige dringende Maßnahmen in den Städten.',
+    'blog.article.estate-calda-svizzera-2026.imageAlt': 'Luftaufnahme einer Schweizer Stadt mit Grünflächen und modernen Gebäuden, die die Auswirkungen des Klimawandels zeigt.',
 };
 
 export default blogMetaChDe;
