@@ -5200,6 +5200,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consultazione-politica-agricola-2030.title': 'Consultation opened by the Federal Department',
     'blog.article.consultazione-politica-agricola-2030.excerpt': 'The Federal Council has proposed a series of legislative adjustments for the 2030+ agricultural policy.',
     'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Swiss farmers discussing new agricultural regulations in a wheat field.',
+    'blog.article.dazi-usa-seco-svizzera-2026.title': 'New US duties on Swiss goods: what changes from 2026',
+    'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'From 24 July 2026, the United States will apply variable tariffs of up to 12.5% on Swiss goods. SECO monitors the implications for businesses.',
+    'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'SECO offices in Switzerland',
 };
 
 export default blogMetaChEn;

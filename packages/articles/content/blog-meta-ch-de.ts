@@ -5200,6 +5200,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consultazione-politica-agricola-2030.title': 'Konsultation durch das Eidgenössische Departement eröffnet',
     'blog.article.consultazione-politica-agricola-2030.excerpt': 'Der Bundesrat hat eine Reihe von Gesetzesanpassungen für die Agrarpolitik 2030+ vorgeschlagen.',
     'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Schweizer Bauern diskutieren neue landwirtschaftliche Vorschriften auf einem Weizenfeld.',
+    'blog.article.dazi-usa-seco-svizzera-2026.title': 'Neue US-Zölle auf Schweizer Waren: Was sich ab 2026 ändert',
+    'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'Ab dem 24. Juli 2026 erheben die USA variable Zölle von bis zu 12,5% auf Schweizer Waren. Das SECO überwacht die Implikationen für die Unternehmen.',
+    'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'SECO-Büros in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -5200,6 +5200,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consultazione-politica-agricola-2030.title': 'Consultazione aperta dal Dipartimento federale',
     'blog.article.consultazione-politica-agricola-2030.excerpt': 'Il Consiglio federale ha proposto una serie di adeguamenti legislativi per la politica agricola 2030+.',
     'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Agricoltori svizzeri discutono le nuove normative agricole in un campo di grano.',
+    'blog.article.dazi-usa-seco-svizzera-2026.title': 'Nuovi dazi USA su beni svizzeri: cosa cambia dal 2026',
+    'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'Dal 24 luglio 2026, gli Stati Uniti applicano dazi variabili fino al 12,5% sui beni svizzeri. La SECO monitora le implicazioni per le imprese.',
+    'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'Uffici della SECO in Svizzera',
 };
 
 export default blogMetaChIt;
