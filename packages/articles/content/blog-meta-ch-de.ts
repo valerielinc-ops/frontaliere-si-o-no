@@ -5074,6 +5074,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-apprendistato-formazione-professionale.title': 'Lehre in der Schweiz: So fängst du an',
     'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Duales System, Ausbildungsverträge, Vergütung und Berufsreife: Alles, was du über die Berufslehre im Kanton Basel-Landschaft und in der Schweiz wissen musst.',
     'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Lehrling arbeitet in einer Schweizer Berufsbildungswerkstatt unter Mentorbetreuung',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Kindertagesstätten und Kinderbetreuung im Kanton Basel-Landschaft: Kosten',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Gebühren und Zuschüsse für Kindertagesstätten und Kinderbetreuung im Kanton Basel-Landschaft. Wie funktioniert die einkommensabhängige Gebührenberechnung und welche Vergünstigungen gibt es?',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Helle Schweizer Kindertagesstätte mit Kindern, Erziehern und bunten pädagogischen Aktivitäten',
 };
 
 export default blogMetaChDe;

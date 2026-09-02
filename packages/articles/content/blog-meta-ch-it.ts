@@ -5074,6 +5074,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-apprendistato-formazione-professionale.title': 'Apprendistato in Svizzera: come iniziare',
     'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Sistema duale, contratti, retribuzioni e maturità professionale: tutto ciò che devi sapere sull\'apprendistato nel cantone di Basilea Campagna e in Svizzera.',
     'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Apprendista al lavoro in un laboratorio di formazione professionale svizzera con mentor',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Asilo nido e custodia bambini a Basilea Campagna: costi',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Tariffe e sussidi per asili nido e custodia in Basilea Campagna. Come funziona la tariffazione calcolata sul reddito e quali agevolazioni sono disponibili.',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Aula colorata di asilo nido svizzero con bambini piccoli e educatori durante attività didattiche',
 };
 
 export default blogMetaChIt;

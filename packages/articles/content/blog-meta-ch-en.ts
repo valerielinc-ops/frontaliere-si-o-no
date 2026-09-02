@@ -5074,6 +5074,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-apprendistato-formazione-professionale.title': 'Apprenticeships in Switzerland: How to Get Started',
     'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Dual system, contracts, pay, and vocational certification: everything you need to know about apprenticeships in the canton of Basel-Landschaft and throughout Switzerland.',
     'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Young apprentice working in a Swiss vocational training workshop with mentor supervision',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Daycare and Childcare in Basel-Landschaft: Costs',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Fees and Subsidies for Daycare and Childcare in Basel-Landschaft. How income-based fees work and what financial assistance is available.',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Bright Swiss nursery classroom with young children, educators, and colorful educational play activities',
 };
 
 export default blogMetaChEn;
