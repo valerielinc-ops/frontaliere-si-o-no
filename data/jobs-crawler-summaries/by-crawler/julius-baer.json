@@ -1,16 +1,16 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-01T23:07:57.962Z",
+  "generatedAt": "2026-09-02T13:34:46.730Z",
   "total": 66,
   "newCount": 2,
-  "updatedCount": 64,
+  "updatedCount": 63,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 42328,
-  "avgDurationMs": 42328,
+  "unchangedCount": 1,
+  "durationMs": 49493,
+  "avgDurationMs": 49493,
   "durationHistory": [
-    42328
+    49493
   ],
   "newJobs": [
     {
@@ -1139,5 +1139,46 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Java-Engineer---Cloud-Native-Backend-Development-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18953-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Java-Engineer---Cloud-Native-Backend-Development-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-_r-18953-1",
+      "title": "Senior Java Engineer - Cloud-Native Backend Development 100% (f/m/d) - (Contract through our external payroll partner with immediate start for 12 months with possible extension)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "senior-java-engineer-cloud-native-backend-development-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
+      "category": "technology",
+      "datePosted": "2026-06-18",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-06-29T22:17:29.935Z",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ]
 }

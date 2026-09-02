@@ -1,20 +1,109 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-09-01T23:07:42.902Z",
-  "total": 2,
+  "generatedAt": "2026-09-02T13:34:29.590Z",
+  "total": 4,
   "discovered": null,
-  "written": 2,
-  "newCount": 0,
+  "written": 4,
+  "newCount": 2,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2849,
-  "avgDurationMs": 2849,
+  "durationMs": 7710,
+  "avgDurationMs": 7710,
   "durationHistory": [
-    2849
+    7710
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "croix-rouge-fribourgeoise-da3f8b5426a1",
+      "slug": "psychomotoritktherapeutin-en-croix-rouge-fribourgeoise-fribourg",
+      "company": "Croix-Rouge fribourgeoise",
+      "companyKey": "croix-rouge-fribourgeoise",
+      "companyDomain": "croix-rouge-fr.ch",
+      "title": "Psychomotoritktherapeutin·en",
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://company.jobcloud.ch/fr/jobs/b99120d0-c6b3-4162-80c1-a2c6a94e4a06",
+      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:34:23.652Z",
+      "hiringOrganization": {
+        "name": "Croix-Rouge fribourgeoise"
+      },
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "streetAddress": "Rue G.-Techtermann 2",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.jobup.ch/fr/application/create/b99120d0-c6b3-4162-80c1-a2c6a94e4a06?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
+      "department": "",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    },
+    {
+      "id": "croix-rouge-fribourgeoise-0f131c815b85",
+      "slug": "psychomotricien-ne-croix-rouge-fribourgeoise-fribourg",
+      "company": "Croix-Rouge fribourgeoise",
+      "companyKey": "croix-rouge-fribourgeoise",
+      "companyDomain": "croix-rouge-fr.ch",
+      "title": "Psychomotricien·ne",
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://company.jobcloud.ch/fr/jobs/c4ec1d38-b561-4c04-9399-5c720747abd2",
+      "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T13:34:24.438Z",
+      "hiringOrganization": {
+        "name": "Croix-Rouge fribourgeoise"
+      },
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "streetAddress": "Rue G.-Techtermann 2",
+      "postalCode": "1700",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.jobup.ch/fr/application/create/c4ec1d38-b561-4c04-9399-5c720747abd2?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
+      "department": "",
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Fribourg"
+      },
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "croix-rouge-fribourgeoise-6fd3142daa68",
@@ -28,7 +117,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/3cd91f76-ad2e-4837-8ce9-5039ff5c16d6",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:07:40.495Z",
+      "crawledAt": "2026-09-02T13:34:25.699Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -74,7 +163,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/814e07df-c3c8-43dd-807e-6995bd54c9f0",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:40.564Z",
+      "crawledAt": "2026-09-02T13:34:25.780Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },

@@ -1,20 +1,60 @@
 {
   "key": "planzer",
   "label": "Planzer",
-  "generatedAt": "2026-09-01T23:07:28.210Z",
-  "total": 12,
+  "generatedAt": "2026-09-02T13:34:09.602Z",
+  "total": 13,
   "discovered": null,
-  "written": 12,
-  "newCount": 2,
-  "updatedCount": 8,
+  "written": 13,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 12263,
-  "avgDurationMs": 12263,
+  "unchangedCount": 3,
+  "durationMs": 12216,
+  "avgDurationMs": 12216,
   "durationHistory": [
-    12263
+    12216
   ],
   "newJobs": [
+    {
+      "id": "planzer-de5bb971aa5b",
+      "slug": "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-spreitenbach",
+      "company": "Planzer",
+      "companyKey": "planzer",
+      "companyDomain": "planzer.ch",
+      "title": "Lehrstelle Logistiker/-in EFZ - Fachrichtung Lager",
+      "needsRetranslation": true,
+      "location": "Spreitenbach",
+      "canton": "AG",
+      "url": "https://live.solique.ch/planzer/job/details/4027908",
+      "source": "Planzer Dedicated Parser (Solique)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:34:00.462Z",
+      "addressLocality": "Spreitenbach",
+      "addressRegion": "AG",
+      "streetAddress": "Industriestrasse 186",
+      "postalCode": "8957",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Logistica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://live.solique.ch/planzer/job/details/4027908",
+      "externalId": "4027908",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "planzer-f21aa8c4db98",
       "slug": "betriebstechniker-im-2-schicht-betrieb-m-w-d-planzer-harkingen",
@@ -28,7 +68,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4061726",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:17.295Z",
+      "crawledAt": "2026-09-02T13:33:58.918Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -45,11 +85,12 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://live.solique.ch/planzer/job/details/4061726",
       "externalId": "4061726",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-01T23:07:17.295Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -60,13 +101,13 @@
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. C (m/w/d)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Märstetten",
       "canton": "TG",
       "url": "https://live.solique.ch/planzer/job/details/4058823",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:18.196Z",
+      "crawledAt": "2026-09-02T13:33:59.777Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -83,16 +124,15 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://live.solique.ch/planzer/job/details/4058823",
       "externalId": "4058823",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-01T23:07:18.196Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "planzer-0bd1414658f1",
       "slug": "chauffeur-kat-ce-pharmatransporte-m-w-d-planzer-kallnach",
@@ -106,7 +146,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4061735",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:18.908Z",
+      "crawledAt": "2026-09-02T13:34:01.148Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -145,7 +185,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4061732",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:19.609Z",
+      "crawledAt": "2026-09-02T13:34:01.820Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -184,7 +224,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4061729",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:20.301Z",
+      "crawledAt": "2026-09-02T13:34:02.490Z",
       "addressLocality": "Villmergen",
       "addressRegion": "AG",
       "streetAddress": "Allmendstrasse 14",
@@ -223,7 +263,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4060553",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:21.069Z",
+      "crawledAt": "2026-09-02T13:34:03.229Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -262,7 +302,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4062544",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:21.765Z",
+      "crawledAt": "2026-09-02T13:34:03.986Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Mühleäulistrasse 6",
@@ -301,7 +341,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4060556",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:22.460Z",
+      "crawledAt": "2026-09-02T13:34:04.655Z",
       "addressLocality": "Kallnach",
       "addressRegion": "BE",
       "streetAddress": "Brühlgasse 9",
@@ -340,7 +380,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4059599",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:23.167Z",
+      "crawledAt": "2026-09-02T13:34:05.349Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 10",
@@ -365,7 +405,10 @@
         "translation": 16,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "planzer-107167245ca1",
       "slug": "chauffeur-kat-c-ce-springer-m-w-d-planzer-schmerikon",
@@ -373,7 +416,7 @@
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
       "title": "Chauffeur Kat. C/CE (Springer) (m/w/d)",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Schmerikon",
       "canton": "SG",
       "url": "https://live.solique.ch/planzer/job/details/4061919",
@@ -397,17 +440,18 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4061919",
       "externalId": "4061919",
       "firstSeenAt": "2026-08-31T17:00:48.633Z",
-      "_qualityScore": 79,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 16,
-        "completeness": 20
+        "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "planzer-1fb761b35bfb",
       "slug": "logistiker-cfc-m-w-d-planzer-seewen",
@@ -442,7 +486,7 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -485,7 +529,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
