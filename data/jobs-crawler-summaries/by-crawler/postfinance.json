@@ -1,18 +1,57 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-09-01T23:13:59.821Z",
+  "generatedAt": "2026-09-02T13:44:09.121Z",
   "total": 18,
-  "newCount": 0,
-  "updatedCount": 18,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 17,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 37876,
-  "avgDurationMs": 37876,
+  "durationMs": 40606,
+  "avgDurationMs": 40606,
   "durationHistory": [
-    37876
+    40606
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Platform-Engineer-Windows-&-Automation/74635-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Platform-Engineer-Windows-&-Automation/74635-de_DE",
+      "title": "Platform Engineer - Windows & Automation",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "platform-engineer-windows-automation-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "02.09.26",
+      "validThrough": "30.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "crawledAt": "",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Fachverantwortlicher-Data-Leakage-Prevention/74398-de_DE",
@@ -52,7 +91,7 @@
       "salarySource": "estimated",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -696,14 +735,23 @@
       "id": "postfinance-d5dbcaad5f86",
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "crawledAt": "",
-      "_qualityScore": 71,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 12,
         "translation": 25,
-        "completeness": 9
+        "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
@@ -752,6 +800,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
