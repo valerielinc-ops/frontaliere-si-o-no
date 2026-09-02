@@ -33123,6 +33123,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-lazzate-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-09-02T03:43:42.477Z',
+ image: '/images/blog/vivere-lazzate-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-lentate-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-09-02T04:01:27.440Z',
+ image: '/images/blog/vivere-lentate-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

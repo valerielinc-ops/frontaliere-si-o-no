@@ -5053,6 +5053,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-registro-costi.title': 'Ouvrir les activités Grisons : formes, registre, coûts',
     'blog.article.aprire-attivita-grigioni-registro-costi.excerpt': 'Guide pratique sur la création d\'une entreprise dans le canton des Grisons : choix de la forme juridique, inscription au registre du commerce, fiscalité et coûts. Procédures fédérales et cantonales.',
     'blog.article.aprire-attivita-grigioni-registro-costi.imageAlt': 'Espace de travail moderne dans un bureau du canton des Grisons avec vue sur les Alpes.',
+    'blog.article.avviare-attivita-grigioni-forma-giuridica.title': 'Ouvrir une entreprise dans les Grisons : formes juridiques et coûts',
+    'blog.article.avviare-attivita-grigioni-forma-giuridica.excerpt': 'Guide pratique sur la façon de démarrer une entreprise dans le canton des Grisons : formes juridiques, registre du commerce, capitaux minimaux, frais d\'inscription et obligations d\'assurance fédérales.',
+    'blog.article.avviare-attivita-grigioni-forma-giuridica.imageAlt': 'Bureau moderne suisse avec des professionnels travaillant sur des projets de démarrage d\'entreprise',
 };
 
 export default blogMetaChFr;
