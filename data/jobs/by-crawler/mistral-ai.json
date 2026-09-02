@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-09-02T13:50:13.233Z",
+  "assembledAt": "2026-09-02T23:23:24.133Z",
   "jobs": [
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.711Z",
+      "crawledAt": "2026-09-02T23:23:20.862Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.710Z",
+      "crawledAt": "2026-09-02T23:23:20.861Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,7 +200,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.709Z",
+      "crawledAt": "2026-09-02T23:23:20.859Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,6 +231,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -277,7 +278,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.708Z",
+      "crawledAt": "2026-09-02T23:23:20.858Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,7 +323,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -355,7 +357,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.705Z",
+      "crawledAt": "2026-09-02T23:23:20.854Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -400,7 +402,86 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
+    },
+    {
+      "id": "mistral-ai-4e88609166a7",
+      "slug": "ricerca-ingegnere-machine-learning-mistral-ai-zurich",
+      "slugByLocale": {
+        "it": "ricerca-ingegnere-machine-learning-mistral-ai-zurich",
+        "en": "research-engineer-machine-learning-mistral-ai-ch",
+        "de": "forschung-ingenieur-machine-learning-mistral-ai-zurich",
+        "fr": "recherche-ingenieur-machine-learning-mistral-ai-zurich"
+      },
+      "company": "Mistral AI",
+      "companyKey": "mistral-ai",
+      "companyDomain": "mistral.ai",
+      "title": "Research Engineer, Machine Learning",
+      "titleByLocale": {
+        "it": "Ricerca Ingegnere, Machine Learning",
+        "en": "Research Engineer, Machine Learning",
+        "de": "Forschung Ingenieur, Machine Learning",
+        "fr": "Recherche Ingénieur, Machine Learning"
+      },
+      "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nAbout the Research Engineering team\n\nThe team spans Platform (shared infra & clean code) and Embedded (inside research squads). Engineers can move along the research↔production spectrum as needs or interests evolve.\n\nAs a Research Engineer – ML track, you’ll build and optimise the large-scale learning systems that power our open-weight models. Working hand-in-hand with Research Scientists, you’ll either join:\n\n- Platform RE Team: Enhance the shared training framework, data pipelines and cluster tooling used by every team; or\n - Embedded RE Team: Sit inside a research squad (Alignment, Pre-training, Multimodal, Safety …) and turn fresh ideas into repeatable, scalable code.\n\nWhat You Will Do\n\n• Accelerate researchers by taking on the heavy parts of large-scale ML pipelines and building robust tools.\n • Interface cutting-edge research with production: integrate checkpoints, streamline evaluation, and expose APIs.\n • Conduct experiments on the latest deep-learning techniques (sparsified 70 B + runs, distributed training on thousands of GPUs).\n • Design, implement and benchmark ML algorithms; write clear, efficient code in Python .\n • Deliver prototypes that become production-grade components for Le Chat and our enterprise API.\n\nWhat We're Looking For\n\n• Master’s or PhD in Computer Science (or equivalent proven track record).\n • 4 + years working on large-scale ML codebases.\n • Hands-on with PyTorch, JAX or TensorFlow; comfortable with distributed training (DeepSpeed / FSDP / SLURM / K8s).\n • Experience in deep learning, NLP or LLMs; bonus for CUDA or data-pipeline chops.\n • Strong software-design instincts: testing, code review, CI/CD.\n • Self-starter, low-ego, collaborative.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+      "descriptionByLocale": {
+        "it": "Informazioni su Mistral\nMistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\nSiamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nInformazioni sul team di Research Engineering\n\nIl team si estende su Piattaforma (codice infra & clean) e Embedded (squadri di ricerca interni). Gli ingegneri possono muoversi lungo lo spettro di ricerca ↔produzione come esigenze o interessi si evolvono.\n\nCome Ricerca Engineer – traccia ML, costruirete e ottimizzate i sistemi di apprendimento su larga scala che alimentano i nostri modelli a peso aperto. Lavorando a mano con gli scienziati della ricerca, ti unirai a:\n\n- Platform RE Team: Migliorare il quadro di formazione condiviso, le pipeline di dati e gli strumenti di cluster utilizzati da ogni team; o\n- Embedded RE Team: Sit inside a research squad (Alignment, Pre-training, Multimodal, Safety ...) e trasformare idee fresche in codice ripetibile e scalabile.\n\nCosa farai\n\n• Accelerare i ricercatori assumendo le parti pesanti di condotte ML su larga scala e costruire strumenti robusti.\n• Interfaccia di ricerca all'avanguardia con la produzione: integrare i checkpoint, semplificare la valutazione e esporre le API.\n• Condurre esperimenti sulle più recenti tecniche di deep-learning (sparsified 70 B + run, formazione distribuita su migliaia di GPU).\n• Progettazione, implementazione e benchmark algoritmi ML; scrivere codice chiaro, efficiente in Python .\n• Fornire prototipi che diventano componenti di produzione per Le Chat e la nostra API aziendale.\n\nCosa stiamo cercando\n\n• Master o PhD in Informatica (o equivalente record di traccia provata).\n• 4 + anni che lavorano su basi di codice ML su larga scala.\n• Hands-on con PyTorch, JAX o TensorFlow; confortevole con formazione distribuita (DeepSpeed / FSDP / SLURM / K8s).\n• Esperienza nell'apprendimento profondo, NLP o LLM; bonus per CUDA o data-pipeline.\n• Forte software-design istinti: test, recensione del codice, CI/CD.\n• Self-starter, low-ego, collaborativo.\n\nCosa offriamo\nOffriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\nPer i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\nLa tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
+        "en": "About Mistral\nMistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\nWe are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nAbout the Research Engineering team\n\nThe team spans Platform (shared infra & clean code) and Embedded (inside research squads). Engineers can move along the research↔production spectrum as needs or interests evolve.\n\nAs a Research Engineer – ML track, you’ll build and optimise the large-scale learning systems that power our open-weight models. Working hand-in-hand with Research Scientists, you’ll either join:\n\n- Platform RE Team: Enhance the shared training framework, data pipelines and cluster tooling used by every team; or\n- Embedded RE Team: Sit inside a research squad (Alignment, Pre-training, Multimodal, Safety …) and turn fresh ideas into repeatable, scalable code.\n\nWhat You Will Do\n\n• Accelerate researchers by taking on the heavy parts of large-scale ML pipelines and building robust tools.\n• Interface cutting-edge research with production: integrate checkpoints, streamline evaluation, and expose APIs.\n• Conduct experiments on the latest deep-learning techniques (sparsified 70 B + runs, distributed training on thousands of GPUs).\n• Design, implement and benchmark ML algorithms; write clear, efficient code in Python .\n• Deliver prototypes that become production-grade components for Le Chat and our enterprise API.\n\nWhat We're Looking For\n\n• Master’s or PhD in Computer Science (or equivalent proven track record).\n• 4 + years working on large-scale ML codebases.\n• Hands-on with PyTorch, JAX or TensorFlow; comfortable with distributed training (DeepSpeed / FSDP / SLURM / K8s).\n• Experience in deep learning, NLP or LLMs; bonus for CUDA or data-pipeline chops.\n• Strong software-design instincts: testing, code review, CI/CD.\n• Self-starter, low-ego, collaborative.\n\nWhat We Offer\nWe offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\nFor the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\nYour privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+        "de": "Über Mistral\nMistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\nWir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nÜber das Research Engineering Team\n\nDas Team umfasst Platform (Shared Infra & Clean Code) und Embedded (innerhalb von Research Squads). Ingenieure können sich entlang des Forschungsspektrums bewegen, wenn sich Bedürfnisse oder Interessen entwickeln.\n\nAls Research Engineer - ML-Track bauen und optimieren Sie die groß angelegten Lernsysteme, die unsere Modelle im offenen Gewicht unterstützen. Arbeiten Sie Hand in Hand mit Research Scientists, werden Sie entweder beitreten:\n\n- Platform RE Team: Verbessern Sie das gemeinsame Trainings-Framework, Datenpipelines und Cluster-Tooling, das von jedem Team verwendet wird; oder\n- Embedded RE Team: Setzen Sie sich in ein Forschungsteam (Alignment, Pre-Training, Multimodal, Safety ...) und verwandeln Sie neue Ideen in wiederholbaren, skalierbaren Code.\n\nWas Sie tun werden\n\n• Beschleunigen Sie die Forscher, indem Sie die schweren Teile von großen ML-Pipelines übernehmen und robuste Werkzeuge bauen.\n• Schnittstelle von Spitzenforschung mit Produktion: Integrieren Sie Checkpoints, optimieren Sie die Auswertung und stellen Sie APIs frei.\n• Führen Sie Experimente mit den neuesten Deep-Learning-Techniken durch (sparsifizierte 70 B + Läufe, verteiltes Training an Tausenden von GPUs).\n• Entwerfen, Implementieren und Benchmarken von ML-Algorithmen; schreiben Sie klaren, effizienten Code in Python.\n• Liefern Sie Prototypen, die zu Produktionskomponenten für Le Chat und unsere Enterprise API werden.\n\nWas wir suchen\n\n• Master oder PhD in Informatik (oder gleichwertige nachgewiesene Erfolgsbilanz).\n• 4 + Jahre Arbeit an großen ML-Codebasen.\n• Hands-on mit PyTorch, JAX oder TensorFlow; komfortabel mit verteiltem Training (DeepSpeed / FSDP / SLURM / K8s).\n• Erfahrung in Deep Learning, NLP oder LLMs; Bonus für CUDA oder Data-Pipeline-Chops.\n• Starke Software-Design-Instinkte: Testen, Code Review, CI/CD.\n• Selbststarter, Low-Ego, kooperativ.\n\nWas wir anbieten\nWir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\nFür die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\nIhre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
+        "fr": "À propos de Mistral\nMistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\nNous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nÀ propos de l'équipe de recherche en génie\n\nL'équipe s'étend sur la plate-forme (infra et code propre partagé) et Embedded (équipes de recherche internes). Les ingénieurs peuvent évoluer le long du spectre de production de recherche en fonction des besoins ou des intérêts.\n\nEn tant qu'ingénieur de recherche – piste ML, vous allez construire et optimiser les systèmes d'apprentissage à grande échelle qui alimentent nos modèles à poids ouvert. Travaillant main dans la main avec les chercheurs scientifiques, vous rejoindrez:\n\n- Plateforme Équipe RE: Améliorer le cadre de formation partagé, les pipelines de données et les outils de regroupement utilisés par chaque équipe;\n- Équipe RE embarquée: Asseyez-vous au sein d'une équipe de recherche (alignement, pré-entraînement, multimodal, sécurité...) et transformez les idées nouvelles en code répétable et évolutif.\n\nCe que vous ferez\n\n• Accélérer les chercheurs en prenant les parties lourdes des pipelines ML à grande échelle et en construisant des outils robustes.\n• Interface recherche de pointe avec la production: intégrer des points de contrôle, rationaliser l'évaluation, et exposer les API.\n• Effectuer des expériences sur les dernières techniques d'apprentissage en profondeur (cours de 70 B +, formation distribuée sur des milliers de GPU).\n• Conception, mise en œuvre et référence des algorithmes ML; écrire un code clair et efficace dans Python .\n• Fournir des prototypes qui deviennent des composants de qualité de production pour Le Chat et notre API d'entreprise.\n\nCe que nous cherchons\n\n• Maîtrise ou doctorat en informatique (ou équivalent éprouvé).\n• 4 ans et plus de travail sur des bases de code ML à grande échelle.\n• Mains avec PyTorch, JAX ou TensorFlow; confortable avec entraînement distribué (DeepSpeed / FSDP / SLURM / K8s).\n• Expérience dans l'apprentissage profond, NLP ou LLM; bonus pour les côtelettes CUDA ou data-pipeline.\n• Instincts de conception de logiciels forts: test, révision de code, CI/CD.\n• Auto-démarrage, faible ego, collaboration.\n\nCe que nous offrons\nNous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\nPour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\nVotre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
+      "source": "Mistral AI Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-02T23:23:20.853Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Intelligenza Artificiale / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-02",
+      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "research-engineer-machine-learning-mistral-ai-ch",
+        "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "research-engineer-machine-learning-mistral-ai-ch",
+          "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
+        ],
+        "de": [
+          "research-engineer-machine-learning-mistral-ai-ch"
+        ],
+        "fr": [
+          "research-engineer-machine-learning-mistral-ai-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-14T22:36:36.705Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "mistral-ai-01b2b0d2cc89",
@@ -433,7 +514,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.704Z",
+      "crawledAt": "2026-09-02T23:23:20.852Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -488,84 +569,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "mistral-ai-4e88609166a7",
-      "slug": "ricerca-ingegnere-machine-learning-mistral-ai-zurich",
-      "slugByLocale": {
-        "it": "ricerca-ingegnere-machine-learning-mistral-ai-zurich",
-        "en": "research-engineer-machine-learning-mistral-ai-ch",
-        "de": "forschung-ingenieur-machine-learning-mistral-ai-zurich",
-        "fr": "recherche-ingenieur-machine-learning-mistral-ai-zurich"
-      },
-      "company": "Mistral AI",
-      "companyKey": "mistral-ai",
-      "companyDomain": "mistral.ai",
-      "title": "Research Engineer, Machine Learning",
-      "titleByLocale": {
-        "it": "Ricerca Ingegnere, Machine Learning",
-        "en": "Research Engineer, Machine Learning",
-        "de": "Forschung Ingenieur, Machine Learning",
-        "fr": "Recherche Ingénieur, Machine Learning"
-      },
-      "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nAbout the Research Engineering team\n\nThe team spans Platform (shared infra & clean code) and Embedded (inside research squads). Engineers can move along the research↔production spectrum as needs or interests evolve.\n\nAs a Research Engineer – ML track, you’ll build and optimise the large-scale learning systems that power our open-weight models. Working hand-in-hand with Research Scientists, you’ll either join:\n\n- Platform RE Team: Enhance the shared training framework, data pipelines and cluster tooling used by every team; or\n - Embedded RE Team: Sit inside a research squad (Alignment, Pre-training, Multimodal, Safety …) and turn fresh ideas into repeatable, scalable code.\n\nWhat You Will Do\n\n• Accelerate researchers by taking on the heavy parts of large-scale ML pipelines and building robust tools.\n • Interface cutting-edge research with production: integrate checkpoints, streamline evaluation, and expose APIs.\n • Conduct experiments on the latest deep-learning techniques (sparsified 70 B + runs, distributed training on thousands of GPUs).\n • Design, implement and benchmark ML algorithms; write clear, efficient code in Python .\n • Deliver prototypes that become production-grade components for Le Chat and our enterprise API.\n\nWhat We're Looking For\n\n• Master’s or PhD in Computer Science (or equivalent proven track record).\n • 4 + years working on large-scale ML codebases.\n • Hands-on with PyTorch, JAX or TensorFlow; comfortable with distributed training (DeepSpeed / FSDP / SLURM / K8s).\n • Experience in deep learning, NLP or LLMs; bonus for CUDA or data-pipeline chops.\n • Strong software-design instincts: testing, code review, CI/CD.\n • Self-starter, low-ego, collaborative.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
-      "descriptionByLocale": {
-        "it": "Informazioni su Mistral\nMistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\nSiamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nInformazioni sul team di Research Engineering\n\nIl team si estende su Piattaforma (codice infra & clean) e Embedded (squadri di ricerca interni). Gli ingegneri possono muoversi lungo lo spettro di ricerca ↔produzione come esigenze o interessi si evolvono.\n\nCome Ricerca Engineer – traccia ML, costruirete e ottimizzate i sistemi di apprendimento su larga scala che alimentano i nostri modelli a peso aperto. Lavorando a mano con gli scienziati della ricerca, ti unirai a:\n\n- Platform RE Team: Migliorare il quadro di formazione condiviso, le pipeline di dati e gli strumenti di cluster utilizzati da ogni team; o\n- Embedded RE Team: Sit inside a research squad (Alignment, Pre-training, Multimodal, Safety ...) e trasformare idee fresche in codice ripetibile e scalabile.\n\nCosa farai\n\n• Accelerare i ricercatori assumendo le parti pesanti di condotte ML su larga scala e costruire strumenti robusti.\n• Interfaccia di ricerca all'avanguardia con la produzione: integrare i checkpoint, semplificare la valutazione e esporre le API.\n• Condurre esperimenti sulle più recenti tecniche di deep-learning (sparsified 70 B + run, formazione distribuita su migliaia di GPU).\n• Progettazione, implementazione e benchmark algoritmi ML; scrivere codice chiaro, efficiente in Python .\n• Fornire prototipi che diventano componenti di produzione per Le Chat e la nostra API aziendale.\n\nCosa stiamo cercando\n\n• Master o PhD in Informatica (o equivalente record di traccia provata).\n• 4 + anni che lavorano su basi di codice ML su larga scala.\n• Hands-on con PyTorch, JAX o TensorFlow; confortevole con formazione distribuita (DeepSpeed / FSDP / SLURM / K8s).\n• Esperienza nell'apprendimento profondo, NLP o LLM; bonus per CUDA o data-pipeline.\n• Forte software-design istinti: test, recensione del codice, CI/CD.\n• Self-starter, low-ego, collaborativo.\n\nCosa offriamo\nOffriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\nPer i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\nLa tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
-        "en": "About Mistral\nMistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\nWe are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nAbout the Research Engineering team\n\nThe team spans Platform (shared infra & clean code) and Embedded (inside research squads). Engineers can move along the research↔production spectrum as needs or interests evolve.\n\nAs a Research Engineer – ML track, you’ll build and optimise the large-scale learning systems that power our open-weight models. Working hand-in-hand with Research Scientists, you’ll either join:\n\n- Platform RE Team: Enhance the shared training framework, data pipelines and cluster tooling used by every team; or\n- Embedded RE Team: Sit inside a research squad (Alignment, Pre-training, Multimodal, Safety …) and turn fresh ideas into repeatable, scalable code.\n\nWhat You Will Do\n\n• Accelerate researchers by taking on the heavy parts of large-scale ML pipelines and building robust tools.\n• Interface cutting-edge research with production: integrate checkpoints, streamline evaluation, and expose APIs.\n• Conduct experiments on the latest deep-learning techniques (sparsified 70 B + runs, distributed training on thousands of GPUs).\n• Design, implement and benchmark ML algorithms; write clear, efficient code in Python .\n• Deliver prototypes that become production-grade components for Le Chat and our enterprise API.\n\nWhat We're Looking For\n\n• Master’s or PhD in Computer Science (or equivalent proven track record).\n• 4 + years working on large-scale ML codebases.\n• Hands-on with PyTorch, JAX or TensorFlow; comfortable with distributed training (DeepSpeed / FSDP / SLURM / K8s).\n• Experience in deep learning, NLP or LLMs; bonus for CUDA or data-pipeline chops.\n• Strong software-design instincts: testing, code review, CI/CD.\n• Self-starter, low-ego, collaborative.\n\nWhat We Offer\nWe offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\nFor the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\nYour privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
-        "de": "Über Mistral\nMistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\nWir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nÜber das Research Engineering Team\n\nDas Team umfasst Platform (Shared Infra & Clean Code) und Embedded (innerhalb von Research Squads). Ingenieure können sich entlang des Forschungsspektrums bewegen, wenn sich Bedürfnisse oder Interessen entwickeln.\n\nAls Research Engineer - ML-Track bauen und optimieren Sie die groß angelegten Lernsysteme, die unsere Modelle im offenen Gewicht unterstützen. Arbeiten Sie Hand in Hand mit Research Scientists, werden Sie entweder beitreten:\n\n- Platform RE Team: Verbessern Sie das gemeinsame Trainings-Framework, Datenpipelines und Cluster-Tooling, das von jedem Team verwendet wird; oder\n- Embedded RE Team: Setzen Sie sich in ein Forschungsteam (Alignment, Pre-Training, Multimodal, Safety ...) und verwandeln Sie neue Ideen in wiederholbaren, skalierbaren Code.\n\nWas Sie tun werden\n\n• Beschleunigen Sie die Forscher, indem Sie die schweren Teile von großen ML-Pipelines übernehmen und robuste Werkzeuge bauen.\n• Schnittstelle von Spitzenforschung mit Produktion: Integrieren Sie Checkpoints, optimieren Sie die Auswertung und stellen Sie APIs frei.\n• Führen Sie Experimente mit den neuesten Deep-Learning-Techniken durch (sparsifizierte 70 B + Läufe, verteiltes Training an Tausenden von GPUs).\n• Entwerfen, Implementieren und Benchmarken von ML-Algorithmen; schreiben Sie klaren, effizienten Code in Python.\n• Liefern Sie Prototypen, die zu Produktionskomponenten für Le Chat und unsere Enterprise API werden.\n\nWas wir suchen\n\n• Master oder PhD in Informatik (oder gleichwertige nachgewiesene Erfolgsbilanz).\n• 4 + Jahre Arbeit an großen ML-Codebasen.\n• Hands-on mit PyTorch, JAX oder TensorFlow; komfortabel mit verteiltem Training (DeepSpeed / FSDP / SLURM / K8s).\n• Erfahrung in Deep Learning, NLP oder LLMs; Bonus für CUDA oder Data-Pipeline-Chops.\n• Starke Software-Design-Instinkte: Testen, Code Review, CI/CD.\n• Selbststarter, Low-Ego, kooperativ.\n\nWas wir anbieten\nWir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\nFür die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\nIhre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
-        "fr": "À propos de Mistral\nMistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\nNous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nÀ propos de l'équipe de recherche en génie\n\nL'équipe s'étend sur la plate-forme (infra et code propre partagé) et Embedded (équipes de recherche internes). Les ingénieurs peuvent évoluer le long du spectre de production de recherche en fonction des besoins ou des intérêts.\n\nEn tant qu'ingénieur de recherche – piste ML, vous allez construire et optimiser les systèmes d'apprentissage à grande échelle qui alimentent nos modèles à poids ouvert. Travaillant main dans la main avec les chercheurs scientifiques, vous rejoindrez:\n\n- Plateforme Équipe RE: Améliorer le cadre de formation partagé, les pipelines de données et les outils de regroupement utilisés par chaque équipe;\n- Équipe RE embarquée: Asseyez-vous au sein d'une équipe de recherche (alignement, pré-entraînement, multimodal, sécurité...) et transformez les idées nouvelles en code répétable et évolutif.\n\nCe que vous ferez\n\n• Accélérer les chercheurs en prenant les parties lourdes des pipelines ML à grande échelle et en construisant des outils robustes.\n• Interface recherche de pointe avec la production: intégrer des points de contrôle, rationaliser l'évaluation, et exposer les API.\n• Effectuer des expériences sur les dernières techniques d'apprentissage en profondeur (cours de 70 B +, formation distribuée sur des milliers de GPU).\n• Conception, mise en œuvre et référence des algorithmes ML; écrire un code clair et efficace dans Python .\n• Fournir des prototypes qui deviennent des composants de qualité de production pour Le Chat et notre API d'entreprise.\n\nCe que nous cherchons\n\n• Maîtrise ou doctorat en informatique (ou équivalent éprouvé).\n• 4 ans et plus de travail sur des bases de code ML à grande échelle.\n• Mains avec PyTorch, JAX ou TensorFlow; confortable avec entraînement distribué (DeepSpeed / FSDP / SLURM / K8s).\n• Expérience dans l'apprentissage profond, NLP ou LLM; bonus pour les côtelettes CUDA ou data-pipeline.\n• Instincts de conception de logiciels forts: test, révision de code, CI/CD.\n• Auto-démarrage, faible ego, collaboration.\n\nCe que nous offrons\nNous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\nPour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\nVotre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
-      "source": "Mistral AI Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.704Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Intelligenza Artificiale / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-02",
-      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "research-engineer-machine-learning-mistral-ai-ch",
-        "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "research-engineer-machine-learning-mistral-ai-ch",
-          "ricerca-ingegnere-machine-learning-mistral-ai-zurich"
-        ],
-        "de": [
-          "research-engineer-machine-learning-mistral-ai-ch"
-        ],
-        "fr": [
-          "research-engineer-machine-learning-mistral-ai-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T22:36:36.705Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "mistral-ai-6111928c148b",
       "slug": "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne",
       "slugByLocale": {
@@ -596,7 +599,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.702Z",
+      "crawledAt": "2026-09-02T23:23:20.850Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,7 +677,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:50:10.700Z",
+      "crawledAt": "2026-09-02T23:23:20.845Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",

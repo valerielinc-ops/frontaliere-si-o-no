@@ -1,7 +1,7 @@
 {
   "key": "klinik-seeschau",
   "label": "Klinik Seeschau",
-  "generatedAt": "2026-09-02T13:50:19.020Z",
+  "generatedAt": "2026-09-02T23:23:28.078Z",
   "total": 3,
   "discovered": null,
   "written": 3,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2511,
-  "avgDurationMs": 2511,
+  "durationMs": 2865,
+  "avgDurationMs": 2865,
   "durationHistory": [
-    2511
+    2865
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,7 @@
       "salaryMin": 65200,
       "salaryMax": 91200,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

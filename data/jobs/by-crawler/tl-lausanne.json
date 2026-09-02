@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tl-lausanne",
-  "assembledAt": "2026-09-02T13:50:36.639Z",
+  "assembledAt": "2026-09-02T23:23:43.836Z",
   "jobs": [
     {
       "id": "tl-lausanne-7fdd1e80fc35",
@@ -34,7 +34,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stagiaire-Porte-Parole-et-Communication-institutionnelle/1424627433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:32.466Z",
+      "crawledAt": "2026-09-02T23:23:39.998Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -99,7 +99,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-d'exploitation/1428728233/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:31.824Z",
+      "crawledAt": "2026-09-02T23:23:39.428Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -139,7 +139,7 @@
         "it": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
         "en": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
         "de": "apprenti-e-logisticien-ne-tl-lausanne-lausanne",
-        "fr": "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "fr": "apprenti-e-logisticien-ne-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
       "companyKey": "tl-lausanne",
@@ -164,7 +164,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-logisticien%C2%B7ne/1428665133/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:31.180Z",
+      "crawledAt": "2026-09-02T23:23:38.823Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -182,6 +182,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
+      "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+      ],
       "firstSeenAt": "2026-08-31T22:21:28.735Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -195,15 +203,7 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "fr": [
-          "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
-      ]
+      }
     },
     {
       "id": "tl-lausanne-035401abf960",
@@ -237,7 +237,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-vernisseur%C2%B7euse-industriel/1428725433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:30.551Z",
+      "crawledAt": "2026-09-02T23:23:38.240Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -302,7 +302,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-employ%C3%A9%C2%B7es-de-commerce/1428672533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:29.908Z",
+      "crawledAt": "2026-09-02T23:23:37.646Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -367,7 +367,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-automaticien%C2%B7nes/1428782833/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:29.257Z",
+      "crawledAt": "2026-09-02T23:23:37.083Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7e-agent%C2%B7e-relation-client/1428711533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:28.609Z",
+      "crawledAt": "2026-09-02T23:23:36.481Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -497,7 +497,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9catronicien%C2%B7nes-d'automobiles-v%C3%A9hicules-utilitaires-%28%C3%A9galement-RAC-3%C3%A8me%29/1428720633/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:27.968Z",
+      "crawledAt": "2026-09-02T23:23:35.906Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -562,7 +562,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-m%C3%A9canicien%C2%B7nes-en-maintenance-automobiles-v%C3%A9hicules-utilitaires/1428715533/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:27.295Z",
+      "crawledAt": "2026-09-02T23:23:35.328Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -627,7 +627,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Apprenti%C2%B7es-agent%C2%B7es-de-transports-publics/1429059433/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:26.644Z",
+      "crawledAt": "2026-09-02T23:23:34.728Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -692,7 +692,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Route-&-immobilier/1429774733/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:25.960Z",
+      "crawledAt": "2026-09-02T23:23:34.160Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -757,7 +757,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Directrice-ou-Directeur-Strat%C3%A9gie-&-Transformation-d'entreprise/1429773933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:25.302Z",
+      "crawledAt": "2026-09-02T23:23:33.580Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -822,7 +822,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Conductrices-et-conducteurs-de-bus-et-trolleybus/1281245901/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:24.638Z",
+      "crawledAt": "2026-09-02T23:23:32.967Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -922,7 +922,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Data-Engineer/1431535933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:23.984Z",
+      "crawledAt": "2026-09-02T23:23:32.428Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1031,7 +1031,7 @@
       "url": "https://carrieres.t-l.ch/job/Lausanne-Stage-dans-la-coordination-op%C3%A9rationnelle-%28Facility-Management-maintenance-infrastructure%29/1432197933/",
       "source": "tl (Transports publics de la région lausannoise) Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:50:23.323Z",
+      "crawledAt": "2026-09-02T23:23:31.848Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
