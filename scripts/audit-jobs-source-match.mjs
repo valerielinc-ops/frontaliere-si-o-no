@@ -321,7 +321,11 @@ let browserPromise = null;
 
 async function getBrowser() {
   if (!browserPromise) {
-    browserPromise = launchChromium({ headless: true }).catch(() => null);
+    browserPromise = launchChromium({ headless: true }).catch((error) => {
+      browserPromise = null;
+      console.error(`Browser launch failed: ${error?.message || error}`);
+      return null;
+    });
   }
   return browserPromise;
 }
