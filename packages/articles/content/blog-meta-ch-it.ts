@@ -5101,6 +5101,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-apertura-attivita-bc.title': 'Aprire attività a Basilea Campagna: registri e costi',
     'blog.article.guida-apertura-attivita-bc.excerpt': 'Iscrizione al registro di commercio, forme giuridiche, obblighi previdenziali e assicurativi: tutto ciò che serve per avviare un\'impresa nel cantone.',
     'blog.article.guida-apertura-attivita-bc.imageAlt': 'Edificio amministrativo cantonale con ufficio del registro di commercio per la registrazione di imprese in Svizzera',
+    'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Permesso dimora B Argovia: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Permesso B è la dimora rinnovabile in Svizzera. Procedura federale SEM, competenza ufficio cantonale. Guida completa a requisiti, rinnovo e scadenze.',
+    'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Ufficio dell\'amministrazione cantonale dell\'Argovia con documenti relativi ai permessi di residenza svizzeri',
 };
 
 export default blogMetaChIt;

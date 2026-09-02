@@ -5101,6 +5101,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-apertura-attivita-bc.title': 'Opening businesses in Basel Countryside: registers and costs',
     'blog.article.guida-apertura-attivita-bc.excerpt': 'Registration in the commercial register, legal forms, social security and insurance obligations: everything you need to start a business in the canton.',
     'blog.article.guida-apertura-attivita-bc.imageAlt': 'Swiss cantonal administrative building housing business registration office for companies',
+    'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Residence permit B Aargau: requirements and renewal',
+    'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Permit B is the renewable residence in Switzerland. Federal SEM procedure, cantonal office competence. Complete guide to requirements, renewal and deadlines.',
+    'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Aargau cantonal administration office with Swiss residence permit documentation',
 };
 
 export default blogMetaChEn;

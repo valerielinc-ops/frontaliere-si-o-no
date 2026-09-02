@@ -5101,6 +5101,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-apertura-attivita-bc.title': 'Geschäft in Basel-Landschaft eröffnen: Register und Kosten',
     'blog.article.guida-apertura-attivita-bc.excerpt': 'Handelsregistereintrag, Rechtsformen, Vorsorge- und Versicherungspflichten - alles, was Sie brauchen, um ein Unternehmen im Kanton zu gründen.',
     'blog.article.guida-apertura-attivita-bc.imageAlt': 'Schweizer Kantonsgebäude mit Handelsregisteramt für Unternehmensregistrierung',
+    'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Aufenthaltsbewilligung B Aargau: Voraussetzungen und Erneuerung',
+    'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Permit B ist der erneuerbare Wohnsitz in der Schweiz. Bundesverfahren sem, Zuständigkeit kantonales Amt. Vollständiger Leitfaden zu Anforderungen, Erneuerung und Fristen.',
+    'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Kantonales Migrationsamt Aargau mit Schweizer Aufenthaltserlaubnisdokumenten',
 };
 
 export default blogMetaChDe;
