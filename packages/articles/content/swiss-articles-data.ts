@@ -15094,6 +15094,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-grigioni',
+    category: 'pensione',
+    date: '2026-09-02T01:39:16.684Z',
+    image: '/images/blog/avs-prestazioni-complementari-grigioni.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5032,6 +5032,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Naturalization in Graubünden: requirements and procedure',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'How to become a Swiss citizen in the canton of Graubünden. Federal route, cantonal requirements, language and integration tests, taxes and duration of the procedure.',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Swiss cantonal administration office window displaying naturalization application forms and official documents in natural daylight.',
+    'blog.article.avs-prestazioni-complementari-grigioni.title': 'AVS and complementary services in the Canton of Graubünden',
+    'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'First pillar, contribution gaps and access to supplementary benefits: a practical guide for residents and taxpayers of the Canton of Graubünden.',
+    'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Swiss cantonal administration office: financial advisor examining pension and AVS documents',
 };
 
 export default blogMetaChEn;
