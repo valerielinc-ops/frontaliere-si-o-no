@@ -1700,6 +1700,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soletta-locazione-affitti-guida-pratica': { it: 'soletta-locazione-affitti-guida-pratica', en: 'soletta-rental-lease-rights-guide', de: 'soletta-mietwohnung-mietrecht-leitfaden', fr: 'soletta-location-droits-locataire-guide' },
  'soletta-contestazione-canone-affitti': { it: 'soletta-contestazione-canone-affitti', en: 'soletta-contesting-rent-cantonal-law', de: 'soletta-miete-anfechtung-schweizer-recht', fr: 'soletta-contestation-loyer-droit-suisse' },
  'affitti-soletta-diritti-inquilini': { it: 'affitti-soletta-diritti-inquilini', en: 'soletta-rental-tenant-rights', de: 'soletta-mietrecht-mieterrechte', fr: 'soletta-droit-location-locataires' },
+ 'comprare-casa-grigioni-procedure-fondi': { it: 'comprare-casa-grigioni-procedure-fondi', en: 'buy-home-grisons-procedures-funds', de: 'haus-graubuenden-kaufverfahren-eigenkapital', fr: 'acheter-maison-grisons-procedures-fonds' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
