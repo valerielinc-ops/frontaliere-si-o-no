@@ -11092,6 +11092,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cislago-lavorare-ticino.title': 'Living in Cislago, Working in Ticino: A Guide for Cross-Border Workers',
     'blog.article.vivere-cislago-lavorare-ticino.excerpt': 'Cross-border workers from Cislago to Ticino: taxation, the New Agreement, withholding tax, work permits, and social security for those who choose to live in Italy and work in Switzerland.',
     'blog.article.vivere-cislago-lavorare-ticino.imageAlt': 'Aerial view of Mendrisio and border with Como province, where Cislago is located',
+    'blog.article.vivere-misinto-lavorare-ticino-frontaliere.title': 'Living in Misinto and Working in Ticino',
+    'blog.article.vivere-misinto-lavorare-ticino-frontaliere.excerpt': 'A Practical Guide for Cross-Border Workers: Taxation, G Permit, Step-by-Step Procedure, and What You Need to Know Before Moving from Misinto to Work in the Canton of Ticino.',
+    'blog.article.vivere-misinto-lavorare-ticino-frontaliere.imageAlt': 'Swiss-Italian border landscape overlooking the lake, typical scenery for a cross-border worker living in Misinto and working in Ticino',
 };
 
 export default blogMetaEn;

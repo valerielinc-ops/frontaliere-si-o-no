@@ -82322,6 +82322,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-misinto-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Misinto e lavorare in Ticino | Frontaliere Ticino',
+    description: 'Guida pratica per frontalieri: fiscalità, permesso G, esenzioni redditi, tassazione, contributi AVS/LPP e procedura passo-passo per vivere a Misinto e lavorare',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, misinto, lavorare, pratica',
+    ogTitle: 'Vivere a Misinto e lavorare in Ticino',
+    ogDescription: 'Scopri come vivere a Misinto mentre lavori in Ticino: fiscalità frontalieri, permesso G, esenzione € 10.000, contributi svizzeri, procedura passo-passo e checklist essenziale.',
+    canonicalPath: '/articoli-frontaliere/vivere-misinto-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Misinto e lavorare in Ticino",
+      "description": "Guida pratica per frontalieri: fiscalità, permesso G, esenzioni redditi, tassazione, contributi AVS/LPP e procedura passo-passo per vivere a Misinto e lavorare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-misinto-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di confine tra Ticino e Lombardia con vista sul lago, emblematico della vita del frontaliere che vive a Misinto e lavora in Ticino"
+      },
+      "datePublished": "2026-09-02T06:41:40+00:00",
+      "dateModified": "2026-09-02T06:41:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-misinto-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
