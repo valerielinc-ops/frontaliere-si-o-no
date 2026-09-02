@@ -524,6 +524,21 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(() => buildCrawlerShellBody(crawler)).toThrow(/positive integer below the 340 minute group timeout/);
   });
 
+  it('renders the validated timeout value and rejects malformed raw input', () => {
+    const normalizedBody = buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: '030',
+    });
+
+    expect(normalizedBody).toContain('timeout --signal=TERM --kill-after=30s 30m bash -c');
+    expect(normalizedBody).toContain('**Causa:** timeout del target dopo 30 minuti (exit 124).');
+    expect(normalizedBody).not.toContain('030');
+    expect(() => buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: '30m',
+    })).toThrow(/positive integer below the 340 minute group timeout/);
+  });
+
   it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
     // This test does not call production code; it pins down, in isolation,
     // why the pre-fix generated body was wrong, so a future refactor can't
