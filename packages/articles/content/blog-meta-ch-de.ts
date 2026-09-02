@@ -5116,6 +5116,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.programma-modernizzazione-alberghi-montagna.title': 'Berghotels: 100 Millionen für die Modernisierung',
     'blog.article.programma-modernizzazione-alberghi-montagna.excerpt': 'Der Bundesrat hat über acht Jahre ein Programm von 100 Millionen CHF zur Energieerneuerung von Berghotels gestartet.',
     'blog.article.programma-modernizzazione-alberghi-montagna.imageAlt': 'Modernes Berghotel in den Schweizer Alpen.',
+    'blog.article.voto-elettronico-neuchatel-2028.title': 'Elektronische Note in Neuenburg: grünes Licht vom Bundesrat',
+    'blog.article.voto-elettronico-neuchatel-2028.excerpt': 'Der Bundesrat hat beschlossen, dem Kanton Neuenburg die grundsätzliche Bewilligung für die Erprobung der elektronischen Stimmabgabe bis zum 26. November 2028 zu erteilen.',
+    'blog.article.voto-elettronico-neuchatel-2028.imageAlt': 'Eine Person, die elektronisch auf einem Computer in einer modernen Schweizer Umgebung wählt',
 };
 
 export default blogMetaChDe;

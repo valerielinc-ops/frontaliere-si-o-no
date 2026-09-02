@@ -5116,6 +5116,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.programma-modernizzazione-alberghi-montagna.title': 'Hôtels de montagne : 100 millions pour la modernisation',
     'blog.article.programma-modernizzazione-alberghi-montagna.excerpt': 'Le Conseil fédéral lance un programme de 100 millions de francs sur huit ans pour l\'assainissement énergétique des structures hôtelières de montagne.',
     'blog.article.programma-modernizzazione-alberghi-montagna.imageAlt': 'Hôtel de montagne moderne dans les Alpes suisses.',
+    'blog.article.voto-elettronico-neuchatel-2028.title': 'Vote électronique à Neuchâtel : feu vert du Conseil fédéral',
+    'blog.article.voto-elettronico-neuchatel-2028.excerpt': 'Le Conseil fédéral a décidé de délivrer au canton de Neuchâtel l’autorisation de principe pour l\'expérimentation du vote électronique jusqu\'au 26 novembre 2028.',
+    'blog.article.voto-elettronico-neuchatel-2028.imageAlt': 'Une personne votant électroniquement sur un ordinateur dans un cadre suisse moderne',
 };
 
 export default blogMetaChFr;
