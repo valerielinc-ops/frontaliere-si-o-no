@@ -388,6 +388,20 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     }
   }
 
+  function withInspectableFailureReporter(crawler: ReturnType<typeof crawlerFixture>) {
+    const reporterRun = `printf 'TITLE=%s\nDESCRIPTION<<EOF\n%s\nEOF\nWORKFLOW=%s\n' \\
+  "Crawler Failure: Run test-crawler" \\
+  "## Crawler fallito
+**Run:** fixture" \\
+  "Run test-crawler"`;
+    return {
+      ...crawler,
+      postSteps: crawler.postSteps.map((step) => (
+        step.if === 'failure()' ? { ...step, run: reporterRun } : step
+      )),
+    };
+  }
+
   it('crawl succeeds, commit/push fails -> background step exits non-zero and the failure-report step fires', () => {
     const failingCommitDir = writeFixtureCommitScript(1);
     const crawler = crawlerFixture({ commitCommand: failingCommitDir });
@@ -470,17 +484,36 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
       { mode: 0o755 },
     );
     const crawler = {
-      ...crawlerFixture({ commitCommand: commitDir }),
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: commitDir })),
       targetTimeoutMinutes: 30,
     };
     process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
 
     const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+    const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
 
     expect(exitCode).not.toBe(0);
-    expect(stdout).toContain('target exceeded 30 minute wall timeout');
-    expect(stdout).toContain('REPORTED_FAILURE');
+    expect(normalizedStdout).toContain('target exceeded 30 minute wall timeout');
+    expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Causa:** timeout del target dopo 30 minuti (exit 124).\n**Run:** fixture\nEOF');
+    expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
     expect(fs.existsSync(commitMarker)).toBe(false);
+  });
+
+  it('keeps the generic failure description, title, and dedup workflow unchanged for non-timeout crashes', () => {
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'false' })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+    const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
+
+    expect(exitCode).not.toBe(0);
+    expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Run:** fixture\nEOF');
+    expect(normalizedStdout).not.toContain('**Causa:**');
+    expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
   });
 
   it('rejects an invalid target timeout instead of silently falling back to the group limit', () => {
@@ -663,6 +696,7 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
       expect(text.match(/timeout --signal=TERM --kill-after=30s 60m bash -c/g)).toHaveLength(1);
       expect(text).toContain('Run apleona-schweiz-ag');
       expect(text).toContain('outside timeout, only on target failure');
+      expect(text).toContain('**Causa:** timeout del target dopo 60 minuti (exit 124).');
     }
 
     const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))

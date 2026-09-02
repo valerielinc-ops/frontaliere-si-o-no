@@ -504,9 +504,17 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     const literalizedRun = step.run
       .split('${{ github.workflow }}')
       .join(crawlerWorkflowId);
+    const timeoutAwareRun = literalizedRun.replace(
+      '"## Crawler fallito',
+      '"## Crawler fallito${crawler_failure_timeout_detail}',
+    );
     outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    outer.push("crawler_failure_timeout_detail=''");
+    outer.push('if [ "$target_exit" -eq 124 ]; then');
+    outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
+    outer.push('fi');
     outer.push('if [ "$target_exit" -ne 0 ]; then');
-    outer.push(indentBlock(literalizedRun.trimEnd(), 2));
+    outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
   }
