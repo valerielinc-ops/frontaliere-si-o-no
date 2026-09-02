@@ -859,10 +859,15 @@ jobs:
           fi
 
           # ---- apleona-schweiz-ag: Report failure to GitHub Issue (outside timeout, only on target failure) ----
+          crawler_failure_timeout_detail=''
+          if [ "$target_exit" -eq 124 ]; then
+            crawler_failure_timeout_detail='
+          **Causa:** timeout del target dopo 60 minuti (exit 124).'
+          fi
           if [ "$target_exit" -ne 0 ]; then
             node scripts/lib/github-issue-creator.mjs \
               --title "Crawler Failure: Run apleona-schweiz-ag" \
-              --description "## Crawler fallito
+              --description "## Crawler fallito${crawler_failure_timeout_detail}
             **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
             **Branch:** ${{ github.ref_name }}
             **Trigger:** ${{ github.event_name }}" \

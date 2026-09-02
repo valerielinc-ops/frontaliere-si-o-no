@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedBy": "frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs",
-  "generatorSha256": "d3f555c0093489d1691170ba1273c26aedd0cc9d3c228cabc4f85d197b2eeadf",
+  "generatorSha256": "06ef243dbfa7a11af3e817ba47b40b0d0b9ff8d07cbff0aac03ad01f7a78422a",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "groupCount": 23,
   "artifactCount": 24,
@@ -1154,8 +1154,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "294c0e97867fb51c96d11c150b9ab29afcd03af3dc0daafe123f450fbe85fb68",
-      "artifactSha256": "1d2c0b923f71c5a008ecfc436fd96eee426217b2c72201d5b777819485d013d5",
+      "sourceSha256": "e0c0e27d7406498160436fd6144203c9ee9b15f789d1ea98c6e356753c69d1fa",
+      "artifactSha256": "15a4e838a54162af199a675ef2ddcf3fad1f937b723b48559aacf5b301ebbbdf",
       "members": [
         "tertianum",
         "etat-de-vaud",

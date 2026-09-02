@@ -441,6 +441,8 @@ function validateTargetTimeoutMinutes(crawler) {
   return minutes;
 }
 
+const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', '']);
+
 /**
  * Build the isolated work phase for a crawler with an explicit wall timeout.
  *
@@ -450,8 +452,8 @@ function validateTargetTimeoutMinutes(crawler) {
  * observable and the target exits non-zero without committing partial data.
  */
 function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
-  const outer = ['set -uo pipefail', 'set +e', ''];
-  const work = ['set -uo pipefail', 'set +e', ''];
+  const outer = [...CRAWLER_SHELL_PREAMBLE];
+  const work = [...CRAWLER_SHELL_PREAMBLE];
 
   work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
@@ -502,9 +504,17 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     const literalizedRun = step.run
       .split('${{ github.workflow }}')
       .join(crawlerWorkflowId);
+    const timeoutAwareRun = literalizedRun.replace(
+      '"## Crawler fallito',
+      '"## Crawler fallito${crawler_failure_timeout_detail}',
+    );
     outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    outer.push("crawler_failure_timeout_detail=''");
+    outer.push('if [ "$target_exit" -eq 124 ]; then');
+    outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${crawler.targetTimeoutMinutes} minuti (exit 124).`)}`);
+    outer.push('fi');
     outer.push('if [ "$target_exit" -ne 0 ]; then');
-    outer.push(indentBlock(literalizedRun.trimEnd(), 2));
+    outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
   }
