@@ -67217,6 +67217,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-canton-sciaffusa-requisiti-procedura': {
+    title: 'Naturalizzazione nel cantone di Sciaffusa: requisiti e procedura',
+    description: 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Sciaffusa. Informazioni dettagliate sui test di integrazione e lingua.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, cantone, sciaffusa, requisiti',
+    ogTitle: 'Naturalizzazione nel Cantone di Sciaffusa: Requisiti e Procedura',
+    ogDescription: 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Sciaffusa. Informazioni dettagliate sui test di integrazione e lingua.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-canton-sciaffusa-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione nel cantone di Sciaffusa: requisiti e procedura",
+      "description": "Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Sciaffusa. Informazioni dettagliate sui test di integrazione e lingua.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-canton-sciaffusa-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Sciaffusa con il fiume Reno"
+      },
+      "datePublished": "2026-09-02T16:29:26+00:00",
+      "dateModified": "2026-09-02T16:29:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-canton-sciaffusa-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

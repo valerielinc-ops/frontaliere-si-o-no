@@ -5179,6 +5179,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.estate-calda-svizzera-2026.title': 'Un été sur deux sera plus chaud qu\'aujourd\' hui',
     'blog.article.estate-calda-svizzera-2026.excerpt': 'Selon le climatologue Reto Knutti, un été sur deux sera plus chaud qu\'aujourd\' hui. Interventions urgentes nécessaires sur les villes.',
     'blog.article.estate-calda-svizzera-2026.imageAlt': 'Vue aérienne d\'une ville suisse avec des espaces verts et des bâtiments modernes, mettant en évidence l\'impact du changement climatique.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Naturalisation dans le canton de Schaffhouse : exigences et procédure',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Découvrez les conditions et la procédure de naturalisation ordinaire dans le canton de Schaffhouse.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Vue panoramique de Schaffhouse avec le Rhin',
 };
 
 export default blogMetaChFr;

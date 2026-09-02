@@ -5179,6 +5179,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.estate-calda-svizzera-2026.title': 'Un\'estate su due sarà più calda di quella attuale',
     'blog.article.estate-calda-svizzera-2026.excerpt': 'Secondo il climatologo Reto Knutti, un\'estate su due sarà più calda di quella attuale. Interventi urgenti necessari sulle città.',
     'blog.article.estate-calda-svizzera-2026.imageAlt': 'Vista aerea di una città svizzera con spazi verdi e edifici moderni, che evidenzia l\'impatto del cambiamento climatico.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Naturalizzazione nel cantone di Sciaffusa: requisiti e procedura',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Sciaffusa.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Vista panoramica di Sciaffusa con il fiume Reno',
 };
 
 export default blogMetaChIt;

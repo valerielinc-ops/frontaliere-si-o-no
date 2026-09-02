@@ -1752,6 +1752,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'formazione-professionale-tirocinio-zurigo': { it: 'formazione-professionale-tirocinio-zurigo', en: 'vocational-training-apprenticeship-zurich', de: 'berufsausbildung-lehrling-zurich', fr: 'formation-professionnelle-apprentissage-zurich' },
  'franco-euro-minimi-anno': { it: 'franco-euro-minimi-anno', en: 'franco-euro-at-minimum-for-a-year', de: 'franco-euro-auf-jahresminimum', fr: 'franco-euro-au-minimum-de-l-annee' },
  'estate-calda-svizzera-2026': { it: 'estate-calda-svizzera-2026', en: 'swiss-summer-2026-heatwave', de: 'schweizer-sommer-2026-hitzewelle', fr: 'ete-suisse-2026-vague-de-chaleur' },
+ 'naturalizzazione-canton-sciaffusa-requisiti-procedura': { it: 'naturalizzazione-canton-sciaffusa-requisiti-procedura', en: 'naturalization-canton-schaffhausen-requirements-procedure', de: 'einburgerung-kanton-schaffhausen-voraussetzungen-verfahren', fr: 'naturalisation-canton-schaffhouse-requis-exigences-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
