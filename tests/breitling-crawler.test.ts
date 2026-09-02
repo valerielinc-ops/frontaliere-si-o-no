@@ -4,6 +4,7 @@ import {
   BREITLING_COMPANY_NAME,
   isBreitlingJob,
   isTrustedDomain,
+  parseLocation,
 } from '../scripts/lib/breitling-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -187,6 +188,43 @@ describe('Breitling crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  // ── parseLocation (#7056: canton-only Zürich source vs. Solothurn HQ) ──
+  describe('parseLocation', () => {
+    it('resolves the canton-only Zürich form to Zürich/ZH, not Solothurn HQ', () => {
+      // Real observed jobLocationShort for the Zurich boutique: NO city
+      // token, just canton code, country, postal code.
+      expect(parseLocation('ZH, CHE, 8002')).toEqual({
+        city: 'Zürich',
+        canton: 'ZH',
+        postalCode: '8002',
+      });
+    });
+
+    it('still resolves the standard [city, canton, CHE, postalCode] form', () => {
+      expect(parseLocation('Bern, BE, CHE, ')).toEqual({
+        city: 'Bern',
+        canton: 'BE',
+        postalCode: '',
+      });
+    });
+
+    it('resolves other canton-only forms without inventing the HQ canton', () => {
+      expect(parseLocation('GE, CHE, 1201')).toEqual({
+        city: 'Genève',
+        canton: 'GE',
+        postalCode: '1201',
+      });
+    });
+
+    it('falls back to HQ only for a genuinely empty location', () => {
+      expect(parseLocation('')).toEqual({
+        city: 'Grenchen',
+        canton: 'SO',
+        postalCode: '',
+      });
     });
   });
 });

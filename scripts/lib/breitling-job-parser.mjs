@@ -68,6 +68,8 @@
  * - isBreitlingJob() — Match jobs belonging to this company
  * - isTrustedDomain() — Validate URLs belong to this company
  * - slugify() / stripHtml() — Re-exported from crawler-template.mjs
+ * Plus parseLocation(), exported for direct unit testing of the
+ * jobLocationShort parsing contract (see tests/breitling-crawler.test.ts).
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
@@ -212,7 +214,7 @@ function detectEmploymentType(title = '') {
  * only ever carry a single entry; only the excluded talent-pool
  * placeholder is multi-location). */
 
-function parseLocation(raw = '') {
+export function parseLocation(raw = '') {
   const cleaned = String(raw || '').replace(/<br\s*\/?>/gi, '').trim();
   const parts = cleaned.split(',').map((p) => p.trim());
 
