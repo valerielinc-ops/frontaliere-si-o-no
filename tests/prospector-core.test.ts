@@ -691,6 +691,23 @@ describe('careers trail', () => {
       'https://hotel.example/about/index.html',
     )).toBe(true);
   });
+
+  it('resolves a deeper ../jobs.html relative href against each document actual URL', () => {
+    // Same shape as the shallow `jobs.html` case above, but one directory
+    // level deeper on both sides so `new URL('../jobs.html', pageUrl)` has to
+    // walk up a segment rather than just join a filename. If evidence were
+    // ever resolved against a single shared base instead of each document's
+    // own URL, both `../jobs.html` hrefs would collapse onto the same
+    // absolute URL and mask the two pages as identical.
+    const home = '<html><title>Hotel</title><body><a href="../jobs.html">Jobs</a><main>Benvenuti</main></body></html>';
+    const careers = '<html><title>Hotel</title><body><a href="../jobs.html">Jobs</a><main>Informazioni per il team</main></body></html>';
+    expect(isDistinctCareerSurface(
+      home,
+      careers,
+      'https://hotel.example/careers/sub/index.html',
+      'https://hotel.example/about/sub/index.html',
+    )).toBe(true);
+  });
 });
 
 describe('tenant enumeration', () => {
