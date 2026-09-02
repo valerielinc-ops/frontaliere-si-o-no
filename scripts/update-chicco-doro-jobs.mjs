@@ -20,6 +20,14 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
+// A real vacancy that vanishes from a non-empty batch (the source never
+// proves a complete zero — `authoritativeSnapshotScope: 'empty-only'` only
+// verifies zero-job snapshots) is NOT retained indefinitely: it still goes
+// through the default `retainMissingJobs` grace in mergePreserveLocaleData
+// (GRACE_PERIOD_MAX_MISSES = 2 in scripts/lib/dedicated-crawler-common.mjs),
+// so a stale row here is retired after at most 2 consecutive misses — see
+// "retires a real vacancy that disappears from a non-empty snapshot within a
+// bounded number of runs" in tests/chicco-doro-crawler.test.ts.
 runStandardCrawlerPipeline({
   companyKey: CHICCO_DORO_KEY,
   companyLabel: CHICCO_DORO_COMPANY_NAME,
