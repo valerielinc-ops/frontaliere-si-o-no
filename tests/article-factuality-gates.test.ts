@@ -30,6 +30,7 @@ import {
   checkSourceFreshness,
   extractSourceAnchors,
   renderAnchorForPrompt,
+  anchorEvidence,
   matchedAnchors,
   checkSourceFidelity,
   runFactualityGates,
@@ -1071,6 +1072,16 @@ describe('source fidelity', () => {
     const found = matchedAnchors(article, anchors);
     for (const pct of [...anchors].filter((a) => a.startsWith('pct:'))) expect(found).toContain(pct);
     expect(codes(checkSourceFidelity(article, src))).not.toContain('source-key-rates-dropped');
+  });
+
+  it('treats regex metacharacters in organization anchors as literal text', () => {
+    const anchor = 'org:A(B)C+CH';
+    const source = 'L’ente A(B)C+CH pubblica il rapporto. Un altro ente non è rilevante.';
+    const anchors = new Set([anchor]);
+
+    expect(anchorEvidence(source, anchor)).toBe('L’ente A(B)C+CH pubblica il rapporto.');
+    expect(matchedAnchors(source, anchors)).toEqual(new Set([anchor]));
+    expect(matchedAnchors('L’ente ABCCH pubblica il rapporto.', anchors)).toEqual(new Set());
   });
 
   it('tells the writer how many more anchors are needed to pass, not just that it failed', () => {
