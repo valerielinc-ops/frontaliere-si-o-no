@@ -15544,6 +15544,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'acquistare-casa-zurigo-mutuo-fondi',
+    category: 'pratico',
+    date: '2026-09-02T17:14:38.189Z',
+    image: '/images/blog/acquistare-casa-zurigo-mutuo-fondi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

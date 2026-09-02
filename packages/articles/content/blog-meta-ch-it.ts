@@ -5182,6 +5182,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Naturalizzazione nel cantone di Sciaffusa: requisiti e procedura',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Scopri i requisiti e la procedura per la naturalizzazione ordinaria nel Cantone di Sciaffusa.',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Vista panoramica di Sciaffusa con il fiume Reno',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.title': 'Comprare casa a Zurigo: mutuo, fondi propri e tasse',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.excerpt': 'Procedura, finanziamento e oneri fiscali per l\'acquisto di un\'abitazione nel Cantone di Zurigo: mutuo ipotecario, fondi propri, imposta sui trapassi e spese notarili.',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.imageAlt': 'Paesaggio residenziale svizzero con case tradizionali e moderne circondateda giardini verdi',
 };
 
 export default blogMetaChIt;
