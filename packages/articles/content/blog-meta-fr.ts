@@ -11105,6 +11105,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-02.imageAlt': 'Les chiffres du jour pour les frontaliers – 2 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-02.seoDescription': 'Bulletin du frontalier du 2 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-02.ogDescription': 'Les chiffres du 2 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.title': 'Vivre à Bardello, Malgesso, Bregano et travailler au Tessin',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert de Bardello, Malgesso et Bregano au Tessin.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.imageAlt': 'Vue panoramique du Lac de Lugano avec les montagnes du Tessin en arrière-plan',
 };
 
 export default blogMetaFr;

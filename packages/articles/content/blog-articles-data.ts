@@ -33177,6 +33177,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'vivere-bardello-malegesso-bregano-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-09-02T10:17:35.911Z',
+ image: '/images/blog/vivere-bardello-malegesso-bregano-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
