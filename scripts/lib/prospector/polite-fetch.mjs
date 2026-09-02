@@ -37,12 +37,23 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 /**
  * Wait out the per-host cooldown, then stamp the host as hit.
  * @param {string} host
+ * @param {(ms: number) => Promise<unknown>} [sleepImpl]
+ * @param {() => number} [nowImpl]
+ * @param {number} [deadline] Internal: recursion-only, the absolute time past
+ *   which this call stops honouring further cooldown extensions.
  */
-async function throttle(host, sleepImpl = sleep, nowImpl = Date.now) {
+async function throttle(host, sleepImpl = sleep, nowImpl = Date.now, deadline) {
   const now = nowImpl();
+  // A burst of concurrent 429s can keep extending the host cooldown while we
+  // wait (each recursive re-check below reads whatever `until` is latest),
+  // so bound the *composed* wait across all re-checks to the same
+  // RETRY_AFTER_CAP_MS a single extension already honours (boundedRetryAfterMs).
+  // Without this, repeated extensions during the recursion can compound past
+  // the cap indefinitely as long as the burst continues.
+  const callDeadline = deadline ?? now + RETRY_AFTER_CAP_MS;
   const prev = lastHit.get(host) || 0;
   const cooldown = hostCooldown.get(host) || { until: 0, generation: 0 };
-  const slot = Math.max(now, prev + HOST_DELAY_MS, cooldown.until);
+  const slot = Math.max(now, prev + HOST_DELAY_MS, Math.min(cooldown.until, callDeadline));
   const wait = slot - now;
   // Stamp BEFORE awaiting so concurrent callers on the same host queue behind
   // each other instead of all reading the same stale timestamp and firing together.
@@ -52,8 +63,9 @@ async function throttle(host, sleepImpl = sleep, nowImpl = Date.now) {
   // only when the server cooldown changed; this preserves deterministic test
   // transports whose sleep implementation intentionally does not advance time.
   const latest = hostCooldown.get(host);
-  if (latest && latest.generation !== cooldown.generation && latest.until > slot) {
-    await throttle(host, sleepImpl, nowImpl);
+  if (latest && latest.generation !== cooldown.generation && latest.until > slot
+    && nowImpl() < callDeadline) {
+    await throttle(host, sleepImpl, nowImpl, callDeadline);
   }
 }
 

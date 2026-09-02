@@ -234,6 +234,66 @@ describe('prospector polite fetch retry cooldown', () => {
     expect(sleeps).toEqual([HOST_DELAY_MS, 5_000 - HOST_DELAY_MS]);
   });
 
+  it('bounds the composed cooldown wait to the same cap a single extension honours, even when a sibling extension lands mid-wait', async () => {
+    const firstUrl = 'https://jobs.example.test/first';
+    const mainUrl = 'https://jobs.example.test/main';
+    const firstResponse = deferred<any>();
+    const firstStarted = deferred<void>();
+    const mainQueued = deferred<void>();
+    let releaseMainSlot: (() => void) | undefined;
+    let now = 100_000;
+    const requests: Array<{ url: string; at: number }> = [];
+    const fetchImpl = vi.fn(async (url: string) => {
+      requests.push({ url, at: now });
+      if (url === firstUrl) {
+        firstStarted.resolve();
+        return firstResponse.promise;
+      }
+      return response(url, 200);
+    });
+    const sleepImpl = vi.fn((ms: number) => {
+      if (!releaseMainSlot) {
+        mainQueued.resolve();
+        return new Promise<void>((resolve) => {
+          releaseMainSlot = () => { now += ms; resolve(); };
+        });
+      }
+      now += ms;
+      return Promise.resolve();
+    });
+    const options = {
+      fetchImpl,
+      urlPolicy: identityPolicy,
+      ignoreRobots: true,
+      retries: 0,
+      nowImpl: () => now,
+      sleepImpl,
+    };
+
+    const first = politeFetch(firstUrl, options);
+    await firstStarted.promise;
+    const main = politeFetch(mainUrl, options);
+    await mainQueued.promise;
+
+    // Simulate a sibling's 429 landing well into the burst (a wall-clock
+    // jump, not a sleep `main` observed) — its own Retry-After is still
+    // capped at 60s from THIS moment, but that moment is already 50s after
+    // `main` started queuing, so honouring it verbatim would make `main`'s
+    // total composed wait 110s, far past the 60s cap the cooldown contract
+    // promises.
+    now = 150_000;
+    firstResponse.resolve(response(firstUrl, 429, { retryAfter: '60' }));
+    await first;
+    releaseMainSlot?.();
+
+    await expect(main).resolves.toMatchObject({ ok: true, status: 200 });
+
+    const mainRequest = requests.find((r) => r.url === mainUrl);
+    // 100_000 (main's own throttle() entry) + 60_000 (RETRY_AFTER_CAP_MS),
+    // not 210_000 (150_000 + the sibling's 60s extension applied verbatim).
+    expect(mainRequest?.at).toBe(160_000);
+  });
+
   it.each([408, 425, 500, 502, 503, 504])(
     'preserves the bounded retry contract for sibling transient HTTP %s',
     async (status) => {
