@@ -15103,6 +15103,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'permesso-c-basilea-requisiti-domanda',
+    category: 'pratico',
+    date: '2026-09-02T02:00:14.112Z',
+    image: '/images/blog/permesso-c-basilea-requisiti-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5035,6 +5035,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-grigioni.title': 'AVS e prestazioni complementari nel Canton Grigioni',
     'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'Primo pilastro, lacune contributive e accesso alle prestazioni complementari: guida pratica per residenti e contribuenti del Canton Grigioni.',
     'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Ufficio amministrazione cantonale: consulente finanziario esamina documenti di previdenza e AVS',
+    'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Permesso C Basilea Città: requisiti e domanda',
+    'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Permesso domicilio C Basilea: anni richiesti, integrazione, conoscenze linguistiche e procedura di domanda presso il cantone.',
+    'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Ufficio migrazioni svizzero con documenti ufficiali e moduli per il permesso di domicilio C',
 };
 
 export default blogMetaChIt;

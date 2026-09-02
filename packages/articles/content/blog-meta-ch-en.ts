@@ -5035,6 +5035,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-grigioni.title': 'AVS and complementary services in the Canton of Graubünden',
     'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'First pillar, contribution gaps and access to supplementary benefits: a practical guide for residents and taxpayers of the Canton of Graubünden.',
     'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Swiss cantonal administration office: financial advisor examining pension and AVS documents',
+    'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Permit C Basel City: requirements and application',
+    'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Residence permit C Basel: years required, integration, language skills and application procedure at the canton.',
+    'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Swiss immigration office with official residence permit C documents and application forms',
 };
 
 export default blogMetaChEn;

@@ -5035,6 +5035,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-grigioni.title': 'AVS et prestations complémentaires dans le canton des Grisons',
     'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'Premier pilier, lacunes en matière de cotisations et accès aux prestations complémentaires : guide pratique pour les résidents et les contribuables du canton des Grisons.',
     'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Bureau cantonal: conseiller financier examinant les dossiers de retraite et prévoyance',
+    'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Permis C Bâle-Ville : exigences et demande',
+    'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Permis domicile C Bâle : années requises, intégration, connaissances linguistiques et procédure de demande auprès du canton.',
+    'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Bureau d\'immigration suisse avec documents de permis de résidence C et formulaires de demande',
 };
 
 export default blogMetaChFr;
