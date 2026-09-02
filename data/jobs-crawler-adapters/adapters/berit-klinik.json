@@ -18,6 +18,7 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_oberarzt___rztin_allg._innere_medizin__50_60__de7265de53.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sachbearbeiter_in_fakturierung_100__5b1cc5d64f.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_lehrstelle_mpa_fe07e6de67.pdf",
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_reha_80__402991314a.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__87e0faa554.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_restaurant_wattwil__50__37d803f497.pdf",
@@ -25,91 +26,97 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_physiotherapeut_in_wattwil_50__0c0a4f01a3.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-09-01T23:14:43.738Z",
+  "updatedAt": "2026-09-02T13:39:52.553Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachperson_op_technik__80_100__c2a1d5b03e.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sportphysiotherapeut_in_fh_80_100__202910a062.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_lehrstelle_fachperson_hotellerie_hauswirtschaft_efz_aa2294f67b.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_k_chin_koch_20_30__fde2da584c.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._experte_expertin_an_sthesiefachpflege_80_100__22daeb9433.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_oberarzt___rztin_allg._innere_medizin__50_60__de7265de53.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_sachbearbeiter_in_fakturierung_100__5b1cc5d64f.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_lehrstelle_mpa_fe07e6de67.pdf": {
       "location": "Speicher",
       "canton": "AR",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
+    },
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_reha_80__402991314a.pdf": {
+      "location": "Niederteufen",
+      "canton": "AR",
+      "company": "Berit Klinik",
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_technischer_dienst_ww__100__87e0faa554.pdf": {
       "location": "Wattwil",
       "canton": "SG",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf": {
       "location": "Wattwil",
       "canton": "SG",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_restaurant_wattwil__50__37d803f497.pdf": {
       "location": "Wattwil",
       "canton": "SG",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_koch_k_chin_wattwil_100__befristet_1ca8178916.pdf": {
       "location": "Wattwil",
       "canton": "SG",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     },
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_physiotherapeut_in_wattwil_50__0c0a4f01a3.pdf": {
       "location": "Wattwil",
       "canton": "SG",
       "company": "Berit Klinik",
-      "postedDate": "2026-09-01"
+      "postedDate": "2026-09-02"
     }
   }
 }
