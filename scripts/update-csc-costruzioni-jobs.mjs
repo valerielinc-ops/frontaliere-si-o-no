@@ -238,6 +238,28 @@ function explicitJobPostingIdentifier(node) {
   return '';
 }
 
+/**
+ * Plain-text extraction used specifically for the fallback semantic hash
+ * (no JobPosting JSON-LD, no `data-history-node-id`). Regular `cscPlainText`
+ * strips attribute values along with the tags that carry them; Drupal often
+ * carries a short location/sede marker only in an attribute (an icon's
+ * `alt`/`title`/`aria-label`, or a `data-location`-style attribute) rather
+ * than in the flowing paragraph text. Without keeping those values, two
+ * near-identical postings that differ only by such a location marker can
+ * collapse to the same stripped text and the same semantic hash (#7066).
+ * Folding attribute values in as extra text tokens before stripping closes
+ * that gap without touching the unrelated <80-char readability check, which
+ * still uses plain `cscPlainText`.
+ */
+function semanticArticleText(html) {
+  const source = String(html || '');
+  const attrValues = [];
+  const attrPattern = /\b(?:data-[\w-]+|alt|title|aria-label)\s*=\s*(["'])(.*?)\1/gi;
+  let match;
+  while ((match = attrPattern.exec(source)) !== null) attrValues.push(match[2]);
+  return cscPlainText(attrValues.length ? `${source} ${attrValues.join(' ')}` : source);
+}
+
 function semanticJobPostingHash(node, articleText) {
   const payload = node ? {
     title: node.title,
@@ -338,7 +360,7 @@ export function parseCscPrimaryJobDetail(html) {
     ? `drupal-node:${nodeId}`
     : explicitIdentifier
       ? `job-identifier:${explicitIdentifier}`
-      : `semantic:${semanticJobPostingHash(jobPosting, cscPlainText(stripNestedWidgetBlocks(article.content)))}`;
+      : `semantic:${semanticJobPostingHash(jobPosting, semanticArticleText(stripNestedWidgetBlocks(article.content)))}`;
 
   return { identity, nodeId: /^\d+$/.test(nodeId) ? nodeId : '', hasJobPosting: Boolean(jobPosting) };
 }
