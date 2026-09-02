@@ -15274,6 +15274,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'aprire-attivita-basilea-campagna-registro-di-commercio',
+    category: 'pratico',
+    date: '2026-09-02T07:44:37.605Z',
+    image: '/images/blog/aprire-attivita-basilea-campagna-registro-di-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5092,6 +5092,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AVS et prestations complémentaires dans le canton de Bâle-Campagne',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'Comment fonctionne le premier pilier suisse au sein de la caisse de compensation cantonale ? Retraites AVS, lacunes de cotisation et prestations pour le minimum vital.',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Retraité suisse demandant la rente AVS au guichet du canton Bâle-Campagne, avec documents officiels.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.title': 'Créer une entreprise à Bâle-Campagne : coûts et registre',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.excerpt': 'Découvrez les démarches administratives et financières à effectuer pour créer une entreprise dans le canton de Bâle-Campagne, y compris les conditions requises pour l\'inscription au registre du commerce.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.imageAlt': 'Vue aérienne du canton de Bâle-Campagne avec un focus sur les activités commerciales',
 };
 
 export default blogMetaChFr;

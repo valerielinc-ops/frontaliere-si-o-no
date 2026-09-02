@@ -5092,6 +5092,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AVS and Supplementary Benefits in the Canton of Basel-Landschaft',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'How the Swiss First Pillar Works in the Cantonal Compensation Fund. AVS Pensions, Contribution Gaps, and Benefits to Ensure a Minimum Standard of Living.',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Senior filing AVS pension application at cantonal office desk in Basel-Landschaft, with documents and calculator.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.title': 'Starting a Business in Basel-Landschaft: Costs and Registration',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.excerpt': 'Learn about the administrative and financial steps involved in starting a business in the Canton of Basel-Landschaft, including the requirements for registration in the commercial register.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.imageAlt': 'Aerial view of Basel-Landschaft canton with a focus on commercial activities',
 };
 
 export default blogMetaChEn;
