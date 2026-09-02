@@ -5158,6 +5158,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.laps-ticino-incentivi-lavoro.title': 'Più lavori, più ti resta: la riforma LAPS ticinese',
     'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'La Lega chiede una riforma della LAPS con incentivi temporanei al lavoro per eliminare la «trappola della povertà» e combattere l\'impatto dei premi LAMal.',
     'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Aula del Gran Consiglio ticinese durante dibattito su riforme delle prestazioni sociali e incentivi al lavoro',
+    'blog.article.consiglio-federale-nomina-walser.title': 'Il Consiglio federale nomina Tobias Walser presso il Consiglio dei PF',
+    'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, esperto in scienze ambientali, è stato nominato delegato delle assemblee universitarie dei Politecnici Federali di Zurigo e Losanna.',
+    'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Vista aerea di Lugano, Svizzera, con il lago e le montagne sullo sfondo.',
 };
 
 export default blogMetaChIt;

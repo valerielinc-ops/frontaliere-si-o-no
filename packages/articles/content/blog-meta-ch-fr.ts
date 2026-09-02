@@ -5158,6 +5158,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.laps-ticino-incentivi-lavoro.title': 'Plus vous travaillez, plus il vous reste : la réforme LAPS TESSINOISE',
     'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'La Ligue appelle à une réforme de la LAPS avec des incitations temporaires au travail pour éliminer le « piège de la pauvreté » et lutter contre l\'impact des prix LAMal.',
     'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Chambre du Grand Conseil tessinois à Bellinzona lors d\'un débat sur les réformes sociales et les incitations au travail',
+    'blog.article.consiglio-federale-nomina-walser.title': 'Le Conseil fédéral nomme Tobias Walser au Conseil des EPF',
+    'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, expert en sciences de l\'environnement, a été nommé délégué des assemblées universitaires des Ecoles polytechniques fédérales de Zurich et de Lausanne.',
+    'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le lac et les montagnes en arrière-plan.',
 };
 
 export default blogMetaChFr;
