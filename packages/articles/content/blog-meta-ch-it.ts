@@ -5161,6 +5161,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-nomina-walser.title': 'Il Consiglio federale nomina Tobias Walser presso il Consiglio dei PF',
     'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, esperto in scienze ambientali, è stato nominato delegato delle assemblee universitarie dei Politecnici Federali di Zurigo e Losanna.',
     'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Vista aerea di Lugano, Svizzera, con il lago e le montagne sullo sfondo.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'Svizzera meno attrattiva per multinazionali: allarme McKinsey',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': 'Il 70% dei CEO avverte che la Svizzera perde competitività. Critiche a procedure lunghe, imposta OCSE e infrastrutture carenti minacciano gli investimenti stranieri.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Skyline urbana svizzera con grattacieli moderni e attività economica, simbolo della competitività della piazza elvetica.',
 };
 
 export default blogMetaChIt;

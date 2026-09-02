@@ -5161,6 +5161,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-federale-nomina-walser.title': 'Le Conseil fédéral nomme Tobias Walser au Conseil des EPF',
     'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, expert en sciences de l\'environnement, a été nommé délégué des assemblées universitaires des Ecoles polytechniques fédérales de Zurich et de Lausanne.',
     'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le lac et les montagnes en arrière-plan.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'La Suisse moins attractive pour les multinationales : alarme McKinsey',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': '70 % des CEO avertissent que la Suisse perd en compétitivité. Les critiques des procédures longues, de la fiscalité OCDE et des infrastructures déficientes menacent les investissements étrangers.',
+    'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Skyline urbain d\'une ville suisse avec immeubles de bureaux modernes symbolisant la compétitivité économique.',
 };
 
 export default blogMetaChFr;

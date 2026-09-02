@@ -1746,6 +1746,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-zurigo-validita-proroga': { it: 'permesso-l-zurigo-validita-proroga', en: 'permit-l-zurich-validity-renewal', de: 'aufenthaltserlaubnis-l-zurich-gueltig-verlaengerung', fr: 'permis-l-zurich-validite-renouvellement' },
  'laps-ticino-incentivi-lavoro': { it: 'laps-ticino-incentivi-lavoro', en: 'laps-ticino-work-incentives', de: 'laps-tessin-arbeitsanreize', fr: 'laps-tessin-incitations-travail' },
  'consiglio-federale-nomina-walser': { it: 'consiglio-federale-nomina-walser', en: 'federal-council-appoints-walser', de: 'bundesrat-ernennt-walser', fr: 'conseil-federal-nomme-walser' },
+ 'svizzera-perde-attrattiva-multinazionali': { it: 'svizzera-perde-attrattiva-multinazionali', en: 'switzerland-loses-appeal-multinationals', de: 'schweiz-verliert-attraktivitaet-multinationalkonzerne', fr: 'suisse-perd-attractivite-multinationales' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

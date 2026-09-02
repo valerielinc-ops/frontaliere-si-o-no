@@ -66983,6 +66983,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-svizzera-perde-attrattiva-multinazionali': {
+    title: 'Svizzera meno attrattiva per multinazionali: allarme McKinsey',
+    description: 'Il 70% dei CEO avverte che la Svizzera perde competitività internazionale. Studio McKinsey critica procedure, imposta OCSE e infrastrutture per nuovi',
+    keywords: 'frontalieri, ticino, svizzera, italia, meno, attrattiva, multinazionali, allarme',
+    ogTitle: 'Svizzera meno attrattiva per multinazionali: allarme McKinsey',
+    ogDescription: 'Secondo lo studio McKinsey il 70% dei CEO ritiene che la Svizzera stia perdendo competitività internazionale. Critiche a procedure, fiscalità OCSE e infrastrutture minacciano gli investimenti stranieri e la crescita economica del paese.',
+    canonicalPath: '/articoli-svizzera/svizzera-perde-attrattiva-multinazionali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera meno attrattiva per multinazionali: allarme McKinsey",
+      "description": "Il 70% dei CEO avverte che la Svizzera perde competitività internazionale. Studio McKinsey critica procedure, imposta OCSE e infrastrutture per nuovi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/svizzera-perde-attrattiva-multinazionali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Skyline urbana svizzera con grattacieli moderni e attività economica, simbolo della competitività della piazza elvetica."
+      },
+      "datePublished": "2026-09-02T14:19:40+00:00",
+      "dateModified": "2026-09-02T14:19:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/svizzera-perde-attrattiva-multinazionali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
