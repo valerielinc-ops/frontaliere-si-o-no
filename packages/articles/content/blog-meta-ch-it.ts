@@ -5065,6 +5065,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Permesso L Basilea Campagna: durata e rinnovo',
     'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Permesso L di breve durata a Basilea Campagna: validità fino a 1 anno, rinnovo, vincoli datore di lavoro e transizione al permesso B di dimora.',
     'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Ufficio amministrativo svizzero con documenti di permessi di lavoro e paesaggio alpino sullo sfondo',
+    'blog.article.basilea-campagna-scuola-iscrizione.title': 'Scuola dell\'obbligo Basilea Campagna: cicli e iscrizione',
+    'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'La scuola dell\'obbligo svizzera dura 9 anni, inizia a 6 anni e si divide in primaria e secondaria. Procedura di iscrizione e transizioni scolastiche secondo le norme federali.',
+    'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'Scuola primaria svizzera con bambini che giocano nel cortile',
 };
 
 export default blogMetaChIt;

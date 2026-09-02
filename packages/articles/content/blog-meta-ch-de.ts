@@ -5065,6 +5065,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Erlaubnis L Basel-Landschaft: Dauer und Verlängerung',
     'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Kurzaufenthaltsbewilligung L in Basel-Landschaft: Gültigkeit bis zu 1 Jahr, Verlängerung, Verpflichtungen des Arbeitgebers und Übergang zur Aufenthaltsbewilligung B.',
     'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Schweizer Behördenamt mit Arbeitsgenehmigungsdokumenten und Berglandschaft',
+    'blog.article.basilea-campagna-scuola-iscrizione.title': 'Obligatorische Schule Basel-Landschaft: Zyklen und Einschreibung',
+    'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'Die Schweizerische Pflichtschule dauert 9 Jahre, beginnt mit 6 Jahren und gliedert sich in Primar- und Sekundarschule. Immatrikulationsverfahren und Schulübergänge nach Bundesvorschriften.',
+    'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'Schweizer Grundschule mit spielenden Kindern im Schulhof',
 };
 
 export default blogMetaChDe;

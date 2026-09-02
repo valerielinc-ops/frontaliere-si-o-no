@@ -65735,6 +65735,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-basilea-campagna-scuola-iscrizione': {
+    title: 'Scuola dell\'obbligo Basilea Campagna: cicli e iscrizione',
+    description: 'Guida completa al sistema scolastico svizzero: cicli della scuola dell\'obbligo, età di iscrizione, lingue di insegnamento e procedura di passaggio alle medie',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, dell, obbligo, basilea',
+    ogTitle: 'Scuola dell\'obbligo Basilea Campagna: cicli e iscrizione',
+    ogDescription: 'La scuola dell\'obbligo svizzera dura 9 anni e inizia a 6 anni. Scopri i cicli, le lingue di insegnamento e come iscrivere i figli nella scuola primaria secondo le norme federali.',
+    canonicalPath: '/articoli-svizzera/basilea-campagna-scuola-iscrizione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Scuola dell'obbligo Basilea Campagna: cicli e iscrizione",
+      "description": "Guida completa al sistema scolastico svizzero: cicli della scuola dell'obbligo, età di iscrizione, lingue di insegnamento e procedura di passaggio alle medie",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/basilea-campagna-scuola-iscrizione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola primaria svizzera con bambini che giocano nel cortile"
+      },
+      "datePublished": "2026-09-02T05:19:51+00:00",
+      "dateModified": "2026-09-02T05:19:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/basilea-campagna-scuola-iscrizione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
