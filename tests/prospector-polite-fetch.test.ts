@@ -294,6 +294,35 @@ describe('prospector polite fetch retry cooldown', () => {
     expect(mainRequest?.at).toBe(160_000);
   });
 
+  it('lets a caller signal cut a pending host-cooldown wait short instead of stalling until the next fetch attempt', async () => {
+    const firstUrl = 'https://jobs.example.test/first';
+    const secondUrl = 'https://jobs.example.test/second';
+    let now = 100_000;
+    const fetchImpl = vi.fn(async (target: string) => response(target, 200));
+    const queued = deferred<void>();
+    // Never resolves on its own — proves the wait is cut short by the signal,
+    // not by the cooldown elapsing.
+    const sleepImpl = vi.fn(() => { queued.resolve(); return new Promise<void>(() => {}); });
+    const options = {
+      fetchImpl,
+      urlPolicy: identityPolicy,
+      ignoreRobots: true,
+      retries: 0,
+      nowImpl: () => now,
+    };
+
+    // Seed the host's throttle slot so the second request must queue behind it.
+    await politeFetch(firstUrl, { ...options, sleepImpl: async () => {} });
+
+    const controller = new AbortController();
+    const second = politeFetch(secondUrl, { ...options, sleepImpl, signal: controller.signal });
+    await queued.promise;
+    controller.abort();
+
+    await expect(second).resolves.toMatchObject({ ok: false, status: 0 });
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+  });
+
   it.each([408, 425, 500, 502, 503, 504])(
     'preserves the bounded retry contract for sibling transient HTTP %s',
     async (status) => {
