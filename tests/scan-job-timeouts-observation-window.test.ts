@@ -51,8 +51,8 @@ afterEach(() => {
 });
 
 describe('observation window — completion time, not start time', () => {
-  it('observes a 350-minute timeout whose start is old but update is recent', async () => {
-    const run = runFixture(101);
+  it('observes a timeout updated now after queueing and an upstream job pushed creation two days back', async () => {
+    const run = runFixture(101, { created_at: iso(2 * 24 * 60 * MINUTE) });
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] === 'api') {
         if (args[1].includes('status=cancelled')) return JSON.stringify({ workflow_runs: [run] });
@@ -73,14 +73,27 @@ describe('observation window — completion time, not start time', () => {
     expect(callsFor('create')[0].join(' ')).toContain(run.html_url);
   });
 
-  it('keeps the two-page/200-run query cap even when every run is outside the window', async () => {
+  it('continues beyond 200 created-at-ordered runs and bounds created by the full workflow lifetime', async () => {
     const oldRuns = Array.from({ length: 100 }, (_, index) => runFixture(index, {
       created_at: iso(8 * 60 * MINUTE),
       updated_at: iso(7 * 60 * MINUTE),
     }));
+    const observable = runFixture(999, {
+      created_at: iso(350 * MINUTE),
+      updated_at: iso(MINUTE),
+    });
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {
       if (args[0] !== 'api') return '[]';
-      if (args[1].includes('actions/runs?')) return JSON.stringify({ workflow_runs: oldRuns });
+      if (args[1].includes('actions/runs?status=cancelled')) {
+        const page = Number(new URLSearchParams(args[1].split('?')[1]).get('page'));
+        if (page <= 2) return JSON.stringify({ workflow_runs: oldRuns });
+        if (page === 3) return JSON.stringify({ workflow_runs: [observable] });
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      if (args[1].includes('actions/runs?status=failure')) {
+        return JSON.stringify({ workflow_runs: [] });
+      }
+      if (args[1].includes(`/runs/${observable.id}/jobs`)) return JSON.stringify({ jobs: [] });
       return '{}';
     });
 
@@ -90,8 +103,66 @@ describe('observation window — completion time, not start time', () => {
     const runListCalls = execFileSync.mock.calls.filter(
       (call) => call[0] === 'gh' && call[1][0] === 'api' && call[1][1].includes('actions/runs?'),
     );
-    expect(runListCalls).toHaveLength(4); // two pages × cancelled/failure
-    expect(runListCalls.every((call) => !call[1][1].includes('page=3'))).toBe(true);
+    expect(runListCalls.some((call) => call[1][1].includes('page=3'))).toBe(true);
+    const createdRanges = runListCalls.map((call) => {
+      const query = new URLSearchParams(call[1][1].split('?')[1]);
+      return query.get('created') || '';
+    });
+    expect(createdRanges.every((range) => range.includes('..'))).toBe(true);
+    const [oldest] = createdRanges[0].split('..');
+    expect(Date.now() - Date.parse(oldest)).toBeGreaterThanOrEqual(35 * 24 * 60 * MINUTE);
+  });
+
+  it('bisects a created range above GitHub\'s 1,000-result search cap and reaches the later slice', async () => {
+    const oldRuns = Array.from({ length: 100 }, (_, index) => runFixture(index, {
+      created_at: iso(20 * 24 * 60 * MINUTE),
+      updated_at: iso(19 * 24 * 60 * MINUTE),
+    }));
+    const observable = runFixture(999, {
+      created_at: iso(2 * 24 * 60 * MINUTE),
+      updated_at: iso(MINUTE),
+    });
+    let rootRange = '';
+    let leftRange = '';
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] !== 'api') return '[]';
+      if (args[1].includes('actions/runs?status=cancelled')) {
+        const query = new URLSearchParams(args[1].split('?')[1]);
+        const range = query.get('created') || '';
+        const page = Number(query.get('page'));
+        if (!rootRange) {
+          rootRange = range;
+          return JSON.stringify({ total_count: 1001, workflow_runs: oldRuns });
+        }
+        if (range !== rootRange && !leftRange) leftRange = range;
+        if (range === leftRange) {
+          return JSON.stringify({ total_count: 1000, workflow_runs: page <= 10 ? oldRuns : [] });
+        }
+        return JSON.stringify({ total_count: 1, workflow_runs: [observable] });
+      }
+      if (args[1].includes('actions/runs?status=failure')) {
+        return JSON.stringify({ total_count: 0, workflow_runs: [] });
+      }
+      if (args[1].includes(`/runs/${observable.id}/jobs`)) return JSON.stringify({ jobs: [] });
+      return '{}';
+    });
+
+    const { main } = await import('../scripts/ci/scan-job-timeouts.mjs');
+    await main();
+
+    const cancelledCalls = execFileSync.mock.calls.filter(
+      (call) => call[0] === 'gh' && call[1][0] === 'api'
+        && call[1][1].includes('actions/runs?status=cancelled'),
+    );
+    const ranges = new Set(cancelledCalls.map((call) => (
+      new URLSearchParams(call[1][1].split('?')[1]).get('created')
+    )));
+    expect(ranges.size).toBe(3); // original search + two disjoint halves
+    expect(cancelledCalls.some((call) => call[1][1].includes('page=10'))).toBe(true);
+    expect(execFileSync.mock.calls.some(
+      (call) => call[0] === 'gh' && call[1][0] === 'api'
+        && call[1][1].includes(`/runs/${observable.id}/jobs`),
+    )).toBe(true);
   });
 });
 
@@ -163,6 +234,8 @@ describe('persistent run dedup — occurrence key, not workflow title', () => {
     const lists = callsFor('list');
     expect(lists.some((args) => args.includes('--search'))).toBe(true);
     expect(lists.some((args) => !args.includes('--search'))).toBe(true);
+    const openListing = lists.find((args) => !args.includes('--search'));
+    expect(openListing?.[openListing.indexOf('--limit') + 1]).toBe('1000');
   });
 
   it('same run does not re-emit across scans; a different run on the canonical issue does', async () => {

@@ -190,7 +190,6 @@ jobs:
 
       - name: Preflight crawler generation shadow transport
         id: generation_preflight
-        continue-on-error: true
         env:
           GITHUB_API_URL: ${{ github.api_url }}
         run: >-
@@ -200,12 +199,13 @@ jobs:
 
       - name: Dispatch crawler generation wave
         id: generation_wave
+        if: steps.generation_preflight.outputs.ready == 'true'
         env:
           GITHUB_API_URL: ${{ github.api_url }}
           GENERATION_TOKEN: ${{ github.run_id }}-${{ github.run_attempt }}
           SITE_CODE_COMMIT: ${{ github.sha }}
-          CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit || 'unavailable' }}
-          SHADOW_READY: ${{ steps.generation_preflight.outputs.ready || 'false' }}
+          CORPUS_CODE_COMMIT: ${{ steps.generation_preflight.outputs.corpus_commit }}
+          SHADOW_READY: ${{ steps.generation_preflight.outputs.ready }}
           DELAY_SECONDS: ${{ inputs.delay_seconds || '60' }}
           DRY_RUN: ${{ inputs.dry_run || 'false' }}
           CHECKPOINT: ${{ runner.temp }}/crawler-generation-dispatch/checkpoint.json

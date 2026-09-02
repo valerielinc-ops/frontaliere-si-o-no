@@ -1,6 +1,6 @@
 {
   "crawlerKey": "psgn",
-  "assembledAt": "2026-09-01T14:10:29.188Z",
+  "assembledAt": "2026-09-01T23:08:29.028Z",
   "jobs": [
     {
       "id": "psgn-57b70134deab",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg",
         "en": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg",
-        "de": "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg",
+        "de": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg",
         "fr": "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -34,7 +34,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/allgemeinmedizinerin-allgemeinmediziner/a85f9afd-3851-46df-a70e-3547eb522f75",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:21.531Z",
+      "crawledAt": "2026-09-01T23:08:23.677Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -59,6 +59,9 @@
         "it": [
           "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg",
           "allgemeinmedizinerin-allgemeinmediziner-psychiatrie-st-gallen-wil-sg"
+        ],
+        "de": [
+          "allgemeinmedizinerin-allgemeinmediziner-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:59.457Z",
@@ -82,7 +85,7 @@
       "slugByLocale": {
         "it": "oberarztin-oberarzt-mbf-psgn-wil-sg",
         "en": "oberarztin-oberarzt-mbf-psgn-wil-sg",
-        "de": "oberarztin-oberarzt-mbf-psgn-wil-sg",
+        "de": "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-wil-sg",
         "fr": "oberarztin-oberarzt-mbf-psgn-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -108,7 +111,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/58a32f55-832c-42b9-9b43-fdc8a3a655ab",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:20.880Z",
+      "crawledAt": "2026-09-01T23:08:23.039Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -146,7 +149,7 @@
       "slugByLocale": {
         "it": "oberarztin-oberarzt-mbf-psgn-wil-sg-2",
         "en": "oberarztin-oberarzt-mbf-psgn-wil-sg-2",
-        "de": "oberarztin-oberarzt-mbf-psgn-wil-sg-0e7udv",
+        "de": "oberarztin-oberarzt-mbf-psychiatrie-st-gallen-wil-sg",
         "fr": "oberarztin-oberarzt-mbf-psgn-wil-sg-2"
       },
       "company": "Psychiatrie St.Gallen",
@@ -172,7 +175,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt-mbf/32585b2f-7964-445c-9039-75623f0c63ae",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:20.236Z",
+      "crawledAt": "2026-09-01T23:08:22.379Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -190,14 +193,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-mbf-psgn-wil-sg"
+        "oberarztin-oberarzt-mbf-psgn-wil-sg",
+        "oberarztin-oberarzt-mbf-psgn-wil-sg-0e7udv"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-mbf-psgn-wil-sg"
         ],
         "de": [
-          "oberarztin-oberarzt-mbf-psgn-wil-sg"
+          "oberarztin-oberarzt-mbf-psgn-wil-sg",
+          "oberarztin-oberarzt-mbf-psgn-wil-sg-0e7udv"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:58.298Z",
@@ -221,7 +226,7 @@
       "slugByLocale": {
         "it": "oberarztin-oberarzt-psgn-wil-sg",
         "en": "oberarztin-oberarzt-psgn-wil-sg",
-        "de": "oberarztin-oberarzt-psgn-wil-sg",
+        "de": "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
         "fr": "oberarztin-oberarzt-psgn-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -247,7 +252,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/2f378a5e-1b15-43ee-8c40-1e0b56358a36",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:19.509Z",
+      "crawledAt": "2026-09-01T23:08:21.736Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -285,7 +290,7 @@
       "slugByLocale": {
         "it": "oberarztin-oberarzt-psgn-wil-sg-2",
         "en": "oberarztin-oberarzt-psgn-wil-sg-2",
-        "de": "oberarztin-oberarzt-psgn-wil-sg-5vb3mc",
+        "de": "oberarztin-oberarzt-psychiatrie-st-gallen-wil-sg",
         "fr": "oberarztin-oberarzt-psgn-wil-sg-2"
       },
       "company": "Psychiatrie St.Gallen",
@@ -311,7 +316,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/oberaerztin-oberarzt/ff8a2cff-13d5-4885-ae5c-813d589eba08",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:18.870Z",
+      "crawledAt": "2026-09-01T23:08:21.082Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -329,14 +334,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-psgn-wil-sg"
+        "oberarztin-oberarzt-psgn-wil-sg",
+        "oberarztin-oberarzt-psgn-wil-sg-5vb3mc"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-psgn-wil-sg"
         ],
         "de": [
-          "oberarztin-oberarzt-psgn-wil-sg"
+          "oberarztin-oberarzt-psgn-wil-sg",
+          "oberarztin-oberarzt-psgn-wil-sg-5vb3mc"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:57.128Z",
@@ -360,7 +367,7 @@
       "slugByLocale": {
         "it": "assistente-medico-assistente-medico-psychiatrie-st-gallen-wil-sg-2d054f",
         "en": "assistant-doctor-assistant-doctor-psychiatrie-st-gallen-wil-sg-2d054f",
-        "de": "assistenzarztin-assistenzarzt-psgn-wil-sg",
+        "de": "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
         "fr": "assistant-medecin-assistant-medecin-psychiatrie-st-gallen-wil-sg-2d054f"
       },
       "company": "Psychiatrie St.Gallen",
@@ -385,7 +392,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/assistenzaerztin-assistenzarzt/e79239ed-694b-45c2-8f2a-860dab254080",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:18.249Z",
+      "crawledAt": "2026-09-01T23:08:20.454Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -463,7 +470,8 @@
           "assistant-psychologist-assistant-psychologist-psychiatrie-st-gallen-wil-sg-4fb830"
         ],
         "de": [
-          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg"
+          "assistenzpsychologin-assistenzpsychologe-psgn-wil-sg",
+          "assistenzarztin-assistenzarzt-psgn-wil-sg"
         ],
         "fr": [
           "assistenzarztin-assistenzarzt-psychiatrie-st-gallen-wil-sg",
@@ -494,7 +502,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
         "en": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
-        "de": "dipl-pflegefachperson-hf-fh-nachdienst-psgn-wil-sg",
+        "de": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg",
         "fr": "dipl-pflegefachperson-hf-fh-nachdienst-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -520,7 +528,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/dipl-pflegefachperson-hf-fh-nachdienst/4efe61e8-ce6b-4f5e-b87a-3cc31e701e23",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:17.598Z",
+      "crawledAt": "2026-09-01T23:08:19.758Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -562,7 +570,8 @@
           "dipl-pflegefachperson-hf-fh-psychiatrie-st-gallen-wil-sg"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-psgn-wil-sg"
+          "dipl-pflegefachperson-hf-fh-psgn-wil-sg",
+          "dipl-pflegefachperson-hf-fh-nachdienst-psgn-wil-sg"
         ],
         "fr": [
           "dipl-professionnel-de-la-sante-hf-fh-psychiatrie-st-gallen-wil-sg"
@@ -615,7 +624,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/ergotherapeutin-ergotherapeut/264e14d5-1a0d-4908-9b60-bdc98a2b65f0",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:16.979Z",
+      "crawledAt": "2026-09-01T23:08:19.120Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -677,7 +686,7 @@
       "slugByLocale": {
         "it": "leiterin-leiter-bau-e-technik-pfafers-psychiatrie-st-gallen-wil-sg",
         "en": "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
-        "de": "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
+        "de": "leiterin-leiter-bau-und-technik-pfafers-psychiatrie-st-gallen-wil-sg",
         "fr": "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -703,7 +712,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/leiterin-leiter-bau-und-technik-pfaefers/3dfd97fa-9f78-4afb-b754-48f783b77c82",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:16.348Z",
+      "crawledAt": "2026-09-01T23:08:18.441Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -728,6 +737,9 @@
         "it": [
           "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg",
           "leiterin-leiter-bau-e-technik-pfafers-psychiatrie-st-gallen-wil-sg"
+        ],
+        "de": [
+          "leiterin-leiter-bau-und-technik-pfafers-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:54.788Z",
@@ -751,7 +763,7 @@
       "slugByLocale": {
         "it": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
         "en": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
-        "de": "betriebswirtschaftliches-praktikum-psgn-wil-sg",
+        "de": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg",
         "fr": "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg"
       },
       "company": "Psychiatrie St.Gallen",
@@ -777,7 +789,7 @@
       "url": "https://jobs.psychiatrie-sg.ch/karriere/offene-stellen/betriebswirtschaftliches-praktikum/e1943748-c092-4fbf-a7d2-678dc4a0be2c",
       "source": "Psychiatrie St.Gallen Dedicated Parser (Prospective careercenter HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:10:15.708Z",
+      "crawledAt": "2026-09-01T23:08:17.772Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -802,6 +814,9 @@
         "it": [
           "betriebswirtschaftliches-praktikum-psgn-wil-sg",
           "betriebswirtschaftliches-praktikum-psychiatrie-st-gallen-wil-sg"
+        ],
+        "de": [
+          "betriebswirtschaftliches-praktikum-psgn-wil-sg"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:54.210Z",

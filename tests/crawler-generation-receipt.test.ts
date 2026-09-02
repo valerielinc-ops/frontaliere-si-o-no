@@ -13,7 +13,15 @@ import {
 import { tmpdir } from 'node:os';
 import { delimiter, join, resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
-import { validateCrawlerGenerationReceipt } from '../scripts/lib/crawler-generation-receipt.mjs';
+import { digestDocument } from '../scripts/lib/canonical-json-digest.mjs';
+import {
+  createCrawlerGroupCommitDescriptor,
+  crawlerGroupCommitMessage,
+  validateCrawlerGenerationReceipt,
+  validateCrawlerGroupCommitDescriptor,
+} from '../scripts/lib/crawler-generation-receipt.mjs';
+
+const MAX_COMMIT_MESSAGE_BYTES = 128 * 1024;
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
@@ -42,9 +50,10 @@ function runHelper(
   value: ReturnType<typeof fixture>,
   {
     enabled = true,
+    generationToken = '9001-2',
     pushFailure = null,
     relativeReceiptDir = false,
-  }: { enabled?: boolean; pushFailure?: string | null; relativeReceiptDir?: boolean } = {},
+  }: { enabled?: boolean; generationToken?: string; pushFailure?: string | null; relativeReceiptDir?: boolean } = {},
 ) {
   let pathValue = process.env.PATH ?? '';
   if (pushFailure !== null) {
@@ -64,6 +73,7 @@ function runHelper(
       MAX_PUSH_ATTEMPTS: '1',
       JOBS_SLICE_FILE: 'data/jobs/by-crawler/acme.json',
       JOBS_HOUSEKEEPING_SCOPE: 'acme',
+      CRAWLER_GENERATION_TOKEN: generationToken,
       CRAWLER_GENERATION_RECEIPT_DIR: enabled
         ? relativeReceiptDir ? 'crawler-generation/receipts/01' : value.receiptDir
         : '',
@@ -98,6 +108,7 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     const pushed = runHelper(pushedFixture, { relativeReceiptDir: true });
     expect(pushed.status).toBe(0);
     const pushedReceipt = onlyReceipt(pushedFixture.receiptDir, `${pushed.stdout}${pushed.stderr}`);
+    expect(pushedReceipt).toMatchObject({ schemaVersion: 2, generationToken: '9001-2' });
     expect(pushedReceipt.outcome).toBe('pushed');
     expect(pushedReceipt.files).toEqual(expect.arrayContaining([
       expect.objectContaining({ path: 'data/jobs/by-crawler/acme.json', state: 'present', sha256: expect.stringMatching(/^sha256:/) }),
@@ -132,6 +143,15 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     expect(`${result.stdout}${result.stderr}`).not.toContain('generation receipt');
   });
 
+  it('never falls back to an unbound receipt when the generation token is missing', () => {
+    const value = fixture();
+    const result = runHelper(value, { generationToken: '' });
+
+    expect(result.status).toBe(0);
+    expect(existsSync(value.receiptDir)).toBe(false);
+    expect(`${result.stdout}${result.stderr}`).toContain('generation receipt failed');
+  });
+
   it('keeps push success authoritative when receipt output is unsafe or unwritable', () => {
     const value = fixture();
     writeFileSync(join(value.repository, 'data/jobs/by-crawler/acme.json'), '[{"id":"new"}]\n');
@@ -157,5 +177,86 @@ describe('crawler generation receipt emitted by the isolated commit tree', () =>
     expect(result.status).toBe(0);
     expect(`${result.stdout}${result.stderr}`).toContain('generation receipt');
     expect(existsSync(join(value.repository, 'data/jobs/by-crawler', '01', 'acme.json'))).toBe(false);
+  });
+
+  it('keeps legacy v1 compatibility explicit for historical verification', () => {
+    const value = fixture();
+    const result = runHelper(value);
+    expect(result.status).toBe(0);
+    const current = onlyReceipt(value.receiptDir, `${result.stdout}${result.stderr}`);
+    const { digest: _digest, generationToken: _generationToken, ...legacyPayload } = current;
+    const legacy = { ...legacyPayload, schemaVersion: 1 };
+    const legacyReceipt = { ...legacy, digest: digestDocument(legacy) };
+
+    expect(validateCrawlerGenerationReceipt(legacyReceipt)).toEqual({
+      valid: true,
+      errors: [],
+    });
+    expect(validateCrawlerGenerationReceipt(legacyReceipt, { allowLegacyV1: false })).toEqual({
+      valid: false,
+      errors: ['legacy_schema_not_allowed'],
+    });
+    expect(validateCrawlerGenerationReceipt(legacyReceipt, { allowLegacyV1: true })).toEqual({
+      valid: true,
+      errors: [],
+    });
+  });
+
+  it('binds deferred commit descriptors to the same generation token', () => {
+    const value = fixture();
+    const descriptor = createCrawlerGroupCommitDescriptor({
+      cwd: value.repository,
+      generationToken: '9001-2',
+      crawlerId: 'acme',
+      commitMessage: 'test descriptor',
+      paths: ['data/jobs/by-crawler/acme.json'],
+    });
+
+    expect(descriptor).toMatchObject({ schemaVersion: 3, generationToken: '9001-2' });
+    expect(validateCrawlerGroupCommitDescriptor(descriptor)).toEqual({ valid: true, errors: [] });
+  });
+
+  it('assembles per-crawler attribution untouched when it fits the git argv cap', () => {
+    const descriptors = [
+      { crawlerId: 'acme', commitMessage: 'Auto-update ACME jobs' },
+      { crawlerId: 'zenith', commitMessage: 'Auto-update ZENITH jobs' },
+    ];
+    const message = crawlerGroupCommitMessage('Auto-update crawler group jobs', descriptors);
+    expect(message).toBe(
+      'Auto-update crawler group jobs\n\nPer-crawler attribution:\n\n' +
+      '--- acme ---\nAuto-update ACME jobs\n\n--- zenith ---\nAuto-update ZENITH jobs',
+    );
+    expect(Buffer.byteLength(message)).toBeLessThanOrEqual(MAX_COMMIT_MESSAGE_BYTES);
+  });
+
+  it('returns the base message unchanged when no descriptor batched', () => {
+    expect(crawlerGroupCommitMessage('Auto-update crawler group jobs  ', [])).toBe('Auto-update crawler group jobs');
+  });
+
+  it('caps the aggregate message under the single-argv git commit limit when descriptors are large', () => {
+    // 128 descriptors near the per-descriptor commitMessage cap would otherwise
+    // assemble an aggregate several MB past MAX_ARG_STRLEN (128 KiB on Linux).
+    const descriptors = Array.from({ length: 128 }, (_, index) => ({
+      crawlerId: `crawler-${String(index).padStart(3, '0')}`,
+      commitMessage: 'x'.repeat(4096),
+    }));
+    const message = crawlerGroupCommitMessage('Auto-update crawler group jobs', descriptors);
+    expect(Buffer.byteLength(message)).toBeLessThanOrEqual(MAX_COMMIT_MESSAGE_BYTES);
+    expect(message).toContain('more crawler(s) omitted (group commit message size cap)');
+    expect(message.startsWith('Auto-update crawler group jobs\n\nPer-crawler attribution:\n\n--- crawler-000 ---')).toBe(true);
+  });
+
+  it('keeps whichever leading attributions fit and lists the rest by id when truncating', () => {
+    const descriptors = [
+      { crawlerId: 'small-one', commitMessage: 'short' },
+      { crawlerId: 'huge-one', commitMessage: 'y'.repeat(MAX_COMMIT_MESSAGE_BYTES) },
+      { crawlerId: 'small-two', commitMessage: 'short too' },
+    ];
+    const message = crawlerGroupCommitMessage('Auto-update crawler group jobs', descriptors);
+    expect(Buffer.byteLength(message)).toBeLessThanOrEqual(MAX_COMMIT_MESSAGE_BYTES);
+    expect(message).toContain('--- small-one ---\nshort');
+    expect(message).not.toContain('--- huge-one ---');
+    expect(message).not.toContain('--- small-two ---');
+    expect(message).toContain('huge-one, small-two');
   });
 });

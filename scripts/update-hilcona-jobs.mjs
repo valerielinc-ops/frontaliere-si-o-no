@@ -13,9 +13,9 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
-import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton, isKnownSwissMunicipalityInCanton } from './lib/target-swiss-locations.mjs';
 import { fetchHilconaJobUrls, fetchHilconaDetailPage, slugify, inferEmploymentType } from './lib/hilcona-job-parser.mjs';
-import { safeLocationToken } from './lib/safe-location-token.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -55,6 +55,23 @@ function mergeCompanyJobs(parsedJobs) {
   return writeJobsFiles([...others, ...clean]), clean;
 }
 
+export function resolveHilconaSwissLocation(detail = {}) {
+  const location = String(detail?.location ?? '').trim();
+  const postalCode = String(detail?.postalCode ?? '').trim();
+  const addressCountry = String(detail?.addressCountry ?? '').trim().toUpperCase();
+  if (!location || /^(?:undefined|null)$/i.test(location)) return null;
+  if (addressCountry !== 'CH') return null;
+
+  // Zell is a BFS homonym (LU/ZH), so the bare city intentionally does not
+  // resolve. The portal's explicit 6144 + Schweiz evidence identifies Zell LU;
+  // no generic HQ or ambiguous-city fallback is allowed.
+  const canton = /^zell$/i.test(location) && postalCode === '6144'
+    ? 'LU'
+    : inferAnyCanton(location);
+  if (!canton || !isKnownSwissMunicipalityInCanton(location, canton)) return null;
+  return { location, canton, postalCode };
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Hilcona');
@@ -69,13 +86,16 @@ async function main() {
     const detail = await fetchHilconaDetailPage(raw.url);
     if (!detail?.description || detail.description.length < 120) { console.log(`  ⚠️  ${raw.title}: too short — skipping`); continue; }
     const description = detail.description;
-    // Guard upstream of `loc` so a missing/invalid value ("undefined"/"null"/
-    // empty from the detail parser) can never leak the literal string into the
-    // slug (regression that produced live /…-hilcona-undefined/ pages + tripped
-    // the sitemap-canonical gate) NOR into the JSON-LD addressLocality (Google
-    // rejects → de-index; AGENTS.md non-negotiable #3). Issue #900. The guarded
-    // value flows into slug, location, addressLocality and inferAnyCanton.
-    const loc = safeLocationToken(detail.location, 'Landquart');
+    // The Bell Food sitemap is international. A real Swiss municipality is
+    // therefore required before this job can enter a canton slice; falling
+    // back to the Landquart HQ/GR silently relabelled Schaan, Radolfzell and
+    // other foreign workplaces as Graubünden.
+    const resolvedLocation = resolveHilconaSwissLocation(detail);
+    if (!resolvedLocation) {
+      console.log(`  ⚠️  Non-Swiss/unresolved location (${detail.location || 'empty'}) — skipping: ${raw.title}`);
+      continue;
+    }
+    const { location: loc, canton, postalCode } = resolvedLocation;
     const company = detail.company || COMPANY_NAME;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
@@ -86,8 +106,9 @@ async function main() {
       title: raw.title, titleByLocale: { de: raw.title },
       description, descriptionByLocale: { de: description },
       requirements: [], requirementsByLocale: { de: [] },
-      location: loc, canton: inferAnyCanton(loc) || 'GR',
+      location: loc, canton,
       addressLocality: loc, addressCountry: 'CH',
+      postalCode,
       category: 'manufacturing', contract: detail.contractType || 'full-time',
       employmentType: inferEmploymentType(raw.title, description, detail.pensum),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
@@ -102,6 +123,7 @@ async function main() {
   printPublishedJobUrls(published, 'Hilcona'); writeJobsSummary(published, 'Hilcona');
   const afterSnapshot = snapshotJobSlugs(published);
   const diff = computeCrawlDiff(_beforeSnapshot, afterSnapshot);
+  archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
   printCrawlChangeSummary(diff, 'Hilcona'); writeCrawlChangeSummaryToGH(diff, 'Hilcona');
 
   await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true, forceLocalizationWhenAiEnabledOnly: true });
@@ -115,4 +137,5 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Hilcona'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+if (isDirectRun) main().catch((err) => exitCrawlerOnError(err, 'Hilcona'));

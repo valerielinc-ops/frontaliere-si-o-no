@@ -14,6 +14,7 @@ import {
   assertSafeRunnerReportOutput,
   validateCrawlerGenerationReceipt,
 } from './lib/crawler-generation-receipt.mjs';
+import { isCrawlerGenerationToken } from './lib/crawler-generation-token.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const GIT_TIMEOUT_MS = 30_000;
@@ -59,9 +60,13 @@ function receiptIsAncestor(cwd, receipt, remoteCommit) {
   }
 }
 
-function loadReceipts(receiptsDir, expectedCrawlerIds, reasons) {
+function loadReceipts(receiptsDir, expectedCrawlerIds, generationToken, reasons) {
   const expected = new Set(expectedCrawlerIds);
   const receipts = [];
+  if (!isCrawlerGenerationToken(generationToken)) {
+    reasons.push('receipt_invalid');
+    return receipts;
+  }
   let entries = [];
   try {
     entries = fs.readdirSync(receiptsDir, { withFileTypes: true });
@@ -85,7 +90,8 @@ function loadReceipts(receiptsDir, expectedCrawlerIds, reasons) {
         continue;
       }
       const receipt = JSON.parse(fs.readFileSync(receiptPath, 'utf8'));
-      if (receipt.crawlerId !== crawlerId || !validateCrawlerGenerationReceipt(receipt).valid) {
+      if (receipt.crawlerId !== crawlerId || receipt.generationToken !== generationToken ||
+          !validateCrawlerGenerationReceipt(receipt, { allowLegacyV1: false }).valid) {
         reasons.push('receipt_invalid');
       } else {
         receipts.push(receipt);
@@ -111,7 +117,7 @@ export function finalizeCrawlerGroup(input) {
   const remoteSliceOids = {};
 
   try {
-    receipts = loadReceipts(input.receiptsDir, expectedCrawlerIds, additionalReasons);
+    receipts = loadReceipts(input.receiptsDir, expectedCrawlerIds, input.generationToken, additionalReasons);
     runGit(input.cwd, ['fetch', '--no-tags', '--depth=2000', input.remoteName, 'main']);
     remoteCommit = runGit(input.cwd, ['rev-parse', `${input.remoteName}/main`]).trim();
 

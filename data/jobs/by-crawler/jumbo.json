@@ -17921,8 +17921,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
         "it": "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil",
-        "en": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
-        "fr": "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil"
+        "en": "associate-sales-administration-und-kundendienst-jumbo-hinwil",
+        "fr": "collaborateur-trice-vente-administration-und-kundendienst-jumbo-hinwil"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17982,11 +17982,22 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
+        ],
+        "de": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
+        ],
+        "en": [
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil"
+        ],
+        "fr": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil"
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
       ],
       "salaryMin": 83000,
       "salaryMax": 127500,

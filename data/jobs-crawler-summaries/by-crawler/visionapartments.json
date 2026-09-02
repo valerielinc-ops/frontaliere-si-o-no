@@ -1,20 +1,21 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-09-01T14:27:02.200Z",
+  "generatedAt": "2026-09-01T23:22:34.565Z",
   "total": 2,
   "discovered": null,
   "written": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3596,
-  "avgDurationMs": 3596,
+  "durationMs": 2774,
+  "avgDurationMs": 2774,
   "durationHistory": [
-    3596
+    2774
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "visionapartments-13b3c39f629e",
       "slug": "inkasso-spezialist-in-60-80-visionapartments-zurich",
@@ -28,7 +29,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:26:59.054Z",
+      "crawledAt": "2026-09-01T23:22:31.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,16 +45,16 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-01T14:26:59.054Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -88,7 +89,8 @@
       "firstSeenAt": "2026-07-29T22:03:40.767Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "reported",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

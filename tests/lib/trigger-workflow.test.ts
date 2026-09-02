@@ -30,6 +30,17 @@ const validRunBody = JSON.stringify({
   conclusion: null,
 });
 
+function comparisonBody(base: string, head: string, status = 'ahead'): string {
+  return JSON.stringify({
+    status,
+    ahead_by: status === 'ahead' ? 1 : 0,
+    behind_by: 0,
+    url: `https://api.github.com/repos/${REPOSITORY}/compare/${base}...${head}`,
+    base_commit: { sha: base },
+    merge_base_commit: { sha: base },
+  });
+}
+
 afterEach(() => {
   for (const directory of temporaryDirectories.splice(0)) {
     rmSync(directory, { recursive: true, force: true });
@@ -107,6 +118,15 @@ elif [[ "$url" == */commits/* ]]; then
   increment "${directory}/ref-count"
   status="\${CURL_REF_STATUS:-200}"
   body="\${CURL_REF_BODY:-}"
+elif [[ "$url" == */compare/* ]]; then
+  increment "${directory}/compare-count"
+  compare_count="$(cat "${directory}/compare-count")"
+  printf '%s' "$url" > "${directory}/compare-url-\${compare_count}"
+  status="\${CURL_COMPARE_STATUS:-200}"
+  body="\${CURL_COMPARE_BODY:-}"
+  if [ "$compare_count" -gt 1 ] && [ -n "\${CURL_COMPARE_POST_BODY:-}" ]; then
+    body="$CURL_COMPARE_POST_BODY"
+  fi
 else
   increment "${directory}/get-count"
   printf '%s' "$url" > "${directory}/get-url"
@@ -156,6 +176,9 @@ if [ -n "$write_format" ]; then printf '%s' "$status"; fi
   return {
     ...result,
     apiVersion: readFileIfPresent(join(directory, 'api-version')),
+    compareCount: readNumber(join(directory, 'compare-count')),
+    comparePostUrl: readFileIfPresent(join(directory, 'compare-url-2')),
+    comparePreUrl: readFileIfPresent(join(directory, 'compare-url-1')),
     dispatchSent: readFileIfPresent(output),
     getCount: readNumber(join(directory, 'get-count')),
     getUrl: readFileIfPresent(join(directory, 'get-url')),
@@ -188,6 +211,7 @@ describe('scripts/lib/trigger-workflow.sh', () => {
     expect(result.postCount).toBe(1);
     expect(result.getCount).toBe(1);
     expect(result.refCount).toBe(0);
+    expect(result.compareCount).toBe(0);
     expect(result.apiVersion).toBe('2026-03-10');
     expect(result.postUrl).toBe(
       `https://api.github.com/repos/${REPOSITORY}/actions/workflows/${WORKFLOW}/dispatches`,
@@ -240,6 +264,39 @@ describe('scripts/lib/trigger-workflow.sh', () => {
     expect(result.status).toBe(0);
     expect(result.postCount).toBe(1);
     expect(result.getCount).toBe(1);
+    expect(result.compareCount).toBe(0);
+  });
+
+  it('rejects a malformed expected SHA before any HTTP request', () => {
+    const result = dispatch({ env: { TRIGGER_EXPECTED_SHA: 'not-a-commit' } });
+    expect(result.status).toBe(1);
+    expect(result.refCount).toBe(0);
+    expect(result.compareCount).toBe(0);
+    expect(result.postCount).toBe(0);
+    expect(result.getCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('accepts a ref descendant of the expected SHA and binds the exact returned run', () => {
+    const expectedSha = 'a'.repeat(40);
+    const descendantSha = 'b'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: descendantSha }),
+        CURL_COMPARE_BODY: comparisonBody(expectedSha, descendantSha),
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: descendantSha }),
+      },
+    });
+    expect(result.status).toBe(0);
+    expect(result.refCount).toBe(1);
+    expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(1);
+    expect(result.getCount).toBe(1);
+    expect(result.comparePreUrl).toContain(`/compare/${expectedSha}...${descendantSha}?per_page=1`);
+    expect(result.dispatchSent).toContain('dispatch_sent=true');
   });
 
   it('fails closed before POST when the ref never reaches the supplied expected SHA', () => {
@@ -250,12 +307,97 @@ describe('scripts/lib/trigger-workflow.sh', () => {
         TRIGGER_REF_WAIT_ATTEMPTS: '2',
         TRIGGER_REF_WAIT_SECONDS: '0',
         CURL_REF_BODY: JSON.stringify({ sha: 'b'.repeat(40) }),
+        CURL_COMPARE_BODY: comparisonBody(expectedSha, 'b'.repeat(40), 'diverged'),
       },
     });
     expect(result.status).toBe(1);
     expect(result.refCount).toBe(2);
+    expect(result.compareCount).toBe(2);
     expect(result.postCount).toBe(0);
     expect(result.getCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('fails closed before POST when authenticated ancestry checks stay unreadable', () => {
+    const expectedSha = 'a'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '2',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: 'b'.repeat(40) }),
+        CURL_COMPARE_STATUS: '502',
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.refCount).toBe(2);
+    expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('fails closed before POST when the comparison response is bound to another head', () => {
+    const expectedSha = 'a'.repeat(40);
+    const candidateSha = 'b'.repeat(40);
+    const comparison = JSON.parse(comparisonBody(expectedSha, candidateSha));
+    comparison.url = comparison.url.replace(candidateSha, 'c'.repeat(40));
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: candidateSha }),
+        CURL_COMPARE_BODY: JSON.stringify(comparison),
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.compareCount).toBe(1);
+    expect(result.postCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('accepts when the ref advances again during dispatch and verifies only the returned run ID', () => {
+    const expectedSha = 'a'.repeat(40);
+    const preDispatchSha = 'b'.repeat(40);
+    const dispatchedRunSha = 'c'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: preDispatchSha }),
+        CURL_COMPARE_BODY: comparisonBody(expectedSha, preDispatchSha),
+        CURL_COMPARE_POST_BODY: comparisonBody(expectedSha, dispatchedRunSha),
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: dispatchedRunSha }),
+      },
+    });
+    expect(result.status).toBe(0);
+    expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(1);
+    expect(result.getCount).toBe(1);
+    expect(result.comparePostUrl).toContain(`/compare/${expectedSha}...${dispatchedRunSha}?per_page=1`);
+    expect(result.dispatchSent).toContain('dispatch_sent=true');
+  });
+
+  it('fails closed after one POST when the dispatched run head diverged during the ref race', () => {
+    const expectedSha = 'a'.repeat(40);
+    const preDispatchSha = 'b'.repeat(40);
+    const divergentRunSha = 'd'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: preDispatchSha }),
+        CURL_COMPARE_BODY: comparisonBody(expectedSha, preDispatchSha),
+        CURL_COMPARE_POST_BODY: comparisonBody(expectedSha, divergentRunSha, 'diverged'),
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: divergentRunSha }),
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(1);
+    expect(result.getCount).toBe(1);
     expect(result.dispatchSent).toContain('dispatch_sent=false');
   });
 

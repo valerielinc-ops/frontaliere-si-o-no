@@ -1,20 +1,21 @@
 {
   "key": "wagerenhof",
   "label": "Stiftung Wagerenhof",
-  "generatedAt": "2026-09-01T14:18:14.706Z",
+  "generatedAt": "2026-09-01T23:16:16.183Z",
   "total": 7,
   "discovered": null,
   "written": 7,
-  "newCount": 2,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 10868,
-  "avgDurationMs": 10868,
+  "durationMs": 9689,
+  "avgDurationMs": 9689,
   "durationHistory": [
-    10868
+    9689
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "wagerenhof-e7f5db8e8578",
       "slug": "studierende-r-aktivierung-hf-ateliers-100-wagerenhof-uster",
@@ -28,7 +29,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-457&cHash=d61123f8b229adec9543be50a30fc3f1",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:18:05.770Z",
+      "crawledAt": "2026-09-01T23:16:08.898Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -43,11 +44,12 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-457&cHash=d61123f8b229adec9543be50a30fc3f1",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T14:18:05.770Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -64,7 +66,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:18:06.648Z",
+      "crawledAt": "2026-09-01T23:16:09.672Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -79,16 +81,15 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-01T14:18:06.648Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "wagerenhof-e6df1f3c792b",
       "slug": "mitarbeiterin-mitarbeiter-wascherei-und-naherei-100-wagerenhof-uster",
@@ -102,7 +103,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-544&cHash=b0621d763eca6fa19183259e3a65d94d",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:18:07.651Z",
+      "crawledAt": "2026-09-01T23:16:10.578Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,7 +140,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-550&cHash=d66bc7918061a2740738e83f1ffe1f0f",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:18:08.520Z",
+      "crawledAt": "2026-09-01T23:16:11.363Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -176,7 +177,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-551&cHash=4458144a462cefca76622c06d8d05fff",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:18:09.388Z",
+      "crawledAt": "2026-09-01T23:16:12.164Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -235,7 +236,7 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -276,7 +277,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,

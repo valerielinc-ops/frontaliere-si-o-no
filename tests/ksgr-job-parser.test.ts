@@ -3,6 +3,34 @@ import { describe, expect, it } from 'vitest';
 import { parseKsgrJobsPage } from '../scripts/lib/ksgr-job-parser.mjs';
 
 describe('ksgr-job-parser', () => {
+  it('accepts one PLZ-city hyphen without turning separator-only input into a city or HQ fallback', () => {
+    const directlink = 'https://jobs.ksgr.ch/offene-stellen/test/06f8d7b2';
+    const parse = (city: string, workplace: string) => parseKsgrJobsPage({
+      jobs: [{
+        id: city,
+        links: { directlink },
+        szas: {
+          sza_title: 'Test role',
+          'sza_location.city': city,
+          sza_workplace: workplace,
+        },
+      }],
+    }).jobs[0];
+
+    expect(parse('Campus\nCH-7000-Chur', 'Campus\nCH-7000-Chur')).toMatchObject({
+      location: 'Chur',
+      postalCode: '7000',
+    });
+    expect(parse('Campus\n6850--', 'Campus\nCH-6850--')).toMatchObject({
+      location: '6850--',
+      postalCode: '',
+    });
+    expect(parse('Campus\n6850--Chur', 'Campus\nCH-6850--Chur')).toMatchObject({
+      location: '6850--Chur',
+      postalCode: '',
+    });
+  });
+
   it('parses Prospective API jobs into crawlable detail entries', () => {
     const payload = {
       total: 105,

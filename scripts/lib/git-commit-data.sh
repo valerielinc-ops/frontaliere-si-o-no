@@ -272,6 +272,35 @@ declare -A _BATCH_SNAPSHOT_MODE=()
 declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
 declare -A _BATCH_SNAPSHOT_BLOB=()
 
+# Remote absence is not proof that a primary slice was retired. The generated
+# roster is the positive registry: only paths absent from primarySlices may use
+# the established delete-wins behavior below.
+is_registered_primary_slice() {
+  local slice_path="$1"
+  local roster_file contract_file
+  roster_file="${CRAWLER_GENERATION_ROSTER_FILE:-$(dirname "$0")/../ci/crawler-generation-roster.json}"
+  contract_file="$(dirname "$0")/crawler-generation-contract.mjs"
+
+  node --input-type=module - "$roster_file" "$slice_path" "$contract_file" <<'NODE'
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+
+const [rosterFile, slicePath, contractFile] = process.argv.slice(2);
+try {
+  const roster = JSON.parse(fs.readFileSync(rosterFile, 'utf8'));
+  const { validateCrawlerGenerationRoster } = await import(pathToFileURL(path.resolve(contractFile)).href);
+  const validation = validateCrawlerGenerationRoster(roster);
+  if (!validation.valid) throw new Error(validation.errors.join(', '));
+  const registered = Object.values(roster.primarySlices).some((value) => value === slicePath);
+  process.exit(registered ? 0 : 1);
+} catch (error) {
+  console.error(`❌ grouped-isolated: cannot validate primary slice registry ${rosterFile}: ${error.message}`);
+  process.exit(2);
+}
+NODE
+}
+
 append_resolved_file() {
   local file_path="$1"
   [ -n "$file_path" ] || return 0
@@ -1242,7 +1271,7 @@ commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
   local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path conflict_scan_path
-  local snapshot_operation snapshot_state
+  local snapshot_operation snapshot_state registry_status
   local delay
 
   base_sha="$(git rev-parse HEAD)"
@@ -1336,32 +1365,57 @@ commit_isolated_from_worktree() {
         base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
       fi
 
-      # A remote delete after this writer's base is a concurrent change, not a
-      # writable empty slot. Snapshot-bound group batches cannot distinguish a
-      # deliberate retirement from an accidental removal, so every descriptor
-      # path must fail closed instead of resurrecting its stale present blob.
-      # Unchanged snapshots already continue above (and therefore preserve the
-      # remote deletion); genuine creates have no base blob; explicit snapshot
-      # deletes are handled above. Keep the established drop-stale policy below
-      # scoped to job slices for legacy, non-batch callers.
-      # A long-running writer can start while a slice still exists, modify its
-      # stale worktree copy hours later, then arrive here after another commit
-      # deliberately retired that slice. The private index is already seeded
-      # from origin/main, so skipping the stale local blob preserves the remote
-      # deletion while allowing every other file from this run to commit.
-      # A genuinely new slice remains allowed: it has no blob in either the
-      # checkout base or origin/main.
-      if [ -n "$base_blob" ] && [ -z "$remote_blob" ]; then
+      # A missing remote path is not automatically a writable empty slot.
+      # Snapshot-bound batches and shared group workers keep their established
+      # base-aware rules. Sequential primary-slice writers additionally consult
+      # the positive roster, so a post-retirement checkout cannot mistake an
+      # unregistered slice for a first-run create.
+      if [ -z "$remote_blob" ]; then
         if [ "$GROUP_BATCH" = true ]; then
-          echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f"
-          return 1
+          if [ -n "$base_blob" ]; then
+            echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f"
+            return 1
+          fi
+        elif [ -n "${JOBS_SLICE_FILE:-}" ]; then
+          # Shared crawler-group workers retain their established base-aware
+          # policy. Their generated descriptors and final batch provide the
+          # separate retirement boundary; the registry fix here is scoped to
+          # sequential directory-wide writers.
+          if [ -n "$base_blob" ]; then
+            case "$f" in
+              data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
+                echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
+                continue
+                ;;
+            esac
+          fi
+        else
+          case "$f" in
+            data/jobs/by-crawler/*.json)
+              if is_registered_primary_slice "$f"; then
+                if [ -n "$base_blob" ]; then
+                  echo "❌ grouped-isolated: $f disappeared upstream but remains in crawler-generation-roster.json — refusing to infer retirement"
+                  return 1
+                fi
+                # A registered path absent from both base and remote is a
+                # genuine first-run create, not a resurrection.
+              else
+                registry_status=$?
+                if [ "$registry_status" -ne 1 ]; then
+                  return 1
+                fi
+                echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
+                continue
+              fi
+              ;;
+            data/jobs/expired/by-crawler/*.json)
+              if [ -n "$base_blob" ]; then
+                echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
+                continue
+              fi
+              ;;
+          esac
         fi
-        case "$f" in
-          data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
-            echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
-            continue
-            ;;
-        esac
       fi
 
       blob_to_stage="$local_blob"

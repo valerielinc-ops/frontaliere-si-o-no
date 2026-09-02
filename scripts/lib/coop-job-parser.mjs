@@ -7,6 +7,12 @@
  */
 
 import { JSDOM } from 'jsdom';
+import { fetch as undiciFetch } from 'undici';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchFollowingValidatedRedirects,
+} from './prospector/public-fetch-policy.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -255,6 +261,144 @@ export function validateCoopDescription(markdown = '', sourceHtmlLength = 0) {
   }
 
   return { ok: warnings.length === 0, warnings };
+}
+
+function jsonLdAddressCandidates(jsonLd = {}) {
+  const locations = Array.isArray(jsonLd?.jobLocation) ? jsonLd.jobLocation : [jsonLd?.jobLocation];
+  return locations.filter(Boolean).map((location) => {
+    const address = location?.address || {};
+    const addressLocality = String(address.addressLocality || '').trim();
+    const rawRegion = String(address.addressRegion || '').trim();
+    // Prospective sometimes duplicates the municipality into addressRegion.
+    // Treat that as absent subdivision evidence, then resolve the canton from
+    // the still-authoritative locality instead of inventing an HQ fallback.
+    const addressRegion = normalizeSpace(rawRegion).toLowerCase() === normalizeSpace(addressLocality).toLowerCase()
+      ? ''
+      : rawRegion;
+    const country = typeof address.addressCountry === 'object'
+      ? address.addressCountry?.name || address.addressCountry?.['@id'] || ''
+      : address.addressCountry || '';
+    return {
+      location: addressLocality,
+      addressLocality,
+      addressRegion,
+      addressCountry: String(country || '').trim(),
+      postalCode: String(address.postalCode || '').trim(),
+      streetAddress: String(address.streetAddress || '').trim(),
+    };
+  });
+}
+
+function wordCount(value = '') {
+  return String(value || '').trim().split(/\s+/).filter(Boolean).length;
+}
+
+function resolveCoopJsonLdGeography(candidate) {
+  const direct = resolveSourceBackedSwissGeography(candidate);
+  if (direct) return direct;
+  // This ATS uses addressRegion for non-canton districts (for example
+  // "Zürcher Unterland/Limmattal"). With an explicit Swiss country, retry
+  // solely from the structured locality; unknown/foreign localities still
+  // fail the shared resolver instead of falling back to an employer HQ.
+  if (/^(?:ch|che|schweiz|switzerland|suisse|svizzera|svizra)$/i.test(candidate.addressCountry)) {
+    return resolveSourceBackedSwissGeography({ ...candidate, addressRegion: '' });
+  }
+  return null;
+}
+
+/**
+ * Replace listing fallbacks with the source-backed detail payload. Missing,
+ * malformed or geographically unresolved detail data is a hard failure: the
+ * caller must never publish a partially enriched Coop-family slice.
+ */
+export function applyCoopSourceDetailToJob(job, jsonLd) {
+  if (!jsonLd || !String(jsonLd?.['@type'] || '').includes('JobPosting')) {
+    throw new Error(`Coop-family detail has no JobPosting JSON-LD: ${job?.url || 'missing-url'}`);
+  }
+  const overlap = titleOverlap(job?.title, jsonLd?.title || '');
+  if (!jsonLd?.title || overlap < 0.6) {
+    throw new Error(`Coop-family detail title mismatch (${overlap.toFixed(2)}): ${job?.url || 'missing-url'}`);
+  }
+
+  const sourceHtml = String(jsonLd?.description || '');
+  const description = coopDescHtmlToMarkdown(sourceHtml);
+  const validation = validateCoopDescription(description, sourceHtml.length);
+  if (!validation.ok || wordCount(description) < 50) {
+    throw new Error(`Coop-family detail description rejected: ${validation.warnings.join('; ') || `${wordCount(description)} words`}`);
+  }
+
+  const evidence = jsonLdAddressCandidates(jsonLd)
+    .map((candidate) => ({ candidate, geography: resolveCoopJsonLdGeography(candidate) }))
+    .find(({ geography }) => geography);
+  if (!evidence) {
+    throw new Error(`Coop-family detail location rejected: ${job?.url || 'missing-url'}`);
+  }
+
+  const sourceLang = String(job?.sourceLang || 'de').trim() || 'de';
+  const updated = {
+    ...job,
+    description,
+    descriptionByLocale: {
+      ...(job?.descriptionByLocale || {}),
+      [sourceLang]: description,
+    },
+    location: evidence.candidate.addressLocality,
+    addressLocality: evidence.candidate.addressLocality,
+    canton: evidence.geography.canton,
+    addressRegion: evidence.geography.canton,
+    postalCode: evidence.candidate.postalCode,
+    streetAddress: evidence.candidate.streetAddress,
+    ...(evidence.candidate.addressCountry ? { addressCountry: evidence.candidate.addressCountry } : {}),
+    needsRetranslation: true,
+    _enrichedFromDetail: true,
+  };
+  return updated;
+}
+
+/** Fetch and strictly apply all detail payloads with bounded concurrency. */
+export async function enrichCoopSourceBackedJobs(jobs, {
+  fetchImpl = undiciFetch,
+  allowedHosts = ['jobs.coopjobs.ch', 'jobs.fust.ch', 'jobs.fenaco.com'],
+  concurrency = 6,
+  timeoutMs = 20000,
+} = {}) {
+  const input = Array.isArray(jobs) ? jobs : [];
+  const output = new Array(input.length);
+  const validateUrl = createSpecUrlPolicy({
+    seedUrls: allowedHosts.map((hostname) => `https://${hostname}`),
+  });
+  const workers = Array.from({ length: Math.min(Math.max(1, concurrency), Math.max(1, input.length)) }, async (_, worker) => {
+    for (let index = worker; index < input.length; index += Math.min(Math.max(1, concurrency), Math.max(1, input.length))) {
+      const job = input[index];
+      const url = new URL(String(job?.url || ''));
+      if (!allowedHosts.includes(url.hostname)) {
+        throw new Error(`Untrusted Coop-family detail host: ${url.hostname}`);
+      }
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const response = await fetchFollowingValidatedRedirects(url.toString(), {
+          fetchImpl,
+          validateUrl,
+          requestOptions: {
+            signal: controller.signal,
+            dispatcher: validateUrl.dispatcher,
+            headers: {
+              Accept: 'text/html',
+              'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+            },
+          },
+        });
+        if (!response?.ok) throw new Error(`HTTP ${response?.status || 'unknown'}`);
+        const jsonLd = extractJsonLd(await response.text());
+        output[index] = applyCoopSourceDetailToJob(job, jsonLd);
+      } finally {
+        clearTimeout(timer);
+      }
+    }
+  });
+  await Promise.all(workers);
+  return output;
 }
 
 // ─────────────────────────────────────────────────────────────

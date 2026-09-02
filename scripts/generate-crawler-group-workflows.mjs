@@ -102,6 +102,7 @@ const CORPUS_OBSERVER_SITE_SOURCES = new Map([
   ['observers/scripts/crawler-generation-observer-selector.mjs', 'scripts/crawler-generation-observer-selector.mjs'],
   ['observers/scripts/lib/canonical-json-digest.mjs', 'scripts/lib/canonical-json-digest.mjs'],
   ['observers/scripts/lib/crawler-generation-observer-report.mjs', 'scripts/lib/crawler-generation-observer-report.mjs'],
+  ['observers/scripts/lib/crawler-generation-token.mjs', 'scripts/lib/crawler-generation-token.mjs'],
   ['observers/scripts/lib/github-actions-read-client.mjs', 'scripts/lib/github-actions-read-client.mjs'],
 ]);
 const CRAWLER_GENERATION_ROSTER_PATH = path.join(REPO_ROOT, 'scripts/ci/crawler-generation-roster.json');
@@ -113,6 +114,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/canonical-json-digest.mjs',
   'scripts/lib/crawler-generation-contract.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
+  'scripts/lib/crawler-generation-token.mjs',
   'scripts/lib/job-match-key.mjs',
   'scripts/lib/job-url-key.mjs',
   'scripts/lib/slug-history-journal.mjs',
@@ -439,6 +441,8 @@ function validateTargetTimeoutMinutes(crawler) {
   return minutes;
 }
 
+const CRAWLER_SHELL_PREAMBLE = Object.freeze(['set -uo pipefail', 'set +e', '']);
+
 /**
  * Build the isolated work phase for a crawler with an explicit wall timeout.
  *
@@ -448,8 +452,8 @@ function validateTargetTimeoutMinutes(crawler) {
  * observable and the target exits non-zero without committing partial data.
  */
 function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
-  const outer = ['set -uo pipefail', 'set +e', ''];
-  const work = ['set -uo pipefail', 'set +e', ''];
+  const outer = [...CRAWLER_SHELL_PREAMBLE];
+  const work = [...CRAWLER_SHELL_PREAMBLE];
 
   work.push(`# ---- ${crawler.slug}: run crawler (bounded work phase) ----`);
   work.push(crawler.runStep.run.trimEnd());
@@ -500,9 +504,17 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     const literalizedRun = step.run
       .split('${{ github.workflow }}')
       .join(crawlerWorkflowId);
+    const timeoutAwareRun = literalizedRun.replace(
+      '"## Crawler fallito',
+      '"## Crawler fallito${crawler_failure_timeout_detail}',
+    );
     outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
+    outer.push("crawler_failure_timeout_detail=''");
+    outer.push('if [ "$target_exit" -eq 124 ]; then');
+    outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
+    outer.push('fi');
     outer.push('if [ "$target_exit" -ne 0 ]; then');
-    outer.push(indentBlock(literalizedRun.trimEnd(), 2));
+    outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
     outer.push('fi');
     outer.push('');
   }
@@ -973,8 +985,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
         'timeout-minutes': JOB_TIMEOUT_MINUTES,
         env: {
           // Job-level env is inherited by every background shell and avoids
-          // hundreds of identical step overrides. The CLI resolves this relative
-          // path strictly underneath the runner-provided RUNNER_TEMP.
+          // hundreds of identical step overrides. The receipt CLIs resolve the
+          // two relative directories strictly underneath runner-provided RUNNER_TEMP.
+          CRAWLER_GENERATION_TOKEN: '${{ inputs.generation_token }}',
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
         },

@@ -5,6 +5,7 @@ import { describe, it, expect, vi } from 'vitest';
 import {
   assertCoopAdapterParity,
   assertCompleteCoopDiscovery,
+  assertCoopSingleCompanyKeyScope,
   buildCoopAdapterConfig,
   ensureAdapterSeedUrls,
   fetchCoopJobDetailUrls,
@@ -19,6 +20,8 @@ import {
   validateCoopDescription,
   titleOverlap,
   applyCoopJsonLdToJob,
+  applyCoopSourceDetailToJob,
+  enrichCoopSourceBackedJobs,
   buildCoopTranslationCacheEntry,
 } from '../scripts/lib/coop-job-parser.mjs';
 
@@ -849,6 +852,92 @@ describe('applyCoopJsonLdToJob — concurrency safety', () => {
   });
 });
 
+describe('Coop-family source-detail contract (#5253)', () => {
+  const cases = [
+    ['fust', 'https://jobs.fust.ch/offene-stellen/test/11111111-1111-4111-8111-111111111111', 'Oberbüren', 'St. Gallen', 'SG'],
+    ['interdiscount', 'https://jobs.coopjobs.ch/offene-stellen/test/22222222-2222-4222-8222-222222222222', 'Jegenstorf', 'Jegenstorf', 'BE'],
+    ['jumbo', 'https://jobs.coopjobs.ch/offene-stellen/test/33333333-3333-4333-8333-333333333333', 'Dietikon', 'Zürich', 'ZH'],
+    ['volg-fenaco', 'https://jobs.fenaco.com/offene-stellen/test/44444444-4444-4444-8444-444444444444', 'Höri', 'Zürcher Unterland/Limmattal', 'ZH'],
+  ] as const;
+  const detailDescription = `<h2>Deine Aufgaben</h2><ul>${Array.from({ length: 26 }, (_, index) => `<li>Source-backed Aufgabe ${index + 1} mit Verantwortung und sorgfältiger Zusammenarbeit im Team.</li>`).join('')}</ul>`;
+
+  function jsonLd(title: string, locality: string, region: string) {
+    return {
+      '@type': 'JobPosting',
+      title,
+      description: detailDescription,
+      jobLocation: { address: { addressLocality: locality, addressRegion: region, addressCountry: 'Schweiz', postalCode: '3000', streetAddress: 'Detailstrasse 1' } },
+    };
+  }
+
+  it.each(cases)('%s replaces listing fallbacks without changing identity or route history', (companyKey, url, locality, region, canton) => {
+    const listing = {
+      id: `${companyKey}-stable`, url, companyKey, title: 'Verkäuferin Verkäufer',
+      description: 'Listing boilerplate that must disappear',
+      descriptionByLocale: { de: 'Listing boilerplate that must disappear' },
+      location: 'Fallback Hauptsitz', canton: 'TI', slug: `${companyKey}-stable-route`,
+      slugByLocale: { de: `${companyKey}-stable-route` }, previousSlugs: [`${companyKey}-legacy`],
+      previousSlugsByLocale: { de: [`${companyKey}-legacy-de`] }, sourceLang: 'de',
+    };
+    const identity = Object.fromEntries(['id', 'url', 'slug', 'slugByLocale', 'previousSlugs', 'previousSlugsByLocale'].map((key) => [key, structuredClone(listing[key as keyof typeof listing])]));
+    const result = applyCoopSourceDetailToJob(listing, jsonLd(listing.title, locality, region));
+
+    expect(result).toMatchObject({ location: locality, addressLocality: locality, canton, addressRegion: canton });
+    expect(result.description).not.toContain('Listing boilerplate');
+    expect(result.description.trim().split(/\s+/).length).toBeGreaterThanOrEqual(50);
+    for (const [key, value] of Object.entries(identity)) expect(result[key]).toEqual(value);
+  });
+
+  it('fails the whole enrichment before publishing a partial or malformed detail batch', async () => {
+    const jobs = cases.slice(0, 2).map(([companyKey, url]) => ({
+      id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    }));
+    const fetchImpl = async (input: URL) => String(input).includes('22222222')
+      ? new Response('<html>missing JSON-LD</html>', { status: 200 })
+      : new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, 'Oberbüren', 'St. Gallen'))}</script>`, { status: 200 });
+
+    await expect(enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 }))
+      .rejects.toThrow(/has no JobPosting JSON-LD/);
+    expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
+  });
+
+  it('rejects a cross-host redirect before fetching or publishing its payload', async () => {
+    const job = {
+      id: 'stable', companyKey: 'jumbo', url: cases[2][1], title: 'Verkäuferin Verkäufer',
+      description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+    };
+    const requests: string[] = [];
+    const fetchImpl = async (input: string | URL) => {
+      requests.push(String(input));
+      return new Response(null, { status: 302, headers: { Location: 'https://untrusted.example/jobs/one' } });
+    };
+
+    await expect(enrichCoopSourceBackedJobs([job], { fetchImpl, allowedHosts: ['jobs.coopjobs.ch'] }))
+      .rejects.toThrow(/origin not allowed/);
+    expect(requests).toEqual([job.url]);
+    expect(job.description).toBe('listing fallback');
+  });
+
+  it('accepts ISO CH/CHE country evidence when addressRegion is an ATS district', () => {
+    const [companyKey, url, locality, region] = cases[3];
+    const listing = { id: 'stable', companyKey, url, title: 'Verkäuferin Verkäufer', description: 'listing', location: 'fallback', canton: 'TI', sourceLang: 'de' };
+    for (const country of ['CH', 'CHE']) {
+      const detail = jsonLd(listing.title, locality, region);
+      detail.jobLocation.address.addressCountry = country;
+      expect(applyCoopSourceDetailToJob(listing, detail)).toMatchObject({ location: locality, canton: 'ZH' });
+    }
+  });
+
+  it('is idempotent for an already source-backed payload', () => {
+    const [companyKey, url, locality, region] = cases[3];
+    const listing = { id: 'stable', companyKey, url, title: 'Verkäuferin Verkäufer', description: 'listing', location: 'fallback', canton: 'TI', sourceLang: 'de' };
+    const detail = jsonLd(listing.title, locality, region);
+    const first = applyCoopSourceDetailToJob(listing, detail);
+    expect(applyCoopSourceDetailToJob(first, detail)).toEqual(first);
+  });
+});
+
 // ──────────────────────────────────────────────────────────────
 // Translation-cache redirect-history preservation (issue #2962)
 //
@@ -948,5 +1037,23 @@ describe('findUnrecognizedCoopDivisions (#6945 item 1)', () => {
       { companyKey: 'coop-ticino', company: 'Mystery Coop Brand' },
     ];
     expect(findUnrecognizedCoopDivisions(jobs)).toEqual(['Mystery Coop Brand']);
+  });
+});
+
+describe('assertCoopSingleCompanyKeyScope (#6945 item 2)', () => {
+  it('passes when no company key scope is pre-set in env', () => {
+    expect(() => assertCoopSingleCompanyKeyScope({})).not.toThrow();
+  });
+
+  it('passes when the pre-set scope is only coop-ticino itself', () => {
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEYS: 'coop-ticino' })).not.toThrow();
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEY: 'Coop-Ticino' })).not.toThrow();
+  });
+
+  it('fails closed when an extraneous company key has leaked into the scope', () => {
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEYS: 'coop-ticino,fust' }))
+      .toThrow(/sole company-key scope/);
+    expect(() => assertCoopSingleCompanyKeyScope({ JOBS_CRAWLER_COMPANY_KEY: 'jumbo' }))
+      .toThrow(/sole company-key scope/);
   });
 });

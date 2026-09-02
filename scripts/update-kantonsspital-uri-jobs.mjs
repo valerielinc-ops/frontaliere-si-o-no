@@ -24,6 +24,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKantonsspitalUriJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  preserveExistingSlugs: true,
 }).catch((err) => {
   console.error(`❌ Kantonsspital Uri crawler failed: ${err?.message || err}`);
   process.exit(1);

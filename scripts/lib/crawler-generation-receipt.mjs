@@ -7,6 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
+import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const OUTCOMES = Object.freeze(['noop', 'pushed', 'push_contention', 'failed']);
@@ -175,6 +176,7 @@ function validateCommitSnapshotFile(file) {
 /** Build one deterministic receipt from the exact tree created by the private index. */
 export function createCrawlerGenerationReceipt(input) {
   if (!CRAWLER_ID_RE.test(input.crawlerId ?? '')) throw new TypeError('Invalid crawler receipt identity');
+  if (!isCrawlerGenerationToken(input.generationToken)) throw new TypeError('Invalid crawler receipt generation token');
   if (!OUTCOME_SET.has(input.outcome)) throw new TypeError('Invalid crawler receipt outcome');
   if (!COMMIT_RE.test(input.commit ?? '') || !COMMIT_RE.test(input.remoteBaseCommit ?? '')) {
     throw new TypeError('Invalid crawler receipt commit');
@@ -197,7 +199,8 @@ export function createCrawlerGenerationReceipt(input) {
     killSignal: 'SIGTERM',
   });
   const payload = {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    generationToken: input.generationToken,
     crawlerId: input.crawlerId,
     outcome: input.outcome,
     commit: input.commit,
@@ -211,12 +214,22 @@ export function createCrawlerGenerationReceipt(input) {
   return receipt;
 }
 
-export function validateCrawlerGenerationReceipt(receipt) {
+// Historical group manifests embed v1 receipt evidence and must remain
+// verifiable. Live finalization opts out explicitly: a current generation can
+// never consume an unbound receipt merely because an old artifact was valid.
+export function validateCrawlerGenerationReceipt(receipt, { allowLegacyV1 = true } = {}) {
   const errors = [];
-  if (!exactKeys(receipt, [
-    'schemaVersion', 'crawlerId', 'outcome', 'commit', 'remoteBaseCommit', 'files', 'digest',
-  ])) return { valid: false, errors: ['unsupported_schema'] };
-  if (receipt.schemaVersion !== 1) errors.push('unsupported_schema_version');
+  const legacyV1 = receipt?.schemaVersion === 1;
+  const expectedKeys = legacyV1
+    ? ['schemaVersion', 'crawlerId', 'outcome', 'commit', 'remoteBaseCommit', 'files', 'digest']
+    : ['schemaVersion', 'generationToken', 'crawlerId', 'outcome', 'commit', 'remoteBaseCommit', 'files', 'digest'];
+  if (!exactKeys(receipt, expectedKeys)) return { valid: false, errors: ['unsupported_schema'] };
+  if (legacyV1) {
+    if (!allowLegacyV1) errors.push('legacy_schema_not_allowed');
+  } else {
+    if (receipt.schemaVersion !== 2) errors.push('unsupported_schema_version');
+    if (!isCrawlerGenerationToken(receipt.generationToken)) errors.push('invalid_generation_token');
+  }
   if (!CRAWLER_ID_RE.test(receipt.crawlerId ?? '')) errors.push('invalid_crawler_id');
   if (!OUTCOME_SET.has(receipt.outcome)) errors.push('invalid_outcome');
   if (!COMMIT_RE.test(receipt.commit ?? '')) errors.push('invalid_commit');
@@ -255,6 +268,9 @@ export function validateCrawlerGenerationReceipt(receipt) {
 
 export function createCrawlerGroupCommitDescriptor(input) {
   if (!CRAWLER_ID_RE.test(input.crawlerId ?? '')) throw new TypeError('Invalid crawler commit descriptor identity');
+  if (!isCrawlerGenerationToken(input.generationToken)) {
+    throw new TypeError('Invalid crawler commit descriptor generation token');
+  }
   if (typeof input.commitMessage !== 'string' || input.commitMessage.trim().length === 0 ||
       Buffer.byteLength(input.commitMessage) > MAX_COMMIT_MESSAGE_BYTES) {
     throw new TypeError('Invalid crawler commit descriptor message');
@@ -275,7 +291,8 @@ export function createCrawlerGroupCommitDescriptor(input) {
     killSignal: 'SIGTERM',
   }).trim();
   const payload = {
-    schemaVersion: 2,
+    schemaVersion: 3,
+    generationToken: input.generationToken,
     crawlerId: input.crawlerId,
     commitMessage: input.commitMessage,
     baseCommit,
@@ -291,11 +308,12 @@ export function createCrawlerGroupCommitDescriptor(input) {
 export function validateCrawlerGroupCommitDescriptor(descriptor) {
   const errors = [];
   if (!exactKeys(descriptor, [
-    'schemaVersion', 'crawlerId', 'commitMessage', 'baseCommit', 'files', 'digest',
+    'schemaVersion', 'generationToken', 'crawlerId', 'commitMessage', 'baseCommit', 'files', 'digest',
   ])) {
     return { valid: false, errors: ['unsupported_schema'] };
   }
-  if (descriptor.schemaVersion !== 2) errors.push('unsupported_schema_version');
+  if (descriptor.schemaVersion !== 3) errors.push('unsupported_schema_version');
+  if (!isCrawlerGenerationToken(descriptor.generationToken)) errors.push('invalid_generation_token');
   if (!CRAWLER_ID_RE.test(descriptor.crawlerId ?? '')) errors.push('invalid_crawler_id');
   if (typeof descriptor.commitMessage !== 'string' || descriptor.commitMessage.trim().length === 0 ||
       Buffer.byteLength(descriptor.commitMessage ?? '') > MAX_COMMIT_MESSAGE_BYTES) {
@@ -416,6 +434,7 @@ export function runCrawlerGenerationReceiptCli(paths = process.argv.slice(2)) {
   const crawlerId = requiredEnv('JOBS_HOUSEKEEPING_SCOPE');
   const receipt = createCrawlerGenerationReceipt({
     cwd,
+    generationToken: requiredEnv('CRAWLER_GENERATION_TOKEN'),
     crawlerId,
     outcome: requiredEnv('CRAWLER_GENERATION_RECEIPT_OUTCOME'),
     commit: requiredEnv('CRAWLER_GENERATION_RECEIPT_COMMIT'),
@@ -437,6 +456,7 @@ export function runCrawlerGroupCommitDescriptorCli(paths = process.argv.slice(3)
   const crawlerId = requiredEnv('JOBS_HOUSEKEEPING_SCOPE');
   const descriptor = createCrawlerGroupCommitDescriptor({
     cwd,
+    generationToken: requiredEnv('CRAWLER_GENERATION_TOKEN'),
     crawlerId,
     commitMessage: requiredEnv('CRAWLER_GROUP_COMMIT_MESSAGE'),
     paths,
@@ -451,7 +471,8 @@ export function runCrawlerGroupCommitDescriptorCli(paths = process.argv.slice(3)
   );
   const claimOutput = safeBatchDescriptorClaimOutput(cwd, descriptorDir, runnerTemp, crawlerId);
   writeJsonAtomic(claimOutput, {
-    schemaVersion: 1,
+    schemaVersion: 2,
+    generationToken: descriptor.generationToken,
     crawlerId,
     descriptorDigest: descriptor.digest,
   });
@@ -497,7 +518,11 @@ export function readCrawlerGroupCommitDescriptors({
   cwd = process.cwd(),
   descriptorDir = requiredEnv('CRAWLER_GROUP_COMMIT_DIR'),
   runnerTemp = requiredEnv('RUNNER_TEMP'),
+  generationToken = requiredEnv('CRAWLER_GENERATION_TOKEN'),
 } = {}) {
+  if (!isCrawlerGenerationToken(generationToken)) {
+    throw new TypeError('Invalid crawler commit descriptor generation token');
+  }
   const root = safeBatchDescriptorRoot(cwd, descriptorDir, runnerTemp);
   if (!fs.existsSync(root)) return [];
   if (!fs.lstatSync(root).isDirectory()) throw new TypeError('Crawler commit descriptor root must be a directory');
@@ -512,8 +537,9 @@ export function readCrawlerGroupCommitDescriptors({
     }
     const document = JSON.parse(fs.readFileSync(path.join(root, entry.name), 'utf8'));
     if (entry.name.endsWith('.claim.json')) {
-      if (!exactKeys(document, ['schemaVersion', 'crawlerId', 'descriptorDigest']) ||
-          document.schemaVersion !== 1 || !CRAWLER_ID_RE.test(document.crawlerId ?? '') ||
+      if (!exactKeys(document, ['schemaVersion', 'generationToken', 'crawlerId', 'descriptorDigest']) ||
+          document.schemaVersion !== 2 || document.generationToken !== generationToken ||
+          !CRAWLER_ID_RE.test(document.crawlerId ?? '') ||
           !HASH_RE.test(document.descriptorDigest ?? '') || entry.name !== `${document.crawlerId}.claim.json`) {
         throw new TypeError('Invalid crawler commit descriptor claim');
       }
@@ -523,7 +549,8 @@ export function readCrawlerGroupCommitDescriptors({
     }
     const descriptor = document;
     const validation = validateCrawlerGroupCommitDescriptor(descriptor);
-    if (!validation.valid || entry.name !== `${descriptor.crawlerId}.json`) {
+    if (!validation.valid || descriptor.generationToken !== generationToken ||
+        entry.name !== `${descriptor.crawlerId}.json`) {
       throw new TypeError(`Invalid crawler commit descriptor: ${validation.errors.join(',') || 'identity_mismatch'}`);
     }
     verifyCrawlerGroupCommitDescriptor(cwd, descriptor);
@@ -558,16 +585,46 @@ export function crawlerGroupCommitSnapshots(descriptors) {
   }))).sort((left, right) => compareCodePoint(left.path, right.path));
 }
 
+// git-commit-data.sh passes the assembled message to `git commit-tree -m`
+// (and `git commit -m`) as a single argv element. Linux caps any one argv
+// string at MAX_ARG_STRLEN (32 pages, 128 KiB on the 4 KiB pages GitHub
+// Actions runners use) regardless of the OS-wide ARG_MAX — exceeding it
+// fails the commit with E2BIG. MAX_COMMIT_MESSAGE_BYTES already bounds a
+// single descriptor's own commitMessage to that limit, but up to MAX_FILES
+// descriptors concatenated here could still add up past it, so the
+// assembled aggregate needs the same ceiling applied to itself.
 export function crawlerGroupCommitMessage(baseMessage, descriptors) {
   if (typeof baseMessage !== 'string' || baseMessage.trim().length === 0) {
     throw new TypeError('Missing crawler group commit message');
   }
-  const attribution = descriptors.map(({ crawlerId, commitMessage }) => (
+  const base = baseMessage.trimEnd();
+  if (descriptors.length === 0) return base;
+  const header = `${base}\n\nPer-crawler attribution:\n\n`;
+  const attributions = descriptors.map(({ crawlerId, commitMessage }) => (
     `--- ${crawlerId} ---\n${commitMessage.trimEnd()}`
   ));
-  return attribution.length === 0
-    ? baseMessage.trimEnd()
-    : `${baseMessage.trimEnd()}\n\nPer-crawler attribution:\n\n${attribution.join('\n\n')}`;
+  const full = `${header}${attributions.join('\n\n')}`;
+  if (Buffer.byteLength(full) <= MAX_COMMIT_MESSAGE_BYTES) return full;
+
+  // Reserve worst-case room for the omitted-crawlers summary up front (every
+  // descriptor could end up in it) so the truncation loop below never has to
+  // re-check itself after appending the summary.
+  const crawlerIds = descriptors.map(({ crawlerId }) => crawlerId);
+  const summaryReserve = Buffer.byteLength(
+    `\n\n… ${crawlerIds.length} more crawler(s) omitted (group commit message size cap): ${crawlerIds.join(', ')}`,
+  );
+  const budget = MAX_COMMIT_MESSAGE_BYTES - Buffer.byteLength(header) - summaryReserve;
+  const kept = [];
+  let used = 0;
+  for (const attribution of attributions) {
+    const size = Buffer.byteLength(attribution) + (kept.length > 0 ? 2 : 0);
+    if (used + size > budget) break;
+    kept.push(attribution);
+    used += size;
+  }
+  const omitted = crawlerIds.slice(kept.length);
+  const summary = `\n\n… ${omitted.length} more crawler(s) omitted (group commit message size cap): ${omitted.join(', ')}`;
+  return `${header}${kept.join('\n\n')}${summary}`;
 }
 
 export function runCrawlerGroupCommitBatchReceiptsCli() {
@@ -579,6 +636,7 @@ export function runCrawlerGroupCommitBatchReceiptsCli() {
   for (const descriptor of descriptors) {
     const receipt = createCrawlerGenerationReceipt({
       cwd,
+      generationToken: descriptor.generationToken,
       crawlerId: descriptor.crawlerId,
       outcome,
       commit,

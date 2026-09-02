@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-zollikerberg",
-  "assembledAt": "2026-09-01T14:08:49.690Z",
+  "assembledAt": "2026-09-01T23:06:53.615Z",
   "jobs": [
     {
       "id": "spital-zollikerberg-82230b011fcc",
@@ -34,7 +34,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=418f1019-81e8-4689-b725-0c75a219bdd7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:08:46.315Z",
+      "crawledAt": "2026-09-01T23:06:50.998Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,12 +55,14 @@
         "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-1",
         "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
         "vocational-trainer-vocational-trainer-professional-health-specialist-at-the-interdisciplinary-private-station-1",
-        "entraineur-professionnel-entraineur-professionnel-specialiste-de-la-sante-a-la-station-privee-interdisciplinaire-1"
+        "entraineur-professionnel-entraineur-professionnel-specialiste-de-la-sante-a-la-station-privee-interdisciplinaire-1",
+        "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-f1aeee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-1",
-          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren"
+          "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
+          "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-f1aeee"
         ],
         "en": [
           "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
@@ -117,7 +119,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=e8e2039c-9552-498d-b62c-d4e06541d0de,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:08:46.314Z",
+      "crawledAt": "2026-09-01T23:06:50.997Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,12 +141,14 @@
         "assistant-de-pratique-medicale-assistant-de-pratique-medicale-domaines-de-genie-medical-spital-zollikerberg-zollikerberg",
         "assistente-di-pratica-medica-assistente-di-pratica-medica-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
         "medical-practice-assistant-medical-practice-assistant-medical-engineering-areas-diakoniewerk-neumunster-gesundheitswelt",
-        "assistant-en-medecine-assistant-en-medecine-genie-medical-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+        "assistant-en-medecine-assistant-en-medecine-genie-medical-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "assistente-di-pratica-medica-assistente-di-pratica-medica-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
-          "assistente-di-pratica-medica-assistente-di-pratica-medica-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+          "assistente-di-pratica-medica-assistente-di-pratica-medica-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
@@ -169,8 +173,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "spital-zollikerberg-da12fe20d889",
@@ -204,7 +207,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=8c6c19e6-b770-4a61-8637-09c4028d161d,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:08:46.314Z",
+      "crawledAt": "2026-09-01T23:06:50.996Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -227,13 +230,15 @@
         "dipl-infermieristica-professionale-dipl-infermieristica-professionale-nell-ambulatorio-medico-diakoniewerk-neumunster",
         "dipl-pflegefachfrau-dipl-pflegefachmann-im-medizinischen-ambulatorium-diakoniewerk",
         "dipl-nursing-professional-dipl-nursing-professional-in-the-medical-ambulatorium-diakoniewerk-neumunster-gesundheitswelt",
-        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-dans-l-ambulatoire-medical-diakoniewerk"
+        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-infirmiers-dans-l-ambulatoire-medical-diakoniewerk",
+        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-nell-ambulatorio-medico-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-im-medizinischen-ambulatorium-spital-zollikerberg",
           "dipl-infermieristica-professionale-dipl-infermieristica-professionale-nell-ambulatorio-medico-diakoniewerk-neumunster",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-im-medizinischen-ambulatorium-diakoniewerk"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-im-medizinischen-ambulatorium-diakoniewerk",
+          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-nell-ambulatorio-medico-spital-zollikerberg"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-im-medizinischen-ambulatorium-spital-zollikerberg",
@@ -297,7 +302,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3a5d2bce-94f8-4ec4-b273-b2d99345170c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:08:46.312Z",
+      "crawledAt": "2026-09-01T23:06:50.990Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -318,13 +323,15 @@
         "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-spital-zollikerberg-zollikerberg",
         "apprendistato-come-kauffrau-kaufmann-cfc-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
         "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-diakoniewerk-neumuenster-zollikerberg",
-        "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital"
+        "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
+        "apprendistato-come-kauffrau-kaufmann-cfc-middle-office-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-spital-zollikerberg-zollikerberg",
           "apprendistato-come-kauffrau-kaufmann-cfc-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zollikerberg",
-          "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-diakoniewerk-neumuenster-zollikerberg"
+          "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-diakoniewerk-neumuenster-zollikerberg",
+          "apprendistato-come-kauffrau-kaufmann-cfc-middle-office-spital-zollikerberg"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-efz-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital",
@@ -385,7 +392,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=5c05c513-b17c-4577-b001-2897068b6a7b,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:08:46.311Z",
+      "crawledAt": "2026-09-01T23:06:50.989Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -464,7 +471,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=037abc56-876b-45ef-88c9-1889ff85411f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:08:46.309Z",
+      "crawledAt": "2026-09-01T23:06:50.986Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -481,6 +488,22 @@
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=037abc56-876b-45ef-88c9-1889ff85411f,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg",
+        "dipl-infermieristica-professionale-dipl-infermieristica-stazione-privata-professionale-spital-zollikerberg-zollikerberg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg",
+          "dipl-infermieristica-professionale-dipl-infermieristica-stazione-privata-professionale-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg"
+        ]
+      },
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -494,21 +517,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-privatstation-spital-zollikerberg-zollikerberg"
-      ]
+      }
     }
   ]
 }

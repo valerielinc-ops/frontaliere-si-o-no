@@ -229,7 +229,13 @@ export async function fetchMigrosJobDetailUrls() {
       }
 
       await nextBtn.scrollIntoViewIfNeeded().catch(() => {});
-      await nextBtn.click();
+      try {
+        await nextBtn.click();
+      } catch (err) {
+        throw new Error(
+          `Migros discovery incomplete at page ${pageIdx}: next control click failed (${err?.message || err}).`,
+        );
+      }
       pageIdx += 1;
 
       // Re-poll the DOM until the clicked page actually renders new anchors.
@@ -244,6 +250,18 @@ export async function fetchMigrosJobDetailUrls() {
         for (const u of await collect()) allUrls.add(u);
         added = allUrls.size - before;
         if (added > 0) break;
+      }
+      if (added === 0) {
+        // The fixed poll budget above can still be mid-render on a genuinely
+        // slow (but real) last page. Give it one more chance keyed on actual
+        // network activity instead of another fixed wait: a page still
+        // fetching/rendering blocks here until it settles (bounded by
+        // paginationTimeoutMs); a page that is truly done (the real stall
+        // case) is already idle and this resolves immediately, changing
+        // nothing. This is what tells "slow" apart from "stalled".
+        await page.waitForLoadState('networkidle', { timeout: paginationTimeoutMs }).catch(() => {});
+        for (const u of await collect()) allUrls.add(u);
+        added = allUrls.size - before;
       }
       console.log(`  📄 Page ${pageIdx}: +${added} (${allUrls.size} total)`);
       if (added === 0) {

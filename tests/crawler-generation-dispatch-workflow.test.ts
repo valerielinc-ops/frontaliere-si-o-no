@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import YAML from 'yaml';
 import { describe, expect, it } from 'vitest';
 import { GROUP_IDS, createCrawlerGenerationSentinel } from '../scripts/lib/crawler-generation-contract.mjs';
@@ -10,14 +11,97 @@ import { collectRelativeImportClosure } from './helpers/collectRelativeImportClo
 const root = path.resolve(import.meta.dirname, '..');
 const orchestratorPath = '.github/workflows/orchestrate-crawlers.yml';
 const observerPath = '.github/corpus-workflows/observers/workflows/crawler-generation-observer-shadow.yml';
+const uploadArtifactV7Sha = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
+const shadowFinalizeName = 'Finalize translation shadow preflight v2 observation';
+const shadowUploadName = 'Upload translation shadow preflight v2 artifacts';
+const shadowCascadeEnv = {
+  SHADOW_RUN_ATTEMPT: '${{ github.run_attempt }}',
+  SHADOW_RUN_ID: '${{ github.run_id }}',
+  SHADOW_SOURCE_REPOSITORY: '${{ github.repository }}',
+  SHADOW_SOURCE_WORKFLOW: '${{ github.workflow_ref }}',
+  SHADOW_WORKFLOW_BLOB_SHA: '${{ github.workflow_sha }}',
+};
+const expectedShadowHashes = {
+  cascadeRun: 'd111ba88beb2ff9af1eb4246f81fdf7d9e87c866e7e0061b055430dc59e176af',
+  finalize: '74dee29ad0d005a9a350bfce73c68348ac31e3d50fe1b5c5c8df4803b9a7e857',
+  upload: '0c184849503095b03f5d268617fed8cfac7aa8fd4e112a99ed3aa7a782dc9568',
+};
 
 function translateStep(document: string) {
   const parsed = YAML.parse(document);
   return parsed.jobs.dispatch.steps.find((step: any) => step.name === 'Dispatch translate-pending (frontaliere-articles)');
 }
 
+function sha256(value: string) {
+  return createHash('sha256').update(value).digest('hex');
+}
+
+function cloneDocument<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value));
+}
+
+function findUniqueStep(steps: any[], name: string) {
+  const indexes = steps.flatMap((step, index) => step.name === name ? [index] : []);
+  expect(indexes, `${name}: expected exactly one step`).toHaveLength(1);
+  const index = indexes[0];
+  return { index, step: steps[index] };
+}
+
+function expectCurrentShadowContract(currentDocument: any, baseDocument: any, sourceDocument: any) {
+  expect(currentDocument).toEqual(baseDocument);
+  expect(currentDocument.concurrency).toEqual({
+    group: 'jobs-data-pipeline',
+    'cancel-in-progress': false,
+    queue: 'max',
+  });
+
+  const currentSteps = currentDocument.jobs.translate.steps;
+  const sourceSteps = sourceDocument.jobs.translate.steps;
+  const cascadeName = 'Phase 2b: Translate pending jobs (cascade top-up)';
+  const currentCascade = findUniqueStep(currentSteps, cascadeName).step;
+  const sourceCascade = findUniqueStep(sourceSteps, cascadeName).step;
+  expect(currentCascade.id).toBe('translation_shadow_preflight_v2_decision');
+  expect(typeof currentCascade.run).toBe('string');
+  expect(sha256(currentCascade.run)).toBe(expectedShadowHashes.cascadeRun);
+  expect(Object.fromEntries(Object.keys(shadowCascadeEnv).map((key) => [
+    key, currentCascade.env[key],
+  ]))).toEqual(shadowCascadeEnv);
+  expect(currentCascade).toEqual(sourceCascade);
+
+  const finalize = findUniqueStep(currentSteps, shadowFinalizeName);
+  const upload = findUniqueStep(currentSteps, shadowUploadName);
+  const rollup = findUniqueStep(currentSteps, 'Roll up translation observability history');
+  expect(finalize.index + 1).toBe(upload.index);
+  expect(upload.index + 1).toBe(rollup.index);
+  expect(Object.keys(finalize.step).sort()).toEqual([
+    'continue-on-error', 'env', 'id', 'if', 'name', 'run',
+  ]);
+  expect(Object.keys(finalize.step.env).sort()).toEqual([
+    'SHADOW_DEFAULT_COMPANY_KEY', 'SHADOW_DEFAULT_DRY_RUN', 'SHADOW_DEFAULT_MAX_JOBS',
+    'SHADOW_DEFAULT_MOPUP_MAX_JOBS', 'SHADOW_DEFAULT_SKIP_HOUSEKEEPING',
+    'SHADOW_DEFAULT_SKIP_TRANSLATE', 'SHADOW_EVENT_ACTION', 'SHADOW_EVENT_NAME',
+    'SHADOW_EXPECTED_CONTRACT_DIGEST', 'SHADOW_EXPECTED_DECISION_DIGEST',
+    'SHADOW_FINAL_TRANSLATION_COMMIT', 'SHADOW_OBSERVED_JOB_STATUS', 'SHADOW_RUN_ATTEMPT',
+    'SHADOW_RUN_ID', 'SHADOW_SOURCE_COMMIT', 'SHADOW_SOURCE_REPOSITORY',
+    'SHADOW_SOURCE_WORKFLOW', 'SHADOW_WORKFLOW_BLOB_SHA',
+  ]);
+  expect(Object.keys(upload.step).sort()).toEqual([
+    'continue-on-error', 'if', 'name', 'uses', 'with',
+  ]);
+  expect(Object.keys(upload.step.with).sort()).toEqual([
+    'if-no-files-found', 'name', 'path', 'retention-days',
+  ]);
+  expect(finalize.step).toEqual(findUniqueStep(sourceSteps, shadowFinalizeName).step);
+  expect(upload.step).toEqual(findUniqueStep(sourceSteps, shadowUploadName).step);
+  expect(sha256(JSON.stringify(finalize.step))).toBe(expectedShadowHashes.finalize);
+  expect(sha256(JSON.stringify(upload.step))).toBe(expectedShadowHashes.upload);
+  expect(upload.step.uses).toBe(`actions/upload-artifact@${uploadArtifactV7Sha}`);
+  expect(findUniqueStep(currentSteps, 'Upload translation observability report').step)
+    .toEqual(findUniqueStep(sourceSteps, 'Upload translation observability report').step);
+}
+
 describe('crawler generation PR B workflow wiring', () => {
-  it('keeps the legacy dispatch unchanged while queuing only portable translation runs', () => {
+  it('keeps the current portable translation baseline and every generation group token/ref/hash-bound', () => {
     const base = execFileSync('git', ['show', `origin/main:${orchestratorPath}`], { encoding: 'utf8' });
     const current = fs.readFileSync(orchestratorPath, 'utf8');
     expect(translateStep(current)).toEqual(translateStep(base));
@@ -31,13 +115,15 @@ describe('crawler generation PR B workflow wiring', () => {
       'cancel-in-progress': false,
       queue: 'max',
     });
-    const { concurrency: _currentConcurrency, ...portableCurrentWithoutConcurrency } = portableCurrent;
-    const { concurrency: _baseConcurrency, ...portableBaseWithoutConcurrency } = portableBase;
-    expect(portableCurrentWithoutConcurrency).toEqual(portableBaseWithoutConcurrency);
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
     ));
+    expectCurrentShadowContract(portableCurrent, portableBase, sourceTranslate);
+    const baselineMutation = cloneDocument(portableCurrent);
+    baselineMutation.jobs.translate['timeout-minutes'] += 1;
+    expect(() => expectCurrentShadowContract(baselineMutation, portableBase, sourceTranslate))
+      .toThrowError();
     const currentTriggerDeploy = portableCurrent.jobs.translate.steps
       .find((step: any) => step.name === 'Trigger deploy');
     const sourceTriggerDeploy = sourceTranslate.jobs.translate.steps
@@ -45,31 +131,54 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(currentTriggerDeploy).toBeDefined();
     expect(sourceTriggerDeploy).toBeDefined();
     expect(currentTriggerDeploy).toEqual(sourceTriggerDeploy);
+    const contract = JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'));
     for (const group of GROUP_IDS) {
-      const crawler = YAML.parse(fs.readFileSync(
-        `.github/corpus-workflows/crawler-group-${group}.yml`,
-        'utf8',
-      ));
+      const workflowPath = `.github/corpus-workflows/crawler-group-${group}.yml`;
+      const workflowSource = fs.readFileSync(workflowPath, 'utf8');
+      const crawler = YAML.parse(workflowSource);
+      expect(crawler).toEqual(YAML.parse(execFileSync(
+        'git', ['show', `origin/main:${workflowPath}`], { encoding: 'utf8' },
+      )));
       expect(crawler.concurrency).toEqual({
         group: `jobs-crawler-group-${group}`,
         'cancel-in-progress': false,
       });
+      expect(crawler['run-name']).toBe(`crawler-generation-${'${{ inputs.generation_token }}'}-group-${group}`);
+      expect(crawler.on.workflow_dispatch.inputs.generation_token)
+        .toMatchObject({ required: false, default: '', type: 'string' });
+      const job = Object.values(crawler.jobs)[0] as any;
+      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe('${{ inputs.generation_token }}');
+      const siteCheckouts = job.steps.filter((step: any) => step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no');
+      expect(siteCheckouts).toHaveLength(2);
+      expect(siteCheckouts.every((step: any) => step.with.ref === "${{ inputs.site_code_commit || 'main' }}"))
+        .toBe(true);
+      const artifact = contract.artifacts.find((entry: any) => entry.file === `crawler-group-${group}.yml`);
+      expect(artifact?.artifactSha256).toBe(sha256(workflowSource));
+      expect(artifact?.sourceSha256).toBe(sha256(fs.readFileSync(
+        `.github/workflows/${artifact.sourceLogic}`,
+        'utf8',
+      )));
     }
-    expect(JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'))
-      .crawlerGeneration.dispatchesTranslation).toBe(false);
+    expect(contract.crawlerGeneration).toMatchObject({ mode: 'shadow', dispatchesTranslation: false });
   });
 
   it('wires checkpointed generation dispatch and an always-run sentinel without return_run_details', () => {
     const source = fs.readFileSync(orchestratorPath, 'utf8');
     const parsed = YAML.parse(source);
     const steps = parsed.jobs.dispatch.steps;
+    const preflight = steps.find((step: any) => step.name === 'Preflight crawler generation shadow transport');
     const dispatch = steps.find((step: any) => step.name === 'Dispatch crawler generation wave');
     const sentinel = steps.find((step: any) => step.name === 'Dispatch crawler generation sentinel');
     const cleanup = steps.find((step: any) => step.name === 'Cleanup accepted crawler generation ref');
+    const failureReporter = steps.find((step: any) => step.name === 'Report failure to GitHub Issues');
+    expect(preflight).not.toHaveProperty('continue-on-error');
     expect(dispatch.id).toBe('generation_wave');
+    expect(dispatch.if).toBe("steps.generation_preflight.outputs.ready == 'true'");
     expect(dispatch.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-groups');
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');
+    expect(dispatch.env.CORPUS_CODE_COMMIT).not.toContain('unavailable');
+    expect(dispatch.env.SHADOW_READY).toBe('${{ steps.generation_preflight.outputs.ready }}');
     expect(sentinel.if).toBe('always()');
     expect(sentinel.id).toBe('generation_sentinel');
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
@@ -81,6 +190,9 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(cleanup.run).toContain('scripts/crawler-generation-dispatch.mjs cleanup-ref');
     expect(cleanup.env).not.toHaveProperty('GITHUB_PAT_NANAKO');
     expect(JSON.stringify(cleanup)).not.toContain('secrets.GITHUB_PAT_NANAKO');
+    expect(failureReporter.if).toBe('failure()');
+    expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
+    expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
     const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');

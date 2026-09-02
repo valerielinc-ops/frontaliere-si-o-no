@@ -1,7 +1,56 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-09-01T15:46:23.166Z",
+  "assembledAt": "2026-09-01T23:08:15.478Z",
   "jobs": [
+    {
+      "title": "IT Supporter/in (50-80%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/it-supporter-in-50-80_2026-2224/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "technology",
+      "description": "Ti piace aiutare le persone, hai una predisposizione per la tecnologia e riesci a trovare soluzioni sostenibili anche per sfide IT complesse. In qualità di Senior IT Supporter con esperienza nei progetti, sei il punto di riferimento principale per i nostri collaboratori e garantisci che i nostri servizi IT siano disponibili in modo affidabile, sicuro ed efficiente. Oltre al supporto IT operativo, ti assumi responsabilità nei progetti IT, contribuisci attivamente con la tua esperienza e promuovi l’ulteriore sviluppo dei nostri sistemi. Con il tuo approccio strutturato garantisci un funzionamento stabile e un livello di servizio costantemente elevato.\n\nCosa puoi fare\n• Entgegennahme, Analyse und Bearbeitung von Supportanfragen inkl. Beratung und Unterstützung der Anwender\n\n• Selbstständige Analyse und Behebung von Störungen sowie Koordination von Eskalationen an zuständige Stellen\n\n• Installation, Konfiguration und Wartung von Arbeitsplatzsystemen, Peripherie und Standardsoftware (inkl. M365)\n\n• Abwicklung von IT-Services gemäss Servicekatalog inkl. Dokumentation, Pflege von Anleitungen und IT-Inventar\n\n• Mitarbeit in IT-Projekten, im Scrum-Prozess sowie Unterstützung bei der Weiterentwicklung der IT-Services\n\nEcco perché sei la persona giusta\n• Abgeschlossene Informatikausbildung oder Weiterbildung im Bereich Informatik\n\n• Mehrjährige Erfahrung im IT-Support / Service Desk (inkl. Ticketing-Systeme wie TopDesk)\n\n• Hohe Serviceorientierung, ausgeprägte Kommunikationsfähigkeit und freundliches Auftreten\n\n• Strukturierte, lösungsorientierte Arbeitsweise sowie Erfahrung in Triage und Incident Handling\n\n• Gute Kenntnisse in Microsoft 365, Arbeitsplatzsystemen und Peripherie sowie Verständnis für IT-Prozesse (ITIL von Vorteil)\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien\n\n• Möglichkeit zur internen und externen Weiterbildung mit finanzieller Unterstützung durch die RhB\n Ulteriori informazioni Dass du mit uns etwas bewegen willst, ist für uns die grösste Motivation. Darum verzichten wir bei dieser Stelle auf ein Motivationsschreiben. Falls du uns deine Motivation dennoch mitteilen möchtest, hast du in unserem Bewerbungstool nach wie vor die Möglichkeit dazu.",
+      "postedDate": "2026-09-01",
+      "source": "company-website",
+      "sourceLang": "it",
+      "slug": "it-supporter-in-50-80-ferrovia-retica-rhb-chur",
+      "slugByLocale": {
+        "it": "it-supporter-in-50-80-ferrovia-retica-rhb-chur",
+        "en": "senior-it-support-specialist-ferrovia-retica-rhb-chur",
+        "de": "it-supporter-in-50-80-ferrovia-retica-rhb-chur",
+        "fr": "support-informatique-50-80-ferrovia-retica-rhb-chur"
+      },
+      "titleByLocale": {
+        "it": "IT Supporter/in (50-80%)",
+        "de": "IT Supporter/in (50-80%)"
+      },
+      "percentage": "50-80%",
+      "crawledAt": "",
+      "descriptionByLocale": {},
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "salaryMin": 48000,
+      "salaryMax": 81600,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 81600,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T23:08:15.477Z"
+    },
     {
       "title": "Ausbildner/in Triebfahrzeugführende VTE (80-100%) Landquart",
       "company": "Ferrovia Retica (RhB)",
@@ -481,61 +530,6 @@
       "firstSeenAt": "2026-08-07T01:11:49.520Z",
       "needsRetranslation": true,
       "salarySource": "estimated"
-    },
-    {
-      "title": "Ausbildung als Lokführer/in (100%) Region Nord",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/ausbildung-als-lokfuhrer-in-100-region-nord_2026-2145/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "transport",
-      "description": "Hai un buon senso della tecnologia e ti piace assumerti responsabilità? Come macchinista della RhB guidi i nostri treni in modo sicuro e puntuale attraverso il cuore delle Alpi, sui viadotti, lungo ghiacciai e laghi. Il tuo lavoro: affascinante e diverso.\n\nCosa puoi fare\n• Du wirst auf allen im Einsatz stehenden Triebfahrzeugen ausgebildet\n\n• Du bist praktisch auf dem gesamten Netz der Rhätischen Bahn unterwegs\n\n• Neben Personen- und Güterzügen fährst du auch Autozüge am Vereina sowie Bauzüge\n\n• Du bringst unsere Fahrgäste sicher, pünktlich und sorgenfrei ans Ziel\nRegeln und Vorschriften schätzt du und handelst danach\n\n• Als Teil der Rhätischen Bahn repräsentierst du mit Stolz unser Unternehmen und deine Berufsgruppe\n Ecco perché sei la persona giusta\n• Abgeschlossene, dreijährige Berufslehre (EFZ) oder Matura (zwingende Voraussetzung)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Niveau C)\n\n• Medizinische und psychologische Tauglichkeit (Abklärungen erfolgen im Rahmen der Rekrutierung)\n\n• Einwandfreier Strafregisterauszug\n\n• Hohes Sicherheits- und Verantwortungsbewusstsein sowie Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Im Besitz des PW-Führerausweises Kat. B\n Cosa ti offriamo\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privaten Nutzung\n\n• Flexible Teilzeitmodelle (frühestens nach Ausbildungsabschluss)\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien (frühestens nach Ausbildungsabschluss)\n\n• Möglichkeit zu internen und externen Weiterbildung mit finanzieller Unterstützung\n Ulteriori informazioni Für eine zeitnahe Prüfung und Rückmeldung bitten wir um die Einreichung eines vollständigen Bewerbungsdossiers.\n\nBitte informiere dich hier über weitere Details zur Ausbildung , zum Lokführerberuf und zum Rekrutierungsablauf.\n\nInteressierst du dich für Arbeitsort Engadin? Hier findest du die Stellenausschreibung .\n\nDie nächsten Ausbildungen starten am:\n\n1. Februar 2027\n\n1. Mai 2027\n\nAusbildungsort ist Landquart. Mögliche Versetzung nach der Ausbildung ins Depot Landquart, Chur oder Davos.",
-      "postedDate": "2026-09-01",
-      "source": "company-website",
-      "sourceLang": "it",
-      "slug": "ausbildung-als-lokfuhrer-in-100-region-nord-ferrovia-retica-rhb-chur",
-      "slugByLocale": {
-        "it": "ausbildung-als-lokfuhrer-in-100-region-nord-ferrovia-retica-rhb-chur",
-        "en": "ausbildung-als-lokfuhrer-in-100-region-nord-ferrovia-retica-rhb-chur",
-        "de": "ausbildung-als-lokfuhrer-in-100-region-nord-ferrovia-retica-rhb-chur",
-        "fr": "ausbildung-als-lokfuhrer-in-100-region-nord-ferrovia-retica-rhb-chur"
-      },
-      "titleByLocale": {
-        "it": "Ausbildung als Lokführer/in (100%) Region Nord",
-        "en": "Ausbildung als Lokführer/in (100%) Northern Region",
-        "de": "Ausbildung als Lokführer/in (100 %) Region Nord",
-        "fr": "Ausbildung als Lokführer/dans la région nord (100%)"
-      },
-      "percentage": "",
-      "crawledAt": "",
-      "descriptionByLocale": {
-        "en": "Do you have a good sense of technology and like to take responsibility? As a RhB engineer, you drive our trains safely and punctually through the heart of the Alps, on the viaducts, along glaciers and lakes. Your work: fascinating and different.\n\nWhat you can do\n• Du wirst auf allen im Einsatz stehenden Triebfahrzeugen ausgebildet\n\n• Du bist praktisch auf dem gesamten Netz der Rhätischen Bahn unterwegs\n\n• Neben Personen- und Güterzügen fährst du auch Autozüge am Vereina sowie Bauzüge\n\n• Du bringt unsere Fahrgäste sicher, pünktlich und nascenfrei ans Ziel\nRegeln und Vorschriften schätzt du und handelst danach\n\n• Als Teil der Rhätischen Bahn repräsentierst du mit Stolz unser Unternehmen und deine Berufsgruppe\nThat's why you're the right person\n• Abgeschlossene, dreijährige Berufslehre (EFZ) oder Matura (zwingende Voraussetzung)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Niveau C)\n\n• Medizinische und psychologische Tauglichkeit (Abklärungen erfolgen im Rahmen der Rekrutierung)\n\n• Einwandfreier Strafregisterauszug\n\n• Hohes Sicherheits- und Verantwortungsbewusstsein sowie Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Im Besitz des PW-Führerausweises Kat. B\nWhat we offer\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privatin Nutzung\n\n• Flexible Teilzeitmodelle (frühestens nach Ausbildungsabschluss)\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien (frühestens nach Ausbildungsabschluss)\n\n• Möglichkeit zu internan und externen Weiterbildung mit finanzieller Unterstützung\nFür eine zeitnahe Prüfung und Rückmeldung bitten wir um die Einreichung eines vollständigen Bewerbungsdossiers.\n\nDetails zur Ausbildung, zum Lokführerberuf und zum Rekrutierungsablauf.\n\nInteressierst du dich für Arbeitsort Engadin? Hier findest du die Stellenausschreibung .\n\nDie nächsten Ausbildungen starten am:\n\n1. Februar 2027\n\n1. Never 2027\n\nAusbildungsort ist Landquart. Mögliche Versetzung nach der Ausbildung ins Depot Landquart, Chur oder Davos.",
-        "de": "Haben Sie ein gutes Gespür für Technologie und übernehmen gerne Verantwortung? Als RhB-Ingenieur fahren Sie unsere Züge sicher und pünktlich durch das Herz der Alpen, auf den Viadukten, entlang von Gletschern und Seen. Ihre Arbeit: faszinierend und anders.\n\nWas Sie tun können\n• Du wirst auf allen im Einsatz stehenden Triebfahrzeugen geschult\n\n• Du bist praktisch auf dem gesamten Netz der Rhätischen Bahn unterwegs\n\n• Neben Personen- und Güterzügen fährst du auch Autozüge am Vereina sowie Bauzüge\n\n• Du brings unsere Fahrgäste sicher, pünktlich und nascenfrei ans Ziel\nRegeln und Vorschriften quant du und handelst danach\n\n• Als Teil der Rhätischen Bahn repräsentierst du mit Stolz unsere Unternehmen und deine Berufsgruppe\nDeshalb bist du die richtige Person\n• Abgeschlossene, dreijährige Berufslehre (EFZ) oder Matura (zwingende Voraussetzung)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Niveau C)\n\n• Medizinische und psychologische Tauglichkeit (Abklärungen erfolgen im Rahmen der Rekrutierung)\n\n• Einwandfreier Strafregisterauszug\n\n• Hohes Sicherheits- und Verantwortungsbewusstsein sowie Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Im Besitz des PW-Führerausweises Kat. B\nWas wir bieten\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und Abo zur geschäftlichen und privatin Nutzung\n\n• Flexible Teilzeitmodelle (frühestens nach Ausbildungsabschluss)\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien (frühestens nach Ausbildungsabschluss)\n\n• Möglichkeit zu internan und externe Weiterbildung mit finanzieller Unterstützung\nFür eine zeitnahe Prüfung und Rückmeldung gebissen wir um die Einreichung eines vollständigen Bewerbungsdossiers.\n\nDetails zur Ausbildung, zum Lokführerberuf und zum Rekrutierungsablauf.\n\nInteressierst du für Arbeitsort Engadin? Hier findest du die Stellenausschreibung .\n\nDie nächsten Ausbildungen starten am:\n\n1. Februar 2027\n\n1. Niemals 2027\n\nAusbildungsort ist Landquart. Mögliche Versetzung nach der Ausbildung ins Depot Landquart, Chur oder Davos.",
-        "fr": "Avez-vous un bon sens de la technologie et aimez-vous prendre des responsabilités? En tant qu'ingénieur RhB, vous conduisez nos trains en toute sécurité et ponctuellement à travers le cœur des Alpes, sur les viaducs, le long des glaciers et des lacs. Votre travail : fascinant et différent.\n\nCe que vous pouvez faire\n• Du wirst auf allen im Einsatz stehenden Triebfahrzeugen ausgebildet\n\n• Du bist praktisch auf dem gesamten Netz der Rhätischen Bahn unterwegs\n\n• Neben Personen- und Güterzügen fährst du auch Autozüge am Vereina sowie Bauzüge\n\n• Du apporter unsere Fahrgäste sicher, pünktlich und nascenfrei ans Ziel\nRegeln und Vorschriften schätzt du und handelst danach\n\n• Als Teil der Rhätischen Bahn repräsentierst du mit Stolz unser Unternehmen und deine Berufsgruppe\nC'est pourquoi tu es la bonne personne.\n• Abgeschlossène, dreijährige Berufslehre (EFZ) oder Matura (zwingende Vorassetzung)\n\n• Sehr gute mündliche und schriftliche Deutschkenntnisse (Niveau C)\n\n• Medizinische und psychologische Tauglichkeit (Abklärungen erfolgen im Rahmen der Rekrutierung)\n\n• Einwandfreier Strafregisterauszug\n\n• Hohes Sicherheits- und Verantwortungsbewustsein sowie Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Im Besitz des PW-Führerausweises Kat. B\nCe que nous offrons\n• 2. Klasse Generalabonnement\n\n• Freifahrscheine und Vergünstigungen auf Bahnfahrten im Ausland\n\n• Bezahltes Mobiltelefon und -Abo zur geschäftlichen und privatif Nutzung\n\n• Teilzeitmodelle flexible (frühestens nach Ausbildungsabschluss)\n\n• Attraktive Sozialnebenleistungen und Pensionskasse mit sehr guten Leistungen\n\n• Zusätzlicher Kauf von Ferien (frühestens nach Ausbildungsabschluss)\n\n• Möglichkeit zu internan und externen Weiterbildung mit finanzieller Unterstützung\nFür eine zeitnahe Prüfung und Rückmeldung bitten wir um die Einreichung eines vollständigen Bewerbungsdossiers.\n\nDétails zur Ausbildung, zum Lokführerberuf und zum Rekrutierungsablauf.\n\nInteressierst du dich für Arbeitsort Engadin ? Hier trouver du die Stellenausschreibung .\n\nDie nächsten Ausbildungen commence par:\n\n1. Février 2027\n\n1. Jamais 2027\n\nAusbildungsort est Landquart. Mögliche Versetzung nach der Ausbildung ins Depot Landquart, Chur oder Davos."
-      },
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-01T07:31:48.713Z"
     }
   ]
 }

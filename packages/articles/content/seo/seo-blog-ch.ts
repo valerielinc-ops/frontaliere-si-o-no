@@ -64721,6 +64721,942 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-formazione-friburgo': {
+    title: 'Apprendistato nel Canton Friburgo: guida pratica',
+    description: 'Come trovare un posto di tirocinio, sottoscrivere il contratto, conoscere diritti e retribuzione nel Canton Friburgo. Sistema AFC e formazione professionale',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, canton, friburgo, pratica',
+    ogTitle: 'Apprendistato nel Canton Friburgo: guida pratica',
+    ogDescription: 'Cerchi un apprendistato nel Canton Friburgo? Scopri come trovare un posto, i tuoi diritti, lo stipendio e come accedere alla maturità professionale nel sistema formativo svizzero.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-friburgo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato nel Canton Friburgo: guida pratica",
+      "description": "Come trovare un posto di tirocinio, sottoscrivere il contratto, conoscere diritti e retribuzione nel Canton Friburgo. Sistema AFC e formazione professionale",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-friburgo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendisti durante una lezione pratica in un laboratorio di formazione professionale svizzero"
+      },
+      "datePublished": "2026-09-01T19:13:04+00:00",
+      "dateModified": "2026-09-01T19:13:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-friburgo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-custodia-bambini-friburgo-costi-sussidi': {
+    title: 'Asilo nido Friburgo: custodia bambini, costi | Frontaliere Ticino',
+    description: 'Custodia bambini nel Canton Friburgo: tariffe, sussidi disponibili e procedure per richiedere i contributi cantonali alle famiglie. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, friburgo, custodia',
+    ogTitle: 'Asilo nido Friburgo: custodia bambini, costi',
+    ogDescription: 'Custodia bambini nel Canton Friburgo: tariffe, sussidi disponibili e procedure per richiedere i contributi cantonali alle famiglie.',
+    canonicalPath: '/articoli-svizzera/custodia-bambini-friburgo-costi-sussidi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido Friburgo: custodia bambini, costi",
+      "description": "Custodia bambini nel Canton Friburgo: tariffe, sussidi disponibili e procedure per richiedere i contributi cantonali alle famiglie. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/custodia-bambini-friburgo-costi-sussidi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Asilo nido in Svizzera con bambini che giocano, educatori e arredo colorato"
+      },
+      "datePublished": "2026-09-01T19:42:33+00:00",
+      "dateModified": "2026-09-01T19:42:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/custodia-bambini-friburgo-costi-sussidi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-shein-ipo-hong-kong-malus-francese': {
+    title: 'Sbarco in Borsa in chiaroscuro per la fast fashion di Shein',
+    description: 'IPO di Shein a Hong Kong il 1° settembre 2026 raccoglie 1,75 miliardi USD con calo del 10%. Francia introduce «malus» fino a 19,50 € sulla moda usa e getta',
+    keywords: 'frontalieri, ticino, svizzera, italia, sbarco, borsa, chiaroscuro, fast',
+    ogTitle: 'Sbarco in Borsa in chiaroscuro per la fast fashion di Shein',
+    ogDescription: 'IPO di Shein a Hong Kong 1° settembre 2026: raccolta 1,75 miliardi USD ma calo 10%. Francia introduce «malus» fino 19,50 € per capo. Svizzera mantiene regole meno stringenti, prezzi ancora competitivi online per consumatori svizzeri.',
+    canonicalPath: '/articoli-svizzera/shein-ipo-hong-kong-malus-francese/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sbarco in Borsa in chiaroscuro per la fast fashion di Shein",
+      "description": "IPO di Shein a Hong Kong il 1° settembre 2026 raccoglie 1,75 miliardi USD con calo del 10%. Francia introduce «malus» fino a 19,50 € sulla moda usa e getta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/shein-ipo-hong-kong-malus-francese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via commerciale svizzera con vetrine e pacchi di spedizione online impilati sul marciapiede, simbolo del contrasto tra vendita tradizionale e e-commerce di moda fast fashion."
+      },
+      "datePublished": "2026-09-01T19:56:56+00:00",
+      "dateModified": "2026-09-01T19:56:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/shein-ipo-hong-kong-malus-francese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-friburgo-deposito-disdetta-locazione': {
+    title: 'Diritto di locazione nel Cantone Friburgo: guida pratica',
+    description: 'Deposito cauzionale max 3 mesi, contestazione canone iniziale entro 30 giorni, disdetta su modulo cantonale e autorità di conciliazione nel Cantone di Friburgo',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, cantone, friburgo',
+    ogTitle: 'Diritto di locazione nel Cantone Friburgo: guida pratica',
+    ogDescription: 'Nel Cantone di Friburgo il deposito cauzionale non può superare 3 mesi di pigione. Scopri come contestare il canone iniziale entro 30 giorni, compilare la disdetta su modulo ufficiale cantonale e ricorrere all\'autorità di conciliazione secondo',
+    canonicalPath: '/articoli-svizzera/affitti-friburgo-deposito-disdetta-locazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto di locazione nel Cantone Friburgo: guida pratica",
+      "description": "Deposito cauzionale max 3 mesi, contestazione canone iniziale entro 30 giorni, disdetta su modulo cantonale e autorità di conciliazione nel Cantone di Friburgo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-friburgo-deposito-disdetta-locazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Via residenziale nel Cantone di Friburgo con tipici edifici di appartamenti in affitto svizzeri."
+      },
+      "datePublished": "2026-09-01T20:14:11+00:00",
+      "dateModified": "2026-09-01T20:14:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-friburgo-deposito-disdetta-locazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-friburgo-contestazione-canone': {
+    title: 'Affitti in Friburgo: diritto di locazione | Frontaliere Ticino',
+    description: 'Guida federale su deposito cauzionale, contestazione canone, disdetta e conciliazione locazione in Friburgo secondo Codice Obbligazioni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, friburgo, diritto, locazione',
+    ogTitle: 'Affitti in Friburgo: diritto di locazione',
+    ogDescription: 'Come contestare il canone entro 30 giorni, gestire il deposito cauzionale su conto vincolato e disdire correttamente secondo il Codice Obbligazioni federale. Procedura step-by-step con l\'autorità conciliazione friburghese.',
+    canonicalPath: '/articoli-svizzera/affitti-friburgo-contestazione-canone/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti in Friburgo: diritto di locazione",
+      "description": "Guida federale su deposito cauzionale, contestazione canone, disdetta e conciliazione locazione in Friburgo secondo Codice Obbligazioni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-friburgo-contestazione-canone.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero con vista su paesaggio montano"
+      },
+      "datePublished": "2026-09-01T20:34:13+00:00",
+      "dateModified": "2026-09-01T20:34:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-friburgo-contestazione-canone/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-guida-friburgo-procedura': {
+    title: 'Patente di guida in Friburgo: conversione ed esami',
+    description: 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, friburgo, conversione, esami',
+    ogTitle: 'Patente di guida in Friburgo: conversione ed esami',
+    ogDescription: 'Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.',
+    canonicalPath: '/articoli-svizzera/patente-guida-friburgo-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida in Friburgo: conversione ed esami",
+      "description": "Procedura di conversione della patente estera nel Cantone di Friburgo: corsi obbligatori, esami teorici e pratici, documenti richiesti e roadmap step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-friburgo-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto su strada di montagna svizzera con segnaletica stradale e paesaggio alpino soleggiato"
+      },
+      "datePublished": "2026-09-01T20:58:54+00:00",
+      "dateModified": "2026-09-01T20:58:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-friburgo-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vendite-auto-svizzera-agosto-2026': {
+    title: 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    description: 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendite, auto, nuove, calo',
+    ogTitle: 'Vendite auto nuove in calo in agosto, quasi una su tre è elettrica',
+    ogDescription: 'Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Le auto ibride rappresentano il 37% delle vendite.',
+    canonicalPath: '/articoli-svizzera/vendite-auto-svizzera-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vendite auto nuove in calo in agosto, quasi una su tre è elettrica",
+      "description": "Le vendite di auto nuove in Svizzera sono diminuite dello 0,6% ad agosto, con quasi una vettura su tre venduta elettrica. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vendite-auto-svizzera-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con auto in movimento"
+      },
+      "datePublished": "2026-09-01T21:20:56+00:00",
+      "dateModified": "2026-09-01T21:20:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vendite-auto-svizzera-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-nido-custodia-bambini-grigioni': {
+    title: 'Asilo nido e custodia bambini nel Canton Grigioni',
+    description: 'Guida completa alla custodia dei bambini nel Grigioni: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini nel Canton Grigioni',
+    ogDescription: 'Scopri le opzioni di custodia nel Cantone Grigioni: asili nido, famiglie diurne, doposcuola. Impara come vengono calcolate le tariffe sulla base del reddito e quali sussidi pubblici puoi ricevere. Guida pratica per famiglie con figli.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-bambini-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini nel Canton Grigioni",
+      "description": "Guida completa alla custodia dei bambini nel Grigioni: asili nido, famiglie diurne, doposcuola, tariffe calcolate sul reddito e sussidi cantonali disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-bambini-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula di asilo nido moderno in Svizzera con bambini e educatrici intenti a giocare"
+      },
+      "datePublished": "2026-09-01T21:51:40+00:00",
+      "dateModified": "2026-09-01T21:51:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-bambini-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-acquisto-immobiliare-grigioni-mutuo': {
+    title: 'Comprare casa nel canton Grigioni: mutuo, costi e procedure',
+    description: 'Scopri come comprare casa nel canton Grigioni: procedure di compravendita, fondi propri, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, canton, grigioni',
+    ogTitle: 'Comprare casa nel canton Grigioni: guida ai costi',
+    ogDescription: 'Guida pratica all\'acquisto immobiliare nel Grigioni: procedure, tasse, mutuo ipotecario, fondi propri richiesti e sostenibilità del finanziamento. Scopri costi, imposte e come finanziare una casa nel canton Grigioni nel 2026.',
+    canonicalPath: '/articoli-svizzera/acquisto-immobiliare-grigioni-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel canton Grigioni: mutuo, costi e procedure",
+      "description": "Scopri come comprare casa nel canton Grigioni: procedure di compravendita, fondi propri, sostenibilità del mutuo ipotecario, imposte sui trapassi e spese",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/acquisto-immobiliare-grigioni-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa residenziale moderna con architettura tradizionale svizzera in ambiente alpino del canton Grigioni."
+      },
+      "datePublished": "2026-09-01T22:24:11+00:00",
+      "dateModified": "2026-09-01T22:24:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/acquisto-immobiliare-grigioni-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-soletta-locazione-affitti-guida-pratica': {
+    title: 'Mercato affitti Soletta: canoni e diritto di locazione',
+    description: 'Diritto di locazione nel Canton Soletta: deposito cauzionale max 3 mesi, disdetta su modulo ufficiale, contestazione canone entro 30 giorni, autorità',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, affitti, soletta, canoni',
+    ogTitle: 'Mercato affitti Soletta: canoni e diritto di locazione',
+    ogDescription: 'Nel Canton Soletta vale il diritto federale di locazione svizzero: deposito max 3 mesi, disdetta su modulo ufficiale, contestazione entro 30 giorni all\'autorità di conciliazione. Scopri come tutelare i tuoi diritti di inquilino.',
+    canonicalPath: '/articoli-svizzera/soletta-locazione-affitti-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato affitti Soletta: canoni e diritto di locazione",
+      "description": "Diritto di locazione nel Canton Soletta: deposito cauzionale max 3 mesi, disdetta su modulo ufficiale, contestazione canone entro 30 giorni, autorità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-locazione-affitti-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di una palazzina residenziale svizzera con finestre e balconi in contesto urbano"
+      },
+      "datePublished": "2026-09-01T23:05:26+00:00",
+      "dateModified": "2026-09-01T23:05:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-locazione-affitti-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-soletta-contestazione-canone-affitti': {
+    title: 'Diritto di locazione in Svizzera: canoni e contestazione',
+    description: 'Deposito cauzionale, contestazione canone, disdetta e ricorso: tutto sulla locazione abitativa in Svizzera, dal Codice delle Obbligazioni alle procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, diritto, locazione, canoni, contestazione',
+    ogTitle: 'Diritto di locazione in Svizzera: canoni e contestazione',
+    ogDescription: 'Scopri i tuoi diritti come inquilino in Svizzera: come contestare un canone ingiustificato, limiti del deposito cauzionale, procedure di ricorso presso l\'autorità di conciliazione cantonale.',
+    canonicalPath: '/articoli-svizzera/soletta-contestazione-canone-affitti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diritto di locazione in Svizzera: canoni e contestazione",
+      "description": "Deposito cauzionale, contestazione canone, disdetta e ricorso: tutto sulla locazione abitativa in Svizzera, dal Codice delle Obbligazioni alle procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soletta-contestazione-canone-affitti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un edificio residenziale svizzero con balconi moderni, strada tranquilla, fotografia realistica"
+      },
+      "datePublished": "2026-09-01T23:23:16+00:00",
+      "dateModified": "2026-09-01T23:23:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soletta-contestazione-canone-affitti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-soletta-diritti-inquilini': {
+    title: 'Affitti Soletta: canoni medi e diritto locazione',
+    description: 'Deposito cauzionale, contestazione canoni, disdetta e autorità di conciliazione: la guida completa al diritto di locazione nel Canton Soletta e in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, soletta, canoni, medi',
+    ogTitle: 'Affitti Soletta: canoni medi e diritto locazione',
+    ogDescription: 'Nel Canton Soletta, come in tutta la Svizzera, il diritto di locazione è federale. Scopri le regole su deposito cauzionale, contestazione canoni, disdetta e procedure di conciliazione con l\'autorità cantonale.',
+    canonicalPath: '/articoli-svizzera/affitti-soletta-diritti-inquilini/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Soletta: canoni medi e diritto locazione",
+      "description": "Deposito cauzionale, contestazione canoni, disdetta e autorità di conciliazione: la guida completa al diritto di locazione nel Canton Soletta e in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-soletta-diritti-inquilini.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio residenziale svizzero con balconate in quartiere urbano moderno."
+      },
+      "datePublished": "2026-09-01T23:45:14+00:00",
+      "dateModified": "2026-09-01T23:45:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-soletta-diritti-inquilini/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-grigioni-procedure-fondi': {
+    title: 'Comprare casa in Grigioni: guida a fondi e mutui',
+    description: 'Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, grigioni, fondi',
+    ogTitle: 'Comprare casa in Grigioni: guida a fondi e mutui',
+    ogDescription: 'Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-grigioni-procedure-fondi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Grigioni: guida a fondi e mutui",
+      "description": "Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-grigioni-procedure-fondi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale svizzero moderno con chalets tradizionali e appartamenti contemporanei su una valle alpina"
+      },
+      "datePublished": "2026-09-02T00:05:56+00:00",
+      "dateModified": "2026-09-02T00:05:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-grigioni-procedure-fondi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-grigioni-canoni-diritto': {
+    title: 'Affitti Grigioni: canoni, deposito e diritto di locazione',
+    description: 'Guida pratica al diritto di locazione svizzero nel Cantone Grigioni: deposito max 3 mesi, contestazione canone entro 30 giorni, disdetta 1-3 mesi. Procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, grigioni, canoni, deposito',
+    ogTitle: 'Affitti Grigioni: canoni, deposito e diritto di locazione',
+    ogDescription: 'Guida completa al diritto di locazione nelle Grigioni: deposito di garanzia massimo 3 mesi di pigione, contestazione del canone iniziale entro 30 giorni presso l\'autorità di conciliazione, termini di disdetta 1-3 mesi secondo l\'anno. Procedure',
+    canonicalPath: '/articoli-svizzera/affitti-grigioni-canoni-diritto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Grigioni: canoni, deposito e diritto di locazione",
+      "description": "Guida pratica al diritto di locazione svizzero nel Cantone Grigioni: deposito max 3 mesi, contestazione canone entro 30 giorni, disdetta 1-3 mesi. Procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-grigioni-canoni-diritto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio alpino svizzero con case tradizionali di pietra nelle Grigioni"
+      },
+      "datePublished": "2026-09-02T00:27:42+00:00",
+      "dateModified": "2026-09-02T00:27:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-grigioni-canoni-diritto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-grigioni-requisiti-procedura': {
+    title: 'Naturalizzazione a Grigioni: requisiti e procedura',
+    description: 'Naturalizzazione a Grigioni: requisiti federali, cantonali, test di lingua, integrazione, tasse e procedura completa per ottenere la cittadinanza svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, grigioni, requisiti, procedura',
+    ogTitle: 'Naturalizzazione a Grigioni: requisiti e procedura',
+    ogDescription: 'Come diventare cittadino svizzero nel canton Grigioni. Leggi i dettagli su requisiti federali e cantonali, test di lingua, integrazione, tasse e procedure ufficiali per la naturalizzazione ordinaria.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-grigioni-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione a Grigioni: requisiti e procedura",
+      "description": "Naturalizzazione a Grigioni: requisiti federali, cantonali, test di lingua, integrazione, tasse e procedura completa per ottenere la cittadinanza svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-grigioni-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sportello di un'amministrazione cantonale svizzera con moduli e documenti di naturalizzazione esposti, luce naturale."
+      },
+      "datePublished": "2026-09-02T01:11:29+00:00",
+      "dateModified": "2026-09-02T01:11:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-grigioni-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avs-prestazioni-complementari-grigioni': {
+    title: 'AVS e prestazioni complementari nel Canton Grigioni',
+    description: 'Scopri come funzionano AVS e prestazioni complementari nel Canton Grigioni. Guida pratica su cassa di compensazione, calcolo rendita e lacune contributive.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, grigioni',
+    ogTitle: 'AVS e prestazioni complementari nel Canton Grigioni',
+    ogDescription: 'Primo pilastro e prestazioni complementari nel Canton Grigioni: come accedere, calcolare la rendita AVS, colmare lacune contributive presso la cassa di compensazione cantonale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel Canton Grigioni",
+      "description": "Scopri come funzionano AVS e prestazioni complementari nel Canton Grigioni. Guida pratica su cassa di compensazione, calcolo rendita e lacune contributive.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrazione cantonale: consulente finanziario esamina documenti di previdenza e AVS"
+      },
+      "datePublished": "2026-09-02T01:39:16+00:00",
+      "dateModified": "2026-09-02T01:39:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-permesso-c-basilea-requisiti-domanda': {
+    title: 'Permesso C Basilea Città: requisiti e domanda | Frontaliere Ticino',
+    description: 'Permesso domicilio C Basilea: anni richiesti, integrazione, conoscenze linguistiche e procedura di domanda presso il cantone. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, basilea, città, requisiti',
+    ogTitle: 'Permesso C Basilea Città: requisiti e domanda',
+    ogDescription: 'Permesso domicilio C Basilea: anni richiesti, integrazione, conoscenze linguistiche e procedura di domanda presso il cantone.',
+    canonicalPath: '/articoli-svizzera/permesso-c-basilea-requisiti-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Basilea Città: requisiti e domanda",
+      "description": "Permesso domicilio C Basilea: anni richiesti, integrazione, conoscenze linguistiche e procedura di domanda presso il cantone. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-basilea-requisiti-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio migrazioni svizzero con documenti ufficiali e moduli per il permesso di domicilio C"
+      },
+      "datePublished": "2026-09-02T02:00:14+00:00",
+      "dateModified": "2026-09-02T02:00:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-basilea-requisiti-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-asilo-custodia-basilea-citta-tariffe': {
+    title: 'Asilo nido e custodia bambini a Basilea Città: tariffe e sussidi',
+    description: 'Guida alla custodia dei bambini nel canton Basilea Città: tariffe progressive, sussidi cantonali e deduzioni fiscali federali per famiglie. Come accedere',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Custodia bambini a Basilea Città: tariffe e sussidi cantonali',
+    ogDescription: 'Scopri le opzioni di custodia bambini nel canton Basilea Città: asili nido, tariffe progressive calcolate sul reddito, sussidi cantonali e deduzioni fiscali federali e cantonali. Guida pratica per famiglie.',
+    canonicalPath: '/articoli-svizzera/asilo-custodia-basilea-citta-tariffe/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini a Basilea Città: tariffe e sussidi",
+      "description": "Guida alla custodia dei bambini nel canton Basilea Città: tariffe progressive, sussidi cantonali e deduzioni fiscali federali per famiglie. Come accedere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-custodia-basilea-citta-tariffe.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro di custodia bambini svizzero con bambini che giocano e imparano in un ambiente luminoso e moderno."
+      },
+      "datePublished": "2026-09-02T02:13:24+00:00",
+      "dateModified": "2026-09-02T02:13:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-custodia-basilea-citta-tariffe/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-naturalizzazione-basilea-requisiti': {
+    title: 'Naturalizzazione Basilea Città: requisiti e procedura',
+    description: 'Guida completa alla naturalizzazione ordinaria nel Canton Basilea Città: requisiti federali e cantonali, test di lingua, integrazione, tasse e procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, basilea, città, requisiti',
+    ogTitle: 'Naturalizzazione Basilea Città: requisiti e procedura',
+    ogDescription: 'Scopri come ottenere la cittadinanza svizzera nel Canton Basilea Città. Guida completa: requisiti federali, test di lingua e integrazione, tasse, durata della procedura e step-by-step operativo.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-basilea-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Basilea Città: requisiti e procedura",
+      "description": "Guida completa alla naturalizzazione ordinaria nel Canton Basilea Città: requisiti federali e cantonali, test di lingua, integrazione, tasse e procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-basilea-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del municipio e dell'area amministrativa di Basilea Città, Svizzera, dove si svolgono le procedure di naturalizzazione ordinaria."
+      },
+      "datePublished": "2026-09-02T02:30:27+00:00",
+      "dateModified": "2026-09-02T02:30:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-basilea-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-basilea-guida-commercio': {
+    title: 'Aprire attività Basilea Città: registro commercio',
+    description: 'Guida completa per aprire un\'attività nel cantone Basilea Città: forme giuridiche, capitale minimo, iscrizione al registro di commercio, tasse e assicurazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, basilea, città',
+    ogTitle: 'Aprire attività Basilea Città: registro commercio',
+    ogDescription: 'Scopri come aprire un\'attività nel cantone Basilea Città. Guida pratica a forme giuridiche, capitale minimo, iscrizione al registro commercio, assicurazioni obbligatorie e tasse federali/cantonali per imprenditori svizzeri.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-basilea-guida-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Basilea Città: registro commercio",
+      "description": "Guida completa per aprire un'attività nel cantone Basilea Città: forme giuridiche, capitale minimo, iscrizione al registro di commercio, tasse e assicurazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-basilea-guida-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un quartiere di affari svizzero con edifici moderni durante il giorno"
+      },
+      "datePublished": "2026-09-02T02:48:52+00:00",
+      "dateModified": "2026-09-02T02:48:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-basilea-guida-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-grigioni-guida': {
+    title: 'Aprire attività nel Canton Grigioni: guida completa',
+    description: 'Scopri come aprire un\'attività nel Canton Grigioni: forme giuridiche, registro di commercio, tasse di iscrizione e obblighi assicurativi per imprenditori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, grigioni',
+    ogTitle: 'Aprire attività Grigioni: guida per imprenditori',
+    ogDescription: 'Guida pratica passo passo: forma giuridica, iscrizione registro, capitale minimo, tasse e assicurazioni (LAMal, AVS, LPP) per avviare un\'attività nel Canton Grigioni.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-grigioni-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività nel Canton Grigioni: guida completa",
+      "description": "Scopri come aprire un'attività nel Canton Grigioni: forme giuridiche, registro di commercio, tasse di iscrizione e obblighi assicurativi per imprenditori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-grigioni-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania professionale con documenti d'affari e computer in uno studio svizzero dedicato alla registrazione aziendale."
+      },
+      "datePublished": "2026-09-02T03:15:34+00:00",
+      "dateModified": "2026-09-02T03:15:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-grigioni-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aprire-attivita-grigioni-registro-costi': {
+    title: 'Aprire attività Grigioni: forme, registro, costi',
+    description: 'Guida pratica su come costituire un\'impresa nel Canton Grigioni: scelta forma giuridica, iscrizione al registro di commercio, tassazione e costi. Procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, grigioni, forme',
+    ogTitle: 'Aprire attività Grigioni: forme, registro, costi',
+    ogDescription: 'Guida pratica su come costituire un\'impresa nel Canton Grigioni: scelta forma giuridica, iscrizione al registro di commercio, tassazione e costi. Procedure federali e cantonali.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-grigioni-registro-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Grigioni: forme, registro, costi",
+      "description": "Guida pratica su come costituire un'impresa nel Canton Grigioni: scelta forma giuridica, iscrizione al registro di commercio, tassazione e costi. Procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-grigioni-registro-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tavolo da lavoro in un ufficio moderno nel Canton Grigioni, con vista sulle montagne alpine sullo sfondo."
+      },
+      "datePublished": "2026-09-02T03:33:11+00:00",
+      "dateModified": "2026-09-02T03:33:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-grigioni-registro-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-avviare-attivita-grigioni-forma-giuridica': {
+    title: 'Aprire un\'attività in Grigioni: forme giuridiche e costi',
+    description: 'Guida completa: come aprire un\'attività nel Canton Grigioni. Forme giuridiche (SA, Sagl), iscrizione registro commercio, capitali minimi, costi e obblighi',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, grigioni, forme',
+    ogTitle: 'Aprire un\'attività in Grigioni: forme giuridiche e costi',
+    ogDescription: 'Scopri come avviare un\'attività nel Canton Grigioni: forme giuridiche, procedure di iscrizione al registro di commercio, capitali minimi, tasse e obblighi assicurativi federali per dipendenti (LAMal, LAINF, AVS, LPP).',
+    canonicalPath: '/articoli-svizzera/avviare-attivita-grigioni-forma-giuridica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire un'attività in Grigioni: forme giuridiche e costi",
+      "description": "Guida completa: come aprire un'attività nel Canton Grigioni. Forme giuridiche (SA, Sagl), iscrizione registro commercio, capitali minimi, costi e obblighi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avviare-attivita-grigioni-forma-giuridica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno svizzero con professionisti che lavorano a progetti di avviamento aziendale e registrazione di ditte"
+      },
+      "datePublished": "2026-09-02T03:52:46+00:00",
+      "dateModified": "2026-09-02T03:52:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avviare-attivita-grigioni-forma-giuridica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mercato-lavoro-canton-grigioni': {
+    title: 'Mercato del lavoro nei Grigioni: salari e livelli',
+    description: 'Struttura salariale, tassazione e contributi sociali nel Canton Grigioni. Stipendi, livelli di formazione, contratti collettivi e come negoziare il tuo',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, grigioni, salari',
+    ogTitle: 'Mercato del lavoro nei Grigioni: salari e livelli',
+    ogDescription: 'Scopri come funzionano gli stipendi nel Canton Grigioni: livelli salariali per formazione, contratti collettivi, tassazione a tre livelli e contributi sociali obbligatori. Guida pratica per negoziare il tuo salario.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-canton-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro nei Grigioni: salari e livelli",
+      "description": "Struttura salariale, tassazione e contributi sociali nel Canton Grigioni. Stipendi, livelli di formazione, contratti collettivi e come negoziare il tuo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-canton-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano del Canton Grigioni con insediamenti abitativi e aziende che rappresentano l'economia alpina svizzera e il mercato del lavoro."
+      },
+      "datePublished": "2026-09-02T04:17:01+00:00",
+      "dateModified": "2026-09-02T04:17:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-canton-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

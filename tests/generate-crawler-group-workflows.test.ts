@@ -388,6 +388,20 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     }
   }
 
+  function withInspectableFailureReporter(crawler: ReturnType<typeof crawlerFixture>) {
+    const reporterRun = `printf 'TITLE=%s\nDESCRIPTION<<EOF\n%s\nEOF\nWORKFLOW=%s\n' \\
+  "Crawler Failure: Run test-crawler" \\
+  "## Crawler fallito
+**Run:** fixture" \\
+  "Run test-crawler"`;
+    return {
+      ...crawler,
+      postSteps: crawler.postSteps.map((step) => (
+        step.if === 'failure()' ? { ...step, run: reporterRun } : step
+      )),
+    };
+  }
+
   it('crawl succeeds, commit/push fails -> background step exits non-zero and the failure-report step fires', () => {
     const failingCommitDir = writeFixtureCommitScript(1);
     const crawler = crawlerFixture({ commitCommand: failingCommitDir });
@@ -444,6 +458,23 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout).not.toContain('REPORTED_FAILURE');
   });
 
+  it('derives both timed shell headers from one preamble source without changing either shell phase', () => {
+    const crawler = {
+      ...crawlerFixture(),
+      targetTimeoutMinutes: 30,
+    };
+    const body = buildCrawlerShellBody(crawler);
+    const source = fs.readFileSync(
+      path.resolve(import.meta.dirname, '../scripts/generate-crawler-group-workflows.mjs'),
+      'utf8',
+    );
+
+    expect(source.match(/const CRAWLER_SHELL_PREAMBLE = Object\.freeze/g)).toHaveLength(1);
+    expect(source.match(/\['set -uo pipefail', 'set \+e', ''\]/g)).toHaveLength(1);
+    expect(source.match(/\[\.\.\.CRAWLER_SHELL_PREAMBLE\]/g)).toHaveLength(2);
+    expect(body.match(/set -uo pipefail\nset \+e\n/g)).toHaveLength(2);
+  });
+
   it('fails closed on target timeout, reports it, and never reaches commit', () => {
     const commitMarker = path.join(tmpDir, 'commit-ran');
     const commitDir = fs.mkdtempSync(path.join(tmpDir, 'lib-timeout-'));
@@ -453,17 +484,36 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
       { mode: 0o755 },
     );
     const crawler = {
-      ...crawlerFixture({ commitCommand: commitDir }),
+      ...withInspectableFailureReporter(crawlerFixture({ commitCommand: commitDir })),
       targetTimeoutMinutes: 30,
     };
     process.env.TEST_FORCE_TARGET_TIMEOUT = '1';
 
     const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+    const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
 
     expect(exitCode).not.toBe(0);
-    expect(stdout).toContain('target exceeded 30 minute wall timeout');
-    expect(stdout).toContain('REPORTED_FAILURE');
+    expect(normalizedStdout).toContain('target exceeded 30 minute wall timeout');
+    expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Causa:** timeout del target dopo 30 minuti (exit 124).\n**Run:** fixture\nEOF');
+    expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
     expect(fs.existsSync(commitMarker)).toBe(false);
+  });
+
+  it('keeps the generic failure description, title, and dedup workflow unchanged for non-timeout crashes', () => {
+    const crawler = {
+      ...withInspectableFailureReporter(crawlerFixture({ runCommand: 'false' })),
+      targetTimeoutMinutes: 30,
+    };
+
+    const { exitCode, stdout } = runBody(buildCrawlerShellBody(crawler));
+    const normalizedStdout = stdout.split('\n').map((line) => line.trimStart()).join('\n');
+
+    expect(exitCode).not.toBe(0);
+    expect(normalizedStdout).toContain('DESCRIPTION<<EOF\n## Crawler fallito\n**Run:** fixture\nEOF');
+    expect(normalizedStdout).not.toContain('**Causa:**');
+    expect(normalizedStdout).toContain('TITLE=Crawler Failure: Run test-crawler');
+    expect(normalizedStdout).toContain('WORKFLOW=Run test-crawler');
   });
 
   it('rejects an invalid target timeout instead of silently falling back to the group limit', () => {
@@ -472,6 +522,21 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
       targetTimeoutMinutes: 340,
     };
     expect(() => buildCrawlerShellBody(crawler)).toThrow(/positive integer below the 340 minute group timeout/);
+  });
+
+  it('renders the validated timeout value and rejects malformed raw input', () => {
+    const normalizedBody = buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: '030',
+    });
+
+    expect(normalizedBody).toContain('timeout --signal=TERM --kill-after=30s 30m bash -c');
+    expect(normalizedBody).toContain('**Causa:** timeout del target dopo 30 minuti (exit 124).');
+    expect(normalizedBody).not.toContain('030');
+    expect(() => buildCrawlerShellBody({
+      ...crawlerFixture(),
+      targetTimeoutMinutes: '30m',
+    })).toThrow(/positive integer below the 340 minute group timeout/);
   });
 
   it('OLD (pre-fix) logic would have swallowed a commit failure — this documents the exact defect the fix closes', () => {
@@ -646,6 +711,7 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
       expect(text.match(/timeout --signal=TERM --kill-after=30s 60m bash -c/g)).toHaveLength(1);
       expect(text).toContain('Run apleona-schweiz-ag');
       expect(text).toContain('outside timeout, only on target failure');
+      expect(text).toContain('**Causa:** timeout del target dopo 60 minuti (exit 124).');
     }
 
     const otherGroups = fs.readdirSync(path.join(ROOT, '.github/workflows'))
@@ -1251,7 +1317,7 @@ describe('cross-repo crawler execution artifacts', () => {
     }
     const transportedManifest = JSON.parse(fs.readFileSync(corpusManifestPath, 'utf8'));
     const baselines = transportedManifest.files.map((entry: any) => entry.baseline);
-    expect(baselines).toHaveLength(31);
+    expect(baselines).toHaveLength(CRAWLER_WORKFLOW_FILES.length + CORPUS_OBSERVER_FILES.length + 1);
     expect(baselines.every((baseline: any) => baseline.site === baseline.corpus && baseline.site.length === 16))
       .toBe(true);
     const stableManifest = fs.readFileSync(corpusManifestPath, 'utf8');
@@ -1317,7 +1383,7 @@ describe('cross-repo crawler execution artifacts', () => {
     const contaminated = structuredClone(allowed);
     contaminated.files[0].reason = 'silently changed by transport branch';
     expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest: contaminated }))
-      .toThrow(/outside the 31 owned baselines/);
+      .toThrow(/outside its owned baselines/);
   });
 
   it('non consente al vecchio one-shot di rigenerare il reusable workflow difettoso', () => {

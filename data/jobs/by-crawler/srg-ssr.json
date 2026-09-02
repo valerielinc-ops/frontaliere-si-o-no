@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-01T15:39:57.051Z",
+  "assembledAt": "2026-09-01T23:07:52.971Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:09:55.244Z",
+      "crawledAt": "2026-09-01T23:07:39.057Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "praticanta-praticant-srg-ssr-cuira"
+        "fr": "pratique-pratique-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Praticanta / praticant"
+        "fr": "Pratique / Pratique"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:09:54.672Z",
+      "crawledAt": "2026-09-01T23:07:38.536Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,15 +142,6 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "fr": [
-          "pratique-pratique-srg-ssr-cuira"
-        ]
-      },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -169,7 +160,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "service-operator-srg-ssr-bern",
+        "it": "operatore-di-servizio-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -179,7 +170,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Service Operator",
+        "it": "Operatore di servizio",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -196,7 +187,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:53.929Z",
+      "crawledAt": "2026-09-01T23:07:37.976Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -260,15 +251,6 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "operatore-di-servizio-srg-ssr-bern"
-        ]
-      },
-      "previousSlugs": [
-        "operatore-di-servizio-srg-ssr-bern"
-      ],
-      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -315,7 +297,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/geschaeftsfuehrer-in-srg-bern-freiburg-wallis/ae1a3c73-c6e0-46fe-b28d-c26344b65afe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:52.760Z",
+      "crawledAt": "2026-09-01T23:07:37.331Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -349,13 +331,11 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-        "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+        "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich",
-          "amministratore-delegato-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
+          "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
         ],
         "en": [
           "geschaftsfuhrer-in-srg-bern-freiburg-wallis-srg-ssr-zurich"
@@ -412,7 +392,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:52.188Z",
+      "crawledAt": "2026-09-01T23:07:36.690Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -448,18 +428,14 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
-        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
-        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -509,7 +485,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:51.633Z",
+      "crawledAt": "2026-09-01T23:07:36.008Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,13 +520,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
-          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -604,7 +578,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:51.068Z",
+      "crawledAt": "2026-09-01T23:07:35.355Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -703,7 +677,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:09:44.106Z",
+      "crawledAt": "2026-09-01T23:07:34.320Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -740,13 +714,11 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
-        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
-          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -756,7 +728,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -767,298 +738,6 @@
           "@type": "QuantitativeValue",
           "minValue": 105500,
           "maxValue": 185000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-77572fe4d695",
-      "slug": "responsable-marketing-rts-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "responsable-marketing-rts-srg-ssr-bern",
-        "en": "responsable-marketing-rts-srg-ssr-bern",
-        "de": "responsable-marketing-rts-srg-ssr-bern",
-        "fr": "responsable-marketing-rts-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Responsable Marketing RTS",
-      "titleByLocale": {
-        "it": "Marketing Manager RTS",
-        "en": "Responsable Marketing RTS",
-        "de": "Marketing Manager RTS",
-        "fr": "Responsable Marketing RTS"
-      },
-      "description": "Votre mission Dans un monde où les médias sont consommés de façon toujours plus fragmentée et où il est essentiel pour un média de renforcer ses liens avec le public et l'attachement à sa marque, vous définissez et déployez la stratégie marketing de la RTS dans le respect de la stratégie d'entreprise SSR. Vous fixez les priorités, allouez les ressources et pilotez la performance des campagnes marketing en coordonnant un plan d'actions annuel. Avec votre équipe, vous intensifiez les liens de la RTS avec le public et renforcez son impact auprès de ceux qui la consomment moins. Vous mettez en œuvre et valorisez la politique d'ouverture au public, de rencontres (visites, événements, ateliers d'éducation aux médias) et de partenariats médias visant à instaurer un dialogue régulier et une interaction directe avec le public. Vous définissez une stratégie de marketing digital, en développant les dispositifs d'acquisition, d'engagement et de fidélisation, et en veillant au bon déploiement du CRM ainsi qu'à son exploitation optimale. Vous définissez les espaces de promotion sur les canaux de distribution de la RTS et veillez à une planification efficace des dispositifs promotionnels. Vous assurez également le déploiement régional des campagnes image de la nouvelle plateforme de streaming de la SSR. Membre de l'équipe de management du département Distribution & Public RTS, vous pilotez des projets transversaux au département, contribuez à la coordination marketing au niveau national et assurez l'encadrement et le développement de vos équipes. Le département Distribution & Public RTS a pour mission de donner de la cohérence à l'expérience du public et renforcer son lien avec nos contenus, afin que l'offre de service public évolue au rythme des usages et demeure pertinente et résolument contemporaine. À la croisée des enjeux éditoriaux, technologiques et marketing, il joue un rôle central dans la transformation de la SSR et l'évolution des usages médiatiques. Votre profil\n• Formation universitaire (master) ou équivalente en communication ou marketing\n• Expérience professionnelle avérée en marketing, à l'aise avec toutes les dimensions du marketing, du stratégique (positionnement de produit / de marque, segmentation des publics) au marketing opérationnel et expérientiel\n• Bonnes connaissances de marketing digital\n• Bonnes connaissances d'allemand (B1) – très bonne compréhension orale. Vos atouts :\n• Vous possédez une très bonne vision stratégique, une bonne capacité d'analyse et êtes reconnu.e pour votre approche systémique dans la résolution de problèmes\n• Vous êtes parfaitement à l'aise avec les notions de gestion d'identité de marque, de briefing, plans médias et atteintes de performances dans le cadre du déploiement d'une stratégie marketing, notamment dans les environnements digitaux\n• Vous êtes reconnu.e pour vos talents de conduite d'équipes, opérationnelles et managériales afin qu'elles mettent en œuvre avec conviction la stratégie que vous portez\n• Vous êtes à l'aise avec la pratique du feedback régulier et constructif Ce que nous vous offrons\n• Un poste dans lequel vous pourrez exprimer votre leadership\n• Une grande autonomie dans vos activités et leur organisation\n• L'occasion de contribuer à la plus grande transformation de l'histoire de la SSR\n• Les prestations sociales d'une grande entreprise A propos du processus de recrutement Christophe Girard Business Partner RH Offre christophe.girard@rts.ch La Direction du Département Distribution & Public de la RTS met au concours le poste de Responsable Marketing. Dans cette fonction d'encadrement, vous définissez et mettez en œuvre une stratégie marketing (en particulier pour l'offre numérique et le terrain \" 4ème vecteur \") pour renforcer la relation entre la RTS et le public.",
-      "descriptionByLocale": {
-        "it": "La tua missione In un mondo in cui i media vengono consumati in modo sempre più frammentato e dove è essenziale che i media rafforzino i propri legami con il pubblico e il suo marchio, definiscono e dispiegano la strategia di marketing della RTS in conformità con la strategia aziendale SSR. Hai impostato le priorità, allocare le risorse e gestire le prestazioni delle campagne di marketing coordinando un piano d'azione annuale. Con il vostro team, si sta intensificando i legami di RTS con il pubblico e rafforzare il suo impatto con coloro che lo consumano meno. Attuate e valorizzate la politica di apertura al pubblico, incontri (visite, eventi, workshop sull'educazione dei media) e partenariati multimediali volti a stabilire un dialogo regolare e un'interazione diretta con il pubblico. Definisci una strategia di marketing digitale sviluppando dispositivi di acquisizione, impegno e ritenzione e garantendo la corretta distribuzione di CRM e il suo funzionamento ottimale. Definisci spazi promozionali sui canali di distribuzione RTS e garantisci una pianificazione efficace dei dispositivi promozionali. Garantisci anche l'implementazione regionale delle campagne di immagine della nuova piattaforma di streaming SSR. Un membro del team di gestione del dipartimento Distribuzione & Public RTS, si guida progetti cross-cutting nel dipartimento, contribuire al coordinamento del marketing a livello nazionale e garantire la supervisione e lo sviluppo dei vostri team. La missione del dipartimento Distribuzione & Public RTS è quella di dare coerenza all'esperienza del pubblico e di rafforzare il suo legame con i nostri contenuti, in modo che l'offerta di servizio pubblico si evolva al ritmo di utilizzo e rimane rilevante e risolutamente contemporaneo. All'incrocio tra questioni editoriali, tecnologiche e di marketing, svolge un ruolo centrale nella trasformazione della SSR e nell'evoluzione dell'utilizzo dei media. Il tuo profilo\n• Formazione universitaria (master) o equivalente in comunicazione o marketing\n• Provata esperienza professionale nel marketing, confortevole con tutte le dimensioni del marketing, strategica (posizione del prodotto/brand, segmentazione del pubblico) al marketing operativo ed esperienziale\n• Buona conoscenza del marketing digitale\n• Buona conoscenza del tedesco (B1) – comprensione orale molto buona. I vostri beni:\n• Hai una visione strategica molto buona, una buona capacità analitica e sono riconosciuti per il tuo approccio sistemico alla risoluzione dei problemi\n• Sei perfettamente a tuo agio con le nozioni di gestione dell'identità di marca, briefing, piani di media e il raggiungimento delle prestazioni come parte dell'implementazione di una strategia di marketing, soprattutto in ambienti digitali\n• Sei riconosciuto per le tue capacità di leadership di team, operativi e manageriali in modo che implementano con convinzione la strategia che porti\n• Sei comodo con feedback regolari e costruttivi Cosa ti offriamo\n• Una posizione in cui puoi esprimere la tua leadership\n• Una grande autonomia nelle vostre attività e nella loro organizzazione\n• L'opportunità di contribuire alla più grande trasformazione nella storia della SSR\n• Prestazioni sociali di una grande azienda Informazioni sul processo di reclutamento Christophe Girard Business Partner RH Offerta christophe.girard@rts.ch La Direzione del Dipartimento Distribuzione e Pubblica della RTS pone la posizione di Marketing Manager alla concorrenza. In questa funzione di coaching, si definisce e implementa una strategia di marketing (soprattutto per l'offerta digitale e il campo \"4th vettori\") per rafforzare il rapporto tra RTS e il pubblico.",
-        "en": "Your Mission In a world where media are being consumed in an increasingly fragmented way and where it is essential for a media to strengthen its links with the public and its brand attachment, you define and deploy the marketing strategy of the RTS in accordance with the SSR corporate strategy. You set priorities, allocate resources and manage the performance of marketing campaigns by coordinating an annual action plan. With your team, you are intensifying RTS's links with the public and strengthening its impact with those who consume it less. You implement and value the policy of openness to the public, meetings (visits, events, media education workshops) and media partnerships aimed at establishing regular dialogue and direct interaction with the public. You define a digital marketing strategy by developing acquisition, engagement and retention devices, and ensuring the proper deployment of CRM and its optimal operation. You define promotional spaces on RTS distribution channels and ensure effective planning of promotional devices. You also ensure the regional deployment of the image campaigns of the new SSR streaming platform. A member of the management team of the Distribution & Public RTS department, you lead cross-cutting projects in the department, contribute to the coordination of marketing at national level and ensure the supervision and development of your teams. The Distribution & Public RTS department's mission is to give coherence to the experience of the public and to strengthen its link with our content, so that the public service offer evolves to the rhythm of usage and remains relevant and resolutely contemporary. At the crossroads of editorial, technological and marketing issues, it plays a central role in the transformation of SSR and the evolution of media usage. Your profile\n• University training (master) or equivalent in communication or marketing\n• Proven professional experience in marketing, comfortable with all dimensions of marketing, strategic (product/brand positioning, audience segmentation) to operational and experiential marketing\n• Good digital marketing knowledge\n• Good knowledge of German (B1) – very good oral understanding. Your assets:\n• You have a very good strategic vision, a good analytical capacity and are recognized for your systemic approach to problem solving\n• You are perfectly comfortable with the notions of brand identity management, briefing, media plans and achievement of performance as part of the deployment of a marketing strategy, especially in digital environments\n• You are recognized for your leadership skills of teams, operational and managerial so that they implement with conviction the strategy you carry\n• You are comfortable with regular and constructive feedback What we offer you\n• A position in which you can express your leadership\n• A great autonomy in your activities and their organization\n• The opportunity to contribute to the greatest transformation in the history of the SSR\n• Social benefits of a large company About the recruitment process Christophe Girard Business Partner RH Offer christophe.girard@rts.ch The Directorate of the Distribution & Public Department of the RTS puts the position of Marketing Manager to the competition. In this coaching function, you define and implement a marketing strategy (especially for digital offer and the \"4th vector\" field) to strengthen the relationship between RTS and the public.",
-        "de": "Deine Mission In einer Welt, in der Medien zunehmend fragmentiert konsumiert werden und in der es für Medien unerlässlich ist, ihre Verbindungen zur Öffentlichkeit und ihre Markenbindung zu stärken, definieren und implementieren Sie die Marketingstrategie des RTS in Übereinstimmung mit der SSR-Unternehmensstrategie. Sie setzen Prioritäten, verteilen Ressourcen und verwalten die Durchführung von Marketingkampagnen, indem Sie einen jährlichen Aktionsplan koordinieren. Mit Ihrem Team intensivieren Sie die Verbindungen von RTS zur Öffentlichkeit und stärken ihre Wirkung bei denen, die es weniger konsumieren. Sie implementieren und schätzen die Politik der Offenheit für die Öffentlichkeit, Treffen (Besuche, Veranstaltungen, Medienbildungsworkshops) und Medienpartnerschaften, die darauf abzielen, einen regelmäßigen Dialog und eine direkte Interaktion mit der Öffentlichkeit herzustellen. Sie definieren eine digitale Marketingstrategie, indem Sie Akquisitions-, Engagement- und Retentionsgeräte entwickeln und den ordnungsgemäßen Einsatz von CRM und seinen optimalen Betrieb sicherstellen. Sie definieren Werbeflächen auf RTS-Vertriebskanälen und sorgen für eine effektive Planung von Werbegeräten. Sie stellen auch den regionalen Einsatz der Imagekampagnen der neuen SSR-Streaming-Plattform sicher. Als Mitglied des Managementteams der Abteilung Distribution & Public RTS leiten Sie Querschnittsprojekte in der Abteilung, tragen zur Koordination des Marketings auf nationaler Ebene bei und sorgen für die Betreuung und Entwicklung Ihrer Teams. Die Mission der Abteilung Distribution & Public RTS ist es, der Erfahrung der Öffentlichkeit Kohärenz zu verleihen und ihre Verbindung zu unseren Inhalten zu stärken, so dass sich das Angebot des öffentlichen Dienstes im Rhythmus der Nutzung entwickelt und relevant und entschlossen zeitgemäß bleibt. An der Kreuzung von redaktionellen, technologischen und Marketingthemen spielt sie eine zentrale Rolle bei der Transformation von SSR und der Entwicklung der Mediennutzung. Dein Profil\n• Hochschulausbildung (Master) oder gleichwertig in Kommunikation oder Marketing\n• Nachgewiesene Berufserfahrung im Marketing, komfortabel mit allen Dimensionen des Marketings, strategisch (Produkt- / Markenpositionierung, Zielgruppensegmentierung) bis zum operativen und experimentellen Marketing\n• Gute digitale Marketingkenntnisse\n• Gute Deutschkenntnisse (B1) – sehr gutes mündliches Verständnis. Ihr Vermögen:\n• Sie haben eine sehr gute strategische Vision, eine gute analytische Kapazität und sind für Ihren systemischen Ansatz zur Problemlösung anerkannt\n• Sie sind mit den Begriffen Markenidentitätsmanagement, Briefing, Medienpläne und Leistungserreichung im Rahmen der Umsetzung einer Marketingstrategie, insbesondere in digitalen Umgebungen, bestens vertraut.\n• Sie werden für Ihre Führungsqualitäten von Teams anerkannt, so dass sie mit Überzeugung die Strategie umsetzen, die Sie tragen\n• Sie fühlen sich wohl mit regelmäßigem und konstruktivem Feedback Was wir Ihnen bieten\n• Eine Position, in der Sie Ihre Führung zum Ausdruck bringen können\n• Eine große Autonomie in Ihren Aktivitäten und deren Organisation\n• Die Möglichkeit, zur größten Transformation in der Geschichte der SSR beizutragen\n• Sozialleistungen eines großen Unternehmens Über den Rekrutierungsprozess Christophe Girard Business Partner RH Offer christophe.girard@rts.ch Die Direktion der Distribution & Public Abteilung des RTS stellt die Position des Marketing Managers in den Wettbewerb. In dieser Coaching-Funktion definieren und implementieren Sie eine Marketingstrategie (insbesondere für das digitale Angebot und das Feld \"4. Vektor\"), um die Beziehung zwischen RTS und der Öffentlichkeit zu stärken.",
-        "fr": "Votre mission Dans un monde où les médias sont consommés de façon toujours plus fragmentée et où il est essentiel pour un média de renforcer ses liens avec le public et l'attachement à sa marque, vous définissez et déployez la stratégie marketing de la RTS dans le respect de la stratégie d'entreprise SSR. Vous fixez les priorités, allouez les ressources et pilotez la performance des campagnes marketing en coordonnant un plan d'actions annuel. Avec votre équipe, vous intensifiez les liens de la RTS avec le public et renforcez son impact auprès de ceux qui la consomment moins. Vous mettez en œuvre et valorisez la politique d'ouverture au public, de rencontres (visites, événements, ateliers d'éducation aux médias) et de partenariats médias visant à instaurer un dialogue régulier et une interaction directe avec le public. Vous définissez une stratégie de marketing digital, en développant les dispositifs d'acquisition, d'engagement et de fidélisation, et en veillant au bon déploiement du CRM ainsi qu'à son exploitation optimale. Vous définissez les espaces de promotion sur les canaux de distribution de la RTS et veillez à une planification efficace des dispositifs promotionnels. Vous assurez également le déploiement régional des campagnes image de la nouvelle plateforme de streaming de la SSR. Membre de l'équipe de management du département Distribution & Public RTS, vous pilotez des projets transversaux au département, contribuez à la coordination marketing au niveau national et assurez l'encadrement et le développement de vos équipes. Le département Distribution & Public RTS a pour mission de donner de la cohérence à l'expérience du public et renforcer son lien avec nos contenus, afin que l'offre de service public évolue au rythme des usages et demeure pertinente et résolument contemporaine. À la croisée des enjeux éditoriaux, technologiques et marketing, il joue un rôle central dans la transformation de la SSR et l'évolution des usages médiatiques. Votre profil\n• Formation universitaire (master) ou équivalente en communication ou marketing\n• Expérience professionnelle avérée en marketing, à l'aise avec toutes les dimensions du marketing, du stratégique (positionnement de produit / de marque, segmentation des publics) au marketing opérationnel et expérientiel\n• Bonnes connaissances de marketing digital\n• Bonnes connaissances d'allemand (B1) – très bonne compréhension orale. Vos atouts :\n• Vous possédez une très bonne vision stratégique, une bonne capacité d'analyse et êtes reconnu.e pour votre approche systémique dans la résolution de problèmes\n• Vous êtes parfaitement à l'aise avec les notions de gestion d'identité de marque, de briefing, plans médias et atteintes de performances dans le cadre du déploiement d'une stratégie marketing, notamment dans les environnements digitaux\n• Vous êtes reconnu.e pour vos talents de conduite d'équipes, opérationnelles et managériales afin qu'elles mettent en œuvre avec conviction la stratégie que vous portez\n• Vous êtes à l'aise avec la pratique du feedback régulier et constructif Ce que nous vous offrons\n• Un poste dans lequel vous pourrez exprimer votre leadership\n• Une grande autonomie dans vos activités et leur organisation\n• L'occasion de contribuer à la plus grande transformation de l'histoire de la SSR\n• Les prestations sociales d'une grande entreprise A propos du processus de recrutement Christophe Girard Business Partner RH Offre christophe.girard@rts.ch La Direction du Département Distribution & Public de la RTS met au concours le poste de Responsable Marketing. Dans cette fonction d'encadrement, vous définissez et mettez en œuvre une stratégie marketing (en particulier pour l'offre numérique et le terrain \" 4ème vecteur \") pour renforcer la relation entre la RTS et le public."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:09:38.554Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Marketing / Comunicazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/responsable-marketing-rts/1450473c-6543-418d-82f5-a4ef2dcfc0b9",
-      "requirements": [
-        "Formation universitaire (master) ou équivalente en communication ou marketing",
-        "Expérience professionnelle avérée en marketing, à l'aise avec toutes les dimensions du marketing, du stratégique (positionnement de produit / de marque, segmentation des publics) au marketing opérationnel et expérientiel",
-        "Bonnes connaissances de marketing digital",
-        "Bonnes connaissances d'allemand (B1) – très bonne compréhension orale.",
-        "Vous possédez une très bonne vision stratégique, une bonne capacité d'analyse et êtes reconnu.e pour votre approche systémique dans la résolution de problèmes",
-        "Vous êtes parfaitement à l'aise avec les notions de gestion d'identité de marque, de briefing, plans médias et atteintes de performances dans le cadre du déploiement d'une stratégie marketing, notamment dans les environnements digitaux",
-        "Vous êtes reconnu.e pour vos talents de conduite d'équipes, opérationnelles et managériales afin qu'elles mettent en œuvre avec conviction la stratégie que vous portez",
-        "Vous êtes à l'aise avec la pratique du feedback régulier et constructif"
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Formation universitaire (master) ou équivalente en communication ou marketing",
-          "Bonnes connaissances de marketing digital",
-          "Bonnes connaissances d'allemand (B1) – très bonne compréhension orale.",
-          "Vous êtes à l'aise avec la pratique du feedback régulier et constructif"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "1450473c-6543-418d-82f5-a4ef2dcfc0b9",
-        "org": "rts",
-        "orgLabel": "RTS",
-        "pensumMin": 80,
-        "pensumMax": 80
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T10:12:26.743Z",
-      "salaryMin": 106500,
-      "salaryMax": 188500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 106500,
-          "maxValue": 188500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-f1ddd52a5da8",
-      "slug": "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-      "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-        "en": "apprenticeship-as-computer-scientist-in-efz-application-development-2027-biel-srg-ssr-bern-16",
-        "de": "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-        "fr": "apprentissage-en-informatique-dans-efz-application-development-2027-biel-srg-ssr-bern-16"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Lehrstelle als Informatiker:in EFZ Applikationsentwicklung 2027 - Biel",
-      "titleByLocale": {
-        "it": "Apprendistato come Informatiker:in CFC Applikationsentwicklung 2027 - Biel",
-        "en": "Apprenticeship as computer scientist: in EFZ Application Development 2027 - Biel",
-        "de": "Lehrstelle als Informatiker:in EFZ Applikationsentwicklung 2027 - Biel",
-        "fr": "Apprentissage en informatique: dans EFZ Application Development 2027 - Biel"
-      },
-      "description": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer HR-Assistent Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Biel statt.",
-      "descriptionByLocale": {
-        "it": "Questo è il tuo contributo\n• Lavorare in una squadra\n• Sviluppo di soluzioni per problemi IT\n• Programmazione e sperimentazione di nuove funzioni Sei interessato a questa formazione e soddisfa i requisiti? Quindi inviaci la tua applicazione con i seguenti contenuti preferibilmente su Yousty - > Applicare qui:\n• Lettera di iscrizione con i dettagli della motivazione\n• CV tabulare\n• Tutti i certificati precedenti (dalla 7a classe)\n• Multicheck\n• Referenze Cosa porti?\n• Bene:r studenti della scuola secondaria:in, con i punti di forza in matematica e inglese\n• Alto interesse per l'informatica e le nuove tecnologie\n• Capacità di pensiero logico e astratto e rapida comprensione\n• Persona gentile, dedicata e affidabile\n• Capacità di scrittura francese e tastiera di vantaggio Cosa puoi aspettare?\n• Anno di formazione di base nel Centro di formazione professionale delle TIC\n• Una formazione versatile e pratica (2 ° – 4 ° anno) in un ambiente agile e innovativo\n• Indagine e cooperazione in vari dipartimenti e progetti\n• Supporto esperto dai nostri istruttori di pratica\n• Se c'è una volontà superiore alla media di svolgere, la partecipazione alla scuola secondaria professionale (BM) è sostenuta Ancora domande? sul processo di domanda Mr Noël Bürer HR-Assistant telefono +41 58 136 41 31 SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme. La formazione si svolge all'interno della SSR e si svolge per la maggior parte a Biel.",
-        "en": "This is your contribution\n• Working in a team\n• Development of IT problem solutions\n• Programming and testing new functions Are you interested in this training and do you meet the requirements? Then send us your application with the following content preferably on Yousty - > Apply here :\n• Application letter with details of your motivation\n• Tabular CV\n• All previous certificates (from the 7th class)\n• Multicheck\n• References What do you bring?\n• Good:r secondary school students:in, with strengths in mathematics and English\n• High interest in computer science and new technologies\n• Logical and abstract thinking skills and rapid comprehension\n• Polite, dedicated and reliable person\n• French and keyboard writing skills of advantage What can you look forward to?\n• Basic training year in the ICT Vocational Training Centre\n• A versatile and practical training (2nd – 4th year) in an agile and innovative environment\n• Insight and cooperation in various departments and projects\n• Expert support by our practice instructors\n• If there is an above-average willingness to perform, the attendance at the vocational secondary school (BM) is supported Still questions? on the application process Mr Noël Bürer HR-Assistant telephone +41 58 136 41 31 SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day. The training takes place within the SRG SSR and takes place for the most part in Biel.",
-        "de": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer HR-Assistent Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Biel statt.",
-        "fr": "C'est votre contribution\n• Travail en équipe\n• Développement de solutions de problèmes informatiques\n• Programmation et essai de nouvelles fonctions Êtes-vous intéressé par cette formation et répondez-vous aux exigences? Puis envoyez-nous votre demande avec le contenu suivant de préférence sur Yousty - > Appliquer ici :\n• Lettre de candidature avec les détails de votre motivation\n• CV tabulaire\n• Tous les certificats précédents (de la 7ème classe)\n• Contrôle multiple\n• Références Qu'est-ce que tu apportes ?\n• Bons élèves de l'école secondaire:en, avec des forces en mathématiques et en anglais\n• Haut intérêt pour l'informatique et les nouvelles technologies\n• Compétences logiques et abstraites en pensée et compréhension rapide\n• Personne polie, dévouée et fiable\n• Compétences en français et en écriture au clavier d'avantage Que pouvez-vous attendre avec impatience?\n• Année de formation de base au Centre de formation professionnelle TIC\n• Une formation polyvalente et pratique (2ème – 4ème année) dans un environnement agile et innovant\n• Insight et coopération dans divers départements et projets\n• Le soutien d'experts par nos instructeurs de pratique\n• S'il y a une volonté supérieure à la moyenne, la fréquentation de l'école secondaire professionnelle (BM) est soutenue. SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour. La formation a lieu au sein du SSR du SRG et a lieu pour la plupart à Biel."
-      },
-      "location": "Bern 16",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:38.001Z",
-      "addressLocality": "Bern 16",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
-      "requirements": [
-        "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
-        "Hohes Interesse an Informatik und neuen Technologien",
-        "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
-        "Höfliche, engagierte und zuverlässige Person",
-        "Französisch- und Tastaturschreibkenntnisse von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
-          "Hohes Interesse an Informatik und neuen Technologien",
-          "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
-          "Höfliche, engagierte und zuverlässige Person",
-          "Französisch- und Tastaturschreibkenntnisse von Vorteil"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "3e3fcff3-e194-4a1b-831f-f105b491094e",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
-          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
-        ],
-        "en": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
-        ],
-        "fr": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:28:35.078Z",
-      "salaryMin": 59000,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-638f97434f16",
-      "slug": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-      "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-        "en": "apprenticeship-as-computer-scientist-in-efz-platform-development-2027-bern-srg-ssr-bern-16",
-        "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-        "fr": "apprentissage-en-informatique-dans-efz-platform-development-2027-berne-srg-ssr-bern-16"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Lehrstelle als Informatiker:in EFZ Plattformentwicklung 2027 - Bern",
-      "titleByLocale": {
-        "it": "Apprendistato come Informatiker:in CFC Plattformentwicklung 2027 - Bern",
-        "en": "Apprenticeship as computer scientist: in EFZ Platform Development 2027 - Bern",
-        "de": "Lehrstelle als Informatiker:in EFZ Plattformentwicklung 2027 - Bern",
-        "fr": "Apprentissage en informatique: dans EFZ Platform Development 2027 - Berne"
-      },
-      "description": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer Verantwortlicher Lehrlingswesen STXT Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Bern statt.",
-      "descriptionByLocale": {
-        "it": "Questo è il tuo contributo\n• Lavorare in una squadra\n• Sviluppo di soluzioni per problemi IT\n• Programmazione e sperimentazione di nuove funzioni Sei interessato a questa formazione e soddisfa i requisiti? Quindi inviaci la tua applicazione con i seguenti contenuti preferibilmente su Yousty - > Applicare qui:\n• Lettera di iscrizione con i dettagli della motivazione\n• CV tabulare\n• Tutti i certificati precedenti (dalla 7a classe)\n• Multicheck\n• Referenze Cosa porti?\n• Bene:r studenti della scuola secondaria:in, con i punti di forza in matematica e inglese\n• Alto interesse per l'informatica e le nuove tecnologie\n• Capacità di pensiero logico e astratto e rapida comprensione\n• Persona gentile, dedicata e affidabile\n• Capacità di scrittura francese e tastiera di vantaggio Cosa puoi aspettare?\n• Anno di formazione di base nel Centro di formazione professionale delle TIC\n• Una formazione versatile e pratica (2 ° – 4 ° anno) in un ambiente agile e innovativo\n• Indagine e cooperazione in vari dipartimenti e progetti\n• Supporto esperto dai nostri istruttori di pratica\n• Se c'è una volontà superiore alla media di svolgere, la partecipazione alla scuola secondaria professionale (BM) è sostenuta Ancora domande? sul processo di domanda Mr Noël Bürer Apprendistato Responsabile STXT telefono +41 58 136 41 31 SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme. La formazione si svolge all'interno della SSR e si svolge per la maggior parte a Berna.",
-        "en": "This is your contribution\n• Working in a team\n• Development of IT problem solutions\n• Programming and testing new functions Are you interested in this training and do you meet the requirements? Then send us your application with the following content preferably on Yousty - > Apply here :\n• Application letter with details of your motivation\n• Tabular CV\n• All previous certificates (from the 7th class)\n• Multicheck\n• References What do you bring?\n• Good:r secondary school students:in, with strengths in mathematics and English\n• High interest in computer science and new technologies\n• Logical and abstract thinking skills and rapid comprehension\n• Polite, dedicated and reliable person\n• French and keyboard writing skills of advantage What can you look forward to?\n• Basic training year in the ICT Vocational Training Centre\n• A versatile and practical training (2nd – 4th year) in an agile and innovative environment\n• Insight and cooperation in various departments and projects\n• Expert support by our practice instructors\n• If there is an above-average willingness to perform, the attendance at the vocational secondary school (BM) is supported Still questions? on the application process Mr Noël Bürer Responsible Apprenticeship STXT telephone +41 58 136 41 31 SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day. The training takes place within the SRG SSR and takes place for the most part in Bern.",
-        "de": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer Verantwortlicher Lehrlingswesen STXT Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Bern statt.",
-        "fr": "C'est votre contribution\n• Travail en équipe\n• Développement de solutions de problèmes informatiques\n• Programmation et essai de nouvelles fonctions Êtes-vous intéressé par cette formation et répondez-vous aux exigences? Puis envoyez-nous votre demande avec le contenu suivant de préférence sur Yousty - > Appliquer ici :\n• Lettre de candidature avec les détails de votre motivation\n• CV tabulaire\n• Tous les certificats précédents (de la 7ème classe)\n• Contrôle multiple\n• Références Qu'est-ce que tu apportes ?\n• Bons élèves de l'école secondaire:en, avec des forces en mathématiques et en anglais\n• Haut intérêt pour l'informatique et les nouvelles technologies\n• Compétences logiques et abstraites en pensée et compréhension rapide\n• Personne polie, dévouée et fiable\n• Compétences en français et en écriture au clavier d'avantage Que pouvez-vous attendre avec impatience?\n• Année de formation de base au Centre de formation professionnelle TIC\n• Une formation polyvalente et pratique (2ème – 4ème année) dans un environnement agile et innovant\n• Insight et coopération dans divers départements et projets\n• Le soutien d'experts par nos instructeurs de pratique\n• S'il y a une volonté supérieure à la moyenne, la fréquentation de l'école secondaire professionnelle (BM) est soutenue. SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour. La formation a lieu au sein du SSR du GRS et a lieu pour la plupart à Berne."
-      },
-      "location": "Bern 16",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:37.435Z",
-      "addressLocality": "Bern 16",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3000",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-14",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
-      "requirements": [
-        "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
-        "Hohes Interesse an Informatik und neuen Technologien",
-        "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
-        "Höfliche, engagierte und zuverlässige Person",
-        "Französisch- und Tastaturschreibkenntnisse von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
-          "Hohes Interesse an Informatik und neuen Technologien",
-          "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
-          "Höfliche, engagierte und zuverlässige Person",
-          "Französisch- und Tastaturschreibkenntnisse von Vorteil"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "0d740af4-8667-4a66-a530-ccc338291c67",
-        "org": "srg",
-        "orgLabel": "SRG SSR",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
-          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
-        ],
-        "en": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
-        ],
-        "fr": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-14T21:28:34.182Z",
-      "salaryMin": 59000,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 104000,
           "unitText": "YEAR"
         }
       },
@@ -1095,7 +774,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:36.869Z",
+      "crawledAt": "2026-09-01T23:07:22.834Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1178,7 +857,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:36.322Z",
+      "crawledAt": "2026-09-01T23:07:22.157Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1215,13 +894,11 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
-          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1231,7 +908,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1278,7 +954,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:09:35.763Z",
+      "crawledAt": "2026-09-01T23:07:21.508Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1327,7 +1003,6 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1374,7 +1049,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:35.177Z",
+      "crawledAt": "2026-09-01T23:07:20.785Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1474,7 +1149,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:34.617Z",
+      "crawledAt": "2026-09-01T23:07:20.114Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1558,7 +1233,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:09:34.072Z",
+      "crawledAt": "2026-09-01T23:07:19.486Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1655,7 +1330,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:09:33.502Z",
+      "crawledAt": "2026-09-01T23:07:18.847Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1740,7 +1415,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-01T14:09:32.916Z",
+      "crawledAt": "2026-09-01T23:07:18.072Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1825,7 +1500,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:09:32.321Z",
+      "crawledAt": "2026-09-01T23:07:17.122Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1877,6 +1552,208 @@
         }
       },
       "addressRegion": "ZH"
+    },
+    {
+      "id": "srg-ssr-f1ddd52a5da8",
+      "slug": "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+      "slugByLocale": {
+        "it": "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "en": "apprenticeship-as-computer-scientist-in-efz-application-development-2027-biel-srg-ssr-bern-16",
+        "de": "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "fr": "apprentissage-en-informatique-dans-efz-application-development-2027-biel-srg-ssr-bern-16"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Lehrstelle als Informatiker:in EFZ Applikationsentwicklung 2027 - Biel",
+      "titleByLocale": {
+        "it": "Apprendistato come Informatiker:in CFC Applikationsentwicklung 2027 - Biel",
+        "en": "Apprenticeship as computer scientist: in EFZ Application Development 2027 - Biel",
+        "de": "Lehrstelle als Informatiker:in EFZ Applikationsentwicklung 2027 - Biel",
+        "fr": "Apprentissage en informatique: dans EFZ Application Development 2027 - Biel"
+      },
+      "description": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer HR-Assistent Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Biel statt.",
+      "descriptionByLocale": {
+        "it": "Questo è il tuo contributo\n• Lavorare in una squadra\n• Sviluppo di soluzioni per problemi IT\n• Programmazione e sperimentazione di nuove funzioni Sei interessato a questa formazione e soddisfa i requisiti? Quindi inviaci la tua applicazione con i seguenti contenuti preferibilmente su Yousty - > Applicare qui:\n• Lettera di iscrizione con i dettagli della motivazione\n• CV tabulare\n• Tutti i certificati precedenti (dalla 7a classe)\n• Multicheck\n• Referenze Cosa porti?\n• Bene:r studenti della scuola secondaria:in, con i punti di forza in matematica e inglese\n• Alto interesse per l'informatica e le nuove tecnologie\n• Capacità di pensiero logico e astratto e rapida comprensione\n• Persona gentile, dedicata e affidabile\n• Capacità di scrittura francese e tastiera di vantaggio Cosa puoi aspettare?\n• Anno di formazione di base nel Centro di formazione professionale delle TIC\n• Una formazione versatile e pratica (2 ° – 4 ° anno) in un ambiente agile e innovativo\n• Indagine e cooperazione in vari dipartimenti e progetti\n• Supporto esperto dai nostri istruttori di pratica\n• Se c'è una volontà superiore alla media di svolgere, la partecipazione alla scuola secondaria professionale (BM) è sostenuta Ancora domande? sul processo di domanda Mr Noël Bürer HR-Assistant telefono +41 58 136 41 31 SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme. La formazione si svolge all'interno della SSR e si svolge per la maggior parte a Biel.",
+        "en": "This is your contribution\n• Working in a team\n• Development of IT problem solutions\n• Programming and testing new functions Are you interested in this training and do you meet the requirements? Then send us your application with the following content preferably on Yousty - > Apply here :\n• Application letter with details of your motivation\n• Tabular CV\n• All previous certificates (from the 7th class)\n• Multicheck\n• References What do you bring?\n• Good:r secondary school students:in, with strengths in mathematics and English\n• High interest in computer science and new technologies\n• Logical and abstract thinking skills and rapid comprehension\n• Polite, dedicated and reliable person\n• French and keyboard writing skills of advantage What can you look forward to?\n• Basic training year in the ICT Vocational Training Centre\n• A versatile and practical training (2nd – 4th year) in an agile and innovative environment\n• Insight and cooperation in various departments and projects\n• Expert support by our practice instructors\n• If there is an above-average willingness to perform, the attendance at the vocational secondary school (BM) is supported Still questions? on the application process Mr Noël Bürer HR-Assistant telephone +41 58 136 41 31 SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day. The training takes place within the SRG SSR and takes place for the most part in Biel.",
+        "de": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer HR-Assistent Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Biel statt.",
+        "fr": "C'est votre contribution\n• Travail en équipe\n• Développement de solutions de problèmes informatiques\n• Programmation et essai de nouvelles fonctions Êtes-vous intéressé par cette formation et répondez-vous aux exigences? Puis envoyez-nous votre demande avec le contenu suivant de préférence sur Yousty - > Appliquer ici :\n• Lettre de candidature avec les détails de votre motivation\n• CV tabulaire\n• Tous les certificats précédents (de la 7ème classe)\n• Contrôle multiple\n• Références Qu'est-ce que tu apportes ?\n• Bons élèves de l'école secondaire:en, avec des forces en mathématiques et en anglais\n• Haut intérêt pour l'informatique et les nouvelles technologies\n• Compétences logiques et abstraites en pensée et compréhension rapide\n• Personne polie, dévouée et fiable\n• Compétences en français et en écriture au clavier d'avantage Que pouvez-vous attendre avec impatience?\n• Année de formation de base au Centre de formation professionnelle TIC\n• Une formation polyvalente et pratique (2ème – 4ème année) dans un environnement agile et innovant\n• Insight et coopération dans divers départements et projets\n• Le soutien d'experts par nos instructeurs de pratique\n• S'il y a une volonté supérieure à la moyenne, la fréquentation de l'école secondaire professionnelle (BM) est soutenue. SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour. La formation a lieu au sein du SSR du SRG et a lieu pour la plupart à Biel."
+      },
+      "location": "Bern 16",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:09:38.001Z",
+      "addressLocality": "Bern 16",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
+      "requirements": [
+        "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
+        "Hohes Interesse an Informatik und neuen Technologien",
+        "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
+        "Höfliche, engagierte und zuverlässige Person",
+        "Französisch- und Tastaturschreibkenntnisse von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
+          "Hohes Interesse an Informatik und neuen Technologien",
+          "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
+          "Höfliche, engagierte und zuverlässige Person",
+          "Französisch- und Tastaturschreibkenntnisse von Vorteil"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "3e3fcff3-e194-4a1b-831f-f105b491094e",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "previousSlugs": [
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        ],
+        "fr": [
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:28:35.078Z",
+      "salaryMin": 59000,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "srg-ssr-638f97434f16",
+      "slug": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+      "slugByLocale": {
+        "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "en": "apprenticeship-as-computer-scientist-in-efz-platform-development-2027-bern-srg-ssr-bern-16",
+        "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "fr": "apprentissage-en-informatique-dans-efz-platform-development-2027-berne-srg-ssr-bern-16"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Lehrstelle als Informatiker:in EFZ Plattformentwicklung 2027 - Bern",
+      "titleByLocale": {
+        "it": "Apprendistato come Informatiker:in CFC Plattformentwicklung 2027 - Bern",
+        "en": "Apprenticeship as computer scientist: in EFZ Platform Development 2027 - Bern",
+        "de": "Lehrstelle als Informatiker:in EFZ Plattformentwicklung 2027 - Bern",
+        "fr": "Apprentissage en informatique: dans EFZ Platform Development 2027 - Berne"
+      },
+      "description": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer Verantwortlicher Lehrlingswesen STXT Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Bern statt.",
+      "descriptionByLocale": {
+        "it": "Questo è il tuo contributo\n• Lavorare in una squadra\n• Sviluppo di soluzioni per problemi IT\n• Programmazione e sperimentazione di nuove funzioni Sei interessato a questa formazione e soddisfa i requisiti? Quindi inviaci la tua applicazione con i seguenti contenuti preferibilmente su Yousty - > Applicare qui:\n• Lettera di iscrizione con i dettagli della motivazione\n• CV tabulare\n• Tutti i certificati precedenti (dalla 7a classe)\n• Multicheck\n• Referenze Cosa porti?\n• Bene:r studenti della scuola secondaria:in, con i punti di forza in matematica e inglese\n• Alto interesse per l'informatica e le nuove tecnologie\n• Capacità di pensiero logico e astratto e rapida comprensione\n• Persona gentile, dedicata e affidabile\n• Capacità di scrittura francese e tastiera di vantaggio Cosa puoi aspettare?\n• Anno di formazione di base nel Centro di formazione professionale delle TIC\n• Una formazione versatile e pratica (2 ° – 4 ° anno) in un ambiente agile e innovativo\n• Indagine e cooperazione in vari dipartimenti e progetti\n• Supporto esperto dai nostri istruttori di pratica\n• Se c'è una volontà superiore alla media di svolgere, la partecipazione alla scuola secondaria professionale (BM) è sostenuta Ancora domande? sul processo di domanda Mr Noël Bürer Apprendistato Responsabile STXT telefono +41 58 136 41 31 SRG SSR è la più grande società di media in Svizzera. Con le sue business unit SRF, RTS, RSI e RTR, produce e distribuisce contenuti nei settori dell'informazione, dell'istruzione, della cultura, dell'intrattenimento e dello sport. Come apprendista, diventerai parte di una società diversificata e orientata al futuro che collega le persone in tutta la Svizzera e raggiunge ogni giorno milioni di utenti su diverse piattaforme. La formazione si svolge all'interno della SSR e si svolge per la maggior parte a Berna.",
+        "en": "This is your contribution\n• Working in a team\n• Development of IT problem solutions\n• Programming and testing new functions Are you interested in this training and do you meet the requirements? Then send us your application with the following content preferably on Yousty - > Apply here :\n• Application letter with details of your motivation\n• Tabular CV\n• All previous certificates (from the 7th class)\n• Multicheck\n• References What do you bring?\n• Good:r secondary school students:in, with strengths in mathematics and English\n• High interest in computer science and new technologies\n• Logical and abstract thinking skills and rapid comprehension\n• Polite, dedicated and reliable person\n• French and keyboard writing skills of advantage What can you look forward to?\n• Basic training year in the ICT Vocational Training Centre\n• A versatile and practical training (2nd – 4th year) in an agile and innovative environment\n• Insight and cooperation in various departments and projects\n• Expert support by our practice instructors\n• If there is an above-average willingness to perform, the attendance at the vocational secondary school (BM) is supported Still questions? on the application process Mr Noël Bürer Responsible Apprenticeship STXT telephone +41 58 136 41 31 SRG SSR is the largest media company in Switzerland. With its business units SRF, RTS, RSI and RTR, it produces and distributes content in the fields of information, education, culture, entertainment and sports. As a learner, you will become part of a diverse and future-oriented company that connects people across Switzerland and reaches millions of users on different platforms every day. The training takes place within the SRG SSR and takes place for the most part in Bern.",
+        "de": "Das ist dein Beitrag\n• Arbeiten im Team\n• Erarbeiten von IT Problemlösungen\n• Neue Funktionen programmieren und testen Bist du an dieser Ausbildung interessiert und erfüllst du die Voraussetzungen? Dann sende uns deine Bewerbung mit folgendem Inhalt vorzugsweise auf Yousty - > Hier bewerben :\n• Bewerbungsbrief mit Angaben deiner Motivation\n• Tabellarischer Lebenslauf\n• Alle bisherigen Zeugnisse (ab der 7. Klasse)\n• Multicheck\n• Referenzen Was bringst du mit?\n• Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch\n• Hohes Interesse an Informatik und neuen Technologien\n• Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe\n• Höfliche, engagierte und zuverlässige Person\n• Französisch- und Tastaturschreibkenntnisse von Vorteil Worauf kannst du dich freuen?\n• Basislehrjahr im ICT-Berufsbildungscenter\n• Eine vielseitige und praxisnahe Ausbildung (2. – 4. Lehrjahr) in einem agilen und innovativen Umfeld\n• Einblick und Mitarbeit in verschiedenen Abteilungen und Projekten\n• Fachkundige Begleitung durch unsere Praxisbildner\n• Bei überdurchschnittlicher Leistungsbereitschaft wird der Besuch der Berufsmittelschule (BM) unterstützt Noch Fragen? zum Bewerbungsprozess Herr Noël Bürer Verantwortlicher Lehrlingswesen STXT Telefon +41 58 136 41 31 Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Die Ausbildung erfolgt innerhalb der SRG SSR und findet grösstenteils in Bern statt.",
+        "fr": "C'est votre contribution\n• Travail en équipe\n• Développement de solutions de problèmes informatiques\n• Programmation et essai de nouvelles fonctions Êtes-vous intéressé par cette formation et répondez-vous aux exigences? Puis envoyez-nous votre demande avec le contenu suivant de préférence sur Yousty - > Appliquer ici :\n• Lettre de candidature avec les détails de votre motivation\n• CV tabulaire\n• Tous les certificats précédents (de la 7ème classe)\n• Contrôle multiple\n• Références Qu'est-ce que tu apportes ?\n• Bons élèves de l'école secondaire:en, avec des forces en mathématiques et en anglais\n• Haut intérêt pour l'informatique et les nouvelles technologies\n• Compétences logiques et abstraites en pensée et compréhension rapide\n• Personne polie, dévouée et fiable\n• Compétences en français et en écriture au clavier d'avantage Que pouvez-vous attendre avec impatience?\n• Année de formation de base au Centre de formation professionnelle TIC\n• Une formation polyvalente et pratique (2ème – 4ème année) dans un environnement agile et innovant\n• Insight et coopération dans divers départements et projets\n• Le soutien d'experts par nos instructeurs de pratique\n• S'il y a une volonté supérieure à la moyenne, la fréquentation de l'école secondaire professionnelle (BM) est soutenue. SSR est la plus grande entreprise de médias en Suisse. Avec ses unités d'affaires SRF, RTS, RSI et RTR, il produit et distribue des contenus dans les domaines de l'information, de l'éducation, de la culture, du divertissement et du sport. En tant qu'apprenant, vous deviendrez membre d'une entreprise diversifiée et tournée vers l'avenir qui relie les gens à travers la Suisse et atteint des millions d'utilisateurs sur différentes plateformes chaque jour. La formation a lieu au sein du SSR du GRS et a lieu pour la plupart à Berne."
+      },
+      "location": "Bern 16",
+      "canton": "BE",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-01T14:09:37.435Z",
+      "addressLocality": "Bern 16",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3000",
+      "streetAddress": "Giacomettistrasse 1",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
+      "requirements": [
+        "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
+        "Hohes Interesse an Informatik und neuen Technologien",
+        "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
+        "Höfliche, engagierte und zuverlässige Person",
+        "Französisch- und Tastaturschreibkenntnisse von Vorteil"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Gute:r Sekundarschüler:in, mit Stärken in Mathematik und Englisch",
+          "Hohes Interesse an Informatik und neuen Technologien",
+          "Logisches und abstraktes Denkvermögen sowie rasche Auffassungsgabe",
+          "Höfliche, engagierte und zuverlässige Person",
+          "Französisch- und Tastaturschreibkenntnisse von Vorteil"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "0d740af4-8667-4a66-a530-ccc338291c67",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "previousSlugs": [
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        ],
+        "en": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        ],
+        "fr": [
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:28:34.182Z",
+      "salaryMin": 59000,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1
     }
   ]
 }

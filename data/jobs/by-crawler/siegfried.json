@@ -1,6 +1,6 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-09-01T14:27:29.001Z",
+  "assembledAt": "2026-09-01T23:33:39.894Z",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -33,7 +33,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:25.749Z",
+      "crawledAt": "2026-09-01T23:33:36.473Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,13 +53,11 @@
       "previousSlugs": [
         "operateur-de-production-4-8-siegfried-ch",
         "wechseltechniker-3-8-siegfried-evionnaz",
-        "operateur-de-production-4-8-siegfried-evionnaz",
-        "operatore-di-produzione-4-8-siegfried-evionnaz"
+        "operateur-de-production-4-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-production-4-8-siegfried-ch",
-          "operatore-di-produzione-4-8-siegfried-evionnaz"
+          "operateur-de-production-4-8-siegfried-ch"
         ],
         "fr": [
           "operateur-de-production-4-8-siegfried-evionnaz"
@@ -112,7 +110,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:25.168Z",
+      "crawledAt": "2026-09-01T23:33:35.819Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -154,13 +152,11 @@
         "technicien-de-laboratoire-ad-siegfried-evionnaz",
         "change-over-techniker-3-8-siegfried-evionnaz",
         "changement-de-technicien-3-8-siegfried-evionnaz",
-        "tecnico-di-cambio-3-8-siegfried-evionnaz",
-        "tecnico-di-laboratorio-ad-siegfried-evionnaz"
+        "tecnico-di-cambio-3-8-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-ad-siegfried-ch",
-          "tecnico-di-laboratorio-ad-siegfried-evionnaz"
+          "lab-technician-ad-siegfried-ch"
         ],
         "de": [
           "labotechniker-ad-siegfried-evionnaz"
@@ -170,7 +166,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:35.504Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -217,7 +212,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Lab-Technician-R-D_R26_104",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:24.597Z",
+      "crawledAt": "2026-09-01T23:33:35.159Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -235,20 +230,17 @@
       "jobReqId": "R26_104",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "senior-lab-technician-analytics-siegfried-ch",
-        "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
+        "senior-lab-technician-analytics-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lab-technician-analytics-siegfried-ch",
-          "analisi-tecnica-del-laboratorio-senior-siegfried-zofingen"
+          "senior-lab-technician-analytics-siegfried-ch"
         ],
         "fr": [
           "senior-lab-technician-analytics-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-11T12:28:48.174Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -295,7 +287,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-R-D_R26_438",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:24.020Z",
+      "crawledAt": "2026-09-01T23:33:34.331Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -313,17 +305,14 @@
       "jobReqId": "R26_438",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "lab-technician-r-d-siegfried-ch",
-        "laboratorio-tecnico-r-d-siegfried-evionnaz"
+        "lab-technician-r-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lab-technician-r-d-siegfried-ch",
-          "laboratorio-tecnico-r-d-siegfried-evionnaz"
+          "lab-technician-r-d-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:56.939Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -370,7 +359,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Lab-Technician_R26_410",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:23.461Z",
+      "crawledAt": "2026-09-01T23:33:33.586Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -390,15 +379,13 @@
       "previousSlugs": [
         "laborant-in-efz-chemie-siegfried-ch",
         "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-        "laborant-in-cfc-chemie-siegfried-zofingen",
-        "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
+        "laborant-in-cfc-chemie-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "laborant-in-efz-chemie-siegfried-ch",
           "lehrstelle-laborant-in-efz-chemie-siegfried-ch",
-          "laborant-in-cfc-chemie-siegfried-zofingen",
-          "tecnico-di-laboratorio-efz-chemie-siegfried-zofingen"
+          "laborant-in-cfc-chemie-siegfried-zofingen"
         ],
         "en": [
           "laborant-in-efz-chemie-siegfried-ch"
@@ -408,7 +395,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T13:08:57.746Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -455,7 +441,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:22.865Z",
+      "crawledAt": "2026-09-01T23:33:32.925Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -474,14 +460,12 @@
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
         "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-        "technicien-de-maintenance-electricite-siegfried-ch",
-        "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
+        "technicien-de-maintenance-electricite-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manutenzione-tecnica-elettrica-siegfried-evionnaz",
-          "technicien-de-maintenance-electricite-siegfried-ch",
-          "tecnico-di-manutenzione-elettricita-siegfried-evionnaz"
+          "technicien-de-maintenance-electricite-siegfried-ch"
         ],
         "en": [
           "technicien-de-maintenance-electricite-siegfried-ch"
@@ -491,7 +475,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T15:11:19.489Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -538,7 +521,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Lab-Technician---Process-Safety_R26_532",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:22.219Z",
+      "crawledAt": "2026-09-01T23:33:32.263Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -558,14 +541,12 @@
       "previousSlugs": [
         "senior-lab-technician-process-safety-siegfried-ch",
         "senior-lab-techniker-process-safety-siegfried-evionnaz",
-        "senior-lab-technicien-process-safety-siegfried-evionnaz",
-        "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
+        "senior-lab-technicien-process-safety-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-lab-technician-process-safety-siegfried-ch",
-          "senior-lab-technicien-process-safety-siegfried-evionnaz",
-          "senior-lab-technician-sicurezza-dei-processi-siegfried-evionnaz"
+          "senior-lab-technicien-process-safety-siegfried-evionnaz"
         ],
         "de": [
           "senior-lab-techniker-process-safety-siegfried-evionnaz"
@@ -575,7 +556,6 @@
         ]
       },
       "firstSeenAt": "2026-06-18T13:04:11.702Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -622,7 +602,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:27:21.638Z",
+      "crawledAt": "2026-09-01T23:33:31.578Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -640,13 +620,11 @@
       "jobReqId": "R26_511",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "intern-commercial-excellence-siegfried-ch",
-        "tirocinante-commercial-excellence-siegfried-zofingen"
+        "intern-commercial-excellence-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-commercial-excellence-siegfried-ch",
-          "tirocinante-commercial-excellence-siegfried-zofingen"
+          "intern-commercial-excellence-siegfried-ch"
         ],
         "de": [
           "intern-commercial-excellence-siegfried-ch"
@@ -656,7 +634,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T15:18:10.178Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -703,7 +680,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:21.075Z",
+      "crawledAt": "2026-09-01T23:33:30.926Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -721,13 +698,11 @@
       "jobReqId": "R26_592",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "cad-designer-siegfried-ch",
-        "designer-cad-siegfried-evionnaz"
+        "cad-designer-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cad-designer-siegfried-ch",
-          "designer-cad-siegfried-evionnaz"
+          "cad-designer-siegfried-ch"
         ]
       },
       "needsRetranslation": true,
@@ -762,7 +737,7 @@
       "title": "Betriebselektriker*in",
       "titleByLocale": {
         "it": "Elettricista aziendale*",
-        "en": "Betriebselektriker*in",
+        "en": "Business electrician*",
         "de": "Betriebselektriker*in",
         "fr": "Électricien d'affaires*"
       },
@@ -778,7 +753,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Betriebselektriker-in_R26_616",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:20.464Z",
+      "crawledAt": "2026-09-01T23:33:30.267Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -798,14 +773,12 @@
       "previousSlugs": [
         "betriebselektriker-in-siegfried-ch",
         "betriebselektriker-in-siegfried-zofingen",
-        "business-electrician-siegfried-zofingen",
-        "elettricista-aziendale-siegfried-zofingen"
+        "business-electrician-siegfried-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-in-siegfried-ch",
-          "betriebselektriker-in-siegfried-zofingen",
-          "elettricista-aziendale-siegfried-zofingen"
+          "betriebselektriker-in-siegfried-zofingen"
         ],
         "en": [
           "business-electrician-siegfried-zofingen"
@@ -815,7 +788,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T12:19:28.317Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -862,7 +834,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Mechaniker-in--a-_R26_620",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:19.888Z",
+      "crawledAt": "2026-09-01T23:33:29.593Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -884,8 +856,7 @@
         "mecanicien-m-f-d-siegfried-zofingen",
         "meccanico-m-f-d-siegfried-zofingen",
         "mechanic-m-f-d-siegfried-zofingen",
-        "mechaniker-m-w-d-siegfried-ch",
-        "meccanico-a-siegfried-zofingen"
+        "mechaniker-m-w-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -893,8 +864,7 @@
           "mecanicien-m-f-d-siegfried-zofingen",
           "meccanico-m-f-d-siegfried-zofingen",
           "mechanic-m-f-d-siegfried-zofingen",
-          "mechaniker-m-w-d-siegfried-ch",
-          "meccanico-a-siegfried-zofingen"
+          "mechaniker-m-w-d-siegfried-ch"
         ],
         "en": [
           "mechaniker-in-a-siegfried-ch"
@@ -904,7 +874,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.607Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -951,7 +920,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-technician-QC_R26_657",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:19.305Z",
+      "crawledAt": "2026-09-01T23:33:28.930Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -976,8 +945,7 @@
         "lab-supervisor-qc-siegfried-ch",
         "lab-supervisore-qc-siegfried-evionnaz",
         "lab-vorgesetzter-qc-siegfried-evionnaz",
-        "lab-supervisor-qc-siegfried-evionnaz",
-        "tecnico-di-laboratorio-qc-siegfried-evionnaz"
+        "lab-supervisor-qc-siegfried-evionnaz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -988,8 +956,7 @@
           "lab-supervisor-qc-siegfried-ch",
           "lab-supervisore-qc-siegfried-evionnaz",
           "lab-vorgesetzter-qc-siegfried-evionnaz",
-          "lab-supervisor-qc-siegfried-evionnaz",
-          "tecnico-di-laboratorio-qc-siegfried-evionnaz"
+          "lab-supervisor-qc-siegfried-evionnaz"
         ],
         "en": [
           "quality-control-laboratory-supervisor-siegfried-evionnaz"
@@ -1003,7 +970,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:49.045Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1050,7 +1016,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:18.710Z",
+      "crawledAt": "2026-09-01T23:33:28.270Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1068,13 +1034,11 @@
       "jobReqId": "R26_661",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch",
-        "internship-processi-di-digitalizzazione-nell-ambiente-pharma-siegfried-evionnaz"
+        "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch",
-          "internship-processi-di-digitalizzazione-nell-ambiente-pharma-siegfried-evionnaz"
+          "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
         ],
         "en": [
           "stage-digitalisation-des-processus-en-environnement-pharma-siegfried-ch"
@@ -1130,7 +1094,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Ingnieur-en-chimie---Expertise-QC_R26_679",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T14:27:18.133Z",
+      "crawledAt": "2026-09-01T23:33:27.591Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1148,13 +1112,11 @@
       "jobReqId": "R26_679",
       "hiringOrganization": "Siegfried Evionnaz SA",
       "previousSlugs": [
-        "ingenieur-en-chimie-expertise-qc-siegfried-ch",
-        "ingegnere-di-chimica-esperto-qc-siegfried-evionnaz"
+        "ingenieur-en-chimie-expertise-qc-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-en-chimie-expertise-qc-siegfried-ch",
-          "ingegnere-di-chimica-esperto-qc-siegfried-evionnaz"
+          "ingenieur-en-chimie-expertise-qc-siegfried-ch"
         ],
         "en": [
           "ingenieur-en-chimie-expertise-qc-siegfried-ch"
@@ -1210,7 +1172,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Payroll-Expert_R26_664",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:17.448Z",
+      "crawledAt": "2026-09-01T23:33:26.877Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1228,13 +1190,11 @@
       "jobReqId": "R26_664",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "payroll-lead-siegfried-ch",
-        "piombo-payroll-siegfried-zofingen"
+        "payroll-lead-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "payroll-lead-siegfried-ch",
-          "piombo-payroll-siegfried-zofingen"
+          "payroll-lead-siegfried-ch"
         ],
         "fr": [
           "payroll-lead-siegfried-ch"
@@ -1288,7 +1248,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Rohrschlosser-in_R26_675",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:16.872Z",
+      "crawledAt": "2026-09-01T23:33:26.199Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1306,13 +1266,11 @@
       "jobReqId": "R26_675",
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
-        "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
-        "fabbri-in-chimica-di-manutenzione-siegfried-zofingen"
+        "rohrschlosser-in-instandhaltung-chemie-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rohrschlosser-in-instandhaltung-chemie-siegfried-ch",
-          "fabbri-in-chimica-di-manutenzione-siegfried-zofingen"
+          "rohrschlosser-in-instandhaltung-chemie-siegfried-ch"
         ],
         "en": [
           "rohrschlosser-in-instandhaltung-chemie-siegfried-ch"
@@ -1355,7 +1313,7 @@
         "it": "Costruzione CAD (m/f/d)",
         "en": "CAD constructor (m/f/d)",
         "de": "CAD Konstrukteur/in (m/w/d)",
-        "fr": "CAD Konstrukteur/in (m/w/d)"
+        "fr": "Constructeur CAO/en (h/f/d)"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nAls CAD Konstrukteur/in sind Sie verantwortlich für die Erstellung, Pflege und Weiterentwicklung der technischen Anlagendokumentation am Standort Zofingen. Sie unterstützen Investitionsprojekte durch die Erstellung von CAD-Dokumentationen und 3D-Modellen und leisten damit einen wichtigen Beitrag zur Sicherstellung einer aktuellen und GMP-konformen Anlagendokumentation.\n Your Profile:\n Deine Rolle\n\n• Erstellen und Pflegen von Rohrleitungs- und Instrumentenfliessschemata (R&I) für Bestandsanlagen und Investitionsprojekte im CAD-System\n\n• Erstellen und Aktualisieren von 3D-Modellen für Neu- und Umbauprojekte\n\n• Verantwortlich für die Versionierung und Verwaltung von CAD-Masterdokumenten\n\n• Erstellen und Pflegen von Gebäudeplänen, Grundrissen, Schnitten und Ansichten für den Standort Zofingen\n\n• Pflege und Aktualisierung von Arealplänen sowie Versorgungs- und Entsorgungsnetzplänen (z. B. Wasser-, Dampf-, Stickstoff- und Abwassernetze)\n\n• Erstellen und Aktualisieren von Reinraum-, Ex-Zonen-, Brandschutz- und Fluchtwegplänen\n\n• Erstellen und Pflegen von Apparate- und Anlagenlayouts\n\n• Unterstützen von Investitionsprojekten durch die Erstellung technischer Projektdokumentationen\n\n• Sicherstellen einer aktuellen, vollständigen und nachvollziehbaren Anlagendokumentation\n\n• Zusammenarbeit mit internen Fachbereichen und externen Partnern zur Sicherstellung einer korrekten Dokumentation\n\nDein Profil\n Fachkenntnisse\n\n• Abgeschlossene Ausbildung als CAD-Konstrukteur/in, Zeichner/in Fachrichtung Ingenieurbau, Maschinenbau oder vergleichbare technische Qualifikation\n\n• Mehrjährige Erfahrung in der Erstellung technischer Dokumentationen und CAD-Plänen, idealerweise im Industrieumfeld\n\n• Gute Kenntnisse in CAD-Systemen sowie im Umgang mit technischen Dokumentationen\n\n• Verständnis für Prozessanlagen, Rohrleitungsplanung und technische Infrastrukturen von Vorteil\n\nPersönliche Stärken\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Hohes Qualitäts- und Verantwortungsbewusstsein\n\n• Analytisches Denkvermögen und technisches Verständnis\n\n• Teamfähigkeit und ausgeprägte Kommunikationsfähigkeit\n\n• Hohe Dienstleistungsorientierung und Flexibilität\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
@@ -1369,7 +1327,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:16.293Z",
+      "crawledAt": "2026-09-01T23:33:25.534Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1388,21 +1346,18 @@
       "hiringOrganization": "Siegfried AG",
       "previousSlugs": [
         "cad-konstrukteur-m-w-d-siegfried-ch",
-        "cad-konstrukteur-in-m-w-d-siegfried-ch",
-        "costruzione-cad-m-f-d-siegfried-zofingen"
+        "cad-konstrukteur-in-m-w-d-siegfried-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cad-konstrukteur-m-w-d-siegfried-ch",
-          "cad-konstrukteur-in-m-w-d-siegfried-ch",
-          "costruzione-cad-m-f-d-siegfried-zofingen"
+          "cad-konstrukteur-in-m-w-d-siegfried-ch"
         ],
         "en": [
           "cad-konstrukteur-m-w-d-siegfried-ch"
         ]
       },
       "firstSeenAt": "2026-07-27T22:13:20.003Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1449,7 +1404,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Expert-Lab-Technician-Drug-Product-R-D_R26_716",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:15.718Z",
+      "crawledAt": "2026-09-01T23:33:24.843Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1514,7 +1469,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Global-Head-Treasury_R26_700",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:27:15.116Z",
+      "crawledAt": "2026-09-01T23:33:24.150Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1579,7 +1534,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:14.554Z",
+      "crawledAt": "2026-09-01T23:33:23.487Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1596,8 +1551,9 @@
       "requirementsByLocale": {},
       "jobReqId": "R26_713",
       "hiringOrganization": "Siegfried AG",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T10:24:44.709Z",
+      "previousSlugs": [
+        "asset-reliability-engineer-a-siegfried-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "asset-reliability-engineer-a-siegfried-ch"
@@ -1606,9 +1562,8 @@
           "asset-reliability-engineer-a-siegfried-ch"
         ]
       },
-      "previousSlugs": [
-        "asset-reliability-engineer-a-siegfried-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T10:24:44.709Z",
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1626,36 +1581,36 @@
     },
     {
       "id": "siegfried-edb1dd9691d1",
-      "slug": "analytical-data-reviewer-siegfried-ch",
+      "slug": "recensione-dati-analitica-siegfried-zofingen",
       "slugByLocale": {
-        "de": "analytical-data-reviewer-siegfried-ch",
-        "it": "analytical-data-reviewer-siegfried-ch",
+        "it": "recensione-dati-analitica-siegfried-zofingen",
         "en": "analytical-data-reviewer-siegfried-ch",
-        "fr": "analytical-data-reviewer-siegfried-ch"
+        "de": "analytical-data-reviewer-siegfried-ch",
+        "fr": "analyseur-de-donnees-analytiques-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
       "companyDomain": "siegfried.ch",
       "title": "Analytical Data Reviewer",
       "titleByLocale": {
-        "de": "Analytical Data Reviewer",
-        "it": "Analytical Data Reviewer",
+        "it": "Recensione dati analitica",
         "en": "Analytical Data Reviewer",
-        "fr": "Analytical Data Reviewer"
+        "de": "Analytical Data Reviewer",
+        "fr": "Analyseur de données analytiques"
       },
       "description": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung.\n Your Profile:\n Ihre Rolle\n\n• Sie sind für den cGMP-konformen Review von Chromatographischen-Rohdaten aus der Entwicklung von Rohstoffen, Zwischenprodukten und pharmazeutischen Wirkstoffen zuständig\n\n• Der Review umfasst analytische Rohdaten in Papierform, Labor-Softwaresystemen (Chromeleon) sowie im LIMS\n\n• Zusätzlich führen Sie den Review von Methodenvalidierungen, Transfers und Verifizierungen in der Analytischen Entwicklung durch\n\n• Bei Auswertungs- und Dokumentationskorrekturen arbeiten Sie eng mit den Labormitarbeitenden zusammen und definieren Verbesserungsmassnahmen\n\n• Sie unterstützen die Verwaltung von Referenzstandards, indem sie Stammdaten in LIMS unter Einhaltung der vorgegebenen SOP's erfassen, Chargen anlegen sowie Analysenresultate eintragen\n\nIhr Profil\nFachkenntnisse\n\n• Ausbildung als Chemielaborant/in EFZ oder vergleichbare Ausbildung mit Schwerpunkt Analytik\n\n• Sie haben eine fundierte GMP Erfahrung und bringen analytisches Denken, sowie eine strukturierte Arbeitsweise mit\n\n• Berufserfahrung in einer ähnlichen Funktion, gute HPLC/GC Kenntnisse\n\n• Gute Softwarekenntnisse (Chromatographie-Datensysteme, LIMS-Systeme), vertiefte Chromeleon-Kenntnisse sind von Vorteil\n\nPersönliche Stärken\n\n• Sie arbeiten gerne eigenverantwortlich und flexibel in einem engagierten Team.\n\n• Sie sind proaktiv und übernehmen gerne Verantwortung\n\n• Sie besitzen eine exakte und gleichzeitig effiziente Arbeitsweise\n\n• Gute Englischkenntnisse sind wichtig. Idealerweise sprechen Sie auch Deutsch. Falls nicht, sind Sie bereit es zu lernen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
       "descriptionByLocale": {
-        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung.\n Your Profile:\n Ihre Rolle\n\n• Sie sind für den cGMP-konformen Review von Chromatographischen-Rohdaten aus der Entwicklung von Rohstoffen, Zwischenprodukten und pharmazeutischen Wirkstoffen zuständig\n\n• Der Review umfasst analytische Rohdaten in Papierform, Labor-Softwaresystemen (Chromeleon) sowie im LIMS\n\n• Zusätzlich führen Sie den Review von Methodenvalidierungen, Transfers und Verifizierungen in der Analytischen Entwicklung durch\n\n• Bei Auswertungs- und Dokumentationskorrekturen arbeiten Sie eng mit den Labormitarbeitenden zusammen und definieren Verbesserungsmassnahmen\n\n• Sie unterstützen die Verwaltung von Referenzstandards, indem sie Stammdaten in LIMS unter Einhaltung der vorgegebenen SOP's erfassen, Chargen anlegen sowie Analysenresultate eintragen\n\nIhr Profil\nFachkenntnisse\n\n• Ausbildung als Chemielaborant/in EFZ oder vergleichbare Ausbildung mit Schwerpunkt Analytik\n\n• Sie haben eine fundierte GMP Erfahrung und bringen analytisches Denken, sowie eine strukturierte Arbeitsweise mit\n\n• Berufserfahrung in einer ähnlichen Funktion, gute HPLC/GC Kenntnisse\n\n• Gute Softwarekenntnisse (Chromatographie-Datensysteme, LIMS-Systeme), vertiefte Chromeleon-Kenntnisse sind von Vorteil\n\nPersönliche Stärken\n\n• Sie arbeiten gerne eigenverantwortlich und flexibel in einem engagierten Team.\n\n• Sie sind proaktiv und übernehmen gerne Verantwortung\n\n• Sie besitzen eine exakte und gleichzeitig effiziente Arbeitsweise\n\n• Gute Englischkenntnisse sind wichtig. Idealerweise sprechen Sie auch Deutsch. Falls nicht, sind Sie bereit es zu lernen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "it": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung.\n Your Profile:\n Ihre Rolle\n\n• Sie sind für den cGMP-konformen Review von Chromatographischen-Rohdaten aus der Entwicklung von Rohstoffen, Zwischenprodukten und pharmazeutischen Wirkstoffen zuständig\n\n• Der Review umfasst analytische Rohdaten in Papierform, Labor-Softwaresystemen (Chromeleon) sowie im LIMS\n\n• Zusätzlich führen Sie den Review von Methodenvalidierungen, Transfers und Verifizierungen in der Analytischen Entwicklung durch\n\n• Bei Auswertungs- und Dokumentationskorrekturen arbeiten Sie eng mit den Labormitarbeitenden zusammen und definieren Verbesserungsmassnahmen\n\n• Sie unterstützen die Verwaltung von Referenzstandards, indem sie Stammdaten in LIMS unter Einhaltung der vorgegebenen SOP's erfassen, Chargen anlegen sowie Analysenresultate eintragen\n\nIhr Profil\nFachkenntnisse\n\n• Ausbildung als Chemielaborant/in EFZ oder vergleichbare Ausbildung mit Schwerpunkt Analytik\n\n• Sie haben eine fundierte GMP Erfahrung und bringen analytisches Denken, sowie eine strukturierte Arbeitsweise mit\n\n• Berufserfahrung in einer ähnlichen Funktion, gute HPLC/GC Kenntnisse\n\n• Gute Softwarekenntnisse (Chromatographie-Datensysteme, LIMS-Systeme), vertiefte Chromeleon-Kenntnisse sind von Vorteil\n\nPersönliche Stärken\n\n• Sie arbeiten gerne eigenverantwortlich und flexibel in einem engagierten Team.\n\n• Sie sind proaktiv und übernehmen gerne Verantwortung\n\n• Sie besitzen eine exakte und gleichzeitig effiziente Arbeitsweise\n\n• Gute Englischkenntnisse sind wichtig. Idealerweise sprechen Sie auch Deutsch. Falls nicht, sind Sie bereit es zu lernen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "en": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung.\n Your Profile:\n Ihre Rolle\n\n• Sie sind für den cGMP-konformen Review von Chromatographischen-Rohdaten aus der Entwicklung von Rohstoffen, Zwischenprodukten und pharmazeutischen Wirkstoffen zuständig\n\n• Der Review umfasst analytische Rohdaten in Papierform, Labor-Softwaresystemen (Chromeleon) sowie im LIMS\n\n• Zusätzlich führen Sie den Review von Methodenvalidierungen, Transfers und Verifizierungen in der Analytischen Entwicklung durch\n\n• Bei Auswertungs- und Dokumentationskorrekturen arbeiten Sie eng mit den Labormitarbeitenden zusammen und definieren Verbesserungsmassnahmen\n\n• Sie unterstützen die Verwaltung von Referenzstandards, indem sie Stammdaten in LIMS unter Einhaltung der vorgegebenen SOP's erfassen, Chargen anlegen sowie Analysenresultate eintragen\n\nIhr Profil\nFachkenntnisse\n\n• Ausbildung als Chemielaborant/in EFZ oder vergleichbare Ausbildung mit Schwerpunkt Analytik\n\n• Sie haben eine fundierte GMP Erfahrung und bringen analytisches Denken, sowie eine strukturierte Arbeitsweise mit\n\n• Berufserfahrung in einer ähnlichen Funktion, gute HPLC/GC Kenntnisse\n\n• Gute Softwarekenntnisse (Chromatographie-Datensysteme, LIMS-Systeme), vertiefte Chromeleon-Kenntnisse sind von Vorteil\n\nPersönliche Stärken\n\n• Sie arbeiten gerne eigenverantwortlich und flexibel in einem engagierten Team.\n\n• Sie sind proaktiv und übernehmen gerne Verantwortung\n\n• Sie besitzen eine exakte und gleichzeitig effiziente Arbeitsweise\n\n• Gute Englischkenntnisse sind wichtig. Idealerweise sprechen Sie auch Deutsch. Falls nicht, sind Sie bereit es zu lernen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
-        "fr": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung.\n Your Profile:\n Ihre Rolle\n\n• Sie sind für den cGMP-konformen Review von Chromatographischen-Rohdaten aus der Entwicklung von Rohstoffen, Zwischenprodukten und pharmazeutischen Wirkstoffen zuständig\n\n• Der Review umfasst analytische Rohdaten in Papierform, Labor-Softwaresystemen (Chromeleon) sowie im LIMS\n\n• Zusätzlich führen Sie den Review von Methodenvalidierungen, Transfers und Verifizierungen in der Analytischen Entwicklung durch\n\n• Bei Auswertungs- und Dokumentationskorrekturen arbeiten Sie eng mit den Labormitarbeitenden zusammen und definieren Verbesserungsmassnahmen\n\n• Sie unterstützen die Verwaltung von Referenzstandards, indem sie Stammdaten in LIMS unter Einhaltung der vorgegebenen SOP's erfassen, Chargen anlegen sowie Analysenresultate eintragen\n\nIhr Profil\nFachkenntnisse\n\n• Ausbildung als Chemielaborant/in EFZ oder vergleichbare Ausbildung mit Schwerpunkt Analytik\n\n• Sie haben eine fundierte GMP Erfahrung und bringen analytisches Denken, sowie eine strukturierte Arbeitsweise mit\n\n• Berufserfahrung in einer ähnlichen Funktion, gute HPLC/GC Kenntnisse\n\n• Gute Softwarekenntnisse (Chromatographie-Datensysteme, LIMS-Systeme), vertiefte Chromeleon-Kenntnisse sind von Vorteil\n\nPersönliche Stärken\n\n• Sie arbeiten gerne eigenverantwortlich und flexibel in einem engagierten Team.\n\n• Sie sind proaktiv und übernehmen gerne Verantwortung\n\n• Sie besitzen eine exakte und gleichzeitig effiziente Arbeitsweise\n\n• Gute Englischkenntnisse sind wichtig. Idealerweise sprechen Sie auch Deutsch. Falls nicht, sind Sie bereit es zu lernen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich)."
+        "it": "\"Aspetta di crescere\" , personalmente e professionalmente: A Siegfried ci si può aspettare sfide emozionanti e numerose opportunità per dimostrare i vostri talenti. Come partner affidabile e rispettato per l'industria farmaceutica, manteniamo i più elevati standard di sicurezza, qualità e sostenibilità, promuovendo una cultura che ti consente di avere successo. Entra a far parte di un'azienda globale in rapida crescita, dove prospettive e esperienze diverse si incontrano in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizzi il successo collettivo e i vostri contributi individuali – e vi offre opportunità a lungo termine per crescere e fare la differenza.\n\nIl tuo ruolo:\nNei nostri laboratori, oltre 90 colleghi lavorano nella ricerca di nuovi processi e nel rispetto dei più elevati standard di qualità per poter produrre in stretto contatto con i clienti ed in modo efficiente. Offriamo ai nostri dipendenti compiti interessanti e un alto grado di varietà.\nI tuoi profili:\nIl loro ruolo\n\n• Essi sono responsabili della revisione cGMP-conforme dei dati cromatografici grezzi dallo sviluppo di materie prime, intermedi e sostanze attive farmaceutiche\n\n• La revisione comprende dati analitici grezzi in forma cartacea, sistemi software di laboratorio (cromo) e in LIMS\n\n• Inoltre, effettuerai la revisione delle validazioni dei metodi, dei trasferimenti e della verifica nello sviluppo analitico\n\n• Per le correzioni di valutazione e documentazione, si lavora a stretto contatto con i dipendenti di laboratorio e definire misure di miglioramento\n\n• Supportano la gestione degli standard di riferimento registrando i dati master in LIMS nel rispetto delle SOP specificate, creando batch e inserendo risultati di analisi\n\nIl tuo profilo\nConoscenza professionale\n\n• Formazione chimica di laboratorio o formazione equivalente con un focus sull'analisi\n\n• Hai un'esperienza GMP approfondita e portare il pensiero analitico e un modo di lavoro strutturato\n\n• Esperienza professionale in una capacità simile, buona conoscenza HPLC/GC\n\n• Buona conoscenza del software (sistemi di dati della cromatografia, sistemi LIMS), conoscenza approfondita di Chromeleon sono vantaggiosi\n\nPunti di forza personali\n\n• A loro piace lavorare in modo indipendente e flessibile in una squadra impegnata.\n\n• Sei proattivo e ti piace assumerti la responsabilità\n\n• Hanno un metodo di lavoro esatto e allo stesso tempo efficiente\n\n• Le buone abilità inglesi sono importanti. Idealmente, si parla anche tedesco. Se no, sei pronto ad imparare\n\nI tuoi vantaggi:\n\n• Ore lavorative flessibili permettono di conciliare famiglia, tempo libero e lavoro\n\n• Sia in auto che senza – beneficiate: parcheggio ridotto o CHF 60.– Supplemento di mobilità al mese\n\n• Assicurazione sanitaria: sconti fino al 10% sull'assicurazione complementare con i nostri partner\n\n• Condividere il piano di acquisto è generoso e designabile individualmente per noi\n\n• Kinderzulage: Siegfried AG aumenta il Kinderzulage del 10% rispetto all'approccio cantonale\n\n• Opportunità di formazione individuali per accordo\n\n• Tempo libero pagato, il benessere dei nostri dipendenti è importante per noi\n\n• Reka money: Siegfried AG concede ai dipendenti uno sconto del 20%\n\n• Fondo pensione: Il nostro fondo pensionistico aziendale è attraente e i contributi possono essere progettati individualmente\n\n• Staff ristorante / caffetteria: catering su termini preferenziali\n\n• Posizione centrale: Stazione ferroviaria vicino alla posizione con ottimi collegamenti con i trasporti pubblici\n\n• Accesso ai vantaggi e benefici aziendali esclusivi per i nostri dipendenti\n\nFondata nel 1873 a Zofingen, Svizzera, Siegfried è cresciuta in una rete globale con 16 sedi in tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici nella produzione industriale e nella produzione di farmaci sicuri per i pazienti in tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche aziende che ora possono combinare lo sviluppo e la produzione di principi attivi (API) e forme di dosaggio finito sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile dell'industria farmaceutica.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. L'azienda gestisce stabilimenti produttivi a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\" , personally and professionally: At Siegfried you can expect exciting challenges and numerous opportunities to prove your talents. As a trusted and respected partner to the pharmaceutical industry, we maintain the highest standards of safety, quality and sustainability – while fostering a culture that empowers you to succeed. Become part of a fast-growing, global company where diverse perspectives and experiences come together in a collaborative environment. Here you’ll find a workplace that values both collective success and your individual contributions – and offers you long-term opportunities to grow and make a difference.\n\nYour Role:\nIn our laboratories, more than 90 colleagues work on research into new processes and compliance with the highest quality standards in order to be able to produce in close contact with customers and efficiently. We offer our employees exciting tasks and a high degree of variety.\nYour Profiles:\nTheir role\n\n• They are responsible for the cGMP-compliant review of raw chromatographic data from the development of raw materials, intermediates and pharmaceutical active substances\n\n• The review includes analytical raw data in paper form, laboratory software systems (chromeleon) and in the LIMS\n\n• In addition, you will carry out the review of method validations, transfers and verification in analytical development\n\n• For evaluation and documentation corrections, you work closely with laboratory employees and define improvement measures\n\n• They support the management of reference standards by recording master data in LIMS in compliance with the specified SOPs, creating batches and entering analysis results\n\nYour profile\nProfessional knowledge\n\n• Chemical laboratory training or equivalent training with a focus on analytics\n\n• You have in-depth GMP experience and bring analytical thinking as well as a structured way of working\n\n• Professional experience in a similar capacity, good HPLC/GC knowledge\n\n• Good software knowledge (chromatography data systems, LIMS systems), in-depth Chromeleon knowledge are advantageous\n\nPersonal strengths\n\n• They like to work independently and flexibly in a committed team.\n\n• You are proactive and like to take responsibility\n\n• They have an exact and at the same time efficient working method\n\n• Good English skills are important. Ideally, you also speak German. If not, are you ready to learn\n\nYour Benefits:\n\n• Flexible working hours make it possible to reconcile family, leisure and work\n\n• Whether by car or without – You benefit: Either reduced parking or CHF 60.– Mobility surcharge per month\n\n• Health insurance: discounts up to 10% on supplementary insurance with our partners\n\n• Share purchase plan is generous and individually designable for us\n\n• Kinderzulage: Siegfried AG increases the Kinderzulage by 10% compared to the cantonal law approach\n\n• Individual training opportunities by agreement\n\n• Paid time off, the well-being of our employees is important to us\n\n• Reka money: Siegfried AG grants employees a 20% discount\n\n• Pension Fund: Our company-owned pension fund is attractive and contributions can be individually designed\n\n• Staff restaurant / cafeteria: catering on preferential terms\n\n• Centrally located: Train station near location with very good connections to public transport\n\n• Access to exclusive corporate benefits and benefits for our employees\n\nFounded in 1873 in Zofingen, Switzerland, Siegfried has grown into a global network with 16 locations on three continents. With a team of over 4,200 highly qualified professionals, we bring the innovations of our pharmaceutical customers to industrial production and manufacture safe medicines for patients worldwide. As a fully integrated CDMO, Siegfried is one of the few companies that can now combine the development and production of active ingredients (APIs) and finished dosage forms under one roof. This unique combination of know-how and experience makes us the most trusted partner of the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Expect to grow\" , persönlich und beruflich: Bei Siegfried erwarten Sie spannende Herausforderungen und zahlreiche Möglichkeiten, Ihre Talente unter Beweis zu stellen. Als ein vertrauenswürdiger und angesehener Partner der pharmazeutischen Industrie halten wir höchste Standards in den Bereichen Sicherheit, Qualität und Nachhaltigkeit ein – und fördern gleichzeitig eine Kultur, die Sie dazu befähigt, erfolgreich zu sein. Werden Sie Teil eines schnell wachsenden, globalen Unternehmens, in dem vielfältige Perspektiven und Erfahrungen in einem kooperativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der sowohl kollektiven Erfolg als auch Ihre individuellen Beiträge wertschätzt – und Ihnen langfristige Möglichkeiten bietet, sich weiterzuentwickeln und etwas zu bewirken.\n\nYour Role:\nIn unseren Laboren arbeiten mehr als 90 Kolleginnen und Kollegen an der Erforschung neuer Prozesse und der Einhaltung höchster Qualitätsstandards, um kundennah und effizient produzieren zu können. Wir bieten unseren Mitarbeitern spannende Aufgaben und ein hohes Mass an Abwechslung.\nYour Profile:\nIhre Rolle\n\n• Sie sind für den cGMP-konformen Review von Chromatographischen-Rohdaten aus der Entwicklung von Rohstoffen, Zwischenprodukten und pharmazeutischen Wirkstoffen zuständig\n\n• Der Review umfasst analytische Rohdaten in Papierform, Labor-Softwaresystemen (Chromeleon) sowie im LIMS\n\n• Zusätzlich führen Sie den Review von Methodenvalidierungen, Transfers und Verifizierungen in der Analytischen Entwicklung durch\n\n• Bei Auswertungs- und Dokumentationskorrekturen arbeiten Sie eng mit den Labormitarbeitenden zusammen und definieren Verbesserungsmassnahmen\n\n• Sie unterstützen die Verwaltung von Referenzstandards, indem sie Stammdaten in LIMS unter Einhaltung der vorgegebenen SOP's erfassen, Chargen anlegen sowie Analysenresultate eintragen\n\nIhr Profil\nFachkenntnisse\n\n• Ausbildung als Chemielaborant/in EFZ oder vergleichbare Ausbildung mit Schwerpunkt Analytik\n\n• Sie haben eine fundierte GMP Erfahrung und bringen analytisches Denken, sowie eine strukturierte Arbeitsweise mit\n\n• Berufserfahrung in einer ähnlichen Funktion, gute HPLC/GC Kenntnisse\n\n• Gute Softwarekenntnisse (Chromatographie-Datensysteme, LIMS-Systeme), vertiefte Chromeleon-Kenntnisse sind von Vorteil\n\nPersönliche Stärken\n\n• Sie arbeiten gerne eigenverantwortlich und flexibel in einem engagierten Team.\n\n• Sie sind proaktiv und übernehmen gerne Verantwortung\n\n• Sie besitzen eine exakte und gleichzeitig effiziente Arbeitsweise\n\n• Gute Englischkenntnisse sind wichtig. Idealerweise sprechen Sie auch Deutsch. Falls nicht, sind Sie bereit es zu lernen\n\nYour Benefits:\n\n• Flexible Arbeitszeiten ermöglichen die Vereinbarkeit von Familie, Freizeit und Beruf\n\n• Ob mit Auto oder ohne – Sie profitieren: Entweder vergünstigt parken oder CHF 60.– Mobilitätszuschlag pro Monat\n\n• Krankenversicherungen: Rabatte bis zu 10% auf Zusatzversicherungen bei unseren Partnern\n\n• Aktienkaufplan ist bei uns grosszügig und individuell gestaltbar\n\n• Kinderzulage: Siegfried AG erhöht die Kinderzulage um 10% gegenüber dem kantonalgesetzlichen Ansatz\n\n• Individuelle Weiterbildungsmöglichkeiten nach Absprache\n\n• Bezahlte Znünipause, das Wohlbefinden unserer Mitarbeitenden liegt uns am Herzen\n\n• Reka-Geld: Siegfried AG gewährt den Mitarbeitenden 20% Rabatt\n\n• Pensionskasse: Unsere firmeneigene Pensionskasse ist attraktiv und Beiträge individuell gestaltbar\n\n• Personalrestaurant / Cafeteria: Verpflegung zu Vorzugskonditionen\n\n• Zentral gelegen: Bahnhofsnahe Lage mit sehr guter Anbindung an den öffentlichen Verkehr\n\n• Zugang zu exklusiven Corporate Benefits und Vergünstigungen für unsere Mitarbeitenden\n\nGegründet 1873 in Zofingen, Schweiz, ist Siegfried zu einem globalen Netzwerk mit 16 Standorten auf drei Kontinenten gewachsen. Mit einem Team von über 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in die industrielle Produktion und stellen sichere Arzneimittel für Patientinnen und Patienten weltweit her. Als vollständig integrierter CDMO ist Siegfried eines der wenigen Unternehmen, das heute die Entwicklung und Herstellung von Wirkstoffen (APIs) und fertigen Darreichungsformen unter einem Dach vereinen kann. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum vertrauenswürdigsten Partner der pharmazeutischen Industrie.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "fr": "\"S'attendre à grandir\", personnellement et professionnellement: Chez Siegfried vous pouvez vous attendre à des défis passionnants et de nombreuses occasions de prouver vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous maintenons les plus hautes normes de sécurité, de qualité et de durabilité, tout en favorisant une culture qui vous donne les moyens de réussir. Devenez membre d'une entreprise mondiale en croissance rapide, où des perspectives et des expériences variées se réunissent dans un environnement collaboratif. Ici, vous trouverez un milieu de travail qui valorise à la fois la réussite collective et vos contributions individuelles – et vous offre des opportunités à long terme pour grandir et faire une différence.\n\nVotre rôle :\nDans nos laboratoires, plus de 90 collègues travaillent à la recherche de nouveaux procédés et au respect des normes de qualité les plus élevées afin de pouvoir produire en contact étroit avec les clients et efficacement. Nous offrons à nos employés des tâches passionnantes et une grande variété.\nVos profils:\nLeur rôle\n\n• Ils sont responsables de l'examen des données chromatographiques brutes de la mise au point de matières premières, d'intermédiaires et de substances actives pharmaceutiques conformes aux GMPc\n\n• L'examen comprend des données brutes analytiques sous forme papier, des systèmes logiciels de laboratoire (chroméléon) et dans le SGLI\n\n• En outre, vous effectuerez l'examen des validations de méthodes, des transferts et de la vérification dans le développement analytique\n\n• Pour les corrections d'évaluation et de documentation, vous travaillez en étroite collaboration avec les employés de laboratoire et définissez des mesures d'amélioration.\n\n• Ils soutiennent la gestion des normes de référence en enregistrant les données maîtresses dans le SGLI conformément aux SOP spécifiées, en créant des lots et en entrant les résultats d'analyse\n\nVotre profil\nConnaissances professionnelles\n\n• Formation en laboratoire chimique ou formation équivalente axée sur l'analyse\n\n• Vous avez une expérience approfondie des BPF et apportez une réflexion analytique ainsi qu'une façon structurée de travailler\n\n• Expérience professionnelle dans une capacité similaire, bonnes connaissances HPLC/GC\n\n• Bonne connaissance du logiciel (systèmes de données chromatographiques, systèmes LIMS), en profondeur Chromeleon connaissance sont avantageux\n\nForces personnelles\n\n• Ils aiment travailler de façon indépendante et flexible dans une équipe engagée.\n\n• Vous êtes proactif et aimez prendre des responsabilités\n\n• Ils ont une méthode de travail exacte et en même temps efficace\n\n• De bonnes compétences en anglais sont importantes. Idéalement, vous parlez aussi allemand. Sinon, êtes-vous prêt à apprendre\n\nVos avantages :\n\n• Des horaires flexibles permettent de concilier famille, loisirs et travail\n\n• Que ce soit en voiture ou sans – Vous bénéficiez d'un parking réduit ou de CHF 60.– Supplément de mobilité par mois\n\n• Assurance maladie: rabais jusqu'à 10% sur l'assurance complémentaire avec nos partenaires\n\n• Le plan d'achat d'actions est généreux et individuellement conçu pour nous\n\n• Kinderzulage: Siegfried AG augmente le Kinderzulage de 10% par rapport à l'approche cantonale\n\n• Possibilités de formation individuelle par accord\n\n• Temps libre payé, le bien-être de nos employés est important pour nous\n\n• Argent Reka: Siegfried AG accorde aux employés une réduction de 20%\n\n• Caisse de retraite : Notre caisse de retraite est attrayante et les cotisations peuvent être conçues individuellement\n\n• Restaurant du personnel / cafétéria: restauration à des conditions préférentielles\n\n• Emplacement central: Gare proche de l'emplacement avec très bonnes connexions aux transports en commun\n\n• Accès aux avantages et avantages exclusifs pour nos employés\n\nFondé en 1873 à Zofingen, en Suisse, Siegfried est devenu un réseau mondial avec 16 emplacements sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous apportons les innovations de nos clients pharmaceutiques à la production industrielle et la fabrication de médicaments sûrs pour les patients dans le monde entier. En tant que CDMO pleinement intégré, Siegfried est l'une des rares entreprises qui peuvent désormais combiner le développement et la production d'ingrédients actifs (API) et les formes posologiques finies sous un même toit. Cette combinaison unique de savoir-faire et d'expérience fait de nous le partenaire le plus fiable de l'industrie pharmaceutique.\n\nSiegfried est l'un des principaux CDMO (Contract Development & Manufacturing Organization) dont le siège est à Zofingen, en Suisse. L'entreprise exploite des sites de fabrication à Evionnaz (Valais), Zofingen (Aargau) et Schlieren (Zurich)."
       },
       "location": "Zofingen",
       "canton": "AG",
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T14:27:13.992Z",
+      "crawledAt": "2026-09-01T23:33:22.808Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1669,12 +1624,24 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Analytical-Data-Reviewer_R26_289",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "R26_289",
       "hiringOrganization": "Siegfried AG",
+      "previousSlugs": [
+        "analytical-data-reviewer-siegfried-ch",
+        "analytical-data-reviewer-siegfried-zofingen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "analytical-data-reviewer-siegfried-ch",
+          "analytical-data-reviewer-siegfried-zofingen"
+        ],
+        "fr": [
+          "analytical-data-reviewer-siegfried-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:27:13.992Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1688,8 +1655,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG",
-      "firstSeenAt": "2026-09-01T14:27:13.992Z"
+      "addressRegion": "AG"
     }
   ]
 }

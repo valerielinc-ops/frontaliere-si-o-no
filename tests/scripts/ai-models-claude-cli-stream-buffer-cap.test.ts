@@ -8,7 +8,8 @@ import { createClaudeCliStreamTrace } from '../../scripts/lib/ai-models.mjs';
  * timeout. Il cap scarta il buffer come riga illeggibile invece di
  * lasciarlo accumulare senza limite.
  */
-const CAP = 1_000_000;
+const OLD_CAP = 1_000_000;
+const CAP = 10_000_000;
 
 describe('createClaudeCliStreamTrace — cap sul buffer di feed()', () => {
   it('non tronca una riga JSONL legittima sotto il cap', () => {
@@ -55,5 +56,32 @@ describe('createClaudeCliStreamTrace — cap sul buffer di feed()', () => {
     trace.feed('\n');
     expect(trace.state.events).toBe(1);
     expect(trace.state.malformed).toBe(0);
+  });
+
+  it('non scarta un tool_use legittimo oltre il vecchio cap di 1 MB', () => {
+    const trace = createClaudeCliStreamTrace({ now: () => 0 });
+    const input = {
+      content: {
+        it: 'x'.repeat(400_000),
+        en: 'x'.repeat(400_000),
+        de: 'x'.repeat(400_000),
+      },
+    };
+    const line = JSON.stringify({
+      type: 'assistant',
+      message: { content: [{ type: 'tool_use', name: 'StructuredOutput', input }] },
+    });
+    expect(line.length).toBeGreaterThan(OLD_CAP);
+    expect(line.length).toBeLessThan(CAP);
+
+    trace.feed(line);
+
+    expect(trace.pendingBytes).toBe(line.length);
+    expect(trace.state.malformed).toBe(0);
+
+    trace.feed('\n');
+
+    expect(trace.state.malformed).toBe(0);
+    expect(trace.state.structured).toBe(JSON.stringify(input));
   });
 });

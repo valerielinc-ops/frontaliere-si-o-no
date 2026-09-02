@@ -1,6 +1,6 @@
 {
   "crawlerKey": "groupe-mutuel",
-  "assembledAt": "2026-09-01T14:10:42.297Z",
+  "assembledAt": "2026-09-01T23:08:41.807Z",
   "jobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4011?c=groupemutuel&lang=fr-FR",
@@ -90,6 +90,130 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4342?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4342?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Informaticien CFC Exploitation et infrastructure (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "description": "L’analyse, la planification et l’administration de l’infrastructure physique et virtuelle de notre système d’information font partie de ton quotidien Planifier, installer et configurer les composants de notre réseau informatique et téléphonique te permet d’assurer leur fonctionnement optimal Qu’il s’agisse de serveurs sur site ou dans le cloud, tu mets en place et configures les services nécessaires au bon déroulement de nos activités La sécurité des données et la protection du système d’information face aux attaques ou utilisations malveillantes font partie de tes priorités\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "L’analyse, la planification et l’administration de l’infrastructure physique et virtuelle de notre système d’information font partie de ton quotidien Planifier, installer et configurer les composants de notre réseau informatique et téléphonique te permet d’assurer leur fonctionnement optimal Qu’il s’agisse de serveurs sur site ou dans le cloud, tu mets en place et configures les services nécessaires au bon déroulement de nos activités La sécurité des données et la protection du système d’information face aux attaques ou utilisations malveillantes font partie de tes priorités\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "L’analyse, la planification et l’administration de l’infrastructure physique et virtuelle de notre système d’information font partie de ton quotidien Planifier, installer et configurer les composants de notre réseau informatique et téléphonique te permet d’assurer leur fonctionnement optimal Qu’il s’agisse de serveurs sur site ou dans le cloud, tu mets en place et configures les services nécessaires au bon déroulement de nos activités La sécurité des données et la protection du système d’information face aux attaques ou utilisations malveillantes font partie de tes priorités\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "L’analyse, la planification et l’administration de l’infrastructure physique et virtuelle de notre système d’information font partie de ton quotidien Planifier, installer et configurer les composants de notre réseau informatique et téléphonique te permet d’assurer leur fonctionnement optimal Qu’il s’agisse de serveurs sur site ou dans le cloud, tu mets en place et configures les services nécessaires au bon déroulement de nos activités La sécurité des données et la protection du système d’information face aux attaques ou utilisations malveillantes font partie de tes priorités\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "L’analyse, la planification et l’administration de l’infrastructure physique et virtuelle de notre système d’information font partie de ton quotidien Planifier, installer et configurer les composants de notre réseau informatique et téléphonique te permet d’assurer leur fonctionnement optimal Qu’il s’agisse de serveurs sur site ou dans le cloud, tu mets en place et configures les services nécessaires au bon déroulement de nos activités La sécurité des données et la protection du système d’information face aux attaques ou utilisations malveillantes font partie de tes priorités\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Apprenti Informaticien CFC Exploitation et infrastructure (h/f) - 100%",
+        "en": "Apprenti Informaticien CFC Exploitation et infrastructure (h/f) - 100%",
+        "it": "Apprenti Informaticien CFC Exploitation et infrastructure (h/f) - 100%",
+        "de": "Apprenti Informaticien CFC Exploitation et infrastructure (h/f) - 100%"
+      },
+      "slug": "apprenti-informaticien-cfc-exploitation-et-infrastructure-h-f-100-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "apprenti-informaticien-cfc-exploitation-et-infrastructure-h-f-100-groupe-mutuel",
+        "en": "apprenti-informaticien-cfc-exploitation-et-infrastructure-h-f-100-groupe-mutuel",
+        "it": "apprenti-informaticien-cfc-exploitation-et-infrastructure-h-f-100-groupe-mutuel",
+        "de": "apprenti-informaticien-cfc-exploitation-et-infrastructure-h-f-100-groupe-mutuel"
+      },
+      "category": "it",
+      "datePosted": "2026-09-01",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4342",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-c92bf2e3adde",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-09-01T23:08:41.806Z"
+    },
+    {
+      "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
+      "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4341?c=groupemutuel&lang=fr-FR",
+      "title": "Apprenti Opérateur en informatique (h/f) - 100%",
+      "company": "Groupe Mutuel",
+      "companyKey": "groupe-mutuel",
+      "location": "Martigny",
+      "canton": "VS",
+      "country": "CH",
+      "description": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+      "descriptionByLocale": {
+        "en": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "fr": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "it": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Mettre en place et configurer des appareils (ordinateurs, imprimantes, tablettes, smartphones, etc.) ainsi que des systèmes d’exploitation fait partie de ton rôle, notamment lors de la préparation de nouveaux postes de travail La maintenance du matériel installé fait partie de tes responsabilités, pour garantir un fonctionnement optimal et durable Tu installes, paramètres et assures la mise à jour régulière des applications et logiciels Modifier les caractéristiques techniques du matériel, des logiciels ou d’un réseau (par exemple augmenter la mémoire ou ajouter une carte réseau) ne te fait pas peur\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
+      },
+      "titleByLocale": {
+        "fr": "Apprenti Opérateur en informatique (h/f) - 100%",
+        "it": "Apprenti Opérateur en informatique (h/f) - 100%",
+        "en": "Apprenti Opérateur en informatique (h/f) - 100%",
+        "de": "Apprenti Opérateur en informatique (h/f) - 100%"
+      },
+      "slug": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+      "slugByLocale": {
+        "fr": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+        "en": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+        "it": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel",
+        "de": "apprenti-operateur-en-informatique-h-f-100-groupe-mutuel"
+      },
+      "category": "it",
+      "datePosted": "2026-09-01",
+      "source": "groupe-mutuel-csod-crawler",
+      "sourceLang": "fr",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "sector": "Assicurazioni / Sanità",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Martigny"
+      },
+      "jobReqId": "4341",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "groupe-mutuel-c7d22a7adca1",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "firstSeenAt": "2026-09-01T23:08:41.806Z"
     },
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4332?c=groupemutuel&lang=fr-FR",
@@ -451,10 +575,10 @@
       "country": "CH",
       "description": "Accueillir, conseiller et accompagner nos clients et agents, que ce soit au guichet ou par téléphone, fait partie de ton quotidien Tu as l'œil pour repérer les opportunités d’affaires et les transmettre à nos Conseillers avec aisance Garantir une agence impeccable en appliquant les consignes de la Direction est une mission que tu relèves avec sérieux Tu gères avec précision les tâches administratives, y compris la saisie informatique Et pour varier les plaisirs, tu pourras parfois prêter main-forte dans d’autres agences du Groupe Mutuel\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
-        "en": "Welcoming, advising and accompanying our clients and agents, whether at the counter or by telephone, is part of your daily life.You have the eye to identify business opportunities and pass them on to our Advisors with ease Guaranteeing an impeccable agency by applying the instructions of the Directorate is a mission that you take seriously You handle administrative tasks accurately, including computer input And to vary the pleasures, you can sometimes lend a hand in other Mutuel Group agencies\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Accueillir, conseiller et accompagner nos clients et agents, que ce soit au guichet ou par téléphone, fait partie de ton quotidien Tu as l'œil pour repérer les opportunités d’affaires et les transmettre à nos Conseillers avec aisance Garantir une agence impeccable en appliquant les consignes de la Direction est une mission que tu relèves avec sérieux Tu gères avec précision les tâches administratives, y compris la saisie informatique Et pour varier les plaisirs, tu pourras parfois prêter main-forte dans d’autres agences du Groupe Mutuel\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
         "fr": "Accueillir, conseiller et accompagner nos clients et agents, que ce soit au guichet ou par téléphone, fait partie de ton quotidien Tu as l'œil pour repérer les opportunités d’affaires et les transmettre à nos Conseillers avec aisance Garantir une agence impeccable en appliquant les consignes de la Direction est une mission que tu relèves avec sérieux Tu gères avec précision les tâches administratives, y compris la saisie informatique Et pour varier les plaisirs, tu pourras parfois prêter main-forte dans d’autres agences du Groupe Mutuel\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "it": "Accogliere, consigliare e accompagnare i nostri clienti e agenti, sia al banco o al telefono, fa parte della vostra vita quotidiana. Hai l'occhio per identificare le opportunità di business e passarle ai nostri consulenti con facilità Garantire un'agenzia impeccabile applicando le istruzioni della Direzione è una missione che si prende sul serio Gestisci i compiti amministrativi con precisione, incluso l'ingresso del computer E per variare i piaceri, a volte puoi dare una mano in altre agenzie del Gruppo Mutuel\n\nGroupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "de": "Die Begrüßung, Beratung und Begleitung unserer Kunden und Agenten, ob am Schalter oder telefonisch, gehört zu Ihrem Alltag. Sie haben das Auge, um Geschäftsmöglichkeiten zu identifizieren und sie an unsere Berater mit Leichtigkeit Garantie einer tadellosen Agentur durch die Anwendung der Anweisungen der Direktion ist eine Mission, die Sie ernst nehmen Sie erledigen administrative Aufgaben genau, einschließlich Computereingaben Und um die Freuden zu variieren, können Sie manchmal andere Agenturen der Mutuel Group unterstützen\n\nDie Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Privatpersonen und Unternehmen in der ganzen Schweiz an."
+        "it": "Accueillir, conseiller et accompagner nos clients et agents, que ce soit au guichet ou par téléphone, fait partie de ton quotidien Tu as l'œil pour repérer les opportunités d’affaires et les transmettre à nos Conseillers avec aisance Garantir une agence impeccable en appliquant les consignes de la Direction est une mission que tu relèves avec sérieux Tu gères avec précision les tâches administratives, y compris la saisie informatique Et pour varier les plaisirs, tu pourras parfois prêter main-forte dans d’autres agences du Groupe Mutuel\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Accueillir, conseiller et accompagner nos clients et agents, que ce soit au guichet ou par téléphone, fait partie de ton quotidien Tu as l'œil pour repérer les opportunités d’affaires et les transmettre à nos Conseillers avec aisance Garantir une agence impeccable en appliquant les consignes de la Direction est une mission que tu relèves avec sérieux Tu gères avec précision les tâches administratives, y compris la saisie informatique Et pour varier les plaisirs, tu pourras parfois prêter main-forte dans d’autres agences du Groupe Mutuel\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
       "titleByLocale": {
         "it": "Agenzia di consulenza clienti (m/f) 60-100%",
@@ -500,6 +624,7 @@
       },
       "firstSeenAt": "2026-08-11T10:25:30.851Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -606,10 +731,10 @@
       "country": "CH",
       "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
-        "en": "Immersing yourself in all facets of administrative and commercial work allows you to discover a rich and varied profession Between customer case management, application processing and daily organisation, you learn to evolve in a structured environment Every exchange with policyholders and potential clients is an opportunity to develop your relational skills and your sense of service Discovering different sectors of activity gives you a global and enriching vision of the company In parallel, you develop professional, methodological, social and personal skills that will serve you throughout your career The combination of theory and practice, both in school and in business, makes your learning concrete and motivating\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
         "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "it": "Immergersi in tutte le sfaccettature del lavoro amministrativo e commerciale consente di scoprire una professione ricca e varia Tra gestione del caso cliente, elaborazione delle applicazioni e organizzazione quotidiana, si impara a evolversi in un ambiente strutturato Ogni scambio con gli assicurati e potenziali clienti è un'opportunità per sviluppare le tue capacità relazionali e il tuo senso di servizio Scoprire diversi settori di attività ti dà una visione globale e arricchente dell'azienda Parallelamente, sviluppi competenze professionali, metodologiche, sociali e personali che ti serviranno durante la tua carriera La combinazione di teoria e pratica, sia a scuola che in affari, rende il vostro apprendimento concreto e motivante\n\nGroupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "de": "Eintauchen in alle Facetten der administrativen und kaufmännischen Arbeit ermöglicht es Ihnen, einen reichen und abwechslungsreichen Beruf zu entdecken Zwischen Kunden-Fallmanagement, Anwendungsbearbeitung und täglicher Organisation lernen Sie, sich in einer strukturierten Umgebung zu entwickeln Jeder Austausch mit Versicherungsnehmern und potenziellen Kunden ist eine Gelegenheit, Ihre Beziehungsfähigkeiten und Ihren Service zu entwickeln Verschiedene Tätigkeitsbereiche geben Ihnen eine globale und bereichernde Vision des Unternehmens Parallel dazu entwickeln Sie professionelle, methodische, soziale und persönliche Fähigkeiten, die Ihnen während Ihrer gesamten Karriere dienen. Die Kombination von Theorie und Praxis, sowohl in der Schule als auch in der Wirtschaft, macht Ihr Lernen konkret und motivierend\n\nDie Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Privatpersonen und Unternehmen in der ganzen Schweiz an."
+        "it": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
       "titleByLocale": {
         "it": "Apprenti dipendente commerciale / salute e assicurazione sociale (m/f) - 100%",
@@ -764,10 +889,10 @@
       "country": "CH",
       "description": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
       "descriptionByLocale": {
-        "en": "Immersing yourself in all facets of administrative and commercial work allows you to discover a rich and varied profession Between customer case management, application processing and daily organisation, you learn to evolve in a structured environment Every exchange with policyholders and potential clients is an opportunity to develop your relational skills and your sense of service Discovering different sectors of activity gives you a global and enriching vision of the company In parallel, you develop professional, methodological, social and personal skills that will serve you throughout your career The combination of theory and practice, both in school and in business, makes your learning concrete and motivating\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "en": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
         "fr": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
-        "it": "Immergersi in tutte le sfaccettature del lavoro amministrativo e commerciale consente di scoprire una professione ricca e varia Tra gestione del caso cliente, elaborazione delle applicazioni e organizzazione quotidiana, si impara a evolversi in un ambiente strutturato Ogni scambio con gli assicurati e potenziali clienti è un'opportunità per sviluppare le tue capacità relazionali e il tuo senso di servizio Scoprire diversi settori di attività ti dà una visione globale e arricchente dell'azienda Parallelamente, sviluppi competenze professionali, metodologiche, sociali e personali che ti serviranno durante la tua carriera La combinazione di teoria e pratica, sia a scuola che in affari, rende il vostro apprendimento concreto e motivante\n\nGroupe Mutuel è uno dei principali gruppi assicurativi della Svizzera, con sede a Martigny (Valais). L'azienda offre una vasta gamma di prodotti assicurativi e pensionistici per i privati e le imprese in tutta la Svizzera.",
-        "de": "Eintauchen in alle Facetten der administrativen und kaufmännischen Arbeit ermöglicht es Ihnen, einen reichen und abwechslungsreichen Beruf zu entdecken Zwischen Kunden-Fallmanagement, Anwendungsbearbeitung und täglicher Organisation lernen Sie, sich in einer strukturierten Umgebung zu entwickeln Jeder Austausch mit Versicherungsnehmern und potenziellen Kunden ist eine Gelegenheit, Ihre Beziehungsfähigkeiten und Ihren Service zu entwickeln Verschiedene Tätigkeitsbereiche geben Ihnen eine globale und bereichernde Vision des Unternehmens Parallel dazu entwickeln Sie professionelle, methodische, soziale und persönliche Fähigkeiten, die Ihnen während Ihrer gesamten Karriere dienen. Die Kombination von Theorie und Praxis, sowohl in der Schule als auch in der Wirtschaft, macht Ihr Lernen konkret und motivierend\n\nDie Groupe Mutuel ist eine der führenden Versicherungsgruppen der Schweiz mit Sitz in Martigny (Valais). Das Unternehmen bietet eine breite Palette von Versicherungs- und Pensionsprodukten für Privatpersonen und Unternehmen in der ganzen Schweiz an."
+        "it": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland.",
+        "de": "Plonger dans toutes les facettes du travail administratif et commercial te permet de découvrir un métier riche et varié Entre gestion de dossiers clients, traitement des demandes et organisation quotidienne, tu apprends à évoluer dans un environnement structuré Chaque échange avec les assurés et les clients potentiels est une occasion de développer tes compétences relationnelles et ton sens du service Découvrir différents secteurs d’activité te donne une vision globale et enrichissante de l’entreprise En parallèle, tu développes des compétences professionnelles, méthodologiques, sociales et personnelles qui te serviront tout au long de ta carrière La combinaison entre théorie et pratique, à l’école comme en entreprise, rend ton apprentissage concret et motivant\n\nGroupe Mutuel is one of Switzerland's leading insurance groups, headquartered in Martigny (Valais). The company offers a wide range of insurance and pension products for individuals and businesses across Switzerland."
       },
       "titleByLocale": {
         "it": "Apprenti dipendente commerciale / salute e assicurazione sociale (m/f) - 100%",
@@ -850,10 +975,10 @@
         "fr": "Poste ouvert chez Groupe Mutuel à Zürich.\nRôle : Lehre als Fachperson Kundendialog (m/w) 100%.\n\nGroupe Mutuel est l'un des principaux groupes d'assurance en Suisse, dont le siège est à Martigny (Valais). L'entreprise propose une large gamme de produits d'assurance et de prévoyance pour les particuliers et les entreprises dans toute la Suisse."
       },
       "titleByLocale": {
-        "it": "Apprendistato come Fachperson Kundendialog (m/w) 100%",
-        "en": "Teaching as a specialist customer dialogue (m/f) 100%",
+        "fr": "Lehre als Fachperson Kundendialog (m/w) 100%",
         "de": "Lehre als Fachperson Kundendialog (m/w) 100%",
-        "fr": "Enseignement en tant que dialogue client spécialisé (h/f) 100%"
+        "it": "Apprendistato come Fachperson Kundendialog (m/w) 100%",
+        "en": "Lehre als Fachperson Kundendialog (m/w) 100%"
       },
       "slug": "apprendistato-come-fachperson-kundendialog-m-w-d-100-groupe-mutuel-zurich",
       "slugByLocale": {
@@ -875,6 +1000,7 @@
       },
       "jobReqId": "4303",
       "id": "groupe-mutuel-91c557d0a083",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "fr": [
           "lehre-als-fachperson-kundendialog-m-w-100-groupe-mutuel",
@@ -893,7 +1019,6 @@
         "enseignement-en-tant-que-dialogue-client-specialise-h-f-100-groupe-mutuel-zurich",
         "apprendistato-come-fachperson-kundendialog-m-w-d-100-groupe-mutuel-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:51:09.427Z",
       "crawledAt": "",
       "salaryMin": 62000,
