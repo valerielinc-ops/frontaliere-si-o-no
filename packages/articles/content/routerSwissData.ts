@@ -1703,6 +1703,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-grigioni-procedure-fondi': { it: 'comprare-casa-grigioni-procedure-fondi', en: 'buy-home-grisons-procedures-funds', de: 'haus-graubuenden-kaufverfahren-eigenkapital', fr: 'acheter-maison-grisons-procedures-fonds' },
  'affitti-grigioni-canoni-diritto': { it: 'affitti-grigioni-canoni-diritto', en: 'grisons-rental-market-tenants-rights', de: 'mietwohnungen-graubuenden-mietrecht', fr: 'loyers-grisons-droit-location' },
  'naturalizzazione-grigioni-requisiti-procedura': { it: 'naturalizzazione-grigioni-requisiti-procedura', en: 'naturalization-grisons-requirements-procedure', de: 'einburgerung-graubunden-anforderungen-verfahren', fr: 'naturalisation-grisons-exigences-procedure' },
+ 'avs-prestazioni-complementari-grigioni': { it: 'avs-prestazioni-complementari-grigioni', en: 'avs-complementary-benefits-canton-grisons', de: 'avs-ergaenzungsleistungen-kanton-graubuenden', fr: 'avs-prestations-complementaires-canton-grisons' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

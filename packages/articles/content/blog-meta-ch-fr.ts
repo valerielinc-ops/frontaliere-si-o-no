@@ -5032,6 +5032,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Naturalisation aux Grisons : exigences et procédure',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'Comment devenir citoyen suisse dans le canton des Grisons. Parcours fédéral, exigences cantonales, tests de langue et d\'intégration, taxes et durée de la procédure.',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Guichet d\'une administration cantonale suisse avec formulaires de naturalisation et documents officiels en lumière naturelle.',
+    'blog.article.avs-prestazioni-complementari-grigioni.title': 'AVS et prestations complémentaires dans le canton des Grisons',
+    'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'Premier pilier, lacunes en matière de cotisations et accès aux prestations complémentaires : guide pratique pour les résidents et les contribuables du canton des Grisons.',
+    'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Bureau cantonal: conseiller financier examinant les dossiers de retraite et prévoyance',
 };
 
 export default blogMetaChFr;

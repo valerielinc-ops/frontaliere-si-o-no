@@ -5032,6 +5032,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Naturalizzazione a Grigioni: requisiti e procedura',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'Come diventare cittadino svizzero nel canton Grigioni. Percorso federale, requisiti cantonali, test di lingua e integrazione, tasse e durata della procedura.',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Sportello di un\'amministrazione cantonale svizzera con moduli e documenti di naturalizzazione esposti, luce naturale.',
+    'blog.article.avs-prestazioni-complementari-grigioni.title': 'AVS e prestazioni complementari nel Canton Grigioni',
+    'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'Primo pilastro, lacune contributive e accesso alle prestazioni complementari: guida pratica per residenti e contribuenti del Canton Grigioni.',
+    'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Ufficio amministrazione cantonale: consulente finanziario esamina documenti di previdenza e AVS',
 };
 
 export default blogMetaChIt;
