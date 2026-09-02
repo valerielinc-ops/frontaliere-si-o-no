@@ -5206,6 +5206,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Rentals Zurich: rental rights and procedures',
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Complete guide to the right to rent in the Canton of Zurich: security deposit, chargeback, cancellation and legal deadlines.',
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Modern Swiss residential building with contemporary facade and bright windows',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.title': 'Open activities in Appenzello Externo: costs',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.excerpt': 'Registration in the trade register: legal forms, tax obligations, AVS/AI and LAMal contributions. Practical guide to Appenzello Esterno.',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.imageAlt': 'Modern Swiss office with business registration documents and online commerce registry portal',
 };
 
 export default blogMetaChEn;

@@ -11147,6 +11147,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Frontière San Giacomo Filippo-Grigioni : guide 2024',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Vivre à San Giacomo Filippo et travailler dans les Grisons : permis G, franchise 10 000 € , AVS/LPP suisses, LAMal et déclaration 730. Règles 2024.',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Paysage alpin entre l\'Italie et les Grisons: prairies vertes et pics enneigés à la frontière suisse, aurore',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Frontière Église-Grisons : guide fiscal et pratique',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Vivre à Chiesa in Valmalenco et travailler dans les Grisons : nouvel accord 2024, exonérations € 7.500-€ 10.000, fiscalité suisse et crédit d\'impôt italien.',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Paysage alpin à la frontière italo-suisse avec architecture alpine traditionnelle et vallées boisées',
 };
 
 export default blogMetaFr;

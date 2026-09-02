@@ -67568,6 +67568,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-appenzello-esterno-costi': {
+    title: 'Aprire attività ad Appenzello Esterno: costi | Frontaliere Ticino',
+    description: 'Registrazione nel registro di commercio: forme giuridiche, obblighi fiscali, contributi AVS/AI e LAMal. Guida pratica ad Appenzello Esterno. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, appenzello, esterno',
+    ogTitle: 'Aprire attività ad Appenzello Esterno',
+    ogDescription: 'Scopri come registrare un\'impresa ad Appenzello Esterno: registro commercio, forme giuridiche (ditta individuale, Sagl, Sa), obblighi fiscali IFD/IVA, contributi AVS/AI/IPG (10.6%), e costi LAMal. Guida pratica passo dopo passo per imprenditori',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-appenzello-esterno-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività ad Appenzello Esterno: costi",
+      "description": "Registrazione nel registro di commercio: forme giuridiche, obblighi fiscali, contributi AVS/AI e LAMal. Guida pratica ad Appenzello Esterno. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-appenzello-esterno-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno svizzero con documenti di registrazione attività e portale registro di commercio online"
+      },
+      "datePublished": "2026-09-02T21:48:26+00:00",
+      "dateModified": "2026-09-02T21:48:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-appenzello-esterno-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

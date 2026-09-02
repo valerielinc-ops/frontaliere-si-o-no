@@ -5206,6 +5206,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Vermietungen Zürich: Mietrecht und Verfahren',
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Vollständiger Leitfaden zum Mietrecht im Kanton Zürich: Kaution, Gebührenbeanstandung, Kündigung und gesetzliche Fristen.',
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Modernes Wohngebäude mit zeitgenössischer Fassade und hellen Fenstern in der Schweiz',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.title': 'Geschäft in Appenzell Ausserrhoden eröffnen: Kosten',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.excerpt': 'Handelsregistereintrag: Rechtsformen, Steuerpflichten, AHV/IV- und KVG-Beiträge. Praktischer Ratgeber in Appenzell Ausserrhoden.',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.imageAlt': 'Modernes Schweizer Büro mit Anmeldedokumenten und Online-Handelsregister',
 };
 
 export default blogMetaChDe;
