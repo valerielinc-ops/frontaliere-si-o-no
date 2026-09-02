@@ -171,8 +171,17 @@ describe('Albergo Gardenia authoritative crawler', () => {
       body: new URL(url).pathname === '/sitemap.xml' ? sitemap : gardeniaPage(),
       host: new URL(url).hostname,
     }));
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-    const jobs = await fetchAllAlbergoGardeniaJobs({ fetchPage, browserFetchPage });
+    let jobs;
+    let warnCalls: unknown[][];
+    try {
+      jobs = await fetchAllAlbergoGardeniaJobs({ fetchPage, browserFetchPage });
+    } finally {
+      // Snapshot before restoring: `mockRestore()` also clears `.mock.calls`.
+      warnCalls = warnSpy.mock.calls;
+      warnSpy.mockRestore();
+    }
     expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
     expect(fetchPage).toHaveBeenCalledTimes(2);
     expect(browserFetchPage).toHaveBeenCalledTimes(41);
@@ -186,6 +195,54 @@ describe('Albergo Gardenia authoritative crawler', () => {
       'https://www.albergo-gardenia.ch/index.php?mid=1&pid=1',
       expect.objectContaining(ALBERGO_GARDENIA_FETCH_BUDGET.content),
     );
+    // At today's 40-page inventory and near-instant mocked fetches, the
+    // sticky-transport budget projection has an enormous margin — no warning.
+    expect(warnCalls.some(([msg]) => typeof msg === 'string' && msg.includes('budget margin thinning')))
+      .toBe(false);
+  });
+
+  it('warns when the sticky transport budget margin thins as content pages accumulate', async () => {
+    const sitemap = representativeSitemap();
+    let now = 0;
+    const fetchPage = vi.fn(async (url: string) => {
+      now += 10;
+      return { ok: false, status: 0, url, body: '', host: new URL(url).hostname };
+    });
+    const browserFetchPage = vi.fn(async (url: string) => {
+      now += 20_000;
+      return {
+        ok: true,
+        status: 200,
+        url,
+        body: new URL(url).pathname === '/sitemap.xml' ? sitemap : gardeniaPage(),
+        host: new URL(url).hostname,
+      };
+    });
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    let jobs;
+    let warnCalls: unknown[][];
+    try {
+      // 40 content pages at 20s/page ≈ 800s of sticky-browser cost against a
+      // deliberately tight 850s budget — barely fits, so the projection
+      // should flag the thinning margin well before the hard deadline error.
+      jobs = await fetchAllAlbergoGardeniaJobs({
+        fetchPage,
+        browserFetchPage,
+        nowImpl: () => now,
+        totalBudgetMs: 850_000,
+      });
+    } finally {
+      // Snapshot before restoring: `mockRestore()` also clears `.mock.calls`.
+      warnCalls = warnSpy.mock.calls;
+      warnSpy.mockRestore();
+    }
+    expect(assertCompleteAlbergoGardeniaSnapshot(jobs)).toBe(true);
+    const marginWarnings = warnCalls.filter(
+      ([msg]) => typeof msg === 'string' && msg.includes('budget margin thinning'),
+    );
+    expect(marginWarnings.length).toBeGreaterThan(0);
+    expect(marginWarnings[0][0]).toMatch(/ms\/page × \d+ pages left ≈ \d+ms projected/);
   });
 
   it('switches from exhausted runner Chromium to clean egress and keeps that rescue sticky', async () => {
