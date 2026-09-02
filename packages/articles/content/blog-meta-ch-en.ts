@@ -5125,6 +5125,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.penuria-insegnanti-rapporto-cause-dati.title': 'Teacher Shortage: A Report Analyzes Causes and Databases',
     'blog.article.penuria-insegnanti-rapporto-cause-dati.excerpt': 'The Federal Council approved the report on data collection and assessments concerning teacher shortages.',
     'blog.article.penuria-insegnanti-rapporto-cause-dati.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland, with the surrounding mountains and the city below.',
+    'blog.article.tribunale-ordina-bollettino-neutralita.title': 'Court orders correction of initiative bulletin',
+    'blog.article.tribunale-ordina-bollettino-neutralita.excerpt': 'Court Orders Correction of Neutrality Initiative Bulletin. The Greens had challenged the publication by appealing to the courts.',
+    'blog.article.tribunale-ordina-bollettino-neutralita.imageAlt': 'Interior of a Swiss courthouse with wooden benches depicting judicial oversight of democratic initiatives',
 };
 
 export default blogMetaChEn;

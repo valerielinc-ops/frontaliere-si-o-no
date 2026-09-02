@@ -1734,6 +1734,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'voto-elettronico-neuchatel-2028': { it: 'voto-elettronico-neuchatel-2028', en: 'electronic-voting-neuchatel-2028', de: 'elektronische-wahlen-neuchatel-2028', fr: 'vote-electronique-neuchatel-2028' },
  'lpp-fondi-libero-passaggio-tesoreria': { it: 'lpp-fondi-libero-passaggio-tesoreria', en: 'lpp-vested-benefits-treasury', de: 'lpp-freizuegigkeitsguthaben-bundeskasse', fr: 'lpp-fonds-libre-passage-tresorerie' },
  'penuria-insegnanti-rapporto-cause-dati': { it: 'penuria-insegnanti-rapporto-cause-dati', en: 'teacher-shortage-report-causes-data', de: 'lehrer-mangel-bericht-ursachen-daten', fr: 'penurie-d-enseignants-rapport-causes-donnees' },
+ 'tribunale-ordina-bollettino-neutralita': { it: 'tribunale-ordina-bollettino-neutralita', en: 'court-orders-bulletin-correction-neutrality', de: 'gericht-befiehlt-korrektur-bulletin-neutralitaet', fr: 'tribunal-ordonne-correction-bulletin-neutralite' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
