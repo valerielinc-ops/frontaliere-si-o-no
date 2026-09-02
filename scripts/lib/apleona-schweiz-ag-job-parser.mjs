@@ -155,16 +155,33 @@ export function extractApleonaDetailFields(html = '', pageUrl = '') {
     // The same tenant currently serves a second Apleona-owned skin where the
     // vacancy sections are plain `<section><div class="container"><h2>...`.
     // Heading identity is the boundary: generic company/contact sections are
-    // intentionally excluded even when they are longer.
+    // intentionally excluded even when they are longer. The heading pattern is
+    // German-only because the spec pins the seed to `lang=ger` and declares
+    // `sourceLang: "de"` — every sampled vacancy title is German — but a
+    // heading drift (a posting rendered in another language, or a copy tweak)
+    // would otherwise fail-close silently: the row is dropped with no signal.
+    // Surface that instead of hiding it, so a real drift is diagnosable from
+    // crawler logs rather than only from a missing-jobs symptom.
     if (descriptionBlocks.length === 0) {
+      const unmatchedHeadings = [];
       for (const section of document.querySelectorAll('section')) {
         const heading = normalizeSpace(section.querySelector('h2')?.textContent || '');
-        if (!/^(?:deine\s+)?(?:aufgaben|anforderungen)$/i.test(heading)) continue;
+        if (!heading) continue;
+        if (!/^(?:deine\s+)?(?:aufgaben|anforderungen)$/i.test(heading)) {
+          unmatchedHeadings.push(heading);
+          continue;
+        }
         const body = section.querySelector('.container') || section;
         const bodyText = structuredElementText(body);
         if (!bodyText) continue;
         hasVacancySpecificSection = true;
         descriptionBlocks.push([heading, bodyText].join('\n'));
+      }
+      if (descriptionBlocks.length === 0 && unmatchedHeadings.length > 0) {
+        console.warn(
+          `  ⚠️ Apleona second-skin fallback found section heading(s) not matching the German `
+          + `aufgaben/anforderungen pattern — row will be dropped: ${JSON.stringify(unmatchedHeadings)} (${pageUrl})`,
+        );
       }
     }
 
