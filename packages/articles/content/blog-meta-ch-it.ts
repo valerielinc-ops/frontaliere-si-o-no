@@ -5206,6 +5206,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Affitti Zurigo: diritto di locazione e procedure',
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Guida completa al diritto di locazione nel Canton Zurigo: deposito cauzionale, contestazione canone, disdetta e scadenze legali.',
     'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Palazzo residenziale moderno in Svizzera con facciata contemporanea e finestre luminose',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.title': 'Aprire attività ad Appenzello Esterno: costi',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.excerpt': 'Registrazione nel registro di commercio: forme giuridiche, obblighi fiscali, contributi AVS/AI e LAMal. Guida pratica ad Appenzello Esterno.',
+    'blog.article.aprire-attivita-appenzello-esterno-costi.imageAlt': 'Ufficio moderno svizzero con documenti di registrazione attività e portale registro di commercio online',
 };
 
 export default blogMetaChIt;
