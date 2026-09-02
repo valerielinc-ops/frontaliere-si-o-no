@@ -21,7 +21,7 @@
  * tests/alert-sent-jobs.test.ts.
  */
 
-import { extractStableJobId } from './job-match-key.mjs';
+import { extractStableJobId, hasUsableJobId } from './job-match-key.mjs';
 
 // How long a job stays "already sent" for an alert. A job re-surfacing after
 // this window (still genuinely open) is allowed through again — rare, and
@@ -44,7 +44,7 @@ export const SENT_JOBS_CAP = 500;
  */
 export function jobDedupKey(job) {
   if (!job) return '';
-  if (job.id) return String(job.id);
+  if (hasUsableJobId(job)) return String(job.id);
   const fromUrl = extractStableJobId(job.url || '');
   if (fromUrl) return fromUrl;
   return String(job.slug || '');

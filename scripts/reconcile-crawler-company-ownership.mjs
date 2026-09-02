@@ -22,7 +22,7 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './lib/dedicated-crawler-common.mjs';
-import { extractStableJobId } from './lib/job-match-key.mjs';
+import { extractStableJobId, hasUsableJobId } from './lib/job-match-key.mjs';
 import { normalizeJobUrl } from './lib/crawler-source-hosts.mjs';
 import {
   dedicatedFribourgOwner,
@@ -94,15 +94,44 @@ function readExpiredSlice(key) {
   return readSliceFrom(EXPIRED_SLICES_DIR, key);
 }
 
+let activeRollbackJournal = null;
+
 function writeSlice(slice) {
+  activeRollbackJournal?.capture(slice.file);
   writeJsonAtomic(slice.file, withJobs(slice.payload, slice.jobs));
 }
 
 function deleteSliceIfPresent(dir, key) {
   const file = path.join(dir, `${key}.json`);
   if (!fs.existsSync(file)) return false;
+  activeRollbackJournal?.capture(file);
   fs.rmSync(file);
   return true;
+}
+
+function restoreFileSnapshot(file, snapshot) {
+  if (snapshot === null) {
+    if (fs.existsSync(file)) fs.rmSync(file);
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, snapshot);
+}
+
+function createRollbackJournal() {
+  const snapshots = new Map();
+  return {
+    capture(file) {
+      if (snapshots.has(file)) return;
+      snapshots.set(file, fs.existsSync(file) ? fs.readFileSync(file) : null);
+    },
+    rollback() {
+      for (const [file, snapshot] of [...snapshots.entries()].reverse()) {
+        restoreFileSnapshot(file, snapshot);
+      }
+    },
+  };
 }
 
 /** Every locale-qualified URL token served by an active or expired record. */
@@ -200,7 +229,7 @@ function ownershipIdentity(job = {}) {
   if (urlKey && !urlKey.startsWith('url:')) return urlKey;
   const normalizedUrl = normalizeJobUrl(url);
   if (normalizedUrl) return `url:${normalizedUrl}`;
-  if (job?.id) return `id:${job.id}`;
+  if (hasUsableJobId(job)) return `id:${job.id}`;
   if (job?.slug) {
     throw new Error(`ownership identity reached unsafe slug fallback: ${job.slug}`);
   }
@@ -397,7 +426,29 @@ export function assertNoOverlappingJobs(broadJobs, dedicatedJobs, label) {
   }
 }
 
-function run({ apply = false } = {}) {
+/**
+ * A RETIREMENTS merge (active or archive) must leave every locale route owned
+ * by exactly one job. `mergeRetiredCrawlerJobs`/`mergeRetiredCrawlerArchive`
+ * collapse overlaps found *during* the merge, but two jobs that already
+ * shared a route before this run (e.g. two separately-merged historical
+ * records) are never compared against each other otherwise — the same class
+ * of asymmetry `assertNoOverlappingJobs` guards against for shared-board
+ * transfers.
+ */
+export function assertNoDuplicateRoutesWithin(jobs, label) {
+  const owners = new Map();
+  for (const job of jobs) {
+    for (const route of localeRouteKeys(job)) {
+      const owner = owners.get(route);
+      if (owner !== undefined && owner !== job) {
+        throw new Error(`${label}: route ${route} is owned by more than one job`);
+      }
+      owners.set(route, job);
+    }
+  }
+}
+
+function reconcile({ apply = false } = {}) {
   const report = [];
 
   for (const item of RETIREMENTS) {
@@ -410,6 +461,7 @@ function run({ apply = false } = {}) {
       }
       const result = mergeRetiredCrawlerJobs(canonical.jobs, retired.jobs, item.canonical);
       canonical.jobs = result.jobs;
+      assertNoDuplicateRoutesWithin(canonical.jobs, `${item.retired}->${item.canonical} active merge`);
       activeResult = { ...result, jobs: undefined, retiredSlice: apply ? 'deleted' : 'would-delete' };
       if (apply) {
         // Write the survivor first. A crash before the unlink leaves a duplicate
@@ -435,6 +487,7 @@ function run({ apply = false } = {}) {
         item.canonical,
       );
       canonicalExpired.jobs = result.jobs;
+      assertNoDuplicateRoutesWithin(canonicalExpired.jobs, `${item.retired}->${item.canonical} archive merge`);
       const needsWrite = Boolean(retiredExpired) || result.canonicalCollapsed > 0;
       if (needsWrite) {
         archiveResult = {
@@ -528,6 +581,31 @@ function run({ apply = false } = {}) {
   report.push({ broad: 'canton-ticino-osc', dedicated: 'amministrazione-cantonale-ti', correction: 'inverse', moved: inverse.moved, slugsTransferred: inverse.slugsTransferred });
 
   return report;
+}
+
+export function withFileRollback(operation) {
+  const previousJournal = activeRollbackJournal;
+  const journal = createRollbackJournal();
+  activeRollbackJournal = journal;
+  try {
+    return operation(journal.capture);
+  } catch (error) {
+    try {
+      journal.rollback();
+    } catch (rollbackError) {
+      const combined = new Error('reconciliation failed and its file rollback also failed');
+      combined.cause = { error, rollbackError };
+      throw combined;
+    }
+    throw error;
+  } finally {
+    activeRollbackJournal = previousJournal;
+  }
+}
+
+export function run({ apply = false } = {}) {
+  if (!apply) return reconcile({ apply });
+  return withFileRollback(() => reconcile({ apply }));
 }
 
 function main() {

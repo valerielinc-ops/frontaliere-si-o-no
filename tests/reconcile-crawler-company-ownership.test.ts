@@ -1,7 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
 import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import {
+  assertNoDuplicateRoutesWithin,
   assertNoOverlappingJobs,
   ISSUE_6759_COVERAGE,
   ISSUE_6797_SHARED_BOARD_TRANSFERS,
@@ -13,6 +23,7 @@ import {
   transferSlugHistory,
   transferOwnedJobs,
   transferOverlappingJobs,
+  withFileRollback,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
@@ -257,6 +268,55 @@ describe('issue #6759 reconciliation', () => {
 
     expect(() => mergeRetiredCrawlerJobs([], [weakIdentity], 'canonical'))
       .toThrow('ownership identity reached unsafe slug fallback: shared-slug');
+  });
+
+  it('treats a falsy-but-real id (numeric 0) as a valid identity instead of the unsafe slug fallback', () => {
+    // Distinct URLs so the url-derived identity branches (checked before
+    // `.id` in ownershipIdentity) can't accidentally collapse these two —
+    // only a shared `id: 0` should match them.
+    const canonical = { ...job('canonical', '1', 'canonical-slug'), id: 0, url: '' };
+    const retired = { ...job('retired', '2', 'canonical-slug'), id: 0, url: '' };
+
+    const result = mergeRetiredCrawlerJobs([canonical], [retired], 'canonical');
+    expect(result.jobs).toHaveLength(1);
+    expect(result.collapsed).toBe(1);
+  });
+
+  it('rolls back every captured file when a later mutation fails', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-ownership-rollback-'));
+    const slicesDir = join(root, 'active');
+    mkdirSync(slicesDir, { recursive: true });
+    const { retired, canonical } = RETIREMENTS[0];
+    const canonicalFile = join(slicesDir, `${canonical}.json`);
+    const retiredFile = join(slicesDir, `${retired}.json`);
+    const canonicalBefore = `${JSON.stringify([job(canonical, '1', 'canonical-slug')], null, 2)}\n`;
+    const retiredBefore = `${JSON.stringify([job(retired, '2', 'retired-slug')], null, 2)}\n`;
+    writeFileSync(canonicalFile, canonicalBefore);
+    writeFileSync(retiredFile, retiredBefore);
+
+    try {
+      expect(() => withFileRollback((capture) => {
+        capture(canonicalFile);
+        writeFileSync(canonicalFile, 'partially changed\n');
+        capture(retiredFile);
+        rmSync(retiredFile);
+        throw new Error('injected failure after partial persistence');
+      })).toThrow('injected failure after partial persistence');
+
+      expect(readFileSync(canonicalFile, 'utf8')).toBe(canonicalBefore);
+      expect(readFileSync(retiredFile, 'utf8')).toBe(retiredBefore);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('flags two distinct jobs left owning the same locale route after a RETIREMENTS merge', () => {
+    const a = { slug: 'shared-slug', slugByLocale: { it: 'shared-slug', de: 'shared-slug' } };
+    const b = { slug: 'other-slug', slugByLocale: { it: 'other-slug', de: 'shared-slug' } };
+
+    expect(() => assertNoDuplicateRoutesWithin([a, b], 'canonical merge'))
+      .toThrow('canonical merge: route de:shared-slug is owned by more than one job');
+    expect(() => assertNoDuplicateRoutesWithin([a], 'canonical merge')).not.toThrow();
   });
 
   it('asserts that shared-board transfer leaves no supplier identity in both slices', () => {
