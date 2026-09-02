@@ -11108,6 +11108,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.title': 'Riverlhab: das Projekt, das den Fluss Lura regeneriert',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.excerpt': 'Interreg Italien-Schweiz zur Renaturierung des Flusses Lura zwischen Tessin und Varese. Kulturfestival in Saronno vom 4. bis 6. September und Wanderausstellung in den Schulen',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.imageAlt': 'Lura-Bach mit Uferbegrünung und Renaturalisierung zwischen Tessin und Varese, Ufervegetation und natürlicher Lebensraum',
+    'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: Grenzgänger zwischen Italien und Tessin',
+    'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Leben in Crosio della Valle, Arbeiten im Tessin: G-Genehmigung, Steuern, Pässe und Kosten. Leitfaden für Grenzgänger.',
+    'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Alpenlandschaft zwischen Tessin und italienischer Grenze',
 };
 
 export default blogMetaDe;

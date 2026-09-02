@@ -11110,6 +11110,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.title': 'Riverlhab: il progetto che rigeneera il torrente Lura',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.excerpt': 'Interreg Italia-Svizzera per rinaturalizzare il torrente Lura tra Ticino e Varese. Festival culturale a Saronno 4-6 settembre e mostra itinerante nelle scuole',
     'blog.article.riverlhab-progetto-transfrontaliero-ticino.imageAlt': 'Torrente Lura con rive in fase di rinaturalizzazione tra Ticino e Varese, vegetazione autoctona e habitat naturale',
+    'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: frontaliere tra Italia e Ticino',
+    'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Vivere a Crosio della Valle, lavorare in Ticino: permesso G, fiscalità, valichi e costi. Guida per frontalieri.',
+    'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Paesaggio frontaliero tra Ticino e Italia con strada alpina e confine visibile',
 };
 
 export default blogMetaIt;
