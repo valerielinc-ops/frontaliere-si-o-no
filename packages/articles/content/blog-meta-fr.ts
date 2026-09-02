@@ -11129,6 +11129,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.title': 'Vivre à Ternate et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.excerpt': 'Découvrez les liaisons, les temps de trajet, le coût de la vie et les avantages et inconvénients du transfert.',
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du lac de Lugano',
+    'blog.article.besnate-lavorare-ticino-frontaliere.title': 'Vivre à Besnate et travailler au Tessin : en tant que frontalière',
+    'blog.article.besnate-lavorare-ticino-frontaliere.excerpt': 'Comment fonctionne la fiscalité, les droits et l\'organisation pratique pour ceux qui vivent à Besnate et travaillent au Tessin en tant que frontalier.',
+    'blog.article.besnate-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier nord du Tessin au coucher du soleil, avec collines alpines et vallées italiennes en arrière-plan.',
 };
 
 export default blogMetaFr;

@@ -82751,6 +82751,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-besnate-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Besnate e lavorare in Ticino: come frontaliere',
+    description: 'Come funziona la fiscalità, i diritti e l\'organizzazione pratica per chi vive a Besnate e lavora in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, besnate, lavorare, funziona',
+    ogTitle: 'Vivere a Besnate e lavorare in Ticino: come frontaliere',
+    ogDescription: 'Come funziona la fiscalità, i diritti e l\'organizzazione pratica per chi vive a Besnate e lavora in Ticino da frontaliere.',
+    canonicalPath: '/articoli-frontaliere/besnate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Besnate e lavorare in Ticino: come frontaliere",
+      "description": "Come funziona la fiscalità, i diritti e l'organizzazione pratica per chi vive a Besnate e lavora in Ticino da frontaliere. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/besnate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio del confine nord del Ticino al tramonto, con colline alpine e valli italiane sullo sfondo."
+      },
+      "datePublished": "2026-09-02T16:52:24+00:00",
+      "dateModified": "2026-09-02T16:52:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/besnate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
