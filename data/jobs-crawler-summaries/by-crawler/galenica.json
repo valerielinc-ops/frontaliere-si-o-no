@@ -1,48 +1,46 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-02T13:33:11.562Z",
+  "generatedAt": "2026-09-02T23:07:06.826Z",
   "total": 374,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 99530,
-  "avgDurationMs": 99530,
+  "unchangedCount": 0,
+  "durationMs": 97287,
+  "avgDurationMs": 97287,
   "durationHistory": [
-    99530
+    97287
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Teamleiter /Teamleiterin Operationscenter (w/m/d)",
+      "title": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
       "company": "Galenica AG (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3133549.4060384",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=3128172.4049447",
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "category": "healthcare",
-      "descriptionIt": "Teamleiter /Teamleiterin Operationscenter (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "category": "technology",
+      "descriptionIt": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
       "applyUrl": "",
       "postedDate": "2026-06-04",
       "source": "company-website",
       "sourceLang": "en",
-      "slug": "responsabile-di-team-operations-center-m-f-d-galenica-ag-galenica-bern",
-      "id": "galenica-6bef6dc3f5f5",
+      "slug": "software-seniorentwickler-softwareentwicklerin-m-f-d-galenica-ag-galenica-bern",
+      "id": "galenica-44aaf3ac70fe",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
       "currency": "CHF",
-      "salarySource": "reported",
+      "salarySource": "estimated",
       "streetAddress": "Untermattweg 8",
       "postalCode": "3027",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -51,5 +49,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
