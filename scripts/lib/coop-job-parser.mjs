@@ -13,6 +13,7 @@ import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
 } from './prospector/public-fetch-policy.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -374,27 +375,35 @@ export async function enrichCoopSourceBackedJobs(jobs, {
       if (!allowedHosts.includes(url.hostname)) {
         throw new Error(`Untrusted Coop-family detail host: ${url.hostname}`);
       }
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      try {
-        const response = await fetchFollowingValidatedRedirects(url.toString(), {
-          fetchImpl,
-          validateUrl,
-          requestOptions: {
-            signal: controller.signal,
-            dispatcher: validateUrl.dispatcher,
-            headers: {
-              Accept: 'text/html',
-              'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      const response = await fetchWithRetry(async () => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), timeoutMs);
+        try {
+          const res = await fetchFollowingValidatedRedirects(url.toString(), {
+            fetchImpl,
+            validateUrl,
+            requestOptions: {
+              signal: controller.signal,
+              dispatcher: validateUrl.dispatcher,
+              headers: {
+                Accept: 'text/html',
+                'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+              },
             },
-          },
-        });
-        if (!response?.ok) throw new Error(`HTTP ${response?.status || 'unknown'}`);
-        const jsonLd = extractJsonLd(await response.text());
-        output[index] = applyCoopSourceDetailToJob(job, jsonLd);
-      } finally {
-        clearTimeout(timer);
-      }
+          });
+          if (!res?.ok && RETRYABLE_STATUS.has(res?.status)) {
+            const err = new Error(`HTTP ${res.status}`);
+            err.status = res.status;
+            throw err;
+          }
+          return res;
+        } finally {
+          clearTimeout(timer);
+        }
+      }, { label: `coop-detail:${url.hostname}` });
+      if (!response?.ok) throw new Error(`HTTP ${response?.status || 'unknown'}`);
+      const jsonLd = extractJsonLd(await response.text());
+      output[index] = applyCoopSourceDetailToJob(job, jsonLd);
     }
   });
   await Promise.all(workers);
