@@ -66437,6 +66437,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lpp-fondi-libero-passaggio-tesoreria': {
+    title: 'LPP: fondi di libero passaggio presso la Tesoreria federale',
+    description: 'Il Consiglio federale propone di depositare i fondi di libero passaggio LPP presso la Tesoreria federale in caso di tassi d\'interesse negativi. Scopri',
+    keywords: 'frontalieri, ticino, svizzera, italia, fondi, libero, passaggio, presso',
+    ogTitle: 'LPP: fondi di libero passaggio presso la Tesoreria federale',
+    ogDescription: 'Il Consiglio federale ha trasmesso al Parlamento il messaggio per consentire all\'istituto collettore LPP di depositare i fondi presso la Tesoreria federale in scenari di tassi d\'interesse nulli o negativi.',
+    canonicalPath: '/articoli-svizzera/lpp-fondi-libero-passaggio-tesoreria/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "LPP: fondi di libero passaggio presso la Tesoreria federale",
+      "description": "Il Consiglio federale propone di depositare i fondi di libero passaggio LPP presso la Tesoreria federale in caso di tassi d'interesse negativi. Scopri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lpp-fondi-libero-passaggio-tesoreria.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede delle decisioni del Consiglio federale."
+      },
+      "datePublished": "2026-09-02T09:26:14+00:00",
+      "dateModified": "2026-09-02T09:26:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lpp-fondi-libero-passaggio-tesoreria/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5119,6 +5119,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.voto-elettronico-neuchatel-2028.title': 'Electronic voting in Neuchâtel: green light from the Federal Council',
     'blog.article.voto-elettronico-neuchatel-2028.excerpt': 'The Federal Council has decided to issue the Canton of Neuchâtel with the authorization in principle for the experimentation of electronic voting until 26 November 2028.',
     'blog.article.voto-elettronico-neuchatel-2028.imageAlt': 'A person voting electronically on a computer in a modern Swiss setting',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'LPP: funds for free passage at the Federal Treasury',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'The Federal Council proposes to allow the collecting institute LPP to deposit funds with the Confederation in the event of low or negative rates.',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Federal Palace in Bern, seat of the Federal Council decisions.',
 };
 
 export default blogMetaChEn;
