@@ -4764,6 +4764,24 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   // (not listing pages). These go directly to jobLinks for HTML fallback extraction,
   // bypassing the generic ATS listing crawl which only extracts JSON-LD from "listing" pages.
   const seedDetailUrls = new Set();
+  // Membership on seedDetailUrls is otherwise a raw-string Set: an accented slug
+  // (French/Italian routes) percent-encodes to hex bytes whose case is NOT
+  // normalized by the URL parser when the input already arrives pre-encoded
+  // (`%c3%a9` in, `%c3%a9` out — verified in Node) while a raw-unicode input
+  // to the same page encodes to uppercase (`%C3%A9`). A seed added from one
+  // encoding and looked up via a URL re-derived with the other (different
+  // discovery path re-finding the same detail page) would silently miss and
+  // fall through to the generic classifier instead of the trusted seed path.
+  // `canonicalizeJobUrl()` lowercases the whole string, so both hex cases key
+  // identically; keep the raw Set for fetch/logging and add a canonical-key
+  // index just for membership checks.
+  const seedDetailUrlKeys = new Set();
+  const seedDetailUrlKey = (url) => canonicalizeJobUrl(url) || String(url || '').toLowerCase();
+  const addSeedDetailUrl = (url) => {
+    seedDetailUrls.add(url);
+    seedDetailUrlKeys.add(seedDetailUrlKey(url));
+  };
+  const isSeedDetailUrl = (url) => seedDetailUrls.has(url) || seedDetailUrlKeys.has(seedDetailUrlKey(url));
   const workdayListingUrls = new Set(extractWorkdayListingUrls(homepageHtml, company.website));
   const greenhouseListingUrls = new Set(extractGreenhouseListingUrls(homepageHtml, company.website));
   const leverListingUrls = new Set(extractLeverListingUrls(homepageHtml, company.website));
@@ -4796,7 +4814,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       return;
     }
     if (isLikelyJobDetailUrl(link)) {
-      seedDetailUrls.add(link);
+      addSeedDetailUrl(link);
       addJobLink(link, sourceTag);
       return;
     }
@@ -4827,7 +4845,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   for (const raw of adapterDetailUrls) {
     const link = tryUrl(raw, company.website);
     if (link) {
-      seedDetailUrls.add(link);
+      addSeedDetailUrl(link);
       addJobLink(link, 'adapter_seed_detail');
     }
   }
@@ -5026,7 +5044,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     // seedDetailUrls bypass skip-optimization: they must always be re-fetched
     // so that _targetScope metadata is present for the merge exclusion bypass.
     const unknownLinks = knownJobUrls.size > 0
-      ? allLinks.filter((u) => seedDetailUrls.has(u) || !knownJobUrls.has(canonicalizeJobUrl(u)))
+      ? allLinks.filter((u) => isSeedDetailUrl(u) || !knownJobUrls.has(canonicalizeJobUrl(u)))
       : allLinks;
     const links = unknownLinks.slice(0, MAX_JOB_LINKS_PER_COMPANY);
     result.skippedKnownUrls += allLinks.length - unknownLinks.length;
@@ -5050,7 +5068,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           for (const node of detailNodes) {
             const parsed = toJobFromJsonLd(node, company.name, detailUrl, {
               seedMeta,
-              isSeedDetail: seedDetailUrls.has(detailUrl),
+              isSeedDetail: isSeedDetailUrl(detailUrl),
             });
             if (parsed && !parsed.reason && parsed.job) {
               // Migros pages embed JSON-LD with only the brief overview description.
@@ -5083,7 +5101,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           registerFilteredOut('jsonld_rejected_all_nodes');
           continue;
         }
-        const mustAiCheck = !seedDetailUrls.has(detailUrl) && (sourceTag === 'web_search' || (!signals.hasJsonLdJob && (signals.positive <= 1 || signals.negative > 0)));
+        const mustAiCheck = !isSeedDetailUrl(detailUrl) && (sourceTag === 'web_search' || (!signals.hasJsonLdJob && (signals.positive <= 1 || signals.negative > 0)));
         if (mustAiCheck) {
           // eslint-disable-next-line no-await-in-loop
           const gate = await aiValidateJobDetailPage({ html, pageUrl: detailUrl, companyName: company.name });
@@ -5092,7 +5110,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
             continue;
           }
         }
-        const isSeedDetail = seedDetailUrls.has(detailUrl);
+        const isSeedDetail = isSeedDetailUrl(detailUrl);
         const parsed = toJobFromHtmlFallback(html, detailUrl, company.name, company.city || 'Ticino', { seedMeta, isSeedDetail });
         if (parsed.reason) {
           registerFilteredOut(parsed.reason);
