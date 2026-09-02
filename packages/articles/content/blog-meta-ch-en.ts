@@ -5026,6 +5026,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-procedure-fondi.title': 'Buying a house in Graubünden: a guide to funds and mortgages',
     'blog.article.comprare-casa-grigioni-procedure-fondi.excerpt': 'Procedure, own funds, mortgage loan and taxation on three levels. How to buy a property in Switzerland complying with federal and cantonal regulations.',
     'blog.article.comprare-casa-grigioni-procedure-fondi.imageAlt': 'Modern Swiss residential neighborhood with traditional chalets and contemporary apartments overlooking an Alpine valley',
+    'blog.article.affitti-grigioni-canoni-diritto.title': 'Rentals in Grisons: fees, deposit and rental rights',
+    'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Practical guide to Swiss tenancy law: how security deposit, rent dispute and cancellation terms work in the Canton of Graubünden.',
+    'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Swiss Alpine village with traditional stone houses in the Grisons',
 };
 
 export default blogMetaChEn;
