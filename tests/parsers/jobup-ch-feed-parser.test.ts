@@ -86,6 +86,16 @@ describe('parseJobupLieu — postal code + city extraction', () => {
   it('returns empty for empty input', () => {
     expect(parseJobupLieu('')).toEqual({ postal: '', city: '' });
   });
+
+  it('strips a trailing canton code from the city', () => {
+    expect(parseJobupLieu('6900 Lugano TI')).toEqual({ postal: '6900', city: 'Lugano' });
+    expect(parseJobupLieu('1000 Lausanne VD')).toEqual({ postal: '1000', city: 'Lausanne' });
+    expect(parseJobupLieu('1950 Sion VS')).toEqual({ postal: '1950', city: 'Sion' });
+  });
+
+  it('keeps a two-letter final word that is not a canton code', () => {
+    expect(parseJobupLieu('1000 Foo XY')).toEqual({ postal: '1000', city: 'Foo XY' });
+  });
 });
 
 describe('parseJobupDate — DD/MM/YYYY → ISO', () => {
