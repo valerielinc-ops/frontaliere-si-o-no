@@ -100,6 +100,8 @@ jobs:
         run: |-
           node scripts/load-rc-env.mjs
           echo "GH_TOKEN=$GH_TOKEN" >> "$GITHUB_ENV"
+      - name: "Guard: refuse a concurrent run of the other entry point"
+        run: node scripts/check-crawler-group-live-run.mjs crawler-group-19.yml
       - uses: ./.github/actions/setup-omniroute
       - uses: ./.github/actions/setup-claude-haiku-fallback
       - name: Run migros
