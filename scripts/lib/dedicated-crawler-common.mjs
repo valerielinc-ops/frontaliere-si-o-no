@@ -7460,6 +7460,10 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
+  // This merge-stage scope only partitions records that already expose an
+  // explicit companyKey/company value. It has no legacy-alias reassignment
+  // fallback, so the single-key ambiguity guarded in pruneStaleCrawlerJobs
+  // does not apply here.
   let duplicateExisting = 0;
 
   for (const job of existingJobs) {
