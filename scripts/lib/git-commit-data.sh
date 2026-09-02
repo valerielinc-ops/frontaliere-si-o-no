@@ -246,6 +246,15 @@ fi
 # exact per-crawler standard files plus explicit file extras. The shared AI
 # cache is deliberately excluded for the same reason; it is not attributable
 # to one crawler in the shared worktree and heals through sequential writers.
+#
+# This exclusion is safe by construction, not a data-loss gap: no crawler
+# group run writes data/jobs-crawler-adapters/registry.json or _meta.json.
+# Those two files have their own dedicated commit paths, neither of which
+# runs inside a grouped-batch worktree: scripts/manage-company-adapter.mjs is
+# committed by the standalone "Commit and push" step in
+# .github/workflows/manage-company-adapter.yml, and
+# scripts/generate-company-adapter-stubs.mjs is invoked manually via
+# scripts/scaffold-crawler.mjs, landing in an ordinary scaffolding PR.
 if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
   ALL_FILES=()
   for path_item in "${STANDARD_FILES[@]}"; do
