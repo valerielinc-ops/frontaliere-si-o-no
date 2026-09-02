@@ -5089,6 +5089,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'Les CFF proposent des solutions pour trouver des places assises dans les trains',
     'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'Les CFF ont suscité des réactions irritées chez certains usagers avec leurs conseils pour trouver des places assises dans les trains.',
     'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'Une gare ferroviaire bondée à Zurich avec des navetteurs attendant leurs trains.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AVS et prestations complémentaires dans le canton de Bâle-Campagne',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'Comment fonctionne le premier pilier suisse au sein de la caisse de compensation cantonale ? Retraites AVS, lacunes de cotisation et prestations pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Retraité suisse demandant la rente AVS au guichet du canton Bâle-Campagne, avec documents officiels.',
 };
 
 export default blogMetaChFr;

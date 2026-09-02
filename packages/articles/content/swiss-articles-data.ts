@@ -15265,6 +15265,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-basilicacampagna',
+    category: 'pensione',
+    date: '2026-09-02T07:26:36.499Z',
+    image: '/images/blog/avs-prestazioni-complementari-basilicacampagna.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

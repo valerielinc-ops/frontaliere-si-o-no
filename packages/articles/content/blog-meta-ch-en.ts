@@ -5089,6 +5089,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'SBB offers solutions for finding seats on trains',
     'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'SBB has drawn irritated reactions from some passengers with its tips on finding seats on trains.',
     'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'A crowded train station in Zurich with commuters waiting for their trains.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AVS and Supplementary Benefits in the Canton of Basel-Landschaft',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'How the Swiss First Pillar Works in the Cantonal Compensation Fund. AVS Pensions, Contribution Gaps, and Benefits to Ensure a Minimum Standard of Living.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Senior filing AVS pension application at cantonal office desk in Basel-Landschaft, with documents and calculator.',
 };
 
 export default blogMetaChEn;
