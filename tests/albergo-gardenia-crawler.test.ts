@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it, vi } from 'vitest';
@@ -15,9 +16,7 @@ import {
   createAlbergoGardeniaCleanEgressTransport,
   fetchAlbergoGardeniaSourcePage,
   assertNoGardeniaCareerSurface,
-  decodeSitemapLocation,
   fetchAllAlbergoGardeniaJobs,
-  gardeniaInjectedDecodeSource,
   isAlbergoGardeniaJob,
   isTrustedDomain,
   parseAlbergoGardeniaSitemap,
@@ -68,8 +67,11 @@ describe('Albergo Gardenia authoritative crawler', () => {
   });
 
   it('decodes <loc> entities identically in the injected Cloudflare script and the Node parser', () => {
-    // eslint-disable-next-line no-new-func -- exercises the literal source injected into the browser script.
-    const decodeFromInjectedScript = new Function(`return ${gardeniaInjectedDecodeSource()};`)();
+    // Runs the injected script source in a plain `node` subprocess (as the
+    // live crawler runs, `node scripts/update-*.mjs`, no bundler) instead of
+    // `new Function` in-process — Vitest's SSR transform rewrites the ESM
+    // imports the real `.toString()`'d functions close over, which would make
+    // an in-process eval fail on rewritten identifiers that don't exist here.
     const cases = [
       'https://www.albergo-gardenia.ch/story.php?mid=1&amp;amp;pid=1',
       'https://www.albergo-gardenia.ch/index.php?mid=5&amp;pid=2',
@@ -77,8 +79,19 @@ describe('Albergo Gardenia authoritative crawler', () => {
       '&#8220;quoted&#8221; &amp;amp; &#39;text&#39;',
       'plain text with no entities',
     ];
-    for (const raw of cases) {
-      expect(decodeFromInjectedScript(raw)).toBe(decodeSitemapLocation(raw));
+    const script = `
+      import { gardeniaInjectedDecodeSource, decodeSitemapLocation } from ${JSON.stringify(
+        path.join(ROOT, 'scripts/lib/albergo-gardenia-job-parser.mjs'),
+      )};
+      const decodeFromInjectedScript = new Function(\`return \${gardeniaInjectedDecodeSource()};\`)();
+      const cases = ${JSON.stringify(cases)};
+      const result = cases.map((raw) => [decodeFromInjectedScript(raw), decodeSitemapLocation(raw)]);
+      process.stdout.write(JSON.stringify(result));
+    `;
+    const output = execFileSync(process.execPath, ['--input-type=module', '-e', script], { encoding: 'utf8' });
+    const pairs = JSON.parse(output) as [string, string][];
+    for (const [fromInjectedScript, fromNodeParser] of pairs) {
+      expect(fromInjectedScript).toBe(fromNodeParser);
     }
   });
 
