@@ -67,4 +67,30 @@ describe('CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE — punteggiatura non-latina', () 
       expect(trace.salvage()?.text).toBe(text);
     }
   });
+
+  it('non duplica il testo quando gli eventi assistant sono snapshot cumulativi', () => {
+    const trace = createClaudeCliStreamTrace({ now: () => 0 });
+    const assistant = (id: string, text: string) => JSON.stringify({
+      type: 'assistant',
+      message: { id, content: [{ type: 'text', text }] },
+    });
+
+    trace.feed(`${assistant('msg_1', 'Prima parte. ')}\n`);
+    trace.feed(`${assistant('msg_1', 'Prima parte. Seconda parte.')}\n`);
+
+    expect(trace.salvage()?.text).toBe('Prima parte. Seconda parte.');
+  });
+
+  it('non scambia due delta con lo stesso prefisso per uno snapshot', () => {
+    const trace = createClaudeCliStreamTrace({ now: () => 0 });
+    const assistant = (id: string, text: string) => JSON.stringify({
+      type: 'assistant',
+      message: { id, content: [{ type: 'text', text }] },
+    });
+
+    trace.feed(`${assistant('msg_1', 'A')}\n`);
+    trace.feed(`${assistant('msg_2', 'A final.')}\n`);
+
+    expect(trace.salvage()?.text).toBe('AA final.');
+  });
 });
