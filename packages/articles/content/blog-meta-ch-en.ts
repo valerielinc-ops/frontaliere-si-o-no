@@ -5062,6 +5062,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Basel City Inheritance and Gift Tax: Rates',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Guide to inheritance and gift taxes in the Canton of Basel-City: rates for degree of kinship, exemptions and reporting procedures.',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Swiss notary office with inheritance documents and calculator, symbolizing estate planning and wealth transfer',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Permit L Basel Countryside: duration and renewal',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Short-term permit L in Basel Countryside: validity up to 1 year, renewal, employer restrictions and transition to residence permit B.',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Swiss administrative office with work permit documents and Alpine landscape view',
 };
 
 export default blogMetaChEn;

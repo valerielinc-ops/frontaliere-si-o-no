@@ -1713,6 +1713,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avviare-attivita-grigioni-forma-giuridica': { it: 'avviare-attivita-grigioni-forma-giuridica', en: 'starting-business-grisons-legal-form', de: 'unternehmen-gruendung-graubuenden-rechtsform', fr: 'demarrer-entreprise-grisons-forme-juridique' },
  'mercato-lavoro-canton-grigioni': { it: 'mercato-lavoro-canton-grigioni', en: 'labour-market-canton-grisons', de: 'arbeitsmarkt-kanton-graubunden', fr: 'marche-travail-canton-grisons' },
  'imposta-di-successione-e-donazione-basilea-citta': { it: 'imposta-di-successione-e-donazione-basilea-citta', en: 'inheritance-and-donation-tax-basel-stadt', de: 'erbschaft-und-schenkung-steuern-basel-stadt', fr: 'impot-succession-et-donation-bale-ville' },
+ 'durata-validita-permesso-l-basilea-campagna': { it: 'durata-validita-permesso-l-basilea-campagna', en: 'duration-validity-permit-l-basel-landschaft', de: 'gueltigkeitsdauer-permit-l-basellandschaft', fr: 'duree-validite-permis-l-bale-campagne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

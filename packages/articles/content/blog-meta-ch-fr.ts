@@ -5062,6 +5062,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Droit de succession et donation Bâle-Ville : taux',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Guide des droits de succession et de donation dans le canton de Bâle-Ville : taux par degré de parenté, exonérations et procédures de déclaration.',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Cabinet notarial suisse avec documents de succession et calculatrice, symbole de la planification patrimoniale',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Permis L Bâle Campagne : durée et renouvellement',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Permis L de courte durée à Bâle-Campagne : validité jusqu\'à 1 an, renouvellement, contraintes de l\'employeur et transition vers le permis B de séjour.',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Bureau administratif suisse avec documents de permis de travail et paysage alpin',
 };
 
 export default blogMetaChFr;
