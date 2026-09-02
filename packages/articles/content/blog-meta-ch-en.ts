@@ -5149,6 +5149,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.margine-manovra-agricoltori-svizzera.title': 'Agriculture 2030: increased room for manoeuvre',
     'blog.article.margine-manovra-agricoltori-svizzera.excerpt': 'Federal Council launches PA30+ consultation until 8 December. CHF 13.8 billion to reform agricultural payments, strengthen Swiss food security.',
     'blog.article.margine-manovra-agricoltori-svizzera.imageAlt': 'Swiss rural landscape with cultivated fields and mountains in the background, representing the national agricultural sector',
+    'blog.article.franco-svizzero-euro-minimi.title': 'Swiss franc at a minimum against the euro: what it means for the economy',
+    'blog.article.franco-svizzero-euro-minimi.excerpt': 'The Swiss franc falls against the euro to a one-year low. The exchange rate reached 0.9435 francs per euro.',
+    'blog.article.franco-svizzero-euro-minimi.imageAlt': 'Aerial view of Lugano, Switzerland, with the lake and surrounding mountains.',
 };
 
 export default blogMetaChEn;

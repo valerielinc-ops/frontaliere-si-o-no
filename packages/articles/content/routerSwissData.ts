@@ -1742,6 +1742,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'politica-agricola-2030-tagli-120-milioni': { it: 'politica-agricola-2030-tagli-120-milioni', en: 'agricultural-policy-2030-cuts-over-120-million', de: 'landwirtschaftspolitik-2030-kuerzungen-von-ueber-120-millionen', fr: 'politique-agricole-2030-coupures-de-plus-de-120-millions' },
  'consiglio-federale-consultazione-agricola-2030': { it: 'consiglio-federale-consultazione-agricola-2030', en: 'federal-council-agriculture-consultation-2030', de: 'bundesrat-agrarberatum-2030', fr: 'conseil-federal-consultation-agriculture-2030' },
  'margine-manovra-agricoltori-svizzera': { it: 'margine-manovra-agricoltori-svizzera', en: 'farmers-maneuver-margin-switzerland-2030', de: 'handlungsspielraum-bauern-schweiz-2030', fr: 'marge-manoeuvre-agriculteurs-suisse-2030' },
+ 'franco-svizzero-euro-minimi': { it: 'franco-svizzero-euro-minimi', en: 'swiss-franc-euro-minima', de: 'schweizer-franken-euro-minima', fr: 'franc-suisse-euro-minima' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
