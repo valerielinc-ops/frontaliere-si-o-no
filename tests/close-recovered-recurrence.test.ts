@@ -34,6 +34,8 @@ import {
   decideChronicDeescalation,
   countRecurrences,
   dropPhantomCancellations,
+  hasReadableAnnotationPages,
+  hasTimeoutAnnotation,
   alreadyRecurrenceHeld,
   recurrenceHoldNote,
   chronicEscalationNote,
@@ -404,16 +406,36 @@ const phantomOracle = (jobZeroIds) => {
   return fn;
 };
 
-test('una cancellazione a job-zero esce dallo storico; una con job resta', () => {
-  const phantom = cancelledRun(10, 901);
-  const timedOut = cancelledRun(20, 902); // job cancellato da `timeout-minutes`
-  const runs = [phantom, timedOut, run(30, true)];
-  const isPhantom = phantomOracle([901]);
+test('cancellazioni manuali o superseded senza timeout escono; il timeout resta', () => {
+  const manual = cancelledRun(10, 901); // ha job ma nessuna annotation timeout
+  const superseded = cancelledRun(15, 903); // idem: avviata, poi superseded
+  const timedOut = cancelledRun(20, 902); // annotation `timeout-minutes`
+  const runs = [manual, superseded, timedOut, run(30, true)];
+  const isPhantom = phantomOracle([901, 903]);
 
   const kept = dropPhantomCancellations(runs, isPhantom);
   deepEq(kept.map((r) => r.databaseId), [902, 100030]);
   // Il costo si paga solo sulle righe `cancelled`: la run verde non viene interrogata.
-  deepEq(isPhantom.calls, [901, 902]);
+  deepEq(isPhantom.calls, [901, 903, 902]);
+});
+
+test('failure resta un fallimento; evidenza ignota resta fail-closed', () => {
+  const failed = run(10, false);
+  const unknownCancelled = cancelledRun(20, 903); // API/annotation malformata
+  const kept = dropPhantomCancellations([failed, unknownCancelled], () => false);
+  deepEq(kept.map((r) => r.databaseId), [100010, 903]);
+  eq(decideRecurrenceHold(kept, opts).failures, 2);
+});
+
+test('un timeout nella pagina successiva di annotation resta una prova di fallimento', () => {
+  eq(hasTimeoutAnnotation([
+    Array.from({ length: 30 }, () => ({ message: 'ordinary cancellation' })),
+    [{ message: 'The job has exceeded the maximum execution time of 350 minutes.' }],
+  ]), true);
+});
+
+test('annotation malformata resta fail-closed', () => {
+  eq(hasReadableAnnotationPages([[{}]]), false);
 });
 
 test('senza il filtro la cancellazione a job-zero conta come fallimento', () => {

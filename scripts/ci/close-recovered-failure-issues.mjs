@@ -849,46 +849,82 @@ function fetchIssueComments(issueNumber) {
 const RUN_HISTORY_LIMIT = 100;
 
 /**
- * True quando la run `databaseId` non ha eseguito NEMMENO UN job. Un `cancelled` a
- * job-zero è un run che GitHub ha scartato ANCORA IN CODA — mai osservata sul comportamento
- * del workflow, non un fallimento. Misurato su #5333: `tests` a push-su-main gira con
+ * True quando la run `cancelled` non ha una prova di timeout. Uno scarto in coda non ha
+ * job; una cancellazione manuale o una supersessione dopo l'avvio ha job, ma nessuna
+ * annotation di timeout. Nessuna delle due è un fallimento del workflow. Misurato su #5333:
+ * `tests` a push-su-main gira con
  * `cancel-in-progress: false` apposta perché "main deve arrivare a un verdetto" (vedi
  * tests.yml), ma GitHub tiene comunque un solo run pending per gruppo di concorrenza e
  * scarta il pending superato a ogni push successivo — "un burst di N merge costa 2 run,
  * non N", per usare le parole del workflow stesso. Contare quello scarto come fallimento
  * in `decideRecurrenceHold` gonfia artificialmente il tasso: nella finestra dell'8h che
  * ha tenuto #5333 aperta con "5 fallimenti su 21 run (23.8%)", tutti e 5 i "fallimenti"
- * erano cancellazioni a job-zero — zero timeout, zero test rossi — eppure la issue restava
+ * erano cancellazioni senza timeout — zero timeout, zero test rossi — eppure la issue restava
  * bloccata da un artefatto della concorrenza scambiato per un guasto che ricorreva.
- * `per_page=1` tiene il payload minimo: la risposta porta comunque `total_count` sull'intero
- * set. PROCEED-SAFE: errore gh/API → false (non esclude nulla), lo stesso bias-verso-l'hold
- * di ogni altro fallback di questo file.
+ * PROCEED-SAFE: errore gh/API, JSON malformato, job senza check-run o annotation illeggibile
+ * → false (non esclude nulla), lo stesso bias-verso-l'hold di ogni altro fallback di questo
+ * file.
  *
- * PERCHÉ job-zero e non "cancelled" tout court, che non costerebbe nemmeno una chiamata:
+ * PERCHÉ non filtrare tutti i `cancelled`, che non costerebbe nemmeno una chiamata:
  * `loop-health-report.mjs` sceglie la scorciatoia (`real = total - cancelled - skipped`) e
  * qui sarebbe SBAGLIATA. GitHub marca `cancelled` anche il job che sfonda `timeout-minutes`
  * — è la premessa su cui `scan-job-timeouts.mjs` è costruito per intero — e il timeout è
  * proprio il guasto che ha RIAPERTO #5333 (`typecheck (tsc --noEmit)`, "the job has
- * exceeded the maximum execution time"). Filtrare tutti i `cancelled` renderebbe il gate
- * cieco all'unica famiglia di fallimento che stava osservando. `total_count === 0`
- * separa le due: uno scarto in coda non ha job, un timeout ne ha.
+ * exceeded the maximum execution time"). La stessa annotation e' la prova che separa il
+ * timeout da una cancellazione normale: avere job non basta.
  */
-function hasNoJobs(databaseId, repo = REPO, token) {
+function hasNoTimeoutEvidence(databaseId, repo = REPO, token) {
   const out = gh(
-    ['api', `repos/${repo || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=1`],
+    ['api', `repos/${repo || '{owner}/{repo}'}/actions/runs/${databaseId}/jobs?per_page=100`],
     { allowFailure: true, token },
   );
   if (out === null) return false;
   try {
-    return JSON.parse(out)?.total_count === 0;
+    const data = JSON.parse(out);
+    const jobs = data?.jobs;
+    const totalCount = Number(data?.total_count);
+    if (!Array.isArray(jobs) || !Number.isInteger(totalCount) || totalCount !== jobs.length) return false;
+    for (const job of jobs) {
+      if (job?.conclusion !== 'cancelled') continue;
+      if (!job?.check_run_url) return false;
+      const annotations = gh(['api', `${job.check_run_url}/annotations`, '--paginate', '--slurp'], { allowFailure: true, token });
+      if (annotations === null) return false;
+      let parsed;
+      try {
+        parsed = JSON.parse(annotations);
+      } catch {
+        return false;
+      }
+      if (!hasReadableAnnotationPages(parsed)) return false;
+      if (hasTimeoutAnnotation(parsed)) {
+        return false;
+      }
+    }
+    return true;
   } catch {
     return false;
   }
 }
 
+/** True when any paginated check-run annotation proves a timeout. */
+export function hasTimeoutAnnotation(pages) {
+  return pages.some((annotations) => annotations.some((annotation) => (
+    /exceeded[^.]*(maximum execution time|maximum number of minutes)/i.test(annotation?.message || '')
+  )));
+}
+
+/** True only for complete, readable pages returned by the annotations API. */
+export function hasReadableAnnotationPages(pages) {
+  return Array.isArray(pages) && pages.every((annotations) => (
+    Array.isArray(annotations) && annotations.every((annotation) => (
+      annotation && typeof annotation.message === 'string'
+    ))
+  ));
+}
+
 /**
- * Toglie dallo storico le run `cancelled` che non hanno mai eseguito un job — vedi
- * `hasNoJobs` per il perché. Puro e iniettabile (`isPhantom`) perché è QUESTO il ramo che
+ * Toglie dallo storico le run `cancelled` senza prova di timeout — vedi
+ * `hasNoTimeoutEvidence` per il perché. Puro e iniettabile (`isPhantom`) perché è QUESTO il ramo che
  * decide se una cancellazione fisiologica diventa un fallimento misurato, e un ramo del
  * genere va provato con un test, non a occhio: `recentCompletedRuns` non è testabile
  * (parla con `gh` a ogni riga), questa lo è.
@@ -937,7 +973,7 @@ function recentCompletedRuns(workflowName, repo = REPO, token) {
     runs
       .filter((r) => r.status === 'completed')
       .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt)),
-    (databaseId) => hasNoJobs(databaseId, repo, token),
+    (databaseId) => hasNoTimeoutEvidence(databaseId, repo, token),
   );
   return completed.length ? completed : null;
 }
