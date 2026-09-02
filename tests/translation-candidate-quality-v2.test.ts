@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { performance } from 'node:perf_hooks';
 import { describe, expect, it } from 'vitest';
 import { assessTranslationCandidateQualityV2 } from '../scripts/lib/translation-candidate-quality-v2.mjs';
@@ -32,6 +33,19 @@ function xorshiftBinaryPeriod(length: number) {
     state >>>= 0;
     return state & 1 ? 'uno' : 'due';
   });
+}
+
+function shaBinaryPeriod(length: number) {
+  const tokens: string[] = [];
+  for (let counter = 0; tokens.length < length; counter += 1) {
+    const digest = createHash('sha256').update(`period-${counter}`).digest();
+    for (const byte of digest) {
+      for (let bit = 7; bit >= 0 && tokens.length < length; bit -= 1) {
+        tokens.push(byte & (1 << bit) ? 'a' : 'b');
+      }
+    }
+  }
+  return tokens;
 }
 
 describe('translation candidate quality v2', () => {
@@ -622,6 +636,56 @@ describe('translation candidate quality v2', () => {
     }
   });
 
+  it('rejects a 117010-char sparse SHA/binary long-period candidate without persistence or reuse', async () => {
+    const unit = shaBinaryPeriod(3_900);
+    const repeatedTokens = Array.from({ length: 15 }, () => unit).flat();
+    const exact = `intro ${repeatedTokens.join(' ')} coda`;
+    const sparseTokens = [...repeatedTokens];
+    for (let index = 0; index < sparseTokens.length; index += 997) {
+      sparseTokens[index] = sparseTokens[index] === 'a' ? 'b' : 'a';
+    }
+    const sparse = `intro ${sparseTokens.join(' ')} coda`;
+    expect(exact).toHaveLength(117_010);
+    expect(sparse).toHaveLength(117_010);
+    for (const candidateText of [exact, sparse]) {
+      expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).toContain('description.degenerate_content');
+    }
+
+    const identity = createTranslationUnitIdentityV2({
+      kind: 'job', fieldPath: 'description', sourceLocale: 'en', targetLocale: 'it', sourceText: base.sourceText,
+      context: { company: null, location: null },
+    });
+    const scanDigest = `sha256:${'a'.repeat(64)}`;
+    const request = {
+      currentScanDigest: scanDigest,
+      engineVersion: 'stub-v1',
+      gateVersion: 'quality-v2',
+      identity,
+      memory: createEmptyTranslationMemoryV2(),
+      provider: {
+        schemaVersion: 3,
+        costClass: 'zero',
+        engineVersion: 'stub-v1',
+        executionClass: 'isolated_callback',
+        moduleUrl: `data:text/javascript;charset=utf-8,${encodeURIComponent(`export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(sparse)}); }`)}`,
+        exportName: 'translate',
+      },
+      providerTimeoutMs: 10_000,
+      quality: {
+        sourceText: base.sourceText, sourceLang: 'en', targetLang: 'it', field: 'description', protectedTokens: [],
+      },
+      scanDigest,
+    };
+    const first = await executeTranslationCandidateV2(request);
+    expect(first).toMatchObject({
+      status: 'retryable_reject', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
+    });
+    const retried = await executeTranslationCandidateV2({ ...request, memory: first.memory });
+    expect(retried).toMatchObject({
+      status: 'retryable_reject', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
+    });
+  });
+
   it('rejects a periodic tail despite same-period decoy anchors outside the region', () => {
     const prefixTokens = Array.from({ length: 500 }, (_, index) => `intro${index}`);
     for (const index of [0, 25, 50, 75]) prefixTokens[index] = 'decoy';
@@ -789,5 +853,13 @@ describe('translation candidate quality v2', () => {
     const result = assessTranslationCandidateQualityV2({ ...base, candidateText });
     expect(codes(result)).not.toContain('description.degenerate_content');
     expect(performance.now() - start).toBeLessThan(2_000);
+  });
+
+  it('keeps long natural boilerplate with per-section substance out of degenerate-content rejection', () => {
+    const candidateText = Array.from({ length: 80 }, (_, index) => {
+      const substance = Array.from({ length: 12 }, (_, offset) => `dettaglio${index}voce${offset}`).join(' ');
+      return `La posizione prevede collaborazione con il team e responsabilità operative. ${substance}`;
+    }).join(' ');
+    expect(codes(assessTranslationCandidateQualityV2({ ...base, candidateText }))).not.toContain('description.degenerate_content');
   });
 });

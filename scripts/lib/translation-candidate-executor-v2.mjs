@@ -12,7 +12,7 @@ import {
   validateTranslationUnitIdentityV2,
 } from './translation-unit-identity-v2.mjs';
 import { normalizeTranslationText, sha256TranslationText } from './translation-unit-identity.mjs';
-import { Worker } from 'node:worker_threads';
+import { MessagePort, Worker } from 'node:worker_threads';
 
 export const TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION = 2;
 
@@ -27,6 +27,7 @@ const MAX_UNTRUSTED_SNAPSHOT_NODES = 100_000;
 const MAX_UNTRUSTED_SNAPSHOT_BYTES = 16 * 1024 * 1024;
 const MAX_UNTRUSTED_SNAPSHOT_ARRAY_LENGTH = 100_000;
 const PROVIDER_PROTOCOL_SCHEMA_VERSION = 3;
+const PROVIDER_WORKER_STARTUP_TIMEOUT_MS = 30_000;
 const PROVIDER_WORKER_RESOURCE_LIMITS = Object.freeze({
   maxOldGenerationSizeMb: 64,
   maxYoungGenerationSizeMb: 16,
@@ -257,6 +258,21 @@ function isProviderMessage(value) {
     && typeof descriptors.text?.value === 'string';
 }
 
+function isBootstrapMessage(value) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const keys = Reflect.ownKeys(descriptors);
+  return keys.length === 3
+    && keys.every((key) => typeof key === 'string' && descriptors[key].enumerable
+      && Object.hasOwn(descriptors[key], 'value') && !descriptors[key].get && !descriptors[key].set)
+    && keys.includes('schemaVersion')
+    && keys.includes('type')
+    && keys.includes('port')
+    && descriptors.schemaVersion.value === PROVIDER_PROTOCOL_SCHEMA_VERSION
+    && descriptors.type.value === 'bootstrap'
+    && descriptors.port.value instanceof MessagePort;
+}
+
 async function runIsolatedProvider(provider, request, timeoutMs) {
   let worker;
   try {
@@ -271,12 +287,18 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
 
   return new Promise((resolve) => {
     let finishing = false;
-    const timeoutId = setTimeout(() => finish(null), timeoutMs);
+    let resultPort = null;
+    let timeoutId = setTimeout(() => finish(null), PROVIDER_WORKER_STARTUP_TIMEOUT_MS);
 
     async function finish(candidateText) {
       if (finishing) return;
       finishing = true;
       clearTimeout(timeoutId);
+      if (resultPort) {
+        resultPort.removeAllListeners();
+        resultPort.close();
+        resultPort = null;
+      }
       try {
         await worker.terminate();
       } catch {
@@ -287,12 +309,24 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
 
     worker.once('error', () => finish(null));
     worker.once('exit', () => finish(null));
-    worker.on('message', (message) => {
-      if (!isProviderMessage(message)) {
+    worker.once('message', (message) => {
+      if (!isBootstrapMessage(message)) {
         finish(null);
         return;
       }
-      finish(message.type === 'succeed' ? message.text : null);
+      resultPort = message.port;
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => finish(null), timeoutMs);
+      resultPort.once('messageerror', () => finish(null));
+      resultPort.once('close', () => finish(null));
+      resultPort.on('message', (result) => {
+        if (!isProviderMessage(result)) {
+          finish(null);
+          return;
+        }
+        finish(result.type === 'succeed' ? result.text : null);
+      });
+      resultPort.start();
     });
   });
 }

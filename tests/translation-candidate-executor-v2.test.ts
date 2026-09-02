@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest';
+import { MessagePort } from 'node:worker_threads';
+import { describe, expect, it, vi } from 'vitest';
 import { executeTranslationCandidateV2 } from '../scripts/lib/translation-candidate-executor-v2.mjs';
 import {
   createEmptyTranslationMemoryV2,
@@ -197,26 +198,56 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     }
   });
 
-  it('honors the first terminal callback and fails closed on malformed direct Worker messages', async () => {
+  it('honors the first terminal callback only after an exact undefined return', async () => {
     const successFirst = await executeTranslationCandidateV2(input({
-      provider: provider(`export function translate(_request, { succeedText, fail }) { succeedText(${JSON.stringify(candidateText)}); fail(); throw new Error('late'); }`),
+      provider: provider(`export function translate(_request, { succeedText, fail }) { succeedText(${JSON.stringify(candidateText)}); fail(); }`),
     }));
     expect(successFirst.status).toBe('validated');
     const failureFirst = await executeTranslationCandidateV2(input({
       provider: provider(`export function translate(_request, { succeedText, fail }) { fail(); succeedText(${JSON.stringify(candidateText)}); }`),
     }));
     expect(failureFirst.status).toBe('generation_failed');
+    const callbackThenReturnViolation = await executeTranslationCandidateV2(input({
+      provider: provider(`export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(candidateText)}); return 1; }`),
+    }));
+    expect(callbackThenReturnViolation).toMatchObject({ status: 'generation_failed', metrics: { recorded: false } });
+  });
 
-    const malformed = `
+  it('accepts only the private result port after the exact first bootstrap', async () => {
+    const forgedSuccessWithoutExport = `
       import { parentPort } from 'node:worker_threads';
-      export function translate() { parentPort.postMessage({ schemaVersion: 3, type: 'succeed', text: ${JSON.stringify(candidateText)}, extra: true }); }
+      parentPort.postMessage({ schemaVersion: 3, type: 'succeed', text: ${JSON.stringify(candidateText)} });
     `;
-    await expect(executeTranslationCandidateV2(input({ provider: provider(malformed) }))).resolves.toMatchObject({
+    await expect(executeTranslationCandidateV2(input({ provider: provider(forgedSuccessWithoutExport) }))).resolves.toMatchObject({
+      status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { recorded: false },
+    });
+
+    const fakeSecondBootstrap = `
+      import { MessageChannel, parentPort } from 'node:worker_threads';
+      const { port1, port2 } = new MessageChannel();
+      parentPort.postMessage({ schemaVersion: 3, type: 'bootstrap', port: port2 }, [port2]);
+      port1.postMessage({ schemaVersion: 3, type: 'fail' });
+      export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(candidateText)}); }
+    `;
+    await expect(executeTranslationCandidateV2(input({ provider: provider(fakeSecondBootstrap) }))).resolves.toMatchObject({ status: 'validated' });
+
+    const malformedPrivate = 'export function translate(_request, { succeedText }) { succeedText({ text: "forged" }); }';
+    await expect(executeTranslationCandidateV2(input({ provider: provider(malformedPrivate) }))).resolves.toMatchObject({
       status: 'generation_failed', memory: createEmptyTranslationMemoryV2(), metrics: { recorded: false },
     });
     await expect(executeTranslationCandidateV2(input({
       provider: provider('export function translate(_request, { fail }) { fail(new Error("must not cross the protocol")); }'),
     }))).resolves.toMatchObject({ status: 'generation_failed' });
+  });
+
+  it('closes the private parent MessagePort before resolving an attempt', async () => {
+    const close = vi.spyOn(MessagePort.prototype, 'close');
+    try {
+      await expect(executeTranslationCandidateV2(input())).resolves.toMatchObject({ status: 'validated' });
+      expect(close).toHaveBeenCalled();
+    } finally {
+      close.mockRestore();
+    }
   });
 
   it('runs attempts concurrently without a busy provider blocking a sibling', async () => {
@@ -230,9 +261,11 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
       fastSettledAt = performance.now();
       return result;
     });
-    const [slowResult, fastResult] = await Promise.all([slow, fast]);
+    const burst = Array.from({ length: 32 }, () => executeTranslationCandidateV2(input()));
+    const [slowResult, fastResult, ...burstResults] = await Promise.all([slow, fast, ...burst]);
     expect(slowResult.status).toBe('generation_failed');
     expect(fastResult.status).toBe('validated');
+    expect(burstResults.every((result) => result.status === 'validated')).toBe(true);
     expect(fastSettledAt - started).toBeLessThan(1_000);
   });
 

@@ -20,6 +20,8 @@ const MIN_DOMINANT_PERIODIC_TOKENS = 32;
 const MAX_EXHAUSTIVE_PERIODIC_COMPARISONS = 16_000_000;
 const MAX_LONG_PERIODIC_COMPARISONS = 4_000_000;
 const LONG_PERIOD_REPEAT_BOUND = 16;
+const MIN_NGRAM_REUSE_TOKENS = 256;
+const NGRAM_REUSE_WIDTH = 12;
 // detect-language documents confidence >= 0.6 as reliable; do not create a
 // second calibration for this additive gate.
 const RELIABLE_LANGUAGE_CONFIDENCE = 0.6;
@@ -251,12 +253,33 @@ function isDegenerateDescription(tokens) {
     const exactPeriod = values.length - prefixLengths[values.length - 1];
     if (exactPeriod * 4 <= values.length) return true;
   }
+  // Long near-periods over a small alphabet can hide every useful occurrence
+  // anchor and sit beyond both bounded direct scans. Count exact fixed-width
+  // token windows instead: a window key is the comma-delimited token-id tuple,
+  // so equality is collision-free rather than hash-probabilistic. Requiring
+  // reused windows for 90% of the complete token sequence is deliberately
+  // conservative; ordinary repeated boilerplate does not approach this bound.
+  // Width is constant, making this pass O(n) in time and memory regardless of
+  // the unknown period length.
+  const requiredMatches = Math.ceil(values.length * 0.9);
+  if (values.length >= MIN_NGRAM_REUSE_TOKENS) {
+    const seenNgrams = new Set();
+    let reusedNgrams = 0;
+    for (let start = 0; start + NGRAM_REUSE_WIDTH <= values.length; start += 1) {
+      const key = values.subarray(start, start + NGRAM_REUSE_WIDTH).join(',');
+      if (seenNgrams.has(key)) {
+        reusedNgrams += 1;
+        if (reusedNgrams >= requiredMatches) return true;
+      } else {
+        seenNgrams.add(key);
+      }
+    }
+  }
   // Exhaustively score primitive periods before using occurrence anchors.
   // This path depends only on positional equality, so repeated tokens and
   // repeated n-grams inside the primitive unit cannot hide its true period.
   // The comparison budget is independent of vocabulary and caps hostile
   // 120k-character input; the anchor/LCP path below covers remaining periods.
-  const requiredMatches = Math.ceil(values.length * 0.9);
   const allowedMismatches = values.length - requiredMatches + 2;
   const maxPeriod = Math.floor(values.length / 4);
   let exhaustiveComparisons = 0;
