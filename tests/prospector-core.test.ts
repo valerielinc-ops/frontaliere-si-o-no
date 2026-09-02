@@ -364,6 +364,18 @@ describe('vacancy extraction', () => {
     });
   });
 
+  it('fails closed on a tenant-flagged locationGateRejected without falling back to listing evidence', () => {
+    // A tenant-specific extractor (e.g. Apleona's canton-suffix gate) can
+    // verify and explicitly refuse a candidate; that refusal must not be
+    // silently overridden by a generic listing fallback re-deriving a
+    // different geography for the same row.
+    const detail = { locationGateRejected: true, locationCandidates: [] };
+    expect(resolveDetailOrListingSwissGeography(detail, { location: 'Lugano, ZH' })).toMatchObject({
+      geography: null,
+      explicitlyForeign: true,
+    });
+  });
+
   it('propagates authoritative microdata country evidence', () => {
     const html = '<div itemscope itemtype="https://schema.org/JobPosting">' +
       '<span itemprop="title">Network Engineer</span>' +
