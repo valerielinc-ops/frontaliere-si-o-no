@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bosch-thermotechnik-ag",
-  "assembledAt": "2026-09-02T13:33:43.549Z",
+  "assembledAt": "2026-09-02T23:08:02.629Z",
   "jobs": [
     {
       "title": "Praktikum – Produkt- und Projektmanagement REF295388E",
@@ -44,14 +44,6 @@
         "fr": "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil"
       },
       "id": "bosch-thermotechnik-ag-09d66903753a",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil"
-        ]
-      },
-      "previousSlugs": [
-        "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -66,8 +58,16 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-02T13:33:43.548Z"
+      "firstSeenAt": "2026-09-02T13:33:43.548Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Internship – International Production Planning REF295427G",
