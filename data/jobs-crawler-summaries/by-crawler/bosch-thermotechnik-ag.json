@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-02T13:33:43.551Z",
+  "generatedAt": "2026-09-02T23:08:02.631Z",
   "total": 8,
-  "newCount": 2,
-  "updatedCount": 3,
-  "removedCount": 2,
-  "unchangedCount": 3,
-  "durationMs": 20078,
-  "avgDurationMs": 20078,
+  "newCount": 0,
+  "updatedCount": 4,
+  "removedCount": 0,
+  "unchangedCount": 4,
+  "durationMs": 16821,
+  "avgDurationMs": 16821,
   "durationHistory": [
-    20078
+    16821
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Praktikum – Produkt- und Projektmanagement REF295388E",
       "slug": "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil",
@@ -35,46 +36,21 @@
       "sourceLang": "de",
       "postedDate": "2026-09-02",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-09d66903753a",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-02T13:33:43.548Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
     },
-    {
-      "title": "Internship – International Production Planning REF295427G",
-      "slug": "internship-international-production-planning-ref295427g-bosch-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF295427G-internship-international-production-planning-ref295427g",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146902159-internship-international-production-planning-ref295427g?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-02",
-      "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
     {
       "title": "Elektroinstallateur (w/m/div.) REF295384A",
       "slug": "elektroinstallateur-w-m-div-ref295384a-bosch-spreitenbach",
@@ -187,12 +163,13 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "title": "Praktikum – Produkt- und Projektmanagement",
-      "slug": "praktikum-produkt-e-projektmanagement-bosch-thermotechnik-ag-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF295388E-praktikum-produkt-und-projektmanagement",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146744919-praktikum-produkt-und-projektmanagement?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "title": "Internship – International Production Planning REF295427G",
+      "slug": "internship-international-production-planning-ref295427g-bosch-solothurn-zuchwil",
+      "url": "https://jobs.bosch.com/en/job/REF295427G-internship-international-production-planning-ref295427g",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146902159-internship-international-production-planning-ref295427g?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
       "companyKey": "bosch-thermotechnik-ag",
       "companyDomain": "bosch.ch",
@@ -207,63 +184,24 @@
       "category": "other",
       "sector": "Energia",
       "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "sourceLang": "en",
+      "postedDate": "2026-09-02",
       "validThrough": "",
-      "id": "bosch-thermotechnik-ag-93388a0a7c27",
+      "id": "bosch-thermotechnik-ag-033c6cade7e7",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T23:08:07.074Z",
-      "_qualityScore": 85,
+      "firstSeenAt": "2026-09-02T13:33:43.548Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 16,
         "completeness": 19
       }
     },
-    {
-      "title": "Praktikum im Einkauf (w/m/d) REF295276U",
-      "slug": "praktikum-im-einkauf-w-m-d-ref295276u-bosch-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF295276U-praktikum-im-einkauf-w-m-d-ref295276u",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146416819-praktikum-im-einkauf-w-m-d-ref295276u?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-31",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-be9533de1af3",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-08-31T17:05:10.188Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 18,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": [
     {
       "title": "Werkstudent Kundendienst Administration 40-50% (w/m/div.) REF295386F",
       "slug": "werkstudent-kundendienst-administration-40-50-w-m-div-ref295386f-bosch-steinhausen",
