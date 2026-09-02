@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-09-02T13:37:55.549Z",
+  "generatedAt": "2026-09-02T23:12:01.670Z",
   "total": 8,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6496,
-  "avgDurationMs": 6496,
+  "unchangedCount": 0,
+  "durationMs": 6355,
+  "avgDurationMs": 6355,
   "durationHistory": [
-    6496
+    6355
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -87,6 +87,44 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Marketing Manager",
+      "slug": "marketing-manager-damiani-group-mendrisio",
+      "url": "https://careers.damianigroup.com/job/Mendrisio-Marketing-Manager/1366255755/",
+      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1366255755/?locale=en_US",
+      "company": "Damiani Group",
+      "companyKey": "damiani-group",
+      "companyDomain": "damianigroup.com",
+      "location": "Mendrisio",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "other",
+      "sector": "Lusso & Gioielleria",
+      "source": "damiani-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "2026-09-02",
+      "id": "damiani-group-6c6c860d598c",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "streetAddress": "Via Penate 12",
+      "postalCode": "6850",
+      "firstSeenAt": "2026-09-01T17:55:44.457Z",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -284,45 +322,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Marketing Manager",
-      "slug": "marketing-manager-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Marketing-Manager/1366255755/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1366255755/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "other",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-01",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-09-02",
-      "id": "damiani-group-6c6c860d598c",
-      "needsRetranslation": true,
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "firstSeenAt": "2026-09-01T17:55:44.457Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
