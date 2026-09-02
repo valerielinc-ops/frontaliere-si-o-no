@@ -65423,6 +65423,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-basilea-requisiti': {
+    title: 'Naturalizzazione Basilea Città: requisiti e procedura',
+    description: 'Guida completa alla naturalizzazione ordinaria nel Canton Basilea Città: requisiti federali e cantonali, test di lingua, integrazione, tasse e procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, basilea, città, requisiti',
+    ogTitle: 'Naturalizzazione Basilea Città: requisiti e procedura',
+    ogDescription: 'Scopri come ottenere la cittadinanza svizzera nel Canton Basilea Città. Guida completa: requisiti federali, test di lingua e integrazione, tasse, durata della procedura e step-by-step operativo.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-basilea-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione Basilea Città: requisiti e procedura",
+      "description": "Guida completa alla naturalizzazione ordinaria nel Canton Basilea Città: requisiti federali e cantonali, test di lingua, integrazione, tasse e procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-basilea-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta del municipio e dell'area amministrativa di Basilea Città, Svizzera, dove si svolgono le procedure di naturalizzazione ordinaria."
+      },
+      "datePublished": "2026-09-02T02:30:27+00:00",
+      "dateModified": "2026-09-02T02:30:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-basilea-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5041,6 +5041,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Nursery and childcare in Basel City: fees and subsidies',
     'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Guide to Child Custody in the Canton of Basel-City: Progressive Fees, Cantonal Subsidies, and Federal Family Tax Deductions. How to access services.',
     'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Swiss daycare center with children playing and learning in a modern, bright facility.',
+    'blog.article.naturalizzazione-basilea-requisiti.title': 'Naturalization Basel City: requirements and procedure',
+    'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Complete guide to the federal and cantonal requirements for ordinary naturalization in the Canton of Basel-City, from documents to language tests.',
+    'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'View of Basel City Town Hall and administrative area, Switzerland, where ordinary naturalization procedures are conducted.',
 };
 
 export default blogMetaChEn;

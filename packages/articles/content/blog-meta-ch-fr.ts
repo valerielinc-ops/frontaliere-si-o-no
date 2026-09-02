@@ -5041,6 +5041,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Garderie et garde d\'enfants à Bâle-Ville : tarifs et subventions',
     'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Guide de garde d\'enfants dans le canton de Bâle-Ville : tarifs progressifs, allocations cantonales et déductions fiscales fédérales pour les familles. Comment accéder aux services.',
     'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Centre de garde d\'enfants suisse avec des enfants jouant dans une installation moderne et lumineuse.',
+    'blog.article.naturalizzazione-basilea-requisiti.title': 'Naturalisation Bâle-Ville : exigences et procédure',
+    'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Guide complet des exigences fédérales et cantonales pour la naturalisation ordinaire dans le canton de Bâle-Ville, des documents aux tests de langue.',
+    'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'Vue de l\'hôtel de ville de Bâle-Ville, Suisse, où se déroulent les procédures de naturalisation ordinaire.',
 };
 
 export default blogMetaChFr;

@@ -5041,6 +5041,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Asilo nido e custodia bambini a Basilea Città: tariffe e sussidi',
     'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Guida alla custodia dei bambini nel canton Basilea Città: tariffe progressive, sussidi cantonali e deduzioni fiscali federali per famiglie. Come accedere ai servizi.',
     'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Centro di custodia bambini svizzero con bambini che giocano e imparano in un ambiente luminoso e moderno.',
+    'blog.article.naturalizzazione-basilea-requisiti.title': 'Naturalizzazione Basilea Città: requisiti e procedura',
+    'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Guida completa ai requisiti federali e cantonali per la naturalizzazione ordinaria nel Canton Basilea Città, dai documenti ai test di lingua.',
+    'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'Veduta del municipio e dell\'area amministrativa di Basilea Città, Svizzera, dove si svolgono le procedure di naturalizzazione ordinaria.',
 };
 
 export default blogMetaChIt;
