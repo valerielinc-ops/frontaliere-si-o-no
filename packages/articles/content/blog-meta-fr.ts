@@ -11135,6 +11135,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-varano-borghi-lavorare-ticino.title': 'Vivre à Varano Borghi, travailler au Tessin : guide frontalier',
     'blog.article.vivere-varano-borghi-lavorare-ticino.excerpt': 'Permis G, fiscalité et procédure pour les frontaliers qui vivent à Varano Borghi et travaillent dans le canton du Tessin.',
     'blog.article.vivere-varano-borghi-lavorare-ticino.imageAlt': 'Vue du passage frontalier de Brogeda entre la Suisse et l\'Italie avec paysage alpin.',
+    'blog.article.crodo-frontaliere-guida-pratica.title': 'Crodo : guide pour les frontaliers travaillant au Tessin',
+    'blog.article.crodo-frontaliere-guida-pratica.excerpt': 'Crodo offre un faible coût de la vie et un accès rapide aux cols du Tessin. Guide complet : permis G, fiscalité avec nouvel accord 2024, AVS/LPP, LAMal, restaurations et procédures pratiques.',
+    'blog.article.crodo-frontaliere-guida-pratica.imageAlt': 'Paysage montagneux à la frontière Piémont-Tessin avec petit village alpin dans la vallée',
 };
 
 export default blogMetaFr;

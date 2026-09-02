@@ -11133,6 +11133,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-varano-borghi-lavorare-ticino.title': 'Living in Varano Borghi, working in Ticino: border guide',
     'blog.article.vivere-varano-borghi-lavorare-ticino.excerpt': 'Permit G, taxation and procedure for border workers living in Varano Borghi and working in the Canton of Ticino.',
     'blog.article.vivere-varano-borghi-lavorare-ticino.imageAlt': 'View of Brogeda border crossing between Switzerland and Italy with Alpine landscape.',
+    'blog.article.crodo-frontaliere-guida-pratica.title': 'Crodo: guide for border workers working in Ticino',
+    'blog.article.crodo-frontaliere-guida-pratica.excerpt': 'Crodo offers low cost of living and quick access to Ticino passes. Complete guide: G permit, tax with new 2024 agreement, AVS/LPP, LAMal, refreshments and practical procedures.',
+    'blog.article.crodo-frontaliere-guida-pratica.imageAlt': 'Alpine mountain landscape at the Piedmont-Ticino border with village nestled in forested valley',
 };
 
 export default blogMetaEn;
