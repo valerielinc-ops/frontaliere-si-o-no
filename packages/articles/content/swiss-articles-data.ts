@@ -15238,6 +15238,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-cantonali-argovia-aliquote',
+    category: 'fiscale',
+    date: '2026-09-02T06:24:53.222Z',
+    image: '/images/blog/imposte-cantonali-argovia-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

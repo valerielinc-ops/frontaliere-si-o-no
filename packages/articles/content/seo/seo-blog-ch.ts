@@ -65930,6 +65930,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-argovia-aliquote': {
+    title: 'Imposte cantonali Argovia: aliquote e deduzioni',
+    description: 'Scopri come funzionano imposte cantonali e comunali nel Cantone Argovia, aliquote progressive, deduzioni ammesse e come dichiarare online. Guida pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, argovia, aliquote',
+    ogTitle: 'Imposte cantonali Argovia: aliquote e deduzioni',
+    ogDescription: 'Scopri come funzionano imposte cantonali e comunali nel Cantone Argovia, aliquote progressive, deduzioni ammesse e come dichiarare online. Guida pratica.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-argovia-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali Argovia: aliquote e deduzioni",
+      "description": "Scopri come funzionano imposte cantonali e comunali nel Cantone Argovia, aliquote progressive, deduzioni ammesse e come dichiarare online. Guida pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-argovia-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrazione fiscale svizzera con moduli dichiarazione e calcolatrice"
+      },
+      "datePublished": "2026-09-02T06:24:53+00:00",
+      "dateModified": "2026-09-02T06:24:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-argovia-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

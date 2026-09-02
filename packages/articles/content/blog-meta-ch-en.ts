@@ -5080,6 +5080,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-grigioni-settori-livelli.title': 'Wages and the Labor Market in Graubünden',
     'blog.article.salari-grigioni-settori-livelli.excerpt': 'Sectors with job openings, salary levels by education level, and collective bargaining agreements in the Canton of Graubünden: a guide to the Swiss system.',
     'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Professional workspace in Graubünden Canton with salary documents and calculator on desk',
+    'blog.article.imposte-cantonali-argovia-aliquote.title': 'Aargau Cantonal Taxes: Rates and Deductions',
+    'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Find out how cantonal and municipal taxes work in the Canton of Aargau, including progressive tax rates, allowable deductions, and how to file your taxes online. A practical guide.',
+    'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Swiss tax office with declaration forms and calculator on desk',
 };
 
 export default blogMetaChEn;

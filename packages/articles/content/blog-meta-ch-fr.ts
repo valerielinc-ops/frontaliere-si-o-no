@@ -5080,6 +5080,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-grigioni-settori-livelli.title': 'Salaires et marché du travail dans les Grisons',
     'blog.article.salari-grigioni-settori-livelli.excerpt': 'Secteurs qui embauchent, niveaux de salaire selon la formation et conventions collectives dans le canton des Grisons : guide des mécanismes suisses.',
     'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Espace de travail professionnel dans le canton des Grisons avec documents de salaire',
+    'blog.article.imposte-cantonali-argovia-aliquote.title': 'Impôts cantonaux d\'Argovie : taux et déductions',
+    'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Découvrez le fonctionnement des impôts cantonaux et communaux dans le canton d\'Argovie, les taux progressifs, les déductions autorisées et comment faire sa déclaration en ligne. Guide pratique.',
+    'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Bureau fiscal suisse avec formulaires de déclaration et calculatrice sur le bureau',
 };
 
 export default blogMetaChFr;

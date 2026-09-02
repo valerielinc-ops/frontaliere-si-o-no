@@ -5080,6 +5080,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-grigioni-settori-livelli.title': 'Salari e mercato del lavoro in Grigioni',
     'blog.article.salari-grigioni-settori-livelli.excerpt': 'Settori che assumono, livelli salariali per formazione e contratti collettivi nel Canton Grigioni: guida ai meccanismi svizzeri.',
     'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Spazio di lavoro professionale nel Cantone di Grigioni con documenti di stipendio e calcolatore',
+    'blog.article.imposte-cantonali-argovia-aliquote.title': 'Imposte cantonali Argovia: aliquote e deduzioni',
+    'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Scopri come funzionano imposte cantonali e comunali nel Cantone Argovia, aliquote progressive, deduzioni ammesse e come dichiarare online. Guida pratica.',
+    'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Ufficio amministrazione fiscale svizzera con moduli dichiarazione e calcolatrice',
 };
 
 export default blogMetaChIt;
