@@ -11,6 +11,7 @@
  */
 import { describe, it, expect } from 'vitest';
 
+import { parseCornerOffer } from '@/scripts/update-corner-jobs.mjs';
 import {
   parseCornerOfferFull,
   buildFullDescription,
@@ -216,6 +217,41 @@ describe('parseCornerOfferFull — candidatura spontanea apprendistato regressio
   it('provides Italian description in descriptionByLocale.it', () => {
     const result = parseCornerOfferFull(OFFER_WITH_SECTIONS);
     expect(result!.descriptionByLocale.it).toContain('fondata nel 1952');
+  });
+});
+
+// ─── parseCornerOffer — nationwide location / canton resolution (#7057) ───
+
+// Regression case: "Candidatura spontanea apprendistato" — Recruitee's only
+// location signal is the bare country name, no state_code. Assigning the
+// Ticino HQ canton default here publishes a nationwide application as a
+// Ticino-local vacancy with no supporting evidence.
+const OFFER_NATIONWIDE_NO_STATE: any = {
+  ...OFFER_WITH_SECTIONS,
+  slug: 'unsolicited-application-apprenticeship-nationwide',
+  locations: [{ city: 'Switzerland' }],
+};
+
+describe('parseCornerOffer — nationwide location / canton resolution (#7057)', () => {
+  it('does not assign the Ticino HQ canton to a bare-country, state-less offer', () => {
+    const job = parseCornerOffer(OFFER_NATIONWIDE_NO_STATE);
+    expect(job!.canton).toBe('');
+  });
+
+  it('keeps the raw nationwide location/addressLocality text', () => {
+    const job = parseCornerOffer(OFFER_NATIONWIDE_NO_STATE);
+    expect(job!.location).toBe('Switzerland');
+    expect(job!.addressLocality).toBe('Switzerland');
+  });
+
+  it('still assigns the source state_code when present (no regression)', () => {
+    const job = parseCornerOffer(OFFER_WITH_SECTIONS);
+    expect(job!.canton).toBe('TI');
+  });
+
+  it('falls back to the company HQ canton when there is no location signal at all', () => {
+    const job = parseCornerOffer({ ...OFFER_WITH_SECTIONS, locations: [] });
+    expect(job!.canton).toBe('TI');
   });
 });
 
