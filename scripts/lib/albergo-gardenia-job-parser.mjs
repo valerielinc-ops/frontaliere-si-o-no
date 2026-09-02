@@ -40,6 +40,11 @@ const GARDENIA_WWW_HOST = `www.${ALBERGO_GARDENIA_COMPANY_DOMAIN}`;
 const GARDENIA_CLEAN_EGRESS_SOURCE_ID = 'gardenia-clean-egress-source';
 const GARDENIA_CLEAN_EGRESS_ERROR_ID = 'gardenia-clean-egress-error';
 const CLOUDFLARE_BROWSER_ACTION_TIMEOUT_MS = 105_000;
+// Bounded settle after `domcontentloaded` so a client-side redirect (e.g. a
+// late inline `window.location = ...`) has a chance to land before we trust
+// `page.url()`. Best-effort only: a timeout here just means no further
+// navigation happened within the window, not a failure.
+const POST_DOMCONTENTLOADED_SETTLE_TIMEOUT_MS = 2_000;
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -210,6 +215,26 @@ export function createAlbergoGardeniaBrowserTransport({
             host: '',
             policyBlocked: true,
             error: 'Albergo Gardenia browser transport escaped the canonical hosts',
+          };
+        }
+        try {
+          await page.waitForLoadState('networkidle', {
+            timeout: POST_DOMCONTENTLOADED_SETTLE_TIMEOUT_MS,
+          });
+        } catch {
+          // No further navigation settled within the bounded window; that is
+          // fine, we still re-check page.url() below.
+        }
+        const settledUrl = page.url();
+        if (!isSameGardeniaResource(settledUrl, effectiveUrl)) {
+          return {
+            ok: false,
+            status: 0,
+            url: settledUrl,
+            body: '',
+            host: '',
+            policyBlocked: true,
+            error: 'Albergo Gardenia browser transport observed a post-domcontentloaded redirect',
           };
         }
         const status = Number(response.status() || 0);
