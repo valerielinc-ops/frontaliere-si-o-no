@@ -11140,6 +11140,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Vivere a Vergiate, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'Il nuovo Accordo Frontalieri 2024 rende conveniente vivere a Vergiate: esenzione €10.000, permesso G, tempi tragitto 45-60 minuti. Tassazione, AVS/LPP, LAMal e procedure.',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Traffico mattutino al valico di confine tra Varese e il Ticino con auto pendolari',
+    'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Vivere a Grosotto e lavorare in Grigioni da frontaliere',
+    'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Franchigia fiscale, pendolarismo, costo della vita: guida pratica al trasferimento a Grosotto per lavorare nei Grigioni.',
+    'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Paesaggio montano di Grosotto in provincia di Sondrio, con le Alpi e il confine svizzero dei Grigioni sullo sfondo.',
 };
 
 export default blogMetaIt;

@@ -82907,6 +82907,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-grosotto-frontaliere-grigioni-guida': {
+    title: 'Vivere a Grosotto e lavorare in Grigioni da frontaliere',
+    description: 'Guida completa: vivere a Grosotto, lavorare nei Grigioni. Franchigia fiscale €10\'000, pendolarismo, costo della vita, procedura trasferimento. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, grosotto, lavorare, grigioni',
+    ogTitle: 'Vivere a Grosotto e lavorare in Grigioni da frontaliere',
+    ogDescription: 'Trasferirsi a Grosotto per lavorare nei Grigioni: guida su fiscalità 2024, pendolarismo, costo della vita e checklist amministrativa per frontalieri categoria G.',
+    canonicalPath: '/articoli-frontaliere/grosotto-frontaliere-grigioni-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Grosotto e lavorare in Grigioni da frontaliere",
+      "description": "Guida completa: vivere a Grosotto, lavorare nei Grigioni. Franchigia fiscale €10'000, pendolarismo, costo della vita, procedura trasferimento. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/grosotto-frontaliere-grigioni-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano di Grosotto in provincia di Sondrio, con le Alpi e il confine svizzero dei Grigioni sullo sfondo."
+      },
+      "datePublished": "2026-09-02T20:27:14+00:00",
+      "dateModified": "2026-09-02T20:27:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/grosotto-frontaliere-grigioni-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

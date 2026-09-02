@@ -11141,6 +11141,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Vivre à Vergiate, travailler au Tessin : guide frontalier',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord frontalier 2024 rend la vie à Vergiate pratique : exemption de 10 000 € , permis G, temps de trajet de 45 à 60 minutes. Taxation, AVS/LPP, LAMal et procédures.',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Circulation matinale au poste frontalier entre Varèse et Tessin avec voitures pendulaires',
+    'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Vivre à Grosotto et travailler dans les Grisons en tant que frontalier',
+    'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Franchise fiscale, déplacements, coût de la vie : guide pratique pour se rendre à Grosotto pour travailler dans les Grisons.',
+    'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Paysage montagneux de Grosotto dans la province de Sondrio avec les Alpes et la frontière suisse des Grisons en arrière-plan.',
 };
 
 export default blogMetaFr;

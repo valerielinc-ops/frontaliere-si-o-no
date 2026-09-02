@@ -11139,6 +11139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Living in Vergiate, working in Ticino: border guide',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'The new 2024 Frontier Agreement makes it convenient to live in Vergiate: exemption €10,000, G permit, journey time 45-60 minutes. Taxation, AVS/LPP, LAMal and procedures.',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Morning traffic at border checkpoint between Varese and Ticino with commuter cars',
+    'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Living in Grosotto and working in Graubünden as a border worker',
+    'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Tax exemption, commuting, cost of living: practical guide to moving to Grosotto to work in Graubünden.',
+    'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Mountain landscape of Grosotto in Sondrio province, with the Alps and Swiss Grisons border in the background.',
 };
 
 export default blogMetaEn;
