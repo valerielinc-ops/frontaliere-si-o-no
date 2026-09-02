@@ -5098,6 +5098,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.come-aprire-azienda-basilea-campagna.title': 'Aktivitäten starten Basel-Landschaft: Komplette Anleitung',
     'blog.article.come-aprire-azienda-basilea-campagna.excerpt': 'Verfahren zur Gründung eines Unternehmens in Basel-Landschaft: Rechtsformen, Handelsregistereintrag, dreistufige Besteuerung sowie Vorsorge- und Versicherungspflichten.',
     'blog.article.come-aprire-azienda-basilea-campagna.imageAlt': 'Schreibtisch mit Gründungsdokumenten, Taschenrechner und Schweizer Alpenpanorama im Hintergrund',
+    'blog.article.guida-apertura-attivita-bc.title': 'Geschäft in Basel-Landschaft eröffnen: Register und Kosten',
+    'blog.article.guida-apertura-attivita-bc.excerpt': 'Handelsregistereintrag, Rechtsformen, Vorsorge- und Versicherungspflichten - alles, was Sie brauchen, um ein Unternehmen im Kanton zu gründen.',
+    'blog.article.guida-apertura-attivita-bc.imageAlt': 'Schweizer Kantonsgebäude mit Handelsregisteramt für Unternehmensregistrierung',
 };
 
 export default blogMetaChDe;

@@ -66164,6 +66164,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-apertura-attivita-bc': {
+    title: 'Aprire attività a Basilea Campagna: registri e costi',
+    description: 'Guida completa per aprire un\'attività nel canton Basilea Campagna: registrazione, forme giuridiche, obblighi previdenziali, tassazione federale-cantonale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, basilea, campagna',
+    ogTitle: 'Aprire attività a Basilea Campagna: registri e costi',
+    ogDescription: 'Scopri come registrare un\'attività nel canton Basilea Campagna: scelta della forma giuridica, iscrizione al registro, obblighi previdenziali, assicurazioni obbligatorie e tassazione federale-cantonale. Procedura completa step-by-step.',
+    canonicalPath: '/articoli-svizzera/guida-apertura-attivita-bc/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività a Basilea Campagna: registri e costi",
+      "description": "Guida completa per aprire un'attività nel canton Basilea Campagna: registrazione, forme giuridiche, obblighi previdenziali, tassazione federale-cantonale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-apertura-attivita-bc.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo cantonale con ufficio del registro di commercio per la registrazione di imprese in Svizzera"
+      },
+      "datePublished": "2026-09-02T08:05:22+00:00",
+      "dateModified": "2026-09-02T08:05:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-apertura-attivita-bc/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
