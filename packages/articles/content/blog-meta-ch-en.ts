@@ -5176,6 +5176,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-euro-minimi-anno.title': 'Swiss franc at a minimum against the euro: what it means for investors',
     'blog.article.franco-euro-minimi-anno.excerpt': 'The Swiss franc continues to weaken against the euro, hitting a one-year low. Learn about the implications for investors.',
     'blog.article.franco-euro-minimi-anno.imageAlt': 'Aerial view of Lake Lugano with the Swiss Alps in the background',
+    'blog.article.estate-calda-svizzera-2026.title': 'One in two summers will be warmer than the current one',
+    'blog.article.estate-calda-svizzera-2026.excerpt': 'According to climatologist Reto Knutti, one in two summers will be warmer than the current one. Urgent interventions needed in cities.',
+    'blog.article.estate-calda-svizzera-2026.imageAlt': 'Aerial view of a Swiss city with green spaces and modern buildings, highlighting the impact of climate change.',
 };
 
 export default blogMetaChEn;

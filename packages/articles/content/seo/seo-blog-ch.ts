@@ -67178,6 +67178,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estate-calda-svizzera-2026': {
+    title: 'Un\'estate su due sarà più calda di quella attuale',
+    description: 'Secondo il climatologo Reto Knutti, un\'estate su due sarà più calda di quella attuale. Interventi urgenti necessari sulle città. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, estate, sarà, calda, quella',
+    ogTitle: 'Un\'estate su due sarà più calda di quella attuale',
+    ogDescription: 'Secondo il climatologo Reto Knutti, un\'estate su due sarà più calda di quella attuale. Interventi urgenti necessari sulle città per affrontare il caldo estremo e la siccità.',
+    canonicalPath: '/articoli-svizzera/estate-calda-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Un'estate su due sarà più calda di quella attuale",
+      "description": "Secondo il climatologo Reto Knutti, un'estate su due sarà più calda di quella attuale. Interventi urgenti necessari sulle città. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/estate-calda-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di una città svizzera con spazi verdi e edifici moderni, che evidenzia l'impatto del cambiamento climatico."
+      },
+      "datePublished": "2026-09-02T15:49:18+00:00",
+      "dateModified": "2026-09-02T15:49:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/estate-calda-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

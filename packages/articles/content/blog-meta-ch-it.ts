@@ -5176,6 +5176,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-euro-minimi-anno.title': 'Franco svizzero ai minimi rispetto all\'euro: cosa significa per gli investitori',
     'blog.article.franco-euro-minimi-anno.excerpt': 'Il franco svizzero continua a indebolirsi rispetto all\'euro, raggiungendo il minimo da un anno. Scopri le implicazioni per gli investitori.',
     'blog.article.franco-euro-minimi-anno.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo',
+    'blog.article.estate-calda-svizzera-2026.title': 'Un\'estate su due sarà più calda di quella attuale',
+    'blog.article.estate-calda-svizzera-2026.excerpt': 'Secondo il climatologo Reto Knutti, un\'estate su due sarà più calda di quella attuale. Interventi urgenti necessari sulle città.',
+    'blog.article.estate-calda-svizzera-2026.imageAlt': 'Vista aerea di una città svizzera con spazi verdi e edifici moderni, che evidenzia l\'impatto del cambiamento climatico.',
 };
 
 export default blogMetaChIt;
