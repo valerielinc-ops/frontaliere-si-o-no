@@ -5146,6 +5146,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-consultazione-agricola-2030.title': 'Bundesrat eröffnet landwirtschaftliche Vernehmlassung 2030',
     'blog.article.consiglio-federale-consultazione-agricola-2030.excerpt': 'Bern, 2. September 2026: Der Bundesrat eröffnet die Vernehmlassung PA30+. Budget CHF 13.8 Milliarden für 2030-2033. Handlungsspielraum für Landwirte, Nachhaltigkeit der Lieferkette. Öffentliche Beteiligung bis zum 8. Dezember.',
     'blog.article.consiglio-federale-consultazione-agricola-2030.imageAlt': 'Lugano-Aussicht bei Sonnenuntergang, Schweiz — Symbol des Wohlstands durch Lebensmittelsicherheit',
+    'blog.article.margine-manovra-agricoltori-svizzera.title': 'Landwirtschaft 2030: Erweiterter Handlungsspielraum',
+    'blog.article.margine-manovra-agricoltori-svizzera.excerpt': 'Bundesrat eröffnet Vernehmlassung PA30+ bis 8. Dezember 13,8 Mrd. CHF zur Reform der Agrarzahlungen, Stärkung der Schweizer Ernährungssicherheit.',
+    'blog.article.margine-manovra-agricoltori-svizzera.imageAlt': 'Ländliche Schweizer Landschaft mit Feldern und Bergen im Hintergrund, Symbol des nationalen Agrarsektors',
 };
 
 export default blogMetaChDe;
