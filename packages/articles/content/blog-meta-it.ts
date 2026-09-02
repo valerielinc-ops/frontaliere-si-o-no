@@ -11134,6 +11134,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-varano-borghi-lavorare-ticino.title': 'Vivere a Varano Borghi, lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-varano-borghi-lavorare-ticino.excerpt': 'Permesso G, fiscalità e procedura per frontalieri che vivono a Varano Borghi e lavorano nel Canton Ticino.',
     'blog.article.vivere-varano-borghi-lavorare-ticino.imageAlt': 'Veduta del valico di Brogeda tra Ticino e Italia, zona di confine con paesaggio alpino mattutino.',
+    'blog.article.crodo-frontaliere-guida-pratica.title': 'Crodo: guida per frontalieri che lavorano in Ticino',
+    'blog.article.crodo-frontaliere-guida-pratica.excerpt': 'Crodo offre costo della vita basso e accesso rapido ai valichi del Ticino. Guida completa: permesso G, fisco con nuovo accordo 2024, AVS/LPP, LAMal, ristorni e procedure pratiche.',
+    'blog.article.crodo-frontaliere-guida-pratica.imageAlt': 'Paesaggio montano del confine tra Piemonte e Ticino con piccolo paese alpino tra boschi e vallate',
 };
 
 export default blogMetaIt;
