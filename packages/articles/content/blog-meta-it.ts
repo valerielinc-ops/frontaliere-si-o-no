@@ -11096,6 +11096,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.title': 'Vivere a Misinto e lavorare in Ticino',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per il frontaliere: fiscalità, permesso G, tassazione, procedura passo-passo e cosa sapere prima di trasferirsi da Misinto al lavoro nel Canton Ticino.',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio di confine tra Ticino e Lombardia con vista sul lago, emblematico della vita del frontaliere che vive a Misinto e lavora in Ticino',
+    'blog.article.san-siro-frontaliere-permesso-g.title': 'San Siro e Ticino: la guida del frontaliere',
+    'blog.article.san-siro-frontaliere-permesso-g.excerpt': 'Permesso G, imposta alla fonte, ristorni e nuovo accordo 2024. Tutto ciò che serve sapere per lavorare in Ticino da San Siro.',
+    'blog.article.san-siro-frontaliere-permesso-g.imageAlt': 'Frontaliere con documenti al passaggio Italia-Svizzera, Ticino sullo sfondo',
 };
 
 export default blogMetaIt;

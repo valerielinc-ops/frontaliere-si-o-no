@@ -11094,6 +11094,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.title': 'In Misinto leben und im Tessin arbeiten',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger: Steuerrecht, G-Bewilligung, Besteuerung, Schritt-für-Schritt-Anleitung und Wissenswertes vor dem Umzug von Misinto zur Arbeit im Kanton Tessin.',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.imageAlt': 'Grenzlandschaft zwischen Tessin und der Lombardei mit Seeblick, typisch für Grenzgänger, die in Misinto leben und im Tessin arbeiten',
+    'blog.article.san-siro-frontaliere-permesso-g.title': 'San Siro und Tessin: Der Reiseführer für Grenzgänger',
+    'blog.article.san-siro-frontaliere-permesso-g.excerpt': 'G-Bewilligung, Quellensteuer, Rückerstattungen und neues Abkommen 2024. Alles, was Sie wissen müssen, um von San Siro aus im Tessin zu arbeiten.',
+    'blog.article.san-siro-frontaliere-permesso-g.imageAlt': 'Grenzgänger mit Dokumenten beim Grenzübergang zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;

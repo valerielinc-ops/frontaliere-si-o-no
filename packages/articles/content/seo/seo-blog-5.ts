@@ -82361,6 +82361,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-san-siro-frontaliere-permesso-g': {
+    title: 'San Siro e Ticino: la guida del frontaliere | Frontaliere Ticino',
+    description: 'Permesso G, imposta alla fonte, ristorni e nuovo accordo 2024 per chi vive a San Siro e lavora in Ticino. Procedura, contributi AVS/LPP e dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, siro, permesso, imposta, alla',
+    ogTitle: 'San Siro e Ticino: la guida del frontaliere',
+    ogDescription: 'Vivi a San Siro e lavori in Ticino? Scopri permesso G, imposta alla fonte (trattenuta solo in Svizzera), ristorni 2024 (CHF 7.500-10.000), AVS/LPP, LAMal e come compilare la dichiarazione dei redditi. Nuovo accordo frontalieri in vigore dal 1°',
+    canonicalPath: '/articoli-frontaliere/san-siro-frontaliere-permesso-g',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "San Siro e Ticino: la guida del frontaliere",
+      "description": "Permesso G, imposta alla fonte, ristorni e nuovo accordo 2024 per chi vive a San Siro e lavora in Ticino. Procedura, contributi AVS/LPP e dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/san-siro-frontaliere-permesso-g.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere con documenti al passaggio Italia-Svizzera, Ticino sullo sfondo"
+      },
+      "datePublished": "2026-09-02T07:06:27+00:00",
+      "dateModified": "2026-09-02T07:06:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-siro-frontaliere-permesso-g/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
