@@ -200,7 +200,10 @@ function ownershipIdentity(job = {}) {
   if (urlKey && !urlKey.startsWith('url:')) return urlKey;
   const normalizedUrl = normalizeJobUrl(url);
   if (normalizedUrl) return `url:${normalizedUrl}`;
-  if (job?.id) return `id:${job.id}`;
+  // `job?.id` alone treats a falsy-but-real id (e.g. numeric `0`) as absent
+  // and misroutes it into the unsafe slug fallback below. An empty string is
+  // still genuinely no identity, so it keeps falling through.
+  if (job?.id != null && job.id !== '') return `id:${job.id}`;
   if (job?.slug) {
     throw new Error(`ownership identity reached unsafe slug fallback: ${job.slug}`);
   }
