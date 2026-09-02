@@ -1,18 +1,18 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-01T23:27:01.364Z",
-  "total": 3,
+  "generatedAt": "2026-09-02T13:49:04.071Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6981,
-  "avgDurationMs": 6981,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 6271,
+  "avgDurationMs": 6271,
   "durationHistory": [
-    6981
+    6271
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://career.ricola.com/Vacancies/1063/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:26:57.749Z",
+      "crawledAt": "2026-09-02T13:49:01.851Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -67,7 +67,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:26:58.206Z",
+      "crawledAt": "2026-09-02T13:49:02.294Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -93,8 +93,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ricola-2c30adc9413a",
       "slug": "accounting-specialista-ricola-laufen",
@@ -137,5 +136,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
