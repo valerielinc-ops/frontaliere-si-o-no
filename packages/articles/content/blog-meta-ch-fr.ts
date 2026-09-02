@@ -5101,6 +5101,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-apertura-attivita-bc.title': 'Ouvrir des activités à Bâle-Campagne : registres et coûts',
     'blog.article.guida-apertura-attivita-bc.excerpt': 'Inscription au registre du commerce, formes juridiques, obligations de prévoyance et d\'assurance : tout ce dont vous avez besoin pour démarrer une entreprise dans le canton.',
     'blog.article.guida-apertura-attivita-bc.imageAlt': 'Bâtiment administratif cantonal suisse accueillant le registre du commerce',
+    'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Permis de séjour B Argovie : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Le permis B est la résidence renouvelable en Suisse. Procédure fédérale SEM, compétence office cantonal. Guide complet des exigences, du renouvellement et des délais.',
+    'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Bureau d\'administration cantonale d\'Argovie avec documents de permis de séjour suisses',
 };
 
 export default blogMetaChFr;
