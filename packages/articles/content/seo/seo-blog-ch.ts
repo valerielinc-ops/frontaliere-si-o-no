@@ -67295,6 +67295,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aziende-svizzere-semestre-2026': {
+    title: 'Aziende svizzere, risultati semestrali oltre le stime',
+    description: 'Nel primo semestre, 24 su 30 società SLI hanno superato le aspettative di mercato. Stime profitti 2026 riviste al +18% per investimenti in intelligenza',
+    keywords: 'frontalieri, ticino, svizzera, italia, aziende, svizzere, risultati, semestrali',
+    ogTitle: 'Aziende svizzere, risultati oltre le stime del primo semestre',
+    ogDescription: '24 su 30 società SLI hanno superato stime nel primo semestre, con stime profitti 2026 riviste al +18%. Investimenti in IA e domanda industriale forte trainano crescita. Scopri l\'impatto su LPP/BVG e cosa fare come investitore in Svizzera.',
+    canonicalPath: '/articoli-svizzera/aziende-svizzere-semestre-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aziende svizzere, risultati semestrali oltre le stime",
+      "description": "Nel primo semestre, 24 su 30 società SLI hanno superato le aspettative di mercato. Stime profitti 2026 riviste al +18% per investimenti in intelligenza",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aziende-svizzere-semestre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Borsa svizzera: professionisti analizzano dati finanziari di aziende quotate negli indici SLI e SMI"
+      },
+      "datePublished": "2026-09-02T17:30:06+00:00",
+      "dateModified": "2026-09-02T17:30:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aziende-svizzere-semestre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5185,6 +5185,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquistare-casa-zurigo-mutuo-fondi.title': 'Acheter une maison à Zurich : hypothèque, fonds propres et taxes',
     'blog.article.acquistare-casa-zurigo-mutuo-fondi.excerpt': 'Procédure, financement et charges fiscales pour l\'achat d\'un logement dans le canton de Zurich : hypothèque, fonds propres, taxe de passage et frais de notaire.',
     'blog.article.acquistare-casa-zurigo-mutuo-fondi.imageAlt': 'Paysage résidentiel suisse avec maisons traditionnelles et modernes entourées de jardins verts',
+    'blog.article.aziende-svizzere-semestre-2026.title': 'Entreprises suisses, résultats semestriels supérieurs aux estimations',
+    'blog.article.aziende-svizzere-semestre-2026.excerpt': 'Au premier semestre, 24 des 30 sociétés de l\'indice SLI ont dépassé les attentes du marché. Estimation des profits 2026 magazines à +18% grâce aux investissements dans l\'intelligence artificielle.',
+    'blog.article.aziende-svizzere-semestre-2026.imageAlt': 'Bourse suisse: professionnels analysant les données financières des sociétés cotées aux indices SLI et SMI',
 };
 
 export default blogMetaChFr;

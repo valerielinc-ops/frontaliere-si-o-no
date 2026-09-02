@@ -5185,6 +5185,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.acquistare-casa-zurigo-mutuo-fondi.title': 'Comprare casa a Zurigo: mutuo, fondi propri e tasse',
     'blog.article.acquistare-casa-zurigo-mutuo-fondi.excerpt': 'Procedura, finanziamento e oneri fiscali per l\'acquisto di un\'abitazione nel Cantone di Zurigo: mutuo ipotecario, fondi propri, imposta sui trapassi e spese notarili.',
     'blog.article.acquistare-casa-zurigo-mutuo-fondi.imageAlt': 'Paesaggio residenziale svizzero con case tradizionali e moderne circondateda giardini verdi',
+    'blog.article.aziende-svizzere-semestre-2026.title': 'Aziende svizzere, risultati semestrali oltre le stime',
+    'blog.article.aziende-svizzere-semestre-2026.excerpt': 'Nel primo semestre, 24 su 30 società dell\'indice SLI hanno superato le aspettative di mercato. Stime profitti 2026 riviste al +18% grazie a investimenti in intelligenza artificiale.',
+    'blog.article.aziende-svizzere-semestre-2026.imageAlt': 'Borsa svizzera: professionisti analizzano dati finanziari di aziende quotate negli indici SLI e SMI',
 };
 
 export default blogMetaChIt;
