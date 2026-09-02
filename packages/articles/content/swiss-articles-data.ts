@@ -15490,6 +15490,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'pa30-autonomia-agricoltori',
+    category: 'novita',
+    date: '2026-09-02T14:41:47.659Z',
+    image: '/images/blog/pa30-autonomia-agricoltori.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
