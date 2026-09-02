@@ -15058,6 +15058,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'affitti-soletta-diritti-inquilini',
+    category: 'pratico',
+    date: '2026-09-01T23:45:14.455Z',
+    image: '/images/blog/affitti-soletta-diritti-inquilini.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
