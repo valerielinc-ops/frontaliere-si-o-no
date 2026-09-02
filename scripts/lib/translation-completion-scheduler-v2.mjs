@@ -79,10 +79,12 @@ const SELECTED_UNIT_KEYS = [
 const PLAN_METRIC_KEYS = [
   'blockedJobs',
   'completionFeasibleJobs',
+  'completionPivotMissing',
   'cursorWraps',
   'exactConflicts',
   'exactMisses',
   'exactValidatedHits',
+  'fairnessPivotMissing',
   'negativeCacheHits',
   'predictedCompletionJobs',
   'predictedGenerationUnits',
@@ -333,6 +335,13 @@ function rotateAfter(values, key) {
   return index < 0 ? [...values] : [...values.slice(index + 1), ...values.slice(0, index + 1)];
 }
 
+// Distinguishes an intentional reset (key === null) from a silent one: the pivot
+// key was set but its job left the feasible set (completed/removed) before the
+// next plan, so rotateAfter() fell back to an unrotated list without a signal.
+function isPivotMissing(values, key) {
+  return key !== null && !values.some((value) => value.schedulingKey === key);
+}
+
 function planPayload(plan) {
   const { planHash: _ignored, ...payload } = plan;
   return payload;
@@ -414,6 +423,8 @@ export function validateTranslationScheduleV2(plan) {
       || plan.metrics.queueJobsIn > MAX_TRANSLATION_SCHEDULER_INPUT_JOBS_V2
       || plan.metrics.queueUnitsIn > MAX_TRANSLATION_SCHEDULER_INPUT_UNITS_V2
       || plan.metrics.cursorWraps > 2
+      || plan.metrics.completionPivotMissing > 1
+      || plan.metrics.fairnessPivotMissing > 1
       || plan.metrics.completionFeasibleJobs + plan.metrics.blockedJobs !== plan.metrics.queueJobsIn
       || plan.metrics.quarantinedJobs !== plan.metrics.blockedJobs
       || selectedJobs.length > plan.metrics.completionFeasibleJobs
@@ -650,6 +661,8 @@ export function planTranslationScheduleV2(input) {
     completionFeasibleJobs: feasible.length,
     blockedJobs: evaluated.length - feasible.length,
     quarantinedJobs: evaluated.length - feasible.length,
+    completionPivotMissing: isPivotMissing(completionSorted, cursor.completionAfterKey) ? 1 : 0,
+    fairnessPivotMissing: isPivotMissing(fairnessSorted, cursor.fairnessAfterKey) ? 1 : 0,
     cursorWraps: [
       [completionSorted, cursor.completionAfterKey, 'completion'],
       [fairnessSorted, cursor.fairnessAfterKey, 'fairness'],
