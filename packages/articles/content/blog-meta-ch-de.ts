@@ -5149,6 +5149,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.margine-manovra-agricoltori-svizzera.title': 'Landwirtschaft 2030: Erweiterter Handlungsspielraum',
     'blog.article.margine-manovra-agricoltori-svizzera.excerpt': 'Bundesrat eröffnet Vernehmlassung PA30+ bis 8. Dezember 13,8 Mrd. CHF zur Reform der Agrarzahlungen, Stärkung der Schweizer Ernährungssicherheit.',
     'blog.article.margine-manovra-agricoltori-svizzera.imageAlt': 'Ländliche Schweizer Landschaft mit Feldern und Bergen im Hintergrund, Symbol des nationalen Agrarsektors',
+    'blog.article.franco-svizzero-euro-minimi.title': 'Franco svizzero ai minimi: impatto sull\'economia',
+    'blog.article.franco-svizzero-euro-minimi.excerpt': 'Der Schweizer Franken fällt gegenüber dem Euro auf den niedrigsten Stand seit einem Jahr. Der Wechselkurs belief sich auf 0,9435 Franken pro Euro.',
+    'blog.article.franco-svizzero-euro-minimi.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit dem See und den umliegenden Bergen.',
 };
 
 export default blogMetaChDe;

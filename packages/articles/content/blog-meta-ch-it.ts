@@ -5149,6 +5149,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.margine-manovra-agricoltori-svizzera.title': 'Agricoltura 2030: margine di manovra ampliato',
     'blog.article.margine-manovra-agricoltori-svizzera.excerpt': 'Consiglio federale avvia consultazione PA30+ fino all\'8 dicembre. 13,8 miliardi CHF per riformare pagamenti agricoli, rafforzare sicurezza alimentare svizzera.',
     'blog.article.margine-manovra-agricoltori-svizzera.imageAlt': 'Paesaggio rurale svizzero con campi coltivati e montagni sullo sfondo, simbolo della filiera agricola nazionale',
+    'blog.article.franco-svizzero-euro-minimi.title': 'Franco svizzero ai minimi rispetto all\'euro: cosa significa per l\'economia',
+    'blog.article.franco-svizzero-euro-minimi.excerpt': 'Il franco svizzero scende rispetto all\'euro, ai minimi da un anno. Il cambio ha toccato 0,9435 franchi per euro.',
+    'blog.article.franco-svizzero-euro-minimi.imageAlt': 'Vista aerea di Lugano, Svizzera, con il lago e le montagne circostanti.',
 };
 
 export default blogMetaChIt;

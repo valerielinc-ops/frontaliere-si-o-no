@@ -66827,6 +66827,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-svizzero-euro-minimi': {
+    title: 'Franco svizzero ai minimi rispetto all\'euro: cosa significa per l\'economia',
+    description: 'Il franco svizzero scende rispetto all\'euro, ai minimi da un anno. Il cambio ha toccato 0,9435 franchi per euro. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, minimi, rispetto',
+    ogTitle: 'Franco svizzero ai minimi rispetto all\'euro: cosa significa per l\'economia',
+    ogDescription: 'Il franco svizzero continua a indebolirsi rispetto all\'euro, una tendenza percepibile ormai da giorni. Oggi la moneta europea ha toccato un massimo a 0,9435 franchi, un livello mai più raggiunto dall\'agosto 2025.',
+    canonicalPath: '/articoli-svizzera/franco-svizzero-euro-minimi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Franco svizzero ai minimi rispetto all'euro: cosa significa per l'economia",
+      "description": "Il franco svizzero scende rispetto all'euro, ai minimi da un anno. Il cambio ha toccato 0,9435 franchi per euro. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-euro-minimi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Svizzera, con il lago e le montagne circostanti."
+      },
+      "datePublished": "2026-09-02T12:44:14+00:00",
+      "dateModified": "2026-09-02T12:44:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franco-svizzero-euro-minimi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
