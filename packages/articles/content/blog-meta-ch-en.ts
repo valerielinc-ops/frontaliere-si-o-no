@@ -5029,6 +5029,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-grigioni-canoni-diritto.title': 'Rentals in Grisons: fees, deposit and rental rights',
     'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Practical guide to Swiss tenancy law: how security deposit, rent dispute and cancellation terms work in the Canton of Graubünden.',
     'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Swiss Alpine village with traditional stone houses in the Grisons',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Naturalization in Graubünden: requirements and procedure',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'How to become a Swiss citizen in the canton of Graubünden. Federal route, cantonal requirements, language and integration tests, taxes and duration of the procedure.',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Swiss cantonal administration office window displaying naturalization application forms and official documents in natural daylight.',
 };
 
 export default blogMetaChEn;

@@ -5029,6 +5029,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-grigioni-canoni-diritto.title': 'Mieten Graubünden: Mieten, Kaution und Mietrecht',
     'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Praktischer Leitfaden zum Schweizer Mietrecht: Wie funktioniert die Kaution, die Anfechtung der Miete und die Kündigungsfristen im Kanton Graubünden?',
     'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Schweizer Alpendorf mit traditionellen Steinhäusern in Graubünden',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Einbürgerung in Graubünden: Voraussetzungen und Ablauf',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'Wie man Schweizer Bürger im Kanton Graubünden wird. Bundesweg, kantonale Anforderungen, Sprach- und Integrationstests, Gebühren und Verfahrensdauer.',
+    'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Schalter einer Schweizer Kantonsadministration mit Einbürgerungsformularen und amtlichen Dokumenten in natürlichem Licht.',
 };
 
 export default blogMetaChDe;
