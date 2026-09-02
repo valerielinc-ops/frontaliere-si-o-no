@@ -35,6 +35,29 @@ const retryAfterHeader = Symbol('retryAfterHeader');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
+ * Let `signal` cut a deliberate wait (cooldown/robots/retry-delay) short.
+ * Without this, a caller-supplied deadline can only take effect once the
+ * next real network attempt starts `AbortSignal.any`-ing it in `fetchOnce`,
+ * stalling cancellation for up to the full wait — RETRY_AFTER_CAP_MS in the
+ * worst case. `promise`'s own work is not cancelled, only raced: nothing here
+ * holds an external resource that needs tearing down.
+ * @template T
+ * @param {Promise<T>} promise
+ * @param {AbortSignal} [signal]
+ * @returns {Promise<T>}
+ */
+function raceSignal(promise, signal) {
+  if (!signal) return promise;
+  const abortReason = () => signal.reason ?? new DOMException('The operation was aborted.', 'AbortError');
+  if (signal.aborted) return Promise.reject(abortReason());
+  return new Promise((resolve, reject) => {
+    const onAbort = () => reject(abortReason());
+    signal.addEventListener('abort', onAbort, { once: true });
+    promise.then(resolve, reject).finally(() => signal.removeEventListener('abort', onAbort));
+  });
+}
+
+/**
  * Wait out the per-host cooldown, then stamp the host as hit.
  * @param {string} host
  * @param {(ms: number) => Promise<unknown>} [sleepImpl]
@@ -245,7 +268,7 @@ export async function politeFetch(url, opts = {}) {
     let retryViaHostCooldown = false;
     for (let attempt = 0; attempt < attempts; attempt++) {
       if (attempt > 0 && !retryViaHostCooldown) {
-        await (opts.sleepImpl || sleep)((opts.retryBaseMs ?? 1500) * attempt);
+        await raceSignal((opts.sleepImpl || sleep)((opts.retryBaseMs ?? 1500) * attempt), opts.signal);
       }
       retryViaHostCooldown = false;
       try {
@@ -339,10 +362,10 @@ async function fetchOnce(url, opts) {
       const hop = new URL(hopUrl);
       const hopHost = normalizeHost(hop.hostname);
       if (!opts.ignoreRobots) {
-        const robots = await loadRobots(hop.origin, {
+        const robots = await raceSignal(loadRobots(hop.origin, {
           ...opts,
           host: hopHost,
-        });
+        }), opts.signal);
         if (!robotsAllows(robots, `${hop.pathname}${hop.search}`)) {
           throw new RobotsDeniedError(hopUrl);
         }
@@ -352,7 +375,7 @@ async function fetchOnce(url, opts) {
       // therefore cannot borrow the seed host's throttle budget. Robots is
       // loaded first so a policy/DNS rejection does not reserve a phantom
       // target request or create what looks like retry backoff.
-      await throttle(hopHost, opts.sleepImpl || sleep, opts.nowImpl || Date.now);
+      await raceSignal(throttle(hopHost, opts.sleepImpl || sleep, opts.nowImpl || Date.now), opts.signal);
     },
     requestOptions: {
       method,
