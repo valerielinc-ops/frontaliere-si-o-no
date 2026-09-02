@@ -652,6 +652,7 @@ async function main() {
       wrapUrl,
       wrapJobUrl,
       baseUrl: BASE_URL,
+      now,
     });
 
     const rendered = built.sections;

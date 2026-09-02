@@ -38,13 +38,19 @@
  *
  * Deliberately NOT importing from scripts/send-job-alerts.mjs: that module has
  * top-level `fs.readFileSync` of data/*.json and a Firebase-admin lazy init,
- * so importing it from anywhere (including a unit test) does file IO. This
- * builder is pure — no IO, no Date.now() beyond the caller-supplied `now` —
- * so tests/company-alert.test.ts can assert the rendered output directly.
+ * so importing it from anywhere (including a unit test) does file IO. Shared
+ * card helpers (formatSalary, emailTagChip, normalizeContract, resolveLogoUrl)
+ * live in services/newsletter-content.mjs; logo lookup is a lazy manifest
+ * read that fails to null (coloured initial-letter fallback), never a Google
+ * favicon. The builder still takes a caller-supplied `now` for the NEW-chip
+ * window so tests/company-alert.test.ts can assert the rendered output
+ * directly.
  */
 
 import { nlNormLocale } from './newsletter-template.mjs';
 import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
+import { formatSalary, emailTagChip, normalizeContract, resolveLogoUrl } from './newsletter-content.mjs';
+import { renderRecommendedBlock } from './newsletter/recommendedBlock.mjs';
 
 /** ESP tag / campaign namespace. The `company_alert.*` identity of this template. */
 export const COMPANY_ALERT_TEMPLATE_ID = 'company_alert';
@@ -84,8 +90,12 @@ export const COMPANY_ALERT_MAX_TOTAL_CARDS = 20;
 
 const BRAND_DARK = '#0f172a';
 const BRAND_ORANGE = '#f97316';
-const LIGHT_BG = '#f8fafc';
+const DARK_CARD = '#1e293b';
+const LIGHT_BG = '#f1f5f9';
 const WHITE = '#ffffff';
+const CARD_BG = '#f8fafc';
+const MUTED_ON_DARK = '#94a3b8';
+const NEW_CHIP_WINDOW_MS = 48 * 60 * 60 * 1000;
 
 /**
  * Employer-profile hub segment. ONE literal `aziende` for every locale, not a
@@ -131,10 +141,12 @@ export const COMPANY_ALERT_STRINGS = {
     // pre-#5012 «tutte le offerte» filter line this template was born to fix.
     closerMulti: 'Ricevi questa email perché segui queste aziende su Frontaliere Ticino.',
     closer: 'Ricevi questa email perché segui questa azienda su Frontaliere Ticino.',
+    closerSign: 'Alla prossima. \u2615',
     manage: 'Gestisci le aziende seguite',
     unsubThis: (company) => `Smetti di seguire ${company}`,
     unsubAll: 'Disattiva tutti gli avvisi',
     intendedFor: (email) => `Email inviata a ${email}.`,
+    newBadge: '\u2728 NUOVA',
     contract: 'Contratto',
     location: 'Luogo',
   },
@@ -156,10 +168,12 @@ export const COMPANY_ALERT_STRINGS = {
     ctaAll: (company) => `See all jobs at ${company}`,
     closerMulti: 'You get this email because you follow these companies on Frontaliere Ticino.',
     closer: 'You get this email because you follow this company on Frontaliere Ticino.',
+    closerSign: 'See you next time. \u2615',
     manage: 'Manage followed companies',
     unsubThis: (company) => `Stop following ${company}`,
     unsubAll: 'Turn off all alerts',
     intendedFor: (email) => `Sent to ${email}.`,
+    newBadge: '\u2728 NEW',
     contract: 'Contract',
     location: 'Location',
   },
@@ -181,10 +195,12 @@ export const COMPANY_ALERT_STRINGS = {
     ctaAll: (company) => `Alle Stellen bei ${company} ansehen`,
     closerMulti: 'Du erhältst diese E-Mail, weil du diesen Unternehmen auf Frontaliere Ticino folgst.',
     closer: 'Du erhältst diese E-Mail, weil du diesem Unternehmen auf Frontaliere Ticino folgst.',
+    closerSign: 'Bis zum n\u00e4chsten Mal. \u2615',
     manage: 'Gefolgte Unternehmen verwalten',
     unsubThis: (company) => `${company} nicht mehr folgen`,
     unsubAll: 'Alle Benachrichtigungen deaktivieren',
     intendedFor: (email) => `Gesendet an ${email}.`,
+    newBadge: '\u2728 NEU',
     contract: 'Vertrag',
     location: 'Ort',
   },
@@ -206,10 +222,12 @@ export const COMPANY_ALERT_STRINGS = {
     ctaAll: (company) => `Voir toutes les offres de ${company}`,
     closerMulti: 'Vous recevez cet e-mail car vous suivez ces entreprises sur Frontaliere Ticino.',
     closer: 'Vous recevez cet e-mail car vous suivez cette entreprise sur Frontaliere Ticino.',
+    closerSign: '\u00c0 bient\u00f4t. \u2615',
     manage: 'Gérer les entreprises suivies',
     unsubThis: (company) => `Ne plus suivre ${company}`,
     unsubAll: 'Désactiver toutes les alertes',
     intendedFor: (email) => `Envoyé à ${email}.`,
+    newBadge: '\u2728 NOUVELLE',
     contract: 'Contrat',
     location: 'Lieu',
   },
@@ -301,7 +319,7 @@ export function allocateCompanyAlertCards(sections, {
   return capped;
 }
 
-function jobCardHtml(job, hubUrl, wrapJobUrl) {
+function jobCardHtml(job, hubUrl, wrapJobUrl, { locale, s, now, companyName, companySlug } = {}) {
   const title = String(job.title || '').trim();
   // wrapJobUrl, not wrapUrl (#5725): this href is a job DETAIL page, the one
   // destination in this email that is gated on a session. The `job.url ||
@@ -309,14 +327,48 @@ function jobCardHtml(job, hubUrl, wrapJobUrl) {
   // carrying a credential it does not need — accepted, because the alternative
   // is a second parsing rule inside a card renderer.
   const url = wrapJobUrl(String(job.url || hubUrl));
-  const place = [job.location, job.canton].filter(Boolean).join(', ');
-  const contract = String(job.contractType || job.contract || '').trim();
-  const metaBits = [place, contract].filter(Boolean).map(escHtml).join(' · ');
+  const company = String(job.company || companyName || '').trim();
+  const rawLocation = String(job.location || job.addressLocality || '')
+    .replace(/^[-\u2013\u2014\s]+/, '')
+    .trim() || String(job.canton || '').trim();
+  const contract = String(job.contract || job.contractType || '').trim();
+  const initial = (company || '?')[0].toUpperCase();
+  // Section slug is the followed employer: use it when the job record has no
+  // companyKey so a Board/Migros hub still gets the CDN brand mark.
+  const logoSrc = resolveLogoUrl({
+    companyKey: job.companyKey || companySlug || '',
+    company,
+  });
+  const logoStyle = 'display:block;width:44px;height:44px;border-radius:10px;background:#ffffff;object-fit:contain;padding:4px;box-sizing:border-box;';
+  const tags = [];
+  const firstSeen = job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
+  if (firstSeen > 0 && (now - firstSeen) < NEW_CHIP_WINDOW_MS) {
+    tags.push(emailTagChip(s.newBadge, 'green'));
+  }
+  const salaryLabel = formatSalary(job, locale);
+  if (salaryLabel) tags.push(emailTagChip(escHtml(salaryLabel), 'blue'));
+  if (contract) tags.push(emailTagChip(escHtml(normalizeContract(contract, locale))));
+  if (rawLocation) tags.push(emailTagChip(escHtml(rawLocation)));
+
+  const avatarHtml = logoSrc
+    ? `<img src="${escHtml(logoSrc)}" alt="${escHtml(company)}" width="44" height="44" style="${logoStyle}">`
+    : `<div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,${BRAND_DARK},#334155);text-align:center;line-height:44px;font-size:18px;font-weight:800;color:${BRAND_ORANGE};">${escHtml(initial)}</div>`;
+
   return `
         <tr><td style="padding:0 0 10px;">
-          <a href="${escHtml(url)}" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;background:${BRAND_DARK};border-radius:10px;padding:16px 18px;">
-            <div style="font-size:15px;font-weight:700;color:#f1f5f9;margin:0;">${escHtml(title)}</div>
-            ${metaBits ? `<div style="font-size:12px;color:#94a3b8;margin-top:4px;">${metaBits}</div>` : ''}
+          <a target="_blank" rel="noopener noreferrer" href="${escHtml(url)}" style="text-decoration:none;display:block;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:${DARK_CARD};border-radius:12px;">
+              <tr>
+                <td width="58" style="padding:16px 0 16px 18px;vertical-align:middle;">
+                  ${avatarHtml}
+                </td>
+                <td style="padding:16px 18px 16px 14px;vertical-align:middle;">
+                  <div style="font-size:14px;font-weight:700;color:#f1f5f9;margin:0;overflow:hidden;text-overflow:ellipsis;">${escHtml(title)}</div>
+                  <div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:2px;">${escHtml(company)}${rawLocation ? ' \u00b7 ' + escHtml(rawLocation) : ''}</div>
+                  ${tags.length > 0 ? `<div style="margin-top:4px;">${tags.join(' ')}</div>` : ''}
+                </td>
+              </tr>
+            </table>
           </a>
         </td></tr>`;
 }
@@ -359,6 +411,10 @@ function jobCardHtml(job, hubUrl, wrapJobUrl) {
  *   caller behaves exactly as before; scripts/send-company-alerts.mjs passes the
  *   two separately.
  * @param {string} [opts.baseUrl]
+ * @param {number} [opts.now] Epoch ms for the NEW-chip 48h window. Caller-
+ *   supplied so the builder stays deterministic in tests; defaults to Date.now().
+ * @param {string|null} [opts.acquisitionSource] Forwarded to the shared
+ *   recommended-block renderer (utm `as=`), same as job-alert.
  * @returns {{ subject: string, html: string, text: string, sections: Array<{company: string, hubUrl: string, jobs: object[], [key: string]: unknown}> }}
  *   `sections` is what was ACTUALLY rendered, after `allocateCompanyAlertCards`
  *   — the caller marks exactly these jobs as sent, never its own input.
@@ -376,6 +432,8 @@ export function buildCompanyAlertEmail({
   wrapUrl = (u) => u,
   wrapJobUrl = wrapUrl,
   baseUrl = 'https://frontaliereticino.ch',
+  now = Date.now(),
+  acquisitionSource = null,
 }) {
   const loc = nlNormLocale(locale);
   const s = COMPANY_ALERT_STRINGS[loc] || COMPANY_ALERT_STRINGS.it;
@@ -418,7 +476,13 @@ export function buildCompanyAlertEmail({
   // pair of text links; a stack of six orange buttons is not a call to action,
   // it is wallpaper.
   const body = shownSections.map((section) => {
-    const cards = section.jobs.map((job) => jobCardHtml(job, section.hubUrl, wrapJobUrl)).join('');
+    const cards = section.jobs.map((job) => jobCardHtml(job, section.hubUrl, wrapJobUrl, {
+      locale: loc,
+      s,
+      now,
+      companyName: section.company,
+      companySlug: section.companySlug,
+    })).join('');
     const header = multi ? `
         <tr><td style="background:${WHITE};padding:20px 28px 2px;" class="section-pad">
           <a href="${escHtml(section.hubUrl)}" target="_blank" rel="noopener noreferrer" style="font-size:17px;font-weight:800;color:${BRAND_DARK};text-decoration:none;">${escHtml(section.company)}</a>
@@ -445,19 +509,31 @@ export function buildCompanyAlertEmail({
           <a href="${escHtml(headline.hubUrl)}" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:${BRAND_ORANGE};color:${WHITE};font-size:14px;font-weight:700;text-decoration:none;padding:13px 22px;border-radius:8px;">${escHtml(s.ctaAll(headline.company))}</a>
         </td></tr>`;
 
-  // Footer unsubscribe row. Mono keeps «Smetti di seguire X» + the global link.
-  // Grouped drops the per-employer link here — it is already at the foot of
-  // every section, where it names the employer it belongs to — and keeps the
-  // global one, which is ALSO the URL the RFC 8058 List-Unsubscribe header
+  // Recommended (revenue) block — same shared renderer as job-alert. Recipients
+  // of a followed-employer alert are jobs-interested by definition. Returns ''
+  // when no partner is active; interpolated as a sibling <tr> so the empty
+  // string does not leave a broken table.
+  const recommendedBlockHtml = renderRecommendedBlock({
+    locale: loc,
+    interest: 'jobs',
+    acquisitionSource,
+    campaign: COMPANY_ALERT_TEMPLATE_ID,
+  });
+
+  const year = new Date(now).getFullYear();
+
+  // Footer unsubscribe rows. Mono keeps «Smetti di seguire X» + the global
+  // link. Grouped drops the per-employer link here — it is already at the foot
+  // of every section, where it names the employer it belongs to — and keeps
+  // the global one, which is ALSO the URL the RFC 8058 List-Unsubscribe header
   // points at for a grouped send (see scripts/send-company-alerts.mjs): a
   // one-click that silently unfollowed only the first of six employers would
   // leave the reader clicking «Unsubscribe» again and again on a message that
-  // keeps arriving.
-  const footerUnsub = multi ? `
-            <a href="${escHtml(unsubscribeAllUrl)}" target="_blank" rel="noopener noreferrer" style="color:${BRAND_ORANGE};text-decoration:underline;">${escHtml(s.unsubAll)}</a>` : `
-            <a href="${escHtml(headline.unsubscribeUrl || '')}" target="_blank" rel="noopener noreferrer" style="color:${BRAND_ORANGE};text-decoration:underline;">${escHtml(s.unsubThis(headline.company))}</a>
-            &nbsp;·&nbsp;
-            <a href="${escHtml(unsubscribeAllUrl)}" target="_blank" rel="noopener noreferrer" style="color:#94a3b8;text-decoration:underline;">${escHtml(s.unsubAll)}</a>`;
+  // keeps arriving. Wording stays company-specific; chrome matches job-alert.
+  const footerUnsubThis = multi ? '' : `
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${escHtml(headline.unsubscribeUrl || '')}" style="color:${BRAND_ORANGE};text-decoration:underline;">${escHtml(s.unsubThis(headline.company))}</a>
+          </div>`;
 
   const html = `<!DOCTYPE html>
 <html lang="${loc}">
@@ -500,12 +576,33 @@ export function buildCompanyAlertEmail({
         </td></tr>
 ${body}${monoCta}
 
-        <tr><td style="background:${BRAND_DARK};padding:20px 28px;color:#94a3b8;font-size:11px;line-height:1.6;" class="section-pad">
-          <div>${escHtml(closer)}</div>
-          <div style="margin-top:8px;">${escHtml(s.intendedFor(email))}</div>
-          <div style="margin-top:8px;">${footerUnsub}
+        ${recommendedBlockHtml}
+
+        <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 20px;">
+          <div style="background:${CARD_BG};border-radius:12px;padding:18px 20px;text-align:center;">
+            <div style="font-size:14px;color:#334155;line-height:1.5;margin:0 0 8px;">${escHtml(closer)}</div>
+            <div style="font-size:12px;color:${BRAND_ORANGE};font-weight:700;">${escHtml(s.closerSign)}</div>
           </div>
-          <div style="margin-top:8px;">${escHtml(dataControllerFooterLine(loc))}</div>
+        </td></tr>
+
+        <tr><td style="background:${BRAND_DARK};padding:28px;text-align:center;">
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin:0 0 14px;line-height:1.5;">
+            ${escHtml(s.intendedFor(email))}
+          </div>
+          <div style="margin-bottom:12px;">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/frontaliere-ticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcbc</a>
+            <a target="_blank" rel="noopener noreferrer" href="${escHtml(baseUrl)}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${escHtml(manageUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${escHtml(s.manage)}</a>
+          </div>
+          ${footerUnsubThis}
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${escHtml(unsubscribeAllUrl)}" style="color:${MUTED_ON_DARK};text-decoration:underline;">${escHtml(s.unsubAll)}</a>
+          </div>
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin-top:12px;">\u00a9 ${year} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere</div>
+          <div style="font-size:11px;color:${MUTED_ON_DARK};margin-top:6px;">${escHtml(dataControllerFooterLine(loc))}</div>
         </td></tr>
 
       </table>
@@ -520,7 +617,9 @@ ${body}${monoCta}
     ...(multi ? [`── ${section.company} — ${s.sectionNew(section.jobs.length)}`] : []),
     ...section.jobs.map((job) => {
       const place = [job.location, job.canton].filter(Boolean).join(', ');
-      return `- ${job.title || ''}${place ? ` (${place})` : ''}\n  ${wrapJobUrl(String(job.url || section.hubUrl))}`;
+      const salaryLabel = formatSalary(job, loc);
+      const meta = [place, salaryLabel].filter(Boolean).join(' · ');
+      return `- ${job.title || ''}${meta ? ` (${meta})` : ''}\n  ${wrapJobUrl(String(job.url || section.hubUrl))}`;
     }),
     `${s.ctaAll(section.company)}: ${section.hubUrl}`,
     ...(multi ? [`${s.unsubThis(section.company)}: ${section.unsubscribeUrl || ''}`] : []),
@@ -537,6 +636,7 @@ ${body}${monoCta}
     `${s.unsubAll}: ${unsubscribeAllUrl}`,
     s.intendedFor(email),
     '',
+    `\u00a9 ${year} Frontaliere Ticino \u00b7 0% spam, 100% frontaliere`,
     dataControllerFooterLine(loc),
   ].join('\n');
 
