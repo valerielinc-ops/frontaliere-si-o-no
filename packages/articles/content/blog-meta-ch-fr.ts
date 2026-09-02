@@ -5110,6 +5110,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.impulso-alberghi-montagna.title': 'Hôtels de montagne : 100 millions pour l\'assainissement',
     'blog.article.impulso-alberghi-montagna.excerpt': 'Le Conseil fédéral alloue 100 millions de francs à la modernisation énergétique des structures hôtelières de montagne sur la période 2028-2035.',
     'blog.article.impulso-alberghi-montagna.imageAlt': 'Hôtel rénové dans les montagnes suisses',
+    'blog.article.accordo-investimenti-saudi-2026.title': 'Le Conseil fédéral adopte un message sur l\'accord avec l\'Arabie saoudite',
+    'blog.article.accordo-investimenti-saudi-2026.excerpt': 'Le Conseil fédéral a adopté le message sur l\'Accord de protection et de promotion des investissements avec l’Arabie saoudite, comblant le vide juridique créé après la dénonciation de l\'accord précédent.',
+    'blog.article.accordo-investimenti-saudi-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaChFr;
