@@ -65267,6 +65267,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-naturalizzazione-grigioni-requisiti-procedura': {
+    title: 'Naturalizzazione a Grigioni: requisiti e procedura',
+    description: 'Naturalizzazione a Grigioni: requisiti federali, cantonali, test di lingua, integrazione, tasse e procedura completa per ottenere la cittadinanza svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, naturalizzazione, grigioni, requisiti, procedura',
+    ogTitle: 'Naturalizzazione a Grigioni: requisiti e procedura',
+    ogDescription: 'Come diventare cittadino svizzero nel canton Grigioni. Leggi i dettagli su requisiti federali e cantonali, test di lingua, integrazione, tasse e procedure ufficiali per la naturalizzazione ordinaria.',
+    canonicalPath: '/articoli-svizzera/naturalizzazione-grigioni-requisiti-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Naturalizzazione a Grigioni: requisiti e procedura",
+      "description": "Naturalizzazione a Grigioni: requisiti federali, cantonali, test di lingua, integrazione, tasse e procedura completa per ottenere la cittadinanza svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/naturalizzazione-grigioni-requisiti-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sportello di un'amministrazione cantonale svizzera con moduli e documenti di naturalizzazione esposti, luce naturale."
+      },
+      "datePublished": "2026-09-02T01:11:29+00:00",
+      "dateModified": "2026-09-02T01:11:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/naturalizzazione-grigioni-requisiti-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
