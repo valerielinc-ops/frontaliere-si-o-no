@@ -15616,6 +15616,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-appenzello-esterno-costi',
+    category: 'pratico',
+    date: '2026-09-02T21:48:26.531Z',
+    image: '/images/blog/aprire-attivita-appenzello-esterno-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

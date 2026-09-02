@@ -1761,6 +1761,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'consultazione-politica-agricola-2030': { it: 'consultazione-politica-agricola-2030', en: 'consultation-agricultural-policy-2030', de: 'konsultation-landwirtschaftspolitik-2030', fr: 'consultation-politique-agricole-2030' },
  'dazi-usa-seco-svizzera-2026': { it: 'dazi-usa-seco-svizzera-2026', en: 'us-tariffs-seco-switzerland-2026', de: 'us-zolle-seco-schweiz-2026', fr: 'droits-douane-usa-seco-suisse-2026' },
  'diritto-locazione-zurigo-deposito-disdetta': { it: 'diritto-locazione-zurigo-deposito-disdetta', en: 'rental-law-zurich-deposit-termination', de: 'mietrecht-zurich-kaution-kundigung', fr: 'droit-bail-zurich-depot-resiliation' },
+ 'aprire-attivita-appenzello-esterno-costi': { it: 'aprire-attivita-appenzello-esterno-costi', en: 'start-business-appenzell-ausserrhoden-costs', de: 'unternehmen-appenzell-ausserrhoden-kosten', fr: 'ouvrir-entreprise-appenzell-rhodes-exterieures-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
