@@ -202,7 +202,9 @@ describe('translation completion scheduler v2', () => {
       jobs: [oldest, ...firstEasyStream],
       limits: { maxJobs: 5, maxUnits: 5, fairnessNumerator: 1, fairnessDenominator: 5 },
     }));
-    expect(first.plan.selectedJobs).toHaveLength(4);
+    // The oldest fairness bundle (2 units) does not fit the residual capacity when its
+    // turn comes up, but completion keeps filling the remaining unit instead of halting.
+    expect(first.plan.selectedJobs).toHaveLength(5);
     expect(first.plan.selectedJobs.every((selected) => selected.lane === 'completion')).toBe(true);
     expect(first.plan.cursorAfter.fairnessCredit).toBe(4);
 
@@ -220,6 +222,26 @@ describe('translation completion scheduler v2', () => {
       limits: { maxJobs: 5, maxUnits: 5, fairnessNumerator: 1, fairnessDenominator: 5 },
     }));
     expect(second.plan.selectedJobs[0]).toMatchObject({ lane: 'fairness', remainingUnits: 2 });
+  });
+
+  it('keeps filling from completion across repeated fairness turns when the fairness bundle never fits', () => {
+    // 7 units fits maxUnits (10) alone, but never fits the residual capacity left
+    // after any completions have already been selected in this run.
+    const bulky = job('fairness-bulky', Array.from({ length: 7 }, (_, index) => identity(`fairness-bulky-${index}`)), 1);
+    const easyJobs = Array.from({ length: 9 }, (_, index) => (
+      job(`fairness-blocked-easy-${index}`, [identity(`fairness-blocked-easy-${index}`)], 10_000 + index)
+    ));
+    const { plan } = planTranslationScheduleV2(plannerInput({
+      jobs: [bulky, ...easyJobs],
+      limits: { maxJobs: 9, maxUnits: 10, fairnessNumerator: 1, fairnessDenominator: 5 },
+    }));
+
+    // Fairness is retried on every due turn but never fits, yet the loop must keep
+    // filling from completion instead of halting the first time fairness fails.
+    expect(plan.selectedJobs).toHaveLength(9);
+    expect(plan.selectedJobs.every((selected) => selected.lane === 'completion')).toBe(true);
+    expect(plan.selectedJobs.every((selected) => selected.remainingUnits === 1)).toBe(true);
+    expect(plan.cursorAfter.fairnessCredit).toBe(4);
   });
 
   it('resumes Phase 2c after the prior completion pivot instead of repeating the prefix', () => {
