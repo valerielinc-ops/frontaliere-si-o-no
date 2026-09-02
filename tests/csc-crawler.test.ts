@@ -121,6 +121,26 @@ describe('CSC authoritative Drupal discovery', () => {
     })).rejects.toThrow(/did not return a canonical work-position page/);
   });
 
+  it('finds the primary work-position article when a sibling widget article renders first in <main>', () => {
+    const trailingText = 'Ricerchiamo un operaio edile qualificato per cantieri in Ticino, esperienza minima tre anni richiesta.';
+    const siblingShell = `<!doctype html><html><body><main><article data-history-node-id="24" class="node node--type-related"><h1>Offerte correlate</h1><p>Contenuto correlato non pertinente.</p></article><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><p>${trailingText}</p></article></main></body></html>`;
+    const detail = parseCscPrimaryJobDetail(siblingShell);
+    expect(detail).toEqual({ identity: 'drupal-node:401', nodeId: '401', hasJobPosting: false });
+  });
+
+  it('skips a non-primary sibling whose closing tag is ambiguous instead of aborting the whole scan', () => {
+    const trailingText = 'Ricerchiamo un operaio edile qualificato per cantieri in Ticino, esperienza minima tre anni richiesta.';
+    // The related-content widget's closing tag carries a stray token after
+    // `article` (malformed markup seen from some Drupal exports) — matched
+    // as a close by extractBalancedTagBlock's `[^>]*` walker, but rejected
+    // by the strict `^\s*<\/article\s*>` fail-closed regex. Before the fix
+    // this ambiguity aborted the whole scan via `return null`; now it must
+    // only skip this non-matching candidate and keep scanning.
+    const ambiguousCloseShell = `<!doctype html><html><body><main><article data-history-node-id="24" class="node node--type-related"><h1>Offerte correlate</h1><p>Contenuto correlato non pertinente.</p></article stray-token><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><p>${trailingText}</p></article></main></body></html>`;
+    const detail = parseCscPrimaryJobDetail(ambiguousCloseShell);
+    expect(detail).toEqual({ identity: 'drupal-node:401', nodeId: '401', hasJobPosting: false });
+  });
+
   it('does not truncate articleText when the primary article nests another <article>', () => {
     const trailingText = 'Ricerchiamo un operaio edile qualificato per cantieri in Ticino, esperienza minima tre anni richiesta.';
     const nestedShell = `<!doctype html><html><body><main><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><aside><article class="node node--type-related">Contenuto correlato non pertinente.</article></aside><p>${trailingText}</p></article></main></body></html>`;
