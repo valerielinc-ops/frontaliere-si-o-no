@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-09-01T23:10:05.924Z",
+  "assembledAt": "2026-09-02T13:33:46.459Z",
   "jobs": [
     {
       "id": "cedes-697abaeca835",
@@ -43,7 +43,7 @@
       "url": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:10:02.688Z",
+      "crawledAt": "2026-09-02T13:33:43.164Z",
       "previousSlugs": [
         "business-development-ea-professional-network-cedes-landquart",
         "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart"
@@ -117,7 +117,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:10:02.391Z",
+      "crawledAt": "2026-09-02T13:33:42.767Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
@@ -176,7 +176,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:10:02.064Z",
+      "crawledAt": "2026-09-02T13:33:42.357Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -234,7 +234,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:10:01.567Z",
+      "crawledAt": "2026-09-02T13:33:41.967Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
         "unsolicited-applications-cedes-landquart",
@@ -256,6 +256,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
