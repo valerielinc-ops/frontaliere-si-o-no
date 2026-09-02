@@ -25,6 +25,7 @@
 // legitimately share the same oldSlug now and they emit at DIFFERENT URLs.
 import fs from 'node:fs';
 import path from 'node:path';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
 
 const WINNERS_PATH = path.resolve('data/previous-slug-winners.json');
 const JOBS_PATH = path.resolve('data/jobs.json');
@@ -53,7 +54,7 @@ const muni = JSON.parse(fs.readFileSync(MUNI_PATH, 'utf8'));
 // rate (jobs without `id` collapse to slug → also indexed).
 const jobByIdentifier = new Map();
 for (const job of jobs) {
-  if (job?.id) jobByIdentifier.set(String(job.id), job);
+  if (hasUsableJobId(job)) jobByIdentifier.set(String(job.id), job);
   if (job?.slug) {
     if (!jobByIdentifier.has(String(job.slug))) jobByIdentifier.set(String(job.slug), job);
   }

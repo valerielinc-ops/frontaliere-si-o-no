@@ -61,6 +61,11 @@ describe('buildListingDedupKey', () => {
     expect(buildListingDedupKey(job)).toBe('url|https://example.com/job/42');
   });
 
+  it('treats numeric zero as a real id instead of falling back', () => {
+    const job = makeJob({ id: 0 as unknown as string, url: 'https://example.com/job/42' });
+    expect(buildListingDedupKey(job)).toBe('id|0');
+  });
+
   it('falls back to meta key when both id and url are missing', () => {
     const job = makeJob({ id: '', url: '' });
     const key = buildListingDedupKey(job);

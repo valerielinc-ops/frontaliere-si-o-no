@@ -19,6 +19,7 @@ import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -166,7 +167,7 @@ function processSliceFile(sliceFile, expiredDir) {
   const preCleanupById = new Map();
   for (const j of preCleanupJobs) {
     if (j.slug) preCleanupBySlug.set(j.slug, j);
-    if (j.id) preCleanupById.set(j.id, j);
+    if (hasUsableJobId(j)) preCleanupById.set(j.id, j);
     if (j.slugByLocale) {
       for (const s of Object.values(j.slugByLocale)) {
         if (s) preCleanupBySlug.set(s, j);
@@ -181,7 +182,7 @@ function processSliceFile(sliceFile, expiredDir) {
   for (const job of jobs) {
     // 1. RECOVERY: Find lost previousSlugs by comparing with pre-cleanup version
     const oldJob = (job.slug && preCleanupBySlug.get(job.slug))
-      || (job.id && preCleanupById.get(job.id))
+      || (hasUsableJobId(job) && preCleanupById.get(job.id))
       || null;
 
     if (oldJob && Array.isArray(oldJob.previousSlugs)) {

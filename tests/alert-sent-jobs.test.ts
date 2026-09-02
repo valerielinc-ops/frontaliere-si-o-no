@@ -13,6 +13,7 @@ const NOW = 1_700_000_000_000;
 describe('jobDedupKey', () => {
   it('prefers the crawler id', () => {
     expect(jobDedupKey({ id: 'eoc-123', url: 'https://x/y', slug: 's' })).toBe('eoc-123');
+    expect(jobDedupKey({ id: 0, url: 'https://x/y', slug: 's' })).toBe('0');
   });
 
   it('falls back to the URL-derived stable id, then the slug', () => {

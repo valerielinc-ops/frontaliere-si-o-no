@@ -9,7 +9,20 @@
  * stable token preserves the merge.
  */
 import { describe, it, expect } from 'vitest';
-import { extractStableJobId, resolveJobDiffKey } from '../scripts/lib/job-match-key.mjs';
+import {
+  extractStableJobId,
+  hasUsableJobId,
+  resolveJobDiffKey,
+} from '../scripts/lib/job-match-key.mjs';
+
+describe('hasUsableJobId', () => {
+  it('accepts numeric zero but rejects nullish and empty ids', () => {
+    expect(hasUsableJobId({ id: 0 })).toBe(true);
+    expect(hasUsableJobId({ id: '' })).toBe(false);
+    expect(hasUsableJobId({ id: null })).toBe(false);
+    expect(hasUsableJobId({})).toBe(false);
+  });
+});
 
 describe('extractStableJobId', () => {
   it('extracts the UUID from PwC-style URLs', () => {
@@ -84,6 +97,7 @@ describe('resolveJobDiffKey', () => {
   it('prefers the real .id when present', () => {
     const job = { id: 'company-abc123', url: 'https://example.com/jobs/1' };
     expect(resolveJobDiffKey(job)).toBe('company-abc123');
+    expect(resolveJobDiffKey({ id: 0, slug: 'fallback' })).toBe('0');
   });
 
   it('falls back to the stable URL-derived key when .id is absent', () => {

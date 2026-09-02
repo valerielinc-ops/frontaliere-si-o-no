@@ -1870,7 +1870,7 @@ export function buildListingDedupKey(job: JobListing): string {
  // `jobs.galenica.com/it/jobs/#job.id=NNNN`, where the job-id lives in
  // the hash and `normalizeUrlForDedup` strips it). Aligns with the
  // build-side dedup heuristic in `jobsSeoPagesPlugin.ts:dedupKey`.
- const id = String(job.id || '').trim();
+ const id = String(job.id ?? '').trim();
  if (id) return `id|${id}`;
  const company = normalizeSearchText(job.company);
  const title = normalizeSearchText(sanitizeJobTitle(job.title));

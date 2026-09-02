@@ -24,6 +24,11 @@
  */
 import { mergeUrlKey } from './job-url-key.mjs';
 
+/** Numeric `0` is a real crawler id; only nullish/empty values are absent. */
+export function hasUsableJobId(job) {
+  return job?.id != null && job.id !== '';
+}
+
 export function extractStableJobId(url) {
   // Delegates to the canonical crawl-time merge-key variant. The logic now
   // lives in scripts/lib/job-url-key.mjs so all three URL-key normalizations
@@ -55,7 +60,7 @@ export function extractStableJobId(url) {
  * @returns {string|null}
  */
 export function resolveJobDiffKey(job = {}) {
-  if (job?.id) return job.id;
+  if (hasUsableJobId(job)) return String(job.id);
   // extractStableJobId already namespaces its own return value
   // (uuid:/num:/hex:/url:), so it's used as-is — no double prefix.
   const urlKey = extractStableJobId(job?.url);
