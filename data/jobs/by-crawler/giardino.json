@@ -96,12 +96,12 @@
     },
     {
       "id": "giardino-a4c1442fdca3",
-      "slug": "child-care-attendant-giardino-group-ascona",
+      "slug": "assistente-per-la-cura-dei-bambini-giardino-group-ascona",
       "slugByLocale": {
-        "it": "child-care-attendant-giardino-group-ascona",
+        "it": "assistente-per-la-cura-dei-bambini-giardino-group-ascona",
         "en": "child-care-attendant-giardino-group-ascona",
         "de": "child-care-attendant-giardino-group-ascona",
-        "fr": "child-care-attendant-giardino-group-ascona"
+        "fr": "garde-d-enfants-giardino-group-ascona"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -174,7 +174,18 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "child-care-attendant-giardino-group-ascona"
+        ],
+        "fr": [
+          "child-care-attendant-giardino-group-ascona"
+        ]
+      },
+      "previousSlugs": [
+        "child-care-attendant-giardino-group-ascona"
+      ]
     },
     {
       "id": "giardino-459e1866ede0",
