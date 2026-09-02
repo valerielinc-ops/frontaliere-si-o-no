@@ -82049,6 +82049,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bennet-cerca-personale-varese': {
+    title: 'Bennet cerca personale a Lavena Ponte Tresa | Frontaliere Ticino',
+    description: 'Venerdì 4 settembre Bennet assume personale presso l\'ipermercato di Lavena Ponte Tresa. Posizioni aperte in vendita, reparti freschi e customer service',
+    keywords: 'frontalieri, ticino, svizzera, italia, bennet, cerca, personale, lavena',
+    ogTitle: 'Bennet cerca personale a Lavena Ponte Tresa',
+    ogDescription: 'L\'ipermercato Bennet di Lavena Ponte Tresa assume nuovo personale il 4 settembre 2026 dalle 13.00-18.00. Posizioni aperte per addetti vendita, operai reparti freschi, figure customer service. Candidarsi via email o presentarsi in loco. Opportunità',
+    canonicalPath: '/articoli-frontaliere/bennet-cerca-personale-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bennet cerca personale a Lavena Ponte Tresa",
+      "description": "Venerdì 4 settembre Bennet assume personale presso l'ipermercato di Lavena Ponte Tresa. Posizioni aperte in vendita, reparti freschi e customer service",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bennet-cerca-personale-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un ipermercato moderno con vetrate luminose in un piccolo paese di confine italiano"
+      },
+      "datePublished": "2026-09-02T00:16:48+00:00",
+      "dateModified": "2026-09-02T00:16:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bennet-cerca-personale-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

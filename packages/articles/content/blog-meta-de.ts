@@ -11070,6 +11070,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-turate-lavorare-ticino-frontaliere.title': 'Wohnen in Turate und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-turate-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Turate ins Tessin.',
     'blog.article.vivere-turate-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.bennet-cerca-personale-varese.title': 'Bennet sucht Personal in Lavena Ponte Tresa',
+    'blog.article.bennet-cerca-personale-varese.excerpt': 'Am Freitag, den 4. September, veranstaltet der Hypermarkt Bennet in Lavena Ponte Tresa einen Arbeitstag mit offenen Stellen im Verkauf und frischen Abteilungen.',
+    'blog.article.bennet-cerca-personale-varese.imageAlt': 'Moderne Hypermärkte-Fassade mit hellen Fenstern in einem kleinen italienischen Grenzort',
 };
 
 export default blogMetaDe;
