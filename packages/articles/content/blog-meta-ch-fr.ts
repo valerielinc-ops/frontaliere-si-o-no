@@ -5152,6 +5152,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-svizzero-euro-minimi.title': 'Franco svizzero ai minimi: impatto sull\'economia',
     'blog.article.franco-svizzero-euro-minimi.excerpt': 'Le franc suisse baisse par rapport à l\'euro, au plus bas depuis un an. Le taux de change a atteint 0,9435 franc pour un euro.',
     'blog.article.franco-svizzero-euro-minimi.imageAlt': 'Vue aérienne de Lugano, Suisse, avec le lac et les montagnes environnantes.',
+    'blog.article.permesso-l-zurigo-validita-proroga.title': 'Permis L Zurich : validité, renouvellement et prolongation',
+    'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Permis L : durée maximale d\'un an, renouvelable si le contrat se poursuit. Transition vers le permis B et contraintes de l\'employeur dans le canton de Zurich.',
+    'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Environnement administratif suisse avec documents officiels de permis de travail',
 };
 
 export default blogMetaChFr;
