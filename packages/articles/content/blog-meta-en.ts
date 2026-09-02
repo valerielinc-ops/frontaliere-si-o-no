@@ -11121,6 +11121,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mornago-frontaliere.title': 'Living in Mornago, working in Ticino: taxation and permit G',
     'blog.article.mornago-frontaliere.excerpt': 'From 1 January 2024, the New Frontier Agreement guarantees a €10,000 exemption to new frontier workers. Discover taxation, AVS, LPP and LAMal for those who live in Mornago and work in Ticino.',
     'blog.article.mornago-frontaliere.imageAlt': 'Border between Ticino and Lombardy from Mendrisio towards Mornago, with green Varese hills in the distance',
+    'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.title': 'Art Tax Border: Italy-Switzerland',
+    'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.excerpt': 'The tax frontier between Italy and Switzerland in the circulation of works of art: VAT on importation, confiscation and proportionality after Court cost. n. 93/2025',
+    'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.imageAlt': 'Editorial image related to: La frontiera fiscale tra Italia e Svizzera nella circolazione delle opere d’arte: IVA all’importazione, confisca e proporzionalità dopo Corte cost. n. 93/2025 e Cass. civ., Sez. Unite, ord. n. 24764/2026',
 };
 
 export default blogMetaEn;

@@ -11120,6 +11120,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mornago-frontaliere.title': 'Leben in Mornago, Arbeiten im Tessin: Besteuerung und Genehmigung G',
     'blog.article.mornago-frontaliere.excerpt': 'Ab dem 1. Januar 2024 garantiert die Neue Grenzgängervereinbarung den neuen Grenzgängern eine Selbstbeteiligung von 10.000 €. Entdecken Sie Besteuerung, AHV, BVG und KVG für diejenigen, die in Mornago leben und im Tessin arbeiten.',
     'blog.article.mornago-frontaliere.imageAlt': 'Grenze zwischen Tessin und der Lombardei von Mendrisio in Richtung Mornago, mit grünen Hügeln der Provinz Varese im Hintergrund',
+    'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.title': 'Steuergrenze Kunstwerke: IVA, Konfiskation, Verhältnismäßigkeit',
+    'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.excerpt': 'Die Steuergrenze zwischen Italien und der Schweiz im Umlauf von Kunstwerken: Einfuhr-MwSt, Beschlagnahmung und Verhältnismäßigkeit nach dem Verfassungsgericht Nr. 93/2025',
+    'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.imageAlt': 'Redaktionelles Bild zu: La frontiera fiscale tra Italia e Svizzera nella circolazione delle opere d’arte: IVA all’importazione, confisca e proporzionalità dopo Corte cost. n. 93/2025 e Cass. civ., Sez. Unite, ord. n. 24764/2026',
 };
 
 export default blogMetaDe;
