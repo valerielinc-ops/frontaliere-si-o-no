@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-09-01T23:07:42.865Z",
+  "assembledAt": "2026-09-02T13:34:17.273Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:39.300Z",
+      "crawledAt": "2026-09-02T13:34:14.195Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:38.999Z",
+      "crawledAt": "2026-09-02T13:34:13.893Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -156,7 +156,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-cd3c5c2dce34",
@@ -189,7 +190,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:38.697Z",
+      "crawledAt": "2026-09-02T13:34:13.592Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -270,7 +271,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/490/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:38.396Z",
+      "crawledAt": "2026-09-02T13:34:13.291Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -351,7 +352,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:38.095Z",
+      "crawledAt": "2026-09-02T13:34:12.989Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -384,6 +385,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T09:42:50.759Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -429,7 +431,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:07:37.793Z",
+      "crawledAt": "2026-09-02T13:34:12.688Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -510,7 +512,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:37.491Z",
+      "crawledAt": "2026-09-02T13:34:12.386Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -590,7 +592,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:37.186Z",
+      "crawledAt": "2026-09-02T13:34:12.084Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -669,7 +671,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:07:36.881Z",
+      "crawledAt": "2026-09-02T13:34:11.779Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -723,6 +725,71 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "jsafrasarasin-36022dbbf26f",
+      "slug": "risk-officer-management-company-jsafrasarasin-ch",
+      "slugByLocale": {
+        "en": "risk-officer-management-company-jsafrasarasin-ch",
+        "fr": "risk-officer-management-company-jsafrasarasin-ch",
+        "it": "risk-officer-management-company-jsafrasarasin-ch",
+        "de": "risk-officer-management-company-jsafrasarasin-ch"
+      },
+      "company": "J. Safra Sarasin",
+      "companyKey": "jsafrasarasin",
+      "companyDomain": "jsafrasarasin.umantis.com",
+      "title": "Risk Officer Management Company",
+      "titleByLocale": {
+        "en": "Risk Officer Management Company",
+        "fr": "Risk Officer Management Company",
+        "it": "Risk Officer Management Company",
+        "de": "Risk Officer Management Company"
+      },
+      "description": "Risk Officer Management Company\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Risk Officer Management Company at J. Safra Sarasin Investmentfonds AG you are responsible for the management-company risk framework – internal control system, operational risk and oversight – and act as the independent second line of defense across the ManCo’s activities and provide strong process and data-management skills to define and further improve controls, automate controls and reporting, and raise the quality and efficiency of how the function operates.\nYour Responsibilities\n• Maintain and further develop JSSIF’s Internal Control System; act as a second-line control function ensuring first-line controls are performed, evidenced and remediated\n• Manage operational risk end-to-end: incident detection and follow-up, operational KRI monitoring, key-control-matrix oversight, reporting and mitigation\n• Run the annual Risk & Control Self-Assessment (RCSA) in line with JSS Group Risk requirements\n• Produce structured ManCo risk reporting to the Executive Committee, Risk Committee and Board, and monthly KRI reporting to Group Risk Management\n• Maintain Business Continuity Management and the Business Continuity Plan, including trainings and periodic checks\n• Act as a deputy for the Fund Risk Oversight function and co-own PRIIP KID coordination and maintenance\n• Identify control and data-management improvements across the organization, and support units with your technical skill to make processes and controls better and more efficient\nYour Profile\n• Higher education in Finance, Business or a related field\n• 4-7 years of practical experience in the field of risk management, internal control or operational risk within a Swiss or Luxembourg management company, fund administration, audit or asset management\n• Working knowledge of the relevant Swiss regulatory environment (FINMA, CISA/CollIA, FinSA/FinIA, AMAS self-regulation); awareness of UCITS/AIFMD and CSSF requirements is an advantage given the Group’s Luxembourg footprint\n• Required experience with Python (data analysis like pandas, datetime), database (sqlalchemy, pyodbc), Excel (openpyxl, xlsxwriter, xlwings), matplotlib, seaborn\n• Independent, structured and hands-on, comfortable challenging first-line assumptions. Experience in design and automate controls, KRI calculations and reporting, improving data quality, traceability and process efficiency\n• Strong work ethics, integrity, high level of accountability and willingness to take responsibility\n• Fluency in English, German is an advantage\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+      "descriptionByLocale": {
+        "en": "Risk Officer Management Company\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Risk Officer Management Company at J. Safra Sarasin Investmentfonds AG you are responsible for the management-company risk framework – internal control system, operational risk and oversight – and act as the independent second line of defense across the ManCo’s activities and provide strong process and data-management skills to define and further improve controls, automate controls and reporting, and raise the quality and efficiency of how the function operates.\nYour Responsibilities\n• Maintain and further develop JSSIF’s Internal Control System; act as a second-line control function ensuring first-line controls are performed, evidenced and remediated\n• Manage operational risk end-to-end: incident detection and follow-up, operational KRI monitoring, key-control-matrix oversight, reporting and mitigation\n• Run the annual Risk & Control Self-Assessment (RCSA) in line with JSS Group Risk requirements\n• Produce structured ManCo risk reporting to the Executive Committee, Risk Committee and Board, and monthly KRI reporting to Group Risk Management\n• Maintain Business Continuity Management and the Business Continuity Plan, including trainings and periodic checks\n• Act as a deputy for the Fund Risk Oversight function and co-own PRIIP KID coordination and maintenance\n• Identify control and data-management improvements across the organization, and support units with your technical skill to make processes and controls better and more efficient\nYour Profile\n• Higher education in Finance, Business or a related field\n• 4-7 years of practical experience in the field of risk management, internal control or operational risk within a Swiss or Luxembourg management company, fund administration, audit or asset management\n• Working knowledge of the relevant Swiss regulatory environment (FINMA, CISA/CollIA, FinSA/FinIA, AMAS self-regulation); awareness of UCITS/AIFMD and CSSF requirements is an advantage given the Group’s Luxembourg footprint\n• Required experience with Python (data analysis like pandas, datetime), database (sqlalchemy, pyodbc), Excel (openpyxl, xlsxwriter, xlwings), matplotlib, seaborn\n• Independent, structured and hands-on, comfortable challenging first-line assumptions. Experience in design and automate controls, KRI calculations and reporting, improving data quality, traceability and process efficiency\n• Strong work ethics, integrity, high level of accountability and willingness to take responsibility\n• Fluency in English, German is an advantage\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+        "it": "Risk Officer Management Company\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Risk Officer Management Company at J. Safra Sarasin Investmentfonds AG you are responsible for the management-company risk framework – internal control system, operational risk and oversight – and act as the independent second line of defense across the ManCo’s activities and provide strong process and data-management skills to define and further improve controls, automate controls and reporting, and raise the quality and efficiency of how the function operates.\nYour Responsibilities\n• Maintain and further develop JSSIF’s Internal Control System; act as a second-line control function ensuring first-line controls are performed, evidenced and remediated\n• Manage operational risk end-to-end: incident detection and follow-up, operational KRI monitoring, key-control-matrix oversight, reporting and mitigation\n• Run the annual Risk & Control Self-Assessment (RCSA) in line with JSS Group Risk requirements\n• Produce structured ManCo risk reporting to the Executive Committee, Risk Committee and Board, and monthly KRI reporting to Group Risk Management\n• Maintain Business Continuity Management and the Business Continuity Plan, including trainings and periodic checks\n• Act as a deputy for the Fund Risk Oversight function and co-own PRIIP KID coordination and maintenance\n• Identify control and data-management improvements across the organization, and support units with your technical skill to make processes and controls better and more efficient\nYour Profile\n• Higher education in Finance, Business or a related field\n• 4-7 years of practical experience in the field of risk management, internal control or operational risk within a Swiss or Luxembourg management company, fund administration, audit or asset management\n• Working knowledge of the relevant Swiss regulatory environment (FINMA, CISA/CollIA, FinSA/FinIA, AMAS self-regulation); awareness of UCITS/AIFMD and CSSF requirements is an advantage given the Group’s Luxembourg footprint\n• Required experience with Python (data analysis like pandas, datetime), database (sqlalchemy, pyodbc), Excel (openpyxl, xlsxwriter, xlwings), matplotlib, seaborn\n• Independent, structured and hands-on, comfortable challenging first-line assumptions. Experience in design and automate controls, KRI calculations and reporting, improving data quality, traceability and process efficiency\n• Strong work ethics, integrity, high level of accountability and willingness to take responsibility\n• Fluency in English, German is an advantage\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+        "de": "Risk Officer Management Company\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Risk Officer Management Company at J. Safra Sarasin Investmentfonds AG you are responsible for the management-company risk framework – internal control system, operational risk and oversight – and act as the independent second line of defense across the ManCo’s activities and provide strong process and data-management skills to define and further improve controls, automate controls and reporting, and raise the quality and efficiency of how the function operates.\nYour Responsibilities\n• Maintain and further develop JSSIF’s Internal Control System; act as a second-line control function ensuring first-line controls are performed, evidenced and remediated\n• Manage operational risk end-to-end: incident detection and follow-up, operational KRI monitoring, key-control-matrix oversight, reporting and mitigation\n• Run the annual Risk & Control Self-Assessment (RCSA) in line with JSS Group Risk requirements\n• Produce structured ManCo risk reporting to the Executive Committee, Risk Committee and Board, and monthly KRI reporting to Group Risk Management\n• Maintain Business Continuity Management and the Business Continuity Plan, including trainings and periodic checks\n• Act as a deputy for the Fund Risk Oversight function and co-own PRIIP KID coordination and maintenance\n• Identify control and data-management improvements across the organization, and support units with your technical skill to make processes and controls better and more efficient\nYour Profile\n• Higher education in Finance, Business or a related field\n• 4-7 years of practical experience in the field of risk management, internal control or operational risk within a Swiss or Luxembourg management company, fund administration, audit or asset management\n• Working knowledge of the relevant Swiss regulatory environment (FINMA, CISA/CollIA, FinSA/FinIA, AMAS self-regulation); awareness of UCITS/AIFMD and CSSF requirements is an advantage given the Group’s Luxembourg footprint\n• Required experience with Python (data analysis like pandas, datetime), database (sqlalchemy, pyodbc), Excel (openpyxl, xlsxwriter, xlwings), matplotlib, seaborn\n• Independent, structured and hands-on, comfortable challenging first-line assumptions. Experience in design and automate controls, KRI calculations and reporting, improving data quality, traceability and process efficiency\n• Strong work ethics, integrity, high level of accountability and willingness to take responsibility\n• Fluency in English, German is an advantage\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link",
+        "fr": "Risk Officer Management Company\n•\nBasel, CH\n•\nFull-time\n•\nUnlimited\nYour Role\nAs Risk Officer Management Company at J. Safra Sarasin Investmentfonds AG you are responsible for the management-company risk framework – internal control system, operational risk and oversight – and act as the independent second line of defense across the ManCo’s activities and provide strong process and data-management skills to define and further improve controls, automate controls and reporting, and raise the quality and efficiency of how the function operates.\nYour Responsibilities\n• Maintain and further develop JSSIF’s Internal Control System; act as a second-line control function ensuring first-line controls are performed, evidenced and remediated\n• Manage operational risk end-to-end: incident detection and follow-up, operational KRI monitoring, key-control-matrix oversight, reporting and mitigation\n• Run the annual Risk & Control Self-Assessment (RCSA) in line with JSS Group Risk requirements\n• Produce structured ManCo risk reporting to the Executive Committee, Risk Committee and Board, and monthly KRI reporting to Group Risk Management\n• Maintain Business Continuity Management and the Business Continuity Plan, including trainings and periodic checks\n• Act as a deputy for the Fund Risk Oversight function and co-own PRIIP KID coordination and maintenance\n• Identify control and data-management improvements across the organization, and support units with your technical skill to make processes and controls better and more efficient\nYour Profile\n• Higher education in Finance, Business or a related field\n• 4-7 years of practical experience in the field of risk management, internal control or operational risk within a Swiss or Luxembourg management company, fund administration, audit or asset management\n• Working knowledge of the relevant Swiss regulatory environment (FINMA, CISA/CollIA, FinSA/FinIA, AMAS self-regulation); awareness of UCITS/AIFMD and CSSF requirements is an advantage given the Group’s Luxembourg footprint\n• Required experience with Python (data analysis like pandas, datetime), database (sqlalchemy, pyodbc), Excel (openpyxl, xlsxwriter, xlwings), matplotlib, seaborn\n• Independent, structured and hands-on, comfortable challenging first-line assumptions. Experience in design and automate controls, KRI calculations and reporting, improving data quality, traceability and process efficiency\n• Strong work ethics, integrity, high level of accountability and willingness to take responsibility\n• Fluency in English, German is an advantage\nYour Benefits\n•\nEntrepreneurial spirit in a family owned bank\n•\nCentral city office locations across Switzerland\n•\nAbove average insurance coverage fully borne by the bank\n•\nContribution to health insurance and meal allowance\n•\nGlobal growth strategy and stable environment\n•\nCompetitive offering\nAbout us\nAs a leading sustainable private bank, we offer dynamic and personalized services in investment advisory and asset management for private and institutional clients.\nOur success depends on the enthusiasm and commitment of our employees and we value each person with their unique technical expertise, professional qualifications and social skills.\nWe are successfully operating for more than 180 years across 30 locations worldwide and offer our employees the chance to be a part of our success.\nOur employees are our most valuable asset, we are proud of our unique culture that fosters entrepreneurship and is fueled by a high team spirit and\nthe positive attitude of each individual. Join our international team and be part of the next chapter of the J. Safra Sarasin Group.\nApply\n•\nNot the perfect fit?\nDiscover more career opportunities in one of our Swiss locations that match your profile.\nAll Vacancies\n•\nNot the right time?\nStay informed about our latest opportunities and upcoming job openings that match your interests and skills.\nJob Subscription\nShare this role with someone who might be interested\nShare\n•\nSend with WhatsApp\n•\nShare on LinkedIn\n•\nShare on Xing\n•\nSend as Email\n•\nCopy Link"
+      },
+      "location": "Basel, CH",
+      "canton": "BS",
+      "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
+      "source": "J. Safra Sarasin Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-02T13:34:11.477Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:34:11.477Z"
     }
   ]
 }
