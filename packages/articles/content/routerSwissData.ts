@@ -1757,6 +1757,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aziende-svizzere-semestre-2026': { it: 'aziende-svizzere-semestre-2026', en: 'swiss-companies-semester-2026', de: 'schweizer-unternehmen-semester-2026', fr: 'entreprises-suisses-semestre-2026' },
  'abbonamenti-trasporti-sciaffusa-tariffe': { it: 'abbonamenti-trasporti-sciaffusa-tariffe', en: 'schaffhausen-transport-passes-zones-fares', de: 'schaffhausen-oeffentliche-verkehrsmittel-abos-zonen', fr: 'schaffhouse-transports-publics-abonnements-zones' },
  'salari-mercato-lavoro-sciaffusa-settori': { it: 'salari-mercato-lavoro-sciaffusa-settori', en: 'salaries-labour-market-schaffhausen-sectors', de: 'loehne-arbeitsmarkt-schaffhausen-sektoren', fr: 'salaires-marche-travail-schaffhouse-secteurs' },
+ 'aprire-attivita-argovia-registro-commercio': { it: 'aprire-attivita-argovia-registro-commercio', en: 'start-business-aargau-commercial-register', de: 'geschaft-eroeffnen-aargau-handelsregister', fr: 'creer-entreprise-argovie-registre-du-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

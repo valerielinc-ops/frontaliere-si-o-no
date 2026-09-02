@@ -5194,6 +5194,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Salari e mercato del lavoro a Sciaffusa',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Struttura salariale svizzera per livelli di formazione, contratti collettivi, sistema di previdenza (AVS/LPP) e salario minimo cantonale. Guida pratica per verificare il proprio stipendio.',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Ambiente di lavoro svizzero con documenti di stipendio, calcolatore e vista sulle Alpi da ufficio moderno',
+    'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Aprire un\'attività in Argovia: registro commercio e costi',
+    'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Forme giuridiche, registrazione al registro di commercio, capitale minimo, tasse e obblighi fiscali nel Cantone di Argovia: guida operativa.',
+    'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Facciata di un ufficio amministrativo cantonale svizzero per il registro di commercio',
 };
 
 export default blogMetaChIt;
