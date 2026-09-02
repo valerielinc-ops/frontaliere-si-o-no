@@ -485,8 +485,10 @@ function assertReservedCursorPlanBinding(cursor, plan) {
   let completionAfterKey = cursor.completionAfterKey;
   let fairnessAfterKey = cursor.fairnessAfterKey;
   for (const job of plan.selectedJobs) {
-    const expectedLane = fairnessCredit === 4 ? 'fairness' : 'completion';
-    if (job.lane !== expectedLane) {
+    const fairnessDue = fairnessCredit === 4;
+    // A due fairness turn is allowed to fall back to completion (its bundle didn't fit
+    // the residual capacity), but a non-due turn must never claim the fairness lane.
+    if (job.lane === 'fairness' && !fairnessDue) {
       throw new TypeError('translation scheduler active plan lane sequence is invalid');
     }
     if (job.lane === 'fairness') {
@@ -494,7 +496,7 @@ function assertReservedCursorPlanBinding(cursor, plan) {
       fairnessCredit = 0;
     } else {
       completionAfterKey = job.schedulingKey;
-      fairnessCredit += 1;
+      if (!fairnessDue) fairnessCredit += 1;
     }
   }
   if (plan.cursorAfter.completionAfterKey !== completionAfterKey
@@ -613,8 +615,8 @@ export function planTranslationScheduleV2(input) {
   let completionAfterKey = cursor.completionAfterKey;
   let fairnessAfterKey = cursor.fairnessAfterKey;
   while (selectedJobs.length < limits.maxJobs) {
-    let lane = fairnessCredit === limits.fairnessDenominator - limits.fairnessNumerator
-      ? 'fairness' : 'completion';
+    const fairnessDue = fairnessCredit === limits.fairnessDenominator - limits.fairnessNumerator;
+    let lane = fairnessDue ? 'fairness' : 'completion';
     let candidate = lane === 'fairness'
       ? fairness.find((job) => !selectedKeys.has(job.schedulingKey))
       : completion.find((job) => !selectedKeys.has(job.schedulingKey)
@@ -649,7 +651,10 @@ export function planTranslationScheduleV2(input) {
       fairnessCredit = 0;
     } else {
       completionAfterKey = candidate.schedulingKey;
-      fairnessCredit += 1;
+      // A due fairness turn that fell back to completion (above) stays due:
+      // preserve the credit so the very next iteration retries fairness
+      // instead of pushing the owed turn further away.
+      if (!fairnessDue) fairnessCredit += 1;
     }
   }
   const cursorAfter = createCursor({
