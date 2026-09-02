@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-09-01T23:34:04.933Z",
+  "assembledAt": "2026-09-02T13:54:41.501Z",
   "jobs": [
     {
       "id": "abraxas-d6bc90937a78",
@@ -17,7 +17,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:34:01.682Z",
+      "crawledAt": "2026-09-02T13:54:37.603Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -114,7 +115,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-1974",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:34:01.217Z",
+      "crawledAt": "2026-09-02T13:54:37.173Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -153,6 +154,77 @@
       }
     },
     {
+      "id": "abraxas-da4c2d5af7c6",
+      "slug": "software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+      "slugByLocale": {
+        "de": "software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+        "it": "software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+        "en": "software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+        "fr": "software-engineer-data-migration-80-100-abraxas-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Software Engineer – Data Migration 80 - 100%",
+      "titleByLocale": {
+        "de": "Software Ingenieur – Data Migration 80 - 100%",
+        "en": "Software Engineer – Data Migration 80 - 100%",
+        "it": "Software Ingegnere – Data Migration 80 - 100%",
+        "fr": "Software Ingénieur – Data Migration 80 - 100%"
+      },
+      "description": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:54:36.741Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://apply.refline.ch/215876/2505/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2505",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:54:36.741Z"
+    },
+    {
       "id": "abraxas-d642a88d6587",
       "slug": "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen",
       "slugByLocale": {
@@ -183,7 +255,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-2052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:34:00.753Z",
+      "crawledAt": "2026-09-02T13:54:36.311Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -238,6 +310,77 @@
       }
     },
     {
+      "id": "abraxas-d662a9d15c0a",
+      "slug": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
+        "it": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
+        "en": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen",
+        "fr": "software-architekt-mit-fokus-ki-im-ssdlc-80-100-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
+      "titleByLocale": {
+        "de": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
+        "en": "Software Architekt mit Fokus KI im SSDLC 80–100 %",
+        "it": "Software Architekt con Fokus KI im SSDLC 80–100 %",
+        "fr": "Software Architekt mit Fokus KI im SSDLC 80–100 %"
+      },
+      "description": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Du machst aus KI mehr als nur einen Copilot auf dem Desktop. Du entwickelst Standards, Architekturprinzipien und Best Practices für den produktiven Einsatz von KI und gestaltest die Weiterentwicklung des AI-enabled SSDLC. Dein Fokus liegt auf Engineering Excellence und organisationsweitem Enablement. Gleichzeitig bringst du dein Know-how in Kundenprojekten ein und unterstützt Teams bei der Umsetzung anspruchsvoller KI-Lösungen. Du verbindest Architektur, Software Engineering, DevOps und KI und sorgst dafür, dass aus Experimenten nachhaltige Lösungen werden.\nDeine Rolle\n• Du entwickelst Referenzarchitekturen, Architekturprinzipien und Standards für den Einsatz von KI im Software Engineering und SSDLC\n• Du definierst Best Practices sowie wiederverwendbare Architektur-, Integrations- und Lösungsmuster für Agenten, Prompts, Kontextmodelle und RAG-Lösungen\n• Du entwickelst den AI-enabled SSDLC kontinuierlich weiter und unterstützt die Integration von KI in Entwicklungs-, Test-, Architektur- und Betriebsprozesse\n• Du berätst und coachst Teams bei Einführung, Nutzung und Skalierung von KI und förderst den organisationsweiten Wissens- und Erfahrungsaustausch\n• Du evaluierst neue Technologien, Modelle und Frameworks und definierst gemeinsam mit AI Engineering Standard-Setups\n• Du definierst Qualitätsanforderungen für KI-Lösungen und stellst sicher, dass diese nachvollziehbar, wartbar und skalierbar bleiben\n• Du unterstützt strategisch relevante Kundenprojekte und Transformationsvorhaben bei der Konzeption, Architektur und Einführung von KI-Lösungen\n• Du wirkst an der Weiterentwicklung der AI-Strategie, Architektur-Governance und Engineering Excellence von Abraxas mit\nDein Profil\n• Langjährige Erfahrung als ICT-Architekt, Lead Developer oder Principal Engineer\n• Sehr gutes Verständnis moderner Software- und Plattformarchitekturen\n• Erfahrung in Architektur- und Technologie-Transformationen\n• Fundierte Kenntnisse von DevOps, CI/CD und modernen Engineering-Plattformen\n• Erfahrung mit LLM-, Agent- und RAG-Konzepten\n• Fähigkeit, technische Standards organisationsweit zu etablieren\n• Erfahrung im Coaching und Enablement von Entwicklungsorganisationen\n• Fähigkeit, strategische Architekturarbeit mit den praktischen Anforderungen von Kundenprojekten und Transformationsvorhaben zu verbinden\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Ferienkauf (2 Wochen pro Jahr)\n• 4 1h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-3313",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:54:35.877Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Infrastruttura",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://apply.refline.ch/215876/2515/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2515",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:54:35.877Z"
+    },
+    {
       "id": "abraxas-5d8d6c85cc23",
       "slug": "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
@@ -268,7 +411,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:34:00.286Z",
+      "crawledAt": "2026-09-02T13:54:35.446Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -349,7 +493,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:59.819Z",
+      "crawledAt": "2026-09-02T13:54:35.004Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -446,7 +591,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:59.348Z",
+      "crawledAt": "2026-09-02T13:54:34.573Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -497,6 +643,77 @@
       }
     },
     {
+      "id": "abraxas-cbaf62d04181",
+      "slug": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+      "slugByLocale": {
+        "de": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "it": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "en": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen",
+        "fr": "senior-projektleitung-im-bereich-steuerlosungen-80-100-abraxas-st-gallen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Senior Projektleitung im Bereich Steuerlösungen 80 - 100%",
+      "titleByLocale": {
+        "de": "Senior Projektleitung im Bereich Steuerlösungen 80 - 100%",
+        "it": "Senior Projektleitung im Bereich Steuerlösungen 80 - 100%",
+        "en": "Senior Projektleitung im Bereich Steuerlösungen 80 - 100%",
+        "fr": "Senior Projektleitung im Bereich Steuerlösungen 80 - 100%"
+      },
+      "description": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDeine Rolle\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDein Profil\n• Hochschul- oder Fachhochschulabschluss in Informatik oder eine vergleichbare Ausbildung sowie einschlägige Berufserfahrung inkl. entsprechender Zertifizierung (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter, idealerweise in der Softwareentwicklung im agilen Umfeld\n• Leitung von mindestens 3 Projekten als verantwortlicher Projektleiter, jeweils mit einem Volumen von über 1 Mio. CHF bei einem öffentlichen Auftraggeber\n• Davon mindestens 1 Projekt nach HERMES\n• Davon mindestens 1 Projekt im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen und ein gutes Verständnis der Steuererhebungsprozesse\n• Erfahrung in der Abwicklung von Kundenprojekten unter Einhaltung vertraglicher Rahmenbedingungen\n• Hohe Fach-, Methoden- und Sozialkompetenz\n• HERMES Advanced Zertifizierung erwünscht\n• Kommunikative Persönlichkeit mit hoher Eigeninitiative und dem Willen, etwas zu bewegen\n• Kenntnisse agiler Entwicklungsmethoden sowie ausgeprägte analytische und konzeptionelle Fähigkeiten\n• Deutsch als Muttersprache oder nachweislich auf Level C1\n• Gute Englischkenntnisse; weitere Sprachen sind von Vorteil\nDeine Benefits\nBehältst du auch in hektischen Meetings und Diskussionen stets den Überblick? Hast du eine hohe Lernbereitschaft sowie die Motivation und das Durchhaltevermögen, auch schwierige Themen anzugehen? Wenn du diese Fragen mit einem klaren JA beantworten, dann bist du bei uns genau richtig:\nIn unserem Team warten eine kollegiale Atmosphäre und vielfältige Herausforderungen auf dich. Neue Ideen und Initiativen sind bei uns nicht nur erlaubt, sondern erwünscht. Viel Spielraum für eigene Ideen und Lösungen sowie vielfältige Möglichkeiten für berufliche Weiterentwicklung sind vorhanden. Zusätzlich wird deine eigene Entwicklung mit Kursen und Weiterbildungen gefördert. Möchtest du mehr über uns und deine zukünftige Rolle erfahren? Wir freuen uns auf deine Bewerbung, bitte erfasse diese ausschliesslich online - vielen Dank.",
+      "descriptionByLocale": {
+        "de": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDeine Rolle\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDein Profil\n• Hochschul- oder Fachhochschulabschluss in Informatik oder eine vergleichbare Ausbildung sowie einschlägige Berufserfahrung inkl. entsprechender Zertifizierung (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter, idealerweise in der Softwareentwicklung im agilen Umfeld\n• Leitung von mindestens 3 Projekten als verantwortlicher Projektleiter, jeweils mit einem Volumen von über 1 Mio. CHF bei einem öffentlichen Auftraggeber\n• Davon mindestens 1 Projekt nach HERMES\n• Davon mindestens 1 Projekt im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen und ein gutes Verständnis der Steuererhebungsprozesse\n• Erfahrung in der Abwicklung von Kundenprojekten unter Einhaltung vertraglicher Rahmenbedingungen\n• Hohe Fach-, Methoden- und Sozialkompetenz\n• HERMES Advanced Zertifizierung erwünscht\n• Kommunikative Persönlichkeit mit hoher Eigeninitiative und dem Willen, etwas zu bewegen\n• Kenntnisse agiler Entwicklungsmethoden sowie ausgeprägte analytische und konzeptionelle Fähigkeiten\n• Deutsch als Muttersprache oder nachweislich auf Level C1\n• Gute Englischkenntnisse; weitere Sprachen sind von Vorteil\nDeine Benefits\nBehältst du auch in hektischen Meetings und Diskussionen stets den Überblick? Hast du eine hohe Lernbereitschaft sowie die Motivation und das Durchhaltevermögen, auch schwierige Themen anzugehen? Wenn du diese Fragen mit einem klaren JA beantworten, dann bist du bei uns genau richtig:\nIn unserem Team warten eine kollegiale Atmosphäre und vielfältige Herausforderungen auf dich. Neue Ideen und Initiativen sind bei uns nicht nur erlaubt, sondern erwünscht. Viel Spielraum für eigene Ideen und Lösungen sowie vielfältige Möglichkeiten für berufliche Weiterentwicklung sind vorhanden. Zusätzlich wird deine eigene Entwicklung mit Kursen und Weiterbildungen gefördert. Möchtest du mehr über uns und deine zukünftige Rolle erfahren? Wir freuen uns auf deine Bewerbung, bitte erfasse diese ausschliesslich online - vielen Dank.",
+        "it": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDeine Rolle\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDein Profil\n• Hochschul- oder Fachhochschulabschluss in Informatik oder eine vergleichbare Ausbildung sowie einschlägige Berufserfahrung inkl. entsprechender Zertifizierung (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter, idealerweise in der Softwareentwicklung im agilen Umfeld\n• Leitung von mindestens 3 Projekten als verantwortlicher Projektleiter, jeweils mit einem Volumen von über 1 Mio. CHF bei einem öffentlichen Auftraggeber\n• Davon mindestens 1 Projekt nach HERMES\n• Davon mindestens 1 Projekt im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen und ein gutes Verständnis der Steuererhebungsprozesse\n• Erfahrung in der Abwicklung von Kundenprojekten unter Einhaltung vertraglicher Rahmenbedingungen\n• Hohe Fach-, Methoden- und Sozialkompetenz\n• HERMES Advanced Zertifizierung erwünscht\n• Kommunikative Persönlichkeit mit hoher Eigeninitiative und dem Willen, etwas zu bewegen\n• Kenntnisse agiler Entwicklungsmethoden sowie ausgeprägte analytische und konzeptionelle Fähigkeiten\n• Deutsch als Muttersprache oder nachweislich auf Level C1\n• Gute Englischkenntnisse; weitere Sprachen sind von Vorteil\nDeine Benefits\nBehältst du auch in hektischen Meetings und Diskussionen stets den Überblick? Hast du eine hohe Lernbereitschaft sowie die Motivation und das Durchhaltevermögen, auch schwierige Themen anzugehen? Wenn du diese Fragen mit einem klaren JA beantworten, dann bist du bei uns genau richtig:\nIn unserem Team warten eine kollegiale Atmosphäre und vielfältige Herausforderungen auf dich. Neue Ideen und Initiativen sind bei uns nicht nur erlaubt, sondern erwünscht. Viel Spielraum für eigene Ideen und Lösungen sowie vielfältige Möglichkeiten für berufliche Weiterentwicklung sind vorhanden. Zusätzlich wird deine eigene Entwicklung mit Kursen und Weiterbildungen gefördert. Möchtest du mehr über uns und deine zukünftige Rolle erfahren? Wir freuen uns auf deine Bewerbung, bitte erfasse diese ausschliesslich online - vielen Dank.",
+        "en": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDeine Rolle\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDein Profil\n• Hochschul- oder Fachhochschulabschluss in Informatik oder eine vergleichbare Ausbildung sowie einschlägige Berufserfahrung inkl. entsprechender Zertifizierung (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter, idealerweise in der Softwareentwicklung im agilen Umfeld\n• Leitung von mindestens 3 Projekten als verantwortlicher Projektleiter, jeweils mit einem Volumen von über 1 Mio. CHF bei einem öffentlichen Auftraggeber\n• Davon mindestens 1 Projekt nach HERMES\n• Davon mindestens 1 Projekt im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen und ein gutes Verständnis der Steuererhebungsprozesse\n• Erfahrung in der Abwicklung von Kundenprojekten unter Einhaltung vertraglicher Rahmenbedingungen\n• Hohe Fach-, Methoden- und Sozialkompetenz\n• HERMES Advanced Zertifizierung erwünscht\n• Kommunikative Persönlichkeit mit hoher Eigeninitiative und dem Willen, etwas zu bewegen\n• Kenntnisse agiler Entwicklungsmethoden sowie ausgeprägte analytische und konzeptionelle Fähigkeiten\n• Deutsch als Muttersprache oder nachweislich auf Level C1\n• Gute Englischkenntnisse; weitere Sprachen sind von Vorteil\nDeine Benefits\nBehältst du auch in hektischen Meetings und Diskussionen stets den Überblick? Hast du eine hohe Lernbereitschaft sowie die Motivation und das Durchhaltevermögen, auch schwierige Themen anzugehen? Wenn du diese Fragen mit einem klaren JA beantworten, dann bist du bei uns genau richtig:\nIn unserem Team warten eine kollegiale Atmosphäre und vielfältige Herausforderungen auf dich. Neue Ideen und Initiativen sind bei uns nicht nur erlaubt, sondern erwünscht. Viel Spielraum für eigene Ideen und Lösungen sowie vielfältige Möglichkeiten für berufliche Weiterentwicklung sind vorhanden. Zusätzlich wird deine eigene Entwicklung mit Kursen und Weiterbildungen gefördert. Möchtest du mehr über uns und deine zukünftige Rolle erfahren? Wir freuen uns auf deine Bewerbung, bitte erfasse diese ausschliesslich online - vielen Dank.",
+        "fr": "Du engagierst dich für deine Projekte und dein Antrieb ist eigenverantwortliches Handeln? Du hast Erfahrung mit agilen Software Entwicklungsprojekten und verstehst es als verantwortliche:r Projektleiter:in für Kunden der öffentlichen Hand den vertraglichen Leistungsumfang deiner Projekte sicherzustellen? Dann würden wir dich gerne im #Team Abraxas willkommen heissen!\nWir haben es uns zum Ziel gesetzt der führende Anbieter von Steuerlösungen in der Schweiz zu sein und dafür benötigen wir deine tatkräftige Unterstützung.\nDeine Rolle\n• Leiten von komplexen und anspruchsvollen Kundenprojekten im Bereich der Software-Entwicklung und Integration unserer Steuerlösungen bei unseren Kunden\n• Etablieren der Projektorganisation und Führen von Projektteams über mehrere Standorte verteilt mit lokalen oder auch nearshoring-Entwicklungsteams und in enger Zusammenarbeit mit dem Kunden\n• Definieren der notwendigen Richtlinien und Instrumente zur Projektabwicklung, entlang vom Entwicklungsvorgehen und innerhalb der Unternehmensvorgaben\n• Verantworten und Repräsentieren deines Projekts im internen als auch im Projektausschuss des Kunden\n• Evaluieren notwendiger Zulieferer oder Drittkomponenten und Führen von Verhandlungen zusammen mit unserem zentralen Einkauf\nDein Profil\n• Hochschul- oder Fachhochschulabschluss in Informatik oder eine vergleichbare Ausbildung sowie einschlägige Berufserfahrung inkl. entsprechender Zertifizierung (z. B. HERMES, IPMA, PRINCE2)\n• Mindestens 10 Jahre Erfahrung als Projektleiter, idealerweise in der Softwareentwicklung im agilen Umfeld\n• Leitung von mindestens 3 Projekten als verantwortlicher Projektleiter, jeweils mit einem Volumen von über 1 Mio. CHF bei einem öffentlichen Auftraggeber\n• Davon mindestens 1 Projekt nach HERMES\n• Davon mindestens 1 Projekt im Bereich Steuerverwaltung\n• Fundierte Kenntnisse im Steuerwesen und ein gutes Verständnis der Steuererhebungsprozesse\n• Erfahrung in der Abwicklung von Kundenprojekten unter Einhaltung vertraglicher Rahmenbedingungen\n• Hohe Fach-, Methoden- und Sozialkompetenz\n• HERMES Advanced Zertifizierung erwünscht\n• Kommunikative Persönlichkeit mit hoher Eigeninitiative und dem Willen, etwas zu bewegen\n• Kenntnisse agiler Entwicklungsmethoden sowie ausgeprägte analytische und konzeptionelle Fähigkeiten\n• Deutsch als Muttersprache oder nachweislich auf Level C1\n• Gute Englischkenntnisse; weitere Sprachen sind von Vorteil\nDeine Benefits\nBehältst du auch in hektischen Meetings und Diskussionen stets den Überblick? Hast du eine hohe Lernbereitschaft sowie die Motivation und das Durchhaltevermögen, auch schwierige Themen anzugehen? Wenn du diese Fragen mit einem klaren JA beantworten, dann bist du bei uns genau richtig:\nIn unserem Team warten eine kollegiale Atmosphäre und vielfältige Herausforderungen auf dich. Neue Ideen und Initiativen sind bei uns nicht nur erlaubt, sondern erwünscht. Viel Spielraum für eigene Ideen und Lösungen sowie vielfältige Möglichkeiten für berufliche Weiterentwicklung sind vorhanden. Zusätzlich wird deine eigene Entwicklung mit Kursen und Weiterbildungen gefördert. Möchtest du mehr über uns und deine zukünftige Rolle erfahren? Wir freuen uns auf deine Bewerbung, bitte erfasse diese ausschliesslich online - vielen Dank."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:54:34.142Z",
+      "needsRetranslation": true,
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://apply.refline.ch/215876/2537/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2537",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 92000,
+      "salaryMax": 156500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 156500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:54:34.142Z"
+    },
+    {
       "id": "abraxas-f3e387a7f60a",
       "slug": "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
       "slugByLocale": {
@@ -527,7 +744,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:58.870Z",
+      "crawledAt": "2026-09-02T13:54:33.707Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -608,7 +826,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:58.403Z",
+      "crawledAt": "2026-09-02T13:54:33.263Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -689,7 +908,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:57.935Z",
+      "crawledAt": "2026-09-02T13:54:32.821Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -787,7 +1006,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:57.470Z",
+      "crawledAt": "2026-09-02T13:54:32.374Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -842,6 +1061,77 @@
       }
     },
     {
+      "id": "abraxas-cdaf9883bace",
+      "slug": "lead-software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+      "slugByLocale": {
+        "de": "lead-software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+        "it": "lead-software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+        "en": "lead-software-engineer-data-migration-80-100-abraxas-zurich-flughafen",
+        "fr": "lead-software-engineer-data-migration-80-100-abraxas-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Lead Software Engineer – Data Migration 80 - 100%",
+      "titleByLocale": {
+        "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
+        "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
+        "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
+      },
+      "description": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\n• Du steuerst die Planung sowie Implementierung der technischen Anbindungen und hältst dabei Deadlines sicher im Griff.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\n• Enge Zusammenarbeit und Koordination mit anderen Teams und Stakeholdern\n• Starke Kommunikationsfähigkeiten und adressatengerechte Vermittlung von Themen\n• Aktive Unterstützung und Coaching der Teammitglieder\n• Sicheres Auftreten, Überzeugungskraft und Ausdauer bei der Umsetzung von Lösungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "de": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\n• Du steuerst die Planung sowie Implementierung der technischen Anbindungen und hältst dabei Deadlines sicher im Griff.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\n• Enge Zusammenarbeit und Koordination mit anderen Teams und Stakeholdern\n• Starke Kommunikationsfähigkeiten und adressatengerechte Vermittlung von Themen\n• Aktive Unterstützung und Coaching der Teammitglieder\n• Sicheres Auftreten, Überzeugungskraft und Ausdauer bei der Umsetzung von Lösungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "it": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\n• Du steuerst die Planung sowie Implementierung der technischen Anbindungen und hältst dabei Deadlines sicher im Griff.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\n• Enge Zusammenarbeit und Koordination mit anderen Teams und Stakeholdern\n• Starke Kommunikationsfähigkeiten und adressatengerechte Vermittlung von Themen\n• Aktive Unterstützung und Coaching der Teammitglieder\n• Sicheres Auftreten, Überzeugungskraft und Ausdauer bei der Umsetzung von Lösungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "en": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\n• Du steuerst die Planung sowie Implementierung der technischen Anbindungen und hältst dabei Deadlines sicher im Griff.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\n• Enge Zusammenarbeit und Koordination mit anderen Teams und Stakeholdern\n• Starke Kommunikationsfähigkeiten und adressatengerechte Vermittlung von Themen\n• Aktive Unterstützung und Coaching der Teammitglieder\n• Sicheres Auftreten, Überzeugungskraft und Ausdauer bei der Umsetzung von Lösungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Wir sind ein motiviertes Software-Engineering-Team und suchen dich für die Weiterentwicklung unser Data Migration Services, damit wir neue Kunden an unser neuen Steuerlösungen anbinden können. Du unterstützt unser Team bei der Umsetzung technischer Vorhaben und arbeitest eng mit deinen Kolleginnen und Kollegen zusammen. Bei uns arbeitest du mit modernen Technologien, kurzen Entscheidungswegen und viel Raum für eigene Ideen.\nDeine Rolle\n• Du gestaltest, optimierst und skalierst unsere Migrationsstrecken\n• Komplexe Datenstrukturen sind dein Metier. Du analysierst Abhängigkeiten, um intelligente Mapping-Logiken und automatisierte Cleansing-Strategien zu entwerfen und implementieren\n• Du entwickelst automatisierte Tests, die Integrität und Qualität der Daten über den gesamten Prozess hinweg sicherstellen.\n• Du bereitest die Migrations- und Testdaten auf und überwachst den Verarbeitungsprozess. Deine Erkenntnisse aus der Fehleranalyse bringst du ins Team ein, damit gemeinsam Lösungen ausgearbeitet werden können.\n• Du treibst die kontinuierliche Weiterentwicklung unserer Entwicklungsprozesse, Tools und Best Practices voran.\n• Du steuerst die Planung sowie Implementierung der technischen Anbindungen und hältst dabei Deadlines sicher im Griff.\nDein Profil\n• Mehrjährige praktische Erfahrung in der Erstellung und Optimierung komplexer SQL-Abfragen\n• Eigeninitiative und analytisches Denken zur Verbesserung von Datenabfragen und Verarbeitungszeiten\n• Vertiefte Kenntnisse in Datenmodellierung, Datenmanagement und Datenarchitektur\n• Fähigkeit, sich rasch in komplexe Legacy-Datenbanken einzuarbeiten\n• Erfahrung in der Analyse komplexer Datenstrukturen sowie im Identifizieren von Anomalien\n• Gute Kenntnisse in SQL-Datenbanken, insbesondere PostgreSQL und MS SQL Server\n• Kenntnisse in Python bzw. Erfahrung mit Python-Frameworks sind von Vorteil\n• Enge Zusammenarbeit und Koordination mit anderen Teams und Stakeholdern\n• Starke Kommunikationsfähigkeiten und adressatengerechte Vermittlung von Themen\n• Aktive Unterstützung und Coaching der Teammitglieder\n• Sicheres Auftreten, Überzeugungskraft und Ausdauer bei der Umsetzung von Lösungen\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-1887",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:54:31.934Z",
+      "needsRetranslation": true,
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://apply.refline.ch/215876/2504/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "215876-2504",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "salaryMin": 121500,
+      "salaryMax": 206500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 121500,
+          "maxValue": 206500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T13:54:31.934Z"
+    },
+    {
       "id": "abraxas-f8a55d71589b",
       "slug": "ict-system-engineer-citrix-80-100-abraxas-zurich-flughafen",
       "slugByLocale": {
@@ -872,7 +1162,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:57.008Z",
+      "crawledAt": "2026-09-02T13:54:31.501Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -935,7 +1226,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT-System Ingegnere Betrieb 80–100 %",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "ICT-System Ingénieur Betrieb 80–100 %"
       },
@@ -951,7 +1242,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:56.543Z",
+      "crawledAt": "2026-09-02T13:54:31.068Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1055,7 +1346,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-7205",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:56.078Z",
+      "crawledAt": "2026-09-02T13:54:30.639Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1124,7 +1415,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:55.612Z",
+      "crawledAt": "2026-09-02T13:54:30.203Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1192,7 +1484,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:55.146Z",
+      "crawledAt": "2026-09-02T13:54:29.772Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1260,7 +1553,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/datenschutzspezialistin-50-5528",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:54.673Z",
+      "crawledAt": "2026-09-02T13:54:29.329Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1339,7 +1632,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:54.209Z",
+      "crawledAt": "2026-09-02T13:54:28.892Z",
       "needsRetranslation": true,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
@@ -1421,7 +1714,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7586",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:53.745Z",
+      "crawledAt": "2026-09-02T13:54:28.448Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1516,9 +1809,9 @@
       "id": "abraxas-e9c279dd4a0b",
       "slug": "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
       "slugByLocale": {
-        "de": "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
         "it": "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
         "en": "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
+        "de": "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas",
         "fr": "applikations-supporter-in-epsipol-ordnungsbussen-deutsch-franzosisch-80-100-abraxas"
       },
       "company": "Abraxas Informatik AG",
@@ -1526,16 +1819,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Applikations-Supporter:in Epsipol (Ordnungsbussen) (Deutsch & Französisch) 80–100 %",
       "titleByLocale": {
-        "de": "Applikations-Supporter:in Epsipol (Ordnungsbussen) (Deutsch & Französisch) 80–100 %",
         "it": "Applikations-Supporter:in Epsipol (Ordnungsbussen) (Deutsch & Französisch) 80–100 %",
         "en": "Applikations-Supporter:in Epsipol (Ordnungsbussen) (Deutsch & Französisch) 80–100 %",
+        "de": "Applikations-Supporter:in Epsipol (Ordnungsbussen) (Deutsch & Französisch) 80–100 %",
         "fr": "Applikations-Supporter:in Epsipol (Ordnungsbussen) (Deutsch & Französisch) 80–100 %"
       },
       "description": "Du möchtest in einem motivierten, dynamischen Team mitwirken und unsere Kunden optimal unterstützen? Für die Verstärkung unseres Supportteams in Münchenstein suchen wir DICH! Du unterstützt die Benutzerinnen und Benutzer unserer Softwarelösung EPSIPOL (Ordnungsbussen-Verarbeitung) und sorgst dafür, dass Anfragen und Störungen effizient bearbeitet werden. Gemeinsam mit dem Team und externen Partnern trägst du dazu bei, unsere Kunden mit zuverlässigen Services und passenden Individuallösungen zu versorgen.\nDeine Rolle\n• Entgegennahme, Erfassung, Klassifizierung und Bearbeitung von Störungsmeldungen, Service Requests und allgemeinen IT-Anfragen im Supportteam; bei Bedarf fachgerechte Eskalation an den 2nd- oder 3rd-Level-Support\n• Analyse und Bearbeitung von Incidents und Service Requests, Beantwortung von Anwenderfragen sowie Einleitung geeigneter Workarounds\n• Enge Zusammenarbeit mit externen Lieferanten und Partnern im Umfeld unserer Ordnungsbussen-Applikation\n• Fachliche Analyse und eigenständige Lösung von Tickets\n• Proaktive Information der Benutzer bei Betriebsstörungen sowie geplanten Systemunterbrüchen\nDein Profil\n• Abgeschlossene IT-Ausbildung oder gleichwertige Qualifikation durch technische Weiterbildung\n• Mehrjährige Erfahrung im ICT-Helpdesk\n• Sehr gute Microsoft-Client-Kenntnisse (Office Suite) sowie gute SQL-Kenntnisse\n• Fundiertes technisches Know-how in Client-Hardware, Virtualisierung, Netzwerken, Peripheriegeräten sowie Grundkenntnisse im IT-Schutz und der IT-Sicherheit\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine zuverlässige, selbstständige, qualitätsbewusste und flexible Arbeitsweise\n• Stilsicheres Deutsch mit idealerweise sehr guten Französischkenntnissen – oder stilsicheres Französisch mit sehr guten Deutschkenntnissen\n• Kenntnisse in ITIL-Methoden (Incident-, Problem- und Service-Request-Management nach ITIL 4®) von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Du möchtest in einem motivierten, dynamischen Team mitwirken und unsere Kunden optimal unterstützen? Für die Verstärkung unseres Supportteams in Münchenstein suchen wir DICH! Du unterstützt die Benutzerinnen und Benutzer unserer Softwarelösung EPSIPOL (Ordnungsbussen-Verarbeitung) und sorgst dafür, dass Anfragen und Störungen effizient bearbeitet werden. Gemeinsam mit dem Team und externen Partnern trägst du dazu bei, unsere Kunden mit zuverlässigen Services und passenden Individuallösungen zu versorgen.\nDeine Rolle\n• Entgegennahme, Erfassung, Klassifizierung und Bearbeitung von Störungsmeldungen, Service Requests und allgemeinen IT-Anfragen im Supportteam; bei Bedarf fachgerechte Eskalation an den 2nd- oder 3rd-Level-Support\n• Analyse und Bearbeitung von Incidents und Service Requests, Beantwortung von Anwenderfragen sowie Einleitung geeigneter Workarounds\n• Enge Zusammenarbeit mit externen Lieferanten und Partnern im Umfeld unserer Ordnungsbussen-Applikation\n• Fachliche Analyse und eigenständige Lösung von Tickets\n• Proaktive Information der Benutzer bei Betriebsstörungen sowie geplanten Systemunterbrüchen\nDein Profil\n• Abgeschlossene IT-Ausbildung oder gleichwertige Qualifikation durch technische Weiterbildung\n• Mehrjährige Erfahrung im ICT-Helpdesk\n• Sehr gute Microsoft-Client-Kenntnisse (Office Suite) sowie gute SQL-Kenntnisse\n• Fundiertes technisches Know-how in Client-Hardware, Virtualisierung, Netzwerken, Peripheriegeräten sowie Grundkenntnisse im IT-Schutz und der IT-Sicherheit\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine zuverlässige, selbstständige, qualitätsbewusste und flexible Arbeitsweise\n• Stilsicheres Deutsch mit idealerweise sehr guten Französischkenntnissen – oder stilsicheres Französisch mit sehr guten Deutschkenntnissen\n• Kenntnisse in ITIL-Methoden (Incident-, Problem- und Service-Request-Management nach ITIL 4®) von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Du möchtest in einem motivierten, dynamischen Team mitwirken und unsere Kunden optimal unterstützen? Für die Verstärkung unseres Supportteams in Münchenstein suchen wir DICH! Du unterstützt die Benutzerinnen und Benutzer unserer Softwarelösung EPSIPOL (Ordnungsbussen-Verarbeitung) und sorgst dafür, dass Anfragen und Störungen effizient bearbeitet werden. Gemeinsam mit dem Team und externen Partnern trägst du dazu bei, unsere Kunden mit zuverlässigen Services und passenden Individuallösungen zu versorgen.\nDeine Rolle\n• Entgegennahme, Erfassung, Klassifizierung und Bearbeitung von Störungsmeldungen, Service Requests und allgemeinen IT-Anfragen im Supportteam; bei Bedarf fachgerechte Eskalation an den 2nd- oder 3rd-Level-Support\n• Analyse und Bearbeitung von Incidents und Service Requests, Beantwortung von Anwenderfragen sowie Einleitung geeigneter Workarounds\n• Enge Zusammenarbeit mit externen Lieferanten und Partnern im Umfeld unserer Ordnungsbussen-Applikation\n• Fachliche Analyse und eigenständige Lösung von Tickets\n• Proaktive Information der Benutzer bei Betriebsstörungen sowie geplanten Systemunterbrüchen\nDein Profil\n• Abgeschlossene IT-Ausbildung oder gleichwertige Qualifikation durch technische Weiterbildung\n• Mehrjährige Erfahrung im ICT-Helpdesk\n• Sehr gute Microsoft-Client-Kenntnisse (Office Suite) sowie gute SQL-Kenntnisse\n• Fundiertes technisches Know-how in Client-Hardware, Virtualisierung, Netzwerken, Peripheriegeräten sowie Grundkenntnisse im IT-Schutz und der IT-Sicherheit\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine zuverlässige, selbstständige, qualitätsbewusste und flexible Arbeitsweise\n• Stilsicheres Deutsch mit idealerweise sehr guten Französischkenntnissen – oder stilsicheres Französisch mit sehr guten Deutschkenntnissen\n• Kenntnisse in ITIL-Methoden (Incident-, Problem- und Service-Request-Management nach ITIL 4®) von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "en": "Du möchtest in einem motivierten, dynamischen Team mitwirken und unsere Kunden optimal unterstützen? Für die Verstärkung unseres Supportteams in Münchenstein suchen wir DICH! Du unterstützt die Benutzerinnen und Benutzer unserer Softwarelösung EPSIPOL (Ordnungsbussen-Verarbeitung) und sorgst dafür, dass Anfragen und Störungen effizient bearbeitet werden. Gemeinsam mit dem Team und externen Partnern trägst du dazu bei, unsere Kunden mit zuverlässigen Services und passenden Individuallösungen zu versorgen.\nDeine Rolle\n• Entgegennahme, Erfassung, Klassifizierung und Bearbeitung von Störungsmeldungen, Service Requests und allgemeinen IT-Anfragen im Supportteam; bei Bedarf fachgerechte Eskalation an den 2nd- oder 3rd-Level-Support\n• Analyse und Bearbeitung von Incidents und Service Requests, Beantwortung von Anwenderfragen sowie Einleitung geeigneter Workarounds\n• Enge Zusammenarbeit mit externen Lieferanten und Partnern im Umfeld unserer Ordnungsbussen-Applikation\n• Fachliche Analyse und eigenständige Lösung von Tickets\n• Proaktive Information der Benutzer bei Betriebsstörungen sowie geplanten Systemunterbrüchen\nDein Profil\n• Abgeschlossene IT-Ausbildung oder gleichwertige Qualifikation durch technische Weiterbildung\n• Mehrjährige Erfahrung im ICT-Helpdesk\n• Sehr gute Microsoft-Client-Kenntnisse (Office Suite) sowie gute SQL-Kenntnisse\n• Fundiertes technisches Know-how in Client-Hardware, Virtualisierung, Netzwerken, Peripheriegeräten sowie Grundkenntnisse im IT-Schutz und der IT-Sicherheit\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine zuverlässige, selbstständige, qualitätsbewusste und flexible Arbeitsweise\n• Stilsicheres Deutsch mit idealerweise sehr guten Französischkenntnissen – oder stilsicheres Französisch mit sehr guten Deutschkenntnissen\n• Kenntnisse in ITIL-Methoden (Incident-, Problem- und Service-Request-Management nach ITIL 4®) von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "de": "Du möchtest in einem motivierten, dynamischen Team mitwirken und unsere Kunden optimal unterstützen? Für die Verstärkung unseres Supportteams in Münchenstein suchen wir DICH! Du unterstützt die Benutzerinnen und Benutzer unserer Softwarelösung EPSIPOL (Ordnungsbussen-Verarbeitung) und sorgst dafür, dass Anfragen und Störungen effizient bearbeitet werden. Gemeinsam mit dem Team und externen Partnern trägst du dazu bei, unsere Kunden mit zuverlässigen Services und passenden Individuallösungen zu versorgen.\nDeine Rolle\n• Entgegennahme, Erfassung, Klassifizierung und Bearbeitung von Störungsmeldungen, Service Requests und allgemeinen IT-Anfragen im Supportteam; bei Bedarf fachgerechte Eskalation an den 2nd- oder 3rd-Level-Support\n• Analyse und Bearbeitung von Incidents und Service Requests, Beantwortung von Anwenderfragen sowie Einleitung geeigneter Workarounds\n• Enge Zusammenarbeit mit externen Lieferanten und Partnern im Umfeld unserer Ordnungsbussen-Applikation\n• Fachliche Analyse und eigenständige Lösung von Tickets\n• Proaktive Information der Benutzer bei Betriebsstörungen sowie geplanten Systemunterbrüchen\nDein Profil\n• Abgeschlossene IT-Ausbildung oder gleichwertige Qualifikation durch technische Weiterbildung\n• Mehrjährige Erfahrung im ICT-Helpdesk\n• Sehr gute Microsoft-Client-Kenntnisse (Office Suite) sowie gute SQL-Kenntnisse\n• Fundiertes technisches Know-how in Client-Hardware, Virtualisierung, Netzwerken, Peripheriegeräten sowie Grundkenntnisse im IT-Schutz und der IT-Sicherheit\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine zuverlässige, selbstständige, qualitätsbewusste und flexible Arbeitsweise\n• Stilsicheres Deutsch mit idealerweise sehr guten Französischkenntnissen – oder stilsicheres Französisch mit sehr guten Deutschkenntnissen\n• Kenntnisse in ITIL-Methoden (Incident-, Problem- und Service-Request-Management nach ITIL 4®) von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Du möchtest in einem motivierten, dynamischen Team mitwirken und unsere Kunden optimal unterstützen? Für die Verstärkung unseres Supportteams in Münchenstein suchen wir DICH! Du unterstützt die Benutzerinnen und Benutzer unserer Softwarelösung EPSIPOL (Ordnungsbussen-Verarbeitung) und sorgst dafür, dass Anfragen und Störungen effizient bearbeitet werden. Gemeinsam mit dem Team und externen Partnern trägst du dazu bei, unsere Kunden mit zuverlässigen Services und passenden Individuallösungen zu versorgen.\nDeine Rolle\n• Entgegennahme, Erfassung, Klassifizierung und Bearbeitung von Störungsmeldungen, Service Requests und allgemeinen IT-Anfragen im Supportteam; bei Bedarf fachgerechte Eskalation an den 2nd- oder 3rd-Level-Support\n• Analyse und Bearbeitung von Incidents und Service Requests, Beantwortung von Anwenderfragen sowie Einleitung geeigneter Workarounds\n• Enge Zusammenarbeit mit externen Lieferanten und Partnern im Umfeld unserer Ordnungsbussen-Applikation\n• Fachliche Analyse und eigenständige Lösung von Tickets\n• Proaktive Information der Benutzer bei Betriebsstörungen sowie geplanten Systemunterbrüchen\nDein Profil\n• Abgeschlossene IT-Ausbildung oder gleichwertige Qualifikation durch technische Weiterbildung\n• Mehrjährige Erfahrung im ICT-Helpdesk\n• Sehr gute Microsoft-Client-Kenntnisse (Office Suite) sowie gute SQL-Kenntnisse\n• Fundiertes technisches Know-how in Client-Hardware, Virtualisierung, Netzwerken, Peripheriegeräten sowie Grundkenntnisse im IT-Schutz und der IT-Sicherheit\n• Ausgeprägte analytische und konzeptionelle Fähigkeiten sowie eine zuverlässige, selbstständige, qualitätsbewusste und flexible Arbeitsweise\n• Stilsicheres Deutsch mit idealerweise sehr guten Französischkenntnissen – oder stilsicheres Französisch mit sehr guten Deutschkenntnissen\n• Kenntnisse in ITIL-Methoden (Incident-, Problem- und Service-Request-Management nach ITIL 4®) von Vorteil\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Förderung von Weiterbildungen zu 100 % finanziell oder zeitlich\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
       },
       "location": "Münchenstein",
@@ -1543,7 +1836,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5415",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:53.270Z",
+      "crawledAt": "2026-09-02T13:54:28.015Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1561,27 +1854,16 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://apply.refline.ch/215876/2405/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2405",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "salaryMin": 64500,
-      "salaryMax": 110000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-01T23:33:53.270Z",
+      "previousSlugs": [
+        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein",
+        "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
+        "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein",
@@ -1595,11 +1877,20 @@
           "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein"
         ]
       },
-      "previousSlugs": [
-        "supporto-per-l-applicazione-in-epsipol-ordnungsbussen-tedesco-e-francese-80-100-abraxas-informatik-ag-munchenstein",
-        "application-supporter-in-epsipol-ordnungsbussen-german-french-80-100-abraxas-informatik-ag-munchenstein",
-        "supporter-l-application-en-epsipol-ordnungsbussen-allemand-et-francais-80-100-abraxas-informatik-ag-munchenstein"
-      ]
+      "firstSeenAt": "2026-09-01T23:33:53.270Z",
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "abraxas-2e2867951ec8",
@@ -1616,7 +1907,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in 80-100%",
-        "en": "Application Manager: in 80-100%",
+        "en": "Applikations-Manager:in 80–100 %",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1632,7 +1923,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-4224",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:52.795Z",
+      "crawledAt": "2026-09-02T13:54:27.574Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1714,7 +2005,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:52.331Z",
+      "crawledAt": "2026-09-02T13:54:27.141Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1783,7 +2074,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:51.864Z",
+      "crawledAt": "2026-09-02T13:54:26.707Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1851,7 +2143,7 @@
       "title": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
       "titleByLocale": {
         "it": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren e Electronic Banking 80–100 %",
-        "en": "Abacus Account Manager Finance, Debitors, Creditors and Electronic Banking 80-100%",
+        "en": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
         "de": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
         "fr": "Abacus Account Manager Finances, débiteurs, créanciers et services bancaires électroniques 80-100%"
       },
@@ -1867,7 +2159,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:51.398Z",
+      "crawledAt": "2026-09-02T13:54:26.275Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1925,9 +2217,9 @@
       "id": "abraxas-b714d0c47ab1",
       "slug": "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
       "slugByLocale": {
-        "de": "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
         "it": "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
         "en": "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
+        "de": "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen",
         "fr": "abacus-berater-in-svm-proj-80-100-abraxas-st-gallen"
       },
       "company": "Abraxas Informatik AG",
@@ -1935,16 +2227,16 @@
       "companyDomain": "abraxas.ch",
       "title": "Abacus Berater:in SVM & PROJ 80–100 %",
       "titleByLocale": {
-        "de": "Abacus Berater:in SVM & PROJ 80–100 %",
         "it": "Abacus Berater:in SVM & PROJ 80–100 %",
         "en": "Abacus Berater:in SVM & PROJ 80–100 %",
+        "de": "Abacus Berater:in SVM & PROJ 80–100 %",
         "fr": "Abacus Berater:in SVM & PROJ 80–100 %"
       },
       "description": "Du siehst Abacus als Schlüssel zu effizienteren Prozessen und modernen, leistungsfähigen Unternehmen und willst Kunden mit passgenauen Lösungen und Projekten mit nachhaltigem Mehrwert begleiten? Bei uns übernimmst du Verantwortung, bringst deine Ideen ein und gestaltest aktiv mit. Gemeinsam entwickeln wir Lösungen, die fachlich, technisch und menschlich überzeugen.\nDeine Rolle\n• Du begleitest unsere Kunden bei der Einführung, Optimierung und Weiterentwicklung der Abacus-Module SVM (Service & Vertragsmanagement) und PROJ (Projektverwaltung)\n• Du analysierst Prozesse, erkennst Potenziale und entwickelst passende Lösungen\n• Du führst Projekte eigenverantwortlich durch – von der Konzeption bis zum erfolgreichen Go-live\n• Du parametrierst, testest und sorgst dafür, dass Lösungen im Alltag überzeugen\n• Du führst Workshops und Schulungen durch und wirst zur vertrauensvollen Ansprechperson für unsere Kunden\n• Du bringst dein Wissen und deine Ideen aktiv in unser Team und unsere Weiterentwicklung ein\nDein Profil\n• Erfahrung mit Abacus erforderlich – idealerweise mit den Modulen SVM und/oder PROJ\n• Freude an Kundenkontakt, Beratung und lösungsorientiertem Arbeiten\n• Verständnis für betriebliche Prozesse und deren digitale Umsetzung\n• Selbstständige, strukturierte Arbeitsweise und Eigeninitiative\n• Sehr gute Deutschkenntnisse\n• Offenheit, Neues zu lernen und gemeinsam Erfolge zu feiern\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
       "descriptionByLocale": {
-        "de": "Du siehst Abacus als Schlüssel zu effizienteren Prozessen und modernen, leistungsfähigen Unternehmen und willst Kunden mit passgenauen Lösungen und Projekten mit nachhaltigem Mehrwert begleiten? Bei uns übernimmst du Verantwortung, bringst deine Ideen ein und gestaltest aktiv mit. Gemeinsam entwickeln wir Lösungen, die fachlich, technisch und menschlich überzeugen.\nDeine Rolle\n• Du begleitest unsere Kunden bei der Einführung, Optimierung und Weiterentwicklung der Abacus-Module SVM (Service & Vertragsmanagement) und PROJ (Projektverwaltung)\n• Du analysierst Prozesse, erkennst Potenziale und entwickelst passende Lösungen\n• Du führst Projekte eigenverantwortlich durch – von der Konzeption bis zum erfolgreichen Go-live\n• Du parametrierst, testest und sorgst dafür, dass Lösungen im Alltag überzeugen\n• Du führst Workshops und Schulungen durch und wirst zur vertrauensvollen Ansprechperson für unsere Kunden\n• Du bringst dein Wissen und deine Ideen aktiv in unser Team und unsere Weiterentwicklung ein\nDein Profil\n• Erfahrung mit Abacus erforderlich – idealerweise mit den Modulen SVM und/oder PROJ\n• Freude an Kundenkontakt, Beratung und lösungsorientiertem Arbeiten\n• Verständnis für betriebliche Prozesse und deren digitale Umsetzung\n• Selbstständige, strukturierte Arbeitsweise und Eigeninitiative\n• Sehr gute Deutschkenntnisse\n• Offenheit, Neues zu lernen und gemeinsam Erfolge zu feiern\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "it": "Du siehst Abacus als Schlüssel zu effizienteren Prozessen und modernen, leistungsfähigen Unternehmen und willst Kunden mit passgenauen Lösungen und Projekten mit nachhaltigem Mehrwert begleiten? Bei uns übernimmst du Verantwortung, bringst deine Ideen ein und gestaltest aktiv mit. Gemeinsam entwickeln wir Lösungen, die fachlich, technisch und menschlich überzeugen.\nDeine Rolle\n• Du begleitest unsere Kunden bei der Einführung, Optimierung und Weiterentwicklung der Abacus-Module SVM (Service & Vertragsmanagement) und PROJ (Projektverwaltung)\n• Du analysierst Prozesse, erkennst Potenziale und entwickelst passende Lösungen\n• Du führst Projekte eigenverantwortlich durch – von der Konzeption bis zum erfolgreichen Go-live\n• Du parametrierst, testest und sorgst dafür, dass Lösungen im Alltag überzeugen\n• Du führst Workshops und Schulungen durch und wirst zur vertrauensvollen Ansprechperson für unsere Kunden\n• Du bringst dein Wissen und deine Ideen aktiv in unser Team und unsere Weiterentwicklung ein\nDein Profil\n• Erfahrung mit Abacus erforderlich – idealerweise mit den Modulen SVM und/oder PROJ\n• Freude an Kundenkontakt, Beratung und lösungsorientiertem Arbeiten\n• Verständnis für betriebliche Prozesse und deren digitale Umsetzung\n• Selbstständige, strukturierte Arbeitsweise und Eigeninitiative\n• Sehr gute Deutschkenntnisse\n• Offenheit, Neues zu lernen und gemeinsam Erfolge zu feiern\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "en": "Du siehst Abacus als Schlüssel zu effizienteren Prozessen und modernen, leistungsfähigen Unternehmen und willst Kunden mit passgenauen Lösungen und Projekten mit nachhaltigem Mehrwert begleiten? Bei uns übernimmst du Verantwortung, bringst deine Ideen ein und gestaltest aktiv mit. Gemeinsam entwickeln wir Lösungen, die fachlich, technisch und menschlich überzeugen.\nDeine Rolle\n• Du begleitest unsere Kunden bei der Einführung, Optimierung und Weiterentwicklung der Abacus-Module SVM (Service & Vertragsmanagement) und PROJ (Projektverwaltung)\n• Du analysierst Prozesse, erkennst Potenziale und entwickelst passende Lösungen\n• Du führst Projekte eigenverantwortlich durch – von der Konzeption bis zum erfolgreichen Go-live\n• Du parametrierst, testest und sorgst dafür, dass Lösungen im Alltag überzeugen\n• Du führst Workshops und Schulungen durch und wirst zur vertrauensvollen Ansprechperson für unsere Kunden\n• Du bringst dein Wissen und deine Ideen aktiv in unser Team und unsere Weiterentwicklung ein\nDein Profil\n• Erfahrung mit Abacus erforderlich – idealerweise mit den Modulen SVM und/oder PROJ\n• Freude an Kundenkontakt, Beratung und lösungsorientiertem Arbeiten\n• Verständnis für betriebliche Prozesse und deren digitale Umsetzung\n• Selbstständige, strukturierte Arbeitsweise und Eigeninitiative\n• Sehr gute Deutschkenntnisse\n• Offenheit, Neues zu lernen und gemeinsam Erfolge zu feiern\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "de": "Du siehst Abacus als Schlüssel zu effizienteren Prozessen und modernen, leistungsfähigen Unternehmen und willst Kunden mit passgenauen Lösungen und Projekten mit nachhaltigem Mehrwert begleiten? Bei uns übernimmst du Verantwortung, bringst deine Ideen ein und gestaltest aktiv mit. Gemeinsam entwickeln wir Lösungen, die fachlich, technisch und menschlich überzeugen.\nDeine Rolle\n• Du begleitest unsere Kunden bei der Einführung, Optimierung und Weiterentwicklung der Abacus-Module SVM (Service & Vertragsmanagement) und PROJ (Projektverwaltung)\n• Du analysierst Prozesse, erkennst Potenziale und entwickelst passende Lösungen\n• Du führst Projekte eigenverantwortlich durch – von der Konzeption bis zum erfolgreichen Go-live\n• Du parametrierst, testest und sorgst dafür, dass Lösungen im Alltag überzeugen\n• Du führst Workshops und Schulungen durch und wirst zur vertrauensvollen Ansprechperson für unsere Kunden\n• Du bringst dein Wissen und deine Ideen aktiv in unser Team und unsere Weiterentwicklung ein\nDein Profil\n• Erfahrung mit Abacus erforderlich – idealerweise mit den Modulen SVM und/oder PROJ\n• Freude an Kundenkontakt, Beratung und lösungsorientiertem Arbeiten\n• Verständnis für betriebliche Prozesse und deren digitale Umsetzung\n• Selbstständige, strukturierte Arbeitsweise und Eigeninitiative\n• Sehr gute Deutschkenntnisse\n• Offenheit, Neues zu lernen und gemeinsam Erfolge zu feiern\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
         "fr": "Du siehst Abacus als Schlüssel zu effizienteren Prozessen und modernen, leistungsfähigen Unternehmen und willst Kunden mit passgenauen Lösungen und Projekten mit nachhaltigem Mehrwert begleiten? Bei uns übernimmst du Verantwortung, bringst deine Ideen ein und gestaltest aktiv mit. Gemeinsam entwickeln wir Lösungen, die fachlich, technisch und menschlich überzeugen.\nDeine Rolle\n• Du begleitest unsere Kunden bei der Einführung, Optimierung und Weiterentwicklung der Abacus-Module SVM (Service & Vertragsmanagement) und PROJ (Projektverwaltung)\n• Du analysierst Prozesse, erkennst Potenziale und entwickelst passende Lösungen\n• Du führst Projekte eigenverantwortlich durch – von der Konzeption bis zum erfolgreichen Go-live\n• Du parametrierst, testest und sorgst dafür, dass Lösungen im Alltag überzeugen\n• Du führst Workshops und Schulungen durch und wirst zur vertrauensvollen Ansprechperson für unsere Kunden\n• Du bringst dein Wissen und deine Ideen aktiv in unser Team und unsere Weiterentwicklung ein\nDein Profil\n• Erfahrung mit Abacus erforderlich – idealerweise mit den Modulen SVM und/oder PROJ\n• Freude an Kundenkontakt, Beratung und lösungsorientiertem Arbeiten\n• Verständnis für betriebliche Prozesse und deren digitale Umsetzung\n• Selbstständige, strukturierte Arbeitsweise und Eigeninitiative\n• Sehr gute Deutschkenntnisse\n• Offenheit, Neues zu lernen und gemeinsam Erfolge zu feiern\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 %-Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitenden\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken."
       },
       "location": "St. Gallen",
@@ -1952,7 +2244,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:50.926Z",
+      "crawledAt": "2026-09-02T13:54:25.842Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1970,27 +2262,16 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://apply.refline.ch/215876/2470/index.html?lang=de&cid=1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "215876-2470",
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-01T23:33:50.926Z",
+      "previousSlugs": [
+        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
+        "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
+        "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
@@ -2004,11 +2285,20 @@
           "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
         ]
       },
-      "previousSlugs": [
-        "consulente-abacus-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-consultant-in-svm-proj-80-100-abraxas-informatik-ag-st-gallen",
-        "consultant-abacus-en-svm-proj-80-100-abraxas-informatik-ag-st-gallen"
-      ]
+      "firstSeenAt": "2026-09-01T23:33:50.926Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "abraxas-e12391c35b27",
@@ -2041,7 +2331,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:33:50.329Z",
+      "crawledAt": "2026-09-02T13:54:25.310Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
