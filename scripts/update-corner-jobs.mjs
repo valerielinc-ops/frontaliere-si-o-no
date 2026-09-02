@@ -216,7 +216,7 @@ async function fetchRecruiteeOffers() {
 // missing one. See CH_COUNTRY_RE usage below (#7057).
 const CH_COUNTRY_RE = /\b(switzerland|schweiz|suisse|svizzera)\b/i;
 
-function parseCornerOffer(offer) {
+export function parseCornerOffer(offer) {
   // Parse content fields (description, offer_sections, requirements, locale titles)
   const parsed = parseCornerOfferFull(offer);
   if (!parsed) return null;
@@ -438,4 +438,15 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Corner'));
+// Only run main() when invoked as a script, not when imported by tests.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => exitCrawlerOnError(err, 'Corner'));
+}
