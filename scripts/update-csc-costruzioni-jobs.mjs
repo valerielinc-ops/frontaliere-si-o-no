@@ -317,30 +317,51 @@ function stripNestedWidgetBlocks(html) {
 }
 
 /**
- * Locate the first `<article>` in `source` and its full, depth-balanced
- * content via the shared `extractBalancedTagBlock` walker (already relied
- * on by the SuccessFactors/hospital parsers for the same nested-tag class of
- * bug): a naive non-greedy `[\s\S]*?</article>` regex stops at the FIRST
- * closing tag, which belongs to a nested same-named descendant (e.g. a
+ * Locate the primary `node--type-work-position` `<article>` among the
+ * TOP-LEVEL `<article>` siblings in `source`, not just the first one: Drupal
+ * templates can render an unrelated `<article>` (breadcrumb/related-content
+ * widget) before the real vacancy article inside `<main>` (#7068). Each
+ * candidate's full, depth-balanced content is read via the shared
+ * `extractBalancedTagBlock` walker (already relied on by the
+ * SuccessFactors/hospital parsers for the same nested-tag class of bug): a
+ * naive non-greedy `[\s\S]*?</article>` regex stops at the FIRST closing
+ * tag, which belongs to a nested same-named descendant (e.g. a
  * related-vacancy widget rendered as its own <article>), silently
- * truncating the outer primary article's content.
+ * truncating the outer article's content. Skipping past a non-matching
+ * candidate's full balanced block (not just its open tag) also keeps a
+ * work-position `<article>` NESTED inside a non-matching wrapper correctly
+ * unpromoted — it stays a descendant, never a top-level candidate.
  */
 function extractPrimaryArticle(source) {
-  const openMatch = /<article\b([^>]*)>/i.exec(source);
-  if (!openMatch) return null;
-  const rest = source.slice(openMatch.index + openMatch[0].length);
-  const content = extractBalancedTagBlock(rest, 'article', CSC_ARTICLE_SCAN_CAP);
-  // extractBalancedTagBlock is a best-effort walker (falls back to the full
-  // scan window when no matching close is found) — fine for its existing
-  // description-scraping callers, not for this fail-closed trust boundary.
-  // Require a genuine closing tag right after the extracted content.
-  if (!/^\s*<\/article\s*>/i.test(rest.slice(content.length))) return null;
-  return { attrs: openMatch[1], content };
+  const openPattern = /<article\b([^>]*)>/i;
+  let cursor = 0;
+  while (cursor < source.length) {
+    const remainder = source.slice(cursor);
+    const openMatch = openPattern.exec(remainder);
+    if (!openMatch) return null;
+    const rest = remainder.slice(openMatch.index + openMatch[0].length);
+    const content = extractBalancedTagBlock(rest, 'article', CSC_ARTICLE_SCAN_CAP);
+    // extractBalancedTagBlock is a best-effort walker (falls back to the full
+    // scan window when no matching close is found) — fine for its existing
+    // description-scraping callers, not for this fail-closed trust boundary.
+    // Require a genuine closing tag right after the extracted content.
+    const closeMatch = /^\s*<\/article\s*>/i.exec(rest.slice(content.length));
+    if (!closeMatch) return null;
+    const articleClass = readQuotedHtmlAttr(openMatch[1], 'class');
+    if (/(?:^|\s)node--type-work-position(?:\s|$)/i.test(articleClass)) {
+      return { attrs: openMatch[1], content };
+    }
+    cursor += openMatch.index + openMatch[0].length + content.length + closeMatch[0].length;
+  }
+  return null;
 }
 
 /**
- * Accept only the primary Drupal article inside <main>. A related-job widget
- * elsewhere in the page cannot promote a generic shell to a trusted detail.
+ * Accept only the primary `node--type-work-position` Drupal article inside
+ * <main> — `extractPrimaryArticle` already scans all top-level siblings for
+ * that class, so a related-job widget rendered as its own top-level or
+ * nested `<article>` elsewhere in the page cannot promote a generic shell
+ * to a trusted detail.
  */
 export function parseCscPrimaryJobDetail(html) {
   const source = String(html || '');
@@ -349,9 +370,6 @@ export function parseCscPrimaryJobDetail(html) {
   const main = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] || '';
   const article = extractPrimaryArticle(main);
   if (!article) return null;
-
-  const articleClass = readQuotedHtmlAttr(article.attrs, 'class');
-  if (!/(?:^|\s)node--type-work-position(?:\s|$)/i.test(articleClass)) return null;
 
   const nodeId = readQuotedHtmlAttr(article.attrs, 'data-history-node-id');
   const jobPostings = extractCscJobPostingNodes(source);
