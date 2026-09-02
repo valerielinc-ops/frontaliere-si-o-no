@@ -1723,6 +1723,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'argovia-sussidi-cassa-malati-2026': { it: 'argovia-sussidi-cassa-malati-2026', en: 'aargau-health-insurance-premium-subsidies', de: 'aargau-krankenkasse-praemienzuschuesse', fr: 'argovie-subventions-primes-sante' },
  'ffs-consigli-posti-sedere-pendolari': { it: 'ffs-consigli-posti-sedere-pendolari', en: 'ffs-advice-seats-commuters', de: 'ffs-ratgeber-plaetze-pendler', fr: 'ffs-conseils-sieges-navetteurs' },
  'avs-prestazioni-complementari-basilicacampagna': { it: 'avs-prestazioni-complementari-basilicacampagna', en: 'avs-complementary-benefits-basel-landschaft', de: 'avs-ergaenzungsleistungen-baselland', fr: 'avs-prestations-complementaires-bale-campagne' },
+ 'aprire-attivita-basilea-campagna-registro-di-commercio': { it: 'aprire-attivita-basilea-campagna-registro-di-commercio', en: 'starting-a-business-basel-landschaft-commercial-register', de: 'unternehmen-gruenden-basel-landschaft-handelsregister', fr: 'creer-une-entreprise-basel-campagne-registre-du-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

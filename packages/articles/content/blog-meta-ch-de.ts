@@ -5092,6 +5092,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AHV und Ergänzungsleistungen im Kanton Basel-Landschaft',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'So funktioniert die erste Säule in der kantonalen Ausgleichskasse. AHV-Renten, Beitragslücken und Leistungen zum Existenzminimum.',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Älterer Einwohner stellt Rentenantrag im Kantonalamt Baselland mit Dokumenten und Taschenrechner.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.title': 'Ein Unternehmen in Basel-Landschaft gründen: Kosten und Register',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.excerpt': 'Erfahren Sie mehr über die behördlichen und finanziellen Schritte zur Gründung eines Unternehmens im Kanton Basel-Landschaft, einschließlich der Anforderungen des Handelsregisters.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.imageAlt': 'Luftaufnahme des Kantons Basel-Landschaft mit Fokus auf kommerzielle Aktivitäten',
 };
 
 export default blogMetaChDe;

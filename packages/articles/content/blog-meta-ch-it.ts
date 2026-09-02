@@ -5092,6 +5092,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AVS e prestazioni complementari Canton Basilea Campagna',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'Come funziona il primo pilastro svizzero nella cassa di compensazione cantonale. Rendite AVS, lacune contributive e prestazioni per il minimo vitale.',
     'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Anziano residente presenta domanda di rendita AVS presso ufficio cantonale con documenti.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.title': 'Aprire un\'attività a Basilea Campagna: costi e registro',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.excerpt': 'Scopri i passaggi burocratici e finanziari per avviare un\'attività nel Cantone di Basilea Campagna, inclusi i requisiti del registro di commercio.',
+    'blog.article.aprire-attivita-basilea-campagna-registro-di-commercio.imageAlt': 'Vista aerea del Cantone di Basilea Campagna con focus sulle attività commerciali',
 };
 
 export default blogMetaChIt;
