@@ -11106,6 +11106,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.title': 'Living in Bardello, Malgesso, Bregano & working in Ticino',
     'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.excerpt': 'Discover the connections, journey times, cost of living and advantages of transferring from Bardello, Malgesso and Bregano to Ticino.',
     'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano with the mountains of Ticino in the background',
+    'blog.article.riverlhab-progetto-transfrontaliero-ticino.title': 'Riverlhab: the project that regenerates the Lura stream',
+    'blog.article.riverlhab-progetto-transfrontaliero-ticino.excerpt': 'Interreg Italy-Switzerland to renaturalize the Lura stream between Ticino and Varese. Cultural festival in Saronno 4-6 September and travelling exhibition in schools',
+    'blog.article.riverlhab-progetto-transfrontaliero-ticino.imageAlt': 'Lura stream with riparian restoration in progress between Ticino and Varese, showing native plants and natural habitat',
 };
 
 export default blogMetaEn;
