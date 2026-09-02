@@ -1747,6 +1747,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'laps-ticino-incentivi-lavoro': { it: 'laps-ticino-incentivi-lavoro', en: 'laps-ticino-work-incentives', de: 'laps-tessin-arbeitsanreize', fr: 'laps-tessin-incitations-travail' },
  'consiglio-federale-nomina-walser': { it: 'consiglio-federale-nomina-walser', en: 'federal-council-appoints-walser', de: 'bundesrat-ernennt-walser', fr: 'conseil-federal-nomme-walser' },
  'svizzera-perde-attrattiva-multinazionali': { it: 'svizzera-perde-attrattiva-multinazionali', en: 'switzerland-loses-appeal-multinationals', de: 'schweiz-verliert-attraktivitaet-multinationalkonzerne', fr: 'suisse-perd-attractivite-multinationales' },
+ 'pa30-autonomia-agricoltori': { it: 'pa30-autonomia-agricoltori', en: 'pa30-farmer-autonomy', de: 'pa30-baeuerliche-autonomie', fr: 'pa30-autonomie-agriculteurs' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

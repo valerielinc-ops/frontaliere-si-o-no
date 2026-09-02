@@ -5164,6 +5164,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'Svizzera meno attrattiva per multinazionali: allarme McKinsey',
     'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': 'Il 70% dei CEO avverte che la Svizzera perde competitività. Critiche a procedure lunghe, imposta OCSE e infrastrutture carenti minacciano gli investimenti stranieri.',
     'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Skyline urbana svizzera con grattacieli moderni e attività economica, simbolo della competitività della piazza elvetica.',
+    'blog.article.pa30-autonomia-agricoltori.title': 'PA 2030+: più libertà agli agricoltori svizzeri',
+    'blog.article.pa30-autonomia-agricoltori.excerpt': 'Il Consiglio federale avvia consultazione su PA30+: autonomia gestionale, meno burocrazia, digitalizzazione e 13,8 miliardi CHF di investimento per agricoltura 2030-2033.',
+    'blog.article.pa30-autonomia-agricoltori.imageAlt': 'Campo agricolo svizzero con colture mature durante l\'ora dorata, simboleggia i cambiamenti della politica agricola 2030+',
 };
 
 export default blogMetaChIt;

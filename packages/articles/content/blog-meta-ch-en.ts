@@ -5164,6 +5164,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'Switzerland less attractive to multinationals: McKinsey alarm',
     'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': '70% of CEOs warn that Switzerland is losing competitiveness. Criticisms of lengthy procedures, OECD tax and poor infrastructure threaten foreign investment.',
     'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Urban skyline of a Swiss city with modern office buildings representing Switzerland\'s economic competitiveness.',
+    'blog.article.pa30-autonomia-agricoltori.title': 'PA 2030+: more freedom for Swiss farmers',
+    'blog.article.pa30-autonomia-agricoltori.excerpt': 'The Federal Council launches consultation on PA30+: management autonomy, less bureaucracy, digitalisation and CHF 13.8 billion of investment for agriculture 2030-2033.',
+    'blog.article.pa30-autonomia-agricoltori.imageAlt': 'Swiss agricultural field with ripening crops during golden hour, symbolizing agricultural policy 2030+ changes',
 };
 
 export default blogMetaChEn;

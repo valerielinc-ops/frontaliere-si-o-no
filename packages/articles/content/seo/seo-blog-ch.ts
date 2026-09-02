@@ -67022,6 +67022,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pa30-autonomia-agricoltori': {
+    title: 'PA 2030+: più libertà agli agricoltori svizzeri',
+    description: 'Il Consiglio federale avvia consultazione su PA30+: autonomia gestionale, meno burocrazia, digitalizzazione e 13,8 miliardi CHF per agricoltura 2030-2033.',
+    keywords: 'frontalieri, ticino, svizzera, italia, libertà, agli, agricoltori, svizzeri',
+    ogTitle: 'PA 2030+: più libertà agli agricoltori svizzeri',
+    ogDescription: 'Nuova politica agricola svizzera 2030+ con maggior autonomia gestionale agli agricoltori, digitalizzazione, riduzione burocrazia e 13,8 miliardi CHF di spesa federale. Consultazione fino all\'8 dicembre.',
+    canonicalPath: '/articoli-svizzera/pa30-autonomia-agricoltori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "PA 2030+: più libertà agli agricoltori svizzeri",
+      "description": "Il Consiglio federale avvia consultazione su PA30+: autonomia gestionale, meno burocrazia, digitalizzazione e 13,8 miliardi CHF per agricoltura 2030-2033.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pa30-autonomia-agricoltori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Campo agricolo svizzero con colture mature durante l'ora dorata, simboleggia i cambiamenti della politica agricola 2030+"
+      },
+      "datePublished": "2026-09-02T14:41:47+00:00",
+      "dateModified": "2026-09-02T14:41:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pa30-autonomia-agricoltori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

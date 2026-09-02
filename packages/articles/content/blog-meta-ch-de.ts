@@ -5164,6 +5164,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.svizzera-perde-attrattiva-multinazionali.title': 'Schweiz weniger attraktiv für multinationale Konzerne: McKinsey-Alarm',
     'blog.article.svizzera-perde-attrattiva-multinazionali.excerpt': '70% der CEOs warnen, dass die Schweiz an Wettbewerbsfähigkeit verliert. Kritik an langwierigen Verfahren, OECD-Steuer und mangelhafter Infrastruktur bedrohen ausländische Investitionen.',
     'blog.article.svizzera-perde-attrattiva-multinazionali.imageAlt': 'Skyline einer Schweizer Metropole mit modernen Bürogebäuden, Symbol der Wirtschaftsleistung.',
+    'blog.article.pa30-autonomia-agricoltori.title': 'PA 2030+: Mehr Freiheit für Schweizer Landwirte',
+    'blog.article.pa30-autonomia-agricoltori.excerpt': 'Der Bundesrat eröffnet die Vernehmlassung zu PA30+: Verwaltungsautonomie, weniger Bürokratie, Digitalisierung und 13,8 Mrd. CHF Investitionen in die Landwirtschaft 2030-2033.',
+    'blog.article.pa30-autonomia-agricoltori.imageAlt': 'Schweizer Ackerfeld mit reifen Kulturen während der Goldenen Stunde, symbolisiert Agrarpolitik 2030+ Veränderungen',
 };
 
 export default blogMetaChDe;
