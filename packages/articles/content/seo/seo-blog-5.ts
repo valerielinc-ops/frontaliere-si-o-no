@@ -82868,6 +82868,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-vergiate-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Vergiate, lavorare in Ticino: guida frontaliere',
+    description: 'Vivere a Vergiate e lavorare in Ticino da frontaliere: nuovo accordo 2024, tassazione, permesso G, valichi, costo della vita. Guida pratica con procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, vergiate, lavorare, nuovo',
+    ogTitle: 'Vergiate frontaliere: guida lavoro Ticino 2024',
+    ogDescription: 'Frontalieri Vergiate-Ticino? Nuovo accordo 2024: franchigia €10.000, permesso G, tasse in Svizzera, AVS/LPP agevolati, costo della vita inferiore. Procedura completa e FAQ.',
+    canonicalPath: '/articoli-frontaliere/vivere-vergiate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Vergiate, lavorare in Ticino: guida frontaliere",
+      "description": "Vivere a Vergiate e lavorare in Ticino da frontaliere: nuovo accordo 2024, tassazione, permesso G, valichi, costo della vita. Guida pratica con procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-vergiate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico mattutino al valico di confine tra Varese e il Ticino con auto pendolari"
+      },
+      "datePublished": "2026-09-02T19:51:56+00:00",
+      "dateModified": "2026-09-02T19:51:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-vergiate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

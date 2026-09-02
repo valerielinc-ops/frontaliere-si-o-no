@@ -11138,6 +11138,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.crodo-frontaliere-guida-pratica.title': 'Crodo : guide pour les frontaliers travaillant au Tessin',
     'blog.article.crodo-frontaliere-guida-pratica.excerpt': 'Crodo offre un faible coût de la vie et un accès rapide aux cols du Tessin. Guide complet : permis G, fiscalité avec nouvel accord 2024, AVS/LPP, LAMal, restaurations et procédures pratiques.',
     'blog.article.crodo-frontaliere-guida-pratica.imageAlt': 'Paysage montagneux à la frontière Piémont-Tessin avec petit village alpin dans la vallée',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Vivre à Vergiate, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'Le nouvel accord frontalier 2024 rend la vie à Vergiate pratique : exemption de 10 000 € , permis G, temps de trajet de 45 à 60 minutes. Taxation, AVS/LPP, LAMal et procédures.',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Circulation matinale au poste frontalier entre Varèse et Tessin avec voitures pendulaires',
 };
 
 export default blogMetaFr;

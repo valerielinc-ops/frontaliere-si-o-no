@@ -11136,6 +11136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.crodo-frontaliere-guida-pratica.title': 'Crodo: guide for border workers working in Ticino',
     'blog.article.crodo-frontaliere-guida-pratica.excerpt': 'Crodo offers low cost of living and quick access to Ticino passes. Complete guide: G permit, tax with new 2024 agreement, AVS/LPP, LAMal, refreshments and practical procedures.',
     'blog.article.crodo-frontaliere-guida-pratica.imageAlt': 'Alpine mountain landscape at the Piedmont-Ticino border with village nestled in forested valley',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Living in Vergiate, working in Ticino: border guide',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'The new 2024 Frontier Agreement makes it convenient to live in Vergiate: exemption €10,000, G permit, journey time 45-60 minutes. Taxation, AVS/LPP, LAMal and procedures.',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Morning traffic at border checkpoint between Varese and Ticino with commuter cars',
 };
 
 export default blogMetaEn;
