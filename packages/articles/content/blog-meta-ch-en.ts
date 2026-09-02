@@ -5065,6 +5065,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Permit L Basel Countryside: duration and renewal',
     'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Short-term permit L in Basel Countryside: validity up to 1 year, renewal, employer restrictions and transition to residence permit B.',
     'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Swiss administrative office with work permit documents and Alpine landscape view',
+    'blog.article.basilea-campagna-scuola-iscrizione.title': 'Compulsory school Basel Countryside: cycles and enrolment',
+    'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'The Swiss compulsory school lasts 9 years, starts at 6 years and is divided into primary and secondary. Enrollment procedure and school transitions according to federal regulations.',
+    'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'Swiss primary school with children playing in the courtyard',
 };
 
 export default blogMetaChEn;

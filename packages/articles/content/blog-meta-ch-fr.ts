@@ -5065,6 +5065,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Permis L Bâle Campagne : durée et renouvellement',
     'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Permis L de courte durée à Bâle-Campagne : validité jusqu\'à 1 an, renouvellement, contraintes de l\'employeur et transition vers le permis B de séjour.',
     'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Bureau administratif suisse avec documents de permis de travail et paysage alpin',
+    'blog.article.basilea-campagna-scuola-iscrizione.title': 'École obligatoire Bâle-Campagne : cycles et inscription',
+    'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'L\'école obligatoire suisse dure 9 ans, commence à 6 ans et se divise en primaire et secondaire. Procédure d\'inscription et transitions scolaires selon les normes fédérales.',
+    'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'École primaire suisse avec enfants jouant dans la cour',
 };
 
 export default blogMetaChFr;
