@@ -5068,6 +5068,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.basilea-campagna-scuola-iscrizione.title': 'Compulsory school Basel Countryside: cycles and enrolment',
     'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'The Swiss compulsory school lasts 9 years, starts at 6 years and is divided into primary and secondary. Enrollment procedure and school transitions according to federal regulations.',
     'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'Swiss primary school with children playing in the courtyard',
+    'blog.article.tirocinio-basilea-campagna-guida.title': 'Apprenticeship in the canton of Basel-Country',
+    'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'How to find an internship in the canton of Basel-Country, the training contract, salary, social contributions and the path to professional maturity.',
+    'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Young apprentices in a Swiss vocational training technical workshop',
 };
 
 export default blogMetaChEn;

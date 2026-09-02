@@ -1715,6 +1715,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-di-successione-e-donazione-basilea-citta': { it: 'imposta-di-successione-e-donazione-basilea-citta', en: 'inheritance-and-donation-tax-basel-stadt', de: 'erbschaft-und-schenkung-steuern-basel-stadt', fr: 'impot-succession-et-donation-bale-ville' },
  'durata-validita-permesso-l-basilea-campagna': { it: 'durata-validita-permesso-l-basilea-campagna', en: 'duration-validity-permit-l-basel-landschaft', de: 'gueltigkeitsdauer-permit-l-basellandschaft', fr: 'duree-validite-permis-l-bale-campagne' },
  'basilea-campagna-scuola-iscrizione': { it: 'basilea-campagna-scuola-iscrizione', en: 'basel-countryside-school-enrollment-cycles', de: 'basel-landschaft-grundschule-einschulung', fr: 'bale-campagne-ecole-inscription-cycles' },
+ 'tirocinio-basilea-campagna-guida': { it: 'tirocinio-basilea-campagna-guida', en: 'apprenticeship-basel-landschaft-guide', de: 'lehrplan-basel-landschaft-anleitung', fr: 'apprentissage-bale-campagne-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

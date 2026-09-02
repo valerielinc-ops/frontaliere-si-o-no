@@ -5068,6 +5068,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.basilea-campagna-scuola-iscrizione.title': 'École obligatoire Bâle-Campagne : cycles et inscription',
     'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'L\'école obligatoire suisse dure 9 ans, commence à 6 ans et se divise en primaire et secondaire. Procédure d\'inscription et transitions scolaires selon les normes fédérales.',
     'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'École primaire suisse avec enfants jouant dans la cour',
+    'blog.article.tirocinio-basilea-campagna-guida.title': 'Apprentissage dans le canton de Bâle-Campagne',
+    'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'Comment trouver un stage dans le canton de Bâle-Campagne, le contrat de formation, la rémunération, les cotisations sociales et le parcours vers la maturité professionnelle.',
+    'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Jeunes apprentis dans un atelier de formation professionnelle technique en Suisse',
 };
 
 export default blogMetaChFr;
