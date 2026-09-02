@@ -5155,6 +5155,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-zurigo-validita-proroga.title': 'Permis L Zurich : validité, renouvellement et prolongation',
     'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Permis L : durée maximale d\'un an, renouvelable si le contrat se poursuit. Transition vers le permis B et contraintes de l\'employeur dans le canton de Zurich.',
     'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Environnement administratif suisse avec documents officiels de permis de travail',
+    'blog.article.laps-ticino-incentivi-lavoro.title': 'Plus vous travaillez, plus il vous reste : la réforme LAPS TESSINOISE',
+    'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'La Ligue appelle à une réforme de la LAPS avec des incitations temporaires au travail pour éliminer le « piège de la pauvreté » et lutter contre l\'impact des prix LAMal.',
+    'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Chambre du Grand Conseil tessinois à Bellinzona lors d\'un débat sur les réformes sociales et les incitations au travail',
 };
 
 export default blogMetaChFr;

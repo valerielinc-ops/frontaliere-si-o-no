@@ -15463,6 +15463,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'laps-ticino-incentivi-lavoro',
+    category: 'pratico',
+    date: '2026-09-02T13:49:51.031Z',
+    image: '/images/blog/laps-ticino-incentivi-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

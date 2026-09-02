@@ -1744,6 +1744,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'margine-manovra-agricoltori-svizzera': { it: 'margine-manovra-agricoltori-svizzera', en: 'farmers-maneuver-margin-switzerland-2030', de: 'handlungsspielraum-bauern-schweiz-2030', fr: 'marge-manoeuvre-agriculteurs-suisse-2030' },
  'franco-svizzero-euro-minimi': { it: 'franco-svizzero-euro-minimi', en: 'swiss-franc-euro-minima', de: 'schweizer-franken-euro-minima', fr: 'franc-suisse-euro-minima' },
  'permesso-l-zurigo-validita-proroga': { it: 'permesso-l-zurigo-validita-proroga', en: 'permit-l-zurich-validity-renewal', de: 'aufenthaltserlaubnis-l-zurich-gueltig-verlaengerung', fr: 'permis-l-zurich-validite-renouvellement' },
+ 'laps-ticino-incentivi-lavoro': { it: 'laps-ticino-incentivi-lavoro', en: 'laps-ticino-work-incentives', de: 'laps-tessin-arbeitsanreize', fr: 'laps-tessin-incitations-travail' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

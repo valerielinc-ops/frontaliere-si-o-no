@@ -5155,6 +5155,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-zurigo-validita-proroga.title': 'Ausweis L Zürich: Gültigkeit, Erneuerung und Verlängerung',
     'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Erlaubnis L: maximale Laufzeit von einem Jahr, verlängerbar, wenn der Vertrag fortgesetzt wird. Übergang auf Bewilligung B und Einschränkungen des Arbeitgebers im Kanton Zürich.',
     'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Schweizer Alpenumgebung mit offiziellen Arbeitsgenehmigungsdokumenten und Verwaltungsunterlagen',
+    'blog.article.laps-ticino-incentivi-lavoro.title': 'Je mehr Sie arbeiten, desto mehr bleibt Ihnen: die Tessiner LAPS-Reform',
+    'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'Die Liga fordert eine Reform des LAPS mit temporären Arbeitsanreizen, um die «Armutsfalle» zu beseitigen und die Auswirkungen der KVG-Prämien zu bekämpfen.',
+    'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Tessiner Kantonsparlament in Bellinzona während Debatte über Sozialleistungen und Arbeitsanreize',
 };
 
 export default blogMetaChDe;
