@@ -313,6 +313,7 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
     let acknowledged = false;
     let bufferedResult = null;
     let terminalDrainImmediate = null;
+    let workerErrored = false;
     let workerExited = false;
     let timeoutId = setTimeout(() => finish(null), PROVIDER_WORKER_STARTUP_TIMEOUT_MS);
 
@@ -337,7 +338,8 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
     }
 
     function maybeFinish() {
-      if (!acknowledged || !bufferedResult) return false;
+      // An uncaught worker error terminates the worker; wait for its exit before cleanup.
+      if (!acknowledged || !bufferedResult || (workerErrored && !workerExited)) return false;
       finish(bufferedResult.type === 'succeed' ? bufferedResult.text : null);
       return true;
     }
@@ -368,7 +370,10 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
       });
     }
 
-    worker.once('error', drainBeforeTerminalFailure);
+    worker.once('error', () => {
+      workerErrored = true;
+      drainProviderResults();
+    });
     worker.once('exit', () => {
       workerExited = true;
       drainBeforeTerminalFailure();
