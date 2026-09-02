@@ -5143,6 +5143,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.politica-agricola-2030-tagli-120-milioni.title': 'Agricultural policy 2030: cuts of over 120 million',
     'blog.article.politica-agricola-2030-tagli-120-milioni.excerpt': 'The Federal Council has put the Agricultural Policy from 2030 (PA30+) into consultation, with the aim of increasing Switzerland\'s food security by expanding farmers\' room for manoeuvre at farm level.',
     'blog.article.politica-agricola-2030-tagli-120-milioni.imageAlt': 'Swiss farmers working in the fields',
+    'blog.article.consiglio-federale-consultazione-agricola-2030.title': 'Federal Council launches agricultural consultation 2030',
+    'blog.article.consiglio-federale-consultazione-agricola-2030.excerpt': 'Bern, 2 September 2026: Federal Council opens PA30+ consultation. Budget CHF 13.8 billion for 2030-2033. Margin of manoeuvre for farmers, sustainability of the supply chain. Public participation until 8 December.',
+    'blog.article.consiglio-federale-consultazione-agricola-2030.imageAlt': 'Lugano sunset view, Switzerland — symbol of wealth and quality of life secured by food security policies',
 };
 
 export default blogMetaChEn;

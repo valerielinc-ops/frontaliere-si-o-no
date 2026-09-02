@@ -5143,6 +5143,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.politica-agricola-2030-tagli-120-milioni.title': 'Politique agricole 2030 : coupes de plus de 120 millions',
     'blog.article.politica-agricola-2030-tagli-120-milioni.excerpt': 'Le Conseil fédéral a mis en consultation la Politique agricole à partir de 2030 (PA30+), dans le but d\'accroître la sécurité alimentaire de la Suisse en élargissant la marge de manœuvre des agriculteurs au niveau de l\'exploitation.',
     'blog.article.politica-agricola-2030-tagli-120-milioni.imageAlt': 'Agriculteurs suisses travaillant dans les champs',
+    'blog.article.consiglio-federale-consultazione-agricola-2030.title': 'Conseil fédéral lance la consultation agricole 2030',
+    'blog.article.consiglio-federale-consultazione-agricola-2030.excerpt': 'Berne, le 2 septembre 2026 : le Conseil fédéral ouvre la consultation PA30+. Budget CHF 13,8 milliards pour 2030-2033. Marge de manœuvre pour les agriculteurs, durabilité de la chaîne d\'approvisionnement. Participation publique jusqu\'au 8 décembre.',
+    'blog.article.consiglio-federale-consultazione-agricola-2030.imageAlt': 'Vue du coucher de soleil à Lugano, Suisse — symbole de la prospérité grâce à la sécurité alimentaire',
 };
 
 export default blogMetaChFr;
