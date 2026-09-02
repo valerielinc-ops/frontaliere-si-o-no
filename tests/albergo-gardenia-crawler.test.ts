@@ -28,11 +28,6 @@ import { expiredJobSlugVariants } from '../build-plugins/shared/expiredSlugVaria
 const ROOT = path.resolve(import.meta.dirname, '..');
 const FALSE_JOBS_FIXTURE_PATH = path.join(ROOT, 'tests/fixtures/albergo-gardenia-false-jobs.json');
 const RUNNER_PATH = path.join(ROOT, 'scripts/update-albergo-gardenia-jobs.mjs');
-const FALSE_SPEC_PATHS = [
-  'data/prospector/crawlers/albergo-gardenia.json',
-  'data/prospector/crawlers/alpenhof-davos.json',
-  'data/prospector/crawlers/weisskreuz.json',
-];
 
 function representativeSitemap({ contentCount = 40, totalCount = 50 } = {}) {
   const urls = [];
@@ -643,9 +638,4 @@ describe('Albergo Gardenia authoritative crawler', () => {
     }
   });
 
-  it('removes only the three proven inactive poisoned learned specs', () => {
-    for (const relativePath of FALSE_SPEC_PATHS) {
-      expect(fs.existsSync(path.join(ROOT, relativePath))).toBe(false);
-    }
-  });
 });

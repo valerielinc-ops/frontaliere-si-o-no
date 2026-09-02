@@ -5858,7 +5858,6 @@
         "directeur-de-succursale-stv-denner-ag-davos",
         "stv-filialleiter-in-denner-ag-davos",
         "stv-filialleiter-in-denner",
-        "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
         "stv-branch-manager-in-denner-ag-rorschach"
       ],
       "previousSlugsByLocale": {
@@ -5872,7 +5871,6 @@
           "directeur-de-succursale-stv-denner-ag-davos",
           "stv-filialleiter-in-denner-ag-davos",
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-ag-fislisbach-syaqmt",
           "stv-branch-manager-in-denner-ag-rorschach"
         ],
         "en": [
@@ -16912,7 +16910,6 @@
         "seller-denner-ag-burgdorf",
         "verkaufer-in-denner-ag-burgdorf",
         "vendeur-denner-ag-burgdorf",
-        "verkaufer-in-denner-ag-burgdorf-hol3hf",
         "verkaufer-in-im-stundenlohn-denner-burgdorf",
         "verkaufer-in-denner-burgdorf",
         "venditore-nel-salario-orario-denner-ag-burgdorf"
@@ -16931,7 +16928,6 @@
           "seller-denner-ag-burgdorf",
           "verkaufer-in-denner-ag-burgdorf",
           "vendeur-denner-ag-burgdorf",
-          "verkaufer-in-denner-ag-burgdorf-hol3hf",
           "verkaufer-in-denner-burgdorf",
           "venditore-nel-salario-orario-denner-ag-burgdorf"
         ],
@@ -18970,7 +18966,6 @@
         "venditore-denner-ag-huttwil",
         "seller-denner-ag-huttwil",
         "vendeur-denner-ag-huttwil",
-        "verkaufer-in-denner-ag-huttwil-gp93ct",
         "verkaufer-in-denner-ag-frauenfeld",
         "seller-denner-ag-frauenfeld-008421",
         "vendeur-denner-ag-frauenfeld-008421",
@@ -18986,7 +18981,6 @@
           "venditore-denner-ag-huttwil",
           "seller-denner-ag-huttwil",
           "vendeur-denner-ag-huttwil",
-          "verkaufer-in-denner-ag-huttwil-gp93ct",
           "verkaufer-in-denner-ag-frauenfeld",
           "seller-denner-ag-frauenfeld-008421",
           "vendeur-denner-ag-frauenfeld-008421",
@@ -19239,7 +19233,6 @@
         "verkaufer-in-im-stundenlohn-denner",
         "venditore-nel-salario-orario-denner-oftringen",
         "verkaufer-in-im-stundenlohn-denner-ieg13f",
-        "verkaufer-in-denner-ag-oftringen-bd8i9d",
         "venditore-con-salario-orario-denner-ag-oftringen"
       ],
       "previousSlugsByLocale": {
@@ -19254,7 +19247,6 @@
           "verkaufer-in-im-stundenlohn-denner",
           "venditore-nel-salario-orario-denner-oftringen",
           "verkaufer-in-im-stundenlohn-denner-ieg13f",
-          "verkaufer-in-denner-ag-oftringen-bd8i9d",
           "venditore-con-salario-orario-denner-ag-oftringen"
         ],
         "en": [
@@ -22625,7 +22617,6 @@
         "vendeur-denner-ag-herzogenbuchsee",
         "verkaufer-in-denner",
         "venditore-denner-herzogenbuchsee",
-        "verkaufer-in-denner-ag-herzogenbuchsee-fllnor",
         "venditore-denner-ag-herzogenbuchsee-e869da"
       ],
       "previousSlugsByLocale": {
@@ -22637,7 +22628,6 @@
           "vendeur-denner-ag-herzogenbuchsee",
           "verkaufer-in-denner",
           "venditore-denner-herzogenbuchsee",
-          "verkaufer-in-denner-ag-herzogenbuchsee-fllnor",
           "venditore-denner-ag-herzogenbuchsee-e869da"
         ],
         "en": [
@@ -23729,7 +23719,6 @@
         "verkaufer-in-denner-rtrz4s",
         "verkaufer-in-denner-7",
         "verkaufer-in-denner-9",
-        "verkaufer-in-denner-ag-zug-g83nvt",
         "verkaufer-in-denner-6",
         "verkaufer-in-denner-ag-zug"
       ],
@@ -23742,7 +23731,6 @@
           "verkaufer-in-denner-rtrz4s",
           "verkaufer-in-denner-7",
           "verkaufer-in-denner-9",
-          "verkaufer-in-denner-ag-zug-g83nvt",
           "verkaufer-in-denner-6",
           "verkaufer-in-denner-ag-zug"
         ],
@@ -24030,12 +24018,14 @@
       "previousSlugs": [
         "verkaufer-in-denner",
         "verkaufer-in-denner-huttwil",
-        "venditore-denner-ag-huttwil"
+        "venditore-denner-ag-huttwil",
+        "verkaufer-in-denner-ag-huttwil-gp93ct"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-denner-ag-huttwil"
+          "venditore-denner-ag-huttwil",
+          "verkaufer-in-denner-ag-huttwil-gp93ct"
         ],
         "en": [
           "verkaufer-in-denner-huttwil"
@@ -24513,12 +24503,14 @@
         "seller-denner-ag-burgdorf",
         "vendeur-denner-ag-burgdorf",
         "venditore-denner-ag-burgdorf",
-        "verkaufer-in-denner-burgdorf"
+        "verkaufer-in-denner-burgdorf",
+        "verkaufer-in-denner-ag-burgdorf-hol3hf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-denner",
-          "venditore-denner-ag-burgdorf"
+          "venditore-denner-ag-burgdorf",
+          "verkaufer-in-denner-ag-burgdorf-hol3hf"
         ],
         "en": [
           "seller-denner-ag-burgdorf",

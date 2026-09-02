@@ -11439,14 +11439,12 @@
       "previousSlugs": [
         "gastro-allrounder-in-stadt-zuerich-zurigo-50625",
         "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
-        "gastro-allrounder-stadt-zurich-zurich-h7lxyv",
         "gastro-allrounder-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gastro-allrounder-in-stadt-zuerich-zurigo-50625",
           "gastro-allrounder-in-stadt-zuerich-zurigo-51367",
-          "gastro-allrounder-stadt-zurich-zurich-h7lxyv",
           "gastro-allrounder-stadt-zurich-zurich"
         ]
       },
@@ -14811,7 +14809,15 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gastro-allrounder-stadt-zurich-zurich-h7lxyv"
+        ]
+      },
+      "previousSlugs": [
+        "gastro-allrounder-stadt-zurich-zurich-h7lxyv"
+      ]
     },
     {
       "id": "stadt-zuerich-81370e8ccfd0",

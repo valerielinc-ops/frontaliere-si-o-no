@@ -8041,7 +8041,6 @@
         "directeur-medical-roche-basel",
         "medical-director-roche-basel",
         "medical-director-roche-ch-w87uue",
-        "medical-direttore-cvm-roche-basel-iufblz",
         "medical-director-cvm-roche-ch-27mycl",
         "medical-direttore-cvm-roche-basel"
       ],
@@ -10955,7 +10954,10 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-01T23:25:13.366Z"
+      "firstSeenAt": "2026-09-01T23:25:13.366Z",
+      "previousSlugs": [
+        "medical-direttore-cvm-roche-basel-iufblz"
+      ]
     },
     {
       "id": "roche-c1e7db166b00",

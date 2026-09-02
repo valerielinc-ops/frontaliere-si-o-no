@@ -23,6 +23,7 @@ import {
   stripComments,
   segmentSequenceRegex,
   KNOWN_LIVE_DATA_TESTS,
+  LIVE_DATA_SCAN_EXEMPTIONS,
   LIVE_DATA_ROOTS,
   listLiveDataTestsForCi,
 } from '../scripts/ci/live-data-test-guard.mjs';
@@ -102,5 +103,14 @@ describe('il rilevatore', () => {
     expect(listLiveDataTestsForCi()).toContain('tests/evergreen-pool-consumption.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
     expect(listLiveDataTestsForCi()).toContain('tests/job-locale-consistency.test.ts');
+    expect(listLiveDataTestsForCi(), 'la suite Gardenia deterministica deve restare nel gate PR')
+      .not.toContain('tests/albergo-gardenia-crawler.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/albergo-gardenia-live-regression.test.ts');
+    expect(listLiveDataTestsForCi(), 'la fixture causale iPersonal deve restare nel gate PR')
+      .not.toContain('tests/ipersonal-route-recovery-7045.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/ipersonal-route-recovery-7045-live.test.ts');
+    for (const { file } of LIVE_DATA_SCAN_EXEMPTIONS) {
+      expect(listLiveDataTestsForCi(), `${file} deve restare nel gate PR`).not.toContain(file);
+    }
   });
 });
