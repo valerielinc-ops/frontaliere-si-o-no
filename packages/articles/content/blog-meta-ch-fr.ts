@@ -5173,6 +5173,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Apprentissage dans le canton de Zurich : guide pratique',
     'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'Comment trouver un poste d\'apprentissage, comprendre le contrat d\'apprentissage, les rémunérations et la maturité professionnelle dans le canton de Zurich.',
     'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Salle de formation professionnelle suisse avec apprentis travaillant à des postes d\'apprentissage',
+    'blog.article.franco-euro-minimi-anno.title': 'Franco svizzero ai minimi: cosa significa per gli investitori',
+    'blog.article.franco-euro-minimi-anno.excerpt': 'Le franc suisse continue de s\'affaiblir par rapport à l\'euro, atteignant son plus bas niveau depuis un an. Découvrez les implications pour les investisseurs.',
+    'blog.article.franco-euro-minimi-anno.imageAlt': 'Vue aérienne du lac de Lugano avec les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaChFr;

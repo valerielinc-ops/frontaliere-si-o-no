@@ -5173,6 +5173,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Lehre im Kanton Zürich: Praxisleitfaden',
     'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'Wie man eine Lehrstelle findet, den Lehrvertrag, die Löhne und die Berufsmaturität im Kanton Zürich versteht.',
     'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Schweizer Berufsausbildungsklassenzimmer mit Lehrlingen an Trainingsarbeitsplätzen',
+    'blog.article.franco-euro-minimi-anno.title': 'Franco svizzero ai minimi: cosa significa per gli investitori',
+    'blog.article.franco-euro-minimi-anno.excerpt': 'Der Schweizer Franken schwächt sich gegenüber dem Euro weiter ab und erreicht den niedrigsten Stand seit einem Jahr. Erfahren Sie mehr über die Implikationen für Investoren.',
+    'blog.article.franco-euro-minimi-anno.imageAlt': 'Luftaufnahme des Luganer Sees mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;
