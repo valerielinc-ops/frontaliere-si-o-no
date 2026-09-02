@@ -297,7 +297,11 @@ export async function runSpecInProduction(spec, runtime = {}) {
           if (isSufficientVacancyDescription(umantisDetail.description)) {
             detail.description = umantisDetail.description;
           }
-          if (!detail.locationCandidates.length && umantisDetail.locationCandidates.length) {
+          // A tenant-specific extractor that already rejected a verified
+          // candidate (e.g. Apleona's canton-suffix gate) must not have that
+          // rejection silently overridden by the generic Umantis re-derivation,
+          // which applies none of that tenant's verification.
+          if (!detail.locationGateRejected && !detail.locationCandidates.length && umantisDetail.locationCandidates.length) {
             detail.locationCandidates = umantisDetail.locationCandidates;
             const [candidate] = umantisDetail.locationCandidates;
             detail.location = candidate.location;

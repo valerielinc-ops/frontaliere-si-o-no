@@ -146,6 +146,24 @@ describe('Apleona Schweiz AG crawler parser', () => {
       expect(detail.description).not.toContain('Recruiting Kontakt und Personaldienstleister');
     });
 
+    it('rejects a canton suffix that fails independent verification without leaking the raw string', () => {
+      const detail = extractApleonaDetailFields(
+        fixture('detail-canton-mismatch.html'),
+      );
+      // Lugano independently resolves to TI, not the declared ZH suffix: the
+      // tenant-specific gate must refuse the candidate.
+      expect(detail.locationCandidates).toEqual([]);
+      expect(detail.location).toBe('');
+      expect(detail.addressLocality).toBe('');
+      expect(detail.addressCountry).toBe('');
+      // The rejection must be signalled explicitly so the shared resolver
+      // (locationEvidenceCandidates' raw fallback, and the generic Umantis
+      // re-derivation in spec-crawler.mjs) cannot re-derive a location for
+      // this row from a candidate this tenant gate already refused.
+      expect(detail.locationGateRejected).toBe(true);
+      expect(detail.description).toContain('technische Anlagen');
+    });
+
     it('fails closed when only shared benefits and contact chrome remain', () => {
       const detail = extractApleonaDetailFields(fixture('detail-degraded.html'));
       expect(detail.description).toBe('');
@@ -200,6 +218,32 @@ describe('Apleona Schweiz AG crawler parser', () => {
       }
       expect(requested.filter((url) => url === technicalUrl)).toHaveLength(1);
       expect(requested).toContain(degradedUrl);
+    });
+
+    it('drops a rejected-canton row end-to-end instead of publishing a generically re-derived location', async () => {
+      const seed = 'https://recruitingapp-2765.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=';
+      const mismatchUrl = 'https://recruitingapp-2765.umantis.com/Vacancies/2555/Description/1';
+      const listing = `<a href="/Vacancies/2555/Description/1">Objektbetreuer Facility Management (m/w/d)</a>`;
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (url === 'https://recruitingapp-2765.umantis.com/robots.txt') {
+          return response(url, 'User-agent: *\nAllow: /');
+        }
+        if (url === seed) return response(url, listing);
+        if (url === mismatchUrl) return response(url, fixture('detail-canton-mismatch.html'));
+        throw new Error(`unexpected URL ${url}`);
+      });
+
+      const jobs = await fetchAllApleonaSchweizAgJobs({
+        fetchImpl,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => {},
+        retries: 0,
+      });
+
+      // The declared ZH suffix does not independently resolve for Lugano
+      // (which is TI): the row must be quarantined, not published with the
+      // raw string or a generic re-derivation of a different canton.
+      expect(jobs).toHaveLength(0);
     });
   });
 

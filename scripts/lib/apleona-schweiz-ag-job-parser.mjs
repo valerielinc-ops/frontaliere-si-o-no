@@ -67,7 +67,10 @@ function structuredElementText(element) {
     .join('\n');
 }
 
-/** @param {string} location */
+/**
+ * @param {string} location
+ * @returns {{ rejected: true } | { location: string, addressLocality: string, addressRegion: string, addressCountry: string, postalCode: string, streetAddress: string } | null}
+ */
 function apleonaLocationCandidate(location = '') {
   const display = normalizeSpace(location);
   if (!display) return null;
@@ -78,7 +81,12 @@ function apleonaLocationCandidate(location = '') {
     : display;
   if (addressRegion) {
     const independentlyResolved = resolveSourceBackedSwissGeography(addressLocality);
-    if (!independentlyResolved || independentlyResolved.canton !== addressRegion) return null;
+    // A suffix that fails independent verification is a rejection, not an
+    // absence of evidence: the caller must not let the raw display string
+    // leak back into the generic location-evidence fallback, where the
+    // shared resolver could re-derive a different canton than this
+    // tenant-specific gate just refused.
+    if (!independentlyResolved || independentlyResolved.canton !== addressRegion) return { rejected: true };
   }
   return {
     // Feed the municipality and CH evidence to the shared resolver separately.
@@ -165,17 +173,24 @@ export function extractApleonaDetailFields(html = '', pageUrl = '') {
       && isSufficientVacancyDescription(candidateDescription)
       ? candidateDescription
       : '';
-    const locationCandidate = apleonaLocationCandidate(location);
+    const locationResult = apleonaLocationCandidate(location);
+    const locationRejected = Boolean(locationResult?.rejected);
+    const locationCandidate = locationResult && !locationRejected ? locationResult : null;
 
     return {
       ...base,
       title: title || base.title,
       description,
-      location: locationCandidate?.location || location,
+      // On rejection, drop the raw string instead of publishing it: it would
+      // otherwise become a candidate again downstream (locationEvidenceCandidates'
+      // raw-location fallback, and the generic Umantis detail re-derivation in
+      // spec-crawler.mjs), bypassing the gate that just refused it.
+      location: locationRejected ? '' : (locationCandidate?.location || location),
       addressLocality: locationCandidate?.addressLocality || '',
       addressRegion: '',
       addressCountry: locationCandidate?.addressCountry || '',
       locationCandidates: locationCandidate ? [locationCandidate] : [],
+      ...(locationRejected ? { locationGateRejected: true } : {}),
     };
   } finally {
     dom.window.close();
