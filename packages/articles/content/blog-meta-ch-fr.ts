@@ -5209,6 +5209,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-esterno-costi.title': 'Ouvrir des activités à Appenzell Extérieur : coûts',
     'blog.article.aprire-attivita-appenzello-esterno-costi.excerpt': 'Enregistrement au registre du commerce : formes juridiques, obligations fiscales, cotisations AVS/AI et LAMal. Guide pratique à Appenzell Extérieur.',
     'blog.article.aprire-attivita-appenzello-esterno-costi.imageAlt': 'Bureau moderne suisse avec documents d\'enregistrement et portail en ligne du registre du commerce',
+    'blog.article.impresa-appenzello-esterno-registrazione.title': 'Enregistrer une entreprise à Appenzell externe',
+    'blog.article.impresa-appenzello-esterno-registrazione.excerpt': 'Guide des passages, des formes juridiques, des frais d\'enregistrement et des obligations d\'assurance pour ceux qui ouvrent une entreprise dans le canton AR.',
+    'blog.article.impresa-appenzello-esterno-registrazione.imageAlt': 'Bâtiment d\'administration cantonale suisse avec registre du commerce',
 };
 
 export default blogMetaChFr;

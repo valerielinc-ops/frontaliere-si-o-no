@@ -5209,6 +5209,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-appenzello-esterno-costi.title': 'Geschäft in Appenzell Ausserrhoden eröffnen: Kosten',
     'blog.article.aprire-attivita-appenzello-esterno-costi.excerpt': 'Handelsregistereintrag: Rechtsformen, Steuerpflichten, AHV/IV- und KVG-Beiträge. Praktischer Ratgeber in Appenzell Ausserrhoden.',
     'blog.article.aprire-attivita-appenzello-esterno-costi.imageAlt': 'Modernes Schweizer Büro mit Anmeldedokumenten und Online-Handelsregister',
+    'blog.article.impresa-appenzello-esterno-registrazione.title': 'Ein Unternehmen in Appenzell Ausserrhoden eintragen lassen',
+    'blog.article.impresa-appenzello-esterno-registrazione.excerpt': 'Leitfaden zu den Schritten, Rechtsformen, Registrierungskosten und Versicherungspflichten für die Eröffnung einer Tätigkeit im Kanton AR.',
+    'blog.article.impresa-appenzello-esterno-registrazione.imageAlt': 'Schweizer Kantonsverwaltungsgebäude mit Handelsregisteramt',
 };
 
 export default blogMetaChDe;
