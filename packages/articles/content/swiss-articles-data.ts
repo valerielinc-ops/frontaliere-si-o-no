@@ -15364,6 +15364,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'penuria-insegnanti-rapporto-cause-dati',
+    category: 'novita',
+    date: '2026-09-02T09:33:18.264Z',
+    image: '/images/blog/penuria-insegnanti-rapporto-cause-dati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

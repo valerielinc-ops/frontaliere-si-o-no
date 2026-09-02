@@ -5122,6 +5122,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'LPP: fondi di libero passaggio presso la Tesoreria federale',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'Il Consiglio federale propone di permettere all\'istituto collettore LPP di depositare i fondi presso la Confederazione in caso di tassi bassi o negativi.',
     'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Palazzo federale a Berna, sede delle decisioni del Consiglio federale.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.title': 'Penuria di insegnanti: un rapporto analizza cause e basi di dati',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.excerpt': 'Il Consiglio federale ha approvato il rapporto sul rilevamento dei dati e sulle valutazioni concernenti la penuria di insegnanti.',
+    'blog.article.penuria-insegnanti-rapporto-cause-dati.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Svizzera, con le montagne circostanti e la città sottostante.',
 };
 
 export default blogMetaChIt;
