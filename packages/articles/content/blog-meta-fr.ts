@@ -11100,6 +11100,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-siro-frontaliere-permesso-g.title': 'San Siro et le Tessin : le guide du frontalier',
     'blog.article.san-siro-frontaliere-permesso-g.excerpt': 'Permis G, retenue à la source, remboursements et nouvel accord 2024. Tout ce qu\'il faut savoir pour travailler au Tessin depuis San Siro.',
     'blog.article.san-siro-frontaliere-permesso-g.imageAlt': 'Frontalier avec documents au passage frontalier entre l\'Italie et la Suisse',
+    'blog.article.bollettino-frontaliere-2026-09-02.title': 'Bulletin du frontalier – 2 septembre 2026 : 5 982 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-02.excerpt': 'Les chiffres du jour, 2 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-02.imageAlt': 'Les chiffres du jour pour les frontaliers – 2 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-02.seoDescription': 'Bulletin du frontalier du 2 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-02.ogDescription': 'Les chiffres du 2 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
