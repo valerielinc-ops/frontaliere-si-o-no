@@ -11146,6 +11146,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Frontaliere san giacomo filippo-grigioni: guida 2024',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Vivere a San Giacomo Filippo e lavorare nei Grigioni: permesso G, franchigia €10.000, AVS/LPP svizzeri, LAMal e dichiarazione 730. Regole 2024.',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Paesaggio montano alpino tra Italia e Grigioni: prati verdi e vette innevate al confine svizzero, alba',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Frontaliere Chiesa-Grigioni: guida fiscale e pratica',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Vivere a Chiesa in Valmalenco e lavorare nei Grigioni: nuovo accordo 2024, esenzioni €7.500-€10.000, tassazione svizzera e credito d\'imposta italiano.',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Paesaggio alpino di Chiesa in Valmalenco al confine italo-svizzero, con architettura tradizionale e valli boscose',
 };
 
 export default blogMetaIt;

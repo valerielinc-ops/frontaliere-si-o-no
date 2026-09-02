@@ -33303,6 +33303,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'chiesa-valmalenco-grigioni-frontaliere',
+ category: 'fiscale',
+ date: '2026-09-02T21:26:24.983Z',
+ image: '/images/blog/chiesa-valmalenco-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

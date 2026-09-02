@@ -11144,6 +11144,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Grenzgänger St. Jakob Philippinen-Graubünden: Leitfaden 2024',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Leben in St. Jakob Philipp und Arbeiten in Graubünden: Bewilligung G, Franchise € 10.000, AHV/BVG schweizerisch, KVG und Erklärung 730. Regeln 2024.',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Alpenlandschaft zwischen Italien und Graubünden: Grünwiesen und schneebedeckte Gipfel an der Schweizer Grenze, Morgenrot',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Grenzgänger Kirche-Graubünden: Steuer- und Praxisleitfaden',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Leben in Chiesa in Valmalenco und Arbeiten in Graubünden: Neues Abkommen 2024, Befreiungen €7.500- € 10.000, Schweizer Besteuerung und italienische Steuergutschrift.',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Alpenlandschaft an der italienisch-Schweizer Grenze mit traditioneller Bergdorfarchitektur und bewaldeten Tälern',
 };
 
 export default blogMetaDe;

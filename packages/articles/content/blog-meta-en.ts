@@ -11145,6 +11145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Frontier San Giacomo Filippo-Grisons: Guide 2024',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Living in San Giacomo Filippo and working in the Graubünden: G permit, €10,000 deductible, Swiss AVS/LPP, LAMal and declaration 730. Rules 2024.',
     'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Alpine landscape between Italy and Grigioni: green meadows and snow-capped peaks at Swiss-Italian border at dawn',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Church-Grison Frontiers: Tax Guide and Practice',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Living in Chiesa in Valmalenco and working in Graubünden: new 2024 agreement, exemptions €7,500-€10,000, Swiss taxation and Italian tax credit.',
+    'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Alpine mountain village at the Italian-Swiss border with traditional stone architecture and forested valleys',
 };
 
 export default blogMetaEn;
