@@ -133,7 +133,7 @@ describe('prospector polite fetch retry cooldown', () => {
     let attempts = 0;
     const sleeps: number[] = [];
     const fetchImpl = vi.fn(async () => attempts++ === 0
-      ? response(url, 429, { retryAfter: '1' })
+      ? response(url, 429, { retryAfter: '2' })
       : response(url, 200, { body: '<h1>Recovered</h1>' }));
 
     const result = await politeFetch(url, {
@@ -142,7 +142,9 @@ describe('prospector polite fetch retry cooldown', () => {
       ignoreRobots: true,
       retries: 1,
       // A large retryBaseMs means the scaled local fallback (retryBaseMs *
-      // (attempt+1)) would dwarf the 1s header if the fallback still won.
+      // (attempt+1)) would dwarf the 2s header if the fallback still won.
+      // The header (2000ms) still clears the HOST_DELAY_MS floor that
+      // throttle() applies to every request regardless of Retry-After.
       retryBaseMs: 10_000,
       nowImpl: () => now,
       sleepImpl: async (ms) => { sleeps.push(ms); now += ms; },
@@ -150,7 +152,7 @@ describe('prospector polite fetch retry cooldown', () => {
 
     expect(result).toMatchObject({ ok: true, status: 200 });
     expect(attempts).toBe(2);
-    expect(sleeps).toEqual([1_000]);
+    expect(sleeps).toEqual([2_000]);
   });
 
   it('keeps robots fail-open while applying its 429 cooldown before the target request', async () => {
