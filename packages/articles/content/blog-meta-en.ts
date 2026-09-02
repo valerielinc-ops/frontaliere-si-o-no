@@ -11124,6 +11124,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.title': 'Art Tax Border: Italy-Switzerland',
     'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.excerpt': 'The tax frontier between Italy and Switzerland in the circulation of works of art: VAT on importation, confiscation and proportionality after Court cost. n. 93/2025',
     'blog.article.la-frontiera-fiscale-tra-italia-e-svizzera-nella-circolazione-delle-opere-darte.imageAlt': 'Editorial image related to: La frontiera fiscale tra Italia e Svizzera nella circolazione delle opere d’arte: IVA all’importazione, confisca e proporzionalità dopo Corte cost. n. 93/2025 e Cass. civ., Sez. Unite, ord. n. 24764/2026',
+    'blog.article.vivere-ternate-lavorare-ticino-frontaliere.title': 'Living in Ternate and working in Ticino as a border worker',
+    'blog.article.vivere-ternate-lavorare-ticino-frontaliere.excerpt': 'Learn about connections, travel times, cost of living, and the advantages and disadvantages of transferring.',
+    'blog.article.vivere-ternate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano',
 };
 
 export default blogMetaEn;
