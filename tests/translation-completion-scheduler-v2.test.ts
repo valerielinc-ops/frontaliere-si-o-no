@@ -243,6 +243,33 @@ describe('translation completion scheduler v2', () => {
     expect(second.plan.selectedJobs.every((selected) => !firstKeys.has(selected.schedulingKey))).toBe(true);
   });
 
+  it('flags a completion pivot that left the feasible set instead of resetting silently', () => {
+    const jobs = [job('pivot-a', [identity('pivot-a')], 1_000), job('pivot-b', [identity('pivot-b')], 2_000)];
+    const first = planTranslationScheduleV2(plannerInput({
+      jobs,
+      limits: { maxJobs: 1, maxUnits: 1, fairnessNumerator: 1, fairnessDenominator: 5 },
+    }));
+    expect(first.plan.metrics.completionPivotMissing).toBe(0);
+    expect(first.plan.metrics.fairnessPivotMissing).toBe(0);
+    const pivotKey = first.plan.selectedJobs[0].schedulingKey;
+    expect(first.plan.cursorAfter.completionAfterKey).toBe(pivotKey);
+
+    const cursor = settleTranslationScheduleV2({
+      cursor: first.cursor,
+      plan: first.plan,
+      outcomes: outcomesFor(first.plan, 'stale_scan'),
+    }).cursor;
+
+    const second = planTranslationScheduleV2(plannerInput({
+      cursor,
+      jobs: [job('pivot-b', [identity('pivot-b')], 2_000)],
+      limits: { maxJobs: 1, maxUnits: 1, fairnessNumerator: 1, fairnessDenominator: 5 },
+    }));
+
+    expect(second.plan.metrics.completionPivotMissing).toBe(1);
+    expect(second.plan.metrics.fairnessPivotMissing).toBe(0);
+  });
+
   it('replays an active plan byte-identically even when the next scan input is unusable', () => {
     const initial = planTranslationScheduleV2(plannerInput({ jobs: [job('active')] }));
     const replay = planTranslationScheduleV2({
