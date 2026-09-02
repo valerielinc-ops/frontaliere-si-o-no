@@ -390,6 +390,35 @@ describe('Albergo Gardenia authoritative crawler', () => {
     expect(launchBrowserImpl).toHaveBeenCalledTimes(2);
   });
 
+  it('does not memoize a failed browser context across fetchPage() calls', async () => {
+    const response = {
+      status: vi.fn(() => 200),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      body: vi.fn(async () => Buffer.from(representativeSitemap())),
+    };
+    const page = { goto: vi.fn(async () => response), close: vi.fn(async () => {}) };
+    const context = { route: vi.fn(async () => {}), newPage: vi.fn(async () => page), close: vi.fn(async () => {}) };
+    const browser = {
+      newContext: vi.fn()
+        .mockRejectedValueOnce(new Error('context crashed'))
+        .mockImplementationOnce(async () => context),
+      close: vi.fn(async () => {}),
+    };
+    const launchBrowserImpl = vi.fn(async () => browser);
+    const transport = createAlbergoGardeniaBrowserTransport({
+      launchBrowserImpl,
+      nowImpl: () => 1_000,
+      sleepImpl: vi.fn(async () => {}),
+    });
+
+    const failedResponse = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(failedResponse).toMatchObject({ ok: false, status: 0, error: 'context crashed' });
+    const result = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(result).toMatchObject({ ok: true, status: 200 });
+    expect(browser.newContext).toHaveBeenCalledTimes(2);
+    expect(launchBrowserImpl).toHaveBeenCalledTimes(1);
+  });
+
   it('loads one Cloudflare browser inventory and binds every clean-egress resource identity', async () => {
     const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
     const snapshot = {
