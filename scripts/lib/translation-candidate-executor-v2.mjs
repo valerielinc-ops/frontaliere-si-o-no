@@ -312,14 +312,14 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
     let nonce = null;
     let acknowledged = false;
     let bufferedResult = null;
-    let exitDrainImmediate = null;
+    let terminalDrainImmediate = null;
     let timeoutId = setTimeout(() => finish(null), PROVIDER_WORKER_STARTUP_TIMEOUT_MS);
 
     async function finish(candidateText) {
       if (finishing) return;
       finishing = true;
       clearTimeout(timeoutId);
-      if (exitDrainImmediate) clearImmediate(exitDrainImmediate);
+      if (terminalDrainImmediate) clearImmediate(terminalDrainImmediate);
       if (resultPort) {
         resultPort.removeAllListeners();
         resultPort.close();
@@ -354,17 +354,19 @@ async function runIsolatedProvider(provider, request, timeoutMs) {
       }
     }
 
-    worker.once('error', () => finish(null));
-    worker.once('exit', () => {
-      if (finishing) return;
+    function drainBeforeTerminalFailure() {
+      if (finishing || terminalDrainImmediate) return;
       drainProviderResults();
       if (maybeFinish()) return;
-      exitDrainImmediate = setImmediate(() => {
-        exitDrainImmediate = null;
+      terminalDrainImmediate = setImmediate(() => {
+        terminalDrainImmediate = null;
         drainProviderResults();
         if (!maybeFinish()) finish(null);
       });
-    });
+    }
+
+    worker.once('error', drainBeforeTerminalFailure);
+    worker.once('exit', drainBeforeTerminalFailure);
     worker.on('message', (message) => {
       if (finishing) return;
       if (resultPort) {

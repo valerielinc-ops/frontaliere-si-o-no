@@ -314,6 +314,49 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     expect(results.every((result) => result.status === 'validated')).toBe(true);
   }, 30_000);
 
+  it('preserves 128 authenticated results across a late strict rejection', async () => {
+    const rejectAfterReturn = provider(`
+      export function translate(_request, { succeedText }) {
+        succeedText(${JSON.stringify(candidateText)});
+        setImmediate(() => Promise.reject(new Error('late strict rejection')));
+      }
+    `);
+    const results = [];
+    for (let batch = 0; batch < 4; batch += 1) {
+      results.push(...await Promise.all(Array.from({ length: 32 }, () => (
+        executeTranslationCandidateV2(input({ provider: rejectAfterReturn }))
+      ))));
+    }
+    expect(results).toHaveLength(128);
+    expect(results.every((result) => result.status === 'validated')).toBe(true);
+  }, 30_000);
+
+  it('fails an error before callback and coalesces error/exit cleanup without leaking ports', async () => {
+    const activePortCount = () => (
+      (process as unknown as { _getActiveHandles(): unknown[] })._getActiveHandles()
+        .filter((handle) => handle instanceof MessagePort).length
+    );
+    const activePortsBefore = activePortCount();
+    const close = vi.spyOn(MessagePort.prototype, 'close');
+    const rejectBeforeCallback = provider(`
+      export function translate(_request, { succeedText }) {
+        setTimeout(() => succeedText(${JSON.stringify(candidateText)}), 100);
+        Object.freeze(Promise.reject(new Error('strict rejection before callback')));
+      }
+    `);
+    try {
+      const results = await Promise.all(Array.from({ length: 8 }, () => (
+        executeTranslationCandidateV2(input({ provider: rejectBeforeCallback }))
+      )));
+      await new Promise((resolve) => setImmediate(resolve));
+      expect(results.every((result) => result.status === 'generation_failed')).toBe(true);
+      expect(close).toHaveBeenCalledTimes(8);
+      expect(activePortCount()).toBeLessThanOrEqual(activePortsBefore);
+    } finally {
+      close.mockRestore();
+    }
+  });
+
   it('passes a deeply frozen isolated request, AbortSignal and exact callbacks to the module export', async () => {
     const source = `
       export function translate(request, options) {
