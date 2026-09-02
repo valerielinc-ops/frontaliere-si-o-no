@@ -5071,6 +5071,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tirocinio-basilea-campagna-guida.title': 'Lehre im Kanton Basel-Landschaft',
     'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'So finden Sie ein Praktikum im Kanton Basel-Landschaft, den Ausbildungsvertrag, die Vergütung, die Sozialbeiträge und den Weg zur Berufsmaturität.',
     'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Junge Lernende in einer technischen Berufsausbildungswerkstatt in der Schweiz',
+    'blog.article.guida-apprendistato-formazione-professionale.title': 'Lehre in der Schweiz: So fängst du an',
+    'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Duales System, Ausbildungsverträge, Vergütung und Berufsreife: Alles, was du über die Berufslehre im Kanton Basel-Landschaft und in der Schweiz wissen musst.',
+    'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Lehrling arbeitet in einer Schweizer Berufsbildungswerkstatt unter Mentorbetreuung',
 };
 
 export default blogMetaChDe;

@@ -15211,6 +15211,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guida-apprendistato-formazione-professionale',
+    category: 'pratico',
+    date: '2026-09-02T05:38:23.827Z',
+    image: '/images/blog/guida-apprendistato-formazione-professionale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

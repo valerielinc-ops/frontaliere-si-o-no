@@ -5071,6 +5071,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tirocinio-basilea-campagna-guida.title': 'Apprendistato nel canton Basilea campagna',
     'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'Come trovare un tirocinio nel canton Basilea Campagna, il contratto di formazione, retribuzione, contributi sociali e il percorso verso la maturità professionale.',
     'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Giovani apprendisti in laboratorio tecnico di formazione professionale in Svizzera',
+    'blog.article.guida-apprendistato-formazione-professionale.title': 'Apprendistato in Svizzera: come iniziare',
+    'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Sistema duale, contratti, retribuzioni e maturità professionale: tutto ciò che devi sapere sull\'apprendistato nel cantone di Basilea Campagna e in Svizzera.',
+    'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Apprendista al lavoro in un laboratorio di formazione professionale svizzera con mentor',
 };
 
 export default blogMetaChIt;
