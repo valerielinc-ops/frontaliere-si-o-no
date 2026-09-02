@@ -83895,19 +83895,43 @@
         "intern-roche-ch",
         "internal-roche-basel",
         "tirocinante-roche-basel",
-        "intern-roche-basel"
+        "intern-roche-basel",
+        "compliance-tirocinante-roche-shanghai",
+        "compliance-intern-roche-ch",
+        "compliance-praktikant-roche-shanghai",
+        "compliance-stagiaire-roche-shanghai",
+        "marketing-tirocinante-roche-fuzhou",
+        "marketing-intern-roche-ch",
+        "marketing-praktikant-roche-fuzhou",
+        "marketing-stagiaire-roche-fuzhou"
       ],
       "previousSlugsByLocale": {
         "it": [
           "intern-roche-ch",
-          "tirocinante-roche-basel"
+          "tirocinante-roche-basel",
+          "compliance-tirocinante-roche-shanghai",
+          "compliance-intern-roche-ch",
+          "compliance-praktikant-roche-shanghai",
+          "compliance-stagiaire-roche-shanghai",
+          "marketing-tirocinante-roche-fuzhou",
+          "marketing-intern-roche-ch",
+          "marketing-praktikant-roche-fuzhou",
+          "marketing-stagiaire-roche-fuzhou"
         ],
         "en": [
           "internal-roche-basel",
-          "intern-roche-basel"
+          "intern-roche-basel",
+          "compliance-intern-roche-ch",
+          "marketing-intern-roche-ch"
         ],
         "fr": [
-          "intern-roche-ch"
+          "intern-roche-ch",
+          "compliance-stagiaire-roche-shanghai",
+          "marketing-stagiaire-roche-fuzhou"
+        ],
+        "de": [
+          "compliance-praktikant-roche-shanghai",
+          "marketing-praktikant-roche-fuzhou"
         ]
       },
       "firstSeenAt": "2026-09-01T14:10:46.414Z",
