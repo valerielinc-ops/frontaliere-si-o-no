@@ -1,6 +1,6 @@
 {
   "crawlerKey": "wagerenhof",
-  "assembledAt": "2026-09-02T13:45:46.149Z",
+  "assembledAt": "2026-09-02T23:17:35.383Z",
   "jobs": [
     {
       "id": "wagerenhof-960e85b55337",
@@ -34,7 +34,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-511&cHash=f2e20edb1dd6f065f8c6e62248937788",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:45:41.280Z",
+      "crawledAt": "2026-09-02T23:17:32.102Z",
       "addressLocality": "Bauma",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-550&cHash=d66bc7918061a2740738e83f1ffe1f0f",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:45:40.352Z",
+      "crawledAt": "2026-09-02T23:17:31.263Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-544&cHash=b0621d763eca6fa19183259e3a65d94d",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:45:39.586Z",
+      "crawledAt": "2026-09-02T23:17:30.481Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -195,13 +195,13 @@
         "mitarbeiter-in-ateliers-60-wagerenhof-uster",
         "employees-in-studios-60-stiftung-wagerenhof-uster",
         "employes-dans-les-studios-60-stiftung-wagerenhof-uster",
-        "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster",
         "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster",
         "employee-technical-service-stiftung-wagerenhof-uster",
         "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
         "service-technique-employe-stiftung-wagerenhof-uster",
         "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-        "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
+        "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster",
+        "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -210,13 +210,13 @@
           "mitarbeiter-in-ateliers-60-wagerenhof-uster",
           "employees-in-studios-60-stiftung-wagerenhof-uster",
           "employes-dans-les-studios-60-stiftung-wagerenhof-uster",
-          "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster",
           "collaboratore-trice-in-technischer-dienst-stiftung-wagerenhof-uster",
           "employee-technical-service-stiftung-wagerenhof-uster",
           "mitarbeiter-in-technischer-dienst-wagerenhof-uster",
           "service-technique-employe-stiftung-wagerenhof-uster",
           "servicetechniker-hlks-hauswart-80-100-wagerenhof-uster",
-          "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster"
+          "servicetechniker-hlks-hauswart-80-100-stiftung-wagerenhof-uster",
+          "collaboratore-trice-in-wascherei-100-stiftung-wagerenhof-uster"
         ],
         "en": [
           "employees-in-studios-60-stiftung-wagerenhof-uster",
@@ -279,7 +279,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-455&cHash=deaa3ec6e87178f1cd677878f5bb4bfb",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:45:38.715Z",
+      "crawledAt": "2026-09-02T23:17:29.616Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "url": "https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2025-457&cHash=d61123f8b229adec9543be50a30fc3f1",
       "source": "Wagerenhof Dedicated Parser (TYPO3 HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:45:37.930Z",
+      "crawledAt": "2026-09-02T23:17:28.859Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -458,7 +458,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
