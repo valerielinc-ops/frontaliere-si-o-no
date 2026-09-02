@@ -5191,6 +5191,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Abonnements transports Schaffhouse : zones et tarifs',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Guide complet des abonnements pour les transports publics dans le canton de Schaffhouse : communauté tarifaire, abonnements mensuels et annuels, demi-tarif, GA et réductions étudiantes.',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Gare ferroviaire suisse avec panneaux affichant les zones tarifaires et les abonnements',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Salaires et marché du travail à Schaffhouse',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Structure salariale suisse par niveaux de formation, conventions collectives, système de prévoyance (AVS/LPP) et salaire minimum cantonal. Guide pratique pour vérifier votre salaire.',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Espace de travail suisse moderne avec documents de salaire et vue sur les Alpes',
 };
 
 export default blogMetaChFr;

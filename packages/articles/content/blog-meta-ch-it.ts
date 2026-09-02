@@ -5191,6 +5191,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Abbonamenti trasporti Sciaffusa: zone e tariffe',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Guida completa agli abbonamenti per i trasporti pubblici nel cantone Sciaffusa: comunità tariffaria, abbonamenti mensili e annuali, metà-prezzo, GA e sconti per studenti.',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Stazione ferroviaria svizzera con cartellonistica di zone tariffarie e informazioni su abbonamenti',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Salari e mercato del lavoro a Sciaffusa',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Struttura salariale svizzera per livelli di formazione, contratti collettivi, sistema di previdenza (AVS/LPP) e salario minimo cantonale. Guida pratica per verificare il proprio stipendio.',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Ambiente di lavoro svizzero con documenti di stipendio, calcolatore e vista sulle Alpi da ufficio moderno',
 };
 
 export default blogMetaChIt;

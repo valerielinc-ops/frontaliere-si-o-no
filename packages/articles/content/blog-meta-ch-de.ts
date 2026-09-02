@@ -5191,6 +5191,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Verkehrstickets Schaffhausen: Zonen und Tarife',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Vollständiger Abo-Leitfaden für den öffentlichen Verkehr im Kanton Schaffhausen: Tarifgemeinschaft, Monats- und Jahresabonnements, Halbtax, GA und Studentenrabatte.',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Schweizer Bahnhof mit Zonengebühren und Abonnementinformationen auf Anzeigetafeln',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Löhne und Arbeitsmarkt in Schaffhausen',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Schweizer Lohnstruktur nach Bildungsstufen, Kollektivverträgen, Vorsorgesystem (AHV/BVG) und kantonalem Mindestlohn. Praktischer Leitfaden zur Überprüfung Ihres Gehalts.',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Moderner Schweizer Arbeitsplatz mit Gehaltsdokumenten und Blick auf die Alpen',
 };
 
 export default blogMetaChDe;
