@@ -5083,6 +5083,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonali-argovia-aliquote.title': 'Impôts cantonaux d\'Argovie : taux et déductions',
     'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Découvrez le fonctionnement des impôts cantonaux et communaux dans le canton d\'Argovie, les taux progressifs, les déductions autorisées et comment faire sa déclaration en ligne. Guide pratique.',
     'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Bureau fiscal suisse avec formulaires de déclaration et calculatrice sur le bureau',
+    'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Primes d\'assurance maladie du canton d\'Argovie et réduction des primes',
+    'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Découvrez comment fonctionnent les primes d\'assurance maladie en Argovie, les franchises disponibles et comment demander une réduction grâce aux aides cantonales.',
+    'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Bureau administratif suisse pour les primes d\'assurance-maladie et les réductions dans le canton d\'Argovie.',
 };
 
 export default blogMetaChFr;

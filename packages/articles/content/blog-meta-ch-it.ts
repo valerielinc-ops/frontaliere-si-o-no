@@ -5083,6 +5083,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-argovia-aliquote.title': 'Imposte cantonali Argovia: aliquote e deduzioni',
     'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Scopri come funzionano imposte cantonali e comunali nel Cantone Argovia, aliquote progressive, deduzioni ammesse e come dichiarare online. Guida pratica.',
     'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Ufficio amministrazione fiscale svizzera con moduli dichiarazione e calcolatrice',
+    'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Premi cassa malati canton Argovia e riduzione premi',
+    'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Scopri come funzionano i premi dell\'assicurazione malattia in Argovia, le franchigie disponibili e come richiedere la riduzione attraverso i sussidi cantonali.',
+    'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Ufficio amministrativo svizzero dedicato ai premi dell\'assicurazione malattia e alle riduzioni nel Canton Argovia.',
 };
 
 export default blogMetaChIt;
