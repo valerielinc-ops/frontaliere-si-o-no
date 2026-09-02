@@ -7655,11 +7655,11 @@
     },
     {
       "id": "equans-57c2a2120b82",
-      "slug": "metteur-au-point-h-f-equans-plan-les-ouates",
+      "slug": "piazzola-m-f-equans-switzerland-plan-les-ouates",
       "slugByLocale": {
-        "it": "metteur-au-point-h-f-equans-plan-les-ouates",
-        "en": "metteur-au-point-h-f-equans-plan-les-ouates",
-        "de": "metteur-au-point-h-f-equans-plan-les-ouates",
+        "it": "piazzola-m-f-equans-switzerland-plan-les-ouates",
+        "en": "pitch-m-f-equans-switzerland-plan-les-ouates",
+        "de": "pech-m-w-equans-switzerland-plan-les-ouates",
         "fr": "metteur-au-point-h-f-equans-plan-les-ouates"
       },
       "company": "Equans Switzerland",
@@ -7716,7 +7716,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metteur-au-point-h-f-equans-plan-les-ouates"
+        ],
+        "en": [
+          "metteur-au-point-h-f-equans-plan-les-ouates"
+        ],
+        "de": [
+          "metteur-au-point-h-f-equans-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "metteur-au-point-h-f-equans-plan-les-ouates"
+      ]
     },
     {
       "id": "equans-beb85a38e504",
@@ -9513,8 +9527,8 @@
       "slugByLocale": {
         "it": "controller-equans-mezzovico-vira",
         "en": "controller-equans-mezzovico-vira",
-        "de": "controller-equans-mezzovico-vira",
-        "fr": "controller-equans-mezzovico-vira"
+        "de": "regler-equans-switzerland-mezzovico-vira",
+        "fr": "controleur-equans-switzerland-mezzovico-vira"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",

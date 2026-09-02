@@ -3176,7 +3176,7 @@
     },
     {
       "id": "company-b0nolb",
-      "slug": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb",
+      "slug": "macellaia-macellaio-salsiccaia-salsicciaio-f-h-d-coop-genossenschaft-lutry-vaud",
       "company": "Coop Genossenschaft",
       "title": "Bouchère - Boucher / Charcutière - Charcutier (f/h/d)",
       "location": "Lutry, Vaud",
@@ -3222,8 +3222,8 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb",
-        "en": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb",
+        "it": "macellaia-macellaio-salsiccaia-salsicciaio-f-h-d-coop-genossenschaft-lutry-vaud",
+        "en": "butcher-charcuterie-specialist-f-h-d-coop-genossenschaft-lutry-vaud",
         "de": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb",
         "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb"
       },
@@ -3243,11 +3243,16 @@
         }
       },
       "previousSlugs": [
-        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud"
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud",
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud"
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud",
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb"
+        ],
+        "en": [
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-lutry-vaud-b0nolb"
         ]
       },
       "salaryMin": 60500,
@@ -12704,9 +12709,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-ofczf9",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-ofczf9",
+        "en": "retail-assistant-eba-coop-city-dietikon-427fc4",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-ofczf9",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-ofczf9"
+        "fr": "assistant-de-detail-dans-eba-coop-city-dietikon-427fc4"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -12723,11 +12728,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon"
+        "detailhandelsassistent-in-eba-coop-city-dietikon",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-ofczf9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-ofczf9"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-ofczf9"
         ]
       },
       "salaryMin": 113000,
@@ -12838,9 +12850,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietlikon-6gkg0z",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietlikon-6gkg0z",
+        "en": "retail-assistant-eba-coop-city-dietlikon-0e43f2",
         "de": "detailhandelsassistent-in-eba-coop-city-dietlikon-6gkg0z",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietlikon-6gkg0z"
+        "fr": "assistant-de-detail-dans-eba-coop-city-dietlikon-0e43f2"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -12857,11 +12869,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietlikon"
+        "detailhandelsassistent-in-eba-coop-city-dietlikon",
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-6gkg0z"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietlikon"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-6gkg0z"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-6gkg0z"
         ]
       },
       "salaryMin": 99000,
@@ -12983,9 +13002,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp",
+        "en": "retail-specialist-efz-creating-shopping-experiences-coop-city-dietlikon",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp"
+        "fr": "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-coop-city-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -13003,12 +13022,19 @@
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-2",
-        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon"
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-2",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon-jn5ctp"
         ]
       },
       "salaryMin": 99000,
@@ -13333,9 +13359,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietlikon-u3ijzi",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietlikon-u3ijzi",
+        "en": "retail-assistant-eba-coop-city-dietlikon-efbb6a",
         "de": "detailhandelsassistent-in-eba-coop-city-dietlikon-u3ijzi",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietlikon-u3ijzi"
+        "fr": "assistant-e-dans-le-commerce-de-detail-eba-coop-city-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -13353,12 +13379,19 @@
       },
       "previousSlugs": [
         "detailhandelsassistent-in-eba-coop-city-dietlikon-5",
-        "detailhandelsassistent-in-eba-coop-city-dietlikon-4"
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-4",
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-u3ijzi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietlikon-5",
           "detailhandelsassistent-in-eba-coop-city-dietlikon-4"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-u3ijzi"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-u3ijzi"
         ]
       },
       "salaryMin": 113000,
@@ -13471,9 +13504,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-n9a414",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-n9a414",
+        "en": "retail-assistant-eba-coop-city-dietikon-8101cb",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-n9a414",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-n9a414"
+        "fr": "assistant-e-en-detail-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -13490,11 +13523,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-2"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-2",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-n9a414"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-2"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-n9a414"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-n9a414"
         ]
       },
       "salaryMin": 113000,
@@ -13605,9 +13645,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-chiikv",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-chiikv",
+        "en": "retail-assistant-eba-coop-city-dietikon-792ab0",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-chiikv",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-chiikv"
+        "fr": "assistant-de-vente-au-detail-eba-coop-city-dietikon-792ab0"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -13624,11 +13664,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-3"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-3",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-chiikv"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-3"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-chiikv"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-chiikv"
         ]
       },
       "salaryMin": 113000,
@@ -14021,9 +14068,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-cx0plx",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-cx0plx",
+        "en": "retail-assistant-eba-coop-city-dietikon-9c3eca",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-cx0plx",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-cx0plx"
+        "fr": "assistant-commercial-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14040,11 +14087,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-6"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-6",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-cx0plx"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-6"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-cx0plx"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-cx0plx"
         ]
       },
       "salaryMin": 107000,
@@ -14296,9 +14350,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-u2q5zg",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-u2q5zg",
+        "en": "retail-sales-assistant-eba-coop-city-dietikon-2b0dd1",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-u2q5zg",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-u2q5zg"
+        "fr": "assistant-e-a-la-vente-au-detail-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14315,11 +14369,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-8"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-8",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-u2q5zg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-8"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-u2q5zg"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-u2q5zg"
         ]
       },
       "salaryMin": 113000,
@@ -14571,9 +14632,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-pabhvr",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-pabhvr",
+        "en": "retail-assistant-eba-coop-city-dietikon-eb5ea2",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-pabhvr",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-pabhvr"
+        "fr": "assistant-de-vente-au-detail-eba-coop-city-dietikon-eb5ea2"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14590,11 +14651,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-10"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-10",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-pabhvr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-10"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-pabhvr"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-pabhvr"
         ]
       },
       "salaryMin": 105500,
@@ -14926,9 +14994,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-oxtjuv",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-oxtjuv",
+        "en": "retail-sales-assistant-eba-coop-city-dietikon-245932",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-oxtjuv",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-oxtjuv"
+        "fr": "assistant-e-de-vente-au-detail-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14945,11 +15013,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-12"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-12",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-oxtjuv"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-12"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-oxtjuv"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-oxtjuv"
         ]
       },
       "salaryMin": 105500,
@@ -15060,9 +15135,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-qa3qil",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-qa3qil",
+        "en": "retail-sales-assistant-eba-coop-city-dietikon-5b8f57",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-qa3qil",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-qa3qil"
+        "fr": "assistant-e-vendeur-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -15079,11 +15154,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-13"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-13",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-qa3qil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-13"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-qa3qil"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-qa3qil"
         ]
       },
       "salaryMin": 107000,
