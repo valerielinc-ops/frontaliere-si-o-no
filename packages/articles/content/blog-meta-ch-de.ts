@@ -5158,6 +5158,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.laps-ticino-incentivi-lavoro.title': 'Je mehr Sie arbeiten, desto mehr bleibt Ihnen: die Tessiner LAPS-Reform',
     'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'Die Liga fordert eine Reform des LAPS mit temporären Arbeitsanreizen, um die «Armutsfalle» zu beseitigen und die Auswirkungen der KVG-Prämien zu bekämpfen.',
     'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Tessiner Kantonsparlament in Bellinzona während Debatte über Sozialleistungen und Arbeitsanreize',
+    'blog.article.consiglio-federale-nomina-walser.title': 'Bundesrat ernennt Tobias Walser zum ETH-Rat',
+    'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, Experte für Umweltwissenschaften, wurde zum Delegierten der Universitätsversammlungen der Eidgenössischen Technischen Hochschulen Zürich und Lausanne ernannt.',
+    'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit dem See und den Bergen im Hintergrund.',
 };
 
 export default blogMetaChDe;

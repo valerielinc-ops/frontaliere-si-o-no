@@ -5158,6 +5158,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.laps-ticino-incentivi-lavoro.title': 'The more you work, the more you stay: the Ticino laps reform',
     'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'The League calls for a reform of the laps with temporary incentives to work to eliminate the “poverty trap” and combat the impact of the LAMal awards.',
     'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Bellinzona cantonal parliament during debate on social welfare and work incentive reforms',
+    'blog.article.consiglio-federale-nomina-walser.title': 'Federal Council appoints Tobias Walser to PF Council',
+    'blog.article.consiglio-federale-nomina-walser.excerpt': 'Tobias Walser, an expert in environmental sciences, was appointed delegate of the university assemblies of the Federal Polytechnics of Zurich and Lausanne.',
+    'blog.article.consiglio-federale-nomina-walser.imageAlt': 'Aerial view of Lugano, Switzerland, with the lake and mountains in the background.',
 };
 
 export default blogMetaChEn;
