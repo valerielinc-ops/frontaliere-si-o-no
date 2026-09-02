@@ -5059,6 +5059,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-canton-grigioni.title': 'Arbeitsmarkt in Graubünden: Löhne und Niveaus',
     'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Umfassender Leitfaden zu Lohnstruktur, Besteuerung und Sozialversicherungsbeiträgen im Kanton Graubünden. Löhne, Ausbildungsniveaus und Tarifverträge.',
     'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Berglandschaft des Kantons Graubünden mit Wohn- und Gewerbegebieten, die die Alpenwirtschaft und den Arbeitsmarkt der Schweiz darstellen.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Erbschafts- und Schenkungssteuer Basel-Stadt: Steuersätze',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Leitfaden Erbschafts- und Schenkungssteuern im Kanton Basel-Stadt: Verwandtschaftsgradsätze, Befreiungen und Meldeverfahren.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Schweizer Notarbüro mit Erbschaftsdokumenten und Taschenrechner, Symbol der Vermögensplanung und Erbschaftsübertragung',
 };
 
 export default blogMetaChDe;

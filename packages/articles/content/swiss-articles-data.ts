@@ -15175,6 +15175,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposta-di-successione-e-donazione-basilea-citta',
+    category: 'fiscale',
+    date: '2026-09-02T04:47:57.978Z',
+    image: '/images/blog/imposta-di-successione-e-donazione-basilea-citta.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

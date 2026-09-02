@@ -5059,6 +5059,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mercato-lavoro-canton-grigioni.title': 'Labour market in Graubünden: wages and levels',
     'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Complete guide to wage structure, taxation and social contributions in the Canton of Graubünden. Salaries, training levels and collective agreements.',
     'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Mountain landscape of Canton Grisons with residential and business areas representing the Alpine Swiss economy and labor market.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Basel City Inheritance and Gift Tax: Rates',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Guide to inheritance and gift taxes in the Canton of Basel-City: rates for degree of kinship, exemptions and reporting procedures.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Swiss notary office with inheritance documents and calculator, symbolizing estate planning and wealth transfer',
 };
 
 export default blogMetaChEn;

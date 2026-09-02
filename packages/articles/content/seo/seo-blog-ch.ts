@@ -65657,6 +65657,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-di-successione-e-donazione-basilea-citta': {
+    title: 'Imposta di successione e donazione Basilea Città: aliquote',
+    description: 'Guida alle imposte di successione e donazione nel Cantone di Basilea Città: aliquote per grado di parentela, esenzioni e procedure di dichiarazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, basilea',
+    ogTitle: 'Imposta di successione e donazione Basilea Città: aliquote',
+    ogDescription: 'Nel Cantone di Basilea Città, l\'imposta di successione segue regole cantonali specifiche. Scopri aliquote, esenzioni per coniugi e discendenti, e come dichiarare un\'eredità. Guida completa alla tassazione di successione e donazione in Svizzera.',
+    canonicalPath: '/articoli-svizzera/imposta-di-successione-e-donazione-basilea-citta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione Basilea Città: aliquote",
+      "description": "Guida alle imposte di successione e donazione nel Cantone di Basilea Città: aliquote per grado di parentela, esenzioni e procedure di dichiarazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-di-successione-e-donazione-basilea-citta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio notarile svizzero con documenti di eredità e calcolatrice, simbolo di pianificazione patrimoniale e trasmissione del patrimonio"
+      },
+      "datePublished": "2026-09-02T04:47:58+00:00",
+      "dateModified": "2026-09-02T04:47:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-di-successione-e-donazione-basilea-citta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
