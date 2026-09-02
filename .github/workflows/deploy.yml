@@ -364,6 +364,15 @@ jobs:
       ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
       ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
     steps:
+      # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
+      # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL
+      # start, not the "Wait for IT CDN push" step's start. That is what lets
+      # the gate self-adjust for however long Build+shard-push (T1) actually
+      # took on THIS run instead of assuming a fixed T1. First step so no
+      # earlier step's variance is left out of the clock.
+      - name: Record job start (#7106 CDN gate job-deadline safety margin)
+        run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Free disk space (remove unused toolchains)
         shell: bash
         run: |
@@ -2228,6 +2237,19 @@ jobs:
           # Read-only jobs API call, sampled every 4th poll (~60s) so the whole
           # matrix costs ~135 calls per run rather than ~540.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # #7106 — job-deadline safety margin (full rationale: "WHY A THIRD
+          # CLOCK" in wait-cdn-build-id.sh). timeout-minutes: 360 above is
+          # already at GitHub's hard per-job ceiling for hosted runners (6h,
+          # fixed platform-wide — it cannot be raised further, so "is it big
+          # enough" has to be answered by shrinking THIS gate, not by growing
+          # the job). 19800 = (360 - 30) * 60: 30 minutes held back for the
+          # finish steps after this gate (push shard, purge, report) plus
+          # runner/provisioning overhead. Anchored to CDN_JOB_START_EPOCH (set
+          # by the very first step of this job), so it absorbs however long
+          # Build+shard-push actually took on THIS run before shrinking either
+          # phase's budget.
+          CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
+          CDN_JOB_DEADLINE_S: 19800
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
