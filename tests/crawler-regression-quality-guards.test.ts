@@ -30,6 +30,10 @@ import {
   recoverTruncatedStLocality,
   healTruncatedStLocalities,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  applyCoopSourceDetailToJob,
+  validateCoopDescription,
+} from '../scripts/lib/coop-job-parser.mjs';
 
 describe('titleOverlap()', () => {
   it('returns 1 for identical inputs (modulo case/accents/punctuation)', () => {
@@ -193,10 +197,49 @@ describe('Crawler wiring — Coop and Migros import the shared guards', () => {
     expect(src).toMatch(/overlap\s*<\s*0\.6/);
   });
 
-  it('VOLG crawler keeps the body-ratio + title-overlap guards (reference)', () => {
+  it('VOLG delegates detail validation to the fail-closed Coop-family helper', () => {
     const src = readFileSync(resolve(__dirname, '..', 'scripts/update-volg-jobs.mjs'), 'utf8');
-    expect(src).toMatch(/MIN_TITLE_OVERLAP/);
-    expect(src).toMatch(/MIN_BODY_RATIO/);
+    expect(src).toContain('enrichCoopSourceBackedJobs');
+    expect(src).toContain("allowedHosts: ['jobs.fenaco.com']");
+  });
+
+  it('Coop-family detail validation keeps the 15% body-ratio boundary', () => {
+    const markdown = `## Aufgaben\n- ${'Source-backed Inhalt mit belastbarer Detailtiefe. '.repeat(12)}`;
+    const textLength = markdown.replace(/[#\-*>\n]/g, ' ').replace(/\s+/g, ' ').trim().length;
+    const sourceLengthAtBoundary = Math.floor(textLength / 0.15);
+
+    expect(validateCoopDescription(markdown, sourceLengthAtBoundary).ok).toBe(true);
+    expect(validateCoopDescription(markdown, sourceLengthAtBoundary + 10).warnings)
+      .toContainEqual(expect.stringMatching(/Coverage ratio too low/));
+  });
+
+  it('Coop-family detail validation accepts title overlap 0.6 and rejects below it', () => {
+    const listing = {
+      id: 'volg-stable',
+      url: 'https://jobs.fenaco.com/offene-stellen/test/44444444-4444-4444-8444-444444444444',
+      title: 'alpha beta gamma delta epsilon',
+      description: 'listing fallback',
+      location: 'fallback',
+      canton: 'TI',
+      sourceLang: 'de',
+    };
+    const detail = {
+      '@type': 'JobPosting',
+      title: 'alpha beta gamma',
+      description: `<h2>Aufgaben</h2><ul>${Array.from({ length: 30 }, (_, index) => `<li>Source-backed Aufgabe ${index + 1} mit Verantwortung und Zusammenarbeit im Team.</li>`).join('')}</ul>`,
+      jobLocation: {
+        address: {
+          addressLocality: 'Höri',
+          addressRegion: 'Zürich',
+          addressCountry: 'CH',
+          postalCode: '8181',
+        },
+      },
+    };
+
+    expect(applyCoopSourceDetailToJob(listing, detail)).toMatchObject({ location: 'Höri', canton: 'ZH' });
+    expect(() => applyCoopSourceDetailToJob(listing, { ...detail, title: 'alpha beta' }))
+      .toThrow(/title mismatch \(0\.40\)/);
   });
 });
 
