@@ -11116,6 +11116,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Vivere a Gerenzano e lavorare in Ticino: guida per frontalieri',
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Distanza, valichi, permesso G, tasse, AVS e LAMal: tutto ciò che serve sapere prima di trasferirsi a Gerenzano dal Ticino o da altre aree frontaliere.',
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano al tramonto, con le Alpi svizzere sullo sfondo e il confine italiano visibile',
+    'blog.article.svizzera-perde-attrattiva-aziende.title': 'La Svizzera sta perdendo attrattiva per le aziende',
+    'blog.article.svizzera-perde-attrattiva-aziende.excerpt': 'Sette CEO su dieci vedono un calo dell\'attrattiva svizzera rispetto alla concorrenza internazionale.',
+    'blog.article.svizzera-perde-attrattiva-aziende.imageAlt': 'Vista aerea di Lugano, Svizzera, con skyline moderno e montagne circostanti.',
 };
 
 export default blogMetaIt;

@@ -11115,6 +11115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Living in Gerenzano and working in Ticino: a guide for border workers',
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Distance, crossings, G permit, taxes, AVS and LAMal: everything you need to know before moving to Gerenzano from Ticino or other border areas.',
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Lugano and Lake Lugano at sunset, with Swiss Alps in the background and Italian border clearly visible',
+    'blog.article.svizzera-perde-attrattiva-aziende.title': 'Switzerland is losing its attractiveness for companies',
+    'blog.article.svizzera-perde-attrattiva-aziende.excerpt': 'Seven out of ten CEOs see a decline in Swiss attractiveness compared to international competition.',
+    'blog.article.svizzera-perde-attrattiva-aziende.imageAlt': 'Aerial view of Lugano, Switzerland, with modern cityscape and surrounding mountains.',
 };
 
 export default blogMetaEn;

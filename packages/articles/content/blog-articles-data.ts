@@ -33213,6 +33213,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-perde-attrattiva-aziende',
+ category: 'fiscale',
+ date: '2026-09-02T12:54:54.086Z',
+ image: '/images/blog/svizzera-perde-attrattiva-aziende.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
