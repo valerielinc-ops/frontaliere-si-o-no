@@ -5098,6 +5098,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.come-aprire-azienda-basilea-campagna.title': 'Start Basel Campaign activities: complete guide',
     'blog.article.come-aprire-azienda-basilea-campagna.excerpt': 'Procedure for opening a business in Basel Countryside: legal forms, registration in the trade register, three-level taxation and social security and insurance obligations.',
     'blog.article.come-aprire-azienda-basilea-campagna.imageAlt': 'Office desk with business registration documents, calculator, and Swiss alpine landscape in background',
+    'blog.article.guida-apertura-attivita-bc.title': 'Opening businesses in Basel Countryside: registers and costs',
+    'blog.article.guida-apertura-attivita-bc.excerpt': 'Registration in the commercial register, legal forms, social security and insurance obligations: everything you need to start a business in the canton.',
+    'blog.article.guida-apertura-attivita-bc.imageAlt': 'Swiss cantonal administrative building housing business registration office for companies',
 };
 
 export default blogMetaChEn;

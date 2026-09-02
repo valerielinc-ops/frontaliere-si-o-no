@@ -15292,6 +15292,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guida-apertura-attivita-bc',
+    category: 'pratico',
+    date: '2026-09-02T08:05:22.437Z',
+    image: '/images/blog/guida-apertura-attivita-bc.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
