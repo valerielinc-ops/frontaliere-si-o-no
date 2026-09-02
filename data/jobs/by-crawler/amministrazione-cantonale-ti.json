@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-09-02T13:45:01.013Z",
+  "assembledAt": "2026-09-02T23:17:42.237Z",
   "jobs": [
     {
       "id": "company-213hls",
@@ -22,7 +22,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "titleByLocale": {
         "it": "Assistente di farmacia a tempo parziale (50%), presso l’Ufficio del farmacista cantonale, Mendrisio",
@@ -69,7 +69,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hlr",
@@ -91,7 +92,7 @@
       "salaryMax": 167309,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "titleByLocale": {
         "it": "Medico AI a tempo parziale (50%) – a tempo pieno (100%), presso l’Istituto delle assicurazioni sociali, Ufficio dell’assicurazione invalidità, Servizio medico regionale (SMR), Bellinzona",
@@ -141,73 +142,6 @@
       "salarySource": "reported"
     },
     {
-      "id": "company-213hmm",
-      "slug": "capoufficio-iii-a-tempo-pieno-100-presso-la-sezione-forestale-9-circondario-forestale-arbedo-amministrazione-cantonale-ti-bellinzona-213hmm",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Capoufficio III, a tempo pieno (100%) presso la Sezione forestale, 9° circondario forestale, Arbedo",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "temporary",
-      "currency": "CHF",
-      "description": "Compiti\n\n- pianificazione, supervisione e progettazione degli interventi selvicolturali\n\n- gestione degli aspetti legati alla conservazione e alla tutela delle aree boschive\n\n- definizione e attuazione di misure di prevenzione e intervento contro fitopatie e altre problematiche fitosanitarie che possono interessare gli ecosistemi forestali\n\n- consulenza a privati ed enti pubblici per tutte le attività connesse alla gestione forestale\n\n- supervisione e gestione, con il supporto del geologo di settore, dei progetti relativi alle opere di premunizione contro i pericoli naturali\n\n- coordinamento delle attività del circondario e collaborazione con i collaboratori diretti, in particolare con i forestali di settore e il segretario\n\n- partecipazione ai gruppi di lavoro istituiti dalla Sezione forestale, nei casi in cui, per tematiche specifiche, sia prevista o necessaria la presenza di ingegneri forestali di circondario\n\nRequisiti\n\n- titolo accademico completo (bachelor e master o licenza) in ingegneria forestale\n\n- costituiscono titoli preferenziali: certificato di eleggibilità o certificato di pratica\n\n- comprovata esperienza lavorativa nei campi della gestione del bosco, della pianificazione forestale ed in particolare nella gestione dei boschi di protezione\n\n- esperienza nella gestione di progetti forestali e di opere di protezione contro i pericoli naturali\n\n- conoscenza della legislazione forestale federale e cantonale, delle procedure amministrative pubbliche e delle normative tecniche applicabili\n\n- ottima conoscenza della lingua italiana (conversazione e redazione), buone conoscenze del tedesco e del francese (parlato e scritto)\n\n- ottime conoscenze ed esperienza degli applicativi informatici convenzionali\n\n- buone conoscenze di banche dati, di CAD e GIS\n\n- spirito d'iniziativa ed attitudine a lavorare in gruppo\n\n- capacità organizzative del proprio lavoro\n\n- disponibilità al lavoro fuori dagli orari d'ufficio\n\n- capacità nel gestire e motivare il personale ed i collaboratori\n\nOsservazioni particolari\n\n- entrata in funzione da convenire\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n2 settembre 2026\n\nUlteriori informazioni si possono ottenere presso il signor Andrea Pedrazzini, tel. 091 814 28 55.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-19",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4255",
-      "source": "Company Careers Crawler",
-      "salaryMin": 98621,
-      "salaryMax": 158999,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
-      "firstSeenAt": "2026-08-19T10:16:04.748Z",
-      "titleByLocale": {
-        "it": "Capoufficio III, a tempo pieno (100%) presso la Sezione forestale, 9° circondario forestale, Arbedo",
-        "en": "Head of office III, full-time (100%) at the Forestry Section, 9th Forestry District, Arbedo",
-        "de": "Büroleiter III, Vollzeit (100%) in der Forstabteilung, 9. Forstbezirk, Arbedo",
-        "fr": "Chef du bureau III, à temps plein (100 %) à la Section des forêts, 9e district forestier, Arbedo"
-      },
-      "descriptionByLocale": {
-        "it": "Compiti\n\n- pianificazione, supervisione e progettazione degli interventi selvicolturali\n\n- gestione degli aspetti legati alla conservazione e alla tutela delle aree boschive\n\n- definizione e attuazione di misure di prevenzione e intervento contro fitopatie e altre problematiche fitosanitarie che possono interessare gli ecosistemi forestali\n\n- consulenza a privati ed enti pubblici per tutte le attività connesse alla gestione forestale\n\n- supervisione e gestione, con il supporto del geologo di settore, dei progetti relativi alle opere di premunizione contro i pericoli naturali\n\n- coordinamento delle attività del circondario e collaborazione con i collaboratori diretti, in particolare con i forestali di settore e il segretario\n\n- partecipazione ai gruppi di lavoro istituiti dalla Sezione forestale, nei casi in cui, per tematiche specifiche, sia prevista o necessaria la presenza di ingegneri forestali di circondario\n\nRequisiti\n\n- titolo accademico completo (bachelor e master o licenza) in ingegneria forestale\n\n- costituiscono titoli preferenziali: certificato di eleggibilità o certificato di pratica\n\n- comprovata esperienza lavorativa nei campi della gestione del bosco, della pianificazione forestale ed in particolare nella gestione dei boschi di protezione\n\n- esperienza nella gestione di progetti forestali e di opere di protezione contro i pericoli naturali\n\n- conoscenza della legislazione forestale federale e cantonale, delle procedure amministrative pubbliche e delle normative tecniche applicabili\n\n- ottima conoscenza della lingua italiana (conversazione e redazione), buone conoscenze del tedesco e del francese (parlato e scritto)\n\n- ottime conoscenze ed esperienza degli applicativi informatici convenzionali\n\n- buone conoscenze di banche dati, di CAD e GIS\n\n- spirito d'iniziativa ed attitudine a lavorare in gruppo\n\n- capacità organizzative del proprio lavoro\n\n- disponibilità al lavoro fuori dagli orari d'ufficio\n\n- capacità nel gestire e motivare il personale ed i collaboratori\n\nOsservazioni particolari\n\n- entrata in funzione da convenire\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n2 settembre 2026\n\nUlteriori informazioni si possono ottenere presso il signor Andrea Pedrazzini, tel. 091 814 28 55.",
-        "en": "Tasks\n\n- planning, supervision and planning of forestry operations\n\n- management of aspects related to conservation and protection of forest areas\n\n- definition and implementation of prevention and intervention measures against phytopathies and other plant health problems affecting forest ecosystems\n\n- advice to private individuals and public bodies for all activities related to forest management\n\n- supervision and management, with the support of the sector geologist, of projects relating to premunition works against natural hazards\n\n- coordination of the activities of the district and collaboration with the direct collaborators, in particular with the sector forestry and the secretary\n\n- participation in the working groups established by the Forestry Section, in cases where, for specific issues, the presence of forest engineers in the area is foreseen or necessary\n\nRequirements\n\n- complete academic title (bachelor and master or license) in forest engineering\n\n- are preferential titles: certificate of eligibility or certificate of practice\n\n- proven working experience in the fields of forest management, forest planning and in particular in forest management\n\n- experience in the management of forest projects and protection works against natural hazards\n\n- knowledge of federal and cantonal forest legislation, public administrative procedures and applicable technical regulations\n\n- excellent knowledge of the Italian language (conversation and editing), good knowledge of German and French (speaking and written)\n\n- excellent knowledge and experience of conventional computer applications\n\n- good knowledge of databases, CAD and GIS\n\n- spirit of initiative and attitude to working in group\n\n- organizational capacity of your work\n\n- availability at work outside office hours\n\n- ability to manage and motivate staff and employees\n\nSpecial remarks\n\n- entry into operation to be agreed\n\nApplication conditions\n\n- applications must be submitted online. Other forms of application shall not be deemed valid\n\n- in addition to the documents to be submitted at the time of the online application (letter of presentation and motivation, curriculum vitae, diplomas, certificates and certificates of work), in a second moment may be required further documentation (judicial casellario with relative self-certification and self-certification on the state of health)\n\nConditions of use\n\n- appointment or assignment: these are those provided for by the Law on the sorting of employees of the State and teachers of 15 March 1995 (LORD) and the relevant Regulations. Any amendment of the law concerning salary and organization remains explicitly reserved\n\n- working hours: 42 hours per week (for a 100% employment ratio), flexible or according to service requirements\n\nDeadline\n\n2 September 2026\n\nFurther information can be obtained from Mr. Andrea Pedrazzini, tel. 091 814 28 55.",
-        "de": "Aufgaben\n\n- Planung, Überwachung und Planung forstwirtschaftlicher Vorhaben\n\n- Management von Aspekten der Erhaltung und des Schutzes von Waldgebieten\n\n- Festlegung und Durchführung von Präventions- und Interventionsmaßnahmen gegen Phytopathien und andere pflanzengesundheitliche Probleme, die Waldökosysteme betreffen\n\n- Beratung von Privatpersonen und öffentlichen Stellen bei allen Tätigkeiten im Zusammenhang mit der Waldbewirtschaftung\n\n- Überwachung und Verwaltung von Projekten im Zusammenhang mit Vormunitionsarbeiten gegen Naturgefahren mit Unterstützung des Geologen des Sektors\n\n- Koordination der Aktivitäten des Distrikts und Zusammenarbeit mit den direkten Mitarbeitern, insbesondere mit dem Sektor Forstwirtschaft und dem Sekretariat\n\n- Teilnahme an den von der Forstabteilung eingerichteten Arbeitsgruppen in Fällen, in denen für bestimmte Fragen die Anwesenheit von Forstingenieuren in dem Gebiet vorgesehen oder notwendig ist\n\nAnforderungen\n\n- Vollständiger akademischer Titel (Bachelor und Master oder Lizenz) in Forsttechnik\n\n- sind bevorzugte Titel: Bescheinigung über die Förderfähigkeit oder Bescheinigung über die Praxis\n\n- nachgewiesene Berufserfahrung in den Bereichen Waldbewirtschaftung, Waldplanung und insbesondere in der Waldbewirtschaftung\n\n- Erfahrung im Management von Waldprojekten und Schutzarbeiten gegen Naturgefahren\n\n- Kenntnisse des Bundes- und Kantonswaldrechts, der öffentlichen Verwaltungsverfahren und der geltenden technischen Vorschriften\n\n- exzellente Kenntnisse der italienischen Sprache (Gespräch und Redaktion), gute Deutsch- und Französischkenntnisse (Sprechen und Schreiben)\n\n- ausgezeichnete Kenntnisse und Erfahrungen mit herkömmlichen Computeranwendungen\n\n- gute Kenntnisse in Datenbanken, CAD und GIS\n\n- Initiativgeist und Einstellung zur Arbeit in der Gruppe\n\n- Organisationsfähigkeit Ihrer Arbeit\n\n- Verfügbarkeit am Arbeitsplatz außerhalb der Bürozeiten\n\n- Fähigkeit, Mitarbeiter und Mitarbeiter zu führen und zu motivieren\n\nBesondere Bemerkungen\n\n- Inbetriebnahme zu vereinbaren\n\nAnwendungsbedingungen\n\n- Anträge müssen online gestellt werden. Andere Anwendungsformen gelten nicht als gültig\n\n- Zusätzlich zu den Unterlagen, die zum Zeitpunkt der Online-Bewerbung einzureichen sind (Vortragsschreiben und Motivation, Lebenslauf, Diplome, Bescheinigungen und Arbeitszeugnisse), kann in einem zweiten Moment eine weitere Dokumentation erforderlich sein (richterliches Fallbeispiel mit relativer Selbstzertifizierung und Selbstzertifizierung zum Gesundheitszustand).\n\nVerwendungsbedingungen\n\n- Ernennung oder Abtretung: Dies sind diejenigen, die im Gesetz über die Sortierung von Staatsbediensteten und Lehrern vom 15. März 1995 (LORD) und den einschlägigen Vorschriften vorgesehen sind. Jede Änderung des Gesetzes über Gehalt und Organisation bleibt ausdrücklich vorbehalten\n\n- Arbeitszeit: 42 Stunden pro Woche (bei 100% Beschäftigungsquote), flexibel oder nach Serviceanforderungen\n\nFrist\n\n2. September 2026\n\nWeitere Informationen erhalten Sie bei Herrn Andrea Pedrazzini, Tel. 091 814 28 55.",
-        "fr": "Tâche\n\n- planification, supervision et planification des opérations forestières\n\n- Gestion des aspects liés à la conservation et à la protection des zones forestières\n\n- définition et mise en œuvre de mesures de prévention et d'intervention contre les phytopathies et autres problèmes phytosanitaires affectant les écosystèmes forestiers\n\n- Conseils aux particuliers et aux organismes publics pour toutes les activités liées à la gestion forestière\n\n- supervision et gestion, avec l'appui du géologue du secteur, de projets relatifs aux travaux de prémunition contre les risques naturels\n\n- coordination des activités du district et collaboration avec les collaborateurs directs, notamment avec le secteur forestier et le secrétaire\n\n- participation aux groupes de travail créés par la section des forêts, dans les cas où, pour des questions spécifiques, la présence d'ingénieurs forestiers est prévue ou nécessaire\n\nExigences\n\n- Titre académique complet (bachelor et maître ou licence) en génie forestier\n\n- sont des titres préférentiels: certificat d'éligibilité ou certificat de pratique\n\n- Expérience de travail éprouvée dans les domaines de la gestion forestière, de la planification forestière et en particulier de la gestion forestière\n\n- Expérience dans la gestion des projets forestiers et des travaux de protection contre les risques naturels\n\n- Connaissance de la législation forestière fédérale et cantonale, des procédures administratives publiques et des règlements techniques applicables\n\n- excellente connaissance de la langue italienne (conversation et édition), bonne connaissance de l'allemand et du français (parle et écrit)\n\n- excellente connaissance et expérience des applications informatiques classiques\n\n- Bonne connaissance des bases de données, CAO et SIG\n\n- esprit d'initiative et attitude à l'égard du travail en groupe\n\n- capacité organisationnelle de votre travail\n\n- disponibilité au travail en dehors des heures de bureau\n\n- capacité de gérer et de motiver le personnel et les employés\n\nRemarques spéciales\n\n- entrée en vigueur à convenir\n\nConditions d'application\n\n- Les demandes doivent être soumises en ligne. Les autres formes de demande ne sont pas considérées comme valables\n\n- en plus des documents à soumettre au moment de la demande en ligne (lettre de présentation et de motivation, curriculum vitae, diplômes, certificats et certificats de travail), dans un deuxième moment peut être exigé des documents supplémentaires (casellario judiciaire avec autocertification relative et autocertification de l'état de santé)\n\nConditions d'utilisation\n\n- Il s ' agit de la loi du 15 mars 1995 sur le classement des employés de l ' État et des enseignants (LORD) et des règlements correspondants. Toute modification de la loi relative au salaire et à l ' organisation reste expressément réservée.\n\n- durée de travail: 42 heures par semaine (pour un taux d'emploi de 100%), flexible ou selon les exigences de service\n\nDélai\n\n2 septembre 2026\n\nPour de plus amples informations, veuillez contacter M. Andrea Pedrazzini, tél. 091 814 28 55."
-      },
-      "slugByLocale": {
-        "it": "capoufficio-iii-a-tempo-pieno-100-presso-la-sezione-forestale-9-circondario-forestale-arbedo-amministrazione-cantonale-ti-bellinzona-213hmm",
-        "en": "head-of-office-iii-full-time-100-at-the-forestry-section-9th-forestry-district-arbedo-amministrazione-cantonale-ticino",
-        "de": "buroleiter-iii-vollzeit-100-in-der-forstabteilung-9-forstbezirk-arbedo-amministrazione-cantonale-ticino-bellinzona",
-        "fr": "chef-du-bureau-iii-a-temps-plein-100-a-la-section-des-forets-9e-district-forestier-arbedo-amministrazione-cantonale"
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "it",
-      "previousSlugsByLocale": {
-        "it": [
-          "capoufficio-iii-a-tempo-pieno-100-presso-la-sezione-forestale-9-circondario-forestale-arbedo-amministrazione-cantonale-ti-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "capoufficio-iii-a-tempo-pieno-100-presso-la-sezione-forestale-9-circondario-forestale-arbedo-amministrazione-cantonale-ti-bellinzona"
-      ],
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 98621,
-          "maxValue": 158999,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "salarySource": "reported"
-    },
-    {
       "id": "company-213hmq",
       "slug": "curatore-trice-a-tempo-parziale-50-presso-l-ufficio-dell-aiuto-e-della-protezione-bellinzona-amministrazione-cantonale-ti-bellinzona-213hmq",
       "company": "Amministrazione Cantonale Ticino",
@@ -227,7 +161,7 @@
       "salaryMax": 116071,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-08-17T10:02:50.276Z",
       "titleByLocale": {
         "it": "Curatore/trice a tempo parziale (50%), presso l'Ufficio dell’aiuto e della protezione, Bellinzona",
@@ -310,13 +244,13 @@
       "salaryMax": 158999,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-08-04T22:20:27.551Z",
       "titleByLocale": {
         "it": "Capo ufficio III a tempo parziale (80%) - a tempo pieno (100%), presso l’Ufficio di sanità, Bellinzona",
         "en": "Head of office III (80%) - full-time (100%), at the Health Office, Bellinzona",
         "de": "Büroleiter III (80%) - Vollzeit (100%), im Gesundheitsamt, Bellinzona",
-        "fr": "Chef du bureau III (80 %) - temps plein (100 %) au Bureau de la santé de Bellinzona"
+        "fr": "Capo ufficio III a tempo parziale (80%) - a tempo pieno (100%), presso l’Ufficio di sanità, Bellinzona"
       },
       "descriptionByLocale": {
         "it": "Compiti\n\n- dirigere l'Ufficio di sanità, assicurando la gestione amministrativa, delle risorse umane e degli aspetti tecnici, giuridici e finanziari\n\n- coordinare l'attività autorizzativa dal profilo della polizia sanitaria così come della fatturazione a carico dell'assicurazione malattia, i compiti di vigilanza riguardanti gli operatori, i servizi e le strutture sanitari e sociosanitari nonché l'agibilità degli edifici di uso pubblico e collettivo\n\n- sviluppare e verificare il rispetto delle procedure interne per l'emanazione delle decisioni e per il relativo seguito, anche mediante adeguati strumenti informatici\n\n- organizzare e gestire il finanziamento di servizi e attività in materia di salute pubblica\n\n- collaborare con le altre unità amministrative della Divisione e del Dipartimento nella gestione corrente, nello sviluppo di progetti e nell'elaborazione di rapporti o revisioni legislative\n\n- promuovere le relazioni con gli altri servizi dell'Amministrazione cantonale e con organi intercantonali e federali, anche partecipando a commissioni e gruppi di lavoro\n\n- rappresentare l'Ufficio verso enti esterni, ordini o associazioni professionali e media\n\nRequisiti\n\n- formazione accademica completa (bachelor e master o licenza) in diritto\n\n- esperienza nel campo del diritto amministrativo e procedurale\n\n- dimestichezza con i processi legislativi e decisionali a livello federale e cantonale\n\n- abilità redazionale e buone conoscenze di almeno una seconda lingua ufficiale (conversazione e redazione)\n\n- capacità di organizzazione, analisi, sintesi e decisione\n\n- attitudine al lavoro in team e alla mediazione\n\n- titoli preferenziali:\n\n- brevetto di avvocato\n\n- conoscenza della legislazione sanitaria\n\n- esperienza in posizione dirigenziale nella gestione di risorse umane e finanziarie\n\nCondizioni di presentazione della candidatura\n\n- le candidature vanno inoltrate on-line. Altre forme di candidatura non saranno ritenute valide\n\n- oltre ai documenti da inoltrare al momento della candidatura on-line (lettera di presentazione e motivazione, curriculum vitae, diplomi, certificati e attestati di lavoro), in un secondo momento potrà essere richiesta ulteriore documentazione (casellario giudiziale con relativa autocertificazione e autocertificazione sullo stato di salute)\n\nCondizioni d’impiego\n\n- nomina o incarico: sono quelle previste dalla Legge sull'ordinamento degli impiegati dello Stato e dei docenti del 15 marzo 1995 (LORD) e dal relativo Regolamento. Rimane esplicitamente riservata ogni modificazione di legge concernente lo stipendio e l'organizzazione\n\n- orario di lavoro: 42 ore settimanali (per un rapporto d’impiego al 100%), flessibile o secondo le esigenze di servizio\n\nScadenza\n\n3 settembre 2026\n\nUlteriori informazioni si possono ottenere presso il signor Paolo Bianchi, Direttore della Divisione della salute pubblica e Coordinatore del Dipartimento della sanità e della socialità, tel. 091 814 30 43.",
@@ -388,7 +322,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "country": "CH",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j37",
@@ -408,7 +343,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-07-06T22:31:01.671Z",
       "slugByLocale": {
         "it": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
@@ -537,7 +472,7 @@
       "salaryMax": 64005,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione--213j3w",
@@ -587,7 +522,8 @@
         "allgemeiner-wettbewerb-2026-kuchenhilfe-buro-fur-verpflegung-und-schultransport-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rappor",
         "concours-general-2026-aide-cuisine-office-de-la-restauration-et-des-transports-scolaires-bellinzona-orario-di-lavoro-42-ore-settimanali-per-"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "company-213zbv",
@@ -609,7 +545,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-02T13:44:55.376Z",
+      "crawledAt": "2026-09-02T23:17:36.555Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv",
