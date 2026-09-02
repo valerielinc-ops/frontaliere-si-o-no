@@ -5068,6 +5068,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.basilea-campagna-scuola-iscrizione.title': 'Obligatorische Schule Basel-Landschaft: Zyklen und Einschreibung',
     'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'Die Schweizerische Pflichtschule dauert 9 Jahre, beginnt mit 6 Jahren und gliedert sich in Primar- und Sekundarschule. Immatrikulationsverfahren und Schulübergänge nach Bundesvorschriften.',
     'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'Schweizer Grundschule mit spielenden Kindern im Schulhof',
+    'blog.article.tirocinio-basilea-campagna-guida.title': 'Lehre im Kanton Basel-Landschaft',
+    'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'So finden Sie ein Praktikum im Kanton Basel-Landschaft, den Ausbildungsvertrag, die Vergütung, die Sozialbeiträge und den Weg zur Berufsmaturität.',
+    'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Junge Lernende in einer technischen Berufsausbildungswerkstatt in der Schweiz',
 };
 
 export default blogMetaChDe;

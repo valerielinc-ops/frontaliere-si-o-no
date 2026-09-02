@@ -5068,6 +5068,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.basilea-campagna-scuola-iscrizione.title': 'Scuola dell\'obbligo Basilea Campagna: cicli e iscrizione',
     'blog.article.basilea-campagna-scuola-iscrizione.excerpt': 'La scuola dell\'obbligo svizzera dura 9 anni, inizia a 6 anni e si divide in primaria e secondaria. Procedura di iscrizione e transizioni scolastiche secondo le norme federali.',
     'blog.article.basilea-campagna-scuola-iscrizione.imageAlt': 'Scuola primaria svizzera con bambini che giocano nel cortile',
+    'blog.article.tirocinio-basilea-campagna-guida.title': 'Apprendistato nel canton Basilea campagna',
+    'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'Come trovare un tirocinio nel canton Basilea Campagna, il contratto di formazione, retribuzione, contributi sociali e il percorso verso la maturità professionale.',
+    'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Giovani apprendisti in laboratorio tecnico di formazione professionale in Svizzera',
 };
 
 export default blogMetaChIt;
