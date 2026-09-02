@@ -11102,6 +11102,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-02.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 2. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-02.seoDescription': 'Grenzgänger-Bulletin vom 2. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-02.ogDescription': 'Die Zahlen vom 2. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.title': 'In Malgesso und Bregano leben und im Tessin arbeiten',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Bardello, Malgesso und Bregano ins Tessin.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.imageAlt': 'Panoramablick auf den Luganersee mit den Bergen des Tessin im Hintergrund',
 };
 
 export default blogMetaDe;

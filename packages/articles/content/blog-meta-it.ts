@@ -11104,6 +11104,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-02.imageAlt': 'I numeri del giorno per i frontalieri – 2 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-02.seoDescription': 'Bollettino frontalieri del 2 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-02.ogDescription': 'I numeri del 2 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.title': 'Vivere a Bardello con Malgesso e Bregano e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento da Bardello, Malgesso e Bregano al Ticino.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne del Ticino in sfondo',
 };
 
 export default blogMetaIt;

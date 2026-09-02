@@ -11103,6 +11103,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-02.imageAlt': 'The day\'s numbers for cross-border commuters – September 2, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-02.seoDescription': 'Cross-border brief, September 2, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-02.ogDescription': 'The numbers for September 2, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.title': 'Living in Bardello, Malgesso, Bregano & working in Ticino',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.excerpt': 'Discover the connections, journey times, cost of living and advantages of transferring from Bardello, Malgesso and Bregano to Ticino.',
+    'blog.article.vivere-bardello-malegesso-bregano-lavorare-ticino.imageAlt': 'Panoramic view of Lake Lugano with the mountains of Ticino in the background',
 };
 
 export default blogMetaEn;
