@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-schloss-mammern",
-  "assembledAt": "2026-09-02T13:48:45.540Z",
+  "assembledAt": "2026-09-02T15:04:46.642Z",
   "jobs": [
     {
       "id": "klinik-schloss-mammern-c5428bcb39c8",
@@ -695,80 +695,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "klinik-schloss-mammern-c7423a389983",
-      "slug": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-e-dipl-pflegefachperson-hf-verkuerzt-klinik-schloss-mammern",
-      "slugByLocale": {
-        "en": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt",
-        "fr": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-e-dipl-pflegefachperson-hf-verkuerzt-klinik-schloss-mammern",
-        "it": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-e-dipl-pflegefachperson-hf-verkuerzt-klinik-schloss-mammern",
-        "de": "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt"
-      },
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt",
-      "titleByLocale": {
-        "en": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt",
-        "de": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt",
-        "it": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf e Dipl. Pflegefachperson Hf Verkuerzt",
-        "fr": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt"
-      },
-      "description": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-      "descriptionByLocale": {
-        "en": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-        "it": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-        "de": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz.",
-        "fr": "Ausbildungsplaetze Zur Dipl. Pflegefachperson Hf Und Dipl. Pflegefachperson Hf Verkuerzt — Klinik Schloss Mammern, Mammern (TG). Privatklinik für Rehabilitation am Untersee, seit 1889 im Familienbesitz."
-      },
-      "needsRetranslation": true,
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:48:21.951Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-02",
-      "applyUrl": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
-      "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt"
-        ]
-      },
-      "previousSlugs": [
-        "ausbildungsplaetze-zur-dipl-pflegefachperson-hf-und-dipl-pflegefachperson-hf-verkuerzt"
-      ],
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-02T13:48:21.951Z"
     },
     {
       "id": "klinik-schloss-mammern-a0c2121f2705",
