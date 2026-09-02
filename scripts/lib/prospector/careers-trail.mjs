@@ -329,9 +329,13 @@ export async function traceFromCareersUrl(careersUrl, employerDomain) {
   if (!page.ok || page.body.length < 300) return result;
   result.reachable = true;
   result.careersUrls.push(page.url);
+  // Same reasoning as traceCareers(): a cross-origin redirect on `careersUrl`
+  // itself means `page.url`'s host, not the caller-supplied `employerDomain`,
+  // is what every link on this page is actually relative to.
+  const pageHost = normalizeHost(new URL(page.url).hostname);
   const links = extractLinks(page.body, page.url);
   const checked = [];
-  for (const cand of externalAtsLinks(links, employerDomain, { relaxed: true }).slice(0, 6)) {
+  for (const cand of externalAtsLinks(links, pageHost, { relaxed: true }).slice(0, 6)) {
     checked.push(await verifyAtsHost(cand));
   }
   result.externalHosts = checked.filter((c) => c.verified);
@@ -360,17 +364,26 @@ export async function traceCareers(domain, opts = {}) {
   if (!home.ok || home.body.length < 300) return result;
   result.reachable = true;
   const origin = new URL(home.url).origin;
+  // A cross-origin redirect can land the homepage on a different registrable
+  // domain (rebrand, ccTLD forward, vendor-hosted homepage) before `home.url`
+  // is captured. Every "is this link ours or a third party?" check below has
+  // to key off where the homepage actually resolved to, not the domain we
+  // asked for — comparing against the pre-redirect `domain` would make every
+  // link on the redirected page read as external (its host never matches
+  // `domain`'s registrable domain), which both hides real on-site careers
+  // links and misreads homepage chrome as ATS candidates.
+  const homeHost = normalizeHost(new URL(home.url).hostname);
   const homeLinks = extractLinks(home.body, home.url);
 
   // Hop 0 — the ATS link is sometimes right on the homepage.
-  const fromHome = externalAtsLinks(homeLinks, domain);
+  const fromHome = externalAtsLinks(homeLinks, homeHost);
   if (fromHome.length) { result.externalHosts.push(...fromHome); result.via.push('homepage'); }
 
   // Hop 1 — candidate careers pages, cheapest source first.
   const candidates = [];
   for (const l of homeLinks) {
     if (!isCareerLink(l)) continue;
-    if (registrableDomain(l.host) !== registrableDomain(domain)) continue;
+    if (registrableDomain(l.host) !== registrableDomain(homeHost)) continue;
     candidates.push(l.url);
   }
   if (candidates.length) result.via.push('homepage-link');
@@ -403,7 +416,7 @@ export async function traceCareers(domain, opts = {}) {
     if (!isDistinctCareerSurface(home.body, page.body, page.url, home.url)) continue;
     result.careersUrls.push(page.url);
     const links = extractLinks(page.body, page.url);
-    for (const ext of externalAtsLinks(links, domain, { relaxed: true, globalLinks: homeLinks })) {
+    for (const ext of externalAtsLinks(links, homeHost, { relaxed: true, globalLinks: homeLinks })) {
       if (!result.externalHosts.some((e) => e.host === ext.host)) result.externalHosts.push(ext);
     }
   }
