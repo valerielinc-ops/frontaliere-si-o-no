@@ -417,6 +417,51 @@ describe('Albergo Gardenia authoritative crawler', () => {
     });
   });
 
+  it('does not memoize a failed loadInventory() across fetchPage() calls', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn()
+      .mockRejectedValueOnce(new Error('network error'))
+      .mockImplementationOnce(async () => new Response(JSON.stringify({
+        success: true,
+        result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+      }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+
+    const failedResponse = await transport.fetchPage(sourceUrl);
+    expect(failedResponse).toMatchObject({ ok: false, error: 'network error' });
+    const response = await transport.fetchPage(sourceUrl);
+    expect(response).toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+      host: 'www.albergo-gardenia.ch',
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+  });
+
   it('fails closed when the clean-egress browser loses homepage identity or a resource', async () => {
     const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
     const envelope = (snapshot: object) => {

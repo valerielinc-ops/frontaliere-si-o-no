@@ -408,7 +408,12 @@ export function createAlbergoGardeniaCleanEgressTransport({
   }
 
   async function inventory() {
-    if (!inventoryPromise) inventoryPromise = loadInventory();
+    if (!inventoryPromise) {
+      inventoryPromise = loadInventory().catch((error) => {
+        inventoryPromise = null;
+        throw error;
+      });
+    }
     return inventoryPromise;
   }
 
