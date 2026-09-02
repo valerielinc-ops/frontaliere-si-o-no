@@ -15607,6 +15607,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'diritto-locazione-zurigo-deposito-disdetta',
+    category: 'pratico',
+    date: '2026-09-02T21:00:25.532Z',
+    image: '/images/blog/diritto-locazione-zurigo-deposito-disdetta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

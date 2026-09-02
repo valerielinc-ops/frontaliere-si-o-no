@@ -5203,6 +5203,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-usa-seco-svizzera-2026.title': 'Neue US-Zölle auf Schweizer Waren: Was sich ab 2026 ändert',
     'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'Ab dem 24. Juli 2026 erheben die USA variable Zölle von bis zu 12,5% auf Schweizer Waren. Das SECO überwacht die Implikationen für die Unternehmen.',
     'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'SECO-Büros in der Schweiz',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Vermietungen Zürich: Mietrecht und Verfahren',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Vollständiger Leitfaden zum Mietrecht im Kanton Zürich: Kaution, Gebührenbeanstandung, Kündigung und gesetzliche Fristen.',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Modernes Wohngebäude mit zeitgenössischer Fassade und hellen Fenstern in der Schweiz',
 };
 
 export default blogMetaChDe;

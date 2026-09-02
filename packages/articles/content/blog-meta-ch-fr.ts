@@ -5203,6 +5203,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-usa-seco-svizzera-2026.title': 'Nouveaux droits de douane USA sur les marchandises suisses : ce qui change',
     'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'À compter du 24 juillet 2026, les États-Unis appliquent des droits variables allant jusqu\'à 12,5 % sur les biens suisses. Le SECO surveille les implications pour les entreprises.',
     'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'Bureaux du SECO en Suisse',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Location Zurich : droit de location et procédures',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Guide complet du droit de location dans le canton de Zurich : dépôt de garantie, contestation de redevance, résiliation et délais légaux.',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Immeuble résidentiel moderne avec façade contemporaine et fenêtres lumineuses',
 };
 
 export default blogMetaChFr;

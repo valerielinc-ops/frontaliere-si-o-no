@@ -5203,6 +5203,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-usa-seco-svizzera-2026.title': 'New US duties on Swiss goods: what changes from 2026',
     'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'From 24 July 2026, the United States will apply variable tariffs of up to 12.5% on Swiss goods. SECO monitors the implications for businesses.',
     'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'SECO offices in Switzerland',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Rentals Zurich: rental rights and procedures',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Complete guide to the right to rent in the Canton of Zurich: security deposit, chargeback, cancellation and legal deadlines.',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Modern Swiss residential building with contemporary facade and bright windows',
 };
 
 export default blogMetaChEn;
