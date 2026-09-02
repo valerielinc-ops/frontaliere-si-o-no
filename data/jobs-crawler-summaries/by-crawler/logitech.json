@@ -1,20 +1,21 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-09-01T23:27:15.539Z",
+  "generatedAt": "2026-09-02T13:49:18.243Z",
   "total": 4,
   "discovered": null,
   "written": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 32929,
-  "avgDurationMs": 32929,
+  "durationMs": 30700,
+  "avgDurationMs": 30700,
   "durationHistory": [
-    32929
+    30700
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "logitech-c190e7c48090",
       "slug": "audio-machine-learning-data-engineer-logitech-ch",
@@ -27,7 +28,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:27:08.641Z",
+      "crawledAt": "2026-09-02T13:49:13.558Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,16 +41,16 @@
       "featured": false,
       "postedDate": "2026-09-01",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
-      "_qualityScore": 61,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-01T23:27:08.641Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 21,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "logitech-d1959dea47ae",
       "slug": "machine-learning-training-infrastructure-engineer-logitech-ch",
@@ -62,7 +63,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-AI-ML-Engineer_146488",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:27:09.551Z",
+      "crawledAt": "2026-09-02T13:49:14.462Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -96,7 +97,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:27:10.465Z",
+      "crawledAt": "2026-09-02T13:49:15.378Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,7 +131,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Head-of-Product-Security_146199",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:27:12.280Z",
+      "crawledAt": "2026-09-02T13:49:16.274Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
