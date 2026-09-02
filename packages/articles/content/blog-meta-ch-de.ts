@@ -5032,6 +5032,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.title': 'Einbürgerung in Graubünden: Voraussetzungen und Ablauf',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.excerpt': 'Wie man Schweizer Bürger im Kanton Graubünden wird. Bundesweg, kantonale Anforderungen, Sprach- und Integrationstests, Gebühren und Verfahrensdauer.',
     'blog.article.naturalizzazione-grigioni-requisiti-procedura.imageAlt': 'Schalter einer Schweizer Kantonsadministration mit Einbürgerungsformularen und amtlichen Dokumenten in natürlichem Licht.',
+    'blog.article.avs-prestazioni-complementari-grigioni.title': 'AHV und Ergänzungsleistungen im Kanton Graubünden',
+    'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'Erste Säule, Beitragslücken und Zugang zu Ergänzungsleistungen: Praktischer Leitfaden für Bewohner und Steuerpflichtige des Kantons Graubünden.',
+    'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Kantonsamt: Finanzberater prüft Rentendokumente und Altersvorsorgeunterlagen',
 };
 
 export default blogMetaChDe;
