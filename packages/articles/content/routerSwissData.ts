@@ -1719,6 +1719,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-apprendistato-formazione-professionale': { it: 'guida-apprendistato-formazione-professionale', en: 'apprenticeship-training-guide-switzerland', de: 'lehrausbildung-berufsbildung-guide', fr: 'guide-apprentissage-formation-professionnelle' },
  'asilo-nido-custodia-basilea-campagna-costi': { it: 'asilo-nido-custodia-basilea-campagna-costi', en: 'nursery-childcare-basel-landschaft-costs', de: 'kindergarten-kinderbetreuung-basellandschaft-kosten', fr: 'creche-garde-enfants-bale-campagne-couts' },
  'salari-grigioni-settori-livelli': { it: 'salari-grigioni-settori-livelli', en: 'salaries-graubunden-sectors-levels', de: 'loehne-graubuenden-sektoren-niveaus', fr: 'salaires-grisons-secteurs-niveaux' },
+ 'imposte-cantonali-argovia-aliquote': { it: 'imposte-cantonali-argovia-aliquote', en: 'cantonal-taxes-aargau-rates-deductions', de: 'kantonal-steuern-aargau-saetze-abzuege', fr: 'impots-cantonaux-argovie-taux-deductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

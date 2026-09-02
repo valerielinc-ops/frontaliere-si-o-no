@@ -5080,6 +5080,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-grigioni-settori-livelli.title': 'Löhne und Arbeitsmarkt in Graubünden',
     'blog.article.salari-grigioni-settori-livelli.excerpt': 'Branchen mit Stellenangeboten, Lohnniveaus nach Ausbildung und Gesamtarbeitsverträge im Kanton Graubünden: Ein Leitfaden zu den Schweizer Regelungen.',
     'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Professioneller Arbeitsplatz im Kanton Graubünden mit Gehaltsdokumenten und Rechner auf dem Schreibtisch',
+    'blog.article.imposte-cantonali-argovia-aliquote.title': 'Kantonale Steuern im Aargau: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonali-argovia-aliquote.excerpt': 'Erfahren Sie, wie die kantonalen und kommunalen Steuern im Kanton Aargau funktionieren, welche progressiven Steuersätze gelten, welche Abzüge zulässig sind und wie Sie Ihre Steuererklärung online einreichen können. Ein praktischer Leitfaden.',
+    'blog.article.imposte-cantonali-argovia-aliquote.imageAlt': 'Schweizer Steuerbüro mit Steuererklärungsformularen und Taschenrechner auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;
