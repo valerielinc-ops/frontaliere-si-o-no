@@ -1287,7 +1287,7 @@
     },
     {
       "id": "company-mz5tnf",
-      "slug": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf",
+      "slug": "macellaia-macellaio-salumaia-salumiere-f-h-d-coop-genossenschaft-signy-avenex-vaud",
       "company": "Coop Genossenschaft",
       "title": "Bouchère - Boucher / Charcutière - Charcutier (f/h/d)",
       "location": "Signy-Avenex, Vaud",
@@ -1333,8 +1333,8 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf",
-        "en": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf",
+        "it": "macellaia-macellaio-salumaia-salumiere-f-h-d-coop-genossenschaft-signy-avenex-vaud",
+        "en": "butcher-delicatessen-specialist-f-h-d-coop-genossenschaft-signy-avenex-vaud",
         "de": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf",
         "fr": "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf"
       },
@@ -1354,11 +1354,16 @@
         }
       },
       "previousSlugs": [
-        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud"
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud",
+        "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud"
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud",
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf"
+        ],
+        "en": [
+          "bouchere-boucher-charcutiere-charcutier-m-w-d-coop-signy-avenex-vaud-mz5tnf"
         ]
       },
       "salaryMin": 60500,
@@ -4385,7 +4390,7 @@
     },
     {
       "id": "company-4peav3",
-      "slug": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3",
+      "slug": "capo-reparto-cassa-servizi-f-h-d-coop-genossenschaft-crissier-vaud",
       "company": "Coop Genossenschaft",
       "title": "Cheffe / Chef de rayon Caisse/Services (f/h/d)",
       "location": "Crissier, Vaud",
@@ -4433,9 +4438,9 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3",
-        "en": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3",
-        "de": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3",
+        "it": "capo-reparto-cassa-servizi-f-h-d-coop-genossenschaft-crissier-vaud",
+        "en": "checkout-services-department-manager-f-h-d-coop-genossenschaft-crissier-vaud",
+        "de": "kassenleiter-in-servicebereichsleiter-in-f-h-d-coop-genossenschaft-crissier-vaud",
         "fr": "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3"
       },
       "needsRetranslation": true,
@@ -4454,11 +4459,19 @@
         }
       },
       "previousSlugs": [
-        "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud"
+        "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud",
+        "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud"
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud",
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3"
+        ],
+        "en": [
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3"
+        ],
+        "de": [
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-vaud-4peav3"
         ]
       },
       "salaryMin": 60500,
@@ -5655,9 +5668,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1",
-        "en": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1",
-        "de": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1",
-        "fr": "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
+        "en": "butcher-butcher-salumiera-salumiera-m-f-d-coop-genossenschaft-mendrisio-ticino",
+        "de": "schlachter-schlachter-salumiera-salumiera-m-w-d-coop-genossenschaft-mendrisio-ticino",
+        "fr": "boucher-boucher-salumiera-salumiera-h-f-d-coop-genossenschaft-mendrisio-ticino"
       },
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
@@ -5673,7 +5686,21 @@
         }
       },
       "salaryMin": 49500,
-      "salaryMax": 75000
+      "salaryMax": 75000,
+      "previousSlugsByLocale": {
+        "en": [
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
+        ],
+        "de": [
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
+        ],
+        "fr": [
+          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
+        ]
+      },
+      "previousSlugs": [
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
+      ]
     },
     {
       "id": "company-2d3q8k",
@@ -6285,7 +6312,7 @@
     },
     {
       "id": "company-ibjgei",
-      "slug": "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud",
+      "slug": "capo-a-del-reparto-alimenti-di-base-m-f-d-coop-genossenschaft-lutry-vaud",
       "company": "Coop Genossenschaft",
       "title": "Cheffe / Chef de rayon Aliments de base (f/h/d)",
       "location": "Lutry, Vaud",
@@ -6333,9 +6360,9 @@
         "de": []
       },
       "slugByLocale": {
-        "it": "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei",
-        "en": "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei",
-        "de": "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei",
+        "it": "capo-a-del-reparto-alimenti-di-base-m-f-d-coop-genossenschaft-lutry-vaud",
+        "en": "head-of-basic-foodstuffs-department-m-f-d-coop-genossenschaft-lutry-vaud",
+        "de": "leiter-in-der-abteilung-grundnahrungsmittel-m-w-d-coop-genossenschaft-lutry-vaud",
         "fr": "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei"
       },
       "needsRetranslation": true,
@@ -6355,7 +6382,23 @@
       },
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei",
+          "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud"
+        ],
+        "en": [
+          "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei"
+        ],
+        "de": [
+          "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud-ibjgei",
+        "cheffe-chef-de-rayon-aliments-de-base-m-w-d-coop-lutry-vaud"
+      ]
     },
     {
       "id": "company-uie5vy",
@@ -7059,8 +7102,8 @@
       },
       "slugByLocale": {
         "it": "venditrice-venditore-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h",
-        "en": "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h",
-        "de": "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h",
+        "en": "seller-flowers-kiosk-m-f-d-coop-genossenschaft-epalinges-vaud",
+        "de": "verkaufer-blumen-kiosk-m-w-d-coop-genossenschaft-epalinges-vaud",
         "fr": "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h"
       },
       "addressLocality": "Epalinges",
@@ -7078,11 +7121,18 @@
         }
       },
       "previousSlugs": [
-        "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud"
+        "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud",
+        "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud"
+        ],
+        "en": [
+          "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h"
+        ],
+        "de": [
+          "vendeuse-vendeur-fleurs-kiosque-m-w-d-coop-epalinges-vaud-o4am5h"
         ]
       },
       "salaryMin": 60500,
@@ -11023,7 +11073,7 @@
     },
     {
       "id": "company-5o5lxe",
-      "slug": "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe",
+      "slug": "panettiere-a-pasticciere-a-coop-genossenschaft-affoltern-am-albis-zurich",
       "company": "Coop Genossenschaft",
       "title": "Bäcker:in - Konditor:in",
       "location": "Affoltern am Albis, Zürich",
@@ -11069,10 +11119,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe",
-        "en": "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe",
+        "it": "panettiere-a-pasticciere-a-coop-genossenschaft-affoltern-am-albis-zurich",
+        "en": "baker-pastry-chef-coop-genossenschaft-affoltern-am-albis-zurich",
         "de": "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe",
-        "fr": "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe"
+        "fr": "boulanger-ere-patissier-ere-coop-genossenschaft-affoltern-am-albis-zurich"
       },
       "addressLocality": "Affoltern am Albis",
       "sourceLang": "de",
@@ -11091,12 +11141,20 @@
       "previousSlugsByLocale": {
         "it": [
           "backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis",
-          "backer-in-konditor-in-coop-affoltern-am-albis-zurich"
+          "backer-in-konditor-in-coop-affoltern-am-albis-zurich",
+          "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe"
+        ],
+        "en": [
+          "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe"
+        ],
+        "fr": [
+          "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe"
         ]
       },
       "previousSlugs": [
         "backer-in-konditor-in-coop-genossenschaft-affoltern-am-albis",
-        "backer-in-konditor-in-coop-affoltern-am-albis-zurich"
+        "backer-in-konditor-in-coop-affoltern-am-albis-zurich",
+        "backer-in-konditor-in-coop-affoltern-am-albis-zurich-5o5lxe"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
@@ -12839,9 +12897,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietlikon-pgx41l",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietlikon-pgx41l",
+        "en": "retail-sales-assistant-eba-coop-city-dietlikon",
         "de": "detailhandelsassistent-in-eba-coop-city-dietlikon-pgx41l",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietlikon-pgx41l"
+        "fr": "assistant-vendeur-eba-coop-city-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -12858,11 +12916,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietlikon-2"
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-2",
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-pgx41l"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietlikon-2"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-pgx41l"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-pgx41l"
         ]
       },
       "salaryMin": 99000,
@@ -13109,9 +13174,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietlikon-1z2gtq",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietlikon-1z2gtq",
+        "en": "retail-assistant-eba-coop-city-dietlikon",
         "de": "detailhandelsassistent-in-eba-coop-city-dietlikon-1z2gtq",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietlikon-1z2gtq"
+        "fr": "assistant-de-detail-dans-eba-coop-city-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -13129,12 +13194,19 @@
       },
       "previousSlugs": [
         "detailhandelsassistent-in-eba-coop-city-dietlikon-4",
-        "detailhandelsassistent-in-eba-coop-city-dietlikon-3"
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-3",
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-1z2gtq"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietlikon-4",
           "detailhandelsassistent-in-eba-coop-city-dietlikon-3"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-1z2gtq"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-1z2gtq"
         ]
       },
       "salaryMin": 107500,
@@ -13641,9 +13713,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-gvek6s",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-gvek6s",
+        "en": "retail-assistant-eba-coop-city-dietikon",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-gvek6s",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-gvek6s"
+        "fr": "assistant-vente-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -13660,11 +13732,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-4"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-4",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-gvek6s"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-4"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-gvek6s"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-gvek6s"
         ]
       },
       "salaryMin": 107000,
@@ -13775,9 +13854,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-oz092e",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-oz092e",
+        "en": "retail-assistant-eba-coop-city-dietikon-30e87a",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-oz092e",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-oz092e"
+        "fr": "assistant-vente-au-detail-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -13794,11 +13873,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-5"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-5",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-oz092e"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-5"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-oz092e"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-oz092e"
         ]
       },
       "salaryMin": 107000,
@@ -14039,9 +14125,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-3maqjj",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-3maqjj",
+        "en": "retail-assistant-eba-coop-city-dietikon-abb364",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-3maqjj",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-3maqjj"
+        "fr": "assistant-de-detail-dans-eba-coop-city-dietikon-abb364"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14058,11 +14144,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-7"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-7",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-3maqjj"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-7"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-3maqjj"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-3maqjj"
         ]
       },
       "salaryMin": 113000,
@@ -14303,9 +14396,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-fmi2w3",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-fmi2w3",
+        "en": "retail-assistant-eba-coop-city-dietikon-5c4d4a",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-fmi2w3",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-fmi2w3"
+        "fr": "assistant-de-detail-dans-eba-coop-city-dietikon-5c4d4a"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14322,11 +14415,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-9"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-9",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-fmi2w3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-9"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-fmi2w3"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-fmi2w3"
         ]
       },
       "salaryMin": 107500,
@@ -14567,9 +14667,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietikon-5x1qja",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietikon-5x1qja",
+        "en": "retail-sales-assistant-eba-coop-city-dietikon",
         "de": "detailhandelsassistent-in-eba-coop-city-dietikon-5x1qja",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietikon-5x1qja"
+        "fr": "assistant-de-vente-au-detail-eba-coop-city-dietikon"
       },
       "addressLocality": "Dietikon",
       "sourceLang": "de",
@@ -14586,11 +14686,18 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsassistent-in-eba-coop-city-dietikon-11"
+        "detailhandelsassistent-in-eba-coop-city-dietikon-11",
+        "detailhandelsassistent-in-eba-coop-city-dietikon-5x1qja"
       ],
       "previousSlugsByLocale": {
         "it": [
           "detailhandelsassistent-in-eba-coop-city-dietikon-11"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-5x1qja"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietikon-5x1qja"
         ]
       },
       "salaryMin": 105500,
@@ -15260,9 +15367,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "detailhandelsassistent-in-afp-coop-city-dietlikon-xj95gl",
-        "en": "detailhandelsassistent-in-eba-coop-city-dietlikon-xj95gl",
+        "en": "retail-sales-assistant-eba-coop-city-dietlikon-75ed6e",
         "de": "detailhandelsassistent-in-eba-coop-city-dietlikon-xj95gl",
-        "fr": "detailhandelsassistent-in-eba-coop-city-dietlikon-xj95gl"
+        "fr": "assistant-e-vendeur-eba-coop-city-dietlikon"
       },
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
@@ -15283,12 +15390,19 @@
           "detailhandelsassistent-in-eba-coop-city-dietlikon-3",
           "detailhandelsassistent-in-eba-coop-city-dietlikon-3-2",
           "detailhandelsassistent-in-eba-coop-city-dietlikon-5"
+        ],
+        "en": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-xj95gl"
+        ],
+        "fr": [
+          "detailhandelsassistent-in-eba-coop-city-dietlikon-xj95gl"
         ]
       },
       "previousSlugs": [
         "detailhandelsassistent-in-eba-coop-city-dietlikon-3",
         "detailhandelsassistent-in-eba-coop-city-dietlikon-3-2",
-        "detailhandelsassistent-in-eba-coop-city-dietlikon-5"
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-5",
+        "detailhandelsassistent-in-eba-coop-city-dietlikon-xj95gl"
       ],
       "salaryMin": 107500,
       "salaryMax": 188500
