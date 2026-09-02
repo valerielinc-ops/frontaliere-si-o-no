@@ -5107,6 +5107,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.malattie-rare-cure-efficaci-2027.title': 'Malattie rare: il Consiglio federale punta a cure più efficaci',
     'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'Il Consiglio federale ha deciso di migliorare l’assistenza sanitaria per le persone con malattie rare, creando strutture specializzate e un registro nazionale.',
     'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Svizzera',
+    'blog.article.impulso-alberghi-montagna.title': 'Alberghi di montagna: 100 milioni per il risanamento',
+    'blog.article.impulso-alberghi-montagna.excerpt': 'Il Consiglio federale stanzia 100 milioni di franchi per l\'ammodernamento energetico delle strutture alberghiere di montagna nel periodo 2028-2035.',
+    'blog.article.impulso-alberghi-montagna.imageAlt': 'Hotel ristrutturato nelle montagne svizzere',
 };
 
 export default blogMetaChIt;
