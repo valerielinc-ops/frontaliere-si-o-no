@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pdgr",
-  "assembledAt": "2026-09-01T23:23:37.812Z",
+  "assembledAt": "2026-09-02T13:49:21.994Z",
   "jobs": [
     {
       "id": "pdgr-675eeeb5d735",
@@ -33,7 +33,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betreuung/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:35.701Z",
+      "crawledAt": "2026-09-02T13:49:13.670Z",
       "addressLocality": "Igis / Landquart / Untervaz",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -54,11 +54,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-betreuung-efz-pdgr-ch"
+        "fachfrau-fachmann-betreuung-efz-pdgr-ch",
+        "fachfrau-fachmann-betreuung-cfc-psychiatrische-dienste-graubunden-igis-landquart-untervaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betreuung-efz-pdgr-ch"
+          "fachfrau-fachmann-betreuung-efz-pdgr-ch",
+          "fachfrau-fachmann-betreuung-cfc-psychiatrische-dienste-graubunden-igis-landquart-untervaz"
         ]
       },
       "needsRetranslation": true,
@@ -109,7 +111,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-hauswirtschaft-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:34.593Z",
+      "crawledAt": "2026-09-02T13:49:12.526Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -130,11 +132,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch"
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch",
+        "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch"
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-efz-pdgr-ch",
+          "fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "needsRetranslation": true,
@@ -185,7 +189,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:33.514Z",
+      "crawledAt": "2026-09-02T13:49:11.360Z",
       "addressLocality": "Cazis / Chur / Ilanz / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -206,11 +210,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-pdgr-ch"
+        "fachfrau-fachmann-gesundheit-efz-pdgr-ch",
+        "fachfrau-fachmann-gesundheit-cfc-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-pdgr-ch"
+          "fachfrau-fachmann-gesundheit-efz-pdgr-ch",
+          "fachfrau-fachmann-gesundheit-cfc-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "needsRetranslation": true,
@@ -261,7 +267,7 @@
       "url": "https://www.pdgr.ch/jobs/kauffrau-kaufmann/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:32.391Z",
+      "crawledAt": "2026-09-02T13:49:10.217Z",
       "addressLocality": "Cazis / Chur / Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -282,14 +288,17 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "kauffrau-kaufmann-efz-pdgr-ch"
+        "kauffrau-kaufmann-efz-pdgr-ch",
+        "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kauffrau-kaufmann-efz-pdgr-ch"
+          "kauffrau-kaufmann-efz-pdgr-ch",
+          "kauffrau-kaufmann-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
         ]
       },
       "firstSeenAt": "2026-07-29T22:40:27.021Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -336,7 +345,7 @@
       "url": "https://www.pdgr.ch/jobs/koechin-koch-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:31.293Z",
+      "crawledAt": "2026-09-02T13:49:08.999Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -358,14 +367,18 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "kochin-koch-efz-pdgr-ch"
+          "kochin-koch-efz-pdgr-ch",
+          "kochin-koch-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
         ],
         "it": [
-          "kochin-koch-efz-pdgr-ch"
+          "kochin-koch-efz-pdgr-ch",
+          "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
         ]
       },
       "previousSlugs": [
-        "kochin-koch-efz-pdgr-ch"
+        "kochin-koch-efz-pdgr-ch",
+        "kochin-koch-efz-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen",
+        "cuoco-a-afc-psychiatrische-dienste-graubunden-cazis-chur-rothenbrunnen"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T22:40:25.836Z",
@@ -415,7 +428,7 @@
       "url": "https://www.pdgr.ch/jobs/floristin-florist-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:30.188Z",
+      "crawledAt": "2026-09-02T13:49:07.813Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -436,11 +449,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "floristin-florist-efz-pdgr-ch"
+        "floristin-florist-efz-pdgr-ch",
+        "floristin-florist-cfc-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "floristin-florist-efz-pdgr-ch"
+          "floristin-florist-efz-pdgr-ch",
+          "floristin-florist-cfc-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "floristin-florist-efz-pdgr-ch"
@@ -450,6 +465,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:40:23.540Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -496,7 +512,7 @@
       "url": "https://www.pdgr.ch/jobs/informatikerin-informatiker/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:29.078Z",
+      "crawledAt": "2026-09-02T13:49:06.594Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -517,11 +533,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "informatikerin-informatiker-efz-pdgr-ch"
+        "informatikerin-informatiker-efz-pdgr-ch",
+        "informatikerin-informatiker-cfc-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informatikerin-informatiker-efz-pdgr-ch"
+          "informatikerin-informatiker-efz-pdgr-ch",
+          "informatikerin-informatiker-cfc-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "informatikerin-informatiker-efz-pdgr-ch"
@@ -531,6 +549,7 @@
         ]
       },
       "firstSeenAt": "2026-07-29T22:40:22.371Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -577,7 +596,7 @@
       "url": "https://www.pdgr.ch/jobs/praktikantin-praktikanten-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:27.969Z",
+      "crawledAt": "2026-09-02T13:49:05.425Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -601,12 +620,14 @@
       "previousSlugsByLocale": {
         "de": [
           "praktikant-in-pdgr-ch",
-          "praktikant-in-psychiatrische-dienste-graubunden-chur"
+          "praktikant-in-psychiatrische-dienste-graubunden-chur",
+          "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "it": [
           "praktikant-in-pdgr-ch",
           "praktikant-in-psychiatrische-dienste-graubunden-chur",
-          "intern-psychiatrische-dienste-graubunden-chur"
+          "intern-psychiatrische-dienste-graubunden-chur",
+          "tirocinante-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
           "internship-psychiatrische-dienste-graubunden-cazis-chur"
@@ -620,7 +641,9 @@
         "praktikant-in-psychiatrische-dienste-graubunden-chur",
         "internship-psychiatrische-dienste-graubunden-cazis-chur",
         "stages-psychiatrische-dienste-graubunden-cazis-chur",
-        "intern-psychiatrische-dienste-graubunden-chur"
+        "intern-psychiatrische-dienste-graubunden-chur",
+        "praktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "tirocinante-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:11.554Z",
       "salaryMin": 73000,
@@ -669,7 +692,7 @@
       "url": "https://www.pdgr.ch/jobs/fachpsychologe-in-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:26.875Z",
+      "crawledAt": "2026-09-02T13:49:04.281Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -720,18 +743,23 @@
       "pensum": "50 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "fachpsychologe-in-pdgr-ch"
+          "fachpsychologe-in-pdgr-ch",
+          "fachpsychologe-in-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
           "fachpsychologe-in-pdgr-ch",
-          "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
+          "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
+          "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "fachpsychologe-in-pdgr-ch",
-        "specialista-psicologo-psychiatrische-dienste-graubunden-chur"
+        "specialista-psicologo-psychiatrische-dienste-graubunden-chur",
+        "fachpsychologe-in-psychiatrische-dienste-graubunden-chur",
+        "psicologo-specializzato-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -753,8 +781,8 @@
       "slugByLocale": {
         "de": "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
         "it": "assistente-psychiatrische-dienste-graubunden-cazis-chur",
-        "en": "assistant-psychiatrische-dienste-graubunden-cazis-chur",
-        "fr": "assistant-psychiatrische-dienste-graubunden-cazis-chur"
+        "en": "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+        "fr": "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -778,7 +806,7 @@
       "url": "https://www.pdgr.ch/jobs/unterassistent-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:25.805Z",
+      "crawledAt": "2026-09-02T13:49:03.113Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -801,22 +829,29 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "de": [
-          "unterassistent-in-pdgr-ch"
+          "unterassistent-in-pdgr-ch",
+          "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "it": [
           "unterassistent-in-pdgr-ch",
-          "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur"
+          "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
+          "assistente-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "junior-physician-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "assistant-psychiatrische-dienste-graubunden-cazis-chur",
           "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "unterassistent-in-pdgr-ch",
         "assistente-medico-psychiatrische-dienste-graubunden-cazis-chur",
+        "assistant-psychiatrische-dienste-graubunden-cazis-chur",
+        "unterassistent-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "assistente-psychiatrische-dienste-graubunden-cazis-chur",
         "junior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-stagiaire-psychiatrische-dienste-graubunden-cazis-chur"
       ],
@@ -867,7 +902,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-10/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:24.719Z",
+      "crawledAt": "2026-09-02T13:49:01.872Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -890,19 +925,24 @@
       "pensum": "20 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-ing-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch",
-          "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur"
+          "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur",
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
         "dipl-specialista-di-cura-hf-psychiatrische-dienste-graubunden-cazis-chur",
-        "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur"
+        "infermiere-dipl-sss-psychiatrische-dienste-graubunden-cazis-chur",
+        "dipl-ing-pflegefachperson-hf-psychiatrische-dienste-graubunden-cazis-chur",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "firstSeenAt": "2026-05-17T10:52:07.219Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -949,7 +989,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-betriebsunterhalt-efz-chur/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:23.639Z",
+      "crawledAt": "2026-09-02T13:49:00.707Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -970,11 +1010,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch"
+        "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch",
+        "fachfrau-fachmann-betriebsunterhalt-efz-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch"
+          "fachfrau-fachmann-betriebsunterhalt-efz-pdgr-ch",
+          "fachfrau-fachmann-betriebsunterhalt-efz-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "needsRetranslation": true,
@@ -999,7 +1041,7 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
-        "en": "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "en": "senior-doctor-psychiatrische-dienste-graubunden-cazis",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
         "fr": "medecin-specialiste-en-psychiatrie-psychiatrische-dienste-graubunden-cazis"
       },
@@ -1025,7 +1067,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-4-7/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:22.498Z",
+      "crawledAt": "2026-09-02T13:48:59.568Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1078,16 +1120,19 @@
           "medico-senior-psychiatrische-dienste-graubunden-cazis",
           "oberarztin-oberarzt-pdgr-ch-3",
           "oberarztin-oberarzt-pdgr-ch-4",
-          "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur"
+          "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur",
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
           "oberarztin-oberarzt-pdgr-ch",
           "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
+          "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
           "senior-doctor-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
           "oberarztin-oberarzt-pdgr-ch",
-          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur"
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis"
         ],
         "fr": [
           "medecin-principal-psychiatrische-dienste-graubunden-cazis",
@@ -1105,9 +1150,13 @@
         "senior-physician-senior-physician-psychiatrische-dienste-graubunden-cazis-chur",
         "medecin-superieur-medecin-superieur-psychiatrische-dienste-graubunden-cazis-chur",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+        "chief-psychiatrist-psychiatrische-dienste-graubunden-cazis",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-cazis",
         "senior-doctor-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1154,7 +1203,7 @@
       "url": "https://www.pdgr.ch/jobs/oberpsychologe-in-3-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:21.428Z",
+      "crawledAt": "2026-09-02T13:48:58.407Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1208,16 +1257,21 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "oberpsychologe-in-pdgr-ch"
+          "oberpsychologe-in-pdgr-ch",
+          "oberpsychologe-in-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
-          "oberpsychologe-in-pdgr-ch"
+          "oberpsychologe-in-pdgr-ch",
+          "psicologo-senior-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "oberpsychologe-in-pdgr-ch"
+        "oberpsychologe-in-pdgr-ch",
+        "oberpsychologe-in-psychiatrische-dienste-graubunden-chur",
+        "psicologo-senior-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1264,7 +1318,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:20.339Z",
+      "crawledAt": "2026-09-02T13:48:57.244Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1308,16 +1362,21 @@
       "pensum": "30 - 80%",
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+          "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
+        "dipl-assistente-infermieristico-hf-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1364,7 +1423,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-2-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:19.277Z",
+      "crawledAt": "2026-09-02T13:48:56.087Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1412,15 +1471,18 @@
       "pensum": "20 - 50%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch-2",
-        "dipl-pflegefachperson-hf-pdgr-ch"
+        "dipl-pflegefachperson-hf-pdgr-ch",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch-2",
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-scuol"
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1467,7 +1529,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-4__trashed/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:18.202Z",
+      "crawledAt": "2026-09-02T13:48:54.927Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -1507,19 +1569,24 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-fh-pdgr-ch",
+          "dipl-assistente-sanitaria-hf-fh-psychiatrische-dienste-graubunden-cazis"
         ],
         "de": [
-          "dipl-pflegefachperson-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-fh-pdgr-ch",
+          "dipl-ing-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-pdgr-ch",
         "dipl-pflegefachperson-hf-fh-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
         "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur",
-        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
+        "dipl-pflegefachperson-hf-fh-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+        "dipl-ing-pflegefachperson-hf-fh-psychiatrische-dienste-graubunden-cazis",
+        "dipl-assistente-sanitaria-hf-fh-psychiatrische-dienste-graubunden-cazis"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1566,7 +1633,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-7-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:16.038Z",
+      "crawledAt": "2026-09-02T13:48:52.604Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1595,7 +1662,8 @@
           "oberarztin-oberarzt-pdgr-ch",
           "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5",
           "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
-          "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5"
+          "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
+          "medico-senior-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "senior-doctor-psychiatrische-dienste-graubunden-cazis",
@@ -1605,7 +1673,8 @@
         ],
         "de": [
           "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "medecin-principal-psychiatrische-dienste-graubunden-cazis",
@@ -1628,9 +1697,12 @@
         "oberarztin-oberarzt-pdgr-ch",
         "medecin-principal-psychiatrische-dienste-graubunden-chur-292ec5",
         "medico-senior-psychiatrische-dienste-graubunden-chur-292ec5",
-        "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5"
+        "senior-doctor-psychiatrische-dienste-graubunden-chur-292ec5",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "medico-senior-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-05-22T23:10:25.817Z",
+      "needsRetranslation": true,
       "salaryMin": 110500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1677,7 +1749,7 @@
       "url": "https://www.pdgr.ch/jobs/fachfrau-fachmann-gesundheit-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:14.963Z",
+      "crawledAt": "2026-09-02T13:48:51.446Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1721,16 +1793,21 @@
       "pensum": "40 - 60%",
       "previousSlugsByLocale": {
         "de": [
-          "fachperson-gesundheit-pdgr-ch"
+          "fachperson-gesundheit-pdgr-ch",
+          "fachperson-gesundheit-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
-          "fachperson-gesundheit-pdgr-ch"
+          "fachperson-gesundheit-pdgr-ch",
+          "specialista-in-salute-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-pdgr-ch"
+        "fachperson-gesundheit-pdgr-ch",
+        "fachperson-gesundheit-psychiatrische-dienste-graubunden-chur",
+        "specialista-in-salute-psychiatrische-dienste-graubunden-chur"
       ],
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1777,7 +1854,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-5-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:13.892Z",
+      "crawledAt": "2026-09-02T13:48:50.295Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1826,15 +1903,18 @@
         "dipl-aktivierungsfachperson-hf-psychiatrische-dienste-graubunden-chur",
         "dipl-aktivierungsfachperson-hf-pdgr-ch",
         "dipl-activateur-en-psychiatrie-psychiatrische-dienste-graubunden-chur",
-        "dipl-benachrichtigungsfachperson-hf-psychiatrische-dienste-graubunden-chur"
+        "dipl-benachrichtigungsfachperson-hf-psychiatrische-dienste-graubunden-chur",
+        "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch-3",
-          "dipl-pflegefachperson-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-pdgr-ch",
+          "dipl-assistente-sanitaria-hf-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1881,7 +1961,7 @@
       "url": "https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:12.780Z",
+      "crawledAt": "2026-09-02T13:48:49.135Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1923,16 +2003,20 @@
       "pensum": "70 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "assistenz-oder-fachpsychologe-in-pdgr-ch"
+          "assistenz-oder-fachpsychologe-in-pdgr-ch",
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan"
         ],
         "it": [
           "assistenz-oder-fachpsychologe-in-pdgr-ch",
-          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
+          "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos",
+          "assistente-fachpsychologo-psychiatrische-dienste-graubunden-samedan"
         ]
       },
       "previousSlugs": [
         "assistenz-oder-fachpsychologe-in-pdgr-ch",
-        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos"
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-davos",
+        "assistenz-oder-fachpsychologe-in-psychiatrische-dienste-graubunden-samedan",
+        "assistente-fachpsychologo-psychiatrische-dienste-graubunden-samedan"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-04-14T10:28:30.371Z",
@@ -1956,9 +2040,9 @@
       "slug": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
         "it": "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
-        "en": "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "en": "senior-physician-psychiatrische-dienste-graubunden-chur",
         "de": "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
-        "fr": "psychiatre-psychiatrische-dienste-graubunden-chur"
+        "fr": "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -1973,7 +2057,7 @@
       "description": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
       "descriptionByLocale": {
         "it": "I dintorni: bassa percentuale, principalmente fine settimana (durante il giorno) Una funzione per specialisti (esperti) che sono alla ricerca di un compito clinico chiaramente strutturato e pianificabile con un alto livello di responsabilità personale – ben compatibile con una pratica o altri obblighi professionali. AKI è strettamente in rete con servizi stazionari e ambulatoriali e fa parte di una moderna struttura di approvvigionamento integrata. I loro compiti: - Voi assumete valutazioni psichiatriche acute e interventi di crisi nell'ambientazione ambulatoria - Trattano pazienti che camminano - Esse effettuano valutazioni consiliari, comprese, ove necessario, la visita all'intervento di crisi; - Sei coinvolto nell'educazione e nella formazione dei colleghi più giovani e supervisiona medici e psicologi assistenti / psicologi - Lavori con infermieri esperti nel triage e prendi il controllo della gestione dei casi - Sviluppare insieme piani di trattamento pragmatici e realizzabili Il nostro profilo di requisito: - Hai completato gli studi in medicina umana e hai completato la formazione specialistica in psichiatria e psicoterapia - Essi portano la sicurezza nella valutazione di situazioni psichiatriche acute - Ti piace lavorare in modo indipendente con una stretta coordinazione del team allo stesso tempo - Hai un processo decisionale chiaro e uno stile di comunicazione collegiale Vi offriamo: - Un'attività di fine settimana programmata durante il giorno senza obbligo di notte - Alta flessibilità e opzioni di progettazione individuale nella pianificazione dei servizi - Un carico di lavoro che può essere combinato bene con un'attività pratica o altri obblighi - Un'aggiunta mirata a un team consolidato e consolidato - Brevi percorsi decisionali e collaborazione diretta con la cura e la gestione medica - Integrazione nella moderna struttura di fornitura del PDGR",
-        "en": "Your surroundings:\nlow percentage, mainly weekend (during the day)\n\nA function for (experienced) specialists who are looking for a clearly structured, plannable clinical task with a high level of personal responsibility – well compatible with a practice or other professional obligations. AKI is closely networked with stationary and ambulatory services and is part of a modern, integrated supply structure.\n\nTheir tasks:\n- You take on acute psychiatric assessments and crisis interventions in the ambulatory setting\n\n- They treat walk-in patients\n\n- They shall carry out consiliar assessments, including, where necessary, visiting crisis intervention;\n\n- You are involved in the education and training of younger colleagues and supervise assistant doctors and psychologists / psychologists\n\n- You work with experienced nurses in the triage and take over the case management\n\n- Develop pragmatic and viable treatment plans together\n\nOur requirement profile:\n- You have completed studies in human medicine and have completed specialist training in psychiatry and psychotherapy\n\n- They bring security in the assessment of acute psychiatric situations\n\n- You enjoy working independently with close team coordination at the same time\n\n- You have clear decision-making and a collegial communication style\n\nWe offer you:\n- A scheduled weekend activity during the day without a night obligation\n\n- High flexibility and individual design options in service planning\n\n- A workload that can be combined well with a practical activity or other obligations\n\n- A targeted addition to an established, well-established team\n\n- Short decision paths and direct cooperation with care and medical management\n\n- Embedding in the modern supply structure of the PDGR",
+        "en": "Your surroundings:\nlow percentage, mainly weekend (during the day)\n\nA",
         "de": "Ihre Umgebung:\nniederprozentig, schwerpunktmässig Wochenende (tagsüber)\n\nEine Funktion für (erfahrene) Fachärztinnen / Fachärzte, die eine klar strukturierte, planbare klinische Aufgabe mit hoher Eigenverantwortung suchen – gut vereinbar mit einer Praxistätigkeit oder weiteren beruflichen Verpflichtungen. Die AKI ist eng mit stationären und ambulanten Angeboten vernetzt und Teil einer modernen, integrierten Versorgungsstruktur.\n\nIhre Aufgaben:\n- Sie übernehmen akutpsychiatrische Beurteilungen und Kriseninterventionen im ambulanten Setting\n\n- Sie behandeln Walk-in Patientinnen und Patienten\n\n- Sie führen konsiliarische Beurteilungen durch, bei Bedarf auch aufsuchende Krisenintervention\n\n- Sie engagieren sich in der Aus- und Weiterbildung jüngerer Kolleginnen und Kollegen und supervidieren Assistenzärztinnen / Assistenzärzten und Psychologinnen / Psychologen\n\n- Sie arbeiten mit erfahrenen Pflegefachpersonen in der Triage zusammen und übernehmen die Fallführung\n\n- Sie entwickeln gemeinsam pragmatische und tragfähige Behandlungspläne\n\nUnser Anforderungsprofil:\n- Sie verfügen über ein abgeschlossenes Studium der Humanmedizin und haben die Facharztausbildung in Psychiatrie und Psychotherapie abgeschlossen\n\n- Sie bringen Sicherheit in der Einschätzung akuter psychiatrischer Situationen mit\n\n- Sie haben Freude an selbständigem Arbeiten bei gleichzeitig enger Teamabstimmung\n\n- Sie verfügen über eine klare Entscheidungsfindung und einen kollegialen Kommunikationsstil\n\nWir bieten Ihnen:\n- Eine planbare Wochenendtätigkeit tagsüber ohne Nachtverpflichtung\n\n- Hohe Flexibilität und individuelle Gestaltungsmöglichkeiten in der Dienstplanung\n\n- Ein Arbeitspensum, das sich gut mit einer Praxistätigkeit oder anderen Verpflichtungen kombinieren lässt\n\n- Eine gezielte Ergänzung eines etablierten, gut eingespielten Teams\n\n- Kurze Entscheidungswege und direkte Zusammenarbeit mit Pflege und ärztlicher Leitung\n\n- Einbettung in die moderne Versorgungsstruktur der PDGR",
         "fr": "Votre environnement: faible pourcentage, principalement le week-end (pendant la journée) Une fonction pour les spécialistes (expérimentés) qui recherchent une tâche clinique clairement structurée et planifiable avec un haut niveau de responsabilité personnelle – bien compatible avec une pratique ou d'autres obligations professionnelles. AKI est étroitement en réseau avec les services fixes et ambulatoires et fait partie d'une structure d'approvisionnement moderne et intégrée. Leurs tâches: - Vous prenez des évaluations psychiatriques aiguës et des interventions de crise dans le cadre ambulatoire - Ils traitent les patients ambulants - Ils procèdent à des évaluations consulaires, y compris, le cas échéant, à des visites d'intervention en cas de crise; - Vous participez à l'éducation et à la formation de jeunes collègues et supervisez des médecins adjoints et des psychologues / psychologues - Vous travaillez avec des infirmières expérimentées dans le triage et prenez en charge la gestion de cas - Élaborer ensemble des plans de traitement pragmatiques et viables Notre profil d'exigence: - Vous avez terminé des études en médecine humaine et une formation spécialisée en psychiatrie et en psychothérapie - Ils assurent la sécurité dans l'évaluation des situations psychiatriques aiguës - Vous aimez travailler de manière indépendante avec une étroite coordination d'équipe en même temps - Vous avez une prise de décision claire et un style de communication collégiale Nous vous offrons: - Une activité prévue le week-end pendant la journée sans obligation de nuit - Une grande flexibilité et des options de conception individuelles dans la planification des services - Une charge de travail qui peut être bien combinée à une activité pratique ou à d'autres obligations - Un ajout ciblé à une équipe bien établie - Moyens de décision courts et coopération directe avec les soins et la gestion médicale - Intégrer la structure d'approvisionnement moderne du PDGR"
       },
@@ -1982,7 +2066,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-3-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:10.602Z",
+      "crawledAt": "2026-09-02T13:48:46.809Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2005,20 +2089,28 @@
       "pensum": "20 - 50%",
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur"
         ],
         "it": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
+          "psychiatrist-psychiatrische-dienste-graubunden-chur",
           "senior-physician-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
+          "psychiatre-psychiatrische-dienste-graubunden-chur",
           "medecin-superieur-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-pdgr-ch",
+        "psychiatrist-psychiatrische-dienste-graubunden-chur",
+        "psychiatre-psychiatrische-dienste-graubunden-chur",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-chur",
+        "medico-specialista-in-psichiatria-psychiatrische-dienste-graubunden-chur",
         "senior-physician-psychiatrische-dienste-graubunden-chur",
         "medecin-superieur-psychiatrische-dienste-graubunden-chur"
       ],
@@ -2069,7 +2161,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-6-3/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:09.511Z",
+      "crawledAt": "2026-09-02T13:48:45.666Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2092,12 +2184,14 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "de": [
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz"
         ],
         "it": [
           "senior-physician-psychiatrische-dienste-graubunden-ilanz",
           "medecin-chef-psychiatrische-dienste-graubunden-ilanz",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "primario-psychiatrische-dienste-graubunden-ilanz"
         ],
         "en": [
           "senior-physician-psychiatrische-dienste-graubunden-ilanz",
@@ -2111,7 +2205,9 @@
       "previousSlugs": [
         "senior-physician-psychiatrische-dienste-graubunden-ilanz",
         "medecin-chef-psychiatrische-dienste-graubunden-ilanz",
-        "oberarztin-oberarzt-pdgr-ch"
+        "oberarztin-oberarzt-pdgr-ch",
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-ilanz",
+        "primario-psychiatrische-dienste-graubunden-ilanz"
       ],
       "firstSeenAt": "2026-07-11T11:06:03.797Z",
       "salaryMin": 110500,
@@ -2160,7 +2256,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-8-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:08.407Z",
+      "crawledAt": "2026-09-02T13:48:44.497Z",
       "addressLocality": "Samedan / Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -2185,12 +2281,14 @@
         "oberarztin-oberarzt-pdgr-ch-2",
         "oberarztin-oberarzt-pdgr-ch",
         "oberarztin-oberarzt-psychiatrische-dienste-graubunden-samedan-scuol",
-        "oberarztin-oberarzt-pdgr-ch-t5tsyg"
+        "oberarztin-oberarzt-pdgr-ch-t5tsyg",
+        "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdgr-ch-2",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "medico-senior-psychiatrische-dienste-graubunden-samedan-scuol"
         ],
         "en": [
           "oberarztin-oberarzt-pdgr-ch-2"
@@ -2234,7 +2332,7 @@
       "title": "Ergotherapeut/in",
       "titleByLocale": {
         "it": "Ergotherapist",
-        "en": "Occupational therapist",
+        "en": "Ergotherapeut/in",
         "de": "Ergotherapeut/in",
         "fr": "Ergothérapeute"
       },
@@ -2250,7 +2348,7 @@
       "url": "https://www.pdgr.ch/jobs/ergotherapeut-in-4/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:06.168Z",
+      "crawledAt": "2026-09-02T13:48:42.195Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2275,14 +2373,16 @@
         "ergotherapeut-in-pdgr-ch",
         "cook-psychiatrische-dienste-graubunden-chur",
         "kochin-koch-pdgr-ch",
-        "kochin-koch-psychiatrische-dienste-graubunden-chur"
+        "kochin-koch-psychiatrische-dienste-graubunden-chur",
+        "ergotherapist-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeut-in-pdgr-ch",
           "cook-psychiatrische-dienste-graubunden-chur",
           "kochin-koch-pdgr-ch",
-          "kochin-koch-psychiatrische-dienste-graubunden-chur"
+          "kochin-koch-psychiatrische-dienste-graubunden-chur",
+          "ergotherapist-psychiatrische-dienste-graubunden-chur"
         ],
         "de": [
           "kochin-koch-pdgr-ch"
@@ -2293,97 +2393,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:42:07.525Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "pdgr-5bf1de714961",
-      "slug": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-      "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "en": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-        "fr": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
-      },
-      "company": "Psychiatrische Dienste Graubünden",
-      "companyKey": "pdgr",
-      "companyDomain": "pdgr.ch",
-      "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
-        "en": "Certified Nursing Professional HF or Certified Social Educator HF",
-        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
-        "fr": "Infirmier(e) diplômé(e) HF ou Educateur(trice) social(e) diplômé(e) HF"
-      },
-      "description": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
-      "descriptionByLocale": {
-        "it": "Il vostro ambiente: Il reparto di psicoterapia Salvorta è un reparto aperto con 30 posti letto. Al centro del nostro concetto terapeutico c’è la terapia basata sulla mentalizzazione (MBT). Trattiamo donne e uomini affetti da depressione, ansia, disturbo ossessivo-compulsivo, disturbi alimentari, disturbi legati a traumi e disturbi della personalità. Un altro obiettivo del trattamento è il trattamento dei disturbi del dolore e dell'acufene scompensato. Il reparto di psicoterapia dispone inoltre di sei posti letto per il trattamento madre/padre-bambino. I vostri compiti: - Accompagnate e sostenete i pazienti nell'ambito di un processo di trattamento psicoterapeutico individuale - Siete responsabili della pianificazione, attuazione e valutazione dell'assistenza e del trattamento in qualità di persona infermieristica di riferimento - Consigliate, accompagnate e coinvolgete i familiari in modo orientato alle risorse nel processo di trattamento - Contribuite attivamente con le vostre osservazioni e valutazioni professionali alla collaborazione interprofessionale - Pianificate, dirigete e valutate terapie infermieristiche di gruppo - Collaborate con reparti specialistici interni ed esterni e contribuite alla qualità continua del trattamento - Creare un ambiente terapeutico riconoscente e promuovere la sviluppo individuale e stabilizzazione dei nostri pazienti - Mantieni una comunicazione aperta, rispettosa e orientata alla persona Il nostro profilo dei requisiti: - Possiedi una laurea come specialista infermieristico qualificato HF o Dipl. Educatore sociale HF - Idealmente, hai esperienza nel campo psichiatrico o psicoterapeutico - Ti avvicini alle persone con malattie mentali in modo empatico, professionale e riconoscente - Lavori in modo indipendente, responsabile e hai un alto livello di capacità di riflessione - Apprezzi la collaborazione interprofessionale e hai forti capacità sociali e personali - Sei interessato ai concetti di trattamento psicoterapeutico e possibilmente conosci gli approcci basati sulla mentalizzazione Ti offriamo: - Svolgi un lavoro vario e un lavoro responsabile in un team motivato e interprofessionale - Hai l'opportunità di contribuire a definire e implementare gli approcci terapeutici e assistenziali sia a livello professionale che organizzativo - Approfitta delle nostre offerte di formazione interna e formazione continua - supportiamo anche le tue esigenze di formazione esterna - Un equilibrio ottimale tra lavoro e vita privata con modelli di lavoro part-time, 6 settimane di ferie e ferie non retribuite",
-        "en": "Your environment: The Salvorta psychotherapy ward is an open ward with 30 beds. At the center of our therapeutic concept is mentalization-based therapy (MBT). We treat women and men with depression, anxiety, obsessive-compulsive disorder, eating disorders, trauma-related disorders and personality disorders. Another focus of treatment is the treatment of pain disorders and decompensated tinnitus. The psychotherapy ward also offers six beds for mother/father-child treatment.\n• Your tasks: - You accompany and support patients as part of an individual psychotherapeutic treatment process - As a nursing reference person, you take responsibility for the planning, implementation and evaluation of care and treatment - You advise and accompany relatives and involve them in the treatment process in a resource-oriented manner - You actively contribute your professional observations and assessments to interprofessional collaboration - You plan, lead and evaluate nursing group therapies - You network with internal and external specialist departments and contribute to continuous treatment quality - You create an appreciative, therapeutic environment and promote the individual development and stabilization of our patients - You maintain open, respectful and person-oriented communication Our requirements profile: - You have a degree as a qualified nursing specialist HF or Dipl. Social educator HF - Ideally, you have experience in the psychiatric or psychotherapeutic field - You approach people with mental illnesses empathetically, professionally and appreciatively - You work independently, responsibly and have a high level of reflection ability - You value interprofessional collaboration and have strong social and personal skills - You are interested in psychotherapeutic treatment concepts and ideally have knowledge of mentalization-based approaches\n• We offer you: - You take on a varied job and responsible work in a motivated, interprofessional team - You have the opportunity to help shape and implement the treatment and care approaches both professionally and organizationally - Take advantage of our internal training and continuing education offerings - we also support your external training needs - An optimal work-life balance with part-time work models, 6 weeks of vacation and unpaid vacation",
-        "de": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
-        "fr": "Votre environnement : Le service de psychothérapie Salvorta est un service ouvert de 30 lits. Au centre de notre concept thérapeutique se trouve la thérapie basée sur la mentalisation (MBT). Nous traitons les femmes et les hommes souffrant de dépression, d'anxiété, de troubles obsessionnels compulsifs, de troubles de l'alimentation, de troubles liés à un traumatisme et de troubles de la personnalité. Un autre axe de traitement est le traitement des troubles de la douleur et des acouphènes décompensés. Le service de psychothérapie propose également six lits pour le traitement mère/père-enfant.\n• Vos tâches : - Vous accompagnez et soutenez les patients dans le cadre d'un processus de traitement psychothérapeutique individuel - En tant que personne de référence en soins infirmiers, vous assumez la responsabilité de la planification, de la mise en œuvre et de l'évaluation des soins et des traitements - Vous conseillez, accompagnez les proches et les impliquez dans le processus de traitement de manière axée sur les ressources - Vous contribuez activement à la collaboration interprofessionnelle par vos observations et évaluations professionnelles - Vous planifiez, dirigez et évaluez des thérapies de groupe infirmières - Vous travaillez en réseau avec des services spécialisés internes et externes et contribuez à la qualité continue du traitement - Vous créez un environnement thérapeutique valorisant et favoriser le développement individuel et la stabilisation de nos patients - Vous maintenez une communication ouverte, respectueuse et axée sur la personne. Notre profil d'exigences : - Vous êtes titulaire d'un diplôme d'infirmière spécialisée qualifiée HF ou Dipl. Éducateur social HF - Idéalement, vous avez une expérience dans le domaine psychiatrique ou psychothérapeutique - Vous abordez les personnes atteintes de maladies mentales avec empathie, professionnalisme et appréciation - Vous travaillez de manière indépendante, responsable et avez un haut niveau de réflexion - Vous valorisez la collaboration interprofessionnelle et possédez de solides compétences sociales et personnelles - Vous êtes intéressé par les concepts de traitement psychothérapeutique et avez idéalement une connaissance des approches basées sur la mentalisation Nous vous proposons : - Vous occupez un emploi varié et un travail responsable dans un équipe interprofessionnelle motivée - Vous avez la possibilité de contribuer à façonner et à mettre en œuvre les approches de traitement et de soins tant sur le plan professionnel qu'organisationnel - Profitez de nos offres de formation interne et de formation continue - nous accompagnons également vos besoins de formation externe - Un équilibre optimal entre travail et vie privée avec des modèles de travail à temps partiel, 6 semaines de vacances et des congés sans solde"
-      },
-      "location": "Cazis",
-      "canton": "GR",
-      "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf/",
-      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:03.942Z",
-      "addressLocality": "Cazis",
-      "postalCode": "7408",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Psichiatria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Erwachsenenpsychiatrie",
-      "facility": "Affektive Erkrankungen",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-        "certified-nursing-professional-hf-or-certified-social-educator-hf-psychiatrische-dienste-graubunden-cazis",
-        "infirmier-e-diplome-e-hf-ou-educateur-trice-social-e-diplome-e-hf-psychiatrische-dienste-graubunden-cazis",
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
-        "pflegfachperson-hf-certificata-o-educatore-sociale-hf-certificato-psychiatrische-dienste-graubunden-cazis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
-          "pflegfachperson-hf-certificata-o-educatore-sociale-hf-certificato-psychiatrische-dienste-graubunden-cazis"
-        ],
-        "en": [
-          "certified-nursing-professional-hf-or-certified-social-educator-hf-psychiatrische-dienste-graubunden-cazis"
-        ],
-        "de": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
-        ],
-        "fr": [
-          "infirmier-e-diplome-e-hf-ou-educateur-trice-social-e-diplome-e-hf-psychiatrische-dienste-graubunden-cazis"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-06-15T15:02:58.368Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2430,7 +2440,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-6-8/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:02.823Z",
+      "crawledAt": "2026-09-02T13:48:39.817Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2454,13 +2464,15 @@
       "previousSlugs": [
         "dipl-pflegefachperson-hf-pdgr-ch",
         "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-chur",
-        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
+        "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
+        "dipl-professionista-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-pdgr-ch",
           "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-chur",
-          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-den-tag-und-nachtdienst-pdgr-ch",
+          "dipl-professionista-hf-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "dipl-pflegefachperson-hf-psychiatrische-dienste-graubunden-chur"
@@ -2492,7 +2504,7 @@
         "it": "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur",
         "en": "psychology-practitioner-in-psychiatrische-dienste-graubunden-cazis-chur",
         "de": "psychologiepraktikant-in-pdgr-ch",
-        "fr": "psychologue-psychiatrische-dienste-graubunden-cazis-chur"
+        "fr": "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -2502,7 +2514,7 @@
         "it": "Psicologia praticante/in",
         "en": "Psychology practitioner/in",
         "de": "Psychologiepraktikant/in",
-        "fr": "Psychologue"
+        "fr": "Psychologiepraktikant/in"
       },
       "description": "Ihre Aufgaben:\n- Teilnahme an Ärzterapporten, stationsinternen Rapporten, Oberarztvisiten, Fallbesprechungen, Standortgesprächen und Teambesprechungen\n\n- Eintrittsgespräche mit anschliessender Dokumentation unter Supervision des Oberarztes / Oberpsychologin\n\n- Psychologische Betreuung und Behandlung der Patienten sowie entsprechende Dokumentation\n\n- Übernahme von Fallführungen mit allen administrativen Aufgaben\n\n- Zusammenarbeit im multiprofessionellen Team\n\n- Systemische Arbeit unter Einbezug der Behandlungspartner und Angehörigen\n\nUnser Anforderungsprofil:\n- Sie haben einen abgeschlossenen Bachelor im Master-Studium Psychologie absolviert.\n\nWir bieten Ihnen:\n- Unsere Klinik ist als Ausbildungsklinik für Psychiatrie und Psychotherapie anerkannt. Wir behandeln nach modernen Therapiegrundsätzen\n\n- Wir ermöglichen Praktika in unterschiedlichen Fachgebieten\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Während Ihrer Praktikumsdauer werden Sie von unseren Fachpersonen begleitet und sind Teil der jeweiligen interprofessionellen Behandlungsteams",
       "descriptionByLocale": {
@@ -2516,7 +2528,7 @@
       "url": "https://www.pdgr.ch/jobs/psychologiepraktikant-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:01.639Z",
+      "crawledAt": "2026-09-02T13:48:38.673Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2539,17 +2551,21 @@
       "pensum": "100%",
       "previousSlugs": [
         "psychologiepraktikant-in-pdgr-ch",
-        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+        "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+        "psychologue-psychiatrische-dienste-graubunden-cazis-chur",
+        "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "psychologiepraktikant-in-pdgr-ch",
-          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
+          "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur",
+          "psicologia-praticante-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "fr": [
+          "psychologue-psychiatrische-dienste-graubunden-cazis-chur",
           "psychologiepraktikant-in-psychiatrische-dienste-graubunden-cazis-chur"
         ]
       },
@@ -2601,7 +2617,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-die-nachtwache-3-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:23:00.556Z",
+      "crawledAt": "2026-09-02T13:48:37.499Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2624,11 +2640,13 @@
       "pensum": "50 - 60%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
-        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
+        "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
+        "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-die-nachtwache-pdgr-ch",
+          "dipl-pflegefachperson-hf-per-la-nachtwache-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur"
@@ -2685,7 +2703,7 @@
       "url": "https://www.pdgr.ch/jobs/nachtaerztin-nachtarzt-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:59.450Z",
+      "crawledAt": "2026-09-02T13:48:36.328Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2707,11 +2725,13 @@
       "pensumMax": 60,
       "pensum": "40 - 60%",
       "previousSlugs": [
-        "nachtarztin-nachtarzt-pdgr-ch"
+        "nachtarztin-nachtarzt-pdgr-ch",
+        "medico-notturno-medico-notturno-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "nachtarztin-nachtarzt-pdgr-ch"
+          "nachtarztin-nachtarzt-pdgr-ch",
+          "medico-notturno-medico-notturno-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "nachtarztin-nachtarzt-pdgr-ch"
@@ -2750,7 +2770,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Florist/in",
       "titleByLocale": {
-        "it": "Fiorista/in",
+        "it": "Florist/in",
         "en": "Florist/in",
         "de": "Florist/in",
         "fr": "Fleuriste/in"
@@ -2767,7 +2787,7 @@
       "url": "https://www.pdgr.ch/jobs/florist-in-2-2/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:58.342Z",
+      "crawledAt": "2026-09-02T13:48:35.165Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2789,12 +2809,14 @@
       "pensum": "50%",
       "previousSlugs": [
         "florist-in-pdgr-ch",
-        "fiorista-in-psychiatrische-dienste-graubunden-chur"
+        "fiorista-in-psychiatrische-dienste-graubunden-chur",
+        "florist-in-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "florist-in-pdgr-ch",
-          "fiorista-in-psychiatrische-dienste-graubunden-chur"
+          "fiorista-in-psychiatrische-dienste-graubunden-chur",
+          "florist-in-psychiatrische-dienste-graubunden-chur"
         ],
         "fr": [
           "florist-in-pdgr-ch"
@@ -2848,7 +2870,7 @@
       "url": "https://www.pdgr.ch/jobs/fachperson-gesundheit-fuer-die-nachtwache-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:57.207Z",
+      "crawledAt": "2026-09-02T13:48:33.979Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2876,7 +2898,8 @@
         "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
         "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
         "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
-        "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
+        "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
+        "fachperson-gesundheit-per-la-nachtwache-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2886,7 +2909,8 @@
           "operatore-socio-sanitario-per-il-turno-di-notte-psychiatrische-dienste-graubunden-chur",
           "fachperson-gesundheit-fur-die-nachtwache-psychiatrische-dienste-graubunden-chur",
           "healthcare-professional-for-night-shift-psychiatrische-dienste-graubunden-chur",
-          "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
+          "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur",
+          "fachperson-gesundheit-per-la-nachtwache-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "fachperson-gesundheit-fur-die-nachtwache-pdgr-ch",
@@ -2948,7 +2972,7 @@
       "url": "https://www.pdgr.ch/jobs/oberaerztin-oberarzt-5-5/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:56.077Z",
+      "crawledAt": "2026-09-02T13:48:32.818Z",
       "addressLocality": "Cazis / Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2973,13 +2997,15 @@
         "oberarztin-oberarzt-pdgr-ch-3",
         "oberarztin-oberarzt-pdgr-ch-4",
         "oberarztin-oberarzt-pdgr-ch",
-        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur"
+        "oberarztin-oberarzt-psychiatrische-dienste-graubunden-cazis-chur",
+        "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-pdgr-ch-3",
           "oberarztin-oberarzt-pdgr-ch-4",
-          "oberarztin-oberarzt-pdgr-ch"
+          "oberarztin-oberarzt-pdgr-ch",
+          "medico-senior-medico-senior-psychiatrische-dienste-graubunden-cazis-chur"
         ],
         "en": [
           "oberarztin-oberarzt-pdgr-ch"
@@ -3038,7 +3064,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-fuer-den-tag-und-oder-nachtdienst/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:54.967Z",
+      "crawledAt": "2026-09-02T13:48:31.643Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3061,11 +3087,13 @@
       "pensum": "60 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-pdgr-ch",
-        "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-psychiatrische-dienste-graubunden-chur"
+        "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-psychiatrische-dienste-graubunden-chur",
+        "dipl-pflegefachperson-hf-per-den-tag-e-o-nachtdienst-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-pdgr-ch"
+          "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-pdgr-ch",
+          "dipl-pflegefachperson-hf-per-den-tag-e-o-nachtdienst-psychiatrische-dienste-graubunden-chur"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-psychiatrische-dienste-graubunden-chur"
@@ -3122,7 +3150,7 @@
       "url": "https://www.pdgr.ch/jobs/mitarbeiter-in-gastronomie/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:53.857Z",
+      "crawledAt": "2026-09-02T13:48:30.486Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3145,12 +3173,14 @@
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-pdgr-ch",
         "mitarbeiter-in-gastronomie-psychiatrische-dienste-graubunden-cazis",
-        "employe-hotel-psychiatrische-dienste-graubunden-cazis"
+        "employe-hotel-psychiatrische-dienste-graubunden-cazis",
+        "collaboratore-trice-gastronomie-psychiatrische-dienste-graubunden-cazis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-gastronomie-pdgr-ch",
-          "employe-hotel-psychiatrische-dienste-graubunden-cazis"
+          "employe-hotel-psychiatrische-dienste-graubunden-cazis",
+          "collaboratore-trice-gastronomie-psychiatrische-dienste-graubunden-cazis"
         ],
         "en": [
           "mitarbeiter-in-gastronomie-psychiatrische-dienste-graubunden-cazis"
@@ -3160,6 +3190,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:31:32.052Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -3206,7 +3237,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagoge-in-hf-6/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:52.786Z",
+      "crawledAt": "2026-09-02T13:48:29.256Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3228,11 +3259,13 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch"
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch",
+        "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch"
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-pdgr-ch",
+          "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "needsRetranslation": true,
@@ -3283,7 +3316,7 @@
       "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagoge-in-hf-fh/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:51.659Z",
+      "crawledAt": "2026-09-02T13:48:28.108Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3304,11 +3337,13 @@
       "pensumMax": 70,
       "pensum": "50 - 70%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+        "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch"
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagoge-in-hf-fh-pdgr-ch",
+          "dipl-pflegefachperson-hf-o-dipl-sozialpadagoge-in-hf-fh-psychiatrische-dienste-graubunden-chur"
         ]
       },
       "needsRetranslation": true,
@@ -3359,7 +3394,7 @@
       "url": "https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:50.501Z",
+      "crawledAt": "2026-09-02T13:48:26.926Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3427,7 +3462,7 @@
       "url": "https://www.pdgr.ch/jobs/betreuer-in-2-9/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:49.402Z",
+      "crawledAt": "2026-09-02T13:48:25.768Z",
       "addressLocality": "Rothenbrunnen",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3495,7 +3530,7 @@
       "url": "https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in/",
       "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:48.298Z",
+      "crawledAt": "2026-09-02T13:48:24.561Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -3532,6 +3567,85 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "pdgr-9e79256dc3fc",
+      "slug": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+      "slugByLocale": {
+        "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
+        "it": "dipl-pflegefachperson-hf-o-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+        "en": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis",
+        "fr": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-psychiatrische-dienste-graubunden-cazis"
+      },
+      "company": "Psychiatrische Dienste Graubünden",
+      "companyKey": "pdgr",
+      "companyDomain": "pdgr.ch",
+      "title": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+        "it": "Dipl. Pflegefachperson HF o Dipl. Sozialpädagogen/in HF",
+        "en": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF",
+        "fr": "Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogen/in HF"
+      },
+      "description": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+      "descriptionByLocale": {
+        "de": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "it": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "en": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance",
+        "fr": "Ihre Umgebung:\nDie Psychotherapiestation Salvorta ist eine offen geführte Station mit 30 Betten. Im Zentrum unseres therapeutischen Konzepts steht die mentalisierungsbasierte Therapie (MBT). Wir behandeln Frauen und Männer mit Depressionen, Angst-, Zwangs-, Ess-, Traumafolge- und Persönlichkeitsstörungen. Ein weiterer Schwerpunkt der Behandlung bildet die Therapie von Schmerzstörungen und dekompensiertem Tinnitus ab. Zudem bietet die Psychotherapiestation sechs Betten für eine Mutter-/Vater-Kind-Behandlung an.\n\nIhre Aufgaben:\n- Sie begleiten und unterstützen Patientinnen und Patienten im Rahmen eines individuellen psychotherapeutischen Behandlungsprozesses\n\n- Als pflegerische Bezugsperson übernehmen Sie Verantwortung für die Planung, Umsetzung und Evaluation der Pflege und Behandlung\n\n- Sie beraten und begleiten Angehörige und beziehen diese ressourcenorientiert in den Behandlungsprozess ein\n\n- Sie bringen Ihre fachlichen Beobachtungen und Einschätzungen aktiv in die interprofessionelle Zusammenarbeit ein\n\n- Sie planen, leiten und evaluieren pflegerische Gruppentherapien\n\n- Sie vernetzen sich mit internen und externen Fachstellen und tragen zu einer kontinuierlichen Behandlungsqualität bei\n\n- Sie gestalten ein wertschätzendes, therapeutisches Milieu und fördern die individuelle Entwicklung und Stabilisierung unserer Patientinnen und Patienten\n\n- Sie pflegen eine offene, respektvolle und personenorientierte Kommunikation\n\nUnser Anforderungsprofil:\n- Sie verfügen über einen Abschluss als Dipl. Pflegefachperson HF oder Dipl. Sozialpädagogin / Sozialpädagoge HF\n\n- Idealerweise bringen Sie Erfahrung im psychiatrischen oder psychotherapeutischen Bereich mit\n\n- Sie begegnen Menschen mit psychischen Erkrankungen empathisch, professionell und wertschätzend\n\n- Sie arbeiten selbstständig, verantwortungsbewusst und bringen eine hohe Reflexionsfähigkeit mit\n\n- Sie schätzen die interprofessionelle Zusammenarbeit und verfügen über ausgeprägte Sozial- und Selbstkompetenzen\n\n- Sie interessieren sich für psychotherapeutische Behandlungskonzepte und bringen idealerweise Kenntnisse an mentalisierungsbasierten Ansätzen mit\n\nWir bieten Ihnen:\n- Sie übernehmen eine abwechslungsreiche und verantwortungsvolle Tätigkeit in einem motivierten, interprofessionellen Team\n\n- Sie haben die Möglichkeit die Behandlungs- und Betreuungsansätze fachlich sowie organisatorisch mitzugestalten und umzusetzen\n\n- Nutzen Sie unser internes Fort- und Weiterbildungsangebot – wir unterstützen auch Ihre externen Fortbildungsanliegen\n\n- Mit Teilzeitarbeitsmodellen, 6 Wochen Ferien und unbezahltem Urlaub eine optimale Work-Life-Balance"
+      },
+      "location": "Cazis",
+      "canton": "GR",
+      "url": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-2/",
+      "source": "Psychiatrische Dienste Graubünden Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T13:48:22.174Z",
+      "addressLocality": "Cazis",
+      "postalCode": "7408",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Psichiatria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Erwachsenenpsychiatrie",
+      "facility": "Affektive Erkrankungen",
+      "pensumMin": 80,
+      "pensumMax": 80,
+      "pensum": "80%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch"
+      ],
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-09-02T13:48:22.174Z"
     }
   ]
 }
