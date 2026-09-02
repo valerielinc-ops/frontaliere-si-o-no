@@ -5134,6 +5134,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.postazione-lavoro-sovranita-digitale.title': 'Schreibwaren: Digitales Arbeitsprogramm',
     'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'Bis Ende 2027 werden rund 3000 Mitarbeitende Zugang zu einem auf digitaler Souveränität basierenden Arbeitsplatz haben.',
     'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'Ein digitaler Arbeitsplatz in einem Schweizer Bundesamt.',
+    'blog.article.avs-prestazioni-complementari-argovia.title': 'AHV und Ergänzungsleistungen im Kanton Aargau',
+    'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'Erste Säule der schweizerischen Vorsorge: AHV-Rente, Beitragshistorie, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Schweizer Verwaltungsbüro mit Rentendokumenten und Personalakten auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

@@ -1737,6 +1737,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tribunale-ordina-bollettino-neutralita': { it: 'tribunale-ordina-bollettino-neutralita', en: 'court-orders-bulletin-correction-neutrality', de: 'gericht-befiehlt-korrektur-bulletin-neutralitaet', fr: 'tribunal-ordonne-correction-bulletin-neutralite' },
  'permesso-l-argovia-guida': { it: 'permesso-l-argovia-guida', en: 'residence-permit-l-aargau-guide', de: 'aufenthaltsbewilligung-l-aargau-leitfaden', fr: 'permis-l-argovie-guide' },
  'postazione-lavoro-sovranita-digitale': { it: 'postazione-lavoro-sovranita-digitale', en: 'digital-sovereignty-workstation', de: 'digital-souveranitat-arbeitsplatz', fr: 'poste-de-travail-souverainete-numerique' },
+ 'avs-prestazioni-complementari-argovia': { it: 'avs-prestazioni-complementari-argovia', en: 'avs-supplementary-benefits-aargau', de: 'avs-ergaenzungsleistungen-aargau', fr: 'avs-prestations-complementaires-argovie' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

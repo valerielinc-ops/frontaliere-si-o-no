@@ -5134,6 +5134,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.postazione-lavoro-sovranita-digitale.title': 'Stationery: program for digital work',
     'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'By the end of 2027, around 3,000 employees will have access to a workstation based on digital sovereignty.',
     'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'A digital workspace in a Swiss federal office.',
+    'blog.article.avs-prestazioni-complementari-argovia.title': 'AVS and complementary services in the canton of Aargau',
+    'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'First pillar of Swiss social security: AHV pension, calculation on contributory history, contributory gaps and supplementary benefits for minimum subsistence.',
+    'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Swiss administrative office with pension documents and financial records visible on desk',
 };
 
 export default blogMetaChEn;
