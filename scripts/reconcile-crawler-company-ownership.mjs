@@ -31,6 +31,7 @@ import {
   isCantonTicinoOscPosting,
 } from './lib/crawler-company-ownership.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -201,7 +202,7 @@ export function mergeRetiredCrawlerArchive(canonicalJobs, retiredJobs, canonical
     // different locale/history routes. Collapse the whole connected component
     // onto the most recently expired payload, then rebuild the route index.
     const component = [...owners, normalized];
-    component.sort((a, b) => String(b.expiredAt || '').localeCompare(String(a.expiredAt || '')));
+    component.sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
     const survivor = component[0];
     out = out.filter((entry) => !owners.has(entry));
     for (const removed of component.slice(1)) {

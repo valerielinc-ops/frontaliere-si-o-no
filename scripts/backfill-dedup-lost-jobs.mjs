@@ -26,6 +26,7 @@ import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -667,8 +668,8 @@ export function dedupAgainstExisting(proposedByCrawler, loadExisting) {
       const prior = bySlug.get(k);
       if (prior) {
         droppedDuplicates += 1;
-        // Keep the entry with the most recent expiredAt (lexicographic ISO).
-        if (String(entry.expiredAt || '').localeCompare(String(prior.expiredAt || '')) > 0) {
+        // Keep the entry with the most recent expiredAt.
+        if (compareExpiredAt(entry.expiredAt, prior.expiredAt) > 0) {
           bySlug.set(k, entry);
         }
         continue;
@@ -711,7 +712,7 @@ function applyToDisk(filtered) {
     const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
     const existing = loadExpiredSliceFromDisk(crawlerKey);
     const merged = [...existing, ...proposals].sort((a, b) =>
-      String(b.expiredAt || '').localeCompare(String(a.expiredAt || '')),
+      compareExpiredAt(b.expiredAt, a.expiredAt),
     );
     writeJsonAtomic(slicePath, merged);
     summary.push({ crawlerKey, added: proposals.length, total: merged.length });
