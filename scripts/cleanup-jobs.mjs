@@ -24,6 +24,7 @@ import { hardenJobLocaleFields, stableSlugHash } from './lib/dedicated-crawler-c
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -273,7 +274,7 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
 
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
   let archived = [...bySlug.values()]
-    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
   if (archived.length > EXPIRED_JOBS_CAP) {
     archived = archived.slice(0, EXPIRED_JOBS_CAP);
   }
@@ -316,7 +317,7 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   if (added === 0 && existing.length === bySlug.size) return 0;
 
   const archived = [...bySlug.values()]
-    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
   writeJson(slicePath, archived);
   return added;
 }
