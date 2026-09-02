@@ -5182,6 +5182,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Naturalisation dans le canton de Schaffhouse : exigences et procédure',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Découvrez les conditions et la procédure de naturalisation ordinaire dans le canton de Schaffhouse.',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Vue panoramique de Schaffhouse avec le Rhin',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.title': 'Acheter une maison à Zurich : hypothèque, fonds propres et taxes',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.excerpt': 'Procédure, financement et charges fiscales pour l\'achat d\'un logement dans le canton de Zurich : hypothèque, fonds propres, taxe de passage et frais de notaire.',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.imageAlt': 'Paysage résidentiel suisse avec maisons traditionnelles et modernes entourées de jardins verts',
 };
 
 export default blogMetaChFr;

@@ -5182,6 +5182,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Naturalization in the canton of Schaffhausen: requirements and procedure',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Learn about the requirements and procedure for ordinary naturalization in the Canton of Schaffhausen.',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Panoramic view of Schaffhausen with the Rhine River',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.title': 'Buying a house in Zurich: mortgage, own funds and taxes',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.excerpt': 'Procedure, financing and tax charges for the purchase of a house in the Canton of Zurich: mortgage loan, own funds, transfer tax and notary fees.',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.imageAlt': 'Swiss residential landscape with traditional and modern houses surrounded by green gardens',
 };
 
 export default blogMetaChEn;

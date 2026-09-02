@@ -5182,6 +5182,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Einbürgerung im Kanton Schaffhausen: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Schaffhausen.',
     'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Panoramablick auf Schaffhausen mit dem Rhein',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.title': 'Haus kaufen in Zürich: Hypothek, Eigenkapital und Steuern',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.excerpt': 'Verfahren, Finanzierung und Steuerbelastung beim Wohnungskauf im Kanton Zürich: Hypothekardarlehen, Eigenmittel, Ablösesumme und Notargebühren.',
+    'blog.article.acquistare-casa-zurigo-mutuo-fondi.imageAlt': 'Schweizer Wohnviertel mit traditionellen und modernen Häusern umgeben von grünen Gärten',
 };
 
 export default blogMetaChDe;
