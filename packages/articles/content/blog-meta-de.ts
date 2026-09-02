@@ -11138,6 +11138,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Leben in Vergiate, Arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'Die neue Frontalieri-Vereinbarung 2024 macht es bequem, in Vergiate zu leben: Befreiung von € 10.000, Genehmigung G, Fahrzeit 45-60 Minuten. Besteuerung, AHV/BVG, KVG und Verfahren.',
     'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Morgenverkehr am Grenzübergang zwischen Varese und Tessin mit Pendlerautos',
+    'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Wohnen in Grosotto und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Steuerbefreiung, Pendeln, Lebenshaltungskosten: Praktischer Leitfaden für den Umzug nach Grosotto, um in Graubünden zu arbeiten.',
+    'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Berglandschaft von Grosotto in der Provinz Sondrio mit den Alpen und der Schweizer Graubünden-Grenze im Hintergrund.',
 };
 
 export default blogMetaDe;

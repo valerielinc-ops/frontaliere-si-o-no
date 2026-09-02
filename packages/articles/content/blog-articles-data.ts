@@ -33285,6 +33285,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'grosotto-frontaliere-grigioni-guida',
+ category: 'pratico',
+ date: '2026-09-02T20:27:14.517Z',
+ image: '/images/blog/grosotto-frontaliere-grigioni-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
