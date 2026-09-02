@@ -11117,6 +11117,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Vivre à Gerenzano et travailler au Tessin : guide pour les frontaliers',
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Distance, cols, permis G, taxes, AVS et LAMal : tout ce que vous devez savoir avant de vous rendre à Gerenzano depuis le Tessin ou d\'autres zones frontalières.',
     'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Lugano et du lac de Lugano au coucher du soleil, avec les Alpes suisses en arrière-plan et la frontière italienne clairement visible',
+    'blog.article.svizzera-perde-attrattiva-aziende.title': 'La Suisse perd de son attrait pour les entreprises',
+    'blog.article.svizzera-perde-attrattiva-aziende.excerpt': 'Sept PDG sur dix constatent une baisse de l\'attractivité suisse par rapport à la concurrence internationale.',
+    'blog.article.svizzera-perde-attrattiva-aziende.imageAlt': 'Vue aérienne de Lugano, Suisse, avec skyline moderne et montagnes environnantes.',
 };
 
 export default blogMetaFr;
