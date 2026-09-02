@@ -11137,6 +11137,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crodo-frontaliere-guida-pratica.title': 'Crodo: guida per frontalieri che lavorano in Ticino',
     'blog.article.crodo-frontaliere-guida-pratica.excerpt': 'Crodo offre costo della vita basso e accesso rapido ai valichi del Ticino. Guida completa: permesso G, fisco con nuovo accordo 2024, AVS/LPP, LAMal, ristorni e procedure pratiche.',
     'blog.article.crodo-frontaliere-guida-pratica.imageAlt': 'Paesaggio montano del confine tra Piemonte e Ticino con piccolo paese alpino tra boschi e vallate',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.title': 'Vivere a Vergiate, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.excerpt': 'Il nuovo Accordo Frontalieri 2024 rende conveniente vivere a Vergiate: esenzione €10.000, permesso G, tempi tragitto 45-60 minuti. Tassazione, AVS/LPP, LAMal e procedure.',
+    'blog.article.vivere-vergiate-lavorare-ticino-frontaliere.imageAlt': 'Traffico mattutino al valico di confine tra Varese e il Ticino con auto pendolari',
 };
 
 export default blogMetaIt;
