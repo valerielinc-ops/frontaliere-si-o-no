@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-09-02T13:48:53.974Z",
+  "assembledAt": "2026-09-02T23:23:09.648Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-109ca04ca2ac",
@@ -33,7 +33,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2774482",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.600Z",
+      "crawledAt": "2026-09-02T23:23:06.507Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -62,69 +62,6 @@
           "@type": "QuantitativeValue",
           "minValue": 78500,
           "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kellerhals-carrard-5adbfb3c729a",
-      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-      "slugByLocale": {
-        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
-        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-      "titleByLocale": {
-        "it": "Avvio senior & Venture Capital Lawyer (80%-100%)",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
-        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
-        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
-      },
-      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-      "descriptionByLocale": {
-        "it": "Avviamento senior & Venture Capital Lawyer (80%-100%) — posizione a Kellerhals Carrard a Zurigo (ZH), Svizzera. Kellerhals Carrard è uno dei principali studi di diritto commerciale svizzero con sede a Berna, Zurigo, Basilea e Ginevra.",
-        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
-        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
-        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.600Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-03T22:51:03.188Z",
-      "salaryMin": 131500,
-      "salaryMax": 225500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 131500,
-          "maxValue": 225500,
           "unitText": "YEAR"
         }
       }
@@ -160,7 +97,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.600Z",
+      "crawledAt": "2026-09-02T23:23:06.507Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,7 +161,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2653648",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.600Z",
+      "crawledAt": "2026-09-02T23:23:06.507Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -243,11 +180,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
+        "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
+          "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel"
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel"
@@ -302,7 +241,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.599Z",
+      "crawledAt": "2026-09-02T23:23:06.506Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -331,6 +270,70 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 116500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-5adbfb3c729a",
+      "slug": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+      "slugByLocale": {
+        "it": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "en": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "de": "senior-startup-venture-capital-lawyer-80-100-kellerhals-carrard-zurich",
+        "fr": "avocat-principal-en-demarrage-et-en-capital-de-risque-80-100-kellerhals-carrard-zurich"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+      "titleByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%)",
+        "de": "Senior Startup & Venture Capital Anwalt (80%-100%)",
+        "fr": "Avocat principal en démarrage et en capital de risque (80%-100%)"
+      },
+      "description": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+      "descriptionByLocale": {
+        "it": "Senior Startup & Venture Capital Lawyer (80%-100%) — Stelle bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "en": "Senior Startup & Venture Capital Lawyer (80%-100%) — position at Kellerhals Carrard in Zurich (ZH), Switzerland. Kellerhals Carrard is one of the leading Swiss commercial law firms with offices in Bern, Zurich, Basel and Geneva.",
+        "de": "Senior Startup & Venture Capital Rechtsanwalt (80%-100%) — Stars bei Kellerhals Carrard in Zürich (ZH), Schweiz. Kellerhals Carrard ist eine der führenden Schweizer Wirtschaftskanzleien mit Standorten in Bern, Zürich, Basel und Genf.",
+        "fr": "Senior Startup & Venture Capital Lawyer (80%-100%) — poste chez Kellerhals Carrard à Zurich (ZH), Suisse. Kellerhals Carrard est l'un des principaux cabinets d'avocats commerciaux suisses avec des bureaux à Berne, Zurich, Bâle et Genève."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T23:23:06.506Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:51:03.188Z",
+      "salaryMin": 131500,
+      "salaryMax": 225500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 131500,
+          "maxValue": 225500,
           "unitText": "YEAR"
         }
       }
@@ -366,7 +369,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.598Z",
+      "crawledAt": "2026-09-02T23:23:06.504Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -395,6 +398,166 @@
           "@type": "QuantitativeValue",
           "minValue": 85000,
           "maxValue": 145000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-57d69e35c3f4",
+      "slug": "applicazione-d-iniziativa-kellerhals-carrard-basel",
+      "slugByLocale": {
+        "it": "applicazione-d-iniziativa-kellerhals-carrard-basel",
+        "en": "own-initiative-application-kellerhals-carrard-basel",
+        "de": "initiativbewerbung-kellerhals-carrard-basel",
+        "fr": "demande-d-initiative-kellerhals-carrard-basel"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Initiativbewerbung",
+      "titleByLocale": {
+        "it": "Applicazione d'iniziativa",
+        "en": "Own-initiative application",
+        "de": "Initiativbewerbung",
+        "fr": "Demande d'initiative"
+      },
+      "description": "Gestalten Sie mit uns spannende Mandate und Projekte – von fundierten rechtlichen Abklärungen über die Erstellung massgeschneiderter Verträge bis hin zur effizienten Organisation im Kanzleialltag. Bringen Sie Ihre Expertise ein und übernehmen Sie Verantwortung in einem vielseitigen Umfeld.\n• Juristischer Hochschulabschluss mit überdurchschnittlichen Qualifikationen und Anwaltspatent oder passende Qualifikationen und Erfahrungen im administrativen Bereich (z. B. Anwaltsassistenz oder Notariatssachbearbeitung);\n\n• Unternehmerisches Denken und selbständiges Arbeiten;\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise;\n\n• Berufserfahrung ist willkommen, Ihre Einstellung und Ihre Lernbereitschaft sind uns jedoch wichtiger;\n\n• Sehr gute Deutsch- und Englischkenntnisse.\n\n• Mitarbeit in einer innovativen Schweizer Kanzlei;\n\n• Eine vielseitige und anspruchsvolle Tätigkeit;\n\n• Zentraler Standort in Basel am Aeschenplatz;\n\n• Ein sehr wertschätzendes Team;\n\n• Hohe Selbständigkeit, individuelle Entwicklungsmöglichkeiten und Flexibilität;\n\n• Eine leistungsgerechte Entlohnung;\n\n• Gemeinsame Freizeitaktivitäten, Team Lunches, Retreats und mehr.",
+      "descriptionByLocale": {
+        "it": "Creare mandati e progetti entusiasmanti con noi – da chiarimenti legali ben fondati e la preparazione di contratti su misura per un'organizzazione efficiente nella vita quotidiana dello studio legale. Porta la tua esperienza e assume la responsabilità in un ambiente versatile.\n• Grado di diritto con qualifiche superiori alla media e brevetto di avvocato o qualifiche adeguate e l'esperienza nel campo amministrativo (ad esempio, assistente di avvocato o trattamento di diritto notarile);\n• pensiero imprenditoriale e lavoro indipendente;\n• Alta disponibilità operativa, affidabilità e precisione di funzionamento;\n• L'esperienza professionale è gradita, ma il tuo atteggiamento e la tua volontà di imparare sono più importanti per noi;\n• Ottima conoscenza del tedesco e dell'inglese.\n• Lavorare in un innovativo studio legale svizzero;\n• Un'attività versatile e impegnativa;\n• Posizione centrale a Basilea a Aeschenplatz;\n• Una squadra molto apprezzativa;\n• Alto grado di indipendenza, opportunità di sviluppo individuale e flessibilità;\n• remunerazione basata sulle prestazioni;\n• Attività ricreative condivise, pranzi di squadra, ritiri e altro ancora.",
+        "en": "Create exciting mandates and projects with us – from well-founded legal clarifications and the preparation of tailor-made contracts to efficient organization in everyday law firm life. Bring your expertise and take on responsibility in a versatile environment.\n• Law degree with above-average qualifications and attorney’s patent or suitable qualifications and experience in the administrative field (e.g. lawyer’s assistant or notarial law processing);\n• entrepreneurial thinking and independent work;\n• High operational readiness, reliability and precision of operation;\n• Professional experience is welcome, but your attitude and willingness to learn are more important to us;\n• Very good knowledge of German and English.\n• Working in an innovative Swiss law firm;\n• A versatile and demanding activity;\n• Central location in Basel at Aeschenplatz;\n• A very appreciative team;\n• High degree of independence, individual development opportunities and flexibility;\n• performance-based remuneration;\n• Shared leisure activities, team lunches, retreats and more.",
+        "de": "Gestalten Sie mit uns spannende Mandate und Projekte – von fundierten rechtlichen Abklärungen über die Erstellung massgeschneiderter Verträge bis hin zur effizienten Organisation im Kanzleialltag. Bringen Sie Ihre Expertise ein und übernehmen Sie Verantwortung in einem vielseitigen Umfeld.\n• Juristischer Hochschulabschluss mit überdurchschnittlichen Qualifikationen und Anwaltspatent oder passende Qualifikationen und Erfahrungen im administrativen Bereich (z. B. Anwaltsassistenz oder Notariatssachbearbeitung);\n\n• Unternehmerisches Denken und selbständiges Arbeiten;\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise;\n\n• Berufserfahrung ist willkommen, Ihre Einstellung und Ihre Lernbereitschaft sind uns jedoch wichtiger;\n\n• Sehr gute Deutsch- und Englischkenntnisse.\n\n• Mitarbeit in einer innovativen Schweizer Kanzlei;\n\n• Eine vielseitige und anspruchsvolle Tätigkeit;\n\n• Zentraler Standort in Basel am Aeschenplatz;\n\n• Ein sehr wertschätzendes Team;\n\n• Hohe Selbständigkeit, individuelle Entwicklungsmöglichkeiten und Flexibilität;\n\n• Eine leistungsgerechte Entlohnung;\n\n• Gemeinsame Freizeitaktivitäten, Team Lunches, Retreats und mehr.",
+        "fr": "Créer des mandats et des projets passionnants avec nous – des clarifications juridiques bien fondées et la préparation de contrats sur mesure à une organisation efficace dans la vie quotidienne des cabinets d'avocats. Apportez votre expertise et prenez vos responsabilités dans un environnement polyvalent.\n• Diplôme de droit avec des qualifications supérieures à la moyenne et un brevet d'avocat ou des qualifications et une expérience appropriées dans le domaine administratif (par exemple avocat adjoint ou traitement notarié du droit);\n• la pensée entrepreneuriale et le travail indépendant;\n• Préparation opérationnelle élevée, fiabilité et précision du fonctionnement;\n• L'expérience professionnelle est la bienvenue, mais votre attitude et votre volonté d'apprendre sont plus importantes pour nous;\n• Très bonne connaissance de l'allemand et de l'anglais.\n• Travailler dans un cabinet d'avocats suisse innovant;\n• une activité polyvalente et exigeante;\n• Situation centrale à Bâle à Aeschenplatz;\n• Une équipe très reconnaissante;\n• Haute indépendance, possibilités de développement individuel et flexibilité;\n• rémunération fondée sur le rendement;\n• Activités de loisirs partagées, déjeuners d'équipe, retraites et plus encore."
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T23:23:06.504Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4051",
+      "category": "Legale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "initiativbewerbung-kellerhals-carrard-basel",
+        "applicazione-d-iniziativa-kellerhals-carrard-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "initiativbewerbung-kellerhals-carrard-basel",
+          "applicazione-d-iniziativa-kellerhals-carrard-basel"
+        ],
+        "en": [
+          "initiativbewerbung-kellerhals-carrard-basel"
+        ],
+        "fr": [
+          "initiativbewerbung-kellerhals-carrard-basel"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:51:03.185Z",
+      "salaryMin": 70500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 70500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "kellerhals-carrard-2d723c52dfc3",
+      "slug": "stage-di-diritto-kellerhals-carrard-bern",
+      "slugByLocale": {
+        "it": "stage-di-diritto-kellerhals-carrard-bern",
+        "en": "internship-at-law-kellerhals-carrard-bern",
+        "de": "anwaltspraktikum-kellerhals-carrard-bern",
+        "fr": "stages-en-droit-kellerhals-carrard-bern"
+      },
+      "company": "Kellerhals Carrard",
+      "companyKey": "kellerhals-carrard",
+      "companyDomain": "kellerhals-carrard.ch",
+      "title": "Anwaltspraktikum",
+      "titleByLocale": {
+        "it": "Stage di diritto",
+        "en": "Internship at law",
+        "de": "Anwaltspraktikum",
+        "fr": "Stages en droit"
+      },
+      "description": "Während eines 9- bis 12-monatigen Praktikums am Standort Bern erhalten Sie einen umfassenden Einblick in die Tätigkeit als Rechtsanwältin bzw. Rechtsanwalt. Durch die Mitarbeit in verschiedenen Teams können Sie wertvolle Erfahrungen in unterschiedlichen Rechtsgebieten sammeln, wobei der Schwerpunkt im Wirtschaftsrecht liegt.\n Von Beginn an werden Sie aktiv in die Mandatsarbeit eingebunden. Sie führen rechtliche Abklärungen durch, verfassen eigenständig Rechtsschriften und treten vor Gerichten und Behörden auf. Darüber hinaus begleiten Sie die anwaltliche Beratung im direkten Kontakt mit unseren Klientinnen und Klienten. Weitere Aufgaben sind die Ausarbeitung und Prüfung von Verträgen sowie die Mitarbeit bei gesellschaftsrechtlichen Fragestellungen, wie Gründungen, Umstrukturierungen und Transaktionen (M&A).\n\n• Masterabschluss in Rechtswissenschaften, in der Regel mit Prädikat ab magna cum laude\n\n• Idealerweise ein abgeschlossenes Gerichts- oder Verwaltungspraktikum\n\n• Hohe Einsatzbereitschaft, sorgfältige und präzise Arbeitsweise\n\n• Freude an Teamarbeit sowie an eigenverantwortlicher Tätigkeit\n Ein spannendes und lehrreiches Praktikum mit Einblick in die verschiedenen Rechtsgebiete einer Wirtschaftskanzlei, welches Sie gut auf die Anwaltsprüfungen vorbereitet.\n\nVerfügbarkeit\nBewerbungen für Praktika mit einem Startdatum zwischen dem 1. Juli 2028 und dem 1. Januar 2029 nehmen wir gerne im Bewerbungsfenster vom 1. bis 21. August 2026 entgegen. Nach Ablauf dieser Frist werden sämtliche eingegangenen Bewerbungen geprüft und die Bewerbungsgespräche terminiert. Falls Sie sich bereits einmal für die Stelle beworben haben und eine erneute Bewerbung vom System nicht akzeptiert wird, senden Sie uns Ihre Bewerbungsunterlagen gerne per e-Mail an chiara.nemeth@kellerhals-carrard.ch .\nErgänzend sind wir für Kurzpraktika bis Sommer 2027 ausgebucht. Gerne können Sie sich für Kurzpraktika ab Sommer 2027 bewerben.",
+      "descriptionByLocale": {
+        "it": "Durante uno stage da 9 a 12 mesi presso la sede di Berne, avrai una panoramica completa del tuo lavoro come avvocato. Avvocato. Lavorando in diverse squadre, è possibile acquisire esperienza preziosa in diversi settori di diritto, con un focus sul diritto commerciale. Fin dall'inizio, sarete attivamente coinvolti nel lavoro di mandato. Conducono chiarimenti legali, scrivono in modo indipendente documenti legali e agiscono in tribunali e autorità. Inoltre, si accompagna il consiglio legale in contatto diretto con i nostri clienti. Ulteriori compiti sono la redazione e l'esame dei contratti, nonché la cooperazione in materia di diritto societario, come start-up, ristrutturazione e transazioni (M&A).\n• Laurea magistrale in diritto, di solito con predicato da magna cum laude\n• Idealmente, un tirocinio giudiziario o amministrativo completato\n• Alta disponibilità operativa, metodi di lavoro precisi e precisi\n• Divertimento del lavoro di squadra e del lavoro responsabile Uno stage emozionante e istruttivo con una panoramica dei vari campi legali di uno studio legale commerciale, che ti prepara bene per gli esami a barre. Disponibilità Applicazioni per tirocinio con data di inizio dal 1° luglio 2028 al 1. Gennaio 2029 accettiamo volentieri nella finestra di applicazione da 1 a 21. Agosto 2026. Alla fine di questo periodo, tutte le domande ricevute saranno esaminate e le interviste saranno programmate. Inoltre, siamo completamente prenotati per brevi stage fino all'estate 2027. Siete invitati a candidarsi per brevi stage dall'estate 2027.",
+        "en": "During a 9- to 12-month internship at the Berne location, you will get a comprehensive insight into your work as a lawyer. Lawyer. By working in different teams, you can gain valuable experience in different fields of law, with a focus on business law. From the beginning, you will be actively involved in the mandate work. They conduct legal clarifications, independently write legal documents and act in courts and authorities. In addition, you accompany the legal advice in direct contact with our clients. Further tasks are the drafting and examination of contracts as well as the cooperation in corporate law issues such as start-ups, restructuring and transactions (M&A).\n• Master's degree in law, usually with predicate from magna cum laude\n• Ideally, a completed court or administrative internship\n• High operational readiness, careful and precise working methods\n• Enjoying teamwork and self-responsible work An exciting and instructive internship with insight into the various legal fields of a commercial law firm, which prepares you well for the bar exams. Availability Applications for traineeships with a start date between 1 July 2028 and 1. January 2029 we gladly accept in the application window from 1 to 21. August 2026. At the end of this period, all applications received will be examined and interviews will be scheduled. In addition, we are fully booked for short internships until summer 2027. You are welcome to apply for short internships from summer 2027.",
+        "de": "Während eines 9- bis 12-monatigen Praktikums am Standort Bern erhalten Sie einen umfassenden Einblick in die Tätigkeit als Rechtsanwältin bzw. Rechtsanwalt. Durch die Mitarbeit in verschiedenen Teams können Sie wertvolle Erfahrungen in unterschiedlichen Rechtsgebieten sammeln, wobei der Schwerpunkt im Wirtschaftsrecht liegt.\nVon Beginn an werden Sie aktiv in die Mandatsarbeit eingebunden. Sie führen rechtliche Abklärungen durch, verfassen eigenständig Rechtsschriften und treten vor Gerichten und Behörden auf. Darüber hinaus begleiten Sie die anwaltliche Beratung im direkten Kontakt mit unseren Klientinnen und Klienten. Weitere Aufgaben sind die Ausarbeitung und Prüfung von Verträgen sowie die Mitarbeit bei gesellschaftsrechtlichen Fragestellungen, wie Gründungen, Umstrukturierungen und Transaktionen (M&A).\n\n• Masterabschluss in Rechtswissenschaften, in der Regel mit Prädikat ab magna cum laude\n\n• Idealerweise ein abgeschlossenes Gerichts- oder Verwaltungspraktikum\n\n• Hohe Einsatzbereitschaft, sorgfältige und präzise Arbeitsweise\n\n• Freude an Teamarbeit sowie an eigenverantwortlicher Tätigkeit\nEin spannendes und lehrreiches Praktikum mit Einblick in die verschiedenen Rechtsgebiete einer Wirtschaftskanzlei, welches Sie gut auf die Anwaltsprüfungen vorbereitet.\n\nVerfügbarkeit\nBewerbungen für Praktika mit einem Startdatum zwischen dem 1. Juli 2028 und dem 1. Januar 2029 nehmen wir gerne im Bewerbungsfenster vom 1. bis 21. August 2026 entgegen. Nach Ablauf dieser Frist werden sämtliche eingegangenen Bewerbungen geprüft und die Bewerbungsgespräche terminiert. Falls Sie sich bereits einmal für die Stelle beworben haben und eine erneute Bewerbung vom System nicht akzeptiert wird, senden Sie uns Ihre Bewerbungsunterlagen gerne per e-Mail an chiara.nemeth@kellerhals-carrard.ch .\nErgänzend sind wir für Kurzpraktika bis Sommer 2027 ausgebucht. Gerne können Sie sich für Kurzpraktika ab Sommer 2027 bewerben.",
+        "fr": "Lors d'un stage de 9 à 12 mois à Berne, vous aurez un aperçu complet de votre travail d'avocat. Avocat. En travaillant dans différentes équipes, vous pouvez acquérir une expérience précieuse dans différents domaines du droit, en mettant l'accent sur le droit des affaires. Dès le début, vous participerez activement aux travaux du mandat. Ils apportent des éclaircissements juridiques, rédigent des documents juridiques et agissent en toute indépendance devant les tribunaux et les autorités. De plus, vous accompagnez les conseils juridiques en contact direct avec nos clients. D'autres tâches sont l'élaboration et l'examen de contrats ainsi que la coopération dans les questions de droit des sociétés telles que la création d'entreprises, la restructuration et les transactions (M&A).\n• Maîtrise en droit, généralement avec prédicat de magna cum laude\n• Idéalement, un stage judiciaire ou administratif terminé\n• Préparation opérationnelle élevée, méthodes de travail prudentes et précises\n• Profitez du travail d'équipe et du travail autonome Un stage passionnant et instructif avec un aperçu des différents domaines juridiques d'un cabinet d'avocats commerciaux, qui vous prépare bien pour les examens du barreau. Disponibilité Demandes de stages avec une date de début entre le 1er juillet 2028 et 1. Janvier 2029 nous acceptons volontiers dans la fenêtre de demande de 1 à 21. Août 2026. À la fin de cette période, toutes les demandes reçues seront examinées et des entrevues seront prévues. En outre, nous sommes entièrement réservés pour des stages courts jusqu'à l'été 2027. Vous êtes invités à postuler pour de courts stages à partir de l'été 2027."
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
+      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T23:23:06.503Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3011",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "INTERN",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "anwaltspraktikum-kellerhals-carrard-bern",
+        "stage-di-diritto-kellerhals-carrard-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "anwaltspraktikum-kellerhals-carrard-bern",
+          "stage-di-diritto-kellerhals-carrard-bern"
+        ],
+        "en": [
+          "anwaltspraktikum-kellerhals-carrard-bern"
+        ],
+        "fr": [
+          "anwaltspraktikum-kellerhals-carrard-bern"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:51:03.183Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
           "unitText": "YEAR"
         }
       }
@@ -430,7 +593,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.597Z",
+      "crawledAt": "2026-09-02T23:23:06.503Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -447,12 +610,15 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "wildcard-bewerbung-kellerhals-carrard-bern"
+        "wildcard-bewerbung-kellerhals-carrard-bern",
+        "applicazione-wildcard-kellerhals-carrard-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wildcard-bewerbung-kellerhals-carrard-bern"
+          "wildcard-bewerbung-kellerhals-carrard-bern",
+          "applicazione-wildcard-kellerhals-carrard-bern"
         ],
         "en": [
           "wildcard-bewerbung-kellerhals-carrard-bern"
@@ -507,7 +673,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.597Z",
+      "crawledAt": "2026-09-02T23:23:06.503Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -526,11 +692,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+        "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
+          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+          "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
         ],
         "en": [
           "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
@@ -555,83 +723,6 @@
       }
     },
     {
-      "id": "kellerhals-carrard-57d69e35c3f4",
-      "slug": "applicazione-d-iniziativa-kellerhals-carrard-basel",
-      "slugByLocale": {
-        "it": "applicazione-d-iniziativa-kellerhals-carrard-basel",
-        "en": "own-initiative-application-kellerhals-carrard-basel",
-        "de": "initiativbewerbung-kellerhals-carrard-basel",
-        "fr": "demande-d-initiative-kellerhals-carrard-basel"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Initiativbewerbung",
-      "titleByLocale": {
-        "it": "Applicazione d'iniziativa",
-        "en": "Own-initiative application",
-        "de": "Initiativbewerbung",
-        "fr": "Demande d'initiative"
-      },
-      "description": "Gestalten Sie mit uns spannende Mandate und Projekte – von fundierten rechtlichen Abklärungen über die Erstellung massgeschneiderter Verträge bis hin zur effizienten Organisation im Kanzleialltag. Bringen Sie Ihre Expertise ein und übernehmen Sie Verantwortung in einem vielseitigen Umfeld.\n• Juristischer Hochschulabschluss mit überdurchschnittlichen Qualifikationen und Anwaltspatent oder passende Qualifikationen und Erfahrungen im administrativen Bereich (z. B. Anwaltsassistenz oder Notariatssachbearbeitung);\n\n• Unternehmerisches Denken und selbständiges Arbeiten;\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise;\n\n• Berufserfahrung ist willkommen, Ihre Einstellung und Ihre Lernbereitschaft sind uns jedoch wichtiger;\n\n• Sehr gute Deutsch- und Englischkenntnisse.\n\n• Mitarbeit in einer innovativen Schweizer Kanzlei;\n\n• Eine vielseitige und anspruchsvolle Tätigkeit;\n\n• Zentraler Standort in Basel am Aeschenplatz;\n\n• Ein sehr wertschätzendes Team;\n\n• Hohe Selbständigkeit, individuelle Entwicklungsmöglichkeiten und Flexibilität;\n\n• Eine leistungsgerechte Entlohnung;\n\n• Gemeinsame Freizeitaktivitäten, Team Lunches, Retreats und mehr.",
-      "descriptionByLocale": {
-        "it": "Creare mandati e progetti entusiasmanti con noi – da chiarimenti legali ben fondati e la preparazione di contratti su misura per un'organizzazione efficiente nella vita quotidiana dello studio legale. Porta la tua esperienza e assume la responsabilità in un ambiente versatile.\n• Grado di diritto con qualifiche superiori alla media e brevetto di avvocato o qualifiche adeguate e l'esperienza nel campo amministrativo (ad esempio, assistente di avvocato o trattamento di diritto notarile);\n• pensiero imprenditoriale e lavoro indipendente;\n• Alta disponibilità operativa, affidabilità e precisione di funzionamento;\n• L'esperienza professionale è gradita, ma il tuo atteggiamento e la tua volontà di imparare sono più importanti per noi;\n• Ottima conoscenza del tedesco e dell'inglese.\n• Lavorare in un innovativo studio legale svizzero;\n• Un'attività versatile e impegnativa;\n• Posizione centrale a Basilea a Aeschenplatz;\n• Una squadra molto apprezzativa;\n• Alto grado di indipendenza, opportunità di sviluppo individuale e flessibilità;\n• remunerazione basata sulle prestazioni;\n• Attività ricreative condivise, pranzi di squadra, ritiri e altro ancora.",
-        "en": "Create exciting mandates and projects with us – from well-founded legal clarifications and the preparation of tailor-made contracts to efficient organization in everyday law firm life. Bring your expertise and take on responsibility in a versatile environment.\n• Law degree with above-average qualifications and attorney’s patent or suitable qualifications and experience in the administrative field (e.g. lawyer’s assistant or notarial law processing);\n• entrepreneurial thinking and independent work;\n• High operational readiness, reliability and precision of operation;\n• Professional experience is welcome, but your attitude and willingness to learn are more important to us;\n• Very good knowledge of German and English.\n• Working in an innovative Swiss law firm;\n• A versatile and demanding activity;\n• Central location in Basel at Aeschenplatz;\n• A very appreciative team;\n• High degree of independence, individual development opportunities and flexibility;\n• performance-based remuneration;\n• Shared leisure activities, team lunches, retreats and more.",
-        "de": "Gestalten Sie mit uns spannende Mandate und Projekte – von fundierten rechtlichen Abklärungen über die Erstellung massgeschneiderter Verträge bis hin zur effizienten Organisation im Kanzleialltag. Bringen Sie Ihre Expertise ein und übernehmen Sie Verantwortung in einem vielseitigen Umfeld.\n• Juristischer Hochschulabschluss mit überdurchschnittlichen Qualifikationen und Anwaltspatent oder passende Qualifikationen und Erfahrungen im administrativen Bereich (z. B. Anwaltsassistenz oder Notariatssachbearbeitung);\n\n• Unternehmerisches Denken und selbständiges Arbeiten;\n\n• Hohe Einsatzbereitschaft, Zuverlässigkeit und präzise Arbeitsweise;\n\n• Berufserfahrung ist willkommen, Ihre Einstellung und Ihre Lernbereitschaft sind uns jedoch wichtiger;\n\n• Sehr gute Deutsch- und Englischkenntnisse.\n\n• Mitarbeit in einer innovativen Schweizer Kanzlei;\n\n• Eine vielseitige und anspruchsvolle Tätigkeit;\n\n• Zentraler Standort in Basel am Aeschenplatz;\n\n• Ein sehr wertschätzendes Team;\n\n• Hohe Selbständigkeit, individuelle Entwicklungsmöglichkeiten und Flexibilität;\n\n• Eine leistungsgerechte Entlohnung;\n\n• Gemeinsame Freizeitaktivitäten, Team Lunches, Retreats und mehr.",
-        "fr": "Créer des mandats et des projets passionnants avec nous – des clarifications juridiques bien fondées et la préparation de contrats sur mesure à une organisation efficace dans la vie quotidienne des cabinets d'avocats. Apportez votre expertise et prenez vos responsabilités dans un environnement polyvalent.\n• Diplôme de droit avec des qualifications supérieures à la moyenne et un brevet d'avocat ou des qualifications et une expérience appropriées dans le domaine administratif (par exemple avocat adjoint ou traitement notarié du droit);\n• la pensée entrepreneuriale et le travail indépendant;\n• Préparation opérationnelle élevée, fiabilité et précision du fonctionnement;\n• L'expérience professionnelle est la bienvenue, mais votre attitude et votre volonté d'apprendre sont plus importantes pour nous;\n• Très bonne connaissance de l'allemand et de l'anglais.\n• Travailler dans un cabinet d'avocats suisse innovant;\n• une activité polyvalente et exigeante;\n• Situation centrale à Bâle à Aeschenplatz;\n• Une équipe très reconnaissante;\n• Haute indépendance, possibilités de développement individuel et flexibilité;\n• rémunération fondée sur le rendement;\n• Activités de loisirs partagées, déjeuners d'équipe, retraites et plus encore."
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.597Z",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4051",
-      "category": "Legale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "initiativbewerbung-kellerhals-carrard-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "initiativbewerbung-kellerhals-carrard-basel"
-        ],
-        "en": [
-          "initiativbewerbung-kellerhals-carrard-basel"
-        ],
-        "fr": [
-          "initiativbewerbung-kellerhals-carrard-basel"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.185Z",
-      "salaryMin": 70500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 70500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "kellerhals-carrard-15cfcf331d6f",
       "slug": "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich",
       "slugByLocale": {
@@ -646,7 +737,7 @@
       "title": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
       "titleByLocale": {
         "it": "Substitut/-in Banking, Finanza & Fintech e Kapitalmarktrecht",
-        "en": "Substitute/-in Banking, Finance & Fintech and Capital Market Law",
+        "en": "Substitut/-in Banking, Finance & Fintech und Kapitalmarktrecht",
         "de": "Substitut/-in Banking, Finanzen & Fintech und Kapitalmarktrecht",
         "fr": "Substitut/-in Droit bancaire, financier et fintech et du marché des capitaux"
       },
@@ -662,7 +753,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.596Z",
+      "crawledAt": "2026-09-02T23:23:06.502Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -681,11 +772,13 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich"
+        "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
+        "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich"
+          "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
+          "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
         ],
         "en": [
           "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich"
@@ -705,84 +798,6 @@
           "@type": "QuantitativeValue",
           "minValue": 85000,
           "maxValue": 145000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "kellerhals-carrard-2d723c52dfc3",
-      "slug": "stage-di-diritto-kellerhals-carrard-bern",
-      "slugByLocale": {
-        "it": "stage-di-diritto-kellerhals-carrard-bern",
-        "en": "internship-at-law-kellerhals-carrard-bern",
-        "de": "anwaltspraktikum-kellerhals-carrard-bern",
-        "fr": "stages-en-droit-kellerhals-carrard-bern"
-      },
-      "company": "Kellerhals Carrard",
-      "companyKey": "kellerhals-carrard",
-      "companyDomain": "kellerhals-carrard.ch",
-      "title": "Anwaltspraktikum",
-      "titleByLocale": {
-        "it": "Stage di diritto",
-        "en": "Internship at law",
-        "de": "Anwaltspraktikum",
-        "fr": "Stages en droit"
-      },
-      "description": "Während eines 9- bis 12-monatigen Praktikums am Standort Bern erhalten Sie einen umfassenden Einblick in die Tätigkeit als Rechtsanwältin bzw. Rechtsanwalt. Durch die Mitarbeit in verschiedenen Teams können Sie wertvolle Erfahrungen in unterschiedlichen Rechtsgebieten sammeln, wobei der Schwerpunkt im Wirtschaftsrecht liegt.\n Von Beginn an werden Sie aktiv in die Mandatsarbeit eingebunden. Sie führen rechtliche Abklärungen durch, verfassen eigenständig Rechtsschriften und treten vor Gerichten und Behörden auf. Darüber hinaus begleiten Sie die anwaltliche Beratung im direkten Kontakt mit unseren Klientinnen und Klienten. Weitere Aufgaben sind die Ausarbeitung und Prüfung von Verträgen sowie die Mitarbeit bei gesellschaftsrechtlichen Fragestellungen, wie Gründungen, Umstrukturierungen und Transaktionen (M&A).\n\n• Masterabschluss in Rechtswissenschaften, in der Regel mit Prädikat ab magna cum laude\n\n• Idealerweise ein abgeschlossenes Gerichts- oder Verwaltungspraktikum\n\n• Hohe Einsatzbereitschaft, sorgfältige und präzise Arbeitsweise\n\n• Freude an Teamarbeit sowie an eigenverantwortlicher Tätigkeit\n Ein spannendes und lehrreiches Praktikum mit Einblick in die verschiedenen Rechtsgebiete einer Wirtschaftskanzlei, welches Sie gut auf die Anwaltsprüfungen vorbereitet.\n\nVerfügbarkeit\nBewerbungen für Praktika mit einem Startdatum zwischen dem 1. Juli 2028 und dem 1. Januar 2029 nehmen wir gerne im Bewerbungsfenster vom 1. bis 21. August 2026 entgegen. Nach Ablauf dieser Frist werden sämtliche eingegangenen Bewerbungen geprüft und die Bewerbungsgespräche terminiert. Falls Sie sich bereits einmal für die Stelle beworben haben und eine erneute Bewerbung vom System nicht akzeptiert wird, senden Sie uns Ihre Bewerbungsunterlagen gerne per e-Mail an chiara.nemeth@kellerhals-carrard.ch .\nErgänzend sind wir für Kurzpraktika bis Sommer 2027 ausgebucht. Gerne können Sie sich für Kurzpraktika ab Sommer 2027 bewerben.",
-      "descriptionByLocale": {
-        "it": "Durante uno stage da 9 a 12 mesi presso la sede di Berne, avrai una panoramica completa del tuo lavoro come avvocato. Avvocato. Lavorando in diverse squadre, è possibile acquisire esperienza preziosa in diversi settori di diritto, con un focus sul diritto commerciale. Fin dall'inizio, sarete attivamente coinvolti nel lavoro di mandato. Conducono chiarimenti legali, scrivono in modo indipendente documenti legali e agiscono in tribunali e autorità. Inoltre, si accompagna il consiglio legale in contatto diretto con i nostri clienti. Ulteriori compiti sono la redazione e l'esame dei contratti, nonché la cooperazione in materia di diritto societario, come start-up, ristrutturazione e transazioni (M&A).\n• Laurea magistrale in diritto, di solito con predicato da magna cum laude\n• Idealmente, un tirocinio giudiziario o amministrativo completato\n• Alta disponibilità operativa, metodi di lavoro precisi e precisi\n• Divertimento del lavoro di squadra e del lavoro responsabile Uno stage emozionante e istruttivo con una panoramica dei vari campi legali di uno studio legale commerciale, che ti prepara bene per gli esami a barre. Disponibilità Applicazioni per tirocinio con data di inizio dal 1° luglio 2028 al 1. Gennaio 2029 accettiamo volentieri nella finestra di applicazione da 1 a 21. Agosto 2026. Alla fine di questo periodo, tutte le domande ricevute saranno esaminate e le interviste saranno programmate. Inoltre, siamo completamente prenotati per brevi stage fino all'estate 2027. Siete invitati a candidarsi per brevi stage dall'estate 2027.",
-        "en": "During a 9- to 12-month internship at the Berne location, you will get a comprehensive insight into your work as a lawyer. Lawyer. By working in different teams, you can gain valuable experience in different fields of law, with a focus on business law. From the beginning, you will be actively involved in the mandate work. They conduct legal clarifications, independently write legal documents and act in courts and authorities. In addition, you accompany the legal advice in direct contact with our clients. Further tasks are the drafting and examination of contracts as well as the cooperation in corporate law issues such as start-ups, restructuring and transactions (M&A).\n• Master's degree in law, usually with predicate from magna cum laude\n• Ideally, a completed court or administrative internship\n• High operational readiness, careful and precise working methods\n• Enjoying teamwork and self-responsible work An exciting and instructive internship with insight into the various legal fields of a commercial law firm, which prepares you well for the bar exams. Availability Applications for traineeships with a start date between 1 July 2028 and 1. January 2029 we gladly accept in the application window from 1 to 21. August 2026. At the end of this period, all applications received will be examined and interviews will be scheduled. In addition, we are fully booked for short internships until summer 2027. You are welcome to apply for short internships from summer 2027.",
-        "de": "Während eines 9- bis 12-monatigen Praktikums am Standort Bern erhalten Sie einen umfassenden Einblick in die Tätigkeit als Rechtsanwältin bzw. Rechtsanwalt. Durch die Mitarbeit in verschiedenen Teams können Sie wertvolle Erfahrungen in unterschiedlichen Rechtsgebieten sammeln, wobei der Schwerpunkt im Wirtschaftsrecht liegt.\nVon Beginn an werden Sie aktiv in die Mandatsarbeit eingebunden. Sie führen rechtliche Abklärungen durch, verfassen eigenständig Rechtsschriften und treten vor Gerichten und Behörden auf. Darüber hinaus begleiten Sie die anwaltliche Beratung im direkten Kontakt mit unseren Klientinnen und Klienten. Weitere Aufgaben sind die Ausarbeitung und Prüfung von Verträgen sowie die Mitarbeit bei gesellschaftsrechtlichen Fragestellungen, wie Gründungen, Umstrukturierungen und Transaktionen (M&A).\n\n• Masterabschluss in Rechtswissenschaften, in der Regel mit Prädikat ab magna cum laude\n\n• Idealerweise ein abgeschlossenes Gerichts- oder Verwaltungspraktikum\n\n• Hohe Einsatzbereitschaft, sorgfältige und präzise Arbeitsweise\n\n• Freude an Teamarbeit sowie an eigenverantwortlicher Tätigkeit\nEin spannendes und lehrreiches Praktikum mit Einblick in die verschiedenen Rechtsgebiete einer Wirtschaftskanzlei, welches Sie gut auf die Anwaltsprüfungen vorbereitet.\n\nVerfügbarkeit\nBewerbungen für Praktika mit einem Startdatum zwischen dem 1. Juli 2028 und dem 1. Januar 2029 nehmen wir gerne im Bewerbungsfenster vom 1. bis 21. August 2026 entgegen. Nach Ablauf dieser Frist werden sämtliche eingegangenen Bewerbungen geprüft und die Bewerbungsgespräche terminiert. Falls Sie sich bereits einmal für die Stelle beworben haben und eine erneute Bewerbung vom System nicht akzeptiert wird, senden Sie uns Ihre Bewerbungsunterlagen gerne per e-Mail an chiara.nemeth@kellerhals-carrard.ch .\nErgänzend sind wir für Kurzpraktika bis Sommer 2027 ausgebucht. Gerne können Sie sich für Kurzpraktika ab Sommer 2027 bewerben.",
-        "fr": "Lors d'un stage de 9 à 12 mois à Berne, vous aurez un aperçu complet de votre travail d'avocat. Avocat. En travaillant dans différentes équipes, vous pouvez acquérir une expérience précieuse dans différents domaines du droit, en mettant l'accent sur le droit des affaires. Dès le début, vous participerez activement aux travaux du mandat. Ils apportent des éclaircissements juridiques, rédigent des documents juridiques et agissent en toute indépendance devant les tribunaux et les autorités. De plus, vous accompagnez les conseils juridiques en contact direct avec nos clients. D'autres tâches sont l'élaboration et l'examen de contrats ainsi que la coopération dans les questions de droit des sociétés telles que la création d'entreprises, la restructuration et les transactions (M&A).\n• Maîtrise en droit, généralement avec prédicat de magna cum laude\n• Idéalement, un stage judiciaire ou administratif terminé\n• Préparation opérationnelle élevée, méthodes de travail prudentes et précises\n• Profitez du travail d'équipe et du travail autonome Un stage passionnant et instructif avec un aperçu des différents domaines juridiques d'un cabinet d'avocats commerciaux, qui vous prépare bien pour les examens du barreau. Disponibilité Demandes de stages avec une date de début entre le 1er juillet 2028 et 1. Janvier 2029 nous acceptons volontiers dans la fenêtre de demande de 1 à 21. Août 2026. À la fin de cette période, toutes les demandes reçues seront examinées et des entrevues seront prévues. En outre, nous sommes entièrement réservés pour des stages courts jusqu'à l'été 2027. Vous êtes invités à postuler pour de courts stages à partir de l'été 2027."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
-      "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.596Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3011",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "INTERN",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": false,
-      "previousSlugs": [
-        "anwaltspraktikum-kellerhals-carrard-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "anwaltspraktikum-kellerhals-carrard-bern"
-        ],
-        "en": [
-          "anwaltspraktikum-kellerhals-carrard-bern"
-        ],
-        "fr": [
-          "anwaltspraktikum-kellerhals-carrard-bern"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:51:03.183Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
           "unitText": "YEAR"
         }
       }
@@ -818,7 +833,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.595Z",
+      "crawledAt": "2026-09-02T23:23:06.501Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -835,12 +850,15 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+        "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
+          "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
+          "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
         ],
         "en": [
           "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
@@ -879,7 +897,7 @@
       "title": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
       "titleByLocale": {
         "it": "Avvocato / Avvocato (100%) nel team bancario",
-        "en": "Lawyer / Lawyer (100%) in the banking team",
+        "en": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "de": "Rechtsanwältin/ Rechtsanwalt (100%) im Banking-Team",
         "fr": "Avocat / Avocat (100%) dans l'équipe bancaire"
       },
@@ -895,7 +913,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:48:48.595Z",
+      "crawledAt": "2026-09-02T23:23:06.501Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -912,12 +930,15 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2301950",
       "requirements": [],
       "requirementsByLocale": {},
+      "needsRetranslation": true,
       "previousSlugs": [
-        "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich"
+        "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
+        "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich"
+          "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
+          "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
         ],
         "fr": [
           "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich"
