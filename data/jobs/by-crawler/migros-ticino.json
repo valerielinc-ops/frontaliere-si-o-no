@@ -212,7 +212,6 @@
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -329,7 +328,6 @@
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500
     },
@@ -417,7 +415,6 @@
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -730,7 +727,6 @@
         "metzger-in-genossenschaft-migros-aare-brugg",
         "metzger-in-genossenschaft-migros-aare-brugg-d7g3xq"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -1439,7 +1435,6 @@
         "fr": "caisse-du-personnel-assistance-du-soir-genossenschaft-migros-zurich-zurich"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-kasse-abendaushilfe-genossenschaft-migros-zurich"
@@ -1470,8 +1465,7 @@
       },
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-gjpp3n",
@@ -3226,7 +3220,6 @@
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000
     },
@@ -3340,7 +3333,6 @@
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000
     },
@@ -3556,7 +3548,6 @@
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -4781,7 +4772,6 @@
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -5828,7 +5818,6 @@
         "fr": "salaries-alimentation-genossenschaft-migros-aare-steffisburg"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-food-genossenschaft-migros-aare-steffisburg"
@@ -5859,8 +5848,7 @@
       },
       "addressLocality": "Steffisburg",
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-1ws6re",
@@ -8810,7 +8798,7 @@
         "en": "business-partner-finanzen-m-w-d-fresh-food-beverage-group-vuadens-zfm301"
       },
       "titleByLocale": {
-        "fr": "Business Partner Finanzen (m/f/d)",
+        "fr": "Partenaire d'affaires Finance (h/f/d)",
         "de": "Business Partner Finanzen (m/f/d)",
         "it": "Business Partner Finanza (m/f/d)",
         "en": "Business Partner Finance (m/f/d)"
@@ -8860,7 +8848,6 @@
       "addressLocality": "Vuadens",
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -9511,7 +9498,6 @@
       "previousSlugs": [
         "finance-business-partner-m-w-d-fresh-food-beverage-group-vuadens"
       ],
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000
     },
@@ -11630,7 +11616,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -11743,7 +11728,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -11956,7 +11940,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -12283,7 +12266,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -12827,7 +12809,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 173000
     },
@@ -12930,7 +12911,6 @@
         "mitarbeiter-in-catering-service-kuche-logistik-genossenschaft-migros-ostschweiz-chur"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -13040,7 +13020,6 @@
       "addressRegion": "OW",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -13354,7 +13333,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -13408,7 +13386,7 @@
         "fr": "professeur-de-fitness-bernaqua-bern-brunnen"
       },
       "titleByLocale": {
-        "it": "Fitnessinstruktor*in",
+        "it": "Istruttore di fitness*",
         "de": "Fitnessinstruktor*in",
         "en": "Fitness instructor*",
         "fr": "instructeur de fitness*"
@@ -13448,7 +13426,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -13741,7 +13718,6 @@
       "addressRegion": "SH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -13851,7 +13827,6 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -14646,7 +14621,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -14753,7 +14727,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -15176,7 +15149,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -15397,7 +15369,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -15618,7 +15589,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -16035,7 +16005,6 @@
       "addressRegion": "SZ",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -16149,7 +16118,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -16273,7 +16241,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -16383,7 +16350,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 41100,
       "salaryMax": 62400
     },
@@ -16499,7 +16465,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -16608,7 +16573,6 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -16809,7 +16773,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -16930,7 +16893,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -17088,7 +17050,7 @@
         "it": "allrounder-in-vendita-im-stundenlohn-genossenschaft-migros-luzern-engelberg-dy1cum"
       },
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf im Stundenlohn",
+        "en": "Allrounder*in Sales at hourly wages",
         "it": "Addetto/a vendita tuttofare a tariffa oraria",
         "fr": "Vendeur/vendeuse polyvalent(e) au salaire horaire",
         "de": "Allrounder*in Verkauf im Stundenlohn"
@@ -17237,7 +17199,6 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -17348,7 +17309,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -17582,7 +17542,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -17790,7 +17749,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -17915,7 +17873,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -18028,7 +17985,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -18134,7 +18090,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -18453,7 +18408,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -18560,7 +18514,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -18673,7 +18626,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -18785,7 +18737,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -18893,7 +18844,6 @@
       "addressRegion": "SZ",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -18990,7 +18940,6 @@
       "addressRegion": "AR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500
     },
@@ -19097,7 +19046,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -19157,7 +19105,7 @@
         "de": "communications-manager-m-w-d-activ-fitness-zurich-8px27z"
       },
       "titleByLocale": {
-        "en": "Communications Manager (m/w/d)",
+        "en": "Communications Manager (m/f/d)",
         "de": "Communications Manager (m/w/d)",
         "it": "Gestione delle comunicazioni (m/f/d)",
         "fr": "Gestionnaire des communications (h/f/d)"
@@ -19196,7 +19144,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -19309,7 +19256,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -19418,7 +19364,6 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -19659,7 +19604,6 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -19771,7 +19715,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -19882,7 +19825,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -19987,7 +19929,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -20101,7 +20042,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -20217,7 +20157,6 @@
         "software-architect-logistics-m-w-d-galaxus-zurich"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -20420,7 +20359,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -20524,7 +20462,6 @@
         "planning-construction-manager-micarna-gruppe-avenches-ivpqa9"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500
     },
@@ -20629,7 +20566,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -20734,7 +20670,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -20841,7 +20776,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -20955,7 +20889,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -21072,7 +21005,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -21181,7 +21113,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -21293,7 +21224,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -21630,7 +21560,6 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -21842,7 +21771,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -22059,7 +21987,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -22275,7 +22202,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -22389,7 +22315,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -22497,7 +22422,6 @@
         "communications-manager-m-w-d-fitnesspark-oerlikon-z7wjvg"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -22601,7 +22525,6 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -22710,7 +22633,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -22823,7 +22745,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -22942,7 +22863,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -23048,7 +22968,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -23163,7 +23082,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -23271,7 +23189,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500
     },
@@ -23379,7 +23296,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000
     },
@@ -23698,7 +23614,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -23850,7 +23765,7 @@
       "firstSeenAt": "2026-08-23T09:58:44.247Z",
       "titleByLocale": {
         "de": "Gastro Hilfskraft Cuisine artisanale BZM",
-        "it": "Gastro Hilfskraft Cuisine artisanale BZM",
+        "it": "Gastro ausiliario Cuisine artigianale BZM",
         "en": "Gastro auxiliary Cuisine artisanale BZM",
         "fr": "Gastro auxiliaire Cuisine artisanale BZM"
       },
@@ -23904,7 +23819,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -24115,7 +24029,6 @@
         "technicien-de-maintenance-halles-d-engraissement-groupe-micarna-courtepin"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -24226,7 +24139,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -24460,7 +24372,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -24671,7 +24582,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -24818,7 +24728,6 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -24930,7 +24839,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -25151,7 +25059,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -25261,7 +25168,6 @@
         "responsable-assurance-qualite-viande-ouest-groupe-micarna-courtepin"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -25399,7 +25305,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -25457,7 +25362,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-21T10:15:23.171Z",
       "titleByLocale": {
-        "en": "KAIMUG City - Wok Koch/Köchin",
+        "en": "KAIMUG City - Wok Koch / Chef",
         "de": "KAIMUG City - Wok Koch/Köchin",
         "it": "KAIMUG City - Wok Koch / Chef",
         "fr": "KAIMUG Ville - Wok Koch / Chef"
@@ -25514,7 +25419,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -25573,7 +25477,7 @@
       "firstSeenAt": "2026-08-21T10:15:23.171Z",
       "titleByLocale": {
         "fr": "Vendeur/se polyvalent/e",
-        "it": "Vendeur/se polyvalent/e",
+        "it": "venditore multiuso / venditore",
         "en": "Multipurpose seller/seller",
         "de": "Mehrzweckverkäufer"
       },
@@ -25633,7 +25537,6 @@
       "addressRegion": "NE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -25757,7 +25660,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -25871,7 +25773,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -25996,7 +25897,6 @@
         "fachverkaufer-in-metzgerei-genossenschaft-migros-aare-buchs"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -26043,7 +25943,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-21T10:15:23.171Z",
       "titleByLocale": {
-        "en": "Lehrperson Pilates Reformer (w/m/d) - Klubschule Baden",
+        "en": "Teacher Pilates Reformer (m/f/d) - Club School Baden",
         "de": "Lehrperson Pilates Reformer (w/m/d) - Klubschule Baden",
         "it": "Insegnante Pilates Reformer (m/f/d) - Scuola Club Baden",
         "fr": "Professeur Pilates Reformer (h/f/d) - Club School Baden"
@@ -26103,7 +26003,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -26305,7 +26204,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -26359,7 +26257,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-21T10:15:23.171Z",
       "titleByLocale": {
-        "en": "Koch*Köchin",
+        "en": "Cook* cook",
         "de": "Koch*Köchin",
         "it": "Cucinare*",
         "fr": "Cuisinière*"
@@ -26424,7 +26322,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -26521,7 +26418,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -26760,7 +26656,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -26873,7 +26768,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500
     },
@@ -26993,7 +26887,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500
     },
@@ -27111,7 +27004,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000
     },
@@ -27229,7 +27121,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -27319,7 +27210,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -27430,7 +27320,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -27478,7 +27367,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-20T10:37:47.033Z",
       "titleByLocale": {
-        "en": "Masseur*in, Physiotherapeut*in, Osteopath*in",
+        "en": "Masseur, physical therapist, osteopath",
         "de": "Masseur*in, Physiotherapeut*in, Osteopath*in",
         "it": "Masseur, fisioterapista, osteopa",
         "fr": "Masseur, physiothérapeute, ostéopathe"
@@ -27539,7 +27428,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -27651,7 +27539,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -27777,7 +27664,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -27887,7 +27773,6 @@
       "addressRegion": "ZG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -27990,7 +27875,6 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -28039,7 +27923,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-20T10:37:47.033Z",
       "titleByLocale": {
-        "en": "Manager Fitness Club (m/w/d)",
+        "en": "Manager Fitness Club (m/f/d)",
         "de": "Manager Fitness Club (m/w/d)",
         "it": "Manager Fitness Club (m/f/d)",
         "fr": "Manager Fitness Club (h/f/d)"
@@ -28092,7 +27976,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500
     },
@@ -28202,7 +28085,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -28301,7 +28183,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -28412,7 +28293,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -28526,7 +28406,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -28642,7 +28521,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -28762,7 +28640,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
@@ -28982,7 +28859,6 @@
         "koch-efz-personalrestaurant-m-w-d-delica-ag-birsfelden-a0egqr"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -29445,7 +29321,6 @@
       "addressRegion": "AR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500
     },
@@ -29677,7 +29552,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -29787,7 +29661,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -29836,7 +29709,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-20T10:37:47.033Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (m/f/d)",
         "fr": "Instructeur de fitness (h/f/d)"
@@ -29913,8 +29786,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 69500,
-      "salaryMax": 106000,
-      "needsRetranslation": true
+      "salaryMax": 106000
     },
     {
       "id": "company-h8nqm2",
@@ -30022,7 +29894,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -30120,7 +29991,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -30234,7 +30104,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -30365,7 +30234,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -30474,7 +30342,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -30572,7 +30439,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -30793,7 +30659,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -31376,7 +31241,7 @@
       },
       "titleByLocale": {
         "de": "Sous Chef*Cheffe",
-        "it": "Sous Chef*Cheffe",
+        "it": "Sous Chef*Chef",
         "en": "Sous Chef*Chef",
         "fr": "Sous Chef*Chef"
       },
@@ -31416,7 +31281,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -31629,7 +31493,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -31865,7 +31728,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -31962,7 +31824,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -32100,7 +31961,6 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -32804,7 +32664,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -32853,7 +32712,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (m/f/d)",
         "fr": "Instructeur de fitness (h/f/d)"
@@ -32916,8 +32775,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-49973b",
@@ -33368,7 +33226,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -33466,7 +33323,6 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -33697,7 +33553,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -33811,7 +33666,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -34250,7 +34104,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -34635,7 +34488,7 @@
       },
       "titleByLocale": {
         "it": "Operational Excellence Manager (m/f/d), Birsfelden",
-        "en": "Operational Excellence Experte (m/w/d), Birsfelden",
+        "en": "Operational Excellence Expert (m/f/d), Birsfelden",
         "de": "Operational Excellence Manager (m/w/d), Birsfelden",
         "fr": "Gestionnaire d'excellence opérationnelle (h/f/d), Birsfelden"
       },
@@ -34683,7 +34536,6 @@
         "gestionnaire-d-excellence-operationnelle-m-w-d-birsfelden-delica-ag-birsfelden-28f9b8"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500
     },
@@ -34794,7 +34646,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 78100
     },
@@ -35126,7 +34977,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -35678,7 +35528,6 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -35848,7 +35697,7 @@
         "en": "major-incident-und-reliability-manager-alle-migros-bank-wallisellen"
       },
       "titleByLocale": {
-        "en": "Major Incident und Reliability Manager (alle)",
+        "en": "Major Incident and Reliability Manager (all)",
         "it": "Responsabile degli Incidenti Critici e dell'Affidabilità (tutti)",
         "de": "Hauptgeschäftsführer für Unfälle und Zuverlässigkeit (alle)",
         "fr": "Responsable des Incidents Majeurs et de la Fiabilité (tous)"
@@ -35898,7 +35747,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -36092,7 +35940,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -36523,7 +36370,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -36845,7 +36691,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -37023,7 +36868,7 @@
         "fr": "software-ingenieur-backend-m-w-d-galaxus-zurich-s5i7e6"
       },
       "titleByLocale": {
-        "en": "Software Engineer Backend (w/m/d)",
+        "en": "Software Engineer Backend (m/f/d)",
         "it": "Software Ingegnere Backend (w/m/d)",
         "de": "Software Ingenieur Backend (w/m/d)",
         "fr": "Software Ingénieur Backend (w/m/d)"
@@ -37063,7 +36908,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -37133,7 +36977,7 @@
         "fr": "senior-software-ingenieur-backend-m-w-d-galaxus-zurich-5ravvo"
       },
       "titleByLocale": {
-        "en": "Senior Software Engineer Backend (w/m/d)",
+        "en": "Senior Software Engineer Backend (m/f/d)",
         "it": "Senior Software Ingegnere Backend (w/m/d)",
         "de": "Senior Softwareentwickler Backend (m/w/d)",
         "fr": "Ingénieur logiciel senior Backend (w/m/d)"
@@ -37174,7 +37018,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500
     },
@@ -37296,7 +37139,6 @@
       "addressRegion": "FR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -37402,7 +37244,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000
     },
@@ -38236,7 +38077,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-12T22:28:48.066Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (m/f/d)",
         "fr": "Instructeur de fitness (h/f/d)"
@@ -38296,7 +38137,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -38504,8 +38344,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-mw60u",
@@ -38716,7 +38555,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -39024,7 +38862,6 @@
       "addressRegion": "BS",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -39142,7 +38979,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -39259,7 +39095,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -39367,7 +39202,6 @@
         "operativer-teamleiter-in-packstelle-migros-ticino-oberbuchsiten-1h21ew"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -39474,8 +39308,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 104500,
-      "salaryMax": 183500,
-      "needsRetranslation": true
+      "salaryMax": 183500
     },
     {
       "id": "company-lbjgbp",
@@ -39586,7 +39419,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -39693,7 +39525,6 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -39806,7 +39637,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -39920,7 +39750,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -40600,7 +40429,6 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -40710,7 +40538,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -40946,7 +40773,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -41090,7 +40916,6 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -41139,7 +40964,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-11T22:44:12.772Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (m/f/d)",
         "fr": "Instructeur de fitness (h/f/d)"
@@ -41199,7 +41024,6 @@
       "addressRegion": "TG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -41249,7 +41073,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-11T22:44:12.772Z",
       "titleByLocale": {
-        "it": "Lehrperson Dudelsack (w/m/d) - Klubschule Luzern",
+        "it": "Maestro Dudelsack (m/f/d) - Scuola Club Lucerna",
         "de": "Lehrperson Dudelsack (w/m/d) - Klubschule Luzern",
         "en": "Teacher Dudelsack (m/f/d) - Club School Lucerne",
         "fr": "Professeur Dudelsack (h/f/d) - Club School Lucerne"
@@ -41362,7 +41186,6 @@
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -41584,7 +41407,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -41911,7 +41733,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -41961,7 +41782,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-11T10:25:11.367Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (m/f/d)",
         "fr": "Instructeur de fitness (h/f/d)"
@@ -42020,7 +41841,6 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -42247,7 +42067,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -42349,7 +42168,6 @@
         "responsable-de-rayon-non-food-m-w-d-societe-cooperative-migros-vaud-yverdon-les-bains"
       ],
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -42397,7 +42215,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-10T11:03:52.766Z",
       "titleByLocale": {
-        "en": "Koch/Köchin",
+        "en": "Cook/chef",
         "de": "Koch/Köchin",
         "it": "Cucina/chef",
         "fr": "Cuisson/chef"
@@ -42461,7 +42279,6 @@
       "addressRegion": "SG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -42522,7 +42339,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-10T22:07:36.586Z",
       "titleByLocale": {
-        "it": "Transportdisponent*in",
+        "it": "Spedizioni di trasporto*",
         "de": "Transportdisponent*in",
         "en": "Transport Dispatcher",
         "fr": "Responsable de la Planification des Transports"
@@ -42589,7 +42406,6 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -42690,7 +42506,6 @@
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -42740,7 +42555,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-10T11:03:52.766Z",
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf",
+        "en": "Allrounder* in Sale",
         "it": "Addetto/a Vendite Polivalente",
         "fr": "Agent/Agente de Vente Polyvalent/e",
         "de": "Allrounder*in Verkauf"
@@ -43221,7 +43036,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -43640,7 +43454,6 @@
       "addressRegion": "BL",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -43812,7 +43625,6 @@
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -44405,7 +44217,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -44797,7 +44608,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-07T10:37:29.966Z",
       "titleByLocale": {
-        "fr": "Business Partner Nationale Transporte (m/w/d)",
+        "fr": "Partenaire d'affaires National Transport (h/f/d)",
         "de": "Business Partner Nationale Transporte (m/w/d)",
         "it": "Business Partner Trasporti nazionali (m/f/d)",
         "en": "Business Partner National Transports (m/f/d)"
@@ -44865,7 +44676,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -45114,7 +44924,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-07T01:30:55.668Z",
       "titleByLocale": {
-        "en": "Koch*Köchin",
+        "en": "Cook* cook",
         "de": "Koch*Köchin",
         "it": "Cucinare*",
         "fr": "Cuisinière*"
@@ -45180,7 +44990,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -46604,7 +46413,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500
     },
@@ -46765,7 +46573,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-06T12:06:07.944Z",
       "titleByLocale": {
-        "en": "Allrounder Facility Management (m/w/d), Region Winterthur",
+        "en": "Allrounder Facility Management (m/f/d), Winterthur Region",
         "de": "Allrounder Facility Management (m/w/d), Region Winterthur",
         "it": "Allrounder Facility Management (m/f/d), Regione di Winterthur",
         "fr": "Gestion complète des installations (m/f/j), région de Winterthur"
@@ -47215,7 +47023,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-05T22:54:12.169Z",
       "titleByLocale": {
-        "en": "Koch*Köchin",
+        "en": "Cook* cook",
         "de": "Koch*Köchin",
         "it": "Cucinare*",
         "fr": "Cuisinière*"
@@ -47282,7 +47090,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -47330,7 +47137,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-07T01:30:55.668Z",
       "titleByLocale": {
-        "en": "Product Manager Convénience (F/H/D)",
+        "en": "Product Manager Convenience (M/F/D)",
         "it": "Product Manager Convénience (f/m/d)",
         "fr": "Product Manager Convénience (F/H/D)",
         "de": "Produktmanager Komfort (F/H/D)"
@@ -47403,7 +47210,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500
     },
@@ -48080,7 +47886,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -49115,7 +48920,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -49395,7 +49199,7 @@
         "it": "allrounder-in-supermercato-genossenschaft-migros-aare-baden"
       },
       "titleByLocale": {
-        "en": "Allrounder*in Supermarkt",
+        "en": "Allrounder* in supermarket",
         "de": "Allrounder*in Supermarkt",
         "it": "Allrounder* in supermercato",
         "fr": "Allrounder* au supermarché"
@@ -49797,7 +49601,6 @@
         "junior-project-manager-logistics-automation-m-w-d-galaxus-zurich"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -49846,7 +49649,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-04T22:32:59.150Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de condition physique (f/m/d)"
@@ -49908,7 +49711,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -50021,7 +49823,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -50400,7 +50201,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-03T22:37:44.227Z",
       "titleByLocale": {
-        "en": "Regional Manager Technics (m/w/d)",
+        "en": "Regional Manager Technics (m/f/d)",
         "de": "Regional Manager Technics (m/w/d)",
         "it": "Responsabile regionale Technics (m/f/d)",
         "fr": "Gestionnaire régional Technique (m/f/d)"
@@ -50459,7 +50260,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -50517,7 +50317,7 @@
       "firstSeenAt": "2026-08-03T13:06:33.875Z",
       "titleByLocale": {
         "de": "Sous-Chef (m/w/d)",
-        "it": "Sous-Chef (m/w/d)",
+        "it": "Capo di Sous (m/f/d)",
         "en": "Sous-Chef (m/f/d)",
         "fr": "Sous-Chef (m/f/d)"
       },
@@ -50575,7 +50375,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -50893,7 +50692,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-08-03T22:37:44.227Z",
       "titleByLocale": {
-        "en": "Retail Sales & Service Professional (w/m/d)",
+        "en": "Retail Sales & Service Professional (m/f/d)",
         "de": "Retail Sales & Service Professional (w/m/d)",
         "it": "Vendita al dettaglio e servizio professionale (f/m/d)",
         "fr": "Professionnel de vente et de service au détail (f/m/d)"
@@ -51064,7 +50863,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -51119,7 +50917,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-31T22:26:16.781Z",
       "titleByLocale": {
-        "it": "Chef de rang H/F/D en CDI à 60-80%, Molino Balexert",
+        "it": "M/F/D in CDI al 60-80%, Molino Balexert",
         "fr": "Chef de rang H/F/D en CDI à 60-80%, Molino Balexert",
         "en": "H/F/D in CDI at 60-80%, Molino Balexert",
         "de": "H/F/D in CDI bei 60-80%, Molino Balexert"
@@ -51176,7 +50974,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200
     },
@@ -51985,7 +51782,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -52033,7 +51829,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-31T12:20:17.330Z",
       "titleByLocale": {
-        "en": "Welcome Manager (alle)",
+        "en": "Welcome Manager (all)",
         "de": "Welcome Manager (alle)",
         "it": "Welcome Manager (tutti)",
         "fr": "Gestionnaire d'accueil (tous)"
@@ -52096,7 +51892,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000
     },
@@ -52260,7 +52055,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-31T12:20:17.330Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -52322,7 +52117,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -52671,7 +52465,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -52945,7 +52738,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-30T22:37:35.944Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -53010,8 +52803,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-gasi2",
@@ -53233,7 +53025,7 @@
       "firstSeenAt": "2026-07-29T12:09:43.411Z",
       "titleByLocale": {
         "de": "Springer*in Kinderparadies",
-        "it": "Springer*in Kinderparadies",
+        "it": "Springer* nel paradiso dei bambini",
         "en": "Substitute in Kinderparadies",
         "fr": "Remplaçant au Kinderparadies"
       },
@@ -53316,7 +53108,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -55872,7 +55663,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-26T22:31:09.749Z",
       "titleByLocale": {
-        "en": "Koch*Köchin",
+        "en": "Cook* cook",
         "de": "Koch*Köchin",
         "it": "Cucinare*",
         "fr": "Cuisinière*"
@@ -55963,7 +55754,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -56122,7 +55912,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-24T22:23:52.372Z",
       "titleByLocale": {
-        "en": "Koch/Köchin",
+        "en": "Cook/chef",
         "de": "Koch/Köchin",
         "it": "Cucina/chef",
         "fr": "Cuisson/chef"
@@ -56186,7 +55976,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -56397,7 +56186,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -56559,7 +56347,7 @@
       "firstSeenAt": "2026-07-24T22:23:52.372Z",
       "titleByLocale": {
         "de": "Chauffeur C/CE - Praxisbildner Transport",
-        "it": "Chauffeur C/CE - Praxisbildner Transport",
+        "it": "Chauffeur C/CE - Allenatore pratico Trasporti",
         "en": "Chauffeur C/CE - Practical trainer Transport",
         "fr": "Chauffeur C/CE - Entraîneur pratique Transport"
       },
@@ -56640,7 +56428,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -57040,7 +56827,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-22T23:00:27.461Z",
       "titleByLocale": {
-        "en": "Allrounder*in Hausdienst mit Ambitionen",
+        "en": "Allrounder*in domestic service with ambitions",
         "it": "Allrounder*in Hausdienst con Ambitionen",
         "de": "Allrounder*in Hausdienst mit Ambitionen",
         "fr": "Allrounder* dans le service domestique avec des ambitions"
@@ -57792,7 +57579,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-23T11:35:26.938Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -57854,7 +57641,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -57909,7 +57695,7 @@
         "fr": "instructeur-de-condition-physique-f-m-d-activ-fitness-aarau"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de condition physique (f/m/d)"
@@ -57970,8 +57756,7 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-rhd880",
@@ -58019,7 +57804,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-22T23:00:27.461Z",
       "titleByLocale": {
-        "en": "Area Manager Technics (m/w/d)",
+        "en": "Area Manager Technics (m/f/d)",
         "de": "Area Manager Technics (m/w/d)",
         "it": "Area Manager Technics (m/f/d)",
         "fr": "Techniques de gestion de secteur (m/f/d)"
@@ -58071,7 +57856,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000
     },
@@ -58179,7 +57963,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -58341,7 +58124,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-22T12:25:35.969Z",
       "titleByLocale": {
-        "en": "Retail Sales & Service Professional (w/m/d)",
+        "en": "Retail Sales & Service Professional (m/f/d)",
         "de": "Retail Sales & Service Professional (w/m/d)",
         "it": "Vendita al dettaglio e servizio professionale (f/m/d)",
         "fr": "Professionnel de vente et de service au détail (f/m/d)"
@@ -58608,7 +58391,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -58652,7 +58434,7 @@
       "firstSeenAt": "2026-07-22T23:00:27.461Z",
       "titleByLocale": {
         "de": "Magaziner*in Migros Sissach",
-        "it": "Magaziner*in Migros Sissach",
+        "it": "Magazzino di Migros Sissach",
         "en": "Magazine of Migros Sissach",
         "fr": "Magazine de Migros Sissach"
       },
@@ -58713,7 +58495,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -59656,7 +59437,7 @@
         "en": "fitness-instructor-m-w-d-activ-fitness-zurich-hm96zi"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -59731,8 +59512,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-2ndjc9",
@@ -59784,7 +59564,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-20T12:21:44.323Z",
       "titleByLocale": {
-        "en": "Lead People Experience (w/m/d)",
+        "en": "Lead People Experience (m/f/d)Z",
         "de": "Lead People Experience (w/m/d)",
         "it": "Lead People Experience (f/m/d)",
         "fr": "Expérience des personnes chefs de file (f/m/d)"
@@ -59837,7 +59617,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000
     },
@@ -60388,7 +60167,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-20T22:33:23.216Z",
       "titleByLocale": {
-        "en": "Business Engineer - Product Content (w/m/d)",
+        "en": "Business Engineer - Product Content (m/f/d)",
         "it": "Business Ingegnere - Product Content (w/m/d)",
         "de": "Business Ingenieur - Product Content (w/m/d)",
         "fr": "Business Ingénieur - Product Content (w/m/d)"
@@ -60724,7 +60503,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-17T22:36:59.189Z",
       "titleByLocale": {
-        "it": "Eventlogistiker*in Stadioncatering",
+        "it": "Specialista della logistica degli eventi* nella ristorazione dello stadio",
         "de": "Eventlogistiker*in Stadioncatering",
         "en": "Event logistics specialist* in stadium catering",
         "fr": "Spécialiste logistique événementiel* en restauration de stade"
@@ -60845,7 +60624,7 @@
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
       "titleByLocale": {
         "de": "Produktionsplaner*in Frischfleisch IBP Schwein",
-        "it": "Produktionsplaner*in Frischfleisch IBP Schwein",
+        "it": "Pianificatore di produzione* in carne fresca IBP maiale",
         "en": "Production planner: in fresh meat IBP pig",
         "fr": "Planificateur de production: en viande fraîche"
       },
@@ -61013,7 +60792,6 @@
         ]
       },
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -61060,7 +60838,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
       "titleByLocale": {
-        "en": "Masseur*in, Physiotherapeut*in, Osteopath*in",
+        "en": "Masseur, physical therapist, osteopath",
         "de": "Masseur*in, Physiotherapeut*in, Osteopath*in",
         "it": "Massaggiatore, fisioterapista, osteopata",
         "fr": "Masseur, physiothérapeute, ostéopathe"
@@ -61122,7 +60900,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -61296,7 +61073,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-16T22:48:55.348Z",
       "titleByLocale": {
-        "en": "Assistant Manager Fitness Club (m/w/d)",
+        "en": "Assistant Manager Fitness Club (m/f/d)",
         "de": "Assistent Manager Fitness Club (m/w/d)",
         "it": "Assistant Manager Fitness Club (m/f/d)",
         "fr": "Club de remise en forme (m/f/d)"
@@ -61355,7 +61132,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000
     },
@@ -61761,7 +61537,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-15T22:53:23.022Z",
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf/Filiallogistik",
+        "en": "Allrounder*in Sales/Filital Logistics",
         "it": "Allrounder*in vendita/Filiallogistik",
         "fr": "Allrounder*in Vente/Filiallogistik",
         "de": "Allrounder*in Verkauf"
@@ -62066,7 +61842,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -62186,7 +61961,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -62424,7 +62198,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500
     },
@@ -63902,7 +63675,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -64820,7 +64592,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -64972,7 +64743,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "titleByLocale": {
-        "en": "Allrounder*in Supermarkt",
+        "en": "Allrounder* in supermarket",
         "de": "Allrounder*in Supermarkt",
         "it": "Allrounder* in supermercato",
         "fr": "Allrounder* au supermarché"
@@ -66000,7 +65771,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf im Stundenlohn",
+        "en": "Allrounder*in Sales at hourly wages",
         "it": "Allrounder*in vendita im Stundenlohn",
         "fr": "Allrounder*in Vente im Stundenlohn",
         "de": "Allrounder*in Verkauf im Stundenlohn"
@@ -66920,7 +66691,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -66984,7 +66755,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -67309,7 +67079,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-06T15:33:09.040Z",
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf",
+        "en": "Allrounder* in Sale",
         "it": "Allrounder*in vendita",
         "fr": "Allrounder*in Vente",
         "de": "Allrounder*in Verkauf"
@@ -67542,7 +67312,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "titleByLocale": {
-        "fr": "Restaurationsfachmitarbeiter*in",
+        "fr": "Spécialiste de la restauration*",
         "de": "Restaurationsfachmitarbeiter*in",
         "it": "Specialista di restauro*",
         "en": "Restoration specialist*"
@@ -67627,7 +67397,6 @@
       "postalCode": "9000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -67801,7 +67570,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "titleByLocale": {
-        "it": "Mandatsleiter*in Treuhand",
+        "it": "Capo della missione a Treuhand",
         "en": "Head of Mission in Treuhand",
         "de": "Mandatsleiter*in Treuhand",
         "fr": "Chef de mission à Treuhand"
@@ -67867,7 +67636,6 @@
       "postalCode": "3001",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -67919,7 +67687,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "titleByLocale": {
-        "en": "Allrounder*in Supermarkt",
+        "en": "Allrounder* in supermarket",
         "de": "Allrounder*in Supermarkt",
         "it": "Allrounder* in supermercato",
         "fr": "Allrounder* au supermarché"
@@ -68497,7 +68265,7 @@
         "fr": "instructeur-de-fitness-f-m-d-activ-fitness-kloten"
       },
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -68556,8 +68324,7 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "needsRetranslation": true
+      "salaryMax": 111500
     },
     {
       "id": "company-to9qs",
@@ -69672,7 +69439,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-02T12:16:59.926Z",
       "titleByLocale": {
-        "fr": "Servicetechniker*in",
+        "fr": "Technicien des services*",
         "de": "Servicetechniker*in",
         "it": "Tecnico di Assistenza",
         "en": "Service technician*"
@@ -69738,7 +69505,6 @@
       "postalCode": "9200",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -70030,7 +69796,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
       "titleByLocale": {
-        "en": "Lehrperson Pilates Fascia Movement (w/m/d) - Klubschule Luzern",
+        "en": "Teacher Pilates Fascia Movement (m/f/d) - Club School Lucerne",
         "de": "Lehrperson Pilates Fascia Movement (w/m/d) - Klubschule Luzern",
         "it": "Maestro Pilates Fascia Movimento (f/m/d) - Scuola Club Lucerna",
         "fr": "Enseignant Pilates Fascia Movement (f/m/d) - Club School Lucerne"
@@ -70098,7 +69864,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -70150,7 +69915,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
       "titleByLocale": {
-        "en": "Allrounder*in Supermarkt",
+        "en": "Allrounder* in supermarket",
         "de": "Allrounder*in Supermarkt",
         "it": "Allrounder* in supermercato",
         "fr": "Allrounder* au supermarché"
@@ -70649,7 +70414,6 @@
       "postalCode": "1003",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -70698,7 +70462,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de condition physique (f/m/d)"
@@ -70761,7 +70525,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -70871,7 +70634,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -70920,7 +70682,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
       "titleByLocale": {
-        "en": "Lehrperson Bachata und Salsa Lady Style (w/m/d) - Klubschule Rapperswil",
+        "en": "Teacher Bachata and Salsa Lady Style (m/f/d) - Club School Rapperswil",
         "it": "Lehrperson Bachata e Salsa Lady Style (w/m/d) - Klubschule Rapperswil",
         "de": "Lehrperson Bachata und Salsa Lady Style (w/m/d) - Klubschule Rapperswil",
         "fr": "Professeur Bachata et Salsa Lady Style (f/m/d) - Club School Rapperswil"
@@ -71074,7 +70836,6 @@
       "postalCode": "7302",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -71559,7 +71320,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -71825,7 +71585,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
       "titleByLocale": {
-        "en": "Lehrperson Pump Workout (w/m/d) - Klubschule Limmatplatz",
+        "en": "Teacher Pump Workout (m/f/d) - Club School Limmatplatz",
         "de": "Lehrperson Pump Workout (w/m/d) - Klubschule Limmatplatz",
         "it": "Master Pump Workout (f/m/d) - Club School Limmatplatz",
         "fr": "Entraînement de pompes pour enseignants (f/m/j) - Club School Limmatplatz"
@@ -71978,7 +71738,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
       "titleByLocale": {
-        "fr": "Chef de Partie (m/w/d)",
+        "fr": "Chef de Partie (h/f/d)",
         "de": "Chef de Partie (m/w/d)",
         "it": "Chef de Partie (m/f/d)",
         "en": "Chef de Partie (m/f/d)"
@@ -72036,7 +71796,6 @@
       "postalCode": "3920",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500
     },
@@ -72306,7 +72065,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d) Aushilfe",
+        "it": "Istruttore di fitness (m/f/d) Helper",
         "de": "Fitness Instructor (w/m/d) Aushilfe",
         "en": "Fitness instructor (f/m/d)",
         "fr": "instructeur de fitness (f/m/d)"
@@ -72363,7 +72122,6 @@
       "postalCode": "3001",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -73612,7 +73370,7 @@
       "firstSeenAt": "2026-06-24T12:08:31.052Z",
       "titleByLocale": {
         "de": "Restaurationsfachmitarbeiter*in im Stundenlohn",
-        "it": "Restaurationsfachmitarbeiter*in im Stundenlohn",
+        "it": "Specialista di restauro in salari orali",
         "en": "Restoration specialist in hourly wages",
         "fr": "Spécialiste de la restauration des salaires horaires"
       },
@@ -73676,7 +73434,6 @@
       "postalCode": "9000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -73840,7 +73597,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-23T12:09:11.358Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -73905,7 +73662,6 @@
       "postalCode": "5000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -75094,7 +74850,7 @@
         "it": "personale-addetto-al-restauro-migros-golf-ag-oberkirch-a45cba"
       },
       "titleByLocale": {
-        "fr": "Restaurationsfachmitarbeiter*in",
+        "fr": "Spécialiste de la restauration*",
         "de": "Restaurationsfachmitarbeiter*in",
         "it": "Specialista di restauro*",
         "en": "Restoration specialist*"
@@ -75151,7 +74907,6 @@
         ]
       },
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -75267,7 +75022,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -75382,7 +75136,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -75432,7 +75185,7 @@
       },
       "titleByLocale": {
         "de": "Lehrperson Groupfitness im Stundenlohn",
-        "it": "Lehrperson Groupfitness im Stundenlohn",
+        "it": "Insegnante Gruppofitness nel salario orario",
         "en": "Teacher Groupfitness in the hourly wage",
         "fr": "Groupe d'enseignants"
       },
@@ -75480,7 +75233,6 @@
         "riformatore-di-pilates-insegnante-con-un-salario-orario-genossenschaft-migros-ostschweiz-chur"
       ],
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -75639,7 +75391,6 @@
       "postalCode": "7000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -75870,7 +75621,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500
     },
@@ -76372,7 +76122,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-18T23:24:06.541Z",
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf",
+        "en": "Allrounder* in Sale",
         "it": "Allrounder*in vendita",
         "fr": "Allrounder*in Vente",
         "de": "Allrounder*im Verkauf"
@@ -76483,7 +76233,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-18T13:17:21.364Z",
       "titleByLocale": {
-        "en": "Allrounder*in Verkauf, Kasse",
+        "en": "Allrounder*in Sale, cashier",
         "it": "Offerte tuttofare, checkout",
         "fr": "Ventes polyvalentes, à la caisse",
         "de": "Allrounder*im Verkauf, Kasse"
@@ -76594,7 +76344,7 @@
       "titleByLocale": {
         "de": "Bäcker*in-Konditor*in",
         "it": "Pasticceria-Pasticceria",
-        "en": "Bäcker*in-Konditor*in",
+        "en": "Baker*in confectioner*in",
         "fr": "Pâtissier-confiseur"
       },
       "descriptionByLocale": {
@@ -77404,7 +77154,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-16T14:05:15.415Z",
       "titleByLocale": {
-        "en": "Betriebselektriker*in",
+        "en": "Business electrician*",
         "de": "Betriebselektroniker*in",
         "it": "Elettricista industriale",
         "fr": "Électricien industriel"
@@ -77478,7 +77228,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -77527,7 +77276,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
-        "it": "Fitness Instructor Aushilfe (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitnesstrainer Aushilfe (w/m/d)",
         "en": "Fitness Instructor Assistant (m/f/d)",
         "fr": "Instructeur Fitness Aide (m/f/d)"
@@ -77603,8 +77352,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "salaryMin": 57500,
-      "salaryMax": 87000,
-      "needsRetranslation": true
+      "salaryMax": 87000
     },
     {
       "id": "company-p0sfii",
@@ -78286,7 +78034,6 @@
       "postalCode": "8001",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -78606,7 +78353,6 @@
       "employmentType": "FULL_TIME",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 98500
     },
@@ -78834,7 +78580,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -79189,7 +78934,6 @@
       "postalCode": "8001",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -80010,7 +79754,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-15T15:31:26.908Z",
       "titleByLocale": {
-        "en": "Lehrperson Pilates Reformer & Cadillac (w/m/d) - Klubschule Rapperswil",
+        "en": "Teacher Pilates Reformer & Cadillac (m/f/d) - Club School Rapperswil",
         "de": "Lehrperson Pilates Reformer & Cadillac (w/m/d) – Klubschule Rapperswil",
         "it": "Insegnante di Pilates Reformer & Cadillac (w/m/d) - Scuola del Club Rapperswil",
         "fr": "Instructeur Pilates Reformer & Cadillac (w/m/d) - École du Club Rapperswil"
@@ -80095,7 +79839,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -80257,7 +80000,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
-        "it": "Group Fitness Instructor Bodypump (w/m/d)",
+        "it": "Gruppo Istruttore di fitness Bodypump (m/f/d)",
         "de": "Gruppenfitnesstrainer Bodypump (mit M/D)",
         "en": "Group Fitness Instructor Bodypump (m/f/d)",
         "fr": "Instructeur/trice de Fitness Collectif Bodypump (h/f/d)"
@@ -80339,7 +80082,6 @@
       "postalCode": "5000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -80386,7 +80128,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
-        "en": "Masseur*in, Physiotherapeut*in, Osteopath*in",
+        "en": "Masseur, physical therapist, osteopath",
         "it": "massaggiatrice, fisioterapista, osteopata",
         "de": "Masseur*in, Physiotherapeut*in, Osteopath*in",
         "fr": "masseuse, kinésithérapeute, ostéopathe"
@@ -80447,7 +80189,6 @@
       "postalCode": "8001",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -80495,7 +80236,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
-        "en": "Masseur*in, Physiotherapeut*in, Osteopath*in",
+        "en": "Masseur, physical therapist, osteopath",
         "de": "User Safety: safe",
         "it": "Massaggiatore/ Massaggiatrice, Fisioterapista, Osteopata",
         "fr": "Masseur / Masseuse, Physiothérapeute, Ostéopathe"
@@ -80560,7 +80301,6 @@
       "postalCode": "8001",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -81993,7 +81733,6 @@
       "postalCode": "6300",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -83369,7 +83108,7 @@
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "KAIMUG Glatt - Wok Koch/Köchin",
-        "it": "KAIMUG Glatt - Wok Koch/Köchin",
+        "it": "KAIMUG Glatt - Wok Koch / Chef",
         "en": "Asian Kitchen/Cook Assistant",
         "fr": "Cuisinier Asiatique/Chef de Cuisine"
       },
@@ -83434,7 +83173,6 @@
       "postalCode": "8001",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -83785,7 +83523,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -83977,7 +83714,7 @@
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
         "de": "Lehrperson Pilates Reformer im Stundenlohn",
-        "it": "Lehrperson Pilates Reformer im Stundenlohn",
+        "it": "Insegnante Pilates Riformatore nel salario orario",
         "en": "Teacher Pilates reformer on an hourly wage",
         "fr": "Réformateur de Pilates enseignant à l'heure"
       },
@@ -84049,7 +83786,6 @@
       "postalCode": "7000",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -84098,7 +83834,7 @@
       "firstSeenAt": "2026-06-09T12:09:08.801Z",
       "titleByLocale": {
         "de": "Lehrperson Pilates Reformer im Stundenlohn",
-        "it": "Lehrperson Pilates Reformer im Stundenlohn",
+        "it": "Insegnante Pilates Riformatore nel salario orario",
         "en": "Teacher Pilates Reformer in the hourly wage",
         "fr": "Enseignant Pilates Reformer dans le salaire horaire"
       },
@@ -84160,7 +83896,6 @@
       "postalCode": "9000",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -84783,7 +84518,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500
     },
@@ -84834,7 +84568,7 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "it": "Manager Fitness Club (m/f/d)",
-        "en": "Manager Fitness Club (m/w/d)",
+        "en": "Manager Fitness Club (m/f/d)",
         "de": "Manager Fitnessclub (m/w/d)",
         "fr": "Manager Club de Fitness (h/f/d)"
       },
@@ -84920,7 +84654,6 @@
       "postalCode": "1950",
       "qualityScore": 97,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000
     },
@@ -85272,7 +85005,6 @@
       "postalCode": "4001",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000
     },
@@ -85536,7 +85268,6 @@
       "postalCode": "5000",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -86655,7 +86386,7 @@
       "titleByLocale": {
         "de": "Koch/Köchin",
         "it": "Cucina/Cuoca",
-        "en": "Koch/Köchin",
+        "en": "Cook/chef",
         "fr": "Chef/Cheffe de Cuisine"
       },
       "descriptionByLocale": {
@@ -86721,7 +86452,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000
     },
@@ -87284,7 +87014,7 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Lehrperson Ballett im Stundenlohn",
-        "it": "Lehrperson Ballett im Stundenlohn",
+        "it": "Maestro Ballet nel salario orario",
         "en": "Ballet Teacher (Hourly Basis)",
         "fr": "Enseignant de ballet à l'heure"
       },
@@ -87376,8 +87106,7 @@
       "country": "CH",
       "salarySource": "reported",
       "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
+      "salaryMax": 75000
     },
     {
       "id": "company-z0ao1d",
@@ -89832,7 +89561,7 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Lehrperson Bodytoning im Stundenlohn",
-        "it": "Lehrperson Bodytoning im Stundenlohn",
+        "it": "Insegnante Bodytoning nel salario orario",
         "en": "Bodytoning Instructor (Hourly)",
         "fr": "Instructeur de Bodytoning à l'heure"
       },
@@ -89908,7 +89637,6 @@
       "postalCode": "9000",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -90272,7 +90000,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000
     },
@@ -90862,7 +90589,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -90910,7 +90636,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
-        "en": "Lehrperson Pump Workout (w/m/d) - Klubschule Bern",
+        "en": "Teacher Pump Workout (m/f/d) - Club School Bern",
         "it": "Praktikant (w/m/d)",
         "de": "Lehrkräfte (w/m/d) - Klubschule Bern",
         "fr": "Praktikan (m/j)"
@@ -91089,7 +90815,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -91502,7 +91227,7 @@
       "crawledAt": "2026-09-01T23:37:10.651Z",
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
-        "en": "Lehrperson Orientalischer Tanz (w/m/d) - Klubschule Luzern",
+        "en": "Teacher Oriental Dance (m/f/d) - Club School Lucerne",
         "it": "Insegnante di danza orientale (f/m/d) - Scuola Club di Lucerna",
         "de": "Lehrperson Orientalischer Tanz (w/m/d) – Klubschule Luzern",
         "fr": "Lehrperson Orientalischer Tanz (m/j) - Klubschule Luzern"
@@ -91562,7 +91287,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -91896,8 +91620,7 @@
       "qualityScore": 97,
       "salarySource": "reported",
       "salaryMin": 49500,
-      "salaryMax": 75000,
-      "needsRetranslation": true
+      "salaryMax": 75000
     },
     {
       "id": "company-x02cxo",
@@ -92333,7 +92056,6 @@
       "postalCode": "6003",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -93672,7 +93394,6 @@
       "postalCode": "3001",
       "country": "CH",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -94167,7 +93888,6 @@
       "postalCode": "4900",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -94436,7 +94156,7 @@
         "de": "Bäcker-Konditor",
         "it": "Confezionatrice per panifici",
         "fr": "Pâtisserie",
-        "en": "Bäcker-Konditor"
+        "en": "Baker confectioner"
       },
       "descriptionByLocale": {
         "it": "Sei un risollevatore precoce con una passione per la cottura? Ti piace creare qualcosa che rende le persone felici con le tue mani? Allora entra nella nostra panetteria e diventa parte di un team che lavora con devozione e creatività ogni giorno!\n\nMansioni\n- Sei co-responsabile per la produzione dei nostri prodotti da forno versatili\n- Monitorare la produzione e portare pasta, tavola e forno\n- Realizzi i requisiti di qualità e igiene e sei l'ambasciatore dei prodotti ai nostri clienti\n\nRequisiti\n- Gli insegnanti sono anche i benvenuti: Bakers\n- Formazione professionale completa (EFZ): Baker\n- disponibilità per orari di lavoro flessibili e lavoro sabato\n- gioia nella professione e funzionamento affidabile e resilienza in situazioni frenetiche\n- tedesco\n\nCosa?\n- Pensione professionale: assicurata nel Migros-Pensionskasse – con servizi di prima classe e attraenti.\n- I dipendenti offrono: Punti di lavoro Cumulus, Beneficiaries Mobileabos, Tassi di interesse più elevati Migros Bank, Contributions Club School/Fitness e altro ancora.\n- Vacanze: 5 settimane Vacanze per tutti, 6 settimane Vacanze dall'età di 50, 7 settimane Vacanze dall'età di 60 anni.\n- Formazione e formazione continua: formiamo attivamente i dipendenti nell'ambito dei programmi interni e, se necessario, sosteniamo la formazione esterna con tempo e denaro.\n\nContatto\nApplicazione & Contatto Carmen Peluso HR Recruiterin ## processo di reclutamento Preselezione delle applicazioni (FFB-Group) Esaminiamo continuamente le applicazioni ricevute, creiamo una preselezione e le rilasciamo al gestore per la visualizzazione. La decisione di procedere o di ritirarsi dal processo di reclutamento è comunicata per telefono o per e-mail. Video personale o conversazione telefonica (FFB-Group) Nel caso di un gran numero di candidati, conduciamo facoltativamente un telefono personale o una videochiamata. Questo ci dà l'opportunità di conoscere più candidati in breve tempo per invitare persone adatte per il prossimo round. Un Schnuppertag o mezza giornata offre l'opportunità di conoscere meglio l'ambiente di lavoro futuro e i membri del team. E viceversa, abbiamo la possibilità di valutare come una brava persona si inserisce nella squadra. Durata fino al feedback: fino a tre settimane di offerta & fiera del contratto (FFB-Group) Dopo la nostra offerta di lavoro orale, i punti principali del contratto sono verificati di nuovo. Dopo accordo, il contratto viene commissionato e inviato per posta.\n\nGrado di occupazione: 99 %",
@@ -94499,7 +94219,6 @@
       "postalCode": "8001",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -94773,7 +94492,7 @@
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "titleByLocale": {
         "de": "Podolog*in",
-        "it": "Podolog*in",
+        "it": "Podolog*",
         "en": "Podologue",
         "fr": "Podiatre"
       },
@@ -94829,7 +94548,6 @@
       "postalCode": "3001",
       "country": "CH",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -94882,7 +94600,7 @@
       "titleByLocale": {
         "de": "Koch*Köchin",
         "it": "Cook",
-        "en": "Koch*Köchin",
+        "en": "Cook* cook",
         "fr": "Cook"
       },
       "descriptionByLocale": {
@@ -94946,7 +94664,6 @@
       "country": "CH",
       "qualityScore": 95,
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000
     },
@@ -97854,7 +97571,6 @@
       "country": "CH",
       "qualityScore": 97,
       "salarySource": "reported",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000
     },
@@ -98009,7 +97725,7 @@
       "crawledAt": "2026-09-01T14:34:29.423Z",
       "firstSeenAt": "2026-08-05T22:54:12.169Z",
       "titleByLocale": {
-        "it": "Fitness Instructor (w/m/d)",
+        "it": "Istruttore di fitness (m/f/d)",
         "de": "Fitness Instructor (w/m/d)",
         "en": "Fitness Instructor (f/m/d)",
         "fr": "Instructeur de fitness (f/m/d)"
@@ -98074,8 +97790,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "salaryMin": 62000,
-      "salaryMax": 94000,
-      "needsRetranslation": true
+      "salaryMax": 94000
     },
     {
       "id": "company-66qh9x",
@@ -98279,8 +97994,7 @@
       "country": "CH",
       "salarySource": "estimated",
       "salaryMin": 101500,
-      "salaryMax": 154000,
-      "needsRetranslation": true
+      "salaryMax": 154000
     },
     {
       "id": "company-us5tqd",
@@ -98329,7 +98043,7 @@
       "crawledAt": "2026-09-01T14:34:29.423Z",
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "titleByLocale": {
-        "en": "Spezialist*in Disposition operative Beschaffung",
+        "en": "Specialist* in disposition operational procurement",
         "de": "Fachkraft*in Disposition operative Beschaffung",
         "it": "Programmazione Specialistica, Procurement Operativi",
         "fr": "Planification spécialisée des achats opérationnels"
@@ -98517,8 +98231,7 @@
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "salarySource": "reported",
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "id": "company-1gkru9",
@@ -98826,7 +98539,7 @@
       "crawledAt": "2026-08-31T17:40:35.590Z",
       "firstSeenAt": "2026-08-04T22:32:59.150Z",
       "titleByLocale": {
-        "en": "Coordinateur*trice Meetings & Events Suisse romande",
+        "en": "Coordinator Meetings & Events Switzerland romande",
         "fr": "Coordinateur*trice Meetings & Events Suisse romande",
         "it": "Coordinatore Incontri & Eventi Svizzera",
         "de": "Coordinator Meetings & Events Schweiz"
@@ -98892,8 +98605,7 @@
       "country": "CH",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "company-io4ow8",
@@ -99107,7 +98819,7 @@
       "crawledAt": "2026-08-31T17:40:35.590Z",
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "titleByLocale": {
-        "de": "Leader de Maintenance",
+        "de": "Leiter der Instandhaltung",
         "fr": "Leader de Maintenance",
         "it": "Leader della manutenzione",
         "en": "Leader of Maintenance"
@@ -99173,8 +98885,7 @@
       "country": "CH",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "id": "company-iyldg0",
