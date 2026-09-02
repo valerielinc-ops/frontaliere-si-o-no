@@ -5137,6 +5137,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-argovia.title': 'AVS and complementary services in the canton of Aargau',
     'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'First pillar of Swiss social security: AHV pension, calculation on contributory history, contributory gaps and supplementary benefits for minimum subsistence.',
     'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Swiss administrative office with pension documents and financial records visible on desk',
+    'blog.article.aiuti-malattie-rare-2025.title': 'Federal Council: more aid for rare diseases',
+    'blog.article.aiuti-malattie-rare-2025.excerpt': 'The Federal Council wants to improve care for rare disease patients in Switzerland with a two-step intervention.',
+    'blog.article.aiuti-malattie-rare-2025.imageAlt': 'Panoramic view of Lugano with healthcare facilities in the foreground',
 };
 
 export default blogMetaChEn;

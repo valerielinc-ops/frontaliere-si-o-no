@@ -11113,6 +11113,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: frontaliere tra Italia e Ticino',
     'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Vivere a Crosio della Valle, lavorare in Ticino: permesso G, fiscalità, valichi e costi. Guida per frontalieri.',
     'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Paesaggio frontaliero tra Ticino e Italia con strada alpina e confine visibile',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Vivere a Gerenzano e lavorare in Ticino: guida per frontalieri',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Distanza, valichi, permesso G, tasse, AVS e LAMal: tutto ciò che serve sapere prima di trasferirsi a Gerenzano dal Ticino o da altre aree frontaliere.',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Lugano e del Lago di Lugano al tramonto, con le Alpi svizzere sullo sfondo e il confine italiano visibile',
 };
 
 export default blogMetaIt;

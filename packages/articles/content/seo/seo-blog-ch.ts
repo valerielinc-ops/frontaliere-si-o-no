@@ -66671,6 +66671,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aiuti-malattie-rare-2025': {
+    title: 'Consiglio federale: più aiuti per le malattie rare',
+    description: 'Il Consiglio federale vuole migliorare l’assistenza ai malati di malattie rare in Svizzera con un intervento in due fasi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, aiuti, malattie',
+    ogTitle: 'Consiglio federale: più aiuti per le malattie rare',
+    ogDescription: 'Il Consiglio federale ha annunciato un intervento in due fasi per migliorare l’assistenza ai malati di malattie rare in Svizzera.',
+    canonicalPath: '/articoli-svizzera/aiuti-malattie-rare-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: più aiuti per le malattie rare",
+      "description": "Il Consiglio federale vuole migliorare l’assistenza ai malati di malattie rare in Svizzera con un intervento in due fasi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aiuti-malattie-rare-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano con strutture sanitarie in primo piano"
+      },
+      "datePublished": "2026-09-02T11:33:45+00:00",
+      "dateModified": "2026-09-02T11:33:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aiuti-malattie-rare-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

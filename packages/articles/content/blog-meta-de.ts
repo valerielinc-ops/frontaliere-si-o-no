@@ -11111,6 +11111,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.crosio-della-valle-frontaliere-ticino.title': 'Crosio della Valle: Grenzgänger zwischen Italien und Tessin',
     'blog.article.crosio-della-valle-frontaliere-ticino.excerpt': 'Leben in Crosio della Valle, Arbeiten im Tessin: G-Genehmigung, Steuern, Pässe und Kosten. Leitfaden für Grenzgänger.',
     'blog.article.crosio-della-valle-frontaliere-ticino.imageAlt': 'Alpenlandschaft zwischen Tessin und italienischer Grenze',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.title': 'Leben in Gerenzano und Arbeiten im Tessin: Leitfaden für Grenzgänger',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.excerpt': 'Entfernung, Überquerung, Bewilligung G, Steuern, AHV und KVG: Alles, was Sie wissen müssen, bevor Sie aus dem Tessin oder anderen Grenzgebieten nach Gerenzano ziehen.',
+    'blog.article.vivere-gerenzano-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Lugano und dem Luganosee bei Sonnenuntergang mit den Schweizer Alpen im Hintergrund und deutlich sichtbarer italienischer Grenze',
 };
 
 export default blogMetaDe;
