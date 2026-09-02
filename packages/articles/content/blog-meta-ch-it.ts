@@ -5134,6 +5134,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.postazione-lavoro-sovranita-digitale.title': 'Cancelleria: programma per lavoro digitale',
     'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'Entro la fine del 2027, circa 3000 collaboratori avranno accesso a una postazione di lavoro basata sulla sovranità digitale.',
     'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'Una postazione di lavoro digitale in un ufficio federale svizzero.',
+    'blog.article.avs-prestazioni-complementari-argovia.title': 'AVS e prestazioni complementari nel canton Argovia',
+    'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'Primo pilastro della previdenza svizzera: rendita AVS, calcolo su storia contributiva, lacune contributive e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Ufficio amministrativo svizzero con documenti di previdenza e fascicoli di rendita su scrivania',
 };
 
 export default blogMetaChIt;

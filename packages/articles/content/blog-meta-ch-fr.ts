@@ -5134,6 +5134,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.postazione-lavoro-sovranita-digitale.title': 'Papeterie : programme de travail numérique',
     'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'D\'ici fin 2027, environ 3000 collaborateurs auront accès à un poste de travail basé sur la souveraineté numérique.',
     'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'Un espace de travail numérique dans un bureau fédéral suisse.',
+    'blog.article.avs-prestazioni-complementari-argovia.title': 'AVS et prestations complémentaires dans le canton d\'Argovie',
+    'blog.article.avs-prestazioni-complementari-argovia.excerpt': 'Premier pilier de la prévoyance suisse : rente AVS, calcul sur l\'historique des cotisations, lacunes de cotisations et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-argovia.imageAlt': 'Bureau administratif suisse avec dossiers de retraite et documents financiers sur le bureau',
 };
 
 export default blogMetaChFr;

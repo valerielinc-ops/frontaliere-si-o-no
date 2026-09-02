@@ -8,7 +8,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Sep 2026 10:24:41 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 10:55:39 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -16,6 +16,92 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>AVS and complementary services in the canton of Aargau</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/avs-supplementary-benefits-aargau/</link>
+      <description><![CDATA[First pillar of Swiss social security: AHV pension, calculation on contributory history, contributory gaps and supplementary benefits for minimum subsistence.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- The AVS pension is the first pillar of Swiss social security
+- Contribution gaps reduce the amount of the annuity
+- Complementary benefits fill the gap between annuity and minimum subsistence
+
+## Key facts
+- **What**: AVS System (Old Age and Survivors Insurance)
+- Who: UFAS/BSV oversees social security in Switzerland
+- When: Contributions paid throughout the working career
+- Where: Each canton (including Aargau) has a compensation fund
+- Amount: Income calculated on contribution history; supplementary benefits supplement
+
+The first pillar of Swiss social security, managed by the UFAS/BSV (Federal Office of Social Insurance), is based on a mechanism of contributions paid during the entire working career. Each canton, including the canton of Aargau, has a cantonal compensation fund that administers these contributions and determines the amount of the AVS pension.
+
+### How the AVS annuity is calculated
+
+The AVS pension is not fixed: it depends directly on the number of years of contribution paid to the system. Each working year contributes to the final calculation of the service. Those who have paid contributions for their entire career receive the maximum amount; those who have contribution gaps receive a reduced income.
+
+Contribution gaps may result from:
+- Unemployment periods not covered
+- Years in which the contribution has not been paid for administrative reasons
+- Move between cantons without
+### Calculation of the pension and effects of gaps
+
+The procedure for calculating the AVS pension follows a uniform national scheme, although it is administered at the cantonal level. The UFAS/BSV defines the parameters; the cantonal compensation fund of Aargau (like any other) applies the formulas to individual cases. To obtain an approximate simulation, you can use the [pension calculator](nav:calculator) available online.
+
+A full year of contributions paid corresponds to one year of contribution. Are there missing contributions? Each missing year proportionally reduces the final pension. Someone who has paid 42 years of contributions out of 45 years of working life will have a reduction in the final pension.
+
+There are mechanisms for filling gaps: it is possible to voluntarily pay back contributions, but within certain deadlines and limits set by law. Not all missing years can be recovered; the system provides well-defined deadlines.
+
+### Supplementary benefits and minimum living standard
+
+Supplementary benefits come into play when the combination of:
+- AVS pension
+- Income from other sources (possibly)
+- Movable/immovable assets
+
+does not reach the minimum threshold set by cantonal law (with federal guidelines). The cantonal compensation fund processes the application and verifies the right.
+
+The amount of the supplementary benefit is the difference between the recognized minimum living standard and the AVS pension received. It is not a fixed contribution but calculated case by case based on the economic situation.
+
+### Difference between supplementary benefits and other subsidies
+
+Do not confuse supplementary benefits (PC) with municipal social assistance, which is a different tool for protecting low incomes. PC are specifically linked to old age and insufficient AVS survivors; social assistance is generic and available for other population groups.
+
+The cantonal compensation fund provides advice on this distinction during the processing of a PC application.
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### How to verify your contribution history
+
+The first step is to request an extract of your contribution history from the cantonal compensation fund of the canton of Aargau (or the canton of your current residence, if you have moved). This extract indicates:
+- Number of years of contributions paid
+- Recognized gap years
+- Amount of pension calculated at the time of request
+
+You can obtain the extract by visiting in person, by mail, or through the online portal of the fund (where available). Many funds offer digital services to view your personal file in real-time.
+
+### Procedure to request supplementary benefits
+
+If the extract shows a low pension or if you know that you will live on an insufficient pension, you can apply for supplementary benefits:
+
+1. Gather documents: copy of the AVS pension decision, income statement, bank statement, real estate ownership certificate (if owner).
+
+2. Fill out the PC application form provided by the cantonal compensation fund.
+
+3. Submit the application to the fund (by mail, email, or counter).
+
+4. Wait for the review; the fund will assess the need according to the established legal criteria.
+
+### Terms and deadlines
+
+Supplementary benefits start from the month following the submission of the application (not retroactive, except for specific exceptions). It is advisable to submit the application before retirement or immediately after receiving the AVS pension decision, to avoid losing months of coverage.
+
+The cantonal compensation fund remains available for telephone consultation, by email, or through a physical counter. Official websites and helplines provide updated information on forms and deadlines.
+
+To deepen the calculation of your AVS pension and compare contribution scenarios, use the [pension calculator](nav:pension) — a tool that helps you plan your retirement.]]></content:encoded>
+      <pubDate>Wed, 02 Sep 2026 10:55:39 GMT</pubDate>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/avs-prestazioni-complementari-argovia</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/avs-prestazioni-complementari-argovia.webp" medium="image"/>
+    </item>
     <item>
       <title>Stationery: program for digital work</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/digital-sovereignty-workstation/</link>
@@ -3544,79 +3630,6 @@ Apprenticeship in the Canton of Fribourg is a concrete investment in your future
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/apprendistato-formazione-friburgo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/apprendistato-formazione-friburgo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Apprenticeship and vocational training in the Canton of Freiburg</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/apprenticeship-professional-training-canton-fribourg/</link>
-      <description><![CDATA[Find out how to find a traineeship, contract details and the remuneration of apprentices in the Canton of Freiburg.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Apprenticeship and vocational training in the Canton of Fribourg
-- How to find an internship
-- Internship contract and apprentice salary
-- Professional maturity
-
-## Key facts
-- **What**: Apprenticeship and vocational training in the Canton of Fribourg
-- When: Not specified
-- Where: Canton of Fribourg
-- Who: Apprentices and employers
-- Amount: Not specified
-
-Apprenticeship and vocational training in the Canton of Fribourg represent a fundamental path for many young people who wish to enter the world of work with solid practical preparation. This article explores how to find an internship, the details of the internship contract, the salary of apprentices, and the opportunities offered by professional maturity.
-
-### How to find an internship
-
-Finding an internship in the Canton of Fribourg can be a challenging process, but there are several resources available to facilitate the search. Apprentices can consult internship offers published by vocational schools, training centers, and local companies. It is also possible to participate in job fairs and networking events to meet potential employers.
-
-### Internship contract and apprentice salary
-
-The internship contract is a legal document that defines the rights and duties of both the apprentice and the employer. In the Canton of Fribourg, the internship contract must be signed by both parties and registered with the competent cantonal office. The salary of apprentices varies depending on the sector and level of training, but it is generally regulated by collective agreements or individual contracts.
-
-### Professional maturity
-
-Professional maturity is a diploma that allows apprentices to access higher education paths, such as professional universities or specialized schools. In the Canton of Fribourg, apprentices can obtain professional maturity by successfully completing their internship and passing the final exams. This diploma offers numerous career and professional development opportunities.
-## Practical analysis: concrete implications at national/cantonal level
-
-Apprenticeships and vocational training in the Canton of Freiburg have concrete implications for the Swiss labour market. Apprentices who successfully complete their internship acquire practical and theoretical skills that are highly demanded by companies. This contributes to reducing the youth unemployment rate and ensuring a skilled workforce.
-
-### Comparison with the previous situation
-
-Before the introduction of structured apprenticeship programmes, many young people struggled to find work after school. With the advent of apprenticeship, apprentices now have a clear path to employment, with the support of employers and educational institutions. This has led to an increase in the number of young people choosing vocational training as a viable option for their future.
-
-### Concrete scenarios
-
-Consider the case of an apprentice who wishes to become a mechanic. After completing their internship in a local company, the apprentice may choose to continue working for the same company or look for opportunities in other companies. With professional maturity, the apprentice also has the opportunity to continue their studies in a technical or university institute, opening further doors for their career.
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-## Action: what to do concretely in Switzerland
-
-For apprentices and employers in the Canton of Freiburg, it is important to follow a series of steps to ensure a successful apprenticeship experience. Here's a step-by-step guide:
-
-### Steps to find an internship
-
-1. Consult the internship offers published by vocational schools and training centres.
-2. Attend job fairs and networking events to meet potential employers.
-3. Prepare a resume and motivation letter highlighting your skills and interests.
-4. Apply to selected companies and prepare for interviews.
-
-## # Internship Contract Procedure
-
-1. Sign the internship contract with the employer.
-2. Register the contract with the competent cantonal office.
-3. Ensure that the contract includes all details relating to pay, working hours and responsibilities.
-
-### Opportunities for professional maturity
-
-1. Successfully complete the internship and pass the final exams.
-2. Enroll in a technical institute or university to continue your studies.
-3. Use the professional baccalaureate to access advanced career opportunities.
-
-For more information and support, please refer to the [calcolatore stipendio](nav:calculator) and other resources available on the site.]]></content:encoded>
-      <pubDate>Tue, 01 Sep 2026 18:52:47 GMT</pubDate>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/apprendistato-formazione-professionale-canton-friburgo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/apprendistato-formazione-professionale-canton-friburgo.webp" medium="image"/>
     </item>
   </channel>
 </rss>

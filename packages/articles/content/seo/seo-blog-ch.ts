@@ -66632,6 +66632,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-argovia': {
+    title: 'AVS e prestazioni complementari nel canton Argovia',
+    description: 'Come funziona il primo pilastro (AVS): rendita, cassa di compensazione, lacune contributive e prestazioni complementari per il minimo vitale. Guida pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, canton, argovia',
+    ogTitle: 'AVS e prestazioni complementari nel canton Argovia',
+    ogDescription: 'Scopri come funziona il primo pilastro della previdenza svizzera: calcolo della rendita AVS, ruolo della cassa di compensazione cantonale, lacune contributive e prestazioni complementari per coprire il minimo vitale. Informazioni complete e procedure',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-argovia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari nel canton Argovia",
+      "description": "Come funziona il primo pilastro (AVS): rendita, cassa di compensazione, lacune contributive e prestazioni complementari per il minimo vitale. Guida pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-argovia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con documenti di previdenza e fascicoli di rendita su scrivania"
+      },
+      "datePublished": "2026-09-02T10:55:39+00:00",
+      "dateModified": "2026-09-02T10:55:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-argovia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
