@@ -1,6 +1,6 @@
 {
   "crawlerKey": "on-running",
-  "assembledAt": "2026-09-02T13:42:31.148Z",
+  "assembledAt": "2026-09-02T23:16:18.393Z",
   "jobs": [
     {
       "id": "on-running-2c2afe61aee4",
@@ -33,7 +33,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/4565069?gh_jid=4565069",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.262Z",
+      "crawledAt": "2026-09-02T23:16:14.034Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -57,11 +57,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "store-advisor-part-time-on-running-ch"
+        "store-advisor-part-time-on-running-ch",
+        "store-consulente-part-time-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "store-advisor-part-time-on-running-ch"
+          "store-advisor-part-time-on-running-ch",
+          "store-consulente-part-time-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-24T21:42:55.772Z",
@@ -110,7 +112,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7917274?gh_jid=7917274",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.259Z",
+      "crawledAt": "2026-09-02T23:16:14.033Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -135,14 +137,18 @@
       },
       "previousSlugsByLocale": {
         "en": [
-          "staff-security-engineer-platform-on-running-ch"
+          "staff-security-engineer-platform-on-running-ch",
+          "lead-platform-security-engineer-on-running-ch"
         ],
         "it": [
-          "staff-security-engineer-platform-on-running-ch"
+          "staff-security-engineer-platform-on-running-ch",
+          "lead-platform-security-ingegnere-on-running-zurich"
         ]
       },
       "previousSlugs": [
-        "staff-security-engineer-platform-on-running-ch"
+        "staff-security-engineer-platform-on-running-ch",
+        "lead-platform-security-engineer-on-running-ch",
+        "lead-platform-security-ingegnere-on-running-zurich"
       ],
       "firstSeenAt": "2026-08-14T10:16:45.847Z",
       "salaryMin": 83000,
@@ -190,7 +196,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8147157?gh_jid=8147157",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.254Z",
+      "crawledAt": "2026-09-02T23:16:14.031Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -214,11 +220,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "sr-specialist-vm-guideline-designer-on-running-ch"
+        "sr-specialist-vm-guideline-designer-on-running-ch",
+        "sr-specialista-vm-guideline-designer-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sr-specialist-vm-guideline-designer-on-running-ch"
+          "sr-specialist-vm-guideline-designer-on-running-ch",
+          "sr-specialista-vm-guideline-designer-on-running-zurich"
         ],
         "de": [
           "sr-specialist-vm-guideline-designer-on-running-ch"
@@ -228,6 +236,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T21:33:58.115Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -273,7 +282,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984586?gh_jid=7984586",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.251Z",
+      "crawledAt": "2026-09-02T23:16:14.030Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -297,14 +306,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "specialist-material-quality-on-running-ch"
+        "specialist-material-quality-on-running-ch",
+        "specialista-material-quality-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-material-quality-on-running-ch"
+          "specialist-material-quality-on-running-ch",
+          "specialista-material-quality-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.099Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -350,7 +362,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8152795?gh_jid=8152795",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.244Z",
+      "crawledAt": "2026-09-02T23:16:14.028Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -374,11 +386,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "specialist-accessories-developer-technical-bags-on-running-ch"
+        "specialist-accessories-developer-technical-bags-on-running-ch",
+        "specialista-accessories-sviluppatore-technical-bags-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialist-accessories-developer-technical-bags-on-running-ch"
+          "specialist-accessories-developer-technical-bags-on-running-ch",
+          "specialista-accessories-sviluppatore-technical-bags-on-running-zurich"
         ],
         "de": [
           "specialist-accessories-developer-technical-bags-on-running-ch"
@@ -433,7 +447,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7765598?gh_jid=7765598",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.240Z",
+      "crawledAt": "2026-09-02T23:16:14.026Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -457,11 +471,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-smu-designer-ftw-on-running-ch"
+        "senior-specialist-smu-designer-ftw-on-running-ch",
+        "senior-specialista-smu-designer-ftw-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-smu-designer-ftw-on-running-ch"
+          "senior-specialist-smu-designer-ftw-on-running-ch",
+          "senior-specialista-smu-designer-ftw-on-running-zurich"
         ],
         "de": [
           "senior-specialist-smu-designer-ftw-on-running-ch"
@@ -471,6 +487,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.093Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -516,7 +533,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8119023?gh_jid=8119023",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.234Z",
+      "crawledAt": "2026-09-02T23:16:14.024Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -540,14 +557,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-product-quality-intelligence-on-running-ch"
+        "senior-specialist-product-quality-intelligence-on-running-ch",
+        "senior-specialista-product-quality-intelligence-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-product-quality-intelligence-on-running-ch"
+          "senior-specialist-product-quality-intelligence-on-running-ch",
+          "senior-specialista-product-quality-intelligence-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:41.459Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -593,7 +613,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074401?gh_jid=8074401",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.230Z",
+      "crawledAt": "2026-09-02T23:16:14.022Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -617,11 +637,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
+        "senior-specialist-new-store-openings-project-manager-dms-on-running-ch",
+        "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
+          "senior-specialist-new-store-openings-project-manager-dms-on-running-ch",
+          "senior-specialista-new-store-openings-project-manager-dms-on-running-zurich"
         ],
         "de": [
           "senior-specialist-new-store-openings-project-manager-dms-on-running-ch"
@@ -631,6 +653,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.087Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -676,7 +699,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8098307?gh_jid=8098307",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.224Z",
+      "crawledAt": "2026-09-02T23:16:14.021Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -700,11 +723,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-lightspray-footwear-developer-on-running-ch"
+        "senior-specialist-lightspray-footwear-developer-on-running-ch",
+        "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-lightspray-footwear-developer-on-running-ch"
+          "senior-specialist-lightspray-footwear-developer-on-running-ch",
+          "senior-specialista-lightspray-footwear-sviluppatore-on-running-zurich"
         ],
         "de": [
           "senior-specialist-lightspray-footwear-developer-on-running-ch"
@@ -759,7 +784,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8015208?gh_jid=8015208",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.223Z",
+      "crawledAt": "2026-09-02T23:16:14.020Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -783,11 +808,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-innovation-footwear-developer-on-running-ch"
+        "senior-specialist-innovation-footwear-developer-on-running-ch",
+        "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-innovation-footwear-developer-on-running-ch"
+          "senior-specialist-innovation-footwear-developer-on-running-ch",
+          "senior-specialista-innovation-footwear-sviluppatore-on-running-zurich"
         ],
         "de": [
           "senior-specialist-innovation-footwear-developer-on-running-ch"
@@ -842,7 +869,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079080?gh_jid=8079080",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.222Z",
+      "crawledAt": "2026-09-02T23:16:14.018Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -866,11 +893,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-innovation-concept-design-on-running-ch"
+        "senior-specialist-innovation-concept-design-on-running-ch",
+        "senior-specialista-innovation-concept-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-innovation-concept-design-on-running-ch"
+          "senior-specialist-innovation-concept-design-on-running-ch",
+          "senior-specialista-innovation-concept-design-on-running-zurich"
         ],
         "de": [
           "senior-specialist-innovation-concept-design-on-running-ch"
@@ -892,7 +921,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-99e20a1fa954",
@@ -925,7 +955,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7835371?gh_jid=7835371",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.219Z",
+      "crawledAt": "2026-09-02T23:16:14.016Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -950,12 +980,14 @@
       },
       "previousSlugs": [
         "senior-specialist-group-capex-on-running-ch",
-        "senior-specialist-group-accounting-capex-on-running-ch"
+        "senior-specialist-group-accounting-capex-on-running-ch",
+        "senior-specialista-group-capex-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-specialist-group-capex-on-running-ch",
-          "senior-specialist-group-accounting-capex-on-running-ch"
+          "senior-specialist-group-accounting-capex-on-running-ch",
+          "senior-specialista-group-capex-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.190Z",
@@ -1004,7 +1036,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8146925?gh_jid=8146925",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.217Z",
+      "crawledAt": "2026-09-02T23:16:14.015Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1028,11 +1060,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-footwear-tooling-engineer-on-running-ch"
+        "senior-specialist-footwear-tooling-engineer-on-running-ch",
+        "senior-specialista-footwear-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-footwear-tooling-engineer-on-running-ch"
+          "senior-specialist-footwear-tooling-engineer-on-running-ch",
+          "senior-specialista-footwear-tooling-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-specialist-footwear-tooling-engineer-on-running-ch"
@@ -1088,7 +1122,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721405?gh_jid=7721405",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.215Z",
+      "crawledAt": "2026-09-02T23:16:14.012Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1112,14 +1146,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-footwear-design-on-running-ch"
+        "senior-specialist-footwear-design-on-running-ch",
+        "senior-specialista-footwear-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-footwear-design-on-running-ch"
+          "senior-specialist-footwear-design-on-running-ch",
+          "senior-specialista-footwear-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.189Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1165,7 +1202,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8064121?gh_jid=8064121",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.213Z",
+      "crawledAt": "2026-09-02T23:16:14.011Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1189,11 +1226,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-finance-systems-on-running-ch"
+        "senior-specialist-finance-systems-on-running-ch",
+        "senior-specialista-finanza-systems-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-finance-systems-on-running-ch"
+          "senior-specialist-finance-systems-on-running-ch",
+          "senior-specialista-finanza-systems-on-running-zurich"
         ],
         "de": [
           "senior-specialist-finance-systems-on-running-ch"
@@ -1248,7 +1287,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8016535?gh_jid=8016535",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.212Z",
+      "crawledAt": "2026-09-02T23:16:14.010Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1272,14 +1311,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-color-designer-performance-footwear-on-running-ch"
+        "senior-specialist-color-designer-performance-footwear-on-running-ch",
+        "senior-specialista-color-designer-performance-footwear-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-color-designer-performance-footwear-on-running-ch"
+          "senior-specialist-color-designer-performance-footwear-on-running-ch",
+          "senior-specialista-color-designer-performance-footwear-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.188Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1325,7 +1367,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8060038?gh_jid=8060038",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.210Z",
+      "crawledAt": "2026-09-02T23:16:14.006Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1349,11 +1391,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-specialist-3d-footwear-modeller-on-running-ch"
+        "senior-specialist-3d-footwear-modeller-on-running-ch",
+        "senior-specialista-3d-footwear-modeller-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-specialist-3d-footwear-modeller-on-running-ch"
+          "senior-specialist-3d-footwear-modeller-on-running-ch",
+          "senior-specialista-3d-footwear-modeller-on-running-zurich"
         ],
         "de": [
           "senior-specialist-3d-footwear-modeller-on-running-ch"
@@ -1363,6 +1407,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.075Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1408,7 +1453,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8093901?gh_jid=8093901",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.208Z",
+      "crawledAt": "2026-09-02T23:16:14.005Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1478,7 +1523,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8154293?gh_jid=8154293",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.206Z",
+      "crawledAt": "2026-09-02T23:16:14.004Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1502,11 +1547,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-marketing-operations-and-gtm-readiness-on-running-ch"
+        "senior-lead-marketing-operations-and-gtm-readiness-on-running-ch",
+        "senior-lead-operazioni-di-marketing-e-prontezza-gtm-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-marketing-operations-and-gtm-readiness-on-running-ch"
+          "senior-lead-marketing-operations-and-gtm-readiness-on-running-ch",
+          "senior-lead-operazioni-di-marketing-e-prontezza-gtm-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1556,7 +1603,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7946464?gh_jid=7946464",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.204Z",
+      "crawledAt": "2026-09-02T23:16:14.003Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1634,7 +1681,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074415?gh_jid=8074415",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.201Z",
+      "crawledAt": "2026-09-02T23:16:14.001Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1704,7 +1751,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8106150?gh_jid=8106150",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.199Z",
+      "crawledAt": "2026-09-02T23:16:13.999Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1774,7 +1821,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8114421?gh_jid=8114421",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.197Z",
+      "crawledAt": "2026-09-02T23:16:13.998Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1799,12 +1846,14 @@
       },
       "previousSlugs": [
         "senior-lead-tooling-engineer-on-running-ch",
-        "senior-lead-footwear-tooling-engineer-on-running-ch"
+        "senior-lead-footwear-tooling-engineer-on-running-ch",
+        "senior-lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-lead-tooling-engineer-on-running-ch",
-          "senior-lead-footwear-tooling-engineer-on-running-ch"
+          "senior-lead-footwear-tooling-engineer-on-running-ch",
+          "senior-lead-tooling-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-tooling-engineer-on-running-ch"
@@ -1814,6 +1863,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:10.964Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -1859,7 +1909,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053160?gh_jid=8053160",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.196Z",
+      "crawledAt": "2026-09-02T23:16:13.997Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -1883,17 +1933,20 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-footwear-testing-on-running-ch"
+        "senior-lead-footwear-testing-on-running-ch",
+        "senior-lead-testing-calzature-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-footwear-testing-on-running-ch"
+          "senior-lead-footwear-testing-on-running-ch",
+          "senior-lead-testing-calzature-on-running-zurich"
         ],
         "de": [
           "senior-lead-footwear-testing-on-running-ch"
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.726Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1904,83 +1957,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "on-running-50f912a14fcf",
-      "slug": "senior-lead-footwear-sviluppatore-on-running-zurich",
-      "slugByLocale": {
-        "it": "senior-lead-footwear-sviluppatore-on-running-zurich",
-        "en": "senior-lead-footwear-developer-on-running-ch",
-        "de": "senior-lead-footwear-entwickler-on-running-zurich",
-        "fr": "senior-lead-footwear-developpeur-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Senior Lead - Footwear Developer",
-      "titleByLocale": {
-        "it": "Senior Lead - Footwear Sviluppatore",
-        "en": "Senior Lead - Footwear Developer",
-        "de": "Senior Lead - Footwear Entwickler",
-        "fr": "Senior Lead - Footwear Développeur"
-      },
-      "description": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-      "descriptionByLocale": {
-        "it": "Designazione delle merci\n\nSviluppatore di calzature senior Lead\n\nIn breve:\n\nCome Senior Lead Footwear Developer for Performance Running, lei è il consulente tecnico strategico per la nostra categoria di prodotti più critica. Con sede nel nostro quartier generale di Zurigo, il suo ruolo è quello di garantire un allineamento di alto livello tra l'intento di progettazione e la fattibilità produttiva. Invece di gestire l'esecuzione granulare di ogni prodotto, fornisce la governance tecnica e il supporto cross-funzionale necessari per mantenere l'integrità delle prestazioni come scale di categoria.\n\nIl ruolo Senior Lead Development riferirà al Senior Lead Run Footwear Development sul team Performance Run che sosterrà le calzature globali.\n\nLa tua missione\n\n- Tecnico Stewardship: agire come il principale consulente tecnico durante le fasi di briefing e progettazione per garantire che i concetti di esecuzione delle prestazioni sono allineati con le capacità di produzione globale.\n\n- Sincronizzazione strategica: facilitare l'allineamento tecnico tra il Design/Product Management di Zurigo e i team di esecuzione asiatici, assicurando che l'\"anima di prestazione\" della categoria sia preservata in tutti i franchise.\n\n- Abilitazione dei processi: sostenere l'evoluzione degli standard di sviluppo individuando strozzature tecniche e consigliando le migliori pratiche che migliorano l'efficienza a livello di categoria.\n\n- Supporto consultivo ed eclatante: Sei've come punto di contatto tecnico per i partner di sviluppo asiatici, fornendo orientamenti su ostacoli tecnici complessi e sostenendo la risoluzione di escalation produttive ad alto livello.\n\n- Garanzia della qualità delle prestazioni: sostenere la convalida degli standard di vestibilità, sensibilità e durata, assicurando che i benchmark tecnici di categoria siano costantemente soddisfatti da diversi partner di fabbrica.\n\n- Facilitazione della conoscenza: promuovere una cultura dell'eccellenza tecnica mediante l'API che traduca il team di sviluppo più ampio e complesse innovazioni in quadri di sviluppo attuabili.\n\nLa tua storia\n\n- Esperienza: 8.12 anni di sviluppo calzaturiero, con un background radicato nella corsa ad alte prestazioni e complessità tecnica.\n\n- Leadership influenziale: capacità di provare ad influenzare la direzione dei prodotti e i risultati tecnici attraverso partnership e consulenza, piuttosto che la gestione diretta della linea o la proprietà del progetto.\n\n- Pensiero Sistemico: una profonda comprensione di come strumenti di prestazione, materiali e costruzione hanno un impatto sulla catena di fornitura globale e sul ciclo di vita del prodotto.\n\n- Ponte del '21: Eccezionale nella navigazione HQ e nelle dinamiche regionali, che funge da \"traduttore tecnico\" tra visione creativa ed esecuzione di fabbrica.\n\n- Sentenza strategica: Altamente qualificata nella valutazione dei compromessi tecnici e nella formulazione di raccomandazioni che bilanciano l'innovazione con la possibilità di effettuare la scalabilità commerciale.\n\n- Comunicazione consultiva: una voce di fiducia in grado di guidare gli stakeholder verso decisioni tecnicamente sane mantenendo forti relazioni interfunzionali.\n\nAttributi di un candidato di successo\n\n- Il consulente tecnico: Non è necessario tenere la penna su ogni pacchetto tecnico, ma sei la persona che tutti consultano quando un design spinge i confini della fisica.\n\n- Il partner strategico: Ti concentri sul \"come\" e \"why,\" assicurando la roadmap tecnica di categoria.s è robusta e scalabile.\n\n- Lo specialista di allineamento: Lei prospera nello spazio tra i team, assicurando che nessun dettaglio tecnico sia \"perdente nella traduzione\" tra Zurigo e i nostri partner produttivi globali.\n\nLa tua squadra\n\nUnirai al team di sviluppo calzature con sede a Zurigo, che funge da pilastro di competenza per la categoria Performance Running. Un collettivo ad alte prestazioni di ingegneri, sviluppatori e produttori che fungono da cuore tecnico del marchio. A Zurigo, il nostro team funge da collegamento primario tra la ricerca biomeccanica, la scienza dei materiali, il design e il Sourcing, assicurando che ogni innovazione sia fondata sulla realtà tecnica prima che raggiunga l'atleta.\n\nLa nostra missione è quella di non perdere le prestazioni e gli attributi tecnici delle nostre calzature da corsa. Non solo facilita la creazione di prodotti, ma anche di ingegnere del \"ridre.\" Nell'ambito della Performance Run verticale, sarete circondati da specialisti ossessionati dalla creazione del miglior prodotto da corsa, performante e desiderabile sul mercato. Siamo fieri di una cultura del rigor tecnico e della \"Swiss Engineering,\" dove ci mettiamo in gioco lo status quo per risolvere gli ostacoli biomeccanici più complessi del settore.\n\nIl vostro ruolo in questo team è quello di garantire che man mano che la nostra categoria si espande, i nostri standard tecnici e le prestazioni \"anima\" delle nostre calzature run rimangano senza compromessi.\n\nCosa offriamo\n\n- On è un datore di lavoro pari opportunità. Ci impegniamo a creare un ambiente di lavoro che sia equo e inclusivo, dove tutte le decisioni relative al reclutamento, avanzamento, e mantenimento sono esenti da discriminazioni.",
-        "en": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-        "de": "Warenbezeichnung\n\nSenior Lead Footwear Entwickler\n\nKurz gesagt:\n\nAls Senior Lead Footwear Developer for Performance Running sind Sie der strategische technische Berater für unsere kritischste Produktkategorie. Mit Sitz in unserem Züricher HQ haben Sie die Aufgabe, eine hohe Abstimmung zwischen Design-Intent und Fertigungstauglichkeit zu gewährleisten. Statt die granulare Ausführung jedes Produkts zu verwalten, bieten Sie die technische Governance und funktionsübergreifenden Support, die notwendig sind, um die Leistungsintegrität als Kategorieskalen zu erhalten.\n\nDie Rolle der Senior Lead Development wird der Senior Lead Run Footwear Development über das Performance Run Team zur Unterstützung globaler Schuhe berichten.\n\nIhre Mission\n\n- Technische Leitung: Handeln Sie als primärer technischer Berater während der Briefing- und Designphasen, um sicherzustellen, dass Leistungs-Laufkonzepte mit globalen Fertigungskapazitäten abgestimmt sind.\n\n- Strategische Digitalisierung: Technische Ausrichtung der Zürcher Design/Product Management-Technik mit den asiatischen Exekutionsteams, um die \"Performance Soul\" der Kategorie über alle Franchise-Länder hinweg zu erhalten.\n\n- Prozess Enablement: Unterstützung der Entwicklung von Entwicklungsstandards durch die Ermittlung technischer Engpässe und Beratung zu bewährten Verfahren, die die Effizienz der Kategorien verbessern.\n\n- Advisory & Escalation Support: Als Senior-Fachstelle für asiatische Entwicklungspartner, die Beratung zu komplexen technischen Hürden und die Lösung von hochkarätigen Produktionseskalationen unterstützen.\n\n- Performance Quality Assurance: Unterstützen Sie die Validierung von Standards für Passform, Gefühl und Haltbarkeit, um sicherzustellen, dass klassenweite technische Benchmarks durchgängig über verschiedene Fabrikpartner hinweg erfüllt werden.\n\n- Wissenserleichterung: Förderung einer Kultur technischer Exzellenz durch Mentoring des breiteren Entwicklungsteams und Umsetzung komplexer Innovationsdurchbrüche in umsetzbare Entwicklungsrahmen.\n\nIhre Geschichte\n\n- Erfahrung: 8-12 Jahre in der Schuhentwicklung, mit einem Hintergrund, der in Hochleistungs-Lauf und technische Komplexität verwurzelt ist.\n\n- Einflussreiche Führung: Bewährte Fähigkeit, Produktrichtung und technische Ergebnisse durch Partnerschaft und Beratung zu beeinflussen, anstatt direkte Leitungsführung oder Projekteigentum.\n\n- Systemisches Denken: Ein tiefes Verständnis dafür, wie sich Performance-Tooling, Materialien und Konstruktion auf die globale Lieferkette und den Produktlebenszyklus auswirken.\n\n- Collaborative Bridge: Außergewöhnliche Navigation auf HQ und regionale Dynamik, als \"technischer Übersetzer\" zwischen kreativer Vision und Fabrikausführung.\n\n- Strategisches Urteil: Hoch qualifizierte bei der Bewertung technischer Kompromisse und Empfehlungen, die die Innovation mit der kommerziellen Skalierbarkeit in Einklang bringen.\n\n- Beratung: Eine vertrauensvolle Stimme, die die Interessenträger in Richtung technisch fundierter Entscheidungen führen kann und gleichzeitig starke funktionsübergreifende Beziehungen aufrechterhält.\n\nEigenschaften eines erfolgreichen Kandidaten\n\n- Der Technische Berater: Sie müssen nicht den Stift auf jedem Tech-Pack halten, aber Sie sind die Person, die jeder konsultiert, wenn ein Design die Grenzen der Physik überschreitet.\n\n- Der strategische Partner: Sie konzentrieren sich auf das \"Wie\" und \"Warum\", wodurch die Kategorie, die technische Roadmap ist robust und skalierbar.\n\n- Der Alignment-Spezialist: Sie gedeihen im Raum zwischen Teams, um sicherzustellen, dass keine technischen Details zwischen Zürich und unseren globalen Produktionspartnern \"verloren\" sind.\n\nIhr Team\n\nSie werden Mitglied des Zürcher Footwear Development Teams, das als Senior-Säule der Expertise für die Kategorie Performance Running fungiert. Ein Hochleistungskollektiv aus Ingenieuren, Entwicklern und Machern, die als technisches Herz der Marke dienen. In Zürich fungiert unser Team als primäre Verbindung zwischen Biomechanischer Forschung, Materialwissenschaft, Design und Sourcing, um sicherzustellen, dass jede Innovation in der technischen Realität begründet ist, bevor es den Athleten erreicht.\n\nUnsere Mission ist es, die Leistungsfähigkeit und die technischen Eigenschaften unserer Laufschuhe unerbittlich zu erhöhen. Wir erleichtern nicht nur die Produktentwicklung, wir entwickeln das „Fahren\". Im Rahmen des Performance Run vertikal werden Sie von Spezialisten umgeben sein, die besessen sind, das beste passende, leistungsfähige und wünschenswerte Laufprodukt auf dem Markt zu schaffen. Wir sind stolz auf eine Kultur der technischen Strenge und „Swiss Engineering\", wo wir den Status Quo herausfordern, die komplexesten biomechanischen Hürden in der Branche zu lösen.\n\nIhre Rolle in diesem Team ist es, sicherzustellen, dass unsere technischen Standards und die Leistungsfähigkeit unserer Laufschuhe mit der Erweiterung unserer Kategorie unkompromisslos bleiben.\n\nWas wir anbieten\n\n- On ist ein Arbeitgeber der Chancengleichheit. Wir sind verpflichtet, ein Arbeitsumfeld zu schaffen, das gerecht und inklusive ist, wo alle Entscheidungen im Zusammenhang mit der Einstellung, dem Fortschritt und der Beibehaltung frei von Diskriminierung sind.",
-        "fr": "Désignation des marchandises\n\nDéveloppeur principal de chaussures en plomb\n\nEn bref:\n\nEn tant que développeur principal de chaussures de performance, vous êtes le conseiller technique stratégique de notre catégorie de produits la plus critique. Basée dans notre QG de Zurich, votre rôle est d'assurer un alignement de haut niveau entre l'intention de conception et la faisabilité de la fabrication.\n\nLe rôle de chef de file en développement rendra compte au chef de file en développement de chaussures sur l'équipe de performance en appui aux chaussures mondiales.\n\nVotre mission\n\n- Intendance technique : Agir comme conseiller technique principal pendant les phases de briefing et de conception pour s'assurer que les concepts de performance sont alignés sur les capacités de fabrication mondiales.\n\n- Synchronisation stratégique : Faciliter l'alignement technique entre la gestion de produits et de conception basée à Zurich et les équipes d'exécution basées en Asie, en veillant à ce que l'âme de performance de la catégorie soit préservée dans toutes les franchises.\n\n- Processus En 2006 : Appuyer l'évolution des normes de développement en identifiant les goulets d'étranglement techniques et en donnant des conseils sur les meilleures pratiques qui améliorent l'efficacité à l'échelle de la catégorie.\n\n- Appui consultatif et appui à l'escalade : servir de point de contact technique principal pour les partenaires de développement asiatiques, en fournissant des conseils sur les obstacles techniques complexes et en appuyant la résolution des escalades de la production.\n\n- Assurance de la qualité des performances : Soutenir la validation des normes d'ajustement, de sensation et de durabilité, en veillant à ce que les critères techniques de référence soient constamment respectés dans toute la catégorie par les différents partenaires d'usine.\n\n- Facilitation des connaissances : Favoriser une culture d'excellence technique en guidant l'équipe de développement en général et en traduisant des innovations complexes en cadres de développement réalisables.\n\nVotre histoire\n\n- Expérience : 8-12 ans de développement de la chaussure, avec un fond ancré dans la haute performance de course et la complexité technique.\n\n- Leadership influant : démontrer la capacité d'influencer l'orientation des produits et les résultats techniques par le biais de partenariats et de conseils, plutôt que de la gestion directe des lignes ou de la propriété des projets.\n\n- Pensée systémique : Une compréhension profonde de la façon dont l'outillage de performance, les matériaux et la construction influent sur la chaîne d'approvisionnement mondiale et le cycle de vie des produits.\n\n- Pont collaboratif : Exceptionnel pour la navigation au QG et dynamique régionale, agissant comme « traducteur technique » entre la vision créative et l'exécution en usine.\n\n- Jugement stratégique : Hautement qualifié pour évaluer les compromis techniques et pour formuler des recommandations qui équilibrent l'innovation et l'évolutivité commerciale.\n\n- Communication consultative : Une voix de confiance capable d'orienter les parties prenantes vers des décisions techniquement saines tout en maintenant de solides relations interfonctionnelles.\n\nAttributs d'un candidat reçu\n\n- Le conseiller technique : Vous n'avez pas besoin de tenir le stylo sur chaque pack technique, mais vous êtes la personne que tout le monde consulte quand un design repousse les limites de la physique.\n\n- Le partenaire stratégique : vous vous concentrez sur le \"comment\" et \"pourquoi\", en assurant la catégorie, la feuille de route technique est robuste et évolutive.\n\n- Le spécialiste de l'alignement : Vous vous développez dans l'espace entre les équipes, en veillant à ce qu'aucun détail technique ne soit \"perdu en traduction\" entre Zurich et nos partenaires manufacturiers mondiaux.\n\nVotre équipe\n\nVous rejoindrez l'équipe de développement de chaussures basée à Zurich, en tant que pilier senior de l'expertise de la catégorie Performance Running. Un collectif d'ingénieurs, de développeurs et de fabricants de haute performance qui servent de cœur technique de la marque. À Zurich, notre équipe est le premier lien entre la recherche biomécanique, la science des matériaux, le design et l'approvisionnement, assurant que chaque innovation est ancrée dans la réalité technique avant d'atteindre l'athlète.\n\nNotre mission est d'élever sans relâche les performances et les caractéristiques techniques de nos chaussures de course. Nous ne nous contentons pas de faciliter la création de produits; nous concevons le «ride». Dans le cadre de la Performance Run verticale, vous serez entourés de spécialistes qui sont obsédés par la création du meilleur équipement, performance et produit de course souhaitable sur le marché. Nous sommes fiers d'une culture de rigueur technique et de «Swiss Engineering», où nous défions le statu quo pour résoudre les obstacles biomécaniques les plus complexes dans l'industrie.\n\nVotre rôle au sein de cette équipe est de veiller à ce que, à mesure que notre catégorie s'étend, nos normes techniques et la performance « âme » de nos chaussures de course restent sans compromis.\n\nCe que nous offrons\n\n- Nous sommes déterminés à créer un milieu de travail équitable et inclusif, où toutes les décisions liées au recrutement, à l'avancement et au maintien en poste sont exemptes de discrimination."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.193Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
-      "jobReqId": "7908053",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "previousSlugs": [
-        "senior-lead-footwear-developer-on-running-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-lead-footwear-developer-on-running-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T11:36:27.182Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
           "unitText": "YEAR"
         }
       }
@@ -2016,7 +1992,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7995040?gh_jid=7995040",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.190Z",
+      "crawledAt": "2026-09-02T23:16:13.994Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2040,6 +2016,87 @@
         "location": "Zürich"
       },
       "firstSeenAt": "2026-07-04T11:36:27.180Z",
+      "needsRetranslation": true,
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "on-running-50f912a14fcf",
+      "slug": "senior-lead-footwear-sviluppatore-on-running-zurich",
+      "slugByLocale": {
+        "it": "senior-lead-footwear-sviluppatore-on-running-zurich",
+        "en": "senior-lead-footwear-developer-on-running-ch",
+        "de": "senior-lead-footwear-entwickler-on-running-zurich",
+        "fr": "senior-lead-footwear-developpeur-on-running-zurich"
+      },
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Senior Lead - Footwear Developer",
+      "titleByLocale": {
+        "it": "Senior Lead - Footwear Sviluppatore",
+        "en": "Senior Lead - Footwear Developer",
+        "de": "Senior Lead - Footwear Entwickler",
+        "fr": "Senior Lead - Footwear Développeur"
+      },
+      "description": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+      "descriptionByLocale": {
+        "it": "Designazione delle merci\n\nSviluppatore di calzature senior Lead\n\nIn breve:\n\nCome Senior Lead Footwear Developer for Performance Running, lei è il consulente tecnico strategico per la nostra categoria di prodotti più critica. Con sede nel nostro quartier generale di Zurigo, il suo ruolo è quello di garantire un allineamento di alto livello tra l'intento di progettazione e la fattibilità produttiva. Invece di gestire l'esecuzione granulare di ogni prodotto, fornisce la governance tecnica e il supporto cross-funzionale necessari per mantenere l'integrità delle prestazioni come scale di categoria.\n\nIl ruolo Senior Lead Development riferirà al Senior Lead Run Footwear Development sul team Performance Run che sosterrà le calzature globali.\n\nLa tua missione\n\n- Tecnico Stewardship: agire come il principale consulente tecnico durante le fasi di briefing e progettazione per garantire che i concetti di esecuzione delle prestazioni sono allineati con le capacità di produzione globale.\n\n- Sincronizzazione strategica: facilitare l'allineamento tecnico tra il Design/Product Management di Zurigo e i team di esecuzione asiatici, assicurando che l'\"anima di prestazione\" della categoria sia preservata in tutti i franchise.\n\n- Abilitazione dei processi: sostenere l'evoluzione degli standard di sviluppo individuando strozzature tecniche e consigliando le migliori pratiche che migliorano l'efficienza a livello di categoria.\n\n- Supporto consultivo ed eclatante: Sei've come punto di contatto tecnico per i partner di sviluppo asiatici, fornendo orientamenti su ostacoli tecnici complessi e sostenendo la risoluzione di escalation produttive ad alto livello.\n\n- Garanzia della qualità delle prestazioni: sostenere la convalida degli standard di vestibilità, sensibilità e durata, assicurando che i benchmark tecnici di categoria siano costantemente soddisfatti da diversi partner di fabbrica.\n\n- Facilitazione della conoscenza: promuovere una cultura dell'eccellenza tecnica mediante l'API che traduca il team di sviluppo più ampio e complesse innovazioni in quadri di sviluppo attuabili.\n\nLa tua storia\n\n- Esperienza: 8.12 anni di sviluppo calzaturiero, con un background radicato nella corsa ad alte prestazioni e complessità tecnica.\n\n- Leadership influenziale: capacità di provare ad influenzare la direzione dei prodotti e i risultati tecnici attraverso partnership e consulenza, piuttosto che la gestione diretta della linea o la proprietà del progetto.\n\n- Pensiero Sistemico: una profonda comprensione di come strumenti di prestazione, materiali e costruzione hanno un impatto sulla catena di fornitura globale e sul ciclo di vita del prodotto.\n\n- Ponte del '21: Eccezionale nella navigazione HQ e nelle dinamiche regionali, che funge da \"traduttore tecnico\" tra visione creativa ed esecuzione di fabbrica.\n\n- Sentenza strategica: Altamente qualificata nella valutazione dei compromessi tecnici e nella formulazione di raccomandazioni che bilanciano l'innovazione con la possibilità di effettuare la scalabilità commerciale.\n\n- Comunicazione consultiva: una voce di fiducia in grado di guidare gli stakeholder verso decisioni tecnicamente sane mantenendo forti relazioni interfunzionali.\n\nAttributi di un candidato di successo\n\n- Il consulente tecnico: Non è necessario tenere la penna su ogni pacchetto tecnico, ma sei la persona che tutti consultano quando un design spinge i confini della fisica.\n\n- Il partner strategico: Ti concentri sul \"come\" e \"why,\" assicurando la roadmap tecnica di categoria.s è robusta e scalabile.\n\n- Lo specialista di allineamento: Lei prospera nello spazio tra i team, assicurando che nessun dettaglio tecnico sia \"perdente nella traduzione\" tra Zurigo e i nostri partner produttivi globali.\n\nLa tua squadra\n\nUnirai al team di sviluppo calzature con sede a Zurigo, che funge da pilastro di competenza per la categoria Performance Running. Un collettivo ad alte prestazioni di ingegneri, sviluppatori e produttori che fungono da cuore tecnico del marchio. A Zurigo, il nostro team funge da collegamento primario tra la ricerca biomeccanica, la scienza dei materiali, il design e il Sourcing, assicurando che ogni innovazione sia fondata sulla realtà tecnica prima che raggiunga l'atleta.\n\nLa nostra missione è quella di non perdere le prestazioni e gli attributi tecnici delle nostre calzature da corsa. Non solo facilita la creazione di prodotti, ma anche di ingegnere del \"ridre.\" Nell'ambito della Performance Run verticale, sarete circondati da specialisti ossessionati dalla creazione del miglior prodotto da corsa, performante e desiderabile sul mercato. Siamo fieri di una cultura del rigor tecnico e della \"Swiss Engineering,\" dove ci mettiamo in gioco lo status quo per risolvere gli ostacoli biomeccanici più complessi del settore.\n\nIl vostro ruolo in questo team è quello di garantire che man mano che la nostra categoria si espande, i nostri standard tecnici e le prestazioni \"anima\" delle nostre calzature run rimangano senza compromessi.\n\nCosa offriamo\n\n- On è un datore di lavoro pari opportunità. Ci impegniamo a creare un ambiente di lavoro che sia equo e inclusivo, dove tutte le decisioni relative al reclutamento, avanzamento, e mantenimento sono esenti da discriminazioni.",
+        "en": "Senior Lead Footwear Developer\n\nIn short:\n\nAs the Senior Lead Footwear Developer for Performance Running, you serve as the strategic technical consultant for our most critical product category. Based in our Zurich HQ, your role is to ensure high-level alignment between design intent and manufacturing feasibility. Rather than managing the granular execution of every product, you provide the technical governance and cross-functional support necessary to maintain performance integrity as the category scales.\n\nThe Senior Lead Development role will report to the Senior Lead Run Footwear Development on the Performance Run team supporting global footwear.\n\nYour Mission:\n\n• Technical Stewardship: Act as the primary technical advisor during the briefing and design phases to ensure performance running concepts are aligned with global manufacturing capabilities.\n\n• Strategic Synchronization: Facilitate technical alignment between Zurich-based Design/Product Management and the Asia-based execution teams, ensuring that the \"performance soul\" of the category is preserved across all franchises.\n\n• Process Enablement: Support the evolution of development standards by identifying technical bottlenecks and advising on best practices that improve category-wide efficiency.\n\n• Advisory & Escalation Support: Serve as the senior technical point of contact for Asia-based development partners, providing guidance on complex technical hurdles and supporting the resolution of high-level production escalations.\n\n• Performance Quality Assurance: Support the validation of fit, feel, and durability standards, ensuring that category-wide technical benchmarks are consistently met across different factory partners.\n\n• Knowledge Facilitation: Foster a culture of technical excellence by mentoring the broader development team and translating complex innovation breakthroughs into actionable development frameworks.\n\nYour Story:\n\n• Experience: 8–12 years in footwear development, with a background rooted in high-performance running and technical complexity.\n\n• Influential Leadership: Proven ability to influence product direction and technical outcomes through partnership and advisory, rather than direct line management or project ownership.\n\n• Systemic Thinking: A deep understanding of how performance tooling, materials, and construction impact the global supply chain and product lifecycle.\n\n• Collaborative Bridge: Exceptional at navigating HQ and regional dynamics, acting as a \"technical translator\" between creative vision and factory execution.\n\n• Strategic Judgment: Highly skilled at evaluating technical trade-offs and providing recommendations that balance innovation with commercial scalability.\n\n• Consultative Communication: A trusted voice capable of guiding stakeholders toward technically sound decisions while maintaining strong cross-functional relationships.\n\nAttributes of a successful candidate:\n\n• The Technical Advisor: You don't need to hold the pen on every tech pack, but you are the person everyone consults when a design pushes the boundaries of physics.\n\n• The Strategic Partner: You focus on the \"how\" and \"why,\" ensuring the category’s technical roadmap is robust and scalable.\n\n• The Alignment Specialist: You thrive in the space between teams, ensuring that no technical detail is \"lost in translation\" between Zurich and our global manufacturing partners.\n\nYour Team:\n\nYou will join the Zurich-based Footwear Development team, serving as a senior pillar of expertise for the Performance Running category. A high-performance collective of engineers, developers, and makers who serve as the technical heart of the brand. In Zurich, our team acts as the primary link between Biomechanical Research, Material Science, Design , and Sourcing, ensuring that every innovation is grounded in technical reality before it reaches the athlete.\n\nOur mission is to relentlessly elevate the performance and technical attributes of our running footwear. We don't just facilitate product creation; we engineer the \"ride.\" As part of the Performance Run vertical, you will be surrounded by specialists who are obsessed with creating the best fitting, performing and desirable running product in the market. We pride ourselves on a culture of technical rigor and \"Swiss Engineering,\" where we challenge the status quo to solve the most complex biomechanical hurdles in the industry. Your role within this team is to ensure that as our category expands, our technical standards and the performance \"soul\" of our run footwear remain uncompromised.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "de": "Warenbezeichnung\n\nSenior Lead Footwear Entwickler\n\nKurz gesagt:\n\nAls Senior Lead Footwear Developer for Performance Running sind Sie der strategische technische Berater für unsere kritischste Produktkategorie. Mit Sitz in unserem Züricher HQ haben Sie die Aufgabe, eine hohe Abstimmung zwischen Design-Intent und Fertigungstauglichkeit zu gewährleisten. Statt die granulare Ausführung jedes Produkts zu verwalten, bieten Sie die technische Governance und funktionsübergreifenden Support, die notwendig sind, um die Leistungsintegrität als Kategorieskalen zu erhalten.\n\nDie Rolle der Senior Lead Development wird der Senior Lead Run Footwear Development über das Performance Run Team zur Unterstützung globaler Schuhe berichten.\n\nIhre Mission\n\n- Technische Leitung: Handeln Sie als primärer technischer Berater während der Briefing- und Designphasen, um sicherzustellen, dass Leistungs-Laufkonzepte mit globalen Fertigungskapazitäten abgestimmt sind.\n\n- Strategische Digitalisierung: Technische Ausrichtung der Zürcher Design/Product Management-Technik mit den asiatischen Exekutionsteams, um die \"Performance Soul\" der Kategorie über alle Franchise-Länder hinweg zu erhalten.\n\n- Prozess Enablement: Unterstützung der Entwicklung von Entwicklungsstandards durch die Ermittlung technischer Engpässe und Beratung zu bewährten Verfahren, die die Effizienz der Kategorien verbessern.\n\n- Advisory & Escalation Support: Als Senior-Fachstelle für asiatische Entwicklungspartner, die Beratung zu komplexen technischen Hürden und die Lösung von hochkarätigen Produktionseskalationen unterstützen.\n\n- Performance Quality Assurance: Unterstützen Sie die Validierung von Standards für Passform, Gefühl und Haltbarkeit, um sicherzustellen, dass klassenweite technische Benchmarks durchgängig über verschiedene Fabrikpartner hinweg erfüllt werden.\n\n- Wissenserleichterung: Förderung einer Kultur technischer Exzellenz durch Mentoring des breiteren Entwicklungsteams und Umsetzung komplexer Innovationsdurchbrüche in umsetzbare Entwicklungsrahmen.\n\nIhre Geschichte\n\n- Erfahrung: 8-12 Jahre in der Schuhentwicklung, mit einem Hintergrund, der in Hochleistungs-Lauf und technische Komplexität verwurzelt ist.\n\n- Einflussreiche Führung: Bewährte Fähigkeit, Produktrichtung und technische Ergebnisse durch Partnerschaft und Beratung zu beeinflussen, anstatt direkte Leitungsführung oder Projekteigentum.\n\n- Systemisches Denken: Ein tiefes Verständnis dafür, wie sich Performance-Tooling, Materialien und Konstruktion auf die globale Lieferkette und den Produktlebenszyklus auswirken.\n\n- Collaborative Bridge: Außergewöhnliche Navigation auf HQ und regionale Dynamik, als \"technischer Übersetzer\" zwischen kreativer Vision und Fabrikausführung.\n\n- Strategisches Urteil: Hoch qualifizierte bei der Bewertung technischer Kompromisse und Empfehlungen, die die Innovation mit der kommerziellen Skalierbarkeit in Einklang bringen.\n\n- Beratung: Eine vertrauensvolle Stimme, die die Interessenträger in Richtung technisch fundierter Entscheidungen führen kann und gleichzeitig starke funktionsübergreifende Beziehungen aufrechterhält.\n\nEigenschaften eines erfolgreichen Kandidaten\n\n- Der Technische Berater: Sie müssen nicht den Stift auf jedem Tech-Pack halten, aber Sie sind die Person, die jeder konsultiert, wenn ein Design die Grenzen der Physik überschreitet.\n\n- Der strategische Partner: Sie konzentrieren sich auf das \"Wie\" und \"Warum\", wodurch die Kategorie, die technische Roadmap ist robust und skalierbar.\n\n- Der Alignment-Spezialist: Sie gedeihen im Raum zwischen Teams, um sicherzustellen, dass keine technischen Details zwischen Zürich und unseren globalen Produktionspartnern \"verloren\" sind.\n\nIhr Team\n\nSie werden Mitglied des Zürcher Footwear Development Teams, das als Senior-Säule der Expertise für die Kategorie Performance Running fungiert. Ein Hochleistungskollektiv aus Ingenieuren, Entwicklern und Machern, die als technisches Herz der Marke dienen. In Zürich fungiert unser Team als primäre Verbindung zwischen Biomechanischer Forschung, Materialwissenschaft, Design und Sourcing, um sicherzustellen, dass jede Innovation in der technischen Realität begründet ist, bevor es den Athleten erreicht.\n\nUnsere Mission ist es, die Leistungsfähigkeit und die technischen Eigenschaften unserer Laufschuhe unerbittlich zu erhöhen. Wir erleichtern nicht nur die Produktentwicklung, wir entwickeln das „Fahren\". Im Rahmen des Performance Run vertikal werden Sie von Spezialisten umgeben sein, die besessen sind, das beste passende, leistungsfähige und wünschenswerte Laufprodukt auf dem Markt zu schaffen. Wir sind stolz auf eine Kultur der technischen Strenge und „Swiss Engineering\", wo wir den Status Quo herausfordern, die komplexesten biomechanischen Hürden in der Branche zu lösen.\n\nIhre Rolle in diesem Team ist es, sicherzustellen, dass unsere technischen Standards und die Leistungsfähigkeit unserer Laufschuhe mit der Erweiterung unserer Kategorie unkompromisslos bleiben.\n\nWas wir anbieten\n\n- On ist ein Arbeitgeber der Chancengleichheit. Wir sind verpflichtet, ein Arbeitsumfeld zu schaffen, das gerecht und inklusive ist, wo alle Entscheidungen im Zusammenhang mit der Einstellung, dem Fortschritt und der Beibehaltung frei von Diskriminierung sind.",
+        "fr": "Désignation des marchandises\n\nDéveloppeur principal de chaussures en plomb\n\nEn bref:\n\nEn tant que développeur principal de chaussures de performance, vous êtes le conseiller technique stratégique de notre catégorie de produits la plus critique. Basée dans notre QG de Zurich, votre rôle est d'assurer un alignement de haut niveau entre l'intention de conception et la faisabilité de la fabrication.\n\nLe rôle de chef de file en développement rendra compte au chef de file en développement de chaussures sur l'équipe de performance en appui aux chaussures mondiales.\n\nVotre mission\n\n- Intendance technique : Agir comme conseiller technique principal pendant les phases de briefing et de conception pour s'assurer que les concepts de performance sont alignés sur les capacités de fabrication mondiales.\n\n- Synchronisation stratégique : Faciliter l'alignement technique entre la gestion de produits et de conception basée à Zurich et les équipes d'exécution basées en Asie, en veillant à ce que l'âme de performance de la catégorie soit préservée dans toutes les franchises.\n\n- Processus En 2006 : Appuyer l'évolution des normes de développement en identifiant les goulets d'étranglement techniques et en donnant des conseils sur les meilleures pratiques qui améliorent l'efficacité à l'échelle de la catégorie.\n\n- Appui consultatif et appui à l'escalade : servir de point de contact technique principal pour les partenaires de développement asiatiques, en fournissant des conseils sur les obstacles techniques complexes et en appuyant la résolution des escalades de la production.\n\n- Assurance de la qualité des performances : Soutenir la validation des normes d'ajustement, de sensation et de durabilité, en veillant à ce que les critères techniques de référence soient constamment respectés dans toute la catégorie par les différents partenaires d'usine.\n\n- Facilitation des connaissances : Favoriser une culture d'excellence technique en guidant l'équipe de développement en général et en traduisant des innovations complexes en cadres de développement réalisables.\n\nVotre histoire\n\n- Expérience : 8-12 ans de développement de la chaussure, avec un fond ancré dans la haute performance de course et la complexité technique.\n\n- Leadership influant : démontrer la capacité d'influencer l'orientation des produits et les résultats techniques par le biais de partenariats et de conseils, plutôt que de la gestion directe des lignes ou de la propriété des projets.\n\n- Pensée systémique : Une compréhension profonde de la façon dont l'outillage de performance, les matériaux et la construction influent sur la chaîne d'approvisionnement mondiale et le cycle de vie des produits.\n\n- Pont collaboratif : Exceptionnel pour la navigation au QG et dynamique régionale, agissant comme « traducteur technique » entre la vision créative et l'exécution en usine.\n\n- Jugement stratégique : Hautement qualifié pour évaluer les compromis techniques et pour formuler des recommandations qui équilibrent l'innovation et l'évolutivité commerciale.\n\n- Communication consultative : Une voix de confiance capable d'orienter les parties prenantes vers des décisions techniquement saines tout en maintenant de solides relations interfonctionnelles.\n\nAttributs d'un candidat reçu\n\n- Le conseiller technique : Vous n'avez pas besoin de tenir le stylo sur chaque pack technique, mais vous êtes la personne que tout le monde consulte quand un design repousse les limites de la physique.\n\n- Le partenaire stratégique : vous vous concentrez sur le \"comment\" et \"pourquoi\", en assurant la catégorie, la feuille de route technique est robuste et évolutive.\n\n- Le spécialiste de l'alignement : Vous vous développez dans l'espace entre les équipes, en veillant à ce qu'aucun détail technique ne soit \"perdu en traduction\" entre Zurich et nos partenaires manufacturiers mondiaux.\n\nVotre équipe\n\nVous rejoindrez l'équipe de développement de chaussures basée à Zurich, en tant que pilier senior de l'expertise de la catégorie Performance Running. Un collectif d'ingénieurs, de développeurs et de fabricants de haute performance qui servent de cœur technique de la marque. À Zurich, notre équipe est le premier lien entre la recherche biomécanique, la science des matériaux, le design et l'approvisionnement, assurant que chaque innovation est ancrée dans la réalité technique avant d'atteindre l'athlète.\n\nNotre mission est d'élever sans relâche les performances et les caractéristiques techniques de nos chaussures de course. Nous ne nous contentons pas de faciliter la création de produits; nous concevons le «ride». Dans le cadre de la Performance Run verticale, vous serez entourés de spécialistes qui sont obsédés par la création du meilleur équipement, performance et produit de course souhaitable sur le marché. Nous sommes fiers d'une culture de rigueur technique et de «Swiss Engineering», où nous défions le statu quo pour résoudre les obstacles biomécaniques les plus complexes dans l'industrie.\n\nVotre rôle au sein de cette équipe est de veiller à ce que, à mesure que notre catégorie s'étend, nos normes techniques et la performance « âme » de nos chaussures de course restent sans compromis.\n\nCe que nous offrons\n\n- Nous sommes déterminés à créer un milieu de travail équitable et inclusif, où toutes les décisions liées au recrutement, à l'avancement et au maintien en poste sont exemptes de discrimination."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-02T23:16:13.990Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-15",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7908053?gh_jid=7908053",
+      "jobReqId": "7908053",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "previousSlugs": [
+        "senior-lead-footwear-developer-on-running-ch",
+        "senior-lead-footwear-sviluppatore-on-running-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lead-footwear-developer-on-running-ch",
+          "senior-lead-footwear-sviluppatore-on-running-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-07-04T11:36:27.182Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -2085,7 +2142,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054998?gh_jid=8054998",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.186Z",
+      "crawledAt": "2026-09-02T23:16:13.985Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2155,7 +2212,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7492423?gh_jid=7492423",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.184Z",
+      "crawledAt": "2026-09-02T23:16:13.984Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2183,7 +2240,8 @@
         "senior-lead-calzature-materiali-on-running-zurich",
         "senior-lead-footwear-materials-on-running-ch",
         "senior-lead-schuhe-materialien-on-running-zurich",
-        "plomb-principal-materiel-de-chaussures-on-running-zurich"
+        "plomb-principal-materiel-de-chaussures-on-running-zurich",
+        "senior-lead-calzature-costing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2191,7 +2249,8 @@
           "senior-lead-calzature-materiali-on-running-zurich",
           "senior-lead-footwear-materials-on-running-ch",
           "senior-lead-schuhe-materialien-on-running-zurich",
-          "plomb-principal-materiel-de-chaussures-on-running-zurich"
+          "plomb-principal-materiel-de-chaussures-on-running-zurich",
+          "senior-lead-calzature-costing-on-running-zurich"
         ],
         "en": [
           "senior-lead-calzature-materiali-on-running-zurich",
@@ -2205,6 +2264,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.058Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2250,7 +2310,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8056606?gh_jid=8056606",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.182Z",
+      "crawledAt": "2026-09-02T23:16:13.982Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2274,14 +2334,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-exhibiton-programming-on-running-ch"
+        "senior-lead-exhibiton-programming-on-running-ch",
+        "senior-lead-programmazione-exhibiton-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-exhibiton-programming-on-running-ch"
+          "senior-lead-exhibiton-programming-on-running-ch",
+          "senior-lead-programmazione-exhibiton-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:12.988Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -2327,7 +2390,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8028097?gh_jid=8028097",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.180Z",
+      "crawledAt": "2026-09-02T23:16:13.981Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2351,11 +2414,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-distributor-operations-on-running-ch"
+        "senior-lead-distributor-operations-on-running-ch",
+        "senior-lead-operazioni-distributori-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-distributor-operations-on-running-ch"
+          "senior-lead-distributor-operations-on-running-ch",
+          "senior-lead-operazioni-distributori-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2405,7 +2470,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7976404?gh_jid=7976404",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.178Z",
+      "crawledAt": "2026-09-02T23:16:13.980Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2429,11 +2494,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-distribution-center-network-design-planning-on-running-ch"
+        "senior-lead-distribution-center-network-design-planning-on-running-ch",
+        "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-distribution-center-network-design-planning-on-running-ch"
+          "senior-lead-distribution-center-network-design-planning-on-running-ch",
+          "senior-lead-progettazione-e-pianificazione-della-rete-del-centro-di-distribuzione-on-running-zurich"
         ],
         "de": [
           "senior-lead-distribution-center-network-design-planning-on-running-ch"
@@ -2489,7 +2556,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8156287?gh_jid=8156287",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.175Z",
+      "crawledAt": "2026-09-02T23:16:13.978Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2559,7 +2626,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7745510?gh_jid=7745510",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.173Z",
+      "crawledAt": "2026-09-02T23:16:13.976Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2584,17 +2651,20 @@
       },
       "previousSlugs": [
         "senior-lead-copy-on-running-ch",
-        "senior-lead-copy-on-running-zurich"
+        "senior-lead-copy-on-running-zurich",
+        "responsabile-senior-copiato-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-copy-on-running-ch"
+          "senior-lead-copy-on-running-ch",
+          "responsabile-senior-copiato-on-running-zurich"
         ],
         "fr": [
           "senior-lead-copy-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.896Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -2640,7 +2710,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7120658?gh_jid=7120658",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.171Z",
+      "crawledAt": "2026-09-02T23:16:13.975Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2664,11 +2734,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-computational-designer-on-running-ch"
+        "senior-lead-computational-designer-on-running-ch",
+        "senior-lead-designer-computazionale-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-computational-designer-on-running-ch"
+          "senior-lead-computational-designer-on-running-ch",
+          "senior-lead-designer-computazionale-on-running-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -2718,7 +2790,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8090454?gh_jid=8090454",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.170Z",
+      "crawledAt": "2026-09-02T23:16:13.974Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2742,11 +2814,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-lead-commercialization-engineer-on-running-ch"
+        "senior-lead-commercialization-engineer-on-running-ch",
+        "senior-lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-lead-commercialization-engineer-on-running-ch"
+          "senior-lead-commercialization-engineer-on-running-ch",
+          "senior-lead-commercialization-ingegnere-on-running-zurich"
         ],
         "de": [
           "senior-lead-commercialization-engineer-on-running-ch"
@@ -2801,7 +2875,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8053064?gh_jid=8053064",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.168Z",
+      "crawledAt": "2026-09-02T23:16:13.973Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2871,7 +2945,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7696157?gh_jid=7696157",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.166Z",
+      "crawledAt": "2026-09-02T23:16:13.971Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2941,7 +3015,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7988349?gh_jid=7988349",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.163Z",
+      "crawledAt": "2026-09-02T23:16:13.970Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -2966,12 +3040,14 @@
       },
       "previousSlugs": [
         "lead-senior-accessoires-developpement-du-materiel-on-running-zurich",
-        "senior-lead-accessories-material-development-on-running-ch"
+        "senior-lead-accessories-material-development-on-running-ch",
+        "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-senior-accessoires-developpement-du-materiel-on-running-zurich",
-          "senior-lead-accessories-material-development-on-running-ch"
+          "senior-lead-accessories-material-development-on-running-ch",
+          "senior-lead-sviluppo-dei-materiali-accessori-on-running-zurich"
         ],
         "en": [
           "lead-senior-accessoires-developpement-du-materiel-on-running-zurich"
@@ -2984,6 +3060,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.041Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -3029,7 +3106,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079396?gh_jid=8079396",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.160Z",
+      "crawledAt": "2026-09-02T23:16:13.969Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3055,12 +3132,14 @@
       "previousSlugsByLocale": {
         "en": [
           "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+          "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
         ],
         "it": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
           "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+          "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+          "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
         ],
         "de": [
           "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch"
@@ -3072,7 +3151,8 @@
       "previousSlugs": [
         "hr-specialist-south-europe-italian-or-french-speaker-on-running-ch",
         "hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
-        "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch"
+        "senior-hr-specialist-south-europe-french-labor-law-mandatory-on-running-ch",
+        "risorse-umane-specialista-south-europe-italian-or-french-speaker-on-running-zurich"
       ],
       "firstSeenAt": "2026-07-22T22:50:30.308Z",
       "salaryMin": 101500,
@@ -3087,7 +3167,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-3e57b8573d0f",
@@ -3120,7 +3201,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7918307?gh_jid=7918307",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.158Z",
+      "crawledAt": "2026-09-02T23:16:13.968Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3144,11 +3225,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "senior-director-of-brand-moments-on-running-ch"
+        "senior-director-of-brand-moments-on-running-ch",
+        "senior-direttore-of-brand-moments-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-director-of-brand-moments-on-running-ch"
+          "senior-director-of-brand-moments-on-running-ch",
+          "senior-direttore-of-brand-moments-on-running-zurich"
         ],
         "de": [
           "senior-director-of-brand-moments-on-running-ch"
@@ -3203,7 +3286,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8044980?gh_jid=8044980",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.154Z",
+      "crawledAt": "2026-09-02T23:16:13.967Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3227,11 +3310,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "sample-maker-on-running-ch"
+        "sample-maker-on-running-ch",
+        "produttore-di-campioni-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sample-maker-on-running-ch"
+          "sample-maker-on-running-ch",
+          "produttore-di-campioni-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.168Z",
@@ -3280,7 +3365,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8074409?gh_jid=8074409",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.151Z",
+      "crawledAt": "2026-09-02T23:16:13.965Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3350,7 +3435,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8093827?gh_jid=8093827",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.147Z",
+      "crawledAt": "2026-09-02T23:16:13.964Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3374,11 +3459,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "principal-data-scientist-on-running-ch"
+        "principal-data-scientist-on-running-ch",
+        "principali-scienziati-di-dati-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-data-scientist-on-running-ch"
+          "principal-data-scientist-on-running-ch",
+          "principali-scienziati-di-dati-on-running-zurich"
         ],
         "de": [
           "principal-data-scientist-on-running-ch"
@@ -3398,87 +3485,6 @@
           "@type": "QuantitativeValue",
           "minValue": 121500,
           "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "on-running-89699eb89aa1",
-      "slug": "senior-lead-sports-ingegnere-on-running-zurich",
-      "slugByLocale": {
-        "it": "senior-lead-sports-ingegnere-on-running-zurich",
-        "en": "senior-lead-sports-engineer-on-running-ch",
-        "de": "senior-lead-sports-ingenieur-on-running-zurich",
-        "fr": "senior-lead-sports-ingenieur-on-running-zurich"
-      },
-      "company": "On Running",
-      "companyKey": "on-running",
-      "companyDomain": "on-running.com",
-      "title": "Lead - Sports Engineer",
-      "titleByLocale": {
-        "it": "Lead - Sports Ingegnere",
-        "en": "Lead - Sports Engineer",
-        "de": "Lead - Sports Ingenieur",
-        "fr": "Lead - Sports Ingénieur"
-      },
-      "description": "In short\n We are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n - Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n - 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\n The Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-      "descriptionByLocale": {
-        "it": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-        "en": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-        "de": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
-        "fr": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
-      "source": "On Running Dedicated Parser (Greenhouse)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.142Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "streetAddress": "Förrlibuckstrasse 190",
-      "postalCode": "8005",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sportswear / Calzature sportive",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-05",
-      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
-      "jobReqId": "7892990",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "previousSlugs": [
-        "lead-sports-engineer-on-running-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-sports-engineer-on-running-ch"
-        ],
-        "en": [
-          "lead-sports-engineer-on-running-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:26:23.777Z",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 113500,
-          "maxValue": 172000,
           "unitText": "YEAR"
         }
       }
@@ -3514,7 +3520,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8158962?gh_jid=8158962",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.140Z",
+      "crawledAt": "2026-09-02T23:16:13.963Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3554,6 +3560,89 @@
       }
     },
     {
+      "id": "on-running-89699eb89aa1",
+      "slug": "senior-lead-sports-ingegnere-on-running-zurich",
+      "slugByLocale": {
+        "it": "senior-lead-sports-ingegnere-on-running-zurich",
+        "en": "senior-lead-sports-engineer-on-running-ch",
+        "de": "senior-lead-sports-ingenieur-on-running-zurich",
+        "fr": "senior-lead-sports-ingenieur-on-running-zurich"
+      },
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Lead - Sports Engineer",
+      "titleByLocale": {
+        "it": "Lead - Sports Ingegnere",
+        "en": "Lead - Sports Engineer",
+        "de": "Lead - Sports Ingenieur",
+        "fr": "Lead - Sports Ingénieur"
+      },
+      "description": "In short\n We are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n - Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n - 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\n The Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+      "descriptionByLocale": {
+        "it": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "en": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "de": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "fr": "In short\nWe are looking for a visionary and hands-on Senior Lead of Sports Engineering to drive the future of computer-aided engineering at On. In this role, you will combine deep expertise in simulation with a strategic mindset to lead cutting-edge projects. You’ll work closely with the innovation teams, especially with the design, development, and material science teams to translate scientific insights into groundbreaking product innovations, pushing the boundaries of athletic performance.\n\nYour mission\n- Safeguard consistency, performance, and steady innovation of the company's proprietary bottom unit technologies across the performance product portfolio.\n- Use interdisciplinary engineering know-how to create new concepts, break performance boundaries, and unleash new running experiences.\n- Move beyond physical prototyping by creating high-fidelity Finite Element Models that simulate the complex interaction between the human foot, the footwear, and the surface.\n- Use physics-based insights to optimize athletic performance, enhance the running experience, and accelerate the product-to-market timeline.\n- Support cross-functionally (interpreting innovation as a horizontal approach) and provide engineering expertise throughout the entire product lifecycle, from ideation to market launch.\n\nYour story\n- 10+ years of footwear-specific and proven experience with footwear innovation projects.\n- Proven experience leading large scale projects in agile environments\n- Deep expertise running non-linear FEA (explicit/implicit) as well as creating digital twins.\n- Good understanding of traditional manufacturing processes in high-performance footwear.\n- Deep understanding of polymer science and compound mechanics to develop digital material cards for hyperelastic foams, rubbers, and viscoelastic polymers using experimental test data.\n- Mastery in Radioss/Abaqus/Hypermesh\n- Proficiency in NX/Solidworks/Rhino\n- Ability to script, automate simulation workflows\n- Integrate machine learning in predictive modeling\n- Ability to work independently under a deadline on several projects simultaneously requiring both innovative ideas and engineering problem-solving.\n- Must be able to thrive in a fast-paced environment\n- Excellent communication skills\n- Availability to travel up to 15% of the time.\n\nMeet the team\nThe Innovation team is responsible for On’s future products, out-of-the-box thinking and athlete-informed technology that differentiates On’s products in the market. Within the Innovation team you will join the Sports Engineering team which is focused on computer aided engineering and concept engineering around our performance footwear. You will have the opportunity to be part of an agile and interdisciplinary department of engineers, scientists and designers. We foster a fast-paced environment with direct decision making and the freedom to design projects and processes.\n\nWhat we offer\nOn is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-02T23:16:13.963Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-05-05",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/7892990?gh_jid=7892990",
+      "jobReqId": "7892990",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "previousSlugs": [
+        "lead-sports-engineer-on-running-ch",
+        "senior-lead-sports-ingegnere-on-running-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-sports-engineer-on-running-ch",
+          "senior-lead-sports-ingegnere-on-running-zurich"
+        ],
+        "en": [
+          "lead-sports-engineer-on-running-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-28T05:26:23.777Z",
+      "salaryMin": 113500,
+      "salaryMax": 172000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113500,
+          "maxValue": 172000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "on-running-79a14cd83584",
       "slug": "lead-robotics-and-plc-ingegnere-on-running-zurich",
       "slugByLocale": {
@@ -3584,7 +3673,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8079590?gh_jid=8079590",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.135Z",
+      "crawledAt": "2026-09-02T23:16:13.962Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3608,11 +3697,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-robotics-and-plc-engineer-on-running-ch"
+        "lead-robotics-and-plc-engineer-on-running-ch",
+        "lead-robotics-and-plc-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-robotics-and-plc-engineer-on-running-ch"
+          "lead-robotics-and-plc-engineer-on-running-ch",
+          "lead-robotics-and-plc-ingegnere-on-running-zurich"
         ],
         "de": [
           "lead-robotics-and-plc-engineer-on-running-ch"
@@ -3622,6 +3713,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.015Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -3667,7 +3759,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8095893?gh_jid=8095893",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.133Z",
+      "crawledAt": "2026-09-02T23:16:13.961Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3737,7 +3829,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8110850?gh_jid=8110850",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.127Z",
+      "crawledAt": "2026-09-02T23:16:13.959Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3761,11 +3853,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-polymer-process-engineer-lightspray-on-running-ch"
+        "lead-polymer-process-engineer-lightspray-on-running-ch",
+        "lead-polymer-process-ingegnere-lightspray-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-polymer-process-engineer-lightspray-on-running-ch"
+          "lead-polymer-process-engineer-lightspray-on-running-ch",
+          "lead-polymer-process-ingegnere-lightspray-on-running-zurich"
         ],
         "de": [
           "lead-polymer-process-engineer-lightspray-on-running-ch"
@@ -3775,6 +3869,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.877Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -3820,7 +3915,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8075831?gh_jid=8075831",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.121Z",
+      "crawledAt": "2026-09-02T23:16:13.957Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3890,7 +3985,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046066?gh_jid=8046066",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.118Z",
+      "crawledAt": "2026-09-02T23:16:13.955Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3914,11 +4009,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-inbound-transportation-operations-on-running-ch"
+        "lead-inbound-transportation-operations-on-running-ch",
+        "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-inbound-transportation-operations-on-running-ch"
+          "lead-inbound-transportation-operations-on-running-ch",
+          "piombo-operazioni-di-trasporto-in-entrata-on-running-zurich"
         ],
         "de": [
           "lead-inbound-transportation-operations-on-running-ch"
@@ -3928,6 +4025,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:40.006Z",
+      "needsRetranslation": true,
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -3973,7 +4071,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7606445?gh_jid=7606445",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.113Z",
+      "crawledAt": "2026-09-02T23:16:13.953Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -3998,12 +4096,14 @@
       },
       "previousSlugs": [
         "lead-tooling-engineer-on-running-ch",
-        "lead-footwear-tooling-engineer-on-running-ch"
+        "lead-footwear-tooling-engineer-on-running-ch",
+        "lead-tooling-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-tooling-engineer-on-running-ch",
-          "lead-footwear-tooling-engineer-on-running-ch"
+          "lead-footwear-tooling-engineer-on-running-ch",
+          "lead-tooling-ingegnere-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.165Z",
@@ -4052,7 +4152,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7742550?gh_jid=7742550",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.105Z",
+      "crawledAt": "2026-09-02T23:16:13.951Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4076,11 +4176,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-material-designer-on-running-ch"
+        "lead-footwear-material-designer-on-running-ch",
+        "piombo-calzature-materiale-designer-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-material-designer-on-running-ch"
+          "lead-footwear-material-designer-on-running-ch",
+          "piombo-calzature-materiale-designer-on-running-zurich"
         ],
         "de": [
           "lead-footwear-material-designer-on-running-ch"
@@ -4090,6 +4192,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.998Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4135,7 +4238,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8054189?gh_jid=8054189",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.097Z",
+      "crawledAt": "2026-09-02T23:16:13.947Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4159,11 +4262,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-footwear-developer-pad-young-movers-on-running-ch"
+        "lead-footwear-developer-pad-young-movers-on-running-ch",
+        "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-footwear-developer-pad-young-movers-on-running-ch"
+          "lead-footwear-developer-pad-young-movers-on-running-ch",
+          "lead-footwear-sviluppatore-pad-young-movers-on-running-zurich"
         ],
         "de": [
           "lead-footwear-developer-pad-young-movers-on-running-ch"
@@ -4173,6 +4278,7 @@
         ]
       },
       "firstSeenAt": "2026-07-09T22:39:08.701Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -4218,7 +4324,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8159130?gh_jid=8159130",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.088Z",
+      "crawledAt": "2026-09-02T23:16:13.945Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4288,7 +4394,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8144388?gh_jid=8144388",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.084Z",
+      "crawledAt": "2026-09-02T23:16:13.943Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4312,11 +4418,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-digital-copywriter-on-running-ch"
+        "lead-digital-copywriter-on-running-ch",
+        "piombo-copiatore-digitale-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-digital-copywriter-on-running-ch"
+          "lead-digital-copywriter-on-running-ch",
+          "piombo-copiatore-digitale-on-running-zurich"
         ],
         "fr": [
           "lead-digital-copywriter-on-running-ch"
@@ -4369,7 +4477,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8066650?gh_jid=8066650",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.072Z",
+      "crawledAt": "2026-09-02T23:16:13.942Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4397,7 +4505,8 @@
         "lead-gestione-archivio-on-running-zurich",
         "lead-archive-management-on-running-ch",
         "lead-archivverwaltung-on-running-zurich",
-        "responsable-gestion-des-archives-on-running-zurich"
+        "responsable-gestion-des-archives-on-running-zurich",
+        "lead-costruzione-project-management-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4405,7 +4514,8 @@
           "lead-gestione-archivio-on-running-zurich",
           "lead-archive-management-on-running-ch",
           "lead-archivverwaltung-on-running-zurich",
-          "responsable-gestion-des-archives-on-running-zurich"
+          "responsable-gestion-des-archives-on-running-zurich",
+          "lead-costruzione-project-management-on-running-zurich"
         ],
         "en": [
           "lead-archive-management-on-running-ch"
@@ -4418,6 +4528,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:42:24.262Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4463,7 +4574,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7962925?gh_jid=7962925",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.060Z",
+      "crawledAt": "2026-09-02T23:16:13.941Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4490,14 +4601,16 @@
         "lead-commercialization-engineer-on-running-ch",
         "lead-pattern-ingegnere-on-running-zurich",
         "lead-pattern-engineer-on-running-ch",
-        "lead-pattern-ingenieur-on-running-zurich"
+        "lead-pattern-ingenieur-on-running-zurich",
+        "lead-commercialization-ingegnere-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lead-commercialization-engineer-on-running-ch",
           "lead-pattern-ingegnere-on-running-zurich",
           "lead-pattern-engineer-on-running-ch",
-          "lead-pattern-ingenieur-on-running-zurich"
+          "lead-pattern-ingenieur-on-running-zurich",
+          "lead-commercialization-ingegnere-on-running-zurich"
         ],
         "en": [
           "lead-pattern-engineer-on-running-ch"
@@ -4528,7 +4641,7 @@
         "it": "lead-test-di-abbigliamento-on-running-zurich",
         "en": "lead-apparel-testing-on-running-ch",
         "de": "blei-bekleidungstests-on-running-zurich",
-        "fr": "le-plomb-essai-d-habillement-on-running-zurich"
+        "fr": "responsable-tests-de-vetements-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -4552,7 +4665,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7775612?gh_jid=7775612",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.052Z",
+      "crawledAt": "2026-09-02T23:16:13.939Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4577,13 +4690,17 @@
       },
       "previousSlugs": [
         "lead-apparel-testing-on-running-ch",
+        "le-plomb-essai-d-habillement-on-running-zurich",
+        "lead-test-di-abbigliamento-on-running-zurich",
         "responsable-tests-de-vetements-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-testing-on-running-ch"
+          "lead-apparel-testing-on-running-ch",
+          "lead-test-di-abbigliamento-on-running-zurich"
         ],
         "fr": [
+          "le-plomb-essai-d-habillement-on-running-zurich",
           "responsable-tests-de-vetements-on-running-zurich"
         ]
       },
@@ -4633,7 +4750,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7721446?gh_jid=7721446",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.045Z",
+      "crawledAt": "2026-09-02T23:16:13.933Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4657,14 +4774,17 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-apparel-graphic-design-on-running-ch"
+        "lead-apparel-graphic-design-on-running-ch",
+        "piombo-apparel-graphic-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-apparel-graphic-design-on-running-ch"
+          "lead-apparel-graphic-design-on-running-ch",
+          "piombo-apparel-graphic-design-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:47.862Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -4710,7 +4830,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8138581?gh_jid=8138581",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.043Z",
+      "crawledAt": "2026-09-02T23:16:13.932Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4780,7 +4900,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7984641?gh_jid=7984641",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.039Z",
+      "crawledAt": "2026-09-02T23:16:13.932Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4804,11 +4924,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "lead-accessories-developer-technical-bags-on-running-ch"
+        "lead-accessories-developer-technical-bags-on-running-ch",
+        "lead-accessories-sviluppatore-technical-bags-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lead-accessories-developer-technical-bags-on-running-ch"
+          "lead-accessories-developer-technical-bags-on-running-ch",
+          "lead-accessories-sviluppatore-technical-bags-on-running-zurich"
         ],
         "de": [
           "lead-accessories-developer-technical-bags-on-running-ch"
@@ -4818,6 +4940,7 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:10:39.957Z",
+      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -4863,7 +4986,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8158649?gh_jid=8158649",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.033Z",
+      "crawledAt": "2026-09-02T23:16:13.929Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4933,7 +5056,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7831449?gh_jid=7831449",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.018Z",
+      "crawledAt": "2026-09-02T23:16:13.926Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -4961,7 +5084,8 @@
         "responsabile-product-management-product-r-d-on-running-zurich",
         "head-of-product-management-product-r-d-on-running-ch",
         "leiter-product-management-product-r-d-on-running-zurich",
-        "responsable-product-management-product-r-d-on-running-zurich"
+        "responsable-product-management-product-r-d-on-running-zurich",
+        "responsabile-product-management-tennis-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4969,7 +5093,8 @@
           "responsabile-product-management-product-r-d-on-running-zurich",
           "head-of-product-management-product-r-d-on-running-ch",
           "leiter-product-management-product-r-d-on-running-zurich",
-          "responsable-product-management-product-r-d-on-running-zurich"
+          "responsable-product-management-product-r-d-on-running-zurich",
+          "responsabile-product-management-tennis-on-running-zurich"
         ],
         "en": [
           "head-of-product-management-product-r-d-on-running-ch"
@@ -5029,7 +5154,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8144038?gh_jid=8144038",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.014Z",
+      "crawledAt": "2026-09-02T23:16:13.924Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5053,11 +5178,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-pricing-on-running-ch"
+        "head-of-pricing-on-running-ch",
+        "responsabile-pricing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-pricing-on-running-ch"
+          "head-of-pricing-on-running-ch",
+          "responsabile-pricing-on-running-zurich"
         ],
         "de": [
           "head-of-pricing-on-running-ch"
@@ -5112,7 +5239,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8010254?gh_jid=8010254",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.007Z",
+      "crawledAt": "2026-09-02T23:16:13.920Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5136,11 +5263,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-engineering-customer-experience-on-running-ch"
+        "head-of-engineering-customer-experience-on-running-ch",
+        "responsabile-engineering-customer-experience-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-engineering-customer-experience-on-running-ch"
+          "head-of-engineering-customer-experience-on-running-ch",
+          "responsabile-engineering-customer-experience-on-running-zurich"
         ],
         "de": [
           "head-of-engineering-customer-experience-on-running-ch"
@@ -5195,7 +5324,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7677225?gh_jid=7677225",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.004Z",
+      "crawledAt": "2026-09-02T23:16:13.917Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5219,11 +5348,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-creative-core-brand-design-on-running-ch"
+        "head-of-creative-core-brand-design-on-running-ch",
+        "responsabile-creative-core-brand-design-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-creative-core-brand-design-on-running-ch"
+          "head-of-creative-core-brand-design-on-running-ch",
+          "responsabile-creative-core-brand-design-on-running-zurich"
         ],
         "de": [
           "head-of-creative-core-brand-design-on-running-ch"
@@ -5245,7 +5376,8 @@
           "maxValue": 203000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "on-running-cb1d8d7784fe",
@@ -5278,7 +5410,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8046508?gh_jid=8046508",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:22.001Z",
+      "crawledAt": "2026-09-02T23:16:13.913Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5302,11 +5434,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "head-of-business-process-excellence-on-running-ch"
+        "head-of-business-process-excellence-on-running-ch",
+        "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-business-process-excellence-on-running-ch"
+          "head-of-business-process-excellence-on-running-ch",
+          "responsabile-dell-eccellenza-dei-processi-aziendali-on-running-zurich"
         ],
         "de": [
           "head-of-business-process-excellence-on-running-ch"
@@ -5361,7 +5495,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7384378?gh_jid=7384378",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:21.997Z",
+      "crawledAt": "2026-09-02T23:16:13.910Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5388,7 +5522,8 @@
         "en": [
           "lead-apparel-material-development-performance-on-running-ch",
           "senior-lead-apparel-material-development-performance-on-running-ch",
-          "head-of-apparel-materials-development-performance-on-running-ch"
+          "head-of-apparel-materials-development-performance-on-running-ch",
+          "senior-lead-apparel-materials-development-performance-on-running-ch"
         ],
         "it": [
           "piombo-apparel-material-development-performance-on-running-zurich",
@@ -5396,7 +5531,8 @@
           "lead-bekleidungsmaterialentwicklung-performance-on-running-zurich",
           "plomb-mise-au-point-de-materiaux-pour-vetements-performance-on-running-zurich",
           "senior-lead-apparel-material-development-performance-on-running-ch",
-          "head-of-apparel-materials-development-performance-on-running-ch"
+          "head-of-apparel-materials-development-performance-on-running-ch",
+          "senior-lead-apparel-materials-development-performance-on-running-ch"
         ],
         "de": [
           "lead-bekleidungsmaterialentwicklung-performance-on-running-zurich"
@@ -5411,7 +5547,8 @@
         "lead-bekleidungsmaterialentwicklung-performance-on-running-zurich",
         "plomb-mise-au-point-de-materiaux-pour-vetements-performance-on-running-zurich",
         "senior-lead-apparel-material-development-performance-on-running-ch",
-        "head-of-apparel-materials-development-performance-on-running-ch"
+        "head-of-apparel-materials-development-performance-on-running-ch",
+        "senior-lead-apparel-materials-development-performance-on-running-ch"
       ],
       "firstSeenAt": "2026-07-27T22:10:40.048Z",
       "salaryMin": 113500,
@@ -5459,7 +5596,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7402412?gh_jid=7402412",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:21.994Z",
+      "crawledAt": "2026-09-02T23:16:13.907Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5484,15 +5621,18 @@
       },
       "previousSlugs": [
         "senior-director-of-brand-apparel-marketing-on-running-ch",
-        "global-senior-director-of-brand-apparel-marketing-on-running-ch"
+        "global-senior-director-of-brand-apparel-marketing-on-running-ch",
+        "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-director-of-brand-apparel-marketing-on-running-ch",
-          "global-senior-director-of-brand-apparel-marketing-on-running-ch"
+          "global-senior-director-of-brand-apparel-marketing-on-running-ch",
+          "senior-direttore-of-brand-apparel-marketing-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.169Z",
+      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 203000,
       "salarySource": "estimated",
@@ -5538,7 +5678,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8069314?gh_jid=8069314",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:21.990Z",
+      "crawledAt": "2026-09-02T23:16:13.904Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5562,11 +5702,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "global-merchandising-head-of-lifestyle-special-projects-on-running-ch"
+        "global-merchandising-head-of-lifestyle-special-projects-on-running-ch",
+        "global-merchandising-responsabile-lifestyle-special-projects-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-merchandising-head-of-lifestyle-special-projects-on-running-ch"
+          "global-merchandising-head-of-lifestyle-special-projects-on-running-ch",
+          "global-merchandising-responsabile-lifestyle-special-projects-on-running-zurich"
         ],
         "de": [
           "global-merchandising-head-of-lifestyle-special-projects-on-running-ch"
@@ -5589,6 +5731,78 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "on-running-394ada559ee4",
+      "slug": "global-lead-retail-merchandising-distributors-gtm-on-running-ch",
+      "slugByLocale": {
+        "en": "global-lead-retail-merchandising-distributors-gtm-on-running-ch",
+        "it": "global-lead-retail-merchandising-distributors-gtm-on-running-ch",
+        "de": "global-lead-retail-merchandising-distributors-gtm-on-running-ch",
+        "fr": "global-lead-retail-merchandising-distributors-gtm-on-running-ch"
+      },
+      "company": "On Running",
+      "companyKey": "on-running",
+      "companyDomain": "on-running.com",
+      "title": "Global Lead - Retail Merchandising, Distributors & GTM",
+      "titleByLocale": {
+        "en": "Global Lead - Retail Merchandising, Distributors & GTM",
+        "it": "Global Lead - Retail Merchandising, Distributors & GTM",
+        "de": "Global Lead - Retail Merchandising, Distributors & GTM",
+        "fr": "Global Lead - Retail Merchandising, Distributors & GTM"
+      },
+      "description": "In short\n This is a strong opportunity to contribute to the growth of a fast-scaling brand by driving the product strategy and retail performance across our distributor stores (DMS) globally.\n\nThis role spans several distinct dimensions, focusing primarily on our distributors' stores, driving the product roadmap for retail globally, and acting as our global Go-To-Market (GTM) champion. As a Global Lead - DMS Merchant, you will be the bridge between our Retail Merchandising team across the globe and our cross-functional partners (including Global Merchandising, Marketing, and Visual Merchandising). You will combine a deep product sensibility with sharp commercial analysis to unlock market opportunities and support our 2030 growth ambitions.\n\nYou will be part of the Global Retail Merchandising team, working in a high-performance culture driven by forward thinking and collaboration.\n\nYour mission\n DMS / Distributors Partner Management & GTM Alignment\n- Act as the primary global contact for DMS partners.\n- Lead partners through the Go-To-Market (GTM) process, providing clear visibility into the product strategy.\n- Drive pre-season planning and outline category level opportunities ahead of the season\n- Provide assortment guardrails to ensure product investments align with market opportunities.\n- Help DMS customize their assortment based on trend, climate and local nuances.\n\nMarket Product Roadmap & Growth\n- Establish the Product Long-Range Plan (LRP) to drive our 2030 Apparel and - Accessories growth goals.\n- Analyze sales data, cross-channel analytics and market trends to identify product gaps and new opportunities.\n- Partner with regional teams to gather localized feedback and build clear business cases to influence the global product roadmap.\n- Coordinate global product flow to align with regional needs and consumer calendars.\n\nProduct & Marketing GTM Championship\n- Own and coordinate the global GTM milestones for retail merchandising.\n- Champion retail requirements as the leading voice in global GTM forums.\n- Partner with Marketing and regional merchandising teams to define the consumer marketing calendar.\n- Deliver insightful performance reporting to global merchandising and marketing leadership.\n\nCross-Functional Retail Representation\n\n- Act as the central representative for retail across key cross-functional forums.\n- Collaborate with Store Design, Visual Merchandising Product training and Global Demand Planning to drive cross functional initiatives.\n\nYour story\n - Commercial Background: 6–8 years of proven experience in Retail Buying / Merchandising roles.\n- Domain Expertise: Deep knowledge of the Apparel and Accessories categories.\n- Collaboration & Influence: Strong cross-functional collaboration skills with a proven ability to influence stakeholder decisions globally.\n- Analytical Mindset: Strong reporting capabilities with a data-driven approach to problem-solving and market performance tracking.\n- Communication: Exceptional written and verbal communication skills, with the ability to simplify complex topics.\n- Execution: Highly structured, organized, and results-oriented with a continuous improvement mindset.\n\nMeet the team\n You will be part of the Retail Merchandising team, a team culture driven by innovation, collaboration, and high performance. You will work closely with Global Merchandising, Visual Merchandising, Marketing, Retail, Store Operations, and various other teams.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+      "descriptionByLocale": {
+        "en": "In short\n This is a strong opportunity to contribute to the growth of a fast-scaling brand by driving the product strategy and retail performance across our distributor stores (DMS) globally.\n\nThis role spans several distinct dimensions, focusing primarily on our distributors' stores, driving the product roadmap for retail globally, and acting as our global Go-To-Market (GTM) champion. As a Global Lead - DMS Merchant, you will be the bridge between our Retail Merchandising team across the globe and our cross-functional partners (including Global Merchandising, Marketing, and Visual Merchandising). You will combine a deep product sensibility with sharp commercial analysis to unlock market opportunities and support our 2030 growth ambitions.\n\nYou will be part of the Global Retail Merchandising team, working in a high-performance culture driven by forward thinking and collaboration.\n\nYour mission\n DMS / Distributors Partner Management & GTM Alignment\n- Act as the primary global contact for DMS partners.\n- Lead partners through the Go-To-Market (GTM) process, providing clear visibility into the product strategy.\n- Drive pre-season planning and outline category level opportunities ahead of the season\n- Provide assortment guardrails to ensure product investments align with market opportunities.\n- Help DMS customize their assortment based on trend, climate and local nuances.\n\nMarket Product Roadmap & Growth\n- Establish the Product Long-Range Plan (LRP) to drive our 2030 Apparel and - Accessories growth goals.\n- Analyze sales data, cross-channel analytics and market trends to identify product gaps and new opportunities.\n- Partner with regional teams to gather localized feedback and build clear business cases to influence the global product roadmap.\n- Coordinate global product flow to align with regional needs and consumer calendars.\n\nProduct & Marketing GTM Championship\n- Own and coordinate the global GTM milestones for retail merchandising.\n- Champion retail requirements as the leading voice in global GTM forums.\n- Partner with Marketing and regional merchandising teams to define the consumer marketing calendar.\n- Deliver insightful performance reporting to global merchandising and marketing leadership.\n\nCross-Functional Retail Representation\n\n- Act as the central representative for retail across key cross-functional forums.\n- Collaborate with Store Design, Visual Merchandising Product training and Global Demand Planning to drive cross functional initiatives.\n\nYour story\n - Commercial Background: 6–8 years of proven experience in Retail Buying / Merchandising roles.\n- Domain Expertise: Deep knowledge of the Apparel and Accessories categories.\n- Collaboration & Influence: Strong cross-functional collaboration skills with a proven ability to influence stakeholder decisions globally.\n- Analytical Mindset: Strong reporting capabilities with a data-driven approach to problem-solving and market performance tracking.\n- Communication: Exceptional written and verbal communication skills, with the ability to simplify complex topics.\n- Execution: Highly structured, organized, and results-oriented with a continuous improvement mindset.\n\nMeet the team\n You will be part of the Retail Merchandising team, a team culture driven by innovation, collaboration, and high performance. You will work closely with Global Merchandising, Visual Merchandising, Marketing, Retail, Store Operations, and various other teams.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "it": "In short\n This is a strong opportunity to contribute to the growth of a fast-scaling brand by driving the product strategy and retail performance across our distributor stores (DMS) globally.\n\nThis role spans several distinct dimensions, focusing primarily on our distributors' stores, driving the product roadmap for retail globally, and acting as our global Go-To-Market (GTM) champion. As a Global Lead - DMS Merchant, you will be the bridge between our Retail Merchandising team across the globe and our cross-functional partners (including Global Merchandising, Marketing, and Visual Merchandising). You will combine a deep product sensibility with sharp commercial analysis to unlock market opportunities and support our 2030 growth ambitions.\n\nYou will be part of the Global Retail Merchandising team, working in a high-performance culture driven by forward thinking and collaboration.\n\nYour mission\n DMS / Distributors Partner Management & GTM Alignment\n- Act as the primary global contact for DMS partners.\n- Lead partners through the Go-To-Market (GTM) process, providing clear visibility into the product strategy.\n- Drive pre-season planning and outline category level opportunities ahead of the season\n- Provide assortment guardrails to ensure product investments align with market opportunities.\n- Help DMS customize their assortment based on trend, climate and local nuances.\n\nMarket Product Roadmap & Growth\n- Establish the Product Long-Range Plan (LRP) to drive our 2030 Apparel and - Accessories growth goals.\n- Analyze sales data, cross-channel analytics and market trends to identify product gaps and new opportunities.\n- Partner with regional teams to gather localized feedback and build clear business cases to influence the global product roadmap.\n- Coordinate global product flow to align with regional needs and consumer calendars.\n\nProduct & Marketing GTM Championship\n- Own and coordinate the global GTM milestones for retail merchandising.\n- Champion retail requirements as the leading voice in global GTM forums.\n- Partner with Marketing and regional merchandising teams to define the consumer marketing calendar.\n- Deliver insightful performance reporting to global merchandising and marketing leadership.\n\nCross-Functional Retail Representation\n\n- Act as the central representative for retail across key cross-functional forums.\n- Collaborate with Store Design, Visual Merchandising Product training and Global Demand Planning to drive cross functional initiatives.\n\nYour story\n - Commercial Background: 6–8 years of proven experience in Retail Buying / Merchandising roles.\n- Domain Expertise: Deep knowledge of the Apparel and Accessories categories.\n- Collaboration & Influence: Strong cross-functional collaboration skills with a proven ability to influence stakeholder decisions globally.\n- Analytical Mindset: Strong reporting capabilities with a data-driven approach to problem-solving and market performance tracking.\n- Communication: Exceptional written and verbal communication skills, with the ability to simplify complex topics.\n- Execution: Highly structured, organized, and results-oriented with a continuous improvement mindset.\n\nMeet the team\n You will be part of the Retail Merchandising team, a team culture driven by innovation, collaboration, and high performance. You will work closely with Global Merchandising, Visual Merchandising, Marketing, Retail, Store Operations, and various other teams.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "de": "In short\n This is a strong opportunity to contribute to the growth of a fast-scaling brand by driving the product strategy and retail performance across our distributor stores (DMS) globally.\n\nThis role spans several distinct dimensions, focusing primarily on our distributors' stores, driving the product roadmap for retail globally, and acting as our global Go-To-Market (GTM) champion. As a Global Lead - DMS Merchant, you will be the bridge between our Retail Merchandising team across the globe and our cross-functional partners (including Global Merchandising, Marketing, and Visual Merchandising). You will combine a deep product sensibility with sharp commercial analysis to unlock market opportunities and support our 2030 growth ambitions.\n\nYou will be part of the Global Retail Merchandising team, working in a high-performance culture driven by forward thinking and collaboration.\n\nYour mission\n DMS / Distributors Partner Management & GTM Alignment\n- Act as the primary global contact for DMS partners.\n- Lead partners through the Go-To-Market (GTM) process, providing clear visibility into the product strategy.\n- Drive pre-season planning and outline category level opportunities ahead of the season\n- Provide assortment guardrails to ensure product investments align with market opportunities.\n- Help DMS customize their assortment based on trend, climate and local nuances.\n\nMarket Product Roadmap & Growth\n- Establish the Product Long-Range Plan (LRP) to drive our 2030 Apparel and - Accessories growth goals.\n- Analyze sales data, cross-channel analytics and market trends to identify product gaps and new opportunities.\n- Partner with regional teams to gather localized feedback and build clear business cases to influence the global product roadmap.\n- Coordinate global product flow to align with regional needs and consumer calendars.\n\nProduct & Marketing GTM Championship\n- Own and coordinate the global GTM milestones for retail merchandising.\n- Champion retail requirements as the leading voice in global GTM forums.\n- Partner with Marketing and regional merchandising teams to define the consumer marketing calendar.\n- Deliver insightful performance reporting to global merchandising and marketing leadership.\n\nCross-Functional Retail Representation\n\n- Act as the central representative for retail across key cross-functional forums.\n- Collaborate with Store Design, Visual Merchandising Product training and Global Demand Planning to drive cross functional initiatives.\n\nYour story\n - Commercial Background: 6–8 years of proven experience in Retail Buying / Merchandising roles.\n- Domain Expertise: Deep knowledge of the Apparel and Accessories categories.\n- Collaboration & Influence: Strong cross-functional collaboration skills with a proven ability to influence stakeholder decisions globally.\n- Analytical Mindset: Strong reporting capabilities with a data-driven approach to problem-solving and market performance tracking.\n- Communication: Exceptional written and verbal communication skills, with the ability to simplify complex topics.\n- Execution: Highly structured, organized, and results-oriented with a continuous improvement mindset.\n\nMeet the team\n You will be part of the Retail Merchandising team, a team culture driven by innovation, collaboration, and high performance. You will work closely with Global Merchandising, Visual Merchandising, Marketing, Retail, Store Operations, and various other teams.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination.",
+        "fr": "In short\n This is a strong opportunity to contribute to the growth of a fast-scaling brand by driving the product strategy and retail performance across our distributor stores (DMS) globally.\n\nThis role spans several distinct dimensions, focusing primarily on our distributors' stores, driving the product roadmap for retail globally, and acting as our global Go-To-Market (GTM) champion. As a Global Lead - DMS Merchant, you will be the bridge between our Retail Merchandising team across the globe and our cross-functional partners (including Global Merchandising, Marketing, and Visual Merchandising). You will combine a deep product sensibility with sharp commercial analysis to unlock market opportunities and support our 2030 growth ambitions.\n\nYou will be part of the Global Retail Merchandising team, working in a high-performance culture driven by forward thinking and collaboration.\n\nYour mission\n DMS / Distributors Partner Management & GTM Alignment\n- Act as the primary global contact for DMS partners.\n- Lead partners through the Go-To-Market (GTM) process, providing clear visibility into the product strategy.\n- Drive pre-season planning and outline category level opportunities ahead of the season\n- Provide assortment guardrails to ensure product investments align with market opportunities.\n- Help DMS customize their assortment based on trend, climate and local nuances.\n\nMarket Product Roadmap & Growth\n- Establish the Product Long-Range Plan (LRP) to drive our 2030 Apparel and - Accessories growth goals.\n- Analyze sales data, cross-channel analytics and market trends to identify product gaps and new opportunities.\n- Partner with regional teams to gather localized feedback and build clear business cases to influence the global product roadmap.\n- Coordinate global product flow to align with regional needs and consumer calendars.\n\nProduct & Marketing GTM Championship\n- Own and coordinate the global GTM milestones for retail merchandising.\n- Champion retail requirements as the leading voice in global GTM forums.\n- Partner with Marketing and regional merchandising teams to define the consumer marketing calendar.\n- Deliver insightful performance reporting to global merchandising and marketing leadership.\n\nCross-Functional Retail Representation\n\n- Act as the central representative for retail across key cross-functional forums.\n- Collaborate with Store Design, Visual Merchandising Product training and Global Demand Planning to drive cross functional initiatives.\n\nYour story\n - Commercial Background: 6–8 years of proven experience in Retail Buying / Merchandising roles.\n- Domain Expertise: Deep knowledge of the Apparel and Accessories categories.\n- Collaboration & Influence: Strong cross-functional collaboration skills with a proven ability to influence stakeholder decisions globally.\n- Analytical Mindset: Strong reporting capabilities with a data-driven approach to problem-solving and market performance tracking.\n- Communication: Exceptional written and verbal communication skills, with the ability to simplify complex topics.\n- Execution: Highly structured, organized, and results-oriented with a continuous improvement mindset.\n\nMeet the team\n You will be part of the Retail Merchandising team, a team culture driven by innovation, collaboration, and high performance. You will work closely with Global Merchandising, Visual Merchandising, Marketing, Retail, Store Operations, and various other teams.\n\nWhat we offer\n On is a place that is centered around growth and progress. We offer an environment designed to give people the tools to develop holistically – to stay active, to learn, explore and innovate. Our distinctive approach combines a supportive, team-oriented atmosphere, with access to personal self-care for both physical and mental well-being, so each person is led by purpose.\n\nOn is an Equal Opportunity Employer. We are committed to creating a work environment that is fair and inclusive, where all decisions related to recruitment, advancement, and retention are free of discrimination."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://boards.greenhouse.io/onrunning/jobs/8173652?gh_jid=8173652",
+      "source": "On Running Dedicated Parser (Greenhouse)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-02T23:16:13.899Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Förrlibuckstrasse 190",
+      "postalCode": "8005",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sportswear / Calzature sportive",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://boards.greenhouse.io/onrunning/jobs/8173652?gh_jid=8173652",
+      "jobReqId": "8173652",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 117000,
+      "salaryMax": 180000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 117000,
+          "maxValue": 180000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-02T23:16:13.899Z"
     },
     {
       "id": "on-running-7df52056aa5f",
@@ -5621,7 +5835,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/7687729?gh_jid=7687729",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:21.984Z",
+      "crawledAt": "2026-09-02T23:16:13.896Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5645,11 +5859,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "global-head-of-brand-events-on-running-ch"
+        "global-head-of-brand-events-on-running-ch",
+        "global-responsabile-brand-events-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-of-brand-events-on-running-ch"
+          "global-head-of-brand-events-on-running-ch",
+          "global-responsabile-brand-events-on-running-zurich"
         ],
         "de": [
           "global-head-of-brand-events-on-running-ch"
@@ -5704,7 +5920,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8030127?gh_jid=8030127",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:21.981Z",
+      "crawledAt": "2026-09-02T23:16:13.893Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5728,11 +5944,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "fit-model-flexible-part-time-opportunity-on-running-ch"
+        "fit-model-flexible-part-time-opportunity-on-running-ch",
+        "fit-model-flexible-opportunita-part-time-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fit-model-flexible-part-time-opportunity-on-running-ch"
+          "fit-model-flexible-part-time-opportunity-on-running-ch",
+          "fit-model-flexible-opportunita-part-time-on-running-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:36:27.141Z",
@@ -5781,7 +5999,7 @@
       "url": "https://boards.greenhouse.io/onrunning/jobs/8094019?gh_jid=8094019",
       "source": "On Running Dedicated Parser (Greenhouse)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:21.973Z",
+      "crawledAt": "2026-09-02T23:16:13.887Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Förrlibuckstrasse 190",
@@ -5805,11 +6023,13 @@
         "location": "Zürich"
       },
       "previousSlugs": [
-        "evp-content-communications-lead-on-running-ch"
+        "evp-content-communications-lead-on-running-ch",
+        "contenuti-e-comunicazioni-evp-piombo-on-running-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "evp-content-communications-lead-on-running-ch"
+          "evp-content-communications-lead-on-running-ch",
+          "contenuti-e-comunicazioni-evp-piombo-on-running-zurich"
         ],
         "fr": [
           "evp-content-communications-lead-on-running-ch"
@@ -5918,7 +6138,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "on-running-c2690a6a8f5b",
@@ -5996,7 +6216,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "on-running-44cee1cd823f",
@@ -6080,7 +6300,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

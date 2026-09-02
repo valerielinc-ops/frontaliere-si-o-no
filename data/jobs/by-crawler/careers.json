@@ -1,14 +1,14 @@
 {
   "crawlerKey": "careers",
-  "assembledAt": "2026-09-02T13:42:40.770Z",
+  "assembledAt": "2026-09-02T23:16:27.094Z",
   "jobs": [
     {
       "id": "careers-74c7232eb1c8",
-      "slug": "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
+      "slug": "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten",
       "slugByLocale": {
-        "it": "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
+        "it": "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten",
         "en": "operational-mechanic-in-maintenance-80-100-lepatron-lugano",
-        "de": "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
+        "de": "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten",
         "fr": "mecanicien-operationnel-en-maintenance-80-100-lepatron-lugano"
       },
       "company": "lepatron",
@@ -33,7 +33,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:42:37.425Z",
+      "crawledAt": "2026-09-02T23:16:24.231Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -94,7 +94,7 @@
         "it": "praktikant-in-product-manager-convenience-80-100-careers-ch",
         "en": "praktikant-in-product-manager-convenience-80-100-careers-ch",
         "de": "praktikant-in-product-manager-convenience-80-100-careers-ch",
-        "fr": "praktikant-in-product-manager-convenience-80-100-lepatron-lugano"
+        "fr": "praktikant-in-product-manager-convenience-80-100-lepatron-bockten"
       },
       "company": "lepatron",
       "companyKey": "careers",
@@ -118,7 +118,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:42:37.423Z",
+      "crawledAt": "2026-09-02T23:16:24.230Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -136,6 +136,14 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:12:06.514Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "praktikant-in-product-manager-convenience-80-100-lepatron-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-product-manager-convenience-80-100-lepatron-lugano"
+      ],
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",

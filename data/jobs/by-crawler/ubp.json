@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ubp",
-  "assembledAt": "2026-09-02T13:42:57.878Z",
+  "assembledAt": "2026-09-02T23:16:47.315Z",
   "jobs": [
     {
       "id": "ubp-66596982e1f3",
@@ -33,7 +33,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/383",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:52.445Z",
+      "crawledAt": "2026-09-02T23:16:44.217Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "it-business-analyst-credit-it-ubp-ch"
+          "it-business-analyst-credit-it-ubp-ch",
+          "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
           "it-business-analyst-credit-it-ubp-ch",
-          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
+          "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
+          "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-business-analyst-credit-it-ubp-ch"
@@ -67,9 +69,12 @@
       },
       "previousSlugs": [
         "it-business-analyst-credit-it-ubp-ch",
-        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland"
+        "it-business-analyst-risikomanagement-union-bancaire-privee-geneva-switzerland",
+        "it-business-analyst-credit-it-union-bancaire-privee-geneva-switzerland",
+        "it-business-analista-credit-it-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:35.564Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -115,7 +120,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/627",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:51.972Z",
+      "crawledAt": "2026-09-02T23:16:43.739Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -134,10 +139,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "structured-product-engineer-ubp-ch"
+          "structured-product-engineer-ubp-ch",
+          "structured-product-engineer-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
-          "structured-product-engineer-ubp-ch"
+          "structured-product-engineer-ubp-ch",
+          "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "structured-product-engineer-ubp-ch"
@@ -147,7 +154,9 @@
         ]
       },
       "previousSlugs": [
-        "structured-product-engineer-ubp-ch"
+        "structured-product-engineer-ubp-ch",
+        "structured-product-engineer-union-bancaire-privee-geneva-switzerland",
+        "structured-product-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-05-17T11:17:32.358Z",
       "salaryMin": 71000,
@@ -195,7 +204,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1027",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:51.482Z",
+      "crawledAt": "2026-09-02T23:16:43.264Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -214,17 +223,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland",
-        "assistant-relationship-manager-latam-ubp-ch"
+        "assistant-relationship-manager-latam-ubp-ch",
+        "assistente-manager-relazioni-latam-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-relationship-manager-latam-ubp-ch"
+          "assistant-relationship-manager-latam-ubp-ch",
+          "assistente-manager-relazioni-latam-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "assistant-relationship-manager-latam-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-05-17T11:17:16.114Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -245,7 +257,7 @@
       "slugByLocale": {
         "it": "amministratore-del-database-union-bancaire-privee-geneva-switzerland",
         "en": "junior-database-administrator-consultant-ubp-ch",
-        "de": "datenbankverwalter-union-bancaire-privee-geneva-switzerland",
+        "de": "junior-database-administrator-berater-union-bancaire-privee-geneva-switzerland",
         "fr": "administrateur-de-base-de-donnees-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
@@ -270,7 +282,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1011",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:50.999Z",
+      "crawledAt": "2026-09-02T23:16:42.783Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -293,6 +305,8 @@
         "database-administrator-consultant-ubp-ch",
         "junior-database-administrator-consultant-ubp-ch",
         "junior-database-administrator-consultant-union-bancaire-privee-geneva-switzerland",
+        "datenbankverwalter-union-bancaire-privee-geneva-switzerland",
+        "amministratore-del-database-union-bancaire-privee-geneva-switzerland",
         "junior-database-administrator-berater-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
@@ -300,7 +314,8 @@
           "database-administrator-ubp-ch",
           "database-administrator-union-bancaire-privee-geneva-switzerland",
           "database-administrator-consultant-ubp-ch",
-          "junior-database-administrator-consultant-ubp-ch"
+          "junior-database-administrator-consultant-ubp-ch",
+          "amministratore-del-database-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "database-administrator-ubp-ch",
@@ -309,6 +324,7 @@
         ],
         "de": [
           "database-administrator-ubp-ch",
+          "datenbankverwalter-union-bancaire-privee-geneva-switzerland",
           "junior-database-administrator-berater-union-bancaire-privee-geneva-switzerland"
         ],
         "fr": [
@@ -361,7 +377,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/47",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:50.512Z",
+      "crawledAt": "2026-09-02T23:16:42.305Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -381,12 +397,14 @@
       "previousSlugs": [
         "change-incident-problem-vulnerability-management-ubp-ch",
         "change-incident-problem-vulnerability-management-union-bancaire-privee-geneva-switzerland",
-        "change-incident-problem-vulnerability-management-consultant-ubp-ch"
+        "change-incident-problem-vulnerability-management-consultant-ubp-ch",
+        "cambia-incidente-problema-gestione-della-vulnerabilita-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "change-incident-problem-vulnerability-management-ubp-ch",
-          "change-incident-problem-vulnerability-management-consultant-ubp-ch"
+          "change-incident-problem-vulnerability-management-consultant-ubp-ch",
+          "cambia-incidente-problema-gestione-della-vulnerabilita-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "change-incident-problem-vulnerability-management-union-bancaire-privee-geneva-switzerland"
@@ -444,7 +462,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1112",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:50.037Z",
+      "crawledAt": "2026-09-02T23:16:41.824Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -463,11 +481,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cybersecurity-frontline-risk-and-control-manager-ubp-ch",
-        "cybersecurity-frontline-risk-and-control-manager-union-bancaire-privee-geneva-switzerland"
+        "cybersecurity-frontline-risk-and-control-manager-union-bancaire-privee-geneva-switzerland",
+        "responsabile-del-rischio-e-del-controllo-di-prima-linea-della-cybersecurity-union-bancaire-privee-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cybersecurity-frontline-risk-and-control-manager-ubp-ch"
+          "cybersecurity-frontline-risk-and-control-manager-ubp-ch",
+          "responsabile-del-rischio-e-del-controllo-di-prima-linea-della-cybersecurity-union-bancaire-privee-switzerland"
         ],
         "en": [
           "cybersecurity-frontline-risk-and-control-manager-union-bancaire-privee-geneva-switzerland"
@@ -525,7 +545,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1108",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:49.557Z",
+      "crawledAt": "2026-09-02T23:16:41.341Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -544,11 +564,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fcc-framework-head-of-amlc-team-ubp-ch",
-        "fcc-framework-head-of-amlc-team-union-bancaire-privee-geneva-switzerland"
+        "fcc-framework-head-of-amlc-team-union-bancaire-privee-geneva-switzerland",
+        "fcc-framework-responsabile-amlc-team-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fcc-framework-head-of-amlc-team-ubp-ch"
+          "fcc-framework-head-of-amlc-team-ubp-ch",
+          "fcc-framework-responsabile-amlc-team-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "fcc-framework-head-of-amlc-team-union-bancaire-privee-geneva-switzerland"
@@ -589,7 +611,7 @@
       "companyDomain": "ubp.com",
       "title": "IT SERVICE DELIVERY",
       "titleByLocale": {
-        "it": "LA SERVIZIO",
+        "it": "IT SERVICE DELIVERY",
         "en": "IT SERVICE DELIVERY",
         "de": "IT-DIENSTLEISTUNG",
         "fr": "LIVRAISON DE SERVICES"
@@ -606,7 +628,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1193",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:49.083Z",
+      "crawledAt": "2026-09-02T23:16:40.855Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -625,12 +647,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "it-service-delivery-ubp-ch",
-        "la-servizio-union-bancaire-privee-geneva-switzerland"
+        "la-servizio-union-bancaire-privee-geneva-switzerland",
+        "it-service-delivery-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-service-delivery-ubp-ch",
-          "la-servizio-union-bancaire-privee-geneva-switzerland"
+          "la-servizio-union-bancaire-privee-geneva-switzerland",
+          "it-service-delivery-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-service-delivery-ubp-ch"
@@ -640,6 +664,7 @@
         ]
       },
       "firstSeenAt": "2026-06-16T23:58:59.872Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -685,7 +710,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1010",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:48.603Z",
+      "crawledAt": "2026-09-02T23:16:40.375Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -706,13 +731,15 @@
         "system-engineer-messaging-ubp-ch",
         "system-ingenieur-union-bancaire-privee-geneva-switzerland",
         "system-ingegnere-union-bancaire-privee-geneva-switzerland",
-        "system-engineer-messaging-union-bancaire-privee-geneva-switzerland"
+        "system-engineer-messaging-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-messaging-ubp-ch",
           "system-ingenieur-union-bancaire-privee-geneva-switzerland",
-          "system-ingegnere-union-bancaire-privee-geneva-switzerland"
+          "system-ingegnere-union-bancaire-privee-geneva-switzerland",
+          "system-ingegnere-messaging-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "system-engineer-messaging-union-bancaire-privee-geneva-switzerland"
@@ -755,7 +782,7 @@
       "titleByLocale": {
         "it": "Senior Wealth Planner - Zurigo",
         "en": "Senior Wealth Planner - Zurich",
-        "de": "Senior Wealth Planner - Zürich",
+        "de": "Senior Wealth Planner - Zurich",
         "fr": "Planificateur principal de gestion patrimoniale - Zurich"
       },
       "description": "You will join the Wealth Planning Team at Union Bancaire Privée (UBP) in Zurich, Switzerland.\n In this role, you will serve clients and partner with Relationship Managers to ensure that wealth planning needs are appropriately addressed.\n You will provide guidance on succession and legacy planning, tax suitability, mobility planning, and wealth structuring—based on each client’s specific circumstances—to create added value and mitigate risk, collaborating with Compliance on an on-demand basis to ensure alignment with KYC/AML requirements and internal policies.\n The role also includes delivering training and presentations on compliant wealth planning strategies and options, helping clients stay ahead of fast-changing, increasingly complex regulations and protect their wealth while maximizing after-tax income, and preparing timely, accurate internal Wealth Planning Alerts and client memorandums on the topics outlined above.\n\nMain responsibilities:\n\n• Proactive engagement with bankers to recognize and anticipate clients’ needs, and to identify, and capture business opportunities.\n\n• Provide and train Private Bankers with up-to-date, relevant technical information to understand impactful tax and legal developments and take proper action.\n\n• Identify, present and discuss appropriate and compliant wealth planning solutions and strategies to meet clients’ needs: deliver customized service and bespoke strategies.\n\n• Meet clients and prospects (including business travel with bankers)\n\n• Actively promote Wealth Planning services across the Bank via ad hoc presentations and publications on selected, high-impact themes; actively support tax and legal wealth-preservation objectives.\n\n• Maintain a high level of technical expertise on dedicated markets and take an effective, risk-based and outcomes-focused approach to mitigate risks.\n\n• Build and maintain a network of intermediaries such as trust and corporate service providers, tax and law firms.\n\n• Comply with external and internal compliance and regulatory requirements, including the Bank’s policies, operating procedures and controls to meet the Bank’s and regulatory requirements and protect the business from legal, financial and reputational risk.\n\n• Integrate with the local team of Wealth Planners based in Zurich; collaborate across UBP Group; report to Head of Wealth Planning – Switzerland, based in Geneva.\n\n• Partner with the Compliance Department to review complex existing cases and fiduciary/ownership structures (trusts, foundations, SPVs) strictly on a Compliance-initiated, on-demand basis; verify beneficial ownership and document structuring rationales in line with KYC/AML policies and cross-border rules.\n\n• Support onboarding for structure-heavy clients only upon Compliance request: UBO identification, rationale, required entity documentation, ownership charts, and justification memos to facilitate Compliance approval.\n\n• Perform periodic and event-driven reviews (e.g., KYC refresh, trigger events) exclusively when initiated by Compliance.\n\nRequirements:\n\n• 12+ years of relevant experience in wealth planning services\n\n• Deep expertise in UK and Anglo-Saxon wealth structuring, with a proven track record of success in these jurisdictions.\n\n• Broad, advanced knowledge across core wealth planning disciplines (tax, legal, succession, governance), evidenced by complex case execution and client impac t.\n\n• Law background/diploma required for this role\n\n• Fluency in English; German and additional languages are an advantage\n\n• Confident, persuasive communicator with excellent presentation skills\n\n• Outstanding verbal and written communication skills, with the ability to simplify complex topics for varied audiences\n\n• Resilient and adaptable: able to perform under pressure, prioritize effectively, and maintain high standards\n\n• Self-motivated, service driven, and relentlessly focused on client outcomes\n\n• Strong team player, highly organized with exceptional attention to detail\n\nThis is a 100% role located in Zurich.\n Start: asap",
@@ -770,7 +797,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1186",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:48.125Z",
+      "crawledAt": "2026-09-02T23:16:39.890Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -788,17 +815,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-wealth-planner-zurich-ubp-ch"
+        "senior-wealth-planner-zurich-ubp-ch",
+        "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-wealth-planner-zurich-ubp-ch"
+          "senior-wealth-planner-zurich-ubp-ch",
+          "senior-wealth-planner-zurigo-union-bancaire-privee-zurich-switzerland"
         ],
         "fr": [
           "senior-wealth-planner-zurich-ubp-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T23:49:58.466Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -844,7 +874,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1237",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:47.650Z",
+      "crawledAt": "2026-09-02T23:16:39.407Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -863,11 +893,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-cyber-security-engineering-ubp-ch",
-        "head-of-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
+        "head-of-cyber-security-engineering-union-bancaire-privee-geneva-switzerland",
+        "responsabile-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-cyber-security-engineering-ubp-ch"
+          "head-of-cyber-security-engineering-ubp-ch",
+          "responsabile-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "head-of-cyber-security-engineering-union-bancaire-privee-geneva-switzerland"
@@ -925,7 +957,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1245",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:47.176Z",
+      "crawledAt": "2026-09-02T23:16:38.905Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -944,11 +976,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "multi-skilled-maintenance-technician-ubp-ch",
-        "multi-skilled-maintenance-technician-union-bancaire-privee-london-united-kingdom"
+        "multi-skilled-maintenance-technician-union-bancaire-privee-london-united-kingdom",
+        "tecnico-di-manutenzione-multi-skilled-union-bancaire-privee-london-united-kingdom"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "multi-skilled-maintenance-technician-ubp-ch"
+          "multi-skilled-maintenance-technician-ubp-ch",
+          "tecnico-di-manutenzione-multi-skilled-union-bancaire-privee-london-united-kingdom"
         ],
         "en": [
           "multi-skilled-maintenance-technician-union-bancaire-privee-london-united-kingdom"
@@ -1006,7 +1040,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/946",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:46.688Z",
+      "crawledAt": "2026-09-02T23:16:38.367Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1025,11 +1059,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "system-engineer-active-directory-specialist-ubp-ch"
+          "system-engineer-active-directory-specialist-ubp-ch",
+          "system-engineer-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
           "system-engineer-ubp-ch",
-          "system-engineer-active-directory-specialist-ubp-ch"
+          "system-engineer-active-directory-specialist-ubp-ch",
+          "system-ingegnere-active-directory-specialista-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-ubp-ch"
@@ -1040,7 +1076,9 @@
       },
       "previousSlugs": [
         "system-engineer-ubp-ch",
-        "system-engineer-active-directory-specialist-ubp-ch"
+        "system-engineer-active-directory-specialist-ubp-ch",
+        "system-engineer-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-active-directory-specialista-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-06-30T12:44:27.675Z",
       "salaryMin": 71000,
@@ -1088,7 +1126,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/254",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:46.189Z",
+      "crawledAt": "2026-09-02T23:16:37.885Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1107,11 +1145,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-analyst-ubp-ch",
-        "technical-analyst-union-bancaire-privee-geneva-switzerland"
+        "technical-analyst-union-bancaire-privee-geneva-switzerland",
+        "technical-analista-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-analyst-ubp-ch"
+          "technical-analyst-ubp-ch",
+          "technical-analista-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "technical-analyst-union-bancaire-privee-geneva-switzerland"
@@ -1124,6 +1164,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:48:39.693Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1169,7 +1210,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1217",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:45.710Z",
+      "crawledAt": "2026-09-02T23:16:37.402Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1189,12 +1230,14 @@
       "previousSlugs": [
         "ms-cloud-engineer-ubp-ch",
         "microsoft-cloud-engineer-consultant-ubp-ch",
-        "microsoft-cloud-engineer-consultant-union-bancaire-privee-geneva-switzerland"
+        "microsoft-cloud-engineer-consultant-union-bancaire-privee-geneva-switzerland",
+        "ms-cloud-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ms-cloud-engineer-ubp-ch",
-          "microsoft-cloud-engineer-consultant-ubp-ch"
+          "microsoft-cloud-engineer-consultant-ubp-ch",
+          "ms-cloud-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "ms-cloud-engineer-ubp-ch",
@@ -1241,19 +1284,19 @@
         "de": "Operations Transformation manager",
         "fr": "Gestionnaire de la transformation des opérations"
       },
-      "description": "• Mission\n We are seeking an experienced and highly autonomous professional to join the Operations team. The role consists in reviewing, optimizing and transforming operational processes across the department.\n This position requires a strong Operational background, excellent analytical skills, and the ability to drive efficiency initiatives.\n The role requires close collaboration with Operations teams, management, IT and other stakeholders to identify improvement opportunities, streamline workflows and support strategic transformation projects.\n\n• Main responsibilities\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology\n\n• Minimum 10 years of experience in Banking Operations\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong project management skills with the ability to manage multiple initiatives simultaneously\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Ability to work independently and challenge the status quo constructively\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Excellent knowledge of the Microsoft Office suite especially Excel, programming skills is a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Team player\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+      "description": "Drive the next wave of operational excellence by leveraging data, digital, and AI to streamline processes, reduce risk, and deliver measurable impact across Operations :\n\n• Mission\n Join the Operations team to review and streamline end‑to‑end processes, gaining efficiency, service quality, and control.\n Working closely with Operations, Management, and IT, you will identify opportunities into tangible outcomes leveraging AI and automation where they create clear value while ensuring governance and compliance in a regulated environment.\n\n• Main responsibilities\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology/Minimum 10 years of experience in Banking Operations\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "it": "• Missione Stiamo cercando un professionista esperto e altamente autonomo per unirsi al team Operazioni. Il ruolo consiste nel rivedere, ottimizzare e trasformare i processi operativi in tutto il dipartimento. Questa posizione richiede un forte background operativo, eccellenti competenze analitiche, e la capacità di guidare iniziative di efficienza. Il ruolo richiede una stretta collaborazione con i team Operations, la gestione, l'IT e altri stakeholder per identificare opportunità di miglioramento, ottimizzare i flussi di lavoro e sostenere progetti di trasformazione strategica.\n• Principali responsabilità\n• Condurre valutazioni complete dei processi operativi e dei flussi di lavoro esistenti in tutto il dipartimento\n• Identificare inefficienze, strozzature, rischi operativi e opportunità di automazione e ottimizzazione\n• Progettare e implementare miglioramenti di processo per migliorare l'efficienza, la qualità dei servizi e il controllo operativo\n• Guidare e coordinare le iniziative di trasformazione dall'analisi attraverso l'implementazione\n• Facilitare workshop e interviste con gli stakeholder per raccogliere i requisiti e comprendere le sfide operative\n• Definire e monitorare gli indicatori chiave delle prestazioni (KPI per misurare l'efficacia del processo e migliorare i risultati\n• Sostenere le attività di gestione dei cambiamenti e garantire l'adozione di nuovi processi e modelli operativi\n• Assicurarsi che le modifiche proposte siano conformi al quadro normativo, alle politiche interne e alla gestione dei rischi\n• Processi, procedure e modelli operativi target\n• Il tuo profilo\n• Laurea magistrale in finanza o Information Technology\n• Minimo 10 anni di esperienza nelle operazioni bancarie\n• Esperienza comprovata nella revisione dei processi, nella riingegneria dei processi o in iniziative di miglioramento continuo\n• Forte capacità di gestione del progetto con la capacità di gestire più iniziative contemporaneamente\n• Forte capacità di comunicazione e gestione degli stakeholder in tutti i livelli organizzativi\n• Capacità di lavorare in modo indipendente e sfidare lo status quo costruttivamente\n• Esperienza con Lean, Six Sigma; Business Process Management o metodologie simili è un forte vantaggio\n• Fluente in francese e inglese; qualsiasi altra lingua sarebbe un plus\n• Conoscenza eccellente della suite Microsoft Office in particolare Excel, competenze di programmazione è un plus\n• Forte pensiero critico, abilità analitiche e problem solving\n• Giocatore di squadra\n• Altri\n• Residenza svizzera Competenze fondamentali: Aderenza ai valori dell’azienda: Dedicazione, Convizione, Agility e Responsabilità - Rispetto dei regolamenti e delle direttive interne",
-        "en": "• Mission\nWe are seeking an experienced and highly autonomous professional to join the Operations team. The role consists in reviewing, optimizing and transforming operational processes across the department.\nThis position requires a strong Operational background, excellent analytical skills, and the ability to drive efficiency initiatives.\nThe role requires close collaboration with Operations teams, management, IT and other stakeholders to identify improvement opportunities, streamline workflows and support strategic transformation projects.\n\n• Main responsibilities\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology\n\n• Minimum 10 years of experience in Banking Operations\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong project management skills with the ability to manage multiple initiatives simultaneously\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Ability to work independently and challenge the status quo constructively\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Excellent knowledge of the Microsoft Office suite especially Excel, programming skills is a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Team player\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "• Mission Wir suchen einen erfahrenen und hochgradig autonomen Fachmann, der sich dem Operations-Team anschließt. Die Rolle besteht in der Überprüfung, Optimierung und Transformation der operativen Prozesse in der gesamten Abteilung. Diese Position erfordert einen starken operativen Hintergrund, hervorragende analytische Fähigkeiten und die Fähigkeit, Effizienzinitiativen voranzutreiben. Die Rolle erfordert eine enge Zusammenarbeit mit Operations-Teams, Management, IT und anderen Stakeholdern, um Verbesserungsmöglichkeiten zu identifizieren, Workflows zu optimieren und strategische Transformationsprojekte zu unterstützen.\n• Hauptzuständigkeiten\n• Führen Sie umfassende Überprüfungen der bestehenden Betriebsprozesse und Workflows in der gesamten Abteilung durch\n• Ineffizienzen, Engpässe, Betriebsrisiken und Chancen für Automatisierung und Optimierung identifizieren\n• Entwurf und Implementierung von Prozessverbesserungen zur Verbesserung von Effizienz, Servicequalität und Betriebskontrolle\n• Führen und Koordinieren von Transformationsinitiativen von der Analyse bis zur Umsetzung\n• Erleichterung von Workshops und Interviews mit Stakeholdern, um Anforderungen zu sammeln und operative Herausforderungen zu verstehen\n• Definieren und Überwachen von Key Performance Indicators (KPI zur Messung von Prozesseffektivität und Verbesserungsergebnissen)\n• Unterstützung von Change Management-Aktivitäten und Sicherstellung der erfolgreichen Übernahme neuer Prozesse und Betriebsmodelle\n• Sicherstellen, dass vorgeschlagene Änderungen den regulatorischen Rahmenbedingungen, internen Richtlinien und dem Risikomanagement entsprechen\n• Dokumentprozesse, Verfahren und Zielbetriebsmodelle\n• Ihr Profil\n• Master-Abschluss in Finanzen oder Informationstechnologie\n• Mindestens 10 Jahre Erfahrung im Bankgeschäft\n• Nachgewiesene Erfahrung in der Prozessüberprüfung, Prozessumgestaltung oder Initiativen zur kontinuierlichen Verbesserung\n• Starke Projektmanagementfähigkeiten mit der Fähigkeit, mehrere Initiativen gleichzeitig zu verwalten\n• Starke Kommunikation und Stakeholder-Management-Fähigkeiten auf allen organisatorischen Ebenen\n• Fähigkeit, unabhängig zu arbeiten und den Status quo konstruktiv herauszufordern\n• Erfahrung mit Lean, Six Sigma, Business Process Management oder ähnlichen Methoden ist ein großer Vorteil\n• Fließend Französisch und Englisch; jede andere Sprache wäre ein Plus\n• Ausgezeichnete Kenntnisse der Microsoft Office Suite, insbesondere Excel, Programmierkenntnisse sind ein Plus\n• Starkes kritisches Denken, analytische und Problemlösungsfähigkeiten\n• Teamplayer\n• Andere\n• Schweizer Residenz Kernkompetenzen : Einhaltung der Werte des Unternehmens: Hingabe, Überzeugung, Agilität und Verantwortung - Einhaltung von Vorschriften und internen Richtlinien",
-        "fr": "• Mission Nous recherchons un professionnel expérimenté et hautement autonome pour rejoindre l'équipe des Opérations. Le rôle consiste à examiner, optimiser et transformer les processus opérationnels à l'échelle du Ministère. Ce poste exige une solide expérience opérationnelle, d'excellentes compétences analytiques et la capacité de diriger des initiatives d'efficience. Ce rôle exige une collaboration étroite avec les équipes opérationnelles, la direction, les TI et d'autres intervenants afin de cerner les possibilités d'amélioration, de rationaliser les flux de travail et de soutenir les projets de transformation stratégique.\n• Principales responsabilités\n• Effectuer des examens approfondis des processus opérationnels et des flux de travail existants dans l'ensemble du Ministère\n• Identifier les inefficacités, les goulets d'étranglement, les risques opérationnels et les possibilités d'automatisation et d'optimisation\n• Conception et mise en oeuvre d'améliorations des processus pour améliorer l'efficacité, la qualité du service et le contrôle opérationnel\n• Diriger et coordonner les initiatives de transformation depuis l'analyse jusqu'à la mise en oeuvre\n• Faciliter les ateliers et les entrevues avec les intervenants afin de recueillir les besoins et de comprendre les défis opérationnels\n• Définir et surveiller les indicateurs de rendement clés (ICP pour mesurer l'efficacité du processus et améliorer les résultats)\n• Appuyer les activités de gestion du changement et assurer l'adoption réussie de nouveaux processus et modèles opérationnels\n• Veiller à ce que les modifications proposées respectent le cadre réglementaire, les politiques internes et la gestion des risques\n• Processus, procédures et modèles opérationnels cibles\n• Votre profil\n• Maîtrise en finance ou en informatique\n• Au moins 10 ans d'expérience en opérations bancaires\n• Expérience éprouvée dans l'examen des processus, la restructuration des processus ou les initiatives d'amélioration continue\n• Fortes compétences en gestion de projet avec la capacité de gérer simultanément plusieurs initiatives\n• Forte capacité de communication et de gestion des parties prenantes à tous les niveaux organisationnels\n• Aptitude à travailler de manière indépendante et à contester le statu quo de manière constructive\n• Expérience avec Lean, Six Sigma; Gestion des processus opérationnels ou des méthodologies similaires est un avantage important\n• En français et en anglais; toute autre langue serait un plus\n• Excellente connaissance de la suite Microsoft Office en particulier Excel, compétences en programmation est un plus\n• Forte capacité de pensée critique, d'analyse et de résolution de problèmes\n• Joueur d'équipe\n• Autres\n• Résidence suisse Compétences de base : Adhérence aux valeurs de l'entreprise : Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et des directives internes"
+        "en": "Drive the next wave of operational excellence by leveraging data, digital, and AI to streamline processes, reduce risk, and deliver measurable impact across Operations :\n\n• Mission\nJoin the Operations team to review and streamline end‑to‑end processes, gaining efficiency, service quality, and control.\nWorking closely with Operations, Management, and IT, you will identify opportunities into tangible outcomes leveraging AI and automation where they create clear value while ensuring governance and compliance in a regulated environment.\n\n• Main responsibilities\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology/Minimum 10 years of experience in Banking Operations\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "it": "Drive the next wave of operational excellence by leveraging data, digital, and AI to streamline processes, reduce risk, and deliver measurable impact across Operations :\n\n• Mission\n Join the Operations team to review and streamline end‑to‑end processes, gaining efficiency, service quality, and control.\n Working closely with Operations, Management, and IT, you will identify opportunities into tangible outcomes leveraging AI and automation where they create clear value while ensuring governance and compliance in a regulated environment.\n\n• Main responsibilities\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology/Minimum 10 years of experience in Banking Operations\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "de": "Drive the next wave of operational excellence by leveraging data, digital, and AI to streamline processes, reduce risk, and deliver measurable impact across Operations :\n\n• Mission\n Join the Operations team to review and streamline end‑to‑end processes, gaining efficiency, service quality, and control.\n Working closely with Operations, Management, and IT, you will identify opportunities into tangible outcomes leveraging AI and automation where they create clear value while ensuring governance and compliance in a regulated environment.\n\n• Main responsibilities\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology/Minimum 10 years of experience in Banking Operations\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "fr": "Drive the next wave of operational excellence by leveraging data, digital, and AI to streamline processes, reduce risk, and deliver measurable impact across Operations :\n\n• Mission\n Join the Operations team to review and streamline end‑to‑end processes, gaining efficiency, service quality, and control.\n Working closely with Operations, Management, and IT, you will identify opportunities into tangible outcomes leveraging AI and automation where they create clear value while ensuring governance and compliance in a regulated environment.\n\n• Main responsibilities\n\n• Identify and prioritize AI/automation use cases in Operations to reduce inefficiencies, bottlenecks, operational risk\n\n• Partner with Data/IT to translate business problems into AI solutions, define data requirements, and ensure model governance and traceability.\n\n• Coordinate AI delivery lifecycle: data sourcing, feature engineering, model training/validation, UAT, deployment, and monitoring\n\n• Conduct comprehensive reviews of existing operational processes and workflows across the department\n\n• Facilitate workshops and interviews with stakeholders to gather requirements and understand operational challenges\n\n• Design and implement process improvements to enhance efficiency, service quality and operational control\n\n• Define and monitor key performance indicators (KPI to measure process effectiveness and improvements outcomes\n\n• Support change management activities and ensure successful adoption of new processes and operating models\n\n• Ensure that proposed changes comply with regulatory framework, internal policies and risk management\n\n• Document processes, procedures and target operating models\n\n• Your Profile\n• Master’s degree in finance or Information Technology/Minimum 10 years of experience in Banking Operations\n\n• Hands-on experience partnering with Data/IT on AI or advanced automation initiatives in an Operations context\n\n• Proven experience in process review, process re-engineering or continuous improvement initiatives\n\n• Strong communication and stakeholders management skills across all organisational levels\n\n• Experience with Lean, Six Sigma; Business Process Management or similar methodologies is a strong advantage\n\n• Fluent in French and English; any other language would be a plus\n\n• Strong critical thinking, analytical and problem-solving skills\n\n• Others\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
       },
       "location": "Geneva, Switzerland",
       "canton": "GE",
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1310",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:45.236Z",
+      "crawledAt": "2026-09-02T23:16:36.921Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1272,11 +1315,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "operations-transformation-manager-ubp-ch",
-        "operations-transformation-manager-union-bancaire-privee-geneva-switzerland"
+        "operations-transformation-manager-union-bancaire-privee-geneva-switzerland",
+        "gestione-delle-operazioni-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operations-transformation-manager-ubp-ch"
+          "operations-transformation-manager-ubp-ch",
+          "gestione-delle-operazioni-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "operations-transformation-manager-union-bancaire-privee-geneva-switzerland"
@@ -1332,7 +1377,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1311",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:44.757Z",
+      "crawledAt": "2026-09-02T23:16:36.440Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1351,11 +1396,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "microsoft-cloud-digital-workplace-architect-ubp-ch",
-        "microsoft-cloud-digital-workplace-architect-union-bancaire-privee-geneva-switzerland"
+        "microsoft-cloud-digital-workplace-architect-union-bancaire-privee-geneva-switzerland",
+        "microsoft-cloud-digital-workplace-architetto-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "microsoft-cloud-digital-workplace-architect-ubp-ch"
+          "microsoft-cloud-digital-workplace-architect-ubp-ch",
+          "microsoft-cloud-digital-workplace-architetto-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "microsoft-cloud-digital-workplace-architect-union-bancaire-privee-geneva-switzerland"
@@ -1380,7 +1427,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ubp-035f7aff21c2",
@@ -1413,7 +1461,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1308",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:44.268Z",
+      "crawledAt": "2026-09-02T23:16:35.955Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1438,7 +1486,8 @@
         "tax-spezialist-union-bancaire-privee-geneva-switzerland",
         "tax-specialiste-union-bancaire-privee-geneva-switzerland",
         "tax-specialist-ubp-ch-3",
-        "tax-specialist-ubp-ch"
+        "tax-specialist-ubp-ch",
+        "progetto-infrastruture-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1448,7 +1497,8 @@
           "tax-spezialist-union-bancaire-privee-geneva-switzerland",
           "tax-specialiste-union-bancaire-privee-geneva-switzerland",
           "tax-specialist-ubp-ch-3",
-          "tax-specialist-ubp-ch"
+          "tax-specialist-ubp-ch",
+          "progetto-infrastruture-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "infrastructure-project-manager-union-bancaire-privee-geneva-switzerland",
@@ -1509,7 +1559,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1216",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:43.348Z",
+      "crawledAt": "2026-09-02T23:16:35.473Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1528,11 +1578,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "control-m-batch-engineer-consultant-ubp-ch",
-        "control-m-batch-engineer-consultant-union-bancaire-privee-geneva-switzerland"
+        "control-m-batch-engineer-consultant-union-bancaire-privee-geneva-switzerland",
+        "control-m-batch-ingegnere-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "control-m-batch-engineer-consultant-ubp-ch"
+          "control-m-batch-engineer-consultant-ubp-ch",
+          "control-m-batch-ingegnere-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "control-m-batch-engineer-consultant-union-bancaire-privee-geneva-switzerland"
@@ -1590,7 +1642,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1331",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:42.840Z",
+      "crawledAt": "2026-09-02T23:16:34.992Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1609,11 +1661,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ebanking-it-l3-support-consultant-ubp-ch",
-        "ebanking-it-l3-support-consultant-union-bancaire-privee-geneva-switzerland"
+        "ebanking-it-l3-support-consultant-union-bancaire-privee-geneva-switzerland",
+        "ebanking-it-l3-support-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ebanking-it-l3-support-consultant-ubp-ch"
+          "ebanking-it-l3-support-consultant-ubp-ch",
+          "ebanking-it-l3-support-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "ebanking-it-l3-support-consultant-union-bancaire-privee-geneva-switzerland"
@@ -1669,7 +1723,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/504",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:42.358Z",
+      "crawledAt": "2026-09-02T23:16:34.505Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1688,11 +1742,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-engineer-openshift-consultant-ubp-ch",
-        "system-engineer-openshift-consultant-union-bancaire-privee-geneva-switzerland"
+        "system-engineer-openshift-consultant-union-bancaire-privee-geneva-switzerland",
+        "system-ingegnere-openshift-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-openshift-consultant-ubp-ch"
+          "system-engineer-openshift-consultant-ubp-ch",
+          "system-ingegnere-openshift-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "system-engineer-openshift-consultant-union-bancaire-privee-geneva-switzerland"
@@ -1750,7 +1806,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/587",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:41.869Z",
+      "crawledAt": "2026-09-02T23:16:34.022Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1770,12 +1826,14 @@
       "previousSlugs": [
         "qa-engineer-ebanking-private-banking-wealth-management-ubp-ch",
         "qa-engineer-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland",
-        "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch"
+        "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch",
+        "qa-ingegnere-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "qa-engineer-ebanking-private-banking-wealth-management-ubp-ch",
-          "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch"
+          "qa-engineer-ebanking-private-banking-wealth-management-consultant-ubp-ch",
+          "qa-ingegnere-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "qa-engineer-ebanking-private-banking-wealth-management-union-bancaire-privee-geneva-switzerland"
@@ -1800,7 +1858,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ubp-6a41af4eb41b",
@@ -1833,7 +1892,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1389",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:41.393Z",
+      "crawledAt": "2026-09-02T23:16:33.538Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1852,12 +1911,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "entreprise-functional-architect-consultant-ubp-ch"
+          "entreprise-functional-architect-consultant-ubp-ch",
+          "enterprise-functional-architect-ubp-ch"
         ],
         "it": [
           "enterprise-functional-architect-ubp-ch",
           "enterprise-functional-architect-consultant-ubp-ch",
-          "entreprise-functional-architect-consultant-ubp-ch"
+          "entreprise-functional-architect-consultant-ubp-ch",
+          "enterprise-functional-architetto-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "enterprise-functional-architect-ubp-ch"
@@ -1869,9 +1930,11 @@
       "previousSlugs": [
         "enterprise-functional-architect-ubp-ch",
         "enterprise-functional-architect-consultant-ubp-ch",
-        "entreprise-functional-architect-consultant-ubp-ch"
+        "entreprise-functional-architect-consultant-ubp-ch",
+        "enterprise-functional-architetto-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-07-27T12:46:58.571Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1917,7 +1980,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1307",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:40.917Z",
+      "crawledAt": "2026-09-02T23:16:33.061Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1935,11 +1998,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "it-tooling-devops-specialist-consultant-ubp-ch"
+        "it-tooling-devops-specialist-consultant-ubp-ch",
+        "it-tooling-devops-specialista-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-tooling-devops-specialist-consultant-ubp-ch"
+          "it-tooling-devops-specialist-consultant-ubp-ch",
+          "it-tooling-devops-specialista-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "it-tooling-devops-specialist-consultant-ubp-ch"
@@ -1994,7 +2059,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/588",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:40.435Z",
+      "crawledAt": "2026-09-02T23:16:32.570Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2025,7 +2090,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "qa-test-manager-with-execution-and-coordination-activities-consultant-union-bancaire-privee-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "qa-test-manager-with-execution-and-coordination-activities-consultant-union-bancaire-privee-geneva-switzerland"
+      ]
     },
     {
       "id": "ubp-27a65f5f1049",
@@ -2058,7 +2131,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1444",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:39.957Z",
+      "crawledAt": "2026-09-02T23:16:32.074Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2076,11 +2149,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fees-specialist-ubp-ch"
+        "fees-specialist-ubp-ch",
+        "fees-specialista-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fees-specialist-ubp-ch"
+          "fees-specialist-ubp-ch",
+          "fees-specialista-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "fees-specialist-ubp-ch"
@@ -2135,7 +2210,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1447",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:39.473Z",
+      "crawledAt": "2026-09-02T23:16:31.593Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2155,14 +2230,17 @@
       "firstSeenAt": "2026-08-03T12:51:00.349Z",
       "previousSlugsByLocale": {
         "it": [
-          "securities-transfers-officer-ubp-ch"
+          "securities-transfers-officer-ubp-ch",
+          "securities-transfer-officer-ubp-ch"
         ],
         "en": [
-          "securities-transfers-officer-ubp-ch"
+          "securities-transfers-officer-ubp-ch",
+          "securities-transfer-officer-ubp-ch"
         ]
       },
       "previousSlugs": [
-        "securities-transfers-officer-ubp-ch"
+        "securities-transfers-officer-ubp-ch",
+        "securities-transfer-officer-ubp-ch"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -2209,7 +2287,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1381",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:38.988Z",
+      "crawledAt": "2026-09-02T23:16:31.105Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2227,11 +2305,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
+        "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch",
+        "appway-sviluppatore-support-client-lifecycle-management-clm-kyc-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
+          "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch",
+          "appway-sviluppatore-support-client-lifecycle-management-clm-kyc-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "appway-developer-support-client-lifecycle-management-clm-kyc-ubp-ch"
@@ -2241,6 +2321,7 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:04.508Z",
+      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2286,7 +2367,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1451",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:38.506Z",
+      "crawledAt": "2026-09-02T23:16:30.619Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2305,11 +2386,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "client-record-remediation-specialist-temporary-7-months-ubp-ch"
+          "client-record-remediation-specialist-temporary-7-months-ubp-ch",
+          "client-data-remediation-temporary-7-months-ubp-ch"
         ],
         "it": [
           "client-data-remediation-temporary-7-months-ubp-ch",
-          "client-record-remediation-specialist-temporary-7-months-ubp-ch"
+          "client-record-remediation-specialist-temporary-7-months-ubp-ch",
+          "risanamento-dati-cliente-temporaria-7-mesi-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "client-data-remediation-temporary-7-months-ubp-ch"
@@ -2320,7 +2403,8 @@
       },
       "previousSlugs": [
         "client-data-remediation-temporary-7-months-ubp-ch",
-        "client-record-remediation-specialist-temporary-7-months-ubp-ch"
+        "client-record-remediation-specialist-temporary-7-months-ubp-ch",
+        "risanamento-dati-cliente-temporaria-7-mesi-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-04T22:30:16.755Z",
       "salaryMin": 60500,
@@ -2368,7 +2452,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1460",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:38.018Z",
+      "crawledAt": "2026-09-02T23:16:30.137Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2386,11 +2470,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
+        "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch",
+        "quantitative-analista-alm-junior-treasury-dealer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
+          "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch",
+          "quantitative-analista-alm-junior-treasury-dealer-temporary-12-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "quantitative-analyst-alm-junior-treasury-dealer-temporary-12-months-ubp-ch"
@@ -2446,7 +2532,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1392",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:37.537Z",
+      "crawledAt": "2026-09-02T23:16:29.641Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2466,12 +2552,14 @@
       "previousSlugsByLocale": {
         "en": [
           "senior-database-engineer-ubp-ch",
-          "senior-database-engineer-consultant-ubp-ch"
+          "senior-database-engineer-consultant-ubp-ch",
+          "bi-controlling-developer-ubp-ch"
         ],
         "it": [
           "bi-controlling-developer-ubp-ch",
           "senior-database-engineer-ubp-ch",
-          "senior-database-engineer-consultant-ubp-ch"
+          "senior-database-engineer-consultant-ubp-ch",
+          "bi-controlling-sviluppatore-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "bi-controlling-developer-ubp-ch"
@@ -2483,7 +2571,8 @@
       "previousSlugs": [
         "bi-controlling-developer-ubp-ch",
         "senior-database-engineer-ubp-ch",
-        "senior-database-engineer-consultant-ubp-ch"
+        "senior-database-engineer-consultant-ubp-ch",
+        "bi-controlling-sviluppatore-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-05T11:36:37.957Z",
       "salaryMin": 97500,
@@ -2531,7 +2620,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1387",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:37.056Z",
+      "crawledAt": "2026-09-02T23:16:29.158Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2549,11 +2638,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "project-manager-consultant-ubp-ch"
+        "project-manager-consultant-ubp-ch",
+        "project-manager-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-consultant-ubp-ch"
+          "project-manager-consultant-ubp-ch",
+          "project-manager-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "project-manager-consultant-ubp-ch"
@@ -2563,6 +2654,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:09:42.639Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2608,7 +2700,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1200",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:36.579Z",
+      "crawledAt": "2026-09-02T23:16:28.679Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2626,11 +2718,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "media-relations-content-specialist-ubp-ch"
+        "media-relations-content-specialist-ubp-ch",
+        "media-relations-content-specialista-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "media-relations-content-specialist-ubp-ch"
+          "media-relations-content-specialist-ubp-ch",
+          "media-relations-content-specialista-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-07T21:45:12.494Z",
@@ -2679,7 +2773,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1466",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:36.100Z",
+      "crawledAt": "2026-09-02T23:16:28.197Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2697,11 +2791,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "reconciliations-specialist-7-months-mission-ubp-ch"
+        "reconciliations-specialist-7-months-mission-ubp-ch",
+        "reconciliations-specialist-7-months-mission-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "reconciliations-specialist-7-months-mission-ubp-ch"
+          "reconciliations-specialist-7-months-mission-ubp-ch",
+          "reconciliations-specialist-7-months-mission-union-bancaire-privee-geneva-switzerland"
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:28.912Z",
@@ -2750,7 +2846,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1465",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:35.625Z",
+      "crawledAt": "2026-09-02T23:16:27.711Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2768,11 +2864,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fees-specialist-6-months-mission-ubp-ch"
+        "fees-specialist-6-months-mission-ubp-ch",
+        "fees-specialista-6-months-mission-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fees-specialist-6-months-mission-ubp-ch"
+          "fees-specialist-6-months-mission-ubp-ch",
+          "fees-specialista-6-months-mission-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "fees-specialist-6-months-mission-ubp-ch"
@@ -2827,7 +2925,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1390",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:35.151Z",
+      "crawledAt": "2026-09-02T23:16:27.232Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2846,18 +2944,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "core-banking-business-analyst-ba-ubp-ch",
-        "core-banking-business-analyst-consultant-ubp-ch"
+        "core-banking-business-analyst-consultant-ubp-ch",
+        "core-banking-business-analista-ba-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "core-banking-business-analyst-ba-ubp-ch",
-          "core-banking-business-analyst-consultant-ubp-ch"
+          "core-banking-business-analyst-consultant-ubp-ch",
+          "core-banking-business-analista-ba-union-bancaire-privee-geneva-switzerland"
         ],
         "fr": [
           "core-banking-business-analyst-ba-ubp-ch"
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:27.928Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2903,7 +3004,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1384",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:34.670Z",
+      "crawledAt": "2026-09-02T23:16:26.748Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2921,11 +3022,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "api-developer-ubp-ch"
+        "api-developer-ubp-ch",
+        "api-sviluppatore-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "api-developer-ubp-ch"
+          "api-developer-ubp-ch",
+          "api-sviluppatore-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "api-developer-ubp-ch"
@@ -2980,7 +3083,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1481",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:34.192Z",
+      "crawledAt": "2026-09-02T23:16:26.266Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2998,11 +3101,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "security-engineer-ubp-ch"
+        "security-engineer-ubp-ch",
+        "security-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "security-engineer-ubp-ch"
+          "security-engineer-ubp-ch",
+          "security-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "security-engineer-ubp-ch"
@@ -3057,7 +3162,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1135",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:33.712Z",
+      "crawledAt": "2026-09-02T23:16:25.777Z",
       "addressLocality": "Guernsey",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3129,7 +3234,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1382",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:33.181Z",
+      "crawledAt": "2026-09-02T23:16:25.240Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3147,11 +3252,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
+        "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch",
+        "database-oriented-analista-sviluppatore-oracle-banking-sector-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
+          "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch",
+          "database-oriented-analista-sviluppatore-oracle-banking-sector-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "database-oriented-analyst-developer-oracle-banking-sector-ubp-ch"
@@ -3207,7 +3314,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1380",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:32.681Z",
+      "crawledAt": "2026-09-02T23:16:24.756Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3225,11 +3332,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "documentum-developer-consultant-ubp-ch"
+        "documentum-developer-consultant-ubp-ch",
+        "documentum-sviluppatore-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "documentum-developer-consultant-ubp-ch"
+          "documentum-developer-consultant-ubp-ch",
+          "documentum-sviluppatore-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "documentum-developer-consultant-ubp-ch"
@@ -3285,7 +3394,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1373",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:32.196Z",
+      "crawledAt": "2026-09-02T23:16:24.271Z",
       "addressLocality": "Luxembourg",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3303,11 +3412,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "credit-structuring-officer-m-f-x-ubp-ch"
+        "credit-structuring-officer-m-f-x-ubp-ch",
+        "credit-structing-officer-m-f-x-union-bancaire-privee-luxembourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-structuring-officer-m-f-x-ubp-ch"
+          "credit-structuring-officer-m-f-x-ubp-ch",
+          "credit-structing-officer-m-f-x-union-bancaire-privee-luxembourg"
         ],
         "fr": [
           "credit-structuring-officer-m-f-x-ubp-ch"
@@ -3360,7 +3471,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1386",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:31.682Z",
+      "crawledAt": "2026-09-02T23:16:23.776Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3378,11 +3489,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "anonymization-developer-ubp-ch"
+        "anonymization-developer-ubp-ch",
+        "anonymization-sviluppatore-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anonymization-developer-ubp-ch"
+          "anonymization-developer-ubp-ch",
+          "anonymization-sviluppatore-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "anonymization-developer-ubp-ch"
@@ -3437,7 +3550,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1385",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:31.188Z",
+      "crawledAt": "2026-09-02T23:16:23.281Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3455,11 +3568,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-java-platform-engineer-banking-sector-ubp-ch"
+        "senior-java-platform-engineer-banking-sector-ubp-ch",
+        "senior-java-platform-ingegnere-banking-sector-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-platform-engineer-banking-sector-ubp-ch"
+          "senior-java-platform-engineer-banking-sector-ubp-ch",
+          "senior-java-platform-ingegnere-banking-sector-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "senior-java-platform-engineer-banking-sector-ubp-ch"
@@ -3469,6 +3584,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T09:50:28.013Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -3514,7 +3630,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1505",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:30.700Z",
+      "crawledAt": "2026-09-02T23:16:22.798Z",
       "addressLocality": "London, United Kingdom",
       "addressRegion": "TI",
       "addressCountry": "",
@@ -3532,11 +3648,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "hr-intern-ubp-ch"
+        "hr-intern-ubp-ch",
+        "risorse-umane-tirocinante-union-bancaire-privee-london-united-kingdom"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hr-intern-ubp-ch"
+          "hr-intern-ubp-ch",
+          "risorse-umane-tirocinante-union-bancaire-privee-london-united-kingdom"
         ],
         "de": [
           "hr-intern-ubp-ch"
@@ -3591,7 +3709,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1508",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:29.883Z",
+      "crawledAt": "2026-09-02T23:16:22.173Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3655,7 +3773,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1472",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:29.403Z",
+      "crawledAt": "2026-09-02T23:16:21.675Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3675,11 +3793,13 @@
       "previousSlugsByLocale": {
         "en": [
           "system-engineer-union-bancaire-privee-geneva-switzerland",
-          "system-engineer-ad-consultant-ubp-ch"
+          "system-engineer-ad-consultant-ubp-ch",
+          "system-engineer-ubp-ch"
         ],
         "it": [
           "system-engineer-ubp-ch",
-          "system-engineer-ad-consultant-ubp-ch"
+          "system-engineer-ad-consultant-ubp-ch",
+          "system-ingegnere-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "system-engineer-ubp-ch"
@@ -3691,7 +3811,8 @@
       "previousSlugs": [
         "system-engineer-ubp-ch",
         "system-engineer-union-bancaire-privee-geneva-switzerland",
-        "system-engineer-ad-consultant-ubp-ch"
+        "system-engineer-ad-consultant-ubp-ch",
+        "system-ingegnere-union-bancaire-privee-geneva-switzerland"
       ],
       "firstSeenAt": "2026-08-12T21:54:16.043Z",
       "salaryMin": 71000,
@@ -3713,9 +3834,9 @@
       "slug": "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
       "slugByLocale": {
         "en": "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
-        "it": "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+        "it": "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
         "de": "teamleiter-cash-services-union-bancaire-privee-geneva-switzerland",
-        "fr": "chef-d-equipe-union-bancaire-privee-geneva-switzerland"
+        "fr": "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
       },
       "company": "Union Bancaire Privée",
       "companyKey": "ubp",
@@ -3739,7 +3860,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/657",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:28.920Z",
+      "crawledAt": "2026-09-02T23:16:21.190Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3759,7 +3880,8 @@
       "previousSlugsByLocale": {
         "en": [
           "programme-pmo-and-delivery-lead-ubp-ch",
-          "senior-cash-projects-coordination-manager-ubp-ch"
+          "senior-cash-projects-coordination-manager-ubp-ch",
+          "team-head-cash-services-union-bancaire-privee-geneva-switzerland"
         ],
         "it": [
           "programma-pmo-e-piombo-di-consegna-union-bancaire-privee-geneva-switzerland",
@@ -3767,7 +3889,9 @@
           "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland",
           "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
           "programme-pmo-and-delivery-lead-consultant-ubp-ch",
-          "senior-cash-projects-coordination-manager-ubp-ch"
+          "senior-cash-projects-coordination-manager-ubp-ch",
+          "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+          "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "programm-pmo-und-delivery-lead-union-bancaire-privee-geneva-switzerland"
@@ -3775,6 +3899,7 @@
         "fr": [
           "gestionnaire-principal-des-projets-de-tresorerie-et-de-la-coordination-union-bancaire-privee-geneva-switzerland",
           "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
+          "chef-d-equipe-union-bancaire-privee-geneva-switzerland",
           "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
         ]
       },
@@ -3786,6 +3911,10 @@
         "programme-ogp-et-chef-de-file-union-bancaire-privee-geneva-switzerland",
         "programme-pmo-and-delivery-lead-consultant-ubp-ch",
         "senior-cash-projects-coordination-manager-ubp-ch",
+        "capo-servizi-di-contassa-union-bancaire-privee-geneva-switzerland",
+        "chef-d-equipe-union-bancaire-privee-geneva-switzerland",
+        "team-head-cash-services-union-bancaire-privee-geneva-switzerland",
+        "senior-cash-projects-coordination-manager-union-bancaire-privee-geneva-switzerland",
         "gestionnaire-principal-des-projets-en-especes-et-de-la-coordination-union-bancaire-privee-geneva-switzerland"
       ],
       "needsRetranslation": true,
@@ -3835,7 +3964,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1271",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:28.416Z",
+      "crawledAt": "2026-09-02T23:16:20.699Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3854,11 +3983,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-securities-transfer-ubp-ch",
-        "head-of-securities-transfer-union-bancaire-privee-geneva-switzerland"
+        "head-of-securities-transfer-union-bancaire-privee-geneva-switzerland",
+        "responsabile-securities-transfer-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-securities-transfer-ubp-ch"
+          "head-of-securities-transfer-ubp-ch",
+          "responsabile-securities-transfer-union-bancaire-privee-geneva-switzerland"
         ],
         "en": [
           "head-of-securities-transfer-union-bancaire-privee-geneva-switzerland"
@@ -3916,7 +4047,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1437",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:27.923Z",
+      "crawledAt": "2026-09-02T23:16:20.211Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3935,12 +4066,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "tax-specialist-temporary-8-months-ubp-ch",
-        "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa"
+        "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa",
+        "tax-specialista-temporary-8-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tax-specialist-temporary-8-months-ubp-ch",
-          "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa"
+          "tax-specialiste-union-bancaire-privee-geneva-switzerland-3161aa",
+          "tax-specialista-temporary-8-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "tax-specialist-temporary-8-months-ubp-ch"
@@ -3996,7 +4129,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1438",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:27.429Z",
+      "crawledAt": "2026-09-02T23:16:19.728Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4014,11 +4147,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "tax-specialist-temporary-6-months-ubp-ch"
+        "tax-specialist-temporary-6-months-ubp-ch",
+        "tax-specialista-temporary-6-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "tax-specialist-temporary-6-months-ubp-ch"
+          "tax-specialist-temporary-6-months-ubp-ch",
+          "tax-specialista-temporary-6-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "tax-specialist-temporary-6-months-ubp-ch"
@@ -4073,7 +4208,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1524",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:26.933Z",
+      "crawledAt": "2026-09-02T23:16:19.251Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4091,11 +4226,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "murex-technical-lead-consultant-ubp-ch"
+        "murex-technical-lead-consultant-ubp-ch",
+        "murex-technical-lead-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "murex-technical-lead-consultant-ubp-ch"
+          "murex-technical-lead-consultant-ubp-ch",
+          "murex-technical-lead-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "murex-technical-lead-consultant-ubp-ch"
@@ -4151,7 +4288,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1526",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:26.438Z",
+      "crawledAt": "2026-09-02T23:16:18.769Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4169,11 +4306,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "murex-treasury-ba-consultant-ubp-ch"
+        "murex-treasury-ba-consultant-ubp-ch",
+        "murex-treasury-ba-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "murex-treasury-ba-consultant-ubp-ch"
+          "murex-treasury-ba-consultant-ubp-ch",
+          "murex-treasury-ba-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "murex-treasury-ba-consultant-ubp-ch"
@@ -4226,7 +4365,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1525",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:25.956Z",
+      "crawledAt": "2026-09-02T23:16:18.281Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4244,11 +4383,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "murex-front-office-risk-sme-consultant-ubp-ch"
+        "murex-front-office-risk-sme-consultant-ubp-ch",
+        "murex-front-office-risk-sme-consulente-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "murex-front-office-risk-sme-consultant-ubp-ch"
+          "murex-front-office-risk-sme-consultant-ubp-ch",
+          "murex-front-office-risk-sme-consulente-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "murex-front-office-risk-sme-consultant-ubp-ch"
@@ -4301,7 +4442,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1532",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:25.466Z",
+      "crawledAt": "2026-09-02T23:16:17.798Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4319,11 +4460,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-client-administration-specialist-temporary-6-months-ubp-ch"
+        "junior-client-administration-specialist-temporary-6-months-ubp-ch",
+        "junior-client-administration-specialista-temporary-6-months-union-bancaire-privee-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-client-administration-specialist-temporary-6-months-ubp-ch"
+          "junior-client-administration-specialist-temporary-6-months-ubp-ch",
+          "junior-client-administration-specialista-temporary-6-months-union-bancaire-privee-geneva-switzerland"
         ],
         "de": [
           "junior-client-administration-specialist-temporary-6-months-ubp-ch"
@@ -4379,7 +4522,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/1464",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:42:24.993Z",
+      "crawledAt": "2026-09-02T23:16:17.297Z",
       "addressLocality": "Zurich, Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4416,8 +4559,8 @@
       "id": "ubp-e1df1489bd5e",
       "slug": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
       "slugByLocale": {
-        "en": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
         "it": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
+        "en": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
         "de": "compliance-officer-sanctions-corporate-due-diligence-ubp-ch",
         "fr": "compliance-officer-sanctions-corporate-due-diligence-union-bancaire-privee-geneva-switzerland"
       },
@@ -4426,15 +4569,15 @@
       "companyDomain": "ubp.com",
       "title": "Compliance Officer Sanctions & Corporate Due Diligence",
       "titleByLocale": {
-        "en": "Compliance Officer Sanctions & Corporate Due Diligence",
-        "fr": "Compliance Officer Sanctions & Corporate Due Diligence",
         "it": "Compliance Officer Sanctions & Corporate Due Diligence",
-        "de": "Compliance Officer Sanctions & Corporate Due Diligence"
+        "en": "Compliance Officer Sanctions & Corporate Due Diligence",
+        "de": "Compliance Officer Sanctions & Corporate Due Diligence",
+        "fr": "Compliance Officer Sanctions & Corporate Due Diligence"
       },
       "description": "• Mission\n• Support the Group Head of Sanctions & Corporate due diligence in the development and implementation of a strong control framework for corporate & shipping accounts.\n\n• Participate in projects and initiatives aimed at enhancing the bank's overall sanctions framework.\n\n• Assist Group Sanctions and Corporate due diligence teams in their daily tasks (due diligence on new and existing clients, ad-hoc reviews and monitoring of specific transactions).\n\n• Main responsibilities\n• Participate actively to Bank’s projects related to the global sanctions’ framework.\n\n• Perform in-depth reviews of commercial accounts from an AML, Tax and Sanction perspective.\n\n• Ensure compliance with international sanctions programs at UBP Group level by preparing work instructions/ guidance, ensuring and developing suitable tools and processes.\n\n• Perform periodic assessments of specific Group clients, products and/or services to identify any sanctions risks and take corrective actions if appropriate.\n\n• Ensure the Sanction’s watch including mainly SECO, EU and OFAC regimes for UBP Group.\n\n• Assess the impacts of new sanctions regimes across UBP Group and coordinate with other departments/ stakeholders as required.\n\n• Assist and advice transaction monitoring teams for any question related to sanctions and commercial accounts.\n\n• Participate to maintenance and configuration projects/initiatives of Group sanctions tools.\n\n• Investigate and report suspicious transactions to the relevant authorities, ensuring compliance with AML (Anti-Money Laundering) and sanctions regulations.\n\n• Provide day-to-day advice to colleagues in Compliance, BRMs and Front Office on the internal framework related to commercial accounts.\n\n• Participation in reviewing the internal regulatory framework governing the monitoring of transactional activities of commercial accounts.\n\n• Support the Group’s entities in reviewing commercial accounts opened in their books.\n\n• Your Profile\n• Master's degree.\n\n• Professional certifications such as CAMS (Certified Anti-Money Laundering Specialist/Sanctions Specialist) or CAS in Financial Services are preferred.\n\n• Minimum of 5 years of experience in AML, Sanctions, Tax or compliance within the financial services industry, ideally in universal banks.\n\n• Strong knowledge of regulatory requirements related to AML & Sanctions, including specificities linked to shipping and trade finance industries.\n\n• Excellent analytical skills and attention to detail.\n\n• Strong communication skills, with the ability to articulate complex regulatory issues to various stakeholders.\n\n• Work independently and as part of a team in a fast-paced environment.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
       "descriptionByLocale": {
-        "en": "• Mission\n• Support the Group Head of Sanctions & Corporate due diligence in the development and implementation of a strong control framework for corporate & shipping accounts.\n\n• Participate in projects and initiatives aimed at enhancing the bank's overall sanctions framework.\n\n• Assist Group Sanctions and Corporate due diligence teams in their daily tasks (due diligence on new and existing clients, ad-hoc reviews and monitoring of specific transactions).\n\n• Main responsibilities\n• Participate actively to Bank’s projects related to the global sanctions’ framework.\n\n• Perform in-depth reviews of commercial accounts from an AML, Tax and Sanction perspective.\n\n• Ensure compliance with international sanctions programs at UBP Group level by preparing work instructions/ guidance, ensuring and developing suitable tools and processes.\n\n• Perform periodic assessments of specific Group clients, products and/or services to identify any sanctions risks and take corrective actions if appropriate.\n\n• Ensure the Sanction’s watch including mainly SECO, EU and OFAC regimes for UBP Group.\n\n• Assess the impacts of new sanctions regimes across UBP Group and coordinate with other departments/ stakeholders as required.\n\n• Assist and advice transaction monitoring teams for any question related to sanctions and commercial accounts.\n\n• Participate to maintenance and configuration projects/initiatives of Group sanctions tools.\n\n• Investigate and report suspicious transactions to the relevant authorities, ensuring compliance with AML (Anti-Money Laundering) and sanctions regulations.\n\n• Provide day-to-day advice to colleagues in Compliance, BRMs and Front Office on the internal framework related to commercial accounts.\n\n• Participation in reviewing the internal regulatory framework governing the monitoring of transactional activities of commercial accounts.\n\n• Support the Group’s entities in reviewing commercial accounts opened in their books.\n\n• Your Profile\n• Master's degree.\n\n• Professional certifications such as CAMS (Certified Anti-Money Laundering Specialist/Sanctions Specialist) or CAS in Financial Services are preferred.\n\n• Minimum of 5 years of experience in AML, Sanctions, Tax or compliance within the financial services industry, ideally in universal banks.\n\n• Strong knowledge of regulatory requirements related to AML & Sanctions, including specificities linked to shipping and trade finance industries.\n\n• Excellent analytical skills and attention to detail.\n\n• Strong communication skills, with the ability to articulate complex regulatory issues to various stakeholders.\n\n• Work independently and as part of a team in a fast-paced environment.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
         "it": "• Mission\n• Support the Group Head of Sanctions & Corporate due diligence in the development and implementation of a strong control framework for corporate & shipping accounts.\n\n• Participate in projects and initiatives aimed at enhancing the bank's overall sanctions framework.\n\n• Assist Group Sanctions and Corporate due diligence teams in their daily tasks (due diligence on new and existing clients, ad-hoc reviews and monitoring of specific transactions).\n\n• Main responsibilities\n• Participate actively to Bank’s projects related to the global sanctions’ framework.\n\n• Perform in-depth reviews of commercial accounts from an AML, Tax and Sanction perspective.\n\n• Ensure compliance with international sanctions programs at UBP Group level by preparing work instructions/ guidance, ensuring and developing suitable tools and processes.\n\n• Perform periodic assessments of specific Group clients, products and/or services to identify any sanctions risks and take corrective actions if appropriate.\n\n• Ensure the Sanction’s watch including mainly SECO, EU and OFAC regimes for UBP Group.\n\n• Assess the impacts of new sanctions regimes across UBP Group and coordinate with other departments/ stakeholders as required.\n\n• Assist and advice transaction monitoring teams for any question related to sanctions and commercial accounts.\n\n• Participate to maintenance and configuration projects/initiatives of Group sanctions tools.\n\n• Investigate and report suspicious transactions to the relevant authorities, ensuring compliance with AML (Anti-Money Laundering) and sanctions regulations.\n\n• Provide day-to-day advice to colleagues in Compliance, BRMs and Front Office on the internal framework related to commercial accounts.\n\n• Participation in reviewing the internal regulatory framework governing the monitoring of transactional activities of commercial accounts.\n\n• Support the Group’s entities in reviewing commercial accounts opened in their books.\n\n• Your Profile\n• Master's degree.\n\n• Professional certifications such as CAMS (Certified Anti-Money Laundering Specialist/Sanctions Specialist) or CAS in Financial Services are preferred.\n\n• Minimum of 5 years of experience in AML, Sanctions, Tax or compliance within the financial services industry, ideally in universal banks.\n\n• Strong knowledge of regulatory requirements related to AML & Sanctions, including specificities linked to shipping and trade finance industries.\n\n• Excellent analytical skills and attention to detail.\n\n• Strong communication skills, with the ability to articulate complex regulatory issues to various stakeholders.\n\n• Work independently and as part of a team in a fast-paced environment.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
+        "en": "• Mission\n• Support the Group Head of Sanctions & Corporate due diligence in the development and implementation of a strong control framework for corporate & shipping accounts.\n\n• Participate in projects and initiatives aimed at enhancing the bank's overall sanctions framework.\n\n• Assist Group Sanctions and Corporate due diligence teams in their daily tasks (due diligence on new and existing clients, ad-hoc reviews and monitoring of specific transactions).\n\n• Main responsibilities\n• Participate actively to Bank’s projects related to the global sanctions’ framework.\n\n• Perform in-depth reviews of commercial accounts from an AML, Tax and Sanction perspective.\n\n• Ensure compliance with international sanctions programs at UBP Group level by preparing work instructions/ guidance, ensuring and developing suitable tools and processes.\n\n• Perform periodic assessments of specific Group clients, products and/or services to identify any sanctions risks and take corrective actions if appropriate.\n\n• Ensure the Sanction’s watch including mainly SECO, EU and OFAC regimes for UBP Group.\n\n• Assess the impacts of new sanctions regimes across UBP Group and coordinate with other departments/ stakeholders as required.\n\n• Assist and advice transaction monitoring teams for any question related to sanctions and commercial accounts.\n\n• Participate to maintenance and configuration projects/initiatives of Group sanctions tools.\n\n• Investigate and report suspicious transactions to the relevant authorities, ensuring compliance with AML (Anti-Money Laundering) and sanctions regulations.\n\n• Provide day-to-day advice to colleagues in Compliance, BRMs and Front Office on the internal framework related to commercial accounts.\n\n• Participation in reviewing the internal regulatory framework governing the monitoring of transactional activities of commercial accounts.\n\n• Support the Group’s entities in reviewing commercial accounts opened in their books.\n\n• Your Profile\n• Master's degree.\n\n• Professional certifications such as CAMS (Certified Anti-Money Laundering Specialist/Sanctions Specialist) or CAS in Financial Services are preferred.\n\n• Minimum of 5 years of experience in AML, Sanctions, Tax or compliance within the financial services industry, ideally in universal banks.\n\n• Strong knowledge of regulatory requirements related to AML & Sanctions, including specificities linked to shipping and trade finance industries.\n\n• Excellent analytical skills and attention to detail.\n\n• Strong communication skills, with the ability to articulate complex regulatory issues to various stakeholders.\n\n• Work independently and as part of a team in a fast-paced environment.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
         "de": "• Mission\n• Support the Group Head of Sanctions & Corporate due diligence in the development and implementation of a strong control framework for corporate & shipping accounts.\n\n• Participate in projects and initiatives aimed at enhancing the bank's overall sanctions framework.\n\n• Assist Group Sanctions and Corporate due diligence teams in their daily tasks (due diligence on new and existing clients, ad-hoc reviews and monitoring of specific transactions).\n\n• Main responsibilities\n• Participate actively to Bank’s projects related to the global sanctions’ framework.\n\n• Perform in-depth reviews of commercial accounts from an AML, Tax and Sanction perspective.\n\n• Ensure compliance with international sanctions programs at UBP Group level by preparing work instructions/ guidance, ensuring and developing suitable tools and processes.\n\n• Perform periodic assessments of specific Group clients, products and/or services to identify any sanctions risks and take corrective actions if appropriate.\n\n• Ensure the Sanction’s watch including mainly SECO, EU and OFAC regimes for UBP Group.\n\n• Assess the impacts of new sanctions regimes across UBP Group and coordinate with other departments/ stakeholders as required.\n\n• Assist and advice transaction monitoring teams for any question related to sanctions and commercial accounts.\n\n• Participate to maintenance and configuration projects/initiatives of Group sanctions tools.\n\n• Investigate and report suspicious transactions to the relevant authorities, ensuring compliance with AML (Anti-Money Laundering) and sanctions regulations.\n\n• Provide day-to-day advice to colleagues in Compliance, BRMs and Front Office on the internal framework related to commercial accounts.\n\n• Participation in reviewing the internal regulatory framework governing the monitoring of transactional activities of commercial accounts.\n\n• Support the Group’s entities in reviewing commercial accounts opened in their books.\n\n• Your Profile\n• Master's degree.\n\n• Professional certifications such as CAMS (Certified Anti-Money Laundering Specialist/Sanctions Specialist) or CAS in Financial Services are preferred.\n\n• Minimum of 5 years of experience in AML, Sanctions, Tax or compliance within the financial services industry, ideally in universal banks.\n\n• Strong knowledge of regulatory requirements related to AML & Sanctions, including specificities linked to shipping and trade finance industries.\n\n• Excellent analytical skills and attention to detail.\n\n• Strong communication skills, with the ability to articulate complex regulatory issues to various stakeholders.\n\n• Work independently and as part of a team in a fast-paced environment.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
         "fr": "• Mission\n• Support the Group Head of Sanctions & Corporate due diligence in the development and implementation of a strong control framework for corporate & shipping accounts.\n\n• Participate in projects and initiatives aimed at enhancing the bank's overall sanctions framework.\n\n• Assist Group Sanctions and Corporate due diligence teams in their daily tasks (due diligence on new and existing clients, ad-hoc reviews and monitoring of specific transactions).\n\n• Main responsibilities\n• Participate actively to Bank’s projects related to the global sanctions’ framework.\n\n• Perform in-depth reviews of commercial accounts from an AML, Tax and Sanction perspective.\n\n• Ensure compliance with international sanctions programs at UBP Group level by preparing work instructions/ guidance, ensuring and developing suitable tools and processes.\n\n• Perform periodic assessments of specific Group clients, products and/or services to identify any sanctions risks and take corrective actions if appropriate.\n\n• Ensure the Sanction’s watch including mainly SECO, EU and OFAC regimes for UBP Group.\n\n• Assess the impacts of new sanctions regimes across UBP Group and coordinate with other departments/ stakeholders as required.\n\n• Assist and advice transaction monitoring teams for any question related to sanctions and commercial accounts.\n\n• Participate to maintenance and configuration projects/initiatives of Group sanctions tools.\n\n• Investigate and report suspicious transactions to the relevant authorities, ensuring compliance with AML (Anti-Money Laundering) and sanctions regulations.\n\n• Provide day-to-day advice to colleagues in Compliance, BRMs and Front Office on the internal framework related to commercial accounts.\n\n• Participation in reviewing the internal regulatory framework governing the monitoring of transactional activities of commercial accounts.\n\n• Support the Group’s entities in reviewing commercial accounts opened in their books.\n\n• Your Profile\n• Master's degree.\n\n• Professional certifications such as CAMS (Certified Anti-Money Laundering Specialist/Sanctions Specialist) or CAS in Financial Services are preferred.\n\n• Minimum of 5 years of experience in AML, Sanctions, Tax or compliance within the financial services industry, ideally in universal banks.\n\n• Strong knowledge of regulatory requirements related to AML & Sanctions, including specificities linked to shipping and trade finance industries.\n\n• Excellent analytical skills and attention to detail.\n\n• Strong communication skills, with the ability to articulate complex regulatory issues to various stakeholders.\n\n• Work independently and as part of a team in a fast-paced environment.\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives"
       },
@@ -4443,7 +4586,7 @@
       "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/380",
       "source": "Union Bancaire Privée Oracle HCM API",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:42:24.499Z",
+      "crawledAt": "2026-09-02T23:16:16.814Z",
       "addressLocality": "Geneva, Switzerland",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -4459,10 +4602,9 @@
       "postedDate": "2026-09-02",
       "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/380",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-02T13:42:24.499Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4475,88 +4617,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-02T13:42:24.499Z"
-    },
-    {
-      "id": "ubp-4376e1c85523",
-      "slug": "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland",
-      "slugByLocale": {
-        "it": "gestore-del-rischio-business-di-wm-union-bancaire-privee-geneva-switzerland",
-        "en": "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland",
-        "de": "wm-business-risk-manager-ubp-ch",
-        "fr": "wm-gestionnaire-des-risques-operationnels-union-bancaire-privee-geneva-switzerland"
-      },
-      "company": "Union Bancaire Privée",
-      "companyKey": "ubp",
-      "companyDomain": "ubp.com",
-      "title": "WM Business Risk Manager",
-      "titleByLocale": {
-        "it": "WM Business Risk Manager",
-        "en": "WM Business Risk Manager",
-        "de": "WM Business Risk Manager",
-        "fr": "WM Gestionnaire des risques opérationnels"
-      },
-      "description": "Mission\n The Business Risk Management team plays a key role within the Wealth Management (First Line of Defence). Business Risk Managers (BRM) are the internal referents within Front Office on the subjects of AML, CDB, Risk Appetite and KYC/KYT, and are responsible of opening client accounts and addressing transactional alerts for lower account risk categories.\n Main responsibilities\n\n• Manage onboarding of client accounts end-to-end.\n\n• Perform formal controls on all risk level client onboardings and review the documentation to ensure that it complies with the local and international regulations (CDB, CRS, FATCA) as well as the Bank’s directives and procedures.\n\n• Perform reviews of onboarding file (AML, KYC, KYT, adverse news screening to mitigate risks) prior to Onboarding (lower risks) or Compliance submission (higher risks) with a strong focus on standard and medium risk relations for material checks.\n\n• Ensure documentary accuracy and completeness of corroborations and evidences in adherence to the Bank’s qualitative risk appetite and standards.\n\n• Ensure that, when applicable, the SLA for onboarding is respected.\n\n• Ensure appropriate documentation of, review and close all normal and medium risk Transactional alerts clarified by the front office in a timely manner.\n\n• Launch Event Driven updates following transactional activity shifts and change in Circumstances in the client life cycle to keep KYC/KYT in line with the client’s activity.\n\n• Escalate any deviations from the Bank’s standards to line management and control functions according to policies in place.\n\n• Upon Management’s request, act as a relay of authority within the WM Markets on certain initiatives.\n\n• Apply the changes required by Compliance Quality Control feedbacks in a continuous improvement manner.\n\n• Digital and manual input in the Bank’s systems relating to account openings.\n\n• Collaborate actively across markets with BRMs and Senior BRMs to balance workloads, protect deadlines, and leverage specific market expertise when required.\n\n• Any other task required by Management relating to the Mission of the employee.\n\nYour Profile\n\n• University degree (Bachelor) or a qualification considered equivalent.\n\n• Private Banking, Central file or WM Compliance or equivalent background with strong understanding of CDB, AML, tax regulations and sanctions matters. Any previous experience with MEA markets is an added value.\n\n• Min 5 years of experience.\n\n• Strong interpersonal and communication skills with the flexibility to seamlessly interact with different levels of seniority and authority.\n\n• Good command of the Bank’s systems and MS Office suite. Knowledge of Power-BI is a plus.\n\n• Fluent in French and English. Any additional language skill is an added value, in particular Arabic.\n\n• Solution oriented team player, capable of working independently.\n\n• Stress resistant, reliable, and flexible.\n\n• Able and willing to learn, acquire new skills and grow in an agile organization.\n\nOthers\n\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-      "descriptionByLocale": {
-        "it": "Missione\nIl team di Business Risk Management svolge un ruolo chiave nella gestione della ricchezza (Prima linea di difesa). Business Risk Managers (BRM) sono i referenti interni all'interno di Front Office sui soggetti di AML, CDB, Risk Appetite e KYC/KYT, e sono responsabili di aprire account client e indirizzare avvisi transazionali per categorie di rischio di account più bassi.\nPrincipali responsabilità\n\n• Gestisci l'invio di account client end-to-end.\n\n• Eseguire controlli formali su tutte le ispezioni client a livello di rischio e rivedere la documentazione per garantire che sia conforme alle normative locali e internazionali (CDB, CRS, FATCA) così come le direttive e le procedure della Banca.\n\n• Eseguire le recensioni di file onboarding (AML, KYC, KYT, screening di notizie avverse per mitigare i rischi) prima di Onboarding (rischi più bassi) o Compliance (rischi più elevati) con una forte attenzione alle relazioni standard e medio rischio per i controlli materiali.\n\n• Assicurare l’accuratezza e la completezza documentale delle corroborazioni e delle prove nell’aderenza all’appetito e agli standard qualitativi del rischio della Banca.\n\n• Assicurarsi che, quando applicabile, la SLA per l'imbarco sia rispettata.\n\n• Assicurare la documentazione appropriata di, rivedere e chiudere tutti i normali e medio rischio avvisi Transactional chiariti dal front office in modo tempestivo.\n\n• Avviare gli aggiornamenti dell'evento in seguito ai cambiamenti di attività transazionale e al cambiamento delle circostanze nel ciclo di vita del cliente per mantenere KYC/KYT in linea con l'attività del cliente.\n\n• Escalare eventuali deviazioni dagli standard della Banca alle funzioni di gestione e controllo delle linee secondo le politiche in vigore.\n\n• Su richiesta della Direzione, agire come relè di autorità all’interno dei mercati WM su determinate iniziative.\n\n• Applicare le modifiche richieste dai feedback Compliance Quality Control in modo continuo miglioramento.\n\n• Ingresso digitale e manuale nei sistemi della Banca relativi alle aperture del conto.\n\n• Collabora attivamente sui mercati con BRM e BRM senior per bilanciare i carichi di lavoro, proteggere le scadenze e sfruttare specifiche competenze di mercato quando necessario.\n\n• Qualsiasi altro compito richiesto dalla Direzione relativo alla Missione del dipendente.\n\nIl tuo profilo\n\n• Laurea universitaria (Bachelor) o una qualifica considerata equivalente.\n\n• Private Banking, file centrale o WM Compliance o background equivalente con una forte comprensione di CDB, AML, regolamenti fiscali e sanzioni questioni. Qualsiasi esperienza precedente con i mercati MEA è un valore aggiunto.\n\n• Min 5 anni di esperienza.\n\n• Forte capacità interpersonali e di comunicazione con la flessibilità di interagire senza soluzione di continuità con diversi livelli di anzianità e autorità.\n\n• Buon comando dei sistemi della Banca e della suite MS Office. La conoscenza del Power-BI è un plus.\n\n• Fluente in francese e inglese. Qualsiasi abilità linguistica aggiuntiva è un valore aggiunto, in particolare l'arabo.\n\n• Giocatore di squadra orientato alla soluzione, capace di lavorare indipendentemente.\n\n• Resistente allo stress, affidabile e flessibile.\n\n• Abile e disposto a imparare, acquisire nuove competenze e crescere in un'organizzazione agile.\n\nAltri\n\n• Residenza svizzera\n\nCompetenze fondamentali: Aderenza ai valori dell’azienda: Dedicazione, Convizione, Agility e Responsabilità - Rispetto dei regolamenti e delle direttive interne",
-        "en": "Mission\nThe Business Risk Management team plays a key role within the Wealth Management (First Line of Defence). Business Risk Managers (BRM) are the internal referents within Front Office on the subjects of AML, CDB, Risk Appetite and KYC/KYT, and are responsible of opening client accounts and addressing transactional alerts for lower account risk categories.\nMain responsibilities\n\n• Manage onboarding of client accounts end-to-end.\n\n• Perform formal controls on all risk level client onboardings and review the documentation to ensure that it complies with the local and international regulations (CDB, CRS, FATCA) as well as the Bank’s directives and procedures.\n\n• Perform reviews of onboarding file (AML, KYC, KYT, adverse news screening to mitigate risks) prior to Onboarding (lower risks) or Compliance submission (higher risks) with a strong focus on standard and medium risk relations for material checks.\n\n• Ensure documentary accuracy and completeness of corroborations and evidences in adherence to the Bank’s qualitative risk appetite and standards.\n\n• Ensure that, when applicable, the SLA for onboarding is respected.\n\n• Ensure appropriate documentation of, review and close all normal and medium risk Transactional alerts clarified by the front office in a timely manner.\n\n• Launch Event Driven updates following transactional activity shifts and change in Circumstances in the client life cycle to keep KYC/KYT in line with the client’s activity.\n\n• Escalate any deviations from the Bank’s standards to line management and control functions according to policies in place.\n\n• Upon Management’s request, act as a relay of authority within the WM Markets on certain initiatives.\n\n• Apply the changes required by Compliance Quality Control feedbacks in a continuous improvement manner.\n\n• Digital and manual input in the Bank’s systems relating to account openings.\n\n• Collaborate actively across markets with BRMs and Senior BRMs to balance workloads, protect deadlines, and leverage specific market expertise when required.\n\n• Any other task required by Management relating to the Mission of the employee.\n\nYour Profile\n\n• University degree (Bachelor) or a qualification considered equivalent.\n\n• Private Banking, Central file or WM Compliance or equivalent background with strong understanding of CDB, AML, tax regulations and sanctions matters. Any previous experience with MEA markets is an added value.\n\n• Min 5 years of experience.\n\n• Strong interpersonal and communication skills with the flexibility to seamlessly interact with different levels of seniority and authority.\n\n• Good command of the Bank’s systems and MS Office suite. Knowledge of Power-BI is a plus.\n\n• Fluent in French and English. Any additional language skill is an added value, in particular Arabic.\n\n• Solution oriented team player, capable of working independently.\n\n• Stress resistant, reliable, and flexible.\n\n• Able and willing to learn, acquire new skills and grow in an agile organization.\n\nOthers\n\n• Swiss Residence\n\nCore Competencies : Adherence to the company’s values: Dedication, Conviction, Agility and Responsibility - Compliance with regulations and internal directives",
-        "de": "Mission\nDas Business Risk Management Team spielt eine Schlüsselrolle im Wealth Management (First Line of Defence). Business Risk Manager (BRM) sind die internen Referenten innerhalb des Front Office zu den Themen AML, CDB, Risk Appetite und KYC/KYT und sind für die Eröffnung von Kundenkonten und die Adressierung von Transaktionsbenachrichtigungen für niedrigere Risikokategorien verantwortlich.\nHauptzuständigkeiten\n\n• Verwalten Sie das Onboarding von Kundenkonten durchgängig.\n\n• Führen Sie formale Kontrollen aller risikoorientierten Kunden-Onboardings durch und überprüfen Sie die Dokumentation, um sicherzustellen, dass sie den lokalen und internationalen Vorschriften (CDB, CRS, FATCA) sowie den Richtlinien und Verfahren der Bank entspricht.\n\n• Durchführung von Überprüfungen von Onboarding-Dateien (AML, KYC, KYT, Screening negativer Nachrichten zur Risikominderung) vor Onboarding (geringere Risiken) oder Compliance-Einreichung (höhere Risiken) mit einem starken Fokus auf Standard- und Mittelrisikobeziehungen für Materialprüfungen.\n\n• Gewährleistung der Dokumentationsgenauigkeit und Vollständigkeit der Bestätigungen und Nachweise in Übereinstimmung mit der qualitativen Risikobereitschaft und den Standards der Bank.\n\n• Stellen Sie sicher, dass gegebenenfalls die SLA für das Onboarding eingehalten wird.\n\n• Gewährleistung einer angemessenen Dokumentation, Überprüfung und Schließung aller normalen und mittleren Risiko-Transaktionswarnungen, die vom Front Office rechtzeitig geklärt werden.\n\n• Starten Sie Event Driven-Updates nach transaktionalen Aktivitätsverschiebungen und Änderungen der Umstände im Clientlebenszyklus, um KYC/KYT in Einklang mit der Aktivität des Kunden zu halten.\n\n• Eskalieren Sie alle Abweichungen von den Standards der Bank zu den Linienmanagement- und Kontrollfunktionen gemäß den geltenden Richtlinien.\n\n• Handeln Sie auf Wunsch des Managements als Autoritätsrelais innerhalb der WM Markets für bestimmte Initiativen.\n\n• Wenden Sie die von Compliance-Qualitätskontroll-Feedbacks geforderten Änderungen in einer kontinuierlichen Verbesserung an.\n\n• Digitale und manuelle Eingabe in die Systeme der Bank in Bezug auf Kontoeröffnungen.\n\n• Marktübergreifend aktiv mit BRMs und Senior BRMs zusammenarbeiten, um Workloads auszugleichen, Termine zu schützen und bei Bedarf spezifische Marktkenntnisse zu nutzen.\n\n• Jede andere Aufgabe, die vom Management in Bezug auf die Mission des Mitarbeiters erforderlich ist.\n\nIhr Profil\n\n• Universitätsabschluss (Bachelor) oder eine Qualifikation als gleichwertig angesehen.\n\n• Private Banking, Central File oder WM Compliance oder gleichwertiger Hintergrund mit starkem Verständnis von CDB, AML, Steuervorschriften und Sanktionen. Jede vorherige Erfahrung mit MEA-Märkten ist ein Mehrwert.\n\n• Min 5 Jahre Erfahrung.\n\n• Starke zwischenmenschliche und kommunikative Fähigkeiten mit der Flexibilität, nahtlos mit verschiedenen Ebenen von Dienstalter und Autorität zu interagieren.\n\n• Gute Beherrschung der Systeme der Bank und MS Office Suite. Wissen über Power-BI ist ein Plus.\n\n• Fließend in Französisch und Englisch. Jede zusätzliche Sprachkompetenz ist ein Mehrwert, insbesondere Arabisch.\n\n• Lösungsorientierter Teamplayer, der unabhängig arbeiten kann.\n\n• Stressresistent, zuverlässig und flexibel.\n\n• Fähig und bereit zu lernen, neue Fähigkeiten zu erwerben und in einer agilen Organisation zu wachsen.\n\nAndere\n\n• Schweizer Residenz\n\nKernkompetenzen : Einhaltung der Werte des Unternehmens: Hingabe, Überzeugung, Agilität und Verantwortung - Einhaltung von Vorschriften und internen Richtlinien",
-        "fr": "Mission\nL'équipe de gestion des risques opérationnels joue un rôle clé au sein de la Gestion de patrimoine (Première ligne de défense). Les gestionnaires des risques opérationnels (GRP) sont les référents internes au sein de l'administration centrale sur les sujets de la LMA, de la BDC, de l'appétit des risques et du KYC/KYT, et sont responsables de l'ouverture des comptes clients et de l'examen des alertes transactionnelles pour les catégories de risques moins importantes.\nPrincipales responsabilités\n\n• Gérer l'embarquement des comptes clients de bout en bout.\n\n• Effectuer des contrôles officiels sur tous les niveaux de risque des clients à bord et examiner la documentation pour s'assurer qu'elle est conforme aux règlements locaux et internationaux (CDB, CRS, FATCA) ainsi qu'aux directives et procédures de la Banque.\n\n• Effectuer des examens des dossiers d'embarquement (AML, KYC, KYT, dépistage des nouvelles indésirables afin d'atténuer les risques) avant d'aller à bord (risques moindres) ou de soumettre une demande de conformité (risques plus élevés) en mettant fortement l'accent sur les relations de risque normalisées et moyennes pour les vérifications matérielles.\n\n• Assurer l'exactitude documentaire et l'exhaustivité des corroborations et des preuves en conformité avec les normes et l'appétit qualitatifs de risque de la Banque.\n\n• S'assurer que, le cas échéant, l'ALS pour l'embarquement est respecté.\n\n• Assurer la documentation appropriée, examiner et fermer toutes les alertes transactionnelles à risque normal et moyen clarifiées par le bureau principal en temps opportun.\n\n• Lancer Event Driven mises à jour suite aux changements d'activité transactionnelle et de changement dans les circonstances du cycle de vie du client pour maintenir KYC/KYT en ligne avec l'activité du client.\n\n• Élargir les écarts par rapport aux normes de la Banque aux fonctions de gestion et de contrôle des lignes conformément aux politiques en place.\n\n• Sur demande de la direction, agir comme relais d'autorité au sein des Marchés de WM sur certaines initiatives.\n\n• Appliquer les changements requis par les rétroactions du contrôle de la qualité de la conformité de façon continue.\n\n• Entrées numériques et manuelles dans les systèmes de la Banque concernant les ouvertures de comptes.\n\n• Collaborer activement à l'échelle des marchés avec les GRM et les GRM supérieurs afin d'équilibrer la charge de travail, de protéger les échéances et de tirer parti de l'expertise du marché au besoin.\n\n• Toute autre tâche exigée par la direction concernant la mission de l'employé.\n\nVotre profil\n\n• Diplôme universitaire (Bachelor) ou une qualification considérée comme équivalente.\n\n• Private Banking, Central file ou WM Conformité ou expérience équivalente avec une bonne compréhension des questions de CDB, de LAM, de réglementation fiscale et de sanctions. Toute expérience antérieure sur les marchés des AEM est une valeur ajoutée.\n\n• Moins 5 ans d'expérience.\n\n• Fortes aptitudes interpersonnelles et de communication avec la souplesse nécessaire pour interagir de façon transparente avec différents niveaux d'ancienneté et d'autorité.\n\n• Bonne maîtrise des systèmes de la Banque et de la suite MS Office. La connaissance du pouvoir-BI est un plus.\n\n• Fluent en français et en anglais. Toute compétence linguistique supplémentaire est une valeur ajoutée, en particulier l'arabe.\n\n• Joueur d'équipe orienté solution, capable de travailler indépendamment.\n\n• Résistant au stress, fiable et flexible.\n\n• Capable et disposé à apprendre, à acquérir de nouvelles compétences et à grandir dans une organisation agile.\n\nAutres\n\n• Résidence suisse\n\nCompétences de base : Adhérence aux valeurs de l'entreprise : Dédicace, Conviction, Agilité et Responsabilité - Respect des règlements et des directives internes"
-      },
-      "location": "Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
-      "source": "Union Bancaire Privée Oracle HCM API",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-01T14:18:59.048Z",
-      "addressLocality": "Geneva, Switzerland",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6900",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Banca / Gestione patrimoniale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://iaadtu.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_1/job/986",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "wm-business-risk-manager-ubp-ch"
-        ],
-        "it": [
-          "wm-business-risk-manager-ubp-ch"
-        ],
-        "fr": [
-          "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland"
-        ]
-      },
-      "previousSlugs": [
-        "wm-business-risk-manager-ubp-ch",
-        "wm-business-risk-manager-union-bancaire-privee-geneva-switzerland"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-28T11:30:12.370Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
+      }
     }
   ]
 }
