@@ -11154,6 +11154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-malles-venosta-lavorare-grigioni.title': 'Malles Venosta and Grisons: border tax 2024',
     'blog.article.vivere-malles-venosta-lavorare-grigioni.excerpt': 'From 1 January 2024, the New Frontier Agreement modifies taxation and permits. Discover tax at source, deductibles, AVS and LAMal for those who live in Val Venosta and work in Switzerland.',
     'blog.article.vivere-malles-venosta-lavorare-grigioni.imageAlt': 'Alpine valley landscape between Val Venosta and Grisons, Swiss-Italian border region',
+    'blog.article.guida-vivere-mese-grigioni.title': 'Living by Month and Working in Graubünden: A Tax Guide',
+    'blog.article.guida-vivere-mese-grigioni.excerpt': 'Permit G, tax at source and deductible of border income: a guide for those who live in Mese and work in Swiss Graubünden. Standards 2024, LAMal, procedure.',
+    'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Panoramic view of the Switzerland-Italy border on Lake Lugano at sunset',
 };
 
 export default blogMetaEn;

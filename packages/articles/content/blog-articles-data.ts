@@ -33330,6 +33330,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'guida-vivere-mese-grigioni',
+ category: 'fiscale',
+ date: '2026-09-02T23:43:39.896Z',
+ image: '/images/blog/guida-vivere-mese-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
