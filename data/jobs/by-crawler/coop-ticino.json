@@ -4854,7 +4854,7 @@
     },
     {
       "id": "company-hg5azb",
-      "slug": "verkaufer-in-food-to-go-coop-city-zurich",
+      "slug": "addetto-a-food-to-go-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food to go",
       "location": "Zürich",
@@ -4900,10 +4900,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-to-go-coop-city-zurich-hg5azb",
-        "en": "verkaufer-in-food-to-go-coop-city-zurich-hg5azb",
+        "it": "addetto-a-food-to-go-coop-genossenschaft-zurich",
+        "en": "sales-associate-food-to-go-coop-genossenschaft-zurich",
         "de": "verkaufer-in-food-to-go-coop-city-zurich-hg5azb",
-        "fr": "verkaufer-in-food-to-go-coop-city-zurich-hg5azb"
+        "fr": "vendeur-se-food-to-go-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -4920,11 +4920,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-to-go-coop-city-zurich-hg5azb",
+          "verkaufer-in-food-to-go-coop-city-zurich"
+        ],
+        "en": [
+          "verkaufer-in-food-to-go-coop-city-zurich-hg5azb"
+        ],
+        "fr": [
+          "verkaufer-in-food-to-go-coop-city-zurich-hg5azb"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-to-go-coop-city-zurich-hg5azb",
+        "verkaufer-in-food-to-go-coop-city-zurich"
+      ]
     },
     {
       "id": "company-o5khvb",
-      "slug": "verkaufer-in-food-coop-balgach-sankt-gallen",
+      "slug": "venditore-trice-food-coop-genossenschaft-balgach",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Balgach, Sankt Gallen",
@@ -4970,10 +4986,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb",
-        "en": "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb",
+        "it": "venditore-trice-food-coop-genossenschaft-balgach",
+        "en": "salesman-food-coop-genossenschaft-balgach",
         "de": "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb",
-        "fr": "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb"
+        "fr": "vendeur-aliment-coop-genossenschaft-balgach"
       },
       "addressLocality": "Balgach",
       "sourceLang": "de",
@@ -4990,7 +5006,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb",
+          "verkaufer-in-food-coop-balgach-sankt-gallen"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-balgach-sankt-gallen-o5khvb",
+        "verkaufer-in-food-coop-balgach-sankt-gallen"
+      ]
     },
     {
       "id": "company-h3iik1",
@@ -5048,7 +5080,7 @@
     },
     {
       "id": "company-2d3q8k",
-      "slug": "verkaufer-in-food-sapori-coop-bern",
+      "slug": "venditore-food-sapori-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food Sapori",
       "location": "Bern",
@@ -5098,10 +5130,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
-        "en": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+        "it": "venditore-food-sapori-coop-genossenschaft-bern",
+        "en": "sales-associate-food-sapori-coop-genossenschaft-bern",
         "de": "verkaufer-in-food-sapori-coop-bern-2d3q8k",
-        "fr": "verkaufer-in-food-sapori-coop-bern-2d3q8k"
+        "fr": "saleurs-dans-les-sapori-alimentaires-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -5118,7 +5150,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+          "verkaufer-in-food-sapori-coop-bern"
+        ],
+        "en": [
+          "verkaufer-in-food-sapori-coop-bern-2d3q8k"
+        ],
+        "fr": [
+          "verkaufer-in-food-sapori-coop-bern-2d3q8k"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-sapori-coop-bern-2d3q8k",
+        "verkaufer-in-food-sapori-coop-bern"
+      ]
     },
     {
       "id": "company-7mymbl",
@@ -5187,7 +5235,7 @@
     },
     {
       "id": "company-2ncvez",
-      "slug": "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau",
+      "slug": "responsabile-team-logistica-fiori-e-piante-coop-genossenschaft-schafisheim",
       "company": "Coop Genossenschaft",
       "title": "Teamleiter Logistik Blumen & Pflanzen",
       "location": "Schafisheim, Aargau",
@@ -5224,10 +5272,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez",
-        "en": "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez",
+        "it": "responsabile-team-logistica-fiori-e-piante-coop-genossenschaft-schafisheim",
+        "en": "logistics-team-lead-flowers-plants-coop-genossenschaft-schafisheim",
         "de": "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez",
-        "fr": "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez"
+        "fr": "responsable-d-equipe-logistique-fleurs-et-plantes-coop-genossenschaft-schafisheim"
       },
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
@@ -5244,7 +5292,23 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez",
+          "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau"
+        ],
+        "en": [
+          "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez"
+        ],
+        "fr": [
+          "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau-2ncvez",
+        "teamleiter-logistik-blumen-pflanzen-coop-schafisheim-aargau"
+      ]
     },
     {
       "id": "company-ac7bz",
@@ -5313,7 +5377,7 @@
     },
     {
       "id": "company-5ucvyu",
-      "slug": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern",
+      "slug": "addetto-a-al-controlling-immobiliare-80-coop-immobilien-bern",
       "company": "Coop Immobilien",
       "title": "Sachbearbeiter:in Liegenschafts-Controlling, 80%",
       "location": "Bern",
@@ -5350,10 +5414,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu",
-        "en": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu",
+        "it": "addetto-a-al-controlling-immobiliare-80-coop-immobilien-bern",
+        "en": "property-management-controlling-clerk-80-coop-immobilien-bern",
         "de": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu",
-        "fr": "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu"
+        "fr": "charge-e-du-controle-de-gestion-immobilier-80-coop-immobilien-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -5370,7 +5434,23 @@
           "maxValue": 99600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu",
+          "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern"
+        ],
+        "en": [
+          "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu"
+        ],
+        "fr": [
+          "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern-5ucvyu",
+        "sachbearbeiter-in-liegenschafts-controlling-80-coop-immobilien-bern"
+      ]
     },
     {
       "id": "company-khnzf5",
@@ -5439,7 +5519,7 @@
     },
     {
       "id": "company-rpgyc1",
-      "slug": "verkaufer-in-food-frischprodukte-coop-winterthur-zurich",
+      "slug": "venditore-venditrice-prodotti-alimentari-freschi-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food/Frischprodukte",
       "location": "Winterthur, Zürich",
@@ -5485,10 +5565,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1",
-        "en": "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1",
+        "it": "venditore-venditrice-prodotti-alimentari-freschi-coop-genossenschaft-winterthur",
+        "en": "sales-associate-food-fresh-products-coop-genossenschaft-winterthur",
         "de": "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1",
-        "fr": "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1"
+        "fr": "vendeur-vendeuse-produits-alimentaires-frais-coop-genossenschaft-winterthur"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -5505,7 +5585,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1",
+          "verkaufer-in-food-frischprodukte-coop-winterthur-zurich"
+        ],
+        "en": [
+          "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1"
+        ],
+        "fr": [
+          "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-frischprodukte-coop-winterthur-zurich-rpgyc1",
+        "verkaufer-in-food-frischprodukte-coop-winterthur-zurich"
+      ]
     },
     {
       "id": "company-ibjgei",
@@ -5577,7 +5673,7 @@
     },
     {
       "id": "company-uie5vy",
-      "slug": "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich",
+      "slug": "responsabile-settore-generi-alimentari-coop-genossenschaft-winterthur",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Grundnahrungsmittel",
       "location": "Winterthur, Zürich",
@@ -5623,10 +5719,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy",
-        "en": "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy",
+        "it": "responsabile-settore-generi-alimentari-coop-genossenschaft-winterthur",
+        "en": "basic-foodstuffs-department-manager-coop-genossenschaft-winterthur",
         "de": "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy",
-        "fr": "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy"
+        "fr": "responsable-secteur-aliments-de-base-coop-genossenschaft-winterthur"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -5643,7 +5739,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy",
+          "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich"
+        ],
+        "en": [
+          "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy"
+        ],
+        "fr": [
+          "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich-uie5vy",
+        "rayonleiter-in-grundnahrungsmittel-coop-winterthur-zurich"
+      ]
     },
     {
       "id": "company-e53pw1",
@@ -5722,7 +5834,7 @@
     },
     {
       "id": "company-tfbswr",
-      "slug": "hauswart-in-coop-city-aarau-aargau",
+      "slug": "custode-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Hauswart:in",
       "location": "Aarau, Aargau",
@@ -5768,10 +5880,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "hauswart-in-coop-city-aarau-aargau-tfbswr",
-        "en": "hauswart-in-coop-city-aarau-aargau-tfbswr",
+        "it": "custode-coop-genossenschaft-aarau",
+        "en": "caretaker-coop-genossenschaft-aarau",
         "de": "hauswart-in-coop-city-aarau-aargau-tfbswr",
-        "fr": "hauswart-in-coop-city-aarau-aargau-tfbswr"
+        "fr": "concierge-coop-genossenschaft-aarau"
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
@@ -5788,11 +5900,27 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-coop-city-aarau-aargau-tfbswr",
+          "hauswart-in-coop-city-aarau-aargau"
+        ],
+        "en": [
+          "hauswart-in-coop-city-aarau-aargau-tfbswr"
+        ],
+        "fr": [
+          "hauswart-in-coop-city-aarau-aargau-tfbswr"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-coop-city-aarau-aargau-tfbswr",
+        "hauswart-in-coop-city-aarau-aargau"
+      ]
     },
     {
       "id": "company-txn2dx",
-      "slug": "hauswart-in-coop-city-aarau-aargau-2",
+      "slug": "custode-custodiana-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Hauswart:in",
       "location": "Aarau, Aargau",
@@ -5838,10 +5966,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "hauswart-in-coop-city-aarau-aargau-txn2dx",
-        "en": "hauswart-in-coop-city-aarau-aargau-txn2dx",
+        "it": "custode-custodiana-coop-genossenschaft-aarau",
+        "en": "caretaker-janitor-coop-genossenschaft-aarau",
         "de": "hauswart-in-coop-city-aarau-aargau-txn2dx",
-        "fr": "hauswart-in-coop-city-aarau-aargau-txn2dx"
+        "fr": "concierge-gardien-ne-coop-genossenschaft-aarau"
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
@@ -5858,11 +5986,27 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-coop-city-aarau-aargau-txn2dx",
+          "hauswart-in-coop-city-aarau-aargau-2"
+        ],
+        "en": [
+          "hauswart-in-coop-city-aarau-aargau-txn2dx"
+        ],
+        "fr": [
+          "hauswart-in-coop-city-aarau-aargau-txn2dx"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-coop-city-aarau-aargau-txn2dx",
+        "hauswart-in-coop-city-aarau-aargau-2"
+      ]
     },
     {
       "id": "company-geuiu5",
-      "slug": "hauswart-in-coop-city-aarau-aargau-3",
+      "slug": "custode-di-edificio-coop-genossenschaft-aarau",
       "company": "Coop Genossenschaft",
       "title": "Hauswart:in",
       "location": "Aarau, Aargau",
@@ -5908,10 +6052,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "hauswart-in-coop-city-aarau-aargau-geuiu5",
-        "en": "hauswart-in-coop-city-aarau-aargau-geuiu5",
+        "it": "custode-di-edificio-coop-genossenschaft-aarau",
+        "en": "building-caretaker-coop-genossenschaft-aarau",
         "de": "hauswart-in-coop-city-aarau-aargau-geuiu5",
-        "fr": "hauswart-in-coop-city-aarau-aargau-geuiu5"
+        "fr": "gardien-ne-d-immeuble-coop-genossenschaft-aarau"
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
@@ -5928,11 +6072,27 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-coop-city-aarau-aargau-geuiu5",
+          "hauswart-in-coop-city-aarau-aargau-3"
+        ],
+        "en": [
+          "hauswart-in-coop-city-aarau-aargau-geuiu5"
+        ],
+        "fr": [
+          "hauswart-in-coop-city-aarau-aargau-geuiu5"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-coop-city-aarau-aargau-geuiu5",
+        "hauswart-in-coop-city-aarau-aargau-3"
+      ]
     },
     {
       "id": "company-1jv4dt",
-      "slug": "hauswart-in-coop-city-aarau-aargau-4",
+      "slug": "custode-coop-genossenschaft-aarau-ff3206",
       "company": "Coop Genossenschaft",
       "title": "Hauswart:in",
       "location": "Aarau, Aargau",
@@ -5978,10 +6138,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "hauswart-in-coop-city-aarau-aargau-1jv4dt",
-        "en": "hauswart-in-coop-city-aarau-aargau-1jv4dt",
+        "it": "custode-coop-genossenschaft-aarau-ff3206",
+        "en": "caretaker-coop-genossenschaft-aarau-ff3206",
         "de": "hauswart-in-coop-city-aarau-aargau-1jv4dt",
-        "fr": "hauswart-in-coop-city-aarau-aargau-1jv4dt"
+        "fr": "agent-d-entretien-coop-genossenschaft-aarau"
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
@@ -5998,11 +6158,27 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-coop-city-aarau-aargau-1jv4dt",
+          "hauswart-in-coop-city-aarau-aargau-4"
+        ],
+        "en": [
+          "hauswart-in-coop-city-aarau-aargau-1jv4dt"
+        ],
+        "fr": [
+          "hauswart-in-coop-city-aarau-aargau-1jv4dt"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-coop-city-aarau-aargau-1jv4dt",
+        "hauswart-in-coop-city-aarau-aargau-4"
+      ]
     },
     {
       "id": "company-kpoomu",
-      "slug": "hauswart-in-coop-city-aarau-aargau-5",
+      "slug": "custode-coop-genossenschaft-aarau-d6b30e",
       "company": "Coop Genossenschaft",
       "title": "Hauswart:in",
       "location": "Aarau, Aargau",
@@ -6048,10 +6224,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "hauswart-in-coop-city-aarau-aargau-kpoomu",
-        "en": "hauswart-in-coop-city-aarau-aargau-kpoomu",
+        "it": "custode-coop-genossenschaft-aarau-d6b30e",
+        "en": "caretaker-coop-genossenschaft-aarau-d6b30e",
         "de": "hauswart-in-coop-city-aarau-aargau-kpoomu",
-        "fr": "hauswart-in-coop-city-aarau-aargau-kpoomu"
+        "fr": "concierge-coop-genossenschaft-aarau-d6b30e"
       },
       "addressLocality": "Aarau",
       "sourceLang": "de",
@@ -6068,7 +6244,23 @@
           "maxValue": 187500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswart-in-coop-city-aarau-aargau-kpoomu",
+          "hauswart-in-coop-city-aarau-aargau-5"
+        ],
+        "en": [
+          "hauswart-in-coop-city-aarau-aargau-kpoomu"
+        ],
+        "fr": [
+          "hauswart-in-coop-city-aarau-aargau-kpoomu"
+        ]
+      },
+      "previousSlugs": [
+        "hauswart-in-coop-city-aarau-aargau-kpoomu",
+        "hauswart-in-coop-city-aarau-aargau-5"
+      ]
     },
     {
       "id": "company-o4am5h",
