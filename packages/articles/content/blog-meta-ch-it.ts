@@ -5203,6 +5203,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-usa-seco-svizzera-2026.title': 'Nuovi dazi USA su beni svizzeri: cosa cambia dal 2026',
     'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'Dal 24 luglio 2026, gli Stati Uniti applicano dazi variabili fino al 12,5% sui beni svizzeri. La SECO monitora le implicazioni per le imprese.',
     'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'Uffici della SECO in Svizzera',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.title': 'Affitti Zurigo: diritto di locazione e procedure',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.excerpt': 'Guida completa al diritto di locazione nel Canton Zurigo: deposito cauzionale, contestazione canone, disdetta e scadenze legali.',
+    'blog.article.diritto-locazione-zurigo-deposito-disdetta.imageAlt': 'Palazzo residenziale moderno in Svizzera con facciata contemporanea e finestre luminose',
 };
 
 export default blogMetaChIt;

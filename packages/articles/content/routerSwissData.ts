@@ -1760,6 +1760,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-argovia-registro-commercio': { it: 'aprire-attivita-argovia-registro-commercio', en: 'start-business-aargau-commercial-register', de: 'geschaft-eroeffnen-aargau-handelsregister', fr: 'creer-entreprise-argovie-registre-du-commerce' },
  'consultazione-politica-agricola-2030': { it: 'consultazione-politica-agricola-2030', en: 'consultation-agricultural-policy-2030', de: 'konsultation-landwirtschaftspolitik-2030', fr: 'consultation-politique-agricole-2030' },
  'dazi-usa-seco-svizzera-2026': { it: 'dazi-usa-seco-svizzera-2026', en: 'us-tariffs-seco-switzerland-2026', de: 'us-zolle-seco-schweiz-2026', fr: 'droits-douane-usa-seco-suisse-2026' },
+ 'diritto-locazione-zurigo-deposito-disdetta': { it: 'diritto-locazione-zurigo-deposito-disdetta', en: 'rental-law-zurich-deposit-termination', de: 'mietrecht-zurich-kaution-kundigung', fr: 'droit-bail-zurich-depot-resiliation' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
