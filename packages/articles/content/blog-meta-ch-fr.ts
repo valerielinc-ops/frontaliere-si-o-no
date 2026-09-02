@@ -5128,6 +5128,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tribunale-ordina-bollettino-neutralita.title': 'Tribunal ordonne la correction du bulletin d\'initiative',
     'blog.article.tribunale-ordina-bollettino-neutralita.excerpt': 'Le Tribunal ordonne de corriger le bulletin de l\'initiative sur la neutralité. Les Verts avaient contesté la publication en s\'adressant à la justice.',
     'blog.article.tribunale-ordina-bollettino-neutralita.imageAlt': 'Salle d\'audience suisse avec bancs en bois illustrant le contrôle judiciaire des processus démocratiques',
+    'blog.article.permesso-l-argovia-guida.title': 'Permis L dans le canton d\'Argovie : validité et renouvellement',
+    'blog.article.permesso-l-argovia-guida.excerpt': 'Guide du permis L de courte durée dans le canton d\'Argovie : règles de validité, procédures de prolongation et critères de passage au permis B.',
+    'blog.article.permesso-l-argovia-guida.imageAlt': 'Office de la migration dans le canton d\'Argovie',
 };
 
 export default blogMetaChFr;
