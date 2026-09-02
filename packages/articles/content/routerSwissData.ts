@@ -1724,6 +1724,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ffs-consigli-posti-sedere-pendolari': { it: 'ffs-consigli-posti-sedere-pendolari', en: 'ffs-advice-seats-commuters', de: 'ffs-ratgeber-plaetze-pendler', fr: 'ffs-conseils-sieges-navetteurs' },
  'avs-prestazioni-complementari-basilicacampagna': { it: 'avs-prestazioni-complementari-basilicacampagna', en: 'avs-complementary-benefits-basel-landschaft', de: 'avs-ergaenzungsleistungen-baselland', fr: 'avs-prestations-complementaires-bale-campagne' },
  'aprire-attivita-basilea-campagna-registro-di-commercio': { it: 'aprire-attivita-basilea-campagna-registro-di-commercio', en: 'starting-a-business-basel-landschaft-commercial-register', de: 'unternehmen-gruenden-basel-landschaft-handelsregister', fr: 'creer-une-entreprise-basel-campagne-registre-du-commerce' },
+ 'come-aprire-azienda-basilea-campagna': { it: 'come-aprire-azienda-basilea-campagna', en: 'how-to-open-business-basel-landschaft', de: 'geschaft-gruenden-basel-landschaft', fr: 'comment-ouvrir-entreprise-bale-campagne' },
+ 'guida-apertura-attivita-bc': { it: 'guida-apertura-attivita-bc', en: 'guide-opening-business-basel-countryside', de: 'anleitung-betriebseroffnung-basel-landschaft', fr: 'guide-creation-entreprise-bale-campagne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
