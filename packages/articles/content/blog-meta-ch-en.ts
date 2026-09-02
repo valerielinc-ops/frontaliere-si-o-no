@@ -5155,6 +5155,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-zurigo-validita-proroga.title': 'Permit L Zurich: validity, renewal and extension',
     'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Permit L: maximum duration of one year, renewable if the contract continues. Transition to permit B and employer constraints in the Canton of Zurich.',
     'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Swiss alpine office environment with official work permit documents and administrative paperwork',
+    'blog.article.laps-ticino-incentivi-lavoro.title': 'The more you work, the more you stay: the Ticino laps reform',
+    'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'The League calls for a reform of the laps with temporary incentives to work to eliminate the “poverty trap” and combat the impact of the LAMal awards.',
+    'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Bellinzona cantonal parliament during debate on social welfare and work incentive reforms',
 };
 
 export default blogMetaChEn;

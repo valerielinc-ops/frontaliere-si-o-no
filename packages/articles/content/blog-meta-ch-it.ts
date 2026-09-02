@@ -5155,6 +5155,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-zurigo-validita-proroga.title': 'Permesso L Zurigo: validità, rinnovo e proroga',
     'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Permesso L: durata massima un anno, rinnovabile se il contratto continua. Transizione al permesso B e vincoli del datore di lavoro nel Cantone di Zurigo.',
     'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Veduta alpina svizzera con documenti amministrativi e moduli di permesso di lavoro',
+    'blog.article.laps-ticino-incentivi-lavoro.title': 'Più lavori, più ti resta: la riforma LAPS ticinese',
+    'blog.article.laps-ticino-incentivi-lavoro.excerpt': 'La Lega chiede una riforma della LAPS con incentivi temporanei al lavoro per eliminare la «trappola della povertà» e combattere l\'impatto dei premi LAMal.',
+    'blog.article.laps-ticino-incentivi-lavoro.imageAlt': 'Aula del Gran Consiglio ticinese durante dibattito su riforme delle prestazioni sociali e incentivi al lavoro',
 };
 
 export default blogMetaChIt;

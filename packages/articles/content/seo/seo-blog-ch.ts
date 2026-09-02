@@ -66905,6 +66905,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-laps-ticino-incentivi-lavoro': {
+    title: 'Più lavori, più ti resta: la riforma LAPS ticinese',
+    description: 'Riforma LAPS in Ticino: come incentivi temporanei al lavoro combattono l\'«effetto soglia» e l\'impatto dei premi LAMal sui beneficiari di prestazioni sociali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, resta, riforma, laps',
+    ogTitle: 'Più lavori, più ti resta: riforma LAPS in Ticino',
+    ogDescription: 'La mozione leghista propone meccanismi di incentivazione temporanea per chi aumenta l\'attività lavorativa: franchigie supplementari e rimborsi spese. Combattere il disincentivo creato dai premi LAMal in aumento e dalla soglia di riduzione',
+    canonicalPath: '/articoli-svizzera/laps-ticino-incentivi-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Più lavori, più ti resta: la riforma LAPS ticinese",
+      "description": "Riforma LAPS in Ticino: come incentivi temporanei al lavoro combattono l'«effetto soglia» e l'impatto dei premi LAMal sui beneficiari di prestazioni sociali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/laps-ticino-incentivi-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula del Gran Consiglio ticinese durante dibattito su riforme delle prestazioni sociali e incentivi al lavoro"
+      },
+      "datePublished": "2026-09-02T13:49:51+00:00",
+      "dateModified": "2026-09-02T13:49:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/laps-ticino-incentivi-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
