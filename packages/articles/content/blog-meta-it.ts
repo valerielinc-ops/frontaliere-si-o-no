@@ -11149,6 +11149,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Frontaliere Chiesa-Grigioni: guida fiscale e pratica',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Vivere a Chiesa in Valmalenco e lavorare nei Grigioni: nuovo accordo 2024, esenzioni €7.500-€10.000, tassazione svizzera e credito d\'imposta italiano.',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Paesaggio alpino di Chiesa in Valmalenco al confine italo-svizzero, con architettura tradizionale e valli boscose',
+    'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Il franco svizzero crolla ai minimi dall’estate 2025: impatto sui frontalieri',
+    'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'Il franco svizzero ha raggiunto i minimi dall\'estate 2025, con l\'euro a 0,9435 franchi il 2 settembre 2026. Scopri le implicazioni per i frontalieri.',
+    'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'Vista di Lugano con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaIt;
