@@ -847,6 +847,73 @@ describe('translation state store v2', () => {
     });
   });
 
+  it('replays a settled plan as a no-op across more than one intermediate reserve/settle round', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    await store.initialize();
+
+    const gen0 = await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    const reservation0 = schedulerReservation(SCHEDULER_SCOPE, gen0.cursor, 'gen0');
+    await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: gen0.cursor.cursorHash,
+      ...reservation0,
+    });
+    const outcomes0 = schedulerOutcomes(reservation0.plan);
+    const settled0 = await store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation0.plan.planHash,
+      outcomes: outcomes0,
+    });
+
+    // Intermediate round 1: a full reserve + settle cycle advances the cursor past gen0's settlement.
+    const gen1 = await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    const reservation1 = schedulerReservation(SCHEDULER_SCOPE, gen1.cursor, 'gen1');
+    await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: gen1.cursor.cursorHash,
+      ...reservation1,
+    });
+    await store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation1.plan.planHash,
+      outcomes: schedulerOutcomes(reservation1.plan),
+    });
+
+    // Intermediate round 2: another reservation is left in-progress (not yet settled).
+    const gen2 = await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE });
+    const reservation2 = schedulerReservation(SCHEDULER_SCOPE, gen2.cursor, 'gen2');
+    const reserved2 = await store.reserveSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      expectedCursorHash: gen2.cursor.cursorHash,
+      ...reservation2,
+    });
+
+    const lateReplay = await store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation0.plan.planHash,
+      outcomes: outcomes0,
+    });
+    expect(lateReplay).toMatchObject({ commit: reserved2.commit, changed: false });
+    expect(lateReplay.settlement).toMatchObject({
+      planHash: reservation0.plan.planHash,
+      cursor: settled0.settlement.cursor,
+    });
+
+    const conflicting = structuredClone(outcomes0);
+    conflicting[0].units[0].status = 'rejected';
+    await expect(store.settleSchedulerPlan({
+      scopeKey: SCHEDULER_SCOPE,
+      planHash: reservation0.plan.planHash,
+      outcomes: conflicting,
+    })).rejects.toThrow(/hash|outcomes/);
+
+    expect(await store.readSchedulerScope({ scopeKey: SCHEDULER_SCOPE })).toMatchObject({
+      cursor: { activePlanHash: reservation2.plan.planHash, generation: 2 },
+      activePlan: { planHash: reservation2.plan.planHash },
+    });
+  });
+
   it('rebuilds concurrent identical plan reservations and rejects a different active plan', async () => {
     const { one, two } = createRepositories();
     await createTranslationStateStoreV2({ repository: one }).initialize();
