@@ -11080,6 +11080,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-canzo-lavorare-ticino.title': 'Living in Canzo and working in Ticino: border guide',
     'blog.article.trasferirsi-canzo-lavorare-ticino.excerpt': 'Moving to Canzo to work in Ticino: New Agreement, G Permit, tax regime and practical checklist to start your border journey.',
     'blog.article.trasferirsi-canzo-lavorare-ticino.imageAlt': 'Border landscape between Canzo and Ticino with main road toward border crossings',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.title': 'Living in Cossogno and working in Ticino: border guide',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.excerpt': 'From taxation to the cost of living: everything you need to know to live in Cossogno and work in Ticino as a border worker.',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Cossogno lakeside village on Lake Maggiore with Swiss Alps in background',
 };
 
 export default blogMetaEn;

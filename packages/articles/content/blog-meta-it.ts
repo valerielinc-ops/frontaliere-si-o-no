@@ -11081,6 +11081,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-canzo-lavorare-ticino.title': 'Vivere a Canzo e lavorare in Ticino: guida frontaliere',
     'blog.article.trasferirsi-canzo-lavorare-ticino.excerpt': 'Trasferirsi a Canzo per lavorare in Ticino: Nuovo Accordo, Permesso G, regime fiscale e checklist pratica per iniziare il tuo percorso frontaliere.',
     'blog.article.trasferirsi-canzo-lavorare-ticino.imageAlt': 'Paesaggio di confine tra Canzo e il Ticino con strada principale verso i valichi frontalieri',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.title': 'Vivere a Cossogno e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.excerpt': 'Dalla fiscalità al costo della vita: tutto ciò che serve sapere per vivere a Cossogno e lavorare in Ticino come frontaliere.',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.imageAlt': 'Veduta panoramica di Cossogno sul lago Maggiore con le montagne della Svizzera sullo sfondo',
 };
 
 export default blogMetaIt;
