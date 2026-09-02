@@ -5104,6 +5104,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Permis de séjour B Argovie : exigences et renouvellement',
     'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Le permis B est la résidence renouvelable en Suisse. Procédure fédérale SEM, compétence office cantonal. Guide complet des exigences, du renouvellement et des délais.',
     'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Bureau d\'administration cantonale d\'Argovie avec documents de permis de séjour suisses',
+    'blog.article.malattie-rare-cure-efficaci-2027.title': 'Maladies rares : le Conseil fédéral vise des traitements plus efficaces',
+    'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'Le Conseil fédéral a décidé d\'améliorer les soins de santé pour les personnes atteintes de maladies rares en créant des structures spécialisées et un registre national.',
+    'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Vue aérienne de Castelgrande à Bellinzona, Suisse',
 };
 
 export default blogMetaChFr;

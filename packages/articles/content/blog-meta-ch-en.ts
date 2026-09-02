@@ -5104,6 +5104,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Residence permit B Aargau: requirements and renewal',
     'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Permit B is the renewable residence in Switzerland. Federal SEM procedure, cantonal office competence. Complete guide to requirements, renewal and deadlines.',
     'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Aargau cantonal administration office with Swiss residence permit documentation',
+    'blog.article.malattie-rare-cure-efficaci-2027.title': 'Rare diseases: Federal Council aims for more effective treatments',
+    'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'The Federal Council has decided to improve health care for people with rare diseases, creating specialized facilities and a national registry.',
+    'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland',
 };
 
 export default blogMetaChEn;
