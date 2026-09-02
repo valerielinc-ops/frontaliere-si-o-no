@@ -5077,6 +5077,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Crèches et garde d\'enfants à Bâle-Campagne : tarifs',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Tarifs et aides financières pour les crèches et les services de garde d\'enfants à Bâle-Campagne. Comment fonctionne le calcul des tarifs en fonction des revenus et quelles sont les aides disponibles ?',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Salle colorée d\'une crèche suisse avec enfants et éducateurs engagés dans des activités éducatives',
+    'blog.article.salari-grigioni-settori-livelli.title': 'Salaires et marché du travail dans les Grisons',
+    'blog.article.salari-grigioni-settori-livelli.excerpt': 'Secteurs qui embauchent, niveaux de salaire selon la formation et conventions collectives dans le canton des Grisons : guide des mécanismes suisses.',
+    'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Espace de travail professionnel dans le canton des Grisons avec documents de salaire',
 };
 
 export default blogMetaChFr;

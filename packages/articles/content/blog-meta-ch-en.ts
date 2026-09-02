@@ -5077,6 +5077,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Daycare and Childcare in Basel-Landschaft: Costs',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Fees and Subsidies for Daycare and Childcare in Basel-Landschaft. How income-based fees work and what financial assistance is available.',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Bright Swiss nursery classroom with young children, educators, and colorful educational play activities',
+    'blog.article.salari-grigioni-settori-livelli.title': 'Wages and the Labor Market in Graubünden',
+    'blog.article.salari-grigioni-settori-livelli.excerpt': 'Sectors with job openings, salary levels by education level, and collective bargaining agreements in the Canton of Graubünden: a guide to the Swiss system.',
+    'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Professional workspace in Graubünden Canton with salary documents and calculator on desk',
 };
 
 export default blogMetaChEn;
