@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-qcdsqh",
-      "slug": "auffuller-in-food-coop-city-thun-bern",
+      "slug": "addetto-a-al-rifornimento-food-coop-genossenschaft-thun",
       "company": "Coop Genossenschaft",
       "title": "Auffüller:in Food",
       "location": "Thun",
@@ -50,10 +50,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "auffuller-in-food-coop-city-thun-bern-qcdsqh",
-        "en": "auffuller-in-food-coop-city-thun-bern-qcdsqh",
+        "it": "addetto-a-al-rifornimento-food-coop-genossenschaft-thun",
+        "en": "food-stock-assistant-coop-genossenschaft-thun",
         "de": "auffuller-in-food-coop-city-thun-bern-qcdsqh",
-        "fr": "auffuller-in-food-coop-city-thun-bern-qcdsqh"
+        "fr": "employe-e-au-reapprovisionnement-food-coop-genossenschaft-thun"
       },
       "addressLocality": "Thun",
       "sourceLang": "de",
@@ -70,11 +70,27 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "auffuller-in-food-coop-city-thun-bern-qcdsqh",
+          "auffuller-in-food-coop-city-thun-bern"
+        ],
+        "en": [
+          "auffuller-in-food-coop-city-thun-bern-qcdsqh"
+        ],
+        "fr": [
+          "auffuller-in-food-coop-city-thun-bern-qcdsqh"
+        ]
+      },
+      "previousSlugs": [
+        "auffuller-in-food-coop-city-thun-bern-qcdsqh",
+        "auffuller-in-food-coop-city-thun-bern"
+      ]
     },
     {
       "id": "company-1fq0mh",
-      "slug": "verkaufer-in-food-coop-city-zurich",
+      "slug": "addetto-a-vendite-food-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -120,10 +136,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-city-zurich-1fq0mh",
-        "en": "verkaufer-in-food-coop-city-zurich-1fq0mh",
+        "it": "addetto-a-vendite-food-coop-genossenschaft-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-zurich-e16877",
         "de": "verkaufer-in-food-coop-city-zurich-1fq0mh",
-        "fr": "verkaufer-in-food-coop-city-zurich-1fq0mh"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -157,16 +173,20 @@
           "seller-in-food-coop-genossenschaft-zurich-4cbf40",
           "verkaufer-in-food-coop-zurich-veg3yq",
           "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-4cbf40",
-          "verkaufer-in-food-coop-zurich-4"
+          "verkaufer-in-food-coop-zurich-4",
+          "verkaufer-in-food-coop-city-zurich-1fq0mh",
+          "verkaufer-in-food-coop-city-zurich"
         ],
         "en": [
-          "seller-in-food-coop-genossenschaft-zurich-f5a104"
+          "seller-in-food-coop-genossenschaft-zurich-f5a104",
+          "verkaufer-in-food-coop-city-zurich-1fq0mh"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-zurich-yn8kb0"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-f5a104"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-f5a104",
+          "verkaufer-in-food-coop-city-zurich-1fq0mh"
         ]
       },
       "previousSlugs": [
@@ -184,12 +204,14 @@
         "seller-in-food-coop-genossenschaft-zurich-4cbf40",
         "verkaufer-in-food-coop-zurich-veg3yq",
         "vendeur-dans-la-nourriture-coop-genossenschaft-zurich-4cbf40",
-        "verkaufer-in-food-coop-zurich-4"
+        "verkaufer-in-food-coop-zurich-4",
+        "verkaufer-in-food-coop-city-zurich-1fq0mh",
+        "verkaufer-in-food-coop-city-zurich"
       ]
     },
     {
       "id": "company-14vaqs",
-      "slug": "verkaufsberater-in-kosmetik-coop-city-zurich",
+      "slug": "consulente-di-vendita-cosmetica-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Kosmetik",
       "location": "Zürich",
@@ -226,10 +248,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs",
-        "en": "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs",
+        "it": "consulente-di-vendita-cosmetica-coop-genossenschaft-zurich",
+        "en": "cosmetics-sales-consultant-coop-genossenschaft-zurich",
         "de": "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs",
-        "fr": "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs"
+        "fr": "conseiller-ere-de-vente-cosmetiques-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -246,7 +268,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs",
+          "verkaufsberater-in-kosmetik-coop-city-zurich"
+        ],
+        "en": [
+          "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs"
+        ],
+        "fr": [
+          "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-kosmetik-coop-city-zurich-14vaqs",
+        "verkaufsberater-in-kosmetik-coop-city-zurich"
+      ]
     },
     {
       "id": "company-wizh2j",
@@ -977,7 +1015,7 @@
     },
     {
       "id": "company-o6h62o",
-      "slug": "verkaufer-in-food-coop-unterageri-zug-o6h62o",
+      "slug": "addetto-a-alle-vendite-food-coop-genossenschaft-unterageri-zug",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Unterägeri, Zug",
@@ -1023,10 +1061,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-unterageri-zug-o6h62o",
-        "en": "verkaufer-in-food-coop-unterageri-zug-o6h62o",
+        "it": "addetto-a-alle-vendite-food-coop-genossenschaft-unterageri-zug",
+        "en": "food-sales-associate-coop-genossenschaft-unterageri-zug",
         "de": "verkaufer-in-food-coop-unterageri-zug-o6h62o",
-        "fr": "verkaufer-in-food-coop-unterageri-zug-o6h62o"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-unterageri-zug"
       },
       "addressLocality": "Unterägeri",
       "sourceLang": "de",
@@ -1056,16 +1094,19 @@
           "verkaufer-in-food-coop-unterageri-zug-kswxq2",
           "verkaufer-dans-les-aliments-coop-genossenschaft-unterageri-kswxq2",
           "seller-in-food-coop-genossenschaft-unterageri-hu4lvs",
-          "verkaufer-in-food-coop-unterageri-zug"
+          "verkaufer-in-food-coop-unterageri-zug",
+          "verkaufer-in-food-coop-unterageri-zug-o6h62o"
         ],
         "en": [
-          "seller-in-food-coop-genossenschaft-unterageri"
+          "seller-in-food-coop-genossenschaft-unterageri",
+          "verkaufer-in-food-coop-unterageri-zug-o6h62o"
         ],
         "de": [
           "verkaufer-in-food-coop-unterageri-zug-lfxc04"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-unterageri"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-unterageri",
+          "verkaufer-in-food-coop-unterageri-zug-o6h62o"
         ]
       },
       "previousSlugs": [
@@ -1081,14 +1122,15 @@
         "verkaufer-in-food-coop-unterageri-zug-kswxq2",
         "verkaufer-dans-les-aliments-coop-genossenschaft-unterageri-kswxq2",
         "seller-in-food-coop-genossenschaft-unterageri-hu4lvs",
-        "verkaufer-in-food-coop-unterageri-zug"
+        "verkaufer-in-food-coop-unterageri-zug",
+        "verkaufer-in-food-coop-unterageri-zug-o6h62o"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
     },
     {
       "id": "company-5k9eps",
-      "slug": "verkaufer-in-food-coop-steinhausen-zug-5k9eps",
+      "slug": "commesso-a-food-coop-genossenschaft-steinhausen-zug",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Steinhausen, Zug",
@@ -1134,10 +1176,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-steinhausen-zug-5k9eps",
-        "en": "verkaufer-in-food-coop-steinhausen-zug-5k9eps",
+        "it": "commesso-a-food-coop-genossenschaft-steinhausen-zug",
+        "en": "food-sales-associate-coop-genossenschaft-steinhausen-zug",
         "de": "verkaufer-in-food-coop-steinhausen-zug-5k9eps",
-        "fr": "verkaufer-in-food-coop-steinhausen-zug-5k9eps"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-steinhausen-zug"
       },
       "addressLocality": "Steinhausen",
       "sourceLang": "de",
@@ -1160,16 +1202,19 @@
           "verkaufer-in-food-coop-steinhausen-zug-f8gbkj",
           "vendeur-dans-la-nourriture-coop-genossenschaft-steinhausen-2b8076",
           "verkaufer-in-food-coop-steinhausen-zug-2",
-          "verkaufer-in-food-coop-steinhausen-zug"
+          "verkaufer-in-food-coop-steinhausen-zug",
+          "verkaufer-in-food-coop-steinhausen-zug-5k9eps"
         ],
         "en": [
-          "seller-in-food-coop-genossenschaft-steinhausen-2b8076"
+          "seller-in-food-coop-genossenschaft-steinhausen-2b8076",
+          "verkaufer-in-food-coop-steinhausen-zug-5k9eps"
         ],
         "de": [
           "verkaufer-in-food-coop-steinhausen-zug-f8gbkj"
         ],
         "fr": [
-          "vendeur-dans-la-nourriture-coop-genossenschaft-steinhausen-2b8076"
+          "vendeur-dans-la-nourriture-coop-genossenschaft-steinhausen-2b8076",
+          "verkaufer-in-food-coop-steinhausen-zug-5k9eps"
         ]
       },
       "previousSlugs": [
@@ -1178,7 +1223,8 @@
         "verkaufer-in-food-coop-steinhausen-zug-f8gbkj",
         "vendeur-dans-la-nourriture-coop-genossenschaft-steinhausen-2b8076",
         "verkaufer-in-food-coop-steinhausen-zug-2",
-        "verkaufer-in-food-coop-steinhausen-zug"
+        "verkaufer-in-food-coop-steinhausen-zug",
+        "verkaufer-in-food-coop-steinhausen-zug-5k9eps"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -1361,7 +1407,7 @@
     },
     {
       "id": "company-cjy24",
-      "slug": "verkaufer-in-food-coop-zurich-0cjy24",
+      "slug": "commesso-a-food-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -1407,10 +1453,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zurich-0cjy24",
-        "en": "verkaufer-in-food-coop-zurich-0cjy24",
+        "it": "commesso-a-food-coop-genossenschaft-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-zurich-98c20c",
         "de": "verkaufer-in-food-coop-zurich-0cjy24",
-        "fr": "verkaufer-in-food-coop-zurich-0cjy24"
+        "fr": "vendeur-euse-food-coop-genossenschaft-zurich-98c20c"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -1427,11 +1473,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-zurich"
+        "verkaufer-in-food-coop-zurich",
+        "verkaufer-in-food-coop-zurich-0cjy24"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-zurich"
+          "verkaufer-in-food-coop-zurich",
+          "verkaufer-in-food-coop-zurich-0cjy24"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-zurich-0cjy24"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-zurich-0cjy24"
         ]
       },
       "salaryMin": 73500,
@@ -1439,7 +1493,7 @@
     },
     {
       "id": "company-xy2zgt",
-      "slug": "verkaufer-in-food-coop-zurich-xy2zgt",
+      "slug": "addetto-a-vendite-food-coop-genossenschaft-zurich-4d0951",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -1485,10 +1539,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zurich-xy2zgt",
-        "en": "verkaufer-in-food-coop-zurich-xy2zgt",
+        "it": "addetto-a-vendite-food-coop-genossenschaft-zurich-4d0951",
+        "en": "food-sales-associate-coop-genossenschaft-zurich-4d0951",
         "de": "verkaufer-in-food-coop-zurich-xy2zgt",
-        "fr": "verkaufer-in-food-coop-zurich-xy2zgt"
+        "fr": "vendeur-euse-alimentation-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -1505,11 +1559,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-zurich-2"
+        "verkaufer-in-food-coop-zurich-2",
+        "verkaufer-in-food-coop-zurich-xy2zgt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-zurich-2"
+          "verkaufer-in-food-coop-zurich-2",
+          "verkaufer-in-food-coop-zurich-xy2zgt"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-zurich-xy2zgt"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-zurich-xy2zgt"
         ]
       },
       "salaryMin": 73500,
@@ -2563,7 +2625,7 @@
     },
     {
       "id": "company-i1qnqi",
-      "slug": "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi",
+      "slug": "addetto-a-vendite-food-coop-genossenschaft-winterthur-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Winterthur, Zürich",
@@ -2609,10 +2671,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi",
-        "en": "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi",
+        "it": "addetto-a-vendite-food-coop-genossenschaft-winterthur-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-winterthur-zurich-c7c31a",
         "de": "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi",
-        "fr": "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi"
+        "fr": "vendeur-euse-food-coop-genossenschaft-winterthur-zurich"
       },
       "addressLocality": "Winterthur",
       "sourceLang": "de",
@@ -2630,12 +2692,20 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-city-winterthur-zurich-2",
-        "verkaufer-in-food-coop-city-winterthur-zurich"
+        "verkaufer-in-food-coop-city-winterthur-zurich",
+        "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-city-winterthur-zurich-2",
-          "verkaufer-in-food-coop-city-winterthur-zurich"
+          "verkaufer-in-food-coop-city-winterthur-zurich",
+          "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-city-winterthur-zurich-i1qnqi"
         ]
       },
       "salaryMin": 73500,
@@ -3099,7 +3169,7 @@
     },
     {
       "id": "company-ko9r75",
-      "slug": "verkaufer-in-food-coop-steinhausen-zug-ko9r75",
+      "slug": "commesso-a-food-coop-genossenschaft-steinhausen-zug-aa72d0",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Steinhausen, Zug",
@@ -3145,10 +3215,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-steinhausen-zug-ko9r75",
-        "en": "verkaufer-in-food-coop-steinhausen-zug-ko9r75",
+        "it": "commesso-a-food-coop-genossenschaft-steinhausen-zug-aa72d0",
+        "en": "food-sales-associate-coop-genossenschaft-steinhausen-zug-aa72d0",
         "de": "verkaufer-in-food-coop-steinhausen-zug-ko9r75",
-        "fr": "verkaufer-in-food-coop-steinhausen-zug-ko9r75"
+        "fr": "vendeur-euse-food-coop-genossenschaft-steinhausen-zug"
       },
       "addressLocality": "Steinhausen",
       "sourceLang": "de",
@@ -3166,12 +3236,20 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-steinhausen-zug-2",
-        "verkaufer-in-food-coop-steinhausen-zug"
+        "verkaufer-in-food-coop-steinhausen-zug",
+        "verkaufer-in-food-coop-steinhausen-zug-ko9r75"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-steinhausen-zug-2",
-          "verkaufer-in-food-coop-steinhausen-zug"
+          "verkaufer-in-food-coop-steinhausen-zug",
+          "verkaufer-in-food-coop-steinhausen-zug-ko9r75"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-steinhausen-zug-ko9r75"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-steinhausen-zug-ko9r75"
         ]
       },
       "salaryMin": 69500,
@@ -3252,7 +3330,7 @@
     },
     {
       "id": "company-fix6o0",
-      "slug": "verkaufer-in-food-coop-city-zurich-fix6o0",
+      "slug": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -3298,10 +3376,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-city-zurich-fix6o0",
-        "en": "verkaufer-in-food-coop-city-zurich-fix6o0",
+        "it": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-zurich-42e898",
         "de": "verkaufer-in-food-coop-city-zurich-fix6o0",
-        "fr": "verkaufer-in-food-coop-city-zurich-fix6o0"
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -3318,11 +3396,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-city-zurich"
+        "verkaufer-in-food-coop-city-zurich",
+        "verkaufer-in-food-coop-city-zurich-fix6o0"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-city-zurich"
+          "verkaufer-in-food-coop-city-zurich",
+          "verkaufer-in-food-coop-city-zurich-fix6o0"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-city-zurich-fix6o0"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-city-zurich-fix6o0"
         ]
       },
       "salaryMin": 73500,
@@ -3939,7 +4025,7 @@
     },
     {
       "id": "company-wawrwi",
-      "slug": "verkaufer-in-food-coop-biel-bern-wawrwi",
+      "slug": "addetto-addetta-vendite-alimentari-coop-genossenschaft-biel-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Biel, Bern",
@@ -3985,10 +4071,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-biel-bern-wawrwi",
-        "en": "verkaufer-in-food-coop-biel-bern-wawrwi",
+        "it": "addetto-addetta-vendite-alimentari-coop-genossenschaft-biel-bern",
+        "en": "food-sales-associate-coop-genossenschaft-biel-bern",
         "de": "verkaufer-in-food-coop-biel-bern-wawrwi",
-        "fr": "verkaufer-in-food-coop-biel-bern-wawrwi"
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-biel-bern"
       },
       "addressLocality": "Biel",
       "sourceLang": "de",
@@ -4005,11 +4091,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-biel-bern"
+        "verkaufer-in-food-coop-biel-bern",
+        "verkaufer-in-food-coop-biel-bern-wawrwi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-biel-bern"
+          "verkaufer-in-food-coop-biel-bern",
+          "verkaufer-in-food-coop-biel-bern-wawrwi"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-biel-bern-wawrwi"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-biel-bern-wawrwi"
         ]
       },
       "salaryMin": 68500,
@@ -4093,7 +4187,7 @@
     },
     {
       "id": "company-it6dq7",
-      "slug": "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7",
+      "slug": "addetto-a-alle-vendite-alimentari-coop-genossenschaft-egerkingen-solothurn",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Egerkingen, Solothurn",
@@ -4139,10 +4233,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7",
-        "en": "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7",
+        "it": "addetto-a-alle-vendite-alimentari-coop-genossenschaft-egerkingen-solothurn",
+        "en": "food-sales-assistant-coop-genossenschaft-egerkingen-solothurn",
         "de": "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7",
-        "fr": "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7"
+        "fr": "vendeur-vendeuse-produits-alimentaires-coop-genossenschaft-egerkingen-solothurn"
       },
       "addressLocality": "Egerkingen",
       "sourceLang": "de",
@@ -4159,11 +4253,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-egerkingen-solothurn"
+        "verkaufer-in-food-coop-egerkingen-solothurn",
+        "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-egerkingen-solothurn"
+          "verkaufer-in-food-coop-egerkingen-solothurn",
+          "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-egerkingen-solothurn-it6dq7"
         ]
       },
       "salaryMin": 68500,
@@ -4171,7 +4273,7 @@
     },
     {
       "id": "company-ew0ujj",
-      "slug": "verkaufer-in-food-coop-adelboden-bern-ew0ujj",
+      "slug": "commesso-a-reparti-alimentari-coop-genossenschaft-adelboden-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Adelboden, Bern",
@@ -4217,10 +4319,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-adelboden-bern-ew0ujj",
-        "en": "verkaufer-in-food-coop-adelboden-bern-ew0ujj",
+        "it": "commesso-a-reparti-alimentari-coop-genossenschaft-adelboden-bern",
+        "en": "food-sales-associate-coop-genossenschaft-adelboden-bern-006c1f",
         "de": "verkaufer-in-food-coop-adelboden-bern-ew0ujj",
-        "fr": "verkaufer-in-food-coop-adelboden-bern-ew0ujj"
+        "fr": "vendeur-vendeuse-rayons-alimentaires-coop-genossenschaft-adelboden-bern"
       },
       "addressLocality": "Adelboden",
       "sourceLang": "de",
@@ -4237,11 +4339,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-adelboden-bern"
+        "verkaufer-in-food-coop-adelboden-bern",
+        "verkaufer-in-food-coop-adelboden-bern-ew0ujj"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-adelboden-bern"
+          "verkaufer-in-food-coop-adelboden-bern",
+          "verkaufer-in-food-coop-adelboden-bern-ew0ujj"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-adelboden-bern-ew0ujj"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-adelboden-bern-ew0ujj"
         ]
       },
       "salaryMin": 68500,
@@ -4249,7 +4359,7 @@
     },
     {
       "id": "company-pazsdx",
-      "slug": "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx",
+      "slug": "venditore-trice-food-coop-genossenschaft-lutzelfluh-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Lützelflüh, Bern",
@@ -4295,10 +4405,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx",
-        "en": "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx",
+        "it": "venditore-trice-food-coop-genossenschaft-lutzelfluh-bern",
+        "en": "salesman-food-coop-genossenschaft-lutzelfluh-bern",
         "de": "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx",
-        "fr": "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx"
+        "fr": "vendeur-aliment-coop-genossenschaft-lutzelfluh-bern"
       },
       "addressLocality": "Lützelflüh",
       "sourceLang": "de",
@@ -4315,11 +4425,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-lutzelfluh-bern"
+        "verkaufer-in-food-coop-lutzelfluh-bern",
+        "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-lutzelfluh-bern"
+          "verkaufer-in-food-coop-lutzelfluh-bern",
+          "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-lutzelfluh-bern-pazsdx"
         ]
       },
       "salaryMin": 68500,
@@ -4830,7 +4948,7 @@
     },
     {
       "id": "company-n2643c",
-      "slug": "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c",
+      "slug": "venditore-trice-food-coop-genossenschaft-urtenen-schonbuhl-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Urtenen-Schönbühl, Bern",
@@ -4876,10 +4994,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c",
-        "en": "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c",
+        "it": "venditore-trice-food-coop-genossenschaft-urtenen-schonbuhl-bern",
+        "en": "salesman-food-coop-genossenschaft-urtenen-schonbuhl-bern",
         "de": "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c",
-        "fr": "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c"
+        "fr": "vendeur-aliment-coop-genossenschaft-urtenen-schonbuhl-bern"
       },
       "addressLocality": "Urtenen-Schönbühl",
       "sourceLang": "de",
@@ -4902,16 +5020,19 @@
           "food-sales-assistant-coop-genossenschaft-urtenen-schonbuhl-4nonic",
           "assistant-commercial-alimentaire-coop-genossenschaft-urtenen-schonbuhl-4nonic",
           "verkaufer-in-food-coop-genossenschaft-urtenen-schonbuhl",
-          "verkaufer-in-food-coop-urtenen-schonbuhl-bern"
+          "verkaufer-in-food-coop-urtenen-schonbuhl-bern",
+          "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c"
         ],
         "en": [
-          "food-sales-assistant-coop-genossenschaft-urtenen-schonbuhl-4nonic"
+          "food-sales-assistant-coop-genossenschaft-urtenen-schonbuhl-4nonic",
+          "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c"
         ],
         "de": [
           "verkaufer-in-food-coop-urtenen-schonbuhl-bern-4nonic"
         ],
         "fr": [
-          "assistant-commercial-alimentaire-coop-genossenschaft-urtenen-schonbuhl-4nonic"
+          "assistant-commercial-alimentaire-coop-genossenschaft-urtenen-schonbuhl-4nonic",
+          "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c"
         ]
       },
       "previousSlugs": [
@@ -4920,7 +5041,8 @@
         "food-sales-assistant-coop-genossenschaft-urtenen-schonbuhl-4nonic",
         "assistant-commercial-alimentaire-coop-genossenschaft-urtenen-schonbuhl-4nonic",
         "verkaufer-in-food-coop-genossenschaft-urtenen-schonbuhl",
-        "verkaufer-in-food-coop-urtenen-schonbuhl-bern"
+        "verkaufer-in-food-coop-urtenen-schonbuhl-bern",
+        "verkaufer-in-food-coop-urtenen-schonbuhl-bern-n2643c"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000
@@ -5316,7 +5438,7 @@
     },
     {
       "id": "company-7mymbl",
-      "slug": "verkaufer-in-food-coop-bern",
+      "slug": "addetto-a-vendite-food-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bern",
@@ -5362,10 +5484,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-bern-7mymbl",
-        "en": "verkaufer-in-food-coop-bern-7mymbl",
+        "it": "addetto-a-vendite-food-coop-genossenschaft-bern",
+        "en": "food-sales-associate-coop-genossenschaft-bern-d447c6",
         "de": "verkaufer-in-food-coop-bern-7mymbl",
-        "fr": "verkaufer-in-food-coop-bern-7mymbl"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-bern-d447c6"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -5382,7 +5504,23 @@
         }
       },
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-coop-bern-7mymbl",
+          "verkaufer-in-food-coop-bern"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-bern-7mymbl"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-bern-7mymbl"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-bern-7mymbl",
+        "verkaufer-in-food-coop-bern"
+      ]
     },
     {
       "id": "company-2ncvez",
