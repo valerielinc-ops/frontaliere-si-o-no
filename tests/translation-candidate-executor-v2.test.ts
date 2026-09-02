@@ -1,4 +1,4 @@
-import { MessagePort } from 'node:worker_threads';
+import { MessagePort, Worker } from 'node:worker_threads';
 import { describe, expect, it, vi } from 'vitest';
 import { executeTranslationCandidateV2 } from '../scripts/lib/translation-candidate-executor-v2.mjs';
 import {
@@ -352,6 +352,7 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
     );
     const activePortsBefore = activePortCount();
     const { close, closeCounts } = spyOnExplicitParentPortCloses();
+    const terminate = vi.spyOn(Worker.prototype, 'terminate');
     const rejectBeforeCallback = provider(`
       export function translate(_request, { succeedText }) {
         setTimeout(() => succeedText(${JSON.stringify(candidateText)}), 100);
@@ -364,10 +365,12 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
       )));
       await new Promise((resolve) => setImmediate(resolve));
       expect(results.every((result) => result.status === 'generation_failed')).toBe(true);
+      expect(terminate).not.toHaveBeenCalled();
       expect(closeCounts.size).toBe(8);
       expect([...closeCounts.values()].every((count) => count === 1)).toBe(true);
       expect(activePortCount()).toBeLessThanOrEqual(activePortsBefore);
     } finally {
+      terminate.mockRestore();
       close.mockRestore();
     }
   });
