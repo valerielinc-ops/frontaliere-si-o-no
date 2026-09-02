@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-09-01T23:16:21.305Z",
+  "generatedAt": "2026-09-02T13:45:20.611Z",
   "total": 10,
-  "newCount": 0,
-  "updatedCount": 10,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 9,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 21290,
-  "avgDurationMs": 21290,
+  "durationMs": 21951,
+  "avgDurationMs": 21951,
   "durationHistory": [
-    21290
+    21951
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Rental Assistant (M/F/D) for Winter Season (Dec-Apr)",
+      "slug": "rental-assistant-m-f-d-for-winter-season-dec-apr-engel-voelkers-gstaad",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/a49bfe9c-1074-4f6e-a0c2-cafe2be2a928",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/a49bfe9c-1074-4f6e-a0c2-cafe2be2a928",
+      "company": "E&V Gstaad Properties One AG",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Gstaad",
+      "addressLocality": "Gstaad",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Communication Manager | Team Support (Ascona/Lugano)",
@@ -32,12 +63,11 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
       "id": "engel-voelkers-be988d8bd39a",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "currency": "CHF",
@@ -45,6 +75,7 @@
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
       "firstSeenAt": "2026-08-31T17:16:34.884Z",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -71,7 +102,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -108,7 +139,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -145,7 +176,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -182,7 +213,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -219,7 +250,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -255,7 +286,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -293,7 +324,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -329,7 +360,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-09-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -346,10 +377,12 @@
         "translation": 23,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Senior Immobilienmakler/in 100%",
-      "slug": "senior-immobilienmakler-in-100-engel-voelkers-frauenfeld",
+      "slug": "agente-immobiliare-senior-in-100-buutiq-immobilien-ag-frauenfeld",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
       "company": "buutiq Immobilien AG",
@@ -365,7 +398,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-09-01",
+      "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -384,6 +417,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
