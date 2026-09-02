@@ -5035,6 +5035,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-grigioni.title': 'AHV und Ergänzungsleistungen im Kanton Graubünden',
     'blog.article.avs-prestazioni-complementari-grigioni.excerpt': 'Erste Säule, Beitragslücken und Zugang zu Ergänzungsleistungen: Praktischer Leitfaden für Bewohner und Steuerpflichtige des Kantons Graubünden.',
     'blog.article.avs-prestazioni-complementari-grigioni.imageAlt': 'Kantonsamt: Finanzberater prüft Rentendokumente und Altersvorsorgeunterlagen',
+    'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Ausweis C Basel-Stadt: Voraussetzungen und Antrag',
+    'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Niederlassungsbewilligung C Basel: erforderliche Jahre, Integration, Sprachkenntnisse und Antragsverfahren beim Kanton.',
+    'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Schweizer Einwanderungsbüro mit offiziellen Aufenthaltserlaubnisdokumenten und Antragsformularen',
 };
 
 export default blogMetaChDe;
