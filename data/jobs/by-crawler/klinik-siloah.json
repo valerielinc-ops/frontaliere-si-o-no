@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-siloah",
-  "assembledAt": "2026-09-02T13:37:33.047Z",
+  "assembledAt": "2026-09-02T23:16:18.067Z",
   "jobs": [
     {
       "id": "klinik-siloah-a78a8194b768",
@@ -35,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145455543-dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation",
       "source": "Privatklinik Siloah Dedicated Parser (SMN clinic=PKS)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:37:24.924Z",
+      "crawledAt": "2026-09-02T23:16:10.581Z",
       "addressLocality": "Muri bei Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "datePosted": "2026-08-25",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
-          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah"
-        ],
         "it": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
           "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
@@ -65,16 +67,14 @@
         "en": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
         ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
+          "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah"
+        ],
         "fr": [
           "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-klinik-siloah",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "dipl-pflegefachperson-hf-fh-40-100-per-la-chirurgische-bettenstation-privatklinik-siloah-muri-bei-bern",
-        "dipl-pflegefachperson-hf-fh-40-100-fur-die-chirurgische-bettenstation-swiss-medical-network"
-      ],
       "firstSeenAt": "2026-08-25T21:43:58.452Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
