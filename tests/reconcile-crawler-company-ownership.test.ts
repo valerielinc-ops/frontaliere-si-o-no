@@ -1,6 +1,15 @@
 import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   assertNoDuplicateRoutesWithin,
   assertNoOverlappingJobs,
@@ -14,6 +23,7 @@ import {
   transferSlugHistory,
   transferOwnedJobs,
   transferOverlappingJobs,
+  withFileRollback,
 } from '../scripts/reconcile-crawler-company-ownership.mjs';
 import { getPreviousSlugsForLocale } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
@@ -270,6 +280,34 @@ describe('issue #6759 reconciliation', () => {
     const result = mergeRetiredCrawlerJobs([canonical], [retired], 'canonical');
     expect(result.jobs).toHaveLength(1);
     expect(result.collapsed).toBe(1);
+  });
+
+  it('rolls back every captured file when a later mutation fails', () => {
+    const root = mkdtempSync(join(tmpdir(), 'crawler-ownership-rollback-'));
+    const slicesDir = join(root, 'active');
+    mkdirSync(slicesDir, { recursive: true });
+    const { retired, canonical } = RETIREMENTS[0];
+    const canonicalFile = join(slicesDir, `${canonical}.json`);
+    const retiredFile = join(slicesDir, `${retired}.json`);
+    const canonicalBefore = `${JSON.stringify([job(canonical, '1', 'canonical-slug')], null, 2)}\n`;
+    const retiredBefore = `${JSON.stringify([job(retired, '2', 'retired-slug')], null, 2)}\n`;
+    writeFileSync(canonicalFile, canonicalBefore);
+    writeFileSync(retiredFile, retiredBefore);
+
+    try {
+      expect(() => withFileRollback((capture) => {
+        capture(canonicalFile);
+        writeFileSync(canonicalFile, 'partially changed\n');
+        capture(retiredFile);
+        rmSync(retiredFile);
+        throw new Error('injected failure after partial persistence');
+      })).toThrow('injected failure after partial persistence');
+
+      expect(readFileSync(canonicalFile, 'utf8')).toBe(canonicalBefore);
+      expect(readFileSync(retiredFile, 'utf8')).toBe(retiredBefore);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('flags two distinct jobs left owning the same locale route after a RETIREMENTS merge', () => {

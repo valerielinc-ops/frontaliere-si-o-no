@@ -27,6 +27,7 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,7 +53,7 @@ const keptSlugs = new Set();
 const keptIds = new Set();
 for (const job of assembled) {
   if (job.slug) keptSlugs.add(String(job.slug).trim());
-  if (job.id) keptIds.add(String(job.id).trim());
+  if (hasUsableJobId(job)) keptIds.add(String(job.id).trim());
 }
 
 console.log(`📋 Assembled dataset: ${assembled.length} kept jobs`);
@@ -75,7 +76,7 @@ for (const file of sliceFiles) {
   const original = slice.jobs;
   const kept = original.filter((job) => {
     const slug = String(job.slug || '').trim();
-    const id = String(job.id || '').trim();
+    const id = String(job.id ?? '').trim();
     // Keep if slug OR id is in the assembled (kept) set.
     // Both checks needed: some jobs have stable IDs but unstable slugs, or vice versa.
     if (slug && keptSlugs.has(slug)) return true;

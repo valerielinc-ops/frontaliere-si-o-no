@@ -12,6 +12,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -24,10 +25,7 @@ const MIN_CONFIDENCE = 0.65;
 
 /** Stable composite key for a job (id may be missing on ~half the dataset) */
 function jobKey(job) {
-  // A falsy-but-real id (numeric `0`) must not fall through to the
-  // composite fallback — see ownershipIdentity() in
-  // scripts/reconcile-crawler-company-ownership.mjs for the same fix.
-  if (job.id != null && job.id !== '') return job.id;
+  if (hasUsableJobId(job)) return job.id;
   return `${job.companyKey || ''}::${job.slug || ''}::${(job.title || '').slice(0, 80)}`;
 }
 

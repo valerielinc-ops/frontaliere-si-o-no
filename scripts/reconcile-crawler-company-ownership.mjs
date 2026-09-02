@@ -22,7 +22,7 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './lib/dedicated-crawler-common.mjs';
-import { extractStableJobId } from './lib/job-match-key.mjs';
+import { extractStableJobId, hasUsableJobId } from './lib/job-match-key.mjs';
 import { normalizeJobUrl } from './lib/crawler-source-hosts.mjs';
 import {
   dedicatedFribourgOwner,
@@ -94,15 +94,44 @@ function readExpiredSlice(key) {
   return readSliceFrom(EXPIRED_SLICES_DIR, key);
 }
 
+let activeRollbackJournal = null;
+
 function writeSlice(slice) {
+  activeRollbackJournal?.capture(slice.file);
   writeJsonAtomic(slice.file, withJobs(slice.payload, slice.jobs));
 }
 
 function deleteSliceIfPresent(dir, key) {
   const file = path.join(dir, `${key}.json`);
   if (!fs.existsSync(file)) return false;
+  activeRollbackJournal?.capture(file);
   fs.rmSync(file);
   return true;
+}
+
+function restoreFileSnapshot(file, snapshot) {
+  if (snapshot === null) {
+    if (fs.existsSync(file)) fs.rmSync(file);
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(file), { recursive: true });
+  fs.writeFileSync(file, snapshot);
+}
+
+function createRollbackJournal() {
+  const snapshots = new Map();
+  return {
+    capture(file) {
+      if (snapshots.has(file)) return;
+      snapshots.set(file, fs.existsSync(file) ? fs.readFileSync(file) : null);
+    },
+    rollback() {
+      for (const [file, snapshot] of [...snapshots.entries()].reverse()) {
+        restoreFileSnapshot(file, snapshot);
+      }
+    },
+  };
 }
 
 /** Every locale-qualified URL token served by an active or expired record. */
@@ -200,10 +229,7 @@ function ownershipIdentity(job = {}) {
   if (urlKey && !urlKey.startsWith('url:')) return urlKey;
   const normalizedUrl = normalizeJobUrl(url);
   if (normalizedUrl) return `url:${normalizedUrl}`;
-  // `job?.id` alone treats a falsy-but-real id (e.g. numeric `0`) as absent
-  // and misroutes it into the unsafe slug fallback below. An empty string is
-  // still genuinely no identity, so it keeps falling through.
-  if (job?.id != null && job.id !== '') return `id:${job.id}`;
+  if (hasUsableJobId(job)) return `id:${job.id}`;
   if (job?.slug) {
     throw new Error(`ownership identity reached unsafe slug fallback: ${job.slug}`);
   }
@@ -422,7 +448,7 @@ export function assertNoDuplicateRoutesWithin(jobs, label) {
   }
 }
 
-function run({ apply = false } = {}) {
+function reconcile({ apply = false } = {}) {
   const report = [];
 
   for (const item of RETIREMENTS) {
@@ -555,6 +581,31 @@ function run({ apply = false } = {}) {
   report.push({ broad: 'canton-ticino-osc', dedicated: 'amministrazione-cantonale-ti', correction: 'inverse', moved: inverse.moved, slugsTransferred: inverse.slugsTransferred });
 
   return report;
+}
+
+export function withFileRollback(operation) {
+  const previousJournal = activeRollbackJournal;
+  const journal = createRollbackJournal();
+  activeRollbackJournal = journal;
+  try {
+    return operation(journal.capture);
+  } catch (error) {
+    try {
+      journal.rollback();
+    } catch (rollbackError) {
+      const combined = new Error('reconciliation failed and its file rollback also failed');
+      combined.cause = { error, rollbackError };
+      throw combined;
+    }
+    throw error;
+  } finally {
+    activeRollbackJournal = previousJournal;
+  }
+}
+
+export function run({ apply = false } = {}) {
+  if (!apply) return reconcile({ apply });
+  return withFileRollback(() => reconcile({ apply }));
 }
 
 function main() {

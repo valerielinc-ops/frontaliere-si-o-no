@@ -4,6 +4,7 @@ import {
   slugMatchesTitle,
   isLikelyUntranslated,
   buildSlug,
+  shortJobHash,
   slugify,
 } from '../scripts/lib/regenerate-slugs-helpers.mjs';
 
@@ -80,6 +81,10 @@ describe('regenerate-slugs-helpers — isLikelyUntranslated', () => {
 });
 
 describe('regenerate-slugs-helpers — buildSlug + slugify', () => {
+  it('hashes numeric zero as a real job id', () => {
+    expect(shortJobHash(0)).not.toBe(shortJobHash(''));
+  });
+
   it('strips diacritics and lowercases', () => {
     expect(slugify('Zürich')).toBe('zurich');
     expect(slugify('Genève')).toBe('geneve');

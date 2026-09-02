@@ -25,6 +25,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -173,10 +174,7 @@ function extractJobsArray(payload) {
 
 function jobIdentityKey(job) {
   if (!job || typeof job !== 'object') return '';
-  // A falsy-but-real id (numeric `0`) must not fall through to the
-  // less specific url/slugtitle keys — see ownershipIdentity() in
-  // scripts/reconcile-crawler-company-ownership.mjs for the same fix.
-  if (job.id != null && job.id !== '') return `id:${job.id}`;
+  if (hasUsableJobId(job)) return `id:${job.id}`;
   if (job.url) return `url:${job.url}`;
   if (job.slug && job.title) return `slugtitle:${job.slug}|${job.title}`;
   return '';
