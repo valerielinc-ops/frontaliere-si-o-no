@@ -11078,6 +11078,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mandello-lario-frontaliere.title': 'Mandello del Lario: guida frontaliere 2024 Ticino',
     'blog.article.mandello-lario-frontaliere.excerpt': 'Mandello del Lario a Lecco: come vivere e lavorare come frontaliere in Ticino. Permesso G, imposta alla fonte, franchigia 2024, AVS/LAMal.',
     'blog.article.mandello-lario-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano dal versante ticinese con architettura alpina e riva italiana sullo sfondo.',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.title': 'Vivere a Canzo e lavorare in Ticino: guida frontaliere',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.excerpt': 'Trasferirsi a Canzo per lavorare in Ticino: Nuovo Accordo, Permesso G, regime fiscale e checklist pratica per iniziare il tuo percorso frontaliere.',
+    'blog.article.trasferirsi-canzo-lavorare-ticino.imageAlt': 'Paesaggio di confine tra Canzo e il Ticino con strada principale verso i valichi frontalieri',
 };
 
 export default blogMetaIt;
