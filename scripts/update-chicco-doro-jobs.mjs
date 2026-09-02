@@ -28,6 +28,16 @@ const ROOT = path.resolve(__dirname, '..');
 // so a stale row here is retired after at most 2 consecutive misses — see
 // "retires a real vacancy that disappears from a non-empty snapshot within a
 // bounded number of runs" in tests/chicco-doro-crawler.test.ts.
+//
+// The same `authoritativeSnapshotScope: 'empty-only'` also means
+// `skipShrinkGuard` is false on any non-empty run, so a shrink here goes
+// through the URL probe (verifyShrinkAgainstSource) instead of skipping it.
+// Live-verified 2026-09-02: chiccodoro.com is WordPress behind Cloudflare,
+// and a removed path resolves to a genuine HTTP 404 after redirect-follow
+// (not the softer "200 with stale content" some WordPress sites serve), so
+// `validateJobUrl`'s definitive-404 check corroborates cleanly — see
+// "shrink-guard probe reliability on Chicco detail pages" in
+// tests/chicco-doro-crawler.test.ts.
 runStandardCrawlerPipeline({
   companyKey: CHICCO_DORO_KEY,
   companyLabel: CHICCO_DORO_COMPANY_NAME,
