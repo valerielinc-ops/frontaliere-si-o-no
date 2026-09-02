@@ -11087,6 +11087,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lazzate-ticino-frontaliere.title': 'Vivere a Lazzate, lavorare in Ticino: la guida',
     'blog.article.vivere-lazzate-ticino-frontaliere.excerpt': 'Lazzate offre prezzi abitativi inferiori per frontalieri. Scopri tempi di percorrenza, costi pendolarismo, tassazione (imposta alla fonte), Permesso G e procedura step-by-step.',
     'blog.article.vivere-lazzate-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago Lugano con le sponde svizzera e italiana, simbolo della mobilità transfrontaliera',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Vivere a Lentate e lavorare in Ticino: frontaliere',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso, provincia di Milano, è una scelta residenziale strategica per frontalieri. Scopri vantaggi fiscali, Permesso G, procedure e checklist per il trasferimento.',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Panorama di confine tra Ticino (Svizzera) e Lombardia (Italia), con paesaggio collinare e strada di campagna in primavera',
 };
 
 export default blogMetaIt;

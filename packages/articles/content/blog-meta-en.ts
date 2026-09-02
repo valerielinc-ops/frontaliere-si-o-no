@@ -11086,6 +11086,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lazzate-ticino-frontaliere.title': 'Living in Lazzate, working in Ticino: the guide',
     'blog.article.vivere-lazzate-ticino-frontaliere.excerpt': 'Lazzate offers lower housing prices for border workers. Discover travel times, commuting costs, taxation (tax at source), G Permit and step-by-step procedure.',
     'blog.article.vivere-lazzate-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Swiss and Italian shores, symbol of cross-border commuting',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Living in Lentate and working in Ticino: border crossing',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso, province of Milan, is a strategic residential choice for border workers. Discover tax advantages, G Permit, transfer procedures and checklists.',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Border landscape between Ticino (Switzerland) and Lombardy (Italy), rolling hills and rural road in spring',
 };
 
 export default blogMetaEn;

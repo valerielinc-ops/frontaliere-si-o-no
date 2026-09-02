@@ -11085,6 +11085,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lazzate-ticino-frontaliere.title': 'Leben in Lazzate, Arbeiten im Tessin: Der Reiseführer',
     'blog.article.vivere-lazzate-ticino-frontaliere.excerpt': 'Lazzate bietet niedrigere Wohnpreise für Grenzgänger. Entdecken Sie Reisezeiten, Pendelkosten, Besteuerung (Quellensteuer), G-Bewilligung und Schritt-für-Schritt-Verfahren.',
     'blog.article.vivere-lazzate-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganer See mit Schweizer und italienischen Ufern, Symbol der Grenzpendler-Mobilität',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Leben in Lentate und Arbeiten im Tessin: Grenzgänger',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso in der Provinz Mailand ist eine strategische Wohnwahl für Grenzgänger. Entdecken Sie Steuervorteile, G-Bewilligung, Verfahren und Checklisten für die Überweisung.',
+    'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Grenzlandschaft zwischen Tessin (Schweiz) und Lombardei (Italien), Hügellandschaft und Landstraße im Frühling',
 };
 
 export default blogMetaDe;
