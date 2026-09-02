@@ -5173,6 +5173,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Apprenticeship in the Canton of Zurich: a practical guide',
     'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'How to find an internship, understand the apprenticeship contract, salaries and professional maturity in the Canton of Zurich.',
     'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Swiss vocational training classroom with apprentices working at professional workstations',
+    'blog.article.franco-euro-minimi-anno.title': 'Swiss franc at a minimum against the euro: what it means for investors',
+    'blog.article.franco-euro-minimi-anno.excerpt': 'The Swiss franc continues to weaken against the euro, hitting a one-year low. Learn about the implications for investors.',
+    'blog.article.franco-euro-minimi-anno.imageAlt': 'Aerial view of Lake Lugano with the Swiss Alps in the background',
 };
 
 export default blogMetaChEn;

@@ -1750,6 +1750,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pa30-autonomia-agricoltori': { it: 'pa30-autonomia-agricoltori', en: 'pa30-farmer-autonomy', de: 'pa30-baeuerliche-autonomie', fr: 'pa30-autonomie-agriculteurs' },
  'novartis-130-ristrutturazione-basilea': { it: 'novartis-130-ristrutturazione-basilea', en: 'novartis-130-restructuring-basel', de: 'novartis-130-umstrukturierung-basel', fr: 'novartis-130-restructuration-bale' },
  'formazione-professionale-tirocinio-zurigo': { it: 'formazione-professionale-tirocinio-zurigo', en: 'vocational-training-apprenticeship-zurich', de: 'berufsausbildung-lehrling-zurich', fr: 'formation-professionnelle-apprentissage-zurich' },
+ 'franco-euro-minimi-anno': { it: 'franco-euro-minimi-anno', en: 'franco-euro-at-minimum-for-a-year', de: 'franco-euro-auf-jahresminimum', fr: 'franco-euro-au-minimum-de-l-annee' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
