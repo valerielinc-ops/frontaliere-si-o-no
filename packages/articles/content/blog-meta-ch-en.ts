@@ -5056,6 +5056,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-attivita-grigioni-forma-giuridica.title': 'Opening a business in Graubünden: legal forms and costs',
     'blog.article.avviare-attivita-grigioni-forma-giuridica.excerpt': 'Practical guide on how to start a business in the Canton of Graubünden: legal forms, trade register, minimum capital, registration fees and federal insurance obligations.',
     'blog.article.avviare-attivita-grigioni-forma-giuridica.imageAlt': 'Modern Swiss office with business professionals working on startup projects and company registration',
+    'blog.article.mercato-lavoro-canton-grigioni.title': 'Labour market in Graubünden: wages and levels',
+    'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Complete guide to wage structure, taxation and social contributions in the Canton of Graubünden. Salaries, training levels and collective agreements.',
+    'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Mountain landscape of Canton Grisons with residential and business areas representing the Alpine Swiss economy and labor market.',
 };
 
 export default blogMetaChEn;
