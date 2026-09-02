@@ -15148,6 +15148,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-grigioni-registro-costi',
+    category: 'pratico',
+    date: '2026-09-02T03:33:11.008Z',
+    image: '/images/blog/aprire-attivita-grigioni-registro-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1709,6 +1709,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-basilea-requisiti': { it: 'naturalizzazione-basilea-requisiti', en: 'naturalization-basel-stadt-requirements', de: 'naturalisation-basel-stadt-anforderungen', fr: 'naturalisation-bale-ville-conditions' },
  'aprire-attivita-basilea-guida-commercio': { it: 'aprire-attivita-basilea-guida-commercio', en: 'opening-business-basel-city-commerce-guide', de: 'geschaft-eroffnen-basel-stadt-handelsregister', fr: 'ouvrir-activite-bale-ville-commerce' },
  'aprire-attivita-grigioni-guida': { it: 'aprire-attivita-grigioni-guida', en: 'starting-business-grisons-guide', de: 'unternehmen-graubuenden-anleitung', fr: 'creer-entreprise-grisons-guide' },
+ 'aprire-attivita-grigioni-registro-costi': { it: 'aprire-attivita-grigioni-registro-costi', en: 'open-business-graubunden-registry-costs', de: 'geschaft-graubunden-handelsregister-kosten', fr: 'ouvrir-activite-grisons-registre-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
