@@ -11091,6 +11091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cislago-lavorare-ticino.title': 'In Cislago wohnen, im Tessin arbeiten: Leitfaden für Grenzgänger',
     'blog.article.vivere-cislago-lavorare-ticino.excerpt': 'Grenzgänger von Cislago bis ins Tessin: Steuerrecht, neues Abkommen, Quellensteuer, Aufenthaltsgenehmigungen und Sozialversicherung für diejenigen, die sich dafür entscheiden, in Italien zu leben und in der Schweiz zu arbeiten.',
     'blog.article.vivere-cislago-lavorare-ticino.imageAlt': 'Luftaufnahme von Mendrisio und Grenze zur Provinz Como, wo Cislago liegt',
+    'blog.article.vivere-misinto-lavorare-ticino-frontaliere.title': 'In Misinto leben und im Tessin arbeiten',
+    'blog.article.vivere-misinto-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger: Steuerrecht, G-Bewilligung, Besteuerung, Schritt-für-Schritt-Anleitung und Wissenswertes vor dem Umzug von Misinto zur Arbeit im Kanton Tessin.',
+    'blog.article.vivere-misinto-lavorare-ticino-frontaliere.imageAlt': 'Grenzlandschaft zwischen Tessin und der Lombardei mit Seeblick, typisch für Grenzgänger, die in Misinto leben und im Tessin arbeiten',
 };
 
 export default blogMetaDe;
