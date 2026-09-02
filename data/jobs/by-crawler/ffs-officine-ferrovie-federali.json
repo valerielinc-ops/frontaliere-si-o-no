@@ -746,7 +746,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-3953b12ae0f3",
@@ -1623,7 +1624,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -1719,7 +1721,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-80b42f8bd990",
@@ -1816,7 +1819,8 @@
         }
       },
       "addressRegion": "LU",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-0170b841dcc7",
@@ -1991,7 +1995,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9602863d2dd1",
@@ -2569,11 +2574,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-02T13:51:02.237Z",
       "previousSlugs": [
-        "leiter-in-datenmanagement-e-transport-ffs-officine-ferrovie-federali-bern"
+        "leiter-in-datenmanagement-e-transport-ffs-officine-ferrovie-federali-bern",
+        "responsabile-di-progetto-gestione-aziendale-ffs-officine-ferrovie-federali-bern",
+        "project-manager-business-management-ffs-officine-ferrovie-federali-bern",
+        "projektleiter-in-geschaftssteuerung-ffs-officine-ferrovie-federali-bern",
+        "chef-de-projet-en-gestion-des-affaires-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-datenmanagement-e-transport-ffs-officine-ferrovie-federali-bern"
+          "leiter-in-datenmanagement-e-transport-ffs-officine-ferrovie-federali-bern",
+          "responsabile-di-progetto-gestione-aziendale-ffs-officine-ferrovie-federali-bern",
+          "project-manager-business-management-ffs-officine-ferrovie-federali-bern",
+          "projektleiter-in-geschaftssteuerung-ffs-officine-ferrovie-federali-bern",
+          "chef-de-projet-en-gestion-des-affaires-ffs-officine-ferrovie-federali-bern"
+        ],
+        "en": [
+          "project-manager-business-management-ffs-officine-ferrovie-federali-bern"
+        ],
+        "de": [
+          "projektleiter-in-geschaftssteuerung-ffs-officine-ferrovie-federali-bern"
+        ],
+        "fr": [
+          "chef-de-projet-en-gestion-des-affaires-ffs-officine-ferrovie-federali-bern"
         ]
       },
       "firstSeenAt": "2026-08-28T05:27:16.867Z",
@@ -2591,7 +2613,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-d2904208229d",
@@ -2681,7 +2704,8 @@
         }
       },
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-417cffcec717",
@@ -3220,7 +3244,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9b5ff90b38c1",
@@ -3627,7 +3652,8 @@
         }
       },
       "addressRegion": "TG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-ebe5d3eef7b9",
@@ -4181,7 +4207,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-59b2f7527f2d",
@@ -4280,7 +4307,8 @@
         }
       },
       "addressRegion": "SZ",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a372b1346856",
@@ -5652,7 +5680,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -14654,11 +14682,13 @@
       "crawledAt": "2026-09-02T13:47:59.393Z",
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
+          "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd",
+          "capoprogetto-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "previousSlugs": [
-        "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
+        "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd",
+        "capoprogetto-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -14755,11 +14785,23 @@
       "crawledAt": "2026-09-02T13:51:37.404Z",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+          "responsabile-di-progetto-in-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd",
+          "civil-engineering-project-manager-ffs-officine-ferrovie-federali-renens-vd",
+          "chef-de-projet-en-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
+        ],
+        "en": [
+          "civil-engineering-project-manager-ffs-officine-ferrovie-federali-renens-vd"
+        ],
+        "fr": [
+          "chef-de-projet-en-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd"
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-renens-vd",
+        "responsabile-di-progetto-in-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd",
+        "civil-engineering-project-manager-ffs-officine-ferrovie-federali-renens-vd",
+        "chef-de-projet-en-genie-civil-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "salaryMin": 97500,
       "salaryMax": 165500,
@@ -14965,7 +15007,20 @@
       },
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-02T13:56:09.270Z"
+      "firstSeenAt": "2026-09-02T13:56:09.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsabile-della-pianificazione-a-breve-termine-m-f-d-ffs-officine-ferrovie-j11dul",
+          "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
+        ],
+        "de": [
+          "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "responsabile-della-pianificazione-a-breve-termine-m-f-d-ffs-officine-ferrovie-j11dul",
+        "kurzfristiger-planungsmanager-m-w-d-ffs-officine-ferrovie-federali-olten"
+      ]
     }
   ]
 }

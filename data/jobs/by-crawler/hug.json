@@ -663,7 +663,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:11:50.827Z",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -1673,7 +1672,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:49:51.686Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1829,7 +1827,6 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:33.343Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2172,7 +2169,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:39:50.138Z",
-      "needsRetranslation": true,
       "salaryMin": 66800,
       "salaryMax": 101200,
       "salarySource": "estimated",
@@ -2401,7 +2397,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:01:06.158Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3456,7 +3451,42 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-02T13:39:08.113Z"
+      "firstSeenAt": "2026-09-02T13:39:08.113Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dieticiano-o-dieticiano-responsabile-del-settore-100-hug-geneve-be23e1",
+          "dietician-or-dietician-responsible-for-sector-100-hug-geneve-be23e1",
+          "diatassistent-oder-diatassistent-verantwortlich-fur-den-sektor-100-hug-geneve-be23e1",
+          "dietitian-o-dietitian-40-hug-geneve",
+          "dietitian-or-dietitian-40-hug-geneve",
+          "diatetiker-oder-diatetiker-40-hug-geneve",
+          "dieteticien-ou-dieteticienne-40-hug-geneve",
+          "dietitian-o-dietitian-40-all-80-hug-geneve",
+          "dietitian-or-dietitian-40-to-80-hug-geneve"
+        ],
+        "en": [
+          "dietician-or-dietician-responsible-for-sector-100-hug-geneve-be23e1",
+          "dietitian-or-dietitian-40-hug-geneve"
+        ],
+        "de": [
+          "diatassistent-oder-diatassistent-verantwortlich-fur-den-sektor-100-hug-geneve-be23e1",
+          "diatetiker-oder-diatetiker-40-hug-geneve"
+        ],
+        "fr": [
+          "dieteticien-ou-dieteticienne-40-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "dieticiano-o-dieticiano-responsabile-del-settore-100-hug-geneve-be23e1",
+        "dietician-or-dietician-responsible-for-sector-100-hug-geneve-be23e1",
+        "diatassistent-oder-diatassistent-verantwortlich-fur-den-sektor-100-hug-geneve-be23e1",
+        "dietitian-o-dietitian-40-hug-geneve",
+        "dietitian-or-dietitian-40-hug-geneve",
+        "diatetiker-oder-diatetiker-40-hug-geneve",
+        "dieteticien-ou-dieteticienne-40-hug-geneve",
+        "dietitian-o-dietitian-40-all-80-hug-geneve",
+        "dietitian-or-dietitian-40-to-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-60ad3efb3f49",
@@ -3624,8 +3654,7 @@
         "ophthalmologietechniker-orthoptist-optiker-optiker-80-bis-100-hug-geneve",
         "ophthalmology-technician-orthoptist-optometrista-optista-80-al-100-hug-geneve-8306f5"
       ],
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

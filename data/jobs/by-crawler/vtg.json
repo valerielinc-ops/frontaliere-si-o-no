@@ -1065,8 +1065,6 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "meccanico-a-di-equipaggiamento-del-pilota-swiss-armed-forces-vtg-bern",
-          "pilot-equipment-mechanic-swiss-armed-forces-vtg-bern",
           "mecanicien-ne-d-equipement-de-pilote-swiss-armed-forces-vtg-bern",
           "mechaniker-in-pilotenausrustung-swiss-armed-forces-vtg-bern",
           "mechaniker-in-pilotenausrustung-confederazione-emmen",
@@ -1084,24 +1082,29 @@
           "leader-di-gruppo-meccanico-aereo-in-hornet-swiss-armed-forces-vtg-bern",
           "group-leader-aircraft-mechanic-in-hornet-swiss-armed-forces-vtg-bern",
           "gruppenfuhrer-in-luftfahrzeugmechaniker-in-hornet-confederazione-emmen",
-          "chef-de-groupe-mecanicien-aeronautique-en-hornet-swiss-armed-forces-vtg-bern"
+          "chef-de-groupe-mecanicien-aeronautique-en-hornet-swiss-armed-forces-vtg-bern",
+          "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern",
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "logistiker-in-confederazione-svizzera-rivera",
           "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
           "logistician-in-confederazione-svizzera-rivera",
-          "aircraft-mechanic-swiss-armed-forces-vtg-bern"
+          "aircraft-mechanic-swiss-armed-forces-vtg-bern",
+          "electronics-engineer-in-avionics-swiss-armed-forces-vtg-bern"
         ],
         "de": [
           "logistiker-in-confederazione-rivera",
           "logistiker-in-confederazione-svizzera-rivera",
-          "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-jkcqym"
+          "luftfahrzeugmechaniker-in-swiss-armed-forces-vtg-bern-jkcqym",
+          "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8"
         ],
         "fr": [
           "logistiker-in-confederazione-svizzera-rivera",
           "logistiker-in-swiss-armed-forces-vtg-bern-cupr4v",
           "logisticien-in-confederazione-svizzera-rivera",
-          "mecanicien-aeronautique-swiss-armed-forces-vtg-bern"
+          "mecanicien-aeronautique-swiss-armed-forces-vtg-bern",
+          "ingenieur-en-electronique-en-avionique-swiss-armed-forces-vtg-bern"
         ]
       },
       "previousSlugs": [
@@ -1171,7 +1174,12 @@
         "mechaniker-in-pilotenausrustung-swiss-armed-forces-vtg-bern",
         "mechaniker-in-pilotenausrustung-confederazione-emmen",
         "attrezzature-meccaniche-pilota-confederazione-svizzera-emmen",
-        "mechanic-pilot-equipment-confederazione-svizzera-emmen"
+        "mechanic-pilot-equipment-confederazione-svizzera-emmen",
+        "elettronica-ingegnere-in-avionica-swiss-armed-forces-vtg-bern",
+        "elektroniker-in-avionik-swiss-armed-forces-vtg-bern",
+        "electronics-engineer-in-avionics-swiss-armed-forces-vtg-bern",
+        "elektroniker-in-avionik-swiss-armed-forces-vtg-bern-wlhin8",
+        "ingenieur-en-electronique-en-avionique-swiss-armed-forces-vtg-bern"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2345,7 +2353,7 @@
       },
       "titleByLocale": {
         "it": "Driver / assistente di trasporto /",
-        "en": "Fahrer/in / Transporthelfer/in",
+        "en": "Driver / transport assistant /",
         "de": "Fahrer/in / Transporthelfer/in",
         "fr": "Conducteur / assistant de transport /"
       },
@@ -2408,8 +2416,7 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 85000,
-      "salaryMax": 119000,
-      "needsRetranslation": true
+      "salaryMax": 119000
     },
     {
       "id": "company-6okqpl",
@@ -2764,7 +2771,7 @@
         "fr": "pionier-maurer-m-w-d-swiss-armed-forces-vtg-bern-szsnuw"
       },
       "titleByLocale": {
-        "it": "Pionier Maurer (m/w)",
+        "it": "Mason pionieristico (m/f)",
         "en": "Pioneer Maurer (m/f)",
         "de": "Pionier Maurer (m/w)",
         "fr": "Pioneer Maurer (m/f)"
@@ -2802,8 +2809,7 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-6iaf9o",
@@ -2924,7 +2930,7 @@
         "fr": "specialiste-des-infrastructures-sanitaires-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "it": "Infrastruktur Spezialist/in Sanitär",
+        "it": "Specialista delle infrastrutture/sanitaria",
         "en": "Infrastructure specialist/sanitary",
         "de": "Infrastruktur Spezialist/in Sanitär",
         "fr": "Spécialiste des infrastructures/sanitaires"
@@ -3007,8 +3013,7 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-r2rk7v",
@@ -3042,7 +3047,7 @@
         "fr": "specialiste-de-l-infrastructure-en-electricite-energie-swiss-armed-forces-vtg-bern"
       },
       "titleByLocale": {
-        "it": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
+        "it": "Specialista delle infrastrutture / in Elettrici / Potenza",
         "en": "Infrastructure specialist / in Electrics / Power",
         "de": "Infrastruktur Spezialist/in Elektrik / Starkstrom",
         "fr": "Spécialiste de l'infrastructure / en électricité / énergie"
@@ -3113,8 +3118,7 @@
       ],
       "salarySource": "estimated",
       "salaryMin": 68500,
-      "salaryMax": 104000,
-      "needsRetranslation": true
+      "salaryMax": 104000
     },
     {
       "id": "company-ta786n",

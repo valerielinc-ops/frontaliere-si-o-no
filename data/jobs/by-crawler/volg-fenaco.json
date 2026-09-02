@@ -1088,7 +1088,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T07:35:58.222Z"
+      "firstSeenAt": "2026-09-01T07:35:58.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-werkstattleitung-w-m-d-kunz-landtechnik-serco-retail-ag-reiden"
+        ],
+        "fr": [
+          "stv-werkstattleitung-w-m-d-kunz-landtechnik-serco-retail-ag-reiden"
+        ]
+      },
+      "previousSlugs": [
+        "stv-werkstattleitung-w-m-d-kunz-landtechnik-serco-retail-ag-reiden"
+      ]
     },
     {
       "title": "Landmaschinenmechaniker/in (w/m/d)",
@@ -20712,17 +20723,30 @@
       "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
+          "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+          "assistente-logistico-assistente-logistico-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+          "logistics-assistant-logistics-assistant-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+          "logistikassistentin-logistikassistent-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+          "assistant-logistique-assistant-logistique-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
         ],
         "en": [
-          "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
+          "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+          "logistics-assistant-logistics-assistant-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
         ],
         "fr": [
-          "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
+          "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+          "assistant-logistique-assistant-logistique-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
+        ],
+        "de": [
+          "logistikassistentin-logistikassistent-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
+        "betriebsmitarbeiterin-betriebsmitarbeiter-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+        "assistente-logistico-assistente-logistico-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+        "logistics-assistant-logistics-assistant-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+        "logistikassistentin-logistikassistent-w-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich",
+        "assistant-logistique-assistant-logistique-f-m-d-100-kellenberger-frisch-service-frigemo-ag-zurich"
       ]
     },
     {
@@ -20786,11 +20810,16 @@
       "firstSeenAt": "2026-08-05T22:22:24.632Z",
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-euse-kat-c-w-m-d-traveco-transporte-ag-landquart"
+          "chauffeur-euse-kat-c-w-m-d-traveco-transporte-ag-landquart",
+          "chauffeuse-chauffeur-kat-c-e-w-m-d-kellenberger-frisch-service-frigemo-ag-zurich"
+        ],
+        "fr": [
+          "chauffeuse-chauffeur-kat-c-e-w-m-d-kellenberger-frisch-service-frigemo-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "chauffeur-euse-kat-c-w-m-d-traveco-transporte-ag-landquart"
+        "chauffeur-euse-kat-c-w-m-d-traveco-transporte-ag-landquart",
+        "chauffeuse-chauffeur-kat-c-e-w-m-d-kellenberger-frisch-service-frigemo-ag-zurich"
       ],
       "salarySource": "estimated"
     },

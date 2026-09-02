@@ -965,7 +965,7 @@
       "title": "HMS-Praktikant*in Marketing 100% (a)",
       "titleByLocale": {
         "it": "Professionista HMS* in Marketing 100% (a)",
-        "en": "HMS-Praktikant*in Marketing 100% (a)",
+        "en": "HMS practitioner*in Marketing 100% (a)",
         "de": "HMS-Praktikant*in Marketing 100% (a)",
         "fr": "Physicien en marketing 100% (a)"
       },
@@ -1243,7 +1243,7 @@
       "title": "Buchhändler*in 20 - 40% (a)",
       "titleByLocale": {
         "it": "Libreria* in 20 - 40% (a)",
-        "en": "Buchhändler*in 20 - 40% (a)",
+        "en": "Bookseller*in 20 - 40% (a)",
         "de": "Buchhändler*in 20 - 40% (a)",
         "fr": "Buchhändler* en 20 - 40% (a)"
       },
@@ -1333,7 +1333,7 @@
       "title": "Buchhändler*in 80% (a)",
       "titleByLocale": {
         "it": "Libreria 80% (a)",
-        "en": "Buchhändler*in 80% (a)",
+        "en": "Bookseller 80% (a)",
         "de": "Buchhändler*in 80% (a)",
         "fr": "Librairie 80% (a)"
       },
@@ -1371,22 +1371,36 @@
       "previousSlugs": [
         "buchhandler-in-80-a-orell-fuessli-thalia-zurich",
         "bookseller-80-a-orell-fussli-thalia-zurich",
-        "libreria-80-a-orell-fussli-thalia-zurich"
+        "libreria-80-a-orell-fussli-thalia-zurich",
+        "libreria-in-40-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-40-a-orell-fussli-thalia-zurich",
+        "buchhandler-in-40-a-orell-fuessli-thalia-zurich",
+        "librairie-en-40-a-orell-fussli-thalia-zurich",
+        "bookseller-in-40-a-orell-fussli-thalia-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "buchhandler-in-80-a-orell-fuessli-thalia-zurich",
-          "libreria-80-a-orell-fussli-thalia-zurich"
+          "libreria-80-a-orell-fussli-thalia-zurich",
+          "libreria-in-40-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-40-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-40-a-orell-fuessli-thalia-zurich",
+          "librairie-en-40-a-orell-fussli-thalia-zurich",
+          "bookseller-in-40-a-orell-fussli-thalia-zurich"
         ],
         "en": [
-          "bookseller-80-a-orell-fussli-thalia-zurich"
+          "bookseller-80-a-orell-fussli-thalia-zurich",
+          "buchhandler-in-40-a-orell-fussli-thalia-zurich"
         ],
         "fr": [
-          "buchhandler-in-80-a-orell-fuessli-thalia-zurich"
+          "buchhandler-in-80-a-orell-fuessli-thalia-zurich",
+          "librairie-en-40-a-orell-fussli-thalia-zurich"
+        ],
+        "de": [
+          "buchhandler-in-40-a-orell-fuessli-thalia-zurich"
         ]
       },
       "firstSeenAt": "2026-08-06T11:59:24.730Z",
-      "needsRetranslation": true,
       "salaryMin": 66400,
       "salaryMax": 102000,
       "salarySource": "estimated",
