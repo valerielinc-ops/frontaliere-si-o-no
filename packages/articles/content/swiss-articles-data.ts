@@ -15580,6 +15580,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aprire-attivita-argovia-registro-commercio',
+    category: 'pratico',
+    date: '2026-09-02T19:25:41.852Z',
+    image: '/images/blog/aprire-attivita-argovia-registro-commercio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

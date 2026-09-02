@@ -5194,6 +5194,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Wages and labour market in Schaffhausen',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Swiss wage structure for training levels, collective agreements, social security system (AVS/LPP) and cantonal minimum wage. A practical guide to verifying your salary.',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Modern Swiss workplace with salary documents, calculator and Alpine landscape view from office window',
+    'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Opening a business in Aargau: trade register and costs',
+    'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Legal forms, registration in the commercial register, minimum capital, taxes and tax obligations in the Canton of Aargau: operational guide.',
+    'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Entrance to a Swiss cantonal administrative office for commercial registration',
 };
 
 export default blogMetaChEn;

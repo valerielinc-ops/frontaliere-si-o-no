@@ -5194,6 +5194,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Salaires et marché du travail à Schaffhouse',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Structure salariale suisse par niveaux de formation, conventions collectives, système de prévoyance (AVS/LPP) et salaire minimum cantonal. Guide pratique pour vérifier votre salaire.',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Espace de travail suisse moderne avec documents de salaire et vue sur les Alpes',
+    'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Ouvrir une entreprise en Argovie : registre du commerce et des coûts',
+    'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Formes juridiques, immatriculation au registre du commerce, capital minimum, taxes et obligations fiscales dans le canton d\'Argovie : guide opérationnel.',
+    'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Entrée d\'un bureau administratif cantonal suisse pour le registre du commerce',
 };
 
 export default blogMetaChFr;

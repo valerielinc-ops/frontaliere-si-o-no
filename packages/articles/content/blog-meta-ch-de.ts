@@ -5194,6 +5194,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Löhne und Arbeitsmarkt in Schaffhausen',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Schweizer Lohnstruktur nach Bildungsstufen, Kollektivverträgen, Vorsorgesystem (AHV/BVG) und kantonalem Mindestlohn. Praktischer Leitfaden zur Überprüfung Ihres Gehalts.',
     'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Moderner Schweizer Arbeitsplatz mit Gehaltsdokumenten und Blick auf die Alpen',
+    'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Geschäft im Aargau eröffnen: Handelsregister und Kosten',
+    'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Rechtsformen, Handelsregistereintragung, Mindestkapital, Steuern und steuerliche Pflichten im Kanton Aargau: Betriebsanleitung.',
+    'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Eingang zu einem schweizer Kantonalen Verwaltungsbüro für Handelsregister',
 };
 
 export default blogMetaChDe;
