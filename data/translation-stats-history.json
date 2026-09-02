@@ -1,119 +1,5 @@
 [
   {
-    "timestamp": "2026-08-07T08:46:10.167Z",
-    "label": "before",
-    "total": 26722,
-    "needsRetranslation": 14359,
-    "suppressed": 25,
-    "incomplete": 806,
-    "complete": 25916,
-    "missingByLocale": {
-      "it": 637,
-      "en": 349,
-      "de": 231,
-      "fr": 417
-    },
-    "topPending": [
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 197
-      },
-      {
-        "company": "Cartier",
-        "pending": 90
-      },
-      {
-        "company": "Roche",
-        "pending": 46
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 41
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 37
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 27
-      },
-      {
-        "company": "OTTO'S AG",
-        "pending": 20
-      },
-      {
-        "company": "Manor AG",
-        "pending": 17
-      },
-      {
-        "company": "TRAVECO Transporte AG",
-        "pending": 17
-      },
-      {
-        "company": "PostFinance",
-        "pending": 15
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-08-07T08:57:37.778Z",
-    "label": "after",
-    "total": 26722,
-    "needsRetranslation": 1308,
-    "suppressed": 23,
-    "incomplete": 806,
-    "complete": 25916,
-    "missingByLocale": {
-      "it": 637,
-      "en": 349,
-      "de": 231,
-      "fr": 417
-    },
-    "topPending": [
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 197
-      },
-      {
-        "company": "Cartier",
-        "pending": 90
-      },
-      {
-        "company": "Roche",
-        "pending": 46
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 41
-      },
-      {
-        "company": "Swiss Medical Network",
-        "pending": 37
-      },
-      {
-        "company": "Zurich Insurance (sede Ticino)",
-        "pending": 27
-      },
-      {
-        "company": "OTTO'S AG",
-        "pending": 20
-      },
-      {
-        "company": "Manor AG",
-        "pending": 17
-      },
-      {
-        "company": "TRAVECO Transporte AG",
-        "pending": 17
-      },
-      {
-        "company": "PostFinance",
-        "pending": 15
-      }
-    ]
-  },
-  {
     "timestamp": "2026-08-07T16:41:34.814Z",
     "label": "before",
     "total": 26785,
@@ -14174,6 +14060,162 @@
       {
         "company": "Migros Bank",
         "pending": 327
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 268
+      },
+      {
+        "company": "BKW",
+        "pending": 235
+      },
+      {
+        "company": "Sulzer",
+        "pending": 203
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 192
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-02T12:32:33.171Z",
+    "label": "before",
+    "total": 28557,
+    "needsRetranslation": 14628,
+    "suppressed": 87,
+    "incomplete": 15692,
+    "complete": 12865,
+    "slotsPresent": 12865,
+    "flaggedAmongSlotsPresent": 7,
+    "verifiedTranslated": 12858,
+    "sourceCopyExcused": 609,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 4758,
+      "en": 4175,
+      "de": 1110,
+      "fr": 4281
+    },
+    "queueAge": {
+      "count": 14628,
+      "withTimestamp": 14628,
+      "oldestAgeDays": 142.1,
+      "p50AgeDays": 8.1,
+      "p90AgeDays": 60.6,
+      "buckets": {
+        "0-7d": 6678,
+        "7-30d": 3630,
+        "30-90d": 3620,
+        "90-180d": 700,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3211
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1492
+      },
+      {
+        "company": "Roche",
+        "pending": 732
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 388
+      },
+      {
+        "company": "VOLG",
+        "pending": 351
+      },
+      {
+        "company": "Migros Bank",
+        "pending": 325
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 268
+      },
+      {
+        "company": "BKW",
+        "pending": 235
+      },
+      {
+        "company": "Sulzer",
+        "pending": 203
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 192
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-02T13:22:12.416Z",
+    "label": "after",
+    "total": 28557,
+    "needsRetranslation": 14595,
+    "suppressed": 90,
+    "incomplete": 15669,
+    "complete": 12888,
+    "slotsPresent": 12888,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 12888,
+    "sourceCopyExcused": 609,
+    "languageVerified": null,
+    "missingByLocale": {
+      "it": 4726,
+      "en": 4143,
+      "de": 1104,
+      "fr": 4255
+    },
+    "queueAge": {
+      "count": 14595,
+      "withTimestamp": 14595,
+      "oldestAgeDays": 142.1,
+      "p50AgeDays": 8.1,
+      "p90AgeDays": 60.6,
+      "buckets": {
+        "0-7d": 6635,
+        "7-30d": 3562,
+        "30-90d": 3697,
+        "90-180d": 701,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3211
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1481
+      },
+      {
+        "company": "Roche",
+        "pending": 732
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 388
+      },
+      {
+        "company": "VOLG",
+        "pending": 351
+      },
+      {
+        "company": "Migros Bank",
+        "pending": 313
       },
       {
         "company": "Confederazione Svizzera",
