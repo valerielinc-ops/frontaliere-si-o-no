@@ -4115,9 +4115,22 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   }
   if (!location && seedLocation) location = seedLocation;
   const url = tryUrl(node.url, sourcePageUrl) || sourcePageUrl;
+  // A JSON-LD node whose own `url` field points to a canonical/shortlink
+  // variant of the same vacancy (same stable per-job token — UUID, numeric
+  // id, etc. — different query/host/path shell) must still be trusted as the
+  // seed detail: it's the SAME job, not a conflicting one. Literal string
+  // equality on canonicalizeJobUrl() alone would reject that legitimate case
+  // (#7026 item 2). extractJobIdentityFromUrl() is the existing per-job
+  // identity extractor (used for slug-registry keying) and already handles
+  // this exact Prospective.ch `/offene-stellen/{slug}/{uuid}` shape shared by
+  // Fust/Coop, so reuse it here instead of a second bespoke comparison.
+  const sourceIdentity = extractJobIdentityFromUrl(sourcePageUrl);
   const declaredSeedDetail = options?.isSeedDetail === true
     && canonicalizeJobUrl(url)
-    && canonicalizeJobUrl(url) === canonicalizeJobUrl(sourcePageUrl);
+    && (
+      canonicalizeJobUrl(url) === canonicalizeJobUrl(sourcePageUrl)
+      || (sourceIdentity && extractJobIdentityFromUrl(url) === sourceIdentity)
+    );
 
   if (!title || title.length < 6) return { job: null, reason: 'jsonld_missing_title' };
   if (isLikelyGenericCareerTitle(title)) return { job: null, reason: 'jsonld_generic_title' };
