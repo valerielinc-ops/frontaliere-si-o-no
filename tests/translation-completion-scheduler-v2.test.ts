@@ -510,7 +510,14 @@ describe('translation completion scheduler v2', () => {
       identity: unitIdentity, memory: createEmptyTranslationMemoryV2(), engineVersion: ENGINE_VERSION, gateVersion: GATE_VERSION,
       scanDigest: SCAN_DIGEST, currentScanDigest: SCAN_DIGEST, providerTimeoutMs: 1_000,
       quality: { sourceText, sourceLang: 'de', targetLang: 'it', field: 'description', protectedTokens: [] },
-      provider: { schemaVersion: 2, costClass: 'zero', engineVersion: ENGINE_VERSION, executionClass: 'cooperative_async', translate: async () => sourceText },
+      provider: {
+        schemaVersion: 3,
+        costClass: 'zero',
+        engineVersion: ENGINE_VERSION,
+        executionClass: 'isolated_callback',
+        moduleUrl: `data:text/javascript;charset=utf-8,${encodeURIComponent(`export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(sourceText)}); }`)}`,
+        exportName: 'translate',
+      },
     });
     expect(execution).toMatchObject({ status: 'retryable_reject', attemptKey: selected.attemptKey });
     const outcomes = [{ schedulingKey: planned.plan.selectedJobs[0].schedulingKey, units: [{ attemptKey: execution.attemptKey, status: execution.status }] }];

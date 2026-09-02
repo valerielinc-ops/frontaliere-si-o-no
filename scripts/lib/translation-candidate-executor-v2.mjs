@@ -12,12 +12,12 @@ import {
   validateTranslationUnitIdentityV2,
 } from './translation-unit-identity-v2.mjs';
 import { normalizeTranslationText, sha256TranslationText } from './translation-unit-identity.mjs';
-import { isPromise } from 'node:util/types';
+import { Worker } from 'node:worker_threads';
 
 export const TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION = 2;
 
 const INPUT_KEYS = ['currentScanDigest', 'engineVersion', 'gateVersion', 'identity', 'memory', 'provider', 'providerTimeoutMs', 'quality', 'scanDigest'];
-const PROVIDER_KEYS = ['costClass', 'engineVersion', 'executionClass', 'schemaVersion', 'translate'];
+const PROVIDER_KEYS = ['costClass', 'engineVersion', 'executionClass', 'exportName', 'moduleUrl', 'schemaVersion'];
 const QUALITY_KEYS = ['field', 'protectedTokens', 'sourceLang', 'sourceText', 'targetLang'];
 const DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/;
 const MAX_PROVIDER_OUTPUT_LENGTH = 120_000;
@@ -26,6 +26,12 @@ const MAX_UNTRUSTED_SNAPSHOT_DEPTH = 64;
 const MAX_UNTRUSTED_SNAPSHOT_NODES = 100_000;
 const MAX_UNTRUSTED_SNAPSHOT_BYTES = 16 * 1024 * 1024;
 const MAX_UNTRUSTED_SNAPSHOT_ARRAY_LENGTH = 100_000;
+const PROVIDER_PROTOCOL_SCHEMA_VERSION = 3;
+const PROVIDER_WORKER_RESOURCE_LIMITS = Object.freeze({
+  maxOldGenerationSizeMb: 64,
+  maxYoungGenerationSizeMb: 16,
+  stackSizeMb: 4,
+});
 
 function snapshotExactDataObject(value, keys, label) {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) {
@@ -167,49 +173,6 @@ function fixedEvidence(code) {
   })]);
 }
 
-function wrapIntrinsicPromise(value) {
-  // `Promise.prototype.then` checks a Promise internal slot without invoking
-  // an untrusted `then`. Attach directly first: ordinary native, subclass and
-  // cross-realm promises remain observable even when frozen/non-extensible or
-  // when an own constructor is non-configurable.
-  if (!isPromise(value)) return null;
-  let resolveTrusted;
-  let rejectTrusted;
-  const trusted = new Promise((resolve, reject) => {
-    resolveTrusted = resolve;
-    rejectTrusted = reject;
-  });
-  let attached = false;
-  try {
-    Promise.prototype.then.call(value, resolveTrusted, rejectTrusted);
-    attached = true;
-  } catch {
-    // SpeciesConstructor runs before PerformPromiseThen, so a synchronous
-    // species failure has not attached either handler. An extensible promise
-    // can be retried with a temporary intrinsic constructor without reading
-    // `then` or invoking the hostile species again. ECMAScript exposes no
-    // species-bypassing observation primitive for a non-extensible hostile
-    // subclass; that pathological value is rejected by returning null.
-    const constructor = Object.getOwnPropertyDescriptor(value, 'constructor');
-    try {
-      Object.defineProperty(value, 'constructor', {
-        value: Promise, configurable: true, enumerable: false, writable: true,
-      });
-      Promise.prototype.then.call(value, resolveTrusted, rejectTrusted);
-      attached = true;
-    } catch {
-      return null;
-    } finally {
-      if (constructor) Object.defineProperty(value, 'constructor', constructor);
-      else delete value.constructor;
-    }
-  }
-  if (!attached) return null;
-  // Observe immediately, including synchronous and late provider rejection.
-  Promise.prototype.then.call(trusted, undefined, () => undefined);
-  return trusted;
-}
-
 function outcome({ status, attemptKey, candidate = null, memory, evidence, providerCalls, recorded }) {
   return deepFreezeTranslationV2({
     schemaVersion: TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION,
@@ -253,17 +216,85 @@ function snapshotProvider(input, engineVersion) {
     costClass: descriptors.costClass,
     engineVersion: descriptors.engineVersion,
     executionClass: descriptors.executionClass,
+    exportName: descriptors.exportName,
+    moduleUrl: descriptors.moduleUrl,
     schemaVersion: descriptors.schemaVersion,
-    translate: descriptors.translate,
   });
-  if (provider.schemaVersion !== TRANSLATION_CANDIDATE_EXECUTOR_V2_SCHEMA_VERSION
+  if (provider.schemaVersion !== PROVIDER_PROTOCOL_SCHEMA_VERSION
       || provider.costClass !== 'zero'
-      || provider.executionClass !== 'cooperative_async'
+      || provider.executionClass !== 'isolated_callback'
       || normalizeTranslationVersionV2(provider.engineVersion, 'provider engineVersion') !== engineVersion
-      || typeof provider.translate !== 'function') {
+      || typeof provider.moduleUrl !== 'string'
+      || provider.moduleUrl.length === 0
+      || typeof provider.exportName !== 'string'
+      || provider.exportName.length === 0
+      || provider.exportName.length > 256) {
+    throw new TypeError('translation candidate executor v2 provider is invalid');
+  }
+  try {
+    new URL(provider.moduleUrl);
+  } catch {
     throw new TypeError('translation candidate executor v2 provider is invalid');
   }
   return provider;
+}
+
+function isProviderMessage(value) {
+  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
+  const descriptors = Object.getOwnPropertyDescriptors(value);
+  const keys = Reflect.ownKeys(descriptors);
+  if (keys.some((key) => typeof key !== 'string' || !descriptors[key].enumerable
+      || !Object.hasOwn(descriptors[key], 'value') || descriptors[key].get || descriptors[key].set)) return false;
+  if (descriptors.schemaVersion?.value !== PROVIDER_PROTOCOL_SCHEMA_VERSION) return false;
+  if (descriptors.type?.value === 'fail') {
+    return keys.length === 2 && keys.includes('schemaVersion') && keys.includes('type');
+  }
+  return descriptors.type?.value === 'succeed'
+    && keys.length === 3
+    && keys.includes('schemaVersion')
+    && keys.includes('type')
+    && keys.includes('text')
+    && typeof descriptors.text?.value === 'string';
+}
+
+async function runIsolatedProvider(provider, request, timeoutMs) {
+  let worker;
+  try {
+    worker = new Worker(new URL('./translation-candidate-provider-worker-v2.mjs', import.meta.url), {
+      execArgv: ['--unhandled-rejections=strict'],
+      resourceLimits: PROVIDER_WORKER_RESOURCE_LIMITS,
+      workerData: { provider, request },
+    });
+  } catch {
+    return null;
+  }
+
+  return new Promise((resolve) => {
+    let finishing = false;
+    const timeoutId = setTimeout(() => finish(null), timeoutMs);
+
+    async function finish(candidateText) {
+      if (finishing) return;
+      finishing = true;
+      clearTimeout(timeoutId);
+      try {
+        await worker.terminate();
+      } catch {
+        candidateText = null;
+      }
+      resolve(candidateText);
+    }
+
+    worker.once('error', () => finish(null));
+    worker.once('exit', () => finish(null));
+    worker.on('message', (message) => {
+      if (!isProviderMessage(message)) {
+        finish(null);
+        return;
+      }
+      finish(message.type === 'succeed' ? message.text : null);
+    });
+  });
 }
 
 function validateInput(input) {
@@ -328,43 +359,7 @@ export async function executeTranslationCandidateV2(input) {
       evidence: fixedEvidence('conflict'), providerCalls: 0, recorded: false,
     });
   }
-  let candidateText;
-  const controller = new AbortController();
-  const provider = value.provider;
-  const translate = provider.translate;
-  let timeoutId;
-  try {
-    const timedOut = Symbol('provider timeout');
-    const timeout = new Promise((resolve) => {
-      timeoutId = setTimeout(() => {
-        controller.abort();
-        resolve(timedOut);
-      }, value.providerTimeoutMs);
-    });
-    // This is cooperative async only: a synchronous provider cannot be
-    // preempted in this isolate, so elapsed synchronous work is rejected after
-    // it returns. Hard isolation belongs to a future runtime adapter.
-    const startedMs = Date.now();
-    const pending = Reflect.apply(
-      translate,
-      provider,
-      [value.quality, Object.freeze({ signal: controller.signal })],
-    );
-    const trusted = wrapIntrinsicPromise(pending);
-    if (Date.now() - startedMs > value.providerTimeoutMs || trusted === null) {
-      controller.abort();
-      candidateText = null;
-    } else {
-      candidateText = await Promise.race([trusted, timeout]);
-      if (candidateText === timedOut) {
-        candidateText = null;
-      }
-    }
-  } catch {
-    candidateText = null;
-  } finally {
-    clearTimeout(timeoutId);
-  }
+  const candidateText = await runIsolatedProvider(value.provider, value.quality, value.providerTimeoutMs);
   if (typeof candidateText !== 'string'
       || candidateText.trim().length === 0
       || candidateText.length > MAX_PROVIDER_OUTPUT_LENGTH) {

@@ -593,10 +593,10 @@ describe('translation candidate quality v2', () => {
     });
     const scanDigest = `sha256:${'a'.repeat(64)}`;
     for (const candidateText of variants) {
-      let providerCalls = 0;
       const provider = {
-        schemaVersion: 2, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'cooperative_async',
-        async translate() { providerCalls += 1; return candidateText; },
+        schemaVersion: 3, costClass: 'zero', engineVersion: 'stub-v1', executionClass: 'isolated_callback',
+        moduleUrl: `data:text/javascript;charset=utf-8,${encodeURIComponent(`export function translate(_request, { succeedText }) { succeedText(${JSON.stringify(candidateText)}); }`)}`,
+        exportName: 'translate',
       };
       const request = {
         currentScanDigest: scanDigest,
@@ -619,7 +619,6 @@ describe('translation candidate quality v2', () => {
       expect(retried).toMatchObject({
         status: 'retryable_reject', memory: createEmptyTranslationMemoryV2(), metrics: { providerCalls: 1, recorded: false },
       });
-      expect(providerCalls).toBe(2);
     }
   });
 
