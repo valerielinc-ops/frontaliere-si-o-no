@@ -33,7 +33,8 @@ function routeOwners(jobs: Job[]) {
 }
 
 function incidentRemovedJobs() {
-  const ownerCount = 12;
+  // The incident had 15 removed jobs, 3 of which were already archived.
+  const ownerCount = 15 - 3;
   const routesByOwner = Array.from({ length: ownerCount }, () => [] as string[]);
   IPERSONAL_7045_LOST_ROUTES.forEach((route, index) => {
     routesByOwner[index % ownerCount].push(route);
