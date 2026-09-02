@@ -5086,6 +5086,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.argovia-sussidi-cassa-malati-2026.title': 'Krankenkassenprämien im Kanton Aargau und Prämienermäßigung',
     'blog.article.argovia-sussidi-cassa-malati-2026.excerpt': 'Erfahren Sie, wie die Krankenkassenprämien im Kanton Aargau funktionieren, welche Franchisen es gibt und wie Sie eine Prämienermäßigung durch kantonale Zuschüsse beantragen können.',
     'blog.article.argovia-sussidi-cassa-malati-2026.imageAlt': 'Schweizer Verwaltungsbüro für Krankenversicherungsprämien und Prämiensenkungen im Kanton Aargau.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'Die SBB bietet Lösungen an, um Sitzplätze in den Zügen zu finden',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'Die SBB hat mit ihren Tipps zur Suche nach Sitzplätzen in Zügen bei einigen Fahrgästen verärgerte Reaktionen ausgelöst.',
+    'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'Ein überfüllter Bahnhof in Zürich mit Pendlern, die auf ihre Züge warten.',
 };
 
 export default blogMetaChDe;
