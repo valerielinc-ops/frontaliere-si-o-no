@@ -1701,6 +1701,17 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soletta-contestazione-canone-affitti': { it: 'soletta-contestazione-canone-affitti', en: 'soletta-contesting-rent-cantonal-law', de: 'soletta-miete-anfechtung-schweizer-recht', fr: 'soletta-contestation-loyer-droit-suisse' },
  'affitti-soletta-diritti-inquilini': { it: 'affitti-soletta-diritti-inquilini', en: 'soletta-rental-tenant-rights', de: 'soletta-mietrecht-mieterrechte', fr: 'soletta-droit-location-locataires' },
  'comprare-casa-grigioni-procedure-fondi': { it: 'comprare-casa-grigioni-procedure-fondi', en: 'buy-home-grisons-procedures-funds', de: 'haus-graubuenden-kaufverfahren-eigenkapital', fr: 'acheter-maison-grisons-procedures-fonds' },
+ 'affitti-grigioni-canoni-diritto': { it: 'affitti-grigioni-canoni-diritto', en: 'grisons-rental-market-tenants-rights', de: 'mietwohnungen-graubuenden-mietrecht', fr: 'loyers-grisons-droit-location' },
+ 'naturalizzazione-grigioni-requisiti-procedura': { it: 'naturalizzazione-grigioni-requisiti-procedura', en: 'naturalization-grisons-requirements-procedure', de: 'einburgerung-graubunden-anforderungen-verfahren', fr: 'naturalisation-grisons-exigences-procedure' },
+ 'avs-prestazioni-complementari-grigioni': { it: 'avs-prestazioni-complementari-grigioni', en: 'avs-complementary-benefits-canton-grisons', de: 'avs-ergaenzungsleistungen-kanton-graubuenden', fr: 'avs-prestations-complementaires-canton-grisons' },
+ 'permesso-c-basilea-requisiti-domanda': { it: 'permesso-c-basilea-requisiti-domanda', en: 'residence-permit-c-basel-city-requirements-application', de: 'aufenthaltserlaubnis-c-basel-stadt-anforderungen-antrag', fr: 'permis-residence-c-bale-ville-conditions-demande' },
+ 'asilo-custodia-basilea-citta-tariffe': { it: 'asilo-custodia-basilea-citta-tariffe', en: 'nursery-childcare-basel-city-fees', de: 'kindergarten-kinderbetreuung-basel-stadt-gebuehren', fr: 'garderie-garde-enfants-bale-ville-tarifs' },
+ 'naturalizzazione-basilea-requisiti': { it: 'naturalizzazione-basilea-requisiti', en: 'naturalization-basel-stadt-requirements', de: 'naturalisation-basel-stadt-anforderungen', fr: 'naturalisation-bale-ville-conditions' },
+ 'aprire-attivita-basilea-guida-commercio': { it: 'aprire-attivita-basilea-guida-commercio', en: 'opening-business-basel-city-commerce-guide', de: 'geschaft-eroffnen-basel-stadt-handelsregister', fr: 'ouvrir-activite-bale-ville-commerce' },
+ 'aprire-attivita-grigioni-guida': { it: 'aprire-attivita-grigioni-guida', en: 'starting-business-grisons-guide', de: 'unternehmen-graubuenden-anleitung', fr: 'creer-entreprise-grisons-guide' },
+ 'aprire-attivita-grigioni-registro-costi': { it: 'aprire-attivita-grigioni-registro-costi', en: 'open-business-graubunden-registry-costs', de: 'geschaft-graubunden-handelsregister-kosten', fr: 'ouvrir-activite-grisons-registre-couts' },
+ 'avviare-attivita-grigioni-forma-giuridica': { it: 'avviare-attivita-grigioni-forma-giuridica', en: 'starting-business-grisons-legal-form', de: 'unternehmen-gruendung-graubuenden-rechtsform', fr: 'demarrer-entreprise-grisons-forme-juridique' },
+ 'mercato-lavoro-canton-grigioni': { it: 'mercato-lavoro-canton-grigioni', en: 'labour-market-canton-grisons', de: 'arbeitsmarkt-kanton-graubunden', fr: 'marche-travail-canton-grisons' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

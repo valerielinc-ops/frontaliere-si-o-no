@@ -957,11 +957,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "kundendienstmitarbeiter-in-service-fust-koniz-bern"
+          "kundendienstmitarbeiter-in-service-fust-koniz-bern",
+          "kundendienstmitarbeiter-in-service-fust-koniz-bern-6h28bz"
         ]
       },
       "previousSlugs": [
-        "kundendienstmitarbeiter-in-service-fust-koniz-bern"
+        "kundendienstmitarbeiter-in-service-fust-koniz-bern",
+        "kundendienstmitarbeiter-in-service-fust-koniz-bern-6h28bz"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1479,7 +1481,8 @@
       "addressCountry": "Schweiz",
       "_enrichedFromDetail": true,
       "salaryMin": 69000,
-      "salaryMax": 121000
+      "salaryMax": 121000,
+      "needsRetranslation": true
     },
     {
       "id": "company-bm4dps",
@@ -5213,7 +5216,8 @@
       "addressCountry": "Schweiz",
       "_enrichedFromDetail": true,
       "salaryMin": 48000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "needsRetranslation": true
     },
     {
       "id": "company-gktcfr",

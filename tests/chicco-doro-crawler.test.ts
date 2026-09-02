@@ -12,6 +12,8 @@ import {
   parseListingPage,
 } from '../scripts/lib/chicco-doro-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { verifyShrinkAgainstSource } from '../scripts/assemble-jobs-dataset.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OPEN_APPLICATION_FIXTURE = fs.readFileSync(
@@ -92,6 +94,125 @@ describe('Chicco d\u2019Oro crawler parser', () => {
     })).toEqual({
       authoritativeSnapshotVerified: false,
       authoritativeEmptySnapshot: false,
+    });
+  });
+
+  it('retires a real vacancy that disappears from a non-empty snapshot within a bounded number of runs', () => {
+    // Follow-up #7020 item 1: the runner never confirms a proven-zero
+    // snapshot while a real listing keeps showing up (`authoritativeSnapshotScope:
+    // 'empty-only'` only verifies empty batches), so `retainMissingJobs` stays
+    // at its shared default (true) for a job that goes missing here. That
+    // default is NOT unbounded — mergePreserveLocaleData caps it at
+    // GRACE_PERIOD_MAX_MISSES (2) consecutive misses regardless of company.
+    const goneJob = {
+      id: 'chicco-doro-gone-role',
+      url: 'https://www.chiccodoro.com/jobs/gone-role',
+      companyKey: CHICCO_DORO_KEY,
+      company: CHICCO_DORO_COMPANY_NAME,
+      title: 'Ruolo sparito',
+      slug: 'ruolo-sparito-chicco-doro-ch',
+    };
+    const stayingJob = {
+      id: 'chicco-doro-staying-role',
+      url: 'https://www.chiccodoro.com/jobs/staying-role',
+      companyKey: CHICCO_DORO_KEY,
+      company: CHICCO_DORO_COMPANY_NAME,
+      title: 'Ruolo presente',
+      slug: 'ruolo-presente-chicco-doro-ch',
+    };
+
+    let existing = [goneJob];
+    for (let run = 1; run <= 3; run++) {
+      // parsedJobs is never empty across these runs — the crawl never proves
+      // a complete zero, so authoritativeSnapshotVerified stays false and the
+      // runner never sets retainMissingJobs: false (mirrors the mergeOpts
+      // built in runStandardCrawlerPipeline).
+      const parsedJobs = [{ ...stayingJob }];
+      const { authoritativeSnapshotVerified } = evaluateAuthoritativeSnapshot(parsedJobs, {
+        validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+        companyLabel: CHICCO_DORO_COMPANY_NAME,
+      });
+      expect(authoritativeSnapshotVerified).toBe(false);
+
+      existing = mergePreserveLocaleData(existing, parsedJobs, {
+        ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
+      });
+
+      if (run < 3) {
+        expect(existing.find((j) => j.id === goneJob.id)).toBeDefined();
+      }
+    }
+
+    expect(existing.find((j) => j.id === goneJob.id)).toBeUndefined();
+  });
+
+  // Follow-up #7020 item 2: `skipShrinkGuard` is false on non-empty Chicco
+  // runs (authoritativeSnapshotScope: 'empty-only' never verifies a non-empty
+  // batch — see evaluateAuthoritativeSnapshot above), so a shrink now goes
+  // through `verifyShrinkAgainstSource`'s URL probe instead of skipping it.
+  // The open question was whether that probe is reliable on Chicco's actual
+  // detail pages. Live-verified 2026-09-02: chiccodoro.com is a WordPress
+  // site behind Cloudflare (`x-powered-by: Elementor Cloud`); a removed path
+  // 301-redirects apex-canonicalized and then resolves to a genuine HTTP 404
+  // (`curl -sSL -o /dev/null -w '%{http_code}' https://www.chiccodoro.com/<
+  // removed-path>` → 404), not the softer "200 with stale content" pattern
+  // WordPress sites can exhibit (the risk `crawler-template.mjs` flags for
+  // other sources). `validateJobUrl` already follows redirects
+  // (`redirect: 'follow'`) and treats a final 404/410 as `definitive: true`,
+  // so this platform shape corroborates cleanly. These two cases pin that
+  // contract for Chicco specifically, both the confirmed-gone case and the
+  // fail-safe when the source is ambiguous instead.
+  describe('shrink-guard probe reliability on Chicco detail pages', () => {
+    const priorJobs = [
+      {
+        id: 'chicco-doro-retired-role',
+        url: 'https://www.chiccodoro.com/jobs/retired-role',
+        companyKey: CHICCO_DORO_KEY,
+        company: CHICCO_DORO_COMPANY_NAME,
+        title: 'Ruolo ritirato',
+      },
+    ];
+
+    it('corroborates a shrink when the WordPress source resolves the retired page to a definitive 404', async () => {
+      const validate = vi.fn(async (jobs: Array<{ id: string; url: string }>) => jobs.map((job) => ({
+        id: job.id,
+        // Mirrors validateJobUrl's real branch for chiccodoro.com: fetch
+        // follows the 301, lands on a 404, which is definitive.
+        valid: false,
+        status: 404,
+        reason: 'http-404',
+        definitive: true,
+      })));
+
+      const verdict = await verifyShrinkAgainstSource(priorJobs, [], {
+        validate,
+        isTargetJob: isChiccoDoroJob,
+      });
+
+      expect(verdict.corroborated).toBe(true);
+      expect(verdict.dead).toBe(1);
+      expect(verdict.alive).toBe(0);
+    });
+
+    it('refuses the shrink when the retired page is not provably gone (fail-safe, no false accept)', async () => {
+      const validate = vi.fn(async (jobs: Array<{ id: string; url: string }>) => jobs.map((job) => ({
+        id: job.id,
+        // A non-definitive signal (e.g. Cloudflare challenge, timeout, or a
+        // WordPress page still serving 200) must NOT be read as evidence.
+        valid: true,
+        status: 200,
+        reason: 'ok',
+      })));
+
+      const verdict = await verifyShrinkAgainstSource(priorJobs, [], {
+        validate,
+        isTargetJob: isChiccoDoroJob,
+      });
+
+      expect(verdict.corroborated).toBe(false);
+      expect(verdict.alive).toBe(1);
     });
   });
 

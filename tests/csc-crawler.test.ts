@@ -146,6 +146,23 @@ describe('CSC authoritative Drupal discovery', () => {
     })).rejects.toThrow(/share semantic identity semantic:/);
   });
 
+  it('accepts a response URL that only adds a benign query string over the candidate', async () => {
+    const detail = fixture.details[0];
+    const verified = await verifyCscDetailUrls([detail.url], {
+      fetchImpl: vi.fn(async () => htmlResponse(`${detail.url}?cb=123`, detail.html)),
+      timeoutMs: 1000,
+    });
+    expect(verified).toEqual([detail.url]);
+  });
+
+  it('still rejects a redirect to a different route even when it also carries a query string', async () => {
+    const [first, alias] = fixture.details;
+    await expect(verifyCscDetailUrls([first.url], {
+      fetchImpl: vi.fn(async () => htmlResponse(`${alias.url}?cb=123`, alias.html)),
+      timeoutMs: 1000,
+    })).rejects.toThrow(/redirected outside its exact detail contract/);
+  });
+
   it('requires the final URL supplied by production fetch responses', async () => {
     const detail = fixture.details[0];
     await expect(verifyCscDetailUrls([detail.url], {

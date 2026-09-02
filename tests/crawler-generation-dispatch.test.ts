@@ -25,7 +25,6 @@ import {
 import {
   GROUP_IDS,
   crawlerGenerationSentinelWorkflowIdentity,
-  crawlerGenerationLegacyWorkflowIdentity,
   crawlerGenerationWorkflowIdentity,
   isCrawlerGenerationToken,
   validateCrawlerGenerationWorkflowRun,
@@ -57,6 +56,7 @@ function boundRun(group = '01', id = 7001, corpusCommit: string | null = null) {
 
 afterEach(() => {
   for (const root of tempRoots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
+  process.exitCode = undefined;
   vi.restoreAllMocks();
 });
 
@@ -707,6 +707,52 @@ describe('crawler generation dispatch protocol', () => {
     expect(pulls).toBeLessThan(32);
   });
 
+  it('returns a real response that completes an instant before its bound timeout fires', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise((resolve, reject) => {
+        const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+        init?.signal?.addEventListener('abort', onAbort, { once: true });
+        setTimeout(() => {
+          init?.signal?.removeEventListener('abort', onAbort);
+          resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+        }, 749);
+      }));
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = request({ method: 'GET', path: '/repos/x/actions/runs/1', timeoutMs: 750 });
+      await vi.advanceTimersByTimeAsync(749);
+      await expect(pending).resolves.toMatchObject({ status: 200 });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('rejects instead of fabricating a match when the abort wins the tail race against a slow-but-real response', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise((resolve, reject) => {
+        const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+        init?.signal?.addEventListener('abort', onAbort, { once: true });
+        // Arrives one tick after the bound timeout — the abort timer was armed first (registered
+        // before the fetch call) and always fires first on an exact tie, so this must never resolve.
+        setTimeout(() => {
+          resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+        }, 751);
+      }));
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = request({ method: 'GET', path: '/repos/x/actions/runs/1', timeoutMs: 750 });
+      const assertion = expect(pending).rejects.toThrow(/abort/i);
+      await vi.advanceTimersByTimeAsync(800);
+      await assertion;
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('never retries POST after a transport failure and reconciles only one exact global run name', async () => {
     let postCalls = 0;
     const request = vi.fn(async (input: any) => {
@@ -1043,6 +1089,86 @@ describe('crawler generation dispatch protocol', () => {
       .toEqual([10_000, 3_750]);
   });
 
+  it('classifies direct through the real requester when hydration completes just before its bound abort fires', async () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(0);
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => {
+        if (init?.method === 'POST') {
+          return Promise.resolve(new Response(JSON.stringify({
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          }), { status: 200 }));
+        }
+        return new Promise((resolve, reject) => {
+          const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+          init?.signal?.addEventListener('abort', onAbort, { once: true });
+          setTimeout(() => {
+            init?.signal?.removeEventListener('abort', onAbort);
+            resolve(new Response(JSON.stringify(boundRun('01', 7001, null)), { status: 200 }));
+          }, DIRECT_RUN_HYDRATION_TIMEOUT_MS - 1);
+        });
+      });
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = dispatchWorkflowOnce({
+        repository,
+        workflowFile: 'crawler-group-01.yml',
+        group: '01',
+        generationToken,
+        inputs: { skip_ai_translation: '1', generation_token: generationToken },
+        request,
+      });
+      await vi.advanceTimersByTimeAsync(DIRECT_RUN_HYDRATION_TIMEOUT_MS);
+      await expect(pending).resolves.toEqual({ status: 'direct', runId: '7001' });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('never fabricates direct when every hydration GET loses the tail race against its own bound abort', async () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(0);
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => {
+        if (init?.method === 'POST') {
+          return Promise.resolve(new Response(JSON.stringify({
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          }), { status: 200 }));
+        }
+        return new Promise((resolve, reject) => {
+          const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+          init?.signal?.addEventListener('abort', onAbort, { once: true });
+          // Always arrives after any single attempt's own bound timeout (capped at the 10s
+          // hydration deadline), so the abort wins every attempt — this must never surface as
+          // 'direct' with a stale/discarded response.
+          setTimeout(() => {
+            resolve(new Response(JSON.stringify(boundRun('01', 7001, null)), { status: 200 }));
+          }, DIRECT_RUN_HYDRATION_TIMEOUT_MS + 1_000);
+        });
+      });
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = dispatchWorkflowOnce({
+        repository,
+        workflowFile: 'crawler-group-01.yml',
+        group: '01',
+        generationToken,
+        inputs: { skip_ai_translation: '1', generation_token: generationToken },
+        request,
+      });
+      await vi.advanceTimersByTimeAsync(DIRECT_RUN_HYDRATION_TIMEOUT_MS + 10_000);
+      await expect(pending).resolves.toEqual({ status: 'missing', runId: null });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('treats a 403 exact-ID response as terminal without retry, list discovery or another POST', async () => {
     let postCalls = 0;
     let getCalls = 0;
@@ -1172,7 +1298,7 @@ describe('crawler generation dispatch protocol', () => {
   });
 });
 
-describe('generation checkpoint and fallback', () => {
+describe('generation checkpoint and preflight', () => {
   function groupArtifactFixture() {
     return Object.fromEntries(GROUP_IDS.map((group) => [
       `crawler-group-${group}.yml`,
@@ -1246,7 +1372,7 @@ describe('generation checkpoint and fallback', () => {
       ...input,
       localContract: missingGroup,
       remoteContract: structuredClone(missingGroup),
-    })).toMatchObject({ ready: false, dispatchMode: 'legacy' });
+    })).toMatchObject({ ready: false, dispatchMode: 'blocked' });
   });
 
   it('resolves one immutable corpus commit and hash-checks all 23 workflows at that exact ref', async () => {
@@ -1368,7 +1494,7 @@ describe('generation checkpoint and fallback', () => {
     expect(peak).toBe(4);
   });
 
-  it('falls back to legacy when one immutable group artifact does not match its contract hash', () => {
+  it('blocks dispatch when one immutable group artifact does not match its contract hash', () => {
     const observer = Buffer.from('observer-workflow\n');
     const remoteArtifacts = groupArtifactFixture();
     const contract = preflightFixture(observer, remoteArtifacts);
@@ -1383,7 +1509,7 @@ describe('generation checkpoint and fallback', () => {
       remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
     })).toEqual({
       ready: false,
-      dispatchMode: 'legacy',
+      dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['group_artifact_hash_mismatch'],
     });
@@ -1488,7 +1614,7 @@ describe('generation checkpoint and fallback', () => {
     );
   });
 
-  it('fails preflight closed but explicitly selects legacy inputs instead of blocking crawlers', () => {
+  it('blocks crawler dispatch when the preflight contract is incomplete', () => {
     const observer = Buffer.from('observer-workflow\n');
     const contract = {
       schemaVersion: 1,
@@ -1509,7 +1635,7 @@ describe('generation checkpoint and fallback', () => {
       remoteObserver: observer,
       remoteArtifacts: groupArtifactFixture(),
       remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
-    })).toMatchObject({ ready: false, dispatchMode: 'legacy' });
+    })).toMatchObject({ ready: false, dispatchMode: 'blocked' });
   });
 
   it('fails malformed observer schemas closed instead of throwing', () => {
@@ -1525,100 +1651,80 @@ describe('generation checkpoint and fallback', () => {
       remoteObserver: observer,
       remoteArtifacts,
       remoteWorkflow: { state: 'active', path: '.github/workflows/crawler-generation-observer-shadow.yml' },
-    })).toMatchObject({ ready: false, dispatchMode: 'legacy' });
+    })).toMatchObject({ ready: false, dispatchMode: 'blocked' });
   });
 
-  it('reports missing preflight API configuration as a legacy infrastructure fallback', async () => {
+  it('reports missing preflight API configuration as a blocking infrastructure failure', async () => {
     vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
     await expect(runCrawlerGenerationDispatchCli([
       'preflight', '--contract', 'not-read.json', '--observer', 'not-read.yml',
     ], {})).resolves.toEqual({
       ready: false,
-      dispatchMode: 'legacy',
+      dispatchMode: 'blocked',
       corpusCodeCommit: null,
       reasons: ['preflight_infrastructure_error'],
     });
+    expect(process.exitCode).toBe(1);
   });
 
-  it('removes generation_token from every fallback dispatch input', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-legacy-'));
+  it('rejects a not-ready canonical dispatch before creating a checkpoint or sending a POST', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-blocked-'));
     tempRoots.push(root);
-    const calls: any[] = [];
-    await runCrawlerGenerationDispatchWave({
-      generationToken,
-      siteCodeCommit,
-      shadowReady: false,
-      checkpointPath: path.join(root, 'checkpoint.json'),
-      delayMs: 0,
-      dispatch: async (input: any) => {
-        calls.push(input);
-        return { status: 'missing', runId: null };
-      },
-    });
-    expect(calls).toHaveLength(23);
-    expect(calls.every(({ inputs }) => (
-      JSON.stringify(inputs) === JSON.stringify({ skip_ai_translation: '1' })
-    ))).toBe(true);
+    const fetchMock = vi.spyOn(globalThis, 'fetch');
+    const checkpointPath = path.join(root, 'crawler-generation-dispatch', 'checkpoint.json');
+    await expect(runCrawlerGenerationDispatchCli([
+      'dispatch-groups',
+      '--generation-token', generationToken,
+      '--site-code-commit', siteCodeCommit,
+      '--corpus-code-commit', corpusCodeCommit,
+      '--shadow-ready', 'false',
+      '--delay-seconds', '10',
+      '--failure-tolerance', '2',
+      '--dry-run', 'false',
+      '--repository', process.cwd(),
+      '--runner-temp', root,
+      '--checkpoint', checkpointPath,
+    ], {})).rejects.toThrow('crawler_generation_preflight_not_ready');
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(fs.existsSync(checkpointPath)).toBe(false);
   });
 
-  it('accepts 23 direct-ID legacy runs after a failed preflight without dispatching a sentinel', async () => {
-    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-legacy-direct-'));
+  it('aborts a ref-pin failure before the first crawler-group dispatch POST', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-ref-failure-'));
     tempRoots.push(root);
-    let nextRunId = 9000;
-    const postBodies: any[] = [];
-    const runs = new Map<number, any>();
-    const request = vi.fn(async (input: any) => {
-      if (input.method === 'POST') {
-        nextRunId += 1;
-        const group = String(nextRunId - 9000).padStart(2, '0');
-        postBodies.push(input.body);
-        const binding = crawlerGenerationLegacyWorkflowIdentity(group, String(nextRunId));
-        runs.set(nextRunId, {
-          id: nextRunId,
-          repository: { full_name: repository },
-          name: binding.workflowName,
-          display_title: binding.runName,
-          path: `.github/workflows/${binding.workflowFile}`,
-          event: 'workflow_dispatch',
-          head_branch: 'main',
-          run_attempt: 1,
-          status: 'queued',
-          conclusion: null,
-        });
-        return {
-          status: 200,
-          body: {
-            workflow_run_id: nextRunId,
-            run_url: `https://api.github.com/repos/${repository}/actions/runs/${nextRunId}`,
-            html_url: `https://github.com/${repository}/actions/runs/${nextRunId}`,
-          },
-        };
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input, init) => {
+      const url = String(input);
+      if (url.includes('/git/matching-refs/heads/')) {
+        return new Response(JSON.stringify([]), { status: 200 });
       }
-      const runId = Number(input.path.split('/').at(-1));
-      return { status: 200, body: runs.get(runId) };
+      if (init?.method === 'GET' && url.includes('/git/ref/heads/')) {
+        return new Response(null, { status: 404 });
+      }
+      if (init?.method === 'POST' && url.endsWith('/git/refs')) {
+        return new Response(JSON.stringify({ message: 'validation failed' }), { status: 422 });
+      }
+      throw new Error(`unexpected request ${init?.method} ${url}`);
     });
-    const checkpoint = await runCrawlerGenerationDispatchWave({
-      generationToken,
-      siteCodeCommit,
-      shadowReady: false,
-      checkpointPath: path.join(root, 'checkpoint.json'),
-      delayMs: 0,
-      dispatch: ({ group, workflowFile, inputs }: any) => dispatchWorkflowOnce({
-        repository,
-        workflowFile,
-        group,
-        generationToken,
-        inputs,
-        request,
-        allowReconciliation: false,
-        identityForRunId: (runId: string) => crawlerGenerationLegacyWorkflowIdentity(group, runId),
-      }),
-    });
-    expect(Object.values(checkpoint.dispatchDiagnostics).every(
-      (entry: any) => entry.status === 'direct',
-    )).toBe(true);
-    expect(postBodies).toHaveLength(23);
-    expect(postBodies.every((body) => !('generation_token' in body.inputs))).toBe(true);
-    expect(checkpoint).not.toHaveProperty('groups');
+    vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+    const checkpointPath = path.join(root, 'crawler-generation-dispatch', 'checkpoint.json');
+    await expect(runCrawlerGenerationDispatchCli([
+      'dispatch-groups',
+      '--generation-token', generationToken,
+      '--site-code-commit', siteCodeCommit,
+      '--corpus-code-commit', corpusCodeCommit,
+      '--shadow-ready', 'true',
+      '--delay-seconds', '10',
+      '--failure-tolerance', '2',
+      '--dry-run', 'false',
+      '--repository', process.cwd(),
+      '--runner-temp', root,
+      '--checkpoint', checkpointPath,
+    ], {
+      GITHUB_API_URL: 'https://api.github.test',
+      GITHUB_PAT_NANAKO: 'test-token',
+    })).rejects.toThrow('crawler_generation_ref_pin_failed');
+    expect(fetchMock.mock.calls.filter(([input]) => String(input).includes('/actions/workflows/')))
+      .toHaveLength(0);
+    expect(fs.existsSync(checkpointPath)).toBe(false);
   });
 });

@@ -82049,6 +82049,240 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bennet-cerca-personale-varese': {
+    title: 'Bennet cerca personale a Lavena Ponte Tresa | Frontaliere Ticino',
+    description: 'Venerdì 4 settembre Bennet assume personale presso l\'ipermercato di Lavena Ponte Tresa. Posizioni aperte in vendita, reparti freschi e customer service',
+    keywords: 'frontalieri, ticino, svizzera, italia, bennet, cerca, personale, lavena',
+    ogTitle: 'Bennet cerca personale a Lavena Ponte Tresa',
+    ogDescription: 'L\'ipermercato Bennet di Lavena Ponte Tresa assume nuovo personale il 4 settembre 2026 dalle 13.00-18.00. Posizioni aperte per addetti vendita, operai reparti freschi, figure customer service. Candidarsi via email o presentarsi in loco. Opportunità',
+    canonicalPath: '/articoli-frontaliere/bennet-cerca-personale-varese',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bennet cerca personale a Lavena Ponte Tresa",
+      "description": "Venerdì 4 settembre Bennet assume personale presso l'ipermercato di Lavena Ponte Tresa. Posizioni aperte in vendita, reparti freschi e customer service",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bennet-cerca-personale-varese.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciata di un ipermercato moderno con vetrate luminose in un piccolo paese di confine italiano"
+      },
+      "datePublished": "2026-09-02T00:16:48+00:00",
+      "dateModified": "2026-09-02T00:16:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bennet-cerca-personale-varese/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mandello-lario-frontaliere': {
+    title: 'Mandello del Lario: guida frontaliere 2024 Ticino',
+    description: 'Mandello del Lario a Lecco: come vivere e lavorare come frontaliere in Ticino. Permesso G, imposta alla fonte, franchigia 2024, AVS/LAMal. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, mandello, lario, lecco, vivere',
+    ogTitle: 'Mandello del Lario: guida frontaliere 2024 Ticino',
+    ogDescription: 'Mandello del Lario a Lecco: come vivere e lavorare come frontaliere in Ticino. Permesso G, imposta alla fonte, franchigia 2024, AVS/LAMal.',
+    canonicalPath: '/articoli-frontaliere/mandello-lario-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mandello del Lario: guida frontaliere 2024 Ticino",
+      "description": "Mandello del Lario a Lecco: come vivere e lavorare come frontaliere in Ticino. Permesso G, imposta alla fonte, franchigia 2024, AVS/LAMal. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mandello-lario-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano dal versante ticinese con architettura alpina e riva italiana sullo sfondo."
+      },
+      "datePublished": "2026-09-02T00:51:58+00:00",
+      "dateModified": "2026-09-02T00:51:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mandello-lario-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-canzo-lavorare-ticino': {
+    title: 'Vivere a Canzo e lavorare in Ticino: guida frontaliere',
+    description: 'Come trasferirsi a Canzo e lavorare in Ticino come frontaliere: Permesso G, Nuovo Accordo, fiscalità, LAMal e checklist pratica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, canzo, lavorare, trasferirsi',
+    ogTitle: 'Vivere a Canzo e lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Trasferirsi a Canzo per lavorare in Ticino: Nuovo Accordo vigore 1° gennaio 2024, Permesso G, esenzione fiscale €7.500, LAMal, checklist e procedura completa per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-canzo-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Canzo e lavorare in Ticino: guida frontaliere",
+      "description": "Come trasferirsi a Canzo e lavorare in Ticino come frontaliere: Permesso G, Nuovo Accordo, fiscalità, LAMal e checklist pratica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-canzo-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio di confine tra Canzo e il Ticino con strada principale verso i valichi frontalieri"
+      },
+      "datePublished": "2026-09-02T01:24:06+00:00",
+      "dateModified": "2026-09-02T01:24:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-canzo-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-cossogno-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cossogno e lavorare in Ticino: guida frontaliere',
+    description: 'Guida completa per frontalieri a Cossogno: fiscalità 2024, contributi AVS/LPP, LAMal, permesso G, vantaggi e svantaggi, checklist pratica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cossogno, lavorare, dalla',
+    ogTitle: 'Vivere a Cossogno e lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Come vivere a Cossogno e lavorare in Ticino da frontaliere: regime fiscale €7.500–€10.000, LAMal, contributi svizzeri, vantaggi, svantaggi e checklist operativa.',
+    canonicalPath: '/articoli-frontaliere/vivere-cossogno-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cossogno e lavorare in Ticino: guida frontaliere",
+      "description": "Guida completa per frontalieri a Cossogno: fiscalità 2024, contributi AVS/LPP, LAMal, permesso G, vantaggi e svantaggi, checklist pratica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cossogno-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Cossogno sul lago Maggiore con le montagne della Svizzera sullo sfondo"
+      },
+      "datePublished": "2026-09-02T03:24:33+00:00",
+      "dateModified": "2026-09-02T03:24:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cossogno-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-lazzate-ticino-frontaliere': {
+    title: 'Vivere a Lazzate, lavorare in Ticino: la guida',
+    description: 'Guida completa per frontalieri: Lazzate vs Ticino, costi abitativi, pendolarismo, Permesso G, imposta alla fonte, Nuovo Accordo 2024, tassazione, ristorni',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lazzate, lavorare, offre',
+    ogTitle: 'Vivere a Lazzate, lavorare in Ticino: la guida',
+    ogDescription: 'Lazzate attrae frontalieri con prezzi abitativi bassi. Scopri vantaggi, svantaggi, tassazione svizzera (imposta alla fonte), ristorni, procedura Permesso G e check-list.',
+    canonicalPath: '/articoli-frontaliere/vivere-lazzate-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Lazzate, lavorare in Ticino: la guida",
+      "description": "Guida completa per frontalieri: Lazzate vs Ticino, costi abitativi, pendolarismo, Permesso G, imposta alla fonte, Nuovo Accordo 2024, tassazione, ristorni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-lazzate-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago Lugano con le sponde svizzera e italiana, simbolo della mobilità transfrontaliera"
+      },
+      "datePublished": "2026-09-02T03:43:42+00:00",
+      "dateModified": "2026-09-02T03:43:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-lazzate-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-vivere-lentate-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Lentate e lavorare in Ticino: frontaliere',
+    description: 'Lentate sul Seveso, provincia di Milano, è una scelta residenziale strategica per frontalieri. Scopri vantaggi fiscali, Permesso G, procedure e checklist',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, lentate, lavorare, seveso',
+    ogTitle: 'Vivere a Lentate e lavorare in Ticino: frontaliere',
+    ogDescription: 'Lentate sul Seveso, provincia di Milano, è una scelta residenziale strategica per frontalieri. Scopri vantaggi fiscali, Permesso G, procedure e checklist per il trasferimento.',
+    canonicalPath: '/articoli-frontaliere/vivere-lentate-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Lentate e lavorare in Ticino: frontaliere",
+      "description": "Lentate sul Seveso, provincia di Milano, è una scelta residenziale strategica per frontalieri. Scopri vantaggi fiscali, Permesso G, procedure e checklist",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-lentate-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di confine tra Ticino (Svizzera) e Lombardia (Italia), con paesaggio collinare e strada di campagna in primavera"
+      },
+      "datePublished": "2026-09-02T04:01:27+00:00",
+      "dateModified": "2026-09-02T04:01:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-lentate-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
