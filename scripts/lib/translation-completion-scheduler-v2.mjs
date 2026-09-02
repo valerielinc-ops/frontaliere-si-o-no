@@ -140,11 +140,13 @@ const OUTCOME_STATUSES = Object.freeze([
   'ambiguous_target',
   'applied',
   'conflict',
+  'duplicate_attempt',
   'generation_failed',
   'malformed_target',
   'negative_cache',
   'rejected',
   'rejected_candidate',
+  'retryable_reject',
   'reused',
   'stale_scan',
   'stale_source',
@@ -152,6 +154,11 @@ const OUTCOME_STATUSES = Object.freeze([
   'target_absent',
   'validated',
 ]);
+// v2 settlements created before the additive executor outcomes must retain
+// their exact count object and therefore their content-addressed hash.
+const LEGACY_OUTCOME_STATUSES = Object.freeze(OUTCOME_STATUSES.filter((status) => (
+  status !== 'duplicate_attempt' && status !== 'retryable_reject'
+)));
 const OUTCOME_STATUS_SET = new Set(OUTCOME_STATUSES);
 
 function compareText(left, right) {
@@ -690,7 +697,7 @@ export function planTranslationScheduleV2(input) {
   return deepFreezeTranslationV2({ cursor: reservedCursor, plan });
 }
 
-function validateOutcomes(outcomes, plan) {
+function validateOutcomes(outcomes, plan, allowedStatuses = OUTCOME_STATUS_SET) {
   if (!Array.isArray(outcomes) || outcomes.length !== plan.selectedJobs.length) {
     throw new TypeError('translation scheduler outcomes do not cover selected jobs');
   }
@@ -706,7 +713,7 @@ function validateOutcomes(outcomes, plan) {
     const units = jobOutcome.units.map((unit) => {
       assertTranslationPlainObjectV2(unit, 'translation scheduler unit outcome');
       assertTranslationExactKeysV2(unit, UNIT_OUTCOME_KEYS, 'translation scheduler unit outcome');
-      if (!expectedAttempts.has(unit.attemptKey) || !OUTCOME_STATUS_SET.has(unit.status)) {
+      if (!expectedAttempts.has(unit.attemptKey) || !allowedStatuses.has(unit.status)) {
         throw new TypeError('translation scheduler unit outcome is invalid');
       }
       return { attemptKey: unit.attemptKey, status: unit.status };
@@ -720,6 +727,22 @@ function validateOutcomes(outcomes, plan) {
     throw new TypeError('translation scheduler job outcomes contain duplicates');
   }
   return normalized;
+}
+
+function outcomeStatusShape(outcomeCounts) {
+  assertTranslationPlainObjectV2(outcomeCounts, 'translation scheduler settlement outcomeCounts');
+  const ownKeys = Object.keys(outcomeCounts);
+  const matches = (statuses) => ownKeys.length === statuses.length
+    && statuses.every((status) => Object.hasOwn(outcomeCounts, status));
+  if (matches(OUTCOME_STATUSES)) {
+    assertTranslationExactKeysV2(outcomeCounts, OUTCOME_STATUSES, 'translation scheduler settlement outcomeCounts');
+    return OUTCOME_STATUSES;
+  }
+  if (matches(LEGACY_OUTCOME_STATUSES)) {
+    assertTranslationExactKeysV2(outcomeCounts, LEGACY_OUTCOME_STATUSES, 'translation scheduler settlement outcomeCounts');
+    return LEGACY_OUTCOME_STATUSES;
+  }
+  throw new TypeError('translation scheduler settlement outcomeCounts schema is invalid');
 }
 
 export function settleTranslationScheduleV2(input) {
@@ -793,23 +816,16 @@ export function validateTranslationSettlementV2(settlement, planInput) {
       || cursor.cursorHash !== plan.cursorAfter.cursorHash || cursor.activePlanHash !== null) {
     throw new TypeError('translation scheduler settlement does not match its plan');
   }
-  const outcomes = validateOutcomes(settlement.outcomes, plan);
-  const settledUnits = outcomes.reduce((sum, outcome) => sum + outcome.units.length, 0);
   assertMetricDocument(
     settlement.metrics,
     SETTLEMENT_METRIC_KEYS,
     'translation scheduler settlement metrics',
   );
-  assertTranslationPlainObjectV2(
-    settlement.metrics.outcomeCounts,
-    'translation scheduler settlement outcomeCounts',
-  );
-  assertTranslationExactKeysV2(
-    settlement.metrics.outcomeCounts,
-    OUTCOME_STATUSES,
-    'translation scheduler settlement outcomeCounts',
-  );
-  const expectedCounts = Object.fromEntries(OUTCOME_STATUSES.map((status) => [status, 0]));
+  const outcomeStatuses = outcomeStatusShape(settlement.metrics.outcomeCounts);
+  const outcomeStatusSet = new Set(outcomeStatuses);
+  const outcomes = validateOutcomes(settlement.outcomes, plan, outcomeStatusSet);
+  const settledUnits = outcomes.reduce((sum, outcome) => sum + outcome.units.length, 0);
+  const expectedCounts = Object.fromEntries(outcomeStatuses.map((status) => [status, 0]));
   let jobsCompleted = 0;
   let unitsCompleted = 0;
   for (const outcome of outcomes) {
@@ -819,7 +835,7 @@ export function validateTranslationSettlementV2(settlement, planInput) {
       if (COMPLETED_UNIT_STATUSES.has(unit.status)) unitsCompleted += 1;
     }
   }
-  for (const status of OUTCOME_STATUSES) {
+  for (const status of outcomeStatuses) {
     assertSafeCount(
       settlement.metrics.outcomeCounts[status],
       `translation scheduler settlement ${status}`,
