@@ -1,24 +1,47 @@
-import { mkdtempSync, readFileSync, statSync, utimesSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, statSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import type { Dispatcher } from 'undici';
 import { describe, expect, it, vi } from 'vitest';
 import { normalizeDomain, resolveCompanyWebsite, resolveCompanyWebsites, run } from '../scripts/resolve-company-website.mjs';
 
-const PUBLIC_DNS = async (_hostname: string, _options?: unknown) => [{ address: '93.184.216.34', family: 4 }];
+type ResolverHeaders = { get(name: string): string | null };
+type ResolverBody = { cancel(): Promise<unknown> };
+type ResolverResponse = {
+  ok: boolean;
+  status: number;
+  url?: string;
+  headers: ResolverHeaders;
+  body: ResolverBody | null;
+};
+type ResolverRequestInit = {
+  method?: 'HEAD' | 'GET';
+  redirect?: 'manual';
+  signal?: AbortSignal;
+  headers?: Record<string, string>;
+  dispatcher?: Dispatcher;
+};
+type ResolverLookupOptions = { all: true; verbatim: true };
+type ResolverLookupRecord = { address: string; family: number };
+
+const PUBLIC_DNS = async (
+  _hostname: string,
+  _options: ResolverLookupOptions,
+): Promise<ResolverLookupRecord[]> => [{ address: '93.184.216.34', family: 4 }];
 
 function response(
   status = 200,
   location: string | null = null,
   cancel = vi.fn().mockResolvedValue(undefined),
   url = '',
-): Response {
+): ResolverResponse {
   return {
     ok: status >= 200 && status < 300,
     status,
-    headers: new Headers(location ? { location } : {}),
-    body: { cancel } as unknown as ReadableStream<Uint8Array>,
+    headers: { get: (name) => name.toLowerCase() === 'location' ? location : null },
+    body: { cancel },
     url,
-  } as Response;
+  };
 }
 
 describe('company website resolver', () => {
@@ -29,8 +52,8 @@ describe('company website resolver', () => {
 
   it('follows bounded manual HTTPS redirects, including a public cross-domain destination', async () => {
     const lookupImpl = vi.fn(PUBLIC_DNS);
-    const fetchImpl = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit): Promise<Response> => (
-      new URL(input.toString()).hostname.endsWith('example.ch')
+    const fetchImpl = vi.fn(async (input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
+      new URL(input).hostname.endsWith('example.ch')
         ? response(301, 'https://careers.example.net/jobs')
         : response()
     ));
@@ -47,16 +70,16 @@ describe('company website resolver', () => {
   });
 
   it('preserves one valid winner when the other host variant is unavailable', async () => {
-    const fetchImpl = vi.fn(async (input: RequestInfo | URL): Promise<Response> => (
-      new URL(input.toString()).hostname.startsWith('www.') ? response() : response(404)
+    const fetchImpl = vi.fn(async (input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
+      new URL(input).hostname.startsWith('www.') ? response() : response(404)
     ));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves
       .toBe('https://www.example.ch/');
   });
 
   it('fails closed only when two valid winners diverge', async () => {
-    const fetchImpl = vi.fn(async (input: RequestInfo | URL): Promise<Response> => {
-      const url = new URL(input.toString());
+    const fetchImpl = vi.fn(async (input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => {
+      const url = new URL(input);
       if (url.hostname === 'example.ch') return response(301, 'https://careers-a.example.net/');
       if (url.hostname === 'www.example.ch') return response(301, 'https://careers-b.example.net/');
       return response();
@@ -66,12 +89,12 @@ describe('company website resolver', () => {
 
   it('falls back to GET only when HEAD is unsupported and cancels every response body', async () => {
     const cancels: ReturnType<typeof vi.fn>[] = [];
-    const fetchImpl = vi.fn(async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+    const fetchImpl = vi.fn(async (input: string, init: ResolverRequestInit): Promise<ResolverResponse> => {
       const cancel = vi.fn().mockResolvedValue(undefined);
       cancels.push(cancel);
       const status = init?.method === 'HEAD'
         ? 405
-        : new URL(input.toString()).hostname.startsWith('www.') ? 404 : 200;
+        : new URL(input).hostname.startsWith('www.') ? 404 : 200;
       return response(status, null, cancel);
     });
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves
@@ -81,7 +104,9 @@ describe('company website resolver', () => {
   });
 
   it('fails closed for a network error', async () => {
-    const networkError = vi.fn(async (): Promise<Response> => { throw new Error('network failure'); });
+    const networkError = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => {
+      throw new Error('network failure');
+    });
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl: networkError, lookupImpl: PUBLIC_DNS }))
       .resolves.toBeNull();
   });
@@ -97,14 +122,17 @@ describe('company website resolver', () => {
     'fe80::1',
     '::ffff:127.0.0.1',
   ])('rejects non-public DNS address %s before issuing a request', async (address) => {
-    const fetchImpl = vi.fn(async (): Promise<Response> => response());
-    const lookupImpl = vi.fn().mockResolvedValue([{ address, family: address.includes(':') ? 6 : 4 }]);
+    const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => response());
+    const lookupImpl = vi.fn(async (
+      _hostname: string,
+      _options: ResolverLookupOptions,
+    ): Promise<ResolverLookupRecord[]> => [{ address, family: address.includes(':') ? 6 : 4 }]);
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl })).resolves.toBeNull();
     expect(fetchImpl).not.toHaveBeenCalled();
   });
 
   it('rejects the metadata hostname on a redirect before issuing the unsafe request', async () => {
-    const redirectFetch = vi.fn(async (): Promise<Response> => (
+    const redirectFetch = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
       response(302, 'https://metadata.google.internal/computeMetadata/v1/')
     ));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl: redirectFetch, lookupImpl: PUBLIC_DNS }))
@@ -113,29 +141,32 @@ describe('company website resolver', () => {
   });
 
   it('rejects an unsafe effective URL reported by the transport', async () => {
-    const fetchImpl = vi.fn(async (): Promise<Response> => (
+    const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
       response(200, null, vi.fn().mockResolvedValue(undefined), 'https://127.0.0.1/admin')
     ));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves.toBeNull();
   });
 
   it('rejects a redirect that downgrades HTTPS instead of rewriting its scheme', async () => {
-    const fetchImpl = vi.fn(async (): Promise<Response> => response(301, 'http://public.example.net/'));
+    const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
+      response(301, 'http://public.example.net/')
+    ));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves.toBeNull();
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
   it('stops redirect loops after the fixed hop budget', async () => {
-    const fetchImpl = vi.fn(async (): Promise<Response> => response(301, 'https://redirect.example.net/'));
+    const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
+      response(301, 'https://redirect.example.net/')
+    ));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves.toBeNull();
     expect(fetchImpl).toHaveBeenCalledTimes(12);
   });
 
   it('settles a genuinely pending fetch only when its AbortSignal fires', async () => {
     const aborted: AbortSignal[] = [];
-    const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise<Response>((_resolve, reject) => {
-      const signal = init?.signal;
-      if (!signal) throw new Error('missing AbortSignal');
+    const fetchImpl = vi.fn((_input: string, init: ResolverRequestInit) => new Promise<ResolverResponse>((_resolve, reject) => {
+      const signal = init.signal;
       signal.addEventListener('abort', () => {
         aborted.push(signal);
         reject(signal.reason);
@@ -151,8 +182,8 @@ describe('company website resolver', () => {
   });
 
   it('fails closed within the real budget when DNS lookup never settles', async () => {
-    const lookupImpl = vi.fn(() => new Promise<never>(() => {}));
-    const fetchImpl = vi.fn(async (): Promise<Response> => response());
+    const lookupImpl = vi.fn((_hostname: string, _options: ResolverLookupOptions) => new Promise<ResolverLookupRecord[]>(() => {}));
+    const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => response());
     const startedAt = Date.now();
     await expect(resolveCompanyWebsite('example.ch', {
       fetchImpl,
@@ -169,7 +200,7 @@ describe('company website resolver', () => {
   it('produces a sorted, duplicate-free registry through a low deterministic pool', async () => {
     let active = 0;
     let peak = 0;
-    const fetchImpl = vi.fn(async (): Promise<Response> => {
+    const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => {
       active += 1;
       peak = Math.max(peak, active);
       await new Promise((resolve) => setTimeout(resolve, 1));
@@ -186,21 +217,41 @@ describe('company website resolver', () => {
     expect(peak).toBeLessThanOrEqual(4);
   });
 
+  it('wires the dispatcher and rejects a private second DNS answer at socket connect time', async () => {
+    const lookupCounts = new Map<string, number>();
+    const lookupImpl = vi.fn(async (
+      hostname: string,
+      _options: ResolverLookupOptions,
+    ): Promise<ResolverLookupRecord[]> => {
+      const count = (lookupCounts.get(hostname) ?? 0) + 1;
+      lookupCounts.set(hostname, count);
+      return [{ address: count === 1 ? '93.184.216.34' : '10.0.0.8', family: 4 }];
+    });
+
+    await expect(resolveCompanyWebsite('rebind.invalid', { lookupImpl, timeoutMs: 100 })).resolves.toBeNull();
+    expect(lookupCounts.get('rebind.invalid')).toBe(2);
+    expect(lookupCounts.get('www.rebind.invalid')).toBe(2);
+  });
+
   it('does not rewrite an unchanged registry and preserves its mtime', async () => {
     const root = mkdtempSync(path.join(tmpdir(), 'company-website-resolver-'));
-    const inputPath = path.join(root, 'companies.json');
-    const outputPath = path.join(root, 'resolved.json');
-    writeFileSync(inputPath, JSON.stringify([{ website: 'https://example.ch' }]));
-    const fetchImpl = vi.fn(async (): Promise<Response> => response());
-    const first = await run({ inputPath, outputPath, fetchImpl, lookupImpl: PUBLIC_DNS });
-    const firstContents = readFileSync(outputPath, 'utf8');
-    const stableTime = new Date('2020-01-01T00:00:00.000Z');
-    utimesSync(outputPath, stableTime, stableTime);
-    const before = statSync(outputPath).mtimeMs;
-    const second = await run({ inputPath, outputPath, fetchImpl, lookupImpl: PUBLIC_DNS });
-    expect(second).toEqual(first);
-    expect(readFileSync(outputPath, 'utf8')).toBe(firstContents);
-    expect(statSync(outputPath).mtimeMs).toBe(before);
+    try {
+      const inputPath = path.join(root, 'companies.json');
+      const outputPath = path.join(root, 'resolved.json');
+      writeFileSync(inputPath, JSON.stringify([{ website: 'https://example.ch' }]));
+      const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => response());
+      const first = await run({ inputPath, outputPath, fetchImpl, lookupImpl: PUBLIC_DNS });
+      const firstContents = readFileSync(outputPath, 'utf8');
+      const stableTime = new Date('2020-01-01T00:00:00.000Z');
+      utimesSync(outputPath, stableTime, stableTime);
+      const before = statSync(outputPath).mtimeMs;
+      const second = await run({ inputPath, outputPath, fetchImpl, lookupImpl: PUBLIC_DNS });
+      expect(second).toEqual(first);
+      expect(readFileSync(outputPath, 'utf8')).toBe(firstContents);
+      expect(statSync(outputPath).mtimeMs).toBe(before);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('keeps the ratified source and first probe registry complete and schema-valid', () => {

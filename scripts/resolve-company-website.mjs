@@ -18,12 +18,20 @@ const REDIRECT_STATUSES = new Set([300, 301, 302, 303, 307, 308]);
 const HEAD_FALLBACK_STATUSES = new Set([403, 405, 501]);
 const BLOCKED_HOSTNAMES = new Set(['localhost', 'metadata.google.internal']);
 
-/** @typedef {(...args: any[]) => Promise<any>} AsyncImpl */
-/** @typedef {{ fetchImpl?: AsyncImpl, lookupImpl?: AsyncImpl, timeoutMs?: number, dispatcher?: any }} ResolverOptions */
+/** @typedef {{ get?: (name: string) => string|null }} ResolverHeaders */
+/** @typedef {{ cancel?: () => Promise<unknown>|unknown }} ResolverBody */
+/** @typedef {{ ok: boolean, status: number, url?: string, headers?: ResolverHeaders, body?: ResolverBody|null }} ResolverResponse */
+/** @typedef {{ method: 'HEAD'|'GET', redirect: 'manual', signal: AbortSignal, headers: Record<string, string>, dispatcher?: import('undici').Dispatcher }} ResolverRequestInit */
+/** @typedef {(input: string, init: ResolverRequestInit) => Promise<ResolverResponse>} ResolverFetch */
+/** @typedef {{ address: string, family: number }} ResolverLookupRecord */
+/** @typedef {{ all: true, verbatim: true }} ResolverLookupOptions */
+/** @typedef {(hostname: string, options: ResolverLookupOptions) => Promise<ResolverLookupRecord[]|ResolverLookupRecord>} ResolverLookup */
+/** @typedef {{ fetchImpl?: ResolverFetch, lookupImpl?: ResolverLookup, timeoutMs?: number, dispatcher?: import('undici').Dispatcher }} ResolverOptions */
 
+/** @param {unknown} value @returns {string|null} */
 export function normalizeDomain(value) {
   try {
-    const url = new URL(value);
+    const url = new URL(String(value));
     if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password || url.port) return null;
     const hostname = url.hostname.toLowerCase().replace(/^www\./, '');
     return hostname || null;
@@ -187,6 +195,7 @@ async function request(url, options) {
 /**
  * @param {string} domain
  * @param {ResolverOptions} [options]
+ * @returns {Promise<string|null>}
  */
 export async function resolveCompanyWebsite(domain, {
   fetchImpl = undiciFetch,
@@ -214,6 +223,7 @@ export async function resolveCompanyWebsite(domain, {
 /**
  * @param {Array<{website?: unknown}>} companies
  * @param {ResolverOptions & {limit?: number, concurrency?: number}} [options]
+ * @returns {Promise<Record<string, string|null>>}
  */
 export async function resolveCompanyWebsites(companies, options = {}) {
   const domains = [...new Set(companies.map(({ website }) => normalizeDomain(website)).filter(Boolean))].sort();
@@ -250,6 +260,7 @@ export async function resolveCompanyWebsites(companies, options = {}) {
 
 /**
  * @param {ResolverOptions & {inputPath?: string, outputPath?: string, limit?: number, concurrency?: number}} [options]
+ * @returns {Promise<{schemaVersion: 1, domains: Record<string, string|null>}>}
  */
 export async function run({
   inputPath = path.resolve('data/crawler-companies-auto.json'),
@@ -269,7 +280,7 @@ export async function run({
     limit,
     concurrency,
   });
-  const registry = { schemaVersion: 1, domains };
+  const registry = { schemaVersion: /** @type {const} */ (1), domains };
   const serialized = `${JSON.stringify(registry, null, 2)}\n`;
   let current = null;
   try {
