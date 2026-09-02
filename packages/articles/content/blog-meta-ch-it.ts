@@ -5056,6 +5056,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-attivita-grigioni-forma-giuridica.title': 'Aprire un\'attività in Grigioni: forme giuridiche e costi',
     'blog.article.avviare-attivita-grigioni-forma-giuridica.excerpt': 'Guida pratica su come avviare un\'attività nel Canton Grigioni: forme giuridiche, registro di commercio, capitali minimi, tasse di iscrizione e obblighi assicurativi federali.',
     'blog.article.avviare-attivita-grigioni-forma-giuridica.imageAlt': 'Ufficio moderno svizzero con professionisti che lavorano a progetti di avviamento aziendale e registrazione di ditte',
+    'blog.article.mercato-lavoro-canton-grigioni.title': 'Mercato del lavoro nei Grigioni: salari e livelli',
+    'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Guida completa a struttura salariale, tassazione e contributi sociali nel Canton Grigioni. Stipendi, livelli di formazione e contratti collettivi.',
+    'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Paesaggio montano del Canton Grigioni con insediamenti abitativi e aziende che rappresentano l\'economia alpina svizzera e il mercato del lavoro.',
 };
 
 export default blogMetaChIt;
