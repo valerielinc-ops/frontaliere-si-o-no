@@ -1,6 +1,6 @@
 {
   "crawlerKey": "epi-geneve",
-  "assembledAt": "2026-09-02T13:33:28.307Z",
+  "assembledAt": "2026-09-02T23:07:49.501Z",
   "jobs": [
     {
       "id": "epi-geneve-f0b0f2420013",
@@ -9,7 +9,7 @@
         "it": "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge",
         "en": "a-socio-educational-assistant-upsa-70-8-month-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge",
         "de": "un-e-assistent-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "fr": "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive"
+        "fr": "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive"
       },
       "company": "Établissements publics pour l'intégration",
       "companyKey": "epi-geneve",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110721167-un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.930Z",
+      "crawledAt": "2026-09-02T23:07:43.906Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -52,12 +52,11 @@
       "jobReqId": "744000110721167",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
-        "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge",
-        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
+          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive"
+        ],
         "it": [
           "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
           "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge"
@@ -67,13 +66,15 @@
         ],
         "de": [
           "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive"
-        ],
-        "fr": [
-          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
-          "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive"
         ]
       },
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-epi-geneve-collonge-bellerive",
+        "un-e-assistant-e-socio-educatif-tive-upsa-70-cdm-de-8-mois-etablissements-publics-pour-l-integration-collonge-bellerive",
+        "assistente-socio-educativo-upsa-70-8-mesi-hom-etablissements-publics-pour-l-integration-collonge-bellerive-ge"
+      ],
       "firstSeenAt": "2026-07-03T22:53:33.328Z",
+      "needsRetranslation": true,
       "salaryMin": 42400,
       "salaryMax": 64000,
       "salarySource": "estimated",
@@ -95,7 +96,7 @@
         "it": "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
         "en": "a-socio-educational-assistant-reinforcement-pool-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
         "de": "un-e-assistent-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
-        "fr": "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge"
+        "fr": "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge"
       },
       "company": "Établissements publics pour l'intégration",
       "companyKey": "epi-geneve",
@@ -119,7 +120,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000110722240-un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.925Z",
+      "crawledAt": "2026-09-02T23:07:43.904Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -138,17 +139,12 @@
       "jobReqId": "744000110722240",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
-        "assistente-sociale-60-cdi-piscina-e-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
-        "social-educational-assistant-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
-        "assistent-e-socio-educatif-ve-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
-        "assistant-e-socio-educatif-ve-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
+          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
+          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge"
+        ],
         "it": [
           "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
           "assistente-sociale-60-cdi-piscina-e-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
@@ -165,14 +161,286 @@
         "de": [
           "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
           "assistent-e-socio-educatif-ve-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive"
-        ],
-        "fr": [
-          "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
-          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
-          "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge"
         ]
       },
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-epi-geneve-collonge",
+        "assistente-sociale-60-cdi-piscina-e-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
+        "social-educational-assistant-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive-ge-switzerland",
+        "assistent-e-socio-educatif-ve-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive",
+        "assistant-e-socio-educatif-ve-60-cdi-pool-e-epi-geneve-collonge-bellerive-ge-switzerland",
+        "assistant-e-socio-educatif-ve-60-cdi-pool-e-etablissements-publics-pour-l-integration-collonge-bellerive",
+        "un-e-assistant-e-socio-educatif-tive-pool-de-renforcement-e-80-cdi-etablissements-publics-pour-l-integration-collonge",
+        "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
+      ],
       "firstSeenAt": "2026-07-03T22:53:33.321Z",
+      "needsRetranslation": true,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "epi-geneve-d87c3fc6ce44",
+      "slug": "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration",
+      "slugByLocale": {
+        "it": "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration",
+        "en": "a-socio-educator-pool-d-70-hom-september-1-2026-to-january-31-2027-etablissements-publics-pour-l-integration-collonge",
+        "de": "ein-sozialpadagoge-pool-d-70-hom-1-september-2026-bis-31-januar-2027-etablissements-publics-pour-l-integration-collonge",
+        "fr": "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Un-e socio-éducateur-trice, pool D, 70 %, CDM du 1er septembre 2026 au 31 janvier 2027",
+      "titleByLocale": {
+        "it": "Un socio-educatore, Piscina D, 70%, HOM 1 settembre 2026 al 31 gennaio 2027",
+        "en": "A socio-educator, Pool D, 70%, HOM September 1, 2026 to January 31, 2027",
+        "de": "Ein Sozialpädagoge, Pool D, 70%, HOM 1. September 2026 bis 31. Januar 2027",
+        "fr": "Un-e socio-éducateur-trice, pool D, 70 %, CDM du 1er septembre 2026 au 31 janvier 2027"
+      },
+      "description": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Elaborer les projets d’accompagnement socio-éducatifs personnalisés, en assurer le suivi et mobiliser les membres de l’équipe dans leur réalisation quotidienne.\n\n• Assumer les tâches déléguées de référent d’une ou plusieurs personnes concernées et maintenir des contacts réguliers avec leur réseau (répondants légaux, proches, médecin traitant...).\n\n• Inscrire son action éducative en cohérence avec les principes énoncés dans la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socioéducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources.\n\n• Concevoir, réaliser et évaluer, seul et/ou en équipe pluridisciplinaire les activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un diplôme suisse en Travail social (niveau HES),  en Sciences de l’éducation mention Education spécialisée ou jugé équivalent.\n\n• Des connaissances du handicap psychique et/ou mental et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire auprès personnes présentant un trouble du spectre de l'autisme (TSA)  et/ou dans le domaine de la communication alternative est un gros atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités orienté vers le service aux usagers et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maîtriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des établissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 3 juillet 2026\n Contrat à durée maximale : du 1er septembre 2026 au 31 janvier 2027\n Entrée en fonction : 1er septembre 2026\n Classe de fonction : 15\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "it": "• Integrare le persone interessate nella vita della città sviluppando le loro competenze e risorse, nel rispetto dei loro diritti e doveri.\n• Sviluppare, monitorare e mobilitare i membri del team nella loro attuazione quotidiana di singoli progetti di sostegno socio-educativo.\n• Assumere i compiti delegati di riferimento per una o più persone interessate e mantenere contatti regolari con la loro rete ( corrispondenti legali, parenti stretti, medico curante...).\n• Includere le sue attività educative in linea con i principi indicati nella politica istituzionale \"Integrazione e sostegno\".\n• Mantenere contatti positivi con le persone interessate in linea con i valori socio-educativi del DPI.\n• Accompagnare le persone nella loro vita quotidiana e fornire loro il supporto su misura per le loro esigenze e risorse.\n• Progettare, implementare e valutare le attività socio-educative da sole e/o in un team multidisciplinare.\n• Facilitare attività sociali, culturali, ricreative e/o di lavoro.\n• Essere in grado di rispondere adeguatamente a situazioni difficili e/o complesse.\n• Assicurare contatti diretti e relazioni funzionali con tutti i settori e vari partner esterni.\n• Eseguire i compiti amministrativi inerenti alla posizione.\n• Un diploma svizzero nel lavoro sociale (livello HES), in Scienze dell'istruzione menziona l'istruzione speciale o l'equivalente considerato.\n• Conoscenza della disabilità mentale e/o mentale e/o alcoologia e la volontà di sviluppare la conoscenza in queste aree.\n• L'esperienza precedente in una posizione simile con persone con disturbi dello spettro dell'autismo (ASD) e/o in comunicazione alternativa è una risorsa importante.\n• Dimostrare uno spirito di servizio alle popolazioni vulnerabili.\n• Dimostrare un importante senso di responsabilità e apertura orientati all'utente.\n• Possedere un senso relazionale sviluppato, facilità nella comunicazione e un gusto pronunciato per il lavoro di squadra.\n• Abbiate la flessibilità del tempo.\n• Per padroneggiare i soliti strumenti di ufficio (Word, Excel e Powerpoint) e specifici strumenti aziendali disponibili all'interno delle istituzioni.\n• Per padroneggiare la lingua francese. PPE offerta:\n• Una funzione diversificata con responsabilità all'interno di un'istituzione sociale con obiettivi ambiziosi e innovativi.\n• Un quadro motivante e dinamico per la leadership e lo sviluppo professionale.\n• Un processo di formazione continua diversificato\n• Le condizioni di lavoro del servizio pubblico. Termine ultimo per l'applicazione: 3 luglio 2026 Contratto con durata massima: 1 settembre 2026 - 31 gennaio 2027 Ingresso in ufficio: 1 settembre 2026 Classe di funzionamento: 15 I soliti documenti di richiesta saranno richiesti: CV, lettera di copertura, diplomi e tutti i certificati di lavoro. Saranno considerati solo i file contenenti tutti gli elementi richiesti. In caso di nomina, l'assegnazione e il luogo di lavoro possono essere soggetti a modifiche durante il contratto per scopi organizzativi. Potete visitare il nostro sito www.epi.ge.ch",
+        "en": "• Integrate the people concerned into the life of the city by developing their skills and resources, while respecting their rights and duties.\n• Develop, monitor and mobilize the members of the team in their day-to-day implementation of individual socio-educational support projects.\n• Assume the delegated tasks of reference for one or more persons concerned and maintain regular contacts with their network (legal correspondents, close relatives, treating doctor...).\n• Include its educational activities in line with the principles set out in the \"Integration and Support\" institutional policy.\n• Maintain positive contacts with the persons concerned in line with the socio-educational values of PPE.\n• Accompany people in their daily lives and provide them with support tailored to their needs and resources.\n• Design, implement and evaluate socio-educational activities alone and/or in a multidisciplinary team.\n• Facilitate social, cultural, leisure and/or work activities.\n• Being able to respond adequately to difficult and/or complex situations.\n• Ensure direct contacts and functional relationships with all sectors and various external partners.\n• Perform the administrative duties inherent in the position.\n• A Swiss diploma in Social Work (HES level), in Education Sciences mention Special education or deemed equivalent.\n• Knowledge of mental and/or mental disability and/or alcoology and the willingness to develop knowledge in these areas.\n• Prior experience in a similar position with people with autism spectrum disorder (ASD) and/or in alternative communication is a major asset.\n• Demonstrate a spirit of service to vulnerable populations.\n• Demonstrate an important sense of user-oriented responsibility and openness.\n• To possess a developed relational sense, ease in communication and a pronounced taste for teamwork.\n• Have time flexibility.\n• To master the usual office tools (Word, Excel and Powerpoint) and specific business tools available within the institutions.\n• To master the French language. PPE offer:\n• A diverse function with responsibilities within a social institution with ambitious and innovative objectives.\n• A motivating and dynamic framework for leadership and professional development.\n• A diversified continuing training process\n• The working conditions of the public service. Deadline for application: 3 July 2026 Contract with maximum duration: September 1, 2026 to January 31, 2027 Entry into office: 1 September 2026 Function class: 15 The usual application documents will be requested: CV, cover letter, diplomas and all work certificates. Only files containing all the requested elements will be considered. In case of appointment, your assignment and workplace may be subject to change during contract for organizational purposes. You can visit our website www.epi.ge.ch",
+        "de": "• Integrieren Sie die betroffenen Menschen in das Leben der Stadt, indem Sie ihre Fähigkeiten und Ressourcen entwickeln und gleichzeitig ihre Rechte und Pflichten respektieren.\n• Entwickeln, überwachen und mobilisieren Sie die Mitglieder des Teams bei der täglichen Umsetzung einzelner sozialpädagogischer Unterstützungsprojekte.\n• Übernehmen Sie die übertragenen Referenzaufgaben für eine oder mehrere betroffene Personen und pflegen Sie regelmäßige Kontakte zu ihrem Netzwerk (Rechtskorrespondenten, nahe Verwandte, behandelnder Arzt ...).\n• Einbeziehung der Bildungsaktivitäten im Einklang mit den in der institutionellen Politik \"Integration und Unterstützung\" festgelegten Grundsätzen.\n• Pflegen Sie positive Kontakte mit den betroffenen Personen im Einklang mit den sozialpädagogischen Werten der PSA.\n• Begleiten Sie Menschen in ihrem täglichen Leben und bieten Sie ihnen Unterstützung, die auf ihre Bedürfnisse und Ressourcen zugeschnitten ist.\n• Konzipieren, implementieren und bewerten Sie sozialpädagogische Aktivitäten allein und / oder in einem multidisziplinären Team.\n• Erleichterung sozialer, kultureller, Freizeit- und/oder Arbeitsaktivitäten.\n• In der Lage sein, angemessen auf schwierige und / oder komplexe Situationen zu reagieren.\n• Gewährleistung direkter Kontakte und funktionaler Beziehungen zu allen Sektoren und verschiedenen externen Partnern.\n• Führen Sie die administrativen Aufgaben der Position aus.\n• Ein Schweizer Diplom in Sozialarbeit (HES-Niveau), in Bildungswissenschaften erwähnen Sonderpädagogik oder gelten als gleichwertig.\n• Wissen über geistige und/oder geistige Behinderung und/oder Alkoologie und die Bereitschaft, Wissen in diesen Bereichen zu entwickeln.\n• Vorerfahrung in einer ähnlichen Position mit Menschen mit Autismus-Spektrum-Störung (ASD) und / oder in der alternativen Kommunikation ist ein wichtiger Vorteil.\n• Demonstrieren Sie einen Geist des Dienstes für gefährdete Bevölkerungsgruppen.\n• Demonstrieren Sie ein wichtiges Gefühl von nutzerorientierter Verantwortung und Offenheit.\n• Um einen entwickelten relationalen Sinn, Leichtigkeit in der Kommunikation und einen ausgeprägten Geschmack für Teamarbeit zu besitzen.\n• Zeitflexibilität.\n• Um die üblichen Office-Tools (Word, Excel und Powerpoint) und spezifische Business-Tools in den Institutionen zu beherrschen.\n• Um die französische Sprache zu beherrschen. PSA-Angebot:\n• Eine vielfältige Funktion mit Verantwortlichkeiten innerhalb einer sozialen Institution mit ehrgeizigen und innovativen Zielen.\n• Ein motivierender und dynamischer Rahmen für Führung und berufliche Entwicklung.\n• Ein diversifizierter Weiterbildungsprozess\n• Die Arbeitsbedingungen des öffentlichen Dienstes. Antragsfrist: 3. Juli 2026 Vertrag mit maximaler Laufzeit: 1. September 2026 bis 31. Januar 2027 Amtsantritt: 1. September 2026 Funktionsklasse: 15 Die üblichen Bewerbungsunterlagen werden angefordert: Lebenslauf, Anschreiben, Diplome und alle Arbeitszertifikate. Nur Dateien, die alle angeforderten Elemente enthalten, werden berücksichtigt. Im Falle eines Termins können sich Ihre Aufgabe und Ihr Arbeitsplatz während des Vertrags zu organisatorischen Zwecken ändern. Sie können unsere Website besuchen www.epi.ge.ch",
+        "fr": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Elaborer les projets d’accompagnement socio-éducatifs personnalisés, en assurer le suivi et mobiliser les membres de l’équipe dans leur réalisation quotidienne.\n\n• Assumer les tâches déléguées de référent d’une ou plusieurs personnes concernées et maintenir des contacts réguliers avec leur réseau (répondants légaux, proches, médecin traitant...).\n\n• Inscrire son action éducative en cohérence avec les principes énoncés dans la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socioéducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources.\n\n• Concevoir, réaliser et évaluer, seul et/ou en équipe pluridisciplinaire les activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un diplôme suisse en Travail social (niveau HES),  en Sciences de l’éducation mention Education spécialisée ou jugé équivalent.\n\n• Des connaissances du handicap psychique et/ou mental et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire auprès personnes présentant un trouble du spectre de l'autisme (TSA)  et/ou dans le domaine de la communication alternative est un gros atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités orienté vers le service aux usagers et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maîtriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des établissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\nDélai de postulation : 3 juillet 2026\nContrat à durée maximale : du 1er septembre 2026 au 31 janvier 2027\nEntrée en fonction : 1er septembre 2026\nClasse de fonction : 15\nLes pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Collonge-Bellerive, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133017305--un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T23:07:43.901Z",
+      "addressLocality": "Collonge-Bellerive",
+      "addressRegion": "GE",
+      "streetAddress": "Route d'Hermance",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-19",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133017305--un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027?oga=true",
+      "jobReqId": "744000133017305",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l",
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
+        ],
+        "it": [
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
+          "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration"
+        ],
+        "en": [
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
+        ],
+        "de": [
+          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
+        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l",
+        "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration"
+      ],
+      "firstSeenAt": "2026-07-03T22:53:33.323Z",
+      "salaryMin": 42400,
+      "salaryMax": 64000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42400,
+          "maxValue": 64000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "epi-geneve-9b2424cf5847",
+      "slug": "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration",
+      "slugByLocale": {
+        "it": "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration",
+        "en": "several-socio-educational-assistants-ves-gardeurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l-integration",
+        "de": "mehrere-sozialpadagogische-assistenten-ves-gardeurs-ses-50-85-mikrostruktur-cdi-etablissements-publics-pour-l",
+        "fr": "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Plusieurs assistants-es socio-éducatifs-ves veilleurs-ses, 50-85%, Microstructure, CDI",
+      "titleByLocale": {
+        "it": "Diversi assistenti socio-educativi-ves gardeurs-ses, 50-85%, Microstruttura, CDI",
+        "en": "Several socio-educational assistants-ves gardeurs-ses, 50-85%, Microstructure, CDI",
+        "de": "Mehrere sozialpädagogische Assistenten-ves gardeurs-ses, 50-85%, Mikrostruktur, CDI",
+        "fr": "Plusieurs assistants-es socio-éducatifs-ves veilleurs-ses, 50-85%, Microstructure, CDI"
+      },
+      "description": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 7 septembre 2026\n Entrée en fonction :  dès que possible\n Classe de fonction :  10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "it": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction : dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch",
+        "en": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction : dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch",
+        "de": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction : dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch",
+        "fr": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction :  dès que possible\nClasse de fonction :  10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Collonge-Bellerive, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000145220455--plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T23:07:43.898Z",
+      "addressLocality": "Collonge-Bellerive",
+      "addressRegion": "GE",
+      "streetAddress": "Route d'Hermance 63",
+      "postalCode": "1245",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000145220455--plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi?oga=true",
+      "jobReqId": "744000145220455",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l",
+          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi"
+        ],
+        "it": [
+          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
+          "diversi-assistenti-socio-educativi-e-socio-educativi-70-90-microstruttura-cdi-etablissements-publics-pour-l-integration",
+          "several-socio-educational-and-socio-educational-assistants-70-90-microstructure-cdi-etablissements-publics-pour-l",
+          "mehrere-soziopadagogische-und-soziopadagogische-assistenten-70-90-mikrostruktur-cdi-etablissements-publics-pour-l",
+          "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+          "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration"
+        ],
+        "en": [
+          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
+          "several-socio-educational-and-socio-educational-assistants-70-90-microstructure-cdi-etablissements-publics-pour-l"
+        ],
+        "de": [
+          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
+          "mehrere-soziopadagogische-und-soziopadagogische-assistenten-70-90-mikrostruktur-cdi-etablissements-publics-pour-l"
+        ]
+      },
+      "previousSlugs": [
+        "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
+        "diversi-assistenti-socio-educativi-e-socio-educativi-70-90-microstruttura-cdi-etablissements-publics-pour-l-integration",
+        "several-socio-educational-and-socio-educational-assistants-70-90-microstructure-cdi-etablissements-publics-pour-l",
+        "mehrere-soziopadagogische-und-soziopadagogische-assistenten-70-90-mikrostruktur-cdi-etablissements-publics-pour-l",
+        "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
+        "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l",
+        "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-24T09:59:21.401Z",
+      "salaryMin": 51400,
+      "salaryMax": 77800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51400,
+          "maxValue": 77800,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "epi-geneve-4e34dd1f9026",
+      "slug": "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l",
+      "slugByLocale": {
+        "it": "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l",
+        "en": "a-socio-educational-assistant-service-b-tram-residence-yellow-80-hom-until-31-12-2026-etablissements-publics-pour-l",
+        "de": "un-e-assistent-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026-etablissements-publics",
+        "fr": "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31"
+      },
+      "company": "Établissements publics pour l'intégration",
+      "companyKey": "epi-geneve",
+      "companyDomain": "epi.ge.ch",
+      "title": "Un-e assistant-e socio-éducatif-tive, Service B, Résidence du Tram (jaune), 80%, CDM jusqu'au 31.12.2026",
+      "titleByLocale": {
+        "it": "Assistente socio-educativo, Servizio B, Residenza Tram (giallo), 80%, HOM fino al 31.12.2026",
+        "en": "A socio-educational assistant, Service B, Tram residence (yellow), 80%, HOM until 31.12.2026",
+        "de": "Un-e Assistent-e socio-éducatif-tive, Service B, Résidence du Tram (jaune), 80%, CDM jusqu'au 31.12.2026",
+        "fr": "Un-e assistant-e socio-éducatif-tive, Service B, Résidence du Tram (jaune), 80%, CDM jusqu'au 31.12.2026"
+      },
+      "description": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 5 juillet 2026\n Entrée en fonction :  Dès que possible\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
+      "descriptionByLocale": {
+        "it": "• Integrare le persone interessate nella vita della città sviluppando le loro competenze e risorse, nel rispetto dei loro diritti e doveri.\n• Assicurare un supporto socio-educativo personalizzato, coerente con la politica istituzionale \"Integrazione e sostegno\".\n• Mantenere contatti positivi con le persone interessate secondo i valori socio-educativi del DPI.\n• Accompagnare le persone nella loro vita quotidiana e fornire loro un supporto personalizzato per le loro esigenze e risorse\n• Partecipare all'attuazione e alla valutazione delle attività socio-educative all'interno di un team educativo multidisciplinare.\n• Facilitare attività sociali, culturali, ricreative e/o di lavoro.\n• Essere in grado di rispondere adeguatamente a situazioni difficili e/o complesse.\n• Assicurare contatti diretti e relazioni funzionali con tutti i settori e vari partner esterni.\n• Eseguire i compiti amministrativi inerenti alla posizione.\n• Un assistente socio-educativo CFC o qualsiasi altra formazione considerata equivalente.\n• Un forte interesse nei campi della disabilità mentale e/o intellettuale e/o dell'alcoologia, nonché una volontà di sviluppare la sua conoscenza in questi campi.\n• Esperienza prioritaria in una posizione simile e con questo tipo di popolazione è un bene.\n• Dimostrare uno spirito di servizio alle popolazioni vulnerabili.\n• Dimostrare un importante senso di responsabilità e apertura.\n• Possedere un senso relazionale sviluppato, facilità nella comunicazione e un gusto pronunciato per il lavoro di squadra.\n• Abbiate la flessibilità del tempo.\n• Per padroneggiare i soliti strumenti di automazione dell'ufficio (Word, Excel e Powerpoint) e specifici strumenti aziendali disponibili all'interno degli istituti.\n• Per padroneggiare la lingua francese. PPE offerta:\n• Una funzione diversificata con responsabilità all'interno di un'istituzione sociale con obiettivi ambiziosi e innovativi.\n• Un quadro motivante e dinamico per la leadership e lo sviluppo professionale.\n• Un processo di formazione continua diversificato\n• Le condizioni di lavoro del servizio pubblico. Termine ultimo per l'applicazione: 5 luglio 2026 Entrata in ufficio: appena possibile Classe di funzionamento: 10 CONCLUSIONI DOPO SOLO Sarà CONSIDERATO (deve essere allegato: lettera di copertura, curriculum vitae, copie di diplomi e certificati/certificati di lavoro). OCE candidato / esterno: Un estratto di record criminale vuoto, così come un estratto di record criminale speciale, sarà sistematicamente richiesto per il reclutamento. In base alla direttiva trasversale \"Procedura di reclutamento in istituzioni di diritto pubblico e enti sovvenzionati - collaborazione con l'ufficio cantonale dell'occupazione\", sarà data priorità ai candidati domiciliati nel cantone di Ginevra. In caso di nomina, l'assegnazione e il luogo di lavoro possono essere soggetti a modifiche durante il contratto per scopi organizzativi. Potete visitare il nostro sito www.epi.ge.ch",
+        "en": "• Integrate the people concerned into the life of the city by developing their skills and resources, while respecting their rights and duties.\n• Ensure personalized socio-educational support, consistent with the \"Integration and Support\" institutional policy.\n• Maintain positive contacts with the persons concerned in accordance with the socio-educational values of PPE.\n• Accompany people in their daily lives and provide them with support tailored to their needs and resources\n• Participate in the implementation and evaluation of socio-educational activities within a multidisciplinary educational team.\n• Facilitate social, cultural, leisure and/or work activities.\n• Being able to respond adequately to difficult and/or complex situations.\n• Ensure direct contacts and functional relationships with all sectors and various external partners.\n• Perform the administrative duties inherent in the position.\n• A socio-educational assistant CFC or any other training deemed equivalent.\n• A strong interest in the fields of mental and/or intellectual disability and/or alcoology, as well as a willingness to develop its knowledge in these fields.\n• Prior experience in a similar position and with this type of population is an asset.\n• Demonstrate a spirit of service to vulnerable populations.\n• Demonstrate an important sense of responsibility and openness.\n• To possess a developed relational sense, ease in communication and a pronounced taste for teamwork.\n• Have time flexibility.\n• To master the usual office automation tools (Word, Excel and Powerpoint) and specific business tools available within Establishments.\n• To master the French language. PPE offer:\n• A diverse function with responsibilities within a social institution with ambitious and innovative objectives.\n• A motivating and dynamic framework for leadership and professional development.\n• A diversified continuing training process\n• The working conditions of the public service. Deadline for application: 5 July 2026 Entry into office: As soon as possible Function class: 10 COMPLETE CANDIDATURES ONLY WILL BE CONSIDERED (must be attached: cover letter, curriculum vitae, copies of diplomas and certificates/certificates of work). OCE candidate / External: A blank criminal record extract, as well as a special criminal record extract, will be systematically required for recruitment. Under the transversal directive \"Recruitment procedure in public law institutions and subsidized entities - collaboration with the cantonal employment office\", priority will be given to candidates domiciled in the canton of Geneva. In case of appointment, your assignment and workplace may be subject to change during contract for organizational purposes. You can visit our website www.epi.ge.ch",
+        "de": "• Integrieren Sie die betroffenen Menschen in das Leben der Stadt, indem Sie ihre Fähigkeiten und Ressourcen entwickeln und gleichzeitig ihre Rechte und Pflichten respektieren.\n• Gewährleistung einer personalisierten sozialpädagogischen Unterstützung im Einklang mit der institutionellen Politik der \"Integration und Unterstützung\".\n• Pflegen Sie positive Kontakte mit den betroffenen Personen im Einklang mit den sozialpädagogischen Werten der PSA.\n• Menschen in ihrem täglichen Leben begleiten und ihnen Unterstützung bieten, die auf ihre Bedürfnisse und Ressourcen zugeschnitten ist\n• Beteiligen Sie sich an der Umsetzung und Bewertung sozialpädagogischer Aktivitäten innerhalb eines multidisziplinären Bildungsteams.\n• Erleichterung sozialer, kultureller, Freizeit- und/oder Arbeitsaktivitäten.\n• In der Lage sein, angemessen auf schwierige und / oder komplexe Situationen zu reagieren.\n• Gewährleistung direkter Kontakte und funktionaler Beziehungen zu allen Sektoren und verschiedenen externen Partnern.\n• Führen Sie die administrativen Aufgaben der Position aus.\n• Ein sozialpädagogischer Assistent CFC oder eine andere Ausbildung, die als gleichwertig angesehen wird.\n• Ein starkes Interesse an den Bereichen geistige und / oder geistige Behinderung und / oder Alkoologie, sowie die Bereitschaft, sein Wissen in diesen Bereichen zu entwickeln.\n• Vorerfahrung in einer ähnlichen Position und mit dieser Art von Bevölkerung ist ein Gewinn.\n• Demonstrieren Sie einen Geist des Dienstes für gefährdete Bevölkerungsgruppen.\n• Demonstrieren Sie ein wichtiges Verantwortungsbewusstsein und Offenheit.\n• Um einen entwickelten relationalen Sinn, Leichtigkeit in der Kommunikation und einen ausgeprägten Geschmack für Teamarbeit zu besitzen.\n• Zeitflexibilität.\n• Um die üblichen Office-Automatisierungstools (Word, Excel und Powerpoint) und spezifische Business-Tools zu beherrschen, die in den Einrichtungen verfügbar sind.\n• Um die französische Sprache zu beherrschen. PSA-Angebot:\n• Eine vielfältige Funktion mit Verantwortlichkeiten innerhalb einer sozialen Institution mit ehrgeizigen und innovativen Zielen.\n• Ein motivierender und dynamischer Rahmen für Führung und berufliche Entwicklung.\n• Ein diversifizierter Weiterbildungsprozess\n• Die Arbeitsbedingungen des öffentlichen Dienstes. Antragsfrist: 5. Juli 2026 Amtsantritt: So bald wie möglich Funktionsklasse: 10 VOLLSTÄNDIGE KANDIDATEN SIND NUR ZU ERWÄGEN (muss beigefügt werden: Anschreiben, Lebenslauf, Kopien von Diplomen und Bescheinigungen/Arbeitsurkunden). OCE Kandidat / Extern: Ein Blankoauszug aus dem Strafregister sowie ein spezieller Strafregisterauszug werden für die Rekrutierung systematisch benötigt. Im Rahmen der Querschnittsrichtlinie \"Einstellungsverfahren in Einrichtungen des öffentlichen Rechts und geförderten Einrichtungen - Zusammenarbeit mit dem kantonalen Arbeitsamt\" werden Bewerber mit Sitz im Kanton Genf vorrangig behandelt. Im Falle eines Termins können sich Ihre Aufgabe und Ihr Arbeitsplatz während des Vertrags zu organisatorischen Zwecken ändern. Sie können unsere Website besuchen www.epi.ge.ch",
+        "fr": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\nDélai de postulation : 5 juillet 2026\nEntrée en fonction :  Dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
+      },
+      "location": "Genève, GE, Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
+      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T23:07:43.894Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "streetAddress": "Route de Chêne 48",
+      "postalCode": "1208",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sociale / Socio-sanitario",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-24",
+      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
+      "jobReqId": "744000133855729",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31",
+        "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31",
+          "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l"
+        ],
+        "en": [
+          "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31"
+        ],
+        "de": [
+          "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:53:33.325Z",
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -218,7 +486,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000143292499-un-e-agent-e-technico-commercial-e-services-socioprofessionnels-secteur-commercial-80-a-100-cdi?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.920Z",
+      "crawledAt": "2026-09-02T23:07:43.889Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Champ-des-Filles 4A",
@@ -271,279 +539,13 @@
       }
     },
     {
-      "id": "epi-geneve-d87c3fc6ce44",
-      "slug": "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration",
-      "slugByLocale": {
-        "it": "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration",
-        "en": "a-socio-educator-pool-d-70-hom-september-1-2026-to-january-31-2027-etablissements-publics-pour-l-integration-collonge",
-        "de": "ein-sozialpadagoge-pool-d-70-hom-1-september-2026-bis-31-januar-2027-etablissements-publics-pour-l-integration-collonge",
-        "fr": "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l"
-      },
-      "company": "Établissements publics pour l'intégration",
-      "companyKey": "epi-geneve",
-      "companyDomain": "epi.ge.ch",
-      "title": "Un-e socio-éducateur-trice, pool D, 70 %, CDM du 1er septembre 2026 au 31 janvier 2027",
-      "titleByLocale": {
-        "it": "Un socio-educatore, Piscina D, 70%, HOM 1 settembre 2026 al 31 gennaio 2027",
-        "en": "A socio-educator, Pool D, 70%, HOM September 1, 2026 to January 31, 2027",
-        "de": "Ein Sozialpädagoge, Pool D, 70%, HOM 1. September 2026 bis 31. Januar 2027",
-        "fr": "Un-e socio-éducateur-trice, pool D, 70 %, CDM du 1er septembre 2026 au 31 janvier 2027"
-      },
-      "description": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Elaborer les projets d’accompagnement socio-éducatifs personnalisés, en assurer le suivi et mobiliser les membres de l’équipe dans leur réalisation quotidienne.\n\n• Assumer les tâches déléguées de référent d’une ou plusieurs personnes concernées et maintenir des contacts réguliers avec leur réseau (répondants légaux, proches, médecin traitant...).\n\n• Inscrire son action éducative en cohérence avec les principes énoncés dans la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socioéducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources.\n\n• Concevoir, réaliser et évaluer, seul et/ou en équipe pluridisciplinaire les activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un diplôme suisse en Travail social (niveau HES),  en Sciences de l’éducation mention Education spécialisée ou jugé équivalent.\n\n• Des connaissances du handicap psychique et/ou mental et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire auprès personnes présentant un trouble du spectre de l'autisme (TSA)  et/ou dans le domaine de la communication alternative est un gros atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités orienté vers le service aux usagers et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maîtriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des établissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 3 juillet 2026\n Contrat à durée maximale : du 1er septembre 2026 au 31 janvier 2027\n Entrée en fonction : 1er septembre 2026\n Classe de fonction : 15\n Les pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
-      "descriptionByLocale": {
-        "it": "• Integrare le persone interessate nella vita della città sviluppando le loro competenze e risorse, nel rispetto dei loro diritti e doveri.\n• Sviluppare, monitorare e mobilitare i membri del team nella loro attuazione quotidiana di singoli progetti di sostegno socio-educativo.\n• Assumere i compiti delegati di riferimento per una o più persone interessate e mantenere contatti regolari con la loro rete ( corrispondenti legali, parenti stretti, medico curante...).\n• Includere le sue attività educative in linea con i principi indicati nella politica istituzionale \"Integrazione e sostegno\".\n• Mantenere contatti positivi con le persone interessate in linea con i valori socio-educativi del DPI.\n• Accompagnare le persone nella loro vita quotidiana e fornire loro il supporto su misura per le loro esigenze e risorse.\n• Progettare, implementare e valutare le attività socio-educative da sole e/o in un team multidisciplinare.\n• Facilitare attività sociali, culturali, ricreative e/o di lavoro.\n• Essere in grado di rispondere adeguatamente a situazioni difficili e/o complesse.\n• Assicurare contatti diretti e relazioni funzionali con tutti i settori e vari partner esterni.\n• Eseguire i compiti amministrativi inerenti alla posizione.\n• Un diploma svizzero nel lavoro sociale (livello HES), in Scienze dell'istruzione menziona l'istruzione speciale o l'equivalente considerato.\n• Conoscenza della disabilità mentale e/o mentale e/o alcoologia e la volontà di sviluppare la conoscenza in queste aree.\n• L'esperienza precedente in una posizione simile con persone con disturbi dello spettro dell'autismo (ASD) e/o in comunicazione alternativa è una risorsa importante.\n• Dimostrare uno spirito di servizio alle popolazioni vulnerabili.\n• Dimostrare un importante senso di responsabilità e apertura orientati all'utente.\n• Possedere un senso relazionale sviluppato, facilità nella comunicazione e un gusto pronunciato per il lavoro di squadra.\n• Abbiate la flessibilità del tempo.\n• Per padroneggiare i soliti strumenti di ufficio (Word, Excel e Powerpoint) e specifici strumenti aziendali disponibili all'interno delle istituzioni.\n• Per padroneggiare la lingua francese. PPE offerta:\n• Una funzione diversificata con responsabilità all'interno di un'istituzione sociale con obiettivi ambiziosi e innovativi.\n• Un quadro motivante e dinamico per la leadership e lo sviluppo professionale.\n• Un processo di formazione continua diversificato\n• Le condizioni di lavoro del servizio pubblico. Termine ultimo per l'applicazione: 3 luglio 2026 Contratto con durata massima: 1 settembre 2026 - 31 gennaio 2027 Ingresso in ufficio: 1 settembre 2026 Classe di funzionamento: 15 I soliti documenti di richiesta saranno richiesti: CV, lettera di copertura, diplomi e tutti i certificati di lavoro. Saranno considerati solo i file contenenti tutti gli elementi richiesti. In caso di nomina, l'assegnazione e il luogo di lavoro possono essere soggetti a modifiche durante il contratto per scopi organizzativi. Potete visitare il nostro sito www.epi.ge.ch",
-        "en": "• Integrate the people concerned into the life of the city by developing their skills and resources, while respecting their rights and duties.\n• Develop, monitor and mobilize the members of the team in their day-to-day implementation of individual socio-educational support projects.\n• Assume the delegated tasks of reference for one or more persons concerned and maintain regular contacts with their network (legal correspondents, close relatives, treating doctor...).\n• Include its educational activities in line with the principles set out in the \"Integration and Support\" institutional policy.\n• Maintain positive contacts with the persons concerned in line with the socio-educational values of PPE.\n• Accompany people in their daily lives and provide them with support tailored to their needs and resources.\n• Design, implement and evaluate socio-educational activities alone and/or in a multidisciplinary team.\n• Facilitate social, cultural, leisure and/or work activities.\n• Being able to respond adequately to difficult and/or complex situations.\n• Ensure direct contacts and functional relationships with all sectors and various external partners.\n• Perform the administrative duties inherent in the position.\n• A Swiss diploma in Social Work (HES level), in Education Sciences mention Special education or deemed equivalent.\n• Knowledge of mental and/or mental disability and/or alcoology and the willingness to develop knowledge in these areas.\n• Prior experience in a similar position with people with autism spectrum disorder (ASD) and/or in alternative communication is a major asset.\n• Demonstrate a spirit of service to vulnerable populations.\n• Demonstrate an important sense of user-oriented responsibility and openness.\n• To possess a developed relational sense, ease in communication and a pronounced taste for teamwork.\n• Have time flexibility.\n• To master the usual office tools (Word, Excel and Powerpoint) and specific business tools available within the institutions.\n• To master the French language. PPE offer:\n• A diverse function with responsibilities within a social institution with ambitious and innovative objectives.\n• A motivating and dynamic framework for leadership and professional development.\n• A diversified continuing training process\n• The working conditions of the public service. Deadline for application: 3 July 2026 Contract with maximum duration: September 1, 2026 to January 31, 2027 Entry into office: 1 September 2026 Function class: 15 The usual application documents will be requested: CV, cover letter, diplomas and all work certificates. Only files containing all the requested elements will be considered. In case of appointment, your assignment and workplace may be subject to change during contract for organizational purposes. You can visit our website www.epi.ge.ch",
-        "de": "• Integrieren Sie die betroffenen Menschen in das Leben der Stadt, indem Sie ihre Fähigkeiten und Ressourcen entwickeln und gleichzeitig ihre Rechte und Pflichten respektieren.\n• Entwickeln, überwachen und mobilisieren Sie die Mitglieder des Teams bei der täglichen Umsetzung einzelner sozialpädagogischer Unterstützungsprojekte.\n• Übernehmen Sie die übertragenen Referenzaufgaben für eine oder mehrere betroffene Personen und pflegen Sie regelmäßige Kontakte zu ihrem Netzwerk (Rechtskorrespondenten, nahe Verwandte, behandelnder Arzt ...).\n• Einbeziehung der Bildungsaktivitäten im Einklang mit den in der institutionellen Politik \"Integration und Unterstützung\" festgelegten Grundsätzen.\n• Pflegen Sie positive Kontakte mit den betroffenen Personen im Einklang mit den sozialpädagogischen Werten der PSA.\n• Begleiten Sie Menschen in ihrem täglichen Leben und bieten Sie ihnen Unterstützung, die auf ihre Bedürfnisse und Ressourcen zugeschnitten ist.\n• Konzipieren, implementieren und bewerten Sie sozialpädagogische Aktivitäten allein und / oder in einem multidisziplinären Team.\n• Erleichterung sozialer, kultureller, Freizeit- und/oder Arbeitsaktivitäten.\n• In der Lage sein, angemessen auf schwierige und / oder komplexe Situationen zu reagieren.\n• Gewährleistung direkter Kontakte und funktionaler Beziehungen zu allen Sektoren und verschiedenen externen Partnern.\n• Führen Sie die administrativen Aufgaben der Position aus.\n• Ein Schweizer Diplom in Sozialarbeit (HES-Niveau), in Bildungswissenschaften erwähnen Sonderpädagogik oder gelten als gleichwertig.\n• Wissen über geistige und/oder geistige Behinderung und/oder Alkoologie und die Bereitschaft, Wissen in diesen Bereichen zu entwickeln.\n• Vorerfahrung in einer ähnlichen Position mit Menschen mit Autismus-Spektrum-Störung (ASD) und / oder in der alternativen Kommunikation ist ein wichtiger Vorteil.\n• Demonstrieren Sie einen Geist des Dienstes für gefährdete Bevölkerungsgruppen.\n• Demonstrieren Sie ein wichtiges Gefühl von nutzerorientierter Verantwortung und Offenheit.\n• Um einen entwickelten relationalen Sinn, Leichtigkeit in der Kommunikation und einen ausgeprägten Geschmack für Teamarbeit zu besitzen.\n• Zeitflexibilität.\n• Um die üblichen Office-Tools (Word, Excel und Powerpoint) und spezifische Business-Tools in den Institutionen zu beherrschen.\n• Um die französische Sprache zu beherrschen. PSA-Angebot:\n• Eine vielfältige Funktion mit Verantwortlichkeiten innerhalb einer sozialen Institution mit ehrgeizigen und innovativen Zielen.\n• Ein motivierender und dynamischer Rahmen für Führung und berufliche Entwicklung.\n• Ein diversifizierter Weiterbildungsprozess\n• Die Arbeitsbedingungen des öffentlichen Dienstes. Antragsfrist: 3. Juli 2026 Vertrag mit maximaler Laufzeit: 1. September 2026 bis 31. Januar 2027 Amtsantritt: 1. September 2026 Funktionsklasse: 15 Die üblichen Bewerbungsunterlagen werden angefordert: Lebenslauf, Anschreiben, Diplome und alle Arbeitszertifikate. Nur Dateien, die alle angeforderten Elemente enthalten, werden berücksichtigt. Im Falle eines Termins können sich Ihre Aufgabe und Ihr Arbeitsplatz während des Vertrags zu organisatorischen Zwecken ändern. Sie können unsere Website besuchen www.epi.ge.ch",
-        "fr": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Elaborer les projets d’accompagnement socio-éducatifs personnalisés, en assurer le suivi et mobiliser les membres de l’équipe dans leur réalisation quotidienne.\n\n• Assumer les tâches déléguées de référent d’une ou plusieurs personnes concernées et maintenir des contacts réguliers avec leur réseau (répondants légaux, proches, médecin traitant...).\n\n• Inscrire son action éducative en cohérence avec les principes énoncés dans la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socioéducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources.\n\n• Concevoir, réaliser et évaluer, seul et/ou en équipe pluridisciplinaire les activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un diplôme suisse en Travail social (niveau HES),  en Sciences de l’éducation mention Education spécialisée ou jugé équivalent.\n\n• Des connaissances du handicap psychique et/ou mental et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire auprès personnes présentant un trouble du spectre de l'autisme (TSA)  et/ou dans le domaine de la communication alternative est un gros atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités orienté vers le service aux usagers et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maîtriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des établissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\nDélai de postulation : 3 juillet 2026\nContrat à durée maximale : du 1er septembre 2026 au 31 janvier 2027\nEntrée en fonction : 1er septembre 2026\nClasse de fonction : 15\nLes pièces usuelles de candidature seront demandées: CV, lettre de motivation, diplômes et l'ensemble des certificats de travail. Seuls les dossiers comportant tous les éléments demandés seront pris en considération.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
-      },
-      "location": "Collonge-Bellerive, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133017305--un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027?oga=true",
-      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.917Z",
-      "addressLocality": "Collonge-Bellerive",
-      "addressRegion": "GE",
-      "streetAddress": "Route d'Hermance",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-19",
-      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133017305--un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027?oga=true",
-      "jobReqId": "744000133017305",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
-        "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration",
-        "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
-          "un-socio-educatore-piscina-d-70-hom-1-settembre-2026-al-31-gennaio-2027-etablissements-publics-pour-l-integration"
-        ],
-        "en": [
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
-        ],
-        "de": [
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi"
-        ],
-        "fr": [
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-epi",
-          "un-e-socio-educateur-trice-pool-d-70-cdm-du-1er-septembre-2026-au-31-janvier-2027-etablissements-publics-pour-l"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:53:33.323Z",
-      "salaryMin": 42400,
-      "salaryMax": 64000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 42400,
-          "maxValue": 64000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "epi-geneve-4e34dd1f9026",
-      "slug": "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l",
-      "slugByLocale": {
-        "it": "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l",
-        "en": "a-socio-educational-assistant-service-b-tram-residence-yellow-80-hom-until-31-12-2026-etablissements-publics-pour-l",
-        "de": "un-e-assistent-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026-etablissements-publics",
-        "fr": "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31"
-      },
-      "company": "Établissements publics pour l'intégration",
-      "companyKey": "epi-geneve",
-      "companyDomain": "epi.ge.ch",
-      "title": "Un-e assistant-e socio-éducatif-tive, Service B, Résidence du Tram (jaune), 80%, CDM jusqu'au 31.12.2026",
-      "titleByLocale": {
-        "it": "Assistente socio-educativo, Servizio B, Residenza Tram (giallo), 80%, HOM fino al 31.12.2026",
-        "en": "A socio-educational assistant, Service B, Tram residence (yellow), 80%, HOM until 31.12.2026",
-        "de": "Un-e Assistent-e socio-éducatif-tive, Service B, Résidence du Tram (jaune), 80%, CDM jusqu'au 31.12.2026",
-        "fr": "Un-e assistant-e socio-éducatif-tive, Service B, Résidence du Tram (jaune), 80%, CDM jusqu'au 31.12.2026"
-      },
-      "description": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\n Délai de postulation : 5 juillet 2026\n Entrée en fonction :  Dès que possible\n Classe de fonction : 10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
-      "descriptionByLocale": {
-        "it": "• Integrare le persone interessate nella vita della città sviluppando le loro competenze e risorse, nel rispetto dei loro diritti e doveri.\n• Assicurare un supporto socio-educativo personalizzato, coerente con la politica istituzionale \"Integrazione e sostegno\".\n• Mantenere contatti positivi con le persone interessate secondo i valori socio-educativi del DPI.\n• Accompagnare le persone nella loro vita quotidiana e fornire loro un supporto personalizzato per le loro esigenze e risorse\n• Partecipare all'attuazione e alla valutazione delle attività socio-educative all'interno di un team educativo multidisciplinare.\n• Facilitare attività sociali, culturali, ricreative e/o di lavoro.\n• Essere in grado di rispondere adeguatamente a situazioni difficili e/o complesse.\n• Assicurare contatti diretti e relazioni funzionali con tutti i settori e vari partner esterni.\n• Eseguire i compiti amministrativi inerenti alla posizione.\n• Un assistente socio-educativo CFC o qualsiasi altra formazione considerata equivalente.\n• Un forte interesse nei campi della disabilità mentale e/o intellettuale e/o dell'alcoologia, nonché una volontà di sviluppare la sua conoscenza in questi campi.\n• Esperienza prioritaria in una posizione simile e con questo tipo di popolazione è un bene.\n• Dimostrare uno spirito di servizio alle popolazioni vulnerabili.\n• Dimostrare un importante senso di responsabilità e apertura.\n• Possedere un senso relazionale sviluppato, facilità nella comunicazione e un gusto pronunciato per il lavoro di squadra.\n• Abbiate la flessibilità del tempo.\n• Per padroneggiare i soliti strumenti di automazione dell'ufficio (Word, Excel e Powerpoint) e specifici strumenti aziendali disponibili all'interno degli istituti.\n• Per padroneggiare la lingua francese. PPE offerta:\n• Una funzione diversificata con responsabilità all'interno di un'istituzione sociale con obiettivi ambiziosi e innovativi.\n• Un quadro motivante e dinamico per la leadership e lo sviluppo professionale.\n• Un processo di formazione continua diversificato\n• Le condizioni di lavoro del servizio pubblico. Termine ultimo per l'applicazione: 5 luglio 2026 Entrata in ufficio: appena possibile Classe di funzionamento: 10 CONCLUSIONI DOPO SOLO Sarà CONSIDERATO (deve essere allegato: lettera di copertura, curriculum vitae, copie di diplomi e certificati/certificati di lavoro). OCE candidato / esterno: Un estratto di record criminale vuoto, così come un estratto di record criminale speciale, sarà sistematicamente richiesto per il reclutamento. In base alla direttiva trasversale \"Procedura di reclutamento in istituzioni di diritto pubblico e enti sovvenzionati - collaborazione con l'ufficio cantonale dell'occupazione\", sarà data priorità ai candidati domiciliati nel cantone di Ginevra. In caso di nomina, l'assegnazione e il luogo di lavoro possono essere soggetti a modifiche durante il contratto per scopi organizzativi. Potete visitare il nostro sito www.epi.ge.ch",
-        "en": "• Integrate the people concerned into the life of the city by developing their skills and resources, while respecting their rights and duties.\n• Ensure personalized socio-educational support, consistent with the \"Integration and Support\" institutional policy.\n• Maintain positive contacts with the persons concerned in accordance with the socio-educational values of PPE.\n• Accompany people in their daily lives and provide them with support tailored to their needs and resources\n• Participate in the implementation and evaluation of socio-educational activities within a multidisciplinary educational team.\n• Facilitate social, cultural, leisure and/or work activities.\n• Being able to respond adequately to difficult and/or complex situations.\n• Ensure direct contacts and functional relationships with all sectors and various external partners.\n• Perform the administrative duties inherent in the position.\n• A socio-educational assistant CFC or any other training deemed equivalent.\n• A strong interest in the fields of mental and/or intellectual disability and/or alcoology, as well as a willingness to develop its knowledge in these fields.\n• Prior experience in a similar position and with this type of population is an asset.\n• Demonstrate a spirit of service to vulnerable populations.\n• Demonstrate an important sense of responsibility and openness.\n• To possess a developed relational sense, ease in communication and a pronounced taste for teamwork.\n• Have time flexibility.\n• To master the usual office automation tools (Word, Excel and Powerpoint) and specific business tools available within Establishments.\n• To master the French language. PPE offer:\n• A diverse function with responsibilities within a social institution with ambitious and innovative objectives.\n• A motivating and dynamic framework for leadership and professional development.\n• A diversified continuing training process\n• The working conditions of the public service. Deadline for application: 5 July 2026 Entry into office: As soon as possible Function class: 10 COMPLETE CANDIDATURES ONLY WILL BE CONSIDERED (must be attached: cover letter, curriculum vitae, copies of diplomas and certificates/certificates of work). OCE candidate / External: A blank criminal record extract, as well as a special criminal record extract, will be systematically required for recruitment. Under the transversal directive \"Recruitment procedure in public law institutions and subsidized entities - collaboration with the cantonal employment office\", priority will be given to candidates domiciled in the canton of Geneva. In case of appointment, your assignment and workplace may be subject to change during contract for organizational purposes. You can visit our website www.epi.ge.ch",
-        "de": "• Integrieren Sie die betroffenen Menschen in das Leben der Stadt, indem Sie ihre Fähigkeiten und Ressourcen entwickeln und gleichzeitig ihre Rechte und Pflichten respektieren.\n• Gewährleistung einer personalisierten sozialpädagogischen Unterstützung im Einklang mit der institutionellen Politik der \"Integration und Unterstützung\".\n• Pflegen Sie positive Kontakte mit den betroffenen Personen im Einklang mit den sozialpädagogischen Werten der PSA.\n• Menschen in ihrem täglichen Leben begleiten und ihnen Unterstützung bieten, die auf ihre Bedürfnisse und Ressourcen zugeschnitten ist\n• Beteiligen Sie sich an der Umsetzung und Bewertung sozialpädagogischer Aktivitäten innerhalb eines multidisziplinären Bildungsteams.\n• Erleichterung sozialer, kultureller, Freizeit- und/oder Arbeitsaktivitäten.\n• In der Lage sein, angemessen auf schwierige und / oder komplexe Situationen zu reagieren.\n• Gewährleistung direkter Kontakte und funktionaler Beziehungen zu allen Sektoren und verschiedenen externen Partnern.\n• Führen Sie die administrativen Aufgaben der Position aus.\n• Ein sozialpädagogischer Assistent CFC oder eine andere Ausbildung, die als gleichwertig angesehen wird.\n• Ein starkes Interesse an den Bereichen geistige und / oder geistige Behinderung und / oder Alkoologie, sowie die Bereitschaft, sein Wissen in diesen Bereichen zu entwickeln.\n• Vorerfahrung in einer ähnlichen Position und mit dieser Art von Bevölkerung ist ein Gewinn.\n• Demonstrieren Sie einen Geist des Dienstes für gefährdete Bevölkerungsgruppen.\n• Demonstrieren Sie ein wichtiges Verantwortungsbewusstsein und Offenheit.\n• Um einen entwickelten relationalen Sinn, Leichtigkeit in der Kommunikation und einen ausgeprägten Geschmack für Teamarbeit zu besitzen.\n• Zeitflexibilität.\n• Um die üblichen Office-Automatisierungstools (Word, Excel und Powerpoint) und spezifische Business-Tools zu beherrschen, die in den Einrichtungen verfügbar sind.\n• Um die französische Sprache zu beherrschen. PSA-Angebot:\n• Eine vielfältige Funktion mit Verantwortlichkeiten innerhalb einer sozialen Institution mit ehrgeizigen und innovativen Zielen.\n• Ein motivierender und dynamischer Rahmen für Führung und berufliche Entwicklung.\n• Ein diversifizierter Weiterbildungsprozess\n• Die Arbeitsbedingungen des öffentlichen Dienstes. Antragsfrist: 5. Juli 2026 Amtsantritt: So bald wie möglich Funktionsklasse: 10 VOLLSTÄNDIGE KANDIDATEN SIND NUR ZU ERWÄGEN (muss beigefügt werden: Anschreiben, Lebenslauf, Kopien von Diplomen und Bescheinigungen/Arbeitsurkunden). OCE Kandidat / Extern: Ein Blankoauszug aus dem Strafregister sowie ein spezieller Strafregisterauszug werden für die Rekrutierung systematisch benötigt. Im Rahmen der Querschnittsrichtlinie \"Einstellungsverfahren in Einrichtungen des öffentlichen Rechts und geförderten Einrichtungen - Zusammenarbeit mit dem kantonalen Arbeitsamt\" werden Bewerber mit Sitz im Kanton Genf vorrangig behandelt. Im Falle eines Termins können sich Ihre Aufgabe und Ihr Arbeitsplatz während des Vertrags zu organisatorischen Zwecken ändern. Sie können unsere Website besuchen www.epi.ge.ch",
-        "fr": "• Intégrer les personnes concernées dans la vie de la cité en mettant en valeur leurs compétences et leurs ressources, tout en respectant leurs droits et leurs devoirs.\n\n• Assurer un accompagnement socio-éducatif personnalisé, s’inscrivant en cohérence avec la politique institutionnelle « Intégration et Accompagnement ».\n\n• Entretenir avec les personnes concernées des contacts positifs répondant aux valeurs socio-éducatives des EPI.\n\n• Accompagner les personnes dans leur quotidien et leur fournir un soutien adapté à leurs besoins et leurs ressources\n\n• Participer à la réalisation et à l’évaluation, au sein d’une équipe éducative pluridisciplinaire, des activités socio-éducatives.\n\n• Faciliter les activités de socialisation, culturelles, de loisirs et/ou de travail.\n\n• Savoir réagir de manière adéquate face à des situations difficiles et/ou complexes.\n\n• Assurer des contacts et des relations fonctionnelles directes avec l’ensemble des secteurs et les différents partenaires externes.\n\n• Accomplir les tâches administratives inhérentes au poste.\n\n• Un CFC d’assistant-e socio-éducatif-tive ou toute autre formation jugée équivalente.\n\n• Un fort intérêt pour les domaines du handicap psychique et/ou de la déficience intellectuelle et/ou en alcoologie ainsi que la volonté de développer ses connaissances dans ces domaines.\n\n• Une expérience préalable dans un poste similaire et auprès de ce type de population est un atout.\n\n• De faire preuve d’esprit de service vis-vis de populations en situation de vulnérabilité.\n\n• De faire preuve d’un sens important des responsabilités et d’ouverture d’esprit.\n\n• De posséder un sens relationnel développé, de l’aisance dans la communication et un goût prononcé pour le travail en équipe.\n\n• D’avoir une flexibilité horaire.\n\n• De maitriser les outils bureautiques usuels (Word, Excel et Powerpoint) et des outils métier spécifiques à disposition au sein des Etablissements.\n\n• De maîtriser la langue française.\n\nLes EPI offrent:\n\n• Une fonction variée comportant des responsabilités au sein d’un Etablissement à but social poursuivant des objectifs ambitieux et novateurs.\n\n• Un cadre de travail motivant et dynamique permettant la prise d’initiative et le perfectionnement professionnel.\n\n• Un processus de formation continue diversifié\n\n• Les conditions de travail de la fonction publique.\nDélai de postulation : 5 juillet 2026\nEntrée en fonction :  Dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
-      },
-      "location": "Genève, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
-      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.911Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "streetAddress": "Route de Chêne 48",
-      "postalCode": "1208",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000133855729-un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31-12-2026?oga=true",
-      "jobReqId": "744000133855729",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31",
-        "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31",
-          "assistente-socio-educativo-servizio-b-residenza-tram-giallo-80-hom-fino-al-31-12-2026-etablissements-publics-pour-l"
-        ],
-        "en": [
-          "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31"
-        ],
-        "de": [
-          "un-e-assistant-e-socio-educatif-tive-service-b-residence-du-tram-jaune-80-cdm-jusqu-au-31"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T22:53:33.325Z",
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48400,
-          "maxValue": 73200,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "epi-geneve-9b2424cf5847",
-      "slug": "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration",
-      "slugByLocale": {
-        "it": "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration",
-        "en": "several-socio-educational-assistants-ves-gardeurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l-integration",
-        "de": "mehrere-sozialpadagogische-assistenten-ves-gardeurs-ses-50-85-mikrostruktur-cdi-etablissements-publics-pour-l",
-        "fr": "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l"
-      },
-      "company": "Établissements publics pour l'intégration",
-      "companyKey": "epi-geneve",
-      "companyDomain": "epi.ge.ch",
-      "title": "Plusieurs assistants-es socio-éducatifs-ves veilleurs-ses, 50-85%, Microstructure, CDI",
-      "titleByLocale": {
-        "it": "Diversi assistenti socio-educativi-ves gardeurs-ses, 50-85%, Microstruttura, CDI",
-        "en": "Several socio-educational assistants-ves gardeurs-ses, 50-85%, Microstructure, CDI",
-        "de": "Mehrere sozialpädagogische Assistenten-ves gardeurs-ses, 50-85%, Mikrostruktur, CDI",
-        "fr": "Plusieurs assistants-es socio-éducatifs-ves veilleurs-ses, 50-85%, Microstructure, CDI"
-      },
-      "description": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\n Rejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\n Délai de postulation : 7 septembre 2026\n Entrée en fonction :  dès que possible\n Classe de fonction :  10\n SEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\n Candidat OCE / Externe:\n Un extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\n En vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\n En cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\n Vous pouvez consulter notre site www.epi.ge.ch",
-      "descriptionByLocale": {
-        "it": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction : dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch",
-        "en": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction : dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch",
-        "de": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction : dès que possible\nClasse de fonction : 10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch",
-        "fr": "• Accompagner au quotidien deux bénéficiaires avec TSA et comportements défis, dans un cadre intensif et individualisé\n\n• Co-construire, mettre en œuvre et ajuster les projets d’accompagnement individualisé\n\n• Travailler en étroite collaboration avec une équipe interdisciplinaire\n\n• Participer activement à l’évaluation des pratiques et à leur évolution\n\n• Favoriser les activités adaptées, la socialisation et l’ouverture vers l’extérieur, en tenant compte des capacités de chaque personne\n\n• CFC d’assistant socio-éducatif ou équivalent, si diplôme étranger reconnaissance SEFRI obligatoire\n\n• Connaissance du TSA et/ou volonté affirmée de se former en profondeur.\n\n• Expérience dans l’accompagnement ou dans les soins de publics avec comportements défis et en situation complexe : un atout important.\n\n• Intérêt marqué pour les approches innovantes, la recherche et l’application des meilleures pratiques reconnues au niveau international.\n\n• Fort intérêt et/ou expérience pour le travail en interdisciplinarité\n\n• Flexibilité, grande capacité d’adaptation, esprit d’équipe et motivation pour contribuer à un projet d’envergure.\n\n• Maîtrise du français et des outils bureautiques usuels.\n\n• De maîtriser la langue française.\n\nLes EPI offrent :\n\n• La chance de participer dès le départ à un projet ambitieux, pensé pour devenir une référence en matière d’accompagnement TSA.\n\n• Des formations spécialisées continues, pour vous permettre d’évoluer et de développer vous-même une expertise reconnue.\n\n• Un environnement de travail stimulant et collaboratif.\n\n• Une institution qui valorise la créativité, la recherche et la mise en œuvre de solutions innovantes.\n\n• Des conditions de travail attractives, dans le cadre d’une mission porteuse de sens et tournée vers l’avenir.\nRejoignez ce projet et participez à une aventure pionnière. Construisons ensemble, un lieu qui fera école et marquera une nouvelle étape dans l’accompagnement des personnes avec TSA en situations complexes.\nDélai de postulation : 7 septembre 2026\nEntrée en fonction :  dès que possible\nClasse de fonction :  10\nSEULES LES CANDIDATURES COMPLÈTES SERONT PRISES EN CONSIDÉRATION ( à joindre impérativement  : lettre de motivation, curriculum vitae, copies des diplômes et attestations/certificats de travail).\nCandidat OCE / Externe:\nUn extrait de casier judiciaire vierge, ainsi qu’un extrait spécial du casier judiciaire seront systématiquement exigés en cas de recrutement.\nEn vertu de la directive transversale « Procédure de recrutement au sein des institutions de droit public et des entités subventionnées - collaboration avec l’Office cantonal de l’emploi », la priorité sera donnée aux candidat-e-s domicilié-e-s sur le canton de Genève.\nEn cas d'engagement, votre affectation et lieu de travail sont susceptibles d'être modifiés en cours de contrat pour des besoins d'organisation.\nVous pouvez consulter notre site www.epi.ge.ch"
-      },
-      "location": "Collonge-Bellerive, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000145220455--plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi?oga=true",
-      "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.901Z",
-      "addressLocality": "Collonge-Bellerive",
-      "addressRegion": "GE",
-      "streetAddress": "Route d'Hermance 63",
-      "postalCode": "1245",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sociale / Socio-sanitario",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000145220455--plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi?oga=true",
-      "jobReqId": "744000145220455",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
-        "diversi-assistenti-socio-educativi-e-socio-educativi-70-90-microstruttura-cdi-etablissements-publics-pour-l-integration",
-        "several-socio-educational-and-socio-educational-assistants-70-90-microstructure-cdi-etablissements-publics-pour-l",
-        "mehrere-soziopadagogische-und-soziopadagogische-assistenten-70-90-mikrostruktur-cdi-etablissements-publics-pour-l",
-        "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
-        "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration",
-        "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
-          "diversi-assistenti-socio-educativi-e-socio-educativi-70-90-microstruttura-cdi-etablissements-publics-pour-l-integration",
-          "several-socio-educational-and-socio-educational-assistants-70-90-microstructure-cdi-etablissements-publics-pour-l",
-          "mehrere-soziopadagogische-und-soziopadagogische-assistenten-70-90-mikrostruktur-cdi-etablissements-publics-pour-l",
-          "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
-          "diversi-assistenti-socio-educativi-ves-gardeurs-ses-50-85-microstruttura-cdi-etablissements-publics-pour-l-integration"
-        ],
-        "en": [
-          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
-          "several-socio-educational-and-socio-educational-assistants-70-90-microstructure-cdi-etablissements-publics-pour-l"
-        ],
-        "de": [
-          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
-          "mehrere-soziopadagogische-und-soziopadagogische-assistenten-70-90-mikrostruktur-cdi-etablissements-publics-pour-l"
-        ],
-        "fr": [
-          "plusieurs-socio-educateurs-trices-et-assistants-es-socio-educatifs-ves-70-90",
-          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-epi",
-          "plusieurs-assistants-es-socio-educatifs-ves-veilleurs-ses-50-85-microstructure-cdi-etablissements-publics-pour-l"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T09:59:21.401Z",
-      "salaryMin": 51400,
-      "salaryMax": 77800,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51400,
-          "maxValue": 77800,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "epi-geneve-1cf40f9451b3",
       "slug": "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge",
       "slugByLocale": {
         "it": "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge",
         "en": "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge",
         "de": "un-e-assistent-e-socio-educatif-tive-amethyste-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
-        "fr": "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
+        "fr": "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge"
       },
       "company": "Établissements publics pour l'intégration",
       "companyKey": "epi-geneve",
@@ -567,7 +569,7 @@
       "url": "https://jobs.smartrecruiters.com/EtablissementsPublicsPourLIntegration/744000146476859-un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-?oga=true",
       "source": "EPI Genève Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:33:22.867Z",
+      "crawledAt": "2026-09-02T23:07:43.870Z",
       "addressLocality": "Collonge-Bellerive",
       "addressRegion": "GE",
       "streetAddress": "Route d'Hermance 63",
@@ -586,20 +588,20 @@
       "jobReqId": "744000146476859",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "fr": [
+          "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
+        ],
+        "it": [
+          "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-1i1ilx",
+          "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge-2"
+        ]
+      },
       "previousSlugs": [
         "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-1i1ilx",
         "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge-2",
         "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-1i1ilx",
-          "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-epi-geneve-collonge-bellerive-ge-2"
-        ],
-        "fr": [
-          "un-e-assistant-e-socio-educatif-tive-amethyste-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:01:35.849Z",
       "salaryMin": 48400,
