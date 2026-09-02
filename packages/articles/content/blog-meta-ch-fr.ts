@@ -5167,6 +5167,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pa30-autonomia-agricoltori.title': 'PA 2030+ : plus de liberté pour les agriculteurs suisses',
     'blog.article.pa30-autonomia-agricoltori.excerpt': 'Le Conseil fédéral lance une consultation sur PA30+ : autonomie de gestion, moins de bureaucratie, numérisation et 13,8 milliards CHF d\'investissement pour l\'agriculture 2030-2033.',
     'blog.article.pa30-autonomia-agricoltori.imageAlt': 'Champ agricole suisse avec cultures mûres pendant l\'heure dorée, symbolise les changements de la politique agricole 2030+',
+    'blog.article.novartis-130-ristrutturazione-basilea.title': 'Novartis supprime 130 emplois à Bâle',
+    'blog.article.novartis-130-ristrutturazione-basilea.excerpt': 'Novartis annonce la suppression de jusqu\'à 130 emplois à Bâle d\'ici fin 2027. Motif : transfert des activités au Novartis Campus et expiration des contrats.',
+    'blog.article.novartis-130-ristrutturazione-basilea.imageAlt': 'Campus moderne de production et de recherche d\'une entreprise pharmaceutique suisse avec architecture contemporaine',
 };
 
 export default blogMetaChFr;
