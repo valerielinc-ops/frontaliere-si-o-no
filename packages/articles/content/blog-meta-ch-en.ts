@@ -5116,6 +5116,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.programma-modernizzazione-alberghi-montagna.title': 'Mountain hotels: 100 million for modernization',
     'blog.article.programma-modernizzazione-alberghi-montagna.excerpt': 'The Federal Council launches a program of 100 million francs over eight years for the energy rehabilitation of mountain hotel facilities.',
     'blog.article.programma-modernizzazione-alberghi-montagna.imageAlt': 'Modern mountain hotel in the Swiss Alps.',
+    'blog.article.voto-elettronico-neuchatel-2028.title': 'Electronic voting in Neuchâtel: green light from the Federal Council',
+    'blog.article.voto-elettronico-neuchatel-2028.excerpt': 'The Federal Council has decided to issue the Canton of Neuchâtel with the authorization in principle for the experimentation of electronic voting until 26 November 2028.',
+    'blog.article.voto-elettronico-neuchatel-2028.imageAlt': 'A person voting electronically on a computer in a modern Swiss setting',
 };
 
 export default blogMetaChEn;

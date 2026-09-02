@@ -66398,6 +66398,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-voto-elettronico-neuchatel-2028': {
+    title: 'Voto elettronico a Neuchâtel: via libera dal Consiglio federale',
+    description: 'Il Consiglio federale ha autorizzato il Cantone di Neuchâtel a sperimentare il voto elettronico fino al 26 novembre 2028. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, voto, elettronico, neuch, libera',
+    ogTitle: 'Voto elettronico nel Cantone di Neuchâtel',
+    ogDescription: 'Il Consiglio federale ha autorizzato il Cantone di Neuchâtel a sperimentare il voto elettronico fino al 26 novembre 2028. Circa 222.000 persone potranno votare elettronicamente.',
+    canonicalPath: '/articoli-svizzera/voto-elettronico-neuchatel-2028/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Voto elettronico a Neuchâtel: via libera dal Consiglio federale",
+      "description": "Il Consiglio federale ha autorizzato il Cantone di Neuchâtel a sperimentare il voto elettronico fino al 26 novembre 2028. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/voto-elettronico-neuchatel-2028.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una persona che vota elettronicamente al computer in una moderna ambientazione svizzera"
+      },
+      "datePublished": "2026-09-02T09:15:51+00:00",
+      "dateModified": "2026-09-02T09:15:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/voto-elettronico-neuchatel-2028/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

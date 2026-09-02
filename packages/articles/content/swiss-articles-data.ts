@@ -15346,6 +15346,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'voto-elettronico-neuchatel-2028',
+    category: 'novita',
+    date: '2026-09-02T09:15:51.204Z',
+    image: '/images/blog/voto-elettronico-neuchatel-2028.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
