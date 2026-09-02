@@ -5152,6 +5152,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-svizzero-euro-minimi.title': 'Franco svizzero ai minimi: impatto sull\'economia',
     'blog.article.franco-svizzero-euro-minimi.excerpt': 'Der Schweizer Franken fällt gegenüber dem Euro auf den niedrigsten Stand seit einem Jahr. Der Wechselkurs belief sich auf 0,9435 Franken pro Euro.',
     'blog.article.franco-svizzero-euro-minimi.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit dem See und den umliegenden Bergen.',
+    'blog.article.permesso-l-zurigo-validita-proroga.title': 'Ausweis L Zürich: Gültigkeit, Erneuerung und Verlängerung',
+    'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Erlaubnis L: maximale Laufzeit von einem Jahr, verlängerbar, wenn der Vertrag fortgesetzt wird. Übergang auf Bewilligung B und Einschränkungen des Arbeitgebers im Kanton Zürich.',
+    'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Schweizer Alpenumgebung mit offiziellen Arbeitsgenehmigungsdokumenten und Verwaltungsunterlagen',
 };
 
 export default blogMetaChDe;

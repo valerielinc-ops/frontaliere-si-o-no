@@ -5152,6 +5152,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-svizzero-euro-minimi.title': 'Swiss franc at a minimum against the euro: what it means for the economy',
     'blog.article.franco-svizzero-euro-minimi.excerpt': 'The Swiss franc falls against the euro to a one-year low. The exchange rate reached 0.9435 francs per euro.',
     'blog.article.franco-svizzero-euro-minimi.imageAlt': 'Aerial view of Lugano, Switzerland, with the lake and surrounding mountains.',
+    'blog.article.permesso-l-zurigo-validita-proroga.title': 'Permit L Zurich: validity, renewal and extension',
+    'blog.article.permesso-l-zurigo-validita-proroga.excerpt': 'Permit L: maximum duration of one year, renewable if the contract continues. Transition to permit B and employer constraints in the Canton of Zurich.',
+    'blog.article.permesso-l-zurigo-validita-proroga.imageAlt': 'Swiss alpine office environment with official work permit documents and administrative paperwork',
 };
 
 export default blogMetaChEn;
