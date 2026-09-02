@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedBy": "frontaliere-si-o-no/scripts/generate-crawler-group-workflows.mjs",
-  "generatorSha256": "53b2aac9560c45b135a7b9813dc73861f5a2537c64cda2a702e5b55af11bbe9f",
+  "generatorSha256": "a909aba2a0d9726e05664b0a98a0eef7efa5ff1c8825de781f33f954d91adb02",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "groupCount": 23,
   "artifactCount": 24,
@@ -589,8 +589,8 @@
     {
       "file": "crawler-group-01.yml",
       "sourceLogic": "crawler-group-01-logic.yml",
-      "sourceSha256": "60048d52201497ad2e71eb5a2cfcf89c619f62af56727c2223de820fbee547d4",
-      "artifactSha256": "55e4b4de0c3a01aeae71977ae68352d9c872d80f10b8645cbd8fec004e1e7e81",
+      "sourceSha256": "07efc7511f051f09a1622fe4bbd8d66b24e5b03376a9e202d34e190ea4b30900",
+      "artifactSha256": "1b40ed94e88548113960174fd96d4d582e4549cb585ec1c8973ee51682117845",
       "members": [
         "coop"
       ]
@@ -598,8 +598,8 @@
     {
       "file": "crawler-group-02.yml",
       "sourceLogic": "crawler-group-02-logic.yml",
-      "sourceSha256": "935214c990e3e35af602fe6483bbc5392e6c7b1bfa19f1857588c6ac02811f9e",
-      "artifactSha256": "262c4d2b29f03609fa05ca0700babb2dc2c611e14a74ad136e04c34ac294c5e5",
+      "sourceSha256": "3b14d20868a30b52b2881dbdfa69b6c115410ab6119cd8d9593d4e4bf47d895d",
+      "artifactSha256": "579cba0cb66683dc870d79632dba1b7d2df2415cac983f6731247258fcfd60b9",
       "members": [
         "roche",
         "privatklinik-wyss",
@@ -632,8 +632,8 @@
     {
       "file": "crawler-group-03.yml",
       "sourceLogic": "crawler-group-03-logic.yml",
-      "sourceSha256": "f8362ed62d0f61c6578191fb3f44413e067eb9e442b9ef0f67020651912a8a2e",
-      "artifactSha256": "08c9748f3e58346ecf47f0a7892d1df2a1ff6f0b86b5e4de3a9a67a2d793dcc4",
+      "sourceSha256": "ade9ebd8ddf4b5b6c014582c4fc58f2974368310f40feb88cbb3c8fedc35d714",
+      "artifactSha256": "748f2c4700790d7b27aac096c0eb74d12d265caf4c5627d14882586bcae94434",
       "members": [
         "felfel",
         "siemens",
@@ -667,8 +667,8 @@
     {
       "file": "crawler-group-04.yml",
       "sourceLogic": "crawler-group-04-logic.yml",
-      "sourceSha256": "24f5f0033863f3195dbad3092e10fd254a4005c5deb38bc8406230405f1d7dbf",
-      "artifactSha256": "c2b095bd3ff45802b0d32080ac5b8be9162b16321dba77258ab68110baab5ef2",
+      "sourceSha256": "f2bb13a4486830c9433b737887746096ea858a9f30917724191ea36332fd999c",
+      "artifactSha256": "dbfb609906fa9f1a7fabf6ea846a9ee620f3099f34b27e7684c249f13e5362d2",
       "members": [
         "lidl",
         "spital-limmattal",
@@ -702,8 +702,8 @@
     {
       "file": "crawler-group-05.yml",
       "sourceLogic": "crawler-group-05-logic.yml",
-      "sourceSha256": "afaef36fd8df794a8e47eb5ce62e74cd6c054c2cd7bce0666fc774ca2b1bdec8",
-      "artifactSha256": "23e13ac5f7e8ffdaf2851c2fddca15288efd8bb73be0d7daba4d05abe07191fe",
+      "sourceSha256": "e45ad14656c420e47747e017726988323480c4c0b20ae96db0216c9173f72654",
+      "artifactSha256": "07e21a48a5963f85e8c329e260cbcb96b870b51ae44a7c1cf19388863bddf672",
       "members": [
         "klinik-schuetzen",
         "epi-geneve",
@@ -737,8 +737,8 @@
     {
       "file": "crawler-group-06.yml",
       "sourceLogic": "crawler-group-06-logic.yml",
-      "sourceSha256": "124544200d87746eb3811e41cacb711dc815d980079e783964d16165bcf0027b",
-      "artifactSha256": "53f13f1b57c43f81264ee60684f2a3e2cb46387d31eb95951a93a912b55396f4",
+      "sourceSha256": "b9bf08622348c930df79782ce36aaccbe8b0c44a9a4233f8229b0dd57d5162a2",
+      "artifactSha256": "8a40f9d8245d73843572e050c1c2d0360e48e6c288d0cd392b3a18e32d3bbff7",
       "members": [
         "merian-iselin",
         "julius-baer",
@@ -772,8 +772,8 @@
     {
       "file": "crawler-group-07.yml",
       "sourceLogic": "crawler-group-07-logic.yml",
-      "sourceSha256": "3ef0b41e113a8ba8269f96bd3188146be71c2cbbb59683ffeee9bc71cc525800",
-      "artifactSha256": "f2da6798e5e3cf638115ef8ae9b7345d70a3111ff60aac9929b1efd72a052bf9",
+      "sourceSha256": "ba0f09dc1b1ef076e551c61e4c5889fc70316bc6ea6537dd9ade29dec6b06950",
+      "artifactSha256": "72027199b4c32a5e76749af3cc10d8d804b59f9b24b121b51245891be90f0e71",
       "members": [
         "spital-emmental",
         "swisslog",
@@ -805,8 +805,8 @@
     {
       "file": "crawler-group-08.yml",
       "sourceLogic": "crawler-group-08-logic.yml",
-      "sourceSha256": "65362f6ce46813c52c5e3c649ad5fa97badf81de71aab834880e724c4eb0bd9a",
-      "artifactSha256": "9d85c5b0af25a1941107232cc9b5f69e86a74edf87541309655a86c4268eeab3",
+      "sourceSha256": "52d0f900994324e00f01b41c227153073f0e94cbe00221f2ce429a714bd2eea6",
+      "artifactSha256": "b03876111c4a6f60d57c1811d94364ae07708fa9bddbc2d7081aa00cbb7cdfc3",
       "members": [
         "salina-reha",
         "postch",
@@ -840,8 +840,8 @@
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "e26d60dc6854a71bf8d50ae66ff61264e0cfd92829eee8d1efcda1dc1fccd7f9",
-      "artifactSha256": "a6c5041b3db205feec1d8ddc881f11569c9c2a412da3e2aacae612e48214520f",
+      "sourceSha256": "c1c23ce1cf505e185edc1fa16770a433050f6af495154bb058bd9ad0f3b8e78f",
+      "artifactSha256": "def9899333d5ddd44d4ba468e8c4a7179248810f95b477afe4a44f93367dbd72",
       "members": [
         "solina",
         "spital-muri",
@@ -875,8 +875,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "e55185d30deb6bdd97be3e5dc94f70ccaebc6dc8bc42bcd4feea020f5c7a73fa",
-      "artifactSha256": "9db823f46085b2a09c760ce5dccb1e007620bd17982865cd6c683db862c1462d",
+      "sourceSha256": "2bb6d67c5d5cbf253cf53da202c20dc585e7afa676c7db74a036d10aff3b164d",
+      "artifactSha256": "631532d69a46066e7b7a929c7bf82b4deeeeaa91d67dbd0f30e05d0371a1a2d0",
       "members": [
         "jumbo",
         "swiss-medical-network",
@@ -909,8 +909,8 @@
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "b2fbcf8dc394f2cc9c2780d7b81adcc84b21fae177dd1d7feef185206ab6aafd",
-      "artifactSha256": "64009fd11cc92c5ee755422a5a1af218d11f44cf4f8a35fe931f34ca84d23b53",
+      "sourceSha256": "071883e065bfc374739b3423309e4cdce2efa67524dbc189aeb035d3084f7e73",
+      "artifactSha256": "4d0d23b4ec66d3b0fa8d354e08e0b0d93f89e04f83ccfd4f3dcd6f248378c2b6",
       "members": [
         "rehab-basel",
         "luks",
@@ -943,8 +943,8 @@
     {
       "file": "crawler-group-12.yml",
       "sourceLogic": "crawler-group-12-logic.yml",
-      "sourceSha256": "30c2199cf758bfd0e948dd0a8b018884f8dc0f9c23b3c15440c8a27347fecbd7",
-      "artifactSha256": "6c49c166f2256846ed003a1a7ebe7760710f84a6241e44899a097f8001ec4858",
+      "sourceSha256": "a1020b906107b2bcf91a1abdcdc854103eb2a6ee7b26d77c7f24eb15831badf6",
+      "artifactSha256": "2f6efc9f79b8c4e9a845574c9fe4d16f0251771f32e59c1fbb605774ecfe93fe",
       "members": [
         "klinik-sgm",
         "postfinance",
@@ -979,8 +979,8 @@
     {
       "file": "crawler-group-13.yml",
       "sourceLogic": "crawler-group-13-logic.yml",
-      "sourceSha256": "b90a5a1a778bf6ac2c0502d02ed970440889af11b2e5736d138ad7844d773ba2",
-      "artifactSha256": "b132e11dfe149918bdfc8f629c0094f3f4cae2080b528581c0e1b825a2acb303",
+      "sourceSha256": "1fd9492347697c9d82ab76d2e7112873eb3c7df9c0f3120362139732ce2cb9ca",
+      "artifactSha256": "074f0a66bea75c464060153e36a9a2bc28dbd138d44101990b0cc695bfce4c48",
       "members": [
         "pwc",
         "ubp",
@@ -1014,8 +1014,8 @@
     {
       "file": "crawler-group-14.yml",
       "sourceLogic": "crawler-group-14-logic.yml",
-      "sourceSha256": "3da5a2cb7312b2a178c62c0fe293b4fa21faf2811b2b8af08b6d900e71f0c602",
-      "artifactSha256": "6b035a25dd4ec12b705ff504b0b4459f2c7943c50318a0952cfa8d11fd96c87c",
+      "sourceSha256": "f78abc5743c60214a54570b3b40dcf21dfd969db4736aa385c53e58b41267ebf",
+      "artifactSha256": "d07ec5757af768d34ebd8beaf5914302d2b470d4eab04304fc8fd73ad20daf8b",
       "members": [
         "spruengli",
         "medacta",
@@ -1049,8 +1049,8 @@
     {
       "file": "crawler-group-15.yml",
       "sourceLogic": "crawler-group-15-logic.yml",
-      "sourceSha256": "f701224cd7119b983efa3319ca714e0575431c534cd1a5e8b9996989662dfa23",
-      "artifactSha256": "578f3072dc2938e51c4e05fb7e634b41e1f69e8ec050fb41c0dc152714177681",
+      "sourceSha256": "d62e6a9710df99ddb5f1b177a15442d7d63cd773c04869c9c063ddb49ee30098",
+      "artifactSha256": "8068e5c01da7fe2ad38667703726e85d28cafea6a2fea757c0bcf822d090670d",
       "members": [
         "kronenhof",
         "spital-affoltern",
@@ -1083,8 +1083,8 @@
     {
       "file": "crawler-group-16.yml",
       "sourceLogic": "crawler-group-16-logic.yml",
-      "sourceSha256": "25a66f258e6a0493988b0e2d9f6f6f426d7abea34e6a11f75ef2646a37ca6862",
-      "artifactSha256": "13e268af2cb493fc309d29ee96bf0ad268d6558d7bb3eb181187a81f773d099e",
+      "sourceSha256": "c4aa2316f2170f58f6365671cd8dbc4e92a4c1284ce72ed8477f4d98d910c375",
+      "artifactSha256": "874bed9cc789a23d56651697465e210400338d5107f9091eb7ca615fb4fd74ff",
       "members": [
         "ksgr",
         "senevita",
@@ -1118,8 +1118,8 @@
     {
       "file": "crawler-group-17.yml",
       "sourceLogic": "crawler-group-17-logic.yml",
-      "sourceSha256": "8ff50812496f44bcf9232ae7fd0a072372ce9375dec86a62bb4e6348984bd3ac",
-      "artifactSha256": "d441c1da8486ff0d845f7625fc4395b9266abee7a36ab23273e52151ead8b8f7",
+      "sourceSha256": "a6b06b94614c887d4043660cd55ef63c70ba40c35ce5fa070a7c70fdbbf63d7b",
+      "artifactSha256": "bc96524b8509964310007be262cee7eccbfd9f131cda1a49f00bd960bc283f9d",
       "members": [
         "siemens-healthineers",
         "proton",
@@ -1154,8 +1154,8 @@
     {
       "file": "crawler-group-18.yml",
       "sourceLogic": "crawler-group-18-logic.yml",
-      "sourceSha256": "e0c0e27d7406498160436fd6144203c9ee9b15f789d1ea98c6e356753c69d1fa",
-      "artifactSha256": "15a4e838a54162af199a675ef2ddcf3fad1f937b723b48559aacf5b301ebbbdf",
+      "sourceSha256": "331cfc6f9d49311d6d4ce3bc3cee2163302ac6b3a15742a558c8406dadb4381d",
+      "artifactSha256": "522fb52da99ff3e1009b511d060473b900f21b6884005942389a7c13b779ee88",
       "members": [
         "tertianum",
         "etat-de-vaud",
@@ -1190,8 +1190,8 @@
     {
       "file": "crawler-group-19.yml",
       "sourceLogic": "crawler-group-19-logic.yml",
-      "sourceSha256": "0a2c536e4612c0dc21f563390f4cf2ef0beb4b68857485e77667e83c73daf11b",
-      "artifactSha256": "94e578e68d01f49ffa88683c47cba89c3fbecd7fbe5a50231d784b4e656e3333",
+      "sourceSha256": "9afe3a6252f2b14cc7485a7522810621a1915d781055a3fca7eaa92bb210e5ef",
+      "artifactSha256": "9fce18c8865e628c1ed73cc8d9f38b8c8b5e0e15bab3dda0b178ca6d0dde3a7a",
       "members": [
         "migros",
         "mikron",
@@ -1225,8 +1225,8 @@
     {
       "file": "crawler-group-20.yml",
       "sourceLogic": "crawler-group-20-logic.yml",
-      "sourceSha256": "b617a9a97775b6a8ac08aafd91ab14413d57f31478341bc7a666830ec7434616",
-      "artifactSha256": "b4a6d55a47aa292b756fdafcd2573132084f393dabbd31a28b8cb21edc125748",
+      "sourceSha256": "47b2943c725039aaa3a34e6b4600a9fd820ac73c2d7b5e7398550a42a3ee2531",
+      "artifactSha256": "f0c0be4a12b8c0fe6c12de39295cbca535f6baa0adb3e5e420c4fca002b2e5e5",
       "members": [
         "ottos",
         "kliniken-valens",
@@ -1261,8 +1261,8 @@
     {
       "file": "crawler-group-21.yml",
       "sourceLogic": "crawler-group-21-logic.yml",
-      "sourceSha256": "75cafd4826e460a2c8cc238dd883f3f5ae6ac743f74571c6585270bb42ab619f",
-      "artifactSha256": "2ba55d1970174d200e9b78740550ceb6bc46a80d1183066f28a8eec340d3dbef",
+      "sourceSha256": "98bf1e1ff717ecdec8f110a9a2ad80371223be3f9db0f48c2d48396a4f520464",
+      "artifactSha256": "cfe063a93e37f921e33b9192fa967e30cad6b09b42371acb9921edd0613d5c48",
       "members": [
         "orell-fuessli-thalia",
         "stadtspital-zuerich",
@@ -1297,8 +1297,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "77fd634288c29e25ef25569a805ef9e78f62e614c66b8409049089adc2b7bbce",
-      "artifactSha256": "d6c114129db19ef2e71347abba69857da45d7b93c80a3fd6d9feea18b50bb442",
+      "sourceSha256": "0fa0a2329ffd347cfceefab028a57666380fb5bc66e43ad16a11cc68b222d185",
+      "artifactSha256": "6507c65f51394432bf4e121b0eff4c22f8d223f9410dc061f091c158a2f2c7bc",
       "members": [
         "rittmeyer",
         "saint-gobain-weber-isover",
@@ -1333,8 +1333,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "3ead7cd4e1bea62e921b869451d9c722372ead397c48300bd4d7be762aa6959f",
-      "artifactSha256": "c5b3619c86c4a88f1846c05230d77f4934d2c24e4574dc72b8aecb90c8df345e",
+      "sourceSha256": "252073b48a59f93d254af9c92cf33fcba71d8beeefa1ba8d378c963073dd7fb0",
+      "artifactSha256": "d134d1e7581f047bad7fed25e3125015db7203768a495c57596e81a70a17deaf",
       "members": [
         "rituals-cosmetics",
         "ruag",
