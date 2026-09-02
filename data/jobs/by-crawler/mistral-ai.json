@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-09-01T23:28:09.034Z",
+  "assembledAt": "2026-09-02T13:50:13.233Z",
   "jobs": [
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:04.013Z",
+      "crawledAt": "2026-09-02T13:50:10.711Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:04.006Z",
+      "crawledAt": "2026-09-02T13:50:10.710Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,7 +200,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:04.004Z",
+      "crawledAt": "2026-09-02T13:50:10.709Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,6 +231,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -277,7 +278,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:03.996Z",
+      "crawledAt": "2026-09-02T13:50:10.708Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,7 +323,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -355,7 +357,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:03.979Z",
+      "crawledAt": "2026-09-02T13:50:10.705Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -400,7 +402,93 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
+    },
+    {
+      "id": "mistral-ai-01b2b0d2cc89",
+      "slug": "ai-scientist-mistral-ai-ch",
+      "slugByLocale": {
+        "it": "ai-scientist-mistral-ai-ch",
+        "en": "ai-scientist-mistral-ai-ch",
+        "de": "ki-wissenschaftler-mistral-ai-zurich",
+        "fr": "scientifique-de-l-ia-mistral-ai-zurich"
+      },
+      "company": "Mistral AI",
+      "companyKey": "mistral-ai",
+      "companyDomain": "mistral.ai",
+      "title": "AI Scientist",
+      "titleByLocale": {
+        "it": "AI Scientist",
+        "en": "AI Scientist",
+        "de": "KI-Wissenschaftler",
+        "fr": "Scientifique de l'IA"
+      },
+      "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe role\n As an AI Scientist, you will push the boundaries of AI by developing and scaling cutting-edge models. This role exists to advance Mistral’s mission of democratizing frontier intelligence, enabling businesses and consumers to benefit from open, high-impact AI systems. You will collaborate with a global, cross-functional team to design, build, and deploy models that solve real-world problems across reasoning, code, and multimodal applications. Your work will directly shape how AI integrates into daily life and enterprise operations.\n\nWhat will you do\n\n• Research and develop novel methods to push the frontier of large language models\n • Work across use cases (e.g reasoning, code, agents) and modalities (e.g text, image and speech)\n • Build tooling and infrastructure to allow training, evaluation and analysis of AI models at scale\n • Work cross-functionally with other scientists, engineers and product teams to ship AI systems which have a real-world impact\n\nWhat We're Looking For\n\n• You are a highly proficient software engineer in at least one programming language (Python or other, e.g. Rust, Go, Java)\n • You have hands-on experience with AI frameworks (e.g. PyTorch, JAX) or distributed systems (e.g. Ray, Kubernetes)\n • You have high engineering competence. This means being able to design complex software and make it usable in production\n • You are a self-starter, autonomous and a team player\n\nNow, it would be ideal if\n\n• You have hands-on experience with training large transformer models in a distributed fashion\n • You are able to navigate the full MLOps stack, for instance, fine-tuning, evaluation and deployment\n • You have a strong publication record in a relevant scientific domain\n\nNote that this is not an exhaustive or necessary list of requirements. Please consider applying if you believe you have the skills to contribute to Mistral's mission. We value profile and experience diversity.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+      "descriptionByLocale": {
+        "it": "Informazioni su Mistral\nMistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\nSiamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nIl ruolo\nCome scienziato dell'intelligenza artificiale, si spingerà i confini dell'intelligenza artificiale sviluppando e scalando modelli all'avanguardia. Questo ruolo esiste per far progredire la missione di Mistral di democratizzare l'intelligenza di frontiera, consentendo alle imprese e ai consumatori di beneficiare di sistemi AI aperti e ad alto impatto. Collaborerai con un team globale e interfunzionale per progettare, costruire e distribuire modelli che risolvono problemi reali attraverso applicazioni di ragionamento, codice e multimodali. Il vostro lavoro formerà direttamente come l'IA si integra nella vita quotidiana e nelle operazioni aziendali.\n\nCosa farai\n\n• Ricerca e sviluppo di nuovi metodi per spingere la frontiera dei grandi modelli linguistici\n• Lavoro attraverso casi di utilizzo (ad esempio ragionamento, codice, agenti) e modalità (ad esempio testo, immagine e discorso)\n• Costruire strumenti e infrastrutture per consentire la formazione, la valutazione e l'analisi dei modelli AI in scala\n• Lavorare cross-funzionalmente con altri scienziati, ingegneri e team di prodotti per spedire sistemi AI che hanno un impatto reale\n\nCosa stiamo cercando\n\n• Sei un ingegnere software altamente competente in almeno un linguaggio di programmazione (Python o altro, ad esempio Rust, Go, Java)\n• Hai esperienza pratica con i framework AI (ad esempio PyTorch, JAX) o i sistemi distribuiti (ad esempio Ray, Kubernetes)\n• Hai un'alta competenza ingegneristica. Ciò significa essere in grado di progettare software complesso e renderlo utilizzabile nella produzione\n• Sei un auto-starter, autonomo e un giocatore di squadra\n\nOra, sarebbe ideale se\n\n• Hai esperienza pratica con la formazione di grandi modelli di trasformatori in una moda distribuita\n• Sei in grado di navigare lo stack MLOps completo, ad esempio, perfezionamento, valutazione e distribuzione\n• Hai un forte record di pubblicazione in un ambito scientifico rilevante\n\nSi noti che questo non è un elenco esaustivo o necessario di requisiti. Si prega di considerare l'applicazione se si crede di avere le competenze per contribuire alla missione di Mistral. Apprezziamo il profilo e la diversità di esperienza.\n\nCosa offriamo\nOffriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\nPer i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\nLa tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
+        "en": "About Mistral\nMistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\nWe are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe role\nAs an AI Scientist, you will push the boundaries of AI by developing and scaling cutting-edge models. This role exists to advance Mistral’s mission of democratizing frontier intelligence, enabling businesses and consumers to benefit from open, high-impact AI systems. You will collaborate with a global, cross-functional team to design, build, and deploy models that solve real-world problems across reasoning, code, and multimodal applications. Your work will directly shape how AI integrates into daily life and enterprise operations.\n\nWhat will you do\n\n• Research and develop novel methods to push the frontier of large language models\n• Work across use cases (e.g reasoning, code, agents) and modalities (e.g text, image and speech)\n• Build tooling and infrastructure to allow training, evaluation and analysis of AI models at scale\n• Work cross-functionally with other scientists, engineers and product teams to ship AI systems which have a real-world impact\n\nWhat We're Looking For\n\n• You are a highly proficient software engineer in at least one programming language (Python or other, e.g. Rust, Go, Java)\n• You have hands-on experience with AI frameworks (e.g. PyTorch, JAX) or distributed systems (e.g. Ray, Kubernetes)\n• You have high engineering competence. This means being able to design complex software and make it usable in production\n• You are a self-starter, autonomous and a team player\n\nNow, it would be ideal if\n\n• You have hands-on experience with training large transformer models in a distributed fashion\n• You are able to navigate the full MLOps stack, for instance, fine-tuning, evaluation and deployment\n• You have a strong publication record in a relevant scientific domain\n\nNote that this is not an exhaustive or necessary list of requirements. Please consider applying if you believe you have the skills to contribute to Mistral's mission. We value profile and experience diversity.\n\nWhat We Offer\nWe offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\nFor the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\nYour privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
+        "de": "Über Mistral\nMistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\nWir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nDie Rolle\nAls KI-Wissenschaftler erweitern Sie die Grenzen der KI, indem Sie innovative Modelle entwickeln und skalieren. Diese Rolle besteht darin, Mistrals Mission der Demokratisierung der Grenzinformationen voranzutreiben, damit Unternehmen und Verbraucher von offenen, wirkungsvollen KI-Systemen profitieren können. Sie arbeiten mit einem globalen, funktionsübergreifenden Team zusammen, um Modelle zu entwerfen, zu erstellen und bereitzustellen, die reale Probleme bei Argumentation, Code und multimodalen Anwendungen lösen. Ihre Arbeit wird direkt beeinflussen, wie sich KI in das tägliche Leben und den Geschäftsbetrieb integriert.\n\nWas wirst du tun\n\n• Forschung und Entwicklung neuartiger Methoden, um die Grenzen großer Sprachmodelle zu erweitern\n• Arbeite über Anwendungsfälle (z. B. Argumentation, Code, Agenten) und Modalitäten (z. B. Text, Bild und Sprache) hinweg\n• Bauen Sie Werkzeuge und Infrastruktur auf, um Schulungen, Auswertungen und Analysen von KI-Modellen in großem Maßstab zu ermöglichen\n• Arbeiten Sie funktionsübergreifend mit anderen Wissenschaftlern, Ingenieuren und Produktteams zusammen, um KI-Systeme mit realen Auswirkungen zu liefern\n\nWas wir suchen\n\n• Sie sind ein hochqualifizierter Software-Ingenieur in mindestens einer Programmiersprache (Python oder andere, z.B. Rust, Go, Java)\n• Sie haben praktische Erfahrungen mit KI-Frameworks (z.B. PyTorch, JAX) oder verteilten Systemen (z.B. Ray, Kubernetes)\n• Sie haben eine hohe Engineering-Kompetenz. Das bedeutet, komplexe Software entwerfen und in der Produktion nutzbar machen zu können.\n• Du bist ein Selbststarter, autonom und ein Teamplayer\n\nNun wäre es ideal, wenn\n\n• Sie haben praktische Erfahrung mit dem Training großer Transformatormodelle auf verteilte Weise\n• Sie können den vollständigen MLOps-Stack navigieren, z. B. Feinabstimmung, Bewertung und Bereitstellung\n• Sie haben eine starke Publikationsbilanz in einem relevanten wissenschaftlichen Bereich\n\nBeachten Sie, dass dies keine erschöpfende oder notwendige Liste von Anforderungen ist. Bitte erwägen Sie, sich zu bewerben, wenn Sie glauben, dass Sie über die Fähigkeiten verfügen, um zur Mission von Mistral beizutragen. Wir schätzen Profil und erleben Vielfalt.\n\nWas wir anbieten\nWir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\nFür die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\nIhre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
+        "fr": "À propos de Mistral\nMistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\nNous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nLe rôle\nEn tant que scientifique de l'IA, vous repousserez les limites de l'IA en développant et en élargissant des modèles de pointe. Ce rôle existe pour faire progresser la mission de Mistral, qui consiste à démocratiser le renseignement frontalier, en permettant aux entreprises et aux consommateurs de bénéficier de systèmes d'IA ouverts et à fort impact. Vous collaborerez avec une équipe internationale interfonctionnelle pour concevoir, construire et déployer des modèles qui résolvent les problèmes du monde réel à travers les applications de raisonnement, de code et de multimodal. Votre travail façonnera directement comment l'IA s'intègre dans la vie quotidienne et les opérations d'entreprise.\n\nQue ferez-vous ?\n\n• Recherche et développement de nouvelles méthodes pour repousser la frontière des grands modèles linguistiques\n• Travailler dans les cas d'utilisation (p. ex. raisonnement, code, agents) et les modalités (p. ex. texte, image et discours)\n• Construire des outils et des infrastructures pour permettre la formation, l'évaluation et l'analyse des modèles d'IA à l'échelle\n• Travailler en collaboration avec d'autres scientifiques, ingénieurs et équipes de produits pour expédier des systèmes d'IA ayant un impact réel\n\nCe que nous cherchons\n\n• Vous êtes un ingénieur logiciel hautement compétent dans au moins un langage de programmation (Python ou autre, par exemple Rust, Go, Java)\n• Vous avez une expérience pratique des cadres d'IA (p. ex. PyTorch, JAX) ou des systèmes distribués (p. ex. Ray, Kubernetes)\n• Vous avez une haute compétence en génie. Cela signifie pouvoir concevoir des logiciels complexes et les rendre utilisables dans la production\n• Vous êtes un auto-démarrant, autonome et un joueur d'équipe\n\nMaintenant, ce serait idéal si\n\n• Vous avez une expérience pratique avec la formation de grands modèles de transformateurs de façon distribuée\n• Vous pouvez naviguer sur la pile MLOps complète, par exemple, réglage fin, évaluation et déploiement\n• Vous avez une solide publication dans un domaine scientifique pertinent\n\nVeuillez noter qu'il ne s'agit pas d'une liste exhaustive ou nécessaire d'exigences. S'il vous plaît envisager de postuler si vous croyez que vous avez les compétences pour contribuer à la mission de Mistral. Nous apprécions le profil et l'expérience de la diversité.\n\nCe que nous offrons\nNous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\nPour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\nVotre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
+      "source": "Mistral AI Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-02T13:50:10.704Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Intelligenza Artificiale / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "ai-scientist-zurigo-mistral-ai-zurich",
+        "ai-scientist-zurich-mistral-ai-ch",
+        "scientifique-ai-zurich-mistral-ai-zurich",
+        "ai-scientist-mistral-ai-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-scientist-zurigo-mistral-ai-zurich",
+          "ai-scientist-zurich-mistral-ai-ch",
+          "scientifique-ai-zurich-mistral-ai-zurich"
+        ],
+        "en": [
+          "ai-scientist-mistral-ai-zurich"
+        ],
+        "de": [
+          "ai-scientist-zurich-mistral-ai-ch"
+        ],
+        "fr": [
+          "scientifique-ai-zurich-mistral-ai-zurich"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-14T22:36:36.714Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -433,7 +521,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:03.977Z",
+      "crawledAt": "2026-09-02T13:50:10.704Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -481,91 +569,6 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "mistral-ai-01b2b0d2cc89",
-      "slug": "ai-scientist-mistral-ai-ch",
-      "slugByLocale": {
-        "it": "ai-scientist-mistral-ai-ch",
-        "en": "ai-scientist-mistral-ai-ch",
-        "de": "ki-wissenschaftler-mistral-ai-zurich",
-        "fr": "scientifique-de-l-ia-mistral-ai-zurich"
-      },
-      "company": "Mistral AI",
-      "companyKey": "mistral-ai",
-      "companyDomain": "mistral.ai",
-      "title": "AI Scientist",
-      "titleByLocale": {
-        "it": "AI Scientist",
-        "en": "AI Scientist",
-        "de": "KI-Wissenschaftler",
-        "fr": "Scientifique de l'IA"
-      },
-      "description": "About Mistral\n Mistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\n We are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe role\n As an AI Scientist, you will push the boundaries of AI by developing and scaling cutting-edge models. This role exists to advance Mistral’s mission of democratizing frontier intelligence, enabling businesses and consumers to benefit from open, high-impact AI systems. You will collaborate with a global, cross-functional team to design, build, and deploy models that solve real-world problems across reasoning, code, and multimodal applications. Your work will directly shape how AI integrates into daily life and enterprise operations.\n\nWhat will you do\n\n• Research and develop novel methods to push the frontier of large language models\n • Work across use cases (e.g reasoning, code, agents) and modalities (e.g text, image and speech)\n • Build tooling and infrastructure to allow training, evaluation and analysis of AI models at scale\n • Work cross-functionally with other scientists, engineers and product teams to ship AI systems which have a real-world impact\n\nWhat We're Looking For\n\n• You are a highly proficient software engineer in at least one programming language (Python or other, e.g. Rust, Go, Java)\n • You have hands-on experience with AI frameworks (e.g. PyTorch, JAX) or distributed systems (e.g. Ray, Kubernetes)\n • You have high engineering competence. This means being able to design complex software and make it usable in production\n • You are a self-starter, autonomous and a team player\n\nNow, it would be ideal if\n\n• You have hands-on experience with training large transformer models in a distributed fashion\n • You are able to navigate the full MLOps stack, for instance, fine-tuning, evaluation and deployment\n • You have a strong publication record in a relevant scientific domain\n\nNote that this is not an exhaustive or necessary list of requirements. Please consider applying if you believe you have the skills to contribute to Mistral's mission. We value profile and experience diversity.\n\nWhat We Offer\n We offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\n For the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\n Your privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
-      "descriptionByLocale": {
-        "it": "Informazioni su Mistral\nMistral fornisce soluzioni AI complete: dai modelli di frontiera agli strumenti di sviluppo, applicazioni e calcolo. Collaboriamo con le imprese che affrontano i problemi più difficili — attraverso le industrie ad alto consumo come finanza, produzione, difesa, sanità e il settore pubblico — creando sistemi AI personalizzati che possono eseguire sui loro termini.\nSiamo un team dinamico e collaborativo appassionato di AI e del suo potenziale per trasformare la società. La nostra forza lavoro diversificata prospera in ambienti competitivi e si impegna a guidare l'innovazione. Le nostre squadre sono distribuite tra Europa, Nord America, Asia e Medio Oriente. Siamo creativi, low-ego e team-spirited.\n\nIl ruolo\nCome scienziato dell'intelligenza artificiale, si spingerà i confini dell'intelligenza artificiale sviluppando e scalando modelli all'avanguardia. Questo ruolo esiste per far progredire la missione di Mistral di democratizzare l'intelligenza di frontiera, consentendo alle imprese e ai consumatori di beneficiare di sistemi AI aperti e ad alto impatto. Collaborerai con un team globale e interfunzionale per progettare, costruire e distribuire modelli che risolvono problemi reali attraverso applicazioni di ragionamento, codice e multimodali. Il vostro lavoro formerà direttamente come l'IA si integra nella vita quotidiana e nelle operazioni aziendali.\n\nCosa farai\n\n• Ricerca e sviluppo di nuovi metodi per spingere la frontiera dei grandi modelli linguistici\n• Lavoro attraverso casi di utilizzo (ad esempio ragionamento, codice, agenti) e modalità (ad esempio testo, immagine e discorso)\n• Costruire strumenti e infrastrutture per consentire la formazione, la valutazione e l'analisi dei modelli AI in scala\n• Lavorare cross-funzionalmente con altri scienziati, ingegneri e team di prodotti per spedire sistemi AI che hanno un impatto reale\n\nCosa stiamo cercando\n\n• Sei un ingegnere software altamente competente in almeno un linguaggio di programmazione (Python o altro, ad esempio Rust, Go, Java)\n• Hai esperienza pratica con i framework AI (ad esempio PyTorch, JAX) o i sistemi distribuiti (ad esempio Ray, Kubernetes)\n• Hai un'alta competenza ingegneristica. Ciò significa essere in grado di progettare software complesso e renderlo utilizzabile nella produzione\n• Sei un auto-starter, autonomo e un giocatore di squadra\n\nOra, sarebbe ideale se\n\n• Hai esperienza pratica con la formazione di grandi modelli di trasformatori in una moda distribuita\n• Sei in grado di navigare lo stack MLOps completo, ad esempio, perfezionamento, valutazione e distribuzione\n• Hai un forte record di pubblicazione in un ambito scientifico rilevante\n\nSi noti che questo non è un elenco esaustivo o necessario di requisiti. Si prega di considerare l'applicazione se si crede di avere le competenze per contribuire alla missione di Mistral. Apprezziamo il profilo e la diversità di esperienza.\n\nCosa offriamo\nOffriamo un pacchetto completo di benefici progettato per supportare il vostro benessere, la crescita e l'equilibrio della vita lavorativa. I benefici variano per paese e possono includere copertura sanitaria, congedo parentale, piani di pensionamento, supporto di trasferimento, programmi di benessere, indennità di pasto e trasporto, e altri vantaggi specifici per la posizione.\nPer i dettagli più aggiornati sui vantaggi disponibili nella tua posizione, si prega di fare riferimento alla nostra pagina Vantaggi .\n\nInformativa sulla privacy\nLa tua privacy conta per noi. Puoi saperne di più su come gestiamo i tuoi dati personali nella nostra Informativa sulla privacy applicabile .",
-        "en": "About Mistral\nMistral provides full-stack AI solutions: from frontier models to developer tools, applications, and compute. We partner with enterprises tackling the hardest problems—across high-stakes industries like finance, manufacturing, defense, healthcare, and the public sector—co-creating customized AI systems that they can run on their terms.\nWe are a dynamic, collaborative team passionate about AI and its potential to transform society. Our diverse workforce thrives in competitive environments and is committed to driving innovation. Our teams are distributed between Europe, North America, Asia and the Middle East. We are creative, low-ego and team-spirited.\n\nThe role\nAs an AI Scientist, you will push the boundaries of AI by developing and scaling cutting-edge models. This role exists to advance Mistral’s mission of democratizing frontier intelligence, enabling businesses and consumers to benefit from open, high-impact AI systems. You will collaborate with a global, cross-functional team to design, build, and deploy models that solve real-world problems across reasoning, code, and multimodal applications. Your work will directly shape how AI integrates into daily life and enterprise operations.\n\nWhat will you do\n\n• Research and develop novel methods to push the frontier of large language models\n• Work across use cases (e.g reasoning, code, agents) and modalities (e.g text, image and speech)\n• Build tooling and infrastructure to allow training, evaluation and analysis of AI models at scale\n• Work cross-functionally with other scientists, engineers and product teams to ship AI systems which have a real-world impact\n\nWhat We're Looking For\n\n• You are a highly proficient software engineer in at least one programming language (Python or other, e.g. Rust, Go, Java)\n• You have hands-on experience with AI frameworks (e.g. PyTorch, JAX) or distributed systems (e.g. Ray, Kubernetes)\n• You have high engineering competence. This means being able to design complex software and make it usable in production\n• You are a self-starter, autonomous and a team player\n\nNow, it would be ideal if\n\n• You have hands-on experience with training large transformer models in a distributed fashion\n• You are able to navigate the full MLOps stack, for instance, fine-tuning, evaluation and deployment\n• You have a strong publication record in a relevant scientific domain\n\nNote that this is not an exhaustive or necessary list of requirements. Please consider applying if you believe you have the skills to contribute to Mistral's mission. We value profile and experience diversity.\n\nWhat We Offer\nWe offer a comprehensive benefits package designed to support your well-being, growth, and work-life balance. Benefits vary by country and may include healthcare coverage, parental leave, retirement plans, relocation support, wellness programs, meal and transportation allowances, and other location-specific perks.\nFor the most up-to-date details on benefits available in your location, please refer to our Benefits page .\n\nPrivacy Policy\nYour privacy matters to us. You can learn more about how we handle your personal data in our Applicant Privacy Policy .",
-        "de": "Über Mistral\nMistral bietet Full-Stack-KI-Lösungen: von Frontier-Modellen bis hin zu Entwickler-Tools, Anwendungen und Compute. Wir arbeiten mit Unternehmen zusammen, die die schwierigsten Probleme lösen - in Branchen wie Finanzen, Fertigung, Verteidigung, Gesundheitswesen und im öffentlichen Sektor - und erstellen gemeinsam maßgeschneiderte KI-Systeme, die sie zu ihren Bedingungen ausführen können.\nWir sind ein dynamisches, kooperatives Team, das sich für KI und ihr Potenzial zur Transformation der Gesellschaft begeistert. Unsere vielfältigen Mitarbeiter leben in einem wettbewerbsorientierten Umfeld und setzen sich dafür ein, Innovationen voranzutreiben. Unsere Teams sind zwischen Europa, Nordamerika, Asien und dem Nahen Osten verteilt. Wir sind kreativ, Low-Ego und Teamgeist.\n\nDie Rolle\nAls KI-Wissenschaftler erweitern Sie die Grenzen der KI, indem Sie innovative Modelle entwickeln und skalieren. Diese Rolle besteht darin, Mistrals Mission der Demokratisierung der Grenzinformationen voranzutreiben, damit Unternehmen und Verbraucher von offenen, wirkungsvollen KI-Systemen profitieren können. Sie arbeiten mit einem globalen, funktionsübergreifenden Team zusammen, um Modelle zu entwerfen, zu erstellen und bereitzustellen, die reale Probleme bei Argumentation, Code und multimodalen Anwendungen lösen. Ihre Arbeit wird direkt beeinflussen, wie sich KI in das tägliche Leben und den Geschäftsbetrieb integriert.\n\nWas wirst du tun\n\n• Forschung und Entwicklung neuartiger Methoden, um die Grenzen großer Sprachmodelle zu erweitern\n• Arbeite über Anwendungsfälle (z. B. Argumentation, Code, Agenten) und Modalitäten (z. B. Text, Bild und Sprache) hinweg\n• Bauen Sie Werkzeuge und Infrastruktur auf, um Schulungen, Auswertungen und Analysen von KI-Modellen in großem Maßstab zu ermöglichen\n• Arbeiten Sie funktionsübergreifend mit anderen Wissenschaftlern, Ingenieuren und Produktteams zusammen, um KI-Systeme mit realen Auswirkungen zu liefern\n\nWas wir suchen\n\n• Sie sind ein hochqualifizierter Software-Ingenieur in mindestens einer Programmiersprache (Python oder andere, z.B. Rust, Go, Java)\n• Sie haben praktische Erfahrungen mit KI-Frameworks (z.B. PyTorch, JAX) oder verteilten Systemen (z.B. Ray, Kubernetes)\n• Sie haben eine hohe Engineering-Kompetenz. Das bedeutet, komplexe Software entwerfen und in der Produktion nutzbar machen zu können.\n• Du bist ein Selbststarter, autonom und ein Teamplayer\n\nNun wäre es ideal, wenn\n\n• Sie haben praktische Erfahrung mit dem Training großer Transformatormodelle auf verteilte Weise\n• Sie können den vollständigen MLOps-Stack navigieren, z. B. Feinabstimmung, Bewertung und Bereitstellung\n• Sie haben eine starke Publikationsbilanz in einem relevanten wissenschaftlichen Bereich\n\nBeachten Sie, dass dies keine erschöpfende oder notwendige Liste von Anforderungen ist. Bitte erwägen Sie, sich zu bewerben, wenn Sie glauben, dass Sie über die Fähigkeiten verfügen, um zur Mission von Mistral beizutragen. Wir schätzen Profil und erleben Vielfalt.\n\nWas wir anbieten\nWir bieten ein umfassendes Leistungspaket, das Ihr Wohlbefinden, Ihr Wachstum und Ihre Work-Life-Balance unterstützt. Die Vorteile variieren je nach Land und können Gesundheitsversorgung, Elternurlaub, Altersvorsorge, Umzugsunterstützung, Wellnessprogramme, Mahlzeiten und Transportkosten sowie andere standortspezifische Vergünstigungen umfassen.\nFür die aktuellsten Details zu den in Ihrem Standort verfügbaren Vorteilen lesen Sie bitte unsere Vorteile Seite .\n\nDatenschutzpolitik\nIhre Privatsphäre ist uns wichtig. Sie können mehr darüber erfahren, wie wir mit Ihren personenbezogenen Daten umgehen, in unserer Datenschutzerklärung für Bewerber.",
-        "fr": "À propos de Mistral\nMistral fournit des solutions d'IA complètes: des modèles frontières aux outils de développement, applications et calcul. Nous travaillons en partenariat avec des entreprises qui s'attaquent aux problèmes les plus difficiles — dans des secteurs comme la finance, l'industrie manufacturière, la défense, les soins de santé et le secteur public — en créant des systèmes d'IA personnalisés qu'ils peuvent utiliser selon leurs conditions.\nNous sommes une équipe dynamique et collaborative passionnée par l'IA et son potentiel pour transformer la société. Notre main-d'oeuvre diversifiée prospère dans des environnements concurrentiels et s'engage à stimuler l'innovation. Nos équipes sont réparties entre l'Europe, l'Amérique du Nord, l'Asie et le Moyen-Orient. Nous sommes créatifs, low-ego et esprit d'équipe.\n\nLe rôle\nEn tant que scientifique de l'IA, vous repousserez les limites de l'IA en développant et en élargissant des modèles de pointe. Ce rôle existe pour faire progresser la mission de Mistral, qui consiste à démocratiser le renseignement frontalier, en permettant aux entreprises et aux consommateurs de bénéficier de systèmes d'IA ouverts et à fort impact. Vous collaborerez avec une équipe internationale interfonctionnelle pour concevoir, construire et déployer des modèles qui résolvent les problèmes du monde réel à travers les applications de raisonnement, de code et de multimodal. Votre travail façonnera directement comment l'IA s'intègre dans la vie quotidienne et les opérations d'entreprise.\n\nQue ferez-vous ?\n\n• Recherche et développement de nouvelles méthodes pour repousser la frontière des grands modèles linguistiques\n• Travailler dans les cas d'utilisation (p. ex. raisonnement, code, agents) et les modalités (p. ex. texte, image et discours)\n• Construire des outils et des infrastructures pour permettre la formation, l'évaluation et l'analyse des modèles d'IA à l'échelle\n• Travailler en collaboration avec d'autres scientifiques, ingénieurs et équipes de produits pour expédier des systèmes d'IA ayant un impact réel\n\nCe que nous cherchons\n\n• Vous êtes un ingénieur logiciel hautement compétent dans au moins un langage de programmation (Python ou autre, par exemple Rust, Go, Java)\n• Vous avez une expérience pratique des cadres d'IA (p. ex. PyTorch, JAX) ou des systèmes distribués (p. ex. Ray, Kubernetes)\n• Vous avez une haute compétence en génie. Cela signifie pouvoir concevoir des logiciels complexes et les rendre utilisables dans la production\n• Vous êtes un auto-démarrant, autonome et un joueur d'équipe\n\nMaintenant, ce serait idéal si\n\n• Vous avez une expérience pratique avec la formation de grands modèles de transformateurs de façon distribuée\n• Vous pouvez naviguer sur la pile MLOps complète, par exemple, réglage fin, évaluation et déploiement\n• Vous avez une solide publication dans un domaine scientifique pertinent\n\nVeuillez noter qu'il ne s'agit pas d'une liste exhaustive ou nécessaire d'exigences. S'il vous plaît envisager de postuler si vous croyez que vous avez les compétences pour contribuer à la mission de Mistral. Nous apprécions le profil et l'expérience de la diversité.\n\nCe que nous offrons\nNous offrons un ensemble complet de prestations conçu pour soutenir votre bien-être, votre croissance et votre équilibre entre le travail et la vie personnelle. Les prestations varient selon le pays et peuvent comprendre la couverture des soins de santé, le congé parental, les régimes de retraite, le soutien à la réinstallation, les programmes de mieux-être, les indemnités de repas et de transport et d'autres avantages propres à l'endroit.\nPour obtenir les détails les plus récents sur les prestations disponibles à votre emplacement, veuillez consulter notre page Prestations .\n\nPolitique de confidentialité\nVotre vie privée compte pour nous. Vous pouvez en savoir plus sur la façon dont nous traitons vos données personnelles dans notre Politique de confidentialité du demandeur."
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
-      "source": "Mistral AI Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:03.975Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ricerca",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Intelligenza Artificiale / Ricerca",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "en": [
-          "ai-scientist-mistral-ai-zurich"
-        ],
-        "it": [
-          "ai-scientist-zurigo-mistral-ai-zurich",
-          "ai-scientist-zurich-mistral-ai-ch",
-          "scientifique-ai-zurich-mistral-ai-zurich"
-        ],
-        "de": [
-          "ai-scientist-zurich-mistral-ai-ch"
-        ],
-        "fr": [
-          "scientifique-ai-zurich-mistral-ai-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "ai-scientist-zurigo-mistral-ai-zurich",
-        "ai-scientist-zurich-mistral-ai-ch",
-        "scientifique-ai-zurich-mistral-ai-zurich",
-        "ai-scientist-mistral-ai-zurich"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-14T22:36:36.714Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
-    },
-    {
       "id": "mistral-ai-6111928c148b",
       "slug": "applied-scientist-ricerca-ingegnere-ai4engineering-mistral-ai-lausanne",
       "slugByLocale": {
@@ -596,7 +599,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:03.966Z",
+      "crawledAt": "2026-09-02T13:50:10.702Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,7 +677,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-01T23:28:03.959Z",
+      "crawledAt": "2026-09-02T13:50:10.700Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
