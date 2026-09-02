@@ -5215,6 +5215,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-appenzello-esterno.title': 'Salari e mercato del lavoro in Appenzello Esterno',
     'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Analisi completa: stipendi per livello di formazione, settori che assumono, contratti collettivi, protezioni del lavoratore e salario minimo nei cantoni svizzeri.',
     'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Professionisti che lavorano in un ufficio moderno svizzero con vista panoramica sulla città',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Permesso di dimora B nel Cantone di Appenzello Interno: requisiti e rinnovo',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Scopri i requisiti e la procedura di rinnovo del permesso di dimora B nel Cantone di Appenzello Interno.',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Castelgrande fortress in Bellinzona, Switzerland',
 };
 
 export default blogMetaChIt;

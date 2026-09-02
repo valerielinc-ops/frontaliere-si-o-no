@@ -5215,6 +5215,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mercato-lavoro-appenzello-esterno.title': 'Salaires et marché du travail à Appenzell Extérieur',
     'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Analyse complète : salaires par niveau de formation, secteurs qu\'ils embauchent, conventions collectives, protections du travailleur et salaire minimum dans les cantons suisses.',
     'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Équipe professionnelle travaillant dans un bureau suisse moderne avec vue panoramique',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Permis B Appenzell, Innerrhoden : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Renseignez-vous sur les exigences et la procédure pour renouveler votre permis de séjour B dans le canton d\'Appenzell, en Inerrhoden.',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Forteresse de Castelgrande à Bellinzona, Suisse',
 };
 
 export default blogMetaChFr;

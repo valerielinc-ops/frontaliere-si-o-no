@@ -5215,6 +5215,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mercato-lavoro-appenzello-esterno.title': 'Löhne und Arbeitsmarkt in Appenzell Ausserrhoden',
     'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Umfassende Analyse: Löhne nach Bildungsniveau, eingestellte Branchen, Tarifverträge, Arbeitnehmerschutz und Mindestlohn in den Schweizer Kantonen.',
     'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Professionelles Team, das in einem modernen Schweizer Büro mit Panoramablick arbeitet',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Aufenthaltserlaubnis B im Kanton Appenzell Innerrhoden: Anforderungen und Verlängerung',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren zur Verlängerung der Aufenthaltsbewilligung B im Kanton Appenzell Innerrhoden.',
+    'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Castelgrande Festung in Bellinzona, Schweiz',
 };
 
 export default blogMetaChDe;

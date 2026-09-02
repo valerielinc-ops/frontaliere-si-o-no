@@ -1764,6 +1764,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aprire-attivita-appenzello-esterno-costi': { it: 'aprire-attivita-appenzello-esterno-costi', en: 'start-business-appenzell-ausserrhoden-costs', de: 'unternehmen-appenzell-ausserrhoden-kosten', fr: 'ouvrir-entreprise-appenzell-rhodes-exterieures-couts' },
  'impresa-appenzello-esterno-registrazione': { it: 'impresa-appenzello-esterno-registrazione', en: 'register-company-appenzell-ausserrhoden', de: 'unternehmen-appenzell-ausserrhoden-registrieren', fr: 'entreprise-appenzell-rhodes-exterieures' },
  'mercato-lavoro-appenzello-esterno': { it: 'mercato-lavoro-appenzello-esterno', en: 'labour-market-appenzell-ausserrhoden', de: 'arbeitsmarkt-appenzell-ausserrhoden', fr: 'marche-du-travail-appenzell-rhodes-exterieures' },
+ 'permesso-dimora-b-appenzello-interno-requisiti-rinnovo': { it: 'permesso-dimora-b-appenzello-interno-requisiti-rinnovo', en: 'residence-permit-b-appenzello-interno-requirements-renewal', de: 'aufenthaltsbewilligung-b-appenzello-interno-anforderungen-verlangerung', fr: 'permis-de-sejour-b-appenzello-interno-conditions-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
