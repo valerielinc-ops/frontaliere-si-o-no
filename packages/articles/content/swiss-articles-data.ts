@@ -15373,6 +15373,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tribunale-ordina-bollettino-neutralita',
+    category: 'novita',
+    date: '2026-09-02T09:41:45.116Z',
+    image: '/images/blog/tribunale-ordina-bollettino-neutralita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

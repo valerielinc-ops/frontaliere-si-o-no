@@ -5125,6 +5125,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.penuria-insegnanti-rapporto-cause-dati.title': 'Lehrermangel: Ein Bericht analysiert Ursachen und Datenbanken',
     'blog.article.penuria-insegnanti-rapporto-cause-dati.excerpt': 'Der Bundesrat hat den Bericht über die Datenerhebung und die Beurteilungen des Lehrkräftemangels genehmigt.',
     'blog.article.penuria-insegnanti-rapporto-cause-dati.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz, mit den umliegenden Bergen und der Stadt darunter.',
+    'blog.article.tribunale-ordina-bollettino-neutralita.title': 'Das Gericht ordnet die Korrektur des Initiativblatts an',
+    'blog.article.tribunale-ordina-bollettino-neutralita.excerpt': 'Das Gericht ordnet an, das Bulletin der Neutralitätsinitiative zu korrigieren. Die Grünen hatten die Veröffentlichung vor Gericht angefochten.',
+    'blog.article.tribunale-ordina-bollettino-neutralita.imageAlt': 'Innenraum eines Schweizer Gerichtsgebäudes mit Holzbänken, das Richterliche Kontrolle von demokratischen Prozessen zeigt',
 };
 
 export default blogMetaChDe;

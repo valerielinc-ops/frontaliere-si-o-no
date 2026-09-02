@@ -66515,6 +66515,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tribunale-ordina-bollettino-neutralita': {
+    title: 'Tribunale ordina la correzione del bollettino d\'iniziativa',
+    description: 'Un tribunale svizzero ordina ai promotori dell\'iniziativa sulla neutralità di correggere il bollettino. I Verdi avevano presentato ricorsa legale contro',
+    keywords: 'frontalieri, ticino, svizzera, italia, tribunale, ordina, correzione, bollettino',
+    ogTitle: 'Tribunale ordina correzione del bollettino d\'iniziativa',
+    ogDescription: 'Una corte giudiziale ha ordinato ai promotori dell\'iniziativa sulla neutralità di correggere il bollettino dopo ricorso legale dei Verdi. Greta Gysin: «Un segnale chiaro e importante». Scopri le implicazioni per la democrazia diretta svizzera',
+    canonicalPath: '/articoli-svizzera/tribunale-ordina-bollettino-neutralita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tribunale ordina la correzione del bollettino d'iniziativa",
+      "description": "Un tribunale svizzero ordina ai promotori dell'iniziativa sulla neutralità di correggere il bollettino. I Verdi avevano presentato ricorsa legale contro",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tribunale-ordina-bollettino-neutralita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula di un tribunale svizzero con banchi in legno che rappresenta il controllo giudiziario sui processi democratici"
+      },
+      "datePublished": "2026-09-02T09:41:45+00:00",
+      "dateModified": "2026-09-02T09:41:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tribunale-ordina-bollettino-neutralita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
