@@ -707,6 +707,52 @@ describe('crawler generation dispatch protocol', () => {
     expect(pulls).toBeLessThan(32);
   });
 
+  it('returns a real response that completes an instant before its bound timeout fires', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise((resolve, reject) => {
+        const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+        init?.signal?.addEventListener('abort', onAbort, { once: true });
+        setTimeout(() => {
+          init?.signal?.removeEventListener('abort', onAbort);
+          resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+        }, 749);
+      }));
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = request({ method: 'GET', path: '/repos/x/actions/runs/1', timeoutMs: 750 });
+      await vi.advanceTimersByTimeAsync(749);
+      await expect(pending).resolves.toMatchObject({ status: 200 });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('rejects instead of fabricating a match when the abort wins the tail race against a slow-but-real response', async () => {
+    vi.useFakeTimers();
+    try {
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => new Promise((resolve, reject) => {
+        const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+        init?.signal?.addEventListener('abort', onAbort, { once: true });
+        // Arrives one tick after the bound timeout — the abort timer was armed first (registered
+        // before the fetch call) and always fires first on an exact tie, so this must never resolve.
+        setTimeout(() => {
+          resolve(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+        }, 751);
+      }));
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = request({ method: 'GET', path: '/repos/x/actions/runs/1', timeoutMs: 750 });
+      const assertion = expect(pending).rejects.toThrow(/abort/i);
+      await vi.advanceTimersByTimeAsync(800);
+      await assertion;
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
   it('never retries POST after a transport failure and reconciles only one exact global run name', async () => {
     let postCalls = 0;
     const request = vi.fn(async (input: any) => {
@@ -1041,6 +1087,86 @@ describe('crawler generation dispatch protocol', () => {
     expect(request.mock.calls.some(([input]) => input.path.includes('/actions/runs?'))).toBe(false);
     expect(request.mock.calls.filter(([input]) => input.method === 'GET').map(([input]) => input.timeoutMs))
       .toEqual([10_000, 3_750]);
+  });
+
+  it('classifies direct through the real requester when hydration completes just before its bound abort fires', async () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(0);
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => {
+        if (init?.method === 'POST') {
+          return Promise.resolve(new Response(JSON.stringify({
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          }), { status: 200 }));
+        }
+        return new Promise((resolve, reject) => {
+          const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+          init?.signal?.addEventListener('abort', onAbort, { once: true });
+          setTimeout(() => {
+            init?.signal?.removeEventListener('abort', onAbort);
+            resolve(new Response(JSON.stringify(boundRun('01', 7001, null)), { status: 200 }));
+          }, DIRECT_RUN_HYDRATION_TIMEOUT_MS - 1);
+        });
+      });
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = dispatchWorkflowOnce({
+        repository,
+        workflowFile: 'crawler-group-01.yml',
+        group: '01',
+        generationToken,
+        inputs: { skip_ai_translation: '1', generation_token: generationToken },
+        request,
+      });
+      await vi.advanceTimersByTimeAsync(DIRECT_RUN_HYDRATION_TIMEOUT_MS);
+      await expect(pending).resolves.toEqual({ status: 'direct', runId: '7001' });
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('never fabricates direct when every hydration GET loses the tail race against its own bound abort', async () => {
+    vi.useFakeTimers();
+    try {
+      vi.setSystemTime(0);
+      const fetchImpl = vi.fn((_input: RequestInfo | URL, init?: RequestInit) => {
+        if (init?.method === 'POST') {
+          return Promise.resolve(new Response(JSON.stringify({
+            workflow_run_id: 7001,
+            run_url: `https://api.github.com/repos/${repository}/actions/runs/7001`,
+            html_url: `https://github.com/${repository}/actions/runs/7001`,
+          }), { status: 200 }));
+        }
+        return new Promise((resolve, reject) => {
+          const onAbort = () => reject(new DOMException('This operation was aborted', 'AbortError'));
+          init?.signal?.addEventListener('abort', onAbort, { once: true });
+          // Always arrives after any single attempt's own bound timeout (capped at the 10s
+          // hydration deadline), so the abort wins every attempt — this must never surface as
+          // 'direct' with a stale/discarded response.
+          setTimeout(() => {
+            resolve(new Response(JSON.stringify(boundRun('01', 7001, null)), { status: 200 }));
+          }, DIRECT_RUN_HYDRATION_TIMEOUT_MS + 1_000);
+        });
+      });
+      const request = createGitHubActionsRequester({
+        apiUrl: 'https://api.github.test', token: 'test-token', fetchImpl,
+      });
+      const pending = dispatchWorkflowOnce({
+        repository,
+        workflowFile: 'crawler-group-01.yml',
+        group: '01',
+        generationToken,
+        inputs: { skip_ai_translation: '1', generation_token: generationToken },
+        request,
+      });
+      await vi.advanceTimersByTimeAsync(DIRECT_RUN_HYDRATION_TIMEOUT_MS + 10_000);
+      await expect(pending).resolves.toEqual({ status: 'missing', runId: null });
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('treats a 403 exact-ID response as terminal without retry, list discovery or another POST', async () => {
