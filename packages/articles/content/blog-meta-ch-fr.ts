@@ -5218,6 +5218,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Permis B Appenzell, Innerrhoden : exigences et renouvellement',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Renseignez-vous sur les exigences et la procédure pour renouveler votre permis de séjour B dans le canton d\'Appenzell, en Inerrhoden.',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Forteresse de Castelgrande à Bellinzona, Suisse',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Récompenses de la caisse-maladie dans le canton d\'Appenzell Interne et réduction des primes',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Découvrez les fourchettes de primes, franchises et modèles alternatifs pour l\'assurance maladie obligatoire dans le canton d\'Appenzell Intérieur.',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Vue aérienne du canton d\'Appenzello Interno avec montagnes et lacs, Suisse',
 };
 
 export default blogMetaChFr;

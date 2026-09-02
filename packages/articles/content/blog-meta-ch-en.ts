@@ -5218,6 +5218,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.title': 'Residence permit B in the Inner Appenzell Canton: requirements and renewal',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.excerpt': 'Find out the requirements and the procedure for renewing the B residence permit in the Canton of Appenzello Interno.',
     'blog.article.permesso-dimora-b-appenzello-interno-requisiti-rinnovo.imageAlt': 'Castelgrande fortress in Bellinzona, Switzerland',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Sick pay premiums in the Inner Appenzell Canton and premium reductions',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Discover the premium ranges, deductibles and alternative models for compulsory health insurance in the Canton of Appenzello Interno.',
+    'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Aerial view of Appenzello Interno canton with mountains and lakes, Switzerland',
 };
 
 export default blogMetaChEn;
