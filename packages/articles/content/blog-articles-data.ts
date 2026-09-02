@@ -33312,6 +33312,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'franco-svizzero-crolla-minimi-2025',
+ category: 'novita',
+ date: '2026-09-02T22:51:03.672Z',
+ image: '/images/blog/franco-svizzero-crolla-minimi-2025.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

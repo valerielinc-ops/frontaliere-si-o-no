@@ -11148,6 +11148,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Church-Grison Frontiers: Tax Guide and Practice',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Living in Chiesa in Valmalenco and working in Graubünden: new 2024 agreement, exemptions €7,500-€10,000, Swiss taxation and Italian tax credit.',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Alpine mountain village at the Italian-Swiss border with traditional stone architecture and forested valleys',
+    'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Swiss franc hits 2025 summer low: impact on commuters',
+    'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'The Swiss franc has reached its lowest since summer 2025, with the euro at 0.9435 francs on 2 September 2026. Discover the implications for frontier workers.',
+    'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'View of Lugano with the lake and mountains in the background',
 };
 
 export default blogMetaEn;

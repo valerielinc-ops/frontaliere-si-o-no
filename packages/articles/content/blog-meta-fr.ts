@@ -11150,6 +11150,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Frontière Église-Grisons : guide fiscal et pratique',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Vivre à Chiesa in Valmalenco et travailler dans les Grisons : nouvel accord 2024, exonérations € 7.500-€ 10.000, fiscalité suisse et crédit d\'impôt italien.',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Paysage alpin à la frontière italo-suisse avec architecture alpine traditionnelle et vallées boisées',
+    'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Le franc suisse au plus bas depuis l\'été 2025 : impact sur les frontaliers',
+    'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'Le franc suisse a atteint son plus bas niveau depuis l\'été 2025, avec l\'euro à 0,9435 franc le 2 septembre 2026. Découvrez les implications pour les frontaliers.',
+    'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'Vue de Lugano avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaFr;

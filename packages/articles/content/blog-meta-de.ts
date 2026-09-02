@@ -11147,6 +11147,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.title': 'Grenzgänger Kirche-Graubünden: Steuer- und Praxisleitfaden',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.excerpt': 'Leben in Chiesa in Valmalenco und Arbeiten in Graubünden: Neues Abkommen 2024, Befreiungen €7.500- € 10.000, Schweizer Besteuerung und italienische Steuergutschrift.',
     'blog.article.chiesa-valmalenco-grigioni-frontaliere.imageAlt': 'Alpenlandschaft an der italienisch-Schweizer Grenze mit traditioneller Bergdorfarchitektur und bewaldeten Tälern',
+    'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Franco svizzero ai minimi dal 2025: impatto sui frontalieri',
+    'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'Der Schweizer Franken erreichte sein Tief seit dem Sommer 2025, der Euro lag am 2. September 2026 bei 0,9435 Franken. Erfahren Sie mehr über die Auswirkungen für Grenzgänger.',
+    'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'Blick auf Lugano mit dem See und den Bergen im Hintergrund',
 };
 
 export default blogMetaDe;
