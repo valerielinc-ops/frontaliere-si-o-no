@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-01T23:20:28.906Z",
+  "assembledAt": "2026-09-02T13:48:02.127Z",
   "jobs": [
     {
       "id": "sfs-group-f207510fa814",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/verkaufsberater-in-im-handwerkercenter-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:25.151Z",
+      "crawledAt": "2026-09-02T13:47:58.698Z",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
       "postalCode": "9435",
@@ -99,7 +99,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:24.982Z",
+      "crawledAt": "2026-09-02T13:47:58.572Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -120,11 +120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+        "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+        "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
+          "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg",
+          "trattamento-tecnico-riscaldamento-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "techniker-in-warmebehandlung-m-f-d-sfs-group-heerbrugg"
@@ -179,7 +181,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/project-manager-building-components-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:24.815Z",
+      "crawledAt": "2026-09-02T13:47:58.443Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -269,7 +271,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:24.646Z",
+      "crawledAt": "2026-09-02T13:47:58.308Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -336,7 +338,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:24.480Z",
+      "crawledAt": "2026-09-02T13:47:58.180Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -388,11 +390,13 @@
         ]
       },
       "previousSlugs": [
-        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+        "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+        "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
+          "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg",
+          "polimeccanica-in-erosione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "polymechaniker-in-erosion-m-f-d-sfs-group-heerbrugg"
@@ -402,6 +406,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -447,7 +452,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/pim-data-governance-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:24.313Z",
+      "crawledAt": "2026-09-02T13:47:58.052Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -542,7 +547,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:24.143Z",
+      "crawledAt": "2026-09-02T13:47:57.924Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -562,11 +567,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "messtechniker-in-m-f-d-sfs-group-hallau"
+        "messtechniker-in-m-f-d-sfs-group-hallau",
+        "tecnico-di-misura-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "messtechniker-in-m-f-d-sfs-group-hallau"
+          "messtechniker-in-m-f-d-sfs-group-hallau",
+          "tecnico-di-misura-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "messtechniker-in-m-f-d-sfs-group-hallau"
@@ -621,7 +628,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:23.974Z",
+      "crawledAt": "2026-09-02T13:47:57.796Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -642,11 +649,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
-        "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
+        "kunststofftechnologe-in-m-w-d-sfs-group-hallau",
+        "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kunststofftechnologe-in-m-f-d-sfs-group-hallau"
+          "kunststofftechnologe-in-m-f-d-sfs-group-hallau",
+          "tecnologo-delle-materie-plastiche-m-f-d-sfs-group-hallau"
         ],
         "en": [
           "kunststofftechnologe-in-m-w-d-sfs-group-hallau"
@@ -656,6 +665,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -675,7 +685,7 @@
       "slug": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "it": "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
-        "en": "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "en": "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg",
         "de": "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "fr": "operateur-operatrice-de-formage-a-froid-m-w-d-sfs-group-heerbrugg"
       },
@@ -685,7 +695,7 @@
       "title": "Kaltmassivumformer/in (m/f/d)",
       "titleByLocale": {
         "it": "Operatore/Operatrice di stampaggio a freddo (m/f/d)",
-        "en": "Cold mass converter/in (m/f/d)",
+        "en": "Kaltmassivumformer/in (m/f/d)",
         "de": "Kaltmassivumformer/in (m/f/d)",
         "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
       },
@@ -701,7 +711,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:23.802Z",
+      "crawledAt": "2026-09-02T13:47:57.668Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -750,15 +760,19 @@
         "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
         "convertisseur-de-masse-froide-en-h-f-d-sfs-group-heerbrugg",
         "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+        "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
+        "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg",
         "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
-          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg"
+          "convertitore-di-massa-freddo-in-m-f-d-sfs-group-heerbrugg",
+          "operatore-operatrice-di-stampaggio-a-freddo-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "kaltmassivumformer-in-m-f-d-sfs-group-heerbrugg",
+          "cold-mass-converter-in-m-f-d-sfs-group-heerbrugg",
           "kaltmassivumformer-in-m-w-d-sfs-group-heerbrugg"
         ],
         "fr": [
@@ -813,7 +827,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:23.634Z",
+      "crawledAt": "2026-09-02T13:47:57.536Z",
       "addressLocality": "Rotkreuz",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -865,12 +879,14 @@
       },
       "previousSlugs": [
         "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-        "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz"
+        "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+        "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-          "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz"
+          "gebietsverkaufsleiter-in-industrie-e-metall-m-w-d-sfs-group-rotkreuz",
+          "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
         ],
         "en": [
           "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz"
@@ -880,6 +896,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:07.092Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -925,7 +942,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d)-2.html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:23.465Z",
+      "crawledAt": "2026-09-02T13:47:57.407Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "postalCode": "9435",
@@ -973,11 +990,13 @@
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
+        "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
+        "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
+          "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau",
+          "responsabile-di-filiale-handwerkstadt-m-f-d-sfs-group-aarau"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-sfs-group-aarau"
@@ -1033,7 +1052,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:23.297Z",
+      "crawledAt": "2026-09-02T13:47:57.278Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1053,11 +1072,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+        "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+        "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
+          "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil",
+          "branch-manager-craft-city-m-f-d-80-sfs-group-hinwil"
         ],
         "en": [
           "filialleiter-in-handwerkstadt-m-f-d-80-sfs-group-hinwil"
@@ -1067,6 +1088,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1112,7 +1134,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:23.123Z",
+      "crawledAt": "2026-09-02T13:47:57.142Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1164,11 +1186,13 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+        "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+        "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
+          "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg",
+          "specialista-contabilita-clienti-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "fachperson-debitorenbuchhaltung-m-f-d-sfs-group-heerbrugg"
@@ -1224,7 +1248,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/data-contentmanager-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:22.954Z",
+      "crawledAt": "2026-09-02T13:47:57.003Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1334,7 +1358,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-conseillère-de-vente-au-service-externe-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:22.786Z",
+      "crawledAt": "2026-09-02T13:47:56.871Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "postalCode": "9435",
@@ -1400,7 +1424,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:22.616Z",
+      "crawledAt": "2026-09-02T13:47:56.740Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1420,11 +1444,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+        "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+        "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
+          "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion",
+          "consulente-commerciale-citta-dell-artigiano-m-f-d-sfs-group-sion"
         ],
         "en": [
           "conseiller-de-vente-cite-de-l-artisan-m-f-d-sfs-group-sion"
@@ -1479,7 +1505,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:22.448Z",
+      "crawledAt": "2026-09-02T13:47:56.611Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1500,11 +1526,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+        "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+        "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg",
+          "modello-di-livello-automatico-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-schichtmodell-m-f-d-sfs-group-heerbrugg"
@@ -1514,6 +1542,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1543,7 +1572,7 @@
       "title": "Automatiker/in Instandhaltung (m/f/d)",
       "titleByLocale": {
         "it": "Tecnico automazione - Manutenzione (m/f/d)",
-        "en": "Automatic engineer/maintenance (m/f/d)",
+        "en": "Automatiker/in Instandhaltung (m/f/d)",
         "de": "Automatiker/in Instandhaltung (m/f/d)",
         "fr": "Automaticien/ne - Maintenance (m/f/d)"
       },
@@ -1559,7 +1588,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:22.279Z",
+      "crawledAt": "2026-09-02T13:47:56.475Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1612,11 +1641,13 @@
       "previousSlugs": [
         "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
         "automatician-under-maintenance-m-f-d-sfs-group-heerbrugg",
-        "automatic-operator-under-maintenance-m-f-d-sfs-group-heerbrugg"
+        "automatic-operator-under-maintenance-m-f-d-sfs-group-heerbrugg",
+        "operatore-automatico-in-manutenzione-m-f-d-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg"
+          "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
+          "operatore-automatico-in-manutenzione-m-f-d-sfs-group-heerbrugg"
         ],
         "en": [
           "automatiker-in-instandhaltung-m-f-d-sfs-group-heerbrugg",
@@ -1628,6 +1659,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.117Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1673,7 +1705,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-rainscreen-vhf-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:22.060Z",
+      "crawledAt": "2026-09-02T13:47:56.303Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1723,11 +1755,13 @@
         ]
       },
       "previousSlugs": [
-        "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg"
+        "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg",
+        "ingegnere-di-applicazione-in-parapioggia-vhf-m-f-d-80-sfs-group-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg"
+          "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg",
+          "ingegnere-di-applicazione-in-parapioggia-vhf-m-f-d-80-sfs-group-heerbrugg"
         ],
         "en": [
           "anwendungstechniker-in-rainscreen-vhf-m-f-d-80-sfs-group-heerbrugg"
@@ -1737,6 +1771,7 @@
         ]
       },
       "firstSeenAt": "2026-07-13T22:33:28.705Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1782,7 +1817,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/anwendungstechniker-in-hauraton-entwässerungssysteme-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:20:21.843Z",
+      "crawledAt": "2026-09-02T13:47:56.131Z",
       "addressLocality": "Buchs ZH",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1827,11 +1862,13 @@
         ]
       },
       "previousSlugs": [
-        "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
+        "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh",
+        "ingegnere-di-applicazione-in-sistemi-di-drenaggio-hauraton-m-f-d-sfs-group-buchs-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
+          "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh",
+          "ingegnere-di-applicazione-in-sistemi-di-drenaggio-hauraton-m-f-d-sfs-group-buchs-zh"
         ],
         "en": [
           "anwendungstechniker-in-hauraton-entwasserungssysteme-m-f-d-sfs-group-buchs-zh"
@@ -1841,6 +1878,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:24:04.593Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1854,122 +1892,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "sfs-group-e7ba8983fe25",
-      "slug": "logista-commissionamento-2-turni-m-w-d-sfs-group-rotkreuz",
-      "slugByLocale": {
-        "it": "logista-commissionamento-2-turni-m-w-d-sfs-group-rotkreuz",
-        "en": "logistics-order-picker-2-shift-m-f-d-sfs-group-rotkreuz",
-        "de": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-        "fr": "logisticien-ne-preparation-de-commandes-2-equipes-m-f-d-sfs-group-rotkreuz"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)",
-      "titleByLocale": {
-        "it": "Logista Commissionamento (2 turni) (m/f/d)",
-        "en": "Logistics Order Picker (2-shift) (m/f/d)",
-        "de": "Logistiker/in Kommissionierung (2-Schicht) (m/f/d)",
-        "fr": "Logisticien/ne Préparation de commandes (2 équipes) (m/f/d)"
-      },
-      "description": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nSFS è un fornitore nazionale di viti, utensili, raccordi, assortimenti per l'edilizia, pezzi speciali e prodotti chimico-tecnici in tutta la Svizzera. Offriamo ai nostri clienti una consulenza professionale sia online che attraverso le filiali commerciali locali. Numerosi collaboratori del servizio sul campo vi supporteranno con consigli competenti e proposte di soluzioni. Ciò include una gamma tempestiva e adeguata al mercato.\n\nI tuoi compiti\n\n- Picking e stoccaggio merci in aree manuali e automatiche\n- Imballare le spedizioni in modo adeguato per la spedizione\n- Realizzazione dell'inventario rotabile\n- Aiuto in caso di colli di bottiglia in altre postazioni logistiche\n- Responsabile della risoluzione delle interruzioni del sistema nelle attività quotidiane e della garanzia di operazioni senza problemi\n\nIl tuo profilo\n\n- Completamento della formazione logistica o artigianale di base (idealmente logista EFZ)\n- Esperienza nel settore della logistica e patente per muletti riconosciuta SUVA\n- Conoscenza base del PC (costituisce titolo preferenziale la conoscenza di SAP)\n- Disponibilità a lavorare secondo un modello di turni flessibili (primo turno: 5:30 – 14:15 / turno tardivo: 13:45 – 22:30)\n- Buona conoscenza della lingua tedesca parlata e scritta\n- Fisicamente robusto e fisicamente resistente\n- Giocatore di squadra con comunicazione aperta, stile di lavoro flessibile e mentalità indipendente\n\nOffriamo\n\n- Occupazione in un'azienda orientata al futuro e innovativa\n- Sei settimane di ferie e possibilità di acquistare vacanze aggiuntive\n- Partecipazione agli utili annuali\n- Fase di inserimento chiaramente strutturata con programma di onboarding interdipartimentale\n- Molti altri vantaggi: https://join.sfs.com/ch/de/benefits/",
-        "en": "Description\n\nSFS is a nationwide provider of screws, tools, fittings, construction ranges, special parts and chemical-technical products throughout Switzerland. We offer our customers professional advice both online and through local sales branches. Numerous employees in the field service will support you with competent recommendations and suggested solutions. This includes a timely and market-appropriate range.\n\nYour tasks\n\n- Picking and storing goods in manual and automatic areas\n- Packing shipments appropriately for shipping\n- Carrying out rolling inventory\n- Help with bottlenecks at other logistical workstations\n- Responsible for resolving system disruptions in day-to-day business and ensuring trouble-free operations\n\nYour profile\n\n- Completed basic logistics or craft training (ideally logistician EFZ)\n- Experience in the logistics sector as well as an SUVA-recognized forklift license\n- Basic PC knowledge (SAP knowledge is an advantage)\n- Willingness to work in a flexible shift model (early shift: 5:30 a.m. – 2:15 p.m. / late shift: 1:45 p.m. – 10:30 p.m.)\n- Good knowledge of spoken and written German\n- Physically robust and physically resilient\n- Team player with open communication, flexible working style and independent mentality\n\nWe offer\n\n- Employment in a future-oriented and innovative company\n- Six weeks of vacation and the option to purchase additional vacations\n- Annual profit sharing\n- Clearly structured induction phase with cross-departmental onboarding program\n- Many other benefits: https://join.sfs.com/ch/de/benefits/",
-        "de": "SFS ist schweizweit ein flächendeckender Anbieter von Schrauben, Werkzeugen, Beschlägen, Bausortimenten, Sonderteilen und chemisch-technischen Produkten. Unseren Kunden bieten wir sowohl online als auch mit lokalen Verkaufsfilialen eine professionelle Beratung. Zahlreiche Mitarbeitende im Aussendienst betreuen Sie mit kompetenten Empfehlungen und Lösungsvorschlägen. Dazu gehört ein zeit- und marktgerechtes Sortiment. Your Tasks:\n• Kommissionieren und Einlagern von Waren im manuellen und automatischen Bereich\n• Versandgerechtes Verpacken von Sendungen\n• Durchführen der rollenden Inventur\n• Mithilfe bei Engpässen an anderen logistischen Arbeitsplätzen\n• Verantwortung für die Behebung von Anlagestörungen im Tagesgeschäft sowie Sicherstellung eines störungsfreien Betriebs Your profile:\n• Abgeschlossene logistische oder handwerkliche Grundausbildung (idealerweise Logistiker/in EFZ)\n• Erfahrung im Logistikbereich sowie ein SUVA-anerkannter Staplerausweis\n• PC-Grundkenntnisse (SAP-Kenntnisse von Vorteil)\n• Einsatzbereitschaft im flexiblen Schichtmodell (Frühschicht: 05.30 – 14.15 Uhr / Spätschicht: 13.45 – 22.30 Uhr)\n• Gute Deutschkenntnisse in Wort und Schrift\n• Körperlich robust und physisch belastbar\n• Teamplayer mit offener Kommunikation, flexibler Arbeitsweise und selbständiger Mentalität We offer:\n• Anstellung in einem zukunftsorientierten und innovativen Unternehmen\n• Sechs Wochen Ferien und die Option auf zusätzlichen Ferienkauf\n• Jährliche Erfolgsbeteiligung\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Viele weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-        "fr": "Descriptif\n\nSFS est un fournisseur national de vis, d'outils, de ferrures, de programmes de construction, de pièces spéciales et de produits chimico-techniques dans toute la Suisse. Nous offrons à nos clients des conseils professionnels en ligne et via nos agences commerciales locales. De nombreux collaborateurs du service extérieur vous soutiennent avec des recommandations compétentes et des propositions de solutions. Cela inclut une gamme opportune et adaptée au marché.\n\nVos tâches\n\n- Préparation et stockage des marchandises dans des zones manuelles et automatiques\n- Emballer les colis de manière appropriée pour l'expédition\n- Réalisation de l'inventaire roulant\n- Aide aux goulots d'étranglement sur d'autres postes de travail logistiques\n- Responsable de résoudre les perturbations du système dans les activités quotidiennes et d'assurer des opérations sans problème\n\nVotre profil\n\n- Formation de base logistique ou artisanale complétée (idéalement logisticien EFZ)\n- Expérience dans le secteur de la logistique ainsi qu'un permis de chariot élévateur reconnu par la SUVA\n- Connaissance de base en PC (la connaissance de SAP est un avantage)\n- Volonté de travailler selon un modèle d'équipes flexibles (équipe matinale : 5h30 – 14h15 / équipe tardive : 13h45 – 22h30)\n- Bonne connaissance de l'allemand parlé et écrit\n- Physiquement robuste et physiquement résilient\n- Esprit d'équipe avec une communication ouverte, un style de travail flexible et une mentalité indépendante\n\nNous offrons\n\n- Emploi dans une entreprise tournée vers l'avenir et innovante\n- Six semaines de vacances et possibilité d'acheter des vacances supplémentaires\n-Participation annuelle aux bénéfices\n- Phase d'intégration clairement structurée avec programme d'intégration interdépartemental\n- De nombreux autres avantages : https://join.sfs.com/ch/de/benefits/"
-      },
-      "location": "Rotkreuz",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/logistiker-in-kommissionierung-(2-schicht)-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T10:24:08.282Z",
-      "addressLocality": "Rotkreuz",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3000/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "3000",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione di base conclusa in ambito logistico o artigianale (idealmente Logista AFC)",
-          "Esperienza nel settore logistico e patente carrellista riconosciuta SUVA",
-          "Conoscenze informatiche di base (SAP costituisce titolo preferenziale)",
-          "Disponibilità al modello di turni flessibile (mattina: 05.30 – 14.15 / sera: 13.45 – 22.30)",
-          "Buone conoscenze del tedesco scritto e parlato",
-          "Fisicamente robusto e resistente",
-          "Teamplayer con comunicazione aperta, flessibilità e mentalità autonoma"
-        ],
-        "en": [
-          "Completed basic training in logistics or a skilled trade (ideally Logistician EFZ)",
-          "Experience in the logistics sector and a SUVA-recognized forklift license",
-          "Basic PC skills (SAP knowledge is an advantage)",
-          "Willingness to work in a flexible shift model (early shift: 05.30 – 14.15 / late shift: 13.45 – 22.30)",
-          "Good written and spoken German",
-          "Physically robust and able to handle physical work",
-          "Team player with open communication, flexible working style and independent mindset"
-        ],
-        "fr": [
-          "Formation de base achevée dans le domaine logistique ou artisanal (idéalement Logisticien/ne CFC)",
-          "Expérience dans le secteur logistique et permis cariste reconnu par la SUVA",
-          "Connaissances informatiques de base (connaissances SAP un atout)",
-          "Disposition au modèle d'équipes flexible (matin : 05h30 – 14h15 / soir : 13h45 – 22h30)",
-          "Bonnes connaissances de l'allemand, à l'oral et à l'écrit",
-          "Robuste physiquement et apte à fournir un travail physique",
-          "Esprit d'équipe avec communication ouverte, flexibilité et mentalité autonome"
-        ]
-      },
-      "previousSlugs": [
-        "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-        "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
-        "logisticista-in-ordine-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz",
-        "logistician-in-order-picking-2-layer-m-f-d-sfs-group-rotkreuz",
-        "logisticien-dans-l-ordre-de-cueillette-2-couches-h-f-d-sfs-group-rotkreuz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-          "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
-          "logisticista-in-ordine-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz"
-        ],
-        "en": [
-          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-          "logistician-in-order-picking-2-layer-m-f-d-sfs-group-rotkreuz"
-        ],
-        "fr": [
-          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-          "logisticien-dans-l-ordre-de-cueillette-2-couches-h-f-d-sfs-group-rotkreuz"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T10:08:11.465Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
