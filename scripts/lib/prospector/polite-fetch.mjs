@@ -60,14 +60,20 @@ async function throttle(host, sleepImpl = sleep, nowImpl = Date.now) {
 function boundedRetryAfterMs(value, fallbackMs, now) {
   const fallback = Number.isFinite(fallbackMs) ? Math.max(0, fallbackMs) : 0;
   const raw = String(value || '').trim();
-  let requested = 0;
+  let requested = null;
   if (/^\d+$/.test(raw)) {
     requested = Number(raw) * 1_000;
   } else if (raw) {
     const parsed = Date.parse(raw);
     if (Number.isFinite(parsed) && parsed > now) requested = parsed - now;
   }
-  return Math.min(RETRY_AFTER_CAP_MS, Math.max(fallback, requested));
+  // An explicit, valid Retry-After always wins over the scaled local
+  // fallback — including when it is SHORTER, since the host is telling us
+  // exactly how long to wait and HOST_DELAY_MS in throttle() still floors
+  // the next request. Only a missing/unparseable/expired header falls back
+  // to the scaled local backoff.
+  const ms = requested !== null ? requested : fallback;
+  return Math.min(RETRY_AFTER_CAP_MS, Math.max(0, ms));
 }
 
 function extendHostCooldown(host, delayMs, now) {
