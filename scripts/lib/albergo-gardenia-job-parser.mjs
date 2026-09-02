@@ -729,6 +729,35 @@ export function assertNoGardeniaCareerSurface(html = '', pageUrl = '') {
   }
 }
 
+// Once `transportState.preferred` goes sticky to the browser (or clean-egress)
+// transport, every remaining content page pays that transport's real cost
+// instead of a plain HTTP fetch. `ALBERGO_GARDENIA_TOTAL_BUDGET_MS` is fixed;
+// if the sitemap inventory grows past today's ~40 content pages while sticky,
+// the run can silently run out of runway and only surface as a deadline
+// error with no warning that it was close. Warn once, early, using the
+// measured per-page cost of the sticky transport itself rather than a
+// guessed constant.
+const GARDENIA_STICKY_MARGIN_WARN_RATIO = 0.8;
+
+function warnIfGardeniaStickyBudgetMarginThin({
+  elapsedMs,
+  pagesFetched,
+  remainingPages,
+  remainingBudgetMs,
+  totalBudgetMs,
+}) {
+  if (remainingPages <= 0 || pagesFetched <= 0) return false;
+  const avgMsPerPage = elapsedMs / pagesFetched;
+  const projectedRemainingMs = avgMsPerPage * remainingPages;
+  if (projectedRemainingMs < remainingBudgetMs * GARDENIA_STICKY_MARGIN_WARN_RATIO) return false;
+  console.warn(
+    `  ⚠️ Gardenia sticky transport budget margin thinning: ~${Math.round(avgMsPerPage)}ms/page`
+    + ` × ${remainingPages} pages left ≈ ${Math.round(projectedRemainingMs)}ms projected,`
+    + ` ${Math.round(remainingBudgetMs)}ms left in the ${totalBudgetMs}ms budget.`,
+  );
+  return true;
+}
+
 function markAuthoritativeEmptySnapshot(jobs, sourcePageCount) {
   Object.defineProperties(jobs, {
     gardeniaSnapshotState: { value: 'authoritative-site-zero', enumerable: false },
@@ -813,7 +842,16 @@ export async function fetchAllAlbergoGardeniaJobs({
     }
     const { allUrls, contentUrls } = parseAlbergoGardeniaSitemap(sitemap.body);
 
-    for (const sourceUrl of contentUrls) {
+    // The sitemap fetch can itself flip `transportState.preferred` to
+    // 'browser' before this loop ever runs, so the sticky window may already
+    // be open on content page 1 — seed the clock from here, not from the
+    // first in-loop transition, or the first sticky page divides by a `null`
+    // start time.
+    let stickyTransportSince = transportState.preferred === 'browser' ? nowImpl() : null;
+    let stickyTransportPageCount = 0;
+    for (const [contentIndex, sourceUrl] of contentUrls.entries()) {
+      const wasStickyBrowser = transportState.preferred === 'browser';
+      const fetchStartedAt = nowImpl();
       const page = await fetchAlbergoGardeniaSourcePage(sourceUrl, {
         kind: 'content',
         fetchPage,
@@ -827,6 +865,21 @@ export async function fetchAllAlbergoGardeniaJobs({
         throw gardeniaIdentityError('content', sourceUrl, page.url, page.status);
       }
       assertNoGardeniaCareerSurface(page.body, page.url);
+
+      if (transportState.preferred === 'browser') {
+        if (!wasStickyBrowser) {
+          stickyTransportSince = fetchStartedAt;
+          stickyTransportPageCount = 0;
+        }
+        stickyTransportPageCount += 1;
+        warnIfGardeniaStickyBudgetMarginThin({
+          elapsedMs: nowImpl() - stickyTransportSince,
+          pagesFetched: stickyTransportPageCount,
+          remainingPages: contentUrls.length - (contentIndex + 1),
+          remainingBudgetMs: deadlineAt - nowImpl(),
+          totalBudgetMs,
+        });
+      }
     }
 
     console.log(`  ✅ ${allUrls.length} sitemap URLs; ${contentUrls.length} content pages; 0 vacancy surfaces.`);
