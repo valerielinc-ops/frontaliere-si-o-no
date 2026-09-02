@@ -5212,6 +5212,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.impresa-appenzello-esterno-registrazione.title': 'Ein Unternehmen in Appenzell Ausserrhoden eintragen lassen',
     'blog.article.impresa-appenzello-esterno-registrazione.excerpt': 'Leitfaden zu den Schritten, Rechtsformen, Registrierungskosten und Versicherungspflichten für die Eröffnung einer Tätigkeit im Kanton AR.',
     'blog.article.impresa-appenzello-esterno-registrazione.imageAlt': 'Schweizer Kantonsverwaltungsgebäude mit Handelsregisteramt',
+    'blog.article.mercato-lavoro-appenzello-esterno.title': 'Löhne und Arbeitsmarkt in Appenzell Ausserrhoden',
+    'blog.article.mercato-lavoro-appenzello-esterno.excerpt': 'Umfassende Analyse: Löhne nach Bildungsniveau, eingestellte Branchen, Tarifverträge, Arbeitnehmerschutz und Mindestlohn in den Schweizer Kantonen.',
+    'blog.article.mercato-lavoro-appenzello-esterno.imageAlt': 'Professionelles Team, das in einem modernen Schweizer Büro mit Panoramablick arbeitet',
 };
 
 export default blogMetaChDe;
