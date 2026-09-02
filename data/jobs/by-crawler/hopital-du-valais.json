@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-09-02T13:34:56.206Z",
+  "assembledAt": "2026-09-02T23:09:59.549Z",
   "jobs": [
     {
       "id": "hopital-du-valais-3720a9ed5719",
@@ -44,7 +44,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1d6abdb547ebf6d0296bd1eb736d43a8/ATSANN0004576/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:52.387Z",
+      "crawledAt": "2026-09-02T23:09:55.193Z",
       "_hvsMeta": {
         "number": "ATSANN0004576",
         "sysId": "1d6abdb547ebf6d0296bd1eb736d43a8",
@@ -53,17 +53,20 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
+        "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+        "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
+          "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp",
+          "infermiere-specializzato-80-100-chirurgia-urologia-5-ovest-hopital-du-valais-visp"
         ],
         "en": [
           "pflegefachperson-80-100-chirurgie-urologie-5-west-hopital-du-valais-visp"
         ]
       },
       "firstSeenAt": "2026-06-16T13:37:50.418Z",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -122,7 +125,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2ff90c91c3e8c710a043be4c05013155/ATSANN0004636/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:52.023Z",
+      "crawledAt": "2026-09-02T23:09:54.776Z",
       "_hvsMeta": {
         "number": "ATSANN0004636",
         "sysId": "2ff90c91c3e8c710a043be4c05013155",
@@ -132,12 +135,14 @@
       },
       "previousSlugs": [
         "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig",
-        "medico-specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig"
+        "medico-specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig",
+        "specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig",
-          "medico-specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig"
+          "medico-specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig",
+          "specialista-ospedaliero-60-100-ambulatorio-pzo-hopital-du-valais-brig"
         ],
         "en": [
           "spitalfacharztin-arzt-60-100-ambulatorium-pzo-hopital-du-valais-brig"
@@ -205,7 +210,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ce59d3c4477847d0ff8065f8736d4301/ATSANN0004662/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:51.658Z",
+      "crawledAt": "2026-09-02T23:09:54.366Z",
       "_hvsMeta": {
         "number": "ATSANN0004662",
         "sysId": "ce59d3c4477847d0ff8065f8736d4301",
@@ -214,11 +219,13 @@
         "site": "MONTHEY"
       },
       "previousSlugs": [
-        "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de"
+        "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de",
+        "40-laurea-ergoterapist-per-la-psichiatria-adulta-presso-l-ospedale-malevoz-hopital-du-valais-monthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de"
+          "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de",
+          "40-laurea-ergoterapist-per-la-psichiatria-adulta-presso-l-ospedale-malevoz-hopital-du-valais-monthey"
         ],
         "en": [
           "ergotherapeute-diplome-e-a-40-pour-son-service-de-psychiatrie-adulte-a-l-hopital-de"
@@ -259,7 +266,7 @@
       "title": "Ergotherapeut/in 80-100%",
       "titleByLocale": {
         "it": "Terapista/in 80-100 %",
-        "en": "Occupational therapist/in 80-100 %",
+        "en": "Ergotherapeut/in 80-100%",
         "de": "Ergotherapeut/in 80-100%",
         "fr": "Ergothérapie/en 80-100 %"
       },
@@ -286,7 +293,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:51.290Z",
+      "crawledAt": "2026-09-02T23:09:53.950Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -295,11 +302,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "ergotherapeut-in-80-100-hopital-du-valais-brig"
+        "ergotherapeut-in-80-100-hopital-du-valais-brig",
+        "terapista-in-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ergotherapeut-in-80-100-hopital-du-valais-brig"
+          "ergotherapeut-in-80-100-hopital-du-valais-brig",
+          "terapista-in-80-100-hopital-du-valais-brig"
         ]
       },
       "needsRetranslation": true,
@@ -362,7 +371,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:50.917Z",
+      "crawledAt": "2026-09-02T23:09:53.552Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -443,7 +452,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:50.549Z",
+      "crawledAt": "2026-09-02T23:09:53.165Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -452,11 +461,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "schnupperangebote-efz-hopital-du-valais-brig"
+        "schnupperangebote-efz-hopital-du-valais-brig",
+        "schnupperangebote-cfc-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schnupperangebote-efz-hopital-du-valais-brig"
+          "schnupperangebote-efz-hopital-du-valais-brig",
+          "schnupperangebote-cfc-hopital-du-valais-brig"
         ],
         "en": [
           "schnupperangebote-efz-hopital-du-valais-brig"
@@ -525,7 +536,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/572ee60b97b1b25012f9322f2153af9f/ATSANN0004455/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:50.183Z",
+      "crawledAt": "2026-09-02T23:09:52.777Z",
       "_hvsMeta": {
         "number": "ATSANN0004455",
         "sysId": "572ee60b97b1b25012f9322f2153af9f",
@@ -538,11 +549,13 @@
         "medecin-chef-de-clinique-en-geriatrie-80-100-hopital-du-valais-brig",
         "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
         "medico-dirigente-in-geriatria-80-100-hopital-du-valais-brig",
-        "senior-physician-in-geriatrics-80-100-hopital-du-valais-brig"
+        "senior-physician-in-geriatrics-80-100-hopital-du-valais-brig",
+        "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig"
+          "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig",
+          "medico-specialista-in-psichiatria-infantile-e-adolescenziale-hopital-du-valais-brig"
         ],
         "de": [
           "oberarztin-arzt-80-100-kinder-und-jugendpsychiatrie-psychotherapie-hopital-du-valais-brig"
@@ -608,7 +621,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f00735f8740f654dbd6ebd30cbb3595/ATSANN0004328/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:49.823Z",
+      "crawledAt": "2026-09-02T23:09:52.386Z",
       "_hvsMeta": {
         "number": "ATSANN0004328",
         "sysId": "4f00735f8740f654dbd6ebd30cbb3595",
@@ -618,12 +631,14 @@
       },
       "previousSlugs": [
         "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
-        "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig"
+        "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig",
+        "medico-senior-80-100-radiologia-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig",
-          "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig"
+          "senior-doctor-doctor-80-100-radiologia-hopital-du-valais-brig",
+          "medico-senior-80-100-radiologia-hopital-du-valais-brig"
         ],
         "en": [
           "leitende-r-arztin-arzt-80-100-radiologie-hopital-du-valais-brig"
@@ -664,7 +679,7 @@
       "title": "Ausbildungsplatz zum/r Dipl. Experte/in Notfallpflege NDS HF",
       "titleByLocale": {
         "it": "Stazione di allenamento per/r Dipl. Assistenza di emergenza NDS HF",
-        "en": "Training station for/r Dipl. Emergency Care NDS HF",
+        "en": "Ausbildungsplatz zum/r Dipl. Experte/in Notfallpflege NDS HF",
         "de": "Ausbildungsplatz zum/r Dipl. Experte/in Notfallpflege NDS HF",
         "fr": "Station de formation pour/r Dipl. Soins d'urgence NDS HF"
       },
@@ -691,7 +706,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/ATSANN0004805/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:49.449Z",
+      "crawledAt": "2026-09-02T23:09:51.996Z",
       "_hvsMeta": {
         "number": "ATSANN0004805",
         "sysId": "8f38b372974e0390316bb0b71153afa1",
@@ -700,11 +715,13 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "ausbildungsplatz-zum-r-dipl-experte-in-notfallpflege-nds-hf-hopital-du-valais-visp"
+        "ausbildungsplatz-zum-r-dipl-experte-in-notfallpflege-nds-hf-hopital-du-valais-visp",
+        "stazione-di-allenamento-per-r-dipl-assistenza-di-emergenza-nds-hf-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildungsplatz-zum-r-dipl-experte-in-notfallpflege-nds-hf-hopital-du-valais-visp"
+          "ausbildungsplatz-zum-r-dipl-experte-in-notfallpflege-nds-hf-hopital-du-valais-visp",
+          "stazione-di-allenamento-per-r-dipl-assistenza-di-emergenza-nds-hf-hopital-du-valais-visp"
         ],
         "en": [
           "ausbildungsplatz-zum-r-dipl-experte-in-notfallpflege-nds-hf-hopital-du-valais-visp"
@@ -714,6 +731,7 @@
         ]
       },
       "firstSeenAt": "2026-07-17T11:23:59.226Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -772,7 +790,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/247187ae970e0390e7ce346e2153af3a/ATSANN0004801/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:49.081Z",
+      "crawledAt": "2026-09-02T23:09:51.594Z",
       "_hvsMeta": {
         "number": "ATSANN0004801",
         "sysId": "247187ae970e0390e7ce346e2153af3a",
@@ -781,11 +799,13 @@
         "site": "SIERRE"
       },
       "previousSlugs": [
-        "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+        "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
+        "capo-medico-della-clinica-forense-40-hopital-du-valais-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
+          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
+          "capo-medico-della-clinica-forense-40-hopital-du-valais-sierre"
         ],
         "en": [
           "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre"
@@ -826,7 +846,7 @@
       "title": "Expertin/en Anästhesiepﬂege 60-100%",
       "titleByLocale": {
         "it": "Cura dell'anestesia esperto 60-100 %",
-        "en": "Expert anesthesia care 60-100 %",
+        "en": "Expertin/en Anästhesiepﬂege 60-100%",
         "de": "Expertin/en Anästhesiepﬂege 60-100%",
         "fr": "Soins anesthésiques spécialisés 60-100 %"
       },
@@ -853,7 +873,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/ae4d887e970e8f50316bb0b71153afd0/ATSANN0004803/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:48.715Z",
+      "crawledAt": "2026-09-02T23:09:51.205Z",
       "_hvsMeta": {
         "number": "ATSANN0004803",
         "sysId": "ae4d887e970e8f50316bb0b71153afd0",
@@ -862,11 +882,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "expertin-en-anasthesiep-ege-60-100-hopital-du-valais-brig"
+        "expertin-en-anasthesiep-ege-60-100-hopital-du-valais-brig",
+        "cura-dell-anestesia-esperto-60-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expertin-en-anasthesiep-ege-60-100-hopital-du-valais-brig"
+          "expertin-en-anasthesiep-ege-60-100-hopital-du-valais-brig",
+          "cura-dell-anestesia-esperto-60-100-hopital-du-valais-brig"
         ],
         "en": [
           "expertin-en-anasthesiep-ege-60-100-hopital-du-valais-brig"
@@ -876,6 +898,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:05:36.387Z",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -934,7 +957,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/98405489979287d0e7ce346e2153af09/ATSANN0004814/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:48.351Z",
+      "crawledAt": "2026-09-02T23:09:50.811Z",
       "_hvsMeta": {
         "number": "ATSANN0004814",
         "sysId": "98405489979287d0e7ce346e2153af09",
@@ -944,12 +967,14 @@
       },
       "previousSlugsByLocale": {
         "fr": [
-          "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-specialiste-en-genetique-mission-a-duree"
+          "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-specialiste-en-genetique-mission-a-duree",
+          "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-pour-une-mission-determinee-de-6-mois"
         ],
         "it": [
           "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-pour-une-mission-determinee-de-6-mois",
           "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-pour-une-mission-determinee-de-6-mois-hopital-du-valais-sion",
-          "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-specialiste-en-genetique-mission-a-duree"
+          "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-specialiste-en-genetique-mission-a-duree",
+          "assistente-medico-o-capo-della-clinica-20-70-per-una-missione-specifica-di-6-mesi-hopital-du-valais-sion"
         ],
         "en": [
           "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-pour-une-mission-determinee-de-6-mois"
@@ -961,7 +986,8 @@
       "previousSlugs": [
         "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-pour-une-mission-determinee-de-6-mois",
         "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-pour-une-mission-determinee-de-6-mois-hopital-du-valais-sion",
-        "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-specialiste-en-genetique-mission-a-duree"
+        "medecin-adjoint-e-ou-chef-fe-de-clinique-20-70-specialiste-en-genetique-mission-a-duree",
+        "assistente-medico-o-capo-della-clinica-20-70-per-una-missione-specifica-di-6-mesi-hopital-du-valais-sion"
       ],
       "firstSeenAt": "2026-07-24T11:14:14.975Z",
       "salaryMin": 81600,
@@ -1022,7 +1048,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/ATSANN0004725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:47.987Z",
+      "crawledAt": "2026-09-02T23:09:50.401Z",
       "_hvsMeta": {
         "number": "ATSANN0004725",
         "sysId": "3bc394fb87158f54dbd6ebd30cbb35f1",
@@ -1031,11 +1057,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
+        "fachmann-frau-gesundheit-efz-hopital-du-valais-brig",
+        "fachmann-frau-gesundheit-cfc-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
+          "fachmann-frau-gesundheit-efz-hopital-du-valais-brig",
+          "fachmann-frau-gesundheit-cfc-hopital-du-valais-brig"
         ],
         "en": [
           "fachmann-frau-gesundheit-efz-hopital-du-valais-brig"
@@ -1104,7 +1132,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:47.622Z",
+      "crawledAt": "2026-09-02T23:09:49.991Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -1113,11 +1141,13 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
+        "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
+        "medico-di-emergenza-o-vice-capo-medico-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
+          "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp",
+          "medico-di-emergenza-o-vice-capo-medico-hopital-du-valais-visp"
         ],
         "fr": [
           "oberarztin-arzt-oder-stv-oberarztin-arzt-notfall-hopital-du-valais-visp"
@@ -1183,7 +1213,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4325d43b87558f54dbd6ebd30cbb3531/ATSANN0004726/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:47.260Z",
+      "crawledAt": "2026-09-02T23:09:49.579Z",
       "_hvsMeta": {
         "number": "ATSANN0004726",
         "sysId": "4325d43b87558f54dbd6ebd30cbb3531",
@@ -1192,11 +1222,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "kaufmann-frau-efz-hopital-du-valais-brig"
+        "kaufmann-frau-efz-hopital-du-valais-brig",
+        "kaufmann-frau-cfc-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kaufmann-frau-efz-hopital-du-valais-brig"
+          "kaufmann-frau-efz-hopital-du-valais-brig",
+          "kaufmann-frau-cfc-hopital-du-valais-brig"
         ]
       },
       "needsRetranslation": true,
@@ -1259,7 +1291,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/efd69cf787958f54dbd6ebd30cbb3575/ATSANN0004729/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:46.896Z",
+      "crawledAt": "2026-09-02T23:09:49.193Z",
       "_hvsMeta": {
         "number": "ATSANN0004729",
         "sysId": "efd69cf787958f54dbd6ebd30cbb3575",
@@ -1268,11 +1300,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "logistiker-in-efz-hopital-du-valais-brig"
+        "logistiker-in-efz-hopital-du-valais-brig",
+        "impiegato-a-in-logistica-cfc-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-efz-hopital-du-valais-brig"
+          "logistiker-in-efz-hopital-du-valais-brig",
+          "impiegato-a-in-logistica-cfc-hopital-du-valais-brig"
         ],
         "en": [
           "logistiker-in-efz-hopital-du-valais-brig"
@@ -1282,6 +1316,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:43:37.188Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "currency": "CHF",
@@ -1340,7 +1375,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:46.529Z",
+      "crawledAt": "2026-09-02T23:09:48.810Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -1349,11 +1384,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "fachmann-frau-hauswirtschaft-hotellerie-efz-hopital-du-valais-brig"
+        "fachmann-frau-hauswirtschaft-hotellerie-efz-hopital-du-valais-brig",
+        "fachmann-frau-hauswirtschaft-hotellerie-cfc-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-hauswirtschaft-hotellerie-efz-hopital-du-valais-brig"
+          "fachmann-frau-hauswirtschaft-hotellerie-efz-hopital-du-valais-brig",
+          "fachmann-frau-hauswirtschaft-hotellerie-cfc-hopital-du-valais-brig"
         ],
         "en": [
           "fachmann-frau-hauswirtschaft-hotellerie-efz-hopital-du-valais-brig"
@@ -1422,7 +1459,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9e9af38b831acf9417a39d20ceaad3ed/ATSANN0004829/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:46.164Z",
+      "crawledAt": "2026-09-02T23:09:48.405Z",
       "_hvsMeta": {
         "number": "ATSANN0004829",
         "sysId": "9e9af38b831acf9417a39d20ceaad3ed",
@@ -1432,12 +1469,14 @@
       },
       "previousSlugs": [
         "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital",
-        "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital-du-valais-sion",
+        "assistente-medico-specialista-in-pneumologia-con-afc-in-medicina-del-sonno-al-60-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital",
-          "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital-du-valais-sion",
+          "assistente-medico-specialista-in-pneumologia-con-afc-in-medicina-del-sonno-al-60-hopital-du-valais-sion"
         ],
         "en": [
           "medecin-adjoint-e-specialiste-en-pneumologie-avec-afc-en-medecine-du-sommeil-a-60-hopital"
@@ -1505,7 +1544,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2c57903f87958f54dbd6ebd30cbb35d3/ATSANN0004730/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:45.800Z",
+      "crawledAt": "2026-09-02T23:09:48.018Z",
       "_hvsMeta": {
         "number": "ATSANN0004730",
         "sysId": "2c57903f87958f54dbd6ebd30cbb35d3",
@@ -1514,11 +1553,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "fachmann-frau-betriebsunterhalt-efz-hopital-du-valais-brig"
+        "fachmann-frau-betriebsunterhalt-efz-hopital-du-valais-brig",
+        "fachmann-frau-betriebsunterhalt-cfc-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-betriebsunterhalt-efz-hopital-du-valais-brig"
+          "fachmann-frau-betriebsunterhalt-efz-hopital-du-valais-brig",
+          "fachmann-frau-betriebsunterhalt-cfc-hopital-du-valais-brig"
         ],
         "en": [
           "fachmann-frau-betriebsunterhalt-efz-hopital-du-valais-brig"
@@ -1587,7 +1628,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:45.435Z",
+      "crawledAt": "2026-09-02T23:09:47.633Z",
       "_hvsMeta": {
         "number": "ATSANN0004728",
         "sysId": "3706103387958f54dbd6ebd30cbb35f5",
@@ -1655,7 +1696,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7452983f87d18f54dbd6ebd30cbb3521/ATSANN0004724/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:45.070Z",
+      "crawledAt": "2026-09-02T23:09:47.224Z",
       "_hvsMeta": {
         "number": "ATSANN0004724",
         "sysId": "7452983f87d18f54dbd6ebd30cbb3521",
@@ -1695,7 +1736,7 @@
       "companyDomain": "hopitalvs.ch",
       "title": "Fachpsychologe/in Ambulatorium 80-100%",
       "titleByLocale": {
-        "it": "Specialista psicologo ad Ambulatorium 80-100 %",
+        "it": "Fachpsychologe/in Ambulatorium 80-100%",
         "en": "Psychologist/in Ambulatorium 80-100 %",
         "de": "Fachpsychologe/in Ambulatorium 80-100%",
         "fr": "Psychologue/en ambulatoire 80-100 %"
@@ -1723,7 +1764,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2aca6b0197011a90316bb0b71153af7e/ATSANN0003760/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:44.700Z",
+      "crawledAt": "2026-09-02T23:09:46.831Z",
       "_hvsMeta": {
         "number": "ATSANN0003760",
         "sysId": "2aca6b0197011a90316bb0b71153af7e",
@@ -1732,11 +1773,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig"
+        "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
+        "specialista-psicologo-ad-ambulatorium-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig"
+          "fachpsychologe-in-ambulatorium-80-100-hopital-du-valais-brig",
+          "specialista-psicologo-ad-ambulatorium-80-100-hopital-du-valais-brig"
         ]
       },
       "needsRetranslation": true,
@@ -1799,7 +1842,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bf66751547fc72d0339c9146736d437c/ATSANN0004384/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:44.326Z",
+      "crawledAt": "2026-09-02T23:09:46.413Z",
       "_hvsMeta": {
         "number": "ATSANN0004384",
         "sysId": "bf66751547fc72d0339c9146736d437c",
@@ -1808,14 +1851,17 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+        "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+        "medico-specialista-in-psichiatria-e-psicoterapia-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig"
+          "oberarztin-arzt-80-100-stationare-psychiatrie-hopital-du-valais-brig",
+          "medico-specialista-in-psichiatria-e-psicoterapia-80-100-hopital-du-valais-brig"
         ]
       },
       "firstSeenAt": "2026-06-02T13:22:30.837Z",
+      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "currency": "CHF",
@@ -1874,7 +1920,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/128c290d83e2cf5817a39d20ceaad362/ATSANN0004834/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:43.963Z",
+      "crawledAt": "2026-09-02T23:09:46.004Z",
       "_hvsMeta": {
         "number": "ATSANN0004834",
         "sysId": "128c290d83e2cf5817a39d20ceaad362",
@@ -1885,12 +1931,14 @@
       "previousSlugsByLocale": {
         "de": [
           "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-hopital-du-valais-visp",
-          "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-30-hopital-du-valais-visp"
+          "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-30-hopital-du-valais-visp",
+          "sachbearbeiter-in-patientenaufnahme-nachteinsatze-notfallstation-20-hopital-du-valais-visp"
         ],
         "it": [
           "sachbearbeiter-in-patientenaufnahme-nachteinsatze-notfallstation-20-hopital-du-valais-visp",
           "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-hopital-du-valais-visp",
-          "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-30-hopital-du-valais-visp"
+          "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-30-hopital-du-valais-visp",
+          "personale-in-ammissione-paziente-assegnazioni-notturne-regime-di-emergenza-20-hopital-du-valais-visp"
         ],
         "en": [
           "sachbearbeiter-in-patientenaufnahme-nachteinsatze-notfallstation-20-hopital-du-valais-visp"
@@ -1902,7 +1950,8 @@
       "previousSlugs": [
         "sachbearbeiter-in-patientenaufnahme-nachteinsatze-notfallstation-20-hopital-du-valais-visp",
         "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-hopital-du-valais-visp",
-        "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-30-hopital-du-valais-visp"
+        "sachbearbeiter-in-patientenaufnahme-abendeinsatze-20-30-hopital-du-valais-visp",
+        "personale-in-ammissione-paziente-assegnazioni-notturne-regime-di-emergenza-20-hopital-du-valais-visp"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:32:34.134Z",
@@ -1964,7 +2013,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e85a408297a5fe14e7ce346e2153af9f/ATSANN0004432/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:43.597Z",
+      "crawledAt": "2026-09-02T23:09:45.601Z",
       "_hvsMeta": {
         "number": "ATSANN0004432",
         "sysId": "e85a408297a5fe14e7ce346e2153af9f",
@@ -1973,11 +2022,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+        "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
+        "medico-dirigente-in-geriatria-80-100-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig"
+          "oberarztin-arzt-80-100-geriatrie-hopital-du-valais-brig",
+          "medico-dirigente-in-geriatria-80-100-hopital-du-valais-brig"
         ]
       },
       "firstSeenAt": "2026-08-05T22:21:03.552Z",
@@ -2039,7 +2090,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/910f337787eec314dbd6ebd30cbb3588/ATSANN0004845/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:42.238Z",
+      "crawledAt": "2026-09-02T23:09:44.027Z",
       "_hvsMeta": {
         "number": "ATSANN0004845",
         "sysId": "910f337787eec314dbd6ebd30cbb3588",
@@ -2048,11 +2099,13 @@
         "site": "BRIG"
       },
       "previousSlugs": [
-        "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
+        "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
+        "persona-responsabile-60-80-hopital-du-valais-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
+          "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig",
+          "persona-responsabile-60-80-hopital-du-valais-brig"
         ],
         "en": [
           "sachbearbeiter-in-debitorenbuchhaltung-60-80-hopital-du-valais-brig"
@@ -2120,7 +2173,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/24f73c4547fac710339c9146736d43f6/ATSANN0004849/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:41.868Z",
+      "crawledAt": "2026-09-02T23:09:43.617Z",
       "_hvsMeta": {
         "number": "ATSANN0004849",
         "sysId": "24f73c4547fac710339c9146736d43f6",
@@ -2129,11 +2182,13 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+        "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
+        "capo-di-segretariati-di-consultazione-per-segretariati-medici-di-oncologia-e-centro-del-seno-90-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
+          "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l",
+          "capo-di-segretariati-di-consultazione-per-segretariati-medici-di-oncologia-e-centro-del-seno-90-hopital-du-valais-sion"
         ],
         "en": [
           "responsable-des-secretariats-de-consultations-pour-les-secretariats-medicaux-de-l"
@@ -2201,7 +2256,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/a357440a973ec350316bb0b71153af58/ATSANN0004851/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:41.504Z",
+      "crawledAt": "2026-09-02T23:09:43.229Z",
       "_hvsMeta": {
         "number": "ATSANN0004851",
         "sysId": "a357440a973ec350316bb0b71153af58",
@@ -2283,7 +2338,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e402e44a473a8390339c9146736d437d/ATSANN0004853/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:41.139Z",
+      "crawledAt": "2026-09-02T23:09:42.838Z",
       "_hvsMeta": {
         "number": "ATSANN0004853",
         "sysId": "e402e44a473a8390339c9146736d437d",
@@ -2292,11 +2347,13 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "medecin-adjoint-e-specialiste-en-pneumologie-a-100-hopital-du-valais-sion"
+        "medecin-adjoint-e-specialiste-en-pneumologie-a-100-hopital-du-valais-sion",
+        "100-pneumonology-assistant-physician-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-e-specialiste-en-pneumologie-a-100-hopital-du-valais-sion"
+          "medecin-adjoint-e-specialiste-en-pneumologie-a-100-hopital-du-valais-sion",
+          "100-pneumonology-assistant-physician-hopital-du-valais-sion"
         ],
         "en": [
           "medecin-adjoint-e-specialiste-en-pneumologie-a-100-hopital-du-valais-sion"
@@ -2306,6 +2363,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:40:26.501Z",
+      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2327,7 +2385,7 @@
       "slug": "assistente-medico-del-dipartimento-pediatrico-all-80-hopital-du-valais-sion",
       "slugByLocale": {
         "it": "assistente-medico-del-dipartimento-pediatrico-all-80-hopital-du-valais-sion",
-        "en": "assistant-physician-of-the-pediatric-department-at-80-hopital-du-valais-sion",
+        "en": "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion",
         "de": "assistenzarzt-der-padiatrischen-abteilung-bei-80-hopital-du-valais-sion",
         "fr": "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion"
       },
@@ -2364,7 +2422,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5759884a973e0750e7ce346e2153af43/ATSANN0004852/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:40.773Z",
+      "crawledAt": "2026-09-02T23:09:42.431Z",
       "_hvsMeta": {
         "number": "ATSANN0004852",
         "sysId": "5759884a973e0750e7ce346e2153af43",
@@ -2373,13 +2431,17 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion"
+        "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion",
+        "assistant-physician-of-the-pediatric-department-at-80-hopital-du-valais-sion",
+        "assistente-medico-del-dipartimento-pediatrico-all-80-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion"
+          "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion",
+          "assistente-medico-del-dipartimento-pediatrico-all-80-hopital-du-valais-sion"
         ],
         "en": [
+          "assistant-physician-of-the-pediatric-department-at-80-hopital-du-valais-sion",
           "medecin-adjoint-e-du-service-de-pediatrie-a-80-hopital-du-valais-sion"
         ],
         "de": [
@@ -2446,7 +2508,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/55d04402977a0750e7ce346e2153af4d/ATSANN0004850/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:40.400Z",
+      "crawledAt": "2026-09-02T23:09:42.041Z",
       "_hvsMeta": {
         "number": "ATSANN0004850",
         "sysId": "55d04402977a0750e7ce346e2153af4d",
@@ -2455,11 +2517,13 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "infirmier-ere-a-90-100-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit"
+        "infirmier-ere-a-90-100-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit",
+        "90-100-infermiere-per-il-servizio-j1-unita-cardiovascolare-unita-ictus-neurologia-medicina-nefrologia-hopital-du-valais"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-a-90-100-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit"
+          "infirmier-ere-a-90-100-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit",
+          "90-100-infermiere-per-il-servizio-j1-unita-cardiovascolare-unita-ictus-neurologia-medicina-nefrologia-hopital-du-valais"
         ],
         "en": [
           "infirmier-ere-a-90-100-pour-le-service-du-j1-unite-cerebrovasculaire-stroke-unit"
@@ -2527,7 +2591,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f3c918d297b64b50e7ce346e2153af33/ATSANN0004854/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:40.027Z",
+      "crawledAt": "2026-09-02T23:09:41.645Z",
       "_hvsMeta": {
         "number": "ATSANN0004854",
         "sysId": "f3c918d297b64b50e7ce346e2153af33",
@@ -2536,11 +2600,13 @@
         "site": "SION"
       },
       "previousSlugs": [
-        "coordinateur-trice-intendance-a-80-100-pour-le-site-de-sion-pour-son-departement-hotelier"
+        "coordinateur-trice-intendance-a-80-100-pour-le-site-de-sion-pour-son-departement-hotelier",
+        "80-100-coordinatore-di-stewardship-per-il-dipartimento-alberghiero-di-sion-hopital-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-trice-intendance-a-80-100-pour-le-site-de-sion-pour-son-departement-hotelier"
+          "coordinateur-trice-intendance-a-80-100-pour-le-site-de-sion-pour-son-departement-hotelier",
+          "80-100-coordinatore-di-stewardship-per-il-dipartimento-alberghiero-di-sion-hopital-du-valais-sion"
         ],
         "en": [
           "coordinateur-trice-intendance-a-80-100-pour-le-site-de-sion-pour-son-departement-hotelier"
@@ -2608,7 +2674,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/ATSANN0004855/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:39.659Z",
+      "crawledAt": "2026-09-02T23:09:41.242Z",
       "_hvsMeta": {
         "number": "ATSANN0004855",
         "sysId": "7659a0d287f20f50dbd6ebd30cbb35ab",
@@ -2617,11 +2683,13 @@
         "site": "VISP"
       },
       "previousSlugs": [
-        "pflegefachperson-60-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+        "pflegefachperson-60-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du",
+        "professionista-60-100-reparto-privato-interdisciplinare-stazione-letto-magra-hopital-du-valais-visp"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachperson-60-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
+          "pflegefachperson-60-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du",
+          "professionista-60-100-reparto-privato-interdisciplinare-stazione-letto-magra-hopital-du-valais-visp"
         ],
         "en": [
           "pflegefachperson-60-100-interdisziplinare-privatabteilung-lean-bettenstation-hopital-du"
@@ -2689,7 +2757,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/2d4cdcef83b2871017a39d20ceaad366/ATSANN0004858/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:39.297Z",
+      "crawledAt": "2026-09-02T23:09:40.848Z",
       "_hvsMeta": {
         "number": "ATSANN0004858",
         "sysId": "2d4cdcef83b2871017a39d20ceaad366",
@@ -2757,7 +2825,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f3023b0b97b64710316bb0b71153affc/ATSANN0004857/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:37.963Z",
+      "crawledAt": "2026-09-02T23:09:39.302Z",
       "_hvsMeta": {
         "number": "ATSANN0004857",
         "sysId": "f3023b0b97b64710316bb0b71153affc",
@@ -2773,7 +2841,8 @@
         "chief-medical-officer-of-forensic-clinic-40-hopital-du-valais-sierre",
         "chief-medical-officer-der-forensischen-klinik-40-hopital-du-valais-sierre",
         "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
-        "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-60-100-hopital-du-valais-sion-dfokod"
+        "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-60-100-hopital-du-valais-sion-dfokod",
+        "capo-medico-60-100-hopital-du-valais-sion-bbc687"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2784,7 +2853,8 @@
           "chief-medical-officer-of-forensic-clinic-40-hopital-du-valais-sierre",
           "chief-medical-officer-der-forensischen-klinik-40-hopital-du-valais-sierre",
           "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-40-hopital-du-valais-sierre",
-          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-60-100-hopital-du-valais-sion-dfokod"
+          "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-60-100-hopital-du-valais-sion-dfokod",
+          "capo-medico-60-100-hopital-du-valais-sion-bbc687"
         ],
         "en": [
           "medecin-chef-fe-de-clinique-specialiste-en-medecine-legale-60-100-hopital-du-valais-sion",
@@ -2795,6 +2865,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:04:00.221Z",
+      "needsRetranslation": true,
       "salaryMin": 116500,
       "salaryMax": 162500,
       "currency": "CHF",
@@ -2853,7 +2924,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3d1ca5f397360310316bb0b71153afd8/ATSANN0004861/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:37.599Z",
+      "crawledAt": "2026-09-02T23:09:38.903Z",
       "_hvsMeta": {
         "number": "ATSANN0004861",
         "sysId": "3d1ca5f397360310316bb0b71153afd8",
@@ -2921,7 +2992,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3debcaa383b20b1017a39d20ceaad339/ATSANN0004859/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:37.227Z",
+      "crawledAt": "2026-09-02T23:09:38.511Z",
       "_hvsMeta": {
         "number": "ATSANN0004859",
         "sysId": "3debcaa383b20b1017a39d20ceaad339",
@@ -2989,7 +3060,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b3caad3797f20310316bb0b71153aff4/ATSANN0004860/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:36.858Z",
+      "crawledAt": "2026-09-02T23:09:38.122Z",
       "_hvsMeta": {
         "number": "ATSANN0004860",
         "sysId": "b3caad3797f20310316bb0b71153aff4",
@@ -3057,7 +3128,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/538f281087874b10dbd6ebd30cbb3551/ATSANN0004867/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:36.492Z",
+      "crawledAt": "2026-09-02T23:09:37.718Z",
       "_hvsMeta": {
         "number": "ATSANN0004867",
         "sysId": "538f281087874b10dbd6ebd30cbb3551",
@@ -3145,7 +3216,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4fc7645447cb4710339c9146736d43ba/ATSANN0004864/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:36.123Z",
+      "crawledAt": "2026-09-02T23:09:37.329Z",
       "_hvsMeta": {
         "number": "ATSANN0004864",
         "sysId": "4fc7645447cb4710339c9146736d43ba",
@@ -3221,7 +3292,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b92e6450474f4710339c9146736d438b/ATSANN0004865/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:35.756Z",
+      "crawledAt": "2026-09-02T23:09:36.941Z",
       "_hvsMeta": {
         "number": "ATSANN0004865",
         "sysId": "b92e6450474f4710339c9146736d438b",
@@ -3309,7 +3380,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/645f27c0970b4b10316bb0b71153afd9/ATSANN0004863/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:35.386Z",
+      "crawledAt": "2026-09-02T23:09:36.555Z",
       "_hvsMeta": {
         "number": "ATSANN0004863",
         "sysId": "645f27c0970b4b10316bb0b71153afd9",
@@ -3385,7 +3456,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:35.017Z",
+      "crawledAt": "2026-09-02T23:09:36.143Z",
       "_hvsMeta": {
         "number": "ATSANN0004869",
         "sysId": "fb1bef51470f8310296bd1eb736d4347",
@@ -3453,7 +3524,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5c8db355970b47101b87322f2153af6f/ATSANN0004870/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:34.650Z",
+      "crawledAt": "2026-09-02T23:09:35.736Z",
       "_hvsMeta": {
         "number": "ATSANN0004870",
         "sysId": "5c8db355970b47101b87322f2153af6f",
@@ -3521,7 +3592,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f16df1bd470bc710296bd1eb736d4314/ATSANN0004873/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:34.273Z",
+      "crawledAt": "2026-09-02T23:09:35.333Z",
       "_hvsMeta": {
         "number": "ATSANN0004873",
         "sysId": "f16df1bd470bc710296bd1eb736d4314",
@@ -3589,7 +3660,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c14a167d974f8b101b87322f2153af11/ATSANN0004878/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:33.902Z",
+      "crawledAt": "2026-09-02T23:09:34.938Z",
       "_hvsMeta": {
         "number": "ATSANN0004878",
         "sysId": "c14a167d974f8b101b87322f2153af11",
@@ -3657,7 +3728,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0163fdb997038b101b87322f2153af0a/ATSANN0004872/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:33.528Z",
+      "crawledAt": "2026-09-02T23:09:34.547Z",
       "_hvsMeta": {
         "number": "ATSANN0004872",
         "sysId": "0163fdb997038b101b87322f2153af0a",
@@ -3725,7 +3796,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1e310e3997478b101b87322f2153af9b/ATSANN0004876/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:33.161Z",
+      "crawledAt": "2026-09-02T23:09:34.156Z",
       "_hvsMeta": {
         "number": "ATSANN0004876",
         "sysId": "1e310e3997478b101b87322f2153af9b",

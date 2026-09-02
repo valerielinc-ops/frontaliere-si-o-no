@@ -1,20 +1,21 @@
 {
   "key": "croix-rouge-fribourgeoise",
   "label": "Croix-Rouge fribourgeoise",
-  "generatedAt": "2026-09-02T13:34:29.590Z",
+  "generatedAt": "2026-09-02T23:09:29.968Z",
   "total": 4,
   "discovered": null,
   "written": 4,
-  "newCount": 2,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7710,
-  "avgDurationMs": 7710,
+  "durationMs": 4577,
+  "avgDurationMs": 4577,
   "durationHistory": [
-    7710
+    4577
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "croix-rouge-fribourgeoise-da3f8b5426a1",
       "slug": "psychomotoritktherapeutin-en-croix-rouge-fribourgeoise-fribourg",
@@ -27,7 +28,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/b99120d0-c6b3-4162-80c1-a2c6a94e4a06",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:23.652Z",
+      "crawledAt": "2026-09-02T23:09:26.241Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -51,11 +52,13 @@
         "canton": "FR",
         "location": "Fribourg"
       },
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-02T13:34:23.652Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -71,7 +74,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/c4ec1d38-b561-4c04-9399-5c720747abd2",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:24.438Z",
+      "crawledAt": "2026-09-02T23:09:26.841Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -95,16 +98,16 @@
         "canton": "FR",
         "location": "Fribourg"
       },
-      "_qualityScore": 67,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-02T13:34:24.438Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "croix-rouge-fribourgeoise-6fd3142daa68",
       "slug": "infirmier-ere-diplome-e-ou-assistant-e-socio-educatif-ve-ase-croix-rouge-fribourgeoise",
@@ -117,7 +120,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/3cd91f76-ad2e-4837-8ce9-5039ff5c16d6",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:25.699Z",
+      "crawledAt": "2026-09-02T23:09:26.869Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },
@@ -163,7 +166,7 @@
       "url": "https://company.jobcloud.ch/fr/jobs/814e07df-c3c8-43dd-807e-6995bd54c9f0",
       "source": "Croix-Rouge fribourgeoise Dedicated Parser (JobCloud Company Page)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:25.780Z",
+      "crawledAt": "2026-09-02T23:09:26.895Z",
       "hiringOrganization": {
         "name": "Croix-Rouge fribourgeoise"
       },

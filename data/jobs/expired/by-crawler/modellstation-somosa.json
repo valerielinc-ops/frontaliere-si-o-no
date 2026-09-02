@@ -3,10 +3,10 @@
     "slug": "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur",
     "title": "Praktikum für Studierende Sozialpädagogik (Praxismodul)",
     "titleByLocale": {
-      "it": "Stage per gli studenti educazione sociale (modulo di pratica)",
-      "en": "Internship for students Social education (practice module)",
       "de": "Praktikum für Studierende Sozialpädagogik (Praxismodul)",
-      "fr": "Stage pour étudiants Formation sociale (module pratique)"
+      "it": "Praktikum per Studierende Sozialpädagogik (Praxismodul)",
+      "en": "Praktikum für Studierende Sozialpädagogik (Praxismodul)",
+      "fr": "Praktikum für Studierende Sozialpädagogik (Praxismodul)"
     },
     "company": "Modellstation SOMOSA",
     "companyKey": "modellstation-somosa",
@@ -19,28 +19,94 @@
       "fr": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz."
     },
     "slugByLocale": {
-      "it": "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur",
-      "en": "internship-for-social-pedagogy-students-practical-module-modellstation-somosa-winterthur",
       "de": "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
-      "fr": "stage-pour-etudiants-en-education-sociale-module-pratique-modellstation-somosa-winterthur"
+      "en": "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
+      "fr": "stage-pour-etudiants-en-education-sociale-module-pratique-modellstation-somosa-winterthur",
+      "it": "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-09-02T13:34:31.014Z",
+    "expiredAt": "2026-09-02T23:09:33.971Z",
     "previousSlugs": [
       "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
-      "stage-per-gli-studenti-educazione-sociale-modulo-di-pratica-modellstation-somosa-winterthur",
-      "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur"
+      "internship-for-social-pedagogy-students-practical-module-modellstation-somosa-winterthur"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur",
-        "stage-per-gli-studenti-educazione-sociale-modulo-di-pratica-modellstation-somosa-winterthur",
-        "tirocinio-per-studenti-di-educazione-sociale-modulo-pratico-modellstation-somosa-winterthur"
+        "praktikum-fur-studierende-sozialpadagogik-praxismodul-modellstation-somosa-winterthur"
+      ],
+      "en": [
+        "internship-for-social-pedagogy-students-practical-module-modellstation-somosa-winterthur"
       ]
     },
     "postalCode": "8400",
-    "salaryMin": 53500,
-    "salaryMax": 98500,
+    "salaryMin": 63000,
+    "salaryMax": 116500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
+    "title": "Teamleitung Tagesstruktur, 90%",
+    "titleByLocale": {
+      "de": "Teamleitung Tagesstruktur, 90%",
+      "it": "Teamleitung Tagesstruktur, 90%",
+      "en": "Teamleitung Tagesstruktur, 90%",
+      "fr": "Teamleitung Tagesstruktur, 90%"
+    },
+    "company": "Modellstation SOMOSA",
+    "companyKey": "modellstation-somosa",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "de": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "it": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "en": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "fr": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz."
+    },
+    "slugByLocale": {
+      "de": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
+      "it": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
+      "en": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur",
+      "fr": "teamleitung-tagesstruktur-90-modellstation-somosa-winterthur"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-02T23:09:33.971Z",
+    "postalCode": "8400",
+    "salaryMin": 82400,
+    "salaryMax": 115200,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "sozialpadagogen-sozialpadagogin-wg-b-80-modellstation-somosa-winterthur",
+    "title": "Sozialpädagogen / Sozialpädagogin WG B, 80%",
+    "titleByLocale": {
+      "de": "Sozialpädagogen / Sozialpädagogin WG B, 80%",
+      "it": "Sozialpädagogen / Sozialpädagogin WG B, 80%",
+      "en": "Sozialpädagogen / Sozialpädagogin WG B, 80%",
+      "fr": "Sozialpädagogen / Sozialpädagogin WG B, 80%"
+    },
+    "company": "Modellstation SOMOSA",
+    "companyKey": "modellstation-somosa",
+    "location": "Winterthur",
+    "addressLocality": "Winterthur",
+    "descriptionByLocale": {
+      "de": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "it": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "en": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz.",
+      "fr": "Modellstation SOMOSA — jugendpsychiatrische Klinik und Jugendheim für Adoleszente (6–18 Jahre), Winterthur (ZH), Schweiz."
+    },
+    "slugByLocale": {
+      "de": "sozialpadagogen-sozialpadagogin-wg-b-80-modellstation-somosa-winterthur",
+      "it": "sozialpadagogen-sozialpadagogin-wg-b-80-modellstation-somosa-winterthur",
+      "en": "sozialpadagogen-sozialpadagogin-wg-b-80-modellstation-somosa-winterthur",
+      "fr": "sozialpadagogen-sozialpadagogin-wg-b-80-modellstation-somosa-winterthur"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-02T23:09:33.971Z",
+    "postalCode": "8400",
+    "salaryMin": 73200,
+    "salaryMax": 102400,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

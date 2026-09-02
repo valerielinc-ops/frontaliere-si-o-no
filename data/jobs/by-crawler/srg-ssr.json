@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-02T15:32:11.606Z",
+  "assembledAt": "2026-09-02T23:09:32.033Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:22.615Z",
+      "crawledAt": "2026-09-02T23:09:27.435Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:34:21.823Z",
+      "crawledAt": "2026-09-02T23:09:26.506Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,6 +142,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -160,7 +169,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -170,7 +179,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -187,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:20.899Z",
+      "crawledAt": "2026-09-02T23:09:25.930Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,6 +260,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -297,7 +315,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:19.611Z",
+      "crawledAt": "2026-09-02T23:09:25.393Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -333,14 +351,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -390,7 +412,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:18.972Z",
+      "crawledAt": "2026-09-02T23:09:24.852Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -425,11 +447,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -483,7 +507,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:18.315Z",
+      "crawledAt": "2026-09-02T23:09:24.299Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -582,7 +606,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:17.637Z",
+      "crawledAt": "2026-09-02T23:09:23.567Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -619,11 +643,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -633,6 +659,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -679,7 +706,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:16.987Z",
+      "crawledAt": "2026-09-02T23:09:22.832Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -718,11 +745,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -779,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:09.006Z",
+      "crawledAt": "2026-09-02T23:09:22.130Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -818,11 +847,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -879,7 +910,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:04.487Z",
+      "crawledAt": "2026-09-02T23:09:21.451Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -962,7 +993,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:03.838Z",
+      "crawledAt": "2026-09-02T23:09:20.759Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -999,11 +1030,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1013,6 +1046,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1059,7 +1093,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:34:03.217Z",
+      "crawledAt": "2026-09-02T23:09:10.987Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1108,6 +1142,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1154,7 +1189,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:02.502Z",
+      "crawledAt": "2026-09-02T23:09:07.718Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1254,7 +1289,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:34:01.873Z",
+      "crawledAt": "2026-09-02T23:09:07.035Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1338,7 +1373,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:01.238Z",
+      "crawledAt": "2026-09-02T23:09:06.367Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1405,37 +1440,37 @@
       "addressRegion": "BE"
     },
     {
-      "id": "srg-ssr-914a586be732",
-      "slug": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+      "id": "srg-ssr-5f308f7330f9",
+      "slug": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "en": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "de": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
-        "fr": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
+        "it": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "en": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "de": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+        "fr": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
-      "title": "Responsable de genre \"Information nationale Offre\" Opérations",
+      "title": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
       "titleByLocale": {
-        "it": "Responsable de genre \"Information nationale Offre\" Opérations",
-        "en": "Responsable de genre \"Information nationale Offre\" Opérations",
-        "de": "Responsable de genre \"Information nationale Offre\" Opérations",
-        "fr": "Responsable de genre \"Information nationale Offre\" Opérations"
+        "it": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
+        "en": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
+        "de": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
+        "fr": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​"
       },
-      "description": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
+      "description": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
       "descriptionByLocale": {
-        "it": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
-        "en": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
-        "de": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
-        "fr": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place."
+        "it": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
+        "en": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
+        "de": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
+        "fr": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird."
       },
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:34:00.611Z",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-02T23:09:05.633Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1449,31 +1484,30 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-28",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "requirements": [
-        "Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles",
-        "Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important",
-        "Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance",
-        "Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique",
-        "Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end",
-        "Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités"
+        "Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten",
+        "Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt",
+        "Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert",
+        "Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln",
+        "Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden",
+        "Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen"
       ],
       "requirementsByLocale": {
-        "fr": [
-          "Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles",
-          "Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique",
-          "Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end"
+        "de": [
+          "Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten",
+          "Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden"
         ]
       },
       "_srgMeta": {
-        "uuid": "fca8cd93-f3cf-4a4b-b9df-57375b965e87",
+        "uuid": "1605ae19-d84f-46f0-9aaa-0f64f15cb740",
         "org": "srg",
         "orgLabel": "SRG SSR",
         "pensumMin": 80,
         "pensumMax": 100
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:00:43.813Z",
+      "firstSeenAt": "2026-08-31T17:00:42.256Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -1520,7 +1554,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:33:59.960Z",
+      "crawledAt": "2026-09-02T23:09:04.906Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1575,37 +1609,37 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "srg-ssr-5f308f7330f9",
-      "slug": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
+      "id": "srg-ssr-914a586be732",
+      "slug": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
       "slugByLocale": {
-        "it": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "en": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "de": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich",
-        "fr": "genre-verantwortliche-r-information-national-angebot-operationen-srg-ssr-zurich"
+        "it": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "en": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "de": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich",
+        "fr": "responsable-de-genre-information-nationale-offre-operations-srg-ssr-zurich"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
-      "title": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
+      "title": "Responsable de genre \"Information nationale Offre\" Opérations",
       "titleByLocale": {
-        "it": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
-        "en": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
-        "de": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​",
-        "fr": "Genre-Verantwortliche:r \"Information National Angebot\" Operationen​"
+        "it": "Responsable de genre \"Information nationale Offre\" Opérations",
+        "en": "Responsable de genre \"Information nationale Offre\" Opérations",
+        "de": "Responsable de genre \"Information nationale Offre\" Opérations",
+        "fr": "Responsable de genre \"Information nationale Offre\" Opérations"
       },
-      "description": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
+      "description": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
       "descriptionByLocale": {
-        "it": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
-        "en": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
-        "de": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird.",
-        "fr": "Was sind Ihre Aufgaben? Im Team Business Partner Operationen engagieren Sie sich für die folgenden Themen:\n• Gemeinsame Planung der national ausgerichteten Informationsangebote mit den Genre-Verantwortlichen Information regional der Regionen: Sie führen Bedürfnisse, Ressourcen und Produktionsmittel über die Sprachregionen hinweg zusammen (Audio, Video, Digital)\n• Aufbau und Pflege des Netzwerks mit den Business Partnern und den Genre-Verantwortlichen in den Regionen, mit regelmässiger Präsenz vor Ort und einer Einführungszeit, die mehrtägige bis einwöchige Aufenthalte in den Regionen umfasst\n• Antizipation des Fertigungsbedarfs – von Grossereignissen, Wahlen und Abstimmungen bis hin zu ausserordentlichen Lagen – und frühzeitiges Erkennen der nötigen Anpassungen am Angebotsportfolio\n• Überoperative Steuerung der Produktionsleistungen und der aufeinander abgestimmten Produktionsprozesse; der tägliche Betrieb liegt in der Verantwortung der operativen Produktionsverantwortlichen, die Sie fachlich zur Eigenständigkeit befähigen\n• Verantwortung für den effizienten Einsatz der Ressourcen im definierten Budgetrahmen sowie für das Erreichen der definierten Effizienzziele, unter Einhaltung der Leistungs-, Produktions-, Sicherheits- und Qualitätsstandards – gemeinsam mit dem People Pool, dem PMM und der Steuerung Operationen\n• Aktive Feedback- und Austauschkultur sowie Führung des KPI-Dashboards als gemeinsame Steuerungsgrundlage mit den Regionen Was bringen Sie mit?\n• Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten\n• Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt\n• Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert\n• Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln\n• Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden\n• Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen Worauf können Sie sich freuen?\n• Die freie Wahl des Arbeitsorts und eine Funktion im Zentrum der nationalen Zusammenarbeit, mit einer strukturierten Einführungszeit in den regionalen Unternehmenseinheiten\n• Eine Schlüssel- und Verantwortungsrolle in der operativen Medienfertigung, in einer Phase tiefgreifender Transformation\n• Mitglied des Teams Business Partner Operationen Angebot, mit direktem Einfluss auf die Qualität und die operative Effizienz zum Bewerbungsprozess Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Der Bereich Operationen SRG ist für die zentrale strategische Steuerung der technologischen Ausrichtung und der Produktion der SRG verantwortlich. Der/die Genre-Verantwortliche F4 stellt die operative und qualitative Umsetzung der Angebote eines oder mehrerer Genres sicher, unter der operativen Führung des Business Partner Operationen. Als Genre-Verantwortliche/r \"Information national Angebot\" sind Sie die zentrale Verbindungsstelle zwischen dem Bereich Operationen und den Genre-Verantwortlichen Information regional in den Regionen: Sie planen die national ausgerichteten Informationsangebote gemeinsam mit den Regionen und stellen deren effiziente Produktion sicher. Sie haben den Überblick über das gesamte Angebotsportfolio – einschliesslich des Teilportfolios Studio Bundeshaus, dessen Betrieb durch die operativen Produktionsverantwortlichen vor Ort sichergestellt wird."
+        "it": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
+        "en": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
+        "de": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place.",
+        "fr": "Votre mission Au sein du team Business Partner Opérations, vous vous engagez sur les thèmes suivants:\n• Planification conjointe des offres d'information d'envergure nationale avec les responsables de genre Information régionale des régions : vous réunissez besoins, ressources et moyens de production par-delà les régions linguistiques (audio, vidéo, digital)\n• Constitution et entretien du réseau avec les Business Partner et les responsables de genre dans les régions, avec une présence régulière sur le terrain et une période d'introduction comprenant des séjours de plusieurs jours, voire d'une semaine, dans les régions\n• Anticipation des besoins de fabrication – des grands événements, élections et votations jusqu'aux situations extraordinaires – et détection précoce des adaptations à apporter au portefeuille d'offres\n• Pilotage supra-opérationnel des prestations de production et des processus de production coordonnés entre eux ; l'exploitation quotidienne relève des responsables opérationnels de production, que vous rendez autonomes sur le plan professionnel\n• Responsabilité de l'utilisation efficace des ressources dans le cadre budgétaire défini ainsi que de l'atteinte des objectifs d'efficience définis, tout en respectant les normes de prestation, de production, de sécurité et de qualité – conjointement avec le People Pool, le PMM et le Pilotage Opérations\n• Culture active du feedback et de l'échange, et gestion du tableau de bord des KPI comme base de pilotage commune avec les régions Votre profil\n• Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles\n• Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important\n• Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance\n• Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique\n• Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end\n• Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités Ce que nous vous offrons\n• Le libre choix du lieu de travail et une fonction au cœur de la collaboration nationale, avec une période d'introduction structurée dans les unités d'entreprise régionaux\n• Un rôle clé et à responsabilités dans la fabrication médiatique opérationnelle, dans une phase de transformation profonde\n• Membre du team du Business Partner Opérations Offre, avec une influence directe sur la qualité et l'efficience opérationnelle A propos du processus de recrutement Romano Somazzi HR Recruiting Spcialist +41 58 135 09 19 Le domaine Opérations SSR est responsable de la gestion stratégique centrale de l'orientation technologique et de la production de la SSR. Le/la responsable de genre F4 assure la mise en œuvre opérationnelle et qualitative des offres d'un ou de plusieurs genres, sous la direction opérationnelle du Business Partner Opérations. En tant que responsable de genre \" Information nationale Offre \", vous êtes le point de liaison central entre le domaine Opérations et les responsables de genre Information régionale dans les régions : vous planifiez les offres d'information d'envergure nationale conjointement avec les régions et garantissez l'efficience de leur production. Vous avez une vue d'ensemble de l'intégralité du portefeuille d'offres – y compris du portefeuille partiel Studio Palais fédéral, dont l'exploitation est assurée par les responsables opérationnels de production sur place."
       },
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:33:59.321Z",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T23:09:04.209Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1619,30 +1653,31 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-28",
-      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "requirements": [
-        "Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten",
-        "Deutsch und Französisch auf professionellem Niveau, zwingende Voraussetzung: Eine der beiden Sprachen ist Ihre Muttersprache, die andere beherrschen Sie mindestens auf Niveau B2. Italienisch und/oder Rätoromanisch sind ein wichtiger Pluspunkt",
-        "Solide Netzwerk- und Beziehungskompetenz über organisatorische und sprachliche Grenzen hinweg, grosse Reisebereitschaft sowie ein Führungsverständnis, das auf Distanz funktioniert",
-        "Unternehmerisches Denken, verbunden mit der Fähigkeit, das Ganze zu sehen und kreativ, beharrlich und pragmatisch zu handeln",
-        "Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden",
-        "Ausgezeichnete Kommunikationsfähigkeiten, hohe Affinität zu medienbezogenen Technologien, Verhandlungsgeschick und grosse Fähigkeit, Prioritäten zu setzen"
+        "Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles",
+        "Allemand et français à un niveau professionnel, condition impérative : l'une des deux langues est votre langue maternelle, l'autre est maîtrisée au minimum au niveau B2. L'italien et/ou le romanche constituent un atout important",
+        "Solides compétences en matière de réseau et de relations par-delà les frontières organisationnelles et linguistiques, grande disponibilité à voyager ainsi qu'une conception du leadership à distance",
+        "Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique",
+        "Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end",
+        "Excellentes aptitudes à la communication, forte affinité avec les technologies liées aux médias, sens de la négociation et grande capacité à établir des priorités"
       ],
       "requirementsByLocale": {
-        "de": [
-          "Teamgeist und mehrjährige praktische Erfahrung in der Fertigung von audiovisuellen Angeboten",
-          "Grosse Stressresistenz und Bereitschaft, zu unregelmässigen Arbeitszeiten zu arbeiten, auch an Wochenenden"
+        "fr": [
+          "Esprit d'équipe et plusieurs années d'expérience pratique dans la fabrication d'offres audiovisuelles",
+          "Esprit d'entreprise, associé à la capacité de voir l'ensemble et d'agir de manière créative, persévérante et pragmatique",
+          "Grande résistance au stress et disponibilité à travailler selon des horaires irréguliers, y compris le week-end"
         ]
       },
       "_srgMeta": {
-        "uuid": "1605ae19-d84f-46f0-9aaa-0f64f15cb740",
+        "uuid": "fca8cd93-f3cf-4a4b-b9df-57375b965e87",
         "org": "srg",
         "orgLabel": "SRG SSR",
         "pensumMin": 80,
         "pensumMax": 100
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:00:42.256Z",
+      "firstSeenAt": "2026-08-31T17:00:43.813Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -1689,7 +1724,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:33:58.696Z",
+      "crawledAt": "2026-09-02T23:09:03.463Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1734,6 +1769,7 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-02T13:33:58.696Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -1747,8 +1783,99 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-02T13:33:58.696Z"
+      "addressRegion": "TI"
+    },
+    {
+      "id": "srg-ssr-6f3e9bd90f5d",
+      "slug": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
+      "slugByLocale": {
+        "fr": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
+        "it": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
+        "en": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
+        "de": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Stagiaire Interactive Media Designer, RTS Couleur 3",
+      "titleByLocale": {
+        "fr": "Stagiaire Interactive Media Designer, RTS Couleur 3",
+        "it": "Stagiaire Interactive Media Designer, RTS Couleur 3",
+        "en": "Stagiaire Interactive Media Designer, RTS Couleur 3",
+        "de": "Stagiaire Interactive Media Designer, RTS Couleur 3"
+      },
+      "description": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
+        "it": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
+        "en": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
+        "de": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T23:09:02.702Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
+      "requirements": [
+        "En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent",
+        "Maîtrise de la suite Adobe, Da Vinci Resolve est un atout",
+        "Aisance dans l'utilisation des appareils hybrides et caméras DSLR",
+        "Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats",
+        "Forte sensibilité éditoriale et artistique",
+        "Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible",
+        "Sens de l'organisation, créativité et rigueur",
+        "Capacité à travailler seul.e et en groupe"
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent",
+          "Maîtrise de la suite Adobe, Da Vinci Resolve est un atout",
+          "Aisance dans l'utilisation des appareils hybrides et caméras DSLR",
+          "Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats",
+          "Forte sensibilité éditoriale et artistique",
+          "Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible",
+          "Sens de l'organisation, créativité et rigueur",
+          "Capacité à travailler seul.e et en groupe"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "6814b6b0-96af-427f-a369-8f1d4275a816",
+        "org": "rts",
+        "orgLabel": "RTS",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 90500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 90500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-02T23:09:02.702Z"
     }
   ]
 }
