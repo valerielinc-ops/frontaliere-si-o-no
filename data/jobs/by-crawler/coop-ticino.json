@@ -5733,20 +5733,10 @@
       "previousSlugsByLocale": {
         "it": [
           "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino"
-        ],
-        "en": [
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
-        ],
-        "de": [
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
-        ],
-        "fr": [
-          "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
         ]
       },
       "previousSlugs": [
-        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino",
-        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino-h3iik1"
+        "macellaia-macellaio-salumiera-salumiere-m-w-d-coop-mendrisio-ticino"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000
@@ -171879,7 +171869,7 @@
     },
     {
       "id": "company-et4xyc",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern",
+      "slug": "macellaio-a-esperto-a-in-carni-coop-genossenschaft-frutigen",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Frutigen",
@@ -171916,10 +171906,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc",
+        "it": "macellaio-a-esperto-a-in-carni-coop-genossenschaft-frutigen",
+        "en": "butcher-meat-professional-coop-genossenschaft-frutigen",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc"
+        "fr": "boucher-bouchere-expert-e-en-viande-coop-genossenschaft-frutigen"
       },
       "addressLocality": "Frutigen",
       "sourceLang": "de",
@@ -171936,7 +171926,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern-et4xyc",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-frutigen-bern"
+      ]
     },
     {
       "id": "company-9ctlx5",
@@ -173555,7 +173561,7 @@
     },
     {
       "id": "company-eq9lv",
-      "slug": "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden",
+      "slug": "cuoco-a-m-f-d-coop-genossenschaft-sarnen",
       "company": "Coop Genossenschaft",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Sarnen",
@@ -173601,10 +173607,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv",
+        "it": "cuoco-a-m-f-d-coop-genossenschaft-sarnen",
         "en": "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv",
         "de": "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv",
-        "fr": "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv"
+        "fr": "cuisiniere-h-f-d-coop-genossenschaft-sarnen"
       },
       "needsRetranslation": true,
       "addressLocality": "Sarnen",
@@ -173623,11 +173629,24 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv",
+          "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden"
+        ],
+        "fr": [
+          "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv"
+        ]
+      },
+      "previousSlugs": [
+        "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden-0eq9lv",
+        "kochin-koch-m-w-d-coop-ristorante-sarnen-obwalden"
+      ]
     },
     {
       "id": "company-d6nllj",
-      "slug": "backer-in-konditor-in-coop-zurich",
+      "slug": "panettiere-a-pasticciere-a-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Bäcker:in - Konditor:in",
       "location": "Zürich",
@@ -173673,10 +173692,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "backer-in-konditor-in-coop-zurich-d6nllj",
-        "en": "backer-in-konditor-in-coop-zurich-d6nllj",
+        "it": "panettiere-a-pasticciere-a-coop-genossenschaft-zurich",
+        "en": "baker-pastry-chef-coop-genossenschaft-zurich",
         "de": "backer-in-konditor-in-coop-zurich-d6nllj",
-        "fr": "backer-in-konditor-in-coop-zurich-d6nllj"
+        "fr": "boulangerie-fabricant-de-pasteques-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -173693,7 +173712,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "backer-in-konditor-in-coop-zurich-d6nllj",
+          "backer-in-konditor-in-coop-zurich"
+        ],
+        "en": [
+          "backer-in-konditor-in-coop-zurich-d6nllj"
+        ],
+        "fr": [
+          "backer-in-konditor-in-coop-zurich-d6nllj"
+        ]
+      },
+      "previousSlugs": [
+        "backer-in-konditor-in-coop-zurich-d6nllj",
+        "backer-in-konditor-in-coop-zurich"
+      ]
     },
     {
       "id": "company-f5ciq7",
@@ -174262,7 +174297,7 @@
     },
     {
       "id": "company-uswn6y",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich",
+      "slug": "macellaio-a-specialista-in-carni-coop-genossenschaft-zurich-d2b1da",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Zürich",
@@ -174308,10 +174343,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y",
+        "it": "macellaio-a-specialista-in-carni-coop-genossenschaft-zurich-d2b1da",
+        "en": "butcher-meat-specialist-coop-genossenschaft-zurich",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y"
+        "fr": "specialiste-de-la-viande-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -174328,7 +174363,23 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich-uswn6y",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-zurich"
+      ]
     },
     {
       "id": "company-4q7j27",
@@ -174550,7 +174601,7 @@
     },
     {
       "id": "company-ec3i4r",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich",
+      "slug": "speciale-dei-pasti-coop-genossenschaft-dielsdorf",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Dielsdorf",
@@ -174587,10 +174638,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r",
+        "it": "speciale-dei-pasti-coop-genossenschaft-dielsdorf",
+        "en": "meat-specialist-coop-genossenschaft-dielsdorf-0813fe",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r"
+        "fr": "specialiste-de-la-viande-coop-genossenschaft-dielsdorf-0813fe"
       },
       "addressLocality": "Dielsdorf",
       "sourceLang": "de",
@@ -174610,11 +174661,21 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dielsdorf"
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dielsdorf",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r"
         ]
       },
       "previousSlugs": [
-        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dielsdorf"
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-dielsdorf",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich-ec3i4r",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-dielsdorf-zurich"
       ]
     },
     {
@@ -174990,7 +175051,7 @@
     },
     {
       "id": "company-ysflb7",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich",
+      "slug": "macellaio-a-specialista-in-carni-coop-genossenschaft-kusnacht",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Küsnacht",
@@ -175036,10 +175097,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7",
+        "it": "macellaio-a-specialista-in-carni-coop-genossenschaft-kusnacht",
+        "en": "butcher-meat-specialist-coop-genossenschaft-kusnacht",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7"
+        "fr": "boucher-ere-specialiste-en-viande-coop-genossenschaft-kusnacht"
       },
       "addressLocality": "Küsnacht",
       "sourceLang": "de",
@@ -175056,11 +175117,27 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich"
+        ],
+        "en": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7"
+        ],
+        "fr": [
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7"
+        ]
+      },
+      "previousSlugs": [
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich-ysflb7",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-kusnacht-zurich"
+      ]
     },
     {
       "id": "company-nr8wt9",
-      "slug": "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich",
+      "slug": "macellaio-a-specialista-in-carni-coop-genossenschaft-affoltern-am-albis",
       "company": "Coop Genossenschaft",
       "title": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
       "location": "Affoltern am Albis",
@@ -175097,10 +175174,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9",
-        "en": "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9",
+        "it": "macellaio-a-specialista-in-carni-coop-genossenschaft-affoltern-am-albis",
+        "en": "butcher-meat-specialist-coop-genossenschaft-affoltern-am-albis",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9",
-        "fr": "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9"
+        "fr": "boucher-bouchere-specialiste-en-viandes-coop-genossenschaft-affoltern-am-albis"
       },
       "addressLocality": "Affoltern am Albis",
       "sourceLang": "de",
@@ -175124,16 +175201,20 @@
           "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
           "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-affoltern-am-albis",
           "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-gybxwb",
-          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis"
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich"
         ],
         "en": [
-          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-affoltern-am-albis"
+          "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-affoltern-am-albis",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9"
         ],
         "de": [
           "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-gybxwb"
         ],
         "fr": [
-          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis"
+          "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis",
+          "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9"
         ]
       },
       "previousSlugs": [
@@ -175141,12 +175222,14 @@
         "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-affoltern-am-albis",
         "metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-affoltern-am-albis",
         "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-gybxwb",
-        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis"
+        "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-affoltern-am-albis",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich-nr8wt9",
+        "metzger-in-fleischfachfrau-fleischfachmann-coop-affoltern-am-albis-zurich"
       ]
     },
     {
       "id": "company-cnxdf9",
-      "slug": "rayonleiter-in-take-it-coop-zurich",
+      "slug": "responsabile-sezione-take-it-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Rayonleiter:in Take it",
       "location": "Zürich",
@@ -175192,10 +175275,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-take-it-coop-zurich-cnxdf9",
-        "en": "rayonleiter-in-take-it-coop-zurich-cnxdf9",
+        "it": "responsabile-sezione-take-it-coop-genossenschaft-zurich",
+        "en": "section-manager-take-it-coop-genossenschaft-zurich",
         "de": "rayonleiter-in-take-it-coop-zurich-cnxdf9",
-        "fr": "rayonleiter-in-take-it-coop-zurich-cnxdf9"
+        "fr": "responsable-de-rayon-take-it-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -175220,16 +175303,19 @@
           "rayonleiter-in-take-it-coop-zurich-70oapl",
           "rayon-chef-d-orchestre-a-prendre-coop-genossenschaft-zurich-7f4847",
           "rayon-conductor-in-take-it-coop-genossenschaft-zurich-pzkqu4",
-          "rayonleiter-in-take-it-coop-zurich"
+          "rayonleiter-in-take-it-coop-zurich",
+          "rayonleiter-in-take-it-coop-zurich-cnxdf9"
         ],
         "en": [
-          "rayon-conductor-in-take-it-coop-genossenschaft-zurich-7f4847"
+          "rayon-conductor-in-take-it-coop-genossenschaft-zurich-7f4847",
+          "rayonleiter-in-take-it-coop-zurich-cnxdf9"
         ],
         "de": [
           "rayonleiter-in-take-it-coop-zurich-70oapl"
         ],
         "fr": [
-          "rayon-chef-d-orchestre-a-prendre-coop-genossenschaft-zurich-7f4847"
+          "rayon-chef-d-orchestre-a-prendre-coop-genossenschaft-zurich-7f4847",
+          "rayonleiter-in-take-it-coop-zurich-cnxdf9"
         ]
       },
       "previousSlugs": [
@@ -175238,12 +175324,13 @@
         "rayonleiter-in-take-it-coop-zurich-70oapl",
         "rayon-chef-d-orchestre-a-prendre-coop-genossenschaft-zurich-7f4847",
         "rayon-conductor-in-take-it-coop-genossenschaft-zurich-pzkqu4",
-        "rayonleiter-in-take-it-coop-zurich"
+        "rayonleiter-in-take-it-coop-zurich",
+        "rayonleiter-in-take-it-coop-zurich-cnxdf9"
       ]
     },
     {
       "id": "company-wswf46",
-      "slug": "aspirant-in-geschaftsfuhrer-in-coop-schafisheim",
+      "slug": "aspirante-a-amministratore-trice-coop-genossenschaft-schafisheim",
       "company": "Coop Genossenschaft",
       "title": "Aspirant:in Geschäftsführer:in",
       "location": "Schafisheim",
@@ -175280,10 +175367,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46",
-        "en": "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46",
+        "it": "aspirante-a-amministratore-trice-coop-genossenschaft-schafisheim",
+        "en": "assistant-managing-director-coop-genossenschaft-schafisheim",
         "de": "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46",
-        "fr": "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46"
+        "fr": "aspirant-en-directeur-general-coop-genossenschaft-schafisheim"
       },
       "addressLocality": "Schafisheim",
       "sourceLang": "de",
@@ -175303,16 +175390,26 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "aspirant-in-geschaftsfuhrer-in-coop-genossenschaft-schafisheim"
+          "aspirant-in-geschaftsfuhrer-in-coop-genossenschaft-schafisheim",
+          "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46",
+          "aspirant-in-geschaftsfuhrer-in-coop-schafisheim"
+        ],
+        "en": [
+          "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46"
+        ],
+        "fr": [
+          "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46"
         ]
       },
       "previousSlugs": [
-        "aspirant-in-geschaftsfuhrer-in-coop-genossenschaft-schafisheim"
+        "aspirant-in-geschaftsfuhrer-in-coop-genossenschaft-schafisheim",
+        "aspirant-in-geschaftsfuhrer-in-coop-schafisheim-wswf46",
+        "aspirant-in-geschaftsfuhrer-in-coop-schafisheim"
       ]
     },
     {
       "id": "company-mlbo6l",
-      "slug": "backer-in-coop-city-zug",
+      "slug": "pasticcere-panettiere-coop-genossenschaft-zug",
       "company": "Coop Genossenschaft",
       "title": "Bäcker:in",
       "location": "Zug",
@@ -175358,10 +175455,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "backer-in-coop-city-zug-mlbo6l",
-        "en": "backer-in-coop-city-zug-mlbo6l",
+        "it": "pasticcere-panettiere-coop-genossenschaft-zug",
+        "en": "baker-coop-genossenschaft-zug",
         "de": "backer-in-coop-city-zug-mlbo6l",
-        "fr": "backer-in-coop-city-zug-mlbo6l"
+        "fr": "boulanger-coop-genossenschaft-zug"
       },
       "addressLocality": "Zug",
       "sourceLang": "de",
@@ -175378,11 +175475,27 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "backer-in-coop-city-zug-mlbo6l",
+          "backer-in-coop-city-zug"
+        ],
+        "en": [
+          "backer-in-coop-city-zug-mlbo6l"
+        ],
+        "fr": [
+          "backer-in-coop-city-zug-mlbo6l"
+        ]
+      },
+      "previousSlugs": [
+        "backer-in-coop-city-zug-mlbo6l",
+        "backer-in-coop-city-zug"
+      ]
     },
     {
       "id": "company-nfrwm4",
-      "slug": "backer-in-coop-bern",
+      "slug": "panettiere-a-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Bäcker:in",
       "location": "Bern",
@@ -175428,10 +175541,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "backer-in-coop-bern-nfrwm4",
-        "en": "backer-in-coop-bern-nfrwm4",
+        "it": "panettiere-a-coop-genossenschaft-bern",
+        "en": "baker-coop-genossenschaft-bern",
         "de": "backer-in-coop-bern-nfrwm4",
-        "fr": "backer-in-coop-bern-nfrwm4"
+        "fr": "c-est-pas-vrai-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -175448,7 +175561,23 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "backer-in-coop-bern-nfrwm4",
+          "backer-in-coop-bern"
+        ],
+        "en": [
+          "backer-in-coop-bern-nfrwm4"
+        ],
+        "fr": [
+          "backer-in-coop-bern-nfrwm4"
+        ]
+      },
+      "previousSlugs": [
+        "backer-in-coop-bern-nfrwm4",
+        "backer-in-coop-bern"
+      ]
     }
   ]
 }
