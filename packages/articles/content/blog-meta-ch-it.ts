@@ -5062,6 +5062,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Imposta di successione e donazione Basilea Città: aliquote',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Guida alle imposte di successione e donazione nel Cantone di Basilea Città: aliquote per grado di parentela, esenzioni e procedure di dichiarazione.',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Ufficio notarile svizzero con documenti di eredità e calcolatrice, simbolo di pianificazione patrimoniale e trasmissione del patrimonio',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Permesso L Basilea Campagna: durata e rinnovo',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Permesso L di breve durata a Basilea Campagna: validità fino a 1 anno, rinnovo, vincoli datore di lavoro e transizione al permesso B di dimora.',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Ufficio amministrativo svizzero con documenti di permessi di lavoro e paesaggio alpino sullo sfondo',
 };
 
 export default blogMetaChIt;

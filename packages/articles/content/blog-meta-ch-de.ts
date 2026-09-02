@@ -5062,6 +5062,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Erbschafts- und Schenkungssteuer Basel-Stadt: Steuersätze',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Leitfaden Erbschafts- und Schenkungssteuern im Kanton Basel-Stadt: Verwandtschaftsgradsätze, Befreiungen und Meldeverfahren.',
     'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Schweizer Notarbüro mit Erbschaftsdokumenten und Taschenrechner, Symbol der Vermögensplanung und Erbschaftsübertragung',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.title': 'Erlaubnis L Basel-Landschaft: Dauer und Verlängerung',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.excerpt': 'Kurzaufenthaltsbewilligung L in Basel-Landschaft: Gültigkeit bis zu 1 Jahr, Verlängerung, Verpflichtungen des Arbeitgebers und Übergang zur Aufenthaltsbewilligung B.',
+    'blog.article.durata-validita-permesso-l-basilea-campagna.imageAlt': 'Schweizer Behördenamt mit Arbeitsgenehmigungsdokumenten und Berglandschaft',
 };
 
 export default blogMetaChDe;
