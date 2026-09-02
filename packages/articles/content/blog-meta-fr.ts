@@ -11082,6 +11082,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-canzo-lavorare-ticino.title': 'Vivre à Canzo et travailler au Tessin : guide frontalier',
     'blog.article.trasferirsi-canzo-lavorare-ticino.excerpt': 'Déménager à Canzo pour travailler au Tessin : nouvel accord, permis G, régime fiscal et liste de contrôle pratique pour commencer votre parcours frontalier.',
     'blog.article.trasferirsi-canzo-lavorare-ticino.imageAlt': 'Paysage frontalier entre Canzo et le Tessin avec route vers les passages frontaliers',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.title': 'Vivre à Cossogno et travailler au Tessin : guide frontalier',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.excerpt': 'De la fiscalité au coût de la vie : tout ce qu\'il faut savoir pour vivre à Cossogno et travailler au Tessin comme frontalier.',
+    'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du village de Cossogno au bord du Lac Majeur avec les Alpes suisses en arrière-plan',
 };
 
 export default blogMetaFr;

@@ -82166,6 +82166,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cossogno-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Cossogno e lavorare in Ticino: guida frontaliere',
+    description: 'Guida completa per frontalieri a Cossogno: fiscalità 2024, contributi AVS/LPP, LAMal, permesso G, vantaggi e svantaggi, checklist pratica. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cossogno, lavorare, dalla',
+    ogTitle: 'Vivere a Cossogno e lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Come vivere a Cossogno e lavorare in Ticino da frontaliere: regime fiscale €7.500–€10.000, LAMal, contributi svizzeri, vantaggi, svantaggi e checklist operativa.',
+    canonicalPath: '/articoli-frontaliere/vivere-cossogno-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cossogno e lavorare in Ticino: guida frontaliere",
+      "description": "Guida completa per frontalieri a Cossogno: fiscalità 2024, contributi AVS/LPP, LAMal, permesso G, vantaggi e svantaggi, checklist pratica. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cossogno-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica di Cossogno sul lago Maggiore con le montagne della Svizzera sullo sfondo"
+      },
+      "datePublished": "2026-09-02T03:24:33+00:00",
+      "dateModified": "2026-09-02T03:24:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cossogno-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
