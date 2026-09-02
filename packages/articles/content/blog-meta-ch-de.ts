@@ -5119,6 +5119,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.voto-elettronico-neuchatel-2028.title': 'Elektronische Note in Neuenburg: grünes Licht vom Bundesrat',
     'blog.article.voto-elettronico-neuchatel-2028.excerpt': 'Der Bundesrat hat beschlossen, dem Kanton Neuenburg die grundsätzliche Bewilligung für die Erprobung der elektronischen Stimmabgabe bis zum 26. November 2028 zu erteilen.',
     'blog.article.voto-elettronico-neuchatel-2028.imageAlt': 'Eine Person, die elektronisch auf einem Computer in einer modernen Schweizer Umgebung wählt',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'BVG: Freizügigkeitsfonds bei der Bundeskasse',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'Der Bundesrat schlägt vor, dass die BVG-Auffangeinrichtung die Gelder bei tiefen oder negativen Zinsen beim Bund hinterlegen darf.',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Bundeshaus in Bern, Sitz der Entscheidungen des Bundesrates.',
 };
 
 export default blogMetaChDe;

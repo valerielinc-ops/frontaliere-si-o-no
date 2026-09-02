@@ -5119,6 +5119,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.voto-elettronico-neuchatel-2028.title': 'Vote électronique à Neuchâtel : feu vert du Conseil fédéral',
     'blog.article.voto-elettronico-neuchatel-2028.excerpt': 'Le Conseil fédéral a décidé de délivrer au canton de Neuchâtel l’autorisation de principe pour l\'expérimentation du vote électronique jusqu\'au 26 novembre 2028.',
     'blog.article.voto-elettronico-neuchatel-2028.imageAlt': 'Une personne votant électroniquement sur un ordinateur dans un cadre suisse moderne',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.title': 'LPP : fonds de libre passage auprès de la Trésorerie fédérale',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.excerpt': 'Le Conseil fédéral propose que l\'Institution de Prestations Professionnelles de Substitution (BVG) soit autorisée à déposer des fonds auprès de la Confédération en cas de taux d\'intérêt bas ou négatifs.',
+    'blog.article.lpp-fondi-libero-passaggio-tesoreria.imageAlt': 'Palais fédéral à Berne, siège des décisions du Conseil fédéral.',
 };
 
 export default blogMetaChFr;
