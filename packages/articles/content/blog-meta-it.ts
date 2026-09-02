@@ -11075,6 +11075,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bennet-cerca-personale-varese.title': 'Bennet cerca personale a Lavena Ponte Tresa',
     'blog.article.bennet-cerca-personale-varese.excerpt': 'Venerdì 4 settembre l\'ipermercato Bennet di Lavena Ponte Tresa ospita una giornata dedicata al lavoro con posizioni aperte in vendita e reparti freschi.',
     'blog.article.bennet-cerca-personale-varese.imageAlt': 'Facciata di un ipermercato moderno con vetrate luminose in un piccolo paese di confine italiano',
+    'blog.article.mandello-lario-frontaliere.title': 'Mandello del Lario: guida frontaliere 2024 Ticino',
+    'blog.article.mandello-lario-frontaliere.excerpt': 'Mandello del Lario a Lecco: come vivere e lavorare come frontaliere in Ticino. Permesso G, imposta alla fonte, franchigia 2024, AVS/LAMal.',
+    'blog.article.mandello-lario-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano dal versante ticinese con architettura alpina e riva italiana sullo sfondo.',
 };
 
 export default blogMetaIt;
