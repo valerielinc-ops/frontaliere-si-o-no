@@ -173,7 +173,10 @@ function extractJobsArray(payload) {
 
 function jobIdentityKey(job) {
   if (!job || typeof job !== 'object') return '';
-  if (job.id) return `id:${job.id}`;
+  // A falsy-but-real id (numeric `0`) must not fall through to the
+  // less specific url/slugtitle keys — see ownershipIdentity() in
+  // scripts/reconcile-crawler-company-ownership.mjs for the same fix.
+  if (job.id != null && job.id !== '') return `id:${job.id}`;
   if (job.url) return `url:${job.url}`;
   if (job.slug && job.title) return `slugtitle:${job.slug}|${job.title}`;
   return '';

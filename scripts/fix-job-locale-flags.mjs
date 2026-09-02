@@ -24,7 +24,10 @@ const MIN_CONFIDENCE = 0.65;
 
 /** Stable composite key for a job (id may be missing on ~half the dataset) */
 function jobKey(job) {
-  if (job.id) return job.id;
+  // A falsy-but-real id (numeric `0`) must not fall through to the
+  // composite fallback — see ownershipIdentity() in
+  // scripts/reconcile-crawler-company-ownership.mjs for the same fix.
+  if (job.id != null && job.id !== '') return job.id;
   return `${job.companyKey || ''}::${job.slug || ''}::${(job.title || '').slice(0, 80)}`;
 }
 
