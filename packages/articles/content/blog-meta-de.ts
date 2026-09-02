@@ -11088,6 +11088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Leben in Lentate und Arbeiten im Tessin: Grenzgänger',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso in der Provinz Mailand ist eine strategische Wohnwahl für Grenzgänger. Entdecken Sie Steuervorteile, G-Bewilligung, Verfahren und Checklisten für die Überweisung.',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Grenzlandschaft zwischen Tessin (Schweiz) und Lombardei (Italien), Hügellandschaft und Landstraße im Frühling',
+    'blog.article.vivere-cislago-lavorare-ticino.title': 'In Cislago wohnen, im Tessin arbeiten: Leitfaden für Grenzgänger',
+    'blog.article.vivere-cislago-lavorare-ticino.excerpt': 'Grenzgänger von Cislago bis ins Tessin: Steuerrecht, neues Abkommen, Quellensteuer, Aufenthaltsgenehmigungen und Sozialversicherung für diejenigen, die sich dafür entscheiden, in Italien zu leben und in der Schweiz zu arbeiten.',
+    'blog.article.vivere-cislago-lavorare-ticino.imageAlt': 'Luftaufnahme von Mendrisio und Grenze zur Provinz Como, wo Cislago liegt',
 };
 
 export default blogMetaDe;

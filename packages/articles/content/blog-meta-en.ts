@@ -11089,6 +11089,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Living in Lentate and working in Ticino: border crossing',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso, province of Milan, is a strategic residential choice for border workers. Discover tax advantages, G Permit, transfer procedures and checklists.',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Border landscape between Ticino (Switzerland) and Lombardy (Italy), rolling hills and rural road in spring',
+    'blog.article.vivere-cislago-lavorare-ticino.title': 'Living in Cislago, Working in Ticino: A Guide for Cross-Border Workers',
+    'blog.article.vivere-cislago-lavorare-ticino.excerpt': 'Cross-border workers from Cislago to Ticino: taxation, the New Agreement, withholding tax, work permits, and social security for those who choose to live in Italy and work in Switzerland.',
+    'blog.article.vivere-cislago-lavorare-ticino.imageAlt': 'Aerial view of Mendrisio and border with Como province, where Cislago is located',
 };
 
 export default blogMetaEn;

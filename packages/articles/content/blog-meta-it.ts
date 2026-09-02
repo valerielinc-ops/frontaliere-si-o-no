@@ -11090,6 +11090,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.title': 'Vivere a Lentate e lavorare in Ticino: frontaliere',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.excerpt': 'Lentate sul Seveso, provincia di Milano, è una scelta residenziale strategica per frontalieri. Scopri vantaggi fiscali, Permesso G, procedure e checklist per il trasferimento.',
     'blog.article.vivere-lentate-lavorare-ticino-frontaliere.imageAlt': 'Panorama di confine tra Ticino (Svizzera) e Lombardia (Italia), con paesaggio collinare e strada di campagna in primavera',
+    'blog.article.vivere-cislago-lavorare-ticino.title': 'Vivere a Cislago, lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-cislago-lavorare-ticino.excerpt': 'Frontaliere da Cislago a Ticino: fiscalità, Nuovo Accordo, imposta alla fonte, permessi e previdenza per chi sceglie di vivere in Italia e lavorare in Svizzera.',
+    'blog.article.vivere-cislago-lavorare-ticino.imageAlt': 'Veduta aerea di Mendrisio e confine con la provincia di Como, dove risiede Cislago',
 };
 
 export default blogMetaIt;
