@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-09-01T23:20:48.634Z",
+  "assembledAt": "2026-09-02T13:48:24.395Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5635",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5635",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:43.758Z",
+      "crawledAt": "2026-09-02T13:48:20.271Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+        "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+        "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
+          "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale",
+          "capo-dell-ispettorato-fitosanitario-plant-primary-production-control-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "responsable-de-l-inspectorat-phytosanitaire-du-controle-de-la-production-primaire-vegetale"
@@ -111,7 +113,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5689",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:43.286Z",
+      "crawledAt": "2026-09-02T13:48:19.830Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -132,13 +134,15 @@
       "previousSlugs": [
         "coordinateur-trice-de-releases-de-projets-etat-de-vaud-renens-vd",
         "giurista-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "coordinatore-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "coordinateur-trice-de-releases-de-projets-etat-de-vaud-renens-vd",
           "giurista-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-          "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+          "coordinatore-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "coordinateur-trice-de-releases-de-projets-etat-de-vaud-renens-vd"
@@ -148,6 +152,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -193,7 +198,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5628",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:42.816Z",
+      "crawledAt": "2026-09-02T13:48:19.393Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -212,11 +217,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "referent-e-des-mesures-renforcees-de-l-enseignement-specialise-etat-de-vaud-lausanne"
+        "referent-e-des-mesures-renforcees-de-l-enseignement-specialise-etat-de-vaud-lausanne",
+        "riferimento-alle-misure-potenziate-nell-istruzione-speciale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "referent-e-des-mesures-renforcees-de-l-enseignement-specialise-etat-de-vaud-lausanne"
+          "referent-e-des-mesures-renforcees-de-l-enseignement-specialise-etat-de-vaud-lausanne",
+          "riferimento-alle-misure-potenziate-nell-istruzione-speciale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "referent-e-des-mesures-renforcees-de-l-enseignement-specialise-etat-de-vaud-lausanne"
@@ -271,7 +278,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:42.353Z",
+      "crawledAt": "2026-09-02T13:48:18.941Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -290,11 +297,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux"
+        "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux",
+        "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-puidoux"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux"
+          "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux",
+          "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-puidoux"
         ],
         "en": [
           "responsable-d-equipe-profil-psychologue-etat-de-vaud-puidoux"
@@ -349,7 +358,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5746",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:41.891Z",
+      "crawledAt": "2026-09-02T13:48:18.498Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -368,11 +377,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "comptable-etat-de-vaud-lausanne"
+        "comptable-etat-de-vaud-lausanne",
+        "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "comptable-etat-de-vaud-lausanne"
+          "comptable-etat-de-vaud-lausanne",
+          "contabilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "comptable-etat-de-vaud-lausanne"
@@ -382,6 +393,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:14.929Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -427,7 +439,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5733",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:41.426Z",
+      "crawledAt": "2026-09-02T13:48:18.060Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -446,11 +458,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne"
+        "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne",
+        "capo-del-progetto-idraulico-risorse-idriche-ed-economia-idrica-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne"
+          "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne",
+          "capo-del-progetto-idraulico-risorse-idriche-ed-economia-idrica-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-projet-hydraulique-ressources-en-eau-et-economie-hydraulique-etat-de-vaud-lausanne"
@@ -505,7 +519,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5751",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:40.956Z",
+      "crawledAt": "2026-09-02T13:48:17.614Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -524,11 +538,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "enseignant-e-de-francais-etat-de-vaud-orbe"
+        "enseignant-e-de-francais-etat-de-vaud-orbe",
+        "insegnante-francese-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "enseignant-e-de-francais-etat-de-vaud-orbe"
+          "enseignant-e-de-francais-etat-de-vaud-orbe",
+          "insegnante-francese-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ],
         "en": [
           "enseignant-e-de-francais-etat-de-vaud-orbe"
@@ -583,7 +599,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5740",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:40.484Z",
+      "crawledAt": "2026-09-02T13:48:17.167Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -602,11 +618,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-de-direction-etat-de-vaud-lausanne"
+        "secretaire-de-direction-etat-de-vaud-lausanne",
+        "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-de-direction-etat-de-vaud-lausanne"
+          "secretaire-de-direction-etat-de-vaud-lausanne",
+          "segretario-esecutivo-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "secretaire-de-direction-etat-de-vaud-lausanne"
@@ -661,7 +679,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5743",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:40.019Z",
+      "crawledAt": "2026-09-02T13:48:16.733Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -681,12 +699,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stagiaire-juriste-etat-de-vaud-lausanne",
-        "juriste-etat-de-vaud-lausanne"
+        "juriste-etat-de-vaud-lausanne",
+        "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-juriste-etat-de-vaud-lausanne",
-          "juriste-etat-de-vaud-lausanne"
+          "juriste-etat-de-vaud-lausanne",
+          "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "juriste-etat-de-vaud-lausanne"
@@ -741,7 +761,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5719",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:39.551Z",
+      "crawledAt": "2026-09-02T13:48:16.286Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -760,11 +780,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+        "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+        "specialista-della-gestione-dei-documenti-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
+          "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne",
+          "specialista-della-gestione-dei-documenti-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "specialiste-en-gestion-documentaire-etat-de-vaud-lausanne"
@@ -819,7 +841,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:39.082Z",
+      "crawledAt": "2026-09-02T13:48:15.833Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -840,13 +862,15 @@
       "previousSlugs": [
         "fiscaliste-etat-de-vaud-lausanne",
         "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "taxist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fiscaliste-etat-de-vaud-lausanne",
           "giurista-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "jurist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "taxist-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "fiscaliste-etat-de-vaud-lausanne"
@@ -901,7 +925,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5776",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:38.620Z",
+      "crawledAt": "2026-09-02T13:48:15.390Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -920,17 +944,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-rh-etat-de-vaud-lausanne"
+        "assistant-e-rh-etat-de-vaud-lausanne",
+        "assistente-di-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-rh-etat-de-vaud-lausanne"
+          "assistant-e-rh-etat-de-vaud-lausanne",
+          "assistente-di-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "de": [
           "assistant-e-rh-etat-de-vaud-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -976,7 +1003,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5766",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:38.157Z",
+      "crawledAt": "2026-09-02T13:48:14.944Z",
       "addressLocality": "Etoy",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -995,11 +1022,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy"
+        "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy",
+        "documentary-information-officer-aid-etat-de-vaud-administration-cantonale-vaudoise-etoy"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy"
+          "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy",
+          "documentary-information-officer-aid-etat-de-vaud-administration-cantonale-vaudoise-etoy"
         ],
         "en": [
           "agent-e-en-information-documentaire-aid-etat-de-vaud-etoy"
@@ -1054,7 +1083,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5757",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:37.696Z",
+      "crawledAt": "2026-09-02T13:48:14.493Z",
       "addressLocality": "Prangins",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1073,11 +1102,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-en-milieu-scolaire-etat-de-vaud-prangins"
+        "psychologue-en-milieu-scolaire-etat-de-vaud-prangins",
+        "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-prangins"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-en-milieu-scolaire-etat-de-vaud-prangins"
+          "psychologue-en-milieu-scolaire-etat-de-vaud-prangins",
+          "psicologo-scolastico-etat-de-vaud-administration-cantonale-vaudoise-prangins"
         ],
         "en": [
           "psychologue-en-milieu-scolaire-etat-de-vaud-prangins"
@@ -1132,7 +1163,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5756",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:37.218Z",
+      "crawledAt": "2026-09-02T13:48:14.043Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1151,11 +1182,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne"
+        "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne",
+        "direttore-dell-ufficio-giudiziario-primo-cancelliere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne"
+          "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne",
+          "direttore-dell-ufficio-giudiziario-primo-cancelliere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "administrateur-trice-d-office-judiciaire-premier-ere-greffier-ere-etat-de-vaud-lausanne"
@@ -1210,7 +1243,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5726",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:36.751Z",
+      "crawledAt": "2026-09-02T13:48:13.604Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1229,11 +1262,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-du-centre-de-competences-mobilite-etat-de-vaud-lausanne"
+        "responsable-du-centre-de-competences-mobilite-etat-de-vaud-lausanne",
+        "responsabile-del-centro-competenze-per-la-mobilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-du-centre-de-competences-mobilite-etat-de-vaud-lausanne"
+          "responsable-du-centre-de-competences-mobilite-etat-de-vaud-lausanne",
+          "responsabile-del-centro-competenze-per-la-mobilita-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-du-centre-de-competences-mobilite-etat-de-vaud-lausanne"
@@ -1288,7 +1323,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5777",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:36.285Z",
+      "crawledAt": "2026-09-02T13:48:13.162Z",
       "addressLocality": "Chavannes-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1307,17 +1342,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
+        "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
+        "secretaire-d-entite-repondante-rh-finanza-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
+          "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens",
+          "secretaire-d-entite-repondante-rh-finanza-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
         ],
         "de": [
           "secretaire-d-entite-repondante-rh-finance-etat-de-vaud-chavannes-renens"
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1334,9 +1372,9 @@
     },
     {
       "id": "etat-de-vaud-5762",
-      "slug": "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+      "slug": "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "slugByLocale": {
-        "it": "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "it": "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "project-leader-climate-plan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "de": "projektleiter-klimaplan-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne"
@@ -1346,7 +1384,7 @@
       "companyDomain": "vd.ch",
       "title": "Chef·fe de projet Plan climat",
       "titleByLocale": {
-        "it": "Progetto Leader Piano Climatico",
+        "it": "Chef·fe de projet Plan climat",
         "en": "Climate Plan Project Manager",
         "de": "Projektleiter/in Klimaplan",
         "fr": "Chef·fe de projet Plan climat"
@@ -1363,7 +1401,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5762",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:35.816Z",
+      "crawledAt": "2026-09-02T13:48:12.576Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1415,12 +1453,14 @@
       "previousSlugs": [
         "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
         "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-plan-climat-etat-de-vaud-lausanne",
           "leader-del-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "progetto-leader-piano-climatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "chef-fe-de-projet-plan-climat-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
@@ -1431,6 +1471,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1476,7 +1517,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5761",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:35.347Z",
+      "crawledAt": "2026-09-02T13:48:12.134Z",
       "addressLocality": "Le Sentier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1495,11 +1536,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
+        "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier",
+        "psicologo-postobbligatorio-etat-de-vaud-administration-cantonale-vaudoise-le-sentier"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
+          "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier",
+          "psicologo-postobbligatorio-etat-de-vaud-administration-cantonale-vaudoise-le-sentier"
         ],
         "en": [
           "psychologue-au-post-obligatoire-etat-de-vaud-le-sentier"
@@ -1509,6 +1552,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1554,7 +1598,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5691",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:34.869Z",
+      "crawledAt": "2026-09-02T13:48:11.687Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1573,11 +1617,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
+        "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne",
+        "risposta-alle-applicazioni-si-spop-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
+          "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne",
+          "risposta-alle-applicazioni-si-spop-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "repondant-e-applications-si-du-spop-etat-de-vaud-lausanne"
@@ -1632,7 +1678,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5785",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:34.403Z",
+      "crawledAt": "2026-09-02T13:48:11.247Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1652,11 +1698,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
-        "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges"
+        "projektmanager-strukturelle-verbesserungen-etat-de-vaud-administration-cantonale-vaudoise-morges",
+        "project-manager-miglioramenti-strutturali-etat-de-vaud-administration-cantonale-vaudoise-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
+          "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges",
+          "project-manager-miglioramenti-strutturali-etat-de-vaud-administration-cantonale-vaudoise-morges"
         ],
         "en": [
           "charge-e-de-projets-ameliorations-structurelles-etat-de-vaud-morges"
@@ -1667,6 +1715,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1712,7 +1761,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5759",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:33.934Z",
+      "crawledAt": "2026-09-02T13:48:10.376Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1731,11 +1780,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
+        "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne",
+        "librario-documentario-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
+          "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne",
+          "librario-documentario-specializzato-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "bibliothecaire-documentaliste-specialise-e-etat-de-vaud-lausanne"
@@ -1790,7 +1841,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5789",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:33.456Z",
+      "crawledAt": "2026-09-02T13:48:09.936Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1809,11 +1860,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains"
@@ -1868,7 +1921,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5788",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:32.991Z",
+      "crawledAt": "2026-09-02T13:48:09.490Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1888,12 +1941,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
-        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
+        "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4"
       ],
       "previousSlugsByLocale": {
         "it": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains",
-          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
+          "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-yverdon-les-bains-d843d4"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-yverdon-les-bains-2"
@@ -1951,7 +2006,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5784",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:32.519Z",
+      "crawledAt": "2026-09-02T13:48:09.039Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1970,11 +2025,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne"
+        "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne",
+        "leader-del-progetto-sanitario-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne"
+          "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne",
+          "leader-del-progetto-sanitario-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "chef-fe-de-projet-sante-numerique-etat-de-vaud-lausanne"
@@ -2029,7 +2086,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5780",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:32.051Z",
+      "crawledAt": "2026-09-02T13:48:08.592Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2049,12 +2106,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
-        "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
+        "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-5501ea"
       ],
       "previousSlugsByLocale": {
         "it": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne",
-          "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
+          "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-lausanne-5501ea"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-lausanne-2"
@@ -2109,7 +2168,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5775",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:31.580Z",
+      "crawledAt": "2026-09-02T13:48:08.148Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2128,11 +2187,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "curateur-trice-professionnel-le-etat-de-vaud-vevey"
+        "curateur-trice-professionnel-le-etat-de-vaud-vevey",
+        "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "curateur-trice-professionnel-le-etat-de-vaud-vevey"
+          "curateur-trice-professionnel-le-etat-de-vaud-vevey",
+          "curatore-professionista-etat-de-vaud-administration-cantonale-vaudoise-vevey"
         ],
         "en": [
           "curateur-trice-professionnel-le-etat-de-vaud-vevey"
@@ -2187,7 +2248,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5738",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:31.107Z",
+      "crawledAt": "2026-09-02T13:48:07.711Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2206,11 +2267,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne"
+        "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne",
+        "collaboratore-di-un-ufficio-per-l-accusa-etat-de-vaud-administration-cantonale-vaudoise-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne"
+          "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne",
+          "collaboratore-di-un-ufficio-per-l-accusa-etat-de-vaud-administration-cantonale-vaudoise-payerne"
         ],
         "en": [
           "collaborateur-trice-d-un-office-des-poursuites-etat-de-vaud-payerne"
@@ -2265,7 +2328,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5791",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:30.630Z",
+      "crawledAt": "2026-09-02T13:48:07.239Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2284,11 +2347,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-direv-etat-de-vaud-epalinges"
+        "directeur-trice-direv-etat-de-vaud-epalinges",
+        "direttore-direv-etat-de-vaud-administration-cantonale-vaudoise-epalinges"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-direv-etat-de-vaud-epalinges"
+          "directeur-trice-direv-etat-de-vaud-epalinges",
+          "direttore-direv-etat-de-vaud-administration-cantonale-vaudoise-epalinges"
         ],
         "en": [
           "directeur-trice-direv-etat-de-vaud-epalinges"
@@ -2298,6 +2363,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2326,7 +2392,7 @@
       "companyDomain": "vd.ch",
       "title": "Administrateur-rice Datacenter",
       "titleByLocale": {
-        "it": "Direttore Datacenter",
+        "it": "Administrateur-rice Datacenter",
         "en": "Datacenter Administrator",
         "de": "Datacenter-Administrator/in",
         "fr": "Administrateur-rice Datacenter"
@@ -2343,7 +2409,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5787",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:30.159Z",
+      "crawledAt": "2026-09-02T13:48:06.751Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2385,11 +2451,13 @@
       "previousSlugs": [
         "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
         "director-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
-        "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
+        "direktor-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+        "direttore-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "administrateur-rice-datacenter-etat-de-vaud-renens-vd"
+          "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
+          "direttore-datacenter-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "administrateur-rice-datacenter-etat-de-vaud-renens-vd",
@@ -2401,6 +2469,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2446,7 +2515,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5786",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:29.670Z",
+      "crawledAt": "2026-09-02T13:48:06.119Z",
       "addressLocality": "Chavannes-Renens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2465,11 +2534,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens"
+        "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens",
+        "conservazione-lavoro-di-restauro-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens"
+          "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens",
+          "conservazione-lavoro-di-restauro-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens"
         ],
         "en": [
           "collaborateur-trice-en-conservation-restauration-etat-de-vaud-chavannes-renens"
@@ -2524,7 +2595,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5745",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:29.209Z",
+      "crawledAt": "2026-09-02T13:48:05.673Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2543,11 +2614,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-de-projet-etat-de-vaud-lausanne"
+        "assistant-e-de-projet-etat-de-vaud-lausanne",
+        "assistente-di-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-de-projet-etat-de-vaud-lausanne"
+          "assistant-e-de-projet-etat-de-vaud-lausanne",
+          "assistente-di-progetto-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "assistant-e-de-projet-etat-de-vaud-lausanne"
@@ -2602,7 +2675,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5798",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:28.743Z",
+      "crawledAt": "2026-09-02T13:48:05.235Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2621,11 +2694,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
+        "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd",
+        "ingegnere-e-visualizzazione-dei-dati-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
+          "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd",
+          "ingegnere-e-visualizzazione-dei-dati-etat-de-vaud-administration-cantonale-vaudoise-renens-vd"
         ],
         "en": [
           "ingenieur-data-scientist-et-visualisation-des-donnees-etat-de-vaud-renens-vd"
@@ -2635,6 +2710,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -2680,7 +2756,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5795",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:28.275Z",
+      "crawledAt": "2026-09-02T13:48:04.796Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2699,11 +2775,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne"
+        "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne",
+        "responsabile-per-la-prevenzione-della-radicalizzazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne"
+          "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne",
+          "responsabile-per-la-prevenzione-della-radicalizzazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "charge-e-de-missions-prevention-des-radicalisations-etat-de-vaud-lausanne"
@@ -2758,7 +2836,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5794",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:27.812Z",
+      "crawledAt": "2026-09-02T13:48:04.354Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2777,11 +2855,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
+        "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe",
+        "responsabile-officina-rotante-agricolo-m-f-etat-de-vaud-administration-cantonale-vaudoise-orbe"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
+          "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe",
+          "responsabile-officina-rotante-agricolo-m-f-etat-de-vaud-administration-cantonale-vaudoise-orbe"
         ],
         "en": [
           "responsable-d-atelier-tournant-agricole-h-f-etat-de-vaud-orbe"
@@ -2836,7 +2916,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5778",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:27.331Z",
+      "crawledAt": "2026-09-02T13:48:03.904Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2855,11 +2935,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne"
+        "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne",
+        "registratore-in-tribunali-penali-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne"
+          "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne",
+          "registratore-in-tribunali-penali-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "greffier-ere-au-sein-des-cours-penales-etat-de-vaud-lausanne"
@@ -2914,7 +2996,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5711",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:26.857Z",
+      "crawledAt": "2026-09-02T13:48:03.466Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2934,12 +3016,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "responsable-du-domaine-planification-exploitation-etat-de-vaud-lausanne",
-        "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "responsabile-pianificazione-e-operazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-du-domaine-planification-exploitation-etat-de-vaud-lausanne",
-          "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "responsabile-finanziario-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "responsabile-pianificazione-e-operazioni-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-du-domaine-planification-exploitation-etat-de-vaud-lausanne"
@@ -2994,7 +3078,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5799",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:26.381Z",
+      "crawledAt": "2026-09-02T13:48:03.031Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3042,13 +3126,15 @@
         "responsable-rh-etat-de-vaud-lausanne",
         "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "leiter-in-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "leiter-in-human-resources-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "gestione-delle-risorse-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-rh-etat-de-vaud-lausanne",
           "responsabile-risorse-umane-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-          "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "administrative-manager-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "gestione-delle-risorse-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "responsable-rh-etat-de-vaud-lausanne"
@@ -3059,6 +3145,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3104,7 +3191,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5796",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:25.918Z",
+      "crawledAt": "2026-09-02T13:48:02.573Z",
       "addressLocality": "Coppet",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3147,12 +3234,14 @@
       "previousSlugs": [
         "responsable-d-equipe-profil-psychologue-etat-de-vaud-coppet",
         "responsabile-di-team-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet",
-        "teamleiter-in-psychologieprofil-etat-de-vaud-administration-cantonale-vaudoise-coppet"
+        "teamleiter-in-psychologieprofil-etat-de-vaud-administration-cantonale-vaudoise-coppet",
+        "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-equipe-profil-psychologue-etat-de-vaud-coppet",
-          "responsabile-di-team-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet"
+          "responsabile-di-team-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet",
+          "team-leader-profilo-psicologo-etat-de-vaud-administration-cantonale-vaudoise-coppet"
         ],
         "en": [
           "responsable-d-equipe-profil-psychologue-etat-de-vaud-coppet"
@@ -3163,6 +3252,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3208,7 +3298,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5792",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:25.438Z",
+      "crawledAt": "2026-09-02T13:48:02.129Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3259,12 +3349,14 @@
       },
       "previousSlugs": [
         "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz",
-        "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+        "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+        "capo-aggiunto-dell-ufficio-per-l-esecuzione-penale-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz",
-          "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+          "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+          "capo-aggiunto-dell-ufficio-per-l-esecuzione-penale-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
         ],
         "en": [
           "adjoint-e-du-chef-de-l-office-de-l-execution-des-peines-etat-de-vaud-penthalaz"
@@ -3274,6 +3366,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3319,7 +3412,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5793",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:24.899Z",
+      "crawledAt": "2026-09-02T13:48:01.679Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3371,12 +3464,14 @@
       "previousSlugs": [
         "bibliothecaire-archiviste-au-mcah-etat-de-vaud-lausanne",
         "bibliotecario-archivista-presso-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "bibliothekar-archivar-beim-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "bibliothekar-archivar-beim-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "bibliotecario-architetto-di-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bibliothecaire-archiviste-au-mcah-etat-de-vaud-lausanne",
-          "bibliotecario-archivista-presso-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+          "bibliotecario-archivista-presso-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+          "bibliotecario-architetto-di-mcah-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "bibliothecaire-archiviste-au-mcah-etat-de-vaud-lausanne"
@@ -3387,6 +3482,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3432,7 +3528,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5790",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:24.428Z",
+      "crawledAt": "2026-09-02T13:48:01.231Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3482,12 +3578,14 @@
         "conseiller-ere-en-personnel-etat-de-vaud-gland",
         "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-gland",
         "personnel-advisor-etat-de-vaud-administration-cantonale-vaudoise-gland",
-        "personalfachperson-etat-de-vaud-administration-cantonale-vaudoise-gland"
+        "personalfachperson-etat-de-vaud-administration-cantonale-vaudoise-gland",
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-en-personnel-etat-de-vaud-gland",
-          "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-gland"
+          "consulente-del-personale-etat-de-vaud-administration-cantonale-vaudoise-gland",
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-gland"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-gland",
@@ -3499,6 +3597,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3544,7 +3643,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5783",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:23.944Z",
+      "crawledAt": "2026-09-02T13:48:00.771Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3586,12 +3685,14 @@
       "previousSlugs": [
         "charge-e-de-projets-rh-attractivite-et-developpement-rh-etat-de-vaud-penthalaz",
         "responsabile-di-progetti-hr-attrattivita-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
-        "hr-projektleiter-in-attraktivitat-und-hr-entwicklung-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+        "hr-projektleiter-in-attraktivitat-und-hr-entwicklung-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+        "hr-project-manager-attraente-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "charge-e-de-projets-rh-attractivite-et-developpement-rh-etat-de-vaud-penthalaz",
-          "responsabile-di-progetti-hr-attrattivita-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
+          "responsabile-di-progetti-hr-attrattivita-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz",
+          "hr-project-manager-attraente-e-sviluppo-hr-etat-de-vaud-administration-cantonale-vaudoise-penthalaz"
         ],
         "en": [
           "charge-e-de-projets-rh-attractivite-et-developpement-rh-etat-de-vaud-penthalaz"
@@ -3602,6 +3703,7 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -3647,7 +3749,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5813",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:23.462Z",
+      "crawledAt": "2026-09-02T13:48:00.309Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3666,11 +3768,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+        "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+        "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-en-personnel-etat-de-vaud-vevey"
+          "conseiller-ere-en-personnel-etat-de-vaud-vevey",
+          "consigliere-etat-de-vaud-administration-cantonale-vaudoise-vevey"
         ],
         "en": [
           "conseiller-ere-en-personnel-etat-de-vaud-vevey"
@@ -3725,7 +3829,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5804",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:22.989Z",
+      "crawledAt": "2026-09-02T13:47:59.863Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3744,11 +3848,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "geomaticien-ne-etat-de-vaud-lausanne"
+        "geomaticien-ne-etat-de-vaud-lausanne",
+        "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "geomaticien-ne-etat-de-vaud-lausanne"
+          "geomaticien-ne-etat-de-vaud-lausanne",
+          "geomatico-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "geomaticien-ne-etat-de-vaud-lausanne"
@@ -3803,7 +3909,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5723",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:20:22.514Z",
+      "crawledAt": "2026-09-02T13:47:59.421Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3822,11 +3928,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+        "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
+        "direttore-della-biblioteca-cantonale-e-universitaria-losanna-bcul-etat-de-vaud-administration-cantonale-vaudoise"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
+          "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud",
+          "direttore-della-biblioteca-cantonale-e-universitaria-losanna-bcul-etat-de-vaud-administration-cantonale-vaudoise"
         ],
         "en": [
           "directeur-trice-de-la-bibliotheque-cantonale-et-universitaire-lausanne-bcul-etat-de-vaud"
@@ -3849,6 +3957,274 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "etat-de-vaud-5815",
+      "slug": "conseiller-ere-en-personnel-etat-de-vaud-aigle",
+      "slugByLocale": {
+        "fr": "conseiller-ere-en-personnel-etat-de-vaud-aigle",
+        "it": "conseiller-ere-en-personnel-etat-de-vaud-aigle",
+        "en": "conseiller-ere-en-personnel-etat-de-vaud-aigle",
+        "de": "conseiller-ere-en-personnel-etat-de-vaud-aigle"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Conseiller·ère en personnel",
+      "titleByLocale": {
+        "fr": "Conseiller·ère en personnel",
+        "it": "Conseiller·ère en personnel",
+        "en": "Conseiller·ère en personnel",
+        "de": "Conseiller·ère en personnel"
+      },
+      "description": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client·e du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité et à la pertinence de vos propositions de candidat·e·s, vous êtes un·e partenaire privilégié·e des entreprises dans leurs recherches de personnel. Vous développez et entretenez des relations avec les entreprises du tissu économique régional, leur présentez les prestations et mesures proposées par les ORP et identifiez de nouvelles opportunités de placement pour les client·e·s.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.) ;\n• Développer et entretenir des contacts avec les entreprises du tissu économique régional afin de promouvoir les prestations et mesures des ORP et d’identifier des opportunités de placement pour les client·e·s du Service public de l’emploi. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Attila Molnar, responsable RH, au 021 316 62 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Capacité à développer et entretenir un réseau de partenaires et d’entreprises, avec une réelle aisance dans les contacts externes.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client·e du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité et à la pertinence de vos propositions de candidat·e·s, vous êtes un·e partenaire privilégié·e des entreprises dans leurs recherches de personnel. Vous développez et entretenez des relations avec les entreprises du tissu économique régional, leur présentez les prestations et mesures proposées par les ORP et identifiez de nouvelles opportunités de placement pour les client·e·s.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.) ;\n• Développer et entretenir des contacts avec les entreprises du tissu économique régional afin de promouvoir les prestations et mesures des ORP et d’identifier des opportunités de placement pour les client·e·s du Service public de l’emploi. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Attila Molnar, responsable RH, au 021 316 62 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Capacité à développer et entretenir un réseau de partenaires et d’entreprises, avec une réelle aisance dans les contacts externes.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client·e du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité et à la pertinence de vos propositions de candidat·e·s, vous êtes un·e partenaire privilégié·e des entreprises dans leurs recherches de personnel. Vous développez et entretenez des relations avec les entreprises du tissu économique régional, leur présentez les prestations et mesures proposées par les ORP et identifiez de nouvelles opportunités de placement pour les client·e·s.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.) ;\n• Développer et entretenir des contacts avec les entreprises du tissu économique régional afin de promouvoir les prestations et mesures des ORP et d’identifier des opportunités de placement pour les client·e·s du Service public de l’emploi. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Attila Molnar, responsable RH, au 021 316 62 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Capacité à développer et entretenir un réseau de partenaires et d’entreprises, avec une réelle aisance dans les contacts externes.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client·e du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité et à la pertinence de vos propositions de candidat·e·s, vous êtes un·e partenaire privilégié·e des entreprises dans leurs recherches de personnel. Vous développez et entretenez des relations avec les entreprises du tissu économique régional, leur présentez les prestations et mesures proposées par les ORP et identifiez de nouvelles opportunités de placement pour les client·e·s.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.) ;\n• Développer et entretenir des contacts avec les entreprises du tissu économique régional afin de promouvoir les prestations et mesures des ORP et d’identifier des opportunités de placement pour les client·e·s du Service public de l’emploi. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Attila Molnar, responsable RH, au 021 316 62 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Capacité à développer et entretenir un réseau de partenaires et d’entreprises, avec une réelle aisance dans les contacts externes.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Les offices régionaux de placement (ORP) du canton de Vaud rattachés à la Direction générale de l'emploi et marché du travail (DGEM) sont chargés d'assister les client·e·s dans leur recherche de travail et de soutenir les employeurs dans le recrutement de personnel. Ils jouent un rôle clé dans la mise en œuvre de la politique de l'emploi et de la lutte contre le chômage. En votre qualité de conseiller·ère en personnel , vous œuvrez dans le cadre du soutien à l'insertion professionnelle des personnes en recherche d'emploi. Dans cette perspective, vous suivez et conseillez chaque client·e du Service public de l'emploi, avec pour objectif son placement rapide et durable sur le marché du travail. Vous sélectionnez les stratégies de placement appropriées et disposez de mesures spécifiques permettant un développement pour chacun·e de son employabilité. Vous êtes également garant·e du respect des prescriptions légales pour les personnes au sein de votre portefeuille. Grâce à la qualité et à la pertinence de vos propositions de candidat·e·s, vous êtes un·e partenaire privilégié·e des entreprises dans leurs recherches de personnel. Vous développez et entretenez des relations avec les entreprises du tissu économique régional, leur présentez les prestations et mesures proposées par les ORP et identifiez de nouvelles opportunités de placement pour les client·e·s.\n\n• Etablir une stratégie de réinsertion pour chaque client·e de manière personnalisée et toujours adaptée à leur besoin et leur profil ;\n• Activer et conseiller chaque client·e au travers des entretiens de conseil et de suivi ;\n• Réaliser des bilans professionnels et de développement des compétences professionnelles et personnelles des personnes au sein de son portefeuille par l'octroi de mesures de perfectionnement et de formation ;\n• Soutenir activement la proposition de places vacantes aux client·e·s du service public de l’emploi ;\n• Assurer, conformément aux lois fédérales et cantonales sur l'assurance-chômage, le respect des obligations et de l'aptitude au placement des usager·ère·s ;\n• Réaliser une mise à jour permanente de la base de données informatique (Plasta) et de la gestion courante des tâches administratives pour chaque client·e ;\n• Renforcer la collaboration avec les différents partenaires interinstitutionnels (Services sociaux, Office de l'assurance-invalidité, etc.) ;\n• Développer et entretenir des contacts avec les entreprises du tissu économique régional afin de promouvoir les prestations et mesures des ORP et d’identifier des opportunités de placement pour les client·e·s du Service public de l’emploi. Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou contacter Monsieur Attila Molnar, responsable RH, au 021 316 62 93.\n\n• Brevet fédéral de spécialiste en RH, de spécialiste en assurances sociales ou de conseiller·ère en personnel achevé ou en cours.\n• Plusieurs années d'expérience dans les domaines du conseil et du placement, de la réinsertion socio-professionnelle ou des RH.\n• Capacité à développer et entretenir un réseau de partenaires et d’entreprises, avec une réelle aisance dans les contacts externes.\n• Bonne connaissance du marché de l'emploi et du tissu économique vaudois.\n• Sensible aux aspects légaux du suivi RH dans le cadre de vos expériences.\n• Compétences relationnelles et sociales orientées sur les résultats.\n• Rigueur et précision dans l'exécution des tâches.\n• Capacité d'écoute et orientation client avérées.\n• Bonne résistance au stress. L’absence d’un brevet reconnu tel que mentionné dans le cahier des charges entraîne l’application de la classe salariale 9.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Aigle",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5815",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T13:47:58.979Z",
+      "addressLocality": "Aigle",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1860",
+      "streetAddress": "Place du Château 1",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5815",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5814",
+      "slug": "psychologue-en-milieu-scolaire-etat-de-vaud-prilly",
+      "slugByLocale": {
+        "fr": "psychologue-en-milieu-scolaire-etat-de-vaud-prilly",
+        "it": "psychologue-en-milieu-scolaire-etat-de-vaud-prilly",
+        "en": "psychologue-en-milieu-scolaire-etat-de-vaud-prilly",
+        "de": "psychologue-en-milieu-scolaire-etat-de-vaud-prilly"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Psychologue en milieu scolaire",
+      "titleByLocale": {
+        "fr": "Psychologue en milieu scolaire",
+        "it": "Psychologue en milieu scolaire",
+        "en": "Psychologue en milieu scolaire",
+        "de": "Psychologue en milieu scolaire"
+      },
+      "description": "Vous êtes sensible aux enjeux dans le domaine de la psychologie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe de Prilly à 55%. En parallèle et, à hauteur de 30%, vous serez également rattaché·e· à une classe régionale de pédagogie spécialisée.\n\n• Apporter une aide spécifique aux enfants et jeunes scolarisés qui rencontrent des difficultés affectives, relationnelles, d'apprentissage, de comportement et/ou d'intégration en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents de l'école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Master en psychologie et post grade en psychologie exigé (spécialisation de l'enfant et de l'adolescent·e, en psychothérapie, en psychologie clinique ou neuropsychologie).\n• Expérience professionnelle d'au minimum 5 ans, intérêt pour le travail pluridisciplinaire et le travail en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Vous êtes sensible aux enjeux dans le domaine de la psychologie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe de Prilly à 55%. En parallèle et, à hauteur de 30%, vous serez également rattaché·e· à une classe régionale de pédagogie spécialisée.\n\n• Apporter une aide spécifique aux enfants et jeunes scolarisés qui rencontrent des difficultés affectives, relationnelles, d'apprentissage, de comportement et/ou d'intégration en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents de l'école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Master en psychologie et post grade en psychologie exigé (spécialisation de l'enfant et de l'adolescent·e, en psychothérapie, en psychologie clinique ou neuropsychologie).\n• Expérience professionnelle d'au minimum 5 ans, intérêt pour le travail pluridisciplinaire et le travail en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Vous êtes sensible aux enjeux dans le domaine de la psychologie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe de Prilly à 55%. En parallèle et, à hauteur de 30%, vous serez également rattaché·e· à une classe régionale de pédagogie spécialisée.\n\n• Apporter une aide spécifique aux enfants et jeunes scolarisés qui rencontrent des difficultés affectives, relationnelles, d'apprentissage, de comportement et/ou d'intégration en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents de l'école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Master en psychologie et post grade en psychologie exigé (spécialisation de l'enfant et de l'adolescent·e, en psychothérapie, en psychologie clinique ou neuropsychologie).\n• Expérience professionnelle d'au minimum 5 ans, intérêt pour le travail pluridisciplinaire et le travail en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Vous êtes sensible aux enjeux dans le domaine de la psychologie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe de Prilly à 55%. En parallèle et, à hauteur de 30%, vous serez également rattaché·e· à une classe régionale de pédagogie spécialisée.\n\n• Apporter une aide spécifique aux enfants et jeunes scolarisés qui rencontrent des difficultés affectives, relationnelles, d'apprentissage, de comportement et/ou d'intégration en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents de l'école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Master en psychologie et post grade en psychologie exigé (spécialisation de l'enfant et de l'adolescent·e, en psychothérapie, en psychologie clinique ou neuropsychologie).\n• Expérience professionnelle d'au minimum 5 ans, intérêt pour le travail pluridisciplinaire et le travail en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Vous êtes sensible aux enjeux dans le domaine de la psychologie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe de Prilly à 55%. En parallèle et, à hauteur de 30%, vous serez également rattaché·e· à une classe régionale de pédagogie spécialisée.\n\n• Apporter une aide spécifique aux enfants et jeunes scolarisés qui rencontrent des difficultés affectives, relationnelles, d'apprentissage, de comportement et/ou d'intégration en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents de l'école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Master en psychologie et post grade en psychologie exigé (spécialisation de l'enfant et de l'adolescent·e, en psychothérapie, en psychologie clinique ou neuropsychologie).\n• Expérience professionnelle d'au minimum 5 ans, intérêt pour le travail pluridisciplinaire et le travail en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Prilly",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5814",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T13:47:58.532Z",
+      "addressLocality": "Prilly",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1008",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5814",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5812",
+      "slug": "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+      "slugByLocale": {
+        "fr": "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+        "it": "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+        "en": "logopediste-en-milieu-scolaire-etat-de-vaud-moudon",
+        "de": "logopediste-en-milieu-scolaire-etat-de-vaud-moudon"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Logopédiste en milieu scolaire",
+      "titleByLocale": {
+        "fr": "Logopédiste en milieu scolaire",
+        "it": "Logopédiste en milieu scolaire",
+        "en": "Logopédiste en milieu scolaire",
+        "de": "Logopédiste en milieu scolaire"
+      },
+      "description": "Vous êtes sensible aux enjeux dans le domaine de la logopédie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe à Moudon !\n\n• Prévenir, diagnostiquer et traiter les troubles du langage d’origine et/ou organique. Exercer une intervention spécifique auprès des enfants et des jeunes en milieu scolaire dans le domaine de la communication, du langage oral et écrit en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents, les acteurs·rices de l’école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Veuillez nous transmettre le dossier de candidature complet en un seul PDF (CV, diplômes, certificats de travail..). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou prendre contact avec Madame Joëlle Bourgeois, responsable d'équipe, qui se tient volontiers à votre disposition au 021 557 95 52, par courriel : joelle.bourgeois@vd.ch\n\n• Master en logopédie ou titre jugé équivalent.\n• Expérience professionnelle, intérêt pour le travail pluridisciplinaire et en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "Vous êtes sensible aux enjeux dans le domaine de la logopédie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe à Moudon !\n\n• Prévenir, diagnostiquer et traiter les troubles du langage d’origine et/ou organique. Exercer une intervention spécifique auprès des enfants et des jeunes en milieu scolaire dans le domaine de la communication, du langage oral et écrit en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents, les acteurs·rices de l’école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Veuillez nous transmettre le dossier de candidature complet en un seul PDF (CV, diplômes, certificats de travail..). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou prendre contact avec Madame Joëlle Bourgeois, responsable d'équipe, qui se tient volontiers à votre disposition au 021 557 95 52, par courriel : joelle.bourgeois@vd.ch\n\n• Master en logopédie ou titre jugé équivalent.\n• Expérience professionnelle, intérêt pour le travail pluridisciplinaire et en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "Vous êtes sensible aux enjeux dans le domaine de la logopédie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe à Moudon !\n\n• Prévenir, diagnostiquer et traiter les troubles du langage d’origine et/ou organique. Exercer une intervention spécifique auprès des enfants et des jeunes en milieu scolaire dans le domaine de la communication, du langage oral et écrit en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents, les acteurs·rices de l’école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Veuillez nous transmettre le dossier de candidature complet en un seul PDF (CV, diplômes, certificats de travail..). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou prendre contact avec Madame Joëlle Bourgeois, responsable d'équipe, qui se tient volontiers à votre disposition au 021 557 95 52, par courriel : joelle.bourgeois@vd.ch\n\n• Master en logopédie ou titre jugé équivalent.\n• Expérience professionnelle, intérêt pour le travail pluridisciplinaire et en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "Vous êtes sensible aux enjeux dans le domaine de la logopédie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe à Moudon !\n\n• Prévenir, diagnostiquer et traiter les troubles du langage d’origine et/ou organique. Exercer une intervention spécifique auprès des enfants et des jeunes en milieu scolaire dans le domaine de la communication, du langage oral et écrit en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents, les acteurs·rices de l’école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Veuillez nous transmettre le dossier de candidature complet en un seul PDF (CV, diplômes, certificats de travail..). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou prendre contact avec Madame Joëlle Bourgeois, responsable d'équipe, qui se tient volontiers à votre disposition au 021 557 95 52, par courriel : joelle.bourgeois@vd.ch\n\n• Master en logopédie ou titre jugé équivalent.\n• Expérience professionnelle, intérêt pour le travail pluridisciplinaire et en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "Vous êtes sensible aux enjeux dans le domaine de la logopédie et souhaitez apporter votre aide aux enfants et jeunes en difficultés dans le système de formation vaudois, rejoignez-nous pour renforcer notre équipe à Moudon !\n\n• Prévenir, diagnostiquer et traiter les troubles du langage d’origine et/ou organique. Exercer une intervention spécifique auprès des enfants et des jeunes en milieu scolaire dans le domaine de la communication, du langage oral et écrit en vue de favoriser leur développement et leur intégration sociale, scolaire et professionnelle.\n• Appuyer la mission de formation de l’école en apportant des compétences et connaissances spécifiques au sein de l’établissement.\n• Collaborer avec les parents, les acteurs·rices de l’école et les autres intervenant·e·s impliqué·e·s. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Veuillez nous transmettre le dossier de candidature complet en un seul PDF (CV, diplômes, certificats de travail..). Pour de plus amples informations, veuillez consulter le cahier des charges en cliquant ici ou prendre contact avec Madame Joëlle Bourgeois, responsable d'équipe, qui se tient volontiers à votre disposition au 021 557 95 52, par courriel : joelle.bourgeois@vd.ch\n\n• Master en logopédie ou titre jugé équivalent.\n• Expérience professionnelle, intérêt pour le travail pluridisciplinaire et en groupe.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Moudon",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5812",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T13:47:57.971Z",
+      "addressLocality": "Moudon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1510",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5812",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
+    },
+    {
+      "id": "etat-de-vaud-5809",
+      "slug": "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd",
+      "slugByLocale": {
+        "fr": "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd",
+        "it": "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd",
+        "en": "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd",
+        "de": "secretaire-d-une-unite-decentralisee-etat-de-vaud-renens-vd"
+      },
+      "company": "État de Vaud (Administration cantonale vaudoise)",
+      "companyKey": "etat-de-vaud",
+      "companyDomain": "vd.ch",
+      "title": "Secrétaire d'une unité décentralisée",
+      "titleByLocale": {
+        "fr": "Secrétaire d'une unité décentralisée",
+        "it": "Secrétaire d'une unité décentralisée",
+        "en": "Secrétaire d'une unité décentralisée",
+        "de": "Secrétaire d'une unité décentralisée"
+      },
+      "description": "En votre qualité de secrétaire, vous participez à la bonne marche de la plateforme administrative et financière de la région Crenol et collaborez de manière continue avec les psychologues, logopédistes et psychomotriciens en milieu scolaire.\n\n• Coordonner l'accueil et la gestion des nouvelles demandes de prestations (psychologie, logopédie et psychomotricité en milieu scolaire) et gérer l'ensemble du processus administratif des dossiers des enfants.\n• Assister à la gestion administrative du personnel et au suivi des formations-supervisions\n• Appuyer la gestion courante du secrétariat de la plateforme administrative et financière. Participer au processus du support administratif aux équipes. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Certificat fédéral de capacité (CFC) d'employé ·e de commerce ou titre jugé équivalent\n• Au minimum 5 ans d'expérience dans un secrétariat ou une administration publique.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+      "descriptionByLocale": {
+        "fr": "En votre qualité de secrétaire, vous participez à la bonne marche de la plateforme administrative et financière de la région Crenol et collaborez de manière continue avec les psychologues, logopédistes et psychomotriciens en milieu scolaire.\n\n• Coordonner l'accueil et la gestion des nouvelles demandes de prestations (psychologie, logopédie et psychomotricité en milieu scolaire) et gérer l'ensemble du processus administratif des dossiers des enfants.\n• Assister à la gestion administrative du personnel et au suivi des formations-supervisions\n• Appuyer la gestion courante du secrétariat de la plateforme administrative et financière. Participer au processus du support administratif aux équipes. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Certificat fédéral de capacité (CFC) d'employé ·e de commerce ou titre jugé équivalent\n• Au minimum 5 ans d'expérience dans un secrétariat ou une administration publique.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "it": "En votre qualité de secrétaire, vous participez à la bonne marche de la plateforme administrative et financière de la région Crenol et collaborez de manière continue avec les psychologues, logopédistes et psychomotriciens en milieu scolaire.\n\n• Coordonner l'accueil et la gestion des nouvelles demandes de prestations (psychologie, logopédie et psychomotricité en milieu scolaire) et gérer l'ensemble du processus administratif des dossiers des enfants.\n• Assister à la gestion administrative du personnel et au suivi des formations-supervisions\n• Appuyer la gestion courante du secrétariat de la plateforme administrative et financière. Participer au processus du support administratif aux équipes. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Certificat fédéral de capacité (CFC) d'employé ·e de commerce ou titre jugé équivalent\n• Au minimum 5 ans d'expérience dans un secrétariat ou une administration publique.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "en": "En votre qualité de secrétaire, vous participez à la bonne marche de la plateforme administrative et financière de la région Crenol et collaborez de manière continue avec les psychologues, logopédistes et psychomotriciens en milieu scolaire.\n\n• Coordonner l'accueil et la gestion des nouvelles demandes de prestations (psychologie, logopédie et psychomotricité en milieu scolaire) et gérer l'ensemble du processus administratif des dossiers des enfants.\n• Assister à la gestion administrative du personnel et au suivi des formations-supervisions\n• Appuyer la gestion courante du secrétariat de la plateforme administrative et financière. Participer au processus du support administratif aux équipes. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Certificat fédéral de capacité (CFC) d'employé ·e de commerce ou titre jugé équivalent\n• Au minimum 5 ans d'expérience dans un secrétariat ou une administration publique.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
+        "de": "En votre qualité de secrétaire, vous participez à la bonne marche de la plateforme administrative et financière de la région Crenol et collaborez de manière continue avec les psychologues, logopédistes et psychomotriciens en milieu scolaire.\n\n• Coordonner l'accueil et la gestion des nouvelles demandes de prestations (psychologie, logopédie et psychomotricité en milieu scolaire) et gérer l'ensemble du processus administratif des dossiers des enfants.\n• Assister à la gestion administrative du personnel et au suivi des formations-supervisions\n• Appuyer la gestion courante du secrétariat de la plateforme administrative et financière. Participer au processus du support administratif aux équipes. La communication d’éventuels antécédents judiciaires est requise pour cette fonction. Merci de nous transmettre un dossier de candidature COMPLET comprenant le CV, diplômes et certificats de travail. Pour de plus amples informations, veuillez consulter de cahier des charges en cliquant ici ou prendre contact avec Monsieur Florian Jaques, responsable régional, qui se tient volontiers à votre disposition au 021 557 86 66.\n\n• Certificat fédéral de capacité (CFC) d'employé ·e de commerce ou titre jugé équivalent\n• Au minimum 5 ans d'expérience dans un secrétariat ou une administration publique.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+      },
+      "location": "Renens VD",
+      "canton": "VD",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5809",
+      "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-02T13:47:57.488Z",
+      "addressLocality": "Renens VD",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1020",
+      "streetAddress": "Place du Château 1",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-08",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5809",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-07-05T11:43:20.041Z"
     },
     {
       "id": "etat-de-vaud-5750",
@@ -3927,7 +4303,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "etat-de-vaud-5741",
@@ -3935,7 +4311,7 @@
       "slugByLocale": {
         "it": "registrazione-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "registrar-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "de": "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "fr": "greffier-ere-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
@@ -3945,7 +4321,7 @@
       "titleByLocale": {
         "it": "Registrazione",
         "en": "Registrar",
-        "de": "Kanzler",
+        "de": "Greffier·ère",
         "fr": "Greffier·ère"
       },
       "description": "Le domaine judiciaire vous intéresse ? Rédiger des décisions judiciaires et prendre des procès-verbaux vous motive particulièrement ? Vous souhaitez évoluer dans un environnement de travail stimulant ? Rejoignez-nous ! Rattachés à l’Ordre judiciaire vaudois, les quatre tribunaux d’arrondissement du canton statuent en première instance dans de nombreuses causes relevant du droit pénal et du droit civil au sens large. Ils comprennent chacun plusieurs chambres (pénale, familiale, pécuniaire, etc.). Afin de renforcer l’équipe en place, le Tribunal d'arrondissement de Lausanne , qui emploie près de 100 magistrat·e·s et collaborateur·trice·s, recherche un·e greffier·ière .\n\n• Assister les président·e·s du Tribunal lors des audiences.\n• Analyser les dossiers, procéder à toutes les recherches utiles, notamment juridiques, permettant de préparer l’audience et l’activité rédactionnelle.\n• Tenir à jour les procès-verbaux d’auditions et établir des projets de décisions judiciaires en rédigeant l’état de fait et en veillant à traiter tous les moyens de droits (sur la base de notes ou d’instructions).\n• Effectuer les corrections apportées par le·a Président·e en charge du dossier et veiller à la bienfacture de l’original de la décision ainsi qu’à sa finalisation.\n• Participer à la gestion des dossiers (courrier, suivi des délais, téléphones, etc.) et procéder à des recherches juridiques.\n• Renseigner les parties et leurs conseils, les instances judiciaires et administratives, ainsi que tout autre interlocuteur pouvant justifier d’un intérêt légitime, sur les différentes procédures. Vous trouverez de plus amples informations dans le cahier des charges, en cliquant ici . Vous avez des questions ? Mme Caroline Schulz, Première greffière , se tient volontiers à votre disposition au 021 316 69 00 .\n\n• Master en droit ou titre universitaire jugé équivalent\n• Plusieurs années d'expérience professionnelle souhaitées\n• Sens du service public et des responsabilités\n• Goût pour la rédaction de décisions judiciaires et la prise de procès-verbaux\n• Excellente orthographe, maîtrise de la dactylographie rigueur, précision et discrétion\n• Très bonne résistance au stress Dans le cadre de la procédure de recrutement, les candidat·e·s seront amené·e·s à présenter un extrait du registre des poursuites ainsi qu'un casier judiciaire datant de moins de 3 mois.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
@@ -4010,7 +4386,8 @@
         "registrar-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
         "cancelliere-a-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "clerk-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
+        "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
+        "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4028,6 +4405,7 @@
         "de": [
           "greffier-ere-etat-de-vaud-lausanne",
           "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne-ab8fbb",
+          "kanzler-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
           "greffier-ere-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ]
       },
@@ -4045,7 +4423,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5730",
@@ -4126,7 +4505,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
