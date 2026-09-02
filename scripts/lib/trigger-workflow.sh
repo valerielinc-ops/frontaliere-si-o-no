@@ -120,9 +120,34 @@ TEMP_ROOT="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
 TEMP_DIR="$(mktemp -d "${TEMP_ROOT%/}/trigger-workflow.XXXXXX")"
 trap 'rm -rf "$TEMP_DIR"' EXIT
 
+# Headers of the most recent pre-dispatch polling request (read_ref_sha /
+# commit_is_expected_or_descendant), overwritten on every call so the wait
+# loop below can detect a GitHub secondary rate-limit (403) and honor its
+# `Retry-After` instead of treating it like any other transient error.
+RESPONSE_HEADERS_FILE="${TEMP_DIR}/response-headers.txt"
+
 body_is_bounded() {
   local file="$1"
   [ -f "$file" ] && [ "$(wc -c < "$file" | tr -d ' ')" -le "$MAX_RESPONSE_BYTES" ]
+}
+
+last_http_status_code() {
+  local file="$1"
+  [ -f "$file" ] || return 1
+  # Header lines are CRLF-terminated; strip the trailing \r so the extracted
+  # code compares cleanly against a plain "403" string.
+  awk 'toupper($0) ~ /^HTTP\/[0-9.]+ [0-9]+/ {code=$2} END {gsub(/\r/, "", code); if (code != "") print code; else exit 1}' "$file"
+}
+
+retry_after_seconds() {
+  local file="$1"
+  local cap="$2"
+  [ -f "$file" ] || return 1
+  local value
+  value="$(grep -i '^retry-after:' "$file" 2>/dev/null | tail -1 | tr -dc '0-9')"
+  [ -n "$value" ] || return 1
+  if [ "$value" -gt "$cap" ]; then value="$cap"; fi
+  printf '%s' "$value"
 }
 
 ENCODED_REF="$(node -e 'process.stdout.write(encodeURIComponent(process.argv[1]))' "$REF")"
@@ -131,11 +156,13 @@ read_ref_sha() {
   local ref="$1"
   local response_file="${TEMP_DIR}/ref-response.json"
   local http_code
+  rm -f "$RESPONSE_HEADERS_FILE"
   if ! http_code="$(curl --silent --show-error \
     --connect-timeout 10 \
     --max-time 30 \
     --max-filesize "$MAX_RESPONSE_BYTES" \
     --output "$response_file" \
+    --dump-header "$RESPONSE_HEADERS_FILE" \
     --write-out "%{http_code}" \
     "https://api.github.com/repos/${REPO}/commits/${ref}" \
     -H "Accept: application/vnd.github+json" \
@@ -166,11 +193,13 @@ commit_is_expected_or_descendant() {
   fi
   [[ "$candidate_sha" =~ ^[a-f0-9]{40,64}$ ]] || return 1
 
+  rm -f "$RESPONSE_HEADERS_FILE"
   if ! http_code="$(curl --silent --show-error \
     --connect-timeout 10 \
     --max-time 30 \
     --max-filesize "$MAX_RESPONSE_BYTES" \
     --output "$response_file" \
+    --dump-header "$RESPONSE_HEADERS_FILE" \
     --write-out "%{http_code}" \
     "https://api.github.com/repos/${REPO}/compare/${expected_sha}...${candidate_sha}?per_page=1" \
     -H "Accept: application/vnd.github+json" \
@@ -224,7 +253,21 @@ if [ -n "$EXPECTED_SHA" ]; then
     else
       echo "… unable to read ${REF} head SHA (attempt ${attempt}/${WAIT_ATTEMPTS})"
     fi
-    sleep "$WAIT_SECONDS"
+    NEXT_SLEEP_SECONDS="$WAIT_SECONDS"
+    # A GitHub secondary rate-limit (403) during polling is not a generic
+    # error: hammering it at the fixed WAIT_SECONDS cadence just re-triggers
+    # it. Honor the server-declared `Retry-After` when present, otherwise
+    # back off to at least 5s instead of the (possibly sub-second) default.
+    if [ "$(last_http_status_code "$RESPONSE_HEADERS_FILE" 2>/dev/null || true)" = "403" ]; then
+      if RETRY_AFTER_VALUE="$(retry_after_seconds "$RESPONSE_HEADERS_FILE" 60 2>/dev/null)"; then
+        NEXT_SLEEP_SECONDS="$RETRY_AFTER_VALUE"
+        echo "⏸️ secondary rate-limit (403) — honoring Retry-After: ${NEXT_SLEEP_SECONDS}s before next poll"
+      else
+        NEXT_SLEEP_SECONDS=$(( WAIT_SECONDS > 5 ? WAIT_SECONDS : 5 ))
+        echo "⏸️ secondary rate-limit (403) without Retry-After — backing off ${NEXT_SLEEP_SECONDS}s before next poll"
+      fi
+    fi
+    sleep "$NEXT_SLEEP_SECONDS"
   done
   if [ "$REACHED" != "1" ]; then
     echo "❌ ${REF} did not contain ${EXPECTED_SHA} in time — dispatch blocked"
