@@ -1,18 +1,18 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-02T13:49:04.071Z",
+  "generatedAt": "2026-09-02T23:23:21.675Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6271,
-  "avgDurationMs": 6271,
+  "durationMs": 5087,
+  "avgDurationMs": 5087,
   "durationHistory": [
-    6271
+    5087
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://career.ricola.com/Vacancies/1063/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:49:01.851Z",
+      "crawledAt": "2026-09-02T23:23:18.770Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -67,7 +67,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:49:02.294Z",
+      "crawledAt": "2026-09-02T23:23:19.172Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -93,49 +93,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "ricola-2c30adc9413a",
-      "slug": "accounting-specialista-ricola-laufen",
-      "company": "Ricola",
-      "companyKey": "ricola",
-      "companyDomain": "ricola.com",
-      "title": "Accounting Specialist",
-      "needsRetranslation": false,
-      "location": "Laufen",
-      "canton": "BL",
-      "url": "https://career.ricola.com/Vacancies/1048/Description/2",
-      "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-01T10:32:32.071Z",
-      "addressLocality": "Laufen",
-      "addressRegion": "BL",
-      "streetAddress": "Baselstrasse 31",
-      "postalCode": "4242",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "contract": "temporary",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria alimentare / Dolciumi",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://career.ricola.com/Vacancies/1048/Description/2",
-      "firstSeenAt": "2026-07-04T12:16:40.503Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
