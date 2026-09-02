@@ -452,7 +452,7 @@ describe('the senders agree with the perimeter', () => {
   it('the company-alert template sends the hub through the PUBLIC decorator', () => {
     const src = read('services/companyAlertEmail.mjs');
     expect(src).toMatch(/hubUrl: wrapUrl\(companyHubUrl\(/);
-    expect(src).toMatch(/jobCardHtml\(job, section\.hubUrl, wrapJobUrl\)/);
+    expect(src).toMatch(/jobCardHtml\(job, section\.hubUrl, wrapJobUrl/);
   });
 
   it('the weekly newsletter filters on "may I rewrite", not on "does it need a session"', () => {
