@@ -5077,6 +5077,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Asilo nido e custodia bambini a Basilea Campagna: costi',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Tariffe e sussidi per asili nido e custodia in Basilea Campagna. Come funziona la tariffazione calcolata sul reddito e quali agevolazioni sono disponibili.',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Aula colorata di asilo nido svizzero con bambini piccoli e educatori durante attività didattiche',
+    'blog.article.salari-grigioni-settori-livelli.title': 'Salari e mercato del lavoro in Grigioni',
+    'blog.article.salari-grigioni-settori-livelli.excerpt': 'Settori che assumono, livelli salariali per formazione e contratti collettivi nel Canton Grigioni: guida ai meccanismi svizzeri.',
+    'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Spazio di lavoro professionale nel Cantone di Grigioni con documenti di stipendio e calcolatore',
 };
 
 export default blogMetaChIt;

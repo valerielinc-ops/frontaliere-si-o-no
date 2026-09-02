@@ -65891,6 +65891,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-grigioni-settori-livelli': {
+    title: 'Salari e mercato del lavoro in Grigioni | Frontaliere Ticino',
+    description: 'Scopri come funzionano salari e mercato del lavoro nel Canton Grigioni: quali settori assumono, livelli salariali per formazione, contratti collettivi',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, grigioni',
+    ogTitle: 'Salari e mercato del lavoro in Grigioni',
+    ogDescription: 'Guida ai salari nel Canton Grigioni: quali settori assumono, livelli salariali per formazione, contratti collettivi in vigore, contributi obbligatori (AVS 5.3%, LPP 7-18%, LAMal) e come verificare uno stipendio corretto con SECO e UST/BFS.',
+    canonicalPath: '/articoli-svizzera/salari-grigioni-settori-livelli/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro in Grigioni",
+      "description": "Scopri come funzionano salari e mercato del lavoro nel Canton Grigioni: quali settori assumono, livelli salariali per formazione, contratti collettivi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-grigioni-settori-livelli.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spazio di lavoro professionale nel Cantone di Grigioni con documenti di stipendio e calcolatore"
+      },
+      "datePublished": "2026-09-02T06:07:54+00:00",
+      "dateModified": "2026-09-02T06:07:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-grigioni-settori-livelli/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5077,6 +5077,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Kindertagesstätten und Kinderbetreuung im Kanton Basel-Landschaft: Kosten',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Gebühren und Zuschüsse für Kindertagesstätten und Kinderbetreuung im Kanton Basel-Landschaft. Wie funktioniert die einkommensabhängige Gebührenberechnung und welche Vergünstigungen gibt es?',
     'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Helle Schweizer Kindertagesstätte mit Kindern, Erziehern und bunten pädagogischen Aktivitäten',
+    'blog.article.salari-grigioni-settori-livelli.title': 'Löhne und Arbeitsmarkt in Graubünden',
+    'blog.article.salari-grigioni-settori-livelli.excerpt': 'Branchen mit Stellenangeboten, Lohnniveaus nach Ausbildung und Gesamtarbeitsverträge im Kanton Graubünden: Ein Leitfaden zu den Schweizer Regelungen.',
+    'blog.article.salari-grigioni-settori-livelli.imageAlt': 'Professioneller Arbeitsplatz im Kanton Graubünden mit Gehaltsdokumenten und Rechner auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;
