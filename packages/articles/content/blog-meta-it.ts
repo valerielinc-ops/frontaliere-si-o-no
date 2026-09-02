@@ -11155,6 +11155,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-malles-venosta-lavorare-grigioni.title': 'Malles Venosta e Grigioni: fiscalita frontaliere 2024',
     'blog.article.vivere-malles-venosta-lavorare-grigioni.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri modifica tassazione e permessi. Scopri imposta alla fonte, franchigie, AVS e LAMal per chi vive in Val Venosta e lavora in Svizzera.',
     'blog.article.vivere-malles-venosta-lavorare-grigioni.imageAlt': 'Paesaggio montano della Val Venosta con vista verso i Grigioni svizzeri, zone frontaliere Italia-Svizzera',
+    'blog.article.guida-vivere-mese-grigioni.title': 'Vivere a Mese e lavorare nei Grigioni: guida fiscale',
+    'blog.article.guida-vivere-mese-grigioni.excerpt': 'Permesso G, imposta alla fonte e franchigia del reddito frontaliere: guida per chi vive a Mese e lavora nei Grigioni svizzeri. Norme 2024, LAMal, procedura.',
+    'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Panorama del confine Svizzera-Italia sul Lago di Lugano al tramonto',
 };
 
 export default blogMetaIt;

@@ -11153,6 +11153,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-malles-venosta-lavorare-grigioni.title': 'Mals Vinschgau und Graubünden: Grenzsteuer 2024',
     'blog.article.vivere-malles-venosta-lavorare-grigioni.excerpt': 'Ab dem 1. Januar 2024 ändert die Neue Grenzgängervereinbarung die Besteuerung und Genehmigungen. Entdecken Sie Quellensteuer, Franchisen, AHV und KVG für diejenigen, die im Vinschgau leben und in der Schweiz arbeiten.',
     'blog.article.vivere-malles-venosta-lavorare-grigioni.imageAlt': 'Alpentallandschaft an der Grenze Val Venosta-Graubunden, Blick auf die Schweizer Grenzregion',
+    'blog.article.guida-vivere-mese-grigioni.title': 'Wohnen in Monat und Arbeiten in Graubünden: Steuerleitfaden',
+    'blog.article.guida-vivere-mese-grigioni.excerpt': 'G-Bewilligung, Quellensteuer und Grenzeinkommensfreibetrag: Leitfaden für Personen, die in Monat leben und in Graubünden arbeiten. Normen 2024, KVG, Verfahren.',
+    'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Panoramablick auf die Grenze Schweiz-Italien am Luganer See bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

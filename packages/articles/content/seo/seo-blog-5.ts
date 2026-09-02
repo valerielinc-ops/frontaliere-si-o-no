@@ -83102,6 +83102,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-vivere-mese-grigioni': {
+    title: 'Vivere a Mese e lavorare nei Grigioni: guida fiscale',
+    description: 'Permesso G, imposta alla fonte e franchigia del reddito frontaliere: guida per chi vive a Mese e lavora nei Grigioni svizzeri. Norme 2024, LAMal, procedura.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, mese, lavorare, grigioni',
+    ogTitle: 'Frontaliere nei Grigioni: vivere a Mese, guida 2024',
+    ogDescription: 'Trasferirsi a Mese per lavorare nei Grigioni: scopri come funziona il Permesso G, l\'imposta alla fonte svizzera, le franchigie del Nuovo Accordo 2024, la protezione sociale AVS/LPP/LAMal e la procedura pratica per iniziare.',
+    canonicalPath: '/articoli-frontaliere/guida-vivere-mese-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Mese e lavorare nei Grigioni: guida fiscale",
+      "description": "Permesso G, imposta alla fonte e franchigia del reddito frontaliere: guida per chi vive a Mese e lavora nei Grigioni svizzeri. Norme 2024, LAMal, procedura.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-vivere-mese-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del confine Svizzera-Italia sul Lago di Lugano al tramonto"
+      },
+      "datePublished": "2026-09-02T23:43:39+00:00",
+      "dateModified": "2026-09-02T23:43:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-vivere-mese-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
