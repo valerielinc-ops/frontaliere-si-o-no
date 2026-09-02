@@ -1,18 +1,18 @@
 {
   "key": "rhne-reseau-hospitalier-neuchatelois",
   "label": "Réseau hospitalier neuchâtelois (RHNE)",
-  "generatedAt": "2026-09-01T23:15:48.536Z",
+  "generatedAt": "2026-09-02T13:44:48.689Z",
   "total": 1,
   "discovered": null,
   "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7509,
-  "avgDurationMs": 7509,
+  "durationMs": 7926,
+  "avgDurationMs": 7926,
   "durationHistory": [
-    7509
+    7926
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=7d8be38b-93e4-4258-b4a0-47a77e6250c1&cat=all",
       "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:15:44.918Z",
+      "crawledAt": "2026-09-02T13:44:44.749Z",
       "addressLocality": "La Chaux-de-Fonds",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -55,49 +55,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "rhne-reseau-hospitalier-neuchatelois-9f9f89f8d0a7",
-      "slug": "specialiste-rh-a-70-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-      "company": "Réseau hospitalier neuchâtelois (RHNE)",
-      "companyKey": "rhne-reseau-hospitalier-neuchatelois",
-      "companyDomain": "rhne.ch",
-      "title": "Spécialiste RH à 70%",
-      "needsRetranslation": true,
-      "location": "Neuchâtel",
-      "canton": "NE",
-      "url": "https://www.rhne.ch/espace-emploi/emploi/postuler/tous-les-postes?jobId=29e6659d-1c0b-41c2-b8ca-0aa28bcb044a&cat=all",
-      "source": "RHNE Réseau hospitalier neuchâtelois Dedicated Parser (Liferay HTML listing)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-01T08:40:07.584Z",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2000",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://www.jobup.ch/fr/application/create/29e6659d-1c0b-41c2-b8ca-0aa28bcb044a?utm_source=relationship&utm_medium=referral&utm_campaign=wb%3Ajobup%7Ctg%3Ab2c%7Ccn%3Ach%7Clg%3A%7Cmg%3Ajob-application%2Cnonbrand%2Cjob%7Ccd%3Akombi",
-      "externalId": "29",
-      "firstSeenAt": "2026-08-31T17:15:54.164Z",
-      "salaryMin": 60200,
-      "salaryMax": 84000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
