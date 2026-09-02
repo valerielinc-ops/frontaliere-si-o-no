@@ -66359,6 +66359,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-programma-modernizzazione-alberghi-montagna': {
+    title: 'Alberghi di montagna: 100 milioni per la modernizzazione',
+    description: 'Il Consiglio federale investe 100 milioni di franchi in otto anni per il risanamento energetico e la modernizzazione degli alberghi di montagna. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, alberghi, montagna, milioni, modernizzazione',
+    ogTitle: 'Alberghi di montagna: 100 milioni per la modernizzazione',
+    ogDescription: 'Il governo federale ha approvato un programma di 100 milioni di franchi per ammodernare le strutture ricettive alpine, puntando sull\'efficienza energetica tramite la SCA.',
+    canonicalPath: '/articoli-svizzera/programma-modernizzazione-alberghi-montagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alberghi di montagna: 100 milioni per la modernizzazione",
+      "description": "Il Consiglio federale investe 100 milioni di franchi in otto anni per il risanamento energetico e la modernizzazione degli alberghi di montagna. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/programma-modernizzazione-alberghi-montagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Moderno albergo di montagna nelle Alpi svizzere."
+      },
+      "datePublished": "2026-09-02T09:06:54+00:00",
+      "dateModified": "2026-09-02T09:06:54+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/programma-modernizzazione-alberghi-montagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

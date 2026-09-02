@@ -1730,6 +1730,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'malattie-rare-cure-efficaci-2027': { it: 'malattie-rare-cure-efficaci-2027', en: 'rare-diseases-effective-care-2027', de: 'seltene-krankheiten-effektive-versorgung-2027', fr: 'maladies-rares-soins-efficaces-2027' },
  'impulso-alberghi-montagna': { it: 'impulso-alberghi-montagna', en: 'mountain-hotel-impulse-program', de: 'impuls-programm-berghotels', fr: 'programme-impulsion-hotels-montagne' },
  'accordo-investimenti-saudi-2026': { it: 'accordo-investimenti-saudi-2026', en: 'swiss-saudi-investment-agreement-2026', de: 'schweizer-saudischer-investitionsvertrag-2026', fr: 'accord-dinvestissement-suisse-saoudien-2026' },
+ 'programma-modernizzazione-alberghi-montagna': { it: 'programma-modernizzazione-alberghi-montagna', en: 'mountain-hotel-modernization-program', de: 'modernisierungsprogramm-berghotels', fr: 'programme-modernisation-hotels-montagne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

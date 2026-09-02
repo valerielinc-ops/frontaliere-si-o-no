@@ -5113,6 +5113,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.accordo-investimenti-saudi-2026.title': 'Consiglio federale adotta messaggio su Accordo con Arabia Saudita',
     'blog.article.accordo-investimenti-saudi-2026.excerpt': 'Il Consiglio federale ha adottato il messaggio sull’Accordo di protezione e promozione degli investimenti con l’Arabia Saudita, colmando il vuoto giuridico creato dopo la denuncia dell’accordo precedente.',
     'blog.article.accordo-investimenti-saudi-2026.imageAlt': 'Vista aerea di Lugano con il lago Ceresio sullo sfondo',
+    'blog.article.programma-modernizzazione-alberghi-montagna.title': 'Alberghi di montagna: 100 milioni per la modernizzazione',
+    'blog.article.programma-modernizzazione-alberghi-montagna.excerpt': 'Il Consiglio federale vara un programma di 100 milioni di franchi in otto anni per il risanamento energetico delle strutture alberghiere di montagna.',
+    'blog.article.programma-modernizzazione-alberghi-montagna.imageAlt': 'Moderno albergo di montagna nelle Alpi svizzere.',
 };
 
 export default blogMetaChIt;
