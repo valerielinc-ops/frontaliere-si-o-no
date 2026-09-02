@@ -11082,6 +11082,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.title': 'Leben in Cossogno und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
     'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.excerpt': 'Von der Besteuerung bis zu den Lebenshaltungskosten: Alles, was Sie wissen müssen, um in Cossogno zu leben und als Grenzgänger im Tessin zu arbeiten.',
     'blog.article.vivere-cossogno-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf das Dorf Cossogno am Lago Maggiore mit Schweizer Alpen im Hintergrund',
+    'blog.article.vivere-lazzate-ticino-frontaliere.title': 'Leben in Lazzate, Arbeiten im Tessin: Der Reiseführer',
+    'blog.article.vivere-lazzate-ticino-frontaliere.excerpt': 'Lazzate bietet niedrigere Wohnpreise für Grenzgänger. Entdecken Sie Reisezeiten, Pendelkosten, Besteuerung (Quellensteuer), G-Bewilligung und Schritt-für-Schritt-Verfahren.',
+    'blog.article.vivere-lazzate-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganer See mit Schweizer und italienischen Ufern, Symbol der Grenzpendler-Mobilität',
 };
 
 export default blogMetaDe;
