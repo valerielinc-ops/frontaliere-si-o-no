@@ -5146,6 +5146,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-federale-consultazione-agricola-2030.title': 'Conseil fédéral lance la consultation agricole 2030',
     'blog.article.consiglio-federale-consultazione-agricola-2030.excerpt': 'Berne, le 2 septembre 2026 : le Conseil fédéral ouvre la consultation PA30+. Budget CHF 13,8 milliards pour 2030-2033. Marge de manœuvre pour les agriculteurs, durabilité de la chaîne d\'approvisionnement. Participation publique jusqu\'au 8 décembre.',
     'blog.article.consiglio-federale-consultazione-agricola-2030.imageAlt': 'Vue du coucher de soleil à Lugano, Suisse — symbole de la prospérité grâce à la sécurité alimentaire',
+    'blog.article.margine-manovra-agricoltori-svizzera.title': 'Agriculture 2030 : marge de manœuvre élargie',
+    'blog.article.margine-manovra-agricoltori-svizzera.excerpt': 'Conseil fédéral lance la consultation PA30+ jusqu\'au 8 décembre. 13,8 milliards CHF pour réformer les paiements agricoles, renforcer la sécurité alimentaire suisse.',
+    'blog.article.margine-manovra-agricoltori-svizzera.imageAlt': 'Paysage rural suisse avec champs et montagnes en arrière-plan, symbole du secteur agricole national',
 };
 
 export default blogMetaChFr;
