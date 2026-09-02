@@ -5041,6 +5041,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Kindertagesstätte und Kinderbetreuung in Basel-Stadt: Tarife und Zuschüsse',
     'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Leitfaden zur Kinderbetreuung im Kanton Basel-Stadt: Progressive Tarife, Kantonsbeiträge und eidgenössische Familiensteuerabzüge. So greifen Sie auf die Dienste zu.',
     'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Schweizer Kinderbetreuungszentrum mit spielenden Kindern in einer modernen, hellen Einrichtung.',
+    'blog.article.naturalizzazione-basilea-requisiti.title': 'Einbürgerung Basel-Stadt: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Umfassender Leitfaden zu den eidgenössischen und kantonalen Voraussetzungen für die ordentliche Einbürgerung im Kanton Basel-Stadt, von Dokumenten bis hin zu Sprachprüfungen.',
+    'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'Ansicht des Rathauses und des Verwaltungsbereichs Basel-Stadt, Schweiz, wo ordentliche Naturalisierungsverfahren durchgeführt werden.',
 };
 
 export default blogMetaChDe;
