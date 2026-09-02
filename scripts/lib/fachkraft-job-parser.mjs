@@ -37,8 +37,14 @@ const CAREER_URL = 'https://www.fachkraft.ch/stellen/';
 export const FACHKRAFT_DESCRIPTION_MIN_WORDS = 50;
 export const FACHKRAFT_FETCH_BUDGET = Object.freeze({
   requestTimeoutMs: 15_000,
-  retries: 1,
-  retryBaseMs: 1_500,
+  // fachkraft.ch rate-limits (HTTP 429) after a few hundred sequential detail
+  // requests even at the polite 1 req/host-delay pace; a single retry (#7134)
+  // exhausts before the site's cooldown window clears. politeFetch already
+  // renews the shared host cooldown from Retry-After on every fresh 429
+  // (bounded 60s/attempt), so more attempts buy proportionally more patience
+  // — well within the 90-minute run budget below.
+  retries: 4,
+  retryBaseMs: 2_000,
   runTimeoutMs: 90 * 60_000,
   detailWorkers: 4,
 });
@@ -103,7 +109,7 @@ function createBoundedRuntime(options, runSignal) {
     FACHKRAFT_FETCH_BUDGET.requestTimeoutMs,
     { min: 10, max: FACHKRAFT_FETCH_BUDGET.requestTimeoutMs },
   );
-  const retries = boundedInteger(options.retries, FACHKRAFT_FETCH_BUDGET.retries, { min: 0, max: 2 });
+  const retries = boundedInteger(options.retries, FACHKRAFT_FETCH_BUDGET.retries, { min: 0, max: 6 });
   const retryBaseMs = boundedInteger(options.retryBaseMs, FACHKRAFT_FETCH_BUDGET.retryBaseMs, {
     min: 0,
     max: 10_000,
