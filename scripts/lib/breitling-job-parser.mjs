@@ -215,16 +215,29 @@ function detectEmploymentType(title = '') {
 function parseLocation(raw = '') {
   const cleaned = String(raw || '').replace(/<br\s*\/?>/gi, '').trim();
   const parts = cleaned.split(',').map((p) => p.trim());
-  // Expect: [city, canton, "CHE", postalCode?]
-  const cityRaw = parts[0] || '';
+
+  // The "CHE" country-code token's position tells apart the two shapes this
+  // feed actually sends: the usual [city, canton, "CHE", postalCode?] (e.g.
+  // "Bern, BE, CHE, ") vs. the Zurich-boutique canton-only form with NO city
+  // token at all — [canton, "CHE", postalCode] (e.g. "ZH, CHE, 8002"). The
+  // latter used to be misread as [city="ZH", canton="CHE"→invalid→HQ fallback
+  // SO, postalCode=parts[3]→undefined], silently substituting Solothurn HQ
+  // for a Zürich posting and dropping the real postal code.
+  const cheIndex = parts.findIndex((p) => /^che$/i.test(p));
+  const isCantonOnlyForm = cheIndex === 1;
+
+  const cityRaw = isCantonOnlyForm ? '' : (parts[0] || '');
+  const cantonRaw = isCantonOnlyForm ? (parts[0] || '') : (parts[1] || '');
+  const postalRaw = (isCantonOnlyForm ? (parts[2] || '') : (parts[3] || '')).trim();
+
   // Validate against the real 26-canton registry — a well-formed-but-wrong
   // 2-letter token from the feed must not be trusted verbatim (AGENTS.md #6
   // sibling class shared with ghol/holcim/stadler-rail/spitex-ch).
-  const canton = normalizeCantonCode(parts[1] || '');
-  const postalRaw = (parts[3] || '').trim();
+  const canton = normalizeCantonCode(cantonRaw);
   const postalCode = /^\d{4}$/.test(postalRaw) ? postalRaw : '';
 
-  const isBareCantonCode = !!normalizeCantonCode(cityRaw) && cityRaw.toUpperCase() === canton;
+  const isBareCantonCode = !cityRaw
+    || (!!normalizeCantonCode(cityRaw) && cityRaw.toUpperCase() === canton);
   const city = (!cityRaw || isBareCantonCode)
     ? (CANTON_CITY_FALLBACK[canton] || cityRaw || HQ.city)
     : cityRaw;
