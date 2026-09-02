@@ -5023,6 +5023,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-soletta-diritti-inquilini.title': 'Soleta Rentals: Medium Rentals and Rental Law',
     'blog.article.affitti-soletta-diritti-inquilini.excerpt': 'Security deposit, chargeback, cancellation: the federal rules on renting and leasing in Switzerland and cantonal conciliation procedures.',
     'blog.article.affitti-soletta-diritti-inquilini.imageAlt': 'Swiss residential building facade with balconies in a modern urban neighborhood.',
+    'blog.article.comprare-casa-grigioni-procedure-fondi.title': 'Buying a house in Graubünden: a guide to funds and mortgages',
+    'blog.article.comprare-casa-grigioni-procedure-fondi.excerpt': 'Procedure, own funds, mortgage loan and taxation on three levels. How to buy a property in Switzerland complying with federal and cantonal regulations.',
+    'blog.article.comprare-casa-grigioni-procedure-fondi.imageAlt': 'Modern Swiss residential neighborhood with traditional chalets and contemporary apartments overlooking an Alpine valley',
 };
 
 export default blogMetaChEn;
