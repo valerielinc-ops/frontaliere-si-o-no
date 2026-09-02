@@ -5131,6 +5131,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-argovia-guida.title': 'Permesso L nel Canton Argovia: validità e rinnovo',
     'blog.article.permesso-l-argovia-guida.excerpt': 'Guida al permesso L di breve durata nel Canton Argovia: regole di validità, procedure di proroga e criteri per il passaggio al permesso B.',
     'blog.article.permesso-l-argovia-guida.imageAlt': 'Ufficio della migrazione nel Cantone di Argovia',
+    'blog.article.postazione-lavoro-sovranita-digitale.title': 'Cancelleria: programma per lavoro digitale',
+    'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'Entro la fine del 2027, circa 3000 collaboratori avranno accesso a una postazione di lavoro basata sulla sovranità digitale.',
+    'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'Una postazione di lavoro digitale in un ufficio federale svizzero.',
 };
 
 export default blogMetaChIt;

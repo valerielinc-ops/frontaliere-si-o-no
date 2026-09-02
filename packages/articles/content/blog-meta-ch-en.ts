@@ -5131,6 +5131,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-argovia-guida.title': 'Permit L in the Canton of Aargau: validity and renewal',
     'blog.article.permesso-l-argovia-guida.excerpt': 'Guide to Short-Term Permit L in the Canton of Aargau: Validity Rules, Extension Procedures, and Criteria for Switching to Permit B.',
     'blog.article.permesso-l-argovia-guida.imageAlt': 'Migration office in the Canton of Aargau',
+    'blog.article.postazione-lavoro-sovranita-digitale.title': 'Stationery: program for digital work',
+    'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'By the end of 2027, around 3,000 employees will have access to a workstation based on digital sovereignty.',
+    'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'A digital workspace in a Swiss federal office.',
 };
 
 export default blogMetaChEn;
