@@ -213,6 +213,18 @@ export async function fetchDennerJobUrls() {
         }
         if (allUrls.size > before) break;
       }
+      if (allUrls.size === before) {
+        // A genuinely slow (but real) last page can still be mid-render after
+        // paginationStallPolls fixed-length polls. Give it one more chance
+        // keyed on actual network activity instead of another fixed wait: a
+        // page still fetching/rendering blocks here until it settles
+        // (bounded by paginationTimeoutMs); an already-idle page (the real
+        // stall case) resolves immediately, changing nothing.
+        await page.waitForLoadState('networkidle', { timeout: paginationTimeoutMs }).catch(() => {});
+        for (const href of await collect()) {
+          allUrls.add(new URL(href, `https://${DENNER_HOST}`).toString());
+        }
+      }
       console.log(`  \ud83d\udce6 page ${pageIndex}: ${allUrls.size} total URL(s)`);
       if (allUrls.size === before) {
         throw new Error(
