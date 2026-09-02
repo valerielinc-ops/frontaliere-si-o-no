@@ -5179,6 +5179,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.estate-calda-svizzera-2026.title': 'Jeder zweite Sommer wird wärmer als der aktuelle',
     'blog.article.estate-calda-svizzera-2026.excerpt': 'Laut Klimatologe Reto Knutti wird jeder zweite Sommer wärmer sein als heute. Notwendige dringende Maßnahmen in den Städten.',
     'blog.article.estate-calda-svizzera-2026.imageAlt': 'Luftaufnahme einer Schweizer Stadt mit Grünflächen und modernen Gebäuden, die die Auswirkungen des Klimawandels zeigt.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Einbürgerung im Kanton Schaffhausen: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Erfahren Sie mehr über die Voraussetzungen und das Verfahren für die ordentliche Einbürgerung im Kanton Schaffhausen.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Panoramablick auf Schaffhausen mit dem Rhein',
 };
 
 export default blogMetaChDe;

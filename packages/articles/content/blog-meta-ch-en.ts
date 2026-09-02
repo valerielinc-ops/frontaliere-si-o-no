@@ -5179,6 +5179,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.estate-calda-svizzera-2026.title': 'One in two summers will be warmer than the current one',
     'blog.article.estate-calda-svizzera-2026.excerpt': 'According to climatologist Reto Knutti, one in two summers will be warmer than the current one. Urgent interventions needed in cities.',
     'blog.article.estate-calda-svizzera-2026.imageAlt': 'Aerial view of a Swiss city with green spaces and modern buildings, highlighting the impact of climate change.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.title': 'Naturalization in the canton of Schaffhausen: requirements and procedure',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.excerpt': 'Learn about the requirements and procedure for ordinary naturalization in the Canton of Schaffhausen.',
+    'blog.article.naturalizzazione-canton-sciaffusa-requisiti-procedura.imageAlt': 'Panoramic view of Schaffhausen with the Rhine River',
 };
 
 export default blogMetaChEn;
