@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { anchorEvidence, matchedAnchors } from '../scripts/lib/article-factuality-gates.mjs';
+import { escapeRegExpLiteral } from '../scripts/lib/escape-regexp.mjs';
 
 describe('anchorNeedle — valori sorgente con metacaratteri regex', () => {
   it('localizza un valore org con un punto letterale', () => {
@@ -22,4 +23,12 @@ describe('anchorNeedle — valori sorgente con metacaratteri regex', () => {
       expect(anchorEvidence(source, 'pct:1.2.3')).toBe(source);
     },
   );
+});
+
+describe('escapeRegExpLiteral — anchor value non-stringa', () => {
+  it('lancia rumorosamente invece di produrre un pattern letterale "undefined"', () => {
+    expect(() => escapeRegExpLiteral(undefined)).toThrow(TypeError);
+    expect(() => escapeRegExpLiteral(null)).toThrow(TypeError);
+    expect(() => escapeRegExpLiteral(42)).toThrow(TypeError);
+  });
 });

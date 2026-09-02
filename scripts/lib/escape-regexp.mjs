@@ -9,9 +9,16 @@
  * into a dynamically built pattern, where a missed metacharacter is a
  * mis-match, not a crash.
  *
- * @param {unknown} value
+ * Throws on a non-string `value` rather than coercing it (`String(undefined)`
+ * is the literal text "undefined", which would silently become a real regex
+ * pattern instead of surfacing the malformed input that produced it).
+ *
+ * @param {string} value
  * @returns {string}
  */
 export function escapeRegExpLiteral(value) {
-  return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if (typeof value !== 'string') {
+    throw new TypeError(`escapeRegExpLiteral: expected a string, got ${typeof value}`);
+  }
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
