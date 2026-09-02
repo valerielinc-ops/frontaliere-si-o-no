@@ -5071,6 +5071,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tirocinio-basilea-campagna-guida.title': 'Apprenticeship in the canton of Basel-Country',
     'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'How to find an internship in the canton of Basel-Country, the training contract, salary, social contributions and the path to professional maturity.',
     'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Young apprentices in a Swiss vocational training technical workshop',
+    'blog.article.guida-apprendistato-formazione-professionale.title': 'Apprenticeships in Switzerland: How to Get Started',
+    'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Dual system, contracts, pay, and vocational certification: everything you need to know about apprenticeships in the canton of Basel-Landschaft and throughout Switzerland.',
+    'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Young apprentice working in a Swiss vocational training workshop with mentor supervision',
 };
 
 export default blogMetaChEn;

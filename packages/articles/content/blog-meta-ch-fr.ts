@@ -5071,6 +5071,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tirocinio-basilea-campagna-guida.title': 'Apprentissage dans le canton de Bâle-Campagne',
     'blog.article.tirocinio-basilea-campagna-guida.excerpt': 'Comment trouver un stage dans le canton de Bâle-Campagne, le contrat de formation, la rémunération, les cotisations sociales et le parcours vers la maturité professionnelle.',
     'blog.article.tirocinio-basilea-campagna-guida.imageAlt': 'Jeunes apprentis dans un atelier de formation professionnelle technique en Suisse',
+    'blog.article.guida-apprendistato-formazione-professionale.title': 'L\'apprentissage en Suisse : par où commencer ?',
+    'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Système dual, contrats, rémunérations et maturité professionnelle : tout ce que vous devez savoir sur l\'apprentissage dans le canton de Bâle-Campagne et en Suisse.',
+    'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Apprenti travaillant dans un atelier de formation professionnelle suisse avec mentorat',
 };
 
 export default blogMetaChFr;
