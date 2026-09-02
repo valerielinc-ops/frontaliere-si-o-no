@@ -52,6 +52,14 @@ const ROOT = path.resolve(__dirname, '..');
 const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 const CSC_KEY = 'csc-costruzioni';
+// extractBalancedTagBlock's scan cap is a defensive bound against runaway
+// scans, not a real content-size limit — but for the primary article's raw
+// markup (attrs + nested widgets, not just visible text) 50,000 chars is too
+// tight: a legitimately long Drupal work-position node can exceed it before
+// its closing </article>, and the fail-closed check in extractPrimaryArticle
+// then rejects the whole page as if it were malformed (#7067). 300,000 chars
+// comfortably covers real Drupal work-position markup while staying bounded.
+const CSC_ARTICLE_SCAN_CAP = 300000;
 // Per-crawler-scoped scratch path — matches what runDedicatedBaseCrawler
 // defaults to internally for a single-key run, so this script's own
 // pre/post-crawl reads see the shared engine's actual output instead of the
@@ -300,7 +308,7 @@ function stripNestedWidgetBlocks(html) {
     out += remainder.slice(0, openMatch.index);
     const tagName = openMatch[1].toLowerCase();
     const restStart = cursor + openMatch.index + openMatch[0].length;
-    const inner = extractBalancedTagBlock(source.slice(restStart), tagName, 50000);
+    const inner = extractBalancedTagBlock(source.slice(restStart), tagName, CSC_ARTICLE_SCAN_CAP);
     const afterInner = restStart + inner.length;
     const closeMatch = new RegExp(`^\\s*</${tagName}\\s*>`, 'i').exec(source.slice(afterInner));
     cursor = closeMatch ? afterInner + closeMatch[0].length : afterInner;
@@ -321,7 +329,7 @@ function extractPrimaryArticle(source) {
   const openMatch = /<article\b([^>]*)>/i.exec(source);
   if (!openMatch) return null;
   const rest = source.slice(openMatch.index + openMatch[0].length);
-  const content = extractBalancedTagBlock(rest, 'article', 50000);
+  const content = extractBalancedTagBlock(rest, 'article', CSC_ARTICLE_SCAN_CAP);
   // extractBalancedTagBlock is a best-effort walker (falls back to the full
   // scan window when no matching close is found) — fine for its existing
   // description-scraping callers, not for this fail-closed trust boundary.
