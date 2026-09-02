@@ -64,7 +64,12 @@ function loadReceipts(receiptsDir, expectedCrawlerIds, generationToken, reasons)
   const expected = new Set(expectedCrawlerIds);
   const receipts = [];
   if (!isCrawlerGenerationToken(generationToken)) {
-    reasons.push('receipt_invalid');
+    // Distinct from a bad receipt file: this group's own dispatch never
+    // carried a token (e.g. a caller job resolved a reusable-workflow ref
+    // pinned to an old, pre-token-binding definition mid-rollout). Fails
+    // closed exactly like `receipt_invalid`, but tagged so on-call can tell
+    // a rollout race apart from a tampered/corrupt receipt.
+    reasons.push('generation_token_missing');
     return receipts;
   }
   let entries = [];
