@@ -5044,6 +5044,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-requisiti.title': 'Naturalisation Bâle-Ville : exigences et procédure',
     'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Guide complet des exigences fédérales et cantonales pour la naturalisation ordinaire dans le canton de Bâle-Ville, des documents aux tests de langue.',
     'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'Vue de l\'hôtel de ville de Bâle-Ville, Suisse, où se déroulent les procédures de naturalisation ordinaire.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Ouvrir activité Bâle Ville : registre du commerce',
+    'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Guide complet pour ouvrir une entreprise dans le canton de Bâle-Ville : formes juridiques, capital minimum, inscription au registre du commerce, taxes et assurances.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Quartier d\'affaires suisse avec bâtiments de bureaux modernes en journée',
 };
 
 export default blogMetaChFr;

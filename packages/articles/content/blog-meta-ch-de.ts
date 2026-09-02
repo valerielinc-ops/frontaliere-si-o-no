@@ -5044,6 +5044,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-requisiti.title': 'Einbürgerung Basel-Stadt: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Umfassender Leitfaden zu den eidgenössischen und kantonalen Voraussetzungen für die ordentliche Einbürgerung im Kanton Basel-Stadt, von Dokumenten bis hin zu Sprachprüfungen.',
     'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'Ansicht des Rathauses und des Verwaltungsbereichs Basel-Stadt, Schweiz, wo ordentliche Naturalisierungsverfahren durchgeführt werden.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Geschäft eröffnen Basel-Stadt: Handelsregister',
+    'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Umfassender Leitfaden zur Unternehmensgründung im Kanton Basel-Stadt: Rechtsformen, Mindestkapital, Handelsregistereintrag, Steuern und Versicherungen.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Schweizer Geschäftsviertel mit modernen Bürogebäuden, tagsüber',
 };
 
 export default blogMetaChDe;

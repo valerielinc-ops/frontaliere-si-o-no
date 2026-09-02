@@ -5044,6 +5044,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-requisiti.title': 'Naturalizzazione Basilea Città: requisiti e procedura',
     'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Guida completa ai requisiti federali e cantonali per la naturalizzazione ordinaria nel Canton Basilea Città, dai documenti ai test di lingua.',
     'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'Veduta del municipio e dell\'area amministrativa di Basilea Città, Svizzera, dove si svolgono le procedure di naturalizzazione ordinaria.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Aprire attività Basilea Città: registro commercio',
+    'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Guida completa per aprire un\'attività nel cantone Basilea Città: forme giuridiche, capitale minimo, iscrizione al registro di commercio, tasse e assicurazioni.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Vista di un quartiere di affari svizzero con edifici moderni durante il giorno',
 };
 
 export default blogMetaChIt;

@@ -65462,6 +65462,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aprire-attivita-basilea-guida-commercio': {
+    title: 'Aprire attività Basilea Città: registro commercio',
+    description: 'Guida completa per aprire un\'attività nel cantone Basilea Città: forme giuridiche, capitale minimo, iscrizione al registro di commercio, tasse e assicurazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, basilea, città',
+    ogTitle: 'Aprire attività Basilea Città: registro commercio',
+    ogDescription: 'Scopri come aprire un\'attività nel cantone Basilea Città. Guida pratica a forme giuridiche, capitale minimo, iscrizione al registro commercio, assicurazioni obbligatorie e tasse federali/cantonali per imprenditori svizzeri.',
+    canonicalPath: '/articoli-svizzera/aprire-attivita-basilea-guida-commercio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Basilea Città: registro commercio",
+      "description": "Guida completa per aprire un'attività nel cantone Basilea Città: forme giuridiche, capitale minimo, iscrizione al registro di commercio, tasse e assicurazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aprire-attivita-basilea-guida-commercio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un quartiere di affari svizzero con edifici moderni durante il giorno"
+      },
+      "datePublished": "2026-09-02T02:48:52+00:00",
+      "dateModified": "2026-09-02T02:48:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aprire-attivita-basilea-guida-commercio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

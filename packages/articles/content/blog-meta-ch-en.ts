@@ -5044,6 +5044,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-basilea-requisiti.title': 'Naturalization Basel City: requirements and procedure',
     'blog.article.naturalizzazione-basilea-requisiti.excerpt': 'Complete guide to the federal and cantonal requirements for ordinary naturalization in the Canton of Basel-City, from documents to language tests.',
     'blog.article.naturalizzazione-basilea-requisiti.imageAlt': 'View of Basel City Town Hall and administrative area, Switzerland, where ordinary naturalization procedures are conducted.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Open Business Basel City: Trade Register',
+    'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Complete guide to opening a business in the canton of Basel-City: legal forms, minimum capital, registration in the trade register, taxes and insurance.',
+    'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Swiss business district with modern office buildings, daytime professional setting',
 };
 
 export default blogMetaChEn;

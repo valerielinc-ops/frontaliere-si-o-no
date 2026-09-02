@@ -1707,6 +1707,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-c-basilea-requisiti-domanda': { it: 'permesso-c-basilea-requisiti-domanda', en: 'residence-permit-c-basel-city-requirements-application', de: 'aufenthaltserlaubnis-c-basel-stadt-anforderungen-antrag', fr: 'permis-residence-c-bale-ville-conditions-demande' },
  'asilo-custodia-basilea-citta-tariffe': { it: 'asilo-custodia-basilea-citta-tariffe', en: 'nursery-childcare-basel-city-fees', de: 'kindergarten-kinderbetreuung-basel-stadt-gebuehren', fr: 'garderie-garde-enfants-bale-ville-tarifs' },
  'naturalizzazione-basilea-requisiti': { it: 'naturalizzazione-basilea-requisiti', en: 'naturalization-basel-stadt-requirements', de: 'naturalisation-basel-stadt-anforderungen', fr: 'naturalisation-bale-ville-conditions' },
+ 'aprire-attivita-basilea-guida-commercio': { it: 'aprire-attivita-basilea-guida-commercio', en: 'opening-business-basel-city-commerce-guide', de: 'geschaft-eroffnen-basel-stadt-handelsregister', fr: 'ouvrir-activite-bale-ville-commerce' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
