@@ -1,13 +1,13 @@
 {
   "crawlerKey": "siemens-healthineers",
-  "assembledAt": "2026-09-02T13:48:12.909Z",
+  "assembledAt": "2026-09-02T23:22:05.395Z",
   "jobs": [
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
       "slug": "qa-ingegnere-siemens-healthineers-dwl-t",
       "slugByLocale": {
         "it": "qa-ingegnere-siemens-healthineers-dwl-t",
-        "en": "qa-engineer-siemens-healthineers-ch",
+        "en": "qa-engineer-siemens-healthineers-dwl-t",
         "de": "qa-ingenieur-siemens-healthineers-dwl-t",
         "fr": "qa-ingenieur-siemens-healthineers-dwl-t"
       },
@@ -34,7 +34,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/DWL-T/QA-Engineer_R-28619-2",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:48:09.390Z",
+      "crawledAt": "2026-09-02T23:22:02.263Z",
       "addressLocality": "DWL T",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,6 +64,9 @@
           "qa-engineer-siemens-healthineers-ch"
         ],
         "fr": [
+          "qa-engineer-siemens-healthineers-ch"
+        ],
+        "en": [
           "qa-engineer-siemens-healthineers-ch"
         ]
       },
@@ -114,7 +117,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/CEY-BO/Network-Engineer---Cloud-Operations_R-25439-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:48:08.647Z",
+      "crawledAt": "2026-09-02T23:22:01.507Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -196,7 +199,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:48:07.878Z",
+      "crawledAt": "2026-09-02T23:22:00.842Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -260,7 +263,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/TOI-L-112/Medical-Physicist--f-m-d----Proton-Therapy_R-25505-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:48:07.108Z",
+      "crawledAt": "2026-09-02T23:22:00.178Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
