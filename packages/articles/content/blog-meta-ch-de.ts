@@ -5140,6 +5140,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aiuti-malattie-rare-2025.title': 'Bundesrat: Mehr Hilfe für seltene Krankheiten',
     'blog.article.aiuti-malattie-rare-2025.excerpt': 'Der Bundesrat will die Versorgung von Patienten mit seltenen Krankheiten in der Schweiz mit einem zweistufigen Eingriff verbessern.',
     'blog.article.aiuti-malattie-rare-2025.imageAlt': 'Panoramablick auf Lugano mit Gesundheitsanlagen im Vordergrund',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.title': 'Agrarpolitik 2030: Kürzungen um mehr als 120 Millionen',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.excerpt': 'Der Bundesrat hat die Agrarpolitik ab 2030 (AP30 +) in die Vernehmlassung geschickt, mit dem Ziel, die Ernährungssicherheit der Schweiz zu erhöhen und den Handlungsspielraum der Landwirte auf Betriebsebene zu erweitern.',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.imageAlt': 'Schweizer Bauern arbeiten auf den Feldern',
 };
 
 export default blogMetaChDe;

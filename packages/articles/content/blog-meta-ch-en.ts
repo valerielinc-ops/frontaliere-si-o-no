@@ -5140,6 +5140,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aiuti-malattie-rare-2025.title': 'Federal Council: more aid for rare diseases',
     'blog.article.aiuti-malattie-rare-2025.excerpt': 'The Federal Council wants to improve care for rare disease patients in Switzerland with a two-step intervention.',
     'blog.article.aiuti-malattie-rare-2025.imageAlt': 'Panoramic view of Lugano with healthcare facilities in the foreground',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.title': 'Agricultural policy 2030: cuts of over 120 million',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.excerpt': 'The Federal Council has put the Agricultural Policy from 2030 (PA30+) into consultation, with the aim of increasing Switzerland\'s food security by expanding farmers\' room for manoeuvre at farm level.',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.imageAlt': 'Swiss farmers working in the fields',
 };
 
 export default blogMetaChEn;

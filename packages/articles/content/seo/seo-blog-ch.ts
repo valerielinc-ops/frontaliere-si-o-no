@@ -66710,6 +66710,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-politica-agricola-2030-tagli-120-milioni': {
+    title: 'Politica agricola 2030: tagli per oltre 120 milioni',
+    description: 'Il Consiglio federale ha posto in consultazione la Politica agricola a partire dal 2030 (PA30+), con l\'obiettivo di aumentare la sicurezza alimentare',
+    keywords: 'frontalieri, ticino, svizzera, italia, politica, agricola, tagli, oltre',
+    ogTitle: 'Politica agricola 2030: tagli per oltre 120 milioni',
+    ogDescription: 'Scopri i dettagli della nuova politica agricola 2030 e come influenzerà il settore agricolo svizzero. Tagli per oltre 120 milioni e incentivi per l\'innovazione.',
+    canonicalPath: '/articoli-svizzera/politica-agricola-2030-tagli-120-milioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Politica agricola 2030: tagli per oltre 120 milioni",
+      "description": "Il Consiglio federale ha posto in consultazione la Politica agricola a partire dal 2030 (PA30+), con l'obiettivo di aumentare la sicurezza alimentare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/politica-agricola-2030-tagli-120-milioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltori svizzeri al lavoro nei campi"
+      },
+      "datePublished": "2026-09-02T11:48:15+00:00",
+      "dateModified": "2026-09-02T11:48:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/politica-agricola-2030-tagli-120-milioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

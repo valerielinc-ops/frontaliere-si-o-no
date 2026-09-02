@@ -5140,6 +5140,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aiuti-malattie-rare-2025.title': 'Consiglio federale: più aiuti per le malattie rare',
     'blog.article.aiuti-malattie-rare-2025.excerpt': 'Il Consiglio federale vuole migliorare l’assistenza ai malati di malattie rare in Svizzera con un intervento in due fasi.',
     'blog.article.aiuti-malattie-rare-2025.imageAlt': 'Vista panoramica di Lugano con strutture sanitarie in primo piano',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.title': 'Politica agricola 2030: tagli per oltre 120 milioni',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.excerpt': 'Il Consiglio federale ha posto in consultazione la Politica agricola a partire dal 2030 (PA30+), con l\'obiettivo di aumentare la sicurezza alimentare della Svizzera ampliando il margine di manovra degli agricoltori a livello aziendale.',
+    'blog.article.politica-agricola-2030-tagli-120-milioni.imageAlt': 'Agricoltori svizzeri al lavoro nei campi',
 };
 
 export default blogMetaChIt;
