@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-09-01T14:16:45.146Z",
-  "total": 10,
+  "generatedAt": "2026-09-01T23:13:51.794Z",
+  "total": 8,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 1,
+  "removedCount": 2,
   "unchangedCount": 7,
-  "durationMs": 6789,
-  "avgDurationMs": 6789,
+  "durationMs": 5623,
+  "avgDurationMs": 5623,
   "durationHistory": [
-    6789
+    5623
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -66,7 +68,7 @@
       "category": "science",
       "postedDate": "2026-09-01",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
       "id": "ems-chemie-93a7b77e24b5",
       "sourceLang": "it",
@@ -101,7 +103,7 @@
       "category": "science",
       "postedDate": "2026-09-01",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
       "id": "ems-chemie-22fb64d64f81",
       "sourceLang": "it",
@@ -120,7 +122,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Entwicklungschemiker / Entwicklungsingenieur m/w/d 100%",
@@ -398,76 +399,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/ca8b12b3-6d8f-4747-8e70-ddd27635ec2d",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-09-01",
-      "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-93a7b77e24b5",
-      "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-03T22:14:01.861Z",
-      "needsRetranslation": true,
-      "salarySource": "reported",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Projektleiter Kunststoffanwendungen Industrie & Consumer (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d/7a2afd55-e869-46e1-82b4-b51040c88909",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-09-01",
-      "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-industrie-consumer-m-w-d-100-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "id": "ems-chemie-22fb64d64f81",
-      "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-03T12:35:44.667Z",
-      "needsRetranslation": true,
-      "salarySource": "reported",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
         "translation": 25,
         "completeness": 22
       }

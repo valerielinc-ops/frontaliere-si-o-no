@@ -11065,6 +11065,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Living in Inverigo, working in Ticino: border guide',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distance, taxation, G permit, LAMal and costs: everything you need before moving to Inverigo working in Ticino as a border worker.',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'View of the Mendrisio-Como valley at the Ticino-Lombardy border, with Swiss Alpine and Italian architecture, forests and lake in the distance.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo: living and working in Ticino',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Frontier from Lambrugo: practical guide on crossings, taxation, AVS and LAMal. Getting started, costs and benefits of Como-Ticino commuting.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Frontalier commuting at the Swiss-Italian border with Lake Lugano in background',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.title': 'Living in Turate and working in Ticino as a border worker',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and benefits of transferring from Turate to Ticino.',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

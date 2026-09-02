@@ -33069,6 +33069,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-lambrugo-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-09-01T23:14:37.442Z',
+ image: '/images/blog/vivere-lambrugo-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'vivere-turate-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-09-01T23:36:32.271Z',
+ image: '/images/blog/vivere-turate-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

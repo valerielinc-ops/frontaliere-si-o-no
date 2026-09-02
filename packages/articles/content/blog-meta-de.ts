@@ -11064,6 +11064,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.title': 'Wohnen in Inverigo, Arbeiten im Tessin: Grenzführer',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.excerpt': 'Distanz, Besteuerung, G-Genehmigung, KVG und Kosten: Alles, was Sie brauchen, bevor Sie als Grenzgänger im Tessin nach Inverigo ziehen.',
     'blog.article.vivere-inverigo-lavorare-ticino-frontaliere.imageAlt': 'Blick auf das Mendrisio-Como-Tal an der Grenze zwischen Tessin und der Lombardei, mit Schweizer Alpenarchitektur und italienischen Bauten, Wäldern und See.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.title': 'Lambrugo: Leben und Arbeiten im Tessin',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.excerpt': 'Grenzgänger aus Lambrugo: Praktischer Leitfaden zu Grenzübergängen, Steuern, AHV und KVG. Wie man anfängt, Kosten und Vorteile des Pendelns Como–Ticino.',
+    'blog.article.vivere-lambrugo-lavorare-ticino-frontaliere.imageAlt': 'Grenzgänger beim Grenzübergang mit dem Luganer See im Hintergrund',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.title': 'Wohnen in Turate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Turate ins Tessin.',
+    'blog.article.vivere-turate-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;
