@@ -5047,6 +5047,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Geschäft eröffnen Basel-Stadt: Handelsregister',
     'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Umfassender Leitfaden zur Unternehmensgründung im Kanton Basel-Stadt: Rechtsformen, Mindestkapital, Handelsregistereintrag, Steuern und Versicherungen.',
     'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Schweizer Geschäftsviertel mit modernen Bürogebäuden, tagsüber',
+    'blog.article.aprire-attivita-grigioni-guida.title': 'Aktivitäten im Kanton Graubünden eröffnen: Komplette Anleitung',
+    'blog.article.aprire-attivita-grigioni-guida.excerpt': 'Von der Rechtsform bis zum Handelsregister: Alles, was Sie wissen müssen, um ein Unternehmen im Kanton Graubünden zu gründen.',
+    'blog.article.aprire-attivita-grigioni-guida.imageAlt': 'Professioneller Schreibtisch mit Geschäftsdokumenten und Computer in einem Schweizer Büro zur Unternehmensregistrierung.',
 };
 
 export default blogMetaChDe;

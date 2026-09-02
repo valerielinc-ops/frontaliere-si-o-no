@@ -5047,6 +5047,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Open Business Basel City: Trade Register',
     'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Complete guide to opening a business in the canton of Basel-City: legal forms, minimum capital, registration in the trade register, taxes and insurance.',
     'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Swiss business district with modern office buildings, daytime professional setting',
+    'blog.article.aprire-attivita-grigioni-guida.title': 'Opening businesses in the Canton of Graubünden: a complete guide',
+    'blog.article.aprire-attivita-grigioni-guida.excerpt': 'From the choice of legal form to the trade register: everything you need to know to start a business in the Canton of Graubünden.',
+    'blog.article.aprire-attivita-grigioni-guida.imageAlt': 'Professional desk with business documents and computer in a Swiss office workspace for business registration.',
 };
 
 export default blogMetaChEn;

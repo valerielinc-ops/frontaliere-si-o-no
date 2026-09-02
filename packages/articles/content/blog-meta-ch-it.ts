@@ -5047,6 +5047,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-basilea-guida-commercio.title': 'Aprire attività Basilea Città: registro commercio',
     'blog.article.aprire-attivita-basilea-guida-commercio.excerpt': 'Guida completa per aprire un\'attività nel cantone Basilea Città: forme giuridiche, capitale minimo, iscrizione al registro di commercio, tasse e assicurazioni.',
     'blog.article.aprire-attivita-basilea-guida-commercio.imageAlt': 'Vista di un quartiere di affari svizzero con edifici moderni durante il giorno',
+    'blog.article.aprire-attivita-grigioni-guida.title': 'Aprire attività nel Canton Grigioni: guida completa',
+    'blog.article.aprire-attivita-grigioni-guida.excerpt': 'Dalla scelta della forma giuridica al registro di commercio: tutto ciò che devi sapere per avviare un\'impresa nel Canton Grigioni.',
+    'blog.article.aprire-attivita-grigioni-guida.imageAlt': 'Scrivania professionale con documenti d\'affari e computer in uno studio svizzero dedicato alla registrazione aziendale.',
 };
 
 export default blogMetaChIt;
