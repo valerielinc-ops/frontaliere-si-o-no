@@ -406,6 +406,14 @@ export async function traceCareers(domain, opts = {}) {
     }
   }
 
+  // `home` is safe to read across every iteration below: it is a single
+  // `let` binding captured once above, local to this call of `traceCareers`
+  // (never shared across employers/candidates, which each get their own
+  // invocation and their own `home`), and nothing in this loop ever
+  // reassigns it or mutates `home.body`/`home.url` in place — only `page`
+  // changes per iteration. See the regression test in
+  // `tests/prospector-careers-trail-ownership.test.ts` ("keeps the homepage
+  // document stable across multiple candidate-loop iterations").
   const seen = new Set();
   for (const url of candidates.slice(0, maxCareerPages)) {
     const key = url.split('#')[0];

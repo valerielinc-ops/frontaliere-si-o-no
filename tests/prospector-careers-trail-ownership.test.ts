@@ -95,4 +95,39 @@ describe('prospector careers ownership trail', () => {
     expect(result.externalHosts).toHaveLength(1);
     expect(result.externalHosts[0]).toMatchObject({ host: 'tenant.real-ats.example', verified: true });
   });
+
+  it('keeps the homepage document stable across multiple candidate-loop iterations', async () => {
+    // `home` is a single `let` binding captured once per `traceCareers()` call
+    // and only ever READ inside the candidate loop — never reassigned or
+    // mutated in place. This is what makes it safe to reuse across
+    // iterations. Prove it behaviourally: two distinct career-page candidates
+    // whose bodies are IDENTICAL to each other but different from the
+    // homepage. If `home` were corrupted to reflect the first candidate's
+    // page after processing it, the second candidate (same body as the
+    // first) would then read as textually identical to the "homepage" and
+    // get wrongly dropped by the `pageText === homeText` guard in
+    // `isDistinctCareerSurface()`. Both must survive for `home` to be proven
+    // unmutated.
+    const homeUrl = 'https://acme.example/';
+    const jobsAUrl = 'https://acme.example/jobs-a';
+    const jobsBUrl = 'https://acme.example/jobs-b';
+    const homepage = `<html><title>Acme</title><body><a href="/jobs-a">Jobs A</a><a href="/jobs-b">Jobs B</a><main>Benvenuti in Acme${filler}</main></body></html>`;
+    const jobsPage = `<html><title>Acme jobs</title><body><h1>Jobs</h1><main>${filler}</main></body></html>`;
+
+    const homeResponse = response(homeUrl, homepage);
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      if (url === homeUrl) return homeResponse;
+      if (url === jobsAUrl) return response(jobsAUrl, jobsPage);
+      if (url === jobsBUrl) return response(jobsBUrl, jobsPage);
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const result = await traceCareers('acme.example');
+
+    expect(result.careersUrls).toEqual([jobsAUrl, jobsBUrl]);
+    // Defence in depth: the object the mock handed back for the homepage
+    // request was never touched in place either.
+    expect(homeResponse.body).toBe(homepage);
+    expect(homeResponse.url).toBe(homeUrl);
+  });
 });
