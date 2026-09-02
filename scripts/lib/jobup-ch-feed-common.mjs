@@ -489,9 +489,19 @@ export function createJobupChFeedParser(config) {
       const lieu = parseJobupLieu(rawLieu);
       const hasUnsupportedPostalPrefix = /^\d+\b/.test(rawLieu) && !lieu.postal;
       const location = lieu.city;
+      // Feed the already-parsed postal/city split as a structured candidate
+      // (addressLocality/postalCode) instead of the whole raw `lieu` string,
+      // matching the structured pattern used by the Coop/Cippà family. This
+      // grounds municipality→canton matching in the locality jobup itself
+      // separated from the postal prefix, instead of fuzzy-matching over the
+      // full "<postal> <city>" text.
       const geography = hasUnsupportedPostalPrefix
         ? null
-        : resolveSourceBackedSwissGeography(rawLieu);
+        : resolveSourceBackedSwissGeography({
+            location: rawLieu,
+            addressLocality: lieu.city,
+            postalCode: lieu.postal,
+          });
       const canton = geography?.canton || '';
       if (!location || !canton) {
         console.log(`     ⚠ source location rejected for ${link}: missing, foreign or unresolved lieu`);
