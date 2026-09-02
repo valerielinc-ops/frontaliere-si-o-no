@@ -139,6 +139,9 @@ export function createAlbergoGardeniaBrowserTransport({
       browserPromise = launchBrowserImpl({
         headless: true,
         args: ['--disable-blink-features=AutomationControlled'],
+      }).catch((error) => {
+        browserPromise = null;
+        throw error;
       });
     }
     if (!contextPromise) {
@@ -157,7 +160,10 @@ export function createAlbergoGardeniaBrowserTransport({
           await route.continue();
         });
         return context;
-      })();
+      })().catch((error) => {
+        contextPromise = null;
+        throw error;
+      });
     }
     return contextPromise;
   }
@@ -408,7 +414,12 @@ export function createAlbergoGardeniaCleanEgressTransport({
   }
 
   async function inventory() {
-    if (!inventoryPromise) inventoryPromise = loadInventory();
+    if (!inventoryPromise) {
+      inventoryPromise = loadInventory().catch((error) => {
+        inventoryPromise = null;
+        throw error;
+      });
+    }
     return inventoryPromise;
   }
 

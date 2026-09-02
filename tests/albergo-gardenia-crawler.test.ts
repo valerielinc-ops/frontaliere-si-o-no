@@ -355,6 +355,70 @@ describe('Albergo Gardenia authoritative crawler', () => {
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
+  it('does not memoize a failed browser launch across fetchPage() calls', async () => {
+    const response = {
+      status: vi.fn(() => 200),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      body: vi.fn(async () => Buffer.from(representativeSitemap())),
+    };
+    const page = {
+      goto: vi.fn(async () => response),
+      close: vi.fn(async () => {}),
+    };
+    const context = {
+      route: vi.fn(async () => {}),
+      newPage: vi.fn(async () => page),
+      close: vi.fn(async () => {}),
+    };
+    const browser = {
+      newContext: vi.fn(async () => context),
+      close: vi.fn(async () => {}),
+    };
+    const launchBrowserImpl = vi.fn()
+      .mockRejectedValueOnce(new Error('launch failed'))
+      .mockImplementationOnce(async () => browser);
+    const transport = createAlbergoGardeniaBrowserTransport({
+      launchBrowserImpl,
+      nowImpl: () => 1_000,
+      sleepImpl: vi.fn(async () => {}),
+    });
+
+    const failedResponse = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(failedResponse).toMatchObject({ ok: false, error: 'launch failed' });
+    const result = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(result).toMatchObject({ ok: true, status: 200 });
+    expect(launchBrowserImpl).toHaveBeenCalledTimes(2);
+  });
+
+  it('does not memoize a failed browser context across fetchPage() calls', async () => {
+    const response = {
+      status: vi.fn(() => 200),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      body: vi.fn(async () => Buffer.from(representativeSitemap())),
+    };
+    const page = { goto: vi.fn(async () => response), close: vi.fn(async () => {}) };
+    const context = { route: vi.fn(async () => {}), newPage: vi.fn(async () => page), close: vi.fn(async () => {}) };
+    const browser = {
+      newContext: vi.fn()
+        .mockRejectedValueOnce(new Error('context crashed'))
+        .mockImplementationOnce(async () => context),
+      close: vi.fn(async () => {}),
+    };
+    const launchBrowserImpl = vi.fn(async () => browser);
+    const transport = createAlbergoGardeniaBrowserTransport({
+      launchBrowserImpl,
+      nowImpl: () => 1_000,
+      sleepImpl: vi.fn(async () => {}),
+    });
+
+    const failedResponse = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(failedResponse).toMatchObject({ ok: false, status: 0, error: 'context crashed' });
+    const result = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(result).toMatchObject({ ok: true, status: 200 });
+    expect(browser.newContext).toHaveBeenCalledTimes(2);
+    expect(launchBrowserImpl).toHaveBeenCalledTimes(1);
+  });
+
   it('loads one Cloudflare browser inventory and binds every clean-egress resource identity', async () => {
     const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
     const snapshot = {
@@ -415,6 +479,51 @@ describe('Albergo Gardenia authoritative crawler', () => {
         selector: '#gardenia-clean-egress-source, #gardenia-clean-egress-error',
       },
     });
+  });
+
+  it('does not memoize a failed loadInventory() across fetchPage() calls', async () => {
+    const sourceUrl = 'https://www.albergo-gardenia.ch/story.php?mid=142&pid=11';
+    const snapshot = {
+      homepageUrl: ALBERGO_GARDENIA_HOME_URL,
+      sitemap: {
+        status: 200,
+        url: ALBERGO_GARDENIA_SITEMAP_URL,
+        body: representativeSitemap(),
+      },
+      pages: [{
+        requestedUrl: sourceUrl,
+        status: 200,
+        url: sourceUrl,
+        body: gardeniaPage(),
+      }],
+    };
+    const escaped = JSON.stringify(snapshot)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    const fetchImpl = vi.fn()
+      .mockRejectedValueOnce(new Error('network error'))
+      .mockImplementationOnce(async () => new Response(JSON.stringify({
+        success: true,
+        result: `<pre id="gardenia-clean-egress-source">${escaped}</pre>`,
+      }), { status: 200 }));
+    const transport = createAlbergoGardeniaCleanEgressTransport({
+      fetchImpl,
+      gardeniaCfAccount: 'account-123',
+      gardeniaCfKey: 'global-key',
+      gardeniaCfEmail: 'owner@example.test',
+    });
+
+    const failedResponse = await transport.fetchPage(sourceUrl);
+    expect(failedResponse).toMatchObject({ ok: false, error: 'network error' });
+    const response = await transport.fetchPage(sourceUrl);
+    expect(response).toMatchObject({
+      ok: true,
+      status: 200,
+      url: sourceUrl,
+      host: 'www.albergo-gardenia.ch',
+    });
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
   it('fails closed when the clean-egress browser loses homepage identity or a resource', async () => {
